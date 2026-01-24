@@ -259,8 +259,13 @@ Add analysis: [Paper Title] (arXiv ID)
 ├── papers/
 │   └── paper_list.md           # Master list with status
 └── analysis/
+    ├── SYNTHESIS.md            # Main thesis synthesis
     ├── PAPER_GRAPH.md          # Paper interaction graph
-    ├── 01_paper_name.md        # Individual analyses
-    ├── 02_paper_name.md
-    └── ...
+    ├── REBUTTALS.md            # Rebuttal matrix
+    └── explored/               # Individual paper analyses
+        ├── 00_paper_name.md
+        ├── 01_paper_name.md
+        └── ...
 ```
+
+**Note**: Individual paper analyses go in `analysis/explored/`. Meta-analysis files (SYNTHESIS, PAPER_GRAPH, REBUTTALS) stay in `analysis/`.
