@@ -32,8 +32,9 @@
 | 24 | Beyond Memorization: ToC Tasks | Jan 2026 | Supports | 100% factual knowledge, 30-64% drop on unseen DFA construction |
 | 25 | Reasoning Model Is Superior Judge | Jan 2026 | Balanced | LRMs better at judgment but MORE susceptible to superficial biases (32pp drop) |
 | 26 | No Free Lunch: Internal Feedback | Jun 2025 | Supports | RLIF degrades reasoning (291→235); format↑ reasoning↓; overconfidence mechanism |
+| 27 | Neuro-Symbolic AI Survey | Aug 2025 | Supports | "LLMs cannot really reason... statistical pattern recognition"; 52 papers reviewed |
 
-**Total: 27 papers analyzed (2 foundational + 25 main)**
+**Total: 28 papers analyzed (2 foundational + 26 main)**
 
 **Stance key**: 
 - **Supports** = supports our thesis (LLMs are pattern matching, not truly reasoning)
@@ -812,13 +813,15 @@ For B=1 (NO search required, just follow edges):
 | **RLIF degrades reasoning** | **Correct answers: 291→235 despite format improvement** | **No Free Lunch (2506.17219)** |
 | **Overconfidence mechanism** | **Entropy minimization → shallow reasoning** | **No Free Lunch (2506.17219)** |
 | **Transitional words suppressed** | **"but", "wait", "let me check" decrease 37%** | **No Free Lunch (2506.17219)** |
+| **"LLMs cannot really reason"** | **Survey of 52 papers; "statistical pattern recognition"** | **Neuro-Symbolic AI Survey (2508.13678)** |
+| **Neuro-symbolic compensates for LLM weaknesses** | **Symbolic = System 2 for reasoning** | **Neuro-Symbolic AI Survey (2508.13678)** |
 
 ---
 
 ## Thesis Position (Strengthened)
 
-**Total Papers**: 27 analyzed
-**Stance Breakdown**: Supports=18, Challenges=5, Balanced=4
+**Total Papers**: 28 analyzed
+**Stance Breakdown**: Supports=19, Challenges=5, Balanced=4
 
 The evidence now overwhelmingly supports the "Against" position:
 
