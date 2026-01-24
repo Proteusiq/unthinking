@@ -44,8 +44,12 @@
 | 73 | Iterative ICL Algebraic | Sep 2025 | Supports | 13-35% on rule override; simpler examples work better |
 | 74 | Revisiting Compositional Gen | Jun 2025 | Supports | ACL 2025; 75% ceiling on ordered coverage |
 | 75 | STEPS Skill Taxonomy | Jan 2026 | Supports | Power-law distribution explains compositional failure |
+| 76 | Survey Latent CoT | May 2025 | Balanced | "Unclear whether genuine reasoning or exploiting correlations" |
+| 77 | CryptoX Compositional | Feb 2025 | Supports | 40-54pp drops with encoding; hierarchical layer processing |
+| 78 | CoT Monitorability | Oct 2025 | Supports | Verbosity + Faithfulness = Monitorability |
+| 79 | Reasoning Abilities ARC/LoTH | Mar 2024 | Supports | 10.6% correct but only 4.0% correct processes |
 
-**Total: 75 papers analyzed**
+**Total: 79 papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative
@@ -877,13 +881,20 @@ For B=1 (NO search required, just follow edges):
 | **Power-law explains failure** | **Complex combinations rare in training** | **STEPS (2601.03676)** |
 | **4K targeted > 52K random** | **Quality beats quantity for composition** | **STEPS (2601.03676)** |
 | **Unconstrained diversity hurts** | **Instruct models degrade with random compositions** | **STEPS (2601.03676)** |
+| **40-54pp encoding drops** | **Cryptographic encoding breaks compositional reasoning** | **CryptoX (2502.07813)** |
+| **Open/closed gap** | **AUC 2.47 (open) vs 4.05 (closed) — training data matters** | **CryptoX (2502.07813)** |
+| **Hierarchical layer processing** | **Mechanistic analysis shows sequential subtask processing** | **CryptoX (2502.07813)** |
+| **Verbosity ≠ faithfulness** | **Models leave out key factors even when faithful** | **CoT Monitorability (2510.27378)** |
+| **10.6% → 4.0%** | **Correct answers ≠ correct processes (60% lucky)** | **ARC/LoTH (2403.11793)** |
+| **0% Medium/Hard ARC** | **Complete failure on complex compositional tasks** | **ARC/LoTH (2403.11793)** |
+| **1D-ARC 90% vs ARC 10%** | **Representation matters more than reasoning** | **ARC/LoTH (2403.11793)** |
 
 ---
 
 ## Thesis Position (Strengthened)
 
-**Total Papers**: 75 analyzed
-**Stance Breakdown**: Supports=~50, Challenges=~8, Balanced=~17
+**Total Papers**: 79 analyzed
+**Stance Breakdown**: Supports=~55, Challenges=~8, Balanced=~16
 
 The evidence now overwhelmingly supports the "Against" position:
 
