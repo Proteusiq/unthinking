@@ -364,6 +364,11 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Iterative ICL Algebraic (2509.01267)** | **supports** | **Compositional-ARC (2504.01445)** | **Both show systematicity failures; simpler examples help** |
 | **Iterative ICL Algebraic (2509.01267)** | **supports** | **Illusion of Thinking (2506.06941)** | **Same complexity scaling collapse pattern** |
 | **Iterative ICL Algebraic (2509.01267)** | **provides evidence for** | **Pattern matching thesis** | **Rule override fails = learned priors dominate** |
+| **Revisiting Compositional Gen (2506.15629)** | **supports** | **Faith and Fate (2305.18654)** | **Both show LLMs follow learned patterns over instructions** |
+| **Revisiting Compositional Gen (2506.15629)** | **supports** | **Compositional-ARC (2504.01445)** | **Both show compositional generalization failure** |
+| **Revisiting Compositional Gen (2506.15629)** | **supports** | **Iterative ICL Algebraic (2509.01267)** | **Both show instruction override fails; patterns dominate** |
+| **Revisiting Compositional Gen (2506.15629)** | **supports** | **GSM-Symbolic (2410.05229)** | **Both show distribution-bounded performance** |
+| **Revisiting Compositional Gen (2506.15629)** | **provides evidence for** | **Instruction-pattern conflict** | **Models default to preferred orderings, ignoring instructions** |
 
 ### Extends / Builds On
 
@@ -490,6 +495,7 @@ These papers have NO direct rebuttals found:
 | **LoopBench (2512.13713)** | **O3 achieves 55-72% proximity on symmetry breaking; GPT-4.1/O3-mini fail (0-4%); O3 develops "wait" strategies; GPT-5.1 rediscovers node ID priority; Discovery-Implementation Gap; BALANCED — O3 shows reasoning but most models fail** |
 | **CRV Verifying CoT (2510.09312)** | **92.47% AUROC on arithmetic vs 76.45% baseline; error signatures domain-specific (transfer fails 92%→55%); causal interventions work; "reasoning failure = flaw in execution of latent algorithm"; BALANCED** |
 | **Iterative ICL Algebraic (2509.01267)** | **Zero-shot: 13-35% on non-standard precedence (high school level task); rule override fails; simpler examples often work BETTER than complex ones; complexity collapse: 97%→47% (db(1,6)→db(3,20)); SUPPORTS thesis** |
+| **Revisiting Compositional Gen (2506.15629)** | **ACL 2025; Best model only 75% ordered coverage; 36 LLMs tested; identical outputs despite different orderings; instructions improve (+55pp) but don't solve; understanding ≠ execution; SUPPORTS thesis** |
 
 ---
 
@@ -551,3 +557,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added LoopBench (2512.13713) — O3 72% vs GPT-4.1 0% on symmetry breaking; strategy evolution observed; Discovery-Implementation Gap supports surfacing; BALANCED |
 | 2026-01-24 | Added CRV Verifying CoT (2510.09312) — 92% AUROC; domain-specific error signatures; causal interventions work; BALANCED |
 | 2026-01-24 | Added Iterative ICL Algebraic (2509.01267) — Zero-shot 13-35% on rule override task; simpler examples work better; complexity collapse; SUPPORTS thesis |
+| 2026-01-24 | Added Revisiting Compositional Gen (2506.15629) — ACL 2025; 75% ceiling on ordered coverage; identical outputs for different orders; patterns dominate instructions; SUPPORTS thesis |

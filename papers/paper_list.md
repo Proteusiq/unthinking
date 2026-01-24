@@ -48,7 +48,7 @@ Total papers to read from provided evidence (2024+ only)
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
 | 18 | 2509.01267 | Sep 2025 | Iterative In-Context Learning to Enhance LLMs Abstract Reasoning: Algebraic Tasks | ✅ DONE (analysis: 73_iterative_icl_algebraic_tasks.md) |
-| 19 | 2506.15629 | Jun 2025 | Revisiting Compositional Generalization Capability Considering Instruction Following (ACL 2025) | pending |
+| 19 | 2506.15629 | Jun 2025 | Revisiting Compositional Generalization Capability Considering Instruction Following (ACL 2025) | ✅ DONE (analysis: 74_revisiting_compositional_generalization_acl2025.md) |
 
 ### Surface Pattern Imitation
 | # | arXiv ID | Date | Title | Status |
