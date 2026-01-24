@@ -165,8 +165,18 @@ Both could be true:
 ### Papers That EXTEND This
 | Paper | Extension |
 |-------|-----------|
-| **Algorithmic Primitives** | What ARE these intrinsic reasoning paths? |
-| **Test-time scaling papers** | How to better surface intrinsic capability |
+| **Algorithmic Primitives** (2510.15987) | What ARE these intrinsic paths? (Answer: learned patterns) |
+| **Emergent Symbolic Mechanisms** (2502.20332) | Three-stage architecture for abstraction |
+| **Reasoning Beyond CoT** (2601.08058) | Latent mode can be steered via SAE features |
+| **How LLMs Learn to Reason** (2509.23629) | "Concept web" structure of learned paths |
+| **Interplay** (2512.07783) | CONTROLLED proof: paths depend on pre-training exposure |
+
+### Papers That LIMIT This
+| Paper | Limitation |
+|-------|------------|
+| **OMEGA** (2506.18880) | Intrinsic paths don't help OOD; 0% transformative generalization |
+| **Planning Gap** (2601.14456) | 82.9% ID → 0% OOD — intrinsic capability bounded |
+| **Multilingual Latent Reasoners** (2601.02996) | Latent reasoning fragile; collapses on hard problems |
 
 ---
 

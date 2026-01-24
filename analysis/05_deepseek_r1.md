@@ -202,6 +202,12 @@ This shows pure RL with verifiable rewards is **currently the best approach**.
 | **Faithfulness papers** | Emergent ≠ faithful to internal process |
 | **Semantic Deception** | Self-correction could still be pattern-based |
 | **Distribution shift papers** | Does emergence generalize OOD? |
+| **OMEGA** (2506.18880) | 0% transformative generalization; RL doesn't improve OOD; can HURT (30pp drop) |
+| **Planning Gap** (2601.14456) | 82.9% ID → 0% OOD even with RL training |
+| **Interplay** (2512.07783) | RL "surfaces" pre-existing capability, doesn't create new reasoning |
+| **Illusion of Insight** (2601.00514) | "Aha!" moments are rare, don't improve with training, seldom help accuracy |
+| **Frontier LLMs Struggle** (2507.07313) | R1 at 0% on character counting! |
+| **No Free Lunch** (2506.17219) | RLIF eventually degrades reasoning; format↑ reasoning↓ |
 
 ---
 
