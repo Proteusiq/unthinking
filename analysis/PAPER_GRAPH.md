@@ -333,6 +333,13 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Survey of Inductive Reasoning (2510.10182)** | **supports** | **OMEGA (2506.18880)** | **Both show compositional generalization failures in induction** |
 | **Survey of Inductive Reasoning (2510.10182)** | **extends** | **How LLMs Learn to Reason (2509.23629)** | **Identifies induction heads as mechanism for inductive ability** |
 | **Survey of Inductive Reasoning (2510.10182)** | **provides mechanism for** | **Our thesis** | **"Inductive ability originates from induction heads" = pattern matching** |
+| **Limits of Emergent Reasoning Agentic (2510.15974)** | **supports** | **Illusion of Thinking (2506.06941)** | **Confirms collapse pattern; environment access doesn't help** |
+| **Limits of Emergent Reasoning Agentic (2510.15974)** | **rebuts** | **Comment: Agentic Gap (2506.18957)** | **Agentic framework doesn't solve reasoning collapse** |
+| **Limits of Emergent Reasoning Agentic (2510.15974)** | **rebuts** | **Thinking Isn't Illusion (2507.17699)** | **Environment interface doesn't help Hanoi; tool augmentation limited** |
+| **Limits of Emergent Reasoning Agentic (2510.15974)** | **supports** | **Rethinking Illusion (2507.01231)** | **Confirms Hanoi ~8 disk limit is real** |
+| **Limits of Emergent Reasoning Agentic (2510.15974)** | **supports** | **Faith and Fate (2305.18654)** | **Looping = stuck in linearized pattern matching** |
+| **Limits of Emergent Reasoning Agentic (2510.15974)** | **supports** | **How LLMs Learn to Reason (2509.23629)** | **Models stuck in local modes of sparse web** |
+| **Limits of Emergent Reasoning Agentic (2510.15974)** | **provides mechanism for** | **Why test-time scaling fails** | **Models loop through same patterns, can't escape local modes** |
 
 ### Extends / Builds On
 
@@ -453,6 +460,7 @@ These papers have NO direct rebuttals found:
 | **Survey of Test-Time Compute (2501.02497)** | **Comprehensive survey; self-correction "not guaranteed" without external feedback; LLMs can correct errors but can't LOCATE them; no universal test-time scaling law; LRMs "struggle to generalize to cross-domain tasks"; SUPPORTS thesis** |
 | **Theory for Length Generalization (2404.00560)** | **LG achievable IFF: |X|<infinity (finite input space), D=X (training covers all inputs), specific representation engineering; impossibility result for infinite X; BALANCED but supports thesis on close reading** |
 | **Survey of Inductive Reasoning (2510.10182)** | **"Inductive ability originates from induction heads"; "Induction means simplicity"; "No universal bias" = task-specific engineering required; test-time scaling = searching through learned patterns; enhancement methods don't create reasoning; SUPPORTS thesis** |
+| **Limits of Emergent Reasoning Agentic (2510.15974)** | **Agentic framework makes collapse WORSE (earlier than baseline); ~40% deterministic looping; JSD diverges from BOTH optimal AND random policies; "high-probability mode following, not genuine reasoning"; REBUTS Agentic Gap; STRONGLY SUPPORTS thesis** |
 
 ---
 
@@ -508,3 +516,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Survey of Test-Time Compute (2501.02497) — Self-correction fails without external feedback; no universal scaling law; LRMs domain-bounded; SUPPORTS thesis |
 | 2026-01-24 | Added Theory for Length Generalization (2404.00560) — LG requires D=X (complete training coverage) + finite input space + engineered representations; impossibility for infinite X; BALANCED |
 | 2026-01-24 | Added Survey of Inductive Reasoning (2510.10182) — "Inductive ability originates from induction heads" = pattern matching mechanism; "Induction means simplicity" = models prefer learned patterns; "No universal bias" = task-specific; test-time scaling = search through learned patterns; SUPPORTS thesis |
+| 2026-01-24 | Added Limits of Emergent Reasoning Agentic (2510.15974) — Agentic framework WORSE than baseline; ~40% deterministic looping; JSD diverges from both optimal AND random; REBUTS Agentic Gap (2506.18957); STRONGLY SUPPORTS thesis |

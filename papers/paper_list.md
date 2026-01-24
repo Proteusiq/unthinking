@@ -41,14 +41,14 @@ Total papers to read from provided evidence (2024+ only)
 |---|----------|------|-------|--------|
 | 14 | 2502.12215 | Feb 2025 | Revisiting Test-Time Scaling of o1-like Models (Zeng et al.) | ✅ DONE (analysis: 63_revisiting_test_time_scaling.md) |
 | 15 | 2506.06941 | Jun 2025 | The Illusion of Thinking (Shojaee et al.) | ✅ DONE |
-| 16 | TBD | Oct 2025 | Limits of Emergent Reasoning in Agentic Frameworks for Deterministic Games | pending |
+| 16 | 2510.15974 | Oct 2025 | Limits of Emergent Reasoning in Agentic Frameworks for Deterministic Games | ✅ DONE (analysis: 68_limits_emergent_reasoning_agentic.md) |
 | 17 | 2511.21591 | Nov 2025 | On the Limits of Innate Planning in Large Language Models | ✅ DONE |
 
 ### Compositional Generalization Failures
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
-| 18 | TBD | Sep 2025 | Iterative In-Context Learning to Enhance LLMs Abstract Reasoning: Algebraic Tasks | pending |
-| 19 | TBD | Jun 2025 | Revisiting Compositional Generalization Capability Considering Instruction Following | pending |
+| 18 | 2509.01267 | Sep 2025 | Iterative In-Context Learning to Enhance LLMs Abstract Reasoning: Algebraic Tasks | pending |
+| 19 | 2506.15629 | Jun 2025 | Revisiting Compositional Generalization Capability Considering Instruction Following (ACL 2025) | pending |
 
 ### Surface Pattern Imitation
 | # | arXiv ID | Date | Title | Status |
@@ -75,15 +75,15 @@ Total papers to read from provided evidence (2024+ only)
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
 | 29 | 2503.05788 | Mar 2025 | Emergent Abilities in Large Language Models: A Survey | ✅ DONE (analysis: 64_emergent_abilities_survey.md) |
-| 30 | TBD | Sep 2025 | Emergent Hierarchical Reasoning through RL | pending |
+| 30 | 2509.03646 | Sep 2025 | Emergent Hierarchical Reasoning through RL | ✅ DONE (analysis: 35_emergent_hierarchical_reasoning.md) |
 | 31 | 2501.12948 | Jan 2025 | DeepSeek-R1: Incentivizing Reasoning Capability via RL | ✅ DONE |
 
 ### Systematic Generalization (Meta-Learning)
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
-| 32 | TBD | Apr 2025 | Compositional-ARC: Assessing Systematic Generalization | pending |
+| 32 | 2504.01445 | Apr 2025 | Compositional-ARC: Assessing Systematic Generalization in Abstract Spatial Reasoning | pending |
 | 33 | TBD | Apr 2025 | Enabling Systematic Generalization through Meta-Learning for Compositionality | pending |
-| 34 | TBD | Jan 2026 | Towards Compositional Generalization via Skill Taxonomy Guided Data Synthesis | pending |
+| 34 | 2601.03676 | Jan 2026 | Towards Compositional Generalization via Skill Taxonomy Guided Data Synthesis (STEPS) | pending |
 
 ### Test-Time Compute Successes
 | # | arXiv ID | Date | Title | Status |
@@ -96,14 +96,14 @@ Total papers to read from provided evidence (2024+ only)
 ### Mechanistic Evidence
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
-| 39 | TBD | Oct 2025 | Verifying Chain-of-Thought Reasoning via Its Computational Graph | pending |
+| 39 | 2510.09312 | Oct 2025 | Verifying Chain-of-Thought Reasoning via Its Computational Graph (CRV) | pending |
 | 40 | TBD | May 2025 | Reasoning Beyond Language: Latent Chain-of-Thought | pending |
 | 41 | TBD | Jul 2025 | Revisiting LLM Reasoning via Information Bottleneck | pending |
 
 ### Advanced Reasoning Demonstrations
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
-| 42 | TBD | Dec 2025 | LoopBench: Discovering Emergent Symmetry Breaking Strategies | pending |
+| 42 | 2512.13713 | Dec 2025 | LoopBench: Discovering Emergent Symmetry Breaking Strategies with LLM Swarms | pending |
 | 43 | 2510.10182 | Oct 2025 | A Survey of Inductive Reasoning | ✅ DONE (analysis: 67_survey_inductive_reasoning.md) |
 | 44 | 2412.13013 | Dec 2024 | The Emergence of Strategic Reasoning of Large Language Models | ✅ DONE |
 | 45 | 2509.17380 | Sep 2025 | Correlation or Causation: Analyzing the Causal Structures of LLM and LRM Reasoning Process | ✅ DONE |
@@ -139,7 +139,7 @@ Total papers to read from provided evidence (2024+ only)
 ### Mixed Evidence on Specific Mechanisms
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
-| 54 | TBD | Apr 2025 | Memorization vs. Reasoning: Updating LLMs with New Knowledge (KUP) | pending |
+| 54 | 2504.12523 | Apr 2025 | Memorization vs. Reasoning: Updating LLMs with New Knowledge (KUP) | pending |
 | 55 | TBD | Mar 2025 | CryptoX: Compositional Reasoning Evaluation | pending |
 
 ---
