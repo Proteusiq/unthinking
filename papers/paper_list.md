@@ -237,16 +237,18 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 86 | 2510.22437 | Oct 2025 | Modeling Hierarchical Thinking in Large Reasoning Models | Balanced | pending |
 | 87 | 2507.01231 | Jul 2025 | Rethinking the Illusion of Thinking | Balanced | ✅ DONE |
 | 88 | 2504.09858 | Apr 2025 | Reasoning Models Can Be Effective Without Thinking | Balanced | ✅ DONE |
+| 89 | 2504.20771 | Apr 2025 | Computational Reasoning of LLMs (TMBench) | Balanced | ✅ DONE |
+| 90 | 2407.20311 | Jul 2024 | Physics of Language Models Part 2.1: Grade-School Math | For | ✅ DONE |
 
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: ~88
+- **Total Papers**: ~90
 - **Against Reasoning**: ~34
-- **For Reasoning**: ~25
-- **Balanced**: ~29
+- **For Reasoning**: ~26
+- **Balanced**: ~30
 - **Date Range**: 2024-2026
-- **Analyzed**: 41
+- **Analyzed**: 43
 
 ---
 
