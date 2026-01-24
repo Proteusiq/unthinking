@@ -68,7 +68,7 @@ Total papers to read from provided evidence (2024+ only)
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
 | 26 | 2402.10200 | Feb 2024 | Chain-of-Thought Reasoning Without Prompting (Wang & Zhou) | ✅ DONE |
-| 27 | TBD | Oct 2025 | Algorithmic Primitives and Compositional Geometry of Reasoning | pending |
+| 27 | 2510.15987 | Oct 2025 | Algorithmic Primitives and Compositional Geometry of Reasoning | ✅ DONE |
 | 28 | 2601.02996 | Jan 2026 | Large Reasoning Models Are (Not Yet) Multilingual Latent Reasoners | ✅ DONE |
 
 ### Emergence from Scaling & Training
@@ -211,7 +211,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 |---|----------|------|-------|--------|--------|
 | 73 | 2509.03646 | Sep 2025 | Emergent Hierarchical Reasoning in LLMs through Reinforcement Learning | Balanced | ✅ DONE |
 | 74 | 2502.20332 | Feb 2025 | Emergent Symbolic Mechanisms Support Abstract Reasoning in LLMs | For | pending |
-| 75 | 2510.15987 | Oct 2025 | Algorithmic Primitives and Compositional Geometry of Reasoning | For | pending |
+| 75 | 2510.15987 | Oct 2025 | Algorithmic Primitives and Compositional Geometry of Reasoning | Balanced | ✅ DONE |
 | 76 | 2509.23629 | Sep 2025 | How LLMs Learn to Reason: A Complex Network Perspective (ICLR 2026) | For | pending |
 
 ### Mechanistic Interpretability
@@ -241,10 +241,10 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ## Updated Summary Statistics
 - **Total Papers**: ~86
 - **Against Reasoning**: ~34
-- **For Reasoning**: ~28
-- **Balanced**: ~24
+- **For Reasoning**: ~27
+- **Balanced**: ~25
 - **Date Range**: 2024-2026
-- **Analyzed**: 33
+- **Analyzed**: 34
 
 ---
 

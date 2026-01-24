@@ -163,6 +163,12 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Emergent Hierarchical Reasoning (2509.03646)** | **challenged by** | **OMEGA (2506.18880)** | **OMEGA shows 0% compositional/transformative despite same RL methods** |
 | **Emergent Hierarchical Reasoning (2509.03646)** | **challenged by** | **Planning Gap (2601.14456)** | **82.9% ID → 0% OOD contradicts "emergent" reasoning claim** |
 | **Emergent Hierarchical Reasoning (2509.03646)** | **limited by** | **No Free Lunch (2506.17219)** | **RL can degrade reasoning; format↑ reasoning↓** |
+| **Algorithmic Primitives (2510.15987)** | **supports** | **Emergent Hierarchical Reasoning (2509.03646)** | **Both find finetuning changes pattern deployment, not capability** |
+| **Algorithmic Primitives (2510.15987)** | **supports** | **DeepSeek-R1 (2501.12948)** | **Reasoning models show different behavioral patterns** |
+| **Algorithmic Primitives (2510.15987)** | **supports** | **Interplay (2512.07783)** | **"Primitives" depend on pre-existing learned patterns** |
+| **Algorithmic Primitives (2510.15987)** | **challenged by** | **OMEGA (2506.18880)** | **0% transformative generalization despite identifiable patterns** |
+| **Algorithmic Primitives (2510.15987)** | **challenged by** | **Planning Gap (2601.14456)** | **82.9% ID → 0% OOD shows learned patterns don't generalize** |
+| **Algorithmic Primitives (2510.15987)** | **challenged by** | **Faith and Fate (2305.18654)** | **Learned patterns don't compose for novel reasoning** |
 
 ### Extends / Builds On
 
@@ -251,6 +257,7 @@ These papers have NO direct rebuttals found:
 | **Planning Generalization Gap (2601.14456)** | **82.9% ID → 0% OOD; 11.5pp drop from symbol anonymization; loops without goal progress** |
 | **OMEGA (2506.18880)** | **0% transformative generalization; >69% isolated → near-0% composed; 38% overthinking errors** |
 | **Emergent Hierarchical Reasoning (2509.03646)** | **RL improves ID via "strategic template deployment" but requires pre-existing capability; fails on Llama** |
+| **Algorithmic Primitives (2510.15987)** | **"Primitives" are learned patterns (nearest_neighbor from training); no accuracy testing; no OOD testing** |
 
 ---
 
@@ -271,3 +278,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added CoT Faithfulness Unlearning (2502.14829) — EMNLP Outstanding; faithfulness ≠ plausibility (r=0.15) |
 | 2026-01-24 | Added OMEGA (2506.18880) — 0% transformative; compositional failure; RL can hurt (30pp drop) |
 | 2026-01-24 | Added Emergent Hierarchical Reasoning (2509.03646) — Explicitly supports surfacing hypothesis; requires pre-existing capability |
+| 2026-01-24 | Added Algorithmic Primitives (2510.15987) — "Primitives" are learned patterns; no accuracy/OOD testing |
