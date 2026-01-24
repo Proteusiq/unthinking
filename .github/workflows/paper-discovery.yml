@@ -1,0 +1,112 @@
+name: Daily Paper Discovery
+
+on:
+  schedule:
+    # Run daily at 8:00 AM UTC
+    - cron: '0 8 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  discover-papers:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Install dependencies
+        run: |
+          pip install arxiv requests
+
+      - name: Run paper discovery
+        id: discover
+        run: |
+          python scripts/discover_papers.py
+          
+      - name: Check for new papers
+        id: check
+        run: |
+          if [ -f "papers/toread.md" ] && [ -s "papers/toread.md" ]; then
+            # Check if toread.md was modified
+            if git diff --quiet papers/toread.md 2>/dev/null; then
+              echo "has_new_papers=false" >> $GITHUB_OUTPUT
+            else
+              echo "has_new_papers=true" >> $GITHUB_OUTPUT
+              # Count new papers
+              NEW_COUNT=$(git diff papers/toread.md | grep "^+" | grep -c "arxiv.org" || echo "0")
+              echo "new_count=$NEW_COUNT" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "has_new_papers=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit new papers
+        if: steps.check.outputs.has_new_papers == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add papers/toread.md
+          git commit -m "Add new papers to read list ($(date +%Y-%m-%d))"
+          git push
+
+      - name: Create issue for new papers
+        if: steps.check.outputs.has_new_papers == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const toread = fs.readFileSync('papers/toread.md', 'utf8');
+            
+            // Extract today's papers (papers added in this run)
+            const today = new Date().toISOString().split('T')[0];
+            const lines = toread.split('\n');
+            
+            // Find papers from today
+            let todayPapers = [];
+            let inTodaySection = false;
+            
+            for (const line of lines) {
+              if (line.includes(today)) {
+                inTodaySection = true;
+                continue;
+              }
+              if (inTodaySection && line.startsWith('## ')) {
+                break;
+              }
+              if (inTodaySection && line.startsWith('### ')) {
+                todayPapers.push(line);
+              }
+            }
+            
+            if (todayPapers.length > 0) {
+              const issueBody = `## New Papers Found (${today})
+            
+            The daily paper discovery found **${todayPapers.length}** new papers relevant to the thesis.
+            
+            ### Papers to Review
+            
+            See [papers/toread.md](./papers/toread.md) for full details and reasons to read.
+            
+            ${todayPapers.slice(0, 10).join('\n')}
+            ${todayPapers.length > 10 ? `\n... and ${todayPapers.length - 10} more` : ''}
+            
+            ---
+            *This issue was automatically created by the paper discovery workflow.*`;
+            
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `New Papers to Review (${today})`,
+                body: issueBody,
+                labels: ['papers', 'auto-discovery']
+              });
+            }
