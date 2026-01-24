@@ -33,7 +33,7 @@ Total papers to read from provided evidence (2024+ only)
 ### Shortcut Learning & Bias Exploitation
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
-| 12 | TBD | Oct 2024 | Do LLMs Overcome Shortcut Learning? (Yuan et al.) | pending |
+| 12 | 2410.13343 | Oct 2024 | Do LLMs Overcome Shortcut Learning? (Yuan et al.) | ✅ DONE (analysis: 58_shortcut_learning_llms.md) |
 | 13 | TBD | Sep 2024 | MMLU-Pro+: Evaluating Higher-Order Reasoning and Shortcut Learning | pending |
 
 ### Test-Time Compute Limitations
@@ -244,11 +244,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 
 ## Updated Summary Statistics
 - **Total Papers**: ~90 (consolidated #2 and #3 into single paper 2504.05262; added 2512.13978)
-- **Against Reasoning**: ~34
+- **Against Reasoning**: ~35
 - **For Reasoning**: ~26
 - **Balanced**: ~31
 - **Date Range**: 2024-2026
-- **Analyzed**: 58
+- **Analyzed**: 59
 
 ---
 
