@@ -235,16 +235,17 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 84 | 2601.13244 | Jan 2026 | Do Instruction-Tuned Models Always Perform Better? | Against | pending |
 | 85 | 2510.08931 | Oct 2025 | RADAR: Mechanistic Pathways for Detecting Data Contamination | Against | pending |
 | 86 | 2510.22437 | Oct 2025 | Modeling Hierarchical Thinking in Large Reasoning Models | Balanced | pending |
+| 87 | 2507.01231 | Jul 2025 | Rethinking the Illusion of Thinking | Balanced | ✅ DONE |
 
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: ~86
+- **Total Papers**: ~87
 - **Against Reasoning**: ~34
 - **For Reasoning**: ~25
-- **Balanced**: ~27
+- **Balanced**: ~28
 - **Date Range**: 2024-2026
-- **Analyzed**: 37
+- **Analyzed**: 38
 
 ---
 

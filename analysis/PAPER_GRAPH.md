@@ -187,6 +187,10 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Reasoning Beyond CoT (2601.08058)** | **supports** | **Interplay (2512.07783)** | **Explains how pre-training provides capability that can be surfaced** |
 | **Reasoning Beyond CoT (2601.08058)** | **does not address** | **OMEGA (2506.18880)** | **No OOD generalization testing** |
 | **Reasoning Beyond CoT (2601.08058)** | **does not address** | **Planning Gap (2601.14456)** | **No OOD generalization testing** |
+| **Rethinking Illusion of Thinking (2507.01231)** | **confirms** | **Illusion of Thinking (2506.06941)** | **Hanoi: ~8 disk limit is real cognitive limitation** |
+| **Rethinking Illusion of Thinking (2507.01231)** | **partially rebuts** | **Illusion of Thinking (2506.06941)** | **River Crossing: tested unsolvable configs; LRMs succeed on solvable (200 steps)** |
+| **Rethinking Illusion of Thinking (2507.01231)** | **challenges** | **Agentic Gap (2506.18957)** | **Agentic dialogue makes Hanoi WORSE, not better** |
+| **Rethinking Illusion of Thinking (2507.01231)** | **supports** | **OMEGA (2506.18880)** | **Same phase transition / complexity threshold patterns** |
 
 ### Extends / Builds On
 
@@ -279,6 +283,7 @@ These papers have NO direct rebuttals found:
 | **Emergent Symbolic Mechanisms (2502.20332)** | **98% cross-token generalization; but "abstraction" = positional invariance; no OOD/complexity testing; all tasks in-distribution** |
 | **How LLMs Learn to Reason (2509.23629)** | **Sparse concept web (⟨k⟩≈2) theory for RLVR; but "integration" = organizing existing patterns; policy collapse = overfitting** |
 | **Reasoning Beyond CoT (2601.08058)** | **Latent reasoning mode identifiable via SAE; but feature is mode SWITCH not quality indicator; no OOD testing** |
+| **Rethinking Illusion of Thinking (2507.01231)** | **Replication confirms Hanoi ~8 disk limit; River Crossing methodology fixed; LRMs = "stochastic searchers"** |
 
 ---
 
@@ -303,3 +308,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Emergent Symbolic Mechanisms (2502.20332) — "Abstraction" = positional invariance; 98% cross-token but no OOD testing |
 | 2026-01-24 | Added How LLMs Learn to Reason (2509.23629) — Sparse web theory; supports surfacing hypothesis on close reading |
 | 2026-01-24 | Added Reasoning Beyond CoT (2601.08058) — Latent mode switch; feature triggers reasoning but doesn't improve quality |
+| 2026-01-24 | Added Rethinking Illusion of Thinking (2507.01231) — Replication confirms Hanoi limits; corrects River Crossing methodology |
