@@ -40,7 +40,7 @@ Total papers to read from provided evidence (2024+ only)
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
 | 14 | TBD | Feb 2025 | Revisiting Test-Time Scaling of o1-like Models (Zeng et al.) | pending |
-| 15 | 2506.06941 | Jun 2025 | The Illusion of Thinking (Shojaee et al.) | pending |
+| 15 | 2506.06941 | Jun 2025 | The Illusion of Thinking (Shojaee et al.) | ✅ DONE |
 | 16 | TBD | Oct 2025 | Limits of Emergent Reasoning in Agentic Frameworks for Deterministic Games | pending |
 | 17 | 2511.21591 | Nov 2025 | On the Limits of Innate Planning in Large Language Models | pending |
 
@@ -111,7 +111,7 @@ Total papers to read from provided evidence (2024+ only)
 ### Execution vs Reasoning Distinction
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
-| 46 | 2507.17699 | Jul 2025 | Thinking Isn't an Illusion: Overcoming the Limitations of Reasoning Models via Tool Augmentations | pending |
+| 46 | 2507.17699 | Jul 2025 | Thinking Isn't an Illusion: Overcoming the Limitations of Reasoning Models via Tool Augmentations | ✅ DONE |
 | 47 | 2509.09677 | Sep 2025 | The Illusion of Diminishing Returns: Measuring Long Horizon Execution in LLMs | pending |
 
 ---
