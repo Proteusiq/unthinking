@@ -54,7 +54,7 @@ Total papers to read from provided evidence (2024+ only)
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
 | 20 | 2509.12645 | Sep 2025 | Large Language Models Imitate Logical Reasoning, but at what Cost? | ✅ DONE |
-| 21 | 2509.13345 | Sep 2025 | Beyond Accuracy: Rethinking Hallucination and Regulatory Response (Policy paper - SKIP) | SKIPPED |
+| 21 | REMOVED | - | Beyond Accuracy: Rethinking Hallucination and Regulatory Response | REMOVED (policy paper, not technical) |
 | 22 | 2512.20812 | Dec 2025 | Semantic Deception: When Reasoning Models Can't Compute an Addition | ✅ DONE |
 | 23 | 2507.07313 | Jul 2025 | Frontier LLMs Still Struggle with Simple Reasoning Tasks | ✅ DONE |
 | 24 | 2507.10624 | Jul 2025 | Comprehension Without Competence: Architectural Limits of LLMs in Symbolic Computation | ✅ DONE |
@@ -98,7 +98,7 @@ Total papers to read from provided evidence (2024+ only)
 |---|----------|------|-------|--------|
 | 39 | 2510.09312 | Oct 2025 | Verifying Chain-of-Thought Reasoning via Its Computational Graph (CRV) | ✅ DONE (analysis: 72_crv_verifying_cot_computational_graph.md) |
 | 40 | 2505.16782 | May 2025 | Reasoning Beyond Language: A Comprehensive Survey on Latent Chain-of-Thought Reasoning | ✅ DONE (analysis: 76_survey_latent_cot_reasoning.md) |
-| 41 | NOT_FOUND | Jul 2025 | Revisiting LLM Reasoning via Information Bottleneck | SKIPPED (not found on arXiv - possible 2601.05870 is different paper) |
+| 41 | 2507.18391 | Jul 2025 | Revisiting LLM Reasoning via Information Bottleneck | ✅ DONE (analysis: 83_revisiting_llm_reasoning_information_bottleneck.md) |
 
 ### Advanced Reasoning Demonstrations
 | # | arXiv ID | Date | Title | Status |
@@ -151,7 +151,7 @@ Total papers to read from provided evidence (2024+ only)
 | 57 | 2601.03630 | Jan 2026 | Reasoning Model Is Superior LLM-Judge, Yet Suffers from Biases | Balanced | ✅ DONE |
 | 58 | 2601.00514 | Jan 2026 | The Illusion of Insight in Reasoning Models | Against | ✅ DONE |
 | 59 | 2506.17219 | Jun 2025 | No Free Lunch: Rethinking Internal Feedback for LLM Reasoning | Supports | ✅ DONE |
-| 60 | 2509.00971 | Sep 2025 | CoreThink: A Symbolic Reasoning Layer for Long Horizon Tasks | Balanced | SKIPPED (HTML conversion failed, abstract insufficient) |
+| 60 | REMOVED | - | CoreThink: A Symbolic Reasoning Layer for Long Horizon Tasks | REMOVED (HTML conversion failed, could not read) |
 | 61 | 2508.13678 | Aug 2025 | Neuro-Symbolic AI: Towards Improving the Reasoning Abilities of LLMs | Supports | ✅ DONE |
 
 ---
@@ -197,7 +197,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 |---|----------|------|-------|--------|--------|
 | 67 | 2512.04727 | Dec 2025 | Sequential Enumeration in Large Language Models | Against | ✅ DONE |
 | 68 | 2506.18880 | Jun 2025 | OMEGA: Can LLMs Reason Outside the Box in Math? | Against | ✅ DONE |
-| 69 | 2601.06914 | Jan 2026 | Towards Compositional Generalization via Skill Taxonomy Guided Data Synthesis | Balanced | SKIPPED (wrong paper - about smart contracts) |
+| 69 | REMOVED | - | Towards Compositional Generalization via Skill Taxonomy Guided Data Synthesis | REMOVED (wrong paper - about smart contracts, not AI reasoning) |
 | 70 | 2510.20783 | Oct 2025 | Out-of-Distribution Tests Reveal Compositionality in Chess Transformers | Balanced | ✅ DONE |
 
 ### Planning & Generalization Gap
