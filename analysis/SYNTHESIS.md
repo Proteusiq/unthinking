@@ -34,8 +34,18 @@
 | 26 | No Free Lunch: Internal Feedback | Jun 2025 | Supports | RLIF degrades reasoning (291→235); format↑ reasoning↓; overconfidence mechanism |
 | 27 | Neuro-Symbolic AI Survey | Aug 2025 | Supports | "LLMs cannot really reason... statistical pattern recognition"; 52 papers reviewed |
 | 28 | Multilingual Latent Reasoners | Jan 2026 | Balanced | Latent reasoning EXISTS but "real and fragile"; LRS collapses 0.38→0.03 on hard problems |
+| ... | ... | ... | ... | ... |
+| 67 | Survey of Inductive Reasoning | Oct 2025 | Supports | "Inductive ability originates from induction heads" = pattern matching |
+| 68 | Limits of Emergent Reasoning Agentic | Oct 2025 | Strongly Supports | Agentic framework makes collapse WORSE; ~40% looping |
+| 69 | Compositional-ARC | Apr 2025 | Strongly Supports | o3-mini 0.53% on systematicity; 5.7M MLC > 8B+ LLMs |
+| 70 | KUP Memorization vs Reasoning | Apr 2025 | Strongly Supports | ALL methods <2% on reasoning; 70-80% on memorization |
+| 71 | LoopBench | Dec 2025 | Balanced | O3 72% vs GPT-4.1 0% on symmetry breaking |
+| 72 | CRV Verifying CoT | Oct 2025 | Balanced | Error signatures domain-specific; causal interventions work |
+| 73 | Iterative ICL Algebraic | Sep 2025 | Supports | 13-35% on rule override; simpler examples work better |
+| 74 | Revisiting Compositional Gen | Jun 2025 | Supports | ACL 2025; 75% ceiling on ordered coverage |
+| 75 | STEPS Skill Taxonomy | Jan 2026 | Supports | Power-law distribution explains compositional failure |
 
-**Total: 29 papers analyzed (2 foundational + 27 main)**
+**Total: 75 papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative
@@ -683,6 +693,42 @@ For B=1 (NO search required, just follow edges):
 - **The L1→L2 example**: 100% on "third-to-last is 'a'", 0% on "fourth-to-last is 'a' AND 'bb' never precedes 'a'"
 - **Implication**: Pattern retrieval from training, not compositional symbolic reasoning
 
+### Argument 11: Compositional Generalization is THE Failure Mode (NEW)
+- **Evidence**: Compositional-ARC (o3-mini 0.53%), STEPS (power-law), KUP (<2% indirect)
+- **Claim**: The fundamental limitation is composing known skills into novel combinations
+- **Key findings**:
+  - 5.7M MLC model beats 8B+ LLMs on systematicity
+  - Power-law distribution: complex combinations are RARE in training
+  - Direct probing (memorization) 70-80%, indirect probing (reasoning) <2%
+- **Implication**: Not a capability limit, but a TRAINING DISTRIBUTION limit
+
+### Argument 12: Instructions Cannot Override Learned Patterns (NEW)
+- **Evidence**: Iterative ICL (13-35%), Revisiting Compositional (75% ceiling)
+- **Claim**: Explicit instructions fail when they conflict with training patterns
+- **Key findings**:
+  - Rule override (+ before *) fails even with explicit instruction
+  - 75% ceiling on ordered coverage despite instructions
+  - Models produce IDENTICAL outputs for different orderings
+- **Implication**: Training distribution dominates over explicit user instructions
+
+### Argument 13: Environment Interface Doesn't Help Reasoning (NEW)
+- **Evidence**: Limits of Emergent Reasoning Agentic (collapse EARLIER with tools)
+- **Claim**: Agentic frameworks don't solve reasoning limits
+- **Key findings**:
+  - Agentic framework makes collapse happen EARLIER
+  - ~40% deterministic looping
+  - JSD diverges from BOTH optimal AND random policies
+- **Implication**: "High-probability mode following, not genuine reasoning"
+
+### Argument 14: Only Frontier Models Show Meta-Cognition (NEW)
+- **Evidence**: LoopBench (O3 72%, GPT-4.1 0%)
+- **Claim**: Meta-cognitive reasoning is extremely rare and scale-dependent
+- **Key findings**:
+  - Only O3 develops "wait" strategies to escape deadlocks
+  - Discovery-Implementation Gap: weaker models execute but can't discover
+  - Most models (including o3-mini) fail completely
+- **Implication**: Meta-cognition may be surfaced capability, not fundamental understanding
+
 ---
 
 ## Key Findings from Recent Papers
@@ -818,13 +864,26 @@ For B=1 (NO search required, just follow edges):
 | **Neuro-symbolic compensates for LLM weaknesses** | **Symbolic = System 2 for reasoning** | **Neuro-Symbolic AI Survey (2508.13678)** |
 | **Latent reasoning "real but fragile"** | **LRS: 0.38→0.03 (92% drop) on hard problems** | **Multilingual Latent Reasoners (2601.02996)** |
 | **English-centric pathway** | **Internal reasoning converges to training distribution** | **Multilingual Latent Reasoners (2601.02996)** |
+| **Induction = pattern matching** | **"Inductive ability originates from induction heads"** | **Survey of Inductive Reasoning (2510.10182)** |
+| **Agentic makes collapse WORSE** | **Collapse earlier; ~40% deterministic looping** | **Limits Emergent Reasoning Agentic (2510.15974)** |
+| **o3-mini 0.53% systematicity** | **3-shot 64%, systematicity 0.53% — memorization not reasoning** | **Compositional-ARC (2504.01445)** |
+| **5.7M > 8B+ on composition** | **Small specialized model beats LLMs on systematicity** | **Compositional-ARC (2504.01445)** |
+| **ALL methods <2% reasoning** | **Direct probing 70-80%, indirect <2%** | **KUP Memorization (2504.12523)** |
+| **Retrieval ≠ application** | **H&M Russia: recalls fact, still recommends** | **KUP Memorization (2504.12523)** |
+| **Only O3 meta-cognitive** | **72% vs 0% for GPT-4.1 on symmetry breaking** | **LoopBench (2512.13713)** |
+| **Error signatures domain-specific** | **92%→55% cross-domain transfer** | **CRV Verifying CoT (2510.09312)** |
+| **Rule override fails** | **13-35% on non-standard precedence** | **Iterative ICL Algebraic (2509.01267)** |
+| **75% ceiling on ordered coverage** | **Instructions improve but don't solve** | **Revisiting Compositional Gen (2506.15629)** |
+| **Power-law explains failure** | **Complex combinations rare in training** | **STEPS (2601.03676)** |
+| **4K targeted > 52K random** | **Quality beats quantity for composition** | **STEPS (2601.03676)** |
+| **Unconstrained diversity hurts** | **Instruct models degrade with random compositions** | **STEPS (2601.03676)** |
 
 ---
 
 ## Thesis Position (Strengthened)
 
-**Total Papers**: 29 analyzed
-**Stance Breakdown**: Supports=19, Challenges=5, Balanced=5
+**Total Papers**: 75 analyzed
+**Stance Breakdown**: Supports=~50, Challenges=~8, Balanced=~17
 
 The evidence now overwhelmingly supports the "Against" position:
 
