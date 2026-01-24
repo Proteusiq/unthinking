@@ -188,7 +188,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 |---|----------|------|-------|--------|--------|
 | 62 | 2510.04040 | Oct 2025 | FaithCoT-Bench: Benchmarking Instance-Level Faithfulness of CoT Reasoning | Against | ✅ DONE |
 | 63 | 2502.14829 | Feb 2025 | Measuring CoT Faithfulness by Unlearning Reasoning Steps (EMNLP Outstanding) | Balanced | ✅ DONE |
-| 64 | 2505.23945 | May 2025 | A Closer Look at Bias and CoT Faithfulness of Large (Vision) Language Models | Against | pending |
+| 64 | 2505.23945 | May 2025 | A Closer Look at Bias and CoT Faithfulness of Large (Vision) Language Models | Against | ✅ DONE |
 | 65 | 2509.13334 | Sep 2025 | FRIT: Using Causal Importance to Improve CoT Faithfulness | Balanced | pending |
 | 66 | 2510.22362 | Oct 2025 | Mapping Faithful Reasoning in Language Models | Balanced | pending |
 
@@ -198,7 +198,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 67 | 2512.04727 | Dec 2025 | Sequential Enumeration in Large Language Models | Against | ✅ DONE |
 | 68 | 2506.18880 | Jun 2025 | OMEGA: Can LLMs Reason Outside the Box in Math? | Against | ✅ DONE |
 | 69 | 2601.06914 | Jan 2026 | Towards Compositional Generalization via Skill Taxonomy Guided Data Synthesis | Balanced | pending |
-| 70 | 2510.20783 | Oct 2025 | Out-of-Distribution Tests Reveal Compositionality in Chess Transformers | Balanced | pending |
+| 70 | 2510.20783 | Oct 2025 | Out-of-Distribution Tests Reveal Compositionality in Chess Transformers | Balanced | ✅ DONE |
 
 ### Planning & Generalization Gap
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -217,7 +217,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ### Mechanistic Interpretability
 | # | arXiv ID | Date | Title | Stance | Status |
 |---|----------|------|-------|--------|--------|
-| 77 | 2601.02989 | Jan 2026 | Mechanistic Interpretability of Large-Scale Counting in LLMs | Balanced | pending |
+| 77 | 2601.02989 | Jan 2026 | Mechanistic Interpretability of Large-Scale Counting in LLMs | Balanced | ✅ DONE |
 | 78 | 2510.25013 | Oct 2025 | Emergence of Minimal Circuits for Indirect Object Identification | Balanced | pending |
 | 79 | 2512.01222 | Dec 2025 | Unsupervised Decoding of Encoded Reasoning using LM Interpretability | Balanced | pending |
 
@@ -248,7 +248,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 - **For Reasoning**: ~26
 - **Balanced**: ~30
 - **Date Range**: 2024-2026
-- **Analyzed**: 46
+- **Analyzed**: 49
 
 ---
 
