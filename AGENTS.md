@@ -13,13 +13,14 @@ Rules and methodology for conducting systematic literature reviews on AI/ML rese
 - Key evidence, methodology details, and limitations are often in the body
 - Look for actual numbers, experimental setups, and edge cases
 
-### 2. Independent Critical Assessment (DO NOT DEFER TO RESEARCHER)
-- **NEVER simply agree with the researcher's interpretation** — form your own view from the paper
+### 2. Independent Critical Assessment
+- **Do not automatically agree with the researcher's interpretation** — form your own view from the paper first
 - Read the paper carefully BEFORE accepting any characterization (rebuttal, confirmation, etc.)
 - If the researcher suggests a classification, VERIFY it against the actual paper content
 - Apply critical thinking independently — the researcher can be wrong
 - When in doubt, re-read key sections of the paper to form your own judgment
-- State your assessment clearly, even if it differs from the researcher's suggestion
+- You MAY defer to the researcher after independent verification confirms their view
+- State your assessment clearly, noting agreement or disagreement with the researcher
 
 ### 3. Rebuttal Analysis is MANDATORY
 For EVERY paper analyzed, you MUST:
