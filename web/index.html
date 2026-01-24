@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Thinking Machine That Doesn't Think | Prayson Wilfred Daniel</title>
+    <meta name="description" content="An interactive visualization of 83 research papers exploring whether Large Language Models truly reason or merely pattern match.">
+    <meta name="author" content="Prayson Wilfred Daniel">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Background gradient mesh -->
+    <div class="background-mesh"></div>
+    
+    <!-- Header -->
+    <header class="header glass">
+        <div class="header-content">
+            <div class="title-section">
+                <h1 class="main-title">The Thinking Machine That Doesn't Think</h1>
+                <p class="subtitle">A Literature Review by <span class="author-name">Prayson Wilfred Daniel</span></p>
+            </div>
+            
+            <div class="controls">
+                <!-- Search -->
+                <div class="search-container glass-subtle">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <input type="text" id="search-input" placeholder="Search papers..." autocomplete="off">
+                </div>
+                
+                <!-- Filters -->
+                <div class="filter-group">
+                    <button class="filter-btn glass-subtle active" data-filter="all">All</button>
+                    <button class="filter-btn glass-subtle" data-filter="supports">
+                        <span class="dot supports"></span>Supports
+                    </button>
+                    <button class="filter-btn glass-subtle" data-filter="challenges">
+                        <span class="dot challenges"></span>Challenges
+                    </button>
+                    <button class="filter-btn glass-subtle" data-filter="balanced">
+                        <span class="dot balanced"></span>Balanced
+                    </button>
+                </div>
+                
+                <!-- Theme Toggle -->
+                <button class="theme-toggle glass-subtle" id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Stats bar -->
+        <div class="stats-bar">
+            <div class="stat">
+                <span class="stat-number" id="total-papers">83</span>
+                <span class="stat-label">Papers</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" id="supports-count">56</span>
+                <span class="stat-label">Support Thesis</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" id="challenges-count">9</span>
+                <span class="stat-label">Challenge Thesis</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" id="balanced-count">18</span>
+                <span class="stat-label">Balanced</span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Graph Container -->
+    <main class="graph-container">
+        <div id="graph"></div>
+        
+        <!-- Zoom Controls -->
+        <div class="zoom-controls glass">
+            <button class="zoom-btn" id="zoom-in" aria-label="Zoom in">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35M11 8v6M8 11h6"/>
+                </svg>
+            </button>
+            <button class="zoom-btn" id="zoom-out" aria-label="Zoom out">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35M8 11h6"/>
+                </svg>
+            </button>
+            <button class="zoom-btn" id="zoom-reset" aria-label="Reset zoom">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                    <path d="M3 3v5h5"/>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Legend -->
+        <div class="legend glass">
+            <h3 class="legend-title">Legend</h3>
+            <div class="legend-items">
+                <div class="legend-section">
+                    <h4>Stance</h4>
+                    <div class="legend-item">
+                        <span class="node-indicator supports"></span>
+                        <span>Supports Thesis</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="node-indicator challenges"></span>
+                        <span>Challenges Thesis</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="node-indicator balanced"></span>
+                        <span>Balanced</span>
+                    </div>
+                </div>
+                <div class="legend-section">
+                    <h4>Connections</h4>
+                    <div class="legend-item">
+                        <span class="edge-indicator supports"></span>
+                        <span>Supports</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="edge-indicator rebuts"></span>
+                        <span>Rebuts</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="edge-indicator extends"></span>
+                        <span>Extends</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Tooltip -->
+    <div class="tooltip glass" id="tooltip">
+        <div class="tooltip-header">
+            <h3 class="tooltip-title"></h3>
+            <span class="tooltip-arxiv"></span>
+        </div>
+        <div class="tooltip-stance"></div>
+        <p class="tooltip-argument"></p>
+        <div class="tooltip-evidence">
+            <h4>Key Evidence</h4>
+            <ul class="evidence-list"></ul>
+        </div>
+        <div class="tooltip-footer">
+            <span class="connection-count"></span>
+            <span class="click-hint">Click for details</span>
+        </div>
+    </div>
+    
+    <!-- Side Panel -->
+    <aside class="side-panel glass" id="side-panel">
+        <button class="close-btn" id="close-panel" aria-label="Close panel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6 6 18M6 6l12 12"/>
+            </svg>
+        </button>
+        
+        <div class="panel-content">
+            <header class="panel-header">
+                <div class="panel-stance-badge"></div>
+                <h2 class="panel-title"></h2>
+                <div class="panel-meta">
+                    <span class="panel-arxiv"></span>
+                    <span class="panel-date"></span>
+                </div>
+            </header>
+            
+            <section class="panel-section">
+                <h3>Core Argument</h3>
+                <p class="panel-argument"></p>
+            </section>
+            
+            <section class="panel-section">
+                <h3>Key Evidence</h3>
+                <ul class="panel-evidence"></ul>
+            </section>
+            
+            <section class="panel-section connections-section">
+                <h3>Connections</h3>
+                <div class="connections-grid">
+                    <div class="connection-group outgoing">
+                        <h4>This paper...</h4>
+                        <ul class="connection-list outgoing-list"></ul>
+                    </div>
+                    <div class="connection-group incoming">
+                        <h4>Referenced by...</h4>
+                        <ul class="connection-list incoming-list"></ul>
+                    </div>
+                </div>
+            </section>
+            
+            <footer class="panel-footer">
+                <a class="arxiv-link glass-subtle" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                        <polyline points="15 3 21 3 21 9"/>
+                        <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                    View on arXiv
+                </a>
+            </footer>
+        </div>
+    </aside>
+    
+    <!-- Thesis Statement (floating) -->
+    <div class="thesis-card glass" id="thesis-card">
+        <button class="thesis-toggle" id="thesis-toggle" aria-label="Toggle thesis">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 20V10M18 20V4M6 20v-4"/>
+            </svg>
+        </button>
+        <div class="thesis-content">
+            <h3>The Thesis</h3>
+            <blockquote>
+                "LLM reasoning is practical but fundamentally <em>predictive</em> (pattern matching from training distributions), not genuinely <em>generative</em>. RL and test-time compute <em>surface</em> pre-existing capabilities rather than creating new reasoning abilities."
+            </blockquote>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/graph.js"></script>
+</body>
+</html>
