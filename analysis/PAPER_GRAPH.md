@@ -152,6 +152,12 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **CoT Faithfulness Unlearning (2502.14829)** | **extends** | **Measuring Faithfulness (2307.13702)** | **Parametric (vs contextual) intervention for faithfulness** |
 | **CoT Faithfulness Unlearning (2502.14829)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | **CoT ≠ internal computation; faithfulness ≠ plausibility** |
 | **CoT Faithfulness Unlearning (2502.14829)** | **challenges** | **Add-mistake baseline (Lanham et al.)** | **Contextual methods underestimate faithfulness** |
+| **OMEGA (2506.18880)** | **supports** | **Faith and Fate (2305.18654)** | **Compositional generalization failure; >69% isolated skills → near-0% composed** |
+| **OMEGA (2506.18880)** | **supports** | **Planning Generalization Gap (2601.14456)** | **Same ID/OOD pattern; RL doesn't help OOD generalization** |
+| **OMEGA (2506.18880)** | **supports** | **Interplay (2512.07783)** | **RL surfaces, doesn't create: exploratory ✓, transformative ✗** |
+| **OMEGA (2506.18880)** | **supports** | **Illusion of Thinking (2506.06941)** | **Performance collapse at complexity threshold; 0% transformative** |
+| **OMEGA (2506.18880)** | **extends** | **GSM-Symbolic (2410.05229)** | **From surface perturbation to systematic generalization axes** |
+| **OMEGA (2506.18880)** | **provides mechanism for** | **Overthinking failures** | **38% "correct→incorrect" from CoT second-guessing** |
 
 ### Extends / Builds On
 
@@ -238,6 +244,7 @@ These papers have NO direct rebuttals found:
 | **Neuro-Symbolic AI Survey (2508.13678)** | **"LLMs cannot really reason... statistical pattern recognition" (52 papers reviewed)** |
 | **Multilingual Latent Reasoners (2601.02996)** | **"Real but fragile"; LRS collapses 0.38→0.03 on hard benchmarks; English-centric** |
 | **Planning Generalization Gap (2601.14456)** | **82.9% ID → 0% OOD; 11.5pp drop from symbol anonymization; loops without goal progress** |
+| **OMEGA (2506.18880)** | **0% transformative generalization; >69% isolated → near-0% composed; 38% overthinking errors** |
 
 ---
 
@@ -256,3 +263,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Multilingual Latent Reasoners (2601.02996) — "Real but fragile" latent reasoning |
 | 2026-01-24 | Added Planning Generalization Gap (2601.14456) — 82.9% ID → 0% OOD; strongest ID/OOD evidence |
 | 2026-01-24 | Added CoT Faithfulness Unlearning (2502.14829) — EMNLP Outstanding; faithfulness ≠ plausibility (r=0.15) |
+| 2026-01-24 | Added OMEGA (2506.18880) — 0% transformative; compositional failure; RL can hurt (30pp drop) |

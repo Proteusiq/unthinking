@@ -196,7 +196,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | # | arXiv ID | Date | Title | Stance | Status |
 |---|----------|------|-------|--------|--------|
 | 67 | 2512.04727 | Dec 2025 | Sequential Enumeration in Large Language Models | Against | pending |
-| 68 | 2506.18880 | Jun 2025 | OMEGA: Can LLMs Reason Outside the Box in Math? | Against | pending |
+| 68 | 2506.18880 | Jun 2025 | OMEGA: Can LLMs Reason Outside the Box in Math? | Against | ✅ DONE |
 | 69 | 2601.06914 | Jan 2026 | Towards Compositional Generalization via Skill Taxonomy Guided Data Synthesis | Balanced | pending |
 | 70 | 2510.20783 | Oct 2025 | Out-of-Distribution Tests Reveal Compositionality in Chess Transformers | Balanced | pending |
 
@@ -244,7 +244,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 - **For Reasoning**: ~28
 - **Balanced**: ~24
 - **Date Range**: 2024-2026
-- **Analyzed**: 31
+- **Analyzed**: 32
 
 ---
 
