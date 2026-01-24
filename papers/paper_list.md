@@ -17,8 +17,8 @@ Total papers to read from provided evidence (2024+ only)
 ### Memorization Over Generalization
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
-| 4 | 2406.xxxxx | Jun 2024 | Can LLM Graph Reasoning Generalize beyond Pattern Memorization? (Zhang et al.) | pending |
-| 5 | 2601.xxxxx | Jan 2026 | Beyond Memorization: Testing LLM Reasoning on Unseen Theory of Computation Tasks (Shelat et al.) | pending |
+| 4 | 2406.15992 | Jun 2024 | Can LLM Graph Reasoning Generalize beyond Pattern Memorization? (Zhang et al.) | ✅ DONE |
+| 5 | 2601.13392 | Jan 2026 | Beyond Memorization: Testing LLM Reasoning on Unseen Theory of Computation Tasks (Shelat et al.) | ✅ DONE |
 | 6 | TBD | Jun 2025 | Unveiling Causal Reasoning in LLMs: Reality or Mirage? | pending |
 
 ### Unfaithful/Post-hoc Rationalization
