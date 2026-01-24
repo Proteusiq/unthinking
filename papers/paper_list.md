@@ -82,7 +82,7 @@ Total papers to read from provided evidence (2024+ only)
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
 | 32 | 2504.01445 | Apr 2025 | Compositional-ARC: Assessing Systematic Generalization in Abstract Spatial Reasoning | ✅ DONE (analysis: 69_compositional_arc.md) |
-| 33 | TBD | Apr 2025 | Enabling Systematic Generalization through Meta-Learning for Compositionality | pending |
+| 33 | 2504.01445 | Apr 2025 | Enabling Systematic Generalization through Meta-Learning for Compositionality | ✅ DONE (same as Compositional-ARC #69) |
 | 34 | 2601.03676 | Jan 2026 | Towards Compositional Generalization via Skill Taxonomy Guided Data Synthesis (STEPS) | ✅ DONE (analysis: 75_steps_skill_taxonomy_compositional.md) |
 
 ### Test-Time Compute Successes
@@ -90,15 +90,15 @@ Total papers to read from provided evidence (2024+ only)
 |---|----------|------|-------|--------|
 | 35 | 2501.19393 | Jan 2025 | s1: Simple test-time scaling | ✅ DONE |
 | 36 | 2501.02497 | Jan 2025 | A Survey of Test-Time Compute | ✅ DONE (analysis: 65_survey_test_time_compute.md) |
-| 37 | TBD | 2025 | Inference-Time Scaling for Complex Tasks (Microsoft) | pending |
-| 38 | TBD | Jan 2026 | PCL-Reasoner-V1.5: Offline RL for Math Reasoning | pending |
+| 37 | NOT_FOUND | 2025 | Inference-Time Scaling for Complex Tasks (Microsoft) | SKIPPED (not found on arXiv) |
+| 38 | NOT_FOUND | Jan 2026 | PCL-Reasoner-V1.5: Offline RL for Math Reasoning | SKIPPED (not found on arXiv) |
 
 ### Mechanistic Evidence
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
 | 39 | 2510.09312 | Oct 2025 | Verifying Chain-of-Thought Reasoning via Its Computational Graph (CRV) | ✅ DONE (analysis: 72_crv_verifying_cot_computational_graph.md) |
 | 40 | 2505.16782 | May 2025 | Reasoning Beyond Language: A Comprehensive Survey on Latent Chain-of-Thought Reasoning | ✅ DONE (analysis: 76_survey_latent_cot_reasoning.md) |
-| 41 | TBD | Jul 2025 | Revisiting LLM Reasoning via Information Bottleneck | pending |
+| 41 | NOT_FOUND | Jul 2025 | Revisiting LLM Reasoning via Information Bottleneck | SKIPPED (not found on arXiv - possible 2601.05870 is different paper) |
 
 ### Advanced Reasoning Demonstrations
 | # | arXiv ID | Date | Title | Status |
@@ -127,20 +127,20 @@ Total papers to read from provided evidence (2024+ only)
 ### Reasoning as Learned Skill vs Fundamental Capability
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
-| 50 | TBD | Oct 2025 | Interactive Learning for LLM Reasoning | pending |
+| 50 | NOT_FOUND | Oct 2025 | Interactive Learning for LLM Reasoning | SKIPPED (not found on arXiv) |
 | 51 | 2404.00560 | Apr 2024 | A Theory for Length Generalization in Learning to Reason | ✅ DONE (analysis: 66_theory_length_generalization.md) |
 
 ### Evaluation & Definition Challenges
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
-| 52 | TBD | 2024 | Reasoning Abilities of LLMs: In-Depth Analysis on Abstraction and Reasoning Corpus | pending |
-| 53 | TBD | Nov 2025 | Measuring Chain-of-Thought Monitorability Through Faithfulness and Verbosity | pending |
+| 52 | 2403.11793 | Mar 2024 | Reasoning Abilities of LLMs: In-Depth Analysis on Abstraction and Reasoning Corpus | pending |
+| 53 | 2510.27378 | Oct 2025 | Measuring Chain-of-Thought Monitorability Through Faithfulness and Verbosity | pending |
 
 ### Mixed Evidence on Specific Mechanisms
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
 | 54 | 2504.12523 | Apr 2025 | Memorization vs. Reasoning: Updating LLMs with New Knowledge (KUP) | ✅ DONE (analysis: 70_kup_memorization_vs_reasoning.md) |
-| 55 | TBD | Mar 2025 | CryptoX: Compositional Reasoning Evaluation | pending |
+| 55 | 2502.07813 | Feb 2025 | CryptoX: Compositional Reasoning Evaluation of Large Language Models | pending |
 
 ---
 
