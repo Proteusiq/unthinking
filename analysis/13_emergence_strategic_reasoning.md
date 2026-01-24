@@ -108,7 +108,7 @@
    - GPT-o1: τ = 4.42
    - If just matching training, should match human level
 
-### Counter-Arguments for Our Thesis
+### Counter-Arguments Supporting the Pattern-Matching Thesis
 
 1. **Strategic games may be in training distribution**:
    - pBCG is well-studied in behavioral economics

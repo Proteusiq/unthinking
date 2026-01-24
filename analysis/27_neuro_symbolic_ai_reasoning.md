@@ -157,7 +157,7 @@ This frames LLMs as System 1 (intuitive pattern matching) that need System 2 (sy
 
 ---
 
-## Key Quotes for Our Thesis
+## Key Quotes Supporting the Pattern-Matching Thesis
 
 ### LLMs as Pattern Matchers (STRONG SUPPORT)
 
@@ -175,9 +175,11 @@ This frames LLMs as System 1 (intuitive pattern matching) that need System 2 (sy
 
 ---
 
-## Implications for Our Thesis
+## Implications for the Literature Review Thesis
 
-### STRONG support for pattern matching thesis
+**Literature Review Thesis**: LLM reasoning is practical but fundamentally predictive (pattern matching from training distributions), not genuinely generative.
+
+### STRONG support for this thesis
 
 1. **Explicit statement from survey authors**
    - "Cannot really reason" — direct quote
@@ -211,7 +213,7 @@ This frames LLMs as System 1 (intuitive pattern matching) that need System 2 (sy
 
 **Evidence strength**: Moderate (survey, not empirical)
 
-**Key contribution to our thesis:**
+**Key contribution to the thesis:**
 - Explicit statement: "LLMs... cannot really reason"
 - "Statistical pattern recognition rather than formal logical reasoning"
 - Survey of 52 papers all motivated by LLM reasoning limitations

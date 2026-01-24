@@ -116,7 +116,7 @@ Training corpus keyword frequency positively correlates with in-distribution per
 
 > "LLMs might only memorize the reasoning pattern about specific tasks from training data, but cannot successfully transfer general graph reasoning capabilities to other graph reasoning tasks"
 
-### Why This Matters for Our Thesis
+### Why This Matters for the Pattern-Matching Thesis
 
 1. **Even in-distribution success is memorization**: Keyword frequency correlation proves it
 2. **Cannot transfer general skills**: 0% strong recovery on reasoning patterns
@@ -134,7 +134,7 @@ Training corpus keyword frequency positively correlates with in-distribution per
 - **Frontier LLMs Still Struggle (2507.07313)**: Memorization over reasoning
 
 ### Challenges
-- None directly — this strongly supports our thesis
+- None directly — this strongly supports the pattern-matching thesis
 
 ### Extends
 - Provides systematic framework for measuring generalization
@@ -184,7 +184,9 @@ Training corpus keyword frequency positively correlates with in-distribution per
 
 ---
 
-## Implications for Our Thesis
+## Implications for the Literature Review Thesis
+
+**Literature Review Thesis**: LLM reasoning is practical but fundamentally predictive (pattern matching from training distributions), not genuinely generative.
 
 ### Direct Support for Core Arguments
 
@@ -206,7 +208,7 @@ Training corpus keyword frequency positively correlates with in-distribution per
 
 > "Results on the NLGift benchmark show LLMs are not robust graph reasoners but mostly pattern regurgitators, as they show limited capabilities when testing on out-of-distribution data across various settings."
 
-This is a peer-reviewed statement that directly supports our thesis title.
+This is a peer-reviewed statement that directly supports the pattern-matching thesis.
 
 ---
 

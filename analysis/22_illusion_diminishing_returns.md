@@ -219,7 +219,9 @@ Experimental setup: Inject artificial error histories at different rates
 
 ---
 
-## Implications for Our Thesis
+## Implications for the Literature Review Thesis
+
+**Literature Review Thesis**: LLM reasoning is practical but fundamentally predictive (pattern matching from training distributions), not genuinely generative.
 
 ### This Paper is BALANCED — Provides Evidence for Both Sides
 

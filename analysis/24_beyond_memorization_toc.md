@@ -227,7 +227,7 @@ Evidence:
 - Token limits may affect complex constructions
 - No API-level orchestration tested
 
-### Critical Assessment for Our Thesis
+### Critical Assessment for the Pattern-Matching Thesis
 
 **Strengths of this paper as evidence**:
 - Formally verifiable correctness (no ambiguity)
@@ -258,7 +258,9 @@ Evidence:
 
 ---
 
-## Implications for Our Thesis
+## Implications for the Literature Review Thesis
+
+**Literature Review Thesis**: LLM reasoning is practical but fundamentally predictive (pattern matching from training distributions), not genuinely generative.
 
 ### Direct Support for Core Arguments
 
@@ -289,7 +291,7 @@ Evidence:
 
 > "Our results reveal a stark dissociation between knowledge and reasoning: all models achieve 100% accuracy on factual questions and 84–90% on seen construction tasks, but accuracy drops sharply on unseen problems (20.67–59.12% under direct prompting, representing 30–64 percentage point drops)"
 
-This is strong evidence for our thesis, but should be cited with the caveat that it's preliminary work in a single domain. The "dissociation between knowledge and reasoning" finding is particularly valuable.
+This is strong evidence for the pattern-matching thesis, but should be cited with the caveat that it's preliminary work in a single domain. The "dissociation between knowledge and reasoning" finding is particularly valuable.
 
 ---
 
