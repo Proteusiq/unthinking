@@ -279,6 +279,13 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Hierarchical Thinking FSM (2510.22437)** | **supports** | **Effective Without Thinking (2504.09858)** | **Sometimes shorter is better** |
 | **Hierarchical Thinking FSM (2510.22437)** | **supports** | **CogniLoad (2509.18458)** | **Task length matters for math but not all tasks** |
 | **Hierarchical Thinking FSM (2510.22437)** | **provides method for** | **Reasoning interpretability** | **FSM framework for tracking state transitions** |
+| **LLMs Truly Grasp Addition (2504.05262)** | **supports** | **GSM-Symbolic (2410.05229)** | **Both show high accuracy hides brittleness; symbolic collapse confirms surface pattern matching** |
+| **LLMs Truly Grasp Addition (2504.05262)** | **supports** | **Faith and Fate (2305.18654)** | **Confirms pattern matching mechanism; commutativity violations prove no abstract rule learning** |
+| **LLMs Truly Grasp Addition (2504.05262)** | **supports** | **Semantic Deception (2512.20812)** | **Both show addition failures under representation changes** |
+| **LLMs Truly Grasp Addition (2504.05262)** | **supports** | **Sequential Enumeration (2512.04727)** | **Both show LLMs can't count/compute algorithmically** |
+| **LLMs Truly Grasp Addition (2504.05262)** | **provides evidence for** | **Benchmark validity concerns** | **High scores reflect pattern recognition, not understanding (99.8% → 7.5%)** |
+| **LLMs Truly Grasp Addition (2504.05262)** | **provides evidence for** | **Surfacing hypothesis** | **SFT surfaces patterns (97.17%), doesn't create understanding (0% symbolic transfer)** |
+| **LLMs Truly Grasp Addition (2504.05262)** | **partially supports** | **DeepSeek-R1 (2501.12948)** | **R1-Distill shows better (but still imperfect) transfer: -5.99% vs -92% drop** |
 
 ### Extends / Builds On
 
@@ -389,6 +396,7 @@ These papers have NO direct rebuttals found:
 | **IOI Minimal Circuits (2510.25013)** | **2-head model sufficient for perfect IOI; additive-contrastive mechanism; single head provably insufficient; task-constrained training finds simpler circuits than pre-training** |
 | **RADAR (2510.08931)** | **93% accuracy distinguishing recall vs reasoning; early convergence = recall (pattern matching); distributed attention = reasoning; 100% on clear cases; 76.7% on ambiguous** |
 | **Hierarchical Thinking FSM (2510.22437)** | **FSM framework for reasoning; length helps math (43%→83%) but can HURT factual (Qwen: longest chains, lower GPQA accuracy); adaptive transitions characterize strong models** |
+| **LLMs Truly Grasp Addition (2504.05262)** | **99.81%→7.51% symbolic (Claude); 1,700+ commutativity violations (A+B≠B+A); rule provision HURTS (-81.2%); SFT: 97.17% numerical, 0% symbolic transfer; STRONGEST evidence for pattern matching** |
 
 ---
 
@@ -432,3 +440,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added IOI Minimal Circuits (2510.25013) — 2-head sufficient; additive-contrastive mechanism; task-constrained training simpler |
 | 2026-01-24 | Added RADAR (2510.08931) — 93% recall vs reasoning detection; early convergence = pattern matching; mechanistic contamination detection |
 | 2026-01-24 | Added Hierarchical Thinking FSM (2510.22437) — FSM framework; length helps math but can hurt factual; adaptive transitions in strong models |
+| 2026-01-24 | Added LLMs Truly Grasp Addition (2504.05262) — STRONGEST pattern matching evidence: 99.8%→7.5% symbolic, 1,700+ commutativity violations, 0% SFT transfer |
