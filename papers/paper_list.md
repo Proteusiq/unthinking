@@ -195,7 +195,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ### Compositional Generalization & Limitations
 | # | arXiv ID | Date | Title | Stance | Status |
 |---|----------|------|-------|--------|--------|
-| 67 | 2512.04727 | Dec 2025 | Sequential Enumeration in Large Language Models | Against | pending |
+| 67 | 2512.04727 | Dec 2025 | Sequential Enumeration in Large Language Models | Against | ✅ DONE |
 | 68 | 2506.18880 | Jun 2025 | OMEGA: Can LLMs Reason Outside the Box in Math? | Against | ✅ DONE |
 | 69 | 2601.06914 | Jan 2026 | Towards Compositional Generalization via Skill Taxonomy Guided Data Synthesis | Balanced | pending |
 | 70 | 2510.20783 | Oct 2025 | Out-of-Distribution Tests Reveal Compositionality in Chess Transformers | Balanced | pending |
@@ -226,7 +226,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 |---|----------|------|-------|--------|--------|
 | 80 | 2601.08058 | Jan 2026 | Reasoning Beyond CoT: A Latent Computational Mode in LLMs | Balanced | ✅ DONE |
 | 81 | 2601.10825 | Jan 2026 | Reasoning Models Generate Societies of Thought | Balanced | pending |
-| 82 | 2512.23722 | Dec 2025 | Emergent World Beliefs: Exploring Transformers in Stochastic Games | For | pending |
+| 82 | 2512.23722 | Dec 2025 | Emergent World Beliefs: Exploring Transformers in Stochastic Games | Balanced | ✅ DONE |
 | 83 | 2511.23476 | Nov 2025 | Thinking by Doing: Building Efficient World Model Reasoning | Balanced | pending |
 
 ### Other Notable Papers
@@ -246,7 +246,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 - **For Reasoning**: ~25
 - **Balanced**: ~29
 - **Date Range**: 2024-2026
-- **Analyzed**: 39
+- **Analyzed**: 41
 
 ---
 
