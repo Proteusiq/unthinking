@@ -1040,36 +1040,76 @@ body {
 
 .header-compact .compact-title {
     font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.125rem;
+    font-weight: 700;
     color: var(--text-primary);
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    letter-spacing: -0.01em;
 }
 
-.header-compact .search-container {
+/* Transparent search in compact bar */
+.search-container-compact {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--text-muted);
     min-width: 200px;
     max-width: 300px;
-    background: transparent;
-    border: 1px solid var(--glass-border);
+    transition: border-color var(--transition-normal);
 }
 
-.header-compact .header-toggle {
-    width: 36px;
-    height: 36px;
-    background: transparent;
-    border: 1px solid var(--glass-border);
+.search-container-compact:focus-within {
+    border-bottom-color: var(--accent-supports);
 }
 
-.header-compact .header-toggle:hover {
+.search-container-compact .search-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.search-container-compact input {
+    border: none;
+    background: transparent;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    width: 100%;
+    outline: none;
+}
+
+.search-container-compact input::placeholder {
+    color: var(--text-muted);
+}
+
+/* Expand button in compact bar */
+.header-toggle-expand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    flex-shrink: 0;
+    opacity: 0.6;
+}
+
+.header-toggle-expand:hover {
+    opacity: 1;
     background: var(--glass-bg-subtle);
 }
 
-.header-compact .header-toggle svg {
-    transform: rotate(180deg);
+.header-toggle-expand svg {
     width: 18px;
     height: 18px;
+    color: var(--text-secondary);
 }
 
 /* Collapsed state */
