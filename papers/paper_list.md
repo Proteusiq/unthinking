@@ -176,7 +176,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 
 | # | arXiv ID | Date | Title | Why Critical | Status |
 |---|----------|------|-------|--------------|--------|
-| F1 | 2305.18654 | May 2023 | Faith and Fate: Limits of Transformers on Compositionality (Dziri et al.) | Computation graph analysis — proves "linearized subgraph matching" mechanism. Core theoretical foundation for pattern-matching hypothesis. Cited by GSM-Symbolic. | pending |
+| F1 | 2305.18654 | May 2023 | Faith and Fate: Limits of Transformers on Compositionality (Dziri et al.) | Computation graph analysis — proves "linearized subgraph matching" mechanism. Core theoretical foundation for pattern-matching hypothesis. Cited by GSM-Symbolic. | ✅ DONE |
 | F2 | 2307.13702 | Jul 2023 | Measuring Faithfulness in Chain-of-Thought Reasoning (Lanham et al.) | Establishes CoT unfaithfulness empirically. Larger models = less faithful. Foundation for faithfulness debate. | pending |
 
 ---
