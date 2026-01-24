@@ -1,0 +1,56 @@
+# Check if docs changed and redeploy if needed
+name: Check Docs Update
+
+on:
+  schedule:
+    # Run every 6 hours
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  check-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check if docs changed since last deploy
+        id: check
+        run: |
+          # Get last successful deploy-pages run
+          LAST_DEPLOY=$(gh run list --workflow=deploy-pages.yml --status=success --limit=1 --json createdAt --jq '.[0].createdAt' || echo "")
+          
+          if [ -z "$LAST_DEPLOY" ]; then
+            echo "No previous deploy found, triggering deploy"
+            echo "should_deploy=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          
+          echo "Last deploy: $LAST_DEPLOY"
+          
+          # Check if any commits to docs/ since last deploy
+          CHANGES=$(git log --since="$LAST_DEPLOY" --oneline -- docs/ | wc -l)
+          
+          if [ "$CHANGES" -gt 0 ]; then
+            echo "Found $CHANGES commits to docs/ since last deploy"
+            echo "should_deploy=true" >> $GITHUB_OUTPUT
+          else
+            echo "No changes to docs/ since last deploy"
+            echo "should_deploy=false" >> $GITHUB_OUTPUT
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Trigger deploy
+        if: steps.check.outputs.should_deploy == 'true'
+        run: |
+          gh workflow run deploy-pages.yml
+          echo "Triggered deploy-pages workflow"
+        env:
+          GH_TOKEN: ${{ github.token }}
