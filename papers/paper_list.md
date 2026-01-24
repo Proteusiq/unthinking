@@ -219,7 +219,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 |---|----------|------|-------|--------|--------|
 | 77 | 2601.02989 | Jan 2026 | Mechanistic Interpretability of Large-Scale Counting in LLMs | Balanced | ✅ DONE |
 | 78 | 2510.25013 | Oct 2025 | Emergence of Minimal Circuits for Indirect Object Identification | Balanced | ✅ DONE |
-| 79 | 2512.01222 | Dec 2025 | Unsupervised Decoding of Encoded Reasoning using LM Interpretability | Balanced | pending |
+| 79 | 2512.01222 | Dec 2025 | Unsupervised Decoding of Encoded Reasoning using LM Interpretability | Balanced | ✅ DONE (analysis: 60_unsupervised_decoding_encoded_reasoning.md) |
 
 ### Latent Reasoning & World Models
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -248,7 +248,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 - **For Reasoning**: ~26
 - **Balanced**: ~31
 - **Date Range**: 2024-2026
-- **Analyzed**: 60
+- **Analyzed**: 62
 
 ---
 
