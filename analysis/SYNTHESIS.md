@@ -30,8 +30,9 @@
 | 22 | Illusion of Diminishing Returns | Sep 2025 | Balanced | Self-conditioning: errors beget errors; thinking fixes it; execution ≠ reasoning |
 | 23 | Can LLM Graph Reasoning Generalize | Jun 2024 | Supports | "Pattern regurgitators" (EMNLP 2024); 0% strong recovery on reasoning |
 | 24 | Beyond Memorization: ToC Tasks | Jan 2026 | Supports | 100% factual knowledge, 30-64% drop on unseen DFA construction |
+| 25 | Reasoning Model Is Superior Judge | Jan 2026 | Balanced | LRMs better at judgment but MORE susceptible to superficial biases (32pp drop) |
 
-**Total: 25 papers analyzed (2 foundational + 23 main)**
+**Total: 26 papers analyzed (2 foundational + 24 main)**
 
 **Stance key**: 
 - **Supports** = supports our thesis (LLMs are pattern matching, not truly reasoning)
@@ -805,13 +806,15 @@ For B=1 (NO search required, just follow edges):
 | **100% knowledge ≠ reasoning** | **100% factual, 30-64% drop on unseen** | **Beyond Memorization (2601.13392)** |
 | **"Pattern regurgitators"** | **0% strong recovery on reasoning** | **Can LLM Graph Reasoning (2406.15992)** |
 | **Prompting strategies fail** | **CoT/ToT: only 1-4% improvement** | **Beyond Memorization (2601.13392)** |
+| **LRMs MORE biased on superficial features** | **32pp drop on BiasBench (88%→59%)** | **Reasoning Model Superior Judge (2601.03630)** |
+| **"Systematic evaluation against metrics"** | **Pattern matching metric words** | **Reasoning Model Superior Judge (2601.03630)** |
 
 ---
 
 ## Thesis Position (Strengthened)
 
-**Total Papers**: 25 analyzed
-**Stance Breakdown**: Supports=17, Challenges=5, Balanced=3
+**Total Papers**: 26 analyzed
+**Stance Breakdown**: Supports=17, Challenges=5, Balanced=4
 
 The evidence now overwhelmingly supports the "Against" position:
 

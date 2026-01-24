@@ -54,7 +54,7 @@ Total papers to read from provided evidence (2024+ only)
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
 | 20 | 2509.12645 | Sep 2025 | Large Language Models Imitate Logical Reasoning, but at what Cost? | ✅ DONE |
-| 21 | 2509.13345 | Sep 2025 | Accuracy Paradox in Large Language Models: Regulating Hallucination Risks | pending |
+| 21 | 2509.13345 | Sep 2025 | Beyond Accuracy: Rethinking Hallucination and Regulatory Response (Policy paper - SKIP) | SKIPPED |
 | 22 | 2512.20812 | Dec 2025 | Semantic Deception: When Reasoning Models Can't Compute an Addition | ✅ DONE |
 | 23 | 2507.07313 | Jul 2025 | Frontier LLMs Still Struggle with Simple Reasoning Tasks | ✅ DONE |
 | 24 | 2507.10624 | Jul 2025 | Comprehension Without Competence: Architectural Limits of LLMs in Symbolic Computation | ✅ DONE |
@@ -148,7 +148,7 @@ Total papers to read from provided evidence (2024+ only)
 | # | arXiv ID | Date | Title | Stance | Status |
 |---|----------|------|-------|--------|--------|
 | 56 | 2510.22371 | Oct 2025 | Reasoning Models Reason Well, Until They Don't | Balanced | ✅ DONE |
-| 57 | 2601.03630 | Jan 2026 | Reasoning Model Is Superior LLM-Judge, Yet Suffers from Biases | Balanced | pending |
+| 57 | 2601.03630 | Jan 2026 | Reasoning Model Is Superior LLM-Judge, Yet Suffers from Biases | Balanced | ✅ DONE |
 | 58 | 2601.00514 | Jan 2026 | The Illusion of Insight in Reasoning Models | Against | ✅ DONE |
 | 59 | 2506.17219 | Jun 2025 | No Free Lunch: Rethinking Internal Feedback for LLM Reasoning | Balanced | pending |
 | 60 | 2509.00971 | Sep 2025 | CoreThink: A Symbolic Reasoning Layer for Long Horizon Tasks | Balanced | pending |
