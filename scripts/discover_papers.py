@@ -1,227 +1,404 @@
 #!/usr/bin/env python3
 """
-Daily Paper Discovery Script
+Daily Paper Discovery Script (v2)
 
-Searches arXiv for new papers relevant to:
-- LLM reasoning capabilities and limitations
-- Chain-of-thought faithfulness
-- Compositional generalization
-- RL for reasoning
-- Test-time compute scaling
+Improved pipeline:
+1. SEARCH: Find papers from last 7 days on arXiv
+2. QUALIFY: Filter to LLM reasoning/thinking papers only
+3. DEDUPE: Check against paper_list.md to skip existing
+4. CONNECT: Check if paper cites/references papers we already have
+5. OUTPUT: Add qualified papers to toread.md
 
-Adds new papers to papers/toread.md with explanation of relevance.
 """
 
 import arxiv
+import re
 import os
 from datetime import datetime, timedelta
 from pathlib import Path
 
 
-# Search queries for relevant papers
-QUERIES = [
-    # Core reasoning topics
-    'cat:cs.CL AND (abs:"LLM reasoning" OR abs:"language model reasoning")',
-    'cat:cs.CL AND abs:"chain of thought" AND (abs:"faithful" OR abs:"unfaithful")',
-    'cat:cs.CL AND abs:"compositional generalization" AND abs:"language model"',
-    'cat:cs.CL AND (abs:"reasoning" AND abs:"out-of-distribution")',
-    
-    # RL and reasoning
-    'cat:cs.CL AND abs:"reinforcement learning" AND abs:"reasoning"',
-    'cat:cs.CL AND abs:"test-time" AND (abs:"scaling" OR abs:"compute")',
-    
-    # Specific phenomena
-    'cat:cs.CL AND abs:"pattern matching" AND abs:"language model"',
-    'cat:cs.CL AND (abs:"emergent" AND abs:"reasoning" AND abs:"LLM")',
-    'cat:cs.CL AND abs:"reasoning" AND abs:"illusion"',
-    'cat:cs.CL AND abs:"CoT" AND (abs:"mirage" OR abs:"limitation")',
+# =============================================================================
+# CONFIGURATION
+# =============================================================================
+
+# Only search recent papers (last N days)
+DAYS_LOOKBACK = 7
+
+# Core search - broad net for reasoning papers
+SEARCH_QUERIES = [
+    'cat:cs.CL AND abs:"reasoning"',
+    'cat:cs.CL AND abs:"chain of thought"', 
+    'cat:cs.CL AND abs:"chain-of-thought"',
+    'cat:cs.AI AND abs:"LLM" AND abs:"reasoning"',
+    'cat:cs.LG AND abs:"language model" AND abs:"reasoning"',
 ]
 
-# Keywords that indicate high relevance to thesis
-HIGH_RELEVANCE_KEYWORDS = [
+# QUALIFICATION: Paper must contain at least one of these in title/abstract
+MUST_HAVE_KEYWORDS = [
+    # Core reasoning terms
+    'reasoning', 'chain of thought', 'chain-of-thought', 'cot',
+    'thinking', 'thought', 'inference',
+    # LLM terms
+    'llm', 'large language model', 'language model', 'gpt', 'transformer',
+    # Specific phenomena we care about
+    'faithfulness', 'faithful', 'unfaithful',
+    'compositional', 'generalization', 'out-of-distribution', 'ood',
+    'pattern matching', 'memorization', 'emergence', 'emergent',
+    'test-time', 'scaling', 'reinforcement learning',
+]
+
+# Papers mentioning these get higher priority
+THESIS_RELEVANT_KEYWORDS = [
     'pattern matching', 'distribution shift', 'out-of-distribution',
-    'faithfulness', 'unfaithful', 'compositional', 'generalization failure',
-    'reasoning collapse', 'reasoning limitation', 'reasoning boundary',
-    'RL reasoning', 'test-time compute', 'chain-of-thought faithful',
-    'emergent reasoning', 'reasoning emergence', 'reasoning illusion',
+    'faithfulness', 'unfaithful', 'compositional generalization',
+    'reasoning collapse', 'reasoning limitation', 'reasoning failure',
+    'illusion', 'mirage', 'surface', 'superficial',
+    'memorization vs reasoning', 'genuine reasoning',
 ]
 
-# Keywords that indicate challenges to thesis (also interesting!)
-CHALLENGE_KEYWORDS = [
-    'genuine reasoning', 'reasoning capability', 'reasoning emergence',
-    'reasoning improvement', 'scaling reasoning', 'reasoning breakthrough',
-]
+# Known paper titles/IDs we have (will be loaded from paper_list.md)
+KNOWN_PAPERS = set()
+KNOWN_TITLES = set()
 
 
-def load_existing_papers(paper_list_path: Path, toread_path: Path) -> set:
-    """Load arXiv IDs of papers we already have."""
-    existing = set()
+# =============================================================================
+# STEP 1: SEARCH
+# =============================================================================
+
+def search_recent_papers(days_back: int = 7) -> dict:
+    """Search arXiv for recent papers matching our queries."""
     
-    for path in [paper_list_path, toread_path]:
-        if path.exists():
-            content = path.read_text()
-            # Extract arXiv IDs (format: XXXX.XXXXX)
-            import re
-            ids = re.findall(r'\b(\d{4}\.\d{4,5})\b', content)
-            existing.update(ids)
-    
-    return existing
-
-
-def search_arxiv(query: str, max_results: int = 50) -> list:
-    """Search arXiv with a query."""
     client = arxiv.Client()
-    search = arxiv.Search(
-        query=query,
-        max_results=max_results,
-        sort_by=arxiv.SortCriterion.SubmittedDate,
-        sort_order=arxiv.SortOrder.Descending
-    )
+    cutoff_date = datetime.now() - timedelta(days=days_back)
+    all_papers = {}
     
-    results = []
-    try:
-        for paper in client.results(search):
-            results.append(paper)
-    except Exception as e:
-        print(f"Error searching for '{query}': {e}")
+    for query in SEARCH_QUERIES:
+        print(f"  Searching: {query[:60]}...")
+        
+        search = arxiv.Search(
+            query=query,
+            max_results=100,
+            sort_by=arxiv.SortCriterion.SubmittedDate,
+            sort_order=arxiv.SortOrder.Descending
+        )
+        
+        try:
+            for paper in client.results(search):
+                # Only recent papers
+                if paper.published.replace(tzinfo=None) < cutoff_date:
+                    continue
+                    
+                arxiv_id = paper.get_short_id()
+                if arxiv_id not in all_papers:
+                    all_papers[arxiv_id] = paper
+        except Exception as e:
+            print(f"    Error: {e}")
     
-    return results
+    return all_papers
 
 
-def assess_relevance(paper) -> tuple[str, str]:
+# =============================================================================
+# STEP 2: QUALIFY
+# =============================================================================
+
+def qualifies_as_reasoning_paper(paper) -> tuple[bool, list]:
     """
-    Assess paper relevance and generate explanation.
-    Returns (stance, explanation).
+    Check if paper is actually about LLM reasoning.
+    Returns (qualifies, matched_keywords)
     """
     text = f"{paper.title} {paper.summary}".lower()
     
-    # Check for high relevance keywords
-    high_matches = [kw for kw in HIGH_RELEVANCE_KEYWORDS if kw.lower() in text]
-    challenge_matches = [kw for kw in CHALLENGE_KEYWORDS if kw.lower() in text]
+    # Must have at least one core keyword
+    matched = []
+    for kw in MUST_HAVE_KEYWORDS:
+        if kw.lower() in text:
+            matched.append(kw)
+    
+    # Must have both: reasoning-related AND LLM-related
+    has_reasoning = any(kw in matched for kw in [
+        'reasoning', 'chain of thought', 'chain-of-thought', 'cot', 
+        'thinking', 'thought', 'inference'
+    ])
+    has_llm = any(kw in matched for kw in [
+        'llm', 'large language model', 'language model', 'gpt', 'transformer'
+    ])
+    
+    qualifies = has_reasoning and has_llm
+    
+    return qualifies, matched
+
+
+def assess_thesis_relevance(paper, matched_keywords: list) -> tuple[str, int, str]:
+    """
+    Assess how relevant paper is to our thesis.
+    Returns (stance, priority_score, explanation)
+    """
+    text = f"{paper.title} {paper.summary}".lower()
+    
+    # Check for thesis-relevant keywords
+    thesis_matches = []
+    for kw in THESIS_RELEVANT_KEYWORDS:
+        if kw.lower() in text:
+            thesis_matches.append(kw)
     
     # Determine likely stance
-    if len(challenge_matches) > len(high_matches):
-        stance = "CHALLENGES"
-        explanation = f"May challenge thesis. Keywords: {', '.join(challenge_matches[:3])}"
-    elif high_matches:
+    supports_indicators = [
+        'limitation', 'failure', 'collapse', 'illusion', 'mirage',
+        'pattern matching', 'memorization', 'unfaithful', 'superficial'
+    ]
+    challenges_indicators = [
+        'genuine reasoning', 'true reasoning', 'reasoning capability',
+        'emergence', 'breakthrough', 'improvement'
+    ]
+    
+    supports_count = sum(1 for kw in supports_indicators if kw in text)
+    challenges_count = sum(1 for kw in challenges_indicators if kw in text)
+    
+    if supports_count > challenges_count:
         stance = "SUPPORTS"
-        explanation = f"Likely supports thesis. Keywords: {', '.join(high_matches[:3])}"
+    elif challenges_count > supports_count:
+        stance = "CHALLENGES"
     else:
         stance = "BALANCED"
-        explanation = "Relevance unclear - needs review"
     
-    # Add specific reasons based on content
-    reasons = []
+    # Priority score (higher = more relevant)
+    priority = len(thesis_matches) * 2 + len(matched_keywords)
     
-    if 'faithful' in text or 'unfaithful' in text:
-        reasons.append("CoT faithfulness analysis")
-    if 'compositional' in text:
-        reasons.append("Compositional generalization")
-    if 'out-of-distribution' in text or 'ood' in text:
-        reasons.append("OOD generalization")
-    if 'reinforcement learning' in text or ' rl ' in text:
-        reasons.append("RL for reasoning")
-    if 'test-time' in text:
-        reasons.append("Test-time scaling")
-    if 'pattern' in text and 'match' in text:
-        reasons.append("Pattern matching analysis")
-    if 'emergent' in text:
-        reasons.append("Emergence claims")
+    # Build explanation
+    if thesis_matches:
+        explanation = f"Thesis-relevant: {', '.join(thesis_matches[:3])}"
+    else:
+        explanation = f"General reasoning paper. Keywords: {', '.join(matched_keywords[:3])}"
     
-    if reasons:
-        explanation = f"{explanation}. Topics: {', '.join(reasons)}"
-    
-    return stance, explanation
+    return stance, priority, explanation
 
 
-def format_paper_entry(paper, stance: str, explanation: str) -> str:
+# =============================================================================
+# STEP 3: DEDUPE
+# =============================================================================
+
+def load_existing_papers(paper_list_path: Path) -> tuple[set, set]:
+    """Load existing paper IDs and titles from paper_list.md."""
+    
+    paper_ids = set()
+    paper_titles = set()
+    
+    if not paper_list_path.exists():
+        return paper_ids, paper_titles
+    
+    content = paper_list_path.read_text()
+    
+    # Extract arXiv IDs (format: XXXX.XXXXX)
+    ids = re.findall(r'\b(\d{4}\.\d{4,5})\b', content)
+    paper_ids.update(ids)
+    
+    # Extract titles (rough - lines that look like titles)
+    for line in content.split('\n'):
+        # Look for markdown links or title-like patterns
+        title_match = re.search(r'\[([^\]]+)\]', line)
+        if title_match:
+            title = title_match.group(1).lower().strip()
+            if len(title) > 20:  # Skip short non-titles
+                paper_titles.add(title)
+    
+    return paper_ids, paper_titles
+
+
+def is_duplicate(paper, known_ids: set, known_titles: set) -> bool:
+    """Check if we already have this paper."""
+    
+    arxiv_id = paper.get_short_id()
+    
+    # Check ID
+    if arxiv_id in known_ids:
+        return True
+    
+    # Check title similarity (fuzzy)
+    title_lower = paper.title.lower().strip()
+    if title_lower in known_titles:
+        return True
+    
+    # Check partial title match (first 50 chars)
+    title_prefix = title_lower[:50]
+    for known in known_titles:
+        if title_prefix in known or known[:50] in title_lower:
+            return True
+    
+    return False
+
+
+# =============================================================================
+# STEP 4: CHECK CONNECTIONS
+# =============================================================================
+
+def check_connections(paper, known_ids: set) -> list:
+    """
+    Check if paper mentions any papers we already have.
+    Returns list of referenced paper IDs.
+    """
+    text = f"{paper.title} {paper.summary}".lower()
+    
+    connections = []
+    for known_id in known_ids:
+        if known_id in text:
+            connections.append(known_id)
+    
+    return connections
+
+
+# =============================================================================
+# STEP 5: OUTPUT
+# =============================================================================
+
+def format_paper_entry(paper, stance: str, priority: int, explanation: str, connections: list) -> str:
     """Format a paper as a markdown entry."""
+    
     arxiv_id = paper.get_short_id()
     date = paper.published.strftime("%Y-%m-%d")
     
-    return f"""### [{paper.title}](https://arxiv.org/abs/{arxiv_id})
+    entry = f"""### [{paper.title}](https://arxiv.org/abs/{arxiv_id})
 - **arXiv**: {arxiv_id}
-- **Date**: {date}
+- **Published**: {date}
 - **Stance**: {stance}
+- **Priority**: {priority}/10
 - **Why read**: {explanation}
-- **Abstract**: {paper.summary[:500]}{'...' if len(paper.summary) > 500 else ''}
+"""
+    
+    if connections:
+        entry += f"- **Cites our papers**: {', '.join(connections)}\n"
+    
+    # Truncate abstract
+    abstract = paper.summary.replace('\n', ' ')[:400]
+    if len(paper.summary) > 400:
+        abstract += '...'
+    
+    entry += f"- **Abstract**: {abstract}\n\n"
+    
+    return entry
+
+
+def write_toread(papers: list, output_path: Path):
+    """Write qualified papers to toread.md."""
+    
+    today = datetime.now().strftime("%Y-%m-%d")
+    
+    # Sort by priority (highest first)
+    papers.sort(key=lambda x: x['priority'], reverse=True)
+    
+    content = f"""# Papers to Read
+
+New papers discovered by automated search. Qualified as LLM reasoning papers and checked for relevance to thesis.
+
+**Last updated**: {today}
+**Papers found**: {len(papers)}
+
+---
+
+## {today}
 
 """
+    
+    for p in papers:
+        content += format_paper_entry(
+            p['paper'], 
+            p['stance'], 
+            p['priority'], 
+            p['explanation'],
+            p['connections']
+        )
+    
+    content += "---\n"
+    
+    output_path.write_text(content)
+    print(f"Wrote {len(papers)} papers to {output_path}")
 
+
+# =============================================================================
+# MAIN
+# =============================================================================
 
 def main():
+    print("=" * 60)
+    print("Paper Discovery Pipeline")
+    print("=" * 60)
+    
     # Paths
     repo_root = Path(__file__).parent.parent
     paper_list = repo_root / "papers" / "paper_list.md"
     toread = repo_root / "papers" / "toread.md"
     
-    # Load existing papers
-    existing = load_existing_papers(paper_list, toread)
-    print(f"Found {len(existing)} existing papers")
-    
-    # Search for new papers
-    all_papers = {}
-    for query in QUERIES:
-        print(f"Searching: {query[:50]}...")
-        papers = search_arxiv(query)
-        for paper in papers:
-            arxiv_id = paper.get_short_id()
-            if arxiv_id not in existing and arxiv_id not in all_papers:
-                all_papers[arxiv_id] = paper
-    
-    print(f"Found {len(all_papers)} new papers")
+    # Step 1: Search
+    print("\n[1/5] Searching arXiv for recent papers...")
+    all_papers = search_recent_papers(DAYS_LOOKBACK)
+    print(f"  Found {len(all_papers)} papers from last {DAYS_LOOKBACK} days")
     
     if not all_papers:
-        print("No new papers found")
-        # Create empty toread.md if it doesn't exist
-        if not toread.exists():
-            toread.write_text("# Papers to Read\n\nNo new papers found yet.\n")
+        print("No papers found. Exiting.")
         return
     
-    # Assess and format papers
-    today = datetime.now().strftime("%Y-%m-%d")
-    entries = []
+    # Step 2 & 3: Load existing papers for deduplication
+    print("\n[2/5] Loading existing papers...")
+    known_ids, known_titles = load_existing_papers(paper_list)
+    print(f"  Known: {len(known_ids)} IDs, {len(known_titles)} titles")
     
-    for arxiv_id, paper in sorted(all_papers.items(), 
-                                   key=lambda x: x[1].published, 
-                                   reverse=True):
-        stance, explanation = assess_relevance(paper)
-        entry = format_paper_entry(paper, stance, explanation)
-        entries.append(entry)
+    # Step 3: Qualify and dedupe
+    print("\n[3/5] Qualifying papers...")
+    qualified = []
     
-    # Read existing toread.md or create new
-    if toread.exists():
-        content = toread.read_text()
-    else:
-        content = """# Papers to Read
-
-New papers discovered by automated search, pending review for literature survey.
-
----
-
-"""
+    for arxiv_id, paper in all_papers.items():
+        # Skip duplicates
+        if is_duplicate(paper, known_ids, known_titles):
+            continue
+        
+        # Check if it's actually about LLM reasoning
+        qualifies, matched = qualifies_as_reasoning_paper(paper)
+        if not qualifies:
+            continue
+        
+        # Assess relevance
+        stance, priority, explanation = assess_thesis_relevance(paper, matched)
+        
+        qualified.append({
+            'paper': paper,
+            'matched_keywords': matched,
+            'stance': stance,
+            'priority': min(priority, 10),  # Cap at 10
+            'explanation': explanation,
+            'connections': [],
+        })
     
-    # Add new section for today
-    new_section = f"""## {today} - {len(entries)} new papers
-
-{chr(10).join(entries)}
-
----
-
-"""
+    print(f"  Qualified: {len(qualified)} papers")
     
-    # Insert after header
-    if "---\n\n##" in content:
-        # Insert before first date section
-        parts = content.split("---\n\n##", 1)
-        content = parts[0] + "---\n\n" + new_section + "##" + parts[1]
-    else:
-        content = content.rstrip() + "\n\n" + new_section
+    if not qualified:
+        print("No new qualified papers. Exiting.")
+        # Create empty file to indicate we checked
+        toread.write_text(f"# Papers to Read\n\nNo new papers found on {datetime.now().strftime('%Y-%m-%d')}.\n")
+        return
     
-    # Write updated file
-    toread.write_text(content)
-    print(f"Added {len(entries)} papers to {toread}")
-
+    # Step 4: Check connections
+    print("\n[4/5] Checking connections to existing papers...")
+    for item in qualified:
+        connections = check_connections(item['paper'], known_ids)
+        item['connections'] = connections
+        if connections:
+            item['priority'] += 2  # Boost priority if cites our papers
+            print(f"  {item['paper'].get_short_id()} cites: {connections}")
+    
+    # Step 5: Output
+    print("\n[5/5] Writing to toread.md...")
+    write_toread(qualified, toread)
+    
+    # Summary
+    print("\n" + "=" * 60)
+    print("Summary")
+    print("=" * 60)
+    print(f"Total searched: {len(all_papers)}")
+    print(f"Qualified: {len(qualified)}")
+    print(f"Supports thesis: {sum(1 for p in qualified if p['stance'] == 'SUPPORTS')}")
+    print(f"Challenges thesis: {sum(1 for p in qualified if p['stance'] == 'CHALLENGES')}")
+    print(f"Balanced: {sum(1 for p in qualified if p['stance'] == 'BALANCED')}")
+    
 
 if __name__ == "__main__":
     main()
