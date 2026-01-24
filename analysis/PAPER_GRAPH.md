@@ -182,6 +182,11 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **How LLMs Learn to Reason (2509.23629)** | **supports** | **OMEGA (2506.18880)** | **Policy collapse; convergence on specific patterns** |
 | **How LLMs Learn to Reason (2509.23629)** | **provides mechanism for** | **Illusion of Thinking (2506.06941)** | **Sparse web has limited paths → collapse at complexity** |
 | **How LLMs Learn to Reason (2509.23629)** | **provides mechanism for** | **Catastrophic forgetting** | **Bridge-severing in sparse tree structure** |
+| **Reasoning Beyond CoT (2601.08058)** | **supports** | **CoT Without Prompting (2402.10200)** | **Both show reasoning elicitable without explicit CoT** |
+| **Reasoning Beyond CoT (2601.08058)** | **supports** | **Emergent Symbolic Mechanisms (2502.20332)** | **Both identify specific mechanisms for reasoning** |
+| **Reasoning Beyond CoT (2601.08058)** | **supports** | **Interplay (2512.07783)** | **Explains how pre-training provides capability that can be surfaced** |
+| **Reasoning Beyond CoT (2601.08058)** | **does not address** | **OMEGA (2506.18880)** | **No OOD generalization testing** |
+| **Reasoning Beyond CoT (2601.08058)** | **does not address** | **Planning Gap (2601.14456)** | **No OOD generalization testing** |
 
 ### Extends / Builds On
 
@@ -273,6 +278,7 @@ These papers have NO direct rebuttals found:
 | **Algorithmic Primitives (2510.15987)** | **"Primitives" are learned patterns (nearest_neighbor from training); no accuracy testing; no OOD testing** |
 | **Emergent Symbolic Mechanisms (2502.20332)** | **98% cross-token generalization; but "abstraction" = positional invariance; no OOD/complexity testing; all tasks in-distribution** |
 | **How LLMs Learn to Reason (2509.23629)** | **Sparse concept web (⟨k⟩≈2) theory for RLVR; but "integration" = organizing existing patterns; policy collapse = overfitting** |
+| **Reasoning Beyond CoT (2601.08058)** | **Latent reasoning mode identifiable via SAE; but feature is mode SWITCH not quality indicator; no OOD testing** |
 
 ---
 
@@ -296,3 +302,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Algorithmic Primitives (2510.15987) — "Primitives" are learned patterns; no accuracy/OOD testing |
 | 2026-01-24 | Added Emergent Symbolic Mechanisms (2502.20332) — "Abstraction" = positional invariance; 98% cross-token but no OOD testing |
 | 2026-01-24 | Added How LLMs Learn to Reason (2509.23629) — Sparse web theory; supports surfacing hypothesis on close reading |
+| 2026-01-24 | Added Reasoning Beyond CoT (2601.08058) — Latent mode switch; feature triggers reasoning but doesn't improve quality |
