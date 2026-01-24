@@ -147,7 +147,7 @@ Total papers to read from provided evidence (2024+ only)
 ## From Initial Table (Additional)
 | # | arXiv ID | Date | Title | Stance | Status |
 |---|----------|------|-------|--------|--------|
-| 56 | 2510.22371 | Oct 2025 | Reasoning Models Reason Well, Until They Don't | Balanced | pending |
+| 56 | 2510.22371 | Oct 2025 | Reasoning Models Reason Well, Until They Don't | Balanced | ✅ DONE |
 | 57 | 2601.03630 | Jan 2026 | Reasoning Model Is Superior LLM-Judge, Yet Suffers from Biases | Balanced | pending |
 | 58 | 2601.00514 | Jan 2026 | The Illusion of Insight in Reasoning Models | Balanced | pending |
 | 59 | 2506.17219 | Jun 2025 | No Free Lunch: Rethinking Internal Feedback for LLM Reasoning | Balanced | pending |
