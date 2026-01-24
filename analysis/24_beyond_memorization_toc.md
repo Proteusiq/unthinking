@@ -166,6 +166,8 @@ Evidence:
 - **Faith and Fate (2305.18654)**: Distribution-bounded failures
 - **CoT Mirage (2508.01191)**: ID success, OOD failure
 - **GSM-Symbolic (2410.05229)**: Brittleness to variations
+- **OMEGA (2506.18880)**: 0% transformative generalization confirms L1→L2 failure pattern; compositional constraint addition breaks models
+- **Planning Gap (2601.14456)**: 82.9% ID → 0% OOD directly parallels 84-90% seen → 20-59% unseen DFA gap
 
 ### Extends
 - First systematic seen/unseen split for Theory of Computation

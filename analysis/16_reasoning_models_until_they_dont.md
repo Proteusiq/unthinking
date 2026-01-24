@@ -176,6 +176,8 @@ Manual inspection of R1's "thinking tokens" revealed:
 - **Illusion of Thinking** — Abrupt collapse pattern identical
 - **CoT Mirage** — Distribution-dependent success
 - **Limits of Innate Planning** — Planning fails at complexity
+- **OMEGA (2506.18880)** — 0% transformative generalization confirms distribution boundary
+- **Planning Gap (2601.14456)** — 82.9% ID → 0% OOD mirrors abrupt complexity cliff
 
 ### Extends
 - **Interplay paper** — Shows WHERE the distribution boundary is

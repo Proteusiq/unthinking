@@ -176,6 +176,8 @@ LLMs have the former, not the latter.
 - **Faith and Fate (2305.18654)** — "linearized subgraph matching" cited
 - **GSM-Symbolic (2410.05229)** — 65% degradation cited
 - **Illusion of Thinking (2506.06941)** — Same complexity collapse pattern
+- **OMEGA (2506.18880)** — 0% transformative generalization confirms compositional reasoning failure
+- **Planning Gap (2601.14456)** — 82.9% ID → 0% OOD exemplifies comprehension/competence dissociation
 
 ### Provides Mechanism For
 - Why CoT can be unfaithful (comprehension ≠ execution)

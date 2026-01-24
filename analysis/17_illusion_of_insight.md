@@ -149,6 +149,7 @@ What we actually observe:
 - **Measuring Faithfulness (2307.13702)** — CoT is unfaithful
 - **Reasoning Models Don't Say (2505.05410)** — CoT doesn't reflect computation
 - **CoT In The Wild (2503.08679)** — Natural unfaithfulness
+- **OMEGA (2506.18880)** — RL training can HURT generalization; shifts don't constitute improvement
 
 ### Extends
 - **Illusion of Thinking (2506.06941)** — Different "illusion" but same conclusion
