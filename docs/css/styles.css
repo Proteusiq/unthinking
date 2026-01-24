@@ -1044,9 +1044,12 @@ body {
     font-family: var(--font-display);
     font-size: 1.125rem;
     font-weight: 700;
-    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-supports) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     white-space: nowrap;
-    letter-spacing: -0.01em;
 }
 
 /* Transparent search in compact bar */
@@ -1099,6 +1102,12 @@ body {
 
 .header.collapsed {
     transform: translateY(calc(-100% + 56px));
+}
+
+.header.collapsed .header-content,
+.header.collapsed .stats-bar {
+    visibility: hidden;
+    opacity: 0;
 }
 
 .header.collapsed .header-compact {
