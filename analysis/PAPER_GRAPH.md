@@ -203,6 +203,17 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Reasoning Beyond CoT (2601.08058)** | **supports** | **Algorithmic Primitives (2510.15987)** | **Both find identifiable internal patterns for reasoning** |
 | **Emergent Symbolic Mechanisms (2502.20332)** | **supports** | **Reasoning Beyond CoT (2601.08058)** | **Both identify latent mechanisms; SAE features vs attention heads** |
 | **How LLMs Learn to Reason (2509.23629)** | **supports** | **Emergent Symbolic Mechanisms (2502.20332)** | **Both show structured internal organization emerges** |
+| **Sequential Enumeration (2512.04727)** | **supports** | **Faith and Fate (2305.18654)** | **Counting uses token patterns, not true algorithms** |
+| **Sequential Enumeration (2512.04727)** | **supports** | **OMEGA (2506.18880)** | **Counting = compositional skill that fails OOD** |
+| **Sequential Enumeration (2512.04727)** | **supports** | **Planning Gap (2601.14456)** | **Counting only works when trained patterns apply** |
+| **Sequential Enumeration (2512.04727)** | **supports** | **Illusion of Thinking (2506.06941)** | **Systematic failure on counting; no spontaneous counting** |
+| **Sequential Enumeration (2512.04727)** | **supports** | **GSM-Symbolic (2410.05229)** | **Surface pattern exploitation vs. genuine computation** |
+| **Sequential Enumeration (2512.04727)** | **challenged by** | **Emergent Symbolic Mechanisms (2502.20332)** | **Claims symbolic circuits exist; but this paper shows they don't support counting** |
+| **Emergent World Beliefs (2512.23722)** | **supports** | **Othello/Chess world model papers** | **Extends paradigm to POMDP** |
+| **Emergent World Beliefs (2512.23722)** | **supports** | **Emergent Symbolic Mechanisms (2502.20332)** | **Evidence for internal representations** |
+| **Emergent World Beliefs (2512.23722)** | **challenged by** | **Planning Gap (2601.14456)** | **World models don't transfer OOD** |
+| **Emergent World Beliefs (2512.23722)** | **challenged by** | **OMEGA (2506.18880)** | **Compositional generalization fails** |
+| **Emergent World Beliefs (2512.23722)** | **challenged by** | **Faith and Fate (2305.18654)** | **Probed features may not be causally used** |
 
 ### Extends / Builds On
 
@@ -296,6 +307,8 @@ These papers have NO direct rebuttals found:
 | **How LLMs Learn to Reason (2509.23629)** | **Sparse concept web (⟨k⟩≈2) theory for RLVR; but "integration" = organizing existing patterns; policy collapse = overfitting** |
 | **Reasoning Beyond CoT (2601.08058)** | **Latent reasoning mode identifiable via SAE; but feature is mode SWITCH not quality indicator; no OOD testing** |
 | **Rethinking Illusion of Thinking (2507.01231)** | **Replication confirms Hanoi ~8 disk limit; River Crossing methodology fixed; LRMs = "stochastic searchers"** |
+| **Sequential Enumeration (2512.04727)** | **LLMs can't spontaneously count; 0 models counted systematically; explicit counting = token patterns (decade dips)** |
+| **Emergent World Beliefs (2512.23722)** | **r=0.59 equity correlation (moderate); but equity was in training data; no OOD/compositional testing** |
 
 ---
 
@@ -322,3 +335,5 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Reasoning Beyond CoT (2601.08058) — Latent mode switch; feature triggers reasoning but doesn't improve quality |
 | 2026-01-24 | Added Rethinking Illusion of Thinking (2507.01231) — Replication confirms Hanoi limits; corrects River Crossing methodology |
 | 2026-01-24 | Added Reasoning Models Effective Without Thinking (2504.09858) — NoThinking outperforms Thinking under token constraints |
+| 2026-01-24 | Added Sequential Enumeration (2512.04727) — LLMs can't spontaneously count; explicit counting = token patterns |
+| 2026-01-24 | Added Emergent World Beliefs (2512.23722) — r=0.59 equity correlation; equity was in training signal; no OOD testing |
