@@ -67,7 +67,7 @@ Total papers to read from provided evidence (2024+ only)
 ### Intrinsic Reasoning Abilities
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
-| 26 | 2402.10200 | Feb 2024 | Chain-of-Thought Reasoning Without Prompting (Wang & Zhou) | pending |
+| 26 | 2402.10200 | Feb 2024 | Chain-of-Thought Reasoning Without Prompting (Wang & Zhou) | ✅ DONE |
 | 27 | TBD | Oct 2025 | Algorithmic Primitives and Compositional Geometry of Reasoning | pending |
 | 28 | TBD | Sep 2025 | Implicit Reasoning in Large Language Models: A Comprehensive Survey | pending |
 
