@@ -114,6 +114,10 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Illusion of Insight (2601.00514)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | **CoT doesn't reflect computation** |
 | **LLMs Imitate Logical Reasoning (2509.12645)** | **supports** | **Faith and Fate (2305.18654)** | **Imitation = pattern matching** |
 | **LLMs Imitate Logical Reasoning (2509.12645)** | **supports** | **Illusion of Thinking (2506.06941)** | **Not genuine reasoning** |
+| **Frontier LLMs Still Struggle (2507.07313)** | **supports** | **Illusion of Thinking (2506.06941)** | **Same abrupt collapse; thinking models fail too** |
+| **Frontier LLMs Still Struggle (2507.07313)** | **supports** | **Faith and Fate (2305.18654)** | **Error accumulation mechanism** |
+| **Frontier LLMs Still Struggle (2507.07313)** | **supports** | **GSM-Symbolic (2410.05229)** | **Distribution-dependent failures** |
+| **Frontier LLMs Still Struggle (2507.07313)** | **challenges** | **DeepSeek-R1 (2501.12948)** | **R1 at 0% character counting!** |
 
 ### Extends / Builds On
 
@@ -192,6 +196,7 @@ These papers have NO direct rebuttals found:
 | Measuring Faithfulness (2307.13702) | CoT unfaithfulness; larger = less faithful |
 | Semantic Deception (2512.20812) | Semantic override; reasoning models fail MORE |
 | Reasoning Models Don't Say (2505.05410) | 25-40% faithfulness |
+| **Frontier LLMs Still Struggle (2507.07313)** | **Unpuzzles: easier=worse; R1 0% char counting** |
 
 ---
 
@@ -200,3 +205,4 @@ These papers have NO direct rebuttals found:
 | Date | Update |
 |------|--------|
 | 2026-01-24 | Initial creation with 18 papers |
+| 2026-01-24 | Added Frontier LLMs Still Struggle (2507.07313) |
