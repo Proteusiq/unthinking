@@ -306,6 +306,13 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Unsupervised Decoding (2512.01222)** | **provides method for** | **AI Safety monitoring** | **Framework for detecting hidden reasoning** |
 | **Unsupervised Decoding (2512.01222)** | **does not address** | **Planning Gap (2601.14456)** | **No OOD generalization testing** |
 | **Unsupervised Decoding (2512.01222)** | **does not address** | **OMEGA (2506.18880)** | **No compositional generalization testing** |
+| **Unveiling Causal Reasoning (2506.21215)** | **supports** | **Faith and Fate (2305.18654)** | **Both show LLMs rely on pattern matching rather than genuine reasoning** |
+| **Unveiling Causal Reasoning (2506.21215)** | **supports** | **GSM-Symbolic (2410.05229)** | **Both show high accuracy on familiar data hides brittleness on fresh data** |
+| **Unveiling Causal Reasoning (2506.21215)** | **supports** | **Planning Gap (2601.14456)** | **Both show ID/OOD gap as evidence of memorization** |
+| **Unveiling Causal Reasoning (2506.21215)** | **supports** | **Beyond Memorization (2601.13392)** | **Both use temporal freshness to test genuine reasoning vs. retrieval** |
+| **Unveiling Causal Reasoning (2506.21215)** | **supports** | **CoT Mirage (2508.01191)** | **Both show ID success, OOD failure pattern** |
+| **Unveiling Causal Reasoning (2506.21215)** | **provides framework for** | **Pattern matching thesis** | **Level-1 (retrieval) vs Level-2 (genuine reasoning) distinction** |
+| **Unveiling Causal Reasoning (2506.21215)** | **challenged by** | **Physics of LLMs 2.1 (2407.20311)** | **Shows some genuine OOD generalization in controlled settings** |
 
 ### Extends / Builds On
 
@@ -421,6 +428,7 @@ These papers have NO direct rebuttals found:
 | **Shortcut Learning (2410.13343)** | **LLMs rely on shortcuts; INVERSE SCALING: larger models MORE susceptible; >40% drops on constituent shortcut; overconfidence masks poor reasoning; few-shot underperforms zero-shot** |
 | **MMLU-Pro+ (2409.02257)** | **Anchoring bias: models stick to original choices; -14.3pp drop GPT-4o; struggle with multiple correct answers; CPI ratio shows 3.7x variation; provides SSR/CPI metrics for shortcut detection** |
 | **Unsupervised Decoding (2512.01222)** | **Logit lens decodes ROT-13 at ~75% accuracy (layer 58); internal representations anchor to English; unsupervised pipeline achieves ~7/10 grader score; BUT ROT-13 is trivial encoding; doesn't address pattern matching vs reasoning** |
+| **Unveiling Causal Reasoning (2506.21215)** | **Level-1 vs Level-2 causal reasoning framework; 99.1%→69.2% drop Claude (COPA→CausalProbe-H); autoregression ≠ logical causality; temporal freshness test; STRONGLY SUPPORTS pattern matching thesis** |
 
 ---
 
@@ -469,3 +477,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Shortcut Learning (2410.13343) — Inverse scaling (larger = more shortcuts); >40% drops; overconfidence |
 | 2026-01-24 | Added MMLU-Pro+ (2409.02257) — Anchoring bias; -14.3pp GPT-4o drop; CPI ratio 3.7x variation; NeurIPS 2024 |
 | 2026-01-24 | Added Unsupervised Decoding (2512.01222) — Logit lens decodes ROT-13 ~75%; internal representations anchor to English; BALANCED (doesn't address pattern matching) |
+| 2026-01-24 | Added Unveiling Causal Reasoning (2506.21215) — Level-1/Level-2 framework; 99.1%→69.2% drop on fresh data; STRONGLY SUPPORTS thesis |
