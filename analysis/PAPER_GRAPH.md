@@ -126,6 +126,10 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Illusion of Diminishing Returns (2509.09677)** | **extends** | **Faith and Fate (2305.18654)** | **Error accumulation mechanism** |
 | **Illusion of Diminishing Returns (2509.09677)** | **partially supports** | **DeepSeek-R1 (2501.12948)** | **Thinking models fix self-conditioning** |
 | **Illusion of Diminishing Returns (2509.09677)** | **reframes** | **Illusion of Thinking (2506.06941)** | **Execution failure, not reasoning inability** |
+| **Beyond Memorization (2601.13392)** | **supports** | **Can LLM Graph Reasoning (2406.15992)** | **"Pattern regurgitators" — same finding (100% knowledge, fails on unseen)** |
+| **Beyond Memorization (2601.13392)** | **supports** | **Faith and Fate (2305.18654)** | **Distribution-bounded failures; compositional failures** |
+| **Beyond Memorization (2601.13392)** | **supports** | **CoT Mirage (2508.01191)** | **ID success (84-90%), OOD failure (20-59%)** |
+| **Beyond Memorization (2601.13392)** | **supports** | **GSM-Symbolic (2410.05229)** | **Brittleness to variations; seen/unseen gap** |
 
 ### Extends / Builds On
 
@@ -206,6 +210,7 @@ These papers have NO direct rebuttals found:
 | Reasoning Models Don't Say (2505.05410) | 25-40% faithfulness |
 | **Frontier LLMs Still Struggle (2507.07313)** | **Unpuzzles: easier=worse; R1 0% char counting** |
 | **Illusions of Reflection (2510.18254)** | **85% same-failure; reasoning models no advantage** |
+| **Beyond Memorization (2601.13392)** | **100% knowledge + 30-64% drop on unseen; prompting doesn't help** |
 
 ---
 
@@ -217,3 +222,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Frontier LLMs Still Struggle (2507.07313) |
 | 2026-01-24 | Added Illusions of Reflection (2510.18254) |
 | 2026-01-24 | Added Illusion of Diminishing Returns (2509.09677) |
+| 2026-01-24 | Added Beyond Memorization (2601.13392) — 100% knowledge, fails on unseen |

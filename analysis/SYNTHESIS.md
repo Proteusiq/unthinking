@@ -28,8 +28,10 @@
 | 20 | Frontier LLMs Still Struggle | Jul 2025 | Supports | Unpuzzles: easier=worse (GPT-4o 75%→20%); R1 0% char counting; "reasoning delirium" |
 | 21 | Illusions of Reflection | Oct 2025 | Supports | Reflection repeats same failure 85%; reasoning models NO advantage |
 | 22 | Illusion of Diminishing Returns | Sep 2025 | Balanced | Self-conditioning: errors beget errors; thinking fixes it; execution ≠ reasoning |
+| 23 | Can LLM Graph Reasoning Generalize | Jun 2024 | Supports | "Pattern regurgitators" (EMNLP 2024); 0% strong recovery on reasoning |
+| 24 | Beyond Memorization: ToC Tasks | Jan 2026 | Supports | 100% factual knowledge, 30-64% drop on unseen DFA construction |
 
-**Total: 24 papers analyzed (2 foundational + 22 main)**
+**Total: 25 papers analyzed (2 foundational + 23 main)**
 
 **Stance key**: 
 - **Supports** = supports our thesis (LLMs are pattern matching, not truly reasoning)
@@ -57,6 +59,8 @@ Training Data → Pattern Extraction → Subgraph Matching → Apparent Reasonin
 - Reflection repeats same failure 85% of time (Illusions of Reflection)
 - Split-brain syndrome: 95% step accuracy, 0% final (Comprehension Without Competence)
 - Self-conditioning: errors beget more errors (Illusion of Diminishing Returns)
+- 100% knowledge ≠ reasoning: perfect factual knowledge, fails on application (Beyond Memorization)
+- "Pattern regurgitators": 0% strong recovery on reasoning patterns (Can LLM Graph Reasoning)
 
 ### The "For" Position (Genuine Capability)
 ```
@@ -663,6 +667,18 @@ For B=1 (NO search required, just follow edges):
   - The form (human-like text) reveals the source (human training data)
 - **Implication**: "Emergent" CoT is actually surfaced imitation of human reasoning traces
 
+### Argument 10: Perfect Knowledge ≠ Compositional Reasoning
+- **Evidence**: Beyond Memorization (2601.13392) — 100% factual knowledge, 30-64% drop on unseen DFA
+- **Claim**: Models memorize facts but cannot compose them into novel solutions
+- **Key findings**:
+  - 100% accuracy on Theory of Computation definitions
+  - 84-90% on seen DFA construction problems
+  - 20-59% on unseen (same type, novel combinations)
+  - CoT/ToT prompting only adds 1-4% (not a scaffold issue)
+  - Even explicit error hints don't fix global consistency failures
+- **The L1→L2 example**: 100% on "third-to-last is 'a'", 0% on "fourth-to-last is 'a' AND 'bb' never precedes 'a'"
+- **Implication**: Pattern retrieval from training, not compositional symbolic reasoning
+
 ---
 
 ## Key Findings from Recent Papers
@@ -786,13 +802,16 @@ For B=1 (NO search required, just follow edges):
 | **Split-brain syndrome** | **95% step, 0% final** | **Comprehension Without Competence (2507.10624)** |
 | **Reasoning delirium** | **Apply wrong memorized solution** | **Frontier LLMs Still Struggle (2507.07313)** |
 | **R1 0% character counting** | **Flagship model fails trivial task** | **Frontier LLMs Still Struggle (2507.07313)** |
+| **100% knowledge ≠ reasoning** | **100% factual, 30-64% drop on unseen** | **Beyond Memorization (2601.13392)** |
+| **"Pattern regurgitators"** | **0% strong recovery on reasoning** | **Can LLM Graph Reasoning (2406.15992)** |
+| **Prompting strategies fail** | **CoT/ToT: only 1-4% improvement** | **Beyond Memorization (2601.13392)** |
 
 ---
 
 ## Thesis Position (Strengthened)
 
-**Total Papers**: 24 analyzed
-**Stance Breakdown**: Supports=15, Challenges=5, Balanced=4
+**Total Papers**: 25 analyzed
+**Stance Breakdown**: Supports=17, Challenges=5, Balanced=3
 
 The evidence now overwhelmingly supports the "Against" position:
 
