@@ -69,7 +69,7 @@ Total papers to read from provided evidence (2024+ only)
 |---|----------|------|-------|--------|
 | 26 | 2402.10200 | Feb 2024 | Chain-of-Thought Reasoning Without Prompting (Wang & Zhou) | ✅ DONE |
 | 27 | TBD | Oct 2025 | Algorithmic Primitives and Compositional Geometry of Reasoning | pending |
-| 28 | TBD | Sep 2025 | Implicit Reasoning in Large Language Models: A Comprehensive Survey | pending |
+| 28 | 2601.02996 | Jan 2026 | Large Reasoning Models Are (Not Yet) Multilingual Latent Reasoners | ✅ DONE |
 
 ### Emergence from Scaling & Training
 | # | arXiv ID | Date | Title | Status |

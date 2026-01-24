@@ -33,8 +33,9 @@
 | 25 | Reasoning Model Is Superior Judge | Jan 2026 | Balanced | LRMs better at judgment but MORE susceptible to superficial biases (32pp drop) |
 | 26 | No Free Lunch: Internal Feedback | Jun 2025 | Supports | RLIF degrades reasoning (291→235); format↑ reasoning↓; overconfidence mechanism |
 | 27 | Neuro-Symbolic AI Survey | Aug 2025 | Supports | "LLMs cannot really reason... statistical pattern recognition"; 52 papers reviewed |
+| 28 | Multilingual Latent Reasoners | Jan 2026 | Balanced | Latent reasoning EXISTS but "real and fragile"; LRS collapses 0.38→0.03 on hard problems |
 
-**Total: 28 papers analyzed (2 foundational + 26 main)**
+**Total: 29 papers analyzed (2 foundational + 27 main)**
 
 **Stance key**: 
 - **Supports** = supports our thesis (LLMs are pattern matching, not truly reasoning)
@@ -815,13 +816,15 @@ For B=1 (NO search required, just follow edges):
 | **Transitional words suppressed** | **"but", "wait", "let me check" decrease 37%** | **No Free Lunch (2506.17219)** |
 | **"LLMs cannot really reason"** | **Survey of 52 papers; "statistical pattern recognition"** | **Neuro-Symbolic AI Survey (2508.13678)** |
 | **Neuro-symbolic compensates for LLM weaknesses** | **Symbolic = System 2 for reasoning** | **Neuro-Symbolic AI Survey (2508.13678)** |
+| **Latent reasoning "real but fragile"** | **LRS: 0.38→0.03 (92% drop) on hard problems** | **Multilingual Latent Reasoners (2601.02996)** |
+| **English-centric pathway** | **Internal reasoning converges to training distribution** | **Multilingual Latent Reasoners (2601.02996)** |
 
 ---
 
 ## Thesis Position (Strengthened)
 
-**Total Papers**: 28 analyzed
-**Stance Breakdown**: Supports=19, Challenges=5, Balanced=4
+**Total Papers**: 29 analyzed
+**Stance Breakdown**: Supports=19, Challenges=5, Balanced=5
 
 The evidence now overwhelmingly supports the "Against" position:
 
