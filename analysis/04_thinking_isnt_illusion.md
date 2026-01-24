@@ -188,6 +188,7 @@ But do they? Or do they show LRMs are good at **generating correct programs** fo
 | **Faithfulness papers** | Even with tools, reasoning may be unfaithful |
 | **Semantic Deception** | Surface patterns still mislead |
 | **Limits of Agentic Frameworks** | Even with environment access, some tasks fail |
+| **Rethinking Illusion (2507.01231)** | Agentic dialogue makes Hanoi WORSE; base reasoning genuinely limited |
 
 ---
 

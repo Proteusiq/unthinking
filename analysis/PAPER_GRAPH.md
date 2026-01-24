@@ -189,8 +189,15 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Reasoning Beyond CoT (2601.08058)** | **does not address** | **Planning Gap (2601.14456)** | **No OOD generalization testing** |
 | **Rethinking Illusion of Thinking (2507.01231)** | **confirms** | **Illusion of Thinking (2506.06941)** | **Hanoi: ~8 disk limit is real cognitive limitation** |
 | **Rethinking Illusion of Thinking (2507.01231)** | **partially rebuts** | **Illusion of Thinking (2506.06941)** | **River Crossing: tested unsolvable configs; LRMs succeed on solvable (200 steps)** |
+| **Rethinking Illusion of Thinking (2507.01231)** | **confirms** | **Lawsen (2506.09250)** | **Stepwise prompting doesn't fix Hanoi; output window NOT the issue** |
 | **Rethinking Illusion of Thinking (2507.01231)** | **challenges** | **Agentic Gap (2506.18957)** | **Agentic dialogue makes Hanoi WORSE, not better** |
+| **Rethinking Illusion of Thinking (2507.01231)** | **challenges** | **Thinking Isn't Illusion (2507.17699)** | **Base reasoning genuinely limited; tools may help but problem is real** |
 | **Rethinking Illusion of Thinking (2507.01231)** | **supports** | **OMEGA (2506.18880)** | **Same phase transition / complexity threshold patterns** |
+| **Rethinking Illusion of Thinking (2507.01231)** | **supports** | **Faith and Fate (2305.18654)** | **Failures at constrained solution spaces; "stochastic searchers"** |
+| **Reasoning Beyond CoT (2601.08058)** | **supports** | **How LLMs Learn to Reason (2509.23629)** | **Both identify internal mechanisms for reasoning mode activation** |
+| **Reasoning Beyond CoT (2601.08058)** | **supports** | **Algorithmic Primitives (2510.15987)** | **Both find identifiable internal patterns for reasoning** |
+| **Emergent Symbolic Mechanisms (2502.20332)** | **supports** | **Reasoning Beyond CoT (2601.08058)** | **Both identify latent mechanisms; SAE features vs attention heads** |
+| **How LLMs Learn to Reason (2509.23629)** | **supports** | **Emergent Symbolic Mechanisms (2502.20332)** | **Both show structured internal organization emerges** |
 
 ### Extends / Builds On
 

@@ -178,8 +178,8 @@ As of search date, no published rebuttal to this comment paper exists.
 - [x] Evidence documented
 - [x] Thesis relevance assessed
 - [x] Cross-references identified
-- [x] **Rebuttals checked** — No direct rebuttal found
-- [x] **Counter-evidence noted** — Limits of Innate Planning, Semantic Deception
+- [x] **Rebuttals checked** — Counter-rebutted by Limits of Innate Planning, challenged by Rethinking Illusion of Thinking
+- [x] **Counter-evidence noted** — Limits of Innate Planning, Semantic Deception, Rethinking (2507.01231)
 
 ---
 
@@ -194,4 +194,9 @@ The "Agentic Gap" comment provides an important rebuttal to "Illusion of Thinkin
 - CoT remains unfaithful even with tools
 - Simple tasks still fail with semantic interference
 
-**Thesis should**: Acknowledge execution/reasoning distinction while maintaining that tool-dependent success ≠ proof of genuine reasoning capability.
+**Challenge from Rethinking (2507.01231)**:
+- Agentic dialogue makes Towers of Hanoi **WORSE**, not better
+- Multi-agent collaboration doesn't help when base reasoning is limited
+- "Agentic gap" framing may be too optimistic
+
+**Thesis should**: Acknowledge execution/reasoning distinction while maintaining that tool-dependent success ≠ proof of genuine reasoning capability. Note that agentic approaches are task-dependent and don't universally solve the problem.

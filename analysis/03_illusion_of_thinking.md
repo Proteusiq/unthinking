@@ -363,15 +363,33 @@ Key finding: Tool augmentation reverses collapse completely:
 
 ---
 
+### Replication Study: Varela et al. (2507.01231) — "Rethinking the Illusion of Thinking"
+
+**Already analyzed** (see `37_rethinking_illusion_of_thinking.md`)
+
+**Dual finding — partial rebuttal + partial confirmation:**
+
+| Task | Finding | Relationship |
+|------|---------|--------------|
+| **River Crossing** | Original tested UNSOLVABLE configs (k=3, N>5). On solvable configs, LRMs solve 200-step problems | **PARTIAL REBUTTAL** |
+| **Towers of Hanoi** | ~8 disk limit CONFIRMED as real cognitive limitation. Stepwise prompting and agentic dialogue DON'T fix it | **CONFIRMATION** |
+
+Key quote: "LRMs are stochastic, RL-tuned searchers in a discrete state space we barely understand"
+
+**Important**: Agentic dialogue makes Hanoi WORSE (challenges Agentic Gap rebuttal)
+
+---
+
 ### Assessment: How Seriously to Take Rebuttals
 
 | Critique | Validity | Impact on Original Paper |
 |----------|----------|--------------------------|
-| Impossible River Crossing instances | **VALID** — mathematically proven | Invalidates N>5 results |
-| Token limit issues | **VALID** — models explicitly acknowledge | Weakens "collapse" interpretation |
+| Impossible River Crossing instances | **VALID** — mathematically proven (Rethinking confirms) | Invalidates N>5 results |
+| Token limit issues | **PARTIALLY VALID** — Rethinking shows stepwise doesn't fix Hanoi | Output window NOT the issue for Hanoi |
 | Alternative representations work | **VALID** — demonstrated empirically | Suggests execution ≠ reasoning |
-| Tool augmentation fixes failures | **VALID** — replicated by multiple groups | Major qualification needed |
+| Tool augmentation fixes failures | **PARTIALLY VALID** — Rethinking shows agentic makes Hanoi WORSE | Task-dependent; not universal fix |
 | Complexity conflation | **PARTIALLY VALID** — fair methodological point | Interpretation issue |
+| Hanoi ~8 disk limit | **CONFIRMED** — Rethinking replication | Core finding stands |
 
 ### Revised Assessment of "Illusion of Thinking"
 
@@ -405,5 +423,5 @@ Key finding: Tool augmentation reverses collapse completely:
 - [x] Interaction diagram created
 - [x] Criticisms documented
 - [x] Author responses noted
-- [x] **Rebuttals documented (3 papers)**
+- [x] **Rebuttals documented (3 papers + 1 replication)**
 - [x] **Revised assessment provided**
