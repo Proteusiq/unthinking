@@ -647,6 +647,22 @@ For B=1 (NO search required, just follow edges):
 - **Claim**: Models memorize solutions, not understand problems
 - **Implication**: Trivialized problems activate wrong memorized patterns
 
+### Argument 8: Tool Use Supports Imitation, Not Reasoning
+- **Evidence**: Thinking Isn't Illusion (tools fix Hanoi), Limits of Innate Planning (tools don't fix 8-puzzle)
+- **Claim**: Tools work when they provide the algorithm; model just executes
+- **Implication**: "Tool-augmented success" proves execution capability, not reasoning
+- **Key insight**: If models could reason, they wouldn't need tools for problems humans solve mentally
+
+### Argument 9: DeepSeek-R1 "Without Human CoT" Actually Supports Imitation
+- **Evidence**: DeepSeek-R1 generates CoT that looks indistinguishable from human reasoning
+- **Claim**: RL without human CoT demos still produces human-like CoT
+- **Why this supports thesis**: 
+  - The model learned to IMITATE human reasoning patterns from pre-training
+  - RL surfaced these patterns, didn't create novel reasoning
+  - If it were "genuine" reasoning, why would it look exactly like human CoT?
+  - The form (human-like text) reveals the source (human training data)
+- **Implication**: "Emergent" CoT is actually surfaced imitation of human reasoning traces
+
 ---
 
 ## Key Findings from Recent Papers
