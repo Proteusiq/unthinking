@@ -176,6 +176,12 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Emergent Symbolic Mechanisms (2502.20332)** | **challenged by** | **Planning Gap (2601.14456)** | **82.9% ID → 0% OOD shows mechanisms don't generalize** |
 | **Emergent Symbolic Mechanisms (2502.20332)** | **challenged by** | **Faith and Fate (2305.18654)** | **Compositional generalization failure** |
 | **Emergent Symbolic Mechanisms (2502.20332)** | **does not address** | **Illusion of Thinking (2506.06941)** | **No complexity scaling tested** |
+| **How LLMs Learn to Reason (2509.23629)** | **supports** | **Interplay (2512.07783)** | **RL integrates pre-existing learned patterns** |
+| **How LLMs Learn to Reason (2509.23629)** | **supports** | **DeepSeek-R1 (2501.12948)** | **RLVR training dynamics; policy changes** |
+| **How LLMs Learn to Reason (2509.23629)** | **supports** | **No Free Lunch (2506.17219)** | **Policy collapse mechanism** |
+| **How LLMs Learn to Reason (2509.23629)** | **supports** | **OMEGA (2506.18880)** | **Policy collapse; convergence on specific patterns** |
+| **How LLMs Learn to Reason (2509.23629)** | **provides mechanism for** | **Illusion of Thinking (2506.06941)** | **Sparse web has limited paths → collapse at complexity** |
+| **How LLMs Learn to Reason (2509.23629)** | **provides mechanism for** | **Catastrophic forgetting** | **Bridge-severing in sparse tree structure** |
 
 ### Extends / Builds On
 
@@ -266,6 +272,7 @@ These papers have NO direct rebuttals found:
 | **Emergent Hierarchical Reasoning (2509.03646)** | **RL improves ID via "strategic template deployment" but requires pre-existing capability; fails on Llama** |
 | **Algorithmic Primitives (2510.15987)** | **"Primitives" are learned patterns (nearest_neighbor from training); no accuracy testing; no OOD testing** |
 | **Emergent Symbolic Mechanisms (2502.20332)** | **98% cross-token generalization; but "abstraction" = positional invariance; no OOD/complexity testing; all tasks in-distribution** |
+| **How LLMs Learn to Reason (2509.23629)** | **Sparse concept web (⟨k⟩≈2) theory for RLVR; but "integration" = organizing existing patterns; policy collapse = overfitting** |
 
 ---
 
@@ -288,3 +295,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Emergent Hierarchical Reasoning (2509.03646) — Explicitly supports surfacing hypothesis; requires pre-existing capability |
 | 2026-01-24 | Added Algorithmic Primitives (2510.15987) — "Primitives" are learned patterns; no accuracy/OOD testing |
 | 2026-01-24 | Added Emergent Symbolic Mechanisms (2502.20332) — "Abstraction" = positional invariance; 98% cross-token but no OOD testing |
+| 2026-01-24 | Added How LLMs Learn to Reason (2509.23629) — Sparse web theory; supports surfacing hypothesis on close reading |

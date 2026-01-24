@@ -212,7 +212,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 73 | 2509.03646 | Sep 2025 | Emergent Hierarchical Reasoning in LLMs through Reinforcement Learning | Balanced | ✅ DONE |
 | 74 | 2502.20332 | Feb 2025 | Emergent Symbolic Mechanisms Support Abstract Reasoning in LLMs | Balanced | ✅ DONE |
 | 75 | 2510.15987 | Oct 2025 | Algorithmic Primitives and Compositional Geometry of Reasoning | Balanced | ✅ DONE |
-| 76 | 2509.23629 | Sep 2025 | How LLMs Learn to Reason: A Complex Network Perspective (ICLR 2026) | For | pending |
+| 76 | 2509.23629 | Sep 2025 | How LLMs Learn to Reason: A Complex Network Perspective (ICLR 2026) | Balanced | ✅ DONE |
 
 ### Mechanistic Interpretability
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -241,10 +241,10 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ## Updated Summary Statistics
 - **Total Papers**: ~86
 - **Against Reasoning**: ~34
-- **For Reasoning**: ~26
-- **Balanced**: ~26
+- **For Reasoning**: ~25
+- **Balanced**: ~27
 - **Date Range**: 2024-2026
-- **Analyzed**: 35
+- **Analyzed**: 36
 
 ---
 
