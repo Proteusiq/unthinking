@@ -340,6 +340,13 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Limits of Emergent Reasoning Agentic (2510.15974)** | **supports** | **Faith and Fate (2305.18654)** | **Looping = stuck in linearized pattern matching** |
 | **Limits of Emergent Reasoning Agentic (2510.15974)** | **supports** | **How LLMs Learn to Reason (2509.23629)** | **Models stuck in local modes of sparse web** |
 | **Limits of Emergent Reasoning Agentic (2510.15974)** | **provides mechanism for** | **Why test-time scaling fails** | **Models loop through same patterns, can't escape local modes** |
+| **Compositional-ARC (2504.01445)** | **supports** | **Faith and Fate (2305.18654)** | **Both show LLMs fail at compositional generalization** |
+| **Compositional-ARC (2504.01445)** | **supports** | **OMEGA (2506.18880)** | **Same pattern: primitives succeed, compositions fail** |
+| **Compositional-ARC (2504.01445)** | **supports** | **Planning Gap (2601.14456)** | **Similar ID/OOD gap (high seen, zero novel)** |
+| **Compositional-ARC (2504.01445)** | **supports** | **GSM-Symbolic (2410.05229)** | **LLMs fail on novel variations of known patterns** |
+| **Compositional-ARC (2504.01445)** | **extends** | **Lake & Baroni (2023) MLC** | **MLC from linguistic to spatial reasoning** |
+| **Compositional-ARC (2504.01445)** | **provides evidence for** | **Pattern matching hypothesis** | **3-shot success + systematicity failure = memorization** |
+| **Compositional-ARC (2504.01445)** | **challenges** | **o3-mini reasoning claims** | **o3-mini WORST on systematicity (0.53%) despite best on 3-shot** |
 
 ### Extends / Builds On
 
@@ -461,6 +468,7 @@ These papers have NO direct rebuttals found:
 | **Theory for Length Generalization (2404.00560)** | **LG achievable IFF: |X|<infinity (finite input space), D=X (training covers all inputs), specific representation engineering; impossibility result for infinite X; BALANCED but supports thesis on close reading** |
 | **Survey of Inductive Reasoning (2510.10182)** | **"Inductive ability originates from induction heads"; "Induction means simplicity"; "No universal bias" = task-specific engineering required; test-time scaling = searching through learned patterns; enhancement methods don't create reasoning; SUPPORTS thesis** |
 | **Limits of Emergent Reasoning Agentic (2510.15974)** | **Agentic framework makes collapse WORSE (earlier than baseline); ~40% deterministic looping; JSD diverges from BOTH optimal AND random policies; "high-probability mode following, not genuine reasoning"; REBUTS Agentic Gap; STRONGLY SUPPORTS thesis** |
+| **Compositional-ARC (2504.01445)** | **LLMs fail systematicity: o3-mini 0.53%, GPT-4o 0.99% on novel compositions; 5.7M MLC model (78.26%) beats 8B+ LLMs; TTT needed for LLM success (0.7%→78%); 3-shot success + systematicity failure = memorization not reasoning; STRONGLY SUPPORTS thesis** |
 
 ---
 
@@ -517,3 +525,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Theory for Length Generalization (2404.00560) — LG requires D=X (complete training coverage) + finite input space + engineered representations; impossibility for infinite X; BALANCED |
 | 2026-01-24 | Added Survey of Inductive Reasoning (2510.10182) — "Inductive ability originates from induction heads" = pattern matching mechanism; "Induction means simplicity" = models prefer learned patterns; "No universal bias" = task-specific; test-time scaling = search through learned patterns; SUPPORTS thesis |
 | 2026-01-24 | Added Limits of Emergent Reasoning Agentic (2510.15974) — Agentic framework WORSE than baseline; ~40% deterministic looping; JSD diverges from both optimal AND random; REBUTS Agentic Gap (2506.18957); STRONGLY SUPPORTS thesis |
+| 2026-01-24 | Added Compositional-ARC (2504.01445) — o3-mini 0.53%, GPT-4o 0.99% on systematicity; 5.7M MLC > 8B+ LLMs; TTT is NOT genuine generalization; 3-shot vs systematicity gap = smoking gun for pattern matching; STRONGLY SUPPORTS thesis |
