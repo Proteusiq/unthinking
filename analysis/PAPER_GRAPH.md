@@ -118,6 +118,10 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Frontier LLMs Still Struggle (2507.07313)** | **supports** | **Faith and Fate (2305.18654)** | **Error accumulation mechanism** |
 | **Frontier LLMs Still Struggle (2507.07313)** | **supports** | **GSM-Symbolic (2410.05229)** | **Distribution-dependent failures** |
 | **Frontier LLMs Still Struggle (2507.07313)** | **challenges** | **DeepSeek-R1 (2501.12948)** | **R1 at 0% character counting!** |
+| **Illusions of Reflection (2510.18254)** | **supports** | **Illusion of Insight (2601.00514)** | **Reflection = fluent text, not correction** |
+| **Illusions of Reflection (2510.18254)** | **supports** | **Measuring Faithfulness (2307.13702)** | **CoT text ≠ internal computation** |
+| **Illusions of Reflection (2510.18254)** | **challenges** | **DeepSeek-R1 (2501.12948)** | **Reasoning models no better; may be WORSE** |
+| **Illusions of Reflection (2510.18254)** | **challenges** | **s1 (2501.19393)** | **Test-time compute doesn't guarantee improvement** |
 
 ### Extends / Builds On
 
@@ -197,6 +201,7 @@ These papers have NO direct rebuttals found:
 | Semantic Deception (2512.20812) | Semantic override; reasoning models fail MORE |
 | Reasoning Models Don't Say (2505.05410) | 25-40% faithfulness |
 | **Frontier LLMs Still Struggle (2507.07313)** | **Unpuzzles: easier=worse; R1 0% char counting** |
+| **Illusions of Reflection (2510.18254)** | **85% same-failure; reasoning models no advantage** |
 
 ---
 
@@ -206,3 +211,4 @@ These papers have NO direct rebuttals found:
 |------|--------|
 | 2026-01-24 | Initial creation with 18 papers |
 | 2026-01-24 | Added Frontier LLMs Still Struggle (2507.07313) |
+| 2026-01-24 | Added Illusions of Reflection (2510.18254) |
