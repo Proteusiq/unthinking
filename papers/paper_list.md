@@ -103,7 +103,7 @@ Total papers to read from provided evidence (2024+ only)
 ### Advanced Reasoning Demonstrations
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
-| 42 | 2512.13713 | Dec 2025 | LoopBench: Discovering Emergent Symmetry Breaking Strategies with LLM Swarms | pending |
+| 42 | 2512.13713 | Dec 2025 | LoopBench: Discovering Emergent Symmetry Breaking Strategies with LLM Swarms | ✅ DONE (analysis: 71_loopbench_symmetry_breaking.md) |
 | 43 | 2510.10182 | Oct 2025 | A Survey of Inductive Reasoning | ✅ DONE (analysis: 67_survey_inductive_reasoning.md) |
 | 44 | 2412.13013 | Dec 2024 | The Emergence of Strategic Reasoning of Large Language Models | ✅ DONE |
 | 45 | 2509.17380 | Sep 2025 | Correlation or Causation: Analyzing the Causal Structures of LLM and LRM Reasoning Process | ✅ DONE |
