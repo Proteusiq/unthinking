@@ -19,7 +19,7 @@ Total papers to read from provided evidence (2024+ only)
 |---|----------|------|-------|--------|
 | 4 | 2406.15992 | Jun 2024 | Can LLM Graph Reasoning Generalize beyond Pattern Memorization? (Zhang et al.) | ✅ DONE |
 | 5 | 2601.13392 | Jan 2026 | Beyond Memorization: Testing LLM Reasoning on Unseen Theory of Computation Tasks (Shelat et al.) | ✅ DONE |
-| 6 | TBD | Jun 2025 | Unveiling Causal Reasoning in LLMs: Reality or Mirage? | pending |
+| 6 | 2506.21215 | Jun 2025 | Unveiling Causal Reasoning in LLMs: Reality or Mirage? (NeurIPS 2024) | ✅ DONE (analysis: 61_unveiling_causal_reasoning_llms.md) |
 
 ### Unfaithful/Post-hoc Rationalization
 | # | arXiv ID | Date | Title | Status |
@@ -28,7 +28,7 @@ Total papers to read from provided evidence (2024+ only)
 | 8 | 2503.08679 | Mar 2025 | Chain-of-Thought Reasoning In The Wild Is Not Always Faithful (Arcuschin et al.) | ✅ DONE |
 | 9 | 2505.05410 | May 2025 | Reasoning Models Don't Always Say What They Think (Chen et al.) | ✅ DONE |
 | 10 | 2307.13702 | Jul 2023 | Measuring Faithfulness in Chain-of-Thought Reasoning (Lanham et al.) | ✅ DONE |
-| 11 | TBD | Jun 2024 | On the Hardness of Faithful Chain-of-Thought Reasoning (Tanneru et al.) | pending |
+| 11 | 2406.10625 | Jun 2024 | On the Hardness of Faithful Chain-of-Thought Reasoning (Tanneru et al.) | pending |
 
 ### Shortcut Learning & Bias Exploitation
 | # | arXiv ID | Date | Title | Status |
@@ -39,7 +39,7 @@ Total papers to read from provided evidence (2024+ only)
 ### Test-Time Compute Limitations
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
-| 14 | TBD | Feb 2025 | Revisiting Test-Time Scaling of o1-like Models (Zeng et al.) | pending |
+| 14 | 2502.12215 | Feb 2025 | Revisiting Test-Time Scaling of o1-like Models (Zeng et al.) | pending |
 | 15 | 2506.06941 | Jun 2025 | The Illusion of Thinking (Shojaee et al.) | ✅ DONE |
 | 16 | TBD | Oct 2025 | Limits of Emergent Reasoning in Agentic Frameworks for Deterministic Games | pending |
 | 17 | 2511.21591 | Nov 2025 | On the Limits of Innate Planning in Large Language Models | ✅ DONE |
@@ -74,7 +74,7 @@ Total papers to read from provided evidence (2024+ only)
 ### Emergence from Scaling & Training
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
-| 29 | TBD | Sep 2025 | Emergent Abilities in Large Language Models: A Survey | pending |
+| 29 | 2503.05788 | Feb 2025 | Emergent Abilities in Large Language Models: A Survey | pending |
 | 30 | TBD | Sep 2025 | Emergent Hierarchical Reasoning through RL | pending |
 | 31 | 2501.12948 | Jan 2025 | DeepSeek-R1: Incentivizing Reasoning Capability via RL | ✅ DONE |
 
@@ -89,7 +89,7 @@ Total papers to read from provided evidence (2024+ only)
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
 | 35 | 2501.19393 | Jan 2025 | s1: Simple test-time scaling | ✅ DONE |
-| 36 | TBD | Jan 2025 | A Survey of Test-Time Compute | pending |
+| 36 | 2501.02497 | Jan 2025 | A Survey of Test-Time Compute | pending |
 | 37 | TBD | 2025 | Inference-Time Scaling for Complex Tasks (Microsoft) | pending |
 | 38 | TBD | Jan 2026 | PCL-Reasoner-V1.5: Offline RL for Math Reasoning | pending |
 
@@ -248,7 +248,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 - **For Reasoning**: ~26
 - **Balanced**: ~31
 - **Date Range**: 2024-2026
-- **Analyzed**: 62
+- **Analyzed**: 63
 
 ---
 
