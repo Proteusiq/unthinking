@@ -209,7 +209,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ### Emergent Reasoning (FOR evidence)
 | # | arXiv ID | Date | Title | Stance | Status |
 |---|----------|------|-------|--------|--------|
-| 73 | 2509.03646 | Sep 2025 | Emergent Hierarchical Reasoning in LLMs through Reinforcement Learning | For | pending |
+| 73 | 2509.03646 | Sep 2025 | Emergent Hierarchical Reasoning in LLMs through Reinforcement Learning | Balanced | ✅ DONE |
 | 74 | 2502.20332 | Feb 2025 | Emergent Symbolic Mechanisms Support Abstract Reasoning in LLMs | For | pending |
 | 75 | 2510.15987 | Oct 2025 | Algorithmic Primitives and Compositional Geometry of Reasoning | For | pending |
 | 76 | 2509.23629 | Sep 2025 | How LLMs Learn to Reason: A Complex Network Perspective (ICLR 2026) | For | pending |
@@ -244,7 +244,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 - **For Reasoning**: ~28
 - **Balanced**: ~24
 - **Date Range**: 2024-2026
-- **Analyzed**: 32
+- **Analyzed**: 33
 
 ---
 
