@@ -995,6 +995,74 @@ body {
 @media (max-width: 768px) {
     .header {
         padding: var(--space-sm) var(--space-md);
+        transition: all var(--transition-normal);
+    }
+    
+    /* Collapsed header state */
+    .header.collapsed .title-section {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+    }
+    
+    .header.collapsed .main-title {
+        font-size: 1rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .header.collapsed .subtitle {
+        display: none;
+    }
+    
+    .header.collapsed .filter-group {
+        display: none;
+    }
+    
+    .header.collapsed .stats-bar {
+        display: none;
+    }
+    
+    .header.collapsed .header-content {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .header.collapsed .controls {
+        flex: 0;
+        gap: var(--space-sm);
+    }
+    
+    .header.collapsed .search-container {
+        min-width: 120px;
+        flex: 1;
+    }
+    
+    /* Header toggle button (mobile only) */
+    .header-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border: none;
+        background: var(--glass-bg-subtle);
+        border-radius: var(--radius-full);
+        cursor: pointer;
+        transition: all var(--transition-normal);
+        flex-shrink: 0;
+    }
+    
+    .header-toggle svg {
+        width: 16px;
+        height: 16px;
+        color: var(--text-secondary);
+        transition: transform var(--transition-normal);
+    }
+    
+    .header.collapsed .header-toggle svg {
+        transform: rotate(180deg);
     }
     
     .header-content {
@@ -1037,6 +1105,19 @@ body {
     
     .graph-container {
         padding-top: 200px;
+        transition: padding-top var(--transition-normal);
+    }
+    
+    .header.collapsed + .graph-container,
+    .header.collapsed ~ .graph-container {
+        padding-top: 80px;
+    }
+}
+
+/* Hide header toggle on desktop */
+@media (min-width: 769px) {
+    .header-toggle {
+        display: none;
     }
 }
 
