@@ -90,8 +90,8 @@ Total papers to read from provided evidence (2024+ only)
 |---|----------|------|-------|--------|
 | 35 | 2501.19393 | Jan 2025 | s1: Simple test-time scaling | ✅ DONE |
 | 36 | 2501.02497 | Jan 2025 | A Survey of Test-Time Compute | ✅ DONE (analysis: 65_survey_test_time_compute.md) |
-| 37 | 2504.00294 | Apr 2025 | Inference-Time Scaling for Complex Tasks: Where We Stand and What Lies Ahead (Microsoft) | pending |
-| 38 | 2601.14716 | Jan 2026 | PCL-Reasoner-V1.5: Advancing Math Reasoning with Offline RL | pending |
+| 37 | 2504.00294 | Apr 2025 | Inference-Time Scaling for Complex Tasks: Where We Stand and What Lies Ahead (Microsoft) | ✅ DONE (analysis: 80_inference_time_scaling_complex_tasks.md) |
+| 38 | 2601.14716 | Jan 2026 | PCL-Reasoner-V1.5: Advancing Math Reasoning with Offline RL | ✅ DONE (analysis: 81_pcl_reasoner_offline_rl.md) |
 
 ### Mechanistic Evidence
 | # | arXiv ID | Date | Title | Status |
@@ -127,7 +127,7 @@ Total papers to read from provided evidence (2024+ only)
 ### Reasoning as Learned Skill vs Fundamental Capability
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
-| 50 | 2509.26306 | Sep 2025 | Interactive Learning for LLM Reasoning (ILR) | pending |
+| 50 | 2509.26306 | Sep 2025 | Interactive Learning for LLM Reasoning (ILR) | ✅ DONE (analysis: 82_interactive_learning_llm_reasoning.md) |
 | 51 | 2404.00560 | Apr 2024 | A Theory for Length Generalization in Learning to Reason | ✅ DONE (analysis: 66_theory_length_generalization.md) |
 
 ### Evaluation & Definition Challenges
@@ -151,7 +151,7 @@ Total papers to read from provided evidence (2024+ only)
 | 57 | 2601.03630 | Jan 2026 | Reasoning Model Is Superior LLM-Judge, Yet Suffers from Biases | Balanced | ✅ DONE |
 | 58 | 2601.00514 | Jan 2026 | The Illusion of Insight in Reasoning Models | Against | ✅ DONE |
 | 59 | 2506.17219 | Jun 2025 | No Free Lunch: Rethinking Internal Feedback for LLM Reasoning | Supports | ✅ DONE |
-| 60 | 2509.00971 | Sep 2025 | CoreThink: A Symbolic Reasoning Layer for Long Horizon Tasks | Balanced | pending (abstract only - HTML conversion failed) |
+| 60 | 2509.00971 | Sep 2025 | CoreThink: A Symbolic Reasoning Layer for Long Horizon Tasks | Balanced | ✅ DONE (analysis: 83_corethink_symbolic_reasoning_layer.md) - abstract only |
 | 61 | 2508.13678 | Aug 2025 | Neuro-Symbolic AI: Towards Improving the Reasoning Abilities of LLMs | Supports | ✅ DONE |
 
 ---

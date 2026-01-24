@@ -390,6 +390,20 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Reasoning Abilities ARC (2403.11793)** | **supports** | **Compositional-ARC (2504.01445)** | **Same benchmark, similar findings** |
 | **Reasoning Abilities ARC (2403.11793)** | **supports** | **OMEGA (2506.18880)** | **Same pattern: primitives work, compositions fail** |
 | **Reasoning Abilities ARC (2403.11793)** | **provides framework for** | **Process vs results evaluation** | **LoTH: Logical Coherence, Compositionality, Productivity** |
+| **Inference-Time Scaling Complex (2504.00294)** | **supports** | **Survey of Test-Time Compute (2501.02497)** | **Both find task-dependent scaling effectiveness** |
+| **Inference-Time Scaling Complex (2504.00294)** | **supports** | **Illusion of Thinking (2506.06941)** | **Both show performance collapse at complexity** |
+| **Inference-Time Scaling Complex (2504.00294)** | **supports** | **Interplay (2512.07783)** | **Supports surfacing hypothesis — superscaling surfaces capability** |
+| **Inference-Time Scaling Complex (2504.00294)** | **provides evidence for** | **Surfacing hypothesis** | **GPT-4o approaches O1 with 256× superscaling** |
+| **PCL-Reasoner-V1.5 (2601.14716)** | **supports** | **Interplay (2512.07783)** | **Both show RL surfaces capability from base model** |
+| **PCL-Reasoner-V1.5 (2601.14716)** | **extends** | **DeepSeek-R1 (2501.12948)** | **Builds on R1 through distillation** |
+| **PCL-Reasoner-V1.5 (2601.14716)** | **supports** | **How LLMs Learn to Reason (2509.23629)** | **Both show RL improves through policy reorganization** |
+| **PCL-Reasoner-V1.5 (2601.14716)** | **provides evidence for** | **Surfacing hypothesis** | **RL improves long-CoT specifically = patterns exist but need activation** |
+| **Interactive Learning ILR (2509.26306)** | **supports** | **Societies of Thought (2601.10825)** | **Both show multi-agent interaction improves reasoning** |
+| **Interactive Learning ILR (2509.26306)** | **supports** | **Interplay (2512.07783)** | **Both show training can surface capability** |
+| **Interactive Learning ILR (2509.26306)** | **extends** | **GRPO (DeepSeekMath)** | **Extends with perception calibration for multi-agent** |
+| **Interactive Learning ILR (2509.26306)** | **does not address** | **OMEGA (2506.18880)** | **No OOD/compositional generalization testing** |
+| **CoreThink (2509.00971)** | **supports** | **Neuro-Symbolic AI Survey (2508.13678)** | **Both advocate symbolic augmentation** |
+| **CoreThink (2509.00971)** | **supports** | **Thinking Isn't Illusion (2507.17699)** | **Both show tool/symbolic augmentation helps** |
 
 ### Extends / Builds On
 
@@ -522,6 +536,10 @@ These papers have NO direct rebuttals found:
 | **CryptoX (2502.07813)** | **40-54pp drops with encoding; huge open/closed gap (AUC 2.47 vs 4.05); mechanistic analysis shows hierarchical subtask processing; o1 maintains 84% at 10 words encoded; SUPPORTS thesis** |
 | **CoT Monitorability (2510.27378)** | **Introduces verbosity as complement to faithfulness; Monitorability = Faithfulness + Verbosity; models appear faithful but leave out key factors; SUPPORTS thesis** |
 | **Reasoning Abilities ARC (2403.11793)** | **LoTH framework (Logical Coherence, Compositionality, Productivity); 10.6% correct answers but only 4.0% correct processes (60% lucky); 0% on Medium/Hard ARC; 1D-ARC 90% vs ARC 10%; SUPPORTS thesis** |
+| **Inference-Time Scaling Complex (2504.00294)** | **9 models × 8 benchmarks; longer tokens ≠ better accuracy; GPT-4o approaches O1 with 256× superscaling on easy TSP; complexity collapse persists; BALANCED** |
+| **PCL-Reasoner-V1.5 (2601.14716)** | **90.9% AIME 2024, 85.6% AIME 2025 via offline RL; RL improves long-CoT specifically; depends on DeepSeek-R1 distillation; FOR (partial) — supports surfacing** |
+| **Interactive Learning ILR (2509.26306)** | **Multi-agent co-learning improves individual reasoning by 3-5%; dynamic cooperation/competition; Idea3 enhances robustness; no OOD testing; BALANCED** |
+| **CoreThink (2509.00971)** | **"General Symbolics" approach; 24.4% ARC-AGI-2, 62.3% SWE-Bench Lite; no fine-tuning; FOR (partial) — symbolic augmentation helps; INCOMPLETE (abstract only)** |
 
 ---
 
@@ -589,3 +607,7 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added CryptoX (2502.07813) — 40-54pp encoding drops; hierarchical layer processing; SUPPORTS |
 | 2026-01-24 | Added CoT Monitorability (2510.27378) — Verbosity + Faithfulness = Monitorability; SUPPORTS |
 | 2026-01-24 | Added Reasoning Abilities ARC (2403.11793) — LoTH framework; 10.6%→4.0% process accuracy; SUPPORTS |
+| 2026-01-24 | Added Inference-Time Scaling Complex (2504.00294) — 9 models × 8 benchmarks; GPT-4o approaches O1 with 256× superscaling; complexity collapse persists; BALANCED |
+| 2026-01-24 | Added PCL-Reasoner-V1.5 (2601.14716) — 90.9% AIME 2024 via offline RL; RL improves long-CoT specifically; FOR (partial) |
+| 2026-01-24 | Added Interactive Learning ILR (2509.26306) — Multi-agent co-learning 3-5% improvement; dynamic cooperation/competition; BALANCED |
+| 2026-01-24 | Added CoreThink (2509.00971) — "General Symbolics"; 24.4% ARC-AGI-2; FOR (partial); INCOMPLETE (abstract only) |
