@@ -125,8 +125,8 @@ Models learned **surface syntax** but not **goal-directed planning**.
 - **None found yet** — paper is recent (Jan 2025)
 - Would need papers showing LLMs CAN generalize cross-domain on planning
 
-### Related Work Citations Supporting Our Thesis
-The paper cites several works that align with our thesis:
+### Related Work Citations Supporting the "Pattern Matching" Thesis
+The paper cites several works that align with the thesis that LLM reasoning is pattern matching rather than genuine reasoning:
 - **Shojaee et al. (2025)**: "The illusion of thinking" — reasoning models limited by problem complexity
 - **Karan and Du (2025)**: "Reasoning with sampling" — base model is smarter than you think (sampling, not learning)
 - **Yue et al. (2025)**: "Does reinforcement learning really incentivize reasoning capacity?" — RL gains don't translate to reasoning
@@ -156,13 +156,15 @@ The paper cites several works that align with our thesis:
 
 ---
 
-## Relevance to Our Thesis
+## Relevance to the Literature Review Thesis
+
+**Literature Review Thesis**: LLM reasoning is practical but fundamentally predictive (pattern matching from training distributions), not genuinely generative. RL and test-time compute "surface" pre-existing capabilities rather than creating new reasoning abilities.
 
 **CRITICAL EVIDENCE**: This paper provides one of the strongest demonstrations of the gap between in-distribution performance and genuine reasoning capability.
 
 ### Key Arguments Supported:
 
-1. **Pattern matching, not reasoning**: 82.9% → 0% is the starkest possible evidence that high benchmark performance doesn't indicate reasoning
+1. **Pattern matching, not genuine reasoning**: 82.9% → 0% is the starkest possible evidence that high benchmark performance doesn't indicate reasoning
 2. **Surface form dependence**: 10-11pp drops from semantically-neutral changes prove models learn textual patterns
 3. **RL doesn't create, only surfaces**: v3 (RL) improves efficiency but doesn't improve OOD — aligns with Interplay (2512.07783)
 4. **Loops and wandering**: Qualitative finding that models "wander without making progress" = no goal-directed reasoning
