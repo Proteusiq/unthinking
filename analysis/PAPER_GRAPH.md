@@ -291,6 +291,11 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **PhD-Level Math Reasoning (2512.13978)** | **supports** | **Illusion of Thinking (2506.06941)** | **Both reveal ceiling on reasoning capability** |
 | **PhD-Level Math Reasoning (2512.13978)** | **partially challenges** | **DeepSeek-R1 (2501.12948)** | **66% success suggests meaningful capability** |
 | **PhD-Level Math Reasoning (2512.13978)** | **partially supports** | **Physics of LLMs 2.1 (2407.20311)** | **Some genuine reasoning exists in narrow domains** |
+| **Shortcut Learning (2410.13343)** | **supports** | **GSM-Symbolic (2410.05229)** | **Both show high accuracy hides brittleness to perturbations** |
+| **Shortcut Learning (2410.13343)** | **supports** | **Faith and Fate (2305.18654)** | **Both show pattern matching over genuine reasoning** |
+| **Shortcut Learning (2410.13343)** | **supports** | **LLMs Truly Grasp Addition (2504.05262)** | **Both show symbolic/structural changes break models** |
+| **Shortcut Learning (2410.13343)** | **supports** | **Instruction-Tuned Not Better (2601.13244)** | **Both show perturbation sensitivity** |
+| **Shortcut Learning (2410.13343)** | **extends** | **Measuring Faithfulness (2307.13702)** | **Shortcut-specific evaluation framework** |
 
 ### Extends / Builds On
 
@@ -403,6 +408,7 @@ These papers have NO direct rebuttals found:
 | **Hierarchical Thinking FSM (2510.22437)** | **FSM framework for reasoning; length helps math (43%→83%) but can HURT factual (Qwen: longest chains, lower GPQA accuracy); adaptive transitions characterize strong models** |
 | **LLMs Truly Grasp Addition (2504.05262)** | **99.81%→7.51% symbolic (Claude); 1,700+ commutativity violations (A+B≠B+A); rule provision HURTS (-81.2%); SFT: 97.17% numerical, 0% symbolic transfer; STRONGEST evidence for pattern matching** |
 | **PhD-Level Math Reasoning (2512.13978)** | **~66% accuracy ceiling on Motwani-Raghavan textbook proofs; Claude best (66.4%), Grok-4 worst (33.2%); chapter variance suggests pattern-dependence; BALANCED — tests reproduction not invention** |
+| **Shortcut Learning (2410.13343)** | **LLMs rely on shortcuts; INVERSE SCALING: larger models MORE susceptible; >40% drops on constituent shortcut; overconfidence masks poor reasoning; few-shot underperforms zero-shot** |
 
 ---
 
@@ -448,3 +454,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Hierarchical Thinking FSM (2510.22437) — FSM framework; length helps math but can hurt factual; adaptive transitions in strong models |
 | 2026-01-24 | Added LLMs Truly Grasp Addition (2504.05262) — STRONGEST pattern matching evidence: 99.8%→7.5% symbolic, 1,700+ commutativity violations, 0% SFT transfer |
 | 2026-01-24 | Added PhD-Level Math Reasoning (2512.13978) — 66% ceiling on Motwani-Raghavan proofs; BALANCED (tests reproduction not invention) |
+| 2026-01-24 | Added Shortcut Learning (2410.13343) — Inverse scaling (larger = more shortcuts); >40% drops; overconfidence |
