@@ -151,7 +151,7 @@ Total papers to read from provided evidence (2024+ only)
 | 57 | 2601.03630 | Jan 2026 | Reasoning Model Is Superior LLM-Judge, Yet Suffers from Biases | Balanced | ✅ DONE |
 | 58 | 2601.00514 | Jan 2026 | The Illusion of Insight in Reasoning Models | Against | ✅ DONE |
 | 59 | 2506.17219 | Jun 2025 | No Free Lunch: Rethinking Internal Feedback for LLM Reasoning | Supports | ✅ DONE |
-| 60 | 2509.00971 | Sep 2025 | CoreThink: A Symbolic Reasoning Layer for Long Horizon Tasks | Balanced | pending |
+| 60 | 2509.00971 | Sep 2025 | CoreThink: A Symbolic Reasoning Layer for Long Horizon Tasks | Balanced | BLOCKED (ar5iv conversion failed) |
 | 61 | 2508.13678 | Aug 2025 | Neuro-Symbolic AI: Towards Improving the Reasoning Abilities of LLMs | Supports | ✅ DONE |
 
 ---
@@ -189,8 +189,8 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 62 | 2510.04040 | Oct 2025 | FaithCoT-Bench: Benchmarking Instance-Level Faithfulness of CoT Reasoning | Against | ✅ DONE |
 | 63 | 2502.14829 | Feb 2025 | Measuring CoT Faithfulness by Unlearning Reasoning Steps (EMNLP Outstanding) | Balanced | ✅ DONE |
 | 64 | 2505.23945 | May 2025 | A Closer Look at Bias and CoT Faithfulness of Large (Vision) Language Models | Against | ✅ DONE |
-| 65 | 2509.13334 | Sep 2025 | FRIT: Using Causal Importance to Improve CoT Faithfulness | Balanced | pending |
-| 66 | 2510.22362 | Oct 2025 | Mapping Faithful Reasoning in Language Models | Balanced | pending |
+| 65 | 2509.13334 | Sep 2025 | FRIT: Using Causal Importance to Improve CoT Faithfulness | Balanced | ✅ DONE |
+| 66 | 2510.22362 | Oct 2025 | Mapping Faithful Reasoning in Language Models | Balanced | ✅ DONE |
 
 ### Compositional Generalization & Limitations
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -248,7 +248,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 - **For Reasoning**: ~26
 - **Balanced**: ~30
 - **Date Range**: 2024-2026
-- **Analyzed**: 51
+- **Analyzed**: 53
 
 ---
 
