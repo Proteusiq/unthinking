@@ -24,10 +24,10 @@ Total papers to read from provided evidence (2024+ only)
 ### Unfaithful/Post-hoc Rationalization
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
-| 7 | 2508.01191 | Aug 2025 | Is Chain-of-Thought Reasoning a Mirage? A Data Distribution Lens (Zhao et al.) | pending |
+| 7 | 2508.01191 | Aug 2025 | Is Chain-of-Thought Reasoning a Mirage? A Data Distribution Lens (Zhao et al.) | ✅ DONE |
 | 8 | TBD | Mar 2025 | Chain-of-Thought Reasoning In The Wild Is Not Always Faithful (Arcuschin et al.) | pending |
 | 9 | TBD | May 2025 | Reasoning Models Don't Always Say What They Think (Chen et al.) | pending |
-| 10 | 2307.13702 | Jul 2023 | Measuring Faithfulness in Chain-of-Thought Reasoning (Lanham et al.) | pending |
+| 10 | 2307.13702 | Jul 2023 | Measuring Faithfulness in Chain-of-Thought Reasoning (Lanham et al.) | ✅ DONE |
 | 11 | TBD | Jun 2024 | On the Hardness of Faithful Chain-of-Thought Reasoning (Tanneru et al.) | pending |
 
 ### Shortcut Learning & Bias Exploitation
@@ -55,7 +55,7 @@ Total papers to read from provided evidence (2024+ only)
 |---|----------|------|-------|--------|
 | 20 | 2509.12645 | Sep 2025 | Large Language Models Imitate Logical Reasoning, but at what Cost? | pending |
 | 21 | 2509.13345 | Sep 2025 | Accuracy Paradox in Large Language Models: Regulating Hallucination Risks | pending |
-| 22 | 2512.20812 | Dec 2025 | Semantic Deception: When Reasoning Models Can't Compute an Addition | pending |
+| 22 | 2512.20812 | Dec 2025 | Semantic Deception: When Reasoning Models Can't Compute an Addition | ✅ DONE |
 | 23 | 2507.07313 | Jul 2025 | Frontier LLMs Still Struggle with Simple Reasoning Tasks | pending |
 | 24 | 2507.10624 | Jul 2025 | Comprehension Without Competence: Architectural Limits of LLMs in Symbolic Computation | pending |
 | 25 | 2510.18254 | Oct 2025 | Illusions of reflection: open-ended task reveals systematic failures in reflective reasoning | pending |
@@ -88,7 +88,7 @@ Total papers to read from provided evidence (2024+ only)
 ### Test-Time Compute Successes
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
-| 35 | 2501.19393 | Jan 2025 | s1: Simple test-time scaling | pending |
+| 35 | 2501.19393 | Jan 2025 | s1: Simple test-time scaling | ✅ DONE |
 | 36 | TBD | Jan 2025 | A Survey of Test-Time Compute | pending |
 | 37 | TBD | 2025 | Inference-Time Scaling for Complex Tasks (Microsoft) | pending |
 | 38 | TBD | Jan 2026 | PCL-Reasoner-V1.5: Offline RL for Math Reasoning | pending |
@@ -177,7 +177,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | # | arXiv ID | Date | Title | Why Critical | Status |
 |---|----------|------|-------|--------------|--------|
 | F1 | 2305.18654 | May 2023 | Faith and Fate: Limits of Transformers on Compositionality (Dziri et al.) | Computation graph analysis — proves "linearized subgraph matching" mechanism. Core theoretical foundation for pattern-matching hypothesis. Cited by GSM-Symbolic. | ✅ DONE |
-| F2 | 2307.13702 | Jul 2023 | Measuring Faithfulness in Chain-of-Thought Reasoning (Lanham et al.) | Establishes CoT unfaithfulness empirically. Larger models = less faithful. Foundation for faithfulness debate. | pending |
+| F2 | 2307.13702 | Jul 2023 | Measuring Faithfulness in Chain-of-Thought Reasoning (Lanham et al.) | Establishes CoT unfaithfulness empirically. Larger models = less faithful. Foundation for faithfulness debate. | ✅ DONE |
 
 ---
 
