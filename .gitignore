@@ -1,0 +1,17 @@
+# Session logs
+session_log.md
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Temp files
+*.tmp
+*.log
