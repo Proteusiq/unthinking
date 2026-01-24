@@ -723,10 +723,14 @@
                     applySearch(e.target.value);
                 }, 200);
             });
-            // Sync the other way too
             searchInput.addEventListener('input', () => {
                 searchInputCompact.value = searchInput.value;
             });
+        }
+
+        // Start collapsed on mobile
+        if (window.innerWidth <= 768) {
+            document.querySelector('.header').classList.add('collapsed');
         }
 
         // Window resize
