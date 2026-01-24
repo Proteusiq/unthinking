@@ -319,6 +319,12 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Emergent Abilities Survey (2503.05788)** | **extends** | **DeepSeek-R1 (2501.12948)** | **Survey covers LRM emergence patterns** |
 | **Emergent Abilities Survey (2503.05788)** | **challenges** | **Wei et al. (2022) emergence claim** | **Notes methodological issues with original claim** |
 | **Emergent Abilities Survey (2503.05788)** | **challenges** | **Schaeffer et al. "mirage" claim** | **Argues they overclaimed - some emergence is real (module arithmetic, translation)** |
+| **Survey of Test-Time Compute (2501.02497)** | **supports** | **Illusions of Reflection (2510.18254)** | **Both find self-correction limited without external feedback** |
+| **Survey of Test-Time Compute (2501.02497)** | **supports** | **Revisiting Test-Time Scaling (2502.12215)** | **Both find sequential scaling fails; parallel scaling works better** |
+| **Survey of Test-Time Compute (2501.02497)** | **supports** | **No Free Lunch (2506.17219)** | **Both find RL has limited effectiveness for improving reasoning** |
+| **Survey of Test-Time Compute (2501.02497)** | **supports** | **Interplay (2512.07783)** | **Survey's framing supports "surfacing" — TTA surfaces existing capabilities** |
+| **Survey of Test-Time Compute (2501.02497)** | **extends** | **DeepSeek-R1 (2501.12948)** | **Survey provides theoretical framework for understanding R1's approach** |
+| **Survey of Test-Time Compute (2501.02497)** | **extends** | **s1 (2501.19393)** | **Survey covers the "budget forcing" strategy explicitly** |
 
 ### Extends / Builds On
 
@@ -436,6 +442,7 @@ These papers have NO direct rebuttals found:
 | **Unsupervised Decoding (2512.01222)** | **Logit lens decodes ROT-13 at ~75% accuracy (layer 58); internal representations anchor to English; unsupervised pipeline achieves ~7/10 grader score; BUT ROT-13 is trivial encoding; doesn't address pattern matching vs reasoning** |
 | **Unveiling Causal Reasoning (2506.21215)** | **Level-1 vs Level-2 causal reasoning framework; 99.1%→69.2% drop Claude (COPA→CausalProbe-H); autoregression ≠ logical causality; temporal freshness test; STRONGLY SUPPORTS pattern matching thesis** |
 | **Emergent Abilities Survey (2503.05788)** | **Survey of 100+ papers; "memorization competes with generalization"; some emergence real (module arithmetic); pre-training loss predicts emergence (correlational); LRMs = LLM + RL + search; BALANCED** |
+| **Survey of Test-Time Compute (2501.02497)** | **Comprehensive survey; self-correction "not guaranteed" without external feedback; LLMs can correct errors but can't LOCATE them; no universal test-time scaling law; LRMs "struggle to generalize to cross-domain tasks"; SUPPORTS thesis** |
 
 ---
 
@@ -488,3 +495,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Hardness of Faithful CoT (2406.10625) — Faithfulness-accuracy tradeoff; ALL interventions fail; larger models LESS faithful; GPT-4 correct WITHOUT CoT |
 | 2026-01-24 | Added Revisiting Test-Time Scaling (2502.12215) — Correct solutions SHORTER than incorrect; self-revision HURTS (QwQ: correct→wrong > wrong→correct); parallel > sequential |
 | 2026-01-24 | Added Emergent Abilities Survey (2503.05788) — Survey of 100+ papers; "memorization competes with generalization"; some emergence real; BALANCED |
+| 2026-01-24 | Added Survey of Test-Time Compute (2501.02497) — Self-correction fails without external feedback; no universal scaling law; LRMs domain-bounded; SUPPORTS thesis |
