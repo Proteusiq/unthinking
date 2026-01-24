@@ -133,14 +133,14 @@ Total papers to read from provided evidence (2024+ only)
 ### Evaluation & Definition Challenges
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
-| 52 | 2403.11793 | Mar 2024 | Reasoning Abilities of LLMs: In-Depth Analysis on Abstraction and Reasoning Corpus | pending |
-| 53 | 2510.27378 | Oct 2025 | Measuring Chain-of-Thought Monitorability Through Faithfulness and Verbosity | pending |
+| 52 | 2403.11793 | Mar 2024 | Reasoning Abilities of LLMs: In-Depth Analysis on Abstraction and Reasoning Corpus | ✅ DONE (analysis: 79_reasoning_abilities_arc_loth.md) |
+| 53 | 2510.27378 | Oct 2025 | Measuring Chain-of-Thought Monitorability Through Faithfulness and Verbosity | ✅ DONE (analysis: 78_measuring_cot_monitorability.md) |
 
 ### Mixed Evidence on Specific Mechanisms
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
 | 54 | 2504.12523 | Apr 2025 | Memorization vs. Reasoning: Updating LLMs with New Knowledge (KUP) | ✅ DONE (analysis: 70_kup_memorization_vs_reasoning.md) |
-| 55 | 2502.07813 | Feb 2025 | CryptoX: Compositional Reasoning Evaluation of Large Language Models | pending |
+| 55 | 2502.07813 | Feb 2025 | CryptoX: Compositional Reasoning Evaluation of Large Language Models | ✅ DONE (analysis: 77_cryptox_compositional_reasoning.md) |
 
 ---
 
