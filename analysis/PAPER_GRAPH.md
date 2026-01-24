@@ -347,6 +347,11 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Compositional-ARC (2504.01445)** | **extends** | **Lake & Baroni (2023) MLC** | **MLC from linguistic to spatial reasoning** |
 | **Compositional-ARC (2504.01445)** | **provides evidence for** | **Pattern matching hypothesis** | **3-shot success + systematicity failure = memorization** |
 | **Compositional-ARC (2504.01445)** | **challenges** | **o3-mini reasoning claims** | **o3-mini WORST on systematicity (0.53%) despite best on 3-shot** |
+| **KUP Memorization vs Reasoning (2504.12523)** | **supports** | **Faith and Fate (2305.18654)** | **Both show LLMs fail to apply learned patterns to novel reasoning** |
+| **KUP Memorization vs Reasoning (2504.12523)** | **supports** | **Compositional-ARC (2504.01445)** | **Same pattern: can pattern match, can't compose/reason** |
+| **KUP Memorization vs Reasoning (2504.12523)** | **supports** | **Planning Gap (2601.14456)** | **Similar ID/OOD gap: high direct, zero generalization** |
+| **KUP Memorization vs Reasoning (2504.12523)** | **supports** | **GSM-Symbolic (2410.05229)** | **Both show memorization doesn't transfer to reasoning** |
+| **KUP Memorization vs Reasoning (2504.12523)** | **provides framework for** | **Memorization vs reasoning distinction** | **Direct vs indirect probing methodology** |
 
 ### Extends / Builds On
 
@@ -469,6 +474,7 @@ These papers have NO direct rebuttals found:
 | **Survey of Inductive Reasoning (2510.10182)** | **"Inductive ability originates from induction heads"; "Induction means simplicity"; "No universal bias" = task-specific engineering required; test-time scaling = searching through learned patterns; enhancement methods don't create reasoning; SUPPORTS thesis** |
 | **Limits of Emergent Reasoning Agentic (2510.15974)** | **Agentic framework makes collapse WORSE (earlier than baseline); ~40% deterministic looping; JSD diverges from BOTH optimal AND random policies; "high-probability mode following, not genuine reasoning"; REBUTS Agentic Gap; STRONGLY SUPPORTS thesis** |
 | **Compositional-ARC (2504.01445)** | **LLMs fail systematicity: o3-mini 0.53%, GPT-4o 0.99% on novel compositions; 5.7M MLC model (78.26%) beats 8B+ LLMs; TTT needed for LLM success (0.7%→78%); 3-shot success + systematicity failure = memorization not reasoning; STRONGLY SUPPORTS thesis** |
+| **KUP Memorization vs Reasoning (2504.12523)** | **ALL methods <2% on indirect probing (reasoning); direct probing 70-80% (memorization); "memorize updates but fail to reason over implications"; H&M Russia example; <2% across ALL CPT methods; STRONGLY SUPPORTS thesis** |
 
 ---
 
@@ -526,3 +532,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Survey of Inductive Reasoning (2510.10182) — "Inductive ability originates from induction heads" = pattern matching mechanism; "Induction means simplicity" = models prefer learned patterns; "No universal bias" = task-specific; test-time scaling = search through learned patterns; SUPPORTS thesis |
 | 2026-01-24 | Added Limits of Emergent Reasoning Agentic (2510.15974) — Agentic framework WORSE than baseline; ~40% deterministic looping; JSD diverges from both optimal AND random; REBUTS Agentic Gap (2506.18957); STRONGLY SUPPORTS thesis |
 | 2026-01-24 | Added Compositional-ARC (2504.01445) — o3-mini 0.53%, GPT-4o 0.99% on systematicity; 5.7M MLC > 8B+ LLMs; TTT is NOT genuine generalization; 3-shot vs systematicity gap = smoking gun for pattern matching; STRONGLY SUPPORTS thesis |
+| 2026-01-24 | Added KUP Memorization vs Reasoning (2504.12523) — ALL methods <2% on indirect probing; 70-80% on direct probing; memorization ≠ reasoning; H&M Russia example; STRONGLY SUPPORTS thesis |
