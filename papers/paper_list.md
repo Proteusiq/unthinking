@@ -83,7 +83,7 @@ Total papers to read from provided evidence (2024+ only)
 |---|----------|------|-------|--------|
 | 32 | 2504.01445 | Apr 2025 | Compositional-ARC: Assessing Systematic Generalization in Abstract Spatial Reasoning | ✅ DONE (analysis: 69_compositional_arc.md) |
 | 33 | TBD | Apr 2025 | Enabling Systematic Generalization through Meta-Learning for Compositionality | pending |
-| 34 | 2601.03676 | Jan 2026 | Towards Compositional Generalization via Skill Taxonomy Guided Data Synthesis (STEPS) | pending |
+| 34 | 2601.03676 | Jan 2026 | Towards Compositional Generalization via Skill Taxonomy Guided Data Synthesis (STEPS) | ✅ DONE (analysis: 75_steps_skill_taxonomy_compositional.md) |
 
 ### Test-Time Compute Successes
 | # | arXiv ID | Date | Title | Status |
