@@ -1035,7 +1035,9 @@ body {
     background: transparent;
     border-radius: 0 0 var(--radius-xl) var(--radius-xl);
     align-items: center;
+    justify-content: space-between;
     gap: var(--space-md);
+    cursor: pointer;
 }
 
 .header-compact .compact-title {
@@ -1085,31 +1087,9 @@ body {
     color: var(--text-muted);
 }
 
-/* Expand button in compact bar */
-.header-toggle-expand {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border: none;
-    background: transparent;
-    border-radius: var(--radius-full);
-    cursor: pointer;
-    transition: all var(--transition-normal);
-    flex-shrink: 0;
-    opacity: 0.6;
-}
-
-.header-toggle-expand:hover {
-    opacity: 1;
-    background: var(--glass-bg-subtle);
-}
-
-.header-toggle-expand svg {
-    width: 18px;
-    height: 18px;
-    color: var(--text-secondary);
+/* Prevent search clicks from triggering expand */
+.search-container-compact {
+    cursor: text;
 }
 
 /* Collapsed state */

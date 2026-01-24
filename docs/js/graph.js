@@ -700,18 +700,23 @@
             document.getElementById('thesis-card').classList.toggle('collapsed');
         });
 
-        // Header toggle (mobile) - both buttons
-        const headerToggles = [
-            document.getElementById('header-toggle'),
-            document.getElementById('header-toggle-compact')
-        ];
-        headerToggles.forEach(toggle => {
-            if (toggle) {
-                toggle.addEventListener('click', () => {
-                    document.querySelector('.header').classList.toggle('collapsed');
-                });
-            }
-        });
+        // Header toggle - main button
+        const headerToggle = document.getElementById('header-toggle');
+        if (headerToggle) {
+            headerToggle.addEventListener('click', () => {
+                document.querySelector('.header').classList.toggle('collapsed');
+            });
+        }
+        
+        // Expand on click anywhere on compact bar (except search)
+        const headerCompact = document.querySelector('.header-compact');
+        if (headerCompact) {
+            headerCompact.addEventListener('click', (e) => {
+                // Don't expand if clicking on search input
+                if (e.target.closest('.search-container-compact')) return;
+                document.querySelector('.header').classList.remove('collapsed');
+            });
+        }
 
         // Sync compact search with main search
         const searchInputCompact = document.getElementById('search-input-compact');
