@@ -58,7 +58,7 @@ Total papers to read from provided evidence (2024+ only)
 | 22 | 2512.20812 | Dec 2025 | Semantic Deception: When Reasoning Models Can't Compute an Addition | ✅ DONE |
 | 23 | 2507.07313 | Jul 2025 | Frontier LLMs Still Struggle with Simple Reasoning Tasks | ✅ DONE |
 | 24 | 2507.10624 | Jul 2025 | Comprehension Without Competence: Architectural Limits of LLMs in Symbolic Computation | ✅ DONE |
-| 25 | 2510.18254 | Oct 2025 | Illusions of reflection: open-ended task reveals systematic failures in reflective reasoning | pending |
+| 25 | 2510.18254 | Oct 2025 | Illusions of reflection: open-ended task reveals systematic failures in reflective reasoning | ✅ DONE |
 
 ---
 
