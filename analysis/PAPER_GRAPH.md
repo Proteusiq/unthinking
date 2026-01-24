@@ -296,6 +296,10 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Shortcut Learning (2410.13343)** | **supports** | **LLMs Truly Grasp Addition (2504.05262)** | **Both show symbolic/structural changes break models** |
 | **Shortcut Learning (2410.13343)** | **supports** | **Instruction-Tuned Not Better (2601.13244)** | **Both show perturbation sensitivity** |
 | **Shortcut Learning (2410.13343)** | **extends** | **Measuring Faithfulness (2307.13702)** | **Shortcut-specific evaluation framework** |
+| **MMLU-Pro+ (2409.02257)** | **supports** | **Shortcut Learning (2410.13343)** | **Both show LLMs exploit shortcuts; MMLU-Pro+ provides benchmark** |
+| **MMLU-Pro+ (2409.02257)** | **supports** | **GSM-Symbolic (2410.05229)** | **Both show format changes expose brittleness** |
+| **MMLU-Pro+ (2409.02257)** | **supports** | **Faith and Fate (2305.18654)** | **Both show pattern matching over reasoning** |
+| **MMLU-Pro+ (2409.02257)** | **provides method for** | **Shortcut detection** | **Novel SSR and CPI metrics for anchoring bias** |
 
 ### Extends / Builds On
 
@@ -409,6 +413,7 @@ These papers have NO direct rebuttals found:
 | **LLMs Truly Grasp Addition (2504.05262)** | **99.81%→7.51% symbolic (Claude); 1,700+ commutativity violations (A+B≠B+A); rule provision HURTS (-81.2%); SFT: 97.17% numerical, 0% symbolic transfer; STRONGEST evidence for pattern matching** |
 | **PhD-Level Math Reasoning (2512.13978)** | **~66% accuracy ceiling on Motwani-Raghavan textbook proofs; Claude best (66.4%), Grok-4 worst (33.2%); chapter variance suggests pattern-dependence; BALANCED — tests reproduction not invention** |
 | **Shortcut Learning (2410.13343)** | **LLMs rely on shortcuts; INVERSE SCALING: larger models MORE susceptible; >40% drops on constituent shortcut; overconfidence masks poor reasoning; few-shot underperforms zero-shot** |
+| **MMLU-Pro+ (2409.02257)** | **Anchoring bias: models stick to original choices; -14.3pp drop GPT-4o; struggle with multiple correct answers; CPI ratio shows 3.7x variation; provides SSR/CPI metrics for shortcut detection** |
 
 ---
 
@@ -455,3 +460,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added LLMs Truly Grasp Addition (2504.05262) — STRONGEST pattern matching evidence: 99.8%→7.5% symbolic, 1,700+ commutativity violations, 0% SFT transfer |
 | 2026-01-24 | Added PhD-Level Math Reasoning (2512.13978) — 66% ceiling on Motwani-Raghavan proofs; BALANCED (tests reproduction not invention) |
 | 2026-01-24 | Added Shortcut Learning (2410.13343) — Inverse scaling (larger = more shortcuts); >40% drops; overconfidence |
+| 2026-01-24 | Added MMLU-Pro+ (2409.02257) — Anchoring bias; -14.3pp GPT-4o drop; CPI ratio 3.7x variation; NeurIPS 2024 |

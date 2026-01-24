@@ -34,7 +34,7 @@ Total papers to read from provided evidence (2024+ only)
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
 | 12 | 2410.13343 | Oct 2024 | Do LLMs Overcome Shortcut Learning? (Yuan et al.) | ✅ DONE (analysis: 58_shortcut_learning_llms.md) |
-| 13 | TBD | Sep 2024 | MMLU-Pro+: Evaluating Higher-Order Reasoning and Shortcut Learning | pending |
+| 13 | 2409.02257 | Sep 2024 | MMLU-Pro+: Evaluating Higher-Order Reasoning and Shortcut Learning (NeurIPS 2024) | ✅ DONE (analysis: 59_mmlu_pro_plus_shortcut.md) |
 
 ### Test-Time Compute Limitations
 | # | arXiv ID | Date | Title | Status |
@@ -244,11 +244,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 
 ## Updated Summary Statistics
 - **Total Papers**: ~90 (consolidated #2 and #3 into single paper 2504.05262; added 2512.13978)
-- **Against Reasoning**: ~35
+- **Against Reasoning**: ~36
 - **For Reasoning**: ~26
 - **Balanced**: ~31
 - **Date Range**: 2024-2026
-- **Analyzed**: 59
+- **Analyzed**: 60
 
 ---
 
