@@ -164,13 +164,15 @@ This confirms: **failure is due to reasoning limits, not context limits**
 
 ---
 
-## Relevance to Our Thesis
+## Relevance to the Literature Review Thesis
 
-**CRITICAL EVIDENCE**: This paper directly supports our thesis with systematic, controlled experiments.
+**Literature Review Thesis**: LLM reasoning is practical but fundamentally predictive (pattern matching from training distributions), not genuinely generative. RL and test-time compute "surface" pre-existing capabilities rather than creating new reasoning abilities.
+
+**CRITICAL EVIDENCE**: This paper directly supports this thesis with systematic, controlled experiments.
 
 ### Key Arguments Supported:
 
-1. **Pattern matching, not reasoning**: Models fail when required to go beyond familiar patterns
+1. **Pattern matching, not genuine reasoning**: Models fail when required to go beyond familiar patterns
    - Compositional: Can't combine mastered skills
    - Transformative: Can't adopt novel strategies
 
@@ -188,7 +190,7 @@ This confirms: **failure is due to reasoning limits, not context limits**
 - **30pp DROP** in OOD after RL in one setting (matrix rank)
 
 ### Critical Distinction
-The paper makes explicit what we argue: models can INTERPOLATE (exploratory) but cannot EXTRAPOLATE (compositional, transformative). This maps directly to our "practical but predictive" vs. "genuinely generative" distinction.
+The paper makes explicit the core claim: models can INTERPOLATE (exploratory generalization) but cannot EXTRAPOLATE (compositional, transformative generalization). This maps directly to the "practical but predictive" vs. "genuinely generative" distinction — LLMs can deploy learned patterns effectively but cannot create genuinely novel reasoning strategies.
 
 ---
 
