@@ -708,11 +708,20 @@
             });
         }
         
-        // Expand on click anywhere on compact bar (except search)
+        // Double-click on header to collapse
+        const header = document.querySelector('.header');
+        if (header) {
+            header.addEventListener('dblclick', (e) => {
+                // Don't collapse if clicking on interactive elements
+                if (e.target.closest('input, button, .filter-btn')) return;
+                header.classList.add('collapsed');
+            });
+        }
+        
+        // Click on compact bar to expand (except search)
         const headerCompact = document.querySelector('.header-compact');
         if (headerCompact) {
             headerCompact.addEventListener('click', (e) => {
-                // Don't expand if clicking on search input
                 if (e.target.closest('.search-container-compact')) return;
                 document.querySelector('.header').classList.remove('collapsed');
             });
