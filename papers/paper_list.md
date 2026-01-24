@@ -181,6 +181,73 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 
 ---
 
+## NEW: Papers Found via arXiv Search (2024-2026)
+
+### CoT Faithfulness & Unfaithfulness
+| # | arXiv ID | Date | Title | Stance | Status |
+|---|----------|------|-------|--------|--------|
+| 62 | 2510.04040 | Oct 2025 | FaithCoT-Bench: Benchmarking Instance-Level Faithfulness of CoT Reasoning | Against | pending |
+| 63 | 2502.14829 | Feb 2025 | Measuring CoT Faithfulness by Unlearning Reasoning Steps (EMNLP Outstanding) | Against | pending |
+| 64 | 2505.23945 | May 2025 | A Closer Look at Bias and CoT Faithfulness of Large (Vision) Language Models | Against | pending |
+| 65 | 2509.13334 | Sep 2025 | FRIT: Using Causal Importance to Improve CoT Faithfulness | Balanced | pending |
+| 66 | 2510.22362 | Oct 2025 | Mapping Faithful Reasoning in Language Models | Balanced | pending |
+
+### Compositional Generalization & Limitations
+| # | arXiv ID | Date | Title | Stance | Status |
+|---|----------|------|-------|--------|--------|
+| 67 | 2512.04727 | Dec 2025 | Sequential Enumeration in Large Language Models | Against | pending |
+| 68 | 2506.18880 | Jun 2025 | OMEGA: Can LLMs Reason Outside the Box in Math? | Against | pending |
+| 69 | 2601.06914 | Jan 2026 | Towards Compositional Generalization via Skill Taxonomy Guided Data Synthesis | Balanced | pending |
+| 70 | 2510.20783 | Oct 2025 | Out-of-Distribution Tests Reveal Compositionality in Chess Transformers | Balanced | pending |
+
+### Planning & Generalization Gap
+| # | arXiv ID | Date | Title | Stance | Status |
+|---|----------|------|-------|--------|--------|
+| 71 | 2601.14456 | Jan 2026 | On the Generalization Gap in LLM Planning: 82.9% ID, 0% OOD | Against | pending |
+| 72 | 2509.18458 | Sep 2025 | CogniLoad: Synthetic NL Reasoning Benchmark With Tunable Difficulty | Against | pending |
+
+### Emergent Reasoning (FOR evidence)
+| # | arXiv ID | Date | Title | Stance | Status |
+|---|----------|------|-------|--------|--------|
+| 73 | 2509.03646 | Sep 2025 | Emergent Hierarchical Reasoning in LLMs through Reinforcement Learning | For | pending |
+| 74 | 2502.20332 | Feb 2025 | Emergent Symbolic Mechanisms Support Abstract Reasoning in LLMs | For | pending |
+| 75 | 2510.15987 | Oct 2025 | Algorithmic Primitives and Compositional Geometry of Reasoning | For | pending |
+| 76 | 2509.23629 | Sep 2025 | How LLMs Learn to Reason: A Complex Network Perspective (ICLR 2026) | For | pending |
+
+### Mechanistic Interpretability
+| # | arXiv ID | Date | Title | Stance | Status |
+|---|----------|------|-------|--------|--------|
+| 77 | 2601.02989 | Jan 2026 | Mechanistic Interpretability of Large-Scale Counting in LLMs | Balanced | pending |
+| 78 | 2510.25013 | Oct 2025 | Emergence of Minimal Circuits for Indirect Object Identification | Balanced | pending |
+| 79 | 2512.01222 | Dec 2025 | Unsupervised Decoding of Encoded Reasoning using LM Interpretability | Balanced | pending |
+
+### Latent Reasoning & World Models
+| # | arXiv ID | Date | Title | Stance | Status |
+|---|----------|------|-------|--------|--------|
+| 80 | 2601.08058 | Jan 2026 | Reasoning Beyond CoT: A Latent Computational Mode in LLMs | Balanced | pending |
+| 81 | 2601.10825 | Jan 2026 | Reasoning Models Generate Societies of Thought | Balanced | pending |
+| 82 | 2512.23722 | Dec 2025 | Emergent World Beliefs: Exploring Transformers in Stochastic Games | For | pending |
+| 83 | 2511.23476 | Nov 2025 | Thinking by Doing: Building Efficient World Model Reasoning | Balanced | pending |
+
+### Other Notable Papers
+| # | arXiv ID | Date | Title | Stance | Status |
+|---|----------|------|-------|--------|--------|
+| 84 | 2601.13244 | Jan 2026 | Do Instruction-Tuned Models Always Perform Better? | Against | pending |
+| 85 | 2510.08931 | Oct 2025 | RADAR: Mechanistic Pathways for Detecting Data Contamination | Against | pending |
+| 86 | 2510.22437 | Oct 2025 | Modeling Hierarchical Thinking in Large Reasoning Models | Balanced | pending |
+
+---
+
+## Updated Summary Statistics
+- **Total Papers**: ~86
+- **Against Reasoning**: ~34
+- **For Reasoning**: ~28
+- **Balanced**: ~24
+- **Date Range**: 2024-2026
+- **Analyzed**: 29
+
+---
+
 ## Notes
 - Papers marked "TBD" need arXiv ID lookup
 - Will update status as papers are read
