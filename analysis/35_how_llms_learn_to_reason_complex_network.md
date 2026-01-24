@@ -77,25 +77,23 @@ Intervention at "maximally frustrated state" improves both ID and OOD performanc
 
 **Literature Review Thesis**: LLM reasoning is practical but fundamentally predictive (pattern matching from training distributions), not genuinely generative. RL and test-time compute "surface" pre-existing capabilities rather than creating new reasoning abilities.
 
-### How This Paper GENUINELY CHALLENGES the Thesis
+### How This Paper Could Challenge the Thesis
 
-1. **Structural self-organization is NON-TRIVIAL**: The emergence of a sparse, tree-like concept web with ⟨k⟩≈2 is not predicted by "pattern matching" theories. Why would pattern matching self-organize into this specific topology? The paper shows this structure emerges universally — suggesting it reflects something fundamental about how reasoning problems are structured, not just training distribution artifacts.
+The thesis claims: (1) reasoning is bounded by training distribution, (2) not genuinely generative, (3) RL surfaces rather than creates. Here's where this paper pushes back:
 
-2. **Phase-transition-like learning suggests genuine capability jumps**: The paper identifies sharp, step-like accuracy jumps consistent with phase transitions. In physics, phase transitions mark qualitative changes in system organization. If LLMs were just memorizing patterns, we'd expect gradual improvement, not sudden phase transitions. This suggests genuine capability acquisition at critical points.
+1. **OOD improvements on Minerva/AIME**: Annealed-RLVR improves performance on benchmarks the model wasn't trained on. The thesis predicts failures on OOD tasks, but theory-derived intervention improved OOD generalization. This suggests the theory captures something real about capability development.
 
-3. **OOD improvements on Minerva and AIME are meaningful**: While these are math benchmarks, they include problems the model hasn't seen. The Annealed-RLVR algorithm — derived purely from theory — improves OOD performance. If the theory were wrong about the nature of reasoning, why would theory-driven interventions improve generalization?
+2. **Phase-transition-like learning**: Sharp capability jumps suggest qualitative changes, not gradual pattern accumulation. The thesis frames RL as "surfacing" pre-existing capability, but phase transitions suggest genuine ACQUISITION at critical points.
 
-4. **The theory makes novel predictions that are confirmed**: The "maximally frustrated state" prediction — that there's an optimal moment for intervention — was derived from network theory and confirmed empirically. Successful novel predictions are the hallmark of good scientific theories. This suggests the sparse-web model captures something real.
+3. **Predictive theory**: The "maximally frustrated state" was predicted from network theory and confirmed empirically. If the sparse-web model were wrong, why would theory-derived interventions work? Successful novel predictions suggest the model captures real structure.
 
-5. **Integration ≠ mere pattern connection**: The paper distinguishes "skill islands" from the "concept web." The web isn't just patterns connected randomly — it has specific topological properties (sparsity, tree-structure) that emerge from the learning dynamics. This is structural knowledge organization, not pattern soup.
+4. **Structural self-organization**: The ⟨k⟩≈2 topology emerges universally across training runs. The thesis emphasizes training distribution dependence, but this universal structure suggests something about task structure itself, not just data artifacts.
 
-6. **Catastrophic forgetting mechanism is predictive**: The bridge-severing explanation makes specific predictions about WHICH kinds of forgetting will occur and HOW recovery works. These predictions are confirmed. If LLMs were just pattern matchers, forgetting would be more diffuse.
+5. **"Integration" vs "surfacing"**: The paper shows RL BUILDS a concept web by connecting skill islands. Is this "surfacing" pre-existing capability or genuinely constructing new structure? The distinction may matter.
 
-7. **The renormalization group analogy is powerful**: The paper uses physics principles (RG, phase transitions, frustration) to derive LLM behavior. That statistical physics concepts apply suggests LLMs have genuine collective dynamics — they're not just lookup tables.
+**Key tension with thesis**: The thesis claims RL "surfaces" capability. This paper shows RL INTEGRATES skill islands into a unified web through a structured dynamical process. Is integration the same as surfacing? Or is building new connections between existing skills itself a form of capability creation?
 
-**CRITICAL QUESTION FOR OUR THESIS**: If LLM reasoning is "just pattern matching," why does it exhibit the same collective phenomena (phase transitions, self-organization, critical states) as physical systems that genuinely compute? Is there a meaningful distinction between "emergent computation in neural networks" and "real reasoning"?
-
-### Why This Paper May Still Be CONSISTENT with the Thesis (But With Caveats)
+### Why This Paper Remains Consistent with the Thesis
 
 **1. The "concept web" is a learned structure, not emergent reasoning**
 
@@ -268,31 +266,28 @@ The paper provides a DESCRIPTIVE theory of how learned patterns organize, not ev
 4. That the mechanism differs from sophisticated pattern organization
 
 ### Critical Insight:
-This paper sits at the crux of the debate. It can be read two ways:
+The paper provides a mechanistic account of HOW RL organizes learned capabilities. This is orthogonal to WHETHER those capabilities constitute "genuine reasoning":
 
-**Pro-thesis reading**: The paper describes how learned patterns self-organize. "Integration" is connecting pre-existing capabilities. The fragile, sparse structure reflects distribution-bounded learning.
+**What the paper shows**: RL training creates organized structure (sparse web) through predictable dynamics (V-shape, phase transitions, frustration).
 
-**Anti-thesis reading**: The paper describes emergent collective computation. Phase transitions and self-organization are hallmarks of genuine information processing systems. The sparse-web topology may be optimal for reasoning, not a limitation.
-
-**The honest tension**: The paper shows LLMs develop structured, predictable, theory-amenable internal organization. This is MORE than "pattern matching" in the naive sense. But it doesn't show these structures generalize beyond training distributions in the ways that would distinguish genuine reasoning.
+**What the paper doesn't show**: That this structure generalizes beyond training distribution in ways that would distinguish genuine reasoning from sophisticated pattern organization.
 
 ### Relationship to Thesis:
-This paper **complicates** rather than simply supports or challenges the thesis:
 
-**For the thesis**:
-- RL organizes pre-existing patterns (surfacing hypothesis)
-- Policy collapse = convergence on training patterns
-- No genuinely OOD generalization tested
+**Consistent with thesis**:
+- "Integration" = connecting pre-existing learned patterns (surfacing)
+- Policy collapse = convergence on specific training paths
+- Sparse structure is FRAGILE (single-point failures)
+- OOD tests (Minerva, AIME) are same domain (math), not genuinely novel task types
 
-**Against the thesis**:
-- Emergent self-organization is non-trivial
-- Phase-transition dynamics suggest qualitative capability changes
-- Theory-derived interventions improve performance
-- Statistical physics concepts apply (suggesting genuine collective computation)
+**Challenges to thesis**:
+- Phase transitions suggest qualitative capability changes
+- Theory-derived interventions improve OOD (within domain)
+- Universal topology suggests task structure, not just training artifacts
 
-**Unresolved**: The paper shows LLMs develop sophisticated internal structure. Whether this structure constitutes "reasoning" or "sophisticated pattern organization" may be a semantic distinction. The key test — genuinely OOD compositional generalization — is not performed.
+**Resolution**: The paper explains the MECHANICS of how RL organizes learned capabilities. The thesis claims these capabilities are distribution-bounded. Both can be true: RL can efficiently organize pre-existing patterns into useful structure that still fails on genuinely OOD tasks (as OMEGA and Planning Gap show).
 
 ### Key Quote for Synthesis:
-> "By recasting RLVR from black-box optimization into a predictable process of structural self-organization, our work provides a new physical intuition for engineering the emergent reasoning capabilities of future AI systems"
+> "The primary task is no longer discovering new islands but weaving them into a single, expansive concept web"
 
-The paper treats "reasoning capabilities" as real and engineerable. Our thesis should engage with this framing rather than dismissing it.
+RL WEAVES together pre-existing skill islands. This is exactly what the surfacing hypothesis predicts — RL deploys and connects capabilities that pre-training provided, rather than creating genuinely new reasoning.
