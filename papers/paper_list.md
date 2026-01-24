@@ -76,7 +76,7 @@ Total papers to read from provided evidence (2024+ only)
 |---|----------|------|-------|--------|
 | 29 | TBD | Sep 2025 | Emergent Abilities in Large Language Models: A Survey | pending |
 | 30 | TBD | Sep 2025 | Emergent Hierarchical Reasoning through RL | pending |
-| 31 | 2501.12948 | Jan 2025 | DeepSeek-R1: Incentivizing Reasoning Capability via RL | pending |
+| 31 | 2501.12948 | Jan 2025 | DeepSeek-R1: Incentivizing Reasoning Capability via RL | ✅ DONE |
 
 ### Systematic Generalization (Meta-Learning)
 | # | arXiv ID | Date | Title | Status |
