@@ -8,15 +8,15 @@ This document tracks rebuttals **in both directions**:
 
 ## Rebuttals to "AGAINST" Papers
 
-### 1. The Illusion of Thinking (2506.06941) — **3 REBUTTALS**
+### 1. The Illusion of Thinking (2506.06941) — **3 REBUTTALS (1 COUNTER-REBUTTED)**
 
-| Rebuttal | arXiv | Core Argument | Validity |
-|----------|-------|---------------|----------|
-| **Lawsen** | 2506.09250 | Token limits exceeded; River Crossing N>5 mathematically impossible; alternative representations restore performance | HIGH |
-| **Khan et al. (Agentic Gap)** | 2506.18957 | Execution gap, not reasoning gap; with tools, models solve beyond cliff | HIGH |
-| **Song et al. (Thinking Isn't Illusion)** | 2507.17699 | Tool augmentation: Hanoi 0%→100%, River Crossing →98.3% | HIGH |
+| Rebuttal | arXiv | Core Argument | Validity | Counter-Evidence |
+|----------|-------|---------------|----------|------------------|
+| **Lawsen** | 2506.09250 | Token limits exceeded; River Crossing N>5 mathematically impossible; alternative representations restore performance | HIGH | None |
+| **Khan et al. (Agentic Gap)** | 2506.18957 | Execution gap, not reasoning gap; with tools, models solve beyond cliff | **CHALLENGED** | Limits of Innate Planning (2511.21591) |
+| **Song et al. (Thinking Isn't Illusion)** | 2507.17699 | Tool augmentation: Hanoi 0%→100%, River Crossing →98.3% | **QUALIFIED** | Limits of Innate Planning shows tools don't always help |
 
-**Assessment**: Original paper has significant methodological issues. Claims should be qualified.
+**Assessment**: Original paper has methodological issues, but the "Agentic Gap" rebuttal is itself challenged by "Limits of Innate Planning" which shows 0% success even with move validator.
 
 ---
 
@@ -121,29 +121,81 @@ Anthropic's own research:
 
 ---
 
-### 4. Thinking Isn't an Illusion (2507.17699) — **COUNTER-COUNTER EVIDENCE**
+### 5. Comment: Agentic Gap (2506.18957) — **DIRECTLY CHALLENGED**
+
+| Challenge | Source | Evidence |
+|-----------|--------|----------|
+| **Tools don't always work** | Limits of Innate Planning (2511.21591) | Move validator = 0% success |
+| **Execution ≠ bottleneck** | Limits of Innate Planning | Execution offloaded, still fail |
+| **SOTA models fail with tools** | Limits of Innate Planning | GPT-5-Thinking loops 100% |
+
+**Assessment**: The "Agentic Gap" argument (execution vs reasoning distinction) is **directly refuted** by "Limits of Innate Planning". The external move validator test removes execution burden entirely, yet ALL models fail (0% success). GPT-5-Thinking loops 100% even when given only valid moves.
+
+**Implication for thesis**: Cannot simply rely on tool augmentation rebuttals. The problem is planning/reasoning, not just execution.
+
+---
+
+### 4. Thinking Isn't an Illusion (2507.17699) — **COUNTER-COUNTER EVIDENCE (STRONG)**
 
 | Counter-argument | Source | Implication |
 |------------------|--------|-------------|
 | Tool use ≠ reasoning | Conceptual | Following tools ≠ understanding |
 | Tools provide algorithm | Lawsen observation | Model executes, doesn't derive |
 | Still unfaithful with tools | Don't Say | CoT remains unreliable |
+| **Move validator = 0% success** | **Limits of Innate Planning** | **Tool augmentation doesn't always work** |
+| **GPT-5-Thinking loops 100%** | **Limits of Innate Planning** | **SOTA models fail even with tools** |
 
-**Assessment**: Execution fixed, but "genuine reasoning" still questionable.
+**Assessment**: Execution fixed for Hanoi/River Crossing, but 8-puzzle with move validator shows tool augmentation is NOT a general solution. "Genuine reasoning" remains questionable.
 
 ---
 
-## Summary: Rebuttal Landscape
+### 5. Emergence of Strategic Reasoning (2412.13013) — **COUNTER-ARGUMENT DEVELOPED**
+
+| Counter-argument | Source | Implication |
+|------------------|--------|-------------|
+| Games are in training distribution | Authors acknowledge | Behavioral economics literature is vast |
+| **Performance drops for p=4/3** | **Authors' own data** | **Cannot adapt to unusual parameters** |
+| Exceeding human τ ≠ understanding | Conceptual | May pattern-match optimal solutions |
+| No truly novel games tested | Methodology gap | Would likely fail on OOD games |
+
+**Key quote from authors**: "LLMs are vastly trained on pBCGs which involve iterating downward"
+
+**Our counter-argument**:
+> Strategic reasoning in LRMs reflects sophisticated pattern completion within the behavioral economics literature, not genuine strategic understanding. The performance drop for unusual parameters (p=4/3) reveals the distribution boundary — models excel at games similar to training data but cannot extrapolate to variations.
+
+**Assessment**: Strong "FOR" evidence that must be acknowledged, but the p=4/3 performance drop directly supports our thesis that reasoning is bounded by training distribution.
+
+---
+
+### 6. DeepSeek-R1 / s1 / "Surfacing" Claims — **SUPPORTED BUT BOUNDED**
+
+| Counter-argument | Source | Implication |
+|------------------|--------|-------------|
+| **RL cannot create from void** | **Interplay (2512.07783)** | **0% exposure = RL fails** |
+| **Controlled experimental proof** | **Interplay paper** | **Surfacing confirmed, not creation** |
+| Distribution-bounded | CoT Mirage | Success depends on training coverage |
+| Still unfaithful | Don't Say (tests R1) | R1's CoT only 39% faithful |
+
+**Key quote from Interplay paper**: "RL cannot synthesize capabilities from a void; it requires latent 'seeds' to amplify"
+
+**Assessment**: The "surfacing" hypothesis is CONFIRMED by controlled experiments. RL helps, but only when primitives exist from pre-training. This supports our thesis: capabilities are bounded by training distribution.
+
+---
+
+## Summary: Rebuttal Landscape (Updated)
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                         REBUTTAL LANDSCAPE                                  │
+│                    REBUTTAL LANDSCAPE (UPDATED)                             │
 │                                                                             │
 │  AGAINST PAPERS                          FOR PAPERS                         │
 │  ──────────────                          ──────────                         │
 │                                                                             │
 │  Illusion of Thinking ←───────────────→ Thinking Isn't Illusion            │
-│  [3 rebuttals, weakened]                 [counter-counter exists]           │
+│  [3 rebuttals exist]                     [counter-counter from Limits]      │
+│                                                                             │
+│  Limits of Innate Planning ────────────→ Comment: Agentic Gap               │
+│  [NEW - refutes Agentic Gap]             [REFUTED by Limits paper]          │
 │                                                                             │
 │  Faith and Fate ←─────────────────────→ DeepSeek-R1                         │
 │  [NO rebuttal, strong]                   [multiple critiques]               │
@@ -163,7 +215,23 @@ Anthropic's own research:
 │  Don't Always Say ←───────────────────→ (no direct counter)                 │
 │  [NO rebuttal, Anthropic's own]                                             │
 │                                                                             │
+│  Interplay (2512.07783) ──────────────→ "Surfacing" claims                  │
+│  [CONFIRMS surfacing, bounds it]         [Now has controlled evidence]      │
+│                                                                             │
+│  (our counter-argument) ──────────────→ Strategic Reasoning (2412.13013)    │
+│  [p=4/3 drop = distribution limit]       [Acknowledged by authors]          │
+│                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
+
+KEY UPDATES:
+1. "Interplay" (2512.07783): CONTROLLED proof that RL surfaces, doesn't create
+   - 0% exposure = RL fails; ≥1% = success
+   - "RL cannot synthesize capabilities from a void"
+   
+2. "Strategic Reasoning" counter-argument developed:
+   - Performance drops for unusual parameters (p=4/3)
+   - Games are in behavioral economics training distribution
+   - Authors acknowledge: "LLMs are vastly trained on pBCGs"
 ```
 
 ---
@@ -176,6 +244,7 @@ Anthropic's own research:
 3. **Measuring Faithfulness** — CoT unfaithfulness accepted
 4. **Semantic Deception** — Semantic override demonstrated
 5. **Don't Always Say** — 25-40% faithfulness confirmed
+6. **Limits of Innate Planning** — 0% with move validator; GPT-5-Thinking loops 100%
 
 ### Weakened "Against" Evidence
 1. **Illusion of Thinking** — Methodological critiques valid; must qualify
@@ -183,36 +252,57 @@ Anthropic's own research:
 ### Strongest "For" Evidence
 1. **CoT exists intrinsically** — But may be unfaithful
 2. **RL surfaces capability** — But still distribution-bounded
-3. **Tool augmentation works** — But may be execution, not reasoning
+3. ~~Tool augmentation works~~ — **WEAKENED by Limits of Innate Planning**
+
+### Weakened "For" Evidence (NEW)
+1. **Agentic Gap / Tool augmentation** — Directly refuted by Limits of Innate Planning
+   - Move validator = 0% success
+   - Execution vs reasoning distinction doesn't hold for planning
 
 ### Key Unresolved Questions
-1. Does tool success prove reasoning or just competent execution?
+1. ~~Does tool success prove reasoning or just competent execution?~~ **Partially resolved**: Tool success doesn't always occur, even when execution is offloaded
 2. Is "surfaced" reasoning genuine or sophisticated pattern completion?
 3. Can unfaithful CoT coexist with genuine internal reasoning?
+4. **NEW**: Why does tool augmentation work for some tasks (Hanoi) but not others (8-puzzle)?
 
 ---
 
-## Revised Thesis Position (Accounting for Rebuttals)
+## Revised Thesis Position (Accounting for Rebuttals) — UPDATED
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    THESIS AFTER REBUTTAL ANALYSIS                           │
+│              THESIS AFTER REBUTTAL ANALYSIS (FINAL UPDATE)                  │
 │                                                                             │
-│  CONFIDENT CLAIMS:                                                          │
-│  ✓ CoT is often unfaithful (multiple unrebutted papers)                     │
-│  ✓ Success is distribution-dependent (CoT Mirage, Faith & Fate)             │
-│  ✓ Semantic associations can override instructions (Semantic Deception)     │
+│  CONFIDENT CLAIMS (unrebutted, strong evidence):                            │
+│  ✓ CoT is often unfaithful (7-13% on natural prompts, 25-40% overall)       │
+│  ✓ Success is distribution-dependent (CoT Mirage: ID=100%, OOD=0%)          │
+│  ✓ Semantic associations override instructions (Semantic Deception)         │
 │  ✓ Reasoning patterns pre-exist in base models (s1, CoT-WP)                 │
+│  ✓ Planning fails even with tools (Limits: 0% with move validator)          │
+│  ✓ RL SURFACES, DOESN'T CREATE (Interplay: 0% exposure = fail) [NEW]        │
+│  ✓ Strategic reasoning is distribution-bounded (p=4/3 drop) [NEW]           │
 │                                                                             │
 │  QUALIFIED CLAIMS:                                                          │
-│  ~ "Reasoning collapse" may be execution limit (valid rebuttals)            │
-│  ~ Tool augmentation reverses some failures (but ≠ proof of reasoning)      │
-│  ~ RL "surfaces" capability (but still bounded by distribution)             │
+│  ~ "Reasoning collapse" may be execution limit FOR SOME TASKS               │
+│    (Hanoi/River Crossing yes, 8-puzzle no)                                  │
+│  ~ Tool augmentation reverses SOME failures (task-dependent)                │
+│  ~ Strategic reasoning exceeds humans ON KNOWN GAMES                        │
 │                                                                             │
-│  CONTESTED CLAIMS:                                                          │
-│  ? Whether tool success proves "genuine" reasoning                          │
+│  RESOLVED CLAIMS (previously contested):                                    │
+│  ✗ Tool success ≠ proof of genuine reasoning (Limits: 0% even with tools)   │
+│  ✗ Strategic reasoning ≠ genuine understanding (p=4/3 reveals limit)        │
+│  ✓ Surfacing hypothesis CONFIRMED (Interplay: controlled experiments)       │
+│                                                                             │
+│  REMAINING QUESTIONS:                                                       │
 │  ? Whether "Aha moments" are reasoning or pattern recognition               │
 │  ? Whether unfaithful CoT is compatible with genuine internal reasoning     │
+│  ? Why tools help for some tasks (Hanoi) but not others (8-puzzle)          │
+│                                                                             │
+│  KEY NEW EVIDENCE:                                                          │
+│  • Interplay (2512.07783): 0% exposure = RL fails; ≥1% = success            │
+│    "RL cannot synthesize capabilities from a void"                          │
+│  • Strategic Reasoning (2412.13013): τ=4.42 BUT p=4/3 causes failure        │
+│    Authors: "LLMs are vastly trained on pBCGs"                              │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
