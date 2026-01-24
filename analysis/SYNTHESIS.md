@@ -22,8 +22,9 @@
 | 14 | CoT In The Wild Not Faithful | Mar 2025 | Against | Unfaithfulness on natural prompts; GPT-4o-mini 13%, best model 0.04% |
 | 15 | Interplay of Pre-Training, Mid-Training, RL | Dec 2025 | Balanced | 0% exposure = RL fails; ≥1% = success; "cannot synthesize from void" |
 | 16 | Reasoning Models Reason Well, Until They Don't | Oct 2025 | Balanced | Abrupt collapse at L~64-300; NLGraph trivially easy (L<2); o3 fails |
+| 17 | The Illusion of Insight in Reasoning Models | Jan 2026 | Against | "Aha!" moments are rare, don't improve with training, seldom help accuracy |
 
-**Total: 18 papers analyzed (2 foundational + 16 main)**
+**Total: 19 papers analyzed (2 foundational + 17 main)**
 
 ---
 
@@ -293,6 +294,54 @@ The "Interplay of Pre-Training, Mid-Training, and RL" paper provides the **contr
 > "Strategic reasoning in LRMs reflects sophisticated pattern completion within the behavioral economics literature, not genuine strategic understanding. The performance drop for unusual parameters (p=4/3) reveals the distribution boundary — models excel at games similar to training data but cannot extrapolate to variations not covered in their training."
 
 This aligns with our core thesis: **practical but predictive** — works within distribution, fails outside.
+
+---
+
+## NEW: The "Aha Moment" Illusion (Illusion of Insight)
+
+### DeepSeek-R1's Claim (Challenged)
+
+DeepSeek-R1 reported:
+> "The model learns to allocate more thinking time to a problem by reevaluating, reflecting on its approach, and exploring alternative strategies"
+
+Evidence cited: Mid-trace cues like "Wait... let me re-evaluate step-by-step" preceding correct answers.
+
+### This Paper's Findings (2601.00514)
+
+Analysis of **1M+ reasoning traces** across multiple domains and architectures:
+
+| Finding | Evidence |
+|---------|----------|
+| **Shifts are RARE** | ~2-6% of traces |
+| **Don't increase with training** | Same frequency early/mid/late |
+| **Seldom improve accuracy** | Negligible accuracy difference |
+| **Correlate with UNCERTAINTY** | High entropy → more shifts |
+
+### Key Insight: Instability, Not Insight
+
+> "Mid-reasoning shifts are symptoms of unstable inference behavior rather than an intrinsic mechanism for self-correction"
+
+| Entropy Level | What Happens |
+|---------------|--------------|
+| Low (confident) | No shift, continues path |
+| High (uncertain) | Shift occurs = random exploration |
+
+**The "Aha!" appearance is uncertainty-driven, not insight-driven.**
+
+### Extrinsic vs Intrinsic
+
+| Type | Effect |
+|------|--------|
+| **Intrinsic shifts** (natural) | Seldom help |
+| **Extrinsic shifts** (forced under high entropy) | Reliably helps |
+
+**Implication**: External intervention works; internal "insight" doesn't.
+
+### Implications for Thesis
+
+1. **"Thinking" appearance ≠ thinking**: Models LOOK like they're having insights, but aren't
+2. **CoT self-correction is illusory**: Mid-trace shifts don't constitute genuine self-correction
+3. **Key "FOR" evidence refuted**: DeepSeek-R1's "Aha moment" claim challenged with 1M+ trace analysis
 
 ---
 
