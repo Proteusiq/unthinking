@@ -259,6 +259,15 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Instruction-Tuned Not Better (2601.13244)** | **supports** | **OMEGA (2506.18880)** | **Perturbation brittleness shows same pattern** |
 | **Instruction-Tuned Not Better (2601.13244)** | **challenges** | **DeepSeek-R1 (2501.12948)** | **Instruction tuning benefits limited at scale; base models often win** |
 | **Instruction-Tuned Not Better (2601.13244)** | **provides evidence for** | **Surfacing hypothesis** | **Base models have capability; instruction tuning changes activation patterns** |
+| **FRIT (2509.13334)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Confirms low baseline faithfulness; extends with intervention method** |
+| **FRIT (2509.13334)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | **Both find 25-60% unfaithfulness rates** |
+| **FRIT (2509.13334)** | **supports** | **FaithCoT-Bench (2510.04040)** | **Both show pervasive unfaithfulness** |
+| **FRIT (2509.13334)** | **extends** | **FRODO (Paul et al.)** | **Automated, no human supervision needed** |
+| **FRIT (2509.13334)** | **provides evidence for** | **Faithfulness-accuracy link** | **Accuracy emerges from faithfulness training** |
+| **Mapping Faithful Reasoning (2510.22362)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Provides mechanistic evidence for unfaithfulness** |
+| **Mapping Faithful Reasoning (2510.22362)** | **supports** | **FRIT (2509.13334)** | **Both find easy/hard case distinction** |
+| **Mapping Faithful Reasoning (2510.22362)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | **Both show CoT can be decorative** |
+| **Mapping Faithful Reasoning (2510.22362)** | **provides method for** | **AI safety monitoring** | **Concept Walk distinguishes computational vs decorative reasoning** |
 
 ### Extends / Builds On
 
@@ -364,6 +373,8 @@ These papers have NO direct rebuttals found:
 | **Mechanistic Counting (2601.02989)** | **System-1 counting: 0% at 41-50 items; CoT alone: 0%; Structure+CoT: 24-86%; external scaffolding required; architectural depth limits counting** |
 | **CogniLoad (2509.18458)** | **Task length dominant constraint; only gpt-5 (76%) and o3 (68%) >50% at N=250; state-tracking errors dominate; model capacity varies 400x (ECL50: 0-382.8)** |
 | **Instruction-Tuned Not Better (2601.13244)** | **Base models win by 27-33pp in zero-shot; domain shift: base wins by 33pp; perturbation: 38-62% relative drop; instruction tuning creates prompt dependencies** |
+| **FRIT (2509.13334)** | **Baseline CoT faithfulness: 32.9% (Qwen GSM8K); traditional faithfulness: 8.9%; FRIT improves both faithfulness (+3.4pp) and accuracy (+7.6pp); accuracy emerges from faithfulness** |
+| **Mapping Faithful Reasoning (2510.22362)** | **Easy cases: decorative reasoning (transient perturbation effects); Hard cases: computational reasoning (sustained shifts); Concept Walk method distinguishes faithful from unfaithful** |
 
 ---
 
@@ -402,3 +413,5 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Mechanistic Counting (2601.02989) — System-1 counting collapses at ~30; CoT alone doesn't help; needs structure |
 | 2026-01-24 | Added CogniLoad (2509.18458) — Task length dominant; only 2 models >50% at N=250; state-tracking errors; 400x capacity range |
 | 2026-01-24 | Added Instruction-Tuned Not Better (2601.13244) — Base models win in zero-shot by 27-33pp; instruction tuning creates prompt dependencies |
+| 2026-01-24 | Added FRIT (2509.13334) — Baseline faithfulness 32.9%; accuracy emerges from faithfulness training; intervention-based testing |
+| 2026-01-24 | Added Mapping Faithful Reasoning (2510.22362) — Concept Walk method; easy=decorative, hard=computational; mechanistic distinction |
