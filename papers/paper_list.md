@@ -12,7 +12,7 @@ Total papers to read from provided evidence (2024+ only)
 |---|----------|------|-------|--------|
 | 1 | 2410.05229 | Oct 2024 | GSM-Symbolic: Understanding the Limitations of Mathematical Reasoning (Mirzadeh et al.) | ✅ DONE |
 | 2-3 | 2504.05262 | Apr 2025 | Do PhD-level LLMs Truly Grasp Elementary Addition? / Do Large Language Models Truly Grasp Addition? (EMNLP'25) — same paper, title changed v1→v3 | ✅ DONE (analysis: 56_llms_truly_grasp_addition.md) |
-| NEW | 2512.13978 | Dec 2025 | Evaluating Frontier LLMs on PhD-Level Mathematical Reasoning (Randomized Algorithms textbook) | pending |
+| NEW | 2512.13978 | Dec 2025 | Evaluating Frontier LLMs on PhD-Level Mathematical Reasoning (Randomized Algorithms textbook) | ✅ DONE (analysis: 57_phd_level_math_reasoning_benchmark.md) |
 
 ### Memorization Over Generalization
 | # | arXiv ID | Date | Title | Status |
@@ -243,12 +243,12 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: ~89 (consolidated #2 and #3 into single paper 2504.05262)
+- **Total Papers**: ~90 (consolidated #2 and #3 into single paper 2504.05262; added 2512.13978)
 - **Against Reasoning**: ~34
 - **For Reasoning**: ~26
-- **Balanced**: ~30
+- **Balanced**: ~31
 - **Date Range**: 2024-2026
-- **Analyzed**: 57
+- **Analyzed**: 58
 
 ---
 

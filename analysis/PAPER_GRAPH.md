@@ -286,6 +286,11 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **LLMs Truly Grasp Addition (2504.05262)** | **provides evidence for** | **Benchmark validity concerns** | **High scores reflect pattern recognition, not understanding (99.8% → 7.5%)** |
 | **LLMs Truly Grasp Addition (2504.05262)** | **provides evidence for** | **Surfacing hypothesis** | **SFT surfaces patterns (97.17%), doesn't create understanding (0% symbolic transfer)** |
 | **LLMs Truly Grasp Addition (2504.05262)** | **partially supports** | **DeepSeek-R1 (2501.12948)** | **R1-Distill shows better (but still imperfect) transfer: -5.99% vs -92% drop** |
+| **PhD-Level Math Reasoning (2512.13978)** | **supports** | **Planning Gap (2601.14456)** | **Both show significant failure rates (~34% and 100% respectively) on structured reasoning** |
+| **PhD-Level Math Reasoning (2512.13978)** | **supports** | **OMEGA (2506.18880)** | **Both show models struggle with novel compositions** |
+| **PhD-Level Math Reasoning (2512.13978)** | **supports** | **Illusion of Thinking (2506.06941)** | **Both reveal ceiling on reasoning capability** |
+| **PhD-Level Math Reasoning (2512.13978)** | **partially challenges** | **DeepSeek-R1 (2501.12948)** | **66% success suggests meaningful capability** |
+| **PhD-Level Math Reasoning (2512.13978)** | **partially supports** | **Physics of LLMs 2.1 (2407.20311)** | **Some genuine reasoning exists in narrow domains** |
 
 ### Extends / Builds On
 
@@ -397,6 +402,7 @@ These papers have NO direct rebuttals found:
 | **RADAR (2510.08931)** | **93% accuracy distinguishing recall vs reasoning; early convergence = recall (pattern matching); distributed attention = reasoning; 100% on clear cases; 76.7% on ambiguous** |
 | **Hierarchical Thinking FSM (2510.22437)** | **FSM framework for reasoning; length helps math (43%→83%) but can HURT factual (Qwen: longest chains, lower GPQA accuracy); adaptive transitions characterize strong models** |
 | **LLMs Truly Grasp Addition (2504.05262)** | **99.81%→7.51% symbolic (Claude); 1,700+ commutativity violations (A+B≠B+A); rule provision HURTS (-81.2%); SFT: 97.17% numerical, 0% symbolic transfer; STRONGEST evidence for pattern matching** |
+| **PhD-Level Math Reasoning (2512.13978)** | **~66% accuracy ceiling on Motwani-Raghavan textbook proofs; Claude best (66.4%), Grok-4 worst (33.2%); chapter variance suggests pattern-dependence; BALANCED — tests reproduction not invention** |
 
 ---
 
@@ -441,3 +447,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added RADAR (2510.08931) — 93% recall vs reasoning detection; early convergence = pattern matching; mechanistic contamination detection |
 | 2026-01-24 | Added Hierarchical Thinking FSM (2510.22437) — FSM framework; length helps math but can hurt factual; adaptive transitions in strong models |
 | 2026-01-24 | Added LLMs Truly Grasp Addition (2504.05262) — STRONGEST pattern matching evidence: 99.8%→7.5% symbolic, 1,700+ commutativity violations, 0% SFT transfer |
+| 2026-01-24 | Added PhD-Level Math Reasoning (2512.13978) — 66% ceiling on Motwani-Raghavan proofs; BALANCED (tests reproduction not invention) |
