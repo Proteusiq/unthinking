@@ -236,16 +236,17 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 85 | 2510.08931 | Oct 2025 | RADAR: Mechanistic Pathways for Detecting Data Contamination | Against | pending |
 | 86 | 2510.22437 | Oct 2025 | Modeling Hierarchical Thinking in Large Reasoning Models | Balanced | pending |
 | 87 | 2507.01231 | Jul 2025 | Rethinking the Illusion of Thinking | Balanced | ✅ DONE |
+| 88 | 2504.09858 | Apr 2025 | Reasoning Models Can Be Effective Without Thinking | Balanced | ✅ DONE |
 
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: ~87
+- **Total Papers**: ~88
 - **Against Reasoning**: ~34
 - **For Reasoning**: ~25
-- **Balanced**: ~28
+- **Balanced**: ~29
 - **Date Range**: 2024-2026
-- **Analyzed**: 38
+- **Analyzed**: 39
 
 ---
 
