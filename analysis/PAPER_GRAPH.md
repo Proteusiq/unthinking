@@ -379,6 +379,17 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Survey Latent CoT (2505.16782)** | **supports** | **CRV Verifying CoT (2510.09312)** | **Both show internal mechanisms matter** |
 | **Survey Latent CoT (2505.16782)** | **supports** | **Reasoning Beyond CoT (2601.08058)** | **Both identify latent reasoning modes** |
 | **Survey Latent CoT (2505.16782)** | **provides framework for** | **Latent vs explicit reasoning** | **Clear taxonomy of approaches** |
+| **CryptoX (2502.07813)** | **supports** | **Faith and Fate (2305.18654)** | **Both show compositional failures** |
+| **CryptoX (2502.07813)** | **supports** | **OMEGA (2506.18880)** | **Same pattern: primitives succeed, compositions fail** |
+| **CryptoX (2502.07813)** | **supports** | **GSM-Symbolic (2410.05229)** | **Both show encoding/perturbation brittleness** |
+| **CryptoX (2502.07813)** | **provides mechanism for** | **Compositional failure** | **Layered processing = sequential pattern matching** |
+| **CoT Monitorability (2510.27378)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Extends with verbosity dimension** |
+| **CoT Monitorability (2510.27378)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | **Both show CoT doesn't reflect reasoning** |
+| **CoT Monitorability (2510.27378)** | **extends** | **FaithCoT-Bench (2510.04040)** | **Adds monitorability framework** |
+| **Reasoning Abilities ARC (2403.11793)** | **supports** | **Faith and Fate (2305.18654)** | **Both show compositional reasoning failure** |
+| **Reasoning Abilities ARC (2403.11793)** | **supports** | **Compositional-ARC (2504.01445)** | **Same benchmark, similar findings** |
+| **Reasoning Abilities ARC (2403.11793)** | **supports** | **OMEGA (2506.18880)** | **Same pattern: primitives work, compositions fail** |
+| **Reasoning Abilities ARC (2403.11793)** | **provides framework for** | **Process vs results evaluation** | **LoTH: Logical Coherence, Compositionality, Productivity** |
 
 ### Extends / Builds On
 
@@ -508,6 +519,9 @@ These papers have NO direct rebuttals found:
 | **Revisiting Compositional Gen (2506.15629)** | **ACL 2025; Best model only 75% ordered coverage; 36 LLMs tested; identical outputs despite different orderings; instructions improve (+55pp) but don't solve; understanding ≠ execution; SUPPORTS thesis** |
 | **STEPS (2601.03676)** | **Power-law distribution explains compositional failure; 4K targeted > 52K random; unconstrained diversity HURTS instruct models; "sweet spot" needed; tool use ≠ reasoning; SUPPORTS thesis (with mitigation path)** |
 | **Survey Latent CoT (2505.16782)** | **Comprehensive survey of latent CoT reasoning; "unclear whether genuine reasoning or exploiting input-output correlations"; expressive redundancy + semantic bottleneck in explicit CoT; BALANCED** |
+| **CryptoX (2502.07813)** | **40-54pp drops with encoding; huge open/closed gap (AUC 2.47 vs 4.05); mechanistic analysis shows hierarchical subtask processing; o1 maintains 84% at 10 words encoded; SUPPORTS thesis** |
+| **CoT Monitorability (2510.27378)** | **Introduces verbosity as complement to faithfulness; Monitorability = Faithfulness + Verbosity; models appear faithful but leave out key factors; SUPPORTS thesis** |
+| **Reasoning Abilities ARC (2403.11793)** | **LoTH framework (Logical Coherence, Compositionality, Productivity); 10.6% correct answers but only 4.0% correct processes (60% lucky); 0% on Medium/Hard ARC; 1D-ARC 90% vs ARC 10%; SUPPORTS thesis** |
 
 ---
 
@@ -572,3 +586,6 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Revisiting Compositional Gen (2506.15629) — ACL 2025; 75% ceiling on ordered coverage; identical outputs for different orders; patterns dominate instructions; SUPPORTS thesis |
 | 2026-01-24 | Added STEPS (2601.03676) — Power-law distribution mechanism; 4K targeted > 52K random; unconstrained diversity hurts; "sweet spot"; tool use ≠ reasoning; SUPPORTS with mitigation |
 | 2026-01-24 | Added Survey Latent CoT (2505.16782) — Comprehensive survey; "unclear whether genuine reasoning or exploiting correlations"; evaluation gap; BALANCED |
+| 2026-01-24 | Added CryptoX (2502.07813) — 40-54pp encoding drops; hierarchical layer processing; SUPPORTS |
+| 2026-01-24 | Added CoT Monitorability (2510.27378) — Verbosity + Faithfulness = Monitorability; SUPPORTS |
+| 2026-01-24 | Added Reasoning Abilities ARC (2403.11793) — LoTH framework; 10.6%→4.0% process accuracy; SUPPORTS |
