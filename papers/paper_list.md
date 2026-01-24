@@ -28,7 +28,7 @@ Total papers to read from provided evidence (2024+ only)
 | 8 | 2503.08679 | Mar 2025 | Chain-of-Thought Reasoning In The Wild Is Not Always Faithful (Arcuschin et al.) | ✅ DONE |
 | 9 | 2505.05410 | May 2025 | Reasoning Models Don't Always Say What They Think (Chen et al.) | ✅ DONE |
 | 10 | 2307.13702 | Jul 2023 | Measuring Faithfulness in Chain-of-Thought Reasoning (Lanham et al.) | ✅ DONE |
-| 11 | 2406.10625 | Jun 2024 | On the Hardness of Faithful Chain-of-Thought Reasoning (Tanneru et al.) | pending |
+| 11 | 2406.10625 | Jun 2024 | On the Hardness of Faithful Chain-of-Thought Reasoning (Tanneru et al.) | ✅ DONE (analysis: 62_hardness_faithful_cot_reasoning.md) |
 
 ### Shortcut Learning & Bias Exploitation
 | # | arXiv ID | Date | Title | Status |

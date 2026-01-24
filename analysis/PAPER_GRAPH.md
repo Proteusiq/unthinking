@@ -478,3 +478,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added MMLU-Pro+ (2409.02257) — Anchoring bias; -14.3pp GPT-4o drop; CPI ratio 3.7x variation; NeurIPS 2024 |
 | 2026-01-24 | Added Unsupervised Decoding (2512.01222) — Logit lens decodes ROT-13 ~75%; internal representations anchor to English; BALANCED (doesn't address pattern matching) |
 | 2026-01-24 | Added Unveiling Causal Reasoning (2506.21215) — Level-1/Level-2 framework; 99.1%→69.2% drop on fresh data; STRONGLY SUPPORTS thesis |
+| 2026-01-24 | Added Hardness of Faithful CoT (2406.10625) — Faithfulness-accuracy tradeoff; ALL interventions fail; larger models LESS faithful; GPT-4 correct WITHOUT CoT |
