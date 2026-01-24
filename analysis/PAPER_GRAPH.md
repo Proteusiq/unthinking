@@ -352,6 +352,10 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **KUP Memorization vs Reasoning (2504.12523)** | **supports** | **Planning Gap (2601.14456)** | **Similar ID/OOD gap: high direct, zero generalization** |
 | **KUP Memorization vs Reasoning (2504.12523)** | **supports** | **GSM-Symbolic (2410.05229)** | **Both show memorization doesn't transfer to reasoning** |
 | **KUP Memorization vs Reasoning (2504.12523)** | **provides framework for** | **Memorization vs reasoning distinction** | **Direct vs indirect probing methodology** |
+| **LoopBench (2512.13713)** | **partially challenges** | **Illusion of Thinking (2506.06941)** | **O3 develops meta-cognitive strategies to escape deadlocks** |
+| **LoopBench (2512.13713)** | **supports** | **Limits of Emergent Reasoning Agentic (2510.15974)** | **Most models (GPT-4.1, O3-mini) still fail/loop** |
+| **LoopBench (2512.13713)** | **provides evidence for** | **Model capability hierarchy** | **O3 >> GPT-4.1 >> smaller models on meta-cognitive tasks** |
+| **LoopBench (2512.13713)** | **supports** | **Surfacing hypothesis** | **Discovery-Implementation Gap: weaker models execute but can't discover** |
 
 ### Extends / Builds On
 
@@ -475,6 +479,7 @@ These papers have NO direct rebuttals found:
 | **Limits of Emergent Reasoning Agentic (2510.15974)** | **Agentic framework makes collapse WORSE (earlier than baseline); ~40% deterministic looping; JSD diverges from BOTH optimal AND random policies; "high-probability mode following, not genuine reasoning"; REBUTS Agentic Gap; STRONGLY SUPPORTS thesis** |
 | **Compositional-ARC (2504.01445)** | **LLMs fail systematicity: o3-mini 0.53%, GPT-4o 0.99% on novel compositions; 5.7M MLC model (78.26%) beats 8B+ LLMs; TTT needed for LLM success (0.7%→78%); 3-shot success + systematicity failure = memorization not reasoning; STRONGLY SUPPORTS thesis** |
 | **KUP Memorization vs Reasoning (2504.12523)** | **ALL methods <2% on indirect probing (reasoning); direct probing 70-80% (memorization); "memorize updates but fail to reason over implications"; H&M Russia example; <2% across ALL CPT methods; STRONGLY SUPPORTS thesis** |
+| **LoopBench (2512.13713)** | **O3 achieves 55-72% proximity on symmetry breaking; GPT-4.1/O3-mini fail (0-4%); O3 develops "wait" strategies; GPT-5.1 rediscovers node ID priority; Discovery-Implementation Gap; BALANCED — O3 shows reasoning but most models fail** |
 
 ---
 
@@ -533,3 +538,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Limits of Emergent Reasoning Agentic (2510.15974) — Agentic framework WORSE than baseline; ~40% deterministic looping; JSD diverges from both optimal AND random; REBUTS Agentic Gap (2506.18957); STRONGLY SUPPORTS thesis |
 | 2026-01-24 | Added Compositional-ARC (2504.01445) — o3-mini 0.53%, GPT-4o 0.99% on systematicity; 5.7M MLC > 8B+ LLMs; TTT is NOT genuine generalization; 3-shot vs systematicity gap = smoking gun for pattern matching; STRONGLY SUPPORTS thesis |
 | 2026-01-24 | Added KUP Memorization vs Reasoning (2504.12523) — ALL methods <2% on indirect probing; 70-80% on direct probing; memorization ≠ reasoning; H&M Russia example; STRONGLY SUPPORTS thesis |
+| 2026-01-24 | Added LoopBench (2512.13713) — O3 72% vs GPT-4.1 0% on symmetry breaking; strategy evolution observed; Discovery-Implementation Gap supports surfacing; BALANCED |
