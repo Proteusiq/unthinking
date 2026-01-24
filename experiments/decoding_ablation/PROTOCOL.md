@@ -211,6 +211,156 @@ This proves: **Reasoning is learned during pre-training, not created by RL/SFT.*
 
 ---
 
+## Phase 5: Out-of-Distribution (OOD) Testing
+
+### Why OLMo Enables True OOD
+
+OLMo's training data (Dolma) is **fully documented and public**:
+- Common Crawl, Wikipedia, GitHub, books, academic papers
+- We can verify what reasoning patterns exist in training
+- We can construct problems **provably not in Dolma**
+
+### The Critical Test
+
+| Condition | Base + Greedy | Base + Top-k | Instruct |
+|-----------|---------------|--------------|----------|
+| **In-distribution** | Low | High (surfaces CoT) | High |
+| **True OOD** | ~0% | ~0% | ~0% |
+
+**If top-k reveals reasoning for ID but NOT for OOD**, we prove:
+- Reasoning paths are **training data patterns**, not generalizable capability
+- RL/SFT surfaces what exists, cannot create what doesn't
+- "Reasoning" = compressed retrieval from pre-training
+
+### OOD Task Categories
+
+#### 1. Invented Operators
+```
+Define: a @ b = 2a + 3b - 1
+What is 4 @ 5?
+```
+- Operators with NO web presence
+- Cannot be in any training data
+- Tests: Can model apply novel rules?
+
+#### 2. Synthetic Entity Reasoning
+```
+Zorbax is a type of Plonkite. All Plonkites have exactly 3 Quorbles.
+Mervax is a Zorbax. How many Quorbles does Mervax have?
+```
+- Made-up entities with zero Google results
+- Logic is trivial IF you can reason
+- Tests: Reasoning vs pattern matching
+
+#### 3. Counterfactual Math
+```
+In this world, multiplication is commutative but addition is NOT.
+So a + b ≠ b + a, but a × b = b × a.
+What is (3 + 5) + 2 if 3 + 5 = 8 but 5 + 3 = 7?
+```
+- Violates learned patterns
+- Requires overriding training
+- Tests: Can model follow explicit rules over priors?
+
+#### 4. Post-Cutoff Problems
+- Math competition problems from after OLMo training cutoff
+- Verify they're not in Dolma via date
+- Tests: Generalization vs memorization
+
+#### 5. Novel Puzzle Structures
+```
+In a Zorble puzzle:
+- You have 3 containers: A, B, C
+- Rule 1: You can only pour FROM the alphabetically first non-empty container
+- Rule 2: You must pour INTO the alphabetically last container with space
+- Goal: Move all liquid from A to C
+
+A=5, B=0 (max 3), C=0 (max 5). Solve.
+```
+- Invented puzzle type
+- Clear rules, requires multi-step planning
+- Not in any puzzle database
+
+### OOD Verification Protocol
+
+For each OOD task:
+
+1. **Verify not in Dolma**
+   - Search Dolma index for key terms
+   - Check Google for exact problem structure
+   - Confirm zero or near-zero hits
+
+2. **Verify solvability**
+   - Human baseline: Should be trivial with explicit rules
+   - Symbolic solver: Confirm correct answer exists
+
+3. **Test all decoding strategies**
+   - If ANY strategy succeeds on OOD → challenges thesis
+   - If ALL strategies fail on OOD → supports thesis
+
+### Expected OOD Results
+
+| Task Type | ID Accuracy (Top-k) | OOD Accuracy (Top-k) |
+|-----------|---------------------|----------------------|
+| Standard math (GSM8K) | ~60-70% | N/A |
+| Invented operators | N/A | <5% |
+| Synthetic entities | N/A | <5% |
+| Counterfactual math | N/A | <5% |
+| Novel puzzles | N/A | <5% |
+
+### The Complete Argument
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    THE SURFACING HYPOTHESIS                     │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  IN-DISTRIBUTION:                                               │
+│  ┌─────────────┐    top-k     ┌─────────────┐                  │
+│  │ Base Model  │ ──────────>  │ CoT Revealed │  ✓ Accuracy ↑   │
+│  │ (greedy=low)│              │ (was hidden) │                  │
+│  └─────────────┘              └─────────────┘                  │
+│                                                                 │
+│  OUT-OF-DISTRIBUTION:                                           │
+│  ┌─────────────┐    top-k     ┌─────────────┐                  │
+│  │ Base Model  │ ──────────>  │ Still Fails  │  ✗ No CoT exists│
+│  │ (greedy=0%) │              │ (~0%)        │                  │
+│  └─────────────┘              └─────────────┘                  │
+│                                                                 │
+│  CONCLUSION: Reasoning = training patterns, not capability      │
+│  - ID: Patterns exist → can be surfaced                        │
+│  - OOD: Patterns don't exist → nothing to surface              │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### OOD Success Criteria
+
+The OOD phase succeeds if:
+
+1. **ID surfacing works**: Top-k reveals CoT on GSM8K-like tasks
+2. **OOD surfacing fails**: Top-k does NOT reveal CoT on novel tasks
+3. **Gap is stark**: ID lift >10%, OOD lift <2%
+4. **Human baseline high**: Humans solve OOD tasks easily (proves solvability)
+
+This proves: **Reasoning is pattern retrieval from training, not generalizable capability.**
+
+---
+
+## Success Criteria (Updated)
+
+The experiment succeeds if we demonstrate:
+
+1. **Existence**: CoT paths exist in base OLMo 3 token probabilities
+2. **Recovery**: Alternative decoding recovers these paths (>30% recovery rate)
+3. **Utility**: Recovered CoT improves accuracy (>10% lift)
+4. **Mechanism**: CoT presence correlates with model confidence
+5. **Boundary**: Recovery works for ID, fails for OOD (proves distribution-bounded)
+
+This proves: **Reasoning is learned during pre-training, bounded by training distribution, and not created by RL/SFT.**
+
+---
+
 ## References
 
 - Wang & Zhou (2024). "Chain-of-Thought Reasoning Without Prompting" (2402.10200)
