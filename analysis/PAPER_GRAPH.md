@@ -369,6 +369,12 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Revisiting Compositional Gen (2506.15629)** | **supports** | **Iterative ICL Algebraic (2509.01267)** | **Both show instruction override fails; patterns dominate** |
 | **Revisiting Compositional Gen (2506.15629)** | **supports** | **GSM-Symbolic (2410.05229)** | **Both show distribution-bounded performance** |
 | **Revisiting Compositional Gen (2506.15629)** | **provides evidence for** | **Instruction-pattern conflict** | **Models default to preferred orderings, ignoring instructions** |
+| **STEPS (2601.03676)** | **provides mechanism for** | **Faith and Fate (2305.18654)** | **Power-law distribution explains compositional scarcity** |
+| **STEPS (2601.03676)** | **provides mechanism for** | **Compositional-ARC (2504.01445)** | **Data bottleneck explains why k>1 compositions fail** |
+| **STEPS (2601.03676)** | **supports** | **OMEGA (2506.18880)** | **Both show compositional collapse; STEPS provides solution** |
+| **STEPS (2601.03676)** | **supports** | **Interplay (2512.07783)** | **Both support surfacing hypothesis** |
+| **STEPS (2601.03676)** | **supports** | **Limits of Emergent Reasoning Agentic (2510.15974)** | **Tool use ≠ reasoning; environment doesn't help** |
+| **STEPS (2601.03676)** | **provides evidence for** | **Training distribution thesis** | **Power-law distribution bounds capability** |
 
 ### Extends / Builds On
 
@@ -496,6 +502,7 @@ These papers have NO direct rebuttals found:
 | **CRV Verifying CoT (2510.09312)** | **92.47% AUROC on arithmetic vs 76.45% baseline; error signatures domain-specific (transfer fails 92%→55%); causal interventions work; "reasoning failure = flaw in execution of latent algorithm"; BALANCED** |
 | **Iterative ICL Algebraic (2509.01267)** | **Zero-shot: 13-35% on non-standard precedence (high school level task); rule override fails; simpler examples often work BETTER than complex ones; complexity collapse: 97%→47% (db(1,6)→db(3,20)); SUPPORTS thesis** |
 | **Revisiting Compositional Gen (2506.15629)** | **ACL 2025; Best model only 75% ordered coverage; 36 LLMs tested; identical outputs despite different orderings; instructions improve (+55pp) but don't solve; understanding ≠ execution; SUPPORTS thesis** |
+| **STEPS (2601.03676)** | **Power-law distribution explains compositional failure; 4K targeted > 52K random; unconstrained diversity HURTS instruct models; "sweet spot" needed; tool use ≠ reasoning; SUPPORTS thesis (with mitigation path)** |
 
 ---
 
@@ -558,3 +565,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added CRV Verifying CoT (2510.09312) — 92% AUROC; domain-specific error signatures; causal interventions work; BALANCED |
 | 2026-01-24 | Added Iterative ICL Algebraic (2509.01267) — Zero-shot 13-35% on rule override task; simpler examples work better; complexity collapse; SUPPORTS thesis |
 | 2026-01-24 | Added Revisiting Compositional Gen (2506.15629) — ACL 2025; 75% ceiling on ordered coverage; identical outputs for different orders; patterns dominate instructions; SUPPORTS thesis |
+| 2026-01-24 | Added STEPS (2601.03676) — Power-law distribution mechanism; 4K targeted > 52K random; unconstrained diversity hurts; "sweet spot"; tool use ≠ reasoning; SUPPORTS with mitigation |
