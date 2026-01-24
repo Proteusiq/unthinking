@@ -63,6 +63,34 @@ Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.
 
 ---
 
+## Experimental Evidence: OLMo 3 Decoding Ablation
+
+Beyond the literature review, we provide **original experimental evidence** using OLMo 3.
+
+### Hypothesis
+
+> Reasoning paths exist in base LLMs, hidden by greedy decoding. RL and instruction-tuning don't create reasoning — they make existing paths the default.
+
+### Experiment
+
+Using OLMo 3 (fully open weights, data, and checkpoints):
+
+1. **Base model + greedy decoding** → Low accuracy, no chain-of-thought
+2. **Base model + alternative decoding (top-k, nucleus)** → Reveals hidden CoT paths
+3. **Instruct model + greedy** → High accuracy, CoT is default
+
+### The Killer Finding
+
+If alternative decoding on the **base model** recovers reasoning paths that improve accuracy, this proves:
+
+- Reasoning is **learned during pre-training**
+- RL/SFT merely **surfaces** it as the default path
+- The capability was always there — greedy decoding just didn't select it
+
+See [`experiments/decoding_ablation/PROTOCOL.md`](./experiments/decoding_ablation/PROTOCOL.md) for the full experimental protocol.
+
+---
+
 ## Repository Structure
 
 ```
@@ -71,6 +99,10 @@ Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.
 │   ├── PAPER_GRAPH.md        # Paper interaction graph
 │   ├── REBUTTALS.md          # Rebuttal matrix
 │   └── explored/             # Individual paper analyses (79 files)
+├── experiments/
+│   └── decoding_ablation/    # OLMo 3 decoding experiment
+│       ├── PROTOCOL.md       # Experimental protocol
+│       └── pyproject.toml    # Dependencies (uv)
 ├── docs/                     # Interactive visualization (GitHub Pages)
 │   ├── index.html
 │   ├── css/styles.css
