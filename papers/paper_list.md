@@ -74,7 +74,7 @@ Total papers to read from provided evidence (2024+ only)
 ### Emergence from Scaling & Training
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
-| 29 | 2503.05788 | Feb 2025 | Emergent Abilities in Large Language Models: A Survey | pending |
+| 29 | 2503.05788 | Mar 2025 | Emergent Abilities in Large Language Models: A Survey | ✅ DONE (analysis: 64_emergent_abilities_survey.md) |
 | 30 | TBD | Sep 2025 | Emergent Hierarchical Reasoning through RL | pending |
 | 31 | 2501.12948 | Jan 2025 | DeepSeek-R1: Incentivizing Reasoning Capability via RL | ✅ DONE |
 
