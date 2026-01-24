@@ -223,6 +223,21 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Physics of LLMs 2.1 (2407.20311)** | **supports** | **Interplay (2512.07783)** | **Capability must exist in training distribution (iGSM provides this)** |
 | **Physics of LLMs 2.1 (2407.20311)** | **does not address** | **OMEGA (2506.18880)** | **Length generalization ≠ compositional generalization** |
 | **Physics of LLMs 2.1 (2407.20311)** | **does not address** | **Planning Gap (2601.14456)** | **Different task structure** |
+| **FaithCoT-Bench (2510.04040)** | **supports** | **CoT In The Wild (2503.08679)** | **Both find pervasive unfaithfulness; extends with instance-level detection** |
+| **FaithCoT-Bench (2510.04040)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Confirms CoT unfaithfulness with 1,000+ annotated trajectories** |
+| **FaithCoT-Bench (2510.04040)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | **Both find ~40-60% unfaithfulness rates** |
+| **FaithCoT-Bench (2510.04040)** | **supports** | **Planning Gap (2601.14456)** | **OOD unfaithfulness: 20% → 74% parallels ID/OOD accuracy gap** |
+| **FaithCoT-Bench (2510.04040)** | **extends** | **Prior faithfulness work** | **Population-level → instance-level detection framework** |
+| **Societies of Thought (2601.10825)** | **supports (mechanistically)** | **DeepSeek-R1 (2501.12948)** | **Explains HOW R1 achieves performance via multi-agent dialogue simulation** |
+| **Societies of Thought (2601.10825)** | **supports** | **How LLMs Learn to Reason (2509.23629)** | **Both show RL organizes pre-existing conversational patterns** |
+| **Societies of Thought (2601.10825)** | **supports** | **Interplay (2512.07783)** | **"Society of thought" is learned pattern from training data** |
+| **Societies of Thought (2601.10825)** | **does not address** | **OMEGA (2506.18880)** | **No OOD or compositional testing** |
+| **Societies of Thought (2601.10825)** | **does not address** | **Planning Gap (2601.14456)** | **No OOD generalization testing** |
+| **Thinking by Doing (2511.23476)** | **supports** | **Interplay (2512.07783)** | **RL requires pre-existing capability; authors state prerequisites** |
+| **Thinking by Doing (2511.23476)** | **supports** | **DeepSeek-R1 (2501.12948)** | **RL organizes existing reasoning patterns** |
+| **Thinking by Doing (2511.23476)** | **supports** | **Effective Without Thinking (2504.09858)** | **Monolithic reasoning can HARM performance** |
+| **Thinking by Doing (2511.23476)** | **does not address** | **OMEGA (2506.18880)** | **"Hard" tasks are same domain, larger scale — not compositional OOD** |
+| **Thinking by Doing (2511.23476)** | **does not address** | **Planning Gap (2601.14456)** | **No truly OOD testing** |
 
 ### Extends / Builds On
 
@@ -320,6 +335,9 @@ These papers have NO direct rebuttals found:
 | **Emergent World Beliefs (2512.23722)** | **r=0.59 equity correlation (moderate); but equity was in training data; no OOD/compositional testing** |
 | **TMBench (2504.20771)** | **Gemini 94% at 30 steps; BUT inevitable failure at steps 16-683; "statistical nature" limits; supports bounded capability** |
 | **Physics of LLMs Part 2.1 (2407.20311)** | **CHALLENGES thesis: 90%+ OOD length generalization; mental planning; learns beyond training; BUT GPT-4 fails on task; authors disclaim generalization** |
+| **FaithCoT-Bench (2510.04040)** | **Instance-level unfaithfulness detection; 20% ID → 74% OOD unfaithfulness; correct ≠ faithful; best detection F1 <80%** |
+| **Societies of Thought (2601.10825)** | **Multi-agent dialogue mechanism; steering doubles accuracy; RL spontaneously develops conversational patterns; BUT no OOD testing** |
+| **Thinking by Doing (2511.23476)** | **WMAct 78.57% vs EntirePlan 49.12%; modest transfer +5.05 HMMT25; BUT requires pre-existing capability; "Hard" = same domain, larger scale** |
 
 ---
 
@@ -350,3 +368,6 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Emergent World Beliefs (2512.23722) — r=0.59 equity correlation; equity was in training signal; no OOD testing |
 | 2026-01-24 | Added TMBench (2504.20771) — "Inevitable failure" at steps 16-683 supports bounded capability; r=0.882 with reasoning benchmarks |
 | 2026-01-24 | Added Physics of LLMs Part 2.1 (2407.20311) — STRONGEST challenge to thesis; genuine OOD generalization; but GPT-4 fails, authors disclaim |
+| 2026-01-24 | Added FaithCoT-Bench (2510.04040) — Instance-level faithfulness; 20% → 74% OOD unfaithfulness; strongest unfaithfulness evidence |
+| 2026-01-24 | Added Societies of Thought (2601.10825) — Multi-agent dialogue mechanism; explains HOW reasoning models work; no OOD testing |
+| 2026-01-24 | Added Thinking by Doing (2511.23476) — WMAct training; modest transfer; requires pre-existing capability |

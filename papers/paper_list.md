@@ -186,7 +186,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ### CoT Faithfulness & Unfaithfulness
 | # | arXiv ID | Date | Title | Stance | Status |
 |---|----------|------|-------|--------|--------|
-| 62 | 2510.04040 | Oct 2025 | FaithCoT-Bench: Benchmarking Instance-Level Faithfulness of CoT Reasoning | Against | pending |
+| 62 | 2510.04040 | Oct 2025 | FaithCoT-Bench: Benchmarking Instance-Level Faithfulness of CoT Reasoning | Against | ✅ DONE |
 | 63 | 2502.14829 | Feb 2025 | Measuring CoT Faithfulness by Unlearning Reasoning Steps (EMNLP Outstanding) | Balanced | ✅ DONE |
 | 64 | 2505.23945 | May 2025 | A Closer Look at Bias and CoT Faithfulness of Large (Vision) Language Models | Against | pending |
 | 65 | 2509.13334 | Sep 2025 | FRIT: Using Causal Importance to Improve CoT Faithfulness | Balanced | pending |
@@ -225,9 +225,9 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | # | arXiv ID | Date | Title | Stance | Status |
 |---|----------|------|-------|--------|--------|
 | 80 | 2601.08058 | Jan 2026 | Reasoning Beyond CoT: A Latent Computational Mode in LLMs | Balanced | ✅ DONE |
-| 81 | 2601.10825 | Jan 2026 | Reasoning Models Generate Societies of Thought | Balanced | pending |
+| 81 | 2601.10825 | Jan 2026 | Reasoning Models Generate Societies of Thought | Balanced | ✅ DONE |
 | 82 | 2512.23722 | Dec 2025 | Emergent World Beliefs: Exploring Transformers in Stochastic Games | Balanced | ✅ DONE |
-| 83 | 2511.23476 | Nov 2025 | Thinking by Doing: Building Efficient World Model Reasoning | Balanced | pending |
+| 83 | 2511.23476 | Nov 2025 | Thinking by Doing: Building Efficient World Model Reasoning | Balanced | ✅ DONE |
 
 ### Other Notable Papers
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -248,7 +248,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 - **For Reasoning**: ~26
 - **Balanced**: ~30
 - **Date Range**: 2024-2026
-- **Analyzed**: 43
+- **Analyzed**: 46
 
 ---
 
