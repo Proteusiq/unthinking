@@ -268,6 +268,17 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Mapping Faithful Reasoning (2510.22362)** | **supports** | **FRIT (2509.13334)** | **Both find easy/hard case distinction** |
 | **Mapping Faithful Reasoning (2510.22362)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | **Both show CoT can be decorative** |
 | **Mapping Faithful Reasoning (2510.22362)** | **provides method for** | **AI safety monitoring** | **Concept Walk distinguishes computational vs decorative reasoning** |
+| **IOI Minimal Circuits (2510.25013)** | **supports** | **Emergent Symbolic Mechanisms (2502.20332)** | **Both find identifiable circuits for reasoning** |
+| **IOI Minimal Circuits (2510.25013)** | **supports** | **How LLMs Learn to Reason (2509.23629)** | **Both show structured internal patterns** |
+| **IOI Minimal Circuits (2510.25013)** | **challenged by** | **Wang et al. GPT-2 IOI** | **GPT-2 uses complex multi-hop circuit; task-constrained training finds simpler** |
+| **RADAR (2510.08931)** | **supports** | **GSM-Symbolic (2410.05229)** | **Both question benchmark validity; mechanistic detection of memorization** |
+| **RADAR (2510.08931)** | **supports** | **Beyond Memorization (2601.13392)** | **Both distinguish memorization from reasoning** |
+| **RADAR (2510.08931)** | **supports** | **Instruction-Tuned Not Better (2601.13244)** | **Perturbation sensitivity reveals brittleness** |
+| **RADAR (2510.08931)** | **provides method for** | **Thesis validation** | **Early convergence = pattern matching; distributed attention = reasoning** |
+| **Hierarchical Thinking FSM (2510.22437)** | **supports** | **Illusion of Thinking (2506.06941)** | **Extended thinking doesn't always help (GPQA: longer = worse)** |
+| **Hierarchical Thinking FSM (2510.22437)** | **supports** | **Effective Without Thinking (2504.09858)** | **Sometimes shorter is better** |
+| **Hierarchical Thinking FSM (2510.22437)** | **supports** | **CogniLoad (2509.18458)** | **Task length matters for math but not all tasks** |
+| **Hierarchical Thinking FSM (2510.22437)** | **provides method for** | **Reasoning interpretability** | **FSM framework for tracking state transitions** |
 
 ### Extends / Builds On
 
@@ -375,6 +386,9 @@ These papers have NO direct rebuttals found:
 | **Instruction-Tuned Not Better (2601.13244)** | **Base models win by 27-33pp in zero-shot; domain shift: base wins by 33pp; perturbation: 38-62% relative drop; instruction tuning creates prompt dependencies** |
 | **FRIT (2509.13334)** | **Baseline CoT faithfulness: 32.9% (Qwen GSM8K); traditional faithfulness: 8.9%; FRIT improves both faithfulness (+3.4pp) and accuracy (+7.6pp); accuracy emerges from faithfulness** |
 | **Mapping Faithful Reasoning (2510.22362)** | **Easy cases: decorative reasoning (transient perturbation effects); Hard cases: computational reasoning (sustained shifts); Concept Walk method distinguishes faithful from unfaithful** |
+| **IOI Minimal Circuits (2510.25013)** | **2-head model sufficient for perfect IOI; additive-contrastive mechanism; single head provably insufficient; task-constrained training finds simpler circuits than pre-training** |
+| **RADAR (2510.08931)** | **93% accuracy distinguishing recall vs reasoning; early convergence = recall (pattern matching); distributed attention = reasoning; 100% on clear cases; 76.7% on ambiguous** |
+| **Hierarchical Thinking FSM (2510.22437)** | **FSM framework for reasoning; length helps math (43%→83%) but can HURT factual (Qwen: longest chains, lower GPQA accuracy); adaptive transitions characterize strong models** |
 
 ---
 
@@ -415,3 +429,6 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Instruction-Tuned Not Better (2601.13244) — Base models win in zero-shot by 27-33pp; instruction tuning creates prompt dependencies |
 | 2026-01-24 | Added FRIT (2509.13334) — Baseline faithfulness 32.9%; accuracy emerges from faithfulness training; intervention-based testing |
 | 2026-01-24 | Added Mapping Faithful Reasoning (2510.22362) — Concept Walk method; easy=decorative, hard=computational; mechanistic distinction |
+| 2026-01-24 | Added IOI Minimal Circuits (2510.25013) — 2-head sufficient; additive-contrastive mechanism; task-constrained training simpler |
+| 2026-01-24 | Added RADAR (2510.08931) — 93% recall vs reasoning detection; early convergence = pattern matching; mechanistic contamination detection |
+| 2026-01-24 | Added Hierarchical Thinking FSM (2510.22437) — FSM framework; length helps math but can hurt factual; adaptive transitions in strong models |

@@ -218,7 +218,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | # | arXiv ID | Date | Title | Stance | Status |
 |---|----------|------|-------|--------|--------|
 | 77 | 2601.02989 | Jan 2026 | Mechanistic Interpretability of Large-Scale Counting in LLMs | Balanced | ✅ DONE |
-| 78 | 2510.25013 | Oct 2025 | Emergence of Minimal Circuits for Indirect Object Identification | Balanced | pending |
+| 78 | 2510.25013 | Oct 2025 | Emergence of Minimal Circuits for Indirect Object Identification | Balanced | ✅ DONE |
 | 79 | 2512.01222 | Dec 2025 | Unsupervised Decoding of Encoded Reasoning using LM Interpretability | Balanced | pending |
 
 ### Latent Reasoning & World Models
@@ -233,8 +233,8 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | # | arXiv ID | Date | Title | Stance | Status |
 |---|----------|------|-------|--------|--------|
 | 84 | 2601.13244 | Jan 2026 | Do Instruction-Tuned Models Always Perform Better? | Against | ✅ DONE |
-| 85 | 2510.08931 | Oct 2025 | RADAR: Mechanistic Pathways for Detecting Data Contamination | Against | pending |
-| 86 | 2510.22437 | Oct 2025 | Modeling Hierarchical Thinking in Large Reasoning Models | Balanced | pending |
+| 85 | 2510.08931 | Oct 2025 | RADAR: Mechanistic Pathways for Detecting Data Contamination | Against | ✅ DONE |
+| 86 | 2510.22437 | Oct 2025 | Modeling Hierarchical Thinking in Large Reasoning Models | Balanced | ✅ DONE |
 | 87 | 2507.01231 | Jul 2025 | Rethinking the Illusion of Thinking | Balanced | ✅ DONE |
 | 88 | 2504.09858 | Apr 2025 | Reasoning Models Can Be Effective Without Thinking | Balanced | ✅ DONE |
 | 89 | 2504.20771 | Apr 2025 | Computational Reasoning of LLMs (TMBench) | Balanced | ✅ DONE |
@@ -248,7 +248,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 - **For Reasoning**: ~26
 - **Balanced**: ~30
 - **Date Range**: 2024-2026
-- **Analyzed**: 53
+- **Analyzed**: 56
 
 ---
 
