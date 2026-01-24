@@ -1032,7 +1032,7 @@ body {
     right: 0;
     height: 56px;
     padding: var(--space-sm) var(--space-xl);
-    background: inherit;
+    background: transparent;
     border-radius: 0 0 var(--radius-xl) var(--radius-xl);
     align-items: center;
     gap: var(--space-md);
@@ -1051,10 +1051,25 @@ body {
 .header-compact .search-container {
     min-width: 200px;
     max-width: 300px;
+    background: transparent;
+    border: 1px solid var(--glass-border);
+}
+
+.header-compact .header-toggle {
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: 1px solid var(--glass-border);
+}
+
+.header-compact .header-toggle:hover {
+    background: var(--glass-bg-subtle);
 }
 
 .header-compact .header-toggle svg {
     transform: rotate(180deg);
+    width: 18px;
+    height: 18px;
 }
 
 /* Collapsed state */
