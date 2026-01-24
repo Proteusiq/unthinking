@@ -224,7 +224,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ### Latent Reasoning & World Models
 | # | arXiv ID | Date | Title | Stance | Status |
 |---|----------|------|-------|--------|--------|
-| 80 | 2601.08058 | Jan 2026 | Reasoning Beyond CoT: A Latent Computational Mode in LLMs | Balanced | pending |
+| 80 | 2601.08058 | Jan 2026 | Reasoning Beyond CoT: A Latent Computational Mode in LLMs | Balanced | ✅ DONE |
 | 81 | 2601.10825 | Jan 2026 | Reasoning Models Generate Societies of Thought | Balanced | pending |
 | 82 | 2512.23722 | Dec 2025 | Emergent World Beliefs: Exploring Transformers in Stochastic Games | For | pending |
 | 83 | 2511.23476 | Nov 2025 | Thinking by Doing: Building Efficient World Model Reasoning | Balanced | pending |
@@ -244,7 +244,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 - **For Reasoning**: ~25
 - **Balanced**: ~27
 - **Date Range**: 2024-2026
-- **Analyzed**: 36
+- **Analyzed**: 37
 
 ---
 
