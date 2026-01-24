@@ -22,8 +22,8 @@ from pathlib import Path
 # CONFIGURATION
 # =============================================================================
 
-# Only search recent papers (last N days)
-DAYS_LOOKBACK = 7
+# Only search papers from yesterday
+DAYS_LOOKBACK = 1
 
 # Core search - broad net for reasoning papers
 SEARCH_QUERIES = [
