@@ -53,7 +53,7 @@ Total papers to read from provided evidence (2024+ only)
 ### Surface Pattern Imitation
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
-| 20 | 2509.12645 | Sep 2025 | Large Language Models Imitate Logical Reasoning, but at what Cost? | pending |
+| 20 | 2509.12645 | Sep 2025 | Large Language Models Imitate Logical Reasoning, but at what Cost? | ✅ DONE |
 | 21 | 2509.13345 | Sep 2025 | Accuracy Paradox in Large Language Models: Regulating Hallucination Risks | pending |
 | 22 | 2512.20812 | Dec 2025 | Semantic Deception: When Reasoning Models Can't Compute an Addition | ✅ DONE |
 | 23 | 2507.07313 | Jul 2025 | Frontier LLMs Still Struggle with Simple Reasoning Tasks | pending |
