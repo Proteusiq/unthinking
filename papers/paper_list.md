@@ -203,7 +203,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ### Planning & Generalization Gap
 | # | arXiv ID | Date | Title | Stance | Status |
 |---|----------|------|-------|--------|--------|
-| 71 | 2601.14456 | Jan 2026 | On the Generalization Gap in LLM Planning: 82.9% ID, 0% OOD | Against | pending |
+| 71 | 2601.14456 | Jan 2026 | On the Generalization Gap in LLM Planning: 82.9% ID, 0% OOD | Against | ✅ DONE |
 | 72 | 2509.18458 | Sep 2025 | CogniLoad: Synthetic NL Reasoning Benchmark With Tunable Difficulty | Against | pending |
 
 ### Emergent Reasoning (FOR evidence)
@@ -244,7 +244,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 - **For Reasoning**: ~28
 - **Balanced**: ~24
 - **Date Range**: 2024-2026
-- **Analyzed**: 29
+- **Analyzed**: 30
 
 ---
 

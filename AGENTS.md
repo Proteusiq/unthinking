@@ -137,6 +137,49 @@ Each paper analysis should follow this structure:
 
 ---
 
+## Expanding the Paper Corpus
+
+### Systematic arXiv Search
+When the initial paper list needs expansion, conduct systematic searches:
+
+1. **Search Strategy**:
+   - Use arXiv search with date filters (e.g., 2024-2026)
+   - Search multiple query terms covering different angles:
+     - Core topic: "LLM reasoning", "chain of thought"
+     - Skeptical: "reasoning limitations", "reasoning failure"
+     - Mechanistic: "interpretability reasoning", "reasoning circuits"
+     - Emergent: "emergent reasoning", "reasoning generalization"
+   - Include venue filters when possible (ICLR, NeurIPS, EMNLP, ACL)
+
+2. **Categorization**:
+   - Group papers by sub-topic (CoT faithfulness, compositional generalization, etc.)
+   - Mark expected stance (FOR/AGAINST thesis, BALANCED)
+   - Note venue and any awards (Outstanding Paper, Best Paper)
+   - Prioritize papers that directly test the thesis
+
+3. **Priority Assignment**:
+   - HIGH: Directly tests thesis claims with controlled experiments
+   - HIGH: Award-winning papers (signal quality)
+   - HIGH: Papers that challenge our thesis (steel-man the opposition)
+   - MEDIUM: Extends existing findings with new evidence
+   - LOW: Tangentially related or overlaps with analyzed papers
+
+4. **Update paper_list.md**:
+   - Add new papers with arXiv ID, title, expected stance
+   - Mark as NOT_STARTED
+   - Group logically (by topic or by stance)
+
+### Example Search Session
+```
+Query: "LLM reasoning" + date:2024-2026 + category:cs.CL
+→ Found 150 results
+→ Filtered to 25 high-relevance papers
+→ Categorized: 8 CoT, 5 compositional, 4 emergent, 4 mechanistic, 4 other
+→ Added to paper_list.md with expected stance
+```
+
+---
+
 ## Workflow
 
 ### When Analyzing a New Paper:
