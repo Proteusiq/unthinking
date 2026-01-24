@@ -21,8 +21,9 @@
 | 13 | Emergence of Strategic Reasoning | Dec 2024 | For | LRMs exceed human strategic reasoning; τ=4.42 for GPT-o1 |
 | 14 | CoT In The Wild Not Faithful | Mar 2025 | Against | Unfaithfulness on natural prompts; GPT-4o-mini 13%, best model 0.04% |
 | 15 | Interplay of Pre-Training, Mid-Training, RL | Dec 2025 | Balanced | 0% exposure = RL fails; ≥1% = success; "cannot synthesize from void" |
+| 16 | Reasoning Models Reason Well, Until They Don't | Oct 2025 | Balanced | Abrupt collapse at L~64-300; NLGraph trivially easy (L<2); o3 fails |
 
-**Total: 17 papers analyzed (2 foundational + 15 main)**
+**Total: 18 papers analyzed (2 foundational + 16 main)**
 
 ---
 
@@ -292,6 +293,64 @@ The "Interplay of Pre-Training, Mid-Training, and RL" paper provides the **contr
 > "Strategic reasoning in LRMs reflects sophisticated pattern completion within the behavioral economics literature, not genuine strategic understanding. The performance drop for unusual parameters (p=4/3) reveals the distribution boundary — models excel at games similar to training data but cannot extrapolate to variations not covered in their training."
 
 This aligns with our core thesis: **practical but predictive** — works within distribution, fails outside.
+
+---
+
+## NEW: The Benchmark Illusion (Reasoning Models Reason Well, Until They Don't)
+
+### Key Finding: Existing Benchmarks Are Trivially Easy
+
+| Benchmark | LRM Accuracy | Actual Complexity |
+|-----------|--------------|-------------------|
+| NLGraph-hard | **99%** (o3-mini) | Lookahead < 1.8 |
+| DeepRD (L=64) | ~80% | Moderate |
+| DeepRD (L=300) | ~40% | High |
+| DeepRD (L=800) | **~0%** | Very High |
+
+**Critical insight**: "Existing benchmarks actually have limited complexity" — 99% on NLGraph proves nothing about generalization.
+
+### Abrupt Performance Collapse
+
+| Complexity (L) | R1 | o3-mini | o3 (full) |
+|----------------|-----|---------|-----------|
+| L=2 | ~100% | ~100% | ~100% |
+| L=64 | ~80% | ~90% | - |
+| L=300 | ~40% | ~60% | **10%** |
+| L=800 | ~0% | ~10% | **0%** |
+
+**Key observation**: Performance drops are ABRUPT, not gradual. This indicates a hard distribution boundary.
+
+### Token Usage DECREASES at High Complexity
+
+> "Token limits do not cause the drops in accuracy... completion token usage seems to *decrease* with increasing lookahead"
+
+**Implication**: Models "give up" rather than try harder — they recognize being outside their competence.
+
+### Even Chain Graphs Eventually Fail
+
+For B=1 (NO search required, just follow edges):
+- Depth=64: ~100%
+- Depth=512: ~80%
+- Depth=1536: **~40%**
+
+**Even with NO search required**, models fail at sufficient depth. This is pure pattern matching limit.
+
+### Real-World Long Tails
+
+| Dataset | 50th %ile | 99th %ile | 99.9th %ile |
+|---------|-----------|-----------|-------------|
+| ConceptNet | ~3 | ~15 | ~30 |
+| WikiKG2 | ~2 | ~10 | ~20 |
+| NaturalProofs | ~5 | ~20 | ~40 |
+
+> "The majority of real-world examples fall inside the LRMs' success regime, yet the long tails expose substantial failure potential"
+
+### Implications for Thesis
+
+1. **Benchmark scores are misleading**: 99% accuracy means nothing if benchmark is trivially easy
+2. **Abrupt collapse = distribution boundary**: Not capability limit, but training distribution limit
+3. **Real-world has dangerous long tails**: Critical problems will fail
+4. **Even SOTA (o3) fails**: No escape from the pattern
 
 ---
 
