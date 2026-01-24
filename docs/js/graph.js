@@ -700,6 +700,14 @@
             document.getElementById('thesis-card').classList.toggle('collapsed');
         });
 
+        // Header toggle (mobile)
+        const headerToggle = document.getElementById('header-toggle');
+        if (headerToggle) {
+            headerToggle.addEventListener('click', () => {
+                document.querySelector('.header').classList.toggle('collapsed');
+            });
+        }
+
         // Window resize
         let resizeTimeout;
         window.addEventListener('resize', () => {
