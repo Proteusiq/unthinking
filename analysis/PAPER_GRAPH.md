@@ -193,6 +193,11 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Rethinking Illusion of Thinking (2507.01231)** | **challenges** | **Agentic Gap (2506.18957)** | **Agentic dialogue makes Hanoi WORSE, not better** |
 | **Rethinking Illusion of Thinking (2507.01231)** | **challenges** | **Thinking Isn't Illusion (2507.17699)** | **Base reasoning genuinely limited; tools may help but problem is real** |
 | **Rethinking Illusion of Thinking (2507.01231)** | **supports** | **OMEGA (2506.18880)** | **Same phase transition / complexity threshold patterns** |
+| **Effective Without Thinking (2504.09858)** | **supports** | **Illusion of Insight (2601.00514)** | **Extended thinking not necessary for correctness** |
+| **Effective Without Thinking (2504.09858)** | **supports** | **Reasoning Beyond CoT (2601.08058)** | **Reasoning can be elicited without explicit CoT** |
+| **Effective Without Thinking (2504.09858)** | **supports** | **CoT Faithfulness papers** | **If thinking skippable, tokens not causal for correctness** |
+| **Effective Without Thinking (2504.09858)** | **challenges** | **DeepSeek-R1 (2501.12948)** | **Questions value of extended thinking traces** |
+| **Effective Without Thinking (2504.09858)** | **challenges** | **How LLMs Learn to Reason (2509.23629)** | **"Concept web" traversal may not require explicit thinking** |
 | **Rethinking Illusion of Thinking (2507.01231)** | **supports** | **Faith and Fate (2305.18654)** | **Failures at constrained solution spaces; "stochastic searchers"** |
 | **Reasoning Beyond CoT (2601.08058)** | **supports** | **How LLMs Learn to Reason (2509.23629)** | **Both identify internal mechanisms for reasoning mode activation** |
 | **Reasoning Beyond CoT (2601.08058)** | **supports** | **Algorithmic Primitives (2510.15987)** | **Both find identifiable internal patterns for reasoning** |
@@ -316,3 +321,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added How LLMs Learn to Reason (2509.23629) — Sparse web theory; supports surfacing hypothesis on close reading |
 | 2026-01-24 | Added Reasoning Beyond CoT (2601.08058) — Latent mode switch; feature triggers reasoning but doesn't improve quality |
 | 2026-01-24 | Added Rethinking Illusion of Thinking (2507.01231) — Replication confirms Hanoi limits; corrects River Crossing methodology |
+| 2026-01-24 | Added Reasoning Models Effective Without Thinking (2504.09858) — NoThinking outperforms Thinking under token constraints |
