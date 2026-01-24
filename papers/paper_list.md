@@ -128,7 +128,7 @@ Total papers to read from provided evidence (2024+ only)
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
 | 50 | TBD | Oct 2025 | Interactive Learning for LLM Reasoning | pending |
-| 51 | TBD | 2024 | A Theory for Length Generalization in Learning to Reason | pending |
+| 51 | 2404.00560 | Apr 2024 | A Theory for Length Generalization in Learning to Reason | ✅ DONE (analysis: 66_theory_length_generalization.md) |
 
 ### Evaluation & Definition Challenges
 | # | arXiv ID | Date | Title | Status |
