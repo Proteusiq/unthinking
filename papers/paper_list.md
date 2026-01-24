@@ -139,7 +139,7 @@ Total papers to read from provided evidence (2024+ only)
 ### Mixed Evidence on Specific Mechanisms
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
-| 54 | 2504.12523 | Apr 2025 | Memorization vs. Reasoning: Updating LLMs with New Knowledge (KUP) | pending |
+| 54 | 2504.12523 | Apr 2025 | Memorization vs. Reasoning: Updating LLMs with New Knowledge (KUP) | ✅ DONE (analysis: 70_kup_memorization_vs_reasoning.md) |
 | 55 | TBD | Mar 2025 | CryptoX: Compositional Reasoning Evaluation | pending |
 
 ---
