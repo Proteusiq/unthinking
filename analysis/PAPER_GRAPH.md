@@ -149,6 +149,9 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Planning Generalization Gap (2601.14456)** | **supports** | **Beyond Memorization (2601.13392)** | **Same pattern: high ID, zero OOD** |
 | **Planning Generalization Gap (2601.14456)** | **supports** | **GSM-Symbolic (2410.05229)** | **Surface form sensitivity (11.5pp drop from anonymization)** |
 | **Planning Generalization Gap (2601.14456)** | **extends** | **Valmeekam et al. (2022) "LLMs Can't Plan"** | **Adds controlled generalization tests** |
+| **CoT Faithfulness Unlearning (2502.14829)** | **extends** | **Measuring Faithfulness (2307.13702)** | **Parametric (vs contextual) intervention for faithfulness** |
+| **CoT Faithfulness Unlearning (2502.14829)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | **CoT ≠ internal computation; faithfulness ≠ plausibility** |
+| **CoT Faithfulness Unlearning (2502.14829)** | **challenges** | **Add-mistake baseline (Lanham et al.)** | **Contextual methods underestimate faithfulness** |
 
 ### Extends / Builds On
 
@@ -252,3 +255,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Neuro-Symbolic AI Survey (2508.13678) — "LLMs cannot really reason" |
 | 2026-01-24 | Added Multilingual Latent Reasoners (2601.02996) — "Real but fragile" latent reasoning |
 | 2026-01-24 | Added Planning Generalization Gap (2601.14456) — 82.9% ID → 0% OOD; strongest ID/OOD evidence |
+| 2026-01-24 | Added CoT Faithfulness Unlearning (2502.14829) — EMNLP Outstanding; faithfulness ≠ plausibility (r=0.15) |
