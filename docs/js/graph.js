@@ -700,11 +700,32 @@
             document.getElementById('thesis-card').classList.toggle('collapsed');
         });
 
-        // Header toggle (mobile)
-        const headerToggle = document.getElementById('header-toggle');
-        if (headerToggle) {
-            headerToggle.addEventListener('click', () => {
-                document.querySelector('.header').classList.toggle('collapsed');
+        // Header toggle (mobile) - both buttons
+        const headerToggles = [
+            document.getElementById('header-toggle'),
+            document.getElementById('header-toggle-compact')
+        ];
+        headerToggles.forEach(toggle => {
+            if (toggle) {
+                toggle.addEventListener('click', () => {
+                    document.querySelector('.header').classList.toggle('collapsed');
+                });
+            }
+        });
+
+        // Sync compact search with main search
+        const searchInputCompact = document.getElementById('search-input-compact');
+        if (searchInputCompact) {
+            searchInputCompact.addEventListener('input', (e) => {
+                searchInput.value = e.target.value;
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    applySearch(e.target.value);
+                }, 200);
+            });
+            // Sync the other way too
+            searchInput.addEventListener('input', () => {
+                searchInputCompact.value = searchInput.value;
             });
         }
 

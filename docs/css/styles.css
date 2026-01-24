@@ -990,79 +990,124 @@ body {
 }
 
 /* --------------------------------------------------------------------------
+   Collapsible Header (all screen sizes)
+   -------------------------------------------------------------------------- */
+
+/* Header toggle button */
+.header-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: var(--glass-bg-subtle);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    flex-shrink: 0;
+}
+
+.header-toggle svg {
+    width: 16px;
+    height: 16px;
+    color: var(--text-secondary);
+    transition: transform var(--transition-normal);
+}
+
+.header-toggle:hover {
+    background: var(--glass-bg);
+}
+
+.header-toggle:hover svg {
+    color: var(--text-primary);
+}
+
+/* Compact bar at bottom of header (visible when collapsed) */
+.header-compact {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    padding: var(--space-sm) var(--space-xl);
+    background: inherit;
+    border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.header-compact .compact-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.header-compact .search-container {
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.header-compact .header-toggle svg {
+    transform: rotate(180deg);
+}
+
+/* Collapsed state */
+.header {
+    transition: transform var(--transition-normal);
+}
+
+.header.collapsed {
+    transform: translateY(calc(-100% + 56px));
+}
+
+.header.collapsed .header-compact {
+    display: flex;
+}
+
+.header.collapsed .header-toggle svg {
+    transform: rotate(180deg);
+}
+
+/* Graph container adjusts when header collapses */
+.graph-container {
+    transition: padding-top var(--transition-normal);
+}
+
+.header.collapsed ~ .graph-container {
+    padding-top: 70px;
+}
+
+/* --------------------------------------------------------------------------
    Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
     .header {
         padding: var(--space-sm) var(--space-md);
-        transition: all var(--transition-normal);
     }
     
-    /* Collapsed header state */
-    .header.collapsed .title-section {
-        display: flex;
-        align-items: center;
-        gap: var(--space-sm);
+    .header-compact {
+        padding: var(--space-sm) var(--space-md);
     }
     
-    .header.collapsed .main-title {
-        font-size: 1rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    
-    .header.collapsed .subtitle {
-        display: none;
-    }
-    
-    .header.collapsed .filter-group {
-        display: none;
-    }
-    
-    .header.collapsed .stats-bar {
-        display: none;
-    }
-    
-    .header.collapsed .header-content {
-        flex-direction: row;
-        align-items: center;
-    }
-    
-    .header.collapsed .controls {
-        flex: 0;
-        gap: var(--space-sm);
-    }
-    
-    .header.collapsed .search-container {
-        min-width: 120px;
+    .header-compact .compact-title {
+        font-size: 0.875rem;
         flex: 1;
     }
     
-    /* Header toggle button (mobile only) */
-    .header-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 32px;
-        height: 32px;
-        border: none;
-        background: var(--glass-bg-subtle);
-        border-radius: var(--radius-full);
-        cursor: pointer;
-        transition: all var(--transition-normal);
-        flex-shrink: 0;
+    .header-compact .search-container {
+        min-width: 100px;
+        max-width: 140px;
+        padding: var(--space-xs) var(--space-sm);
     }
     
-    .header-toggle svg {
-        width: 16px;
-        height: 16px;
-        color: var(--text-secondary);
-        transition: transform var(--transition-normal);
-    }
-    
-    .header.collapsed .header-toggle svg {
-        transform: rotate(180deg);
+    .header-compact .search-container input {
+        font-size: 0.75rem;
     }
     
     .header-content {
@@ -1105,19 +1150,6 @@ body {
     
     .graph-container {
         padding-top: 200px;
-        transition: padding-top var(--transition-normal);
-    }
-    
-    .header.collapsed + .graph-container,
-    .header.collapsed ~ .graph-container {
-        padding-top: 80px;
-    }
-}
-
-/* Hide header toggle on desktop */
-@media (min-width: 769px) {
-    .header-toggle {
-        display: none;
     }
 }
 
