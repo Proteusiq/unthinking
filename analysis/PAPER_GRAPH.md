@@ -238,6 +238,18 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Thinking by Doing (2511.23476)** | **supports** | **Effective Without Thinking (2504.09858)** | **Monolithic reasoning can HARM performance** |
 | **Thinking by Doing (2511.23476)** | **does not address** | **OMEGA (2506.18880)** | **"Hard" tasks are same domain, larger scale — not compositional OOD** |
 | **Thinking by Doing (2511.23476)** | **does not address** | **Planning Gap (2601.14456)** | **No truly OOD testing** |
+| **Bias and CoT Faithfulness (2505.23945)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Extends to VLMs; SFT training shows NO improvement** |
+| **Bias and CoT Faithfulness (2505.23945)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | **Both find faithfulness gaps; visual biases systematically less articulated** |
+| **Bias and CoT Faithfulness (2505.23945)** | **supports** | **FaithCoT-Bench (2510.04040)** | **Extends faithfulness analysis to visual domain** |
+| **Bias and CoT Faithfulness (2505.23945)** | **challenges (partially)** | **DeepSeek-R1 (2501.12948)** | **RL helps only for explicit/reasonable biases; fails on subtle cues** |
+| **Chess Compositionality (2510.20783)** | **partially supports** | **Emergent Symbolic Mechanisms (2502.20332)** | **Both find identifiable mechanisms for structured behaviors** |
+| **Chess Compositionality (2510.20783)** | **partially challenges** | **Planning Gap (2601.14456)** | **SOME OOD generalization for rules (96%+), but strategies fail (70%→22%)** |
+| **Chess Compositionality (2510.20783)** | **supports (on closer reading)** | **OMEGA (2506.18880)** | **Rules generalize, but strategies fail — same pattern as compositional failure** |
+| **Chess Compositionality (2510.20783)** | **supports** | **Our thesis distinction** | **Rule following ≠ reasoning; strategies distribution-bounded** |
+| **Mechanistic Counting (2601.02989)** | **supports** | **Illusion of Thinking (2506.06941)** | **Both show collapse at complexity threshold; 0% accuracy at 41-50 items** |
+| **Mechanistic Counting (2601.02989)** | **supports** | **Sequential Enumeration (2512.04727)** | **Both show LLMs can't spontaneously count/enumerate at scale** |
+| **Mechanistic Counting (2601.02989)** | **supports** | **Faith and Fate (2305.18654)** | **Error accumulation with sequential steps; depth-bounded** |
+| **Mechanistic Counting (2601.02989)** | **provides mechanism for** | **Why CoT alone fails** | **Needs structural decomposition, not just more tokens** |
 
 ### Extends / Builds On
 
@@ -338,6 +350,9 @@ These papers have NO direct rebuttals found:
 | **FaithCoT-Bench (2510.04040)** | **Instance-level unfaithfulness detection; 20% ID → 74% OOD unfaithfulness; correct ≠ faithful; best detection F1 <80%** |
 | **Societies of Thought (2601.10825)** | **Multi-agent dialogue mechanism; steering doubles accuracy; RL spontaneously develops conversational patterns; BUT no OOD testing** |
 | **Thinking by Doing (2511.23476)** | **WMAct 78.57% vs EntirePlan 49.12%; modest transfer +5.05 HMMT25; BUT requires pre-existing capability; "Hard" = same domain, larger scale** |
+| **Bias and CoT Faithfulness (2505.23945)** | **SFT training = NO faithfulness improvement; RL only helps for explicit biases; visual biases ~0% articulation; CelebA 0% articulation across ALL models** |
+| **Chess Compositionality (2510.20783)** | **96%+ rule extrapolation OOD; BUT strategy adaptation fails 70%→22%; Horde (different objective) last place; rules ≠ reasoning** |
+| **Mechanistic Counting (2601.02989)** | **System-1 counting: 0% at 41-50 items; CoT alone: 0%; Structure+CoT: 24-86%; external scaffolding required; architectural depth limits counting** |
 
 ---
 
@@ -371,3 +386,6 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added FaithCoT-Bench (2510.04040) — Instance-level faithfulness; 20% → 74% OOD unfaithfulness; strongest unfaithfulness evidence |
 | 2026-01-24 | Added Societies of Thought (2601.10825) — Multi-agent dialogue mechanism; explains HOW reasoning models work; no OOD testing |
 | 2026-01-24 | Added Thinking by Doing (2511.23476) — WMAct training; modest transfer; requires pre-existing capability |
+| 2026-01-24 | Added Bias and CoT Faithfulness (2505.23945) — SFT = no improvement; visual biases unfaithful; CelebA 0% articulation |
+| 2026-01-24 | Added Chess Compositionality (2510.20783) — Rule extrapolation works (96%), strategy fails (70%→22%); rules ≠ reasoning |
+| 2026-01-24 | Added Mechanistic Counting (2601.02989) — System-1 counting collapses at ~30; CoT alone doesn't help; needs structure |
