@@ -313,6 +313,12 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Unveiling Causal Reasoning (2506.21215)** | **supports** | **CoT Mirage (2508.01191)** | **Both show ID success, OOD failure pattern** |
 | **Unveiling Causal Reasoning (2506.21215)** | **provides framework for** | **Pattern matching thesis** | **Level-1 (retrieval) vs Level-2 (genuine reasoning) distinction** |
 | **Unveiling Causal Reasoning (2506.21215)** | **challenged by** | **Physics of LLMs 2.1 (2407.20311)** | **Shows some genuine OOD generalization in controlled settings** |
+| **Emergent Abilities Survey (2503.05788)** | **supports** | **GSM-Symbolic (2410.05229)** | **Confirms metric choice affects emergence detection** |
+| **Emergent Abilities Survey (2503.05788)** | **supports** | **Faith and Fate (2305.18654)** | **Memorization vs. generalization competition aligns with circuit analysis** |
+| **Emergent Abilities Survey (2503.05788)** | **supports** | **No Free Lunch (2506.17219)** | **Heavy memorization delays generalization** |
+| **Emergent Abilities Survey (2503.05788)** | **extends** | **DeepSeek-R1 (2501.12948)** | **Survey covers LRM emergence patterns** |
+| **Emergent Abilities Survey (2503.05788)** | **challenges** | **Wei et al. (2022) emergence claim** | **Notes methodological issues with original claim** |
+| **Emergent Abilities Survey (2503.05788)** | **challenges** | **Schaeffer et al. "mirage" claim** | **Argues they overclaimed - some emergence is real (module arithmetic, translation)** |
 
 ### Extends / Builds On
 
@@ -429,6 +435,7 @@ These papers have NO direct rebuttals found:
 | **MMLU-Pro+ (2409.02257)** | **Anchoring bias: models stick to original choices; -14.3pp drop GPT-4o; struggle with multiple correct answers; CPI ratio shows 3.7x variation; provides SSR/CPI metrics for shortcut detection** |
 | **Unsupervised Decoding (2512.01222)** | **Logit lens decodes ROT-13 at ~75% accuracy (layer 58); internal representations anchor to English; unsupervised pipeline achieves ~7/10 grader score; BUT ROT-13 is trivial encoding; doesn't address pattern matching vs reasoning** |
 | **Unveiling Causal Reasoning (2506.21215)** | **Level-1 vs Level-2 causal reasoning framework; 99.1%→69.2% drop Claude (COPA→CausalProbe-H); autoregression ≠ logical causality; temporal freshness test; STRONGLY SUPPORTS pattern matching thesis** |
+| **Emergent Abilities Survey (2503.05788)** | **Survey of 100+ papers; "memorization competes with generalization"; some emergence real (module arithmetic); pre-training loss predicts emergence (correlational); LRMs = LLM + RL + search; BALANCED** |
 
 ---
 
@@ -480,3 +487,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Unveiling Causal Reasoning (2506.21215) — Level-1/Level-2 framework; 99.1%→69.2% drop on fresh data; STRONGLY SUPPORTS thesis |
 | 2026-01-24 | Added Hardness of Faithful CoT (2406.10625) — Faithfulness-accuracy tradeoff; ALL interventions fail; larger models LESS faithful; GPT-4 correct WITHOUT CoT |
 | 2026-01-24 | Added Revisiting Test-Time Scaling (2502.12215) — Correct solutions SHORTER than incorrect; self-revision HURTS (QwQ: correct→wrong > wrong→correct); parallel > sequential |
+| 2026-01-24 | Added Emergent Abilities Survey (2503.05788) — Survey of 100+ papers; "memorization competes with generalization"; some emergence real; BALANCED |
