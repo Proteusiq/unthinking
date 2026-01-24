@@ -4,32 +4,37 @@
 
 | # | Paper | Date | Stance | Key Contribution |
 |---|-------|------|--------|------------------|
-| F1 | Faith and Fate | May 2023 | Against | Theoretical foundation: subgraph matching, exponential error accumulation |
-| F2 | Measuring Faithfulness | Jul 2023 | Against | CoT is often unfaithful; larger models = less faithful |
-| 1 | GSM-Symbolic | Oct 2024 | Against | Empirical: 65% drop from irrelevant info, variance on equivalent questions |
-| 2 | CoT Without Prompting | Feb 2024 | For | CoT exists intrinsically in top-k tokens, hidden by greedy decoding |
-| 3 | Illusion of Thinking | Jun 2025 | Against | Three complexity regimes, token decrease at collapse, LRM failures |
-| 4 | Thinking Isn't an Illusion | Jul 2025 | For | Tool augmentation reverses collapse (Hanoi 0%→100%) |
-| 5 | DeepSeek-R1 | Jan 2025 | For | Emergent reasoning from pure RL, "Aha moment" phenomenon |
-| 6 | CoT is a Mirage | Aug 2025 | Against | DataAlchemy: ID=100%, OOD=0%; distribution determines success |
-| 7 | s1: Simple test-time scaling | Jan 2025 | For | 1K samples surfaces reasoning; budget forcing works |
-| 8 | Semantic Deception | Dec 2025 | Against | Semantic cues override explicit instructions; CoT can hurt |
-| 9 | Reasoning Models Don't Say | May 2025 | Against | CoT 25-40% faithful; misaligned hints hidden MORE |
-| 10 | Limits of Innate Planning | Nov 2025 | Against | External move validator = 0% success; refutes Agentic Gap |
-| 11 | Comment: Agentic Gap | Jun 2025 | For | Execution vs reasoning; tool augmentation reverses collapse |
+| F1 | Faith and Fate | May 2023 | Supports | Theoretical foundation: subgraph matching, exponential error accumulation |
+| F2 | Measuring Faithfulness | Jul 2023 | Supports | CoT is often unfaithful; larger models = less faithful |
+| 1 | GSM-Symbolic | Oct 2024 | Supports | Empirical: 65% drop from irrelevant info, variance on equivalent questions |
+| 2 | CoT Without Prompting | Feb 2024 | Challenges | CoT exists intrinsically in top-k tokens, hidden by greedy decoding |
+| 3 | Illusion of Thinking | Jun 2025 | Supports | Three complexity regimes, token decrease at collapse, LRM failures |
+| 4 | Thinking Isn't an Illusion | Jul 2025 | Challenges | Tool augmentation reverses collapse (Hanoi 0%→100%) |
+| 5 | DeepSeek-R1 | Jan 2025 | Challenges | Emergent reasoning from pure RL, "Aha moment" phenomenon |
+| 6 | CoT is a Mirage | Aug 2025 | Supports | DataAlchemy: ID=100%, OOD=0%; distribution determines success |
+| 7 | s1: Simple test-time scaling | Jan 2025 | Challenges | 1K samples surfaces reasoning; budget forcing works |
+| 8 | Semantic Deception | Dec 2025 | Supports | Semantic cues override explicit instructions; CoT can hurt |
+| 9 | Reasoning Models Don't Say | May 2025 | Supports | CoT 25-40% faithful; misaligned hints hidden MORE |
+| 10 | Limits of Innate Planning | Nov 2025 | Supports | External move validator = 0% success; refutes Agentic Gap |
+| 11 | Comment: Agentic Gap | Jun 2025 | Challenges | Execution vs reasoning; tool augmentation reverses collapse |
 | 12 | Correlation or Causation | Sep 2025 | Balanced | Only 30% LLM SCMs ideal; RLVR improves to 63%; causal framework |
-| 13 | Emergence of Strategic Reasoning | Dec 2024 | For | LRMs exceed human strategic reasoning; τ=4.42 for GPT-o1 |
-| 14 | CoT In The Wild Not Faithful | Mar 2025 | Against | Unfaithfulness on natural prompts; GPT-4o-mini 13%, best model 0.04% |
+| 13 | Emergence of Strategic Reasoning | Dec 2024 | Challenges | LRMs exceed human strategic reasoning; τ=4.42 for GPT-o1 |
+| 14 | CoT In The Wild Not Faithful | Mar 2025 | Supports | Unfaithfulness on natural prompts; GPT-4o-mini 13%, best model 0.04% |
 | 15 | Interplay of Pre-Training, Mid-Training, RL | Dec 2025 | Balanced | 0% exposure = RL fails; ≥1% = success; "cannot synthesize from void" |
 | 16 | Reasoning Models Reason Well, Until They Don't | Oct 2025 | Balanced | Abrupt collapse at L~64-300; NLGraph trivially easy (L<2); o3 fails |
-| 17 | The Illusion of Insight in Reasoning Models | Jan 2026 | Against | "Aha!" moments are rare, don't improve with training, seldom help accuracy |
-| 18 | LLMs Imitate Logical Reasoning | Sep 2025 | Against | 2023→2024 = hidden CoT; neuro-symbolic 7-10x cheaper at higher accuracy |
-| 19 | Comprehension Without Competence | Jul 2025 | Against | "Split-brain": 95-100% step accuracy, 0% final at 10-digit; scale won't help |
-| 20 | Frontier LLMs Still Struggle | Jul 2025 | Against | Unpuzzles: easier=worse (GPT-4o 75%→20%); R1 0% char counting; "reasoning delirium" |
-| 21 | Illusions of Reflection | Oct 2025 | Against | Reflection repeats same failure 85%; reasoning models NO advantage |
+| 17 | The Illusion of Insight in Reasoning Models | Jan 2026 | Supports | "Aha!" moments are rare, don't improve with training, seldom help accuracy |
+| 18 | LLMs Imitate Logical Reasoning | Sep 2025 | Supports | 2023→2024 = hidden CoT; neuro-symbolic 7-10x cheaper at higher accuracy |
+| 19 | Comprehension Without Competence | Jul 2025 | Supports | "Split-brain": 95-100% step accuracy, 0% final at 10-digit; scale won't help |
+| 20 | Frontier LLMs Still Struggle | Jul 2025 | Supports | Unpuzzles: easier=worse (GPT-4o 75%→20%); R1 0% char counting; "reasoning delirium" |
+| 21 | Illusions of Reflection | Oct 2025 | Supports | Reflection repeats same failure 85%; reasoning models NO advantage |
 | 22 | Illusion of Diminishing Returns | Sep 2025 | Balanced | Self-conditioning: errors beget errors; thinking fixes it; execution ≠ reasoning |
 
 **Total: 24 papers analyzed (2 foundational + 22 main)**
+
+**Stance key**: 
+- **Supports** = supports our thesis (LLMs are pattern matching, not truly reasoning)
+- **Challenges** = challenges our thesis (evidence for genuine reasoning)
+- **Balanced** = provides evidence for both sides
 
 ---
 
@@ -771,7 +776,7 @@ For B=1 (NO search required, just follow edges):
 ## Thesis Position (Strengthened)
 
 **Total Papers**: 24 analyzed
-**Stance Breakdown**: Against=15, For=5, Balanced=4, Foundational=2
+**Stance Breakdown**: Supports=15, Challenges=5, Balanced=4
 
 The evidence now overwhelmingly supports the "Against" position:
 
