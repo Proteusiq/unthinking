@@ -133,6 +133,10 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Reasoning Model Superior Judge (2601.03630)** | **partially supports** | **DeepSeek-R1 (2501.12948)** | **LRMs better at judgment accuracy** |
 | **Reasoning Model Superior Judge (2601.03630)** | **challenges** | **Illusions of Reflection (2510.18254)** | **LRMs better at instruction-following in evaluation** |
 | **Reasoning Model Superior Judge (2601.03630)** | **supports (pattern matching)** | **Semantic Deception (2512.20812)** | **LRMs MORE susceptible to superficial features** |
+| **No Free Lunch (2506.17219)** | **supports** | **Interplay (2512.07783)** | **RL requires pre-existing capability; RLIF eventually degrades** |
+| **No Free Lunch (2506.17219)** | **supports** | **Illusion of Insight (2601.00514)** | **Internal signals (entropy) don't improve reasoning** |
+| **No Free Lunch (2506.17219)** | **supports** | **Illusions of Reflection (2510.18254)** | **Self-correction without external feedback fails** |
+| **No Free Lunch (2506.17219)** | **provides mechanism for** | **Faith and Fate (2305.18654)** | **Transitional word loss = exploration loss** |
 
 ### Extends / Builds On
 
@@ -215,6 +219,7 @@ These papers have NO direct rebuttals found:
 | **Illusions of Reflection (2510.18254)** | **85% same-failure; reasoning models no advantage** |
 | **Beyond Memorization (2601.13392)** | **100% knowledge + 30-64% drop on unseen; prompting doesn't help** |
 | **Reasoning Model Superior Judge (2601.03630)** | **LRMs MORE susceptible to superficial bias (32pp drop); pattern matching metrics** |
+| **No Free Lunch (2506.17219)** | **RLIF degrades reasoning (291→235 correct); format up, reasoning down** |
 
 ---
 
@@ -228,3 +233,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Illusion of Diminishing Returns (2509.09677) |
 | 2026-01-24 | Added Beyond Memorization (2601.13392) — 100% knowledge, fails on unseen |
 | 2026-01-24 | Added Reasoning Model Superior Judge (2601.03630) — LRMs MORE biased on superficial features |
+| 2026-01-24 | Added No Free Lunch (2506.17219) — RLIF degrades reasoning; format↑ reasoning↓ |
