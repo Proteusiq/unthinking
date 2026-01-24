@@ -151,7 +151,7 @@ Total papers to read from provided evidence (2024+ only)
 | 57 | 2601.03630 | Jan 2026 | Reasoning Model Is Superior LLM-Judge, Yet Suffers from Biases | Balanced | ✅ DONE |
 | 58 | 2601.00514 | Jan 2026 | The Illusion of Insight in Reasoning Models | Against | ✅ DONE |
 | 59 | 2506.17219 | Jun 2025 | No Free Lunch: Rethinking Internal Feedback for LLM Reasoning | Supports | ✅ DONE |
-| 60 | 2509.00971 | Sep 2025 | CoreThink: A Symbolic Reasoning Layer for Long Horizon Tasks | Balanced | ✅ DONE (analysis: 83_corethink_symbolic_reasoning_layer.md) - abstract only |
+| 60 | 2509.00971 | Sep 2025 | CoreThink: A Symbolic Reasoning Layer for Long Horizon Tasks | Balanced | SKIPPED (HTML conversion failed, abstract insufficient) |
 | 61 | 2508.13678 | Aug 2025 | Neuro-Symbolic AI: Towards Improving the Reasoning Abilities of LLMs | Supports | ✅ DONE |
 
 ---

@@ -51,9 +51,8 @@
 | 80 | Inference-Time Scaling Complex | Apr 2025 | Balanced | GPT-4o approaches O1 with 256× superscaling; complexity collapse persists |
 | 81 | PCL-Reasoner-V1.5 | Jan 2026 | FOR (partial) | 90.9% AIME 2024 via offline RL; depends on distillation |
 | 82 | Interactive Learning ILR | Sep 2025 | Balanced | Multi-agent co-learning 3-5% improvement; no OOD testing |
-| 83 | CoreThink | Sep 2025 | FOR (partial) | "General Symbolics"; 24.4% ARC-AGI-2 (abstract only) |
 
-**Total: 83 papers analyzed**
+**Total: 82 papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative
