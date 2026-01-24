@@ -402,6 +402,9 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Interactive Learning ILR (2509.26306)** | **supports** | **Interplay (2512.07783)** | **Both show training can surface capability** |
 | **Interactive Learning ILR (2509.26306)** | **extends** | **GRPO (DeepSeekMath)** | **Extends with perception calibration for multi-agent** |
 | **Interactive Learning ILR (2509.26306)** | **does not address** | **OMEGA (2506.18880)** | **No OOD/compositional generalization testing** |
+| **Revisiting LLM Reasoning via IB (2507.18391)** | **supports** | **How LLMs Learn to Reason (2509.23629)** | **Both show RL reorganizes rather than creates** |
+| **Revisiting LLM Reasoning via IB (2507.18391)** | **supports** | **Interplay (2512.07783)** | **Both support surfacing hypothesis** |
+| **Revisiting LLM Reasoning via IB (2507.18391)** | **extends** | **GRPO (DeepSeekMath)** | **Extends with IB-based regularization** |
 
 ### Extends / Builds On
 
@@ -537,6 +540,7 @@ These papers have NO direct rebuttals found:
 | **Inference-Time Scaling Complex (2504.00294)** | **9 models × 8 benchmarks; longer tokens ≠ better accuracy; GPT-4o approaches O1 with 256× superscaling on easy TSP; complexity collapse persists; BALANCED** |
 | **PCL-Reasoner-V1.5 (2601.14716)** | **90.9% AIME 2024, 85.6% AIME 2025 via offline RL; RL improves long-CoT specifically; depends on DeepSeek-R1 distillation; FOR (partial) — supports surfacing** |
 | **Interactive Learning ILR (2509.26306)** | **Multi-agent co-learning improves individual reasoning by 3-5%; dynamic cooperation/competition; Idea3 enhances robustness; no OOD testing; BALANCED** |
+| **Revisiting LLM Reasoning via IB (2507.18391)** | **IB regularization (one-line change) improves RL by ~2 points; reconciles entropy debate; token-level advantage × entropy; BALANCED** |
 
 ---
 
@@ -607,3 +611,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Inference-Time Scaling Complex (2504.00294) — 9 models × 8 benchmarks; GPT-4o approaches O1 with 256× superscaling; complexity collapse persists; BALANCED |
 | 2026-01-24 | Added PCL-Reasoner-V1.5 (2601.14716) — 90.9% AIME 2024 via offline RL; RL improves long-CoT specifically; FOR (partial) |
 | 2026-01-24 | Added Interactive Learning ILR (2509.26306) — Multi-agent co-learning 3-5% improvement; dynamic cooperation/competition; BALANCED |
+| 2026-01-24 | Added Revisiting LLM Reasoning via IB (2507.18391) — IB regularization ~2 points improvement; reconciles entropy debate; BALANCED |
