@@ -122,6 +122,10 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Illusions of Reflection (2510.18254)** | **supports** | **Measuring Faithfulness (2307.13702)** | **CoT text ≠ internal computation** |
 | **Illusions of Reflection (2510.18254)** | **challenges** | **DeepSeek-R1 (2501.12948)** | **Reasoning models no better; may be WORSE** |
 | **Illusions of Reflection (2510.18254)** | **challenges** | **s1 (2501.19393)** | **Test-time compute doesn't guarantee improvement** |
+| **Illusion of Diminishing Returns (2509.09677)** | **supports** | **Illusion of Thinking (2506.06941)** | **Same collapse; execution failures** |
+| **Illusion of Diminishing Returns (2509.09677)** | **extends** | **Faith and Fate (2305.18654)** | **Error accumulation mechanism** |
+| **Illusion of Diminishing Returns (2509.09677)** | **partially supports** | **DeepSeek-R1 (2501.12948)** | **Thinking models fix self-conditioning** |
+| **Illusion of Diminishing Returns (2509.09677)** | **reframes** | **Illusion of Thinking (2506.06941)** | **Execution failure, not reasoning inability** |
 
 ### Extends / Builds On
 
@@ -212,3 +216,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Initial creation with 18 papers |
 | 2026-01-24 | Added Frontier LLMs Still Struggle (2507.07313) |
 | 2026-01-24 | Added Illusions of Reflection (2510.18254) |
+| 2026-01-24 | Added Illusion of Diminishing Returns (2509.09677) |

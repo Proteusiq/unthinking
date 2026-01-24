@@ -112,7 +112,7 @@ Total papers to read from provided evidence (2024+ only)
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
 | 46 | 2507.17699 | Jul 2025 | Thinking Isn't an Illusion: Overcoming the Limitations of Reasoning Models via Tool Augmentations | ✅ DONE |
-| 47 | 2509.09677 | Sep 2025 | The Illusion of Diminishing Returns: Measuring Long Horizon Execution in LLMs | pending |
+| 47 | 2509.09677 | Sep 2025 | The Illusion of Diminishing Returns: Measuring Long Horizon Execution in LLMs | ✅ DONE |
 
 ---
 
