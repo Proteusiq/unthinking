@@ -169,6 +169,13 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Algorithmic Primitives (2510.15987)** | **challenged by** | **OMEGA (2506.18880)** | **0% transformative generalization despite identifiable patterns** |
 | **Algorithmic Primitives (2510.15987)** | **challenged by** | **Planning Gap (2601.14456)** | **82.9% ID → 0% OOD shows learned patterns don't generalize** |
 | **Algorithmic Primitives (2510.15987)** | **challenged by** | **Faith and Fate (2305.18654)** | **Learned patterns don't compose for novel reasoning** |
+| **Emergent Symbolic Mechanisms (2502.20332)** | **supports** | **Algorithmic Primitives (2510.15987)** | **Both find identifiable reasoning mechanisms in attention heads** |
+| **Emergent Symbolic Mechanisms (2502.20332)** | **supports** | **DeepSeek-R1 (2501.12948)** | **LLMs develop structured reasoning patterns** |
+| **Emergent Symbolic Mechanisms (2502.20332)** | **supports** | **CoT Without Prompting (2402.10200)** | **Latent reasoning capabilities exist** |
+| **Emergent Symbolic Mechanisms (2502.20332)** | **challenged by** | **OMEGA (2506.18880)** | **0% transformative generalization despite similar mechanisms** |
+| **Emergent Symbolic Mechanisms (2502.20332)** | **challenged by** | **Planning Gap (2601.14456)** | **82.9% ID → 0% OOD shows mechanisms don't generalize** |
+| **Emergent Symbolic Mechanisms (2502.20332)** | **challenged by** | **Faith and Fate (2305.18654)** | **Compositional generalization failure** |
+| **Emergent Symbolic Mechanisms (2502.20332)** | **does not address** | **Illusion of Thinking (2506.06941)** | **No complexity scaling tested** |
 
 ### Extends / Builds On
 
@@ -258,6 +265,7 @@ These papers have NO direct rebuttals found:
 | **OMEGA (2506.18880)** | **0% transformative generalization; >69% isolated → near-0% composed; 38% overthinking errors** |
 | **Emergent Hierarchical Reasoning (2509.03646)** | **RL improves ID via "strategic template deployment" but requires pre-existing capability; fails on Llama** |
 | **Algorithmic Primitives (2510.15987)** | **"Primitives" are learned patterns (nearest_neighbor from training); no accuracy testing; no OOD testing** |
+| **Emergent Symbolic Mechanisms (2502.20332)** | **98% cross-token generalization; but "abstraction" = positional invariance; no OOD/complexity testing; all tasks in-distribution** |
 
 ---
 
@@ -279,3 +287,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added OMEGA (2506.18880) — 0% transformative; compositional failure; RL can hurt (30pp drop) |
 | 2026-01-24 | Added Emergent Hierarchical Reasoning (2509.03646) — Explicitly supports surfacing hypothesis; requires pre-existing capability |
 | 2026-01-24 | Added Algorithmic Primitives (2510.15987) — "Primitives" are learned patterns; no accuracy/OOD testing |
+| 2026-01-24 | Added Emergent Symbolic Mechanisms (2502.20332) — "Abstraction" = positional invariance; 98% cross-token but no OOD testing |
