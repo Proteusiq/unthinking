@@ -214,6 +214,15 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Emergent World Beliefs (2512.23722)** | **challenged by** | **Planning Gap (2601.14456)** | **World models don't transfer OOD** |
 | **Emergent World Beliefs (2512.23722)** | **challenged by** | **OMEGA (2506.18880)** | **Compositional generalization fails** |
 | **Emergent World Beliefs (2512.23722)** | **challenged by** | **Faith and Fate (2305.18654)** | **Probed features may not be causally used** |
+| **TMBench (2504.20771)** | **supports** | **Illusion of Thinking (2506.06941)** | **Both show performance collapse at scale** |
+| **TMBench (2504.20771)** | **supports** | **Faith and Fate (2305.18654)** | **Error accumulation with sequential steps** |
+| **TMBench (2504.20771)** | **supports** | **Sequential Enumeration (2512.04727)** | **Both show LLMs fail at iterative processes** |
+| **TMBench (2504.20771)** | **provides evidence for** | **Bounded capability thesis** | **"Inevitable failure due to statistical nature"** |
+| **Physics of LLMs 2.1 (2407.20311)** | **challenges** | **Faith and Fate (2305.18654)** | **Shows genuine OOD generalization, not just template matching** |
+| **Physics of LLMs 2.1 (2407.20311)** | **challenges** | **Our thesis** | **Controlled evidence for reasoning in narrow domains** |
+| **Physics of LLMs 2.1 (2407.20311)** | **supports** | **Interplay (2512.07783)** | **Capability must exist in training distribution (iGSM provides this)** |
+| **Physics of LLMs 2.1 (2407.20311)** | **does not address** | **OMEGA (2506.18880)** | **Length generalization ≠ compositional generalization** |
+| **Physics of LLMs 2.1 (2407.20311)** | **does not address** | **Planning Gap (2601.14456)** | **Different task structure** |
 
 ### Extends / Builds On
 
@@ -309,6 +318,8 @@ These papers have NO direct rebuttals found:
 | **Rethinking Illusion of Thinking (2507.01231)** | **Replication confirms Hanoi ~8 disk limit; River Crossing methodology fixed; LRMs = "stochastic searchers"** |
 | **Sequential Enumeration (2512.04727)** | **LLMs can't spontaneously count; 0 models counted systematically; explicit counting = token patterns (decade dips)** |
 | **Emergent World Beliefs (2512.23722)** | **r=0.59 equity correlation (moderate); but equity was in training data; no OOD/compositional testing** |
+| **TMBench (2504.20771)** | **Gemini 94% at 30 steps; BUT inevitable failure at steps 16-683; "statistical nature" limits; supports bounded capability** |
+| **Physics of LLMs Part 2.1 (2407.20311)** | **CHALLENGES thesis: 90%+ OOD length generalization; mental planning; learns beyond training; BUT GPT-4 fails on task; authors disclaim generalization** |
 
 ---
 
@@ -337,3 +348,5 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Reasoning Models Effective Without Thinking (2504.09858) — NoThinking outperforms Thinking under token constraints |
 | 2026-01-24 | Added Sequential Enumeration (2512.04727) — LLMs can't spontaneously count; explicit counting = token patterns |
 | 2026-01-24 | Added Emergent World Beliefs (2512.23722) — r=0.59 equity correlation; equity was in training signal; no OOD testing |
+| 2026-01-24 | Added TMBench (2504.20771) — "Inevitable failure" at steps 16-683 supports bounded capability; r=0.882 with reasoning benchmarks |
+| 2026-01-24 | Added Physics of LLMs Part 2.1 (2407.20311) — STRONGEST challenge to thesis; genuine OOD generalization; but GPT-4 fails, authors disclaim |
