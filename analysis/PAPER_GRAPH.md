@@ -375,6 +375,10 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **STEPS (2601.03676)** | **supports** | **Interplay (2512.07783)** | **Both support surfacing hypothesis** |
 | **STEPS (2601.03676)** | **supports** | **Limits of Emergent Reasoning Agentic (2510.15974)** | **Tool use ≠ reasoning; environment doesn't help** |
 | **STEPS (2601.03676)** | **provides evidence for** | **Training distribution thesis** | **Power-law distribution bounds capability** |
+| **Survey Latent CoT (2505.16782)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Both identify CoT unfaithfulness problem** |
+| **Survey Latent CoT (2505.16782)** | **supports** | **CRV Verifying CoT (2510.09312)** | **Both show internal mechanisms matter** |
+| **Survey Latent CoT (2505.16782)** | **supports** | **Reasoning Beyond CoT (2601.08058)** | **Both identify latent reasoning modes** |
+| **Survey Latent CoT (2505.16782)** | **provides framework for** | **Latent vs explicit reasoning** | **Clear taxonomy of approaches** |
 
 ### Extends / Builds On
 
@@ -503,6 +507,7 @@ These papers have NO direct rebuttals found:
 | **Iterative ICL Algebraic (2509.01267)** | **Zero-shot: 13-35% on non-standard precedence (high school level task); rule override fails; simpler examples often work BETTER than complex ones; complexity collapse: 97%→47% (db(1,6)→db(3,20)); SUPPORTS thesis** |
 | **Revisiting Compositional Gen (2506.15629)** | **ACL 2025; Best model only 75% ordered coverage; 36 LLMs tested; identical outputs despite different orderings; instructions improve (+55pp) but don't solve; understanding ≠ execution; SUPPORTS thesis** |
 | **STEPS (2601.03676)** | **Power-law distribution explains compositional failure; 4K targeted > 52K random; unconstrained diversity HURTS instruct models; "sweet spot" needed; tool use ≠ reasoning; SUPPORTS thesis (with mitigation path)** |
+| **Survey Latent CoT (2505.16782)** | **Comprehensive survey of latent CoT reasoning; "unclear whether genuine reasoning or exploiting input-output correlations"; expressive redundancy + semantic bottleneck in explicit CoT; BALANCED** |
 
 ---
 
@@ -566,3 +571,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Iterative ICL Algebraic (2509.01267) — Zero-shot 13-35% on rule override task; simpler examples work better; complexity collapse; SUPPORTS thesis |
 | 2026-01-24 | Added Revisiting Compositional Gen (2506.15629) — ACL 2025; 75% ceiling on ordered coverage; identical outputs for different orders; patterns dominate instructions; SUPPORTS thesis |
 | 2026-01-24 | Added STEPS (2601.03676) — Power-law distribution mechanism; 4K targeted > 52K random; unconstrained diversity hurts; "sweet spot"; tool use ≠ reasoning; SUPPORTS with mitigation |
+| 2026-01-24 | Added Survey Latent CoT (2505.16782) — Comprehensive survey; "unclear whether genuine reasoning or exploiting correlations"; evaluation gap; BALANCED |
