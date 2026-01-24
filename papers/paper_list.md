@@ -89,7 +89,7 @@ Total papers to read from provided evidence (2024+ only)
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
 | 35 | 2501.19393 | Jan 2025 | s1: Simple test-time scaling | ✅ DONE |
-| 36 | 2501.02497 | Jan 2025 | A Survey of Test-Time Compute | pending |
+| 36 | 2501.02497 | Jan 2025 | A Survey of Test-Time Compute | ✅ DONE (analysis: 65_survey_test_time_compute.md) |
 | 37 | TBD | 2025 | Inference-Time Scaling for Complex Tasks (Microsoft) | pending |
 | 38 | TBD | Jan 2026 | PCL-Reasoner-V1.5: Offline RL for Math Reasoning | pending |
 
