@@ -13,7 +13,15 @@ Rules and methodology for conducting systematic literature reviews on AI/ML rese
 - Key evidence, methodology details, and limitations are often in the body
 - Look for actual numbers, experimental setups, and edge cases
 
-### 2. Rebuttal Analysis is MANDATORY
+### 2. Independent Critical Assessment (DO NOT DEFER TO RESEARCHER)
+- **NEVER simply agree with the researcher's interpretation** — form your own view from the paper
+- Read the paper carefully BEFORE accepting any characterization (rebuttal, confirmation, etc.)
+- If the researcher suggests a classification, VERIFY it against the actual paper content
+- Apply critical thinking independently — the researcher can be wrong
+- When in doubt, re-read key sections of the paper to form your own judgment
+- State your assessment clearly, even if it differs from the researcher's suggestion
+
+### 3. Rebuttal Analysis is MANDATORY
 For EVERY paper analyzed, you MUST:
 1. **Search for direct arXiv rebuttals** — check if other papers cite/challenge this work
 2. **Check for counter-evidence from other analyzed papers** in the corpus
@@ -21,13 +29,13 @@ For EVERY paper analyzed, you MUST:
 4. **Include a REBUTTALS section** in each analysis file
 5. **Update the paper interaction graph** (see below)
 
-### 3. Evidence Must Have Numbers
+### 4. Evidence Must Have Numbers
 - Extract specific quantitative results (percentages, metrics, sample sizes)
 - Document experimental conditions (models tested, datasets used)
 - Note statistical significance where provided
 - Flag when papers make claims without quantitative support
 
-### 4. Track Paper Interactions (MANDATORY)
+### 5. Track Paper Interactions (MANDATORY)
 For EVERY paper analyzed, you MUST update the paper interaction graph:
 1. **Document relationships**: supports, challenges, extends, provides mechanism for
 2. **Track rebuttal chains**: A rebuts B, C rebuts A's rebuttal, etc.
