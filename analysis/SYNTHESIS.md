@@ -48,8 +48,12 @@
 | 77 | CryptoX Compositional | Feb 2025 | Supports | 40-54pp drops with encoding; hierarchical layer processing |
 | 78 | CoT Monitorability | Oct 2025 | Supports | Verbosity + Faithfulness = Monitorability |
 | 79 | Reasoning Abilities ARC/LoTH | Mar 2024 | Supports | 10.6% correct but only 4.0% correct processes |
+| 80 | Inference-Time Scaling Complex | Apr 2025 | Balanced | GPT-4o approaches O1 with 256× superscaling; complexity collapse persists |
+| 81 | PCL-Reasoner-V1.5 | Jan 2026 | FOR (partial) | 90.9% AIME 2024 via offline RL; depends on distillation |
+| 82 | Interactive Learning ILR | Sep 2025 | Balanced | Multi-agent co-learning 3-5% improvement; no OOD testing |
+| 83 | CoreThink | Sep 2025 | FOR (partial) | "General Symbolics"; 24.4% ARC-AGI-2 (abstract only) |
 
-**Total: 79 papers analyzed**
+**Total: 83 papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative
