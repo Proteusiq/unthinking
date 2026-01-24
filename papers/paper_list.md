@@ -25,7 +25,7 @@ Total papers to read from provided evidence (2024+ only)
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
 | 7 | 2508.01191 | Aug 2025 | Is Chain-of-Thought Reasoning a Mirage? A Data Distribution Lens (Zhao et al.) | ✅ DONE |
-| 8 | TBD | Mar 2025 | Chain-of-Thought Reasoning In The Wild Is Not Always Faithful (Arcuschin et al.) | pending |
+| 8 | 2503.08679 | Mar 2025 | Chain-of-Thought Reasoning In The Wild Is Not Always Faithful (Arcuschin et al.) | ✅ DONE |
 | 9 | 2505.05410 | May 2025 | Reasoning Models Don't Always Say What They Think (Chen et al.) | ✅ DONE |
 | 10 | 2307.13702 | Jul 2023 | Measuring Faithfulness in Chain-of-Thought Reasoning (Lanham et al.) | ✅ DONE |
 | 11 | TBD | Jun 2024 | On the Hardness of Faithful Chain-of-Thought Reasoning (Tanneru et al.) | pending |
@@ -42,7 +42,7 @@ Total papers to read from provided evidence (2024+ only)
 | 14 | TBD | Feb 2025 | Revisiting Test-Time Scaling of o1-like Models (Zeng et al.) | pending |
 | 15 | 2506.06941 | Jun 2025 | The Illusion of Thinking (Shojaee et al.) | ✅ DONE |
 | 16 | TBD | Oct 2025 | Limits of Emergent Reasoning in Agentic Frameworks for Deterministic Games | pending |
-| 17 | 2511.21591 | Nov 2025 | On the Limits of Innate Planning in Large Language Models | pending |
+| 17 | 2511.21591 | Nov 2025 | On the Limits of Innate Planning in Large Language Models | ✅ DONE |
 
 ### Compositional Generalization Failures
 | # | arXiv ID | Date | Title | Status |
@@ -105,8 +105,8 @@ Total papers to read from provided evidence (2024+ only)
 |---|----------|------|-------|--------|
 | 42 | TBD | Dec 2025 | LoopBench: Discovering Emergent Symmetry Breaking Strategies | pending |
 | 43 | TBD | Oct 2025 | A Survey of Inductive Reasoning | pending |
-| 44 | 2412.13013 | Dec 2024 | The Emergence of Strategic Reasoning of Large Language Models | pending |
-| 45 | 2509.17380 | Sep 2025 | Correlation or Causation: Analyzing the Causal Structures of LLM and LRM Reasoning Process | pending |
+| 44 | 2412.13013 | Dec 2024 | The Emergence of Strategic Reasoning of Large Language Models | ✅ DONE |
+| 45 | 2509.17380 | Sep 2025 | Correlation or Causation: Analyzing the Causal Structures of LLM and LRM Reasoning Process | ✅ DONE |
 
 ### Execution vs Reasoning Distinction
 | # | arXiv ID | Date | Title | Status |
@@ -121,8 +121,8 @@ Total papers to read from provided evidence (2024+ only)
 ### Context-Dependent Reasoning
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
-| 48 | TBD | Dec 2024 | On the Interplay of Pre-Training, Mid-Training, and RL | pending |
-| 49 | 2506.18957 | Jun 2025 | A Comment On "The Illusion of Thinking": Reframing the Reasoning Cliff as an Agentic Gap | pending |
+| 48 | 2512.07783 | Dec 2025 | On the Interplay of Pre-Training, Mid-Training, and RL | ✅ DONE |
+| 49 | 2506.18957 | Jun 2025 | A Comment On "The Illusion of Thinking": Reframing the Reasoning Cliff as an Agentic Gap | ✅ DONE |
 
 ### Reasoning as Learned Skill vs Fundamental Capability
 | # | arXiv ID | Date | Title | Status |

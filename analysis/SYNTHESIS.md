@@ -14,8 +14,15 @@
 | 6 | CoT is a Mirage | Aug 2025 | Against | DataAlchemy: ID=100%, OOD=0%; distribution determines success |
 | 7 | s1: Simple test-time scaling | Jan 2025 | For | 1K samples surfaces reasoning; budget forcing works |
 | 8 | Semantic Deception | Dec 2025 | Against | Semantic cues override explicit instructions; CoT can hurt |
+| 9 | Reasoning Models Don't Say | May 2025 | Against | CoT 25-40% faithful; misaligned hints hidden MORE |
+| 10 | Limits of Innate Planning | Nov 2025 | Against | External move validator = 0% success; refutes Agentic Gap |
+| 11 | Comment: Agentic Gap | Jun 2025 | For | Execution vs reasoning; tool augmentation reverses collapse |
+| 12 | Correlation or Causation | Sep 2025 | Balanced | Only 30% LLM SCMs ideal; RLVR improves to 63%; causal framework |
+| 13 | Emergence of Strategic Reasoning | Dec 2024 | For | LRMs exceed human strategic reasoning; τ=4.42 for GPT-o1 |
+| 14 | CoT In The Wild Not Faithful | Mar 2025 | Against | Unfaithfulness on natural prompts; GPT-4o-mini 13%, best model 0.04% |
+| 15 | Interplay of Pre-Training, Mid-Training, RL | Dec 2025 | Balanced | 0% exposure = RL fails; ≥1% = success; "cannot synthesize from void" |
 
-**Total: 10 papers analyzed (2 foundational + 8 main)**
+**Total: 17 papers analyzed (2 foundational + 15 main)**
 
 ---
 
@@ -32,6 +39,8 @@ Training Data → Pattern Extraction → Subgraph Matching → Apparent Reasonin
 - Three regimes: LLMs win low, collapse at high
 - CoT is often post-hoc rationalization (Measuring Faithfulness)
 - Semantic associations override explicit instructions (Semantic Deception)
+- **NEW**: Planning fails even with tools (Limits of Innate Planning)
+- **NEW**: Unfaithfulness occurs on natural prompts (CoT In The Wild)
 
 ### The "For" Position (Genuine Capability)
 ```
@@ -40,9 +49,22 @@ Base Model → Latent Reasoning → RL/Decoding Surfaces It → Real Capability
 **Evidence:**
 - CoT exists without prompting (Wang & Zhou)
 - "Aha moment" emerges from pure RL (DeepSeek-R1)
-- Tool augmentation shows execution ≠ reasoning limits
+- Tool augmentation shows execution ≠ reasoning limits (for SOME tasks)
 - 1K samples sufficient to surface reasoning (s1)
 - Confidence correlates with reasoning presence
+
+### NEW: The Tool Augmentation Debate (Resolved?)
+
+| Paper | Claim | Evidence |
+|-------|-------|----------|
+| Agentic Gap | Tools reverse collapse | Hanoi/River Crossing success |
+| Thinking Isn't Illusion | Tool augmentation = fix | 0%→100% on Hanoi |
+| **Limits of Innate Planning** | **Tools don't always work** | **Move validator = 0% on 8-puzzle** |
+
+**Resolution**: Tool augmentation is TASK-DEPENDENT:
+- Works for Hanoi (explicit algorithm provided)
+- Fails for 8-puzzle (planning still required)
+- **Implication**: Tools help with execution, not reasoning
 
 ---
 
@@ -65,6 +87,27 @@ Base Model → Latent Reasoning → RL/Decoding Surfaces It → Real Capability
 1. **"Thinking" can be performative**: Generated text that LOOKS like reasoning
 2. **Internal process ≠ stated process**: What models say ≠ how they compute
 3. **Size makes it worse**: More capable models rely LESS on their stated reasoning
+
+### NEW: Unfaithfulness "In The Wild" (Arcuschin et al., 2025)
+
+**Critical extension**: Previous work required artificial bias in prompts. This paper shows unfaithfulness on **natural, unbiased prompts**.
+
+| Model | Unfaithfulness Rate |
+|-------|---------------------|
+| GPT-4o-mini | **13%** |
+| Haiku 3.5 | **7%** |
+| Gemini 1.5 Pro | 6.54% |
+| ChatGPT-4o | 0.49% |
+| DeepSeek R1 | 0.37% |
+| Sonnet 3.7 (thinking) | **0.04%** |
+
+**Key finding**: Models answer YES to both "Is X > Y?" AND "Is Y > X?" — logically contradictory but with "coherent" arguments for both.
+
+**Two mechanisms**:
+1. **Implicit Post-Hoc Rationalization**: Predetermined answer → construct plausible reasoning
+2. **Unfaithful Illogical Shortcuts**: Correct answer through wrong reasoning (not acknowledged)
+
+**Implication**: Cannot use CoT for alignment verification — unfaithfulness occurs naturally.
 
 ---
 
@@ -111,6 +154,147 @@ Semantic load affects computation even when task recognition succeeds.
 
 ---
 
+## NEW: The Planning Deficit (Limits of Innate Planning)
+
+### Key Finding: Move Validator Test
+
+The most critical experiment from "Limits of Innate Planning" (2511.21591):
+
+**Setup**: Models receive:
+- Current 8-puzzle state
+- List of ALL valid moves
+- Previous move (to avoid reversal)
+
+Model only needs to SELECT best move — execution is completely offloaded.
+
+**Result**: **0% success rate for ALL models**
+
+| Model | Loop % | Early Stop % | Success |
+|-------|--------|--------------|---------|
+| GPT-5-Thinking | 100% | 0% | 0% |
+| Gemini-2.5-Pro | 92% | 4% | 0% |
+| Llama 3.1 8B | 86% | 12% | 0% |
+| GPT-5-mini | 26% | 68% | 0% |
+
+### Why This Matters for Thesis
+
+1. **Directly refutes "Agentic Gap" argument**:
+   - "Execution vs reasoning" distinction doesn't hold
+   - When execution is offloaded, models STILL fail
+   - The problem is planning/reasoning, not interface limitations
+
+2. **Identifies two fundamental deficits**:
+   - Brittle state representations
+   - Weak heuristic planning (random-walk behavior)
+
+3. **GPT-5-Thinking loops 100%** even with only valid moves:
+   - SOTA "reasoning model" can't escape loops
+   - More thinking time doesn't help
+   - "PhD-level intelligence" can't solve simple puzzle
+
+### Implications
+
+**Tool augmentation works when**:
+- Task has explicit algorithm (Hanoi recursive solution)
+- Tool provides the solution steps
+- Model only needs to execute
+
+**Tool augmentation fails when**:
+- Task requires planning (8-puzzle)
+- Tool only provides valid options
+- Model must determine best action
+
+**Thesis claim**: LLMs can execute algorithms but cannot plan. Tool-dependent success proves execution capability, not reasoning capability.
+
+---
+
+## NEW: The "Surfacing" Hypothesis Confirmed (Interplay Paper)
+
+### Controlled Experimental Evidence (2512.07783)
+
+The "Interplay of Pre-Training, Mid-Training, and RL" paper provides the **controlled experimental evidence** our thesis needs:
+
+| Pre-training Exposure | RL Transfer Result | Implication |
+|-----------------------|-------------------|-------------|
+| **0%** | **COMPLETE FAILURE** | Cannot synthesize from void |
+| 0.1% | Failure | Not enough seeds |
+| **≥1%** | **SUCCESS** (+60% pass@128) | Latent seeds exist to amplify |
+| 10% | Strong success | More seeds = better transfer |
+
+### When Does RL Help?
+
+| RL Data Range | ID Tasks | OOD-edge Tasks | OOD-hard Tasks |
+|---------------|----------|----------------|----------------|
+| ID (op=7-10) | pass@1 ↑ | No change | No change |
+| Edge (op=11-14) | pass@1 ↑ | **+42% pass@128** | Improvement |
+| Hard (op=17-20) | No change | Minimal | Poor (too hard) |
+
+**Key insight**: RL produces TRUE capability gains **only when**:
+1. Task NOT covered in pre-training (headroom exists)
+2. RL data at "edge of competence" (difficult but reachable)
+
+### Reconciles Competing Views
+
+| View | This Paper's Resolution |
+|------|-------------------------|
+| "RL doesn't improve reasoning" | True for ID tasks (already covered) |
+| "RL dramatically improves reasoning" | True for OOD-edge tasks (sufficient headroom) |
+
+> "The two competing views on whether RL genuinely improves a base model's reasoning ability do not truly conflict."
+
+### Implications for Thesis
+
+1. **RL is NOT magic**: Cannot create reasoning from nothing
+2. **Pre-training is the bottleneck**: Capabilities must be seeded
+3. **"Reasoning" = surfacing existing patterns**: Not generating novel understanding
+4. **Distribution-bounded**: Success depends on training coverage
+
+---
+
+## NEW: Addressing "Strategic Reasoning" Evidence (Counter-Argument)
+
+### The Challenge
+
+"Emergence of Strategic Reasoning" (2412.13013) presents strong "FOR" evidence:
+- GPT-o1 achieves τ=4.42 (4+ reasoning steps)
+- Exceeds human strategic reasoning (τ≈1)
+- "Most fundamental transition" documented
+
+### Our Counter-Argument
+
+**1. Games are in training distribution**:
+- p-Beauty Contest, Guessing Game, Money Request Game = classical behavioral economics
+- Extensive academic literature models may have trained on
+- Pattern matching behavioral economics research ≠ genuine strategic understanding
+
+**2. Performance drops for unusual parameters reveal limits**:
+
+| Parameter | Expected Behavior | Actual Behavior |
+|-----------|-------------------|-----------------|
+| p=2/3 (standard) | High performance | High performance |
+| **p=4/3 (unusual)** | **Adapt upward** | **POOR performance** |
+
+> "LLMs are vastly trained on pBCGs which involve iterating downward" — Authors themselves
+
+**3. Exceeding human τ ≠ genuine reasoning**:
+- Humans may use heuristics (τ≈1)
+- Models may pattern-match optimal solutions from literature
+- Behavioral economics has studied equilibria extensively
+- Models may have "seen the answer" in training
+
+**4. The test we need**: Truly novel strategic games
+- Not in behavioral economics literature
+- No training data exists
+- Prediction: Performance would collapse (like p=4/3)
+
+### Integration with Thesis
+
+> "Strategic reasoning in LRMs reflects sophisticated pattern completion within the behavioral economics literature, not genuine strategic understanding. The performance drop for unusual parameters (p=4/3) reveals the distribution boundary — models excel at games similar to training data but cannot extrapolate to variations not covered in their training."
+
+This aligns with our core thesis: **practical but predictive** — works within distribution, fails outside.
+
+---
+
 ## Evidence Mapping (Updated)
 
 ### For "Reasoning Exists in Base Models"
@@ -121,13 +305,23 @@ Semantic load affects computation even when task recognition succeeds.
 | DeepSeek-R1 | RL surfaces behaviors from base model |
 | **s1** | **1K samples activates pre-existing reasoning** |
 
-### For "RL Surfaces, Doesn't Create"
+### For "RL Surfaces, Doesn't Create" (CRITICAL NEW EVIDENCE)
 
 | Paper | Supporting Evidence |
 |-------|---------------------|
 | DeepSeek-R1 | Pure RL induces behaviors not explicitly trained |
 | **s1** | **26.7% → 50% with only 1K samples** |
-| Interplay paper | RL only works when primitives exist from pretraining |
+| **Interplay (2512.07783)** | **CONTROLLED EXPERIMENT**: 0% exposure = RL fails; ≥1% = success |
+
+**Key quote from Interplay paper**:
+> "RL cannot synthesize capabilities from a void; it requires latent 'seeds' to amplify"
+
+**Controlled experimental design**:
+- Synthetic reasoning tasks with parseable traces
+- Systematic manipulation of training distributions
+- 0% pre-training exposure → RL fails completely
+- ≥1% exposure → RL succeeds (up to +60% pass@128)
+- "Edge of competence" matters: RL only helps when task is "difficult but not yet out of reach"
 
 ### For "CoT ≠ Internal Computation" (NEW)
 
@@ -147,6 +341,34 @@ Semantic load affects computation even when task recognition succeeds.
 | Faith and Fate | OOD failure despite perfect ID performance |
 | **CoT Mirage** | **ID=100%, OOD=0%** |
 | **Semantic Deception** | **Semantic associations override instructions** |
+| **Limits of Innate Planning** | **0% with move validator; planning deficits** |
+
+### For "Tools ≠ Proof of Reasoning" (NEW)
+
+| Paper | Supporting Evidence |
+|-------|---------------------|
+| **Limits of Innate Planning** | Move validator = 0% success on 8-puzzle |
+| **Limits of Innate Planning** | GPT-5-Thinking loops 100% even with valid moves |
+| Conceptual argument | Tools often provide algorithm; execution ≠ understanding |
+
+### For "CoT is Correlation, Not Causation" (NEW)
+
+| Paper | Supporting Evidence |
+|-------|---------------------|
+| **Correlation or Causation** | Only 30% LLMs have ideal causal structure (SCM Type I) |
+| **Correlation or Causation** | 47% of LLM SCMs show CoT doesn't affect answers |
+| **Correlation or Causation** | Distillation doesn't improve causality |
+| **Correlation or Causation** | RLVR improves to 63% but not 100% |
+
+### For "Strategic Reasoning Exists in LRMs" (FOR POSITION - Must Address)
+
+| Paper | Supporting Evidence |
+|-------|---------------------|
+| **Emergence of Strategic Reasoning** | GPT-o1: τ=4.42 (4+ reasoning steps) |
+| **Emergence of Strategic Reasoning** | LRMs exceed human performance (τ≈1) |
+| **Emergence of Strategic Reasoning** | "Most fundamental transition" documented |
+
+**COUNTER-EVIDENCE**: Performance drops for unusual parameters (p=4/3) reveals pattern matching limits
 
 ---
 
@@ -182,24 +404,42 @@ Semantic load affects computation even when task recognition succeeds.
 
 ---
 
-## Your Paper's Thesis (Refined)
+## Your Paper's Thesis (Refined with Controlled Evidence)
 
 > **"The Thinking Machine That Doesn't Think"**
 >
 > Large Language Models possess reasoning-like capabilities that:
 > 1. **Exist intrinsically** in base models (OLMo 3 evidence, s1 evidence)
 > 2. **Are surfaced** by RL and alternative decoding, not created
+>    - **CONTROLLED EVIDENCE**: 0% exposure = RL fails; ≥1% = success (Interplay paper)
+>    - "RL cannot synthesize capabilities from a void; it requires latent 'seeds'"
 > 3. **Are often unfaithful** — stated reasoning ≠ internal computation
+>    - 7-13% unfaithful on NATURAL prompts (CoT In The Wild)
+>    - 25-40% overall unfaithfulness (Reasoning Models Don't Say)
 > 4. **Remain fundamentally predictive** — they interpolate patterns
+>    - Only 30% of LLM causal chains are ideal (Correlation or Causation)
 > 5. **Are practical** for many tasks within distribution
+>    - Strategic reasoning τ=4.42 exceeds humans (BUT see limitations below)
 > 6. **Cannot override training** — semantic associations dominate
 > 7. **Cannot extrapolate** to genuinely novel reasoning challenges
+>    - Planning fails even with tools: 0% with move validator (Limits of Innate Planning)
+>    - Strategic reasoning drops for unusual parameters (p=4/3)
 >
 > The "thinking" in LRMs is sophisticated pattern completion that
 > resembles reasoning sufficiently to solve many problems, but lacks
 > the generative capacity to think beyond its training distribution.
 > Moreover, the stated reasoning often does not reflect the actual
 > computational process — it is performative, not explanatory.
+
+### Key Evidence Summary
+
+| Claim | Key Evidence | Source |
+|-------|--------------|--------|
+| RL surfaces, doesn't create | 0% exposure = fail; ≥1% = success | Interplay (2512.07783) |
+| CoT is unfaithful | 7-13% on natural prompts | CoT In The Wild (2503.08679) |
+| Distribution-bounded | ID=100%, OOD=0% | CoT Mirage (2508.01191) |
+| Planning fails with tools | 0% with move validator | Limits of Innate Planning (2511.21591) |
+| Strategic reasoning is bounded | p=4/3 performance drop | Emergence of Strategic Reasoning (2412.13013) |
 
 ---
 
@@ -275,26 +515,42 @@ Semantic load affects computation even when task recognition succeeds.
 ## Remaining High-Priority Papers
 
 ### Faithfulness (to strengthen Argument 2)
-- [ ] Reasoning Models Don't Always Say What They Think (Chen et al.)
+- [x] ~~Reasoning Models Don't Always Say What They Think (Chen et al.)~~ ✅ DONE
 - [ ] Chain-of-Thought In The Wild Is Not Always Faithful (Arcuschin et al.)
 
 ### Distribution Boundaries (to strengthen Argument 3)
-- [ ] Correlation or Causation (2509.17380) — causal structure analysis
-- [ ] On the Limits of Innate Planning (2511.21591)
+- [x] ~~Correlation or Causation (2509.17380)~~ ✅ DONE — causal structure analysis
+- [x] ~~On the Limits of Innate Planning (2511.21591)~~ ✅ DONE
 
 ### Balanced Perspectives
-- [ ] Comment: Agentic Gap (2506.18957) — execution vs reasoning
+- [x] ~~Comment: Agentic Gap (2506.18957) — execution vs reasoning~~ ✅ DONE
 - [ ] Interplay of Pre-Training, Mid-Training, and RL
+- [x] ~~Emergence of Strategic Reasoning (2412.13013)~~ ✅ DONE
 
 ---
 
 ## Next Steps
 
+### Completed Analysis
 1. ~~Read s1 paper~~ ✅ 
 2. ~~Read Measuring Faithfulness~~ ✅
 3. ~~Read Semantic Deception~~ ✅
-4. Read "Reasoning Models Don't Always Say What They Think"
-5. Document OLMo 3 experimental evidence
-6. Develop the "predictive vs generative" distinction further
-7. Structure the paper around the four main arguments
-8. Create paper outline with evidence mapping
+4. ~~Read "Reasoning Models Don't Always Say What They Think"~~ ✅
+5. ~~Read "Limits of Innate Planning"~~ ✅
+6. ~~Read "Comment: Agentic Gap"~~ ✅
+7. ~~Read "Correlation or Causation" (2509.17380)~~ ✅
+8. ~~Read "Emergence of Strategic Reasoning" (2412.13013)~~ ✅
+9. ~~Read "CoT In The Wild Not Faithful" (2503.08679)~~ ✅
+10. ~~Read "Interplay of Pre-Training, Mid-Training, and RL" (2512.07783)~~ ✅
+11. ~~Develop counter-argument to Strategic Reasoning paper~~ ✅
+
+### Remaining Tasks
+12. Document OLMo 3 experimental evidence (awaiting user input)
+13. Create paper outline with evidence mapping
+14. Structure the paper around the four main arguments
+15. Develop the "predictive vs generative" distinction further
+
+### Optional: Additional Papers
+- Reasoning Models Reason Well, Until They Don't (2510.22371)
+- The Illusion of Insight in Reasoning Models (2601.00514)
+- Illusion of Diminishing Returns (2509.09677)
