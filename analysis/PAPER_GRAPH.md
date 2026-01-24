@@ -329,6 +329,10 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Theory for Length Generalization (2404.00560)** | **supports** | **Faith and Fate (2305.18654)** | **Confirms standard formulations fail — matches pattern matching thesis** |
 | **Theory for Length Generalization (2404.00560)** | **supports** | **GSM-Symbolic (2410.05229)** | **Explains why surface perturbations break models (R changes)** |
 | **Theory for Length Generalization (2404.00560)** | **provides theory for** | **Our thesis** | **LG requires D=X (training covers all inputs) = pattern matching with complete coverage** |
+| **Survey of Inductive Reasoning (2510.10182)** | **supports** | **Faith and Fate (2305.18654)** | **Both identify pattern matching as mechanism** |
+| **Survey of Inductive Reasoning (2510.10182)** | **supports** | **OMEGA (2506.18880)** | **Both show compositional generalization failures in induction** |
+| **Survey of Inductive Reasoning (2510.10182)** | **extends** | **How LLMs Learn to Reason (2509.23629)** | **Identifies induction heads as mechanism for inductive ability** |
+| **Survey of Inductive Reasoning (2510.10182)** | **provides mechanism for** | **Our thesis** | **"Inductive ability originates from induction heads" = pattern matching** |
 
 ### Extends / Builds On
 
@@ -448,6 +452,7 @@ These papers have NO direct rebuttals found:
 | **Emergent Abilities Survey (2503.05788)** | **Survey of 100+ papers; "memorization competes with generalization"; some emergence real (module arithmetic); pre-training loss predicts emergence (correlational); LRMs = LLM + RL + search; BALANCED** |
 | **Survey of Test-Time Compute (2501.02497)** | **Comprehensive survey; self-correction "not guaranteed" without external feedback; LLMs can correct errors but can't LOCATE them; no universal test-time scaling law; LRMs "struggle to generalize to cross-domain tasks"; SUPPORTS thesis** |
 | **Theory for Length Generalization (2404.00560)** | **LG achievable IFF: |X|<infinity (finite input space), D=X (training covers all inputs), specific representation engineering; impossibility result for infinite X; BALANCED but supports thesis on close reading** |
+| **Survey of Inductive Reasoning (2510.10182)** | **"Inductive ability originates from induction heads"; "Induction means simplicity"; "No universal bias" = task-specific engineering required; test-time scaling = searching through learned patterns; enhancement methods don't create reasoning; SUPPORTS thesis** |
 
 ---
 
@@ -502,3 +507,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Emergent Abilities Survey (2503.05788) — Survey of 100+ papers; "memorization competes with generalization"; some emergence real; BALANCED |
 | 2026-01-24 | Added Survey of Test-Time Compute (2501.02497) — Self-correction fails without external feedback; no universal scaling law; LRMs domain-bounded; SUPPORTS thesis |
 | 2026-01-24 | Added Theory for Length Generalization (2404.00560) — LG requires D=X (complete training coverage) + finite input space + engineered representations; impossibility for infinite X; BALANCED |
+| 2026-01-24 | Added Survey of Inductive Reasoning (2510.10182) — "Inductive ability originates from induction heads" = pattern matching mechanism; "Induction means simplicity" = models prefer learned patterns; "No universal bias" = task-specific; test-time scaling = search through learned patterns; SUPPORTS thesis |
