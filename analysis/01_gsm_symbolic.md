@@ -227,8 +227,66 @@ This is a **foundational paper** for the "against" side. It:
 
 ---
 
+---
+
+## Interaction Graph
+
+```
+                    ┌─────────────────────────────────────┐
+                    │  FOUNDATIONAL WORKS (cited by GSM-S)│
+                    ├─────────────────────────────────────┤
+                    │ • Jiang et al. - token bias         │
+                    │ • Li et al. - 1-NN in transformers  │
+                    │ • Razeghi et al. - freq→performance │
+                    │ • Dziri et al. - computation graphs │
+                    └──────────────┬──────────────────────┘
+                                   │ builds on
+                                   ▼
+┌──────────────────────────────────────────────────────────────────────┐
+│                     GSM-Symbolic (Oct 2024)                          │
+│                     Apple · Mirzadeh et al.                          │
+│                                                                      │
+│  Claims: Pattern matching, not reasoning. Fragility. NoOp failure.   │
+└──────────────────────────────────────────────────────────────────────┘
+           │                    │                        │
+           │ extends            │ supports               │ challenged by
+           ▼                    ▼                        ▼
+┌──────────────────┐  ┌──────────────────────┐  ┌─────────────────────────┐
+│ Illusion of      │  │ • CoT Mirage (2508)  │  │ • CoT Without Prompting │
+│ Thinking (2506)  │  │ • Semantic Deception │  │   (2402) - intrinsic    │
+│ [same team]      │  │ • Frontier Struggles │  │ • Tool Augmentation     │
+│                  │  │ • PhD Addition       │  │   papers - execution    │
+│ Adds: LRMs,      │  │                      │  │ • DeepSeek-R1 - emergent│
+│ complexity       │  │ Same mechanism:      │  │ • s1 - pre-existing     │
+│ regimes, effort  │  │ distribution shift   │  │                         │
+│ curves           │  │ breaks patterns      │  │ Counter: reasoning      │
+└──────────────────┘  └──────────────────────┘  │ exists, just needs      │
+                                                │ surfacing/tools         │
+                                                └─────────────────────────┘
+```
+
+---
+
+## Critical Cited Papers to Evaluate
+
+### High Priority (may need to read before proceeding)
+| Paper | Why Critical |
+|-------|--------------|
+| **Dziri et al. (2023)** - "Faith and Fate" | Computation graph analysis — mechanistic evidence for pattern matching. Core theoretical support for GSM-S claims. |
+| **Jiang et al. (2024)** - Token bias | Statistical guarantees that LLMs have strong token bias. Foundational for fragility argument. |
+
+### Medium Priority (context but not blocking)
+| Paper | Why Relevant |
+|-------|--------------|
+| Li et al. - 1-NN transformers | Explains WHY sensitivity exists mechanistically |
+| Razeghi et al. - Frequency correlation | Training frequency → test performance |
+
+---
+
 ## Status
 - [x] Read
 - [x] Analyzed
 - [x] Graph links identified
+- [x] Interaction diagram created
 - [ ] Cross-referenced with rebuttals
+- [ ] Critical cited papers evaluated
