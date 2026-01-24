@@ -38,8 +38,8 @@
 **Total: 29 papers analyzed (2 foundational + 27 main)**
 
 **Stance key**: 
-- **Supports** = supports our thesis (LLMs are pattern matching, not truly reasoning)
-- **Challenges** = challenges our thesis (evidence for genuine reasoning)
+- **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative
+- **Challenges** = provides evidence for genuine reasoning capabilities
 - **Balanced** = provides evidence for both sides
 
 ---
@@ -236,7 +236,7 @@ Model only needs to SELECT best move — execution is completely offloaded.
 
 ### Controlled Experimental Evidence (2512.07783)
 
-The "Interplay of Pre-Training, Mid-Training, and RL" paper provides the **controlled experimental evidence** our thesis needs:
+The "Interplay of Pre-Training, Mid-Training, and RL" paper provides the **controlled experimental evidence** the pattern-matching thesis needs:
 
 | Pre-training Exposure | RL Transfer Result | Implication |
 |-----------------------|-------------------|-------------|

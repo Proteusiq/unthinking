@@ -245,9 +245,11 @@ Key design: Parameters control "tediousness" (computation amount) not difficulty
 
 ---
 
-## Implications for Our Thesis
+## Implications for the Literature Review Thesis
 
-### Strong Support for "Pattern Matching" Hypothesis
+**Literature Review Thesis**: LLM reasoning is practical but fundamentally predictive (pattern matching from training distributions), not genuinely generative.
+
+### Strong Support for the "Pattern Matching" Hypothesis
 
 1. **Memorization over reasoning**: Unpuzzles prove models memorize solutions, not understand problems
 2. **Distribution limits are hard**: OOD failures persist despite "thinking"

@@ -163,7 +163,7 @@ Anthropic's own research:
 **Our counter-argument**:
 > Strategic reasoning in LRMs reflects sophisticated pattern completion within the behavioral economics literature, not genuine strategic understanding. The performance drop for unusual parameters (p=4/3) reveals the distribution boundary — models excel at games similar to training data but cannot extrapolate to variations.
 
-**Assessment**: Strong "FOR" evidence that must be acknowledged, but the p=4/3 performance drop directly supports our thesis that reasoning is bounded by training distribution.
+**Assessment**: Strong "FOR" evidence that must be acknowledged, but the p=4/3 performance drop directly supports the thesis that reasoning is bounded by training distribution.
 
 ---
 
@@ -178,7 +178,7 @@ Anthropic's own research:
 
 **Key quote from Interplay paper**: "RL cannot synthesize capabilities from a void; it requires latent 'seeds' to amplify"
 
-**Assessment**: The "surfacing" hypothesis is CONFIRMED by controlled experiments. RL helps, but only when primitives exist from pre-training. This supports our thesis: capabilities are bounded by training distribution.
+**Assessment**: The "surfacing" hypothesis is CONFIRMED by controlled experiments. RL helps, but only when primitives exist from pre-training. This supports the thesis that capabilities are bounded by training distribution.
 
 ---
 

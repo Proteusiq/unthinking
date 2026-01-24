@@ -160,18 +160,20 @@ Interpretation: The more successfully you unlearn, the more the prediction chang
 
 ---
 
-## Relevance to Our Thesis
+## Relevance to the Literature Review Thesis
+
+**Literature Review Thesis**: LLM reasoning is practical but fundamentally predictive (pattern matching from training distributions), not genuinely generative.
 
 ### NUANCED EVIDENCE
 
-This paper presents **mixed evidence** for our thesis:
+This paper presents **mixed evidence** for this thesis:
 
-**AGAINST our thesis (CoTs can be faithful)**:
+**AGAINST the thesis (CoTs can be faithful)**:
 - fur shows CoTs ARE often parametrically faithful (40-86% ff-hard)
 - High efficacy-faithfulness correlation (r=0.889) suggests CoTs reflect internal computation
 - Unlearning steps changes BOTH predictions AND reasoning
 
-**FOR our thesis (pattern matching, not reasoning)**:
+**FOR the thesis (pattern matching, not genuine reasoning)**:
 - **Faithfulness ≠ Plausibility** (r=0.15): Even "faithful" steps aren't what humans consider good reasoning
 - **Contextual methods overestimate unfaithfulness**: Models reconstruct from parameters, suggesting retrieval not reasoning
 - The fact that CoTs are "faithful" doesn't mean they represent genuine reasoning — they could faithfully reflect pattern matching

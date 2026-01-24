@@ -141,7 +141,7 @@ Average attack success rate (lower = more robust):
    - Relevant: Illusion of Insight (2601.00514) shows more tokens ≠ better
 
 2. **"Superficial bias susceptibility undermines the 'reasoning' claim"**
-   - Support for our thesis: If LRMs truly reasoned, they wouldn't be MORE susceptible to length bias
+   - Support for the pattern-matching thesis: If LRMs truly reasoned, they wouldn't be MORE susceptible to length bias
    - The systematic evaluation against metrics = pattern matching the metric words
    - Quote: "LRM-as-a-Judge often systematically evaluates responses against metrics"
 
@@ -174,14 +174,16 @@ Average attack success rate (lower = more robust):
 
 ---
 
-## Implications for Our Thesis
+## Implications for the Literature Review Thesis
 
-### Evidence FOR genuine reasoning (must acknowledge)
+**Literature Review Thesis**: LLM reasoning is practical but fundamentally predictive (pattern matching from training distributions), not genuinely generative.
+
+### Evidence AGAINST the thesis (must acknowledge)
 - LRMs are better at judgment tasks (89% → 92% on RewardBench)
 - LRMs are more robust to adversarial attacks
 - LRMs follow evaluation instructions better
 
-### Evidence FOR pattern matching thesis (supports us)
+### Evidence FOR the thesis (pattern matching)
 1. **Superficial bias susceptibility is WORSE for LRMs**
    - If genuine reasoning, should be LESS susceptible to length bias
    - Instead: 88% → 59% (worse than non-reasoning!)
@@ -202,18 +204,18 @@ This paper shows LRMs have SOME advantages (accuracy, instruction-following) but
 ### Key Quote for Our Paper
 > "LRM-as-a-Judge often systematically evaluates responses against metrics. Consequently, responses designed to exploit these metrics, such as length or concreteness, can yield excessively high scores"
 
-This directly supports our thesis: extended CoT leads to systematic pattern matching against surface features, not deeper understanding.
+This directly supports the pattern-matching thesis: extended CoT leads to systematic pattern matching against surface features, not deeper understanding.
 
 ---
 
-## Stance: BALANCED (with implications supporting our thesis)
+## Stance: BALANCED (with implications supporting the pattern-matching thesis)
 
-**For our thesis:**
+**For the thesis:**
 - Superficial bias vulnerability (LRMs worse!)
 - "Systematic evaluation against metrics" = pattern matching
 - PlanJudge fix reveals need for external scaffolding
 
-**Against our thesis:**
+**Against the thesis:**
 - Higher judgment accuracy
 - Better instruction following in evaluation
 - More robust to adversarial attacks

@@ -132,9 +132,9 @@ At 0% truncation (no reasoning visible), models can still answer correctly:
 - **s1 (2501.19393)**: Capability pre-exists, is surfaced
 
 ### Challenges (partially)
-- **Our thesis**: Shows latent reasoning is NOT pure memorization
+- **The pattern-matching thesis**: Shows latent reasoning is NOT pure memorization
 
-### Supports Our Thesis (critical limitations)
+### Supports the Pattern-Matching Thesis (critical limitations)
 - **Interplay (2512.07783)**: English-centric = distribution-bounded
 - **Illusion of Thinking (2506.06941)**: Collapses on hard problems (AIME: 0.03 LRS)
 - **Faith and Fate (2305.18654)**: Error accumulation on complex tasks
@@ -189,14 +189,16 @@ At 0% truncation (no reasoning visible), models can still answer correctly:
 
 ---
 
-## Implications for Our Thesis
+## Implications for the Literature Review Thesis
 
-### Evidence FOR "Challenges" position
+**Literature Review Thesis**: LLM reasoning is practical but fundamentally predictive (pattern matching from training distributions), not genuinely generative.
+
+### Evidence AGAINST the Thesis (Challenges)
 1. Latent reasoning exists (not just text generation)
 2. Not pure memorization (paraphrase robustness)
 3. Some genuine computation in hidden states
 
-### Evidence FOR "Supports" position (our thesis)
+### Evidence FOR the Thesis (Supports)
 1. **COLLAPSES on hard problems**: 0.38 → 0.03 LRS (MGSM → AIME)
 2. **English-centric**: Converges to training distribution
 3. **Language-dependent**: High-resource only
@@ -216,18 +218,18 @@ This paper provides the strongest "FOR" evidence we've seen:
 - English-centric pathway = training-distribution-bounded
 - Authors' own title: "(Not Yet)"
 
-**For our thesis**: The fragility and distribution-dependence of latent reasoning SUPPORTS our argument. If reasoning were genuine, it wouldn't:
+**For the pattern-matching thesis**: The fragility and distribution-dependence of latent reasoning SUPPORTS the argument that LLM reasoning is distribution-bounded. If reasoning were genuine, it wouldn't:
 - Collapse on harder problems
 - Vary by language resource level
 - Converge to English-centric pathway
 
 ---
 
-## Stance: BALANCED (leans toward supporting our thesis)
+## Stance: BALANCED (leans toward supporting the pattern-matching thesis)
 
 **Key contributions:**
 - Strongest empirical evidence FOR latent reasoning
-- But critical qualifications that SUPPORT our thesis:
+- But critical qualifications that SUPPORT the thesis that reasoning is distribution-bounded:
   - Collapses on hard problems
   - English-centric = distribution-bounded
   - "Real but fragile"

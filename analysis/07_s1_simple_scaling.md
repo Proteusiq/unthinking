@@ -99,7 +99,9 @@ Key insight: **Difficulty + Diversity + Quality together matter**. Random select
 3. **Scaling eventually saturates**: Doesn't extrapolate arbitrarily
 4. **Still distribution-bound**: Needs examples from relevant domains (50 MSC categories)
 
-### The Key Insight for Our Thesis
+### The Key Insight for the Pattern-Matching Thesis
+
+**Literature Review Thesis**: LLM reasoning is practical but fundamentally predictive (pattern matching from training distributions), not genuinely generative.
 
 > "The success of s1 shows that reasoning capability EXISTS in pretrained models but is LATENT. A small amount of targeted data (1K samples) SURFACES this capability through SFT. Budget forcing REVEALS additional latent reasoning by preventing premature stopping."
 

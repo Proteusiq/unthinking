@@ -204,9 +204,11 @@
 
 ---
 
-## Implications for Our Thesis
+## Implications for the Literature Review Thesis
 
-### STRONG support for pattern matching thesis
+**Literature Review Thesis**: LLM reasoning is practical but fundamentally predictive (pattern matching from training distributions), not genuinely generative.
+
+### STRONG support for this thesis
 
 1. **Internal feedback cannot create reasoning**
    - RLIF eventually DEGRADES performance
@@ -248,7 +250,7 @@
 
 **Evidence strength**: Very strong
 
-**Key contributions to our thesis:**
+**Key contributions to the thesis:**
 1. Quantitative proof that internal feedback HURTS reasoning (291 → 235)
 2. Mechanism: entropy minimization → overconfidence → shallow reasoning
 3. Format vs reasoning dissociation (format up, reasoning down)

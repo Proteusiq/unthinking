@@ -235,7 +235,9 @@ The paper provides a detailed case study:
 
 ---
 
-## Implications for Our Thesis
+## Implications for the Literature Review Thesis
+
+**Literature Review Thesis**: LLM reasoning is practical but fundamentally predictive (pattern matching from training distributions), not genuinely generative.
 
 ### Strong Support for Multiple Claims
 
@@ -248,7 +250,7 @@ The paper provides a detailed case study:
 
 ### Key New Concept: "Fluent Self-Critique Without Correction"
 
-This captures our thesis perfectly:
+This captures the pattern-matching thesis perfectly:
 - Models PRODUCE text that looks like reflection
 - Text contains correct labels and concepts
 - But text is NOT functionally connected to generation

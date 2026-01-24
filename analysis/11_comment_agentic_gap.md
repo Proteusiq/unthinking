@@ -59,7 +59,7 @@ The paper identifies multiple levels:
 | Thinking effort decreases | Models recognize they can't execute, not can't reason |
 | Pattern matching fails | Interface fails, patterns may still work |
 
-### How This Supports Our Thesis (Partially)
+### How This Supports the Pattern-Matching Thesis (Partially)
 
 Even accepting the rebuttal, important questions remain:
 
