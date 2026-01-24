@@ -297,6 +297,107 @@ This is **critical evidence**:
 
 ---
 
+---
+
+## REBUTTALS & COUNTER-EVIDENCE
+
+### Rebuttal 1: Lawsen (2506.09250) — "The Illusion of the Illusion of Thinking"
+
+**Authors**: A. Lawsen (with Claude Opus)
+**Date**: June 2025
+
+#### Core Arguments
+
+| Issue | Lawsen's Critique | Severity |
+|-------|-------------------|----------|
+| **Token Limits** | Tower of Hanoi N=15 requires ~327,670 moves × 10 tokens = 3.2M tokens. Models explicitly say "to avoid making this too long, I'll stop here" | HIGH |
+| **Impossible Problems** | River Crossing N≥6 with boat capacity 3 is **mathematically impossible** (proven by Efimova 2018). Models scored as failures for not solving unsolvable problems | CRITICAL |
+| **Evaluation Method** | Checking exhaustive move lists ≠ checking reasoning. When asked for generating functions/code, models show "high accuracy" on N=15 Hanoi | HIGH |
+| **Complexity Conflation** | Solution length ≠ reasoning difficulty. Hanoi has O(1) decision per move despite 2^N moves. Blocks World is NP-hard but shorter | MEDIUM |
+
+#### Key Experiment from Lawsen
+
+```
+Prompt: "Solve Tower of Hanoi with 15 disks. Output a Lua
+         function that prints the solution when called."
+
+Result: Very high accuracy across Claude-3.7-Sonnet, Claude Opus 4,
+        OpenAI o3, Google Gemini 2.5 — completed in <5,000 tokens
+```
+
+**Implication**: Models understand the algorithm; they fail at *enumeration*, not *reasoning*.
+
+#### Lawsen's Conclusion
+
+> "The question isn't whether LRMs can reason, but whether our evaluations can distinguish reasoning from typing."
+
+---
+
+### Rebuttal 2: Khan et al. (2506.18957) — "Comment: Reframing as Agentic Gap"
+
+**Authors**: Khan, Madhavan, Natarajan
+**Date**: June 2025
+
+#### Core Arguments
+
+| Issue | Khan's Critique |
+|-------|-----------------|
+| **Execution vs Reasoning** | Models fail at *execution within restrictive interface*, not reasoning |
+| **Tool Use Reversal** | With agentic tools, models solve problems "far beyond the reasoning cliff" |
+| **Context Window** | "Recall issues" and "output generation limits" confound results |
+| **Missing Baselines** | No cognitive baselines comparing to human performance under same constraints |
+
+#### Key Experiment from Khan
+
+> "A model, initially declaring a puzzle impossible when confined to text-only generation, now employs agentic tools to not only solve it but also master variations of complexity far beyond the reasoning cliff."
+
+---
+
+### Rebuttal 3: Song et al. (2507.17699) — "Thinking Isn't an Illusion"
+
+**Already analyzed** (see `04_thinking_isnt_illusion.md`)
+
+Key finding: Tool augmentation reverses collapse completely:
+- Tower of Hanoi: 0% → **100%** with tools
+- River Crossing: Near-zero → **98.3%** with tools
+
+---
+
+### Assessment: How Seriously to Take Rebuttals
+
+| Critique | Validity | Impact on Original Paper |
+|----------|----------|--------------------------|
+| Impossible River Crossing instances | **VALID** — mathematically proven | Invalidates N>5 results |
+| Token limit issues | **VALID** — models explicitly acknowledge | Weakens "collapse" interpretation |
+| Alternative representations work | **VALID** — demonstrated empirically | Suggests execution ≠ reasoning |
+| Tool augmentation fixes failures | **VALID** — replicated by multiple groups | Major qualification needed |
+| Complexity conflation | **PARTIALLY VALID** — fair methodological point | Interpretation issue |
+
+### Revised Assessment of "Illusion of Thinking"
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│              REVISED STATUS OF "ILLUSION OF THINKING"           │
+│                                                                 │
+│  STILL VALID:                                                   │
+│  • Three complexity regimes exist (empirically observed)        │
+│  • Token usage decreases at high complexity (unexplained)       │
+│  • Models struggle with long sequential execution               │
+│                                                                 │
+│  INVALIDATED OR WEAKENED:                                       │
+│  • River Crossing N>5 results (impossible instances)            │
+│  • "Complete accuracy collapse" claim (token limits confound)   │
+│  • "Fundamental reasoning failure" interpretation               │
+│                                                                 │
+│  REFRAMED:                                                      │
+│  • Collapse may be EXECUTION limit, not REASONING limit         │
+│  • Tool augmentation reverses failures                          │
+│  • Models understand algorithms but can't enumerate             │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
 ## Status
 - [x] Read
 - [x] Analyzed
@@ -304,4 +405,5 @@ This is **critical evidence**:
 - [x] Interaction diagram created
 - [x] Criticisms documented
 - [x] Author responses noted
-- [ ] Cross-reference with direct rebuttals
+- [x] **Rebuttals documented (3 papers)**
+- [x] **Revised assessment provided**
