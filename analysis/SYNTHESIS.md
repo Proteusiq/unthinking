@@ -23,8 +23,9 @@
 | 15 | Interplay of Pre-Training, Mid-Training, RL | Dec 2025 | Balanced | 0% exposure = RL fails; ≥1% = success; "cannot synthesize from void" |
 | 16 | Reasoning Models Reason Well, Until They Don't | Oct 2025 | Balanced | Abrupt collapse at L~64-300; NLGraph trivially easy (L<2); o3 fails |
 | 17 | The Illusion of Insight in Reasoning Models | Jan 2026 | Against | "Aha!" moments are rare, don't improve with training, seldom help accuracy |
+| 18 | LLMs Imitate Logical Reasoning | Sep 2025 | Against | 2023→2024 = hidden CoT; neuro-symbolic 7-10x cheaper at higher accuracy |
 
-**Total: 19 papers analyzed (2 foundational + 17 main)**
+**Total: 20 papers analyzed (2 foundational + 18 main)**
 
 ---
 
