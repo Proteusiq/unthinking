@@ -359,6 +359,11 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **CRV Verifying CoT (2510.09312)** | **supports** | **Mapping Faithful Reasoning (2510.22362)** | **Both find mechanistic distinction between correct/incorrect reasoning** |
 | **CRV Verifying CoT (2510.09312)** | **supports** | **How LLMs Learn to Reason (2509.23629)** | **Both identify internal structure matters for reasoning** |
 | **CRV Verifying CoT (2510.09312)** | **provides evidence for** | **Domain-specific reasoning** | **Error signatures don't transfer across domains (92%→55-57% cross-domain)** |
+| **Iterative ICL Algebraic (2509.01267)** | **supports** | **GSM-Symbolic (2410.05229)** | **Both show LLMs struggle with rule variations** |
+| **Iterative ICL Algebraic (2509.01267)** | **supports** | **Faith and Fate (2305.18654)** | **Both show failure to apply learned rules in new contexts** |
+| **Iterative ICL Algebraic (2509.01267)** | **supports** | **Compositional-ARC (2504.01445)** | **Both show systematicity failures; simpler examples help** |
+| **Iterative ICL Algebraic (2509.01267)** | **supports** | **Illusion of Thinking (2506.06941)** | **Same complexity scaling collapse pattern** |
+| **Iterative ICL Algebraic (2509.01267)** | **provides evidence for** | **Pattern matching thesis** | **Rule override fails = learned priors dominate** |
 
 ### Extends / Builds On
 
@@ -484,6 +489,7 @@ These papers have NO direct rebuttals found:
 | **KUP Memorization vs Reasoning (2504.12523)** | **ALL methods <2% on indirect probing (reasoning); direct probing 70-80% (memorization); "memorize updates but fail to reason over implications"; H&M Russia example; <2% across ALL CPT methods; STRONGLY SUPPORTS thesis** |
 | **LoopBench (2512.13713)** | **O3 achieves 55-72% proximity on symmetry breaking; GPT-4.1/O3-mini fail (0-4%); O3 develops "wait" strategies; GPT-5.1 rediscovers node ID priority; Discovery-Implementation Gap; BALANCED — O3 shows reasoning but most models fail** |
 | **CRV Verifying CoT (2510.09312)** | **92.47% AUROC on arithmetic vs 76.45% baseline; error signatures domain-specific (transfer fails 92%→55%); causal interventions work; "reasoning failure = flaw in execution of latent algorithm"; BALANCED** |
+| **Iterative ICL Algebraic (2509.01267)** | **Zero-shot: 13-35% on non-standard precedence (high school level task); rule override fails; simpler examples often work BETTER than complex ones; complexity collapse: 97%→47% (db(1,6)→db(3,20)); SUPPORTS thesis** |
 
 ---
 
@@ -544,3 +550,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added KUP Memorization vs Reasoning (2504.12523) — ALL methods <2% on indirect probing; 70-80% on direct probing; memorization ≠ reasoning; H&M Russia example; STRONGLY SUPPORTS thesis |
 | 2026-01-24 | Added LoopBench (2512.13713) — O3 72% vs GPT-4.1 0% on symmetry breaking; strategy evolution observed; Discovery-Implementation Gap supports surfacing; BALANCED |
 | 2026-01-24 | Added CRV Verifying CoT (2510.09312) — 92% AUROC; domain-specific error signatures; causal interventions work; BALANCED |
+| 2026-01-24 | Added Iterative ICL Algebraic (2509.01267) — Zero-shot 13-35% on rule override task; simpler examples work better; complexity collapse; SUPPORTS thesis |
