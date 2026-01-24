@@ -24,8 +24,12 @@
 | 16 | Reasoning Models Reason Well, Until They Don't | Oct 2025 | Balanced | Abrupt collapse at L~64-300; NLGraph trivially easy (L<2); o3 fails |
 | 17 | The Illusion of Insight in Reasoning Models | Jan 2026 | Against | "Aha!" moments are rare, don't improve with training, seldom help accuracy |
 | 18 | LLMs Imitate Logical Reasoning | Sep 2025 | Against | 2023→2024 = hidden CoT; neuro-symbolic 7-10x cheaper at higher accuracy |
+| 19 | Comprehension Without Competence | Jul 2025 | Against | "Split-brain": 95-100% step accuracy, 0% final at 10-digit; scale won't help |
+| 20 | Frontier LLMs Still Struggle | Jul 2025 | Against | Unpuzzles: easier=worse (GPT-4o 75%→20%); R1 0% char counting; "reasoning delirium" |
+| 21 | Illusions of Reflection | Oct 2025 | Against | Reflection repeats same failure 85%; reasoning models NO advantage |
+| 22 | Illusion of Diminishing Returns | Sep 2025 | Balanced | Self-conditioning: errors beget errors; thinking fixes it; execution ≠ reasoning |
 
-**Total: 20 papers analyzed (2 foundational + 18 main)**
+**Total: 24 papers analyzed (2 foundational + 22 main)**
 
 ---
 
@@ -42,8 +46,12 @@ Training Data → Pattern Extraction → Subgraph Matching → Apparent Reasonin
 - Three regimes: LLMs win low, collapse at high
 - CoT is often post-hoc rationalization (Measuring Faithfulness)
 - Semantic associations override explicit instructions (Semantic Deception)
-- **NEW**: Planning fails even with tools (Limits of Innate Planning)
-- **NEW**: Unfaithfulness occurs on natural prompts (CoT In The Wild)
+- Planning fails even with tools (Limits of Innate Planning)
+- Unfaithfulness occurs on natural prompts (CoT In The Wild)
+- Unpuzzles: making problems EASIER makes models WORSE (Frontier LLMs Still Struggle)
+- Reflection repeats same failure 85% of time (Illusions of Reflection)
+- Split-brain syndrome: 95% step accuracy, 0% final (Comprehension Without Competence)
+- Self-conditioning: errors beget more errors (Illusion of Diminishing Returns)
 
 ### The "For" Position (Genuine Capability)
 ```
@@ -619,6 +627,79 @@ For B=1 (NO search required, just follow edges):
 - **Claim**: Training patterns dominate over explicit instructions
 - **Implication**: Models predict likely outputs, not compute solutions
 
+### Argument 5: "Reflection" is Fluent Text, Not Functional Correction
+- **Evidence**: Illusions of Reflection (85% same-failure), Illusion of Insight (2-6% aha moments)
+- **Claim**: Models produce correct-sounding labels but don't bind them to generation
+- **Implication**: "Thinking" appearance ≠ actual thinking
+
+### Argument 6: Execution Fails Even With Plan+Knowledge
+- **Evidence**: Illusion of Diminishing Returns (self-conditioning), Comprehension Without Competence (split-brain)
+- **Claim**: Even when plan and knowledge are provided, long-horizon execution fails
+- **Implication**: Not "can't think" but "can't execute sequences reliably"
+
+### Argument 7: Memorization Dominates, Easier Can Be Harder
+- **Evidence**: Frontier LLMs Still Struggle (Unpuzzles: 75%→20%), Reasoning Delirium
+- **Claim**: Models memorize solutions, not understand problems
+- **Implication**: Trivialized problems activate wrong memorized patterns
+
+---
+
+## Key Findings from Recent Papers
+
+### 1. "Unpuzzles" Paradigm (Frontier LLMs Still Struggle)
+
+**The Phenomenon**: Making problems EASIER makes models perform WORSE
+
+| Condition | GPT-4o | o1 | o3 | R1 |
+|-----------|--------|-----|-----|-----|
+| Original Puzzles | 75.3% | 86.7% | 87.6% | 87.6% |
+| **Unpuzzles (trivial)** | **19.6%** | 59.8% | 74.2% | 59.8% |
+| Context-Shifted | 52% | 59% | 80% | 67% |
+
+**Mechanism**: "Reasoning delirium" — models apply memorized solution to wrong problem
+
+**R1 at 0% character counting** — flagship reasoning model fails at trivial task!
+
+### 2. "Fluent Self-Critique Without Correction" (Illusions of Reflection)
+
+**The Phenomenon**: Reflection text looks correct but doesn't fix errors
+
+| Metric | Value |
+|--------|-------|
+| Same-failure repeat rate | **85.36%** |
+| Chance benchmark | 74.69% |
+| Excess above chance | +10.68 pp (p=0.0001) |
+
+**Reasoning models NO advantage**: Mean gain 0.036 vs 0.111 (actually WORSE!)
+
+**Just trying again works as well as "reflection"** — active strategies ≈ simple retry
+
+### 3. "Self-Conditioning Effect" (Illusion of Diminishing Returns)
+
+**The Phenomenon**: Errors in context increase probability of future errors
+
+| Induced Error Rate | Turn 100 Accuracy |
+|--------------------|-------------------|
+| 0% (healed) | ~90% |
+| 50% | ~60% |
+| 100% | ~40% |
+
+**Opposite to humans** who improve with practice!
+
+**Thinking models fix this** (Qwen3-thinking: 98% → 97% even with 100% error history)
+
+### 4. "Split-Brain Syndrome" (Comprehension Without Competence)
+
+**The Phenomenon**: High step accuracy, zero final accuracy
+
+| Digit Length | Step Accuracy | Final Accuracy |
+|--------------|---------------|----------------|
+| 4-digit | 100% | 85% |
+| 7-digit | 98% | 35% |
+| **10-digit** | **95-100%** | **0%** |
+
+**Implication**: Scale won't help — architectural limit
+
 ---
 
 ## Remaining High-Priority Papers
@@ -656,10 +737,53 @@ For B=1 (NO search required, just follow edges):
 ### Remaining Tasks
 12. Document OLMo 3 experimental evidence (awaiting user input)
 13. Create paper outline with evidence mapping
-14. Structure the paper around the four main arguments
+14. Structure the paper around the SEVEN main arguments
 15. Develop the "predictive vs generative" distinction further
 
-### Optional: Additional Papers
-- Reasoning Models Reason Well, Until They Don't (2510.22371)
-- The Illusion of Insight in Reasoning Models (2601.00514)
-- Illusion of Diminishing Returns (2509.09677)
+### Completed This Session
+- [x] Comprehension Without Competence (2507.10624) ✅
+- [x] Frontier LLMs Still Struggle (2507.07313) ✅
+- [x] Illusions of Reflection (2510.18254) ✅
+- [x] Illusion of Diminishing Returns (2509.09677) ✅
+- [x] Reasoning Models Until They Don't (2510.22371) — prior session ✅
+- [x] Illusion of Insight (2601.00514) — prior session ✅
+- [x] LLMs Imitate Logical Reasoning (2509.12645) — prior session ✅
+
+---
+
+## Updated Evidence Summary Table
+
+| Claim | Key Evidence | Source |
+|-------|--------------|--------|
+| RL surfaces, doesn't create | 0% exposure = fail; ≥1% = success | Interplay (2512.07783) |
+| CoT is unfaithful | 7-13% on natural prompts | CoT In The Wild (2503.08679) |
+| Distribution-bounded | ID=100%, OOD=0% | CoT Mirage (2508.01191) |
+| Planning fails with tools | 0% with move validator | Limits of Innate Planning (2511.21591) |
+| **Unpuzzles: easier=worse** | **GPT-4o 75%→20%** | **Frontier LLMs Still Struggle (2507.07313)** |
+| **Reflection repeats failures** | **85% same-failure rate** | **Illusions of Reflection (2510.18254)** |
+| **Self-conditioning effect** | **Errors beget errors** | **Illusion of Diminishing Returns (2509.09677)** |
+| **Split-brain syndrome** | **95% step, 0% final** | **Comprehension Without Competence (2507.10624)** |
+| **Reasoning delirium** | **Apply wrong memorized solution** | **Frontier LLMs Still Struggle (2507.07313)** |
+| **R1 0% character counting** | **Flagship model fails trivial task** | **Frontier LLMs Still Struggle (2507.07313)** |
+
+---
+
+## Thesis Position (Strengthened)
+
+**Total Papers**: 24 analyzed
+**Stance Breakdown**: Against=15, For=5, Balanced=4, Foundational=2
+
+The evidence now overwhelmingly supports the "Against" position:
+
+1. **Reasoning pre-exists** but is pattern-based (surfacing, not creation)
+2. **CoT is unfaithful** (7-40% depending on measure)
+3. **Distribution boundaries are hard** (abrupt collapse, not gradual)
+4. **Semantic associations dominate** (reasoning models fail MORE)
+5. **"Reflection" is performative** (fluent text without correction)
+6. **Execution fails** even with plan+knowledge (self-conditioning)
+7. **Memorization dominates** (unpuzzles paradigm)
+
+**Key quote from Illusions of Reflection**:
+> "Simply adding more scratchpad is unlikely to fix it"
+
+This directly challenges the "scaling reasoning" hypothesis.
