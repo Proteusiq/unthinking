@@ -36,13 +36,14 @@ jobs:
         id: check
         run: |
           if [ -f "papers/toread.md" ] && [ -s "papers/toread.md" ]; then
-            # Check if toread.md was modified
-            if git diff --quiet papers/toread.md 2>/dev/null; then
+            # Check if toread.md has changes (new or modified)
+            git add papers/toread.md
+            if git diff --cached --quiet papers/toread.md 2>/dev/null; then
               echo "has_new_papers=false" >> $GITHUB_OUTPUT
             else
               echo "has_new_papers=true" >> $GITHUB_OUTPUT
               # Count new papers
-              NEW_COUNT=$(git diff papers/toread.md | grep "^+" | grep -c "arxiv.org" || echo "0")
+              NEW_COUNT=$(git diff --cached papers/toread.md | grep "^+" | grep -c "arxiv.org" || echo "0")
               echo "new_count=$NEW_COUNT" >> $GITHUB_OUTPUT
             fi
           else
@@ -54,7 +55,6 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add papers/toread.md
           git commit -m "Add new papers to read list ($(date +%Y-%m-%d))"
           git push
 
