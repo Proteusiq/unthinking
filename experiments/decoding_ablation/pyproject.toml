@@ -1,0 +1,23 @@
+[project]
+name = "decoding-ablation"
+version = "0.1.0"
+description = "Decoding Ablation Experiment: Surfacing Reasoning in OLMo 3"
+readme = "PROTOCOL.md"
+requires-python = ">=3.11"
+dependencies = [
+    "torch>=2.0",
+    "transformers>=4.40",
+    "datasets",
+    "accelerate",
+    "bitsandbytes",
+    "sentencepiece",
+    "protobuf",
+    "scipy",
+    "matplotlib",
+    "seaborn",
+    "pandas",
+    "tqdm",
+]
+
+[project.scripts]
+run-experiment = "run_experiment:main"
