@@ -250,6 +250,15 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Mechanistic Counting (2601.02989)** | **supports** | **Sequential Enumeration (2512.04727)** | **Both show LLMs can't spontaneously count/enumerate at scale** |
 | **Mechanistic Counting (2601.02989)** | **supports** | **Faith and Fate (2305.18654)** | **Error accumulation with sequential steps; depth-bounded** |
 | **Mechanistic Counting (2601.02989)** | **provides mechanism for** | **Why CoT alone fails** | **Needs structural decomposition, not just more tokens** |
+| **CogniLoad (2509.18458)** | **supports** | **Illusion of Thinking (2506.06941)** | **Both show collapse at complexity threshold; state-tracking errors dominate** |
+| **CogniLoad (2509.18458)** | **supports** | **Mechanistic Counting (2601.02989)** | **Both show System-1 reasoning fails at scale** |
+| **CogniLoad (2509.18458)** | **supports** | **Faith and Fate (2305.18654)** | **Error accumulation with sequential steps** |
+| **CogniLoad (2509.18458)** | **extends** | **Cognitive Load Theory** | **Novel: links CLT from psychology to LLM evaluation** |
+| **Instruction-Tuned Not Better (2601.13244)** | **supports** | **Interplay (2512.07783)** | **Capabilities exist in base model; training surfaces them** |
+| **Instruction-Tuned Not Better (2601.13244)** | **supports** | **No Free Lunch (2506.17219)** | **SFT/RL can degrade reasoning while improving format** |
+| **Instruction-Tuned Not Better (2601.13244)** | **supports** | **OMEGA (2506.18880)** | **Perturbation brittleness shows same pattern** |
+| **Instruction-Tuned Not Better (2601.13244)** | **challenges** | **DeepSeek-R1 (2501.12948)** | **Instruction tuning benefits limited at scale; base models often win** |
+| **Instruction-Tuned Not Better (2601.13244)** | **provides evidence for** | **Surfacing hypothesis** | **Base models have capability; instruction tuning changes activation patterns** |
 
 ### Extends / Builds On
 
@@ -353,6 +362,8 @@ These papers have NO direct rebuttals found:
 | **Bias and CoT Faithfulness (2505.23945)** | **SFT training = NO faithfulness improvement; RL only helps for explicit biases; visual biases ~0% articulation; CelebA 0% articulation across ALL models** |
 | **Chess Compositionality (2510.20783)** | **96%+ rule extrapolation OOD; BUT strategy adaptation fails 70%→22%; Horde (different objective) last place; rules ≠ reasoning** |
 | **Mechanistic Counting (2601.02989)** | **System-1 counting: 0% at 41-50 items; CoT alone: 0%; Structure+CoT: 24-86%; external scaffolding required; architectural depth limits counting** |
+| **CogniLoad (2509.18458)** | **Task length dominant constraint; only gpt-5 (76%) and o3 (68%) >50% at N=250; state-tracking errors dominate; model capacity varies 400x (ECL50: 0-382.8)** |
+| **Instruction-Tuned Not Better (2601.13244)** | **Base models win by 27-33pp in zero-shot; domain shift: base wins by 33pp; perturbation: 38-62% relative drop; instruction tuning creates prompt dependencies** |
 
 ---
 
@@ -389,3 +400,5 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Bias and CoT Faithfulness (2505.23945) — SFT = no improvement; visual biases unfaithful; CelebA 0% articulation |
 | 2026-01-24 | Added Chess Compositionality (2510.20783) — Rule extrapolation works (96%), strategy fails (70%→22%); rules ≠ reasoning |
 | 2026-01-24 | Added Mechanistic Counting (2601.02989) — System-1 counting collapses at ~30; CoT alone doesn't help; needs structure |
+| 2026-01-24 | Added CogniLoad (2509.18458) — Task length dominant; only 2 models >50% at N=250; state-tracking errors; 400x capacity range |
+| 2026-01-24 | Added Instruction-Tuned Not Better (2601.13244) — Base models win in zero-shot by 27-33pp; instruction tuning creates prompt dependencies |

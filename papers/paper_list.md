@@ -197,14 +197,14 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 |---|----------|------|-------|--------|--------|
 | 67 | 2512.04727 | Dec 2025 | Sequential Enumeration in Large Language Models | Against | ✅ DONE |
 | 68 | 2506.18880 | Jun 2025 | OMEGA: Can LLMs Reason Outside the Box in Math? | Against | ✅ DONE |
-| 69 | 2601.06914 | Jan 2026 | Towards Compositional Generalization via Skill Taxonomy Guided Data Synthesis | Balanced | pending |
+| 69 | 2601.06914 | Jan 2026 | Towards Compositional Generalization via Skill Taxonomy Guided Data Synthesis | Balanced | SKIPPED (wrong paper - about smart contracts) |
 | 70 | 2510.20783 | Oct 2025 | Out-of-Distribution Tests Reveal Compositionality in Chess Transformers | Balanced | ✅ DONE |
 
 ### Planning & Generalization Gap
 | # | arXiv ID | Date | Title | Stance | Status |
 |---|----------|------|-------|--------|--------|
 | 71 | 2601.14456 | Jan 2026 | On the Generalization Gap in LLM Planning: 82.9% ID, 0% OOD | Against | ✅ DONE |
-| 72 | 2509.18458 | Sep 2025 | CogniLoad: Synthetic NL Reasoning Benchmark With Tunable Difficulty | Against | pending |
+| 72 | 2509.18458 | Sep 2025 | CogniLoad: Synthetic NL Reasoning Benchmark With Tunable Difficulty | Against | ✅ DONE |
 
 ### Emergent Reasoning (FOR evidence)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -232,7 +232,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ### Other Notable Papers
 | # | arXiv ID | Date | Title | Stance | Status |
 |---|----------|------|-------|--------|--------|
-| 84 | 2601.13244 | Jan 2026 | Do Instruction-Tuned Models Always Perform Better? | Against | pending |
+| 84 | 2601.13244 | Jan 2026 | Do Instruction-Tuned Models Always Perform Better? | Against | ✅ DONE |
 | 85 | 2510.08931 | Oct 2025 | RADAR: Mechanistic Pathways for Detecting Data Contamination | Against | pending |
 | 86 | 2510.22437 | Oct 2025 | Modeling Hierarchical Thinking in Large Reasoning Models | Balanced | pending |
 | 87 | 2507.01231 | Jul 2025 | Rethinking the Illusion of Thinking | Balanced | ✅ DONE |
@@ -248,7 +248,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 - **For Reasoning**: ~26
 - **Balanced**: ~30
 - **Date Range**: 2024-2026
-- **Analyzed**: 49
+- **Analyzed**: 51
 
 ---
 
