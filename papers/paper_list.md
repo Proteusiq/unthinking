@@ -39,7 +39,7 @@ Total papers to read from provided evidence (2024+ only)
 ### Test-Time Compute Limitations
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
-| 14 | 2502.12215 | Feb 2025 | Revisiting Test-Time Scaling of o1-like Models (Zeng et al.) | pending |
+| 14 | 2502.12215 | Feb 2025 | Revisiting Test-Time Scaling of o1-like Models (Zeng et al.) | ✅ DONE (analysis: 63_revisiting_test_time_scaling.md) |
 | 15 | 2506.06941 | Jun 2025 | The Illusion of Thinking (Shojaee et al.) | ✅ DONE |
 | 16 | TBD | Oct 2025 | Limits of Emergent Reasoning in Agentic Frameworks for Deterministic Games | pending |
 | 17 | 2511.21591 | Nov 2025 | On the Limits of Innate Planning in Large Language Models | ✅ DONE |
