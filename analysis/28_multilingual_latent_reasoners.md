@@ -138,6 +138,8 @@ At 0% truncation (no reasoning visible), models can still answer correctly:
 - **Interplay (2512.07783)**: English-centric = distribution-bounded
 - **Illusion of Thinking (2506.06941)**: Collapses on hard problems (AIME: 0.03 LRS)
 - **Faith and Fate (2305.18654)**: Error accumulation on complex tasks
+- **OMEGA (2506.18880)**: 0.38 → 0.03 LRS collapse (MGSM → AIME) parallels OMEGA's 0% transformative generalization
+- **Planning Gap (2601.14456)**: Fragility on hard problems mirrors 82.9% ID → 0% OOD planning collapse
 
 ---
 

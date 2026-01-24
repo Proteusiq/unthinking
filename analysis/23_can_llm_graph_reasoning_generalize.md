@@ -132,6 +132,8 @@ Training corpus keyword frequency positively correlates with in-distribution per
 - **GSM-Symbolic (2410.05229)**: Distribution-dependent failures
 - **CoT Mirage (2508.01191)**: ID success, OOD failure
 - **Frontier LLMs Still Struggle (2507.07313)**: Memorization over reasoning
+- **OMEGA (2506.18880)**: 0% transformative generalization confirms "pattern regurgitator" finding; compositional graph failures identical
+- **Planning Gap (2601.14456)**: 82.9% ID → 0% OOD mirrors NLGift's 0% strong recovery on reasoning patterns
 
 ### Challenges
 - None directly — this strongly supports the pattern-matching thesis

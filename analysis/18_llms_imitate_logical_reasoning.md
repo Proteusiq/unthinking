@@ -160,6 +160,7 @@ The paper demonstrates:
 - **Faith and Fate (2305.18654)** — Subgraph matching = imitation
 - **Illusion of Thinking (2506.06941)** — Not genuine reasoning
 - **CoT Mirage (2508.01191)** — Distribution-dependent success
+- **OMEGA (2506.18880)** — 0% transformative generalization confirms imitation, not reasoning
 
 ### Provides Mechanism For
 - Why benchmarks show improvement (hidden CoT)

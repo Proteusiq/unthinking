@@ -170,6 +170,7 @@ The paper provides a detailed case study:
 - **CoT In The Wild (2503.08679)**: Unfaithfulness on natural tasks
 - **Reasoning Models Don't Say (2505.05410)**: 25-40% faithfulness
 - **Frontier LLMs Still Struggle (2507.07313)**: Memorization-based failures
+- **OMEGA (2506.18880)**: RL training doesn't improve reflection; 85% same-failure rate parallels OMEGA's finding that RL can hurt
 
 ### Challenges
 - **DeepSeek-R1 (2501.12948)**: Extended thinking doesn't help

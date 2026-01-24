@@ -188,6 +188,8 @@ Key design: Parameters control "tediousness" (computation amount) not difficulty
 - **Faith and Fate (2305.18654)**: Error accumulation mechanism
 - **GSM-Symbolic (2410.05229)**: Distribution-dependent failures
 - **Reasoning Models Until They Don't (2510.22371)**: Confirms complexity cliff
+- **OMEGA (2506.18880)**: Unpuzzles parallel OMEGA's finding that RL can HURT (memorization interference)
+- **Planning Gap (2601.14456)**: Unpuzzles show same ID/OOD gap (75% original → 20% trivial version)
 
 ### Challenges
 - **Thinking Isn't Illusion (2507.17699)**: Even with "thinking" models, failures persist

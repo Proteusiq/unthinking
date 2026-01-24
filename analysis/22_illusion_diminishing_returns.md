@@ -157,6 +157,7 @@ Experimental setup: Inject artificial error histories at different rates
 - **Illusion of Thinking (2506.06941)**: Collapse at high complexity (execution failures)
 - **Comprehension Without Competence (2507.10624)**: Execution vs comprehension distinction
 - **Faith and Fate (2305.18654)**: Error accumulation mechanism
+- **OMEGA (2506.18880)**: Self-conditioning parallels OMEGA's compositional failure; errors compound
 
 ### Challenges
 - **Illusion of Thinking**: "Failures arise from execution, not inability to reason"
