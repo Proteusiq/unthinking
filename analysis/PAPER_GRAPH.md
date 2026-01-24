@@ -356,6 +356,9 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **LoopBench (2512.13713)** | **supports** | **Limits of Emergent Reasoning Agentic (2510.15974)** | **Most models (GPT-4.1, O3-mini) still fail/loop** |
 | **LoopBench (2512.13713)** | **provides evidence for** | **Model capability hierarchy** | **O3 >> GPT-4.1 >> smaller models on meta-cognitive tasks** |
 | **LoopBench (2512.13713)** | **supports** | **Surfacing hypothesis** | **Discovery-Implementation Gap: weaker models execute but can't discover** |
+| **CRV Verifying CoT (2510.09312)** | **supports** | **Mapping Faithful Reasoning (2510.22362)** | **Both find mechanistic distinction between correct/incorrect reasoning** |
+| **CRV Verifying CoT (2510.09312)** | **supports** | **How LLMs Learn to Reason (2509.23629)** | **Both identify internal structure matters for reasoning** |
+| **CRV Verifying CoT (2510.09312)** | **provides evidence for** | **Domain-specific reasoning** | **Error signatures don't transfer across domains (92%→55-57% cross-domain)** |
 
 ### Extends / Builds On
 
@@ -480,6 +483,7 @@ These papers have NO direct rebuttals found:
 | **Compositional-ARC (2504.01445)** | **LLMs fail systematicity: o3-mini 0.53%, GPT-4o 0.99% on novel compositions; 5.7M MLC model (78.26%) beats 8B+ LLMs; TTT needed for LLM success (0.7%→78%); 3-shot success + systematicity failure = memorization not reasoning; STRONGLY SUPPORTS thesis** |
 | **KUP Memorization vs Reasoning (2504.12523)** | **ALL methods <2% on indirect probing (reasoning); direct probing 70-80% (memorization); "memorize updates but fail to reason over implications"; H&M Russia example; <2% across ALL CPT methods; STRONGLY SUPPORTS thesis** |
 | **LoopBench (2512.13713)** | **O3 achieves 55-72% proximity on symmetry breaking; GPT-4.1/O3-mini fail (0-4%); O3 develops "wait" strategies; GPT-5.1 rediscovers node ID priority; Discovery-Implementation Gap; BALANCED — O3 shows reasoning but most models fail** |
+| **CRV Verifying CoT (2510.09312)** | **92.47% AUROC on arithmetic vs 76.45% baseline; error signatures domain-specific (transfer fails 92%→55%); causal interventions work; "reasoning failure = flaw in execution of latent algorithm"; BALANCED** |
 
 ---
 
@@ -539,3 +543,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Compositional-ARC (2504.01445) — o3-mini 0.53%, GPT-4o 0.99% on systematicity; 5.7M MLC > 8B+ LLMs; TTT is NOT genuine generalization; 3-shot vs systematicity gap = smoking gun for pattern matching; STRONGLY SUPPORTS thesis |
 | 2026-01-24 | Added KUP Memorization vs Reasoning (2504.12523) — ALL methods <2% on indirect probing; 70-80% on direct probing; memorization ≠ reasoning; H&M Russia example; STRONGLY SUPPORTS thesis |
 | 2026-01-24 | Added LoopBench (2512.13713) — O3 72% vs GPT-4.1 0% on symmetry breaking; strategy evolution observed; Discovery-Implementation Gap supports surfacing; BALANCED |
+| 2026-01-24 | Added CRV Verifying CoT (2510.09312) — 92% AUROC; domain-specific error signatures; causal interventions work; BALANCED |

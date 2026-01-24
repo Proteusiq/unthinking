@@ -96,7 +96,7 @@ Total papers to read from provided evidence (2024+ only)
 ### Mechanistic Evidence
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
-| 39 | 2510.09312 | Oct 2025 | Verifying Chain-of-Thought Reasoning via Its Computational Graph (CRV) | pending |
+| 39 | 2510.09312 | Oct 2025 | Verifying Chain-of-Thought Reasoning via Its Computational Graph (CRV) | ✅ DONE (analysis: 72_crv_verifying_cot_computational_graph.md) |
 | 40 | TBD | May 2025 | Reasoning Beyond Language: Latent Chain-of-Thought | pending |
 | 41 | TBD | Jul 2025 | Revisiting LLM Reasoning via Information Bottleneck | pending |
 
