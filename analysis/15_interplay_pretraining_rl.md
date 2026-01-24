@@ -145,6 +145,14 @@ Process-verified rewards improve:
 - **CoT Without Prompting** — Explains WHY CoT exists in base models
 - **Thinking Isn't Illusion** — Explains WHY tool augmentation helps (execution, not reasoning)
 
+### Confirmed By (Later Papers)
+- **OMEGA** (2506.18880) — RL doesn't help OOD; exploratory ✓, transformative ✗
+- **Planning Gap** (2601.14456) — 82.9% ID → 0% OOD; RL doesn't improve generalization
+- **How LLMs Learn to Reason** (2509.23629) — RL "integrates" existing skill islands
+- **Emergent Hierarchical Reasoning** (2509.03646) — "RL rediscovers pre-training priors"
+- **Reasoning Beyond CoT** (2601.08058) — Latent mode can be surfaced without explicit CoT
+- **Multilingual Latent Reasoners** (2601.02996) — English-centric = distribution-bounded
+
 ### Challenged By
 - **Emergence of Strategic Reasoning** — Claims genuine strategic capability emerges
   - Counter: Strategic games may be in training distribution

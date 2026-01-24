@@ -117,11 +117,22 @@ This is strong evidence for:
 ### Supports
 - **DeepSeek-R1**: Both show minimal intervention surfaces reasoning
 - **CoT Without Prompting**: Both show reasoning is latent in base models
-- **OLMo 3 (your work)**: Directly supports "RL surfaces, doesn't create"
+- **Interplay** (2512.07783): CONTROLLED proof that RL surfaces pre-existing capability
+
+### Confirmed By
+- **Interplay** (2512.07783): 0% exposure = fail; ≥1% = success — surfacing hypothesis proven
+- **Emergent Hierarchical Reasoning** (2509.03646): "RL rediscovers pre-training priors"
+- **How LLMs Learn to Reason** (2509.23629): RL "weaves" existing skill islands, doesn't create new
 
 ### Challenges
 - **Illusion of Thinking**: s1 shows scaling works (within limits)
 - **GSM-Symbolic**: s1 shows some robustness (but still needs diverse training data)
+
+### Limited By
+- **OMEGA** (2506.18880): Even with RL, 0% transformative generalization; surfacing has limits
+- **Planning Gap** (2601.14456): 82.9% ID → 0% OOD — surfacing doesn't help OOD
+- **Illusions of Reflection** (2510.18254): Test-time compute doesn't guarantee improvement
+- **No Free Lunch** (2506.17219): RLIF eventually degrades reasoning
 
 ### Extends
 - **Faith and Fate**: s1 operates within distribution boundaries (diversity criterion)

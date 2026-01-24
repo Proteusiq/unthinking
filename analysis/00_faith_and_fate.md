@@ -168,6 +168,10 @@ These propositions prove that **any estimator** (including transformers) will fa
 | **CoT is a Mirage** (2508.01191) | Same mechanism: distribution shift breaks learned patterns |
 | **Semantic Deception** (2512.20812) | Same finding: surface patterns mislead |
 | **Comprehension Without Competence** (2507.10624) | Extends to architectural limits |
+| **OMEGA** (2506.18880) | **STRONGEST CONFIRMATION**: >69% isolated skills → near-0% composed; 0% transformative generalization |
+| **Planning Gap** (2601.14456) | 82.9% ID → 0% OOD; directly tests compositional generalization |
+| **Beyond Memorization** (2601.13392) | 100% knowledge + fails on unseen; "pattern regurgitators" |
+| **Rethinking Illusion** (2507.01231) | Failures at constrained solution spaces; "stochastic searchers" |
 
 ### Papers That CHALLENGE This
 | Paper | Challenge |
@@ -175,7 +179,10 @@ These propositions prove that **any estimator** (including transformers) will fa
 | **CoT Without Prompting** (2402.10200) | CoT exists intrinsically — suggests reasoning not just matching |
 | **DeepSeek-R1** (2501.12948) | Novel behaviors emerge via RL without training patterns |
 | **Tool Augmentation papers** | Same tasks succeed with tools — execution vs reasoning |
-| **Algorithmic Primitives** (Oct 2025) | Finds compositional geometry enabling transfer |
+| **Algorithmic Primitives** (2510.15987) | Finds "primitives" — but these are learned patterns, not true algorithms |
+| **Emergent Symbolic Mechanisms** (2502.20332) | 98% cross-token generalization — but abstraction is positional, not semantic |
+
+**Note**: Most "challenges" actually support the thesis on close reading — mechanisms are learned patterns bounded by training distribution.
 
 ### Papers With RELATED THEORY
 | Paper | Theoretical Connection |

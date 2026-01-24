@@ -177,6 +177,9 @@ The paper argues LLMs perform:
 | **The Illusion of Thinking** (Shojaee) | Extends to LRMs, complexity regimes, reasoning effort curves |
 | **Illusion of Insight** | Extends to "Aha!" moments being artifacts |
 | **Comprehension Without Competence** | Extends to architectural limits explanation |
+| **OMEGA** (2506.18880) | Extends from perturbation to systematic generalization axes; 0% transformative |
+| **Planning Gap** (2601.14456) | 82.9% ID → 0% OOD; same surface pattern sensitivity (11.5pp anonymization drop) |
+| **Beyond Memorization** (2601.13392) | Same pattern: high ID performance collapses on unseen variations |
 
 ### Papers With METHODOLOGICAL TENSION
 | Paper | Tension |
