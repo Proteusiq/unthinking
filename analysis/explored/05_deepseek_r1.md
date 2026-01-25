@@ -268,7 +268,7 @@ This shows pure RL with verifiable rewards is **currently the best approach**.
 
 ## Relevance to "Thinking Machine That Doesn't Think"
 
-### Strong Evidence for Your Thesis
+### Strong Evidence for the pattern-matching thesis
 DeepSeek-R1 supports the claim that **reasoning exists in base models and RL surfaces it**:
 1. Pure RL (no human reasoning data) produces reasoning behaviors
 2. Behaviors emerge from optimization pressure, not imitation
@@ -283,7 +283,7 @@ DeepSeek-R1 supports the claim that **reasoning exists in base models and RL sur
    - Practically: DeepSeek-R1 solves hard problems
    - Theoretically: Is it "thinking" or "optimized prediction"?
 
-### Your Paper's Position Could Be
+### The Paper's Position Could Be
 > "RL surfaces and amplifies reasoning-like patterns that exist in pretrained models. These patterns are genuine capabilities but remain predictive — they interpolate effectively within training distribution but don't extrapolate to truly novel problems."
 
 ---

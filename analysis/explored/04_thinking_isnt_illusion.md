@@ -248,20 +248,20 @@ But do they? Or do they show LRMs are good at **generating correct programs** fo
 
 ## Relevance to "Thinking Machine That Doesn't Think"
 
-### The Key Tension for Your Paper
+### The Key Tension For the Paper
 | Apple Says | This Paper Says |
 |------------|-----------------|
 | LRMs don't reason | LRMs reason but need tools to execute |
 | Collapse proves pattern matching | Collapse proves execution limits |
 | "Illusion" | "Real capability" |
 
-### For Your Thesis
+### For the pattern-matching thesis
 This paper complicates the simple "illusion" narrative:
 1. If tool use fixes the problem, what was the problem?
 2. Is code generation a form of reasoning?
 3. Does practical success matter more than theoretical purity?
 
-### Your Position Could Be
+### the pattern-matching thesis Could Be
 > "LRMs can generate correct solutions (especially as code) but this is sophisticated pattern completion, not general reasoning. Tools offload execution, not cognition."
 
 ---

@@ -530,7 +530,7 @@ For B=1 (NO search required, just follow edges):
 - **NEW**: 1K samples sufficient to surface (s1)
 
 ### 2. Does RL create or surface reasoning?
-**Answer: SURFACES** (your hypothesis)
+**Answer: SURFACES** (the surfacing hypothesis)
 - DeepSeek-R1-Zero shows emergence without human demos
 - **s1 shows 1K samples cannot TEACH AIME math, only ACTIVATE existing capability**
 - The "Aha moment" likely reflects learned self-correction patterns
@@ -552,7 +552,7 @@ For B=1 (NO search required, just follow edges):
 
 ---
 
-## Your Paper's Thesis (Refined with Controlled Evidence)
+## The Paper's Thesis (Refined with Controlled Evidence)
 
 > **"The Thinking Machine That Doesn't Think"**
 >
@@ -621,7 +621,7 @@ For B=1 (NO search required, just follow edges):
                            │
                            ▼
               ┌───────────────────────────────┐
-              │     YOUR PAPER'S POSITION     │
+              │     The Paper's POSITION     │
               │                               │
               │  • Reasoning exists (FOR)     │
               │  • RL surfaces it (FOR)       │
