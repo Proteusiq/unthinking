@@ -893,8 +893,6 @@
             d.sourceId === node.id || d.targetId === node.id
         );
         
-        if (relatedDialogues.length === 0) return;
-        
         // Clear current messages
         const container = document.getElementById('dialogue-messages');
         if (container) container.innerHTML = '';
@@ -905,6 +903,23 @@
         // Stop current interval
         if (state.dialogueInterval) {
             clearInterval(state.dialogueInterval);
+        }
+        
+        // If no related dialogues, show a message and resume normal cycle
+        if (relatedDialogues.length === 0) {
+            const messageEl = document.createElement('div');
+            messageEl.className = `dialogue-message ${node.stance}`;
+            messageEl.innerHTML = `
+                <span class="paper-name">${node.shortTitle || node.title}</span>
+                <span class="message-text">${node.coreArgument}</span>
+                <span class="message-type">core argument</span>
+            `;
+            container.appendChild(messageEl);
+            highlightSpeaker(node);
+            
+            // Resume normal cycle after delay
+            state.dialogueInterval = setInterval(showNextDialogue, 6000);
+            return;
         }
         
         // Show related dialogues one by one
@@ -1059,15 +1074,17 @@
         document.getElementById('zoom-out').addEventListener('click', zoomOut);
         document.getElementById('zoom-reset').addEventListener('click', zoomReset);
 
-        // Thesis card toggle
-        document.getElementById('thesis-toggle').addEventListener('click', () => {
-            const thesisCard = document.getElementById('thesis-card');
-            const thesisShowBtn = document.getElementById('thesis-show-btn');
-            thesisCard.classList.add('collapsed');
-            if (thesisShowBtn) thesisShowBtn.classList.add('visible');
-            // Reposition dialogue panel
-            setTimeout(positionDialoguePanel, 400);
-        });
+        // Thesis card toggle - double-click to hide
+        const thesisCard = document.getElementById('thesis-card');
+        if (thesisCard) {
+            thesisCard.addEventListener('dblclick', () => {
+                const thesisShowBtn = document.getElementById('thesis-show-btn');
+                thesisCard.classList.add('collapsed');
+                if (thesisShowBtn) thesisShowBtn.classList.add('visible');
+                // Reposition dialogue panel
+                setTimeout(positionDialoguePanel, 400);
+            });
+        }
         
         // Thesis show button
         const thesisShowBtn = document.getElementById('thesis-show-btn');

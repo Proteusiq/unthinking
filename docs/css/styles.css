@@ -862,47 +862,34 @@ body {
     pointer-events: none;
 }
 
-.thesis-toggle {
+/* Thesis header - matches dialogue panel */
+.thesis-header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: var(--space-sm);
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    transition: all var(--transition-normal);
+    padding: var(--space-sm) var(--space-md);
+    border-bottom: 1px solid var(--glass-border);
 }
 
-.thesis-toggle:hover {
-    background: var(--glass-bg-subtle);
-}
-
-.thesis-toggle svg {
-    width: 20px;
-    height: 20px;
-    color: var(--text-secondary);
-    transition: transform var(--transition-normal);
-}
-
-.thesis-card.collapsed .thesis-toggle svg {
-    transform: rotate(180deg);
-}
-
-.thesis-content {
-    padding: 0 var(--space-md) var(--space-md);
-    max-height: 200px;
-    overflow: hidden;
-    transition: max-height var(--transition-slow), padding var(--transition-slow);
-}
-
-.thesis-content h3 {
+.thesis-title {
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--text-muted);
-    margin-bottom: var(--space-sm);
+}
+
+.thesis-hint {
+    font-size: 0.625rem;
+    color: var(--text-muted);
+    opacity: 0.6;
+}
+
+.thesis-content {
+    padding: var(--space-sm) var(--space-md) var(--space-md);
+    max-height: 200px;
+    overflow: hidden;
+    transition: max-height var(--transition-slow), padding var(--transition-slow);
 }
 
 .thesis-content blockquote {
