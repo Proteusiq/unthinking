@@ -6,7 +6,7 @@
 .legend {
   position: fixed;
   bottom: var(--space-xl);
-  left: var(--space-md);
+  left: var(--space-sm);
   z-index: var(--z-controls);
   padding: var(--space-sm) var(--space-md);
   border-radius: var(--radius-lg);
@@ -153,7 +153,7 @@
   color: var(--text-secondary);
 }
 .evidence-list li {
-  padding-left: var(--space-md);
+  padding-left: var(--space-sm);
   position: relative;
   margin-bottom: 2px;
 }
@@ -281,7 +281,7 @@
   color: var(--text-secondary);
   line-height: 1.6;
   font-style: italic;
-  padding-left: var(--space-md);
+  padding-left: var(--space-sm);
   border-left: 3px solid var(--glass-border);
 }
 .panel-evidence {
@@ -382,7 +382,7 @@
 .thesis-card {
   position: fixed;
   top: 105px;
-  left: var(--space-md);
+  left: var(--space-sm);
   z-index: var(--z-controls);
   width: 360px;
   max-width: calc(100vw - var(--space-xl) * 2);
@@ -439,7 +439,7 @@
 .thesis-show-btn {
   position: fixed;
   top: 105px;
-  left: var(--space-md);
+  left: var(--space-sm);
   z-index: var(--z-controls);
   display: none;
   align-items: center;
@@ -472,7 +472,7 @@
 .dialogue-panel {
   position: fixed;
   top: 310px;
-  left: var(--space-md);
+  left: var(--space-sm);
   z-index: var(--z-controls);
   width: 360px;
   max-width: calc(100vw - var(--space-xl) * 2);
@@ -502,7 +502,7 @@
 .dialogue-show-btn {
   position: fixed;
   top: 310px;
-  left: var(--space-md);
+  left: var(--space-sm);
   z-index: var(--z-controls);
   display: none;
   align-items: center;
