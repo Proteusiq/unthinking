@@ -261,7 +261,7 @@ This paper complicates the simple "illusion" narrative:
 2. Is code generation a form of reasoning?
 3. Does practical success matter more than theoretical purity?
 
-### the pattern-matching thesis Could Be
+### The Pattern-Matching Position
 > "LRMs can generate correct solutions (especially as code) but this is sophisticated pattern completion, not general reasoning. Tools offload execution, not cognition."
 
 ---

@@ -147,7 +147,7 @@ Both could be true:
 | **DeepSeek-R1** | Both show reasoning can emerge without explicit supervision |
 | **s1: Simple test-time scaling** | Confirms reasoning is pre-existing, needs activation |
 | **Implicit Reasoning Survey** | Aligns with latent reasoning hypothesis |
-| **the OLMo 3 work** | Directly supports "reasoning exists in base models" |
+| **OLMo 3 experiments** | Directly supports "reasoning exists in base models" |
 
 ### Papers This CHALLENGES
 | Paper | The Challenge |
@@ -216,7 +216,7 @@ Both could be true:
     ┌──────────────────────────┐  ┌─────────────────────────────┐
     │ • DeepSeek-R1 (emergent) │  │ • Faithfulness papers       │
     │ • s1 (pre-existing)      │  │   (CoT may not reflect      │
-    │ • the OLMo 3 thesis     │  │    true computation)        │
+    │ • OLMo 3 experiments     │  │    true computation)        │
     │                          │  │ • Semantic Deception        │
     │ Reasoning exists, RL     │  │   (surface patterns still   │
     │ surfaces it              │  │    mislead)                 │
@@ -227,8 +227,8 @@ Both could be true:
 
 ## Relevance to "Thinking Machine That Doesn't Think"
 
-### Strong Support for the pattern-matching thesis
-This paper is **crucial evidence** for this argument that:
+### Strong Support for the Pattern-Matching Thesis
+This paper provides **crucial evidence** for the argument that:
 1. Reasoning-like patterns exist in base models (OLMo 3)
 2. RL/RLHF "surfaces" these patterns rather than creating them
 3. The patterns are **predictive** — they interpolate from training data
@@ -242,9 +242,9 @@ Wang & Zhou show reasoning EXISTS but don't prove it's GENUINE:
 - BUT: Do they generalize OOD? Not tested here
 
 ### The Paper's Contribution
-You can use this to argue:
+This paper supports the argument:
 1. Base models have reasoning capability (Wang & Zhou)
-2. RL surfaces and amplifies it (the OLMo 3 evidence)
+2. RL surfaces and amplifies it (OLMo 3 experiments)
 3. But it remains pattern-based prediction (Faith and Fate)
 4. Therefore: "Practical but predictive, not beyond"
 
