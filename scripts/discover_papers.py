@@ -284,7 +284,7 @@ def format_paper_entry(paper, stance: str, priority: int, explanation: str, conn
 
 
 def write_toread(papers: list, output_path: Path):
-    """Append new papers to toread.md, preserving existing content."""
+    """Prepend new papers to toread.md (after header), preserving existing content."""
     
     today = datetime.now().strftime("%Y-%m-%d")
     
@@ -292,7 +292,7 @@ def write_toread(papers: list, output_path: Path):
     papers.sort(key=lambda x: x['priority'], reverse=True)
     
     # Build new papers section
-    new_section = f"\n## New Papers ({today})\n\n"
+    new_section = f"## New Papers ({today})\n\n"
     
     for p in papers:
         new_section += format_paper_entry(
@@ -302,8 +302,6 @@ def write_toread(papers: list, output_path: Path):
             p['explanation'],
             p['connections']
         )
-    
-    new_section += "---\n"
     
     # Read existing content or create new file
     if output_path.exists():
@@ -317,38 +315,29 @@ def write_toread(papers: list, output_path: Path):
                 existing
             )
         
-        # Find insertion point (after the header section, before first ## section)
-        # Look for the first "## " that's not in the header
-        lines = existing.split('\n')
-        insert_idx = None
-        in_header = True
+        # Find the first --- (end of header) and insert new section after it
+        parts = existing.split('\n---\n', 1)
         
-        for i, line in enumerate(lines):
-            if line.startswith('---') and in_header:
-                in_header = False
-                insert_idx = i + 1
-                break
-        
-        if insert_idx is None:
-            # No proper structure, append at end
-            content = existing.rstrip() + "\n" + new_section
+        if len(parts) == 2:
+            # Insert new papers right after header
+            content = parts[0] + '\n---\n\n' + new_section + parts[1]
         else:
-            # Insert new papers after header
-            lines.insert(insert_idx, new_section)
-            content = '\n'.join(lines)
+            # No --- found, just prepend after first line
+            content = existing + '\n\n' + new_section
     else:
         # Create new file with header
         content = f"""# Papers to Read
 
-Curated list of papers relevant to the thesis. Auto-discovered papers are appended with dates.
+Curated list of papers relevant to the thesis. Auto-discovered papers are prepended with dates.
 
 **Last updated**: {today}
 
 ---
+
 {new_section}"""
     
     output_path.write_text(content)
-    print(f"Appended {len(papers)} papers to {output_path}")
+    print(f"Added {len(papers)} new papers to top of {output_path}")
 
 
 # =============================================================================
