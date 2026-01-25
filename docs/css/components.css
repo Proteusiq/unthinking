@@ -383,7 +383,7 @@
   color: #a78bfa;
 }
 .panel-footer {
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-sm) var(--space-md) var(--space-md);
   border-top: 1px solid var(--glass-border);
 }
 .arxiv-link {
