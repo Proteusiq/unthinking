@@ -138,13 +138,28 @@
   }
 
   .side-panel {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
     width: 100%;
+    max-width: none;
     border-radius: var(--radius-xl) var(--radius-xl) 0 0;
     max-height: 70vh;
+    transform: translateY(100%);
   }
 
   .side-panel.open {
     transform: translateY(0);
+  }
+
+  .header.collapsed ~ .side-panel {
+    top: auto;
+    max-height: 70vh;
+  }
+
+  .panel-content {
+    max-height: calc(70vh - 100px);
   }
 
   .graph-container {
