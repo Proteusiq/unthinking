@@ -265,13 +265,11 @@
     
     <!-- Thesis Statement (floating) -->
     <div class="thesis-card glass" id="thesis-card">
-        <button class="thesis-toggle" id="thesis-toggle" aria-label="Toggle thesis">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 20V10M18 20V4M6 20v-4"/>
-            </svg>
-        </button>
+        <div class="thesis-header">
+            <h3 class="thesis-title">The Thesis</h3>
+            <span class="thesis-hint">Double-click to hide</span>
+        </div>
         <div class="thesis-content">
-            <h3>The Thesis</h3>
             <blockquote>
                 "LLM reasoning is practical but fundamentally <em>predictive</em> (pattern matching from training distributions), not genuinely <em>generative</em>. RL and test-time compute <em>surface</em> pre-existing capabilities rather than creating new reasoning abilities."
             </blockquote>
