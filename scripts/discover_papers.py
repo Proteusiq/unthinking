@@ -22,8 +22,8 @@ from pathlib import Path
 # CONFIGURATION
 # =============================================================================
 
-# Only search papers from yesterday
-DAYS_LOOKBACK = 1
+# Search papers from last 3 days (arXiv doesn't update on weekends)
+DAYS_LOOKBACK = 3
 
 # Core search - broad net for reasoning papers
 SEARCH_QUERIES = [
