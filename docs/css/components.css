@@ -6,7 +6,7 @@
 .legend {
   position: fixed;
   bottom: var(--space-xl);
-  left: calc(var(--space-xl) + 12px);
+  left: var(--space-md);
   z-index: var(--z-controls);
   padding: var(--space-sm) var(--space-md);
   border-radius: var(--radius-lg);
@@ -382,7 +382,7 @@
 .thesis-card {
   position: fixed;
   top: 105px;
-  left: calc(var(--space-xl) + 12px);
+  left: var(--space-md);
   z-index: var(--z-controls);
   width: 360px;
   max-width: calc(100vw - var(--space-xl) * 2);
@@ -439,7 +439,7 @@
 .thesis-show-btn {
   position: fixed;
   top: 105px;
-  left: calc(var(--space-xl) + 12px);
+  left: var(--space-md);
   z-index: var(--z-controls);
   display: none;
   align-items: center;
@@ -472,7 +472,7 @@
 .dialogue-panel {
   position: fixed;
   top: 310px;
-  left: calc(var(--space-xl) + 12px);
+  left: var(--space-md);
   z-index: var(--z-controls);
   width: 360px;
   max-width: calc(100vw - var(--space-xl) * 2);
@@ -502,7 +502,7 @@
 .dialogue-show-btn {
   position: fixed;
   top: 310px;
-  left: calc(var(--space-xl) + 12px);
+  left: var(--space-md);
   z-index: var(--z-controls);
   display: none;
   align-items: center;
