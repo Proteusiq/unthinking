@@ -405,38 +405,36 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   Legend
+   Legend (Compact)
    -------------------------------------------------------------------------- */
 .legend {
     position: fixed;
     bottom: var(--space-xl);
     left: var(--space-xl);
     z-index: var(--z-controls);
-    padding: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
     border-radius: var(--radius-lg);
-    min-width: 180px;
 }
 
 .legend-title {
-    font-size: 0.75rem;
+    font-size: 0.625rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--text-muted);
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-xs);
 }
 
 .legend-items {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
+    gap: var(--space-lg);
 }
 
 .legend-section h4 {
-    font-size: 0.6875rem;
+    font-size: 0.5625rem;
     font-weight: 500;
     color: var(--text-muted);
-    margin-bottom: var(--space-xs);
+    margin-bottom: 2px;
     text-transform: uppercase;
     letter-spacing: 0.03em;
 }
@@ -444,16 +442,16 @@ body {
 .legend-item {
     display: flex;
     align-items: center;
-    gap: var(--space-sm);
-    font-size: 0.8125rem;
+    gap: 4px;
+    font-size: 0.6875rem;
     color: var(--text-secondary);
 }
 
 .node-indicator {
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    box-shadow: 0 0 8px currentColor;
+    box-shadow: 0 0 6px currentColor;
 }
 
 .node-indicator.supports { 
@@ -470,14 +468,20 @@ body {
 }
 
 .edge-indicator {
-    width: 24px;
-    height: 3px;
+    width: 16px;
+    height: 2px;
     border-radius: 2px;
 }
 
 .edge-indicator.supports { background: var(--edge-supports); }
 .edge-indicator.rebuts { background: var(--edge-rebuts); }
 .edge-indicator.extends { background: var(--edge-extends); }
+
+.legend-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
 
 /* --------------------------------------------------------------------------
    Tooltip
@@ -977,11 +981,11 @@ body {
    -------------------------------------------------------------------------- */
 .dialogue-panel {
     position: fixed;
-    top: 160px;
-    right: var(--space-xl);
+    top: 340px;
+    left: var(--space-xl);
     z-index: var(--z-controls);
     width: 320px;
-    max-height: 400px;
+    max-height: 350px;
     border-radius: var(--radius-lg);
     overflow: hidden;
     transition: all var(--transition-slow);
@@ -993,9 +997,42 @@ body {
 }
 
 .dialogue-panel.hidden {
-    transform: translateX(calc(100% + var(--space-xl)));
+    transform: translateX(calc(-100% - var(--space-xl)));
     opacity: 0;
     pointer-events: none;
+}
+
+/* Show dialogue button (when panel hidden) */
+.dialogue-show-btn {
+    position: fixed;
+    top: 340px;
+    left: var(--space-xl);
+    z-index: var(--z-controls);
+    display: none;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+    border: none;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.dialogue-show-btn:hover {
+    color: var(--text-primary);
+    transform: scale(1.05);
+}
+
+.dialogue-show-btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+.dialogue-show-btn.visible {
+    display: flex;
 }
 
 .dialogue-header {
@@ -1021,7 +1058,7 @@ body {
 }
 
 .dialogue-messages {
-    max-height: 340px;
+    max-height: 290px;
     overflow: hidden;
     padding: var(--space-sm);
     display: flex;

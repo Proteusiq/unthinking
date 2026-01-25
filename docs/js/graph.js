@@ -425,6 +425,9 @@
         
         // Open side panel
         openSidePanel(d);
+        
+        // Start dialogues related to this node
+        startDialogueForNode(d);
     }
 
     // ==========================================================================
@@ -815,10 +818,16 @@
     
     function initDialogue() {
         const panel = document.getElementById('dialogue-panel');
+        const showBtn = document.getElementById('dialogue-show-btn');
         if (!panel) return;
         
-        // Double-click to toggle visibility
-        panel.addEventListener('dblclick', toggleDialogue);
+        // Double-click to hide
+        panel.addEventListener('dblclick', hideDialogue);
+        
+        // Show button to reveal
+        if (showBtn) {
+            showBtn.addEventListener('click', showDialogue);
+        }
         
         // Start dialogue cycle after delay
         setTimeout(() => {
@@ -827,10 +836,70 @@
         }, 4000);
     }
     
-    function toggleDialogue() {
+    function hideDialogue() {
         const panel = document.getElementById('dialogue-panel');
-        state.dialogueVisible = !state.dialogueVisible;
-        panel.classList.toggle('hidden', !state.dialogueVisible);
+        const showBtn = document.getElementById('dialogue-show-btn');
+        state.dialogueVisible = false;
+        panel.classList.add('hidden');
+        if (showBtn) showBtn.classList.add('visible');
+    }
+    
+    function showDialogue() {
+        const panel = document.getElementById('dialogue-panel');
+        const showBtn = document.getElementById('dialogue-show-btn');
+        state.dialogueVisible = true;
+        panel.classList.remove('hidden');
+        if (showBtn) showBtn.classList.remove('visible');
+    }
+    
+    function startDialogueForNode(node) {
+        // Find all dialogues involving this node
+        const relatedDialogues = dialogues.filter(d => 
+            d.sourceId === node.id || d.targetId === node.id
+        );
+        
+        if (relatedDialogues.length === 0) return;
+        
+        // Clear current messages
+        const container = document.getElementById('dialogue-messages');
+        if (container) container.innerHTML = '';
+        
+        // Show panel if hidden
+        showDialogue();
+        
+        // Stop current interval
+        if (state.dialogueInterval) {
+            clearInterval(state.dialogueInterval);
+        }
+        
+        // Show related dialogues one by one
+        let index = 0;
+        const showRelated = () => {
+            if (index < relatedDialogues.length) {
+                const dialogue = relatedDialogues[index];
+                const sourceNode = state.nodes.find(n => n.id === dialogue.sourceId);
+                if (sourceNode) {
+                    highlightSpeaker(sourceNode);
+                    addDialogueMessage(dialogue, sourceNode);
+                }
+                index++;
+            } else {
+                // After showing all related, return to normal cycle
+                index = 0;
+                dialogueIndex = dialogues.findIndex(d => d.sourceId === node.id || d.targetId === node.id);
+                if (dialogueIndex === -1) dialogueIndex = 0;
+            }
+        };
+        
+        // Show first immediately, then continue
+        showRelated();
+        state.dialogueInterval = setInterval(() => {
+            if (index < relatedDialogues.length) {
+                showRelated();
+            } else {
+                showNextDialogue();
+            }
+        }, 4000);
     }
     
     function showNextDialogue() {
