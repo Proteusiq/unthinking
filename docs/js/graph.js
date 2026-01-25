@@ -575,14 +575,16 @@
         const arxivLink = panel.querySelector('.arxiv-link');
         arxivLink.href = `https://arxiv.org/abs/${d.id}`;
 
-        // Add click handlers for connection items
+        // Add double-click handlers for connection items to jump to node
         panel.querySelectorAll('.connection-list li[data-id]').forEach(item => {
-            item.addEventListener('click', () => {
+            item.style.cursor = 'pointer';
+            item.addEventListener('dblclick', () => {
                 const nodeId = item.dataset.id;
                 const node = state.nodes.find(n => n.id === nodeId);
                 if (node) {
-                    openSidePanel(node);
                     focusOnNode(node);
+                    highlightConnections(node);
+                    openSidePanel(node);
                 }
             });
         });
