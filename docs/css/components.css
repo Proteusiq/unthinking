@@ -72,8 +72,8 @@
 .arxiv-link svg { width: 16px; height: 16px; }
 
 /* Thesis Card */
-.thesis-card { position: fixed; top: 160px; left: var(--space-xl); z-index: var(--z-controls); width: 360px; max-width: calc(100vw - var(--space-xl) * 2); border-radius: var(--radius-lg); overflow: hidden; transition: all var(--transition-slow); }
-.header.collapsed ~ .thesis-card { top: 70px; }
+.thesis-card { position: fixed; top: 120px; left: var(--space-xl); z-index: var(--z-controls); width: 360px; max-width: calc(100vw - var(--space-xl) * 2); border-radius: var(--radius-lg); overflow: hidden; transition: all var(--transition-slow); }
+.header.collapsed ~ .thesis-card { top: 68px; }
 .thesis-card.collapsed { transform: translateY(-100%); opacity: 0; pointer-events: none; }
 .thesis-header { display: flex; justify-content: space-between; align-items: center; padding: var(--space-sm) var(--space-md); border-bottom: 1px solid var(--glass-border); }
 .thesis-title { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
@@ -81,26 +81,26 @@
 .thesis-content { padding: var(--space-sm) var(--space-md) var(--space-md); max-height: 200px; overflow: hidden; transition: max-height var(--transition-slow), padding var(--transition-slow); }
 .thesis-content blockquote { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; margin: 0; }
 .thesis-content em { color: var(--accent-supports); font-style: normal; font-weight: 600; }
-.thesis-show-btn { position: fixed; top: 160px; left: var(--space-xl); z-index: var(--z-controls); display: none; align-items: center; gap: var(--space-xs); padding: var(--space-sm) var(--space-md); border: none; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 500; color: var(--text-secondary); cursor: pointer; transition: all var(--transition-normal); }
+.thesis-show-btn { position: fixed; top: 120px; left: var(--space-xl); z-index: var(--z-controls); display: none; align-items: center; gap: var(--space-xs); padding: var(--space-sm) var(--space-md); border: none; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 500; color: var(--text-secondary); cursor: pointer; transition: all var(--transition-normal); }
 .thesis-show-btn:hover { color: var(--text-primary); transform: scale(1.05); }
 .thesis-show-btn svg { width: 14px; height: 14px; }
 .thesis-show-btn.visible { display: flex; }
-.header.collapsed ~ .thesis-show-btn { top: 70px; }
+.header.collapsed ~ .thesis-show-btn { top: 68px; }
 
 /* Dialogue Panel */
-.dialogue-panel { position: fixed; top: 350px; left: var(--space-xl); z-index: var(--z-controls); width: 360px; max-width: calc(100vw - var(--space-xl) * 2); max-height: 320px; border-radius: var(--radius-lg); overflow: hidden; transition: all var(--transition-slow); opacity: 0.85; }
+.dialogue-panel { position: fixed; top: 310px; left: var(--space-xl); z-index: var(--z-controls); width: 360px; max-width: calc(100vw - var(--space-xl) * 2); max-height: 320px; border-radius: var(--radius-lg); overflow: hidden; transition: all var(--transition-slow); opacity: 0.85; }
 .dialogue-panel:hover { opacity: 1; }
 .dialogue-panel.hidden { transform: translateY(-20px); opacity: 0; pointer-events: none; }
-.header.collapsed ~ .dialogue-panel { top: 260px; }
-.thesis-card.collapsed ~ .dialogue-panel { top: 180px; }
-.header.collapsed ~ .thesis-card.collapsed ~ .dialogue-panel { top: 90px; }
-.dialogue-show-btn { position: fixed; top: 350px; left: var(--space-xl); z-index: var(--z-controls); display: none; align-items: center; gap: var(--space-xs); padding: var(--space-sm) var(--space-md); border: none; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 500; color: var(--text-secondary); cursor: pointer; transition: all var(--transition-normal); }
+.header.collapsed ~ .dialogue-panel { top: 258px; }
+.thesis-card.collapsed ~ .dialogue-panel { top: 140px; }
+.header.collapsed ~ .thesis-card.collapsed ~ .dialogue-panel { top: 88px; }
+.dialogue-show-btn { position: fixed; top: 310px; left: var(--space-xl); z-index: var(--z-controls); display: none; align-items: center; gap: var(--space-xs); padding: var(--space-sm) var(--space-md); border: none; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 500; color: var(--text-secondary); cursor: pointer; transition: all var(--transition-normal); }
 .dialogue-show-btn:hover { color: var(--text-primary); transform: scale(1.05); }
 .dialogue-show-btn svg { width: 14px; height: 14px; }
 .dialogue-show-btn.visible { display: flex; }
-.header.collapsed ~ .dialogue-show-btn { top: 260px; }
-.thesis-card.collapsed ~ .dialogue-show-btn { top: 180px; }
-.header.collapsed ~ .thesis-card.collapsed ~ .dialogue-show-btn { top: 90px; }
+.header.collapsed ~ .dialogue-show-btn { top: 258px; }
+.thesis-card.collapsed ~ .dialogue-show-btn { top: 140px; }
+.header.collapsed ~ .thesis-card.collapsed ~ .dialogue-show-btn { top: 88px; }
 .dialogue-header { display: flex; justify-content: space-between; align-items: center; padding: var(--space-sm) var(--space-md); border-bottom: 1px solid var(--glass-border); }
 .dialogue-title { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
 .dialogue-hint { font-size: 0.625rem; color: var(--text-muted); opacity: 0.6; }
