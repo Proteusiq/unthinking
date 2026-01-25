@@ -4,7 +4,7 @@
 - **arXiv ID**: 2410.05229
 - **Title**: GSM-Symbolic: Understanding the Limitations of Mathematical Reasoning in Large Language Models
 - **Authors**: Mirzadeh et al. (Apple)
-- **Date**: Oct 2024 (v1), Aug 2025 (v2 - ICLR camera ready)
+- **Date**: Oct 2024 (v1), Aug 2025 (v2 - ICLR)
 - **Venue**: ICLR 2025
 - **Stance**: AGAINST genuine reasoning
 
