@@ -40,7 +40,7 @@ For EVERY paper analyzed, you MUST:
 For EVERY paper analyzed, you MUST update the paper interaction graph:
 1. **Document relationships**: supports, challenges, extends, provides mechanism for
 2. **Track rebuttal chains**: A rebuts B, C rebuts A's rebuttal, etc.
-3. **Update `analysis/PAPER_GRAPH.md`** with new interactions
+3. **Update `analysis/paper_graph.md`** with new interactions
 4. **Identify papers with NO rebuttals** — these are stronger evidence
 
 ---
@@ -51,7 +51,7 @@ For EVERY paper analyzed, you MUST update the paper interaction graph:
 Track how papers relate to each other — who rebuts whom, who builds on whom, chains of rebuttals.
 
 ### Format
-Maintain in `analysis/PAPER_GRAPH.md`:
+Maintain in `analysis/paper_graph.md`:
 
 ```
 ## Paper Interaction Graph

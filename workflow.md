@@ -114,7 +114,7 @@ Add entry to `papers/paper_list.md`:
 
 ## Step 6: Update Paper Graph
 
-Add relationships to `analysis/PAPER_GRAPH.md`:
+Add relationships to `analysis/paper_graph.md`:
 
 ```markdown
 ### [Paper Title] (arXiv ID)
@@ -127,7 +127,7 @@ Add relationships to `analysis/PAPER_GRAPH.md`:
 
 ## Step 7: Update Synthesis
 
-If paper provides significant evidence, update `analysis/SYNTHESIS.md`:
+If paper provides significant evidence, update `analysis/synthesis.md`:
 
 - Add to evidence table
 - Update stance count
@@ -165,8 +165,8 @@ If paper provides significant evidence, update `analysis/SYNTHESIS.md`:
 ```bash
 git add analysis/explored/XX_paper_name.md
 git add papers/paper_list.md
-git add analysis/PAPER_GRAPH.md
-git add analysis/SYNTHESIS.md
+git add analysis/paper_graph.md
+git add analysis/synthesis.md
 git add docs/js/data.js
 git commit -m "Add analysis: [Paper Title] (arXiv ID)
 
@@ -192,8 +192,8 @@ Remove analyzed paper from `papers/toread.md` or mark as done.
 | `papers/toread.md` | Pending papers (auto-discovered) |
 | `papers/paper_list.md` | Master list of analyzed papers |
 | `analysis/explored/` | Individual paper analyses |
-| `analysis/SYNTHESIS.md` | Main thesis synthesis |
-| `analysis/PAPER_GRAPH.md` | Paper relationships |
+| `analysis/synthesis.md` | Main thesis synthesis |
+| `analysis/paper_graph.md` | Paper relationships |
 | `docs/js/data.js` | Website visualization data |
 
 ---

@@ -82,7 +82,7 @@ If alternative decoding on the **base model** recovers reasoning paths that impr
 - RL/SFT merely **surfaces** it as the default path
 - The capability was always there — greedy decoding just didn't select it
 
-See [`experiments/decoding_ablation/PROTOCOL.md`](./experiments/decoding_ablation/PROTOCOL.md) for the full experimental protocol.
+See [`experiments/decoding_ablation/protocol.md`](./experiments/decoding_ablation/protocol.md) for the full experimental protocol.
 
 ---
 
@@ -90,23 +90,25 @@ See [`experiments/decoding_ablation/PROTOCOL.md`](./experiments/decoding_ablatio
 
 ```
 ├── analysis/
-│   ├── SYNTHESIS.md          # Main thesis synthesis
-│   ├── PAPER_GRAPH.md        # Paper interaction graph
-│   ├── REBUTTALS.md          # Rebuttal matrix
+│   ├── synthesis.md          # Main thesis synthesis
+│   ├── paper_graph.md        # Paper interaction graph
+│   ├── rebuttals.md          # Rebuttal matrix
 │   └── explored/             # Individual paper analyses (79 files)
 ├── experiments/
 │   └── decoding_ablation/    # OLMo 3 decoding experiment
-│       ├── PROTOCOL.md       # Experimental protocol
-│       └── pyproject.toml    # Dependencies (uv)
+│       └── protocol.md       # Experimental protocol
 ├── docs/                     # Interactive visualization (GitHub Pages)
 │   ├── index.html
-│   ├── css/styles.css
+│   ├── css/                  # variables, layout, components, responsive
 │   └── js/
 │       ├── graph.js
 │       └── data.js
 ├── papers/
-│   └── paper_list.md         # Master paper list with status
-└── AGENTS.md                 # Literature review methodology
+│   ├── paper_list.md         # Master paper list with status
+│   └── toread.md             # Auto-discovered papers
+├── workflow.md               # Paper analysis workflow
+├── AGENTS.md                 # Literature review methodology
+└── README.md                 # This file
 ```
 
 ---

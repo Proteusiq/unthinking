@@ -185,7 +185,7 @@ bitsandbytes  # for quantization
 
 ```
 experiments/decoding_ablation/
-├── PROTOCOL.md          # This file
+├── protocol.md          # This file
 ├── run_experiment.py    # Main experiment script
 ├── decoding.py          # Decoding strategy implementations
 ├── cot_detection.py     # CoT detection utilities
