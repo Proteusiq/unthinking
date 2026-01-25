@@ -217,13 +217,16 @@
       </div>
     </div>
 
-    <!-- Side Panel -->
+    <!-- Side Panel (Paper Details Card) -->
     <aside class="side-panel glass" id="side-panel">
-      <button class="close-btn" id="close-panel" aria-label="Close panel">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M18 6 6 18M6 6l12 12" />
-        </svg>
-      </button>
+      <div class="side-panel-header">
+        <h3 class="side-panel-title">Paper Details</h3>
+        <button class="close-btn" id="close-panel" aria-label="Close panel">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
 
       <div class="panel-content">
         <header class="panel-header">
@@ -258,18 +261,18 @@
             </div>
           </div>
         </section>
-
-        <footer class="panel-footer">
-          <a class="arxiv-link glass-subtle" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-              <polyline points="15 3 21 3 21 9" />
-              <line x1="10" y1="14" x2="21" y2="3" />
-            </svg>
-            View on arXiv
-          </a>
-        </footer>
       </div>
+
+      <footer class="panel-footer">
+        <a class="arxiv-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <polyline points="15 3 21 3 21 9" />
+            <line x1="10" y1="14" x2="21" y2="3" />
+          </svg>
+          View on arXiv
+        </a>
+      </footer>
     </aside>
 
     <!-- Paper Dialogue Panel -->
