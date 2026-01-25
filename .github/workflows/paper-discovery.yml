@@ -47,7 +47,8 @@ jobs:
             else
               echo "has_new_papers=true" >> $GITHUB_OUTPUT
               # Count new papers
-              NEW_COUNT=$(git diff --cached papers/toread.md | grep "^+" | grep -c "arxiv.org" || echo "0")
+              NEW_COUNT=$(git diff --cached papers/toread.md | grep "^+" | grep -c "arxiv.org" || true)
+              NEW_COUNT=${NEW_COUNT:-0}
               echo "new_count=$NEW_COUNT" >> $GITHUB_OUTPUT
             fi
           else
