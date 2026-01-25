@@ -4,6 +4,8 @@ on:
   schedule:
     # Run daily at 8:00 AM UTC
     - cron: '0 8 * * *'
+    # Also run at 6:00 PM UTC as backup
+    - cron: '0 18 * * *'
   workflow_dispatch: # Allow manual trigger
 
 permissions:
@@ -17,6 +19,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for better diff detection
         
       - name: Set up Python
         uses: actions/setup-python@v5
