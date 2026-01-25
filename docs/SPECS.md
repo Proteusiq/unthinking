@@ -6,6 +6,107 @@ Technical specifications for the interactive visualization of "The Thinking Mach
 
 ---
 
+## What This Is
+
+This is an **interactive literature review visualization** for the thesis:
+
+> "LLM reasoning is practical but fundamentally **predictive** (pattern matching from training distributions), not genuinely **generative**. RL and test-time compute **surface** pre-existing capabilities rather than creating new reasoning abilities."
+
+The visualization shows **83 research papers** as nodes in a force-directed graph, with edges showing how papers relate to each other (support, rebut, extend). Users can explore the academic debate visually.
+
+---
+
+## Design Philosophy
+
+### Why a Graph?
+
+Academic papers don't exist in isolation—they respond to, build on, and challenge each other. A graph visualization makes these relationships visible and explorable. Users can:
+
+- See clusters of related work
+- Trace chains of rebuttals
+- Identify which papers are central to the debate
+- Discover papers through connections rather than lists
+
+### Why Glass-Morphic Design?
+
+1. **Modern aesthetic** - Feels contemporary without being distracting
+2. **Layered depth** - Panels float above the graph, creating visual hierarchy
+3. **Works in both themes** - Translucent panels adapt to light/dark mode
+4. **Focus on content** - Subtle UI keeps attention on the graph
+
+### Why "Paper Conversations"?
+
+Academic debate is often dry. The dialogue panel humanizes it by having papers "talk" to each other:
+
+- "Your 'emergent reasoning' shows 65% accuracy drops with irrelevant info. That's pattern matching, not reasoning." (GSM-Symbolic → DeepSeek-R1)
+
+This makes the debate accessible and engaging.
+
+### Why Vanilla JS?
+
+1. **Simplicity** - No build step, no framework overhead
+2. **D3 integration** - D3 works best with direct DOM manipulation
+3. **Portability** - Just HTML/CSS/JS files, host anywhere
+4. **Longevity** - No framework churn, will work in 10 years
+
+---
+
+## Data Pipeline
+
+### Where Node Data Comes From
+
+The `js/data.js` file is generated from paper analyses in `/analysis/explored/`. Each paper analysis (e.g., `05_deepseek_r1.md`) contains structured metadata that gets extracted into node format.
+
+### Generating Nodes from Paper Analyses
+
+When you analyze a new paper following the methodology in `/AGENTS.md`, extract:
+
+1. **arXiv ID** → `id`
+2. **Title** → `title`
+3. **Short name** → `shortTitle` (for graph labels)
+4. **Stance** → `stance` (supports/challenges/balanced relative to thesis)
+5. **Core argument** → `coreArgument` (one sentence)
+6. **Key evidence** → `keyEvidence` (array of bullet points)
+7. **Paper URL** → `arxivUrl`
+
+Example extraction from `analysis/explored/01_gsm_symbolic.md`:
+
+```javascript
+{
+  id: '2410.05229',
+  title: 'GSM-Symbolic: Understanding the Limitations of Mathematical Reasoning in Large Language Models',
+  shortTitle: 'GSM-Symbolic',
+  stance: 'supports',
+  coreArgument: 'LLMs show 65% accuracy drops with superficial changes, suggesting pattern matching over true reasoning.',
+  keyEvidence: [
+    '65% accuracy drop with irrelevant information',
+    'Performance degrades with increased complexity',
+    'Models fail on simple symbolic variations'
+  ],
+  arxivUrl: 'https://arxiv.org/abs/2410.05229'
+}
+```
+
+### Generating Links from Paper Relationships
+
+Links come from the "Relationship to Other Papers" section in each analysis and from `/analysis/paper_graph.md`. For each relationship:
+
+1. **Source** → paper making the claim
+2. **Target** → paper being referenced
+3. **Type** → `supports` | `rebuts` | `extends`
+
+Example:
+```javascript
+{ source: '2410.05229', target: '2501.12948', type: 'rebuts' }
+// GSM-Symbolic rebuts DeepSeek-R1's claims about emergent reasoning
+```
+
+### Automation Opportunity
+
+A future script could parse `/analysis/explored/*.md` files and auto-generate `data.js`. The markdown structure is consistent enough for extraction.
+
+---
+
 ## Tech Stack
 
 | Technology | Purpose |
@@ -256,3 +357,17 @@ In `js/graph.js`, add to `dialogues` array:
 - GitHub Pages from `docs/` folder
 - Auto-deploys on push via `.github/workflows/deploy-pages.yml`
 - Live at: https://proteusiq.github.io/unthinking/
+
+---
+
+## Future Improvements
+
+Potential enhancements (not yet implemented):
+
+1. **Auto-generate data.js** - Script to parse `/analysis/explored/*.md` and generate nodes/links
+2. **More dialogues** - Currently only ~10 dialogues, could add more from paper rebuttals
+3. **Timeline view** - Show papers by publication date
+4. **Cluster labels** - Auto-label clusters (e.g., "CoT Faithfulness", "Compositional Generalization")
+5. **Citation counts** - Size nodes by impact
+6. **Search by content** - Search within paper arguments, not just titles
+7. **Export** - Export graph as image or selected papers as bibliography
