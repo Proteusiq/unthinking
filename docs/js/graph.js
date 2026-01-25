@@ -14,11 +14,12 @@
     
     const CONFIG = {
         simulation: {
-            chargeStrength: -500,
-            linkDistance: 120,
-            collisionRadius: 40,
+            chargeStrength: -150,
+            linkDistance: 80,
+            collisionRadius: 25,
             alphaDecay: 0.02,
-            velocityDecay: 0.5
+            velocityDecay: 0.5,
+            centerStrength: 0.15
         },
         node: {
             minRadius: 8,
@@ -130,6 +131,10 @@
         state.nodes.forEach(node => {
             const ratio = node.connectionCount / maxConnections;
             node.radius = CONFIG.node.minRadius + (CONFIG.node.maxRadius - CONFIG.node.minRadius) * ratio;
+            
+            // Initialize nodes in a small random cluster so edges start connected
+            node.x = (Math.random() - 0.5) * 100;
+            node.y = (Math.random() - 0.5) * 100;
         });
     }
 
@@ -171,12 +176,12 @@
         feMerge.append('feMergeNode').attr('in', 'coloredBlur');
         feMerge.append('feMergeNode').attr('in', 'SourceGraphic');
 
-        // Arrow markers for directed edges (smaller)
+        // Arrow markers for directed edges (smaller, offset from node)
         ['supports', 'rebuts', 'extends'].forEach(type => {
             defs.append('marker')
                 .attr('id', `arrow-${type}`)
                 .attr('viewBox', '0 -5 10 10')
-                .attr('refX', 25)
+                .attr('refX', 28)
                 .attr('refY', 0)
                 .attr('markerWidth', 4)
                 .attr('markerHeight', 4)
@@ -221,7 +226,7 @@
                 .distance(CONFIG.simulation.linkDistance))
             .force('charge', d3.forceManyBody()
                 .strength(CONFIG.simulation.chargeStrength))
-            .force('center', d3.forceCenter(0, 0))
+            .force('center', d3.forceCenter(0, 0).strength(CONFIG.simulation.centerStrength))
             .force('collision', d3.forceCollide()
                 .radius(d => d.radius + CONFIG.simulation.collisionRadius))
             .force('stance', stanceForce())  // Push nodes by stance
@@ -235,7 +240,7 @@
         }
     }
     
-    // Custom force to push nodes by stance
+    // Custom force to push nodes by stance and keep unconnected nodes close
     function stanceForce() {
         return function(alpha) {
             const strength = CONFIG.alive.stanceForce * alpha;
@@ -248,7 +253,12 @@
                 } else if (node.stance === 'challenges') {
                     node.vx += strength * 50;  // Push right
                 }
-                // Balanced stays in center (no extra force)
+                
+                // Unconnected nodes: strong pull to center
+                if (node.connectionCount === 0) {
+                    node.vx -= node.x * 0.1 * alpha;
+                    node.vy -= node.y * 0.1 * alpha;
+                }
             });
         };
     }
@@ -262,12 +272,12 @@
             // Add small random velocity to each node
             state.nodes.forEach(node => {
                 if (!node.fx && !node.fy) {  // Not being dragged
-                    node.vx += (Math.random() - 0.5) * 2;
-                    node.vy += (Math.random() - 0.5) * 2;
+                    node.vx += (Math.random() - 0.5) * 1.5;
+                    node.vy += (Math.random() - 0.5) * 1.5;
                 }
             });
-            // Reheat simulation
-            state.simulation.alpha(CONFIG.alive.breathStrength).restart();
+            // Reheat simulation - higher alpha so it runs longer
+            state.simulation.alpha(0.1).restart();
         }, CONFIG.alive.breathInterval);
         
         // Track user activity
