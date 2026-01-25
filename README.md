@@ -2,7 +2,8 @@
 
 > **A systematic literature review on LLM reasoning capabilities**
 
-<img width="2504" height="1798" alt="CleanShot 2026-01-24 at 20 27 27@2x" src="https://github.com/user-attachments/assets/4faa9fc8-3a7b-4d9f-80d9-1a1cae661436" />
+<img width="2978" height="1710" alt="CleanShot 2026-01-25 at 13 52 09@2x" src="https://github.com/user-attachments/assets/3822643a-4e77-45d2-8e77-51ef09a71b21" />
+
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
 [![Papers](https://img.shields.io/badge/papers-79-blue)]()
