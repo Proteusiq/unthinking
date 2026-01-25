@@ -260,13 +260,13 @@ Directly confirms exponential error accumulation:
 
 ## Relevance to "Thinking Machine That Doesn't Think"
 
-### Central Evidence for Your Thesis
+### Central Evidence for the pattern-matching thesis
 This paper provides the **strongest empirical evidence** that:
 1. LRMs don't develop generalizable reasoning
 2. "Thinking" is pattern-based, not algorithmic
 3. Detailed CoT traces are not genuine problem-solving
 
-### For Your OLMo 3 Work
+### For the OLMo 3 Work
 The three regimes framework is useful:
 - Base models work at low complexity (patterns sufficient)
 - RL-trained models extend to medium complexity (surface more patterns)

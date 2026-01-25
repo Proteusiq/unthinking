@@ -252,7 +252,7 @@ CoT produces **fluent but logically inconsistent** reasoning when pushed beyond 
 
 ## Relevance to "Thinking Machine That Doesn't Think"
 
-### Critical Support for Your Thesis
+### Critical Support for the pattern-matching thesis
 This paper provides the **cleanest evidence** for "predictive not generative":
 
 1. **In-distribution = 100%** — patterns work when present
@@ -260,7 +260,7 @@ This paper provides the **cleanest evidence** for "predictive not generative":
 3. **Correct reasoning + wrong answer** — proves pattern replay
 4. **SFT fixes it** — confirms it's data coverage, not reasoning
 
-### For Your Argument
+### For this argument
 > "CoT reasoning is sophisticated interpolation within the training distribution, not general-purpose reasoning that can extrapolate to novel problems."
 
 ### The Key Distinction

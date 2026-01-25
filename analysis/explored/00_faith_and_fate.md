@@ -250,8 +250,8 @@ This paper provides the **mechanistic explanation** for why LLMs appear to reaso
 2. Errors compound exponentially with complexity
 3. In-distribution success creates illusion of capability
 
-### For Your Thesis (OLMo 3 Experiments)
-If reasoning exists in base models (your claim), Faith and Fate suggests:
+### For the pattern-matching thesis (OLMo 3 Experiments)
+If reasoning exists in base models (the thesis claim), Faith and Fate suggests:
 - It exists as **learned subgraph patterns**
 - RL "surfaces" these patterns, doesn't create new reasoning
 - The patterns are **predictive** (interpolation) not **generative** (extrapolation)
