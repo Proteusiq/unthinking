@@ -14,11 +14,11 @@
     
     const CONFIG = {
         simulation: {
-            chargeStrength: -400,
-            linkDistance: 100,
-            collisionRadius: 30,
+            chargeStrength: -500,
+            linkDistance: 120,
+            collisionRadius: 40,
             alphaDecay: 0.02,
-            velocityDecay: 0.4
+            velocityDecay: 0.5
         },
         node: {
             minRadius: 8,
@@ -35,9 +35,10 @@
         },
         alive: {
             enabled: true,
-            stanceForce: 0.02,      // Very gentle push toward stance position
-            breathInterval: 3000,   // Gentle "breath" every 3 seconds
-            breathStrength: 0.008   // Very subtle movement
+            stanceForce: 0.03,      // Gentle push toward stance position
+            breathInterval: 2000,   // Breath every 2 seconds
+            breathStrength: 0.05,   // Visible but subtle movement
+            idleTimeout: 5000       // Resume animation after 5 seconds idle
         }
     };
 
@@ -55,7 +56,10 @@
         selectedNode: null,
         hoveredNode: null,
         activeFilter: 'all',
-        searchTerm: ''
+        searchTerm: '',
+        isIdle: true,
+        idleTimer: null,
+        breathingPaused: false
     };
 
     // ==========================================================================
@@ -167,15 +171,15 @@
         feMerge.append('feMergeNode').attr('in', 'coloredBlur');
         feMerge.append('feMergeNode').attr('in', 'SourceGraphic');
 
-        // Arrow markers for directed edges
+        // Arrow markers for directed edges (smaller)
         ['supports', 'rebuts', 'extends'].forEach(type => {
             defs.append('marker')
                 .attr('id', `arrow-${type}`)
                 .attr('viewBox', '0 -5 10 10')
-                .attr('refX', 20)
+                .attr('refX', 25)
                 .attr('refY', 0)
-                .attr('markerWidth', 6)
-                .attr('markerHeight', 6)
+                .attr('markerWidth', 4)
+                .attr('markerHeight', 4)
                 .attr('orient', 'auto')
                 .append('path')
                 .attr('d', 'M0,-5L10,0L0,5')
@@ -252,19 +256,39 @@
     // Gentle breathing animation
     function startBreathing() {
         setInterval(() => {
-            // Only breathe if simulation is mostly settled
-            if (state.simulation.alpha() < 0.1) {
-                // Add tiny random velocity to each node
-                state.nodes.forEach(node => {
-                    if (!node.fx && !node.fy) {  // Not being dragged
-                        node.vx += (Math.random() - 0.5) * CONFIG.alive.breathStrength * 10;
-                        node.vy += (Math.random() - 0.5) * CONFIG.alive.breathStrength * 10;
-                    }
-                });
-                // Gentle reheat
-                state.simulation.alpha(CONFIG.alive.breathStrength).restart();
-            }
+            // Only breathe when idle
+            if (!state.isIdle || state.breathingPaused) return;
+            
+            // Add small random velocity to each node
+            state.nodes.forEach(node => {
+                if (!node.fx && !node.fy) {  // Not being dragged
+                    node.vx += (Math.random() - 0.5) * 2;
+                    node.vy += (Math.random() - 0.5) * 2;
+                }
+            });
+            // Reheat simulation
+            state.simulation.alpha(CONFIG.alive.breathStrength).restart();
         }, CONFIG.alive.breathInterval);
+        
+        // Track user activity
+        ['click', 'mousedown', 'mousemove', 'touchstart'].forEach(event => {
+            document.addEventListener(event, resetIdleTimer);
+        });
+        
+        // Start idle
+        resetIdleTimer();
+    }
+    
+    function resetIdleTimer() {
+        state.isIdle = false;
+        
+        if (state.idleTimer) {
+            clearTimeout(state.idleTimer);
+        }
+        
+        state.idleTimer = setTimeout(() => {
+            state.isIdle = true;
+        }, CONFIG.alive.idleTimeout);
     }
 
     // ==========================================================================
