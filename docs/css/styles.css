@@ -1445,6 +1445,21 @@ body {
         padding: var(--space-sm) var(--space-md);
     }
     
+    .title-section {
+        min-width: unset;
+        text-align: center;
+    }
+    
+    .main-title {
+        font-size: clamp(1rem, 5vw, 1.5rem);
+        line-height: 1.2;
+        word-wrap: break-word;
+    }
+    
+    .subtitle {
+        font-size: 0.75rem;
+    }
+    
     .header-compact {
         padding: var(--space-sm) var(--space-md);
     }
