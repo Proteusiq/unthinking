@@ -37,9 +37,10 @@
         alive: {
             enabled: true,
             stanceForce: 0.03,      // Gentle push toward stance position
-            breathInterval: 2000,   // Breath every 2 seconds
-            breathStrength: 0.05,   // Visible but subtle movement
-            idleTimeout: 5000       // Resume animation after 5 seconds idle
+            breathInterval: 3000,   // Breath every 3 seconds
+            breathStrength: 0.03,   // Very subtle movement
+            idleTimeout: 5000,      // Resume animation after 5 seconds idle
+            startDelay: 3000        // Wait 3 seconds before starting animation
         }
     };
 
@@ -265,28 +266,31 @@
     
     // Gentle breathing animation
     function startBreathing() {
-        setInterval(() => {
-            // Only breathe when idle
-            if (!state.isIdle || state.breathingPaused) return;
-            
-            // Add small random velocity to each node
-            state.nodes.forEach(node => {
-                if (!node.fx && !node.fy) {  // Not being dragged
-                    node.vx += (Math.random() - 0.5) * 1.5;
-                    node.vy += (Math.random() - 0.5) * 1.5;
-                }
-            });
-            // Reheat simulation - higher alpha so it runs longer
-            state.simulation.alpha(0.1).restart();
-        }, CONFIG.alive.breathInterval);
+        // Delay start so user doesn't notice
+        setTimeout(() => {
+            setInterval(() => {
+                // Only breathe when idle
+                if (!state.isIdle || state.breathingPaused) return;
+                
+                // Add small random velocity to each node
+                state.nodes.forEach(node => {
+                    if (!node.fx && !node.fy) {  // Not being dragged
+                        node.vx += (Math.random() - 0.5) * 1.2;
+                        node.vy += (Math.random() - 0.5) * 1.2;
+                    }
+                });
+                // Reheat simulation gently
+                state.simulation.alpha(0.05).restart();
+            }, CONFIG.alive.breathInterval);
+        }, CONFIG.alive.startDelay);
         
-        // Track user activity
-        ['click', 'mousedown', 'mousemove', 'touchstart'].forEach(event => {
+        // Track user activity (only deliberate interactions, not passive moves)
+        ['click', 'mousedown', 'touchstart'].forEach(event => {
             document.addEventListener(event, resetIdleTimer);
         });
         
         // Start idle
-        resetIdleTimer();
+        state.isIdle = true;
     }
     
     function resetIdleTimer() {
