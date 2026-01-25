@@ -21,12 +21,6 @@ RL and test-time compute "surface" pre-existing capabilities rather than creatin
 Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/)**
 
 <p align="center">
-  <a href="https://proteusiq.github.io/unthinking/">
-    <img src="docs/assets/demo.gif" alt="Interactive Paper Network Visualization" width="800" />
-  </a>
-</p>
-
-<p align="center">
   <img src="https://img.shields.io/badge/nodes-79%20papers-4CAF50" />
   <img src="https://img.shields.io/badge/edges-144%20relationships-2196F3" />
   <img src="https://img.shields.io/badge/stance-supports%20%7C%20challenges%20%7C%20balanced-FFC107" />
