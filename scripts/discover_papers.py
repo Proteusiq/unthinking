@@ -284,28 +284,18 @@ def format_paper_entry(paper, stance: str, priority: int, explanation: str, conn
 
 
 def write_toread(papers: list, output_path: Path):
-    """Write qualified papers to toread.md."""
+    """Append new papers to toread.md, preserving existing content."""
     
     today = datetime.now().strftime("%Y-%m-%d")
     
     # Sort by priority (highest first)
     papers.sort(key=lambda x: x['priority'], reverse=True)
     
-    content = f"""# Papers to Read
-
-New papers discovered by automated search. Qualified as LLM reasoning papers and checked for relevance to thesis.
-
-**Last updated**: {today}
-**Papers found**: {len(papers)}
-
----
-
-## {today}
-
-"""
+    # Build new papers section
+    new_section = f"\n## New Papers ({today})\n\n"
     
     for p in papers:
-        content += format_paper_entry(
+        new_section += format_paper_entry(
             p['paper'], 
             p['stance'], 
             p['priority'], 
@@ -313,10 +303,52 @@ New papers discovered by automated search. Qualified as LLM reasoning papers and
             p['connections']
         )
     
-    content += "---\n"
+    new_section += "---\n"
+    
+    # Read existing content or create new file
+    if output_path.exists():
+        existing = output_path.read_text()
+        
+        # Update the "Last updated" date in header
+        if "**Last updated**:" in existing:
+            existing = re.sub(
+                r'\*\*Last updated\*\*: \d{4}-\d{2}-\d{2}',
+                f'**Last updated**: {today}',
+                existing
+            )
+        
+        # Find insertion point (after the header section, before first ## section)
+        # Look for the first "## " that's not in the header
+        lines = existing.split('\n')
+        insert_idx = None
+        in_header = True
+        
+        for i, line in enumerate(lines):
+            if line.startswith('---') and in_header:
+                in_header = False
+                insert_idx = i + 1
+                break
+        
+        if insert_idx is None:
+            # No proper structure, append at end
+            content = existing.rstrip() + "\n" + new_section
+        else:
+            # Insert new papers after header
+            lines.insert(insert_idx, new_section)
+            content = '\n'.join(lines)
+    else:
+        # Create new file with header
+        content = f"""# Papers to Read
+
+Curated list of papers relevant to the thesis. Auto-discovered papers are appended with dates.
+
+**Last updated**: {today}
+
+---
+{new_section}"""
     
     output_path.write_text(content)
-    print(f"Wrote {len(papers)} papers to {output_path}")
+    print(f"Appended {len(papers)} papers to {output_path}")
 
 
 # =============================================================================
@@ -383,8 +415,7 @@ def main():
     
     if not qualified:
         print("No new qualified papers. Exiting.")
-        # Create empty file to indicate we checked
-        toread.write_text(f"# Papers to Read\n\nNo new papers found on {datetime.now().strftime('%Y-%m-%d')}.\n")
+        # Don't overwrite existing toread.md - just exit
         return
     
     # Step 4: Check connections
