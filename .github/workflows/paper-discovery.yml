@@ -71,34 +71,60 @@ jobs:
             const toread = fs.readFileSync('papers/toread.md', 'utf8');
             const today = new Date().toISOString().split('T')[0];
             
-            // Extract all paper titles (lines starting with ### [)
-            const paperRegex = /^### \[(.+?)\]\((.+?)\)/gm;
+            // Extract papers with their abstracts
+            // Format: ### [Title](url) ... <details><summary>Abstract</summary>\n\nAbstract text\n\n</details>
+            const sections = toread.split(/^### /gm).slice(1);
             const papers = [];
-            let match;
-            while ((match = paperRegex.exec(toread)) !== null) {
-              papers.push({ title: match[1], url: match[2] });
+            
+            for (const section of sections) {
+              const titleMatch = section.match(/^\[(.+?)\]\((.+?)\)/);
+              if (!titleMatch) continue;
+              
+              const title = titleMatch[1];
+              const url = titleMatch[2];
+              
+              // Extract abstract from <details> block
+              const abstractMatch = section.match(/<details>\s*<summary>Abstract<\/summary>\s*([\s\S]*?)\s*<\/details>/);
+              const abstract = abstractMatch ? abstractMatch[1].trim() : '';
+              
+              // Extract stance
+              const stanceMatch = section.match(/\*\*Stance\*\*:\s*(\w+)/);
+              const stance = stanceMatch ? stanceMatch[1] : '';
+              
+              // Extract why read
+              const whyMatch = section.match(/\*\*Why read\*\*:\s*(.+)/);
+              const whyRead = whyMatch ? whyMatch[1] : '';
+              
+              papers.push({ title, url, abstract, stance, whyRead });
             }
             
             // Extract paper count from header
-            const countMatch = toread.match(/\*\*Papers found\*\*: (\d+)/);
+            const countMatch = toread.match(/\*\*Papers found\*\*:\s*(\d+)/);
             const paperCount = countMatch ? countMatch[1] : papers.length;
             
             if (papers.length > 0) {
-              const paperList = papers.slice(0, 10).map(p => `- [${p.title}](${p.url})`).join('\n');
-              const moreText = papers.length > 10 ? `\n\n*... and ${papers.length - 10} more in [papers/toread.md](./papers/toread.md)*` : '';
+              const paperList = papers.slice(0, 10).map(p => {
+                let entry = `### [${p.title}](${p.url})`;
+                if (p.stance) entry += `\n**Stance**: ${p.stance}`;
+                if (p.whyRead) entry += `\n**Why read**: ${p.whyRead}`;
+                if (p.abstract) {
+                  entry += `\n\n<details>\n<summary>Abstract</summary>\n\n${p.abstract}\n\n</details>`;
+                }
+                return entry;
+              }).join('\n\n---\n\n');
+              
+              const moreText = papers.length > 10 ? `\n\n---\n\n*... and ${papers.length - 10} more in [papers/toread.md](./papers/toread.md)*` : '';
               
               const issueBody = [
                 `## New Papers Found (${today})`,
                 '',
                 `The daily paper discovery found **${paperCount}** new papers relevant to the thesis.`,
                 '',
-                '### Top Papers to Review',
-                '',
                 paperList,
                 moreText,
                 '',
                 '---',
-                'See [papers/toread.md](./papers/toread.md) for full details including abstracts, stance, and priority.',
+                'See [papers/toread.md](./papers/toread.md) for the complete list.',
                 '',
                 '*This issue was automatically created by the paper discovery workflow.*'
               ].join('\n');
