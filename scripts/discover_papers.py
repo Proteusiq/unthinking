@@ -340,7 +340,13 @@ def main():
     # Step 2 & 3: Load existing papers for deduplication
     print("\n[2/5] Loading existing papers...")
     known_ids, known_titles = load_existing_papers(paper_list)
-    print(f"  Known: {len(known_ids)} IDs, {len(known_titles)} titles")
+    
+    # Also check toread.md to avoid duplicates across runs
+    toread_ids, toread_titles = load_existing_papers(toread)
+    known_ids.update(toread_ids)
+    known_titles.update(toread_titles)
+    
+    print(f"  Known: {len(known_ids)} IDs, {len(known_titles)} titles (includes toread.md)")
     
     # Step 3: Qualify and dedupe
     print("\n[3/5] Qualifying papers...")
