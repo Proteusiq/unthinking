@@ -981,7 +981,7 @@ body {
    -------------------------------------------------------------------------- */
 .dialogue-panel {
     position: fixed;
-    top: 380px;
+    top: calc(160px + 180px);  /* Below thesis card with gap */
     left: var(--space-xl);
     z-index: var(--z-controls);
     width: 360px;
@@ -1006,7 +1006,7 @@ body {
 /* Show dialogue button (when panel hidden) */
 .dialogue-show-btn {
     position: fixed;
-    top: 380px;
+    top: calc(160px + 180px);  /* Same as dialogue panel */
     left: var(--space-xl);
     z-index: var(--z-controls);
     display: none;
