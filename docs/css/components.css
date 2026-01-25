@@ -192,6 +192,8 @@
   transform: translateY(-20px);
   pointer-events: none;
   transition: all var(--transition-slow);
+  display: flex;
+  flex-direction: column;
 }
 .side-panel.open {
   opacity: 1;
@@ -242,9 +244,10 @@
   color: var(--text-muted);
 }
 .panel-content {
-  max-height: calc(100vh - 200px);
+  flex: 1;
   overflow-y: auto;
   padding: var(--space-md);
+  min-height: 0;
 }
 .panel-header {
   margin-bottom: var(--space-md);
@@ -383,6 +386,7 @@
   color: #a78bfa;
 }
 .panel-footer {
+  flex-shrink: 0;
   padding: var(--space-sm) var(--space-md) var(--space-md);
   border-top: 1px solid var(--glass-border);
 }
