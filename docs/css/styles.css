@@ -981,12 +981,12 @@ body {
    -------------------------------------------------------------------------- */
 .dialogue-panel {
     position: fixed;
-    top: 320px;
+    top: 380px;
     left: var(--space-xl);
     z-index: var(--z-controls);
     width: 360px;
     max-width: 360px;
-    max-height: 350px;
+    max-height: 320px;
     border-radius: var(--radius-lg);
     overflow: hidden;
     transition: all var(--transition-slow);
@@ -1006,7 +1006,7 @@ body {
 /* Show dialogue button (when panel hidden) */
 .dialogue-show-btn {
     position: fixed;
-    top: 320px;
+    top: 380px;
     left: var(--space-xl);
     z-index: var(--z-controls);
     display: none;
