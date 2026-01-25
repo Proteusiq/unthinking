@@ -984,7 +984,8 @@ body {
     top: 340px;
     left: var(--space-xl);
     z-index: var(--z-controls);
-    width: 320px;
+    width: 360px;
+    max-width: 360px;
     max-height: 350px;
     border-radius: var(--radius-lg);
     overflow: hidden;
