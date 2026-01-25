@@ -32,6 +32,12 @@
         },
         animation: {
             duration: 300
+        },
+        alive: {
+            enabled: true,
+            stanceForce: 0.02,      // Very gentle push toward stance position
+            breathInterval: 3000,   // Gentle "breath" every 3 seconds
+            breathStrength: 0.008   // Very subtle movement
         }
     };
 
@@ -214,9 +220,51 @@
             .force('center', d3.forceCenter(0, 0))
             .force('collision', d3.forceCollide()
                 .radius(d => d.radius + CONFIG.simulation.collisionRadius))
+            .force('stance', stanceForce())  // Push nodes by stance
             .alphaDecay(CONFIG.simulation.alphaDecay)
             .velocityDecay(CONFIG.simulation.velocityDecay)
             .on('tick', ticked);
+        
+        // Start the "alive" breathing animation
+        if (CONFIG.alive.enabled) {
+            startBreathing();
+        }
+    }
+    
+    // Custom force to push nodes by stance
+    function stanceForce() {
+        return function(alpha) {
+            const strength = CONFIG.alive.stanceForce * alpha;
+            
+            state.nodes.forEach(node => {
+                // Supports (green) -> left, Challenges (red) -> right
+                // Balanced (yellow) -> center
+                if (node.stance === 'supports') {
+                    node.vx -= strength * 50;  // Push left
+                } else if (node.stance === 'challenges') {
+                    node.vx += strength * 50;  // Push right
+                }
+                // Balanced stays in center (no extra force)
+            });
+        };
+    }
+    
+    // Gentle breathing animation
+    function startBreathing() {
+        setInterval(() => {
+            // Only breathe if simulation is mostly settled
+            if (state.simulation.alpha() < 0.1) {
+                // Add tiny random velocity to each node
+                state.nodes.forEach(node => {
+                    if (!node.fx && !node.fy) {  // Not being dragged
+                        node.vx += (Math.random() - 0.5) * CONFIG.alive.breathStrength * 10;
+                        node.vy += (Math.random() - 0.5) * CONFIG.alive.breathStrength * 10;
+                    }
+                });
+                // Gentle reheat
+                state.simulation.alpha(CONFIG.alive.breathStrength).restart();
+            }
+        }, CONFIG.alive.breathInterval);
     }
 
     // ==========================================================================
