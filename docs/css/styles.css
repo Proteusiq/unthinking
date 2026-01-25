@@ -287,6 +287,11 @@ body {
 .dot.challenges { background: var(--accent-challenges); }
 .dot.balanced { background: var(--accent-balanced); }
 
+.filter-count {
+    font-weight: 700;
+    font-family: var(--font-display);
+}
+
 /* Theme Toggle */
 .theme-toggle {
     display: flex;
@@ -316,35 +321,6 @@ body {
 
 [data-theme="dark"] .sun-icon { display: none; }
 [data-theme="dark"] .moon-icon { display: block; }
-
-/* Stats Bar */
-.stats-bar {
-    display: flex;
-    gap: var(--space-xl);
-    margin-top: var(--space-md);
-    padding-top: var(--space-md);
-    border-top: 1px solid var(--glass-border);
-}
-
-.stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.stat-number {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-primary);
-}
-
-.stat-label {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
 
 /* --------------------------------------------------------------------------
    Graph Container
@@ -1414,8 +1390,7 @@ body {
     transform: translateY(calc(-100% + 56px));
 }
 
-.header.collapsed .header-content,
-.header.collapsed .stats-bar {
+.header.collapsed .header-content {
     visibility: hidden;
     opacity: 0;
 }
@@ -1492,11 +1467,12 @@ body {
     .filter-group {
         flex-wrap: wrap;
         justify-content: center;
+        gap: var(--space-xs);
     }
     
-    .stats-bar {
-        justify-content: center;
-        flex-wrap: wrap;
+    .filter-btn {
+        padding: var(--space-xs) var(--space-sm);
+        font-size: 0.75rem;
     }
     
     .legend {
