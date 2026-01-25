@@ -268,12 +268,17 @@ def format_paper_entry(paper, stance: str, priority: int, explanation: str, conn
     if connections:
         entry += f"- **Cites our papers**: {', '.join(connections)}\n"
     
-    # Truncate abstract
-    abstract = paper.summary.replace('\n', ' ')[:400]
-    if len(paper.summary) > 400:
-        abstract += '...'
-    
-    entry += f"- **Abstract**: {abstract}\n\n"
+    # Collapsible abstract (full text, not truncated)
+    abstract = paper.summary.replace('\n', ' ').strip()
+    entry += f"""
+<details>
+<summary>Abstract</summary>
+
+{abstract}
+
+</details>
+
+"""
     
     return entry
 
