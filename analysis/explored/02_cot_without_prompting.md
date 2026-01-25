@@ -233,7 +233,7 @@ This paper provides **crucial evidence** for the argument that:
 2. RL/RLHF "surfaces" these patterns rather than creating them
 3. The patterns are **predictive** — they interpolate from training data
 
-Is it really for genuine reasoning? Maybe not. They noted:
+Is it really FOR genuine reasoning? Maybe not. They noted:
 
 > "CoT-decoding unveils model’s intrinsic vulnerabilities in reasoning. Our results also unveil the
 specific areas where language models still struggle with: for example, on Coin-Flip and Web-of-Lies,
