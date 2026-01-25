@@ -1,0 +1,153 @@
+/* ==========================================================================
+   Responsive - Mobile & tablet adaptations
+   ========================================================================== */
+
+/* Mobile dialogue panel */
+@media (max-width: 768px) {
+    .dialogue-panel {
+        top: auto;
+        bottom: var(--space-xl);
+        left: var(--space-md);
+        right: var(--space-md);
+        width: auto;
+        max-width: none;
+        max-height: 200px;
+    }
+    
+    .dialogue-panel.hidden {
+        transform: translateY(calc(100% + var(--space-xl)));
+    }
+    
+    .header.collapsed ~ .dialogue-panel,
+    .thesis-card.collapsed ~ .dialogue-panel,
+    .header.collapsed ~ .thesis-card.collapsed ~ .dialogue-panel {
+        top: auto;
+        bottom: var(--space-xl);
+    }
+    
+    .dialogue-show-btn {
+        top: auto;
+        bottom: var(--space-xl);
+        left: var(--space-md);
+    }
+    
+    .header.collapsed ~ .dialogue-show-btn,
+    .thesis-card.collapsed ~ .dialogue-show-btn,
+    .header.collapsed ~ .thesis-card.collapsed ~ .dialogue-show-btn {
+        top: auto;
+        bottom: var(--space-xl);
+    }
+    
+    .dialogue-messages {
+        max-height: 150px;
+    }
+}
+
+/* Main mobile breakpoint */
+@media (max-width: 768px) {
+    .header {
+        padding: var(--space-sm) var(--space-md);
+    }
+    
+    .title-section {
+        min-width: unset;
+        text-align: center;
+    }
+    
+    .main-title {
+        font-size: clamp(1rem, 5vw, 1.5rem);
+        line-height: 1.2;
+        word-wrap: break-word;
+    }
+    
+    .subtitle {
+        font-size: 0.75rem;
+    }
+    
+    .header-compact {
+        padding: var(--space-sm) var(--space-md);
+    }
+    
+    .header-compact .compact-title {
+        font-size: 0.875rem;
+        flex: 1;
+    }
+    
+    .header-compact .search-container {
+        min-width: 100px;
+        max-width: 140px;
+        padding: var(--space-xs) var(--space-sm);
+    }
+    
+    .header-compact .search-container input {
+        font-size: 0.75rem;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .controls {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .filter-group {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-xs);
+    }
+    
+    .filter-btn {
+        padding: var(--space-xs) var(--space-sm);
+        font-size: 0.75rem;
+    }
+    
+    .legend {
+        display: none;
+    }
+    
+    .thesis-card {
+        top: 120px;
+        left: var(--space-md);
+        right: var(--space-md);
+        width: auto;
+        max-width: none;
+    }
+    
+    .thesis-card.collapsed {
+        transform: translateY(-100%);
+    }
+    
+    .header.collapsed ~ .thesis-card {
+        top: 70px;
+    }
+    
+    .thesis-show-btn {
+        top: 120px;
+        left: var(--space-md);
+    }
+    
+    .header.collapsed ~ .thesis-show-btn {
+        top: 70px;
+    }
+    
+    .thesis-content blockquote {
+        font-size: 0.8125rem;
+    }
+    
+    .side-panel {
+        width: 100%;
+        border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+        max-height: 70vh;
+    }
+    
+    .side-panel.open {
+        transform: translateY(0);
+    }
+    
+    .graph-container {
+        padding-top: 200px;
+    }
+}

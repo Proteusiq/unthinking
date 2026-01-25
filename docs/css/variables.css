@@ -1,0 +1,86 @@
+/* ==========================================================================
+   Variables - Theme & Design Tokens
+   The Thinking Machine That Doesn't Think
+   ========================================================================== */
+
+:root {
+    /* Light Theme (Default) */
+    --bg-primary: #f8fafc;
+    --bg-secondary: #ffffff;
+    --bg-gradient-start: #e0e7ff;
+    --bg-gradient-mid: #f0e6fa;
+    --bg-gradient-end: #fce7f3;
+    
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --text-muted: #94a3b8;
+    
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-bg-subtle: rgba(255, 255, 255, 0.5);
+    --glass-border: rgba(255, 255, 255, 0.8);
+    --glass-shadow: rgba(0, 0, 0, 0.1);
+    
+    --accent-supports: #10b981;
+    --accent-supports-glow: rgba(16, 185, 129, 0.4);
+    --accent-challenges: #f43f5e;
+    --accent-challenges-glow: rgba(244, 63, 94, 0.4);
+    --accent-balanced: #f59e0b;
+    --accent-balanced-glow: rgba(245, 158, 11, 0.4);
+    
+    --edge-supports: #34d399;
+    --edge-rebuts: #fb7185;
+    --edge-extends: #a78bfa;
+    
+    --node-stroke: rgba(255, 255, 255, 0.9);
+    
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-full: 9999px;
+    
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-normal: 250ms ease;
+    --transition-slow: 400ms ease;
+    
+    /* Typography */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Space Grotesk', var(--font-sans);
+    
+    /* Z-index layers */
+    --z-graph: 1;
+    --z-controls: 10;
+    --z-tooltip: 100;
+    --z-panel: 200;
+    --z-header: 50;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-gradient-start: #1e1b4b;
+    --bg-gradient-mid: #312e81;
+    --bg-gradient-end: #4c1d95;
+    
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #64748b;
+    
+    --glass-bg: rgba(30, 41, 59, 0.7);
+    --glass-bg-subtle: rgba(30, 41, 59, 0.5);
+    --glass-border: rgba(71, 85, 105, 0.5);
+    --glass-shadow: rgba(0, 0, 0, 0.3);
+    
+    --node-stroke: rgba(30, 41, 59, 0.9);
+}
