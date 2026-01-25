@@ -256,16 +256,28 @@ Add analysis: [Paper Title] (arXiv ID)
 ```
 /project
 ├── AGENTS.md                    # This file (methodology)
+├── README.md                    # Project overview
+├── workflow.md                  # Paper analysis workflow
 ├── papers/
-│   └── paper_list.md           # Master list with status
-└── analysis/
-    ├── SYNTHESIS.md            # Main thesis synthesis
-    ├── PAPER_GRAPH.md          # Paper interaction graph
-    ├── REBUTTALS.md            # Rebuttal matrix
-    └── explored/               # Individual paper analyses
-        ├── 00_paper_name.md
-        ├── 01_paper_name.md
-        └── ...
+│   ├── paper_list.md           # Master list with status
+│   └── toread.md               # Auto-discovered papers to review
+├── analysis/
+│   ├── synthesis.md            # Main thesis synthesis
+│   ├── paper_graph.md          # Paper interaction graph
+│   ├── paper_network.md        # Network analysis
+│   ├── rebuttals.md            # Rebuttal matrix
+│   └── explored/               # Individual paper analyses
+│       ├── 00_faith_and_fate.md
+│       ├── 01_gsm_symbolic.md
+│       └── ...
+├── experiments/
+│   └── decoding_ablation/
+│       └── protocol.md         # OLMo 3 experiment design
+└── docs/                        # Interactive visualization
+    ├── SPECS.md                # Technical specs for this folder
+    ├── index.html
+    ├── css/                    # variables, layout, components, responsive
+    └── js/                     # data.js, graph.js
 ```
 
-**Note**: Individual paper analyses go in `analysis/explored/`. Meta-analysis files (SYNTHESIS, PAPER_GRAPH, REBUTTALS) stay in `analysis/`.
+**Note**: All files are lowercase except `AGENTS.md` and `README.md`.

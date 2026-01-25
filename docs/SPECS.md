@@ -89,7 +89,7 @@ Example extraction from `analysis/explored/01_gsm_symbolic.md`:
 
 ### Generating Links from Paper Relationships
 
-Links come from the "Relationship to Other Papers" section in each analysis and from `/analysis/paper_graph.md`. For each relationship:
+Links come from the "Relationship to Other Papers" section in each analysis and from `/analysis/paper_graph.md` (lowercase). For each relationship:
 
 1. **Source** → paper making the claim
 2. **Target** → paper being referenced
