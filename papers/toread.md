@@ -3,11 +3,25 @@
 New papers discovered by automated search. Qualified as LLM reasoning papers and checked for relevance to thesis.
 
 **Last updated**: 2026-01-25
-**Papers found**: 1
+**Papers found**: 2
 
 ---
 
 ## 2026-01-25
+
+### [TEST: Fake Paper for Workflow Testing](https://arxiv.org/abs/0000.00000)
+- **arXiv**: 0000.00000
+- **Published**: 2026-01-25
+- **Stance**: SUPPORTS
+- **Priority**: 10/10
+- **Why read**: This is a fake paper to test the workflow issue creation with collapsible abstracts
+
+<details>
+<summary>Abstract</summary>
+
+This is a fake abstract to test that the GitHub Actions workflow correctly extracts paper metadata including the title, stance, why read, and abstract fields. The abstract should appear in a collapsible details block in the created issue. If you see this, the workflow is working correctly!
+
+</details>
 
 ### [Replicating Human Motivated Reasoning Studies with LLMs](https://arxiv.org/abs/2601.16130v1)
 - **arXiv**: 2601.16130v1
