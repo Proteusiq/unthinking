@@ -40,17 +40,19 @@
                     <input type="text" id="search-input" placeholder="Search papers..." autocomplete="off">
                 </div>
                 
-                <!-- Filters -->
+                <!-- Filters with counts -->
                 <div class="filter-group">
-                    <button class="filter-btn glass-subtle active" data-filter="all">All</button>
+                    <button class="filter-btn glass-subtle active" data-filter="all">
+                        <span class="filter-count" id="total-papers">79</span> Papers
+                    </button>
                     <button class="filter-btn glass-subtle" data-filter="supports">
-                        <span class="dot supports"></span>Supports
+                        <span class="dot supports"></span><span class="filter-count" id="supports-count">42</span> Support
                     </button>
                     <button class="filter-btn glass-subtle" data-filter="challenges">
-                        <span class="dot challenges"></span>Challenges
+                        <span class="dot challenges"></span><span class="filter-count" id="challenges-count">9</span> Challenge
                     </button>
                     <button class="filter-btn glass-subtle" data-filter="balanced">
-                        <span class="dot balanced"></span>Balanced
+                        <span class="dot balanced"></span><span class="filter-count" id="balanced-count">28</span> Balanced
                     </button>
                 </div>
                 
@@ -71,26 +73,6 @@
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
                     </svg>
                 </button>
-            </div>
-        </div>
-        
-        <!-- Stats bar -->
-        <div class="stats-bar">
-            <div class="stat">
-                <span class="stat-number" id="total-papers">83</span>
-                <span class="stat-label">Papers</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number" id="supports-count">56</span>
-                <span class="stat-label">Support</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number" id="challenges-count">9</span>
-                <span class="stat-label">Challenge</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number" id="balanced-count">18</span>
-                <span class="stat-label">Balanced</span>
             </div>
         </div>
         
