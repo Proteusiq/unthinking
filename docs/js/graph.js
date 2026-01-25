@@ -821,6 +821,9 @@
         const showBtn = document.getElementById('dialogue-show-btn');
         if (!panel) return;
         
+        // Position below thesis card
+        positionDialoguePanel();
+        
         // Double-click to hide
         panel.addEventListener('dblclick', hideDialogue);
         
@@ -834,6 +837,20 @@
             showNextDialogue();
             state.dialogueInterval = setInterval(showNextDialogue, 6000);
         }, 4000);
+    }
+    
+    function positionDialoguePanel() {
+        const thesisCard = document.getElementById('thesis-card');
+        const panel = document.getElementById('dialogue-panel');
+        const showBtn = document.getElementById('dialogue-show-btn');
+        
+        if (!thesisCard || !panel) return;
+        
+        const thesisRect = thesisCard.getBoundingClientRect();
+        const topPosition = thesisRect.bottom + 12; // 12px gap
+        
+        panel.style.top = `${topPosition}px`;
+        if (showBtn) showBtn.style.top = `${topPosition}px`;
     }
     
     function hideDialogue() {
