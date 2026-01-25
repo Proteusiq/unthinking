@@ -69,43 +69,40 @@ jobs:
           script: |
             const fs = require('fs');
             const toread = fs.readFileSync('papers/toread.md', 'utf8');
-            
-            // Extract today's papers (papers added in this run)
             const today = new Date().toISOString().split('T')[0];
-            const lines = toread.split('\n');
             
-            // Find papers from today
-            let todayPapers = [];
-            let inTodaySection = false;
-            
-            for (const line of lines) {
-              if (line.includes(today)) {
-                inTodaySection = true;
-                continue;
-              }
-              if (inTodaySection && line.startsWith('## ')) {
-                break;
-              }
-              if (inTodaySection && line.startsWith('### ')) {
-                todayPapers.push(line);
-              }
+            // Extract all paper titles (lines starting with ### [)
+            const paperRegex = /^### \[(.+?)\]\((.+?)\)/gm;
+            const papers = [];
+            let match;
+            while ((match = paperRegex.exec(toread)) !== null) {
+              papers.push({ title: match[1], url: match[2] });
             }
             
-            if (todayPapers.length > 0) {
-              const issueBody = `## New Papers Found (${today})
+            // Extract paper count from header
+            const countMatch = toread.match(/\*\*Papers found\*\*: (\d+)/);
+            const paperCount = countMatch ? countMatch[1] : papers.length;
             
-            The daily paper discovery found **${todayPapers.length}** new papers relevant to the thesis.
-            
-            ### Papers to Review
-            
-            See [papers/toread.md](./papers/toread.md) for full details and reasons to read.
-            
-            ${todayPapers.slice(0, 10).join('\n')}
-            ${todayPapers.length > 10 ? `\n... and ${todayPapers.length - 10} more` : ''}
-            
-            ---
-            *This issue was automatically created by the paper discovery workflow.*`;
-            
+            if (papers.length > 0) {
+              const paperList = papers.slice(0, 10).map(p => `- [${p.title}](${p.url})`).join('\n');
+              const moreText = papers.length > 10 ? `\n\n*... and ${papers.length - 10} more in [papers/toread.md](./papers/toread.md)*` : '';
+              
+              const issueBody = [
+                `## New Papers Found (${today})`,
+                '',
+                `The daily paper discovery found **${paperCount}** new papers relevant to the thesis.`,
+                '',
+                '### Top Papers to Review',
+                '',
+                paperList,
+                moreText,
+                '',
+                '---',
+                'See [papers/toread.md](./papers/toread.md) for full details including abstracts, stance, and priority.',
+                '',
+                '*This issue was automatically created by the paper discovery workflow.*'
+              ].join('\n');
+              
               await github.rest.issues.create({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
