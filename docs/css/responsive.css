@@ -109,7 +109,7 @@
     }
     
     .thesis-card {
-        top: 120px;
+        top: 170px;
         left: var(--space-md);
         right: var(--space-md);
         width: auto;
@@ -125,7 +125,7 @@
     }
     
     .thesis-show-btn {
-        top: 120px;
+        top: 170px;
         left: var(--space-md);
     }
     
