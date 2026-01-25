@@ -233,6 +233,17 @@ This paper provides **crucial evidence** for the argument that:
 2. RL/RLHF "surfaces" these patterns rather than creating them
 3. The patterns are **predictive** — they interpolate from training data
 
+Is it really for genuine reasoning? Maybe not. They noted:
+
+> "CoT-decoding unveils model’s intrinsic vulnerabilities in reasoning. Our results also unveil the
+specific areas where language models still struggle with: for example, on Coin-Flip and Web-of-Lies,
+we observe that the model can generate CoT paths that simulate the process step-by-step, but it can
+easily lose track of the states, especially when the task complexity increases. This reveals model’s
+intrinsic vulnerability in performing accurate state tracking. On Multi-step Arithmetic, we observe
+that the model tends to perform calculations from left to right in the CoT-decoding paths, rather than
+following the correct mathematical order. These observations point to future directions where we
+should improve the models on."
+
 ### The Nuanced Position
 Wang & Zhou show reasoning EXISTS but don't prove it's GENUINE:
 - Reasoning paths exist ✓
