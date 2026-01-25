@@ -843,14 +843,23 @@ body {
     top: 160px;
     left: var(--space-xl);
     z-index: var(--z-controls);
-    max-width: 360px;
+    width: 360px;
+    max-width: calc(100vw - var(--space-xl) * 2);
     border-radius: var(--radius-lg);
     overflow: hidden;
     transition: all var(--transition-slow);
 }
 
-.thesis-card.collapsed .thesis-content {
-    display: none;
+/* When header is collapsed, thesis moves up */
+.header.collapsed ~ .thesis-card {
+    top: 70px;
+}
+
+/* Thesis collapsed state - slide up and minimize */
+.thesis-card.collapsed {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
 }
 
 .thesis-toggle {
@@ -873,10 +882,18 @@ body {
     width: 20px;
     height: 20px;
     color: var(--text-secondary);
+    transition: transform var(--transition-normal);
+}
+
+.thesis-card.collapsed .thesis-toggle svg {
+    transform: rotate(180deg);
 }
 
 .thesis-content {
     padding: 0 var(--space-md) var(--space-md);
+    max-height: 200px;
+    overflow: hidden;
+    transition: max-height var(--transition-slow), padding var(--transition-slow);
 }
 
 .thesis-content h3 {
@@ -899,6 +916,43 @@ body {
     color: var(--accent-supports);
     font-style: normal;
     font-weight: 600;
+}
+
+/* Show thesis button when collapsed */
+.thesis-show-btn {
+    position: fixed;
+    top: 160px;
+    left: var(--space-xl);
+    z-index: var(--z-controls);
+    display: none;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+    border: none;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.thesis-show-btn:hover {
+    color: var(--text-primary);
+    transform: scale(1.05);
+}
+
+.thesis-show-btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+.thesis-show-btn.visible {
+    display: flex;
+}
+
+.header.collapsed ~ .thesis-show-btn {
+    top: 70px;
 }
 
 /* --------------------------------------------------------------------------
@@ -981,11 +1035,11 @@ body {
    -------------------------------------------------------------------------- */
 .dialogue-panel {
     position: fixed;
-    top: calc(160px + 180px);  /* Below thesis card with gap */
+    top: 350px;
     left: var(--space-xl);
     z-index: var(--z-controls);
     width: 360px;
-    max-width: 360px;
+    max-width: calc(100vw - var(--space-xl) * 2);
     max-height: 320px;
     border-radius: var(--radius-lg);
     overflow: hidden;
@@ -998,15 +1052,30 @@ body {
 }
 
 .dialogue-panel.hidden {
-    transform: translateX(calc(-100% - var(--space-xl)));
+    transform: translateY(-20px);
     opacity: 0;
     pointer-events: none;
+}
+
+/* When header collapses, dialogue follows */
+.header.collapsed ~ .dialogue-panel {
+    top: 260px;
+}
+
+/* When thesis is collapsed, dialogue moves up */
+.thesis-card.collapsed ~ .dialogue-panel {
+    top: 180px;
+}
+
+/* When both header and thesis collapsed */
+.header.collapsed ~ .thesis-card.collapsed ~ .dialogue-panel {
+    top: 90px;
 }
 
 /* Show dialogue button (when panel hidden) */
 .dialogue-show-btn {
     position: fixed;
-    top: calc(160px + 180px);  /* Same as dialogue panel */
+    top: 350px;
     left: var(--space-xl);
     z-index: var(--z-controls);
     display: none;
@@ -1034,6 +1103,19 @@ body {
 
 .dialogue-show-btn.visible {
     display: flex;
+}
+
+/* Dialogue show button follows same rules */
+.header.collapsed ~ .dialogue-show-btn {
+    top: 260px;
+}
+
+.thesis-card.collapsed ~ .dialogue-show-btn {
+    top: 180px;
+}
+
+.header.collapsed ~ .thesis-card.collapsed ~ .dialogue-show-btn {
+    top: 90px;
 }
 
 .dialogue-header {
@@ -1172,10 +1254,44 @@ body {
     }
 }
 
-/* Hide on mobile */
+/* Mobile responsive for dialogue */
 @media (max-width: 768px) {
     .dialogue-panel {
-        display: none;
+        top: auto;
+        bottom: var(--space-xl);
+        left: var(--space-md);
+        right: var(--space-md);
+        width: auto;
+        max-width: none;
+        max-height: 200px;
+    }
+    
+    .dialogue-panel.hidden {
+        transform: translateY(calc(100% + var(--space-xl)));
+    }
+    
+    .header.collapsed ~ .dialogue-panel,
+    .thesis-card.collapsed ~ .dialogue-panel,
+    .header.collapsed ~ .thesis-card.collapsed ~ .dialogue-panel {
+        top: auto;
+        bottom: var(--space-xl);
+    }
+    
+    .dialogue-show-btn {
+        top: auto;
+        bottom: var(--space-xl);
+        left: var(--space-md);
+    }
+    
+    .header.collapsed ~ .dialogue-show-btn,
+    .thesis-card.collapsed ~ .dialogue-show-btn,
+    .header.collapsed ~ .thesis-card.collapsed ~ .dialogue-show-btn {
+        top: auto;
+        bottom: var(--space-xl);
+    }
+    
+    .dialogue-messages {
+        max-height: 150px;
     }
 }
 
@@ -1386,7 +1502,32 @@ body {
     }
     
     .thesis-card {
-        display: none;
+        top: 120px;
+        left: var(--space-md);
+        right: var(--space-md);
+        width: auto;
+        max-width: none;
+    }
+    
+    .thesis-card.collapsed {
+        transform: translateY(-100%);
+    }
+    
+    .header.collapsed ~ .thesis-card {
+        top: 70px;
+    }
+    
+    .thesis-show-btn {
+        top: 120px;
+        left: var(--space-md);
+    }
+    
+    .header.collapsed ~ .thesis-show-btn {
+        top: 70px;
+    }
+    
+    .thesis-content blockquote {
+        font-size: 0.8125rem;
     }
     
     .side-panel {

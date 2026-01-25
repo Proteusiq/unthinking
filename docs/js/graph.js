@@ -841,13 +841,31 @@
     
     function positionDialoguePanel() {
         const thesisCard = document.getElementById('thesis-card');
+        const thesisShowBtn = document.getElementById('thesis-show-btn');
         const panel = document.getElementById('dialogue-panel');
         const showBtn = document.getElementById('dialogue-show-btn');
         
-        if (!thesisCard || !panel) return;
+        if (!panel) return;
         
-        const thesisRect = thesisCard.getBoundingClientRect();
-        const topPosition = thesisRect.bottom + 12; // 12px gap
+        // On mobile, dialogue is at bottom - don't reposition
+        if (window.innerWidth <= 768) return;
+        
+        let topPosition;
+        
+        // If thesis is collapsed, position below thesis show button or header
+        if (thesisCard && thesisCard.classList.contains('collapsed')) {
+            if (thesisShowBtn) {
+                const btnRect = thesisShowBtn.getBoundingClientRect();
+                topPosition = btnRect.bottom + 12;
+            } else {
+                topPosition = 180; // fallback
+            }
+        } else if (thesisCard) {
+            const thesisRect = thesisCard.getBoundingClientRect();
+            topPosition = thesisRect.bottom + 12; // 12px gap
+        } else {
+            topPosition = 180; // fallback
+        }
         
         panel.style.top = `${topPosition}px`;
         if (showBtn) showBtn.style.top = `${topPosition}px`;
@@ -1043,14 +1061,33 @@
 
         // Thesis card toggle
         document.getElementById('thesis-toggle').addEventListener('click', () => {
-            document.getElementById('thesis-card').classList.toggle('collapsed');
+            const thesisCard = document.getElementById('thesis-card');
+            const thesisShowBtn = document.getElementById('thesis-show-btn');
+            thesisCard.classList.add('collapsed');
+            if (thesisShowBtn) thesisShowBtn.classList.add('visible');
+            // Reposition dialogue panel
+            setTimeout(positionDialoguePanel, 400);
         });
+        
+        // Thesis show button
+        const thesisShowBtn = document.getElementById('thesis-show-btn');
+        if (thesisShowBtn) {
+            thesisShowBtn.addEventListener('click', () => {
+                const thesisCard = document.getElementById('thesis-card');
+                thesisCard.classList.remove('collapsed');
+                thesisShowBtn.classList.remove('visible');
+                // Reposition dialogue panel
+                setTimeout(positionDialoguePanel, 400);
+            });
+        }
 
         // Header toggle - main button
         const headerToggle = document.getElementById('header-toggle');
         if (headerToggle) {
             headerToggle.addEventListener('click', () => {
                 document.querySelector('.header').classList.toggle('collapsed');
+                // Reposition dialogue panel after transition
+                setTimeout(positionDialoguePanel, 400);
             });
         }
         
@@ -1070,6 +1107,8 @@
             headerCompact.addEventListener('click', (e) => {
                 if (e.target.closest('.search-container-compact')) return;
                 document.querySelector('.header').classList.remove('collapsed');
+                // Reposition dialogue panel after transition
+                setTimeout(positionDialoguePanel, 400);
             });
         }
 
