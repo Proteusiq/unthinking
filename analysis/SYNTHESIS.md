@@ -527,7 +527,7 @@ For B=1 (NO search required, just follow edges):
 - It's hidden by greedy decoding
 - It exists as learned patterns from pretraining
 - It can be surfaced by alternative decoding, SFT, or RL
-- **NEW**: 1K samples sufficient to surface (s1)
+- 1K samples sufficient to surface (s1)
 
 ### 2. Does RL create or surface reasoning?
 **Answer: SURFACES** (the surfacing hypothesis)
@@ -548,7 +548,7 @@ For B=1 (NO search required, just follow edges):
 - It has distribution limits (collapse at high complexity)
 - It doesn't extrapolate to truly novel problems
 - It's "predictive" — predicts what reasoning looks like
-- **NEW**: Semantic associations can override explicit instructions
+- Semantic associations can override explicit instructions
 
 ---
 

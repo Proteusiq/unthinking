@@ -973,6 +973,175 @@ body {
 }
 
 /* --------------------------------------------------------------------------
+   Dialogue Panel
+   -------------------------------------------------------------------------- */
+.dialogue-panel {
+    position: fixed;
+    top: 160px;
+    right: var(--space-xl);
+    z-index: var(--z-controls);
+    width: 320px;
+    max-height: 400px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--transition-slow);
+    opacity: 0.85;
+}
+
+.dialogue-panel:hover {
+    opacity: 1;
+}
+
+.dialogue-panel.hidden {
+    transform: translateX(calc(100% + var(--space-xl)));
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dialogue-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm) var(--space-md);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.dialogue-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+}
+
+.dialogue-hint {
+    font-size: 0.625rem;
+    color: var(--text-muted);
+    opacity: 0.6;
+}
+
+.dialogue-messages {
+    max-height: 340px;
+    overflow: hidden;
+    padding: var(--space-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    /* Fade effect at top */
+    mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 100%);
+}
+
+.dialogue-message {
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    background: var(--glass-bg-subtle);
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    animation: dialogueFadeIn 0.5s ease-out;
+    border-left: 3px solid transparent;
+}
+
+.dialogue-message:hover {
+    background: var(--glass-bg);
+    transform: translateX(4px);
+}
+
+.dialogue-message.supports {
+    border-left-color: var(--accent-supports);
+}
+
+.dialogue-message.challenges {
+    border-left-color: var(--accent-challenges);
+}
+
+.dialogue-message.balanced {
+    border-left-color: var(--accent-balanced);
+}
+
+.dialogue-message .paper-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.75rem;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.dialogue-message .message-text {
+    display: block;
+}
+
+.dialogue-message .message-type {
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    opacity: 0.6;
+    margin-top: 4px;
+    display: block;
+}
+
+/* Typing indicator */
+.dialogue-typing {
+    display: flex;
+    gap: 4px;
+    padding: var(--space-sm) var(--space-md);
+}
+
+.dialogue-typing span {
+    width: 6px;
+    height: 6px;
+    background: var(--text-muted);
+    border-radius: 50%;
+    animation: typingBounce 1.4s infinite ease-in-out;
+}
+
+.dialogue-typing span:nth-child(1) { animation-delay: 0s; }
+.dialogue-typing span:nth-child(2) { animation-delay: 0.2s; }
+.dialogue-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingBounce {
+    0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+    40% { transform: translateY(-6px); opacity: 1; }
+}
+
+@keyframes dialogueFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Node speaking state */
+.node.speaking circle {
+    animation: speakingPulse 1s ease-in-out infinite;
+}
+
+@keyframes speakingPulse {
+    0%, 100% { 
+        stroke-width: 2px;
+        filter: drop-shadow(0 0 8px currentColor);
+    }
+    50% { 
+        stroke-width: 4px;
+        filter: drop-shadow(0 0 16px currentColor);
+    }
+}
+
+/* Hide on mobile */
+@media (max-width: 768px) {
+    .dialogue-panel {
+        display: none;
+    }
+}
+
+/* --------------------------------------------------------------------------
    Animations
    -------------------------------------------------------------------------- */
 @keyframes pulse {

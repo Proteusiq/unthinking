@@ -61,7 +61,10 @@
         searchTerm: '',
         isIdle: true,
         idleTimer: null,
-        breathingPaused: false
+        breathingPaused: false,
+        dialogueVisible: true,
+        dialogueInterval: null,
+        currentSpeaker: null
     };
 
     // ==========================================================================
@@ -86,6 +89,9 @@
         setTimeout(() => {
             state.simulation.alpha(1).restart();
         }, 100);
+        
+        // Start the dialogue system
+        initDialogue();
     }
 
     // ==========================================================================
@@ -735,6 +741,172 @@
         document.getElementById('supports-count').textContent = supports;
         document.getElementById('challenges-count').textContent = challenges;
         document.getElementById('balanced-count').textContent = balanced;
+    }
+
+    // ==========================================================================
+    // Dialogue System
+    // ==========================================================================
+    
+    // Pre-built dialogues based on paper interactions
+    const dialogues = [
+        {
+            sourceId: '2410.05229',  // GSM-Symbolic
+            targetId: '2501.12948',  // DeepSeek-R1
+            type: 'rebuts',
+            message: "Your 'emergent reasoning' shows 65% accuracy drops with irrelevant info. That's pattern matching, not reasoning."
+        },
+        {
+            sourceId: '2501.12948',  // DeepSeek-R1
+            targetId: '2410.05229',  // GSM-Symbolic
+            type: 'rebuts',
+            message: "We achieve 79.8% on AIME through pure RL. The 'Aha moment' emerges without human demos."
+        },
+        {
+            sourceId: '2305.18654',  // Faith and Fate
+            targetId: '2506.06941',  // Illusion of Thinking
+            type: 'supports',
+            message: "Our exponential error propagation explains your complexity collapse. Same root cause."
+        },
+        {
+            sourceId: '2501.19393',  // s1
+            targetId: '2501.12948',  // DeepSeek-R1
+            type: 'supports',
+            message: "Reasoning pre-exists in base models. Only 1K samples needed to surface it. RL amplifies, doesn't create."
+        },
+        {
+            sourceId: '2307.13702',  // Measuring Faithfulness
+            targetId: '2501.12948',  // DeepSeek-R1
+            type: 'rebuts',
+            message: "Larger models = less faithful CoT. Your reasoning traces may be post-hoc rationalization."
+        },
+        {
+            sourceId: '2506.18880',  // OMEGA
+            targetId: '2501.12948',  // DeepSeek-R1
+            type: 'rebuts',
+            message: "RL helps exploration but compositional generalization stays near-zero. 38% overthinking errors."
+        },
+        {
+            sourceId: '2512.07783',  // Interplay
+            targetId: '2501.19393',  // s1
+            type: 'supports',
+            message: "Confirmed: 0% pretraining exposure = RL fails. The capability must exist as a 'seed' first."
+        },
+        {
+            sourceId: '2601.14456',  // Planning Gap
+            targetId: '2305.18654',  // Faith and Fate
+            type: 'extends',
+            message: "Same pattern in planning: 82.9% in-domain to 0% out-of-domain. No genuine generalization."
+        },
+        {
+            sourceId: '2506.06941',  // Illusion of Thinking
+            targetId: '2501.12948',  // DeepSeek-R1
+            type: 'rebuts',
+            message: "Complete accuracy collapse at 8-10 disks. Token usage DECREASES at failure. Not trying harder."
+        },
+        {
+            sourceId: '2601.00514',  // Illusion of Insight
+            targetId: '2501.12948',  // DeepSeek-R1
+            type: 'rebuts',
+            message: "Your 'insights' don't transfer. We show zero-shot insight transfer fails systematically."
+        }
+    ];
+    
+    let dialogueIndex = 0;
+    
+    function initDialogue() {
+        const panel = document.getElementById('dialogue-panel');
+        if (!panel) return;
+        
+        // Double-click to toggle visibility
+        panel.addEventListener('dblclick', toggleDialogue);
+        
+        // Start dialogue cycle after delay
+        setTimeout(() => {
+            showNextDialogue();
+            state.dialogueInterval = setInterval(showNextDialogue, 6000);
+        }, 4000);
+    }
+    
+    function toggleDialogue() {
+        const panel = document.getElementById('dialogue-panel');
+        state.dialogueVisible = !state.dialogueVisible;
+        panel.classList.toggle('hidden', !state.dialogueVisible);
+    }
+    
+    function showNextDialogue() {
+        if (!state.dialogueVisible || !state.isIdle) return;
+        
+        const dialogue = dialogues[dialogueIndex];
+        const sourceNode = state.nodes.find(n => n.id === dialogue.sourceId);
+        
+        if (!sourceNode) {
+            dialogueIndex = (dialogueIndex + 1) % dialogues.length;
+            return;
+        }
+        
+        // Highlight speaking node
+        highlightSpeaker(sourceNode);
+        
+        // Add message to panel
+        addDialogueMessage(dialogue, sourceNode);
+        
+        // Move to next dialogue
+        dialogueIndex = (dialogueIndex + 1) % dialogues.length;
+    }
+    
+    function highlightSpeaker(node) {
+        // Remove previous speaker highlight
+        if (state.currentSpeaker) {
+            state.nodeElements
+                .filter(d => d.id === state.currentSpeaker.id)
+                .classed('speaking', false);
+        }
+        
+        // Add new speaker highlight
+        state.nodeElements
+            .filter(d => d.id === node.id)
+            .classed('speaking', true);
+        
+        state.currentSpeaker = node;
+        
+        // Remove highlight after 4 seconds
+        setTimeout(() => {
+            state.nodeElements
+                .filter(d => d.id === node.id)
+                .classed('speaking', false);
+        }, 4000);
+    }
+    
+    function addDialogueMessage(dialogue, sourceNode) {
+        const container = document.getElementById('dialogue-messages');
+        if (!container) return;
+        
+        const messageEl = document.createElement('div');
+        messageEl.className = `dialogue-message ${sourceNode.stance}`;
+        messageEl.dataset.nodeId = sourceNode.id;
+        
+        messageEl.innerHTML = `
+            <span class="paper-name">${sourceNode.shortTitle || sourceNode.title}</span>
+            <span class="message-text">${dialogue.message}</span>
+            <span class="message-type">${dialogue.type}</span>
+        `;
+        
+        // Click to focus on node
+        messageEl.addEventListener('click', () => {
+            focusOnNode(sourceNode);
+            highlightConnections(sourceNode);
+        });
+        
+        // Add to bottom
+        container.appendChild(messageEl);
+        
+        // Keep only last 5 messages
+        while (container.children.length > 5) {
+            container.removeChild(container.firstChild);
+        }
+        
+        // Scroll to bottom
+        container.scrollTop = container.scrollHeight;
     }
 
     // ==========================================================================

@@ -263,7 +263,7 @@ KEY UPDATES:
 1. ~~Does tool success prove reasoning or just competent execution?~~ **Partially resolved**: Tool success doesn't always occur, even when execution is offloaded
 2. Is "surfaced" reasoning genuine or sophisticated pattern completion?
 3. Can unfaithful CoT coexist with genuine internal reasoning?
-4. **NEW**: Why does tool augmentation work for some tasks (Hanoi) but not others (8-puzzle)?
+4. Why does tool augmentation work for some tasks (Hanoi) but not others (8-puzzle)?
 
 ---
 
