@@ -1,0 +1,14 @@
+{
+  "name": "unthinking-docs",
+  "version": "1.0.0",
+  "description": "Interactive visualization for The Thinking Machine That Doesn't Think",
+  "author": "Prayson Wilfred Daniel",
+  "license": "MIT",
+  "scripts": {
+    "format": "prettier --write \"**/*.{css,js,html}\"",
+    "format:check": "prettier --check \"**/*.{css,js,html}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.8.1"
+  }
+}
