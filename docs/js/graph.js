@@ -59,6 +59,8 @@
     hoveredNode: null,
     activeFilter: 'all',
     searchTerm: '',
+    searchMatches: [],
+    searchIndex: 0,
     isIdle: true,
     idleTimer: null,
     breathingPaused: false,
@@ -673,30 +675,94 @@
     state.searchTerm = term.toLowerCase();
 
     if (!term) {
-      state.nodeElements.classed('dimmed', false);
+      // Clear search state
+      state.nodeElements
+        .classed('dimmed', false)
+        .classed('search-match', false)
+        .classed('search-current', false);
       state.linkElements.classed('dimmed', false);
+      state.searchMatches = [];
+      state.searchIndex = 0;
+      updateSearchIndicator();
       return;
     }
 
-    const matchingIds = new Set();
+    // Find all matching nodes
+    const matchingNodes = [];
     state.nodes.forEach((node) => {
       if (
         node.title.toLowerCase().includes(state.searchTerm) ||
         node.id.includes(state.searchTerm) ||
         node.coreArgument.toLowerCase().includes(state.searchTerm)
       ) {
-        matchingIds.add(node.id);
+        matchingNodes.push(node);
       }
     });
 
-    state.nodeElements.classed('dimmed', (d) => !matchingIds.has(d.id));
-    state.nodeElements.classed('highlighted', (d) => matchingIds.has(d.id));
+    const matchingIds = new Set(matchingNodes.map((n) => n.id));
 
+    // Fade non-matching nodes
+    state.nodeElements.classed('dimmed', (d) => !matchingIds.has(d.id));
+    state.nodeElements.classed('search-match', (d) => matchingIds.has(d.id));
+
+    // Fade non-matching links
     state.linkElements.classed('dimmed', (d) => {
       const sourceId = typeof d.source === 'object' ? d.source.id : d.source;
       const targetId = typeof d.target === 'object' ? d.target.id : d.target;
       return !matchingIds.has(sourceId) && !matchingIds.has(targetId);
     });
+
+    // Store matches for navigation
+    state.searchMatches = matchingNodes;
+    state.searchIndex = 0;
+
+    // Jump to first match
+    if (matchingNodes.length > 0) {
+      jumpToSearchResult(0);
+    }
+  }
+
+  function jumpToSearchResult(index) {
+    if (!state.searchMatches || state.searchMatches.length === 0) return;
+
+    // Wrap around
+    if (index < 0) index = state.searchMatches.length - 1;
+    if (index >= state.searchMatches.length) index = 0;
+
+    state.searchIndex = index;
+    const node = state.searchMatches[index];
+
+    // Focus on the node
+    focusOnNode(node);
+
+    // Highlight it
+    state.nodeElements.classed('search-current', (d) => d.id === node.id);
+
+    // Update search result indicator
+    updateSearchIndicator();
+  }
+
+  function nextSearchResult() {
+    jumpToSearchResult(state.searchIndex + 1);
+  }
+
+  function prevSearchResult() {
+    jumpToSearchResult(state.searchIndex - 1);
+  }
+
+  function updateSearchIndicator() {
+    const indicator = document.getElementById('search-indicator');
+    if (!indicator) return;
+
+    if (state.searchMatches && state.searchMatches.length > 0) {
+      indicator.textContent = `${state.searchIndex + 1}/${state.searchMatches.length}`;
+      indicator.classList.add('visible');
+    } else if (state.searchTerm) {
+      indicator.textContent = '0/0';
+      indicator.classList.add('visible');
+    } else {
+      indicator.classList.remove('visible');
+    }
   }
 
   // ==========================================================================
@@ -1096,6 +1162,18 @@
       }, 200);
     });
 
+    // Search navigation with Enter/Shift+Enter
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        if (e.shiftKey) {
+          prevSearchResult();
+        } else {
+          nextSearchResult();
+        }
+      }
+    });
+
     // Zoom controls
     document.getElementById('zoom-in').addEventListener('click', zoomIn);
     document.getElementById('zoom-out').addEventListener('click', zoomOut);
@@ -1165,6 +1243,16 @@
         searchTimeout = setTimeout(() => {
           applySearch(e.target.value);
         }, 200);
+      });
+      searchInputCompact.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          if (e.shiftKey) {
+            prevSearchResult();
+          } else {
+            nextSearchResult();
+          }
+        }
       });
       searchInput.addEventListener('input', () => {
         searchInputCompact.value = searchInput.value;
