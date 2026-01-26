@@ -671,6 +671,29 @@
     }
   }
 
+  function applyFilterPreview(filter) {
+    if (filter === 'all') return;
+
+    state.nodeElements
+      .classed('filter-dimmed', (d) => d.stance !== filter)
+      .classed('filter-highlight', (d) => d.stance === filter);
+
+    state.linkElements.classed('filter-dimmed', (d) => {
+      const sourceNode = state.nodes.find(
+        (n) => n.id === (typeof d.source === 'object' ? d.source.id : d.source)
+      );
+      const targetNode = state.nodes.find(
+        (n) => n.id === (typeof d.target === 'object' ? d.target.id : d.target)
+      );
+      return sourceNode?.stance !== filter && targetNode?.stance !== filter;
+    });
+  }
+
+  function clearFilterPreview() {
+    // Restore to current active filter state
+    applyFilter(state.activeFilter);
+  }
+
   // ==========================================================================
   // Search
   // ==========================================================================
@@ -1153,6 +1176,19 @@
         document.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
         btn.classList.add('active');
         applyFilter(btn.dataset.filter);
+      });
+
+      // Hover preview (only if not already active)
+      btn.addEventListener('mouseenter', () => {
+        if (!btn.classList.contains('active')) {
+          applyFilterPreview(btn.dataset.filter);
+        }
+      });
+
+      btn.addEventListener('mouseleave', () => {
+        if (!btn.classList.contains('active')) {
+          clearFilterPreview();
+        }
       });
     });
 
