@@ -10,7 +10,7 @@ from pathlib import Path
 import arxiv
 import httpx
 
-from discovery.search import load_known_ids, search_recent_papers
+from discovery.search import load_known_ids, normalize_arxiv_id, search_recent_papers
 from discovery.classify import classify_paper
 from discovery.models import Paper
 from discovery.output import prepend_to_toread
@@ -81,7 +81,7 @@ def main() -> None:
 
     with httpx.Client(timeout=30.0) as client:
         for arxiv_id, result in raw_papers.items():
-            if arxiv_id in known_ids:
+            if normalize_arxiv_id(arxiv_id) in known_ids:
                 continue
             paper = process_paper(result, known_ids, token, client if token else None)
             if paper:
