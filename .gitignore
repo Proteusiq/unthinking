@@ -15,3 +15,4 @@ Thumbs.db
 # Temp files
 *.tmp
 *.log
+__pycache__/
