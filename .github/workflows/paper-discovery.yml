@@ -36,8 +36,9 @@ jobs:
         id: discover
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PYTHONPATH: ${{ github.workspace }}/scripts
         run: |
-          python scripts/discover_papers.py
+          python -m discovery
           
       - name: Check for new papers
         id: check
