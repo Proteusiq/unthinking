@@ -647,24 +647,28 @@
   function applyFilter(filter) {
     state.activeFilter = filter;
 
-    state.nodeElements.style('display', (d) => {
-      if (filter === 'all') return 'block';
-      return d.stance === filter ? 'block' : 'none';
-    });
+    if (filter === 'all') {
+      // Clear all filter dimming
+      state.nodeElements.classed('filter-dimmed', false).classed('filter-highlight', false);
+      state.linkElements.classed('filter-dimmed', false);
+    } else {
+      // Highlight matching nodes, dim others
+      state.nodeElements
+        .classed('filter-dimmed', (d) => d.stance !== filter)
+        .classed('filter-highlight', (d) => d.stance === filter);
 
-    state.linkElements.style('display', (d) => {
-      if (filter === 'all') return 'block';
-      const sourceNode = state.nodes.find(
-        (n) => n.id === (typeof d.source === 'object' ? d.source.id : d.source)
-      );
-      const targetNode = state.nodes.find(
-        (n) => n.id === (typeof d.target === 'object' ? d.target.id : d.target)
-      );
-      return sourceNode?.stance === filter || targetNode?.stance === filter ? 'block' : 'none';
-    });
-
-    // Reheat simulation
-    state.simulation.alpha(0.3).restart();
+      // Dim links not connected to highlighted nodes
+      state.linkElements.classed('filter-dimmed', (d) => {
+        const sourceNode = state.nodes.find(
+          (n) => n.id === (typeof d.source === 'object' ? d.source.id : d.source)
+        );
+        const targetNode = state.nodes.find(
+          (n) => n.id === (typeof d.target === 'object' ? d.target.id : d.target)
+        );
+        // Show link if at least one end is highlighted
+        return sourceNode?.stance !== filter && targetNode?.stance !== filter;
+      });
+    }
   }
 
   // ==========================================================================

@@ -696,6 +696,14 @@
 .node.dimmed {
   opacity: 0.2;
 }
+.node.filter-dimmed {
+  opacity: 0.15;
+  filter: grayscale(0.8);
+}
+.node.filter-highlight circle {
+  stroke-width: 3px;
+  filter: drop-shadow(0 0 8px currentColor);
+}
 .node.search-match circle {
   stroke-width: 3px;
   filter: drop-shadow(0 0 12px currentColor);
@@ -739,6 +747,9 @@
 }
 .link.dimmed {
   stroke-opacity: 0.1;
+}
+.link.filter-dimmed {
+  stroke-opacity: 0.08;
 }
 .node.speaking circle {
   animation: speakingPulse 1s ease-in-out infinite;
