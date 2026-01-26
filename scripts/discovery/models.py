@@ -1,5 +1,3 @@
-"""Data models for paper discovery."""
-
 from dataclasses import dataclass
 
 

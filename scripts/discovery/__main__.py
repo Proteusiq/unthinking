@@ -3,12 +3,12 @@
 # requires-python = ">=3.12"
 # dependencies = ["arxiv", "httpx"]
 # ///
-"""Main entry point for paper discovery."""
 
 import os
 from pathlib import Path
 
 import arxiv
+import httpx
 
 from discovery.search import load_known_ids, search_recent_papers
 from discovery.classify import classify_paper
@@ -19,19 +19,20 @@ DAYS_LOOKBACK = 3
 
 
 def find_connections(abstract: str, known_ids: set[str]) -> tuple[str, ...]:
-    """Find references to known papers in abstract."""
     return tuple(pid for pid in known_ids if pid in abstract.lower())
 
 
 def process_paper(
-    result: arxiv.Result, known_ids: set[str], token: str | None
+    result: arxiv.Result,
+    known_ids: set[str],
+    token: str | None,
+    client: httpx.Client | None,
 ) -> Paper | None:
-    """Process a single arXiv result into a Paper."""
     arxiv_id = result.get_short_id()
     title = result.title
     abstract = result.summary.replace("\n", " ").strip()
 
-    classification = classify_paper(title, abstract, token)
+    classification = classify_paper(title, abstract, token, client)
 
     if not classification.relevant:
         return None
@@ -54,7 +55,6 @@ def process_paper(
 
 
 def main() -> None:
-    """Run paper discovery pipeline."""
     repo_root = Path(__file__).parent.parent.parent
     paper_list = repo_root / "papers" / "paper_list.md"
     toread = repo_root / "papers" / "toread.md"
@@ -78,12 +78,14 @@ def main() -> None:
 
     print("[3/4] Classifying papers...")
     new_papers: list[Paper] = []
-    for arxiv_id, result in raw_papers.items():
-        if arxiv_id in known_ids:
-            continue
-        paper = process_paper(result, known_ids, token)
-        if paper:
-            new_papers.append(paper)
+
+    with httpx.Client(timeout=30.0) as client:
+        for arxiv_id, result in raw_papers.items():
+            if arxiv_id in known_ids:
+                continue
+            paper = process_paper(result, known_ids, token, client if token else None)
+            if paper:
+                new_papers.append(paper)
 
     print(f"      {len(new_papers)} qualified")
 

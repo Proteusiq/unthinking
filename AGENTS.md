@@ -314,6 +314,14 @@ Add analysis: [Paper Title] (arXiv ID)
 │       ├── 00_faith_and_fate.md
 │       ├── 01_gsm_symbolic.md
 │       └── ...
+├── scripts/
+│   └── discovery/              # Paper discovery package
+│       ├── __init__.py         # Package exports
+│       ├── __main__.py         # Entry: uv run scripts/discovery/__main__.py
+│       ├── models.py           # Paper, Classification dataclasses
+│       ├── search.py           # arXiv search, load known IDs
+│       ├── classify.py         # LLM + keyword classification
+│       └── output.py           # Markdown formatting, file writing
 ├── experiments/
 │   └── decoding_ablation/
 │       └── protocol.md         # OLMo 3 experiment design

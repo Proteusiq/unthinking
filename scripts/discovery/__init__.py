@@ -1,5 +1,3 @@
-"""Paper discovery package for arXiv search and classification."""
-
 from discovery.models import Paper, Classification
 from discovery.search import search_recent_papers, load_known_ids
 from discovery.classify import classify_paper

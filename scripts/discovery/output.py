@@ -1,5 +1,3 @@
-"""Output formatting and file writing."""
-
 import re
 from datetime import datetime
 from pathlib import Path
@@ -8,7 +6,6 @@ from discovery.models import Paper
 
 
 def format_paper(paper: Paper) -> str:
-    """Format a paper as markdown."""
     lines = [
         f"### [{paper.title}](https://arxiv.org/abs/{paper.arxiv_id})",
         f"- **arXiv**: {paper.arxiv_id}",
@@ -38,7 +35,6 @@ def format_paper(paper: Paper) -> str:
 
 
 def prepend_to_toread(papers: list[Paper], path: Path) -> None:
-    """Prepend new papers to toread.md (after header)."""
     today = datetime.now().strftime("%Y-%m-%d")
 
     section_lines = [f"## New Papers ({today})", ""]
