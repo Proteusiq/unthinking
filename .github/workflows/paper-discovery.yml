@@ -11,6 +11,7 @@ on:
 permissions:
   contents: write
   issues: write
+  models: read
 
 jobs:
   discover-papers:
@@ -29,10 +30,12 @@ jobs:
           
       - name: Install dependencies
         run: |
-          pip install arxiv requests
+          pip install arxiv httpx
 
       - name: Run paper discovery
         id: discover
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python scripts/discover_papers.py
           
