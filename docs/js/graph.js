@@ -37,8 +37,6 @@
     alive: {
       enabled: true,
       stanceForce: 0.03, // Gentle push toward stance position
-      breathInterval: 1500, // Breath every 1.5 seconds
-      breathStrength: 0.03, // Very subtle movement
     },
   };
 
@@ -276,23 +274,41 @@
     };
   }
 
-  // Continuous gentle breathing animation - never stops
+  // Continuous smooth breathing animation - never stops
   function startBreathing() {
-    setInterval(() => {
-      // Skip if user is dragging a node
-      if (state.breathingPaused) return;
+    let lastTime = 0;
 
-      // Add small random velocity to each node
-      state.nodes.forEach((node) => {
-        if (!node.fx && !node.fy) {
-          node.vx += (Math.random() - 0.5) * 0.8;
-          node.vy += (Math.random() - 0.5) * 0.8;
+    // Give each node a unique phase offset for organic movement
+    state.nodes.forEach((node, i) => {
+      node.phaseX = Math.random() * Math.PI * 2;
+      node.phaseY = Math.random() * Math.PI * 2;
+      node.speedX = 0.0003 + Math.random() * 0.0002;
+      node.speedY = 0.0003 + Math.random() * 0.0002;
+    });
+
+    function animate(time) {
+      if (!state.breathingPaused) {
+        const delta = time - lastTime;
+
+        // Apply smooth sine-wave motion to each node
+        state.nodes.forEach((node) => {
+          if (!node.fx && !node.fy) {
+            node.vx += Math.sin(time * node.speedX + node.phaseX) * 0.015;
+            node.vy += Math.cos(time * node.speedY + node.phaseY) * 0.015;
+          }
+        });
+
+        // Keep simulation gently alive
+        if (state.simulation.alpha() < 0.02) {
+          state.simulation.alpha(0.02).restart();
         }
-      });
+      }
 
-      // Keep simulation alive with low alpha
-      state.simulation.alpha(0.03).restart();
-    }, CONFIG.alive.breathInterval);
+      lastTime = time;
+      requestAnimationFrame(animate);
+    }
+
+    requestAnimationFrame(animate);
   }
 
   // ==========================================================================
