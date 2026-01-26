@@ -11,7 +11,7 @@
 
 ## Thesis
 
-**LLM reasoning is practical but fundamentally predictive — pattern matching from training distributions, not genuinely generative reasoning.**
+**LLM reasoning is practical but fundamentally predictive - pattern matching from training distributions, not genuinely generative reasoning.**
 
 RL and test-time compute "surface" pre-existing capabilities rather than creating new reasoning abilities. Models excel within their training distribution but fail systematically on out-of-distribution compositions.
 
