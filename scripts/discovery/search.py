@@ -32,7 +32,13 @@ def search_recent_papers(days_back: int) -> dict[str, arxiv.Result]:
     return papers
 
 
+def normalize_arxiv_id(arxiv_id: str) -> str:
+    """Strip version suffix from arxiv ID (e.g., 2601.16823v1 -> 2601.16823)"""
+    return re.sub(r"v\d+$", "", arxiv_id)
+
+
 def load_known_ids(path: Path) -> set[str]:
     if not path.exists():
         return set()
-    return set(re.findall(r"\b(\d{4}\.\d{4,5})\b", path.read_text()))
+    # Extract base IDs without version suffix
+    return set(re.findall(r"\b(\d{4}\.\d{4,5})(?:v\d+)?\b", path.read_text()))
