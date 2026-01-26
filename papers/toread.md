@@ -2,9 +2,53 @@
 
 Curated list of papers highly relevant to the thesis. Auto-discovered papers are filtered for direct relevance.
 
-**Last updated**: 2026-01-25
+**Last updated**: 2026-01-26
 
 ---
+
+## New Papers (2026-01-26)
+
+### [Trapped in the past? Disentangling fluid and crystallized intelligence of large language models using chess](https://arxiv.org/abs/2601.16823v1)
+- **arXiv**: 2601.16823v1
+- **Published**: 2026-01-23
+- **Stance**: CHALLENGES
+- **Priority**: 9/10
+- **Why read**: This paper investigates the limits of LLM reasoning, emphasizing the reliance on memorization and distributional familiarity, which directly challenges the thesis that LLM reasoning is fundamentally generative.
+
+<details>
+<summary>Abstract</summary>
+
+Large Language Models (LLMs) exhibit remarkable capabilities, yet it remains unclear to what extent these reflect sophisticated recall (crystallized intelligence) or reasoning ability (fluid intelligence). We introduce chess as a controlled testbed for disentangling these faculties. Leveraging the game's structure and scalable engine evaluations, we construct a taxonomy of positions varying in training corpus proximity--ranging from common states solvable by memorization to novel ones requiring first-principles reasoning. We systematically evaluate multiple GPT generations under varying reasoning intensities. Our analysis reveals a clear gradient: performance consistently degrades as fluid intelligence demands increase. Notably, in out-of-distribution tasks, performance collapses to random levels. While newer models improve, progress slows significantly for tasks outside the training distribution. Furthermore, while reasoning-augmented inference improves performance, its marginal benefit per token decreases with distributional proximity. These results suggest current architectures remain limited in systematic generalization, highlighting the need for mechanisms beyond scale to achieve robust fluid intelligence.
+
+</details>
+
+### [Reasoning Promotes Robustness in Theory of Mind Tasks](https://arxiv.org/abs/2601.16853v1)
+- **arXiv**: 2601.16853v1
+- **Published**: 2026-01-23
+- **Stance**: CHALLENGES
+- **Priority**: 8/10
+- **Why read**: This paper investigates whether improvements in LLM reasoning are due to genuine reasoning capabilities or robustness, directly addressing the thesis about the nature of LLM reasoning.
+
+<details>
+<summary>Abstract</summary>
+
+Large language models (LLMs) have recently shown strong performance on Theory of Mind (ToM) tests, prompting debate about the nature and true performance of the underlying capabilities. At the same time, reasoning-oriented LLMs trained via reinforcement learning with verifiable rewards (RLVR) have achieved notable improvements across a range of benchmarks. This paper examines the behavior of such reasoning models in ToM tasks, using novel adaptations of machine psychological experiments and results from established benchmarks. We observe that reasoning models consistently exhibit increased robustness to prompt variations and task perturbations. Our analysis indicates that the observed gains are more plausibly attributed to increased robustness in finding the correct solution, rather than to fundamentally new forms of ToM reasoning. We discuss the implications of this interpretation for evaluating social-cognitive behavior in LLMs.
+
+</details>
+
+### [AgentDrive: An Open Benchmark Dataset for Agentic AI Reasoning with LLM-Generated Scenarios in Autonomous Systems](https://arxiv.org/abs/2601.16964v1)
+- **arXiv**: 2601.16964v1
+- **Published**: 2026-01-23
+- **Stance**: CHALLENGES
+- **Priority**: 8/10
+- **Why read**: This paper evaluates LLM reasoning in complex, structured scenarios, providing insights into whether their capabilities are genuinely generative or pattern-based.
+
+<details>
+<summary>Abstract</summary>
+
+The rapid advancement of large language models (LLMs) has sparked growing interest in their integration into autonomous systems for reasoning-driven perception, planning, and decision-making. However, evaluating and training such agentic AI models remains challenging due to the lack of large-scale, structured, and safety-critical benchmarks. This paper introduces AgentDrive, an open benchmark dataset containing 300,000 LLM-generated driving scenarios designed for training, fine-tuning, and evaluating autonomous agents under diverse conditions. AgentDrive formalizes a factorized scenario space across seven orthogonal axes: scenario type, driver behavior, environment, road layout, objective, difficulty, and traffic density. An LLM-driven prompt-to-JSON pipeline generates semantically rich, simulation-ready specifications that are validated against physical and schema constraints. Each scenario undergoes simulation rollouts, surrogate safety metric computation, and rule-based outcome labeling. To complement simulation-based evaluation, we introduce AgentDrive-MCQ, a 100,000-question multiple-choice benchmark spanning five reasoning dimensions: physics, policy, hybrid, scenario, and comparative reasoning. We conduct a large-scale evaluation of fifty leading LLMs on AgentDrive-MCQ. Results show that while proprietary frontier models perform best in contextual and policy reasoning, advanced open models are rapidly closing the gap in structured and physics-grounded reasoning. We release the AgentDrive dataset, AgentDrive-MCQ benchmark, evaluation code, and related materials at https://github.com/maferrag/AgentDrive
+
+</details>
 
 ## High Priority (Directly Tests Thesis)
 
