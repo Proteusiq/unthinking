@@ -14,9 +14,12 @@ THESIS: {thesis}
 
 Given this paper's title and abstract, provide a JSON response with:
 - "relevant": boolean - Is this paper relevant to studying LLM reasoning capabilities?
-- "stance": "SUPPORTS" | "CHALLENGES" | "BALANCED" - Does evidence support or challenge the thesis?
+- "stance": "SUPPORTS" | "CHALLENGES" | "BALANCED"
+  - SUPPORTS = paper shows LLMs have limitations, fail at reasoning, or rely on pattern matching (supports thesis)
+  - CHALLENGES = paper shows LLMs have genuine reasoning capabilities (challenges/rebuts thesis)
+  - BALANCED = paper has mixed evidence or is neutral
 - "priority": 1-10 - How important is this paper for the literature review?
-- "why_read": string - One sentence explaining why this paper matters (or doesn't)
+- "why_read": string - One sentence explaining why this paper matters
 
 PAPER TITLE: {title}
 
