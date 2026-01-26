@@ -1,5 +1,3 @@
-"""arXiv search functionality."""
-
 import re
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -16,7 +14,6 @@ SEARCH_QUERIES = [
 
 
 def search_recent_papers(days_back: int) -> dict[str, arxiv.Result]:
-    """Search arXiv for recent papers matching reasoning queries."""
     client = arxiv.Client()
     cutoff = datetime.now() - timedelta(days=days_back)
     papers: dict[str, arxiv.Result] = {}
@@ -36,8 +33,6 @@ def search_recent_papers(days_back: int) -> dict[str, arxiv.Result]:
 
 
 def load_known_ids(path: Path) -> set[str]:
-    """Extract arXiv IDs from a markdown file."""
     if not path.exists():
         return set()
-    content = path.read_text()
-    return set(re.findall(r"\b(\d{4}\.\d{4,5})\b", content))
+    return set(re.findall(r"\b(\d{4}\.\d{4,5})\b", path.read_text()))

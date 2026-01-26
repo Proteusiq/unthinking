@@ -1,5 +1,3 @@
-"""Paper classification using LLM or keyword fallback."""
-
 import json
 
 import httpx
@@ -39,14 +37,17 @@ CHALLENGE_KEYWORDS = frozenset(
     ["genuine reasoning", "emergence", "breakthrough", "capability"]
 )
 
+API_URL = "https://models.github.ai/inference/chat/completions"
 
-def classify_with_llm(title: str, abstract: str, token: str) -> Classification | None:
-    """Classify paper using GitHub Models API."""
+
+def classify_with_llm(
+    client: httpx.Client, title: str, abstract: str, token: str
+) -> Classification | None:
     prompt = CLASSIFICATION_PROMPT.format(thesis=THESIS, title=title, abstract=abstract)
 
     try:
-        response = httpx.post(
-            "https://models.github.ai/inference/chat/completions",
+        response = client.post(
+            API_URL,
             headers={
                 "Authorization": f"Bearer {token}",
                 "Content-Type": "application/json",
@@ -56,7 +57,6 @@ def classify_with_llm(title: str, abstract: str, token: str) -> Classification |
                 "messages": [{"role": "user", "content": prompt}],
                 "temperature": 0.1,
             },
-            timeout=30.0,
         )
         response.raise_for_status()
         content = response.json()["choices"][0]["message"]["content"]
@@ -69,13 +69,11 @@ def classify_with_llm(title: str, abstract: str, token: str) -> Classification |
             priority=min(max(data.get("priority", 5), 1), 10),
             why_read=data.get("why_read", ""),
         )
-    except Exception as e:
-        print(f"      LLM classification failed: {e}")
+    except (httpx.HTTPError, json.JSONDecodeError, KeyError):
         return None
 
 
 def classify_with_keywords(title: str, abstract: str) -> Classification:
-    """Fallback classification using keyword matching."""
     text = f"{title} {abstract}".lower()
 
     has_reasoning = any(kw in text for kw in REASONING_KEYWORDS)
@@ -102,10 +100,11 @@ def classify_with_keywords(title: str, abstract: str) -> Classification:
     )
 
 
-def classify_paper(title: str, abstract: str, token: str | None) -> Classification:
-    """Classify a paper, using LLM if token available, else keywords."""
-    if token:
-        result = classify_with_llm(title, abstract, token)
+def classify_paper(
+    title: str, abstract: str, token: str | None, client: httpx.Client | None = None
+) -> Classification:
+    if token and client:
+        result = classify_with_llm(client, title, abstract, token)
         if result:
             return result
     return classify_with_keywords(title, abstract)
