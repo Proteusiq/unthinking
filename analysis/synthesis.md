@@ -53,7 +53,7 @@
 | 82 | Interactive Learning ILR | Sep 2025 | Balanced | Multi-agent co-learning 3-5% improvement; no OOD testing |
 | 83 | Revisiting LLM Reasoning via IB | Jul 2025 | Balanced | IB regularization improves RL by ~2 points; reconciles entropy debate |
 
-**Total: 83 papers analyzed**
+**Total: 85 papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative

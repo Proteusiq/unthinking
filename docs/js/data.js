@@ -1,5 +1,5 @@
 // Paper data for visualization - auto-generated
-// 79 papers, 144 relationships
+// 85 papers analyzed, 79 in visualization (6 pending), 144 relationships
 window.paperData = {
   nodes: [
     {
