@@ -108,7 +108,7 @@ jobs:
               const paperList = papers.slice(0, 10).map(p => {
                 let entry = `### [${p.title}](${p.url})`;
                 if (p.stance) entry += `\n**Stance**: ${p.stance}`;
-                if (p.classifiedBy) entry += ` *(${p.classifiedBy})*`;
+                if (p.classifiedBy) entry += `\n**Classified by**: ${p.classifiedBy}`;
                 if (p.whyRead) entry += `\n**Why read**: ${p.whyRead}`;
                 if (p.abstract) {
                   entry += `\n\n<details>\n<summary>Abstract</summary>\n\n${p.abstract}\n\n</details>`;
