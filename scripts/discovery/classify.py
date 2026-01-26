@@ -71,6 +71,7 @@ def classify_with_llm(
             stance=data.get("stance", "BALANCED"),
             priority=min(max(data.get("priority", 5), 1), 10),
             why_read=data.get("why_read", ""),
+            classified_by="llm",
         )
     except (httpx.HTTPError, json.JSONDecodeError, KeyError):
         return None
@@ -100,6 +101,7 @@ def classify_with_keywords(title: str, abstract: str) -> Classification:
         stance=stance,
         priority=priority,
         why_read="General reasoning paper (keyword match)",
+        classified_by="keyword",
     )
 
 

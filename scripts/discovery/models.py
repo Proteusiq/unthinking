@@ -7,6 +7,7 @@ class Classification:
     stance: str
     priority: int
     why_read: str
+    classified_by: str  # "llm" or "keyword"
 
 
 @dataclass(frozen=True)
@@ -19,3 +20,4 @@ class Paper:
     priority: int
     why_read: str
     connections: tuple[str, ...]
+    classified_by: str  # "llm" or "keyword"

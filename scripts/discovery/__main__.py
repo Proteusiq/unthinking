@@ -51,6 +51,7 @@ def process_paper(
         priority=priority,
         why_read=classification.why_read,
         connections=connections,
+        classified_by=classification.classified_by,
     )
 
 

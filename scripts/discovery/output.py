@@ -6,12 +6,14 @@ from discovery.models import Paper
 
 
 def format_paper(paper: Paper) -> str:
+    classifier_label = "LLM" if paper.classified_by == "llm" else "Keyword"
     lines = [
         f"### [{paper.title}](https://arxiv.org/abs/{paper.arxiv_id})",
         f"- **arXiv**: {paper.arxiv_id}",
         f"- **Published**: {paper.published}",
         f"- **Stance**: {paper.stance}",
         f"- **Priority**: {paper.priority}/10",
+        f"- **Classified by**: {classifier_label}",
         f"- **Why read**: {paper.why_read}",
     ]
 
