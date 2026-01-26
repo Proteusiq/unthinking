@@ -37,10 +37,8 @@
     alive: {
       enabled: true,
       stanceForce: 0.03, // Gentle push toward stance position
-      breathInterval: 3000, // Breath every 3 seconds
+      breathInterval: 1500, // Breath every 1.5 seconds
       breathStrength: 0.03, // Very subtle movement
-      idleTimeout: 5000, // Resume animation after 5 seconds idle
-      startDelay: 3000, // Wait 3 seconds before starting animation
     },
   };
 
@@ -61,8 +59,6 @@
     searchTerm: '',
     searchMatches: [],
     searchIndex: 0,
-    isIdle: true,
-    idleTimer: null,
     breathingPaused: false,
     dialogueVisible: true,
     dialogueInterval: null,
@@ -280,46 +276,23 @@
     };
   }
 
-  // Gentle breathing animation
+  // Continuous gentle breathing animation - never stops
   function startBreathing() {
-    // Delay start so user doesn't notice
-    setTimeout(() => {
-      setInterval(() => {
-        // Only breathe when idle
-        if (!state.isIdle || state.breathingPaused) return;
+    setInterval(() => {
+      // Skip if user is dragging a node
+      if (state.breathingPaused) return;
 
-        // Add small random velocity to each node
-        state.nodes.forEach((node) => {
-          if (!node.fx && !node.fy) {
-            // Not being dragged
-            node.vx += (Math.random() - 0.5) * 1.2;
-            node.vy += (Math.random() - 0.5) * 1.2;
-          }
-        });
-        // Reheat simulation gently
-        state.simulation.alpha(0.05).restart();
-      }, CONFIG.alive.breathInterval);
-    }, CONFIG.alive.startDelay);
+      // Add small random velocity to each node
+      state.nodes.forEach((node) => {
+        if (!node.fx && !node.fy) {
+          node.vx += (Math.random() - 0.5) * 0.8;
+          node.vy += (Math.random() - 0.5) * 0.8;
+        }
+      });
 
-    // Track user activity (only deliberate interactions, not passive moves)
-    ['click', 'mousedown', 'touchstart'].forEach((event) => {
-      document.addEventListener(event, resetIdleTimer);
-    });
-
-    // Start idle
-    state.isIdle = true;
-  }
-
-  function resetIdleTimer() {
-    state.isIdle = false;
-
-    if (state.idleTimer) {
-      clearTimeout(state.idleTimer);
-    }
-
-    state.idleTimer = setTimeout(() => {
-      state.isIdle = true;
-    }, CONFIG.alive.idleTimeout);
+      // Keep simulation alive with low alpha
+      state.simulation.alpha(0.03).restart();
+    }, CONFIG.alive.breathInterval);
   }
 
   // ==========================================================================
