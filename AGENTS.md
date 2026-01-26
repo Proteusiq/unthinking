@@ -5,6 +5,50 @@ Rules and methodology for conducting systematic literature reviews on AI/ML rese
 
 ---
 
+## Development Philosophy
+
+- **Simplicity is king** — the simplest solution that works is the best solution
+- **Self-documenting code** — if it needs comments, refactor it
+- **Functional over OOP** — pure functions, composition, immutability
+- **Commit early, commit often** — small, focused, verified commits
+
+### Code Design
+- Prefer **pure functions**; isolate side effects
+- Avoid hidden state and mutable globals
+- Declare types explicitly at module boundaries
+
+### Error Handling
+- Treat errors as structured data, not control flow
+- Add context when propagating errors
+- Never swallow errors silently
+
+### Git & Commits
+```
+type: short description
+```
+
+| Type | Use |
+|------|-----|
+| `feat:` | New feature |
+| `fix:` | Bug fix |
+| `docs:` | Documentation |
+| `chore:` | Maintenance |
+| `refactor:` | Restructure (no behavior change) |
+| `test:` | Tests |
+
+### Python Style
+- Type annotations: always, Python 3.12+ (`list[T]`, `X | None`)
+- Docstrings: brief, public APIs only
+- Tools: `uv`, `ruff`, `ty`, `pytest`
+
+```bash
+uvx ruff format .
+uvx ruff check --fix .
+uvx ty check .
+```
+
+---
+
 ## Core Principles
 
 ### 1. Read the FULL Paper, Not Just the Abstract
