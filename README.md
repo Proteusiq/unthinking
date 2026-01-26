@@ -94,6 +94,13 @@ See [`experiments/decoding_ablation/protocol.md`](./experiments/decoding_ablatio
 │   ├── paper_graph.md        # Paper interaction graph
 │   ├── rebuttals.md          # Rebuttal matrix
 │   └── explored/             # Individual paper analyses (79 files)
+├── scripts/
+│   └── discovery/            # Paper discovery package
+│       ├── __main__.py       # Entry: uv run scripts/discovery/__main__.py
+│       ├── models.py         # Paper, Classification dataclasses
+│       ├── search.py         # arXiv search, load known IDs
+│       ├── classify.py       # LLM + keyword classification
+│       └── output.py         # Markdown formatting, file writing
 ├── experiments/
 │   └── decoding_ablation/    # OLMo 3 decoding experiment
 │       └── protocol.md       # Experimental protocol
