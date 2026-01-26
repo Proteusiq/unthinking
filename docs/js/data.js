@@ -1,6 +1,9 @@
 // Paper data for visualization - auto-generated
-// 85 papers analyzed, 79 in visualization (6 pending), 144 relationships
 window.paperData = {
+  meta: {
+    totalAnalyzed: 85,
+    lastUpdated: '2026-01-26',
+  },
   nodes: [
     {
       id: '2305.18654',
