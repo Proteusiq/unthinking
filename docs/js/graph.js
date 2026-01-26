@@ -1171,11 +1171,22 @@
     });
 
     // Filter buttons
+    const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
     document.querySelectorAll('.filter-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
-        applyFilter(btn.dataset.filter);
+        const isActive = btn.classList.contains('active');
+        const isAllBtn = btn.dataset.filter === 'all';
+
+        // Toggle: if clicking active non-all button, reset to all
+        if (isActive && !isAllBtn) {
+          document.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
+          allBtn.classList.add('active');
+          applyFilter('all');
+        } else {
+          document.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          applyFilter(btn.dataset.filter);
+        }
       });
 
       // Hover preview (only if not already active)
