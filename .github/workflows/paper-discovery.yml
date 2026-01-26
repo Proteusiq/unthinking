@@ -23,22 +23,15 @@ jobs:
         with:
           fetch-depth: 0  # Full history for better diff detection
         
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-          
-      - name: Install dependencies
-        run: |
-          pip install arxiv httpx
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
 
       - name: Run paper discovery
-        id: discover
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PYTHONPATH: ${{ github.workspace }}/scripts
+        working-directory: scripts
         run: |
-          python -m discovery
+          uv run discovery/__main__.py
           
       - name: Check for new papers
         id: check
