@@ -932,6 +932,9 @@
     const showBtn = document.getElementById('dialogue-show-btn');
     if (!panel) return;
 
+    // Start at random position in dialogue list
+    dialogueIndex = Math.floor(Math.random() * dialogues.length);
+
     // Position below thesis card
     positionDialoguePanel();
 
