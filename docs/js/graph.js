@@ -1050,7 +1050,7 @@
   }
 
   function showNextDialogue() {
-    if (!state.dialogueVisible || !state.isIdle) return;
+    if (!state.dialogueVisible) return;
 
     const dialogue = dialogues[dialogueIndex];
     const sourceNode = state.nodes.find((n) => n.id === dialogue.sourceId);
