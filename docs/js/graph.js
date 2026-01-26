@@ -820,7 +820,7 @@
   // ==========================================================================
 
   function updateStats() {
-    const total = state.nodes.length;
+    const total = window.paperData?.meta?.totalAnalyzed ?? state.nodes.length;
     const supports = state.nodes.filter((n) => n.stance === 'supports').length;
     const challenges = state.nodes.filter((n) => n.stance === 'challenges').length;
     const balanced = state.nodes.filter((n) => n.stance === 'balanced').length;
