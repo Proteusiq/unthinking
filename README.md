@@ -126,6 +126,63 @@ See [`experiments/decoding_ablation/protocol.md`](./experiments/decoding_ablatio
 
 ---
 
+## Automated Paper Discovery
+
+New papers are discovered daily via GitHub Actions, classified using an LLM with thesis context.
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     Paper Discovery Flow                        │
+│                   (runs daily at 8am UTC)                       │
+└─────────────────────────────────────────────────────────────────┘
+
+1. SEARCH arXiv (last 3 days)
+   │
+   ▼
+2. DEDUPE against known papers (paper_list.md + toread.md)
+   │
+   ▼
+3. CLASSIFY each paper
+   │
+   ├─── GITHUB_TOKEN? ───► YES ───► LLM Classification
+   │                                       │
+   │                              ┌────────▼────────┐
+   │                              │ GitHub Models   │
+   │                              │ (gpt-4.1-nano)  │
+   │                              │                 │
+   │                              │ Input:          │
+   │                              │ • Thesis        │
+   │                              │ • Title         │
+   │                              │ • Abstract      │
+   │                              │                 │
+   │                              │ Output (JSON):  │
+   │                              │ • relevant      │
+   │                              │ • stance        │
+   │                              │ • priority      │
+   │                              │ • why_read      │
+   │                              └────────┬────────┘
+   │                                       │
+   │                              API fail? ──► Fallback
+   │                                       │
+   └─── NO ────────────────────────────────┴───► Keyword Matching
+   │
+   ▼
+4. FILTER (keep relevant papers only)
+   │
+   ▼
+5. BOOST priority if paper cites known papers
+   │
+   ▼
+6. PREPEND to toread.md (newest first)
+   │
+   ▼
+7. CREATE GitHub Issue with top 10 papers
+```
+
+The LLM classifies papers with full thesis context, determining relevance even for papers without exact keyword matches (e.g., "chess and LLM memorization" → relevant).
+
+---
+
 ## Methodology
 
 1. **Read full papers** — not just abstracts (arXiv HTML versions)
