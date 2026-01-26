@@ -248,7 +248,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 - **For Reasoning**: ~26
 - **Balanced**: ~31
 - **Date Range**: 2024-2026
-- **Analyzed**: 63
+- **Analyzed**: 85
 
 ---
 
