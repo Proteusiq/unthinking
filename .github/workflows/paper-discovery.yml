@@ -29,9 +29,9 @@ jobs:
       - name: Run paper discovery
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        working-directory: scripts
+          PYTHONPATH: scripts
         run: |
-          uv run discovery/__main__.py
+          uv run scripts/discovery/__main__.py
           
       - name: Check for new papers
         id: check

@@ -6,11 +6,7 @@
 """Main entry point for paper discovery."""
 
 import os
-import sys
 from pathlib import Path
-
-# Add scripts to path for local imports
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import arxiv
 
