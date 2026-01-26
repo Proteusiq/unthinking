@@ -138,6 +138,7 @@ jobs:
                 repo: context.repo.repo,
                 title: `New Papers to Review (${today})`,
                 body: issueBody,
-                labels: ['papers', 'auto-discovery']
+                labels: ['papers', 'auto-discovery'],
+                assignees: ['Proteusiq']
               });
             }
