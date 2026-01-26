@@ -14,7 +14,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import arxiv
 
-from discovery.arxiv import load_known_ids, search_recent_papers
+from discovery.search import load_known_ids, search_recent_papers
 from discovery.classify import classify_paper
 from discovery.models import Paper
 from discovery.output import prepend_to_toread
