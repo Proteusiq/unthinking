@@ -1,0 +1,45 @@
+name: Paper Discovery Monitor
+
+on:
+  schedule:
+    - cron: '0 9 * * *'
+    - cron: '0 19 * * *'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  check-discovery-ran:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if paper discovery ran today
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          RUNS=$(gh run list --repo ${{ github.repository }} --workflow "Daily Paper Discovery" --json conclusion,createdAt --jq "[.[] | select(.createdAt | startswith(\"$TODAY\")) | select(.conclusion == \"success\")] | length")
+          echo "Successful runs today: $RUNS"
+          if [ "$RUNS" -eq "0" ]; then
+            echo "status=failed" >> $GITHUB_OUTPUT
+          else
+            echo "status=ok" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create alert issue
+        if: steps.check.outputs.status == 'failed'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          EXISTING=$(gh issue list --repo ${{ github.repository }} --label "alert" --search "Paper Discovery Failed $TODAY" --json number --jq 'length')
+          if [ "$EXISTING" -eq "0" ]; then
+            gh issue create \
+              --repo ${{ github.repository }} \
+              --title "Paper Discovery Failed ($TODAY)" \
+              --body "The Daily Paper Discovery workflow did not run successfully today. Check: https://github.com/${{ github.repository }}/actions/workflows/paper-discovery.yml" \
+              --label "alert" \
+              --assignee "Proteusiq"
+          fi
