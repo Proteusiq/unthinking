@@ -1104,6 +1104,96 @@ window.paperData = {
         '15s latency in emergencies',
       ],
     },
+    {
+      id: '2406.10625',
+      title: 'On the Hardness of Faithful Chain-of-Thought Reasoning',
+      shortTitle: 'Hardness of Faithfulness',
+      date: 'Jun 2024',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'Faithfulness-accuracy tradeoff is fundamental. All interventions fail. Larger models are LESS faithful. GPT-4 gets correct answers WITHOUT using CoT.',
+      keyEvidence: [
+        'All intervention classes fail',
+        'Larger models less faithful',
+        'GPT-4 correct without CoT',
+      ],
+    },
+    {
+      id: '2507.18391',
+      title: 'Revisiting LLM Reasoning via Information Bottleneck',
+      shortTitle: 'IB Reasoning',
+      date: 'Jul 2025',
+      stance: 'balanced',
+      cluster: 'mechanism',
+      coreArgument:
+        'IB regularization improves RL by ~2 points. Reconciles entropy debate. Token-level advantage x entropy.',
+      keyEvidence: [
+        '~2 point average gain',
+        'One-line code change',
+        'Reconciles entropy debate',
+      ],
+    },
+    {
+      id: '2509.26306',
+      title: 'Interactive Learning for LLM Reasoning (ILR)',
+      shortTitle: 'Interactive Learning',
+      date: 'Sep 2025',
+      stance: 'balanced',
+      cluster: 'mechanism',
+      coreArgument:
+        'Multi-agent co-learning improves individual reasoning by 3-5%. Dynamic cooperation/competition. No OOD testing.',
+      keyEvidence: [
+        '3-5% improvement',
+        'Dynamic interaction',
+        'No OOD testing',
+      ],
+    },
+    {
+      id: '2510.10182',
+      title: 'A Survey of Inductive Reasoning for LLMs',
+      shortTitle: 'Inductive Survey',
+      date: 'Oct 2025',
+      stance: 'supports',
+      cluster: 'mechanism',
+      coreArgument:
+        'Inductive ability originates from induction heads = pattern matching. No universal bias. Test-time scaling = search through learned patterns.',
+      keyEvidence: [
+        'Induction heads = pattern matching',
+        'No universal bias',
+        'Simplicity preference',
+      ],
+    },
+    {
+      id: '2512.01222',
+      title: 'Unsupervised Decoding of Encoded Reasoning',
+      shortTitle: 'Decoding Reasoning',
+      date: 'Dec 2025',
+      stance: 'balanced',
+      cluster: 'mechanism',
+      coreArgument:
+        'Logit lens decodes ROT-13 ~75%. Internal representations anchor to English. Interpretability can penetrate encoding.',
+      keyEvidence: [
+        '~75% decoding accuracy',
+        'English-anchored internals',
+        'Layers 54-62 peak',
+      ],
+    },
+    {
+      id: '2601.14716',
+      title: 'PCL-Reasoner-V1.5: Offline RL for Math Reasoning',
+      shortTitle: 'PCL-Reasoner',
+      date: 'Jan 2026',
+      stance: 'challenges',
+      cluster: 'emergence',
+      coreArgument:
+        'Offline RL achieves 90.9% AIME 2024. RL improves long-CoT specifically. Depends on DeepSeek-R1 distillation.',
+      keyEvidence: [
+        '90.9% AIME 2024',
+        '85.6% AIME 2025',
+        'Offline RL stable',
+      ],
+    },
   ],
   links: [
     {
@@ -2021,6 +2111,43 @@ window.paperData = {
       target: '2305.18654',
       type: 'supports',
       description: 'Pattern pursuit ignores context',
+    },
+    // Missing papers added
+    {
+      source: '2406.10625',
+      target: '2307.13702',
+      type: 'extends',
+      description: 'Faithfulness-accuracy tradeoff',
+    },
+    {
+      source: '2406.10625',
+      target: '2505.05410',
+      type: 'supports',
+      description: 'Larger models less faithful',
+    },
+    {
+      source: '2510.10182',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Induction heads = pattern matching',
+    },
+    {
+      source: '2512.01222',
+      target: '2601.08058',
+      type: 'supports',
+      description: 'Internal representations interpretable',
+    },
+    {
+      source: '2601.14716',
+      target: '2501.12948',
+      type: 'supports',
+      description: 'RL improves long-CoT reasoning',
+    },
+    {
+      source: '2601.14716',
+      target: '2512.07783',
+      type: 'supports',
+      description: 'Depends on distillation (surfacing)',
     },
   ],
 };

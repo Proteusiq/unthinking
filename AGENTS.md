@@ -258,6 +258,22 @@ Query: "LLM reasoning" + date:2024-2026 + category:cs.CL
 10. **COMMIT changes to git**
 11. **PUSH to deploy docs** (GitHub Pages serves from main branch)
 
+### Verification Checklist (Run Periodically)
+Ensure node count in `docs/js/data.js` matches analyzed papers:
+```bash
+# Count nodes in data.js
+grep -c "id: '" docs/js/data.js
+
+# Count DONE papers in paper_list.md
+grep -c "DONE" papers/paper_list.md
+
+# Find papers missing from data.js
+grep "id: '" docs/js/data.js | sed "s/.*id: '\\([^']*\\)'.*/\\1/" | sort > /tmp/data_ids.txt
+grep -E "^\\| [0-9]+ \\| [0-9]" papers/paper_list.md | awk -F'|' '{gsub(/ /,"",$3); print $3}' | sort > /tmp/paper_ids.txt
+comm -23 /tmp/paper_ids.txt /tmp/data_ids.txt
+```
+If mismatch found, add missing papers to `docs/js/data.js` nodes and links.
+
 ---
 
 ## Key Lessons
