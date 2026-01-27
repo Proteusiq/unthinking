@@ -203,3 +203,28 @@ Remove analyzed paper from `papers/toread.md` or mark as done.
 - **Daily at 8am UTC**: GitHub Action searches arXiv for new papers
 - **Auto-creates**: `papers/toread.md` entries with relevance assessment
 - **Auto-creates**: GitHub issue notifying of new papers
+
+---
+
+## Verification (Run Periodically)
+
+Ensure `docs/js/data.js` node count matches analyzed papers:
+
+```bash
+# Count nodes in data.js
+grep -c "id: '" docs/js/data.js
+
+# Count DONE papers in paper_list.md  
+grep -c "DONE" papers/paper_list.md
+
+# Find papers missing from data.js
+grep "id: '" docs/js/data.js | sed "s/.*id: '\\([^']*\\)'.*/\\1/" | sort > /tmp/data_ids.txt
+grep -E "^\| [0-9]+ \| [0-9]" papers/paper_list.md | awk -F'|' '{gsub(/ /,"",$3); print $3}' | sort > /tmp/paper_ids.txt
+comm -23 /tmp/paper_ids.txt /tmp/data_ids.txt
+```
+
+If mismatch found:
+1. Add missing papers to `docs/js/data.js` nodes array
+2. Add relevant links for the new papers
+3. Update `meta.totalAnalyzed` count
+4. Commit and push to trigger deploy
