@@ -239,16 +239,19 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 88 | 2504.09858 | Apr 2025 | Reasoning Models Can Be Effective Without Thinking | Balanced | ✅ DONE |
 | 89 | 2504.20771 | Apr 2025 | Computational Reasoning of LLMs (TMBench) | Balanced | ✅ DONE |
 | 90 | 2407.20311 | Jul 2024 | Physics of Language Models Part 2.1: Grade-School Math | For | ✅ DONE |
+| 91 | 2601.16823 | Jan 2026 | Trapped in the past? Disentangling fluid and crystallized intelligence using chess | Supports | ✅ DONE |
+| 92 | 2601.16853 | Jan 2026 | Reasoning Promotes Robustness in Theory of Mind Tasks | Balanced | ✅ DONE |
+| 93 | 2601.18790 | Jan 2026 | MortalMATH: Reasoning Objectives vs Emergency Contexts | Supports | ✅ DONE |
 
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: ~90 (consolidated #2 and #3 into single paper 2504.05262; added 2512.13978)
-- **Against Reasoning**: ~36
+- **Total Papers**: 93
+- **Against Reasoning**: ~38
 - **For Reasoning**: ~26
-- **Balanced**: ~31
+- **Balanced**: ~32
 - **Date Range**: 2024-2026
-- **Analyzed**: 85
+- **Analyzed**: 88
 
 ---
 

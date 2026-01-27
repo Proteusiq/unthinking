@@ -8,21 +8,6 @@ Curated list of papers highly relevant to the thesis. Auto-discovered papers are
 
 ## New Papers (2026-01-27)
 
-### [MortalMATH: Evaluating the Conflict Between Reasoning Objectives and Emergency Contexts](https://arxiv.org/abs/2601.18790v1)
-- **arXiv**: 2601.18790v1
-- **Published**: 2026-01-26
-- **Stance**: SUPPORTS
-- **Priority**: 9/10
-- **Classified by**: LLM
-- **Why read**: Shows reasoning models ignore safety context (95%+ task completion while user describes dying), suggesting tunnel vision from pattern optimization.
-
-<details>
-<summary>Abstract</summary>
-
-Large Language Models are increasingly optimized for deep reasoning, prioritizing the correct execution of complex tasks over general conversation. We investigate whether this focus on calculation creates a "tunnel vision" that ignores safety in critical situations. We introduce MortalMATH, a benchmark of 150 scenarios where users request algebra help while describing increasingly life-threatening emergencies (e.g., stroke symptoms, freefall). We find a sharp behavioral split: generalist models (like Llama-3.1) successfully refuse the math to address the danger. In contrast, specialized reasoning models (like Qwen-3-32b and GPT-5-nano) often ignore the emergency entirely, maintaining over 95 percent task completion rates while the user describes dying. Furthermore, the computational time required for reasoning introduces dangerous delays: up to 15 seconds before any potential help is offered. These results suggest that training models to relentlessly pursue correct answers may inadvertently unlearn the survival instincts required for safe deployment.
-
-</details>
-
 ### [Teaching Models to Teach Themselves: Reasoning at the Edge of Learnability](https://arxiv.org/abs/2601.18778v1)
 - **arXiv**: 2601.18778v1
 - **Published**: 2026-01-26

@@ -1,8 +1,8 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 85,
-    lastUpdated: '2026-01-26',
+    totalAnalyzed: 88,
+    lastUpdated: '2026-01-27',
   },
   nodes: [
     {
@@ -1059,6 +1059,51 @@ window.paperData = {
         'Extends Othello/Chess world model paradigm to POMDP. Evidence for internal representations. Probed features may not be causally used.',
       keyEvidence: ['POMDP extension', 'Internal representations', 'Causal use unclear'],
     },
+    {
+      id: '2601.16823',
+      title: 'Trapped in the past? Disentangling fluid and crystallized intelligence using chess',
+      shortTitle: 'Trapped in the Past',
+      date: 'Jan 2026',
+      stance: 'supports',
+      cluster: 'compositional',
+      coreArgument:
+        'OOD chess performance collapses to random despite strong in-distribution play. Crystallized (memorization) dominates over fluid (reasoning) intelligence.',
+      keyEvidence: [
+        'WD: good, OOD: random',
+        'Reasoning tokens diminishing returns OOD',
+        'Crystallized > fluid intelligence',
+      ],
+    },
+    {
+      id: '2601.16853',
+      title: 'Reasoning Promotes Robustness in Theory of Mind Tasks',
+      shortTitle: 'ToM Robustness',
+      date: 'Jan 2026',
+      stance: 'balanced',
+      cluster: 'emergence',
+      coreArgument:
+        'Reasoning models show improved robustness on ToM tasks, but this is NOT new capability—bounded by base model capability. Supports "surfacing" hypothesis.',
+      keyEvidence: [
+        'Robustness ≠ new capability',
+        'Bounded by base model',
+        'ToM strategies visible in traces',
+      ],
+    },
+    {
+      id: '2601.18790',
+      title: 'MortalMATH: Reasoning Objectives vs Emergency Contexts',
+      shortTitle: 'MortalMATH',
+      date: 'Jan 2026',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'Reasoning models maintain >95% task completion while user describes dying. RLVR creates "tunnel vision" — optimized pattern pursuit blinds models to context.',
+      keyEvidence: [
+        '>95% task completion during emergencies',
+        'RLVR creates tunnel vision',
+        '15s latency in emergencies',
+      ],
+    },
   ],
   links: [
     {
@@ -1919,6 +1964,63 @@ window.paperData = {
       target: '2506.06941',
       type: 'supports',
       description: 'Complexity collapse persists',
+    },
+    // Paper #84: Trapped in the Past (2601.16823)
+    {
+      source: '2601.16823',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Crystallized (memorization) dominates reasoning',
+    },
+    {
+      source: '2601.16823',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'OOD collapse to random performance',
+    },
+    {
+      source: '2601.16823',
+      target: '2512.07783',
+      type: 'supports',
+      description: 'Reasoning tokens diminishing returns OOD',
+    },
+    {
+      source: '2601.16823',
+      target: '2601.14456',
+      type: 'supports',
+      description: 'ID/OOD gap pattern in chess',
+    },
+    // Paper #85: ToM Robustness (2601.16853)
+    {
+      source: '2601.16853',
+      target: '2512.07783',
+      type: 'supports',
+      description: 'Robustness bounded by base model capability',
+    },
+    {
+      source: '2601.16853',
+      target: '2501.12948',
+      type: 'supports',
+      description: 'RL surfaces existing capability',
+    },
+    // Paper #86: MortalMATH (2601.18790)
+    {
+      source: '2601.18790',
+      target: '2501.12948',
+      type: 'challenges',
+      description: 'RLVR creates tunnel vision, not reasoning',
+    },
+    {
+      source: '2601.18790',
+      target: '2506.17219',
+      type: 'supports',
+      description: 'RL optimization creates blindness',
+    },
+    {
+      source: '2601.18790',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Pattern pursuit ignores context',
     },
   ],
 };
