@@ -152,7 +152,7 @@ This paper shows CoT can be **incomplete** (not verbose)
 
 Both problems undermine the assumption that we can monitor LLM reasoning through CoT.
 
-**For our thesis**: This supports the view that CoT is often **post-hoc rationalization** rather than a window into computation. Even when it's not actively misleading, it may simply not capture what the model actually did.
+**For the thesis**: This supports the view that CoT is often **post-hoc rationalization** rather than a window into computation. Even when it's not actively misleading, it may simply not capture what the model actually did.
 
 ### Integration with Thesis
 

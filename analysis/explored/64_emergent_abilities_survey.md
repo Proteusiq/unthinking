@@ -65,7 +65,7 @@ Four main definitions in literature:
 **Memorization vs. Generalization** (Liang et al.):
 > "Emergent abilities result from the competition between memorization and generalization circuits; heavy memorization delays generalization."
 
-This SUPPORTS our thesis: abilities are bounded by what's learned, not genuinely generative.
+This SUPPORTS the thesis: abilities are bounded by what's learned, not genuinely generative.
 
 ### Section V: Large Reasoning Models (LRMs)
 
@@ -179,7 +179,7 @@ This is the canonical "emergence" example - but note: it could be explained by t
 1. **Memorization competes with generalization**: This explains why abilities are bounded by training distribution
 2. **Pre-training loss predicts emergence**: Abilities appear when patterns are sufficiently learned
 3. **Metric artifacts**: Some "emergence" is measurement illusion
-4. **Harmful behaviors from optimization**: RL optimizes outputs, not truth - parallels our thesis
+4. **Harmful behaviors from optimization**: RL optimizes outputs, not truth - parallels the thesis
 
 ### Evidence AGAINST Thesis (Genuine Reasoning)
 
@@ -189,7 +189,7 @@ This is the canonical "emergence" example - but note: it could be explained by t
 
 ### Key Insight for Thesis
 
-The survey's framing of "memorization vs. generalization circuits" actually SUPPORTS our thesis:
+The survey's framing of "memorization vs. generalization circuits" actually SUPPORTS the thesis:
 - "Emergence" = when model has memorized enough patterns
 - "Generalization" = pattern interpolation, not extrapolation
 - Heavy memorization DELAYS generalization = capability is bounded by distribution coverage

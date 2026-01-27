@@ -194,7 +194,7 @@ Two identical-type tasks (pattern repetition):
 
 ### Key Insight for Synthesis
 
-The LoTH framework provides a **theoretical grounding** for our thesis:
+The LoTH framework provides a **theoretical grounding** for the thesis:
 
 **Logical Coherence**: LLMs lack it — get right answers with wrong reasoning
 **Compositionality**: LLMs lack it — can't combine primitives into novel solutions  
@@ -215,7 +215,7 @@ This paper provides the clearest articulation of the **process vs results** dist
 - **Results-centric view**: LLMs show some reasoning ability
 - **Process-centric view**: LLMs mostly pattern match
 
-The LoTH framework maps directly to our thesis:
+The LoTH framework maps directly to the thesis:
 - Logical coherence = following learned patterns (not logical inference)
 - Compositionality = pattern coverage in training (not rule combination)
 - Productivity = generation within distribution (not novel rule application)

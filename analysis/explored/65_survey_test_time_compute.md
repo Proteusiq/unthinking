@@ -53,7 +53,7 @@
 
 > "LLMs do not lack the ability to correct errors during self-correction, and their main performance bottleneck lies in **locating the errors**."
 
-This supports our thesis: LLMs can follow correction patterns but cannot genuinely identify errors without external feedback.
+This supports the thesis that LLMs can follow correction patterns but cannot genuinely identify errors without external feedback.
 
 ### 2. No Universal Test-Time Scaling Law
 
@@ -61,7 +61,7 @@ This supports our thesis: LLMs can follow correction patterns but cannot genuine
 
 > "There are two major challenges: first, current test-time compute strategies are various... second, the performance of test-time compute is affected by a variety of factors."
 
-This supports our thesis: Unlike training (which follows predictable scaling), inference-time improvements are unpredictable — suggesting they're not accessing deeper reasoning but rather searching through learned patterns.
+This supports the thesis: unlike training (which follows predictable scaling), inference-time improvements are unpredictable — suggesting they're not accessing deeper reasoning but rather searching through learned patterns.
 
 ### 3. LRMs Fail to Generalize
 
@@ -69,7 +69,7 @@ This supports our thesis: Unlike training (which follows predictable scaling), i
 
 > "On the one hand, as the foundation of current System-2 models, CoT shows little effectiveness in non-symbolic reasoning tasks."
 
-This supports our thesis: Performance is domain-bounded, not genuinely generative.
+This supports the thesis that performance is domain-bounded, not genuinely generative.
 
 ### 4. Verifiers Have Limited Generalization
 
@@ -168,13 +168,13 @@ Parallel sampling reliably improves performance (though this is more "coverage" 
 
 ## Relevance to Thesis
 
-**SUPPORTS** — Survey provides comprehensive framework that, on close reading, supports our thesis.
+**SUPPORTS** — Survey provides comprehensive framework that, on close reading, supports the thesis.
 
 ### Key Insights for Thesis
 
-1. **System-1/System-2 distinction maps to our thesis**:
-   - System-1 = pattern matching (our "predictive")
-   - System-2 = deliberate reasoning (our "generative")
+1. **System-1/System-2 distinction maps to the thesis**:
+   - System-1 = pattern matching (the "predictive" claim)
+   - System-2 = deliberate reasoning (the "generative" claim)
    - Survey shows System-2 is achieved via search over System-1 outputs, NOT genuine reasoning
 
 2. **Self-correction failures**:
@@ -185,7 +185,7 @@ Parallel sampling reliably improves performance (though this is more "coverage" 
 3. **No universal scaling law**:
    - Training follows predictable scaling (memorization of patterns)
    - Inference doesn't follow predictable scaling (searching through learned patterns is unpredictable)
-   - This asymmetry supports our thesis
+   - This asymmetry supports the thesis
 
 4. **Parallel > Sequential**:
    - Parallel sampling (coverage) works better than sequential (depth)
@@ -195,7 +195,7 @@ Parallel sampling reliably improves performance (though this is more "coverage" 
    - LRMs work for math/code, fail on cross-domain
    - This = distribution-bounded capability
 
-### What Survey Gets Right (For Our Thesis)
+### What Survey Gets Right (For the Thesis)
 
 The survey inadvertently documents that "System-2 thinking" in LLMs is really "searching through System-1 patterns":
 - Self-correction = following correction patterns, not genuine reflection

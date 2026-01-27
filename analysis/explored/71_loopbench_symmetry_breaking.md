@@ -160,7 +160,7 @@ This paper shows a **capability gradient**:
 - O3/GPT-5.1: Can develop meta-cognitive strategies (genuine reasoning?)
 - Most LLMs: Stuck in pattern matching loops
 
-This aligns with our thesis nuance: **most LLMs** are pattern matchers, but **frontier reasoning models** may show genuine emergent reasoning on specific tasks. The question is whether this generalizes.
+This aligns with the thesis nuance: **most LLMs** are pattern matchers, but **frontier reasoning models** may show genuine emergent reasoning on specific tasks. The question is whether this generalizes.
 
 ### Integration with Thesis
 

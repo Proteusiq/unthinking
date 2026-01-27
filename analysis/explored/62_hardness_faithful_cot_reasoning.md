@@ -174,7 +174,7 @@
 
 1. **Faithfulness-accuracy tradeoff**: If CoT were genuine reasoning, improving faithfulness should improve (or not hurt) accuracy. The tradeoff suggests CoT is separate from the actual prediction mechanism.
 
-2. **Larger models less faithful**: RLHF optimizes for human-pleasing outputs, not truth. This parallels our thesis that training selects for OUTPUT QUALITY, not genuine reasoning.
+2. **Larger models less faithful**: RLHF optimizes for human-pleasing outputs, not truth. This parallels the thesis that training selects for OUTPUT QUALITY, not genuine reasoning.
 
 3. **GPT-4 gets correct answers WITHOUT using CoT**: This directly shows the model has already "decided" the answer before generating reasoning - the CoT is post-hoc rationalization.
 

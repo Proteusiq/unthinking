@@ -166,7 +166,7 @@ This survey reveals a **fundamental tension** in LLM reasoning:
 - Uncontrollable (no direct supervision)
 - Unsafe (hidden reasoning can't be audited)
 
-This connects to our thesis:
+This connects to the thesis:
 - **Explicit CoT may be "theater"** — performative text that doesn't reflect computation
 - **Latent CoT may be real but opaque** — computation happens but we can't verify it
 - **Either way, "reasoning" is pattern completion** — whether in token or latent space
@@ -178,10 +178,10 @@ The survey's framing of "reasoning beyond language" is interesting:
 - But this doesn't mean latent reasoning is "genuine" reasoning
 - It may just be **pattern matching in a different space**
 
-The key quote for our thesis:
+The key quote for the thesis:
 > "It is unclear whether models are performing genuine reasoning or simply exploiting input–output correlations"
 
-This is EXACTLY our thesis claim — the survey authors acknowledge this is unresolved.
+This is EXACTLY the thesis claim — the survey authors acknowledge this is unresolved.
 
 ---
 

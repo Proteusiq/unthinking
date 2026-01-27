@@ -219,7 +219,7 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **TMBench (2504.20771)** | **supports** | **Sequential Enumeration (2512.04727)** | **Both show LLMs fail at iterative processes** |
 | **TMBench (2504.20771)** | **provides evidence for** | **Bounded capability thesis** | **"Inevitable failure due to statistical nature"** |
 | **Physics of LLMs 2.1 (2407.20311)** | **challenges** | **Faith and Fate (2305.18654)** | **Shows genuine OOD generalization, not just template matching** |
-| **Physics of LLMs 2.1 (2407.20311)** | **challenges** | **Our thesis** | **Controlled evidence for reasoning in narrow domains** |
+| **Physics of LLMs 2.1 (2407.20311)** | **challenges** | **The thesis** | **Controlled evidence for reasoning in narrow domains** |
 | **Physics of LLMs 2.1 (2407.20311)** | **supports** | **Interplay (2512.07783)** | **Capability must exist in training distribution (iGSM provides this)** |
 | **Physics of LLMs 2.1 (2407.20311)** | **does not address** | **OMEGA (2506.18880)** | **Length generalization ≠ compositional generalization** |
 | **Physics of LLMs 2.1 (2407.20311)** | **does not address** | **Planning Gap (2601.14456)** | **Different task structure** |
@@ -245,7 +245,7 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Chess Compositionality (2510.20783)** | **partially supports** | **Emergent Symbolic Mechanisms (2502.20332)** | **Both find identifiable mechanisms for structured behaviors** |
 | **Chess Compositionality (2510.20783)** | **partially challenges** | **Planning Gap (2601.14456)** | **SOME OOD generalization for rules (96%+), but strategies fail (70%→22%)** |
 | **Chess Compositionality (2510.20783)** | **supports (on closer reading)** | **OMEGA (2506.18880)** | **Rules generalize, but strategies fail — same pattern as compositional failure** |
-| **Chess Compositionality (2510.20783)** | **supports** | **Our thesis distinction** | **Rule following ≠ reasoning; strategies distribution-bounded** |
+| **Chess Compositionality (2510.20783)** | **supports** | **The thesis distinction** | **Rule following ≠ reasoning; strategies distribution-bounded** |
 | **Mechanistic Counting (2601.02989)** | **supports** | **Illusion of Thinking (2506.06941)** | **Both show collapse at complexity threshold; 0% accuracy at 41-50 items** |
 | **Mechanistic Counting (2601.02989)** | **supports** | **Sequential Enumeration (2512.04727)** | **Both show LLMs can't spontaneously count/enumerate at scale** |
 | **Mechanistic Counting (2601.02989)** | **supports** | **Faith and Fate (2305.18654)** | **Error accumulation with sequential steps; depth-bounded** |
@@ -328,11 +328,11 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Theory for Length Generalization (2404.00560)** | **supports** | **Physics of LLMs 2.1 (2407.20311)** | **Both show LG achievable with proper structure/representation** |
 | **Theory for Length Generalization (2404.00560)** | **supports** | **Faith and Fate (2305.18654)** | **Confirms standard formulations fail — matches pattern matching thesis** |
 | **Theory for Length Generalization (2404.00560)** | **supports** | **GSM-Symbolic (2410.05229)** | **Explains why surface perturbations break models (R changes)** |
-| **Theory for Length Generalization (2404.00560)** | **provides theory for** | **Our thesis** | **LG requires D=X (training covers all inputs) = pattern matching with complete coverage** |
+| **Theory for Length Generalization (2404.00560)** | **provides theory for** | **The thesis** | **LG requires D=X (training covers all inputs) = pattern matching with complete coverage** |
 | **Survey of Inductive Reasoning (2510.10182)** | **supports** | **Faith and Fate (2305.18654)** | **Both identify pattern matching as mechanism** |
 | **Survey of Inductive Reasoning (2510.10182)** | **supports** | **OMEGA (2506.18880)** | **Both show compositional generalization failures in induction** |
 | **Survey of Inductive Reasoning (2510.10182)** | **extends** | **How LLMs Learn to Reason (2509.23629)** | **Identifies induction heads as mechanism for inductive ability** |
-| **Survey of Inductive Reasoning (2510.10182)** | **provides mechanism for** | **Our thesis** | **"Inductive ability originates from induction heads" = pattern matching** |
+| **Survey of Inductive Reasoning (2510.10182)** | **provides mechanism for** | **The thesis** | **"Inductive ability originates from induction heads" = pattern matching** |
 | **Limits of Emergent Reasoning Agentic (2510.15974)** | **supports** | **Illusion of Thinking (2506.06941)** | **Confirms collapse pattern; environment access doesn't help** |
 | **Limits of Emergent Reasoning Agentic (2510.15974)** | **rebuts** | **Comment: Agentic Gap (2506.18957)** | **Agentic framework doesn't solve reasoning collapse** |
 | **Limits of Emergent Reasoning Agentic (2510.15974)** | **rebuts** | **Thinking Isn't Illusion (2507.17699)** | **Environment interface doesn't help Hanoi; tool augmentation limited** |
