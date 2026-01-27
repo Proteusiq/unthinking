@@ -78,7 +78,7 @@ The paper designs special CoT formulations where:
 
 ### Supports
 - **Physics of LLMs Part 2.1 (2407.20311)**: Both show LG is achievable in controlled settings with proper structure
-- **Faith and Fate (2305.18654)**: Paper confirms LG fails for standard formulations (matches our thesis)
+- **Faith and Fate (2305.18654)**: Paper confirms LG fails for standard formulations (matches the thesis)
 - **GSM-Symbolic (2410.05229)**: Explains WHY surface perturbations break models (R changes)
 
 ### Challenges
@@ -86,7 +86,7 @@ The paper designs special CoT formulations where:
 - **OMEGA (2506.18880)**: Paper would predict LG should work if (n,r)-consistent
 
 ### Critical Point for Thesis
-The paper actually **SUPPORTS** our thesis on close reading:
+The paper actually **SUPPORTS** the thesis on close reading:
 > "Different CoT formulations may give different causal functions"
 
 This means:
@@ -138,9 +138,9 @@ This means:
 
 ## Relevance to Thesis
 
-**BALANCED with nuance** — Paper is often cited as evidence FOR LLM reasoning, but actually SUPPORTS our thesis on close reading.
+**BALANCED with nuance** — Paper is often cited as evidence FOR LLM reasoning, but actually SUPPORTS the thesis on close reading.
 
-### Evidence FOR Our Thesis
+### Evidence FOR the Thesis
 
 1. **Success requires human-engineered representations**: Models don't discover the right formulation
 2. **Training must cover all atomic operations**: D = X requirement is essentially memorization

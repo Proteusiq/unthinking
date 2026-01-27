@@ -177,7 +177,7 @@ Based on Ullman (2023) variations — tests if models fail on "trivial" changes:
 This paper explicitly argues AGAINST interpreting improvements as "new ToM capability":
 > "Rather than to fundamentally new forms of ToM reasoning"
 
-This aligns perfectly with our thesis: **surfacing, not creation**.
+This aligns with the thesis that LLM reasoning is **surfacing, not creation**.
 
 ---
 

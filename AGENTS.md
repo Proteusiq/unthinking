@@ -87,6 +87,16 @@ For EVERY paper analyzed, you MUST update the paper interaction graph:
 3. **Update `analysis/paper_graph.md`** with new interactions
 4. **Identify papers with NO rebuttals** — these are papers requiring follow-up
 
+### 6. Use Objective Language
+- **NEVER** use "our thesis" or "your thesis" — use "the thesis" instead
+- Write as an objective observer, not an advocate
+- Examples:
+  - BAD: "This supports our thesis that..."
+  - GOOD: "This supports the thesis that..."
+  - BAD: "Evidence for your claim..."
+  - GOOD: "Evidence for the claim..."
+- The analysis should read as neutral scholarly work, not persuasive writing
+
 ---
 
 ## Paper Interaction Graph
@@ -213,7 +223,7 @@ When the initial paper list needs expansion, conduct systematic searches:
 3. **Priority Assignment**:
    - HIGH: Directly tests thesis claims with controlled experiments
    - HIGH: Award-winning papers (signal quality)
-   - HIGH: Papers that challenge our thesis (steel-man the opposition)
+   - HIGH: Papers that challenge the thesis (steel-man the opposition)
    - MEDIUM: Extends existing findings with new evidence
    - LOW: Tangentially related or overlaps with analyzed papers
 

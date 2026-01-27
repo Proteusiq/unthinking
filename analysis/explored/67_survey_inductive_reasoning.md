@@ -64,7 +64,7 @@
 
 > "Inductive ability originates from induction heads"
 
-This is critical for our thesis. The survey confirms that inductive reasoning in LLMs is mechanistically based on **induction heads** — the same mechanism identified for in-context learning. This is pattern matching, not genuine reasoning.
+This is critical for the thesis. The survey confirms that inductive reasoning in LLMs is mechanistically based on **induction heads** — the same mechanism identified for in-context learning. This is pattern matching, not genuine reasoning.
 
 ### 2. Simplicity Constraint
 
@@ -77,7 +77,7 @@ This suggests inductive reasoning is constrained by learned patterns, not genuin
 
 > "There is no 'universal' bias in deep learning. Choosing an appropriate inductive bias for a specific task is key to achieving success."
 
-This supports our thesis: LLMs don't have general reasoning ability — they have task-specific pattern matching that must be engineered.
+This supports the thesis that LLMs don't have general reasoning ability — they have task-specific pattern matching that must be engineered.
 
 ### 4. Non-Uniqueness Complicates Evaluation
 

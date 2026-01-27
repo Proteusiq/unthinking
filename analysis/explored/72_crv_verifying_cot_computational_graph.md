@@ -168,13 +168,13 @@ This paper shows LLM reasoning has **real computational structure** — it's not
 - This structure is **error-prone** (can be diagnosed)
 - This structure can be **mechanistically intervened on**
 
-This aligns with our thesis nuance: LLMs do compute, but their computation is based on **learned patterns specific to each domain**, not general reasoning. The fact that error signatures are domain-specific supports the view that reasoning is pattern execution, not general derivation.
+This aligns with the thesis nuance: LLMs do compute, but their computation is based on **learned patterns specific to each domain**, not general reasoning. The fact that error signatures are domain-specific supports the view that reasoning is pattern execution, not general derivation.
 
 ### Integration with Thesis
 
 > "A reasoning failure is not merely an erroneous state, but a flaw in the execution of a latent algorithm"
 
-This is compatible with our thesis: LLMs execute learned algorithms (patterns), and when these patterns don't match the problem, errors occur. The domain specificity confirms that each "reasoning skill" is a separately learned pattern, not a general capability.
+This is compatible with the thesis: LLMs execute learned algorithms (patterns), and when these patterns don't match the problem, errors occur. The domain specificity confirms that each "reasoning skill" is a separately learned pattern, not a general capability.
 
 ---
 

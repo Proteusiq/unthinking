@@ -183,11 +183,11 @@ The "sweet spot" finding is crucial:
 - Too much diversity: Incoherent, conflicts with learned patterns
 - **Just right**: Maximizes information while maintaining coherence
 
-This supports our thesis nuance: LLMs CAN learn compositions, but only when explicitly trained on them. The training distribution determines capability bounds.
+This supports the thesis nuance: LLMs CAN learn compositions, but only when explicitly trained on them. The training distribution determines capability bounds.
 
 ### Integration with Thesis
 
-STEPS validates our thesis mechanism:
+STEPS validates the thesis mechanism:
 1. **Training distribution determines capability** — confirmed by power-law analysis
 2. **Surfacing requires relevant examples** — STEPS surfaces via targeted synthesis
 3. **Pattern matching dominates** — unconstrained combinations hurt because they don't match coherent patterns

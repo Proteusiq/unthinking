@@ -56,7 +56,7 @@
 
 ### Result 2: OOD Length Generalization
 
-**This is the key finding that challenges our thesis.**
+**This is the key finding that challenges the thesis.**
 
 | Training | Test (OOD) | Accuracy |
 |----------|------------|----------|
@@ -281,7 +281,7 @@
 
 ## Verdict: CHALLENGES THESIS (for narrow domains)
 
-This is the **strongest paper challenging our thesis** that we've analyzed. It provides controlled evidence for:
+This is the **strongest paper challenging the thesis** that we've analyzed. It provides controlled evidence for:
 - Genuine OOD generalization (not memorization)
 - Mental planning (not purely reactive)
 - Learning beyond training requirements

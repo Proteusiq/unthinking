@@ -107,7 +107,7 @@
 
 **STRONGLY SUPPORTS thesis — definitive evidence for pattern matching hypothesis**
 
-This is one of the strongest papers supporting our thesis:
+This is one of the strongest papers supporting the thesis:
 - High numerical accuracy is illusory — collapses under representation change
 - Commutativity violations prove models don't understand the operation
 - Rule provision hurts because models prefer memorized patterns

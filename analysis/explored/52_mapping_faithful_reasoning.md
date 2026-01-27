@@ -173,7 +173,7 @@ This paper shows:
 3. ~ But: Hard cases show faithful reasoning IS possible
 4. ~ Method distinguishes genuine from decorative reasoning
 
-**Key insight for thesis**: The paper provides a **tool** to identify when reasoning is genuine vs decorative. Easy tasks → decorative (supports thesis). Hard tasks → computational (nuances thesis). The distinction is important: our thesis should acknowledge that SOME reasoning may be genuine, particularly for harder tasks.
+**Key insight for thesis**: The paper provides a **tool** to identify when reasoning is genuine vs decorative. Easy tasks → decorative (supports thesis). Hard tasks → computational (nuances thesis). The distinction is important: the thesis should acknowledge that SOME reasoning may be genuine, particularly for harder tasks.
 
 ---
 

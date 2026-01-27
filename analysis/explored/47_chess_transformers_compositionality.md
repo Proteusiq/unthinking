@@ -130,7 +130,7 @@
 - Training dynamics show compositional learning
 - "More than statistical pattern matching" for rules
 
-**For our thesis (on closer reading)**:
+**For the thesis (on closer reading)**:
 - Strategy adaptation fails dramatically (70% → 22-30%)
 - Novel objectives fail completely (Horde last place)
 - Model learns **rules** compositionally, but **strategies** are distribution-bounded
@@ -152,7 +152,7 @@ This paper distinguishes:
 - **Rule extrapolation** (syntactic) — generalizes well
 - **Strategy adaptation** (semantic) — fails on OOD
 
-This aligns with our thesis: LLMs can follow explicit rules but fail at novel strategic reasoning.
+This aligns with the thesis: LLMs can follow explicit rules but fail at novel strategic reasoning.
 
 ---
 

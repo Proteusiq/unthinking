@@ -134,8 +134,8 @@ This is direct evidence that LLMs have **bounded computational capability** — 
 
 ### Key Distinction
 - TMBench tests **rule-following with explicit rules**
-- Our thesis claims LLMs can't perform **genuinely generative reasoning** (discovering implicit structure)
-- These are different claims — TMBench doesn't test what our thesis claims
+- The thesis claims LLMs can't perform **genuinely generative reasoning** (discovering implicit structure)
+- These are different claims — TMBench doesn't test what the thesis claims
 
 ---
 
