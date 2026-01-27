@@ -252,9 +252,11 @@ Query: "LLM reasoning" + date:2024-2026 + category:cs.CL
 4. Document methodology and limitations
 5. Search for rebuttals on arXiv
 6. Cross-reference with papers already analyzed
-7. Update the paper interaction graph
-8. Mark paper as done in paper_list.md
-9. **COMMIT changes to git**
+7. Update the paper interaction graph (`analysis/paper_graph.md`)
+8. Update the visualization data (`docs/js/data.js`)
+9. Mark paper as done in paper_list.md
+10. **COMMIT changes to git**
+11. **PUSH to deploy docs** (GitHub Pages serves from main branch)
 
 ---
 
