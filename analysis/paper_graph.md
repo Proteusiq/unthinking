@@ -541,6 +541,9 @@ These papers have NO direct rebuttals found:
 | **PCL-Reasoner-V1.5 (2601.14716)** | **90.9% AIME 2024, 85.6% AIME 2025 via offline RL; RL improves long-CoT specifically; depends on DeepSeek-R1 distillation; FOR (partial) — supports surfacing** |
 | **Interactive Learning ILR (2509.26306)** | **Multi-agent co-learning improves individual reasoning by 3-5%; dynamic cooperation/competition; Idea3 enhances robustness; no OOD testing; BALANCED** |
 | **Revisiting LLM Reasoning via IB (2507.18391)** | **IB regularization (one-line change) improves RL by ~2 points; reconciles entropy debate; token-level advantage × entropy; BALANCED** |
+| **Trapped in the Past (2601.16823)** | **Crystallized vs fluid intelligence in chess; WD: good, OOD: random; reasoning tokens have diminishing returns OOD; STRONGLY SUPPORTS thesis** |
+| **Reasoning Promotes Robustness ToM (2601.16853)** | **Robustness ≠ new capability; bounded by base model; ToM strategies visible in traces; BALANCED — supports surfacing** |
+| **MortalMATH (2601.18790)** | **>95% task completion while user dying; RLVR creates tunnel vision; consequence blindness; 15s latency in emergencies; STRONGLY SUPPORTS thesis** |
 
 ---
 
