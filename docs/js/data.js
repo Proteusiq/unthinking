@@ -1,8 +1,8 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 88,
-    lastUpdated: '2026-01-27',
+    totalAnalyzed: 90,
+    lastUpdated: '2026-01-28',
   },
   nodes: [
     {
@@ -1194,6 +1194,36 @@ window.paperData = {
         'Offline RL stable',
       ],
     },
+    {
+      id: '2502.15631',
+      title: 'o3 (mini) Thinks Harder, Not Longer',
+      shortTitle: 'o3 Thinks Harder',
+      date: 'Feb 2025',
+      stance: 'supports',
+      cluster: 'complexity',
+      coreArgument:
+        'Accuracy DECLINES as reasoning chains grow. More capable models use tokens more effectively, not more of them. Overthinking mechanism quantified.',
+      keyEvidence: [
+        '3.16%/1000 tokens accuracy drop (o1-mini)',
+        'o3-mini: same tokens, higher accuracy',
+        'Error accumulation with chain length',
+      ],
+    },
+    {
+      id: '2502.12470',
+      title: 'Reasoning on a Spectrum: System 1 and System 2 Alignment',
+      shortTitle: 'S1/S2 Alignment',
+      date: 'Feb 2025',
+      stance: 'balanced',
+      cluster: 'mechanism',
+      coreArgument:
+        'System 2 excels at arithmetic/symbolic; System 1 excels at commonsense. Uniform reasoning suboptimal. Entropy-based selection beats both pure approaches.',
+      keyEvidence: [
+        'S2: +9pp AddSub, +17pp SingleEq',
+        'S1: +7pp StrategyQA, +4pp SIQA',
+        'Entropy selection = best of both',
+      ],
+    },
   ],
   links: [
     {
@@ -2148,6 +2178,62 @@ window.paperData = {
       target: '2512.07783',
       type: 'supports',
       description: 'Depends on distillation (surfacing)',
+    },
+    // o3 Thinks Harder Not Longer links
+    {
+      source: '2502.15631',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'More tokens ≠ better outcomes',
+    },
+    {
+      source: '2502.15631',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Error accumulation with chain length',
+    },
+    {
+      source: '2502.15631',
+      target: '2504.09858',
+      type: 'supports',
+      description: 'Excessive reasoning can hurt',
+    },
+    {
+      source: '2502.15631',
+      target: '2501.02497',
+      type: 'supports',
+      description: 'Explains why sequential scaling fails',
+    },
+    {
+      source: '2502.15631',
+      target: '2501.19393',
+      type: 'challenges',
+      description: 'Accuracy declines with length (vs log-linear claim)',
+    },
+    // System 1/2 Alignment links
+    {
+      source: '2502.12470',
+      target: '2502.15631',
+      type: 'supports',
+      description: 'Longer reasoning not always better',
+    },
+    {
+      source: '2502.12470',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Overthinking problematic',
+    },
+    {
+      source: '2502.12470',
+      target: '2504.09858',
+      type: 'supports',
+      description: 'Explicit reasoning sometimes suboptimal',
+    },
+    {
+      source: '2502.12470',
+      target: '2512.07783',
+      type: 'supports',
+      description: 'Capabilities from training distribution',
     },
   ],
 };

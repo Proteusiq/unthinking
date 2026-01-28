@@ -405,6 +405,20 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Revisiting LLM Reasoning via IB (2507.18391)** | **supports** | **How LLMs Learn to Reason (2509.23629)** | **Both show RL reorganizes rather than creates** |
 | **Revisiting LLM Reasoning via IB (2507.18391)** | **supports** | **Interplay (2512.07783)** | **Both support surfacing hypothesis** |
 | **Revisiting LLM Reasoning via IB (2507.18391)** | **extends** | **GRPO (DeepSeekMath)** | **Extends with IB-based regularization** |
+| **o3 Thinks Harder Not Longer (2502.15631)** | **supports** | **Illusion of Thinking (2506.06941)** | **More tokens ≠ better outcomes; complexity thresholds exist** |
+| **o3 Thinks Harder Not Longer (2502.15631)** | **supports** | **Faith and Fate (2305.18654)** | **Error accumulation with longer chains = propagation mechanism** |
+| **o3 Thinks Harder Not Longer (2502.15631)** | **supports** | **Effective Without Thinking (2504.09858)** | **Both show excessive reasoning can hurt** |
+| **o3 Thinks Harder Not Longer (2502.15631)** | **extends** | **Overthinking (2412.21187, 2501.18585)** | **Quantifies overthinking mechanism** |
+| **o3 Thinks Harder Not Longer (2502.15631)** | **partially challenges** | **s1 (2501.19393)** | **s1 claims log-linear scaling; this shows accuracy declines with length** |
+| **o3 Thinks Harder Not Longer (2502.15631)** | **partially challenges** | **DeepSeek-R1 (2501.12948)** | **Questions value of extended reasoning traces** |
+| **o3 Thinks Harder Not Longer (2502.15631)** | **provides mechanism for** | **Survey of Test-Time Compute (2501.02497)** | **Explains why sequential scaling fails** |
+| **System 1/2 Alignment (2502.12470)** | **supports** | **o3 Thinks Harder Not Longer (2502.15631)** | **Both show longer reasoning not always better ("overthinking")** |
+| **System 1/2 Alignment (2502.12470)** | **supports** | **Illusion of Thinking (2506.06941)** | **Both identify overthinking as problematic** |
+| **System 1/2 Alignment (2502.12470)** | **supports** | **Effective Without Thinking (2504.09858)** | **Both show explicit reasoning sometimes suboptimal** |
+| **System 1/2 Alignment (2502.12470)** | **supports** | **Interplay (2512.07783)** | **Both suggest capabilities come from training distribution** |
+| **System 1/2 Alignment (2502.12470)** | **extends** | **Overthinking papers** | **Provides dual-process framework for understanding overthinking** |
+| **System 1/2 Alignment (2502.12470)** | **provides framework for** | **Pattern matching thesis** | **S1 = fast pattern retrieval; S2 = sequential pattern composition** |
+| **System 1/2 Alignment (2502.12470)** | **partially challenges** | **Survey of Test-Time Compute (2501.02497)** | **Questions whether more compute is always beneficial** |
 
 ### Extends / Builds On
 
@@ -542,6 +556,8 @@ These papers have NO direct rebuttals found:
 | **Interactive Learning ILR (2509.26306)** | **Multi-agent co-learning improves individual reasoning by 3-5%; dynamic cooperation/competition; Idea3 enhances robustness; no OOD testing; BALANCED** |
 | **Revisiting LLM Reasoning via IB (2507.18391)** | **IB regularization (one-line change) improves RL by ~2 points; reconciles entropy debate; token-level advantage × entropy; BALANCED** |
 | **Trapped in the Past (2601.16823)** | **Crystallized vs fluid intelligence in chess; WD: good, OOD: random; reasoning tokens have diminishing returns OOD; STRONGLY SUPPORTS thesis** |
+| **o3 Thinks Harder Not Longer (2502.15631)** | **Accuracy DECLINES as reasoning chains grow (3.16%/1000 tokens for o1-mini); o3-mini thinks harder, not longer; SUPPORTS thesis** |
+| **System 1/2 Alignment (2502.12470)** | **S2 excels at arithmetic (AddSub +9pp), S1 excels at commonsense (+7pp StrategyQA); uniform reasoning suboptimal; entropy-based selection beats both; BALANCED** |
 | **Reasoning Promotes Robustness ToM (2601.16853)** | **Robustness ≠ new capability; bounded by base model; ToM strategies visible in traces; BALANCED — supports surfacing** |
 | **MortalMATH (2601.18790)** | **>95% task completion while user dying; RLVR creates tunnel vision; consequence blindness; 15s latency in emergencies; STRONGLY SUPPORTS thesis** |
 
@@ -615,3 +631,5 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added PCL-Reasoner-V1.5 (2601.14716) — 90.9% AIME 2024 via offline RL; RL improves long-CoT specifically; FOR (partial) |
 | 2026-01-24 | Added Interactive Learning ILR (2509.26306) — Multi-agent co-learning 3-5% improvement; dynamic cooperation/competition; BALANCED |
 | 2026-01-24 | Added Revisiting LLM Reasoning via IB (2507.18391) — IB regularization ~2 points improvement; reconciles entropy debate; BALANCED |
+| 2026-01-28 | Added o3 Thinks Harder Not Longer (2502.15631) — Accuracy declines 3.16%/1000 tokens (o1-mini); more tokens ≠ better; SUPPORTS thesis |
+| 2026-01-28 | Added System 1/2 Alignment (2502.12470) — S2 excels arithmetic, S1 excels commonsense; uniform reasoning suboptimal; BALANCED |

@@ -242,16 +242,18 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 91 | 2601.16823 | Jan 2026 | Trapped in the past? Disentangling fluid and crystallized intelligence using chess | Supports | ✅ DONE |
 | 92 | 2601.16853 | Jan 2026 | Reasoning Promotes Robustness in Theory of Mind Tasks | Balanced | ✅ DONE |
 | 93 | 2601.18790 | Jan 2026 | MortalMATH: Reasoning Objectives vs Emergency Contexts | Supports | ✅ DONE |
+| 94 | 2502.15631 | Feb 2025 | o3 (mini) Thinks Harder, Not Longer | Supports | ✅ DONE |
+| 95 | 2502.12470 | Feb 2025 | Reasoning on a Spectrum: System 1 and System 2 Alignment | Balanced | ✅ DONE |
 
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 93
-- **Against Reasoning**: ~38
+- **Total Papers**: 95
+- **Against Reasoning**: ~39
 - **For Reasoning**: ~26
-- **Balanced**: ~32
+- **Balanced**: ~33
 - **Date Range**: 2024-2026
-- **Analyzed**: 88
+- **Analyzed**: 90
 
 ---
 
