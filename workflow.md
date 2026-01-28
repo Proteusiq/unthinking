@@ -7,8 +7,28 @@ Steps to analyze a new paper and update the literature review.
 ## Prerequisites
 
 - Read `AGENTS.md` for methodology rules
-- Check `papers/toread.md` for pending papers
+- Triage `papers/toevaluate.md` to promote papers to `papers/toread.md`
 - Check `papers/paper_list.md` for existing papers
+
+---
+
+## Step 0: Triage (Periodic)
+
+Auto-discovered papers land in `papers/toevaluate.md`. Periodically review and:
+
+**Promote to `toread.md` if:**
+- Directly tests reasoning claims with controlled experiments
+- Provides new quantitative evidence (not just benchmarks)
+- Challenges OR strongly supports the thesis with data
+- High-impact venue or award-winning
+
+**Discard if:**
+- Tangentially related (mentions reasoning but doesn't test it)
+- Overlaps significantly with already-analyzed papers
+- Domain-specific application without generalizable insights
+- No empirical evidence (opinion/position papers)
+
+Log decisions in `toevaluate.md` Triage Log table.
 
 ---
 
@@ -189,7 +209,8 @@ Remove analyzed paper from `papers/toread.md` or mark as done.
 | File | Purpose |
 |------|---------|
 | `AGENTS.md` | Methodology rules |
-| `papers/toread.md` | Pending papers (auto-discovered) |
+| `papers/toevaluate.md` | Raw auto-discovered papers (staging) |
+| `papers/toread.md` | Curated papers ready for analysis |
 | `papers/paper_list.md` | Master list of analyzed papers |
 | `analysis/explored/` | Individual paper analyses |
 | `analysis/synthesis.md` | Main thesis synthesis |
@@ -201,8 +222,9 @@ Remove analyzed paper from `papers/toread.md` or mark as done.
 ## Automation
 
 - **Daily at 8am UTC**: GitHub Action searches arXiv for new papers
-- **Auto-creates**: `papers/toread.md` entries with relevance assessment
+- **Auto-creates**: `papers/toevaluate.md` entries with relevance assessment
 - **Auto-creates**: GitHub issue notifying of new papers
+- **Manual**: Triage `toevaluate.md` -> promote to `toread.md`
 
 ---
 
