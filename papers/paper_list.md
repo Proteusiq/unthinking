@@ -244,16 +244,17 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 93 | 2601.18790 | Jan 2026 | MortalMATH: Reasoning Objectives vs Emergency Contexts | Supports | ✅ DONE |
 | 94 | 2502.15631 | Feb 2025 | o3 (mini) Thinks Harder, Not Longer | Supports | ✅ DONE |
 | 95 | 2502.12470 | Feb 2025 | Reasoning on a Spectrum: System 1 and System 2 Alignment | Balanced | ✅ DONE |
+| 96 | 2207.07051 | Jul 2024 | Language models show human-like content effects on reasoning (PNAS Nexus) | Supports | ✅ DONE |
 
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 95
-- **Against Reasoning**: ~39
+- **Total Papers**: 96
+- **Against Reasoning**: ~40
 - **For Reasoning**: ~26
 - **Balanced**: ~33
 - **Date Range**: 2024-2026
-- **Analyzed**: 90
+- **Analyzed**: 91
 
 ---
 

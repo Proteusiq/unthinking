@@ -419,6 +419,12 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **System 1/2 Alignment (2502.12470)** | **extends** | **Overthinking papers** | **Provides dual-process framework for understanding overthinking** |
 | **System 1/2 Alignment (2502.12470)** | **provides framework for** | **Pattern matching thesis** | **S1 = fast pattern retrieval; S2 = sequential pattern composition** |
 | **System 1/2 Alignment (2502.12470)** | **partially challenges** | **Survey of Test-Time Compute (2501.02497)** | **Questions whether more compute is always beneficial** |
+| **Content Effects on Reasoning (2207.07051)** | **supports** | **Faith and Fate (2305.18654)** | **Both show distribution-bounded reasoning; semantic content matters** |
+| **Content Effects on Reasoning (2207.07051)** | **supports** | **GSM-Symbolic (2410.05229)** | **Both show content/framing affects performance** |
+| **Content Effects on Reasoning (2207.07051)** | **supports** | **Interplay (2512.07783)** | **Both show capabilities from training distribution** |
+| **Content Effects on Reasoning (2207.07051)** | **supports** | **Shortcut Learning (2410.13343)** | **Both show models exploit semantic shortcuts** |
+| **Content Effects on Reasoning (2207.07051)** | **extends** | **System 1/2 Alignment (2502.12470)** | **Both connect to dual-process; this adds human comparison** |
+| **Content Effects on Reasoning (2207.07051)** | **provides evidence for** | **Pattern matching thesis** | **Content effects = direct evidence of learned pattern matching** |
 
 ### Extends / Builds On
 
@@ -558,6 +564,7 @@ These papers have NO direct rebuttals found:
 | **Trapped in the Past (2601.16823)** | **Crystallized vs fluid intelligence in chess; WD: good, OOD: random; reasoning tokens have diminishing returns OOD; STRONGLY SUPPORTS thesis** |
 | **o3 Thinks Harder Not Longer (2502.15631)** | **Accuracy DECLINES as reasoning chains grow (3.16%/1000 tokens for o1-mini); o3-mini thinks harder, not longer; SUPPORTS thesis** |
 | **System 1/2 Alignment (2502.12470)** | **S2 excels at arithmetic (AddSub +9pp), S1 excels at commonsense (+7pp StrategyQA); uniform reasoning suboptimal; entropy-based selection beats both; BALANCED** |
+| **Content Effects on Reasoning (2207.07051)** | **PNAS Nexus peer-reviewed; LLMs show human-like content effects on NLI, syllogisms, Wason task; 90% endorse invalid syllogism if believable; model confidence ↔ human RT; SUPPORTS thesis** |
 | **Reasoning Promotes Robustness ToM (2601.16853)** | **Robustness ≠ new capability; bounded by base model; ToM strategies visible in traces; BALANCED — supports surfacing** |
 | **MortalMATH (2601.18790)** | **>95% task completion while user dying; RLVR creates tunnel vision; consequence blindness; 15s latency in emergencies; STRONGLY SUPPORTS thesis** |
 
@@ -633,3 +640,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-24 | Added Revisiting LLM Reasoning via IB (2507.18391) — IB regularization ~2 points improvement; reconciles entropy debate; BALANCED |
 | 2026-01-28 | Added o3 Thinks Harder Not Longer (2502.15631) — Accuracy declines 3.16%/1000 tokens (o1-mini); more tokens ≠ better; SUPPORTS thesis |
 | 2026-01-28 | Added System 1/2 Alignment (2502.12470) — S2 excels arithmetic, S1 excels commonsense; uniform reasoning suboptimal; BALANCED |
+| 2026-01-28 | Added Content Effects on Reasoning (2207.07051) — PNAS Nexus; LLMs show human-like content effects; both rely on semantic patterns; SUPPORTS thesis |
