@@ -245,16 +245,18 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 94 | 2502.15631 | Feb 2025 | o3 (mini) Thinks Harder, Not Longer | Supports | ✅ DONE |
 | 95 | 2502.12470 | Feb 2025 | Reasoning on a Spectrum: System 1 and System 2 Alignment | Balanced | ✅ DONE |
 | 96 | 2207.07051 | Jul 2024 | Language models show human-like content effects on reasoning (PNAS Nexus) | Supports | ✅ DONE |
+| 97 | 2411.02478 | Nov 2024 | Imagining and building wise machines: The centrality of AI metacognition | Supports | ✅ DONE |
+| 98 | 2507.15851 | Jul 2025 | The Other Mind: How Language Models Exhibit Human Temporal Cognition | Balanced | ✅ DONE |
 
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 96
+- **Total Papers**: 98
 - **Against Reasoning**: ~40
 - **For Reasoning**: ~26
-- **Balanced**: ~33
+- **Balanced**: ~34
 - **Date Range**: 2024-2026
-- **Analyzed**: 91
+- **Analyzed**: 93
 
 ---
 
