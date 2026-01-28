@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 91,
+    totalAnalyzed: 93,
     lastUpdated: '2026-01-28',
   },
   nodes: [
@@ -1239,6 +1239,36 @@ window.paperData = {
         'PNAS Nexus peer-reviewed',
       ],
     },
+    {
+      id: '2411.02478',
+      title: 'Imagining and Building Wise Machines: The Centrality of AI Metacognition',
+      shortTitle: 'AI Metacognition',
+      date: 'Nov 2024',
+      stance: 'supports',
+      cluster: 'mechanism',
+      coreArgument:
+        'AI has become smart but not wise. Lacks metacognition (reasoning about reasoning). Object-level patterns without meta-level strategy selection.',
+      keyEvidence: [
+        'Bengio, Mitchell, Chater et al.',
+        'Wisdom = knowing WHEN patterns apply',
+        'Missing: self-monitoring, error detection',
+      ],
+    },
+    {
+      id: '2507.15851',
+      title: 'The Other Mind: How Language Models Exhibit Human Temporal Cognition',
+      shortTitle: 'Temporal Cognition',
+      date: 'Jul 2025',
+      stance: 'balanced',
+      cluster: 'emergence',
+      coreArgument:
+        'LLMs exhibit Weber-Fechner law with reference point ~2025. Sophisticated emergence FROM training data structure, not despite it.',
+      keyEvidence: [
+        'Reference point ~2025 (GPT-4o: 2024)',
+        '0.67-1.71% temporal-preferential neurons',
+        'Emerges from corpus structure',
+      ],
+    },
   ],
   links: [
     {
@@ -2280,6 +2310,80 @@ window.paperData = {
       target: '2502.12470',
       type: 'extends',
       description: 'Dual-process with human comparison',
+    },
+    // AI Metacognition links
+    {
+      source: '2411.02478',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Both show AI lacks genuine reasoning at complexity thresholds',
+    },
+    {
+      source: '2411.02478',
+      target: '2207.07051',
+      type: 'supports',
+      description: 'Both show AI relies on learned patterns',
+    },
+    {
+      source: '2411.02478',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Lack of metacognition explains perturbation sensitivity',
+    },
+    {
+      source: '2411.02478',
+      target: '2501.02497',
+      type: 'supports',
+      description: 'Self-correction limited without metacognition',
+    },
+    {
+      source: '2411.02478',
+      target: '2510.18254',
+      type: 'supports',
+      description: 'Reflection without metacognition is hollow',
+    },
+    {
+      source: '2411.02478',
+      target: '2502.12470',
+      type: 'extends',
+      description: 'Metacognition = ability to switch S1/S2 appropriately',
+    },
+    {
+      source: '2411.02478',
+      target: '2502.15631',
+      type: 'extends',
+      description: 'Wise AI would know when to think longer vs stop',
+    },
+    // Temporal Cognition links
+    {
+      source: '2507.15851',
+      target: '2207.07051',
+      type: 'supports',
+      description: 'Both show LLMs learn patterns from data that mirror human cognition',
+    },
+    {
+      source: '2507.15851',
+      target: '2512.07783',
+      type: 'supports',
+      description: 'Both show capabilities emerge from training distribution',
+    },
+    {
+      source: '2507.15851',
+      target: '2512.23722',
+      type: 'supports',
+      description: 'Both show LLMs build internal models from training signal',
+    },
+    {
+      source: '2507.15851',
+      target: '2502.12470',
+      type: 'extends',
+      description: 'Adds temporal dimension to dual-process understanding',
+    },
+    {
+      source: '2507.15851',
+      target: '2503.05788',
+      type: 'extends',
+      description: 'Provides mechanistic example of emergent ability',
     },
   ],
 };

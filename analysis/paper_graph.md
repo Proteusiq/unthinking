@@ -641,3 +641,5 @@ These papers have NO direct rebuttals found:
 | 2026-01-28 | Added o3 Thinks Harder Not Longer (2502.15631) — Accuracy declines 3.16%/1000 tokens (o1-mini); more tokens ≠ better; SUPPORTS thesis |
 | 2026-01-28 | Added System 1/2 Alignment (2502.12470) — S2 excels arithmetic, S1 excels commonsense; uniform reasoning suboptimal; BALANCED |
 | 2026-01-28 | Added Content Effects on Reasoning (2207.07051) — PNAS Nexus; LLMs show human-like content effects; both rely on semantic patterns; SUPPORTS thesis |
+| 2026-01-28 | Added AI Metacognition (2411.02478) — "Smart but not wise"; lacks metacognition (reasoning about reasoning); object-level patterns without meta-level; SUPPORTS thesis |
+| 2026-01-28 | Added Temporal Cognition (2507.15851) — Weber-Fechner law emerges; reference point ~2025; sophisticated emergence FROM data patterns; BALANCED |

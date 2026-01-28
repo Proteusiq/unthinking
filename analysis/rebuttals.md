@@ -245,6 +245,7 @@ KEY UPDATES:
 4. **Semantic Deception** — Semantic override demonstrated
 5. **Don't Always Say** — 25-40% faithfulness confirmed
 6. **Limits of Innate Planning** — 0% with move validator; GPT-5-Thinking loops 100%
+7. **AI Metacognition (2411.02478)** — Bengio, Mitchell et al.: "Smart but not wise"; lacks metacognition (reasoning about reasoning)
 
 ### Weakened "Against" Evidence
 1. **Illusion of Thinking** — Methodological critiques valid; must qualify

@@ -52,8 +52,14 @@
 | 81 | PCL-Reasoner-V1.5 | Jan 2026 | FOR (partial) | 90.9% AIME 2024 via offline RL; depends on distillation |
 | 82 | Interactive Learning ILR | Sep 2025 | Balanced | Multi-agent co-learning 3-5% improvement; no OOD testing |
 | 83 | Revisiting LLM Reasoning via IB | Jul 2025 | Balanced | IB regularization improves RL by ~2 points; reconciles entropy debate |
+| ... | ... | ... | ... | ... |
+| 94 | o3 Thinks Harder Not Longer | Feb 2025 | Supports | More tokens ≠ better; accuracy declines 3.16%/1000 tokens |
+| 95 | System 1/2 Alignment | Feb 2025 | Balanced | S2 excels arithmetic, S1 excels commonsense; uniform reasoning suboptimal |
+| 96 | Content Effects on Reasoning | Jul 2024 | Supports | PNAS Nexus; LLMs show human-like content effects; semantic patterns |
+| 97 | AI Metacognition (Wise Machines) | Nov 2024 | Supports | "Smart but not wise"; lacks metacognition (reasoning about reasoning); Bengio, Mitchell et al. |
+| 98 | Temporal Cognition in LLMs | Jul 2025 | Balanced | Weber-Fechner law emerges; reference point ~2025; sophisticated emergence FROM data patterns |
 
-**Total: 85 papers analyzed**
+**Total: 93 papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative
