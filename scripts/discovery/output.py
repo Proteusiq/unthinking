@@ -36,7 +36,8 @@ def format_paper(paper: Paper) -> str:
     return "\n".join(lines)
 
 
-def prepend_to_toread(papers: list[Paper], path: Path) -> None:
+def prepend_to_toevaluate(papers: list[Paper], path: Path) -> None:
+    """Write discovered papers to toevaluate.md for triage."""
     today = datetime.now().strftime("%Y-%m-%d")
 
     section_lines = [f"## New Papers ({today})", ""]
@@ -51,20 +52,49 @@ def prepend_to_toread(papers: list[Paper], path: Path) -> None:
             f"**Last updated**: {today}",
             existing,
         )
-        parts = existing.split("\n---\n", 1)
-        if len(parts) == 2:
+        # Insert after the triage criteria section
+        parts = existing.split("\n---\n", 2)
+        if len(parts) >= 3:
+            # Header, triage criteria, rest
+            content = f"{parts[0]}\n---\n{parts[1]}\n---\n\n{new_section}{parts[2]}"
+        elif len(parts) == 2:
             content = f"{parts[0]}\n---\n\n{new_section}{parts[1]}"
         else:
             content = f"{existing}\n\n{new_section}"
     else:
-        content = f"""# Papers to Read
+        content = f"""# Papers to Evaluate
 
-Curated list of papers relevant to the thesis. Auto-discovered papers are prepended.
+Raw auto-discovered papers awaiting triage. Review and promote relevant ones to `toread.md`.
 
 **Last updated**: {today}
 
 ---
 
-{new_section}"""
+## Triage Criteria
+
+Promote to `toread.md` if paper:
+- Directly tests reasoning claims with controlled experiments
+- Provides new quantitative evidence (not just benchmarks)
+- Challenges OR strongly supports the thesis with data
+- High-impact venue or award-winning
+
+Discard if paper:
+- Tangentially related (mentions reasoning but doesn't test it)
+- Overlaps significantly with already-analyzed papers
+- Domain-specific application without generalizable insights
+- No empirical evidence (opinion/position papers)
+
+---
+
+{new_section}
+
+---
+
+## Triage Log
+
+| Date | Paper | Decision | Reason |
+|------|-------|----------|--------|
+| | | | |
+"""
 
     path.write_text(content)

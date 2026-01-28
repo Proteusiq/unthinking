@@ -13,7 +13,7 @@ import httpx
 from discovery.search import load_known_ids, normalize_arxiv_id, search_recent_papers
 from discovery.classify import classify_paper
 from discovery.models import Paper
-from discovery.output import prepend_to_toread
+from discovery.output import prepend_to_toevaluate
 
 DAYS_LOOKBACK = 3
 
@@ -58,7 +58,7 @@ def process_paper(
 def main() -> None:
     repo_root = Path(__file__).parent.parent.parent
     paper_list = repo_root / "papers" / "paper_list.md"
-    toread = repo_root / "papers" / "toread.md"
+    toevaluate = repo_root / "papers" / "toevaluate.md"
 
     token = os.environ.get("GITHUB_TOKEN")
     if token:
@@ -74,7 +74,7 @@ def main() -> None:
         return
 
     print("[2/4] Loading known papers...")
-    known_ids = load_known_ids(paper_list) | load_known_ids(toread)
+    known_ids = load_known_ids(paper_list) | load_known_ids(toevaluate)
     print(f"      {len(known_ids)} known IDs")
 
     print("[3/4] Classifying papers...")
@@ -94,8 +94,8 @@ def main() -> None:
         print("      No new papers to add")
         return
 
-    print("[4/4] Updating toread.md...")
-    prepend_to_toread(new_papers, toread)
+    print("[4/4] Updating toevaluate.md...")
+    prepend_to_toevaluate(new_papers, toevaluate)
 
     supports = sum(1 for p in new_papers if p.stance == "SUPPORTS")
     challenges = sum(1 for p in new_papers if p.stance == "CHALLENGES")

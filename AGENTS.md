@@ -332,7 +332,8 @@ Add analysis: [Paper Title] (arXiv ID)
 ├── workflow.md                  # Paper analysis workflow
 ├── papers/
 │   ├── paper_list.md           # Master list with status
-│   └── toread.md               # Auto-discovered papers to review
+│   ├── toevaluate.md           # Raw auto-discovered papers (staging)
+│   └── toread.md               # Curated papers ready for analysis
 ├── analysis/
 │   ├── synthesis.md            # Main thesis synthesis
 │   ├── paper_graph.md          # Paper interaction graph
