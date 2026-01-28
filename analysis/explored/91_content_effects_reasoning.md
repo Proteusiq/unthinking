@@ -213,11 +213,11 @@ The authors frame their findings positively ("LLMs are like humans") rather than
 ---
 
 ## Status
-- [x] Read complete (PMC version)
+- [x] Read complete (arXiv HTML version)
 - [x] Core claims extracted
 - [x] Methodology documented
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] Rebuttals checked
-- [ ] Paper graph updated
-- [ ] data.js updated
+- [x] Paper graph updated
+- [x] data.js updated
