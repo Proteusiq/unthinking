@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 90,
+    totalAnalyzed: 91,
     lastUpdated: '2026-01-28',
   },
   nodes: [
@@ -1224,6 +1224,21 @@ window.paperData = {
         'Entropy selection = best of both',
       ],
     },
+    {
+      id: '2207.07051',
+      title: 'Language Models Show Human-like Content Effects on Reasoning',
+      shortTitle: 'Content Effects',
+      date: 'Jul 2024',
+      stance: 'supports',
+      cluster: 'compositional',
+      coreArgument:
+        'LLMs and humans both show content effects: reasoning more accurate when semantic content supports logical inference. Both rely on learned patterns, not pure logic.',
+      keyEvidence: [
+        '90% endorse invalid syllogism if believable',
+        'Model confidence ↔ human RT correlation',
+        'PNAS Nexus peer-reviewed',
+      ],
+    },
   ],
   links: [
     {
@@ -2234,6 +2249,37 @@ window.paperData = {
       target: '2512.07783',
       type: 'supports',
       description: 'Capabilities from training distribution',
+    },
+    // Content Effects on Reasoning links
+    {
+      source: '2207.07051',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Distribution-bounded reasoning',
+    },
+    {
+      source: '2207.07051',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Content/framing affects performance',
+    },
+    {
+      source: '2207.07051',
+      target: '2512.07783',
+      type: 'supports',
+      description: 'Capabilities from training distribution',
+    },
+    {
+      source: '2207.07051',
+      target: '2410.13343',
+      type: 'supports',
+      description: 'Models exploit semantic shortcuts',
+    },
+    {
+      source: '2207.07051',
+      target: '2502.12470',
+      type: 'extends',
+      description: 'Dual-process with human comparison',
     },
   ],
 };
