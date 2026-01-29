@@ -61,6 +61,14 @@ If NO to any, skip and note why in `papers/toread.md`.
 - [ ] Read limitations section
 - [ ] Note key quotes
 
+**If HTML version unavailable (404):**
+1. Note in analysis file: "⚠️ INCOMPLETE - HTML not available"
+2. Try PDF at `https://arxiv.org/pdf/{arxiv_id}`
+3. If PDF cannot be parsed, mark analysis as **INCOMPLETE**
+4. Add to Status section: `- [ ] **Read complete** ⚠️ INCOMPLETE`
+5. Add action item: "Download PDF manually and re-analyze"
+6. Do NOT mark paper as fully analyzed in `paper_list.md`
+
 ---
 
 ## Step 4: Create Analysis File
@@ -180,7 +188,17 @@ If paper provides significant evidence, update `analysis/synthesis.md`:
 
 ---
 
-## Step 9: Commit Changes
+## Step 9: Update README
+
+Update paper counts in `README.md`:
+
+1. Badge count: `[![Papers](https://img.shields.io/badge/papers-XX-blue)]()`
+2. Nodes badge: `<img src="https://img.shields.io/badge/nodes-XX%20papers-4CAF50" />`
+3. Folder count: `# Individual paper analyses (XX files)`
+
+---
+
+## Step 10: Commit Changes
 
 ```bash
 git add analysis/explored/XX_paper_name.md
@@ -188,6 +206,7 @@ git add papers/paper_list.md
 git add analysis/paper_graph.md
 git add analysis/synthesis.md
 git add docs/js/data.js
+git add README.md
 git commit -m "Add analysis: [Paper Title] (arXiv ID)
 
 - Stance: SUPPORTS/CHALLENGES/BALANCED
@@ -198,7 +217,7 @@ git push origin main
 
 ---
 
-## Step 10: Remove from To-Read
+## Step 11: Remove from To-Read
 
 Remove analyzed paper from `papers/toread.md` or mark as done.
 
@@ -249,4 +268,5 @@ If mismatch found:
 1. Add missing papers to `docs/js/data.js` nodes array
 2. Add relevant links for the new papers
 3. Update `meta.totalAnalyzed` count
-4. Commit and push to trigger deploy
+4. **Update README.md** paper counts (badges and folder count)
+5. Commit and push to trigger deploy
