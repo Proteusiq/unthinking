@@ -1249,9 +1249,9 @@ window.paperData = {
       coreArgument:
         'AI has become smart but not wise. Lacks metacognition (reasoning about reasoning). Object-level patterns without meta-level strategy selection.',
       keyEvidence: [
+        'Trends in Cognitive Sciences (accepted)',
         'Bengio, Mitchell, Chater et al.',
         'Wisdom = knowing WHEN patterns apply',
-        'Missing: self-monitoring, error detection',
       ],
     },
     {
