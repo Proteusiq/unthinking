@@ -8,19 +8,6 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 
 ## High Priority (Directly Tests Thesis)
 
-### [Outcome-Based RL Provably Leads Transformers to Reason, but Only With the Right Data](https://arxiv.org/abs/2601.15158)
-- **arXiv**: 2601.15158
-- **Stance**: CHALLENGES (but limited)
-- **Why read**: Analyzes how RL enables CoT emergence - relevant to "surfacing" hypothesis
-- **Key finding**: Sparse rewards can drive gradient descent to discover reasoning
-
-<details>
-<summary>Abstract</summary>
-
-We analyze theoretically how outcome-based reinforcement learning can lead transformers to discover chain-of-thought reasoning. We show that sparse rewards can drive gradient descent to find reasoning patterns, but only when the training data has the right structure.
-
-</details>
-
 ### [Say Anything but This: When Tokenizer Betrays Reasoning in LLMs](https://arxiv.org/abs/2601.14658)
 - **arXiv**: 2601.14658
 - **Stance**: SUPPORTS
@@ -51,6 +38,7 @@ We investigate whether diffusion language models, which can generate tokens in a
 
 ## Recently Analyzed (Removed from Queue)
 
+- ✅ **Outcome-Based RL** (2601.15158) — Analyzed 2026-01-29
 - ✅ **Gaming the Judge** (2601.14691) — Analyzed 2026-01-29
 - ✅ **Beyond Memorization** (2601.13392) — Analyzed 2026-01-29
 

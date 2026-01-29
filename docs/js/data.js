@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 97,
+    totalAnalyzed: 98,
     lastUpdated: '2026-01-29',
   },
   nodes: [
@@ -1329,6 +1329,21 @@ window.paperData = {
         'Six systematic failure modes',
       ],
     },
+    {
+      id: '2601.15158',
+      title: 'Outcome-Based RL Provably Leads Transformers to Reason, but Only With the Right Data',
+      shortTitle: 'Outcome-Based RL',
+      date: 'Jan 2026',
+      stance: 'balanced',
+      cluster: 'mechanism',
+      coreArgument:
+        'RL with sparse rewards converges to efficient reasoning algorithm, BUT requires (1) base model proficiency, (2) easy examples, (3) expressible architecture. Supports "surfacing" hypothesis.',
+      keyEvidence: [
+        'O(n²) with easy examples, 2^Ω(n) without',
+        '100% accuracy on chain traversal',
+        'OOD generalization from easy to hard',
+      ],
+    },
   ],
   links: [
     {
@@ -2556,6 +2571,31 @@ window.paperData = {
       target: '2504.01445',
       type: 'supports',
       description: 'Both show systematicity failure',
+    },
+    // Outcome-Based RL links
+    {
+      source: '2601.15158',
+      target: '2512.07783',
+      type: 'supports',
+      description: 'RL surfaces capability from base model',
+    },
+    {
+      source: '2601.15158',
+      target: '2501.19393',
+      type: 'supports',
+      description: 'Easy examples seed reasoning patterns',
+    },
+    {
+      source: '2601.15158',
+      target: '2501.12948',
+      type: 'extends',
+      description: 'Theoretical analysis of RL-driven reasoning',
+    },
+    {
+      source: '2601.15158',
+      target: '2407.20311',
+      type: 'supports',
+      description: 'Both show role of easy examples',
     },
   ],
 };
