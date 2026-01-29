@@ -94,6 +94,10 @@ See [`experiments/decoding_ablation/protocol.md`](./experiments/decoding_ablatio
 │   ├── paper_graph.md        # Paper interaction graph
 │   ├── rebuttals.md          # Rebuttal matrix
 │   └── explored/             # Individual paper analyses (97 files)
+│       ├── 00-09/            # Papers 00-09
+│       ├── 10-19/            # Papers 10-19
+│       ├── ...               # (10-paper bins)
+│       └── 90-99/            # Papers 90-99
 ├── scripts/
 │   └── discovery/            # Paper discovery package
 │       ├── __main__.py       # Entry: uv run scripts/discovery/__main__.py
