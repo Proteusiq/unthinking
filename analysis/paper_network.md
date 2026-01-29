@@ -1,7 +1,7 @@
 # Paper Network Visualization
 
 ## Overview
-This document provides a visual network of how the 83 analyzed papers connect to each other.
+This document provides a visual network of how the 95 analyzed papers connect to each other.
 
 ---
 
@@ -241,14 +241,15 @@ ILLUSION OF THINKING (2506.06941)
 
 | Cluster | Count | Key Finding |
 |---------|-------|-------------|
-| **Faithfulness** | 12 | CoT often unfaithful (40-60%) |
-| **Compositional/OOD** | 15 | ID success, OOD collapse |
-| **RL/Surfacing** | 10 | RL reorganizes, doesn't create |
-| **Mechanistic** | 8 | Identifiable circuits exist |
-| **Test-Time Compute** | 7 | Scaling has limits |
-| **Pattern Matching** | 10 | Strong evidence for thesis |
+| **Faithfulness** | 14 | CoT often unfaithful (40-60%) |
+| **Compositional/OOD** | 18 | ID success, OOD collapse |
+| **RL/Surfacing** | 12 | RL reorganizes, doesn't create |
+| **Mechanistic** | 10 | Identifiable circuits exist |
+| **Test-Time Compute** | 8 | Scaling has limits |
+| **Pattern Matching** | 12 | Strong evidence for thesis |
 | **Rebuttals** | 6 | Debate on tool augmentation |
-| **Other** | 15 | Various supporting evidence |
+| **Theoretical** | 5 | Markov kernels, metacognition |
+| **Other** | 10 | Various supporting evidence |
 
 ---
 
@@ -300,9 +301,33 @@ ILLUSION OF THINKING (2506.06941)
                                     ▼
                     ┌───────────────────────────┐
                     │ EVIDENCE WEIGHT:          │
-                    │ ~56 SUPPORT, ~9 CHALLENGE │
-                    │ ~18 BALANCED              │
+                    │ ~60 SUPPORT, ~9 CHALLENGE │
+                    │ ~26 BALANCED              │
                     └───────────────────────────┘
+```
+
+---
+
+## NEW: Theoretical Framework Cluster
+
+```
+┌───────────────────┐     ┌───────────────────┐     ┌───────────────────┐
+│ ON THE NOTION     │     │ AI METACOGNITION  │     │ REASONING OR      │
+│ THAT LMS REASON   │     │ (2411.02478)      │     │ RECITING          │
+│ (2511.11810)      │     │ "Smart but not    │     │ (2307.02477)      │
+│ LMs as Markov     │     │ wise"             │     │ Counterfactual    │
+│ kernels           │     │ Bengio, Mitchell  │     │ methodology       │
+└─────────┬─────────┘     └─────────┬─────────┘     └─────────┬─────────┘
+          │                         │                         │
+          └─────────────────────────┴─────────────────────────┘
+                                    │
+                                    ▼
+                    ┌─────────────────────────┐
+                    │   THESIS:               │
+                    │   "Statistical pattern  │
+                    │   matchers, not genuine │
+                    │   reasoners"            │
+                    └─────────────────────────┘
 ```
 
 ---
@@ -318,5 +343,5 @@ ILLUSION OF THINKING (2506.06941)
 
 ---
 
-*Last updated: 2026-01-24*
-*Total papers in network: 83*
+*Last updated: 2026-01-29*
+*Total papers in network: 95*
