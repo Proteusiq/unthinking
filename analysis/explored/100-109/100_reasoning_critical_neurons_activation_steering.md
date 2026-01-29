@@ -186,7 +186,9 @@ The cross-task transfer finding is **neutral** — it doesn't distinguish patter
 
 **On the false dichotomy of "pattern matching" vs "genuine reasoning"**:
 
-Mathematics is the science of patterns. A system that masters mathematical patterns has learned something real about math. The distinction that matters is:
+Math is deeply about recognizing and manipulating patterns. Algebraic manipulation, proof structures, algorithmic thinking — these are patterns. A system that masters mathematical patterns has learned something real about math.
+
+The distinction that matters is:
 
 1. **Recognizing a seen pattern** → applying memorized transformation
 2. **Composing patterns for novel situations** → generative reasoning
