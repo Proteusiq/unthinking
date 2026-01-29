@@ -247,6 +247,7 @@ KEY UPDATES:
 6. **Limits of Innate Planning** — 0% with move validator; GPT-5-Thinking loops 100%
 7. **AI Metacognition (2411.02478)** — Bengio, Mitchell et al.: "Smart but not wise"; lacks metacognition (reasoning about reasoning)
 8. **On the Notion that LMs Reason (2511.11810)** — NeurIPS 2025 Workshop: LMs as Markov kernels; "reasoning" = statistical regularities; explicitly defends "statistical pattern matchers"
+9. **Reasoning or Reciting (2307.02477)** — NAACL 2024; foundational counterfactual methodology; 11 tasks; high CCC + low CF = models understand but can't reason; "narrow, non-transferable procedures"
 
 ### Weakened "Against" Evidence
 1. **Illusion of Thinking** — Methodological critiques valid; must qualify

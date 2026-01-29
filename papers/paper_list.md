@@ -248,16 +248,17 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 97 | 2411.02478 | Nov 2024 | Imagining and building wise machines: The centrality of AI metacognition | Supports | ✅ DONE |
 | 98 | 2507.15851 | Jul 2025 | The Other Mind: How Language Models Exhibit Human Temporal Cognition | Balanced | ✅ DONE |
 | 99 | 2511.11810 | Nov 2025 | On the Notion that Language Models Reason (NeurIPS Workshop) | Supports | ✅ DONE |
+| 100 | 2307.02477 | Jul 2023 | Reasoning or Reciting? Counterfactual Tasks (NAACL 2024) | Supports | ✅ DONE |
 
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 99
-- **Against Reasoning**: ~41
+- **Total Papers**: 100
+- **Against Reasoning**: ~42
 - **For Reasoning**: ~26
 - **Balanced**: ~34
-- **Date Range**: 2024-2026
-- **Analyzed**: 94
+- **Date Range**: 2023-2026
+- **Analyzed**: 95
 
 ---
 
