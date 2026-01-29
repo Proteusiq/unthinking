@@ -8,23 +8,13 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 
 ## High Priority (Directly Tests Thesis)
 
-### [The Flexibility Trap: Why Arbitrary Order Limits Reasoning Potential in Diffusion Language Models](https://arxiv.org/abs/2601.15165)
-- **arXiv**: 2601.15165
-- **Stance**: BALANCED
-- **Why read**: Tests whether flexible generation order improves reasoning
-- **Key finding**: Flexibility doesn't unlock superior reasoning potential
-
-<details>
-<summary>Abstract</summary>
-
-We investigate whether diffusion language models, which can generate tokens in arbitrary order, have superior reasoning potential compared to autoregressive models. We find that this flexibility does not unlock improved reasoning capabilities.
-
-</details>
+*Queue empty — all high-priority papers analyzed.*
 
 ---
 
 ## Recently Analyzed (Removed from Queue)
 
+- ✅ **Flexibility Trap** (2601.15165) — Analyzed 2026-01-29
 - ✅ **Tokenizer Betrays Reasoning** (2601.14658) — Analyzed 2026-01-29
 - ✅ **Outcome-Based RL** (2601.15158) — Analyzed 2026-01-29
 - ✅ **Gaming the Judge** (2601.14691) — Analyzed 2026-01-29

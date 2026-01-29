@@ -253,16 +253,17 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 102 | 2601.13392 | Jan 2026 | Beyond Memorization: Testing LLM Reasoning on Unseen DFA Tasks | Supports | ✅ DONE |
 | 103 | 2601.15158 | Jan 2026 | Outcome-Based RL Provably Leads Transformers to Reason, but Only With the Right Data | Balanced | ✅ DONE |
 | 104 | 2601.14658 | Jan 2026 | Say Anything but This: When Tokenizer Betrays Reasoning in LLMs | Supports | ✅ DONE |
+| 105 | 2601.15165 | Jan 2026 | The Flexibility Trap: Why Arbitrary Order Limits Reasoning Potential in Diffusion LLMs | Balanced | ✅ DONE |
 
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 104
+- **Total Papers**: 105
 - **Against Reasoning**: ~45
 - **For Reasoning**: ~26
-- **Balanced**: ~35
+- **Balanced**: ~36
 - **Date Range**: 2023-2026
-- **Analyzed**: 99
+- **Analyzed**: 100
 
 ---
 

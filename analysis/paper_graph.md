@@ -436,6 +436,11 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Tokenizer Betrays Reasoning (2601.14658)** | **supports** | **LLMs Imitate Logical Reasoning (2509.12645)** | **Both show token-level rather than meaning-level processing** |
 | **Tokenizer Betrays Reasoning (2601.14658)** | **extends** | **Content Effects on Reasoning (2207.07051)** | **Adds mechanistic explanation for why surface form matters** |
 | **Tokenizer Betrays Reasoning (2601.14658)** | **provides mechanism for** | **Pattern matching thesis** | **Models literally cannot see past token IDs to meaning; 72.2% phantom edits are whitespace variants** |
+| **Flexibility Trap (2601.15165)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Both show CoT unfaithfulness — logical connectors filled in post-hoc** |
+| **Flexibility Trap (2601.15165)** | **supports** | **Illusion of Thinking (2506.06941)** | **Both show reasoning collapses under certain conditions** |
+| **Flexibility Trap (2601.15165)** | **supports** | **Faith and Fate (2305.18654)** | **Both show models take shortcuts around genuine reasoning** |
+| **Flexibility Trap (2601.15165)** | **provides mechanism for** | **CoT unfaithfulness** | **Logical connectors are "retrospective alignment" not genuine reasoning** |
+| **Flexibility Trap (2601.15165)** | **provides mechanism for** | **Pattern matching thesis** | **"Exploitation rather than exploration" — models find easy patterns, avoid uncertainty** |
 
 ### Extends / Builds On
 
