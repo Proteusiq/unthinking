@@ -161,24 +161,23 @@ None identified. This is a recent paper.
 
 2. **Sparse, fixed neurons control outcomes**: Only ~50 neurons (0.03%) control reasoning outcomes. This is consistent with pattern matching via a small set of "feature detectors" rather than general-purpose reasoning circuits.
 
-3. **Cross-task transfer**: RCNs from math tasks improve coding performance. If models were genuinely reasoning, one would expect task-specific circuits. The fact that the same ~50 neurons improve both math and coding suggests these neurons detect general "successful output patterns" rather than domain-specific reasoning.
+3. **Cross-task transfer**: RCNs from math tasks improve coding performance. This is **NOT strong evidence for pattern matching**:
+   - Math is foundational to coding, music, physics, engineering — domains share genuine logical structure
+   - Transfer could reflect shared abstract reasoning primitives (sequencing, variable tracking, conditionals)
+   - This is what we'd expect if the model learned genuine mathematical reasoning
 
-4. **Polarity-based activation**: Neurons show sign flips between correct/incorrect traces — essentially binary "on/off" states for "correct-looking" vs "incorrect-looking" patterns.
+4. **Polarity-based activation**: Neurons show sign flips between correct/incorrect traces. This is ambiguous — could be feature detection or genuine reasoning state.
 
 ### Key Insight
 
-The paper shows that reasoning correctness can be:
-1. **Predicted** from early activations (before reasoning completes)
-2. **Controlled** by steering ~50 neurons
-3. **Transferred** across task domains
+The **strongest evidence for pattern matching** from this paper is:
 
-This is exactly what we'd expect from **pattern detection** mechanisms, not genuine reasoning:
-- A genuine reasoner's correctness would emerge from the reasoning process
-- A pattern matcher's correctness is determined by whether input patterns match training distributions
+**Predictability from early activations (AUROC 0.83)**:
+- If the model can predict correctness *before reasoning completes*, outcomes are determined by pattern recognition of the input, not by the reasoning process itself
+- A genuine reasoner's correctness would emerge from the reasoning steps
+- This suggests the model "knows" whether it will succeed before reasoning
 
-> "The model 'knows' whether it will succeed before reasoning"
-
-This is the signature of pattern matching.
+The cross-task transfer and sparsity findings are more ambiguous and could support either interpretation.
 
 ---
 
