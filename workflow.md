@@ -19,8 +19,8 @@ Auto-discovered papers land in `papers/toevaluate.md`. Periodically review and:
 **Promote to `toread.md` if:**
 - Directly tests reasoning claims with controlled experiments
 - Provides new quantitative evidence (not just benchmarks)
-- Challenges OR strongly supports the thesis with data
-- High-impact venue or award-winning
+- Challenges OR supports the thesis
+- High-impact - present strong case for, against or balance view towards the thesis.
 
 **Discard if:**
 - Tangentially related (mentions reasoning but doesn't test it)
