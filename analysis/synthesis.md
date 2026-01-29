@@ -58,8 +58,9 @@
 | 96 | Content Effects on Reasoning | Jul 2024 | Supports | PNAS Nexus; LLMs show human-like content effects; semantic patterns |
 | 97 | AI Metacognition (Wise Machines) | Nov 2024 | Supports | "Smart but not wise"; lacks metacognition (reasoning about reasoning); Bengio, Mitchell et al. |
 | 98 | Temporal Cognition in LLMs | Jul 2025 | Balanced | Weber-Fechner law emerges; reference point ~2025; sophisticated emergence FROM data patterns |
+| 99 | On the Notion that LMs Reason | Nov 2025 | Strongly Supports | LMs as Markov kernels; "reasoning" = statistical regularities; defends "statistical pattern matchers"; NeurIPS Workshop |
 
-**Total: 93 papers analyzed**
+**Total: 94 papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative
@@ -497,6 +498,7 @@ For B=1 (NO search required, just follow edges):
 | **Semantic Deception** | **Semantic associations override instructions** |
 | **Limits of Innate Planning** | **0% with move validator; planning deficits** |
 | **Lewis & Mitchell (TMLR 2025)** | **Robustness collapse on simple variants (permuted alphabets, etc.)** |
+| **On the Notion that LMs Reason (2511.11810)** | **Theoretical framework: LMs as Markov kernels; "reasoning" = statistical regularities** |
 
 ### For "Tools ≠ Proof of Reasoning" (NEW)
 
