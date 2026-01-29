@@ -161,10 +161,11 @@ None identified. This is a recent paper.
 
 2. **Sparse, fixed neurons control outcomes**: Only ~50 neurons (0.03%) control reasoning outcomes. This is consistent with pattern matching via a small set of "feature detectors" rather than general-purpose reasoning circuits.
 
-3. **Cross-task transfer**: RCNs from math tasks improve coding performance. This is **NOT strong evidence for pattern matching**:
-   - Math is foundational to coding, music, physics, engineering — domains share genuine logical structure
-   - Transfer could reflect shared abstract reasoning primitives (sequencing, variable tracking, conditionals)
-   - This is what we'd expect if the model learned genuine mathematical reasoning
+3. **Cross-task transfer**: RCNs from math tasks improve coding performance. This is **NEUTRAL** evidence:
+   - Math is foundational to coding, music, physics, engineering — domains share mathematical structure
+   - **But math itself IS pattern** — mathematics is the science of patterns (algebraic, geometric, logical)
+   - Transfer doesn't distinguish "pattern matching" from "genuine reasoning" because mathematical reasoning IS recognizing and applying patterns
+   - The real question isn't whether the model does patterns — it's whether it can *compose* patterns for novel situations
 
 4. **Polarity-based activation**: Neurons show sign flips between correct/incorrect traces. This is ambiguous — could be feature detection or genuine reasoning state.
 
@@ -174,10 +175,25 @@ The **strongest evidence for pattern matching** from this paper is:
 
 **Predictability from early activations (AUROC 0.83)**:
 - If the model can predict correctness *before reasoning completes*, outcomes are determined by pattern recognition of the input, not by the reasoning process itself
-- A genuine reasoner's correctness would emerge from the reasoning steps
-- This suggests the model "knows" whether it will succeed before reasoning
+- The model recognizes "this is a pattern I can handle" vs "this isn't" — before actually working through the problem
+- A genuine reasoner's correctness would emerge from the reasoning steps, not be knowable in advance
 
-The cross-task transfer and sparsity findings are more ambiguous and could support either interpretation.
+The cross-task transfer finding is **neutral** — it doesn't distinguish pattern matching from reasoning because math fundamentally IS patterns. The thesis isn't that LLMs can't do patterns; it's that they can't *compose* patterns to handle genuinely novel situations outside their training distribution.
+
+---
+
+## Researcher's Note
+
+**On the false dichotomy of "pattern matching" vs "genuine reasoning"**:
+
+Mathematics is the science of patterns. A system that masters mathematical patterns has learned something real about math. The distinction that matters is:
+
+1. **Recognizing a seen pattern** → applying memorized transformation
+2. **Composing patterns for novel situations** → generative reasoning
+
+The papers in this review (Faith & Fate, OMEGA, Planning Gap) show ~100% on in-distribution patterns but ~0% on novel compositions. The question isn't "does the model do patterns?" — it's "can it generate new pattern compositions, or only retrieve seen ones?"
+
+The AUROC 0.83 finding suggests the model recognizes pattern *types* ("can I handle this?") rather than working through the logic — supporting the view that it retrieves rather than composes.
 
 ---
 
