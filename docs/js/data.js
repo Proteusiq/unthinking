@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 99,
+    totalAnalyzed: 100,
     lastUpdated: '2026-01-29',
   },
   nodes: [
@@ -1359,6 +1359,21 @@ window.paperData = {
         'Post-masking: 0-5% phantom edits',
       ],
     },
+    {
+      id: '2601.15165',
+      title: 'The Flexibility Trap: Why Arbitrary Order Limits Reasoning Potential in Diffusion LLMs',
+      shortTitle: 'Flexibility Trap',
+      date: 'Jan 2026',
+      stance: 'balanced',
+      cluster: 'mechanism',
+      coreArgument:
+        'Arbitrary order NARROWS reasoning potential. Models bypass high-uncertainty logical forks, causing "entropy degradation." Forcing AR order improves reasoning by requiring commitment at decision points.',
+      keyEvidence: [
+        'JustGRPO: 89.1% GSM8K, 45.1% MATH-500',
+        '21.3% HumanEval solved AR-only vs 0.6% arbitrary-only',
+        'Logical connectors filled in post-hoc',
+      ],
+    },
   ],
   links: [
     {
@@ -2642,6 +2657,31 @@ window.paperData = {
       target: '2207.07051',
       type: 'extends',
       description: 'Mechanistic explanation for surface form effects',
+    },
+    // Flexibility Trap links
+    {
+      source: '2601.15165',
+      target: '2307.13702',
+      type: 'supports',
+      description: 'CoT unfaithfulness - logical connectors post-hoc',
+    },
+    {
+      source: '2601.15165',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Reasoning collapses under conditions',
+    },
+    {
+      source: '2601.15165',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Models take shortcuts around genuine reasoning',
+    },
+    {
+      source: '2601.15165',
+      target: '2505.05410',
+      type: 'supports',
+      description: 'Retrospective alignment not genuine reasoning',
     },
   ],
 };
