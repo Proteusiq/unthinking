@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 100,
+    totalAnalyzed: 101,
     lastUpdated: '2026-01-29',
   },
   nodes: [
@@ -1374,6 +1374,21 @@ window.paperData = {
         'Logical connectors filled in post-hoc',
       ],
     },
+    {
+      id: '2601.19847',
+      title: 'Identifying and Transferring Reasoning-Critical Neurons (AdaRAS)',
+      shortTitle: 'Reasoning Neurons',
+      date: 'Jan 2026',
+      stance: 'balanced',
+      cluster: 'mechanism',
+      coreArgument:
+        'Only ~50 neurons (0.03%) control reasoning correctness. Activations predict outcomes BEFORE reasoning completes (AUROC 0.83). Cross-task transfer suggests pattern detection, not domain reasoning.',
+      keyEvidence: [
+        '+13% AIME-24, +13.64% AIME-25',
+        '0.83 AUROC prediction from early activations',
+        'Math RCNs transfer to coding tasks',
+      ],
+    },
   ],
   links: [
     {
@@ -2682,6 +2697,31 @@ window.paperData = {
       target: '2505.05410',
       type: 'supports',
       description: 'Retrospective alignment not genuine reasoning',
+    },
+    // Reasoning-Critical Neurons links
+    {
+      source: '2601.19847',
+      target: '2502.20332',
+      type: 'supports',
+      description: 'Both find identifiable reasoning circuits',
+    },
+    {
+      source: '2601.19847',
+      target: '2510.15987',
+      type: 'supports',
+      description: 'Both identify specific neurons for reasoning',
+    },
+    {
+      source: '2601.19847',
+      target: '2509.23629',
+      type: 'supports',
+      description: 'Both show sparse neural structures',
+    },
+    {
+      source: '2601.19847',
+      target: '2512.07783',
+      type: 'supports',
+      description: 'Steering surfaces existing capability',
     },
   ],
 };

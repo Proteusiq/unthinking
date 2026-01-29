@@ -441,6 +441,11 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Flexibility Trap (2601.15165)** | **supports** | **Faith and Fate (2305.18654)** | **Both show models take shortcuts around genuine reasoning** |
 | **Flexibility Trap (2601.15165)** | **provides mechanism for** | **CoT unfaithfulness** | **Logical connectors are "retrospective alignment" not genuine reasoning** |
 | **Flexibility Trap (2601.15165)** | **provides mechanism for** | **Pattern matching thesis** | **"Exploitation rather than exploration" — models find easy patterns, avoid uncertainty** |
+| **Reasoning-Critical Neurons (2601.19847)** | **supports** | **Emergent Symbolic Mechanisms (2502.20332)** | **Both find identifiable reasoning-related circuits/neurons** |
+| **Reasoning-Critical Neurons (2601.19847)** | **supports** | **Algorithmic Primitives (2510.15987)** | **Both identify specific neurons/patterns for reasoning** |
+| **Reasoning-Critical Neurons (2601.19847)** | **supports** | **How LLMs Learn to Reason (2509.23629)** | **Both show sparse neural structures for reasoning** |
+| **Reasoning-Critical Neurons (2601.19847)** | **provides mechanism for** | **Pattern matching thesis** | **Predictability from early activations (0.83 AUROC) = pattern detection, not step-by-step reasoning** |
+| **Reasoning-Critical Neurons (2601.19847)** | **provides mechanism for** | **Surfacing hypothesis** | **Steering surfaces existing capability; cross-task transfer suggests task-agnostic patterns** |
 
 ### Extends / Builds On
 
