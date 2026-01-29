@@ -245,18 +245,38 @@ Query: "LLM reasoning" + date:2024-2026 + category:cs.CL
 
 ## Workflow
 
+**IMPORTANT**: See `workflow.md` for detailed step-by-step instructions.
+
 ### When Analyzing a New Paper:
-1. Try fetch the full HTML version first from arXiv. If temporary download the PDF.
+1. Try fetch the full HTML version first from arXiv. If unavailable, download the PDF.
 2. Read completely, not just abstract
 3. Extract core claims with supporting evidence
 4. Document methodology and limitations
 5. Search for rebuttals on arXiv
 6. Cross-reference with papers already analyzed
-7. Update the paper interaction graph (`analysis/paper_graph.md`)
-8. Update the visualization data (`docs/js/data.js`)
-9. Mark paper as done in paper_list.md
-10. **COMMIT changes to git**
-11. **PUSH to deploy docs** (GitHub Pages serves from main branch)
+7. Create analysis file (`analysis/explored/XX_paper_name.md`)
+8. Update the paper list (`papers/paper_list.md`)
+9. Update the paper interaction graph (`analysis/paper_graph.md`)
+10. Update the synthesis (`analysis/synthesis.md`) if significant evidence
+11. Update the visualization data (`docs/js/data.js`)
+12. Update README.md paper counts
+13. **COMMIT changes to git**
+14. **PUSH to deploy docs** (GitHub Pages serves from main branch)
+15. Remove from `papers/toread.md` if applicable
+
+### Post-Analysis Checklist (VERIFY BEFORE COMMITTING)
+Run through this checklist after every paper analysis:
+
+- [ ] **Analysis file created** (`analysis/explored/XX_paper_name.md`)
+- [ ] **paper_list.md updated** (new entry with status DONE)
+- [ ] **paper_graph.md updated** (relationships + update log)
+- [ ] **synthesis.md updated** (papers table + evidence mapping if significant)
+- [ ] **rebuttals.md updated** (if paper rebuts or is rebutted by existing papers)
+- [ ] **data.js updated** (new node + links + meta.totalAnalyzed)
+- [ ] **README.md updated** (paper counts in badges and folder)
+- [ ] **Rebuttals section complete** in analysis file
+- [ ] **File numbering sequential** (no gaps in XX_paper_name.md)
+- [ ] **Committed and pushed**
 
 ### Verification Checklist (Run Periodically)
 Ensure node count in `docs/js/data.js` matches analyzed papers:
