@@ -1,8 +1,8 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 93,
-    lastUpdated: '2026-01-28',
+    totalAnalyzed: 94,
+    lastUpdated: '2026-01-29',
   },
   nodes: [
     {
@@ -1269,6 +1269,21 @@ window.paperData = {
         'Emerges from corpus structure',
       ],
     },
+    {
+      id: '2511.11810',
+      title: 'On the Notion that Language Models Reason',
+      shortTitle: 'LMs as Markov Kernels',
+      date: 'Nov 2025',
+      stance: 'supports',
+      cluster: 'mechanism',
+      coreArgument:
+        'LMs implement implicit Markov kernels. "Reasoning" = statistical regularities, not logical mechanisms. Proposes reframing as "inference" not "reasoning".',
+      keyEvidence: [
+        'NeurIPS 2025 Workshop',
+        'Defends "statistical pattern matchers"',
+        'Invariance violations = not reasoning',
+      ],
+    },
   ],
   links: [
     {
@@ -2384,6 +2399,37 @@ window.paperData = {
       target: '2503.05788',
       type: 'extends',
       description: 'Provides mechanistic example of emergent ability',
+    },
+    // On the Notion that Language Models Reason links
+    {
+      source: '2511.11810',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Both argue LMs are pattern matchers',
+    },
+    {
+      source: '2511.11810',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Cites as evidence of logical inconsistency',
+    },
+    {
+      source: '2511.11810',
+      target: '2406.02061',
+      type: 'supports',
+      description: 'Cites Alice in Wonderland failures',
+    },
+    {
+      source: '2511.11810',
+      target: '2411.02478',
+      type: 'supports',
+      description: 'Both argue LMs lack genuine reasoning',
+    },
+    {
+      source: '2511.11810',
+      target: '2207.07051',
+      type: 'supports',
+      description: 'Both show LMs follow data patterns',
     },
   ],
 };
