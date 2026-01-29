@@ -53,13 +53,22 @@ If NO to any, skip and note why in `papers/toread.md`.
 
 ## Step 3: Read Full Paper
 
-**IMPORTANT**: Read the FULL HTML version at `https://arxiv.org/html/{arxiv_id}`
+**CRITICAL**: Read the COMPLETE paper — this is non-negotiable.
 
+- **NEVER** stop at "enough information" — read the ENTIRE paper
+- **ALWAYS** fetch the full HTML version at `https://arxiv.org/html/{arxiv_id}`
+- If HTML is truncated, use task agents to process the full saved content
+- If you haven't read the full paper, you haven't read the paper
+
+**Checklist**:
 - [ ] Read abstract
-- [ ] Read methodology
+- [ ] Read introduction
+- [ ] Read methodology (ALL of it)
 - [ ] Read results with actual numbers
+- [ ] Read discussion/analysis
 - [ ] Read limitations section
-- [ ] Note key quotes
+- [ ] Read conclusion
+- [ ] Note key quotes throughout
 
 **If HTML version unavailable (404):**
 1. Note in analysis file: "⚠️ INCOMPLETE - HTML not available"
