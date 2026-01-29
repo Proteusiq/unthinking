@@ -82,7 +82,13 @@ If NO to any, skip and note why in `papers/toread.md`.
 
 ## Step 4: Create Analysis File
 
-Create `analysis/explored/XX_paper_name.md` following template:
+Create `analysis/explored/XX-X9/XX_paper_name.md` in the appropriate bin folder:
+- Papers 00-09 → `00-09/`
+- Papers 10-19 → `10-19/`
+- Papers 90-99 → `90-99/`
+- etc.
+
+Following template:
 
 ```markdown
 # Paper Analysis: [Title]

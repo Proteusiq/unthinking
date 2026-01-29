@@ -364,10 +364,11 @@ Add analysis: [Paper Title] (arXiv ID)
 │   ├── paper_graph.md          # Paper interaction graph
 │   ├── paper_network.md        # Network analysis
 │   ├── rebuttals.md            # Rebuttal matrix
-│   └── explored/               # Individual paper analyses
-│       ├── 00_faith_and_fate.md
-│       ├── 01_gsm_symbolic.md
-│       └── ...
+│   └── explored/               # Individual paper analyses (97 files)
+│       ├── 00-09/              # Papers 00-09
+│       ├── 10-19/              # Papers 10-19
+│       ├── ...                 # (10-paper bins)
+│       └── 90-99/              # Papers 90-99
 ├── scripts/
 │   └── discovery/              # Paper discovery package
 │       ├── __init__.py         # Package exports
