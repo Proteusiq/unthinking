@@ -496,6 +496,7 @@ For B=1 (NO search required, just follow edges):
 | **CoT Mirage** | **ID=100%, OOD=0%** |
 | **Semantic Deception** | **Semantic associations override instructions** |
 | **Limits of Innate Planning** | **0% with move validator; planning deficits** |
+| **Lewis & Mitchell (TMLR 2025)** | **Robustness collapse on simple variants (permuted alphabets, etc.)** |
 
 ### For "Tools ≠ Proof of Reasoning" (NEW)
 
@@ -800,6 +801,33 @@ For B=1 (NO search required, just follow edges):
 | **10-digit** | **95-100%** | **0%** |
 
 **Implication**: Scale won't help — architectural limit
+
+### 5. "Robustness of Analogical Reasoning" (Lewis & Mitchell, TMLR 2025)
+
+**The Phenomenon**: GPT models lack robustness humans have on simple variants
+
+**Paper**: "Evaluating the Robustness of Analogical Reasoning in GPT Models" (TMLR Feb 2025)
+**Authors**: Martha Lewis, Melanie Mitchell (Santa Fe Institute)
+**OpenReview**: https://openreview.net/forum?id=t5cy5v9wph
+
+**Three domains tested** (variants of Webb et al. 2023 claims):
+
+| Domain | Variant | Human | GPT-3/3.5/4 |
+|--------|---------|-------|-------------|
+| **Letter-string analogies** | Permuted alphabet | ~90% (stable) | **Sharp drop** |
+| **Letter-string analogies** | Symbol alphabet | ~85% | **Near floor** |
+| **Digit matrices** | Alternate blank position | ~65% (stable) | **Dramatic drop** |
+| **Story analogies** | Answer order | No bias | **Strong bias (89%→61%)** |
+
+**Key finding**: "Despite previously reported successes of GPT models on zero-shot analogical reasoning, these models often lack the robustness of zero-shot human analogy-making, exhibiting brittleness on most of the variations we tested."
+
+**What this means for thesis**:
+1. GPT performance depends on similarity to training data
+2. Humans generalize; GPT models don't
+3. "Narrow, non-transferable procedures for task solving" (cites Wu et al. 2023)
+4. Paper explicitly cites AI Metacognition paper (Johnson et al. 2024)
+
+**Relevance**: Peer-reviewed TMLR paper from Melanie Mitchell (co-author of AI Metacognition) directly testing robustness of analogical reasoning claims.
 
 ---
 
