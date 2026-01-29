@@ -249,16 +249,18 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 98 | 2507.15851 | Jul 2025 | The Other Mind: How Language Models Exhibit Human Temporal Cognition | Balanced | ✅ DONE |
 | 99 | 2511.11810 | Nov 2025 | On the Notion that Language Models Reason (NeurIPS Workshop) | Supports | ✅ DONE |
 | 100 | 2307.02477 | Jul 2023 | Reasoning or Reciting? Counterfactual Tasks (NAACL 2024) | Supports | ✅ DONE |
+| 101 | 2601.14691 | Jan 2026 | Gaming the Judge: Unfaithful CoT Undermines Agent Evaluation | Supports | ✅ DONE |
+| 102 | 2601.13392 | Jan 2026 | Beyond Memorization: Testing LLM Reasoning on Unseen DFA Tasks | Supports | ✅ DONE |
 
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 100
-- **Against Reasoning**: ~42
+- **Total Papers**: 102
+- **Against Reasoning**: ~44
 - **For Reasoning**: ~26
 - **Balanced**: ~34
 - **Date Range**: 2023-2026
-- **Analyzed**: 95
+- **Analyzed**: 97
 
 ---
 

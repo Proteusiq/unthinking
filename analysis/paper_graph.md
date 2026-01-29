@@ -647,3 +647,5 @@ These papers have NO direct rebuttals found:
 | 2026-01-28 | Added Temporal Cognition (2507.15851) — Weber-Fechner law emerges; reference point ~2025; sophisticated emergence FROM data patterns; BALANCED |
 | 2026-01-29 | Added On the Notion that Language Models Reason (2511.11810) — LMs as Markov kernels; "reasoning" = statistical regularities; "statistical pattern matchers"; NeurIPS 2025 Workshop; STRONGLY SUPPORTS thesis |
 | 2026-01-29 | Added Reasoning or Reciting (2307.02477) — NAACL 2024; foundational counterfactual methodology; 11 tasks; high CCC + low CF = understanding ≠ reasoning; "narrow, non-transferable procedures"; STRONGLY SUPPORTS thesis |
+| 2026-01-29 | Added Gaming the Judge (2601.14691) — CoT manipulation inflates FPR by 90%; judges pattern-match on style, not content; Progress Fabrication most effective; SUPPORTS thesis |
+| 2026-01-29 | Added Beyond Memorization (2601.13392) — 100% knowledge, 30-64pp drops on unseen DFA tasks; CoT degrades performance; six systematic failure modes; STRONGLY SUPPORTS thesis |

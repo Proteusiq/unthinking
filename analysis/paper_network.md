@@ -1,7 +1,7 @@
 # Paper Network Visualization
 
 ## Overview
-This document provides a visual network of how the 95 analyzed papers connect to each other.
+This document provides a visual network of how the 97 analyzed papers connect to each other.
 
 ---
 
@@ -372,4 +372,4 @@ ILLUSION OF THINKING (2506.06941)
 ---
 
 *Last updated: 2026-01-29*
-*Total papers in network: 95*
+*Total papers in network: 97*

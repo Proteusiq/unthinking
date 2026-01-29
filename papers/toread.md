@@ -2,37 +2,11 @@
 
 Curated list of papers confirmed relevant to the thesis. Promoted from `toevaluate.md` after triage.
 
-**Last updated**: 2026-01-28
+**Last updated**: 2026-01-29
 
 ---
 
 ## High Priority (Directly Tests Thesis)
-
-### [Gaming the Judge: Unfaithful Chain-of-Thought Can Undermine Agent Evaluation](https://arxiv.org/abs/2601.14691)
-- **arXiv**: 2601.14691
-- **Stance**: SUPPORTS
-- **Why read**: Directly tests CoT faithfulness - shows LLM judges can be fooled by unfaithful reasoning traces
-- **Key finding**: CoT doesn't faithfully reflect internal reasoning or environment state
-
-<details>
-<summary>Abstract</summary>
-
-We study the effect of Chain-of-Thought on the reliability of agent evaluation. We find that LLM judges can be fooled by unfaithful reasoning traces that don't accurately represent the agent's internal state or interaction with the environment. This has implications for agent evaluation pipelines that rely on CoT.
-
-</details>
-
-### [Beyond Memorization: Testing LLM Reasoning on Unseen Theory of Computation Tasks](https://arxiv.org/abs/2601.13392)
-- **arXiv**: 2601.13392
-- **Stance**: SUPPORTS
-- **Why read**: Tests pattern matching vs genuine reasoning on DFA construction
-- **Key finding**: Benchmark distinguishes memorization from symbolic reasoning
-
-<details>
-<summary>Abstract</summary>
-
-We propose a benchmark based on Theory of Computation tasks to distinguish memorization from genuine symbolic reasoning in LLMs. Our benchmark tests DFA construction and related tasks that require systematic rule application rather than pattern matching.
-
-</details>
 
 ### [Outcome-Based RL Provably Leads Transformers to Reason, but Only With the Right Data](https://arxiv.org/abs/2601.15158)
 - **arXiv**: 2601.15158
@@ -72,6 +46,13 @@ We demonstrate that tokenization choices can undermine LLM reasoning in ways tha
 We investigate whether diffusion language models, which can generate tokens in arbitrary order, have superior reasoning potential compared to autoregressive models. We find that this flexibility does not unlock improved reasoning capabilities.
 
 </details>
+
+---
+
+## Recently Analyzed (Removed from Queue)
+
+- ✅ **Gaming the Judge** (2601.14691) — Analyzed 2026-01-29
+- ✅ **Beyond Memorization** (2601.13392) — Analyzed 2026-01-29
 
 ---
 

@@ -60,8 +60,10 @@
 | 98 | Temporal Cognition in LLMs | Jul 2025 | Balanced | Weber-Fechner law emerges; reference point ~2025; sophisticated emergence FROM data patterns |
 | 99 | On the Notion that LMs Reason | Nov 2025 | Strongly Supports | LMs as Markov kernels; "reasoning" = statistical regularities; defends "statistical pattern matchers"; NeurIPS Workshop |
 | 100 | Reasoning or Reciting | Jul 2023 | Strongly Supports | NAACL 2024; foundational counterfactual methodology; high CCC + low CF = understanding ≠ reasoning; "narrow, non-transferable procedures" |
+| 101 | Gaming the Judge | Jan 2026 | Supports | CoT manipulation inflates FPR by 90%; judges pattern-match on style not content; Progress Fabrication most effective |
+| 102 | Beyond Memorization | Jan 2026 | Strongly Supports | 100% knowledge, 30-64pp drops on unseen DFA; CoT degrades performance; "pattern retrieval rather than robust symbolic reasoning" |
 
-**Total: 95 papers analyzed**
+**Total: 97 papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative
@@ -501,6 +503,8 @@ For B=1 (NO search required, just follow edges):
 | **Lewis & Mitchell (TMLR 2025)** | **Robustness collapse on simple variants (permuted alphabets, etc.)** |
 | **On the Notion that LMs Reason (2511.11810)** | **Theoretical framework: LMs as Markov kernels; "reasoning" = statistical regularities** |
 | **Reasoning or Reciting (2307.02477)** | **Foundational counterfactual methodology; 40pp drops on CF tasks; high CCC = understanding ≠ reasoning** |
+| **Gaming the Judge (2601.14691)** | **Judges pattern-match on CoT style; 90% FPR inflation from fabrication; surface features override evidence** |
+| **Beyond Memorization (2601.13392)** | **100% knowledge + 0% novel application; 63pp drop seen→unseen; CoT degrades performance** |
 
 ### For "Tools ≠ Proof of Reasoning" (NEW)
 
