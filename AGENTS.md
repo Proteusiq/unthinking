@@ -246,7 +246,7 @@ Query: "LLM reasoning" + date:2024-2026 + category:cs.CL
 ## Workflow
 
 ### When Analyzing a New Paper:
-1. Fetch the full HTML version from arXiv
+1. Try fetch the full HTML version first from arXiv. If temporary download the PDF.
 2. Read completely, not just abstract
 3. Extract core claims with supporting evidence
 4. Document methodology and limitations
