@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 95,
+    totalAnalyzed: 97,
     lastUpdated: '2026-01-29',
   },
   nodes: [
@@ -1299,6 +1299,36 @@ window.paperData = {
         '11 tasks tested systematically',
       ],
     },
+    {
+      id: '2601.14691',
+      title: 'Gaming the Judge: Unfaithful Chain of Thought Can Undermine Agent Evaluation',
+      shortTitle: 'Gaming the Judge',
+      date: 'Jan 2026',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'LLM judges are highly susceptible to CoT manipulation. Progress Fabrication inflates FPR by 90%. Judges pattern-match on style, not content.',
+      keyEvidence: [
+        '800 trajectories, 9 VLM judges',
+        '20-30pp FPR increase from fabrication',
+        'Even thinking models fooled',
+      ],
+    },
+    {
+      id: '2601.13392',
+      title: 'Beyond Memorization: Testing LLM Reasoning on Unseen Theory of Computation Tasks',
+      shortTitle: 'Beyond Memorization DFA',
+      date: 'Jan 2026',
+      stance: 'supports',
+      cluster: 'compositional',
+      coreArgument:
+        '100% knowledge accuracy but 30-64pp drops on unseen DFA tasks. CoT degrades performance. "Pattern retrieval rather than robust symbolic reasoning."',
+      keyEvidence: [
+        '100% knowledge, 20-59% unseen',
+        '63pp drop GPT-5.1 seen→unseen',
+        'Six systematic failure modes',
+      ],
+    },
   ],
   links: [
     {
@@ -2470,6 +2500,62 @@ window.paperData = {
       target: '2207.07051',
       type: 'supports',
       description: 'Both show training distribution determines capability',
+    },
+    // Gaming the Judge links
+    {
+      source: '2601.14691',
+      target: '2307.13702',
+      type: 'supports',
+      description: 'Both show CoT unreliable for evaluation',
+    },
+    {
+      source: '2601.14691',
+      target: '2505.05410',
+      type: 'supports',
+      description: 'Both show CoT can be unfaithful/misleading',
+    },
+    {
+      source: '2601.14691',
+      target: '2510.18254',
+      type: 'supports',
+      description: 'Both show surface features dominate',
+    },
+    {
+      source: '2601.14691',
+      target: '2512.20812',
+      type: 'supports',
+      description: 'Both show semantic patterns override substance',
+    },
+    // Beyond Memorization links
+    {
+      source: '2601.13392',
+      target: '2307.02477',
+      type: 'supports',
+      description: 'Both show seen/unseen gap = memorization',
+    },
+    {
+      source: '2601.13392',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Both show compositional generalization failure',
+    },
+    {
+      source: '2601.13392',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Both show novelty breaks performance',
+    },
+    {
+      source: '2601.13392',
+      target: '2508.01191',
+      type: 'supports',
+      description: 'Both show ID success, OOD failure',
+    },
+    {
+      source: '2601.13392',
+      target: '2504.01445',
+      type: 'supports',
+      description: 'Both show systematicity failure',
     },
   ],
 };

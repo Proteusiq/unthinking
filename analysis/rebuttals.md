@@ -248,6 +248,8 @@ KEY UPDATES:
 7. **AI Metacognition (2411.02478)** — Bengio, Mitchell et al.: "Smart but not wise"; lacks metacognition (reasoning about reasoning)
 8. **On the Notion that LMs Reason (2511.11810)** — NeurIPS 2025 Workshop: LMs as Markov kernels; "reasoning" = statistical regularities; explicitly defends "statistical pattern matchers"
 9. **Reasoning or Reciting (2307.02477)** — NAACL 2024; foundational counterfactual methodology; 11 tasks; high CCC + low CF = models understand but can't reason; "narrow, non-transferable procedures"
+10. **Gaming the Judge (2601.14691)** — CoT manipulation inflates FPR by up to 90%; judges pattern-match on style not content; even thinking models (o4-mini, Claude-Thinking) fooled
+11. **Beyond Memorization (2601.13392)** — 100% knowledge accuracy but 30-64pp drops on unseen DFA tasks; "pattern retrieval rather than robust symbolic reasoning"; CoT actually degrades performance
 
 ### Weakened "Against" Evidence
 1. **Illusion of Thinking** — Methodological critiques valid; must qualify
