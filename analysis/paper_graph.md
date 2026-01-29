@@ -566,6 +566,7 @@ These papers have NO direct rebuttals found:
 | **System 1/2 Alignment (2502.12470)** | **S2 excels at arithmetic (AddSub +9pp), S1 excels at commonsense (+7pp StrategyQA); uniform reasoning suboptimal; entropy-based selection beats both; BALANCED** |
 | **Content Effects on Reasoning (2207.07051)** | **PNAS Nexus peer-reviewed; LLMs show human-like content effects on NLI, syllogisms, Wason task; 90% endorse invalid syllogism if believable; model confidence ↔ human RT; SUPPORTS thesis** |
 | **On the Notion that Language Models Reason (2511.11810)** | **NeurIPS 2025 Workshop; LMs as Markov kernels mapping contexts to distributions; "reasoning" = statistical regularities in kernel; explicitly defends "statistical pattern matchers" claim; proposes "inference" not "reasoning"; STRONGLY SUPPORTS thesis** |
+| **Reasoning or Reciting (2307.02477)** | **NAACL 2024; foundational counterfactual methodology; 11 tasks; high CCC + low CF performance = understanding ≠ reasoning; "narrow, non-transferable procedures"; 40pp drop on counterfactual tasks; STRONGLY SUPPORTS thesis** |
 | **Reasoning Promotes Robustness ToM (2601.16853)** | **Robustness ≠ new capability; bounded by base model; ToM strategies visible in traces; BALANCED — supports surfacing** |
 | **MortalMATH (2601.18790)** | **>95% task completion while user dying; RLVR creates tunnel vision; consequence blindness; 15s latency in emergencies; STRONGLY SUPPORTS thesis** |
 
@@ -645,3 +646,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-28 | Added AI Metacognition (2411.02478) — "Smart but not wise"; lacks metacognition (reasoning about reasoning); object-level patterns without meta-level; SUPPORTS thesis |
 | 2026-01-28 | Added Temporal Cognition (2507.15851) — Weber-Fechner law emerges; reference point ~2025; sophisticated emergence FROM data patterns; BALANCED |
 | 2026-01-29 | Added On the Notion that Language Models Reason (2511.11810) — LMs as Markov kernels; "reasoning" = statistical regularities; "statistical pattern matchers"; NeurIPS 2025 Workshop; STRONGLY SUPPORTS thesis |
+| 2026-01-29 | Added Reasoning or Reciting (2307.02477) — NAACL 2024; foundational counterfactual methodology; 11 tasks; high CCC + low CF = understanding ≠ reasoning; "narrow, non-transferable procedures"; STRONGLY SUPPORTS thesis |

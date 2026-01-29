@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 94,
+    totalAnalyzed: 95,
     lastUpdated: '2026-01-29',
   },
   nodes: [
@@ -1284,6 +1284,21 @@ window.paperData = {
         'Invariance violations = not reasoning',
       ],
     },
+    {
+      id: '2307.02477',
+      title: 'Reasoning or Reciting? Exploring the Capabilities and Limitations of Language Models Through Counterfactual Tasks',
+      shortTitle: 'Reasoning or Reciting',
+      date: 'Jul 2023',
+      stance: 'supports',
+      cluster: 'compositional',
+      coreArgument:
+        'LMs rely on "narrow, non-transferable procedures" not general reasoning. High CCC + low counterfactual = models understand conditions but cant apply reasoning.',
+      keyEvidence: [
+        'NAACL 2024 (MIT/BU)',
+        '40pp drop on counterfactual tasks',
+        '11 tasks tested systematically',
+      ],
+    },
   ],
   links: [
     {
@@ -2430,6 +2445,31 @@ window.paperData = {
       target: '2207.07051',
       type: 'supports',
       description: 'Both show LMs follow data patterns',
+    },
+    // Reasoning or Reciting links
+    {
+      source: '2307.02477',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Both show OOD failure; counterfactual framework',
+    },
+    {
+      source: '2307.02477',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Same methodology; perturbation breaks performance',
+    },
+    {
+      source: '2307.02477',
+      target: '2511.11810',
+      type: 'supports',
+      description: 'Both argue LMs use narrow procedures',
+    },
+    {
+      source: '2307.02477',
+      target: '2207.07051',
+      type: 'supports',
+      description: 'Both show training distribution determines capability',
     },
   ],
 };
