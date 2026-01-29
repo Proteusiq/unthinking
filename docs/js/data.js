@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 98,
+    totalAnalyzed: 99,
     lastUpdated: '2026-01-29',
   },
   nodes: [
@@ -1344,6 +1344,21 @@ window.paperData = {
         'OOD generalization from easy to hard',
       ],
     },
+    {
+      id: '2601.14658',
+      title: 'Say Anything but This: When Tokenizer Betrays Reasoning in LLMs',
+      shortTitle: 'Tokenizer Betrays',
+      date: 'Jan 2026',
+      stance: 'supports',
+      cluster: 'mechanism',
+      coreArgument:
+        'LLMs reason at token-ID level, not meaning level. "Phantom edits" show models believe they edited when surface text is unchanged. Scaling doesn\'t fix this—it\'s architectural.',
+      keyEvidence: [
+        '72.2% phantom edits are whitespace variants',
+        '11k+ trials, 10 models',
+        'Post-masking: 0-5% phantom edits',
+      ],
+    },
   ],
   links: [
     {
@@ -2596,6 +2611,37 @@ window.paperData = {
       target: '2407.20311',
       type: 'supports',
       description: 'Both show role of easy examples',
+    },
+    // Tokenizer Betrays Reasoning links
+    {
+      source: '2601.14658',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Surface-level pattern matching, not semantic',
+    },
+    {
+      source: '2601.14658',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Perturbation sensitivity reveals shallow processing',
+    },
+    {
+      source: '2601.14658',
+      target: '2410.13343',
+      type: 'supports',
+      description: 'Models exploit surface patterns',
+    },
+    {
+      source: '2601.14658',
+      target: '2509.12645',
+      type: 'supports',
+      description: 'Token-level not meaning-level processing',
+    },
+    {
+      source: '2601.14658',
+      target: '2207.07051',
+      type: 'extends',
+      description: 'Mechanistic explanation for surface form effects',
     },
   ],
 };

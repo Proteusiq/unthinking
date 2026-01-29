@@ -430,6 +430,12 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Outcome-Based RL (2601.15158)** | **extends** | **DeepSeek-R1 (2501.12948)** | **Theoretical analysis of RL-driven reasoning emergence** |
 | **Outcome-Based RL (2601.15158)** | **supports** | **Physics of LLMs 2.1 (2407.20311)** | **Both show role of easy examples in learning** |
 | **Outcome-Based RL (2601.15158)** | **provides mechanism for** | **Surfacing hypothesis** | **Polynomial convergence with easy examples, exponential without** |
+| **Tokenizer Betrays Reasoning (2601.14658)** | **supports** | **Faith and Fate (2305.18654)** | **Both show surface-level pattern matching, not semantic reasoning** |
+| **Tokenizer Betrays Reasoning (2601.14658)** | **supports** | **GSM-Symbolic (2410.05229)** | **Both show perturbation sensitivity reveals shallow processing** |
+| **Tokenizer Betrays Reasoning (2601.14658)** | **supports** | **Shortcut Learning (2410.13343)** | **Both show models exploit surface patterns** |
+| **Tokenizer Betrays Reasoning (2601.14658)** | **supports** | **LLMs Imitate Logical Reasoning (2509.12645)** | **Both show token-level rather than meaning-level processing** |
+| **Tokenizer Betrays Reasoning (2601.14658)** | **extends** | **Content Effects on Reasoning (2207.07051)** | **Adds mechanistic explanation for why surface form matters** |
+| **Tokenizer Betrays Reasoning (2601.14658)** | **provides mechanism for** | **Pattern matching thesis** | **Models literally cannot see past token IDs to meaning; 72.2% phantom edits are whitespace variants** |
 
 ### Extends / Builds On
 

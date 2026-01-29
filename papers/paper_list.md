@@ -252,16 +252,17 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 101 | 2601.14691 | Jan 2026 | Gaming the Judge: Unfaithful CoT Undermines Agent Evaluation | Supports | ✅ DONE |
 | 102 | 2601.13392 | Jan 2026 | Beyond Memorization: Testing LLM Reasoning on Unseen DFA Tasks | Supports | ✅ DONE |
 | 103 | 2601.15158 | Jan 2026 | Outcome-Based RL Provably Leads Transformers to Reason, but Only With the Right Data | Balanced | ✅ DONE |
+| 104 | 2601.14658 | Jan 2026 | Say Anything but This: When Tokenizer Betrays Reasoning in LLMs | Supports | ✅ DONE |
 
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 103
-- **Against Reasoning**: ~44
+- **Total Papers**: 104
+- **Against Reasoning**: ~45
 - **For Reasoning**: ~26
 - **Balanced**: ~35
 - **Date Range**: 2023-2026
-- **Analyzed**: 98
+- **Analyzed**: 99
 
 ---
 
