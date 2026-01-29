@@ -425,6 +425,11 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Content Effects on Reasoning (2207.07051)** | **supports** | **Shortcut Learning (2410.13343)** | **Both show models exploit semantic shortcuts** |
 | **Content Effects on Reasoning (2207.07051)** | **extends** | **System 1/2 Alignment (2502.12470)** | **Both connect to dual-process; this adds human comparison** |
 | **Content Effects on Reasoning (2207.07051)** | **provides evidence for** | **Pattern matching thesis** | **Content effects = direct evidence of learned pattern matching** |
+| **Outcome-Based RL (2601.15158)** | **supports** | **Interplay (2512.07783)** | **RL surfaces capability from base model; requires "minimal task proficiency"** |
+| **Outcome-Based RL (2601.15158)** | **supports** | **s1 (2501.19393)** | **Both show simple examples seed reasoning patterns** |
+| **Outcome-Based RL (2601.15158)** | **extends** | **DeepSeek-R1 (2501.12948)** | **Theoretical analysis of RL-driven reasoning emergence** |
+| **Outcome-Based RL (2601.15158)** | **supports** | **Physics of LLMs 2.1 (2407.20311)** | **Both show role of easy examples in learning** |
+| **Outcome-Based RL (2601.15158)** | **provides mechanism for** | **Surfacing hypothesis** | **Polynomial convergence with easy examples, exponential without** |
 
 ### Extends / Builds On
 
