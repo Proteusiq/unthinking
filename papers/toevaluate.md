@@ -24,6 +24,53 @@ Discard if paper:
 
 ## New Papers (2026-01-29)
 
+### [HE-SNR: Uncovering Latent Logic via Entropy for Guiding Mid-Training on SWE-BENCH](https://arxiv.org/abs/2601.20255v1)
+- **arXiv**: 2601.20255v1
+- **Published**: 2026-01-28
+- **Stance**: BALANCED
+- **Priority**: 7/10
+- **Classified by**: LLM
+- **Why read**: This paper explores metrics for guiding LLM training in complex tasks, providing insights into the nature of LLM capabilities and their reliance on pattern-based structures.
+
+<details>
+<summary>Abstract</summary>
+
+SWE-bench has emerged as the premier benchmark for evaluating Large Language Models on complex software engineering tasks. While these capabilities are fundamentally acquired during the mid-training phase and subsequently elicited during Supervised Fine-Tuning (SFT), there remains a critical deficit in metrics capable of guiding mid-training effectively. Standard metrics such as Perplexity (PPL) are compromised by the "Long-Context Tax" and exhibit weak correlation with downstream SWE performance. In this paper, we bridge this gap by first introducing a rigorous data filtering strategy. Crucially, we propose the Entropy Compression Hypothesis, redefining intelligence not by scalar Top-1 compression, but by the capacity to structure uncertainty into Entropy-Compressed States of low orders ("reasonable hesitation"). Grounded in this fine-grained entropy analysis, we formulate a novel metric, HE-SNR (High-Entropy Signal-to-Noise Ratio). Validated on industrial-scale Mixture-of-Experts (MoE) models across varying context windows (32K/128K), our approach demonstrates superior robustness and predictive power. This work provides both the theoretical foundation and practical tools for optimizing the latent potential of LLMs in complex engineering domains.
+
+</details>
+
+### [Automated Benchmark Generation from Domain Guidelines Informed by Bloom's Taxonomy](https://arxiv.org/abs/2601.20253v1)
+- **arXiv**: 2601.20253v1
+- **Published**: 2026-01-28
+- **Stance**: BALANCED
+- **Priority**: 7/10
+- **Classified by**: LLM
+- **Why read**: This paper provides insights into LLM reasoning performance across different cognitive levels, highlighting limitations consistent with the thesis that LLM reasoning is pattern-based rather than genuinely generative.
+
+<details>
+<summary>Abstract</summary>
+
+Open-ended question answering (QA) evaluates a model's ability to perform contextualized reasoning beyond factual recall. This challenge is especially acute in practice-based domains, where knowledge is procedural and grounded in professional judgment, while most existing LLM benchmarks depend on pre-existing human exam datasets that are often unavailable in such settings. We introduce a framework for automated benchmark generation from expert-authored guidelines informed by Bloom's Taxonomy. It converts expert practices into implicit violation-based scenarios and expands them into auto-graded multiple-choice questions (MCQs) and multi-turn dialogues across four cognitive levels, enabling deterministic, reproducible, and scalable evaluation. Applied to three applied domains: teaching, dietetics, and caregiving, we find differences between model and human-like reasoning: LLMs sometimes perform relatively better on higher-order reasoning (Analyze) but fail more frequently on lower-level items (Remember). We produce large-scale, psychometrically informed benchmarks that surface these non-intuitive model behaviors and enable evaluation of contextualized reasoning in real-world settings.
+
+</details>
+
+### [Explicit Multi-head Attention for Inter-head Interaction in Large Language Models](https://arxiv.org/abs/2601.19611v1)
+- **arXiv**: 2601.19611v1
+- **Published**: 2026-01-27
+- **Stance**: BALANCED
+- **Priority**: 7/10
+- **Classified by**: LLM
+- **Why read**: This paper investigates inter-head interactions in LLMs, providing insights into the mechanisms that may underpin reasoning capabilities and their limitations.
+
+<details>
+<summary>Abstract</summary>
+
+In large language models built upon the Transformer architecture, recent studies have shown that inter-head interaction can enhance attention performance. Motivated by this, we propose Multi-head Explicit Attention (MEA), a simple yet effective attention variant that explicitly models cross-head interaction. MEA consists of two key components: a Head-level Linear Composition (HLC) module that separately applies learnable linear combinations to the key and value vectors across heads, thereby enabling rich inter-head communication; and a head-level Group Normalization layer that aligns the statistical properties of the recombined heads. MEA shows strong robustness in pretraining, which allows the use of larger learning rates that lead to faster convergence, ultimately resulting in lower validation loss and improved performance across a range of tasks. Furthermore, we explore the parameter efficiency of MEA by reducing the number of attention heads and leveraging HLC to reconstruct them using low-rank "virtual heads". This enables a practical key-value cache compression strategy that reduces KV-cache memory usage by 50% with negligible performance loss on knowledge-intensive and scientific reasoning tasks, and only a 3.59% accuracy drop for Olympiad-level mathematical benchmarks.
+
+</details>
+
+## New Papers (2026-01-29)
+
 ### [SoftHateBench: Evaluating Moderation Models Against Reasoning-Driven, Policy-Compliant Hostility](https://arxiv.org/abs/2601.20256v1)
 - **arXiv**: 2601.20256v1
 - **Published**: 2026-01-28
