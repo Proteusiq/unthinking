@@ -51,11 +51,15 @@ uvx ty check .
 
 ## Core Principles
 
-### 1. Read the FULL Paper, Not Just the Abstract
-- **ALWAYS** fetch and read the complete HTML version of papers (arxiv.org/html/)
+### 1. Read the FULL Paper — This is Non-Negotiable
+- **ALWAYS** read the COMPLETE paper — this is the alpha and omega of paper analysis
+- **NEVER** stop at "enough information" — there is no such thing as enough without reading the whole paper
+- **ALWAYS** fetch the full HTML version (arxiv.org/html/) or PDF if HTML unavailable
+- If the paper is truncated, use task agents to read the full saved content
 - Abstracts can be misleading or incomplete
 - Key evidence, methodology details, and limitations are often in the body
 - Look for actual numbers, experimental setups, and edge cases
+- **If you haven't read the full paper, you haven't read the paper**
 
 ### 2. Independent Critical Assessment
 - **Do not automatically agree with the researcher's interpretation** — form your own view from the paper first
