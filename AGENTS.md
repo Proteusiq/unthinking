@@ -272,6 +272,7 @@ Run through this checklist after every paper analysis:
 - [ ] **paper_graph.md updated** (relationships + update log)
 - [ ] **synthesis.md updated** (papers table + evidence mapping if significant)
 - [ ] **rebuttals.md updated** (if paper rebuts or is rebutted by existing papers)
+- [ ] **paper_network.md updated** (update counts + add to cluster if significant)
 - [ ] **data.js updated** (new node + links + meta.totalAnalyzed)
 - [ ] **README.md updated** (paper counts in badges and folder)
 - [ ] **Rebuttals section complete** in analysis file

@@ -234,6 +234,8 @@ Remove analyzed paper from `papers/toread.md` or mark as done.
 | `analysis/explored/` | Individual paper analyses |
 | `analysis/synthesis.md` | Main thesis synthesis |
 | `analysis/paper_graph.md` | Paper relationships |
+| `analysis/paper_network.md` | Network visualization + cluster counts |
+| `analysis/rebuttals.md` | Rebuttal tracking matrix |
 | `docs/js/data.js` | Website visualization data |
 
 ---
