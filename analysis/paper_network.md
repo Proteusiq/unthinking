@@ -139,7 +139,18 @@ ILLUSION OF THINKING (2506.06941)
 │ (2504.01445)  │     │ ID=100%,OOD=0%│     │ (2601.13392)  │
 │ Systematicity │     └───────────────┘     └───────────────┘
 │ failure       │
-└───────────────┘
+└───────┬───────┘
+        │
+        ├───────────────────────┬───────────────────────┐
+        │                       │                       │
+        ▼                       ▼                       ▼
+┌───────────────┐     ┌───────────────┐     ┌───────────────┐
+│ REASONING OR  │     │ CHESS FLUID/  │     │ SEQUENTIAL    │
+│ RECITING      │     │ CRYSTALLIZED  │     │ ENUMERATION   │
+│ (2307.02477)  │     │ (2601.16823)  │     │ (2512.04727)  │
+│ Counterfactual│     │ ID good,      │     │ Can't count   │
+│ 40pp drops    │     │ OOD random    │     │ spontaneously │
+└───────────────┘     └───────────────┘     └───────────────┘
 ```
 
 ---
@@ -204,13 +215,15 @@ ILLUSION OF THINKING (2506.06941)
         │                         │                         │
         └─────────────────────────┴─────────────────────────┘
                                   │
-                                  ▼
-                    ┌─────────────────────────┐
-                    │   KUP MEMORIZATION      │
-                    │   (2504.12523)          │
-                    │   ALL methods <2%       │
-                    │   on reasoning          │
-                    └─────────────────────────┘
+        ┌─────────────────────────┼─────────────────────────┐
+        │                         │                         │
+        ▼                         ▼                         ▼
+┌───────────────────┐   ┌─────────────────────┐   ┌───────────────────┐
+│ KUP MEMORIZATION  │   │ CONTENT EFFECTS     │   │ O3 THINKS HARDER  │
+│ (2504.12523)      │   │ (2207.07051)        │   │ (2502.15631)      │
+│ ALL methods <2%   │   │ PNAS Nexus          │   │ More tokens ≠     │
+│ on reasoning      │   │ Human-like patterns │   │ better accuracy   │
+└───────────────────┘   └─────────────────────┘   └───────────────────┘
 ```
 
 ---
@@ -259,14 +272,16 @@ ILLUSION OF THINKING (2506.06941)
 
 | Rank | Paper | Incoming Links | Outgoing Links | Total |
 |------|-------|----------------|----------------|-------|
-| 1 | **Faith and Fate** (2305.18654) | 25+ | 5 | 30+ |
-| 2 | **Illusion of Thinking** (2506.06941) | 15+ | 3 | 18+ |
-| 3 | **GSM-Symbolic** (2410.05229) | 12+ | 4 | 16+ |
-| 4 | **OMEGA** (2506.18880) | 10+ | 5 | 15+ |
-| 5 | **Interplay** (2512.07783) | 10+ | 4 | 14+ |
-| 6 | **Planning Gap** (2601.14456) | 8+ | 4 | 12+ |
-| 7 | **Measuring Faithfulness** (2307.13702) | 10+ | 2 | 12+ |
-| 8 | **DeepSeek-R1** (2501.12948) | 8+ | 3 | 11+ |
+| 1 | **Faith and Fate** (2305.18654) | 28+ | 5 | 33+ |
+| 2 | **Illusion of Thinking** (2506.06941) | 18+ | 3 | 21+ |
+| 3 | **GSM-Symbolic** (2410.05229) | 15+ | 4 | 19+ |
+| 4 | **OMEGA** (2506.18880) | 12+ | 5 | 17+ |
+| 5 | **Interplay** (2512.07783) | 12+ | 4 | 16+ |
+| 6 | **Planning Gap** (2601.14456) | 10+ | 4 | 14+ |
+| 7 | **Measuring Faithfulness** (2307.13702) | 12+ | 2 | 14+ |
+| 8 | **DeepSeek-R1** (2501.12948) | 10+ | 3 | 13+ |
+| 9 | **Content Effects** (2207.07051) | 8+ | 5 | 13+ |
+| 10 | **Reasoning or Reciting** (2307.02477) | 5+ | 5 | 10+ |
 
 ---
 
@@ -287,7 +302,7 @@ ILLUSION OF THINKING (2506.06941)
 ┌─────────────────┐      ┌─────────────────┐      ┌─────────────────┐
 │ COMPOSITIONAL   │      │ FAITHFULNESS    │      │ SURFACING       │
 │ FAILURE         │      │ GAPS            │      │ HYPOTHESIS      │
-│ (15 papers)     │      │ (12 papers)     │      │ (10 papers)     │
+│ (18 papers)     │      │ (14 papers)     │      │ (12 papers)     │
 │                 │      │                 │      │                 │
 │ • ID works      │      │ • CoT ≠ process │      │ • RL doesn't    │
 │ • OOD fails     │      │ • 40-60% unfaith│      │   create        │
@@ -301,33 +316,46 @@ ILLUSION OF THINKING (2506.06941)
                                     ▼
                     ┌───────────────────────────┐
                     │ EVIDENCE WEIGHT:          │
-                    │ ~60 SUPPORT, ~9 CHALLENGE │
-                    │ ~26 BALANCED              │
+                    │ ~62 SUPPORT, ~9 CHALLENGE │
+                    │ ~24 BALANCED              │
                     └───────────────────────────┘
 ```
 
 ---
 
-## NEW: Theoretical Framework Cluster
+## Theoretical Framework Cluster
 
 ```
-┌───────────────────┐     ┌───────────────────┐     ┌───────────────────┐
-│ ON THE NOTION     │     │ AI METACOGNITION  │     │ REASONING OR      │
-│ THAT LMS REASON   │     │ (2411.02478)      │     │ RECITING          │
-│ (2511.11810)      │     │ "Smart but not    │     │ (2307.02477)      │
-│ LMs as Markov     │     │ wise"             │     │ Counterfactual    │
-│ kernels           │     │ Bengio, Mitchell  │     │ methodology       │
-└─────────┬─────────┘     └─────────┬─────────┘     └─────────┬─────────┘
-          │                         │                         │
-          └─────────────────────────┴─────────────────────────┘
-                                    │
-                                    ▼
                     ┌─────────────────────────┐
-                    │   THESIS:               │
-                    │   "Statistical pattern  │
-                    │   matchers, not genuine │
-                    │   reasoners"            │
-                    └─────────────────────────┘
+                    │   REASONING OR          │
+                    │   RECITING              │
+                    │   (2307.02477)          │
+                    │   NAACL 2024            │
+                    │   [Foundational         │
+                    │    Methodology]         │
+                    └───────────┬─────────────┘
+                                │
+        ┌───────────────────────┼───────────────────────┐
+        │                       │                       │
+        ▼                       ▼                       ▼
+┌───────────────────┐ ┌───────────────────┐ ┌───────────────────┐
+│ ON THE NOTION     │ │ AI METACOGNITION  │ │ CONTENT EFFECTS   │
+│ THAT LMS REASON   │ │ (2411.02478)      │ │ (2207.07051)      │
+│ (2511.11810)      │ │ "Smart but not    │ │ PNAS Nexus        │
+│ NeurIPS Workshop  │ │ wise"             │ │ Human-like        │
+│ LMs as Markov     │ │ Bengio, Mitchell  │ │ content effects   │
+│ kernels           │ │ Schölkopf et al.  │ │                   │
+└─────────┬─────────┘ └─────────┬─────────┘ └─────────┬─────────┘
+          │                     │                     │
+          └─────────────────────┼─────────────────────┘
+                                │
+                                ▼
+                  ┌─────────────────────────┐
+                  │   THESIS:               │
+                  │   "Statistical pattern  │
+                  │   matchers, not genuine │
+                  │   reasoners"            │
+                  └─────────────────────────┘
 ```
 
 ---
