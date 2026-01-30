@@ -8,7 +8,18 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 
 ## High Priority (Directly Tests Thesis)
 
-*Queue empty — all high-priority papers analyzed.*
+### [Strong Reasoning Isn't Enough: Evaluating Evidence Elicitation in Interactive Diagnosis](https://arxiv.org/abs/2601.19773)
+- **arXiv**: 2601.19773
+- **Stance**: SUPPORTS
+- **Why read**: Directly tests thesis — strong reasoning capability alone doesn't ensure effective evidence gathering. Reasoning is insufficient without proper information collection.
+- **Key finding**: "Strong diagnostic reasoning does not guarantee effective information collection"
+
+<details>
+<summary>Abstract</summary>
+
+Interactive medical consultation requires an agent to proactively elicit missing clinical evidence under uncertainty. We find that strong diagnostic reasoning does not guarantee effective information collection, and this insufficiency acts as a primary bottleneck limiting performance in interactive settings.
+
+</details>
 
 ---
 
