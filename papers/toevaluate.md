@@ -26,6 +26,38 @@ Discard if paper:
 
 ---
 
+## New Papers (2026-01-30)
+
+### [Evaluating ChatGPT on Medical Information Extraction Tasks: Performance, Explainability and Beyond](https://arxiv.org/abs/2601.21767v1)
+- **arXiv**: 2601.21767v1
+- **Published**: 2026-01-29
+- **Stance**: BALANCED
+- **Priority**: 7/10
+- **Classified by**: LLM
+- **Why read**: This paper evaluates ChatGPT's performance on information extraction tasks, highlighting its limitations and overconfidence, which informs understanding of LLM reasoning capabilities and their reliance on pattern matching.
+
+<details>
+<summary>Abstract</summary>
+
+Large Language Models (LLMs) like ChatGPT have demonstrated amazing capabilities in comprehending user intents and generate reasonable and useful responses. Beside their ability to chat, their capabilities in various natural language processing (NLP) tasks are of interest to the research community. In this paper, we focus on assessing the overall ability of ChatGPT in 4 different medical information extraction (MedIE) tasks across 6 benchmark datasets. We present the systematically analysis by measuring ChatGPT's performance, explainability, confidence, faithfulness, and uncertainty. Our experiments reveal that: (a) ChatGPT's performance scores on MedIE tasks fall behind those of the fine-tuned baseline models. (b) ChatGPT can provide high-quality explanations for its decisions, however, ChatGPT is over-confident in its predcitions. (c) ChatGPT demonstrates a high level of faithfulness to the original text in the majority of cases. (d) The uncertainty in generation causes uncertainty in information extraction results, thus may hinder its applications in MedIE tasks.
+
+</details>
+
+### [Can David Beat Goliath? On Multi-Hop Reasoning with Resource-Constrained Agents](https://arxiv.org/abs/2601.21699v1)
+- **arXiv**: 2601.21699v1
+- **Published**: 2026-01-29
+- **Stance**: BALANCED
+- **Priority**: 7/10
+- **Classified by**: LLM
+- **Why read**: This paper explores the reasoning capabilities of small language models under resource constraints, providing insights into their reliance on pattern matching and inductive biases, which is relevant to the thesis.
+
+<details>
+<summary>Abstract</summary>
+
+While reinforcement learning (RL) has empowered multi-turn reasoning agents with retrieval and tools, existing successes largely depend on extensive on-policy rollouts in high-cost, high-accuracy regimes. Under realistic resource constraints that cannot support large models or dense explorations, however, small language model agents fall into a low-cost, low-accuracy regime, where limited rollout budgets lead to sparse exploration, sparse credit assignment, and unstable training. In this work, we challenge this trade-off and show that small language models can achieve strong multi-hop reasoning under resource constraints. We introduce DAVID-GRPO, a budget-efficient RL framework that (i) stabilizes early learning with minimal supervision, (ii) assigns retrieval credit based on evidence recall, and (iii) improves exploration by resampling truncated near-miss trajectories. Evaluated on agents up to 1.5B parameters trained on only four RTX 3090 GPUs, DAVID-GRPO consistently outperforms prior RL methods designed for large-scale settings on six multi-hop QA benchmarks. These results show that with the right inductive biases, small agents can achieve low training cost with high accuracy.
+
+</details>
+
 ## Awaiting Triage
 
 *Empty — all papers triaged on 2026-01-30*
