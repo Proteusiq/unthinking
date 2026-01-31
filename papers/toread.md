@@ -6,23 +6,6 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 
 ---
 
-## High Priority (Directly Tests Thesis)
-
-### [Code over Words: Overcoming Semantic Inertia via Code-Grounded Reasoning](https://arxiv.org/abs/2601.18352)
-- **arXiv**: 2601.18352
-- **Stance**: SUPPORTS
-- **Why read**: **INVERSE SCALING** — larger models perform WORSE when reasoning requires suppressing pre-trained priors (e.g., "Lava is Dangerous" contradicted by in-context rules). Directly supports pattern matching thesis.
-- **Key finding**: Larger models exhibit inverse scaling when natural language reasoning requires suppressing pre-trained associations.
-
-<details>
-<summary>Abstract</summary>
-
-LLMs struggle with Semantic Inertia: the inability to inhibit pre-trained priors when dynamic, in-context rules contradict them. We probe this phenomenon using Baba Is You, where physical laws are mutable text rules. We quantatively observe that larger models can exhibit inverse scaling: they perform worse than smaller models when natural language reasoning requires suppressing pre-trained associations.
-
-</details>
-
----
-
 ## Medium Priority (Strong Mechanistic Evidence)
 
 ### [Chain Of Thought Compression: A Theoretical Analysis](https://arxiv.org/abs/2601.21576)

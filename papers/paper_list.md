@@ -264,16 +264,17 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 113 | 2601.07422 | Jan 2026 | Two Pathways to Truthfulness: LLM Hallucination Encoding | Supports | ✅ DONE |
 | 114 | 2601.22035 | Jan 2026 | Thinking Out of Order: AR vs Diffusion Order Robustness | Strongly Supports | ✅ DONE |
 | 115 | 2601.21214 | Jan 2026 | Scaling Reasoning Hop: ep heads suppress correct trajectories | Strongly Supports | ✅ DONE |
+| 116 | 2601.18352 | Jan 2026 | Code over Words: Semantic Inertia and INVERSE SCALING | Strongly Supports | ✅ DONE |
 
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 115
-- **Against Reasoning**: ~54
+- **Total Papers**: 116
+- **Against Reasoning**: ~55
 - **For Reasoning**: ~26
 - **Balanced**: ~37
 - **Date Range**: 2023-2026
-- **Analyzed**: 109
+- **Analyzed**: 110
 
 ---
 
