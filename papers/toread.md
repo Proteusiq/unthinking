@@ -22,6 +22,7 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 **HIGH PRIORITY — Rebuttals & Direct Evidence**
 - [ ] **The Illusion of the Illusion of Thinking** (2506.09250) — DIRECT REBUTTAL to Paper 03 (Illusion of Thinking); argues token budget insufficient
 - [ ] **Alice in Wonderland: Simple Tasks Showing Complete Reasoning Breakdown** (2406.02061) — Simple task failures in SOTA LLMs
+- [ ] **Fundamental Limitations of Alignment in LLMs** (2304.11082) — BEB theory: any attenuated behavior can be triggered with sufficient prompt length
 
 **HIGH PRIORITY — Sycophancy/Conformity Foundational**
 - [ ] **Towards Understanding Sycophancy in Language Models** (2310.13548) — Sharma et al.; foundational sycophancy research; cited by Papers 119, 123
@@ -30,6 +31,14 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 **MEDIUM PRIORITY — Overthinking Research**
 - [ ] **Overthinking in LRMs** (2412.21187) — First overthinking paper; test-time compute dynamics
 - [ ] **Overthinking in LRMs** (2501.18585) — Second overthinking paper; mechanistic analysis
+
+**MEDIUM PRIORITY — Adversarial/Hallucination**
+- [ ] **Fast Adversarial Attacks (BEAST)** (2402.15570) — Induces ~15% more hallucinations; shows jailbreak fragility
+
+**SKIPPED (Not Relevant to Reasoning Thesis)**
+- [x] 2509.15202 — DeepRefusal: Safety alignment METHOD, not reasoning test
+- [x] 2508.03550 — LAGER: LLM-as-Judge METHOD, not reasoning test  
+- [x] 2511.02623 — TRACE: Realignment METHOD, not reasoning test
 
 ---
 
