@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 110,
+    totalAnalyzed: 117,
     lastUpdated: '2026-01-31',
   },
   nodes: [
@@ -1534,6 +1534,112 @@ window.paperData = {
         'Claude: 57% → 13% on conflict tasks',
         'Code: ΔP=+0.29 (reverses inverse scaling)',
         '71% inhibitory control vs 16% direct',
+      ],
+    },
+    // Gap-filling papers (24, 90-96)
+    {
+      id: '2601.21576',
+      title: 'Chain Of Thought Compression: A Theoretical Analysis',
+      shortTitle: 'CoT Compression',
+      date: 'Jan 2026',
+      stance: 'supports',
+      cluster: 'mechanism',
+      coreArgument:
+        'High-order logical dependencies exponentially decay when compressing reasoning steps. Skipping steps inevitably leads to high-order interaction barriers.',
+      keyEvidence: [
+        'Exponential signal decay for high-order dependencies',
+        'Order-r Interaction proves decay is fundamental',
+        'Compression loses critical reasoning signals',
+      ],
+    },
+    {
+      id: '2601.17593',
+      title: 'From Chains to DAGs: Probing Graph Structure of Reasoning',
+      shortTitle: 'Chains to DAGs',
+      date: 'Jan 2026',
+      stance: 'balanced',
+      cluster: 'mechanism',
+      coreArgument:
+        'Reasoning DAG geometry is encoded in hidden states but recoverability varies by node depth and scale. Structure exists but not reliably used.',
+      keyEvidence: [
+        'DAG geometry in intermediate layers',
+        'Recoverability varies by depth',
+        'Structure present but underutilized',
+      ],
+    },
+    {
+      id: '2601.18753',
+      title: 'HalluGuard: Demystifying Data-Driven and Reasoning-Driven Hallucinations',
+      shortTitle: 'HalluGuard',
+      date: 'Jan 2026',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'Hallucinations decompose into data-driven (training mismatch) and reasoning-driven (inference instability). 98.1% of MATH-500 errors are reasoning-driven.',
+      keyEvidence: [
+        '98.1% reasoning-driven errors on MATH-500',
+        'NTK-based detection AUROC 81.76%',
+        'Errors grow exponentially with sequence length',
+      ],
+    },
+    {
+      id: '2601.17421',
+      title: 'Oops, Wait: Token-Level Signals as a Lens into LLM Reasoning',
+      shortTitle: 'Oops Wait',
+      date: 'Jan 2026',
+      stance: 'balanced',
+      cluster: 'mechanism',
+      coreArgument:
+        'Tokens like "wait" correlate with reasoning correctness. Models acquire reasoning signals but exploit them only partially.',
+      keyEvidence: [
+        'Wait/therefore correlate with correctness',
+        'Stable across model scales',
+        'Partially exploited capability',
+      ],
+    },
+    {
+      id: '2601.18778',
+      title: 'Teaching Models to Teach Themselves: Reasoning at the Edge of Learnability (SOAR)',
+      shortTitle: 'SOAR',
+      date: 'Jan 2026',
+      stance: 'balanced',
+      cluster: 'emergence',
+      coreArgument:
+        'Teaching ability decoupled from solving ability. Self-generated curricula enable learning on 0/128 problems. Meta-RL sharpens pretraining knowledge.',
+      keyEvidence: [
+        '4× pass@1, 2× pass@32 on fail@128 MATH',
+        'Only 32.8% of effective questions have correct solutions',
+        'Grounded rewards > intrinsic rewards',
+      ],
+    },
+    {
+      id: '2509.14252',
+      title: 'LLM-JEPA: Large Language Models Meet Joint Embedding Predictive Architectures',
+      shortTitle: 'LLM-JEPA',
+      date: 'Sep 2025',
+      stance: 'balanced',
+      cluster: 'mechanism',
+      coreArgument:
+        'JEPA objective improves LLM representations. +14% on NL-RX, but NO OOD testing. Cannot determine if improvements are reasoning or pattern matching.',
+      keyEvidence: [
+        '+14.17% on NL-RX-SYNTH',
+        'Only +0.68% on GSM8K',
+        'No OOD/compositional testing (critical gap)',
+      ],
+    },
+    {
+      id: '2601.15436',
+      title: 'Not Your Typical Sycophant: The Elusive Nature of Sycophancy in LLMs',
+      shortTitle: 'Sycophancy',
+      date: 'Jan 2026',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'All models prioritize user agreement over truth. Sycophancy and recency bias interact with constructive interference.',
+      keyEvidence: [
+        'All 4 models sycophantic in standard settings',
+        'Recency bias universal',
+        'Claude/Mistral show moral remorse when harm explicit',
       ],
     },
   ],
