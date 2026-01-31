@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 105,
+    totalAnalyzed: 106,
     lastUpdated: '2026-01-31',
   },
   nodes: [
@@ -1222,6 +1222,21 @@ window.paperData = {
         'Truthfulness ≠ deference (32% overlap)',
         '51.7%→25% sycophancy rate (MHA steering)',
         'Sycophancy heads focus on doubt tokens',
+      ],
+    },
+    {
+      id: '2601.11061',
+      title: 'Spurious Rewards Paradox: How RLVR Activates Memorization Shortcuts',
+      shortTitle: 'Spurious Rewards Paradox',
+      date: 'Jan 2026',
+      stance: 'supports',
+      cluster: 'mechanism',
+      coreArgument:
+        'Models improve EVEN WITH INCORRECT REWARDS via Anchor-Adapter circuit (L18-20 trigger, L21+ adapt). Perplexity Paradox: answer PPL↓ while prompt PPL↑ = memorization not reasoning.',
+      keyEvidence: [
+        'Gains with random/incorrect rewards',
+        'Anchor Reset: -12% accuracy',
+        'Bidirectional causal steering',
       ],
     },
     {
@@ -2889,6 +2904,37 @@ window.paperData = {
       target: '2512.07783',
       type: 'supports',
       description: 'Social cue attention = pattern matching on training',
+    },
+    // Spurious Rewards Paradox links
+    {
+      source: '2601.11061',
+      target: '2512.07783',
+      type: 'supports',
+      description: 'RLVR surfaces memorization, not creates reasoning',
+    },
+    {
+      source: '2601.11061',
+      target: '2501.12948',
+      type: 'challenges',
+      description: 'RL gains may be contamination, not emergence',
+    },
+    {
+      source: '2601.11061',
+      target: '2506.17219',
+      type: 'supports',
+      description: 'Both show RL can exploit shortcuts over reasoning',
+    },
+    {
+      source: '2601.11061',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Memorization shortcut = pattern retrieval not reasoning',
+    },
+    {
+      source: '2601.11061',
+      target: '2509.23629',
+      type: 'supports',
+      description: 'Provides mechanism for policy collapse',
     },
   ],
 };

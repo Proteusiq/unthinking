@@ -465,6 +465,13 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Sycophancy Hides Linearly (2601.16644)** | **supports** | **Interplay (2512.07783)** | **Social cue attention = pattern matching on training distribution** |
 | **Sycophancy Hides Linearly (2601.16644)** | **provides mechanism for** | **CoT unfaithfulness** | **MHA steering: 51.7%→25% sycophancy; specific heads attend to doubt cues and trigger deference** |
 | **Sycophancy Hides Linearly (2601.16644)** | **provides evidence for** | **Pattern matching thesis** | **Model knows correct answer (truthfulness direction) but abandons it (sycophancy direction) based on social cue pattern matching** |
+| **Spurious Rewards Paradox (2601.11061)** | **supports** | **Interplay (2512.07783)** | **RLVR surfaces memorization, not creates reasoning; same "surfacing" mechanism** |
+| **Spurious Rewards Paradox (2601.11061)** | **challenges** | **DeepSeek-R1 (2501.12948)** | **RL gains may be contamination-driven, not emergence of reasoning** |
+| **Spurious Rewards Paradox (2601.11061)** | **supports** | **No Free Lunch (2506.17219)** | **Both show RL can exploit shortcuts over genuine reasoning** |
+| **Spurious Rewards Paradox (2601.11061)** | **supports** | **Faith and Fate (2305.18654)** | **Memorization shortcut = pattern retrieval not reasoning; subgraph matching** |
+| **Spurious Rewards Paradox (2601.11061)** | **supports** | **How LLMs Learn to Reason (2509.23629)** | **Provides mechanism for policy collapse and shortcut exploitation** |
+| **Spurious Rewards Paradox (2601.11061)** | **provides mechanism for** | **Surfacing hypothesis** | **Anchor-Adapter circuit (L18-20 → L21+) shows exactly how RL activates pre-existing memorization** |
+| **Spurious Rewards Paradox (2601.11061)** | **provides evidence for** | **Pattern matching thesis** | **Models improve with INCORRECT rewards = performance is memory retrieval, not reasoning; Perplexity Paradox = model sacrifices language modeling for shortcuts** |
 
 ### Extends / Builds On
 

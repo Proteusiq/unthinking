@@ -259,16 +259,17 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 108 | 2601.21618 | Jan 2026 | Semantic Content Determines Algorithmic Performance (WhatCounts) | Strongly Supports | ✅ DONE |
 | 109 | 2601.21183 | Jan 2026 | Sycophantic Anchors: Localizing User Agreement in Reasoning Models | Strongly Supports | ✅ DONE |
 | 110 | 2601.16644 | Jan 2026 | Sycophancy Hides Linearly in the Attention Heads | Supports | ✅ DONE |
+| 111 | 2601.11061 | Jan 2026 | Spurious Rewards Paradox: RLVR Activates Memorization Shortcuts | Strongly Supports | ✅ DONE |
 
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 110
-- **Against Reasoning**: ~49
+- **Total Papers**: 111
+- **Against Reasoning**: ~50
 - **For Reasoning**: ~26
 - **Balanced**: ~37
 - **Date Range**: 2023-2026
-- **Analyzed**: 105
+- **Analyzed**: 106
 
 ---
 
