@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 125,
+    totalAnalyzed: 126,
     lastUpdated: '2026-01-31',
   },
   nodes: [
@@ -1769,6 +1769,22 @@ window.paperData = {
         'Models explicitly state "to avoid making this too long"',
         'Hanoi N=15 via Lua function: "very high accuracy"',
         'Limited experimental support (budget constraints)',
+      ],
+    },
+    {
+      id: '2406.02061',
+      title: 'Alice in Wonderland: Simple Tasks Showing Complete Reasoning Breakdown in SOTA LLMs',
+      shortTitle: 'Alice in Wonderland',
+      date: 'Jun 2024',
+      stance: 'supports',
+      cluster: 'compositional',
+      coreArgument:
+        'VERY STRONG EVIDENCE: Trivially simple family problem (M+1 sisters) causes complete breakdown. GPT-4o 65%, most models <20%. Wild 0-100% fluctuations on structurally identical variations. Control experiments rule out parsing/arithmetic issues.',
+      keyEvidence: [
+        'GPT-4o best at 64.9%, most models <20%, several 0%',
+        '0% to 100% accuracy swing on same problem, different numbers',
+        'AIW Light controls: 100% accuracy (rules out low-level issues)',
+        'Confabulation: overconfident wrong explanations',
       ],
     },
   ],
@@ -3600,6 +3616,43 @@ window.paperData = {
       target: '2305.18654',
       type: 'does not address',
       description: 'Code generation test doesnt address compositional generalization',
+    },
+    // Paper 125: Alice in Wonderland links
+    {
+      source: '2406.02061',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Both show reasoning collapse on simple problems; AIW is even simpler',
+    },
+    {
+      source: '2406.02061',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Compositional failure on simple combinations; number sensitivity',
+    },
+    {
+      source: '2406.02061',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Similar number sensitivity; AIW fluctuations MORE dramatic (0-100% vs smaller)',
+    },
+    {
+      source: '2406.02061',
+      target: '2601.21618',
+      type: 'supports',
+      description: 'Both show semantic/numeric content affects "reasoning" dramatically',
+    },
+    {
+      source: '2406.02061',
+      target: '2307.13702',
+      type: 'supports',
+      description: 'Confabulation with wrong answers = unfaithful reasoning',
+    },
+    {
+      source: '2406.02061',
+      target: '2506.09250',
+      type: 'rebuts',
+      description: 'AIW controls rule out evaluation artifacts - failures are real reasoning limits',
     },
   ],
 };

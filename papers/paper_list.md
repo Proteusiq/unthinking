@@ -273,6 +273,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 122 | 2601.05905 | Jan 2026 | Illusions of Confidence? Diagnosing LLM Truthfulness via Neighborhood Consistency | Strongly Supports | ✅ DONE |
 | 123 | 2410.11684 | Oct 2024 | Are UFOs Driving Innovation? The Illusion of Causality in LLMs | Supports | ✅ DONE |
 | 124 | 2506.09250 | Jun 2025 | The Illusion of the Illusion of Thinking (Rebuttal to Paper 03) | Challenges (Weak) | ✅ DONE |
+| 125 | 2406.02061 | Jun 2024 | Alice in Wonderland: Simple Tasks Showing Complete Reasoning Breakdown | Strongly Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -288,11 +289,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 131
-- **Against Reasoning**: ~64
+- **Total Papers**: 132
+- **Against Reasoning**: ~65
 - **For Reasoning**: ~27
 - **Balanced**: ~40
 - **Date Range**: 2023-2026
-- **Analyzed**: 125
+- **Analyzed**: 126
 
 ---
