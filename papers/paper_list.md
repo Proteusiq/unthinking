@@ -258,16 +258,17 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 107 | 2601.19773 | Jan 2026 | Strong Reasoning Isn't Enough: Evaluating Evidence Elicitation in Interactive Diagnosis | Supports | ✅ DONE |
 | 108 | 2601.21618 | Jan 2026 | Semantic Content Determines Algorithmic Performance (WhatCounts) | Strongly Supports | ✅ DONE |
 | 109 | 2601.21183 | Jan 2026 | Sycophantic Anchors: Localizing User Agreement in Reasoning Models | Strongly Supports | ✅ DONE |
+| 110 | 2601.16644 | Jan 2026 | Sycophancy Hides Linearly in the Attention Heads | Supports | ✅ DONE |
 
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 109
-- **Against Reasoning**: ~48
+- **Total Papers**: 110
+- **Against Reasoning**: ~49
 - **For Reasoning**: ~26
 - **Balanced**: ~37
 - **Date Range**: 2023-2026
-- **Analyzed**: 104
+- **Analyzed**: 105
 
 ---
 

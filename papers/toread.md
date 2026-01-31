@@ -8,12 +8,6 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 
 ## Sycophancy & Hallucination Mechanisms (HIGH PRIORITY)
 
-### [Sycophancy Hides Linearly in the Attention Heads](https://arxiv.org/abs/2601.16644)
-- **arXiv**: 2601.16644
-- **Stance**: SUPPORTS (mechanistic)
-- **Why read**: Sycophancy is **linearly separable** in attention activations. Truthfulness and deference-resistance are **distinct mechanisms**. Attention heads disproportionately attend to expressions of user doubt.
-- **Key finding**: Probes transfer from TruthfulQA to other factual QA benchmarks. Simple linear interventions can mitigate sycophancy.
-
 ### [Spurious Rewards Paradox: How RLVR Activates Memorization Shortcuts](https://arxiv.org/abs/2601.11061)
 - **arXiv**: 2601.11061
 - **Stance**: STRONGLY SUPPORTS
