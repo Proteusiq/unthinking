@@ -446,6 +446,12 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Reasoning-Critical Neurons (2601.19847)** | **supports** | **How LLMs Learn to Reason (2509.23629)** | **Both show sparse neural structures for reasoning** |
 | **Reasoning-Critical Neurons (2601.19847)** | **provides mechanism for** | **Pattern matching thesis** | **Predictability from early activations (0.83 AUROC) = pattern detection, not step-by-step reasoning** |
 | **Reasoning-Critical Neurons (2601.19847)** | **provides mechanism for** | **Surfacing hypothesis** | **Steering surfaces existing capability; cross-task transfer suggests task-agnostic patterns** |
+| **WhatCounts (2601.21618)** | **supports** | **Faith and Fate (2305.18654)** | **Both show pattern matching, not algorithms; atomic counting test** |
+| **WhatCounts (2601.21618)** | **supports** | **GSM-Symbolic (2410.05229)** | **Both show semantics affect "reasoning"; GSM-Symbolic: irrelevant info; WhatCounts: semantic CLASS** |
+| **WhatCounts (2601.21618)** | **supports** | **Content Effects on Reasoning (2207.07051)** | **Both show semantic content determines performance; WhatCounts provides atomic test** |
+| **WhatCounts (2601.21618)** | **supports** | **Sequential Enumeration (2512.04727)** | **Both show counting failures; WhatCounts adds semantic variation axis** |
+| **WhatCounts (2601.21618)** | **challenges** | **Prompt programming claims** | **Directly rebuts "LLMs implement algorithmic operators" — semantic gap persists even with tools** |
+| **WhatCounts (2601.21618)** | **provides evidence for** | **Pattern matching thesis** | **"LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent"** |
 
 ### Extends / Builds On
 
@@ -590,6 +596,7 @@ These papers have NO direct rebuttals found:
 | **Reasoning or Reciting (2307.02477)** | **NAACL 2024; foundational counterfactual methodology; 11 tasks; high CCC + low CF performance = understanding ≠ reasoning; "narrow, non-transferable procedures"; 40pp drop on counterfactual tasks; STRONGLY SUPPORTS thesis** |
 | **Reasoning Promotes Robustness ToM (2601.16853)** | **Robustness ≠ new capability; bounded by base model; ToM strategies visible in traces; BALANCED — supports surfacing** |
 | **MortalMATH (2601.18790)** | **>95% task completion while user dying; RLVR creates tunnel vision; consequence blindness; 15s latency in emergencies; STRONGLY SUPPORTS thesis** |
+| **WhatCounts (2601.21618)** | **>40% accuracy variation depending SOLELY on semantic class (cities vs chemicals vs emojis); better models have LARGER gaps; fine-tuning shifts biases unpredictably; even with Python tools, agents inherit semantic gap; "LLMs do not implement algorithms"; STRONGEST evidence for pattern matching at atomic level** |
 
 ---
 
@@ -675,3 +682,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-30 | Added Flexibility Trap (2601.15165) — Arbitrary order NARROWS reasoning; models bypass logical forks, retrofit logic post-hoc; BALANCED |
 | 2026-01-30 | Added Reasoning-Critical Neurons (2601.19847) — AUROC 0.83 predicts success before reasoning completes; activation steering works; BALANCED |
 | 2026-01-31 | Added Strong Reasoning Isn't Enough (2601.19773) — ~20% avg SR drop static→interactive; Meditron -90% on RareArena; scaling improves SR not ICR; decoupled reasoning/gathering; STRONGLY SUPPORTS thesis |
+| 2026-01-31 | Added WhatCounts (2601.21618) — >40% accuracy variation on COUNTING depending on semantic class alone; better models = LARGER gaps; tools don't fix it; "LLMs do not implement algorithms"; STRONGEST atomic evidence for pattern matching |
