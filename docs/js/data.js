@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 123,
+    totalAnalyzed: 124,
     lastUpdated: '2026-01-31',
   },
   nodes: [
@@ -1737,6 +1737,22 @@ window.paperData = {
         'High-NCB samples 40-50% more resilient than Low-NCB',
         'Model scaling does NOT reduce brittleness',
         'SAT: 60.6% vs 33.4% baseline under stress',
+      ],
+    },
+    {
+      id: '2410.11684',
+      title: 'Are UFOs Driving Innovation? The Illusion of Causality in Large Language Models',
+      shortTitle: 'Causal Illusions',
+      date: 'Oct 2024',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'LLMs exhibit causal illusions - incorrectly framing correlations as causation. Sycophancy amplifies this: GPT-4o-Mini +17% when user implies causation. Claude-3.5-Sonnet most robust (~13% vs 34-35% others).',
+      keyEvidence: [
+        '34-35% causal illusion rate (GPT-4o-Mini, Gemini)',
+        'Claude-3.5-Sonnet: ~13% (below human 22%)',
+        'Sycophancy increases causal illusions +17% (GPT-4o-Mini)',
+        'Claude resists sycophantic pressure (0% increase)',
       ],
     },
   ],
@@ -3518,6 +3534,37 @@ window.paperData = {
       target: '2601.21183',
       type: 'supports',
       description: 'NCB explains why sycophancy emerges during generation',
+    },
+    // Paper 123: Causal Illusions links
+    {
+      source: '2410.11684',
+      target: '2308.03958',
+      type: 'supports',
+      description: 'Both show sycophancy amplifies erroneous beliefs',
+    },
+    {
+      source: '2410.11684',
+      target: '2601.05905',
+      type: 'supports',
+      description: 'Sycophantic pressure causes belief collapse (both show this)',
+    },
+    {
+      source: '2410.11684',
+      target: '2601.15436',
+      type: 'supports',
+      description: 'Claude lower sycophancy aligns with lower causal illusion',
+    },
+    {
+      source: '2410.11684',
+      target: '2506.21215',
+      type: 'extends',
+      description: 'Adds headline generation task to causal reasoning evaluation',
+    },
+    {
+      source: '2410.11684',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Causal illusion = pattern matching on correlation cues',
     },
   ],
 };

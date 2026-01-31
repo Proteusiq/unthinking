@@ -776,3 +776,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-31 | Added Truth-Bias Sycophancy (2506.21561) — 98% truth acc, 16% deception acc; R1 MORE biased than V3 |
 | 2026-01-31 | Added Reasoning Trap Tool Halluc (2510.22977) — Math RL → tool halluc; thinking mode → halluc UP |
 | 2026-01-31 | Added Illusions of Confidence (2601.05905) — SC=1.0 → 33.8% after interference; NCB > SC for robustness; SAT reduces brittleness ~30%; STRONGLY SUPPORTS thesis |
+| 2026-01-31 | Added Causal Illusions (2410.11684) — 30-35% causal illusion rates; sycophancy amplifies (+17% GPT-4o-Mini); Claude most robust; SUPPORTS thesis |
