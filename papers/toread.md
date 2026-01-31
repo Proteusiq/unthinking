@@ -15,7 +15,21 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 
 ### Elicitation (Issue #26)
 
-- [ ] **Eliciting Human Preferences** (2405.19332) — From Issue #26
+- [x] **Self-Exploring Language Models** (2405.19332) — SKIPPED: Training methodology paper (preference optimization), not about reasoning capabilities
+
+### Cited Papers to Review (Issue #25: Papers Based On)
+
+**HIGH PRIORITY — Rebuttals & Direct Evidence**
+- [ ] **The Illusion of the Illusion of Thinking** (2506.09250) — DIRECT REBUTTAL to Paper 03 (Illusion of Thinking); argues token budget insufficient
+- [ ] **Alice in Wonderland: Simple Tasks Showing Complete Reasoning Breakdown** (2406.02061) — Simple task failures in SOTA LLMs
+
+**HIGH PRIORITY — Sycophancy/Conformity Foundational**
+- [ ] **Towards Understanding Sycophancy in Language Models** (2310.13548) — Sharma et al.; foundational sycophancy research; cited by Papers 119, 123
+- [ ] **Do as we do, not as you think: The conformity of LLMs** (2405.00451) — Weng et al., ICLR 2025; LLM conformity behavior
+
+**MEDIUM PRIORITY — Overthinking Research**
+- [ ] **Overthinking in LRMs** (2412.21187) — First overthinking paper; test-time compute dynamics
+- [ ] **Overthinking in LRMs** (2501.18585) — Second overthinking paper; mechanistic analysis
 
 ---
 
