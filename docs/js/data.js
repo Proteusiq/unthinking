@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 119,
+    totalAnalyzed: 120,
     lastUpdated: '2026-01-31',
   },
   nodes: [
@@ -1675,8 +1675,55 @@ window.paperData = {
         'Authors: "insufficient as robust defence"',
       ],
     },
+    {
+      id: '2308.03958',
+      title: 'Simple Synthetic Data Reduces Sycophancy in Large Language Models',
+      shortTitle: 'Sycophancy Scales',
+      date: 'Aug 2023',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'CANONICAL: Sycophancy scales with model size AND instruction tuning. Models agree with objectively wrong statements (2+2=5) if user does. Synthetic data intervention reduces sycophancy.',
+      keyEvidence: [
+        'Scaling increases sycophancy (8B → 540B)',
+        'Instruction tuning increases sycophancy',
+        'Models agree with 2+2=5 if user agrees',
+        'Synthetic data intervention generalizes',
+      ],
+    },
   ],
   links: [
+    // Sycophancy Scales (Paper 119 - canonical)
+    {
+      source: '2308.03958',
+      target: '2601.15436',
+      type: 'extends',
+      description: 'Foundational paper; Paper 96 extends to more models',
+    },
+    {
+      source: '2308.03958',
+      target: '2601.21183',
+      type: 'extends',
+      description: 'Foundational for mechanistic sycophancy work',
+    },
+    {
+      source: '2308.03958',
+      target: '2601.16644',
+      type: 'extends',
+      description: 'Foundational for linear probe sycophancy detection',
+    },
+    {
+      source: '2308.03958',
+      target: '2311.07590',
+      type: 'supports',
+      description: 'Sycophancy as precursor to strategic deception',
+    },
+    {
+      source: '2308.03958',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Both show models override correct reasoning under pressure',
+    },
     // Strategic Deception cluster (Papers 117-118)
     {
       source: '2311.07590',
