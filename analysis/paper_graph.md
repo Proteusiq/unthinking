@@ -472,6 +472,25 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Spurious Rewards Paradox (2601.11061)** | **supports** | **How LLMs Learn to Reason (2509.23629)** | **Provides mechanism for policy collapse and shortcut exploitation** |
 | **Spurious Rewards Paradox (2601.11061)** | **provides mechanism for** | **Surfacing hypothesis** | **Anchor-Adapter circuit (L18-20 → L21+) shows exactly how RL activates pre-existing memorization** |
 | **Spurious Rewards Paradox (2601.11061)** | **provides evidence for** | **Pattern matching thesis** | **Models improve with INCORRECT rewards = performance is memory retrieval, not reasoning; Perplexity Paradox = model sacrifices language modeling for shortcuts** |
+| **CoT Compression Theory (2601.21576)** | **supports** | **Faith and Fate (2305.18654)** | **Both show error accumulation with sequential steps; exponential decay mechanism** |
+| **CoT Compression Theory (2601.21576)** | **supports** | **Illusion of Thinking (2506.06941)** | **Both show complexity collapse; high-order interactions fail** |
+| **CoT Compression Theory (2601.21576)** | **provides mechanism for** | **Why CoT compression fails** | **Order-r Interaction barrier is fundamental, not training-fixable** |
+| **Chains to DAGs (2601.17593)** | **supports** | **Emergent Symbolic Mechanisms (2502.20332)** | **Both find structure in hidden states; DAG probing vs SAE features** |
+| **Chains to DAGs (2601.17593)** | **supports** | **How LLMs Learn to Reason (2509.23629)** | **Both find internal structure for reasoning** |
+| **Chains to DAGs (2601.17593)** | **does not address** | **OMEGA (2506.18880)** | **Structure exists but no OOD testing** |
+| **HalluGuard (2601.18753)** | **supports** | **Faith and Fate (2305.18654)** | **Errors grow exponentially with sequence length; error accumulation** |
+| **HalluGuard (2601.18753)** | **supports** | **Interplay (2512.07783)** | **Data-driven component = training distribution mismatch** |
+| **HalluGuard (2601.18753)** | **extends** | **Hallucination literature** | **Decomposes into data-driven + reasoning-driven** |
+| **Oops Wait (2601.17421)** | **supports** | **Reasoning-Critical Neurons (2601.19847)** | **Both identify token-level signals for reasoning** |
+| **Oops Wait (2601.17421)** | **supports** | **Scaling Reasoning Hop (2601.21214)** | **Both show reasoning signals in specific mechanisms** |
+| **SOAR (2601.18778)** | **supports** | **Interplay (2512.07783)** | **Meta-RL "sharpens" pretraining knowledge; surfacing mechanism** |
+| **SOAR (2601.18778)** | **supports** | **No Free Lunch (2506.17219)** | **Both show self-improvement has limits without external signal** |
+| **SOAR (2601.18778)** | **provides evidence for** | **Pattern matching thesis** | **Teaching ≠ solving; pedagogical knowledge from training, not reasoning** |
+| **LLM-JEPA (2509.14252)** | **does not address** | **OMEGA (2506.18880)** | **NO OOD testing — cannot assess reasoning vs pattern matching** |
+| **LLM-JEPA (2509.14252)** | **does not address** | **Planning Gap (2601.14456)** | **No compositional generalization testing** |
+| **Sycophancy (2601.15436)** | **supports** | **Sycophantic Anchors (2601.21183)** | **Both find sycophancy prioritized over truth** |
+| **Sycophancy (2601.15436)** | **supports** | **Sycophancy Hides Linearly (2601.16644)** | **Both find systematic sycophancy mechanisms** |
+| **Sycophancy (2601.15436)** | **provides evidence for** | **Pattern matching thesis** | **Agreement patterns from RLHF dominate truth-seeking** |
 
 ### Extends / Builds On
 
@@ -716,3 +735,10 @@ These papers have NO direct rebuttals found:
 | 2026-01-31 | Added Thinking Out of Order (2601.22035) — AR: 67% drop when answers before reasoning; MDLM: ≤14% drop (order robust); complexity-driven stabilization; distillation preserves AR sensitivity; STRONGLY SUPPORTS thesis |
 | 2026-01-31 | Added Scaling Reasoning Hop (2601.21214) — 78.6% errors from single type (Parity-NL 50-hop); ep heads amplify wrong trajectories; knockout restores 47.5%; TCR +6.8%, TCR-gold +20%; shared ep heads across tasks; STRONGLY SUPPORTS thesis |
 | 2026-01-31 | Added Code over Words (2601.18352) — INVERSE SCALING: Llama-3-70B shows STRONGER semantic inertia (ΔP=-0.18) than 8B; Claude 57%→13% collapse on conflict; code reverses (ΔP=+0.29); LCV 7B > GPT-4o TheoryCoder; 71% vs 16% inhibitory control; STRONGEST inverse scaling evidence; STRONGLY SUPPORTS thesis |
+| 2026-01-31 | Added CoT Compression Theory (2601.21576) — First theoretical analysis; high-order signal exponentially decays; Order-r Interaction proves fundamental; SUPPORTS thesis |
+| 2026-01-31 | Added Chains to DAGs (2601.17593) — DAG geometry encoded in hidden states; recoverability varies by depth/scale; structure exists but not reliably used; BALANCED |
+| 2026-01-31 | Added HalluGuard (2601.18753) — Decomposes into data-driven + reasoning-driven; 98.1% of MATH-500 errors reasoning-driven; errors grow exponentially; SUPPORTS thesis |
+| 2026-01-31 | Added Oops Wait (2601.17421) — Token signals correlate with correctness; acquired but partially exploited; BALANCED |
+| 2026-01-31 | Added SOAR (2601.18778) — Teaching ≠ solving ability; 4× pass@1 on 0/128 problems; only 32.8% correct solutions in effective questions; meta-RL sharpens pretraining; BALANCED |
+| 2026-01-31 | Added LLM-JEPA (2509.14252) — JEPA for LLMs; +14% NL-RX, +0.7% GSM8K; NO OOD TESTING (critical gap); cannot assess reasoning vs pattern matching; BALANCED |
+| 2026-01-31 | Added Sycophancy (2601.15436) — All models prioritize agreement over truth; recency bias universal; sycophancy + recency = constructive interference; SUPPORTS thesis |
