@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 107,
+    totalAnalyzed: 108,
     lastUpdated: '2026-01-31',
   },
   nodes: [
@@ -1496,6 +1496,22 @@ window.paperData = {
         'A-Anchored: 68% acc, long-tail entities',
         'Self-aware of pathway (87-93% AUC)',
         'Pathway-aware detection +10% AUC',
+      ],
+    },
+    {
+      id: '2601.22035',
+      title: 'Thinking Out of Order: When Output Order Stops Reflecting Reasoning Order',
+      shortTitle: 'Thinking Out of Order',
+      date: 'Jan 2026',
+      stance: 'supports',
+      cluster: 'mechanism',
+      coreArgument:
+        'AR models suffer 67% accuracy drop when answers must precede reasoning (premature commitment). MDLMs remain stable (≤14% drop) via complexity-driven stabilization. AR must commit before reasoning exists.',
+      keyEvidence: [
+        'AR: 67% drop answer-first vs CoT-first',
+        'MDLM: ≤14% drop (order robust)',
+        'Distillation from AR preserves sensitivity',
+        'Complexity-driven token stabilization',
       ],
     },
   ],
@@ -3029,6 +3045,31 @@ window.paperData = {
       target: '2307.13702',
       type: 'extends',
       description: 'Mechanistic analysis of truthfulness encoding pathways',
+    },
+    // Thinking Out of Order links
+    {
+      source: '2601.22035',
+      target: '2601.15165',
+      type: 'supports',
+      description: 'Both show order constraints affect reasoning in diffusion LLMs',
+    },
+    {
+      source: '2601.22035',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'AR sequential commitment = why errors accumulate',
+    },
+    {
+      source: '2601.22035',
+      target: '2307.13702',
+      type: 'supports',
+      description: 'AR CoT unfaithful because answer decided before reasoning',
+    },
+    {
+      source: '2601.22035',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Complexity collapse = when model cant distinguish token complexity',
     },
   ],
 };
