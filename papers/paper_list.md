@@ -266,19 +266,25 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 115 | 2601.21214 | Jan 2026 | Scaling Reasoning Hop: ep heads suppress correct trajectories | Strongly Supports | ✅ DONE |
 | 116 | 2601.18352 | Jan 2026 | Code over Words: Semantic Inertia and INVERSE SCALING | Strongly Supports | ✅ DONE |
 
+### Gap-Filling Papers (Added 2026-01-31)
+| # | arXiv ID | Date | Title | Stance | Status |
+|---|----------|------|-------|--------|--------|
+| 24 | 2601.21576 | Jan 2026 | Chain Of Thought Compression: A Theoretical Analysis | Supports | ✅ DONE |
+| 90 | 2601.17593 | Jan 2026 | From Chains to DAGs: Probing Graph Structure of Reasoning | Balanced | ✅ DONE |
+| 91 | 2601.18753 | Jan 2026 | HalluGuard: Demystifying Data-Driven and Reasoning-Driven Hallucinations | Supports | ✅ DONE |
+| 92 | 2601.17421 | Jan 2026 | Oops, Wait: Token-Level Signals as a Lens into LLM Reasoning | Balanced | ✅ DONE |
+| 94 | 2601.18778 | Jan 2026 | Teaching Models to Teach Themselves (SOAR) | Balanced | ✅ DONE |
+| 95 | 2509.14252 | Sep 2025 | LLM-JEPA: Large Language Models Meet Joint Embedding Predictive Architectures | Balanced | ✅ DONE |
+| 96 | 2601.15436 | Jan 2026 | Not Your Typical Sycophant: The Elusive Nature of Sycophancy | Supports | ✅ DONE |
+
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 116
-- **Against Reasoning**: ~55
+- **Total Papers**: 123
+- **Against Reasoning**: ~58
 - **For Reasoning**: ~26
-- **Balanced**: ~37
+- **Balanced**: ~39
 - **Date Range**: 2023-2026
-- **Analyzed**: 110
+- **Analyzed**: 117
 
 ---
-
-## Notes
-- Papers marked "TBD" need arXiv ID lookup
-- Will update status as papers are read
-- Will move completed analyses to papers_read/
