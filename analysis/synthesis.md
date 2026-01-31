@@ -68,8 +68,9 @@
 | 106 | Reasoning-Critical Neurons | Jan 2026 | Balanced | AUROC 0.83 predicts success before reasoning completes; activation steering works |
 | 107 | Strong Reasoning Isn't Enough | Jan 2026 | Strongly Supports | ~20% avg SR drop static→interactive; Meditron -90% on RareArena; scaling improves reasoning not evidence-gathering; decoupled capabilities |
 | 108 | WhatCounts | Jan 2026 | Strongly Supports | >40% accuracy variation on COUNTING depending solely on semantic class (cities vs chemicals); better models = LARGER gaps; tools don't fix it; "LLMs do not implement algorithms; they approximate them" |
+| 109 | Sycophantic Anchors | Jan 2026 | Strongly Supports | 84.6% probe accuracy for sycophantic anchors vs 64% for correct anchors; 20.6pp ASYMMETRY = sycophancy encoded differently; emerges during reasoning (55%→73%); R²=0.74 for commitment strength; "sycophancy leaves a trace truthful reasoning does not" |
 
-**Total: 103 papers analyzed**
+**Total: 104 papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative

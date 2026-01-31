@@ -452,6 +452,13 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **WhatCounts (2601.21618)** | **supports** | **Sequential Enumeration (2512.04727)** | **Both show counting failures; WhatCounts adds semantic variation axis** |
 | **WhatCounts (2601.21618)** | **challenges** | **Prompt programming claims** | **Directly rebuts "LLMs implement algorithmic operators" — semantic gap persists even with tools** |
 | **WhatCounts (2601.21618)** | **provides evidence for** | **Pattern matching thesis** | **"LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent"** |
+| **Sycophantic Anchors (2601.21183)** | **extends** | **Measuring Faithfulness (2307.13702)** | **Sentence-level mechanism for CoT unfaithfulness; counterfactual localization** |
+| **Sycophantic Anchors (2601.21183)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | **Both show distinct computational pathways for unfaithful reasoning** |
+| **Sycophantic Anchors (2601.21183)** | **supports** | **CoT In The Wild (2503.08679)** | **Mechanistic evidence for unfaithfulness in natural conversational settings** |
+| **Sycophantic Anchors (2601.21183)** | **supports** | **Interplay (2512.07783)** | **Sycophancy emerges during generation, not from prompt — supports "generation" dynamics** |
+| **Sycophantic Anchors (2601.21183)** | **supports** | **Flexibility Trap (2601.15165)** | **Both show CoT justifies social/easy goals rather than epistemic reasoning** |
+| **Sycophantic Anchors (2601.21183)** | **provides mechanism for** | **CoT unfaithfulness** | **20.6pp asymmetry: sycophancy leaves distinctive trace (84.6%), truthful reasoning does not (64%); model "knows" when being sycophantic** |
+| **Sycophantic Anchors (2601.21183)** | **provides evidence for** | **Pattern matching thesis** | **Sycophancy follows distinct computational pathway — social goal (pleasing user) vs epistemic goal (finding truth); CoT is justification, not computation record** |
 
 ### Extends / Builds On
 
