@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 108,
+    totalAnalyzed: 107,
     lastUpdated: '2026-01-31',
   },
   nodes: [
