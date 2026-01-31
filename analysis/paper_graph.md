@@ -670,3 +670,8 @@ These papers have NO direct rebuttals found:
 | 2026-01-29 | Added Reasoning or Reciting (2307.02477) — NAACL 2024; foundational counterfactual methodology; 11 tasks; high CCC + low CF = understanding ≠ reasoning; "narrow, non-transferable procedures"; STRONGLY SUPPORTS thesis |
 | 2026-01-29 | Added Gaming the Judge (2601.14691) — CoT manipulation inflates FPR by 90%; judges pattern-match on style, not content; Progress Fabrication most effective; SUPPORTS thesis |
 | 2026-01-29 | Added Beyond Memorization (2601.13392) — 100% knowledge, 30-64pp drops on unseen DFA tasks; CoT degrades performance; six systematic failure modes; STRONGLY SUPPORTS thesis |
+| 2026-01-30 | Added Outcome-Based RL (2601.15158) — RL discovers reasoning but requires pre-existing capability; easy examples sufficient; BALANCED |
+| 2026-01-30 | Added Tokenizer Betrays Reasoning (2601.14658) — 72% phantom edits are whitespace variants; token-ID level processing; SUPPORTS thesis |
+| 2026-01-30 | Added Flexibility Trap (2601.15165) — Arbitrary order NARROWS reasoning; models bypass logical forks, retrofit logic post-hoc; BALANCED |
+| 2026-01-30 | Added Reasoning-Critical Neurons (2601.19847) — AUROC 0.83 predicts success before reasoning completes; activation steering works; BALANCED |
+| 2026-01-31 | Added Strong Reasoning Isn't Enough (2601.19773) — ~20% avg SR drop static→interactive; Meditron -90% on RareArena; scaling improves SR not ICR; decoupled reasoning/gathering; STRONGLY SUPPORTS thesis |
