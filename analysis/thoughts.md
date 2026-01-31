@@ -447,7 +447,7 @@ And:
 
 This means 75% of model behavior remains unexplained!
 
-### Yannic Kilcher's Actual Analysis (YouTube Videos)
+### Yannic Kilcher's Analysis (YouTube Videos)
 
 **Sources**: 
 - Part 1: https://youtu.be/mU3g2YPKlsA
