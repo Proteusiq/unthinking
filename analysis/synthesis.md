@@ -74,8 +74,9 @@
 | 112 | Reasoning or Guessing? (HRM) | Jan 2026 | Strongly Supports | HRM "guesses" fixed points, doesn't incrementally reason; fails on 1-cell puzzles (~25% instability); "grokking" dynamics (sudden correctness); scaling guesses (54.5%→96.9%) >> improving reasoning; spurious fixed points as local minima; "if one is to approach a complex problem through deliberative reasoning, the number of attempts typically matters less" |
 | 113 | Two Pathways to Truthfulness | Jan 2026 | Supports | Two DISTINCT pathways: Q-Anchored (knowledge retrieval, 87% acc, popular entities) vs A-Anchored (fabrication detection, 68% acc, long-tail); LLMs self-aware of pathways (87-93% AUC); knowledge boundary = training distribution; pathway-aware detection +10% AUC |
 | 114 | Thinking Out of Order | Jan 2026 | Strongly Supports | AR models: **67% accuracy drop** when answers before reasoning (premature commitment); MDLMs: ≤14% drop (order robust); complexity-driven stabilization; distillation from AR preserves order-sensitivity; "AR must commit before reasoning exists" |
+| 115 | Scaling Reasoning Hop | Jan 2026 | Strongly Supports | **78.6% errors** from single error type (Parity-NL 50-hop); "erroneous processing heads" (ep heads) amplify wrong trajectories; knockout single ep head restores 47.5% correct; TCR +6.8%, TCR-gold +20% (41.7%→61.3%); shared ep heads across tasks; "competition mechanism" between correct/erroneous patterns |
 
-**Total: 108 papers analyzed**
+**Total: 109 papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative

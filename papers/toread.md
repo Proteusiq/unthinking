@@ -8,19 +8,6 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 
 ## High Priority (Directly Tests Thesis)
 
-### [Scaling Reasoning Hop Exposes Weaknesses: Demystifying and Improving Hop Generalization](https://arxiv.org/abs/2601.21214)
-- **arXiv**: 2601.21214
-- **Stance**: SUPPORTS
-- **Why read**: Finds "erroneous processing heads" (ep heads) that suppress correct reasoning trajectories. Removing individual ep heads during inference can restore correct predictions. Mechanistic evidence for reasoning failures.
-- **Key finding**: Errors concentrate at specific token positions; certain attention heads tip the balance by amplifying incorrect trajectories while suppressing correct ones.
-
-<details>
-<summary>Abstract</summary>
-
-Chain-of-thought (CoT) reasoning has become the standard paradigm for enabling Large Language Models (LLMs) to solve complex problems. However, recent studies reveal a sharp performance drop in reasoning hop generalization scenarios, where the required number of reasoning steps exceeds training distributions while the underlying algorithm remains unchanged. We find that errors concentrate at token positions of a few critical error types, rather than being uniformly distributed. Closer inspection reveals that these token-level erroneous predictions stem from internal competition mechanisms: certain attention heads, termed erroneous processing heads (ep heads), tip the balance by amplifying incorrect reasoning trajectories while suppressing correct ones. Notably, removing individual ep heads during inference can often restore the correct predictions.
-
-</details>
-
 ### [Code over Words: Overcoming Semantic Inertia via Code-Grounded Reasoning](https://arxiv.org/abs/2601.18352)
 - **arXiv**: 2601.18352
 - **Stance**: SUPPORTS

@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 108,
+    totalAnalyzed: 109,
     lastUpdated: '2026-01-31',
   },
   nodes: [
@@ -1502,6 +1502,22 @@ window.paperData = {
         'MDLM: ≤14% drop (order robust)',
         'Distillation from AR preserves sensitivity',
         'Complexity-driven token stabilization',
+      ],
+    },
+    {
+      id: '2601.21214',
+      title: 'Scaling Reasoning Hop Exposes Weaknesses: Demystifying and Improving Hop Generalization',
+      shortTitle: 'Scaling Reasoning Hop',
+      date: 'Jan 2026',
+      stance: 'supports',
+      cluster: 'mechanism',
+      coreArgument:
+        'Errors concentrate at specific positions (78.6% from single type). "Erroneous processing heads" (ep heads) amplify wrong trajectories while suppressing correct ones. Knocking out single ep head restores 47.5% correct. TCR +6.8%, TCR-gold +20%.',
+      keyEvidence: [
+        '78.6% errors from single error type',
+        'Knockout ep head: 47.5% restored',
+        'TCR-gold: 41.7% → 61.3% (+20%)',
+        'Shared ep heads across tasks',
       ],
     },
   ],
@@ -3060,6 +3076,31 @@ window.paperData = {
       target: '2506.06941',
       type: 'supports',
       description: 'Complexity collapse = when model cant distinguish token complexity',
+    },
+    // Paper 115: Scaling Reasoning Hop links
+    {
+      source: '2601.21214',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Mechanistic cause of error accumulation',
+    },
+    {
+      source: '2601.21214',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'ep heads explain complexity collapse',
+    },
+    {
+      source: '2601.21214',
+      target: '2512.07783',
+      type: 'supports',
+      description: 'Both show training distribution bounds capability',
+    },
+    {
+      source: '2601.21214',
+      target: '2601.19847',
+      type: 'extends',
+      description: 'ep heads complement reasoning-critical neurons',
     },
   ],
 };
