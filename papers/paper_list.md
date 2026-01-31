@@ -267,7 +267,6 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 116 | 2601.18352 | Jan 2026 | Code over Words: Semantic Inertia and INVERSE SCALING | Strongly Supports | ✅ DONE |
 | 117 | 2311.07590 | Nov 2023 | Strategic Deception: GPT-4 Lies Under Pressure (Apollo Research) | Strongly Supports | ✅ DONE |
 | 118 | 2502.03407 | Feb 2025 | Detecting Strategic Deception Using Linear Probes (Apollo Research) | Balanced | ✅ DONE |
-| 119 | 2412.14093 | Dec 2024 | Alignment Faking in Large Language Models (Anthropic) | Strongly Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -283,11 +282,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 126
-- **Against Reasoning**: ~60
+- **Total Papers**: 125
+- **Against Reasoning**: ~59
 - **For Reasoning**: ~26
 - **Balanced**: ~40
 - **Date Range**: 2023-2026
-- **Analyzed**: 120
+- **Analyzed**: 119
 
 ---
