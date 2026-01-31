@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 106,
+    totalAnalyzed: 108,
     lastUpdated: '2026-01-31',
   },
   nodes: [
@@ -1464,6 +1464,38 @@ window.paperData = {
         'Better models = LARGER semantic gaps (counterintuitive)',
         'Tools dont fix it (agents inherit gap)',
         'Fine-tuning shifts biases unpredictably',
+      ],
+    },
+    {
+      id: '2601.10679',
+      title: 'Are Your Reasoning Models Reasoning or Guessing? A Mechanistic Analysis of Hierarchical Reasoning Models',
+      shortTitle: 'Reasoning or Guessing?',
+      date: 'Jan 2026',
+      stance: 'supports',
+      cluster: 'mechanism',
+      coreArgument:
+        'HRM "guesses" fixed points rather than reasoning incrementally. Fails on 1-cell puzzles (~25% instability). "Grokking" dynamics: solutions appear suddenly, not via gradual refinement. Scaling guesses (54.5%→96.9%) dramatically outperforms improving reasoning.',
+      keyEvidence: [
+        'Fails on puzzles with 1 unknown cell',
+        '"Grokking" dynamics: sudden correctness',
+        '54.5%→96.9% via guess scaling (+42.4%)',
+        'Spurious fixed points as local minima',
+      ],
+    },
+    {
+      id: '2601.07422',
+      title: 'Two Pathways to Truthfulness: On the Intrinsic Encoding of LLM Hallucinations',
+      shortTitle: 'Two Pathways',
+      date: 'Jan 2026',
+      stance: 'supports',
+      cluster: 'mechanism',
+      coreArgument:
+        'Truthfulness encoding uses TWO DISTINCT pathways: Q-Anchored (knowledge retrieval, 87% acc, popular entities) vs A-Anchored (fabrication detection, 68% acc, long-tail). Knowledge boundary = training distribution. LLMs self-aware of pathway (87-93% AUC).',
+      keyEvidence: [
+        'Q-Anchored: 87% acc, popular entities',
+        'A-Anchored: 68% acc, long-tail entities',
+        'Self-aware of pathway (87-93% AUC)',
+        'Pathway-aware detection +10% AUC',
       ],
     },
   ],
@@ -2935,6 +2967,68 @@ window.paperData = {
       target: '2509.23629',
       type: 'supports',
       description: 'Provides mechanism for policy collapse',
+    },
+    // Reasoning or Guessing? (HRM) links
+    {
+      source: '2601.10679',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Both show "sudden" correctness, not gradual reasoning',
+    },
+    {
+      source: '2601.10679',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Fixed points = subgraph matching patterns',
+    },
+    {
+      source: '2601.10679',
+      target: '2601.11061',
+      type: 'supports',
+      description: 'Both show models find shortcuts/attractors over reasoning',
+    },
+    {
+      source: '2601.10679',
+      target: '2512.07783',
+      type: 'supports',
+      description: 'Scaling guesses = scaling search through patterns',
+    },
+    {
+      source: '2601.10679',
+      target: '2510.15974',
+      type: 'supports',
+      description: 'Both show models get trapped in local patterns/modes',
+    },
+    // Two Pathways to Truthfulness links
+    {
+      source: '2601.07422',
+      target: '2601.21183',
+      type: 'supports',
+      description: 'Both find distinct encoding for truthfulness pathways',
+    },
+    {
+      source: '2601.07422',
+      target: '2601.16644',
+      type: 'supports',
+      description: 'Both find separate mechanisms for different truthfulness modes',
+    },
+    {
+      source: '2601.07422',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Q-Anchored = pattern retrieval; knowledge boundary = training distribution',
+    },
+    {
+      source: '2601.07422',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Performance tied to familiarity (popular vs long-tail)',
+    },
+    {
+      source: '2601.07422',
+      target: '2307.13702',
+      type: 'extends',
+      description: 'Mechanistic analysis of truthfulness encoding pathways',
     },
   ],
 };

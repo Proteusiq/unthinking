@@ -260,16 +260,18 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 109 | 2601.21183 | Jan 2026 | Sycophantic Anchors: Localizing User Agreement in Reasoning Models | Strongly Supports | ✅ DONE |
 | 110 | 2601.16644 | Jan 2026 | Sycophancy Hides Linearly in the Attention Heads | Supports | ✅ DONE |
 | 111 | 2601.11061 | Jan 2026 | Spurious Rewards Paradox: RLVR Activates Memorization Shortcuts | Strongly Supports | ✅ DONE |
+| 112 | 2601.10679 | Jan 2026 | Are Your Reasoning Models Reasoning or Guessing? (HRM Analysis) | Strongly Supports | ✅ DONE |
+| 113 | 2601.07422 | Jan 2026 | Two Pathways to Truthfulness: LLM Hallucination Encoding | Supports | ✅ DONE |
 
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 111
-- **Against Reasoning**: ~50
+- **Total Papers**: 113
+- **Against Reasoning**: ~52
 - **For Reasoning**: ~26
 - **Balanced**: ~37
 - **Date Range**: 2023-2026
-- **Analyzed**: 106
+- **Analyzed**: 108 (all complete)
 
 ---
 

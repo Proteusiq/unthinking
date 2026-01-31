@@ -6,22 +6,6 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 
 ---
 
-## Sycophancy & Hallucination Mechanisms (HIGH PRIORITY)
-
-### [Are Your Reasoning Models Reasoning or Guessing?](https://arxiv.org/abs/2601.10679)
-- **arXiv**: 2601.10679
-- **Stance**: STRONGLY SUPPORTS
-- **Why read**: Mechanistic analysis shows HRM appears to be "guessing" not "reasoning". Fails on extremely simple puzzles (1 unknown cell!). "Grokking" dynamics where answer suddenly becomes correct.
-- **Key finding**: Multiple fixed points exist — model "guesses" first fixed point (possibly incorrect) and gets trapped. Augmenting guesses (not reasoning) boosts Sudoku from 54.5% → 96.9%.
-
-### [Two Pathways to Truthfulness: Intrinsic Encoding of LLM Hallucinations](https://arxiv.org/abs/2601.07422)
-- **arXiv**: 2601.07422
-- **Stance**: BALANCED (mechanistic)
-- **Why read**: Identifies **two distinct pathways** for truthfulness: (1) Question-Anchored (Q-A information flow) and (2) Answer-Anchored (self-contained evidence). Tied to LLM knowledge boundaries.
-- **Key finding**: Attention knockout and token patching validate the two pathways. Internal representations are aware of their distinctions.
-
----
-
 ## High Priority (Directly Tests Thesis)
 
 ### [Scaling Reasoning Hop Exposes Weaknesses: Demystifying and Improving Hop Generalization](https://arxiv.org/abs/2601.21214)
