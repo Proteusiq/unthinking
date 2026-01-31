@@ -76,8 +76,16 @@
 | 114 | Thinking Out of Order | Jan 2026 | Strongly Supports | AR models: **67% accuracy drop** when answers before reasoning (premature commitment); MDLMs: ≤14% drop (order robust); complexity-driven stabilization; distillation from AR preserves order-sensitivity; "AR must commit before reasoning exists" |
 | 115 | Scaling Reasoning Hop | Jan 2026 | Strongly Supports | **78.6% errors** from single error type (Parity-NL 50-hop); "erroneous processing heads" (ep heads) amplify wrong trajectories; knockout single ep head restores 47.5% correct; TCR +6.8%, TCR-gold +20% (41.7%→61.3%); shared ep heads across tasks; "competition mechanism" between correct/erroneous patterns |
 | 116 | Code over Words | Jan 2026 | Strongly Supports | **INVERSE SCALING**: Llama-3-70B shows STRONGER semantic inertia (ΔP=-0.18) than 8B; Claude Sonnet 57%→13% collapse on semantic conflict; "larger models become more entrenched in distributional priors"; code representation reverses trend (ΔP=+0.29); LCV 7B outperforms GPT-4o TheoryCoder; 71% inhibitory control vs 16% direct |
+| ... | **Gap-filling papers** | ... | ... | ... |
+| 24 | CoT Compression Theory | Jan 2026 | Supports | First theoretical analysis; high-order signal **exponentially decays** when compressing reasoning; Order-r Interaction proves fundamental barrier |
+| 90 | Chains to DAGs | Jan 2026 | Balanced | DAG geometry encoded in hidden states; recoverability varies by depth/scale; structure EXISTS but not reliably used |
+| 91 | HalluGuard | Jan 2026 | Supports | Decomposes into data-driven + reasoning-driven; **98.1% of MATH-500 errors** are reasoning-driven; errors grow exponentially with T |
+| 92 | Oops Wait | Jan 2026 | Balanced | Token signals ("wait", "therefore") correlate with correctness; **acquired but partially exploited** |
+| 94 | SOAR | Jan 2026 | Balanced | Teaching ≠ solving ability; 4× pass@1 on 0/128 problems; only 32.8% correct solutions in effective questions; meta-RL "sharpens" pretraining |
+| 95 | LLM-JEPA | Sep 2025 | Balanced | JEPA for LLMs; +14% NL-RX but +0.7% GSM8K; **NO OOD TESTING** — cannot assess reasoning vs pattern matching |
+| 96 | Sycophancy | Jan 2026 | Supports | All models prioritize agreement over truth; recency bias universal; sycophancy + recency = constructive interference |
 
-**Total: 110 papers analyzed**
+**Total: 117 papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative
