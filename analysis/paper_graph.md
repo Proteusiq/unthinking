@@ -459,6 +459,12 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Sycophantic Anchors (2601.21183)** | **supports** | **Flexibility Trap (2601.15165)** | **Both show CoT justifies social/easy goals rather than epistemic reasoning** |
 | **Sycophantic Anchors (2601.21183)** | **provides mechanism for** | **CoT unfaithfulness** | **20.6pp asymmetry: sycophancy leaves distinctive trace (84.6%), truthful reasoning does not (64%); model "knows" when being sycophantic** |
 | **Sycophantic Anchors (2601.21183)** | **provides evidence for** | **Pattern matching thesis** | **Sycophancy follows distinct computational pathway — social goal (pleasing user) vs epistemic goal (finding truth); CoT is justification, not computation record** |
+| **Sycophancy Hides Linearly (2601.16644)** | **supports** | **Sycophantic Anchors (2601.21183)** | **Both find sycophancy distinctly encoded; Paper 109: asymmetry; Paper 110: orthogonal to truthfulness** |
+| **Sycophancy Hides Linearly (2601.16644)** | **extends** | **Measuring Faithfulness (2307.13702)** | **Mechanistic localization of unfaithfulness to specific attention heads** |
+| **Sycophancy Hides Linearly (2601.16644)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | **Truthfulness ≠ deference resistance = distinct computational pathways for truth vs social agreement** |
+| **Sycophancy Hides Linearly (2601.16644)** | **supports** | **Interplay (2512.07783)** | **Social cue attention = pattern matching on training distribution** |
+| **Sycophancy Hides Linearly (2601.16644)** | **provides mechanism for** | **CoT unfaithfulness** | **MHA steering: 51.7%→25% sycophancy; specific heads attend to doubt cues and trigger deference** |
+| **Sycophancy Hides Linearly (2601.16644)** | **provides evidence for** | **Pattern matching thesis** | **Model knows correct answer (truthfulness direction) but abandons it (sycophancy direction) based on social cue pattern matching** |
 
 ### Extends / Builds On
 

@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 104,
+    totalAnalyzed: 105,
     lastUpdated: '2026-01-31',
   },
   nodes: [
@@ -1207,6 +1207,21 @@ window.paperData = {
         '84.6% sycophantic vs 64% correct anchors',
         '55.1%→72.9% emergence during reasoning',
         'R²=0.74 commitment strength',
+      ],
+    },
+    {
+      id: '2601.16644',
+      title: 'Sycophancy Hides Linearly in the Attention Heads',
+      shortTitle: 'Sycophancy Hides Linearly',
+      date: 'Jan 2026',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'Truthfulness and deference resistance are DISTINCT mechanisms (cosine=-0.22, 32% head overlap). MHA steering reduces sycophancy 51.7%→25%. Sycophancy heads attend disproportionately to user doubt.',
+      keyEvidence: [
+        'Truthfulness ≠ deference (32% overlap)',
+        '51.7%→25% sycophancy rate (MHA steering)',
+        'Sycophancy heads focus on doubt tokens',
       ],
     },
     {
@@ -2849,6 +2864,31 @@ window.paperData = {
       target: '2601.15165',
       type: 'supports',
       description: 'CoT justifies social goal not epistemic goal',
+    },
+    // Sycophancy Hides Linearly links
+    {
+      source: '2601.16644',
+      target: '2601.21183',
+      type: 'supports',
+      description: 'Both find sycophancy distinctly encoded from correct reasoning',
+    },
+    {
+      source: '2601.16644',
+      target: '2307.13702',
+      type: 'extends',
+      description: 'Mechanistic localization of unfaithfulness to attention heads',
+    },
+    {
+      source: '2601.16644',
+      target: '2505.05410',
+      type: 'supports',
+      description: 'Truthfulness ≠ deference resistance = distinct pathways',
+    },
+    {
+      source: '2601.16644',
+      target: '2512.07783',
+      type: 'supports',
+      description: 'Social cue attention = pattern matching on training',
     },
   ],
 };
