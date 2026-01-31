@@ -407,17 +407,7 @@ window.paperData = {
         "'Pattern regurgitators' — EMNLP 2024. 0% strong recovery on reasoning patterns. 100% knowledge doesn't transfer.",
       keyEvidence: ['0% strong recovery', 'Pattern regurgitators', 'EMNLP 2024 Best Paper'],
     },
-    {
-      id: '2601.13392',
-      title: 'Beyond Memorization: ToC Tasks',
-      shortTitle: 'Beyond Memorization',
-      date: 'Jan 2026',
-      stance: 'supports',
-      cluster: 'compositional',
-      coreArgument:
-        '100% factual knowledge, 30-64% drop on unseen DFA construction. Perfect knowledge ≠ compositional reasoning.',
-      keyEvidence: ['100% factual accuracy', '84-90% seen, 20-59% unseen', 'CoT/ToT only +1-4%'],
-    },
+
     {
       id: '2601.03630',
       title: 'Reasoning Model Is Superior Judge',
