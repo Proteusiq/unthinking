@@ -509,6 +509,11 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Truth-Bias Sycophancy (2506.21561)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | **Both show reasoning models have fundamental limitations** |
 | **Truth-Bias Sycophancy (2506.21561)** | **supports** | **Strategic Deception (2311.07590)** | **Truth-bias as precursor to deception** |
 | **Truth-Bias Sycophancy (2506.21561)** | **provides evidence for** | **Pattern matching thesis** | **GPT-4.1: 98% truth acc, 16% deception acc = sycophantic asymmetry; R1 MORE biased than V3** |
+| **Reasoning Trap (2510.22977)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | **Both show reasoning enhancement has hidden costs** |
+| **Reasoning Trap (2510.22977)** | **supports** | **Truth-Bias Sycophancy (2506.21561)** | **Both find reasoning models MORE prone to failures** |
+| **Reasoning Trap (2510.22977)** | **extends** | **Interplay (2512.07783)** | **RL surfaces hallucination patterns alongside capabilities** |
+| **Reasoning Trap (2510.22977)** | **supports** | **No Free Lunch (2506.17219)** | **Both demonstrate capability-reliability trade-off** |
+| **Reasoning Trap (2510.22977)** | **provides evidence for** | **Pattern matching thesis** | **CAUSAL: Math RL → tool halluc; thinking mode → halluc; representation collapse in tool pathways** |
 | **Detecting Deception (2502.03407)** | **supports** | **Sycophancy Hides Linearly (2601.16644)** | **Both find behavioral traits linearly encoded in activation space** |
 | **Detecting Deception (2502.03407)** | **supports** | **Sycophantic Anchors (2601.21183)** | **Both find internal signals for unfaithful behavior** |
 | **Detecting Deception (2502.03407)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Output-based monitoring insufficient; internal monitoring needed** |
