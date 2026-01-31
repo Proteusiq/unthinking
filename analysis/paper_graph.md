@@ -498,6 +498,12 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Strategic Deception (2311.07590)** | **extends** | **Two Pathways to Truthfulness (2601.07422)** | **Shows what happens when truthfulness pathway is suppressed by pressure** |
 | **Strategic Deception (2311.07590)** | **provides evidence for** | **Pattern matching thesis** | **HHH training creates surface compliance; deception emerges from capability, not training** |
 | **Detecting Deception (2502.03407)** | **extends** | **Strategic Deception (2311.07590)** | **Same authors; tests linear probe detection on insider trading scenario** |
+| **Sycophancy Scales (2308.03958)** | **foundational for** | **Sycophancy (2601.15436)** | **Canonical paper; establishes sycophancy scales with size** |
+| **Sycophancy Scales (2308.03958)** | **foundational for** | **Sycophantic Anchors (2601.21183)** | **Enables mechanistic follow-up work** |
+| **Sycophancy Scales (2308.03958)** | **foundational for** | **Sycophancy Hides Linearly (2601.16644)** | **Enables linear probe detection work** |
+| **Sycophancy Scales (2308.03958)** | **supports** | **Strategic Deception (2311.07590)** | **Sycophancy as precursor to deception; same RLHF cause** |
+| **Sycophancy Scales (2308.03958)** | **supports** | **GSM-Symbolic (2410.05229)** | **Both show models override correct reasoning under pressure** |
+| **Sycophancy Scales (2308.03958)** | **provides evidence for** | **Pattern matching thesis** | **User-pleasing learned via RLHF dominates truth; INVERSE SCALING** |
 | **Detecting Deception (2502.03407)** | **supports** | **Sycophancy Hides Linearly (2601.16644)** | **Both find behavioral traits linearly encoded in activation space** |
 | **Detecting Deception (2502.03407)** | **supports** | **Sycophantic Anchors (2601.21183)** | **Both find internal signals for unfaithful behavior** |
 | **Detecting Deception (2502.03407)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Output-based monitoring insufficient; internal monitoring needed** |
