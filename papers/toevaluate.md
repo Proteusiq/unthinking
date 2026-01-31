@@ -2,7 +2,7 @@
 
 Raw auto-discovered papers awaiting triage. Review and promote relevant ones to `toread.md`.
 
-**Last updated**: 2026-01-30
+**Last updated**: 2026-01-31
 **Last triage**: 2026-01-30 — Triaged ~60 papers, promoted 8 to toread.md
 
 ---
@@ -25,6 +25,23 @@ Discard if paper:
 - Multi-agent infrastructure without reasoning tests
 
 ---
+
+## New Papers (2026-01-31)
+
+### [Semantic Content Determines Algorithmic Performance](https://arxiv.org/abs/2601.21618v1)
+- **arXiv**: 2601.21618v1
+- **Published**: 2026-01-29
+- **Stance**: CHALLENGES
+- **Priority**: 8/10
+- **Classified by**: LLM
+- **Why read**: This paper demonstrates that LLM performance varies with semantic content, supporting the view that their reasoning is pattern-based rather than genuinely generative.
+
+<details>
+<summary>Abstract</summary>
+
+Counting should not depend on what is being counted; more generally, any algorithm's behavior should be invariant to the semantic content of its arguments. We introduce WhatCounts to test this property in isolation. Unlike prior work that conflates semantic sensitivity with reasoning complexity or prompt variation, WhatCounts is atomic: count items in an unambiguous, delimited list with no duplicates, distractors, or reasoning steps for different semantic types. Frontier LLMs show over 40% accuracy variation depending solely on what is being counted - cities versus chemicals, names versus symbols. Controlled ablations rule out confounds. The gap is semantic, and it shifts unpredictably with small amounts of unrelated fine-tuning. LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent. As we show with an agentic example, this has implications beyond counting: any LLM function may carry hidden dependencies on the meaning of its inputs.
+
+</details>
 
 ## New Papers (2026-01-30)
 
