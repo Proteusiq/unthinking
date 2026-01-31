@@ -447,29 +447,102 @@ And:
 
 This means 75% of model behavior remains unexplained!
 
-### Yannic Kilcher Coverage (Expected)
+### Yannic Kilcher's Actual Analysis (YouTube Videos)
 
-Based on his typical analysis style, Yannic likely emphasizes:
+**Sources**: 
+- Part 1: https://youtu.be/mU3g2YPKlsA
+- Part 2: https://youtu.be/V71AJoYAtBQ
 
-1. **The "Microscope" Analogy**: Interpretability tools as microscopes for AI — we're at early cell-discovery stage
-2. **Addition as Lookup**: The smoking gun that math isn't computed but retrieved
-3. **CoT Faithfulness Spectrum**: Not binary (faithful/unfaithful) but a spectrum with three modes
-4. **The 25% Problem**: Methods only work on 1/4 of cases — vast complexity remains hidden
-5. **Planning Evidence**: Genuine forward/backward planning exists, complicating pure pattern-matching view
+Yannic provides critical, skeptical analysis of the Anthropic paper. Key points:
+
+#### 1. Method Critique — Replacement Model Limitations
+
+> "The biggest criticism you could levy here... are what the transcoders do actually the thing that happens in the transformers or are you simply kind of getting the same output but the transcoder is leading you to a quite wrong conclusion about what happens."
+
+Yannic questions whether the transcoder replacement model faithfully represents what the original transformer does, or introduces its own artifacts.
+
+#### 2. Multi-step Reasoning — Shortcuts Coexist
+
+On the Dallas → Texas → Austin example:
+> "There's there appear to be an overlap. So there appears to be at least some sort of internal materialization of the intermediate fact going on. But there also seem to be quite a lot of shortcut connections where it's just like oh you said Dallas Austin that's just like word association."
+
+**Key insight**: The model does BOTH genuine multi-hop reasoning AND direct word association shortcuts simultaneously. This is where hallucinations come from — "whenever these two things are in conflict."
+
+#### 3. Addition — NOT Algorithmic, but Approximate Lookup
+
+> "Rather than doing explicit computation, the model appears to have multiple pathways that do sort of approximate computations sometimes in the space of modulus... and it combines those together to form a final answer."
+
+The model has features like:
+- "about 30" (activates for numbers around 30)
+- "ends in 6" (modulus feature)
+- "add 40 and 50 ish"
+- "sum probably ends in about 5"
+
+> "So it knows that oh this is probably around 90 something and then there is a strong feature that says well it's probably going to end in a five and that results in the 95."
+
+**Critical point on CoT unfaithfulness**:
+> "If you ask the model how it's doing the addition... it says well I added the ones carried the one then added the tens resulting in 95 and Anthropic says apparently not... the way it computes this answer right here is not by internally doing this."
+
+But Yannic cautions this could be a **method failure**, not proof of model behavior:
+> "It could totally be that the transformer actually did do the correct thing. And this answer right here is by the way is what we're getting from the original transformer. The transcoder is only used to interpret these features here."
+
+#### 4. Planning in Poems — Genuine Forward Planning
+
+> "At the new line character... there's already features internally representing rhyming with 'it'... it even represents two specific words rabbit or habit."
+
+Yannic finds this "quite cool and quite remarkable":
+> "Not only does it have the word does it activate the word rabbit but also the concept of rabbit. And that's important because... if it has the concept of rabbit in mind then it can much better plan out a sentence that works towards saying rabbit."
+
+On special tokens:
+> "At the end of a sentence, you kind of have the maximum freedom to do whatever and therefore you can afford to put all of your considerations on sort of the more overall planning of the text and not the minutia of keeping grammar right."
+
+#### 5. "Training Works" — Yannic's Core Critique
+
+For the second half of the paper (hallucinations, refusals, jailbreaks), Yannic is scathing:
+
+> "The rest of the paper like the kind of hallucinations, refusals, life of a jailbreak, all of this is just sort of a way of saying **training works** and machine learning works. And that's it."
+
+On refusals:
+> "What we're doing with this fine-tuning is pretty straightforward. We're just hammering in like explicit things that are bad... that's how you get these very very frustrating interactions with the models where it's like 'Oh no, I'm sorry. I can't do this.' Even though it's not at all quote unquote harmful... because we're simply hammering in simple correlations between almost between words."
+
+> "So this is like one abstraction level above a regex or something like this."
+
+On jailbreaks:
+> "Rather than punctuation and new lines being special tokens, I think what's happening here is simply that... the next token after these tokens is very very undetermined and that's when these other things other than grammar and consistency can take over."
+
+#### 6. "Hidden Goals" Section — Peak Anthropic Marketing
+
+Yannic is harshest on the "misaligned model" section:
+
+> "All of this woo misalignment. Woo woo woo woo woo is I find that to be this is **peak anthropic** right here and I am not impressed... This is a waste of human cognitive resources and I believe this is where we go full anthropic marketing."
+
+> "Where we go full into the 'we need leadership. We need leadership in understanding how these models work and we Anthropic we are the ones that do. So we should steer humanity and give us all the money and resources and block all of our competition.'"
+
+#### 7. Yannic's Key Conclusions
+
+1. **Training works** — Most "surprising" behaviors are just correlations from training data
+2. **Shortcuts coexist with reasoning** — Models do both simultaneously
+3. **Addition is approximate** — Multiple fuzzy pathways, not algorithms
+4. **Planning is real** — But constrained by grammar/entropy
+5. **Refusals are shallow** — "One abstraction level above regex"
+6. **Method may be misleading** — Transcoder might not reflect actual transformer computation
 
 ### Synthesis for Our Thesis
 
-The Anthropic paper provides **mechanistic confirmation** of our thesis:
+The Anthropic paper + Yannic's analysis provides **mechanistic confirmation** of our thesis:
 
-| Our Claim | Anthropic Evidence |
-|-----------|-------------------|
-| Math is pattern matching | Addition circuits are lookup-based |
-| CoT is often unfaithful | Three modes: genuine, made-up, backwards |
-| Hallucination is systematic | Entity recognition circuit "misfires" |
-| Multi-hop reasoning exists | Dallas → Texas → Austin is traceable |
-| BUT shortcuts coexist | Direct Dallas → Austin edges exist |
-| Planning is sophisticated | Forward + backward planning in poems |
-| BUT distribution-bounded | 75% of prompts remain unexplained |
+| Our Claim | Anthropic Evidence | Yannic's Take |
+|-----------|-------------------|---------------|
+| Math is pattern matching | Addition circuits are lookup-based | "Multiple pathways of approximate computations" — NOT carrying the one |
+| CoT is often unfaithful | Three modes: genuine, made-up, backwards | Model explains with algorithm it didn't use |
+| Hallucination is systematic | Entity recognition circuit "misfires" | "Just training works" — likelihood pushing |
+| Multi-hop reasoning exists | Dallas → Texas → Austin is traceable | YES but shortcuts coexist — source of hallucinations |
+| Shortcuts dominate | Direct Dallas → Austin edges | "Word association" paths always present |
+| Planning is sophisticated | Forward + backward planning in poems | Real, but constrained by entropy/grammar |
+| Refusals are shallow | Harmful request features | "One abstraction level above regex" |
+| Safety is brittle | Jailbreaks exploit grammar constraints | Entropy at sentence boundaries allows override |
+
+**Yannic's "Training Works" framing aligns with our thesis**: What Anthropic frames as "biology" and "circuits" is really just statistical correlations from training. The model isn't "reasoning" or "knowing" — it's pushing likelihoods based on learned associations.
 
 ### Key Quotes to Extract
 
