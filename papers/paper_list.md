@@ -271,6 +271,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 120 | 2506.21561 | Jun 2025 | Reasoning Isn't Enough: Truth-Bias and Sycophancy (Columbia) | Strongly Supports | ✅ DONE |
 | 121 | 2510.22977 | Oct 2025 | The Reasoning Trap: How Enhancing LLM Reasoning Amplifies Tool Hallucination | Strongly Supports | ✅ DONE |
 | 122 | 2601.05905 | Jan 2026 | Illusions of Confidence? Diagnosing LLM Truthfulness via Neighborhood Consistency | Strongly Supports | ✅ DONE |
+| 123 | 2410.11684 | Oct 2024 | Are UFOs Driving Innovation? The Illusion of Causality in LLMs | Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -286,11 +287,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 129
-- **Against Reasoning**: ~63
+- **Total Papers**: 130
+- **Against Reasoning**: ~64
 - **For Reasoning**: ~26
 - **Balanced**: ~40
 - **Date Range**: 2023-2026
-- **Analyzed**: 123
+- **Analyzed**: 124
 
 ---

@@ -11,7 +11,7 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 ### Sycophancy/Deception (Issue #27)
 
 - [x] **Illusions of Confidence** (2601.05905) — Analyzed as Paper 122
-- [ ] **Causal Illusions in LLMs** (2410.11684) — 30% causal illusion rates
+- [x] **Causal Illusions in LLMs** (2410.11684) — Analyzed as Paper 123
 
 ### Elicitation (Issue #26)
 
