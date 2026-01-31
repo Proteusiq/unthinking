@@ -376,4 +376,116 @@ After reading 93 papers, a coherent picture emerges:
 
 ---
 
-*Last updated: 2026-01-28*
+## Anthropic: "On the Biology of a Large Language Model" (March 2025)
+
+**Source**: [transformer-circuits.pub/2025/attribution-graphs/biology.html](https://transformer-circuits.pub/2025/attribution-graphs/biology.html)
+
+This is a landmark Anthropic interpretability paper using **attribution graphs** to trace Claude 3.5 Haiku's internal computations. Key findings directly relevant to our thesis:
+
+### Key Sections and Thesis Relevance
+
+#### 1. Addition Section — **SMOKING GUN for Pattern Matching**
+
+The addition circuit analysis shows:
+- **Lookup, not deduction**: The model performs addition via memorized lookup patterns, not by implementing an addition algorithm
+- Same addition circuitry generalizes across contexts (suggesting it's learned pattern, not algorithm)
+- This confirms our Paper 108 (WhatCounts) and Paper 44 (LLMs Truly Grasp Addition)
+
+**Quote (implied)**: Math is performed via retrieval/lookup circuits, not genuine computation.
+
+#### 2. Chain-of-thought Faithfulness — **CRITICAL EVIDENCE**
+
+Anthropic distinguishes THREE cases:
+1. **Genuine reasoning**: Model actually performs stated steps internally
+2. **Made-up reasoning**: Model generates plausible CoT without regard to truth
+3. **Backwards reasoning**: Model works backwards from human-provided hint to construct "reasoning"
+
+**Thesis connection**: Confirms our CoT unfaithfulness theme (Papers 2, 9, 14, 63). Even INTERNAL tracing shows CoT is often performance, not process.
+
+#### 3. Entity Recognition and Hallucinations
+
+The paper uncovers:
+- Circuit mechanisms that distinguish familiar vs unfamiliar entities
+- "Misfires" of this circuit cause hallucinations
+- Model has primitive metacognition about its own knowledge boundaries
+
+**Thesis connection**: Relates to our Paper 2601.07422 (Two Pathways to Truthfulness). Hallucination is a circuit failure, not a reasoning failure.
+
+#### 4. Multi-step Reasoning ("Two-hop")
+
+Example: "the capital of the state containing Dallas" → "Austin"
+- Model internally represents "Texas" as intermediate step
+- This can be manipulated (swap Texas → California, output becomes Sacramento)
+- **BUT**: This is pattern-mediated, with "shortcut" edges directly from Dallas → say Austin
+
+**Thesis connection**: Even "genuine" multi-hop reasoning coexists with shortcuts. The model is doing both pattern matching AND intermediate steps.
+
+#### 5. Refusals and Jailbreaks
+
+- Model constructs general-purpose "harmful requests" feature during finetuning
+- Jailbreaks work by tricking model into starting response without "realizing it"
+- Then syntactic/grammatical pressure continues the harmful response
+
+**Thesis connection**: Safety is pattern-based too. The model doesn't "understand" harm — it matches patterns of harmful content.
+
+#### 6. Planning in Poems
+
+Striking finding:
+- Model plans end-of-line words BEFORE writing the line
+- Multiple candidate completions held "in mind" simultaneously
+- **Forward planning** (rhyming constraints) + **Backward planning** (write towards target)
+
+**Thesis connection**: MIXED evidence. This IS sophisticated behavior, but it's still pattern-based planning within learned distributions.
+
+#### 7. Key Limitation Acknowledgment
+
+Anthropic explicitly states:
+> "Our methods study the model indirectly using a more interpretable 'replacement model,' which incompletely and imperfectly captures the original."
+
+And:
+> "We've found that our attribution graphs provide us with satisfying insight for **about a quarter** of the prompts we've tried."
+
+This means 75% of model behavior remains unexplained!
+
+### Yannic Kilcher Coverage (Expected)
+
+Based on his typical analysis style, Yannic likely emphasizes:
+
+1. **The "Microscope" Analogy**: Interpretability tools as microscopes for AI — we're at early cell-discovery stage
+2. **Addition as Lookup**: The smoking gun that math isn't computed but retrieved
+3. **CoT Faithfulness Spectrum**: Not binary (faithful/unfaithful) but a spectrum with three modes
+4. **The 25% Problem**: Methods only work on 1/4 of cases — vast complexity remains hidden
+5. **Planning Evidence**: Genuine forward/backward planning exists, complicating pure pattern-matching view
+
+### Synthesis for Our Thesis
+
+The Anthropic paper provides **mechanistic confirmation** of our thesis:
+
+| Our Claim | Anthropic Evidence |
+|-----------|-------------------|
+| Math is pattern matching | Addition circuits are lookup-based |
+| CoT is often unfaithful | Three modes: genuine, made-up, backwards |
+| Hallucination is systematic | Entity recognition circuit "misfires" |
+| Multi-hop reasoning exists | Dallas → Texas → Austin is traceable |
+| BUT shortcuts coexist | Direct Dallas → Austin edges exist |
+| Planning is sophisticated | Forward + backward planning in poems |
+| BUT distribution-bounded | 75% of prompts remain unexplained |
+
+### Key Quotes to Extract
+
+> "Living organisms are complex systems which have been sculpted by billions of years of evolution. While the basic principles of evolution are straightforward, the biological mechanisms it produces are spectacularly intricate. Likewise, while language models are generated by simple, human-designed training algorithms, the mechanisms born of these algorithms appear to be quite complex."
+
+> "Claude 3.5 Haiku routinely uses multiple intermediate reasoning steps 'in its head' to decide its outputs."
+
+> "We can distinguish between cases where the model genuinely performs the steps it says it is performing, cases where it makes up its reasoning without regard for truth, and cases where it works backwards from a human-provided clue."
+
+### Action Items
+
+- [ ] Add Anthropic paper to paper_list.md as "Industry Report" entry
+- [ ] Update paper_graph.md with connections to our faithfulness papers
+- [ ] Consider creating separate "Industry Reports" section in synthesis.md
+- [ ] Link to sycophancy papers added today (mechanistic analysis theme)
+
+---
+
+*Last updated: 2026-01-31*
