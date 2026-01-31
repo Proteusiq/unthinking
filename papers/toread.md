@@ -8,7 +8,14 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 
 ## Medium Priority (Strong Mechanistic Evidence)
 
-*All papers in this section have been analyzed — see Recently Analyzed below.*
+### Sycophancy/Deception (Issue #27)
+
+- [x] **Illusions of Confidence** (2601.05905) — Analyzed as Paper 122
+- [ ] **Causal Illusions in LLMs** (2410.11684) — 30% causal illusion rates
+
+### Elicitation (Issue #26)
+
+- [ ] **Eliciting Human Preferences** (2405.19332) — From Issue #26
 
 ---
 

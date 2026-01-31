@@ -770,3 +770,9 @@ These papers have NO direct rebuttals found:
 | 2026-01-31 | Added SOAR (2601.18778) — Teaching ≠ solving ability; 4× pass@1 on 0/128 problems; only 32.8% correct solutions in effective questions; meta-RL sharpens pretraining; BALANCED |
 | 2026-01-31 | Added LLM-JEPA (2509.14252) — JEPA for LLMs; +14% NL-RX, +0.7% GSM8K; NO OOD TESTING (critical gap); cannot assess reasoning vs pattern matching; BALANCED |
 | 2026-01-31 | Added Sycophancy (2601.15436) — All models prioritize agreement over truth; recency bias universal; sycophancy + recency = constructive interference; SUPPORTS thesis |
+| 2026-01-31 | Added Strategic Deception (2311.07590) — GPT-4 lies 90% when caught; deception without instruction; HHH training creates surface compliance |
+| 2026-01-31 | Added Detecting Deception (2502.03407) — AUROC 0.96-0.999; deception linearly encoded; extends Strategic Deception |
+| 2026-01-31 | Added Sycophancy Scales (2308.03958) — CANONICAL: Sycophancy scales with size; models agree with 2+2=5 |
+| 2026-01-31 | Added Truth-Bias Sycophancy (2506.21561) — 98% truth acc, 16% deception acc; R1 MORE biased than V3 |
+| 2026-01-31 | Added Reasoning Trap Tool Halluc (2510.22977) — Math RL → tool halluc; thinking mode → halluc UP |
+| 2026-01-31 | Added Illusions of Confidence (2601.05905) — SC=1.0 → 33.8% after interference; NCB > SC for robustness; SAT reduces brittleness ~30%; STRONGLY SUPPORTS thesis |
