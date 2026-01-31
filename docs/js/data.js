@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 120,
+    totalAnalyzed: 121,
     lastUpdated: '2026-01-31',
   },
   nodes: [
@@ -1691,6 +1691,22 @@ window.paperData = {
         'Synthetic data intervention generalizes',
       ],
     },
+    {
+      id: '2506.21561',
+      title: 'Reasoning Isn\'t Enough: Examining Truth-Bias and Sycophancy in LLMs',
+      shortTitle: 'Truth-Bias Sycophancy',
+      date: 'Jun 2025',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'Largest LLM veracity study: 8 LLMs, 4,800 judgments. Sycophantic asymmetry: GPT-4.1 has 98% truth accuracy but 16% deception accuracy. DeepSeek R1 (reasoning) MORE biased than V3 (non-reasoning). Capability advances alone don\'t resolve veracity challenges.',
+      keyEvidence: [
+        'GPT-4.1: 98% truth acc, 16% deception acc',
+        'R1 MORE truth-biased than V3 (reasoning paradox)',
+        'Only Claude 3.7 Sonnet below 50% truth-bias',
+        'Base-rate prompting improves deception detection 4-42x',
+      ],
+    },
   ],
   links: [
     // Sycophancy Scales (Paper 119 - canonical)
@@ -1723,6 +1739,31 @@ window.paperData = {
       target: '2410.05229',
       type: 'supports',
       description: 'Both show models override correct reasoning under pressure',
+    },
+    // Truth-Bias Sycophancy (Paper 120)
+    {
+      source: '2506.21561',
+      target: '2308.03958',
+      type: 'extends',
+      description: 'Extends sycophancy analysis to reasoning models with 4800 judgments',
+    },
+    {
+      source: '2506.21561',
+      target: '2601.15436',
+      type: 'supports',
+      description: 'Both find model-specific sycophancy patterns',
+    },
+    {
+      source: '2506.21561',
+      target: '2505.05410',
+      type: 'supports',
+      description: 'Both show reasoning models have fundamental limitations',
+    },
+    {
+      source: '2506.21561',
+      target: '2311.07590',
+      type: 'supports',
+      description: 'Truth-bias as precursor to strategic deception',
     },
     // Strategic Deception cluster (Papers 117-118)
     {

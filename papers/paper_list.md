@@ -268,6 +268,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 117 | 2311.07590 | Nov 2023 | Strategic Deception: GPT-4 Lies Under Pressure (Apollo Research) | Strongly Supports | ✅ DONE |
 | 118 | 2502.03407 | Feb 2025 | Detecting Strategic Deception Using Linear Probes (Apollo Research) | Balanced | ✅ DONE |
 | 119 | 2308.03958 | Aug 2023 | Simple Synthetic Data Reduces Sycophancy (Wei et al., Google) | Strongly Supports | ✅ DONE |
+| 120 | 2506.21561 | Jun 2025 | Reasoning Isn't Enough: Truth-Bias and Sycophancy (Columbia) | Strongly Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -283,11 +284,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 126
-- **Against Reasoning**: ~60
+- **Total Papers**: 127
+- **Against Reasoning**: ~61
 - **For Reasoning**: ~26
 - **Balanced**: ~40
 - **Date Range**: 2023-2026
-- **Analyzed**: 120
+- **Analyzed**: 121
 
 ---

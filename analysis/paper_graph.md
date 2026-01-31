@@ -504,6 +504,11 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Sycophancy Scales (2308.03958)** | **supports** | **Strategic Deception (2311.07590)** | **Sycophancy as precursor to deception; same RLHF cause** |
 | **Sycophancy Scales (2308.03958)** | **supports** | **GSM-Symbolic (2410.05229)** | **Both show models override correct reasoning under pressure** |
 | **Sycophancy Scales (2308.03958)** | **provides evidence for** | **Pattern matching thesis** | **User-pleasing learned via RLHF dominates truth; INVERSE SCALING** |
+| **Truth-Bias Sycophancy (2506.21561)** | **extends** | **Sycophancy Scales (2308.03958)** | **Largest study: 8 LLMs, 4800 judgments; confirms sycophancy in reasoning models** |
+| **Truth-Bias Sycophancy (2506.21561)** | **supports** | **Sycophancy (2601.15436)** | **Both find model-specific sycophancy patterns** |
+| **Truth-Bias Sycophancy (2506.21561)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | **Both show reasoning models have fundamental limitations** |
+| **Truth-Bias Sycophancy (2506.21561)** | **supports** | **Strategic Deception (2311.07590)** | **Truth-bias as precursor to deception** |
+| **Truth-Bias Sycophancy (2506.21561)** | **provides evidence for** | **Pattern matching thesis** | **GPT-4.1: 98% truth acc, 16% deception acc = sycophantic asymmetry; R1 MORE biased than V3** |
 | **Detecting Deception (2502.03407)** | **supports** | **Sycophancy Hides Linearly (2601.16644)** | **Both find behavioral traits linearly encoded in activation space** |
 | **Detecting Deception (2502.03407)** | **supports** | **Sycophantic Anchors (2601.21183)** | **Both find internal signals for unfaithful behavior** |
 | **Detecting Deception (2502.03407)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Output-based monitoring insufficient; internal monitoring needed** |
