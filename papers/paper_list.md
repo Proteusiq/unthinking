@@ -255,16 +255,17 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 104 | 2601.14658 | Jan 2026 | Say Anything but This: When Tokenizer Betrays Reasoning in LLMs | Supports | ✅ DONE |
 | 105 | 2601.15165 | Jan 2026 | The Flexibility Trap: Why Arbitrary Order Limits Reasoning Potential in Diffusion LLMs | Balanced | ✅ DONE |
 | 106 | 2601.19847 | Jan 2026 | Identifying and Transferring Reasoning-Critical Neurons (AdaRAS) | Balanced | ✅ DONE |
+| 107 | 2601.19773 | Jan 2026 | Strong Reasoning Isn't Enough: Evaluating Evidence Elicitation in Interactive Diagnosis | Supports | ✅ DONE |
 
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 106
-- **Against Reasoning**: ~45
+- **Total Papers**: 107
+- **Against Reasoning**: ~46
 - **For Reasoning**: ~26
 - **Balanced**: ~37
 - **Date Range**: 2023-2026
-- **Analyzed**: 101
+- **Analyzed**: 102
 
 ---
 

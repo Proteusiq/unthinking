@@ -1,8 +1,8 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 101,
-    lastUpdated: '2026-01-29',
+    totalAnalyzed: 102,
+    lastUpdated: '2026-01-31',
   },
   nodes: [
     {
@@ -1389,6 +1389,22 @@ window.paperData = {
         'Math RCNs transfer to coding tasks',
       ],
     },
+    {
+      id: '2601.19773',
+      title: 'Strong Reasoning Isn\'t Enough: Evaluating Evidence Elicitation in Interactive Diagnosis',
+      shortTitle: 'Strong Reasoning Isn\'t Enough',
+      date: 'Jan 2026',
+      stance: 'supports',
+      cluster: 'compositional',
+      coreArgument:
+        'Strong static reasoning does NOT transfer to interactive evidence gathering. Models trained on complete cases fail to identify what information is needed. Scaling improves reasoning SR but not evidence-gathering ICR.',
+      keyEvidence: [
+        '~20% avg SR drop static→interactive',
+        'Meditron -90% degradation (fine-tuning hurts)',
+        'ICR-SR decoupled: reasoning ≠ gathering',
+        'Scaling: 3B→72B improves SR, not ICR',
+      ],
+    },
   ],
   links: [
     {
@@ -2722,6 +2738,30 @@ window.paperData = {
       target: '2512.07783',
       type: 'supports',
       description: 'Steering surfaces existing capability',
+    },
+    {
+      source: '2601.19773',
+      target: '2601.19847',
+      type: 'supports',
+      description: 'Both show decoupled capabilities',
+    },
+    {
+      source: '2601.19773',
+      target: '2601.15165',
+      type: 'supports',
+      description: 'Task structure mismatch causes collapse',
+    },
+    {
+      source: '2601.19773',
+      target: '2601.14658',
+      type: 'supports',
+      description: 'Surface-level processing pattern',
+    },
+    {
+      source: '2601.19773',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Pattern matching fails on novel interaction',
     },
   ],
 };

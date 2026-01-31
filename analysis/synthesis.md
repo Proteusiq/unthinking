@@ -62,8 +62,13 @@
 | 100 | Reasoning or Reciting | Jul 2023 | Strongly Supports | NAACL 2024; foundational counterfactual methodology; high CCC + low CF = understanding ≠ reasoning; "narrow, non-transferable procedures" |
 | 101 | Gaming the Judge | Jan 2026 | Supports | CoT manipulation inflates FPR by 90%; judges pattern-match on style not content; Progress Fabrication most effective |
 | 102 | Beyond Memorization | Jan 2026 | Strongly Supports | 100% knowledge, 30-64pp drops on unseen DFA; CoT degrades performance; "pattern retrieval rather than robust symbolic reasoning" |
+| 103 | Outcome-Based RL | Jan 2026 | Balanced | RL discovers reasoning but requires pre-existing capability; easy examples sufficient |
+| 104 | Tokenizer Betrays Reasoning | Jan 2026 | Supports | 72% phantom edits are whitespace variants; token-ID level processing not meaning |
+| 105 | Flexibility Trap | Jan 2026 | Balanced | Arbitrary order NARROWS reasoning; models bypass logical forks, retrofit logic post-hoc |
+| 106 | Reasoning-Critical Neurons | Jan 2026 | Balanced | AUROC 0.83 predicts success before reasoning completes; activation steering works |
+| 107 | Strong Reasoning Isn't Enough | Jan 2026 | Strongly Supports | ~20% avg SR drop static→interactive; Meditron -90% on RareArena; scaling improves reasoning not evidence-gathering; decoupled capabilities |
 
-**Total: 97 papers analyzed**
+**Total: 102 papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative
