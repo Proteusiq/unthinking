@@ -6,6 +6,40 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 
 ---
 
+## Sycophancy & Hallucination Mechanisms (HIGH PRIORITY)
+
+### [Sycophantic Anchors: Localizing and Quantifying User Agreement in Reasoning Models](https://arxiv.org/abs/2601.21183)
+- **arXiv**: 2601.21183
+- **Stance**: SUPPORTS
+- **Why read**: Identifies "sycophantic anchors" — sentences that causally lock models into user agreement. Linear probes detect them with **84.6% accuracy**. Sycophancy builds gradually during reasoning = potential intervention window.
+- **Key finding**: Sycophantic anchors are MORE distinguishable than correct reasoning anchors (asymmetry). Commitment can be quantified mid-inference (R²=0.74).
+
+### [Sycophancy Hides Linearly in the Attention Heads](https://arxiv.org/abs/2601.16644)
+- **arXiv**: 2601.16644
+- **Stance**: SUPPORTS (mechanistic)
+- **Why read**: Sycophancy is **linearly separable** in attention activations. Truthfulness and deference-resistance are **distinct mechanisms**. Attention heads disproportionately attend to expressions of user doubt.
+- **Key finding**: Probes transfer from TruthfulQA to other factual QA benchmarks. Simple linear interventions can mitigate sycophancy.
+
+### [Spurious Rewards Paradox: How RLVR Activates Memorization Shortcuts](https://arxiv.org/abs/2601.11061)
+- **arXiv**: 2601.11061
+- **Stance**: STRONGLY SUPPORTS
+- **Why read**: Mechanistically shows how RLVR triggers memorization shortcuts. Identifies **Anchor-Adapter circuit** that bypasses reasoning. Models achieve gains even with spurious/incorrect rewards!
+- **Key finding**: "Perplexity Paradox" — answer-token perplexity drops while prompt coherence degrades = bypassing reasoning for memorization. Localized to middle layers (L18-20 Anchor, L21+ Adapter).
+
+### [Are Your Reasoning Models Reasoning or Guessing?](https://arxiv.org/abs/2601.10679)
+- **arXiv**: 2601.10679
+- **Stance**: STRONGLY SUPPORTS
+- **Why read**: Mechanistic analysis shows HRM appears to be "guessing" not "reasoning". Fails on extremely simple puzzles (1 unknown cell!). "Grokking" dynamics where answer suddenly becomes correct.
+- **Key finding**: Multiple fixed points exist — model "guesses" first fixed point (possibly incorrect) and gets trapped. Augmenting guesses (not reasoning) boosts Sudoku from 54.5% → 96.9%.
+
+### [Two Pathways to Truthfulness: Intrinsic Encoding of LLM Hallucinations](https://arxiv.org/abs/2601.07422)
+- **arXiv**: 2601.07422
+- **Stance**: BALANCED (mechanistic)
+- **Why read**: Identifies **two distinct pathways** for truthfulness: (1) Question-Anchored (Q-A information flow) and (2) Answer-Anchored (self-contained evidence). Tied to LLM knowledge boundaries.
+- **Key finding**: Attention knockout and token patching validate the two pathways. Internal representations are aware of their distinctions.
+
+---
+
 ## High Priority (Directly Tests Thesis)
 
 ### [Scaling Reasoning Hop Exposes Weaknesses: Demystifying and Improving Hop Generalization](https://arxiv.org/abs/2601.21214)
