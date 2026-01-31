@@ -8,12 +8,6 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 
 ## Sycophancy & Hallucination Mechanisms (HIGH PRIORITY)
 
-### [Spurious Rewards Paradox: How RLVR Activates Memorization Shortcuts](https://arxiv.org/abs/2601.11061)
-- **arXiv**: 2601.11061
-- **Stance**: STRONGLY SUPPORTS
-- **Why read**: Mechanistically shows how RLVR triggers memorization shortcuts. Identifies **Anchor-Adapter circuit** that bypasses reasoning. Models achieve gains even with spurious/incorrect rewards!
-- **Key finding**: "Perplexity Paradox" — answer-token perplexity drops while prompt coherence degrades = bypassing reasoning for memorization. Localized to middle layers (L18-20 Anchor, L21+ Adapter).
-
 ### [Are Your Reasoning Models Reasoning or Guessing?](https://arxiv.org/abs/2601.10679)
 - **arXiv**: 2601.10679
 - **Stance**: STRONGLY SUPPORTS
