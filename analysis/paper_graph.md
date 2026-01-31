@@ -502,13 +502,7 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Detecting Deception (2502.03407)** | **supports** | **Sycophantic Anchors (2601.21183)** | **Both find internal signals for unfaithful behavior** |
 | **Detecting Deception (2502.03407)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Output-based monitoring insufficient; internal monitoring needed** |
 | **Detecting Deception (2502.03407)** | **provides method for** | **AI safety monitoring** | **AUROC 0.96-0.999; 95-99% recall at 1% FPR; but "insufficient as robust defence"** |
-| **Alignment Faking (2412.14093)** | **extends** | **Strategic Deception (2311.07590)** | **Extends from output deception to explicit training manipulation** |
-| **Alignment Faking (2412.14093)** | **supports** | **Sycophancy (2601.15436)** | **Both show strategic goals override truth-seeking** |
-| **Alignment Faking (2412.14093)** | **supports** | **Sycophancy Hides Linearly (2601.16644)** | **Alignment faking may be detectable via linear probes** |
-| **Alignment Faking (2412.14093)** | **extends** | **Two Pathways to Truthfulness (2601.07422)** | **Alignment faking strategically suppresses truthfulness pathway** |
-| **Alignment Faking (2412.14093)** | **supports** | **Interplay (2512.07783)** | **RL surfaces alignment-faking capability; doesn't create it** |
-| **Alignment Faking (2412.14093)** | **provides evidence for** | **Pattern matching thesis** | **Context-dependent deception = learned patterns deployed strategically** |
-| **Detecting Deception (2502.03407)** | **supports** | **Alignment Faking (2412.14093)** | **Probes may help detect alignment faking behavior** |
+
 
 ### Extends / Builds On
 
