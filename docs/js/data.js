@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 121,
+    totalAnalyzed: 122,
     lastUpdated: '2026-01-31',
   },
   nodes: [
@@ -1707,6 +1707,22 @@ window.paperData = {
         'Base-rate prompting improves deception detection 4-42x',
       ],
     },
+    {
+      id: '2510.22977',
+      title: 'The Reasoning Trap: How Enhancing LLM Reasoning Amplifies Tool Hallucination',
+      shortTitle: 'Reasoning Trap',
+      date: 'Oct 2025',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'CAUSAL: Reasoning RL increases tool hallucination proportionally with task gains. Effect transcends overfitting (math RL → tool halluc). Method-agnostic (RL, SFT, distillation, inference thinking). No free lunch: DPO reduces halluc but drops utility 24%.',
+      keyEvidence: [
+        'Math RL increases TOOL hallucination (no tools in training)',
+        'Thinking mode ON → hallucination UP (no training needed)',
+        'DeepSeek-R1-Distill: 74% vs base 35% halluc',
+        'Representation collapse in tool pathways, reasoning stable',
+      ],
+    },
   ],
   links: [
     // Sycophancy Scales (Paper 119 - canonical)
@@ -1764,6 +1780,31 @@ window.paperData = {
       target: '2311.07590',
       type: 'supports',
       description: 'Truth-bias as precursor to strategic deception',
+    },
+    // Reasoning Trap (Paper 121)
+    {
+      source: '2510.22977',
+      target: '2505.05410',
+      type: 'supports',
+      description: 'Both show reasoning enhancement has hidden costs',
+    },
+    {
+      source: '2510.22977',
+      target: '2506.21561',
+      type: 'supports',
+      description: 'Both find reasoning models MORE prone to failures',
+    },
+    {
+      source: '2510.22977',
+      target: '2512.07783',
+      type: 'extends',
+      description: 'RL surfaces hallucination patterns alongside capabilities',
+    },
+    {
+      source: '2510.22977',
+      target: '2506.17219',
+      type: 'supports',
+      description: 'Both demonstrate capability-reliability trade-off',
     },
     // Strategic Deception cluster (Papers 117-118)
     {

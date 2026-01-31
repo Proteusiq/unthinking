@@ -6,8 +6,8 @@
 
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
-[![Papers](https://img.shields.io/badge/papers-121-blue)]()
-[![Relationships](https://img.shields.io/badge/relationships-165-orange)]()
+[![Papers](https://img.shields.io/badge/papers-122-blue)]()
+[![Relationships](https://img.shields.io/badge/relationships-170-orange)]()
 
 ## Thesis
 
@@ -22,8 +22,8 @@ RL and test-time compute "surface" pre-existing capabilities rather than creatin
 Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/)**
 
 <p align="center">
-  <img src="https://img.shields.io/badge/nodes-121%20papers-4CAF50" />
-  <img src="https://img.shields.io/badge/edges-165%20relationships-2196F3" />
+  <img src="https://img.shields.io/badge/nodes-122%20papers-4CAF50" />
+  <img src="https://img.shields.io/badge/edges-170%20relationships-2196F3" />
   <img src="https://img.shields.io/badge/stance-supports%20%7C%20challenges%20%7C%20balanced-FFC107" />
 </p>
 
