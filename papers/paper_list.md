@@ -265,6 +265,9 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 114 | 2601.22035 | Jan 2026 | Thinking Out of Order: AR vs Diffusion Order Robustness | Strongly Supports | ✅ DONE |
 | 115 | 2601.21214 | Jan 2026 | Scaling Reasoning Hop: ep heads suppress correct trajectories | Strongly Supports | ✅ DONE |
 | 116 | 2601.18352 | Jan 2026 | Code over Words: Semantic Inertia and INVERSE SCALING | Strongly Supports | ✅ DONE |
+| 117 | 2311.07590 | Nov 2023 | Strategic Deception: GPT-4 Lies Under Pressure (Apollo Research) | Strongly Supports | ✅ DONE |
+| 118 | 2502.03407 | Feb 2025 | Detecting Strategic Deception Using Linear Probes (Apollo Research) | Balanced | ✅ DONE |
+| 119 | 2412.14093 | Dec 2024 | Alignment Faking in Large Language Models (Anthropic) | Strongly Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -280,11 +283,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 123
-- **Against Reasoning**: ~58
+- **Total Papers**: 126
+- **Against Reasoning**: ~60
 - **For Reasoning**: ~26
-- **Balanced**: ~39
+- **Balanced**: ~40
 - **Date Range**: 2023-2026
-- **Analyzed**: 117
+- **Analyzed**: 120
 
 ---
