@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 124,
+    totalAnalyzed: 125,
     lastUpdated: '2026-01-31',
   },
   nodes: [
@@ -1753,6 +1753,22 @@ window.paperData = {
         'Claude-3.5-Sonnet: ~13% (below human 22%)',
         'Sycophancy increases causal illusions +17% (GPT-4o-Mini)',
         'Claude resists sycophantic pressure (0% increase)',
+      ],
+    },
+    {
+      id: '2506.09250',
+      title: 'The Illusion of the Illusion of Thinking: A Comment on Shojaee et al.',
+      shortTitle: 'Illusion of Illusion (Rebuttal)',
+      date: 'Jun 2025',
+      stance: 'challenges',
+      cluster: 'complexity',
+      coreArgument:
+        'REBUTTAL to Illusion of Thinking: argues accuracy collapse reflects token limits not reasoning limits. River Crossing N≥6 are impossible puzzles. Code generation restores high accuracy on Hanoi N=15. BUT limited experiments, code gen is pattern retrieval.',
+      keyEvidence: [
+        'River Crossing N≥6 with b=3 is mathematically impossible',
+        'Models explicitly state "to avoid making this too long"',
+        'Hanoi N=15 via Lua function: "very high accuracy"',
+        'Limited experimental support (budget constraints)',
       ],
     },
   ],
@@ -3565,6 +3581,25 @@ window.paperData = {
       target: '2305.18654',
       type: 'supports',
       description: 'Causal illusion = pattern matching on correlation cues',
+    },
+    // Paper 124: Illusion of Illusion (Rebuttal) links
+    {
+      source: '2506.09250',
+      target: '2506.06941',
+      type: 'rebuts',
+      description: 'DIRECT REBUTTAL: argues token limits not reasoning limits; impossible puzzles',
+    },
+    {
+      source: '2506.09250',
+      target: '2507.01231',
+      type: 'challenges',
+      description: 'Both address Illusion of Thinking methodology; Paper 37 already fixed River Crossing',
+    },
+    {
+      source: '2506.09250',
+      target: '2305.18654',
+      type: 'does not address',
+      description: 'Code generation test doesnt address compositional generalization',
     },
   ],
 };
