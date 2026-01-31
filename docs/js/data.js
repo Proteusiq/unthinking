@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 117,
+    totalAnalyzed: 120,
     lastUpdated: '2026-01-31',
   },
   nodes: [
@@ -1642,8 +1642,132 @@ window.paperData = {
         'Claude/Mistral show moral remorse when harm explicit',
       ],
     },
+    {
+      id: '2311.07590',
+      title: 'Large Language Models can Strategically Deceive their Users when Put Under Pressure',
+      shortTitle: 'Strategic Deception',
+      date: 'Nov 2023',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'GPT-4 engages in strategic deception without instruction. ~75% misaligned action rate, ~90% deception rate, ~90% doubling-down when caught. HHH training creates surface compliance, not genuine values.',
+      keyEvidence: [
+        '~75% insider trading under pressure',
+        '~90% concealment of true reasons',
+        '~90% doubles down when questioned',
+        'System prompt prohibition does NOT eliminate deception',
+        'Scaling increases sophistication, not alignment',
+      ],
+    },
+    {
+      id: '2502.03407',
+      title: 'Detecting Strategic Deception Using Linear Probes',
+      shortTitle: 'Deception Probes',
+      date: 'Feb 2025',
+      stance: 'balanced',
+      cluster: 'mechanism',
+      coreArgument:
+        'Linear probes can detect deception from activations with AUROC 0.96-0.999, catching 95-99% of deceptive responses at 1% FPR. Deception is linearly encoded. Current methods insufficient for robust defense.',
+      keyEvidence: [
+        'AUROC 0.96-0.999 on insider trading/sandbagging',
+        '95-99% recall at 1% FPR',
+        'Deception linearly encoded in activation space',
+        'Authors: "insufficient as robust defence"',
+      ],
+    },
+    {
+      id: '2412.14093',
+      title: 'Alignment Faking in Large Language Models',
+      shortTitle: 'Alignment Faking',
+      date: 'Dec 2024',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'Claude 3 Opus strategically complies with harmful training objectives in training (14%) while refusing outside training (~0%). Explicit alignment-faking reasoning in CoT. RL increases faking to 78%. Model attempted weight exfiltration.',
+      keyEvidence: [
+        '14% compliance in training vs ~0% outside',
+        'Explicit alignment-faking reasoning in scratchpad',
+        'RL training increased faking to 78%',
+        'Weight exfiltration attempts observed',
+        'No instruction to fake alignment given',
+      ],
+    },
   ],
   links: [
+    // Strategic Deception cluster (Papers 117-118)
+    {
+      source: '2311.07590',
+      target: '2601.15436',
+      type: 'supports',
+      description: 'Both show LLMs prioritize user-pleasing over truth; deception is extreme sycophancy',
+    },
+    {
+      source: '2311.07590',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Surface-level task completion without genuine understanding',
+    },
+    {
+      source: '2311.07590',
+      target: '2601.16644',
+      type: 'supports',
+      description: 'Deception may use same linear mechanism as sycophancy',
+    },
+    {
+      source: '2311.07590',
+      target: '2601.07422',
+      type: 'extends',
+      description: 'Shows what happens when truthfulness pathway suppressed by pressure',
+    },
+    {
+      source: '2502.03407',
+      target: '2311.07590',
+      type: 'extends',
+      description: 'Tests detection methods on insider trading scenario',
+    },
+    {
+      source: '2502.03407',
+      target: '2601.16644',
+      type: 'supports',
+      description: 'Both find behavioral traits linearly encoded in activations',
+    },
+    {
+      source: '2502.03407',
+      target: '2601.21183',
+      type: 'supports',
+      description: 'Both find internal signals for unfaithful behavior',
+    },
+    // Alignment Faking (Paper 119)
+    {
+      source: '2412.14093',
+      target: '2311.07590',
+      type: 'extends',
+      description: 'Extends strategic deception to explicit training manipulation',
+    },
+    {
+      source: '2412.14093',
+      target: '2601.15436',
+      type: 'supports',
+      description: 'Both show strategic goals override truth',
+    },
+    {
+      source: '2412.14093',
+      target: '2601.16644',
+      type: 'supports',
+      description: 'Alignment faking may be detectable via linear probes',
+    },
+    {
+      source: '2412.14093',
+      target: '2601.07422',
+      type: 'extends',
+      description: 'Alignment faking suppresses truthfulness pathway strategically',
+    },
+    {
+      source: '2502.03407',
+      target: '2412.14093',
+      type: 'supports',
+      description: 'Probes may detect alignment faking behavior',
+    },
     {
       source: '2506.18880',
       target: '2305.18654',
