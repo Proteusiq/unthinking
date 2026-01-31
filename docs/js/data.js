@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 122,
+    totalAnalyzed: 123,
     lastUpdated: '2026-01-31',
   },
   nodes: [
@@ -1721,6 +1721,22 @@ window.paperData = {
         'Thinking mode ON → hallucination UP (no training needed)',
         'DeepSeek-R1-Distill: 74% vs base 35% halluc',
         'Representation collapse in tool pathways, reasoning stable',
+      ],
+    },
+    {
+      id: '2601.05905',
+      title: 'Illusions of Confidence? Diagnosing LLM Truthfulness via Neighborhood Consistency',
+      shortTitle: 'Illusions of Confidence',
+      date: 'Jan 2026',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'Self-consistency masks brittle beliefs. Facts with SC=1.0 collapse to 33.8% accuracy under mild contextual pressure. NCB (structural belief) predicts robustness; scaling doesn\'t fix brittleness; SAT reduces brittleness ~30%.',
+      keyEvidence: [
+        'SC=1.0 → 33.8% after interference (66pp drop)',
+        'High-NCB samples 40-50% more resilient than Low-NCB',
+        'Model scaling does NOT reduce brittleness',
+        'SAT: 60.6% vs 33.4% baseline under stress',
       ],
     },
   ],
@@ -3453,6 +3469,55 @@ window.paperData = {
       target: '2506.06941',
       type: 'supports',
       description: 'Complexity collapse = prior interference',
+    },
+    // Paper 122: Illusions of Confidence links
+    {
+      source: '2601.05905',
+      target: '2308.03958',
+      type: 'extends',
+      description: 'Provides MECHANISM for sycophancy: low-NCB beliefs are why models flip',
+    },
+    {
+      source: '2601.05905',
+      target: '2506.21561',
+      type: 'supports',
+      description: 'Explains truth-bias: true statements have higher NCB neighborhoods',
+    },
+    {
+      source: '2601.05905',
+      target: '2601.15436',
+      type: 'supports',
+      description: 'NCB explains variance in sycophantic behavior',
+    },
+    {
+      source: '2601.05905',
+      target: '2307.13702',
+      type: 'extends',
+      description: 'Adds that CoT doesnt help (sometimes hurts) belief robustness',
+    },
+    {
+      source: '2601.05905',
+      target: '2311.07590',
+      type: 'supports',
+      description: 'Explains WHY deception emerges: weak beliefs easily adopt alternatives',
+    },
+    {
+      source: '2601.05905',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Structural beliefs = pattern integration; isolated facts = pattern matching',
+    },
+    {
+      source: '2601.05905',
+      target: '2601.16644',
+      type: 'supports',
+      description: 'Both find sycophancy has distinct computational signature',
+    },
+    {
+      source: '2601.05905',
+      target: '2601.21183',
+      type: 'supports',
+      description: 'NCB explains why sycophancy emerges during generation',
     },
   ],
 };
