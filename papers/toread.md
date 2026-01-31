@@ -2,11 +2,24 @@
 
 Curated list of papers confirmed relevant to the thesis. Promoted from `toevaluate.md` after triage.
 
-**Last updated**: 2026-01-30
+**Last updated**: 2026-01-31
 
 ---
 
 ## High Priority (Directly Tests Thesis)
+
+### [Semantic Content Determines Algorithmic Performance (WhatCounts)](https://arxiv.org/abs/2601.21618)
+- **arXiv**: 2601.21618
+- **Stance**: SUPPORTS
+- **Why read**: **VERY STRONG EVIDENCE** — Counting accuracy varies by 40%+ depending on WHAT is being counted (cities vs chemicals, names vs symbols). "LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent."
+- **Key finding**: Atomic counting task with no reasoning steps shows semantic content determines performance. Any LLM function may carry hidden dependencies on the meaning of its inputs.
+
+<details>
+<summary>Abstract</summary>
+
+Counting should not depend on what is being counted; more generally, any algorithm's behavior should be invariant to the semantic content of its arguments. We introduce WhatCounts to test this property in isolation. Unlike prior work that conflates semantic sensitivity with reasoning complexity or prompt variation, WhatCounts is atomic: count items in an unambiguous, delimited list with no duplicates, distractors, or reasoning steps for different semantic types. Frontier LLMs show over 40% accuracy variation depending solely on what is being counted - cities versus chemicals, names versus symbols. Controlled ablations rule out confounds. The gap is semantic, and it shifts unpredictably with small amounts of unrelated fine-tuning. LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent. As we show with an agentic example, this has implications beyond counting: any LLM function may carry hidden dependencies on the meaning of its inputs.
+
+</details>
 
 ### [Scaling Reasoning Hop Exposes Weaknesses: Demystifying and Improving Hop Generalization](https://arxiv.org/abs/2601.21214)
 - **arXiv**: 2601.21214

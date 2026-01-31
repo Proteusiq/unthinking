@@ -3,7 +3,7 @@
 Raw auto-discovered papers awaiting triage. Review and promote relevant ones to `toread.md`.
 
 **Last updated**: 2026-01-31
-**Last triage**: 2026-01-30 — Triaged ~60 papers, promoted 8 to toread.md
+**Last triage**: 2026-01-31 — Triaged 3 new papers (1 promoted, 2 removed)
 
 ---
 
@@ -26,58 +26,9 @@ Discard if paper:
 
 ---
 
-## New Papers (2026-01-31)
-
-### [Semantic Content Determines Algorithmic Performance](https://arxiv.org/abs/2601.21618v1)
-- **arXiv**: 2601.21618v1
-- **Published**: 2026-01-29
-- **Stance**: CHALLENGES
-- **Priority**: 8/10
-- **Classified by**: LLM
-- **Why read**: This paper demonstrates that LLM performance varies with semantic content, supporting the view that their reasoning is pattern-based rather than genuinely generative.
-
-<details>
-<summary>Abstract</summary>
-
-Counting should not depend on what is being counted; more generally, any algorithm's behavior should be invariant to the semantic content of its arguments. We introduce WhatCounts to test this property in isolation. Unlike prior work that conflates semantic sensitivity with reasoning complexity or prompt variation, WhatCounts is atomic: count items in an unambiguous, delimited list with no duplicates, distractors, or reasoning steps for different semantic types. Frontier LLMs show over 40% accuracy variation depending solely on what is being counted - cities versus chemicals, names versus symbols. Controlled ablations rule out confounds. The gap is semantic, and it shifts unpredictably with small amounts of unrelated fine-tuning. LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent. As we show with an agentic example, this has implications beyond counting: any LLM function may carry hidden dependencies on the meaning of its inputs.
-
-</details>
-
-## New Papers (2026-01-30)
-
-### [Evaluating ChatGPT on Medical Information Extraction Tasks: Performance, Explainability and Beyond](https://arxiv.org/abs/2601.21767v1)
-- **arXiv**: 2601.21767v1
-- **Published**: 2026-01-29
-- **Stance**: BALANCED
-- **Priority**: 7/10
-- **Classified by**: LLM
-- **Why read**: This paper evaluates ChatGPT's performance on information extraction tasks, highlighting its limitations and overconfidence, which informs understanding of LLM reasoning capabilities and their reliance on pattern matching.
-
-<details>
-<summary>Abstract</summary>
-
-Large Language Models (LLMs) like ChatGPT have demonstrated amazing capabilities in comprehending user intents and generate reasonable and useful responses. Beside their ability to chat, their capabilities in various natural language processing (NLP) tasks are of interest to the research community. In this paper, we focus on assessing the overall ability of ChatGPT in 4 different medical information extraction (MedIE) tasks across 6 benchmark datasets. We present the systematically analysis by measuring ChatGPT's performance, explainability, confidence, faithfulness, and uncertainty. Our experiments reveal that: (a) ChatGPT's performance scores on MedIE tasks fall behind those of the fine-tuned baseline models. (b) ChatGPT can provide high-quality explanations for its decisions, however, ChatGPT is over-confident in its predcitions. (c) ChatGPT demonstrates a high level of faithfulness to the original text in the majority of cases. (d) The uncertainty in generation causes uncertainty in information extraction results, thus may hinder its applications in MedIE tasks.
-
-</details>
-
-### [Can David Beat Goliath? On Multi-Hop Reasoning with Resource-Constrained Agents](https://arxiv.org/abs/2601.21699v1)
-- **arXiv**: 2601.21699v1
-- **Published**: 2026-01-29
-- **Stance**: BALANCED
-- **Priority**: 7/10
-- **Classified by**: LLM
-- **Why read**: This paper explores the reasoning capabilities of small language models under resource constraints, providing insights into their reliance on pattern matching and inductive biases, which is relevant to the thesis.
-
-<details>
-<summary>Abstract</summary>
-
-While reinforcement learning (RL) has empowered multi-turn reasoning agents with retrieval and tools, existing successes largely depend on extensive on-policy rollouts in high-cost, high-accuracy regimes. Under realistic resource constraints that cannot support large models or dense explorations, however, small language model agents fall into a low-cost, low-accuracy regime, where limited rollout budgets lead to sparse exploration, sparse credit assignment, and unstable training. In this work, we challenge this trade-off and show that small language models can achieve strong multi-hop reasoning under resource constraints. We introduce DAVID-GRPO, a budget-efficient RL framework that (i) stabilizes early learning with minimal supervision, (ii) assigns retrieval credit based on evidence recall, and (iii) improves exploration by resampling truncated near-miss trajectories. Evaluated on agents up to 1.5B parameters trained on only four RTX 3090 GPUs, DAVID-GRPO consistently outperforms prior RL methods designed for large-scale settings on six multi-hop QA benchmarks. These results show that with the right inductive biases, small agents can achieve low training cost with high accuracy.
-
-</details>
-
 ## Awaiting Triage
 
-*Empty — all papers triaged on 2026-01-30*
+*Empty — all papers triaged on 2026-01-31*
 
 ---
 
@@ -85,6 +36,9 @@ While reinforcement learning (RL) has empowered multi-turn reasoning agents with
 
 | Date | Paper | arXiv | Decision | Reason |
 |------|-------|-------|----------|--------|
+| 2026-01-31 | Semantic Content Determines Algorithmic Performance (WhatCounts) | 2601.21618 | KEEP | 40% accuracy variation on counting based on SEMANTIC CONTENT — directly supports pattern matching thesis |
+| 2026-01-31 | Evaluating ChatGPT on Medical IE | 2601.21767 | REMOVE | Medical domain-specific, IE tasks not reasoning |
+| 2026-01-31 | Can David Beat Goliath (DAVID-GRPO) | 2601.21699 | REMOVE | RL training method, not testing reasoning limits |
 | 2026-01-30 | Scaling Reasoning Hop | 2601.21214 | KEEP | ep heads suppress correct trajectories — mechanistic |
 | 2026-01-30 | Thinking Out of Order | 2601.22035 | KEEP | 67% AR drop on answer-before-reasoning |
 | 2026-01-30 | Chain Of Thought Compression | 2601.21576 | KEEP | First theory: learning signal decays exponentially |
