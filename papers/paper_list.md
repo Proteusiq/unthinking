@@ -272,6 +272,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 121 | 2510.22977 | Oct 2025 | The Reasoning Trap: How Enhancing LLM Reasoning Amplifies Tool Hallucination | Strongly Supports | ✅ DONE |
 | 122 | 2601.05905 | Jan 2026 | Illusions of Confidence? Diagnosing LLM Truthfulness via Neighborhood Consistency | Strongly Supports | ✅ DONE |
 | 123 | 2410.11684 | Oct 2024 | Are UFOs Driving Innovation? The Illusion of Causality in LLMs | Supports | ✅ DONE |
+| 124 | 2506.09250 | Jun 2025 | The Illusion of the Illusion of Thinking (Rebuttal to Paper 03) | Challenges (Weak) | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -287,11 +288,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 130
+- **Total Papers**: 131
 - **Against Reasoning**: ~64
-- **For Reasoning**: ~26
+- **For Reasoning**: ~27
 - **Balanced**: ~40
 - **Date Range**: 2023-2026
-- **Analyzed**: 124
+- **Analyzed**: 125
 
 ---
