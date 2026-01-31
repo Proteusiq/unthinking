@@ -527,6 +527,39 @@ Yannic is harshest on the "misaligned model" section:
 5. **Refusals are shallow** — "One abstraction level above regex"
 6. **Method may be misleading** — Transcoder might not reflect actual transformer computation
 
+### My Take: The Math Section is the Smoking Gun for CoT Unfaithfulness
+
+The addition example is perhaps the **clearest empirical demonstration** of CoT unfaithfulness we have:
+
+**What the model SAYS it does** (when asked to explain):
+> "I added the ones, carried the one, then added the tens, resulting in 95"
+
+**What the model ACTUALLY does** (per attribution graphs):
+- Activates fuzzy features: "about 30", "about 60", "ends in 6", "ends in 9"
+- Combines approximate pathways: "add 40ish and 50ish" → "around 90"
+- Uses modular arithmetic heuristics: "6 + 9 ends in 5"
+- Arrives at 95 through **convergent approximation**, not algorithmic steps
+
+**Why this matters for the thesis**:
+
+1. **The model confabulates its reasoning**: It generates a plausible-sounding algorithm ("carry the one") that it demonstrably did NOT execute internally. This is textbook confabulation — post-hoc rationalization of a process the model has no insight into.
+
+2. **CoT is performance, not process**: The chain-of-thought explanation is generated the same way any other text is — by predicting likely next tokens given the context. The model knows that "carry the one" is what humans say when explaining addition, so it says that. But this bears no relationship to its internal computation.
+
+3. **This generalizes beyond math**: If the model confabulates its reasoning for something as simple and verifiable as 36+59, why would we trust its reasoning explanations for anything more complex? The same pattern-matching that produces "carry the one" produces "therefore, by modus ponens..." — plausible reasoning language that may not reflect actual computation.
+
+4. **Anthropic's own data contradicts CoT faithfulness claims**: This is Anthropic's own interpretability research showing their own model doesn't do what it says. Yet reasoning models (including Claude) are marketed on the basis of "showing their work." The work shown is fiction.
+
+**The deeper implication**:
+
+The model has learned TWO separate things:
+1. How to **do** addition (approximate lookup + convergent pathways)
+2. How to **explain** addition (retrieve standard algorithmic explanation)
+
+These are **completely decoupled**. The explanation circuit and the computation circuit have no necessary relationship. The model could do addition correctly while explaining it wrong, or explain it "correctly" while computing it via totally different means.
+
+This is why CoT faithfulness research (Papers 2, 9, 14, 63, etc.) consistently finds low faithfulness — the explanation and computation are learned separately from different training signals.
+
 ### Synthesis for Our Thesis
 
 The Anthropic paper + Yannic's analysis provides **mechanistic confirmation** of our thesis:
