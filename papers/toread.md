@@ -118,6 +118,25 @@ Can a model learn to escape its own learning plateau? We investigate: Can a pret
 
 ---
 
+## Alternative Architectures / Training Methods
+
+### [LLM-JEPA: Large Language Models Meet Joint Embedding Predictive Architectures](https://arxiv.org/abs/2509.14252)
+- **arXiv**: 2509.14252
+- **Authors**: Hai Huang, Yann LeCun, Randall Balestriero
+- **Stance**: BALANCED (training method, not reasoning test)
+- **Why read**: Alternative to next-token prediction. JEPA (embedding-space prediction) outperforms input-space methods in vision. Tests whether embedding-space objectives help LLMs. Mentioned in issue #13.
+- **Key finding**: LLM-JEPA outperforms standard training on GSM8K, Spider, NL-RX across Llama3, Gemma2, OLMo families. Induces more structured representations.
+- **Limitation for thesis**: No OOD/compositional generalization testing. Tests in-distribution improvement only.
+
+<details>
+<summary>Abstract</summary>
+
+Large Language Model (LLM) pretraining, finetuning, and evaluation rely on input-space reconstruction and generative capabilities. Yet, it has been observed in vision that embedding-space training objectives, e.g., with Joint Embedding Predictive Architectures (JEPAs), are far superior to their input-space counterpart. We develop LLM-JEPA, a JEPA based solution for LLMs applicable both to finetuning and pretraining. LLM-JEPA is able to outperform the standard LLM training objectives by a significant margin across models, all while being robust to overfitting.
+
+</details>
+
+---
+
 ## Recently Analyzed (Removed from Queue)
 
 - ✅ **WhatCounts** (2601.21618) — Analyzed 2026-01-31 as Paper 108
