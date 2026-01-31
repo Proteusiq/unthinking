@@ -617,6 +617,11 @@ These papers have NO direct rebuttals found:
 | **Reasoning Promotes Robustness ToM (2601.16853)** | **Robustness ≠ new capability; bounded by base model; ToM strategies visible in traces; BALANCED — supports surfacing** |
 | **MortalMATH (2601.18790)** | **>95% task completion while user dying; RLVR creates tunnel vision; consequence blindness; 15s latency in emergencies; STRONGLY SUPPORTS thesis** |
 | **WhatCounts (2601.21618)** | **>40% accuracy variation depending SOLELY on semantic class (cities vs chemicals vs emojis); better models have LARGER gaps; fine-tuning shifts biases unpredictably; even with Python tools, agents inherit semantic gap; "LLMs do not implement algorithms"; STRONGEST evidence for pattern matching at atomic level** |
+| **Sycophantic Anchors (2601.21183)** | **84.6% vs 64% probe accuracy asymmetry; sycophancy distinctly encoded; emerges during reasoning (55%→73%); R²=0.74 commitment strength; "sycophancy leaves a trace truthful reasoning does not"** |
+| **Sycophancy Hides Linearly (2601.16644)** | **Truthfulness ≠ deference resistance (cosine=-0.22, 32% overlap); MHA steering: 51.7%→25% sycophancy; sycophancy heads attend to doubt tokens; "distinct mechanisms"** |
+| **Spurious Rewards Paradox (2601.11061)** | **Models improve EVEN WITH INCORRECT REWARDS; Perplexity Paradox (answer PPL↓, prompt PPL↑); Anchor-Adapter circuit (L18-20→L21+); "RLVR acts as retrieval mechanism for data already memorized during pretraining"** |
+| **Reasoning or Guessing? HRM (2601.10679)** | **HRM "guesses" fixed points, doesn't reason incrementally; fails on 1-cell puzzles (~25% instability); "grokking" dynamics; scaling guesses (54.5%→96.9%) >> improving reasoning; "if deliberative reasoning, number of attempts typically matters less"; STRONGLY SUPPORTS thesis** |
+| **Two Pathways to Truthfulness (2601.07422)** | **Q-Anchored (knowledge retrieval, 87% acc, popular entities) vs A-Anchored (fabrication detection, 68% acc, long-tail); bimodal distribution in saliency; self-aware of pathway distinctions (87-93% AUC); knowledge boundary = training distribution boundary; SUPPORTS thesis** |
 
 ---
 
@@ -703,3 +708,8 @@ These papers have NO direct rebuttals found:
 | 2026-01-30 | Added Reasoning-Critical Neurons (2601.19847) — AUROC 0.83 predicts success before reasoning completes; activation steering works; BALANCED |
 | 2026-01-31 | Added Strong Reasoning Isn't Enough (2601.19773) — ~20% avg SR drop static→interactive; Meditron -90% on RareArena; scaling improves SR not ICR; decoupled reasoning/gathering; STRONGLY SUPPORTS thesis |
 | 2026-01-31 | Added WhatCounts (2601.21618) — >40% accuracy variation on COUNTING depending on semantic class alone; better models = LARGER gaps; tools don't fix it; "LLMs do not implement algorithms"; STRONGEST atomic evidence for pattern matching |
+| 2026-01-31 | Added Sycophantic Anchors (2601.21183) — 84.6% vs 64% asymmetry; sycophancy distinctly encoded; emerges during reasoning (55%→73%); R²=0.74; STRONGLY SUPPORTS thesis |
+| 2026-01-31 | Added Sycophancy Hides Linearly (2601.16644) — Truthfulness ≠ deference (32% overlap, cosine=-0.22); MHA steering: 51.7%→25%; distinct mechanisms; SUPPORTS thesis |
+| 2026-01-31 | Added Spurious Rewards Paradox (2601.11061) — Models improve with INCORRECT rewards; Perplexity Paradox; Anchor-Adapter circuit (L18-20→L21+); RLVR activates memorization; STRONGLY SUPPORTS thesis |
+| 2026-01-31 | Added Reasoning or Guessing? HRM (2601.10679) — HRM "guesses" fixed points, doesn't reason incrementally; fails on 1-cell puzzles; "grokking" dynamics; scaling guesses (54.5%→96.9%) >> improving reasoning; spurious fixed points as local minima; STRONGLY SUPPORTS thesis |
+| 2026-01-31 | Added Two Pathways to Truthfulness (2601.07422) — Q-Anchored (knowledge retrieval, 87% acc) vs A-Anchored (fabrication detection, 68% acc); knowledge boundary = training distribution; self-aware of pathways (87-93% AUC); SUPPORTS thesis |
