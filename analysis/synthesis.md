@@ -75,8 +75,9 @@
 | 113 | Two Pathways to Truthfulness | Jan 2026 | Supports | Two DISTINCT pathways: Q-Anchored (knowledge retrieval, 87% acc, popular entities) vs A-Anchored (fabrication detection, 68% acc, long-tail); LLMs self-aware of pathways (87-93% AUC); knowledge boundary = training distribution; pathway-aware detection +10% AUC |
 | 114 | Thinking Out of Order | Jan 2026 | Strongly Supports | AR models: **67% accuracy drop** when answers before reasoning (premature commitment); MDLMs: ≤14% drop (order robust); complexity-driven stabilization; distillation from AR preserves order-sensitivity; "AR must commit before reasoning exists" |
 | 115 | Scaling Reasoning Hop | Jan 2026 | Strongly Supports | **78.6% errors** from single error type (Parity-NL 50-hop); "erroneous processing heads" (ep heads) amplify wrong trajectories; knockout single ep head restores 47.5% correct; TCR +6.8%, TCR-gold +20% (41.7%→61.3%); shared ep heads across tasks; "competition mechanism" between correct/erroneous patterns |
+| 116 | Code over Words | Jan 2026 | Strongly Supports | **INVERSE SCALING**: Llama-3-70B shows STRONGER semantic inertia (ΔP=-0.18) than 8B; Claude Sonnet 57%→13% collapse on semantic conflict; "larger models become more entrenched in distributional priors"; code representation reverses trend (ΔP=+0.29); LCV 7B outperforms GPT-4o TheoryCoder; 71% inhibitory control vs 16% direct |
 
-**Total: 109 papers analyzed**
+**Total: 110 papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative

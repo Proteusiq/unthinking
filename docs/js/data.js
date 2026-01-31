@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 109,
+    totalAnalyzed: 110,
     lastUpdated: '2026-01-31',
   },
   nodes: [
@@ -1518,6 +1518,22 @@ window.paperData = {
         'Knockout ep head: 47.5% restored',
         'TCR-gold: 41.7% → 61.3% (+20%)',
         'Shared ep heads across tasks',
+      ],
+    },
+    {
+      id: '2601.18352',
+      title: 'Code over Words: Overcoming Semantic Inertia via Code-Grounded Reasoning',
+      shortTitle: 'Code over Words',
+      date: 'Jan 2026',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'INVERSE SCALING: Llama-3-70B shows STRONGER semantic inertia (ΔP=-0.18) than 8B. Claude Sonnet 57%→13% collapse on semantic conflict. Code representation reverses trend. "Larger models become more entrenched in distributional priors."',
+      keyEvidence: [
+        'Llama-3-70B: ΔP=-0.18 (worse than 8B)',
+        'Claude: 57% → 13% on conflict tasks',
+        'Code: ΔP=+0.29 (reverses inverse scaling)',
+        '71% inhibitory control vs 16% direct',
       ],
     },
   ],
@@ -3101,6 +3117,31 @@ window.paperData = {
       target: '2601.19847',
       type: 'extends',
       description: 'ep heads complement reasoning-critical neurons',
+    },
+    // Paper 116: Code over Words links
+    {
+      source: '2601.18352',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Semantic info disrupts reasoning',
+    },
+    {
+      source: '2601.18352',
+      target: '2512.20812',
+      type: 'supports',
+      description: 'Semantic cues override explicit instructions',
+    },
+    {
+      source: '2601.18352',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Prior interference causes error accumulation',
+    },
+    {
+      source: '2601.18352',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Complexity collapse = prior interference',
     },
   ],
 };
