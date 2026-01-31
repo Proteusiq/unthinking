@@ -262,16 +262,17 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 111 | 2601.11061 | Jan 2026 | Spurious Rewards Paradox: RLVR Activates Memorization Shortcuts | Strongly Supports | ✅ DONE |
 | 112 | 2601.10679 | Jan 2026 | Are Your Reasoning Models Reasoning or Guessing? (HRM Analysis) | Strongly Supports | ✅ DONE |
 | 113 | 2601.07422 | Jan 2026 | Two Pathways to Truthfulness: LLM Hallucination Encoding | Supports | ✅ DONE |
+| 114 | 2601.22035 | Jan 2026 | Thinking Out of Order: AR vs Diffusion Order Robustness | Strongly Supports | ✅ DONE |
 
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 113
-- **Against Reasoning**: ~52
+- **Total Papers**: 114
+- **Against Reasoning**: ~53
 - **For Reasoning**: ~26
 - **Balanced**: ~37
 - **Date Range**: 2023-2026
-- **Analyzed**: 107
+- **Analyzed**: 108
 
 ---
 

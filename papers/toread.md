@@ -21,19 +21,6 @@ Chain-of-thought (CoT) reasoning has become the standard paradigm for enabling L
 
 </details>
 
-### [Thinking Out of Order: When Output Order Stops Reflecting Reasoning Order](https://arxiv.org/abs/2601.22035)
-- **arXiv**: 2601.22035
-- **Stance**: SUPPORTS
-- **Why read**: AR models suffer **67% relative accuracy drop** when required to produce answers before explanations. MDLMs remain stable (≤14% drop). Relates to our Paper 99 (Flexibility Trap).
-- **Key finding**: AR models must commit to answers before generating reasoning when output structure conflicts with reasoning order.
-
-<details>
-<summary>Abstract</summary>
-
-Autoregressive (AR) language models enforce a fixed left-to-right generation order, creating a fundamental limitation when the required output structure conflicts with natural reasoning. When prompts request answers before reasoning, AR models exhibit large accuracy gaps compared to standard chain-of-thought ordering (up to 67% relative drop), while MDLMs remain stable (≤14% relative drop), a property we term "order robustness".
-
-</details>
-
 ### [Code over Words: Overcoming Semantic Inertia via Code-Grounded Reasoning](https://arxiv.org/abs/2601.18352)
 - **arXiv**: 2601.18352
 - **Stance**: SUPPORTS

@@ -73,8 +73,9 @@
 | 111 | Spurious Rewards Paradox | Jan 2026 | Strongly Supports | Models improve EVEN WITH INCORRECT REWARDS; Perplexity Paradox (answer PPL↓, prompt PPL↑); Anchor-Adapter circuit (L18-20 trigger, L21+ adapt); RLVR activates memorization, not reasoning; bidirectional causal steering; "RLVR acts as retrieval mechanism for data already memorized during pretraining" |
 | 112 | Reasoning or Guessing? (HRM) | Jan 2026 | Strongly Supports | HRM "guesses" fixed points, doesn't incrementally reason; fails on 1-cell puzzles (~25% instability); "grokking" dynamics (sudden correctness); scaling guesses (54.5%→96.9%) >> improving reasoning; spurious fixed points as local minima; "if one is to approach a complex problem through deliberative reasoning, the number of attempts typically matters less" |
 | 113 | Two Pathways to Truthfulness | Jan 2026 | Supports | Two DISTINCT pathways: Q-Anchored (knowledge retrieval, 87% acc, popular entities) vs A-Anchored (fabrication detection, 68% acc, long-tail); LLMs self-aware of pathways (87-93% AUC); knowledge boundary = training distribution; pathway-aware detection +10% AUC |
+| 114 | Thinking Out of Order | Jan 2026 | Strongly Supports | AR models: **67% accuracy drop** when answers before reasoning (premature commitment); MDLMs: ≤14% drop (order robust); complexity-driven stabilization; distillation from AR preserves order-sensitivity; "AR must commit before reasoning exists" |
 
-**Total: 107 papers analyzed**
+**Total: 108 papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative
