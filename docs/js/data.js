@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 102,
+    totalAnalyzed: 103,
     lastUpdated: '2026-01-31',
   },
   nodes: [
@@ -1405,6 +1405,22 @@ window.paperData = {
         'Scaling: 3B→72B improves SR, not ICR',
       ],
     },
+    {
+      id: '2601.21618',
+      title: 'Semantic Content Determines Algorithmic Performance (WhatCounts)',
+      shortTitle: 'WhatCounts',
+      date: 'Jan 2026',
+      stance: 'supports',
+      cluster: 'compositional',
+      coreArgument:
+        'Counting accuracy varies >40% depending solely on semantic class. LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent. Better models have LARGER semantic gaps.',
+      keyEvidence: [
+        '>40% accuracy variation on counting by semantic class',
+        'Better models = LARGER semantic gaps (counterintuitive)',
+        'Tools dont fix it (agents inherit gap)',
+        'Fine-tuning shifts biases unpredictably',
+      ],
+    },
   ],
   links: [
     {
@@ -2762,6 +2778,31 @@ window.paperData = {
       target: '2305.18654',
       type: 'supports',
       description: 'Pattern matching fails on novel interaction',
+    },
+    // WhatCounts links
+    {
+      source: '2601.21618',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Pattern matching not algorithms at atomic level',
+    },
+    {
+      source: '2601.21618',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Semantics affect reasoning (class vs irrelevant info)',
+    },
+    {
+      source: '2601.21618',
+      target: '2207.07051',
+      type: 'supports',
+      description: 'Semantic content determines performance',
+    },
+    {
+      source: '2601.21618',
+      target: '2512.04727',
+      type: 'supports',
+      description: 'Counting failures (semantic variation axis)',
     },
   ],
 };

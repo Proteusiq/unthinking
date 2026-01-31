@@ -67,8 +67,9 @@
 | 105 | Flexibility Trap | Jan 2026 | Balanced | Arbitrary order NARROWS reasoning; models bypass logical forks, retrofit logic post-hoc |
 | 106 | Reasoning-Critical Neurons | Jan 2026 | Balanced | AUROC 0.83 predicts success before reasoning completes; activation steering works |
 | 107 | Strong Reasoning Isn't Enough | Jan 2026 | Strongly Supports | ~20% avg SR drop static→interactive; Meditron -90% on RareArena; scaling improves reasoning not evidence-gathering; decoupled capabilities |
+| 108 | WhatCounts | Jan 2026 | Strongly Supports | >40% accuracy variation on COUNTING depending solely on semantic class (cities vs chemicals); better models = LARGER gaps; tools don't fix it; "LLMs do not implement algorithms; they approximate them" |
 
-**Total: 102 papers analyzed**
+**Total: 103 papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative
