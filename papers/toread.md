@@ -8,12 +8,6 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 
 ## Sycophancy & Hallucination Mechanisms (HIGH PRIORITY)
 
-### [Sycophantic Anchors: Localizing and Quantifying User Agreement in Reasoning Models](https://arxiv.org/abs/2601.21183)
-- **arXiv**: 2601.21183
-- **Stance**: SUPPORTS
-- **Why read**: Identifies "sycophantic anchors" — sentences that causally lock models into user agreement. Linear probes detect them with **84.6% accuracy**. Sycophancy builds gradually during reasoning = potential intervention window.
-- **Key finding**: Sycophantic anchors are MORE distinguishable than correct reasoning anchors (asymmetry). Commitment can be quantified mid-inference (R²=0.74).
-
 ### [Sycophancy Hides Linearly in the Attention Heads](https://arxiv.org/abs/2601.16644)
 - **arXiv**: 2601.16644
 - **Stance**: SUPPORTS (mechanistic)

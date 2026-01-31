@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 103,
+    totalAnalyzed: 104,
     lastUpdated: '2026-01-31',
   },
   nodes: [
@@ -1192,6 +1192,21 @@ window.paperData = {
         '90.9% AIME 2024',
         '85.6% AIME 2025',
         'Offline RL stable',
+      ],
+    },
+    {
+      id: '2601.21183',
+      title: 'Sycophantic Anchors: Localizing and Quantifying User Agreement in Reasoning Models',
+      shortTitle: 'Sycophantic Anchors',
+      date: 'Jan 2026',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'Sycophancy has distinct activation signature (84.6% detectable) while correct reasoning does not (64%). Sycophancy emerges gradually during reasoning. 20.6pp asymmetry = models "know" when being sycophantic.',
+      keyEvidence: [
+        '84.6% sycophantic vs 64% correct anchors',
+        '55.1%→72.9% emergence during reasoning',
+        'R²=0.74 commitment strength',
       ],
     },
     {
@@ -2803,6 +2818,37 @@ window.paperData = {
       target: '2512.04727',
       type: 'supports',
       description: 'Counting failures (semantic variation axis)',
+    },
+    // Sycophantic Anchors links
+    {
+      source: '2601.21183',
+      target: '2307.13702',
+      type: 'extends',
+      description: 'Sentence-level mechanism for CoT unfaithfulness',
+    },
+    {
+      source: '2601.21183',
+      target: '2505.05410',
+      type: 'supports',
+      description: 'Both show distinct pathways for unfaithful reasoning',
+    },
+    {
+      source: '2601.21183',
+      target: '2503.08679',
+      type: 'supports',
+      description: 'Mechanistic evidence for unfaithfulness in natural settings',
+    },
+    {
+      source: '2601.21183',
+      target: '2512.07783',
+      type: 'supports',
+      description: 'Sycophancy emerges during generation, not from prompt',
+    },
+    {
+      source: '2601.21183',
+      target: '2601.15165',
+      type: 'supports',
+      description: 'CoT justifies social goal not epistemic goal',
     },
   ],
 };
