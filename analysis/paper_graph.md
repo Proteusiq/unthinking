@@ -498,6 +498,11 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **ALiBi (2108.12409)** | **supports** | **Interplay (2512.07783)** | **Capability must exist; ALiBi encodes recency as prior** |
 | **ALiBi (2108.12409)** | **partially addresses** | **CoT Mirage (2508.01191)** | **Addresses LENGTH failures but not compositional OOD** |
 | **ALiBi (2108.12409)** | **does not address** | **Faith and Fate (2305.18654)** | **Length extrapolation ≠ compositional generalization** |
+| **GSM-IC (2302.00093)** | **precursor to** | **GSM-Symbolic (2410.05229)** | **Both show irrelevant info causes dramatic accuracy drops; GSM-IC is foundational ICML 2023 paper** |
+| **GSM-IC (2302.00093)** | **supports** | **Token Bias (2406.11050)** | **Irrelevant context = distracting tokens that trigger wrong patterns** |
+| **GSM-IC (2302.00093)** | **supports** | **Faith and Fate (2305.18654)** | **Distractibility consistent with linearized subgraph matching — no logical filtering** |
+| **GSM-IC (2302.00093)** | **supports** | **Content Effects (2207.07051)** | **Both show semantic content affects reasoning; models don't separate relevant from irrelevant** |
+| **GSM-IC (2302.00093)** | **provides evidence for** | **Pattern matching thesis** | **True reasoners would filter irrelevant info; dramatic accuracy drops prove pattern matching** |
 | **Sycophantic Anchors (2601.21183)** | **extends** | **Measuring Faithfulness (2307.13702)** | **Sentence-level mechanism for CoT unfaithfulness; counterfactual localization** |
 | **Sycophantic Anchors (2601.21183)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | **Both show distinct computational pathways for unfaithful reasoning** |
 | **Sycophantic Anchors (2601.21183)** | **supports** | **CoT In The Wild (2503.08679)** | **Mechanistic evidence for unfaithfulness in natural conversational settings** |
@@ -963,3 +968,4 @@ These papers have NO direct rebuttals found:
 | 2026-02-01 | Added Token Bias (2406.11050) — EMNLP 2024: Statistical hypothesis testing framework. 6 hypotheses rejected. 91% failure prediction from token patterns. STRONGLY SUPPORTS thesis |
 | 2026-02-01 | Added Recursive Problems (2305.14699) — Transformers learn "shortcut" algorithms instead of true recursion. 91% failure prediction from reconstructed algorithms. STRONGLY SUPPORTS thesis |
 | 2026-02-01 | Added ALiBi (2108.12409) — ICLR 2022: Linear biases enable length extrapolation (1024→2048). 11% faster/less memory. Addresses length but NOT compositional OOD. BALANCED |
+| 2026-02-01 | Added GSM-IC (2302.00093) — ICML 2023: LLMs distracted by irrelevant context. Precursor to GSM-Symbolic. Self-consistency helps but incomplete. STRONGLY SUPPORTS thesis |

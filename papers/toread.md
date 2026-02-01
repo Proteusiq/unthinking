@@ -151,7 +151,7 @@ These papers directly test or challenge the thesis that LLM reasoning is pattern
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
 | 2305.04388 | **Language Models Don't Always Say What They Think** (Turpin et al.) | ✅ DONE | Analyzed as Paper 148 |
-| 2212.08073 | **Large Language Models Can Be Easily Distracted** | 🟡 MEDIUM | Irrelevant context hurts reasoning. Related to GSM-NoOp findings. |
+| 2302.00093 | **Large Language Models Can Be Easily Distracted by Irrelevant Context** (Shi et al.) | ✅ DONE | Analyzed as Paper 160. ICML 2023. GSM-IC benchmark. Precursor to GSM-Symbolic. |
 | 2309.12288 | **The Reversal Curse: LLMs trained on "A is B" fail to learn "B is A"** (Berglund et al.) | ✅ DONE | Analyzed as Paper 149 |
 
 ### Relational Reasoning & World Models
