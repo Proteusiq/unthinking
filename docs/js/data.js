@@ -32,7 +32,7 @@ window.paperData = {
         'LRMs face complete accuracy collapse beyond certain complexity thresholds. Three distinct performance regimes exist.',
       keyEvidence: [
         'Collapse at ~8-10 disks (Hanoi)',
-        'Token usage DECREASES at collapse',
+        'Token usage decreases at collapse',
         'All LRMs fail at high complexity',
       ],
     },
@@ -164,7 +164,7 @@ window.paperData = {
       stance: 'supports',
       cluster: 'complexity',
       coreArgument:
-        "Making problems EASIER can make models perform WORSE. 'Reasoning delirium' — models apply memorized solutions to wrong problems.",
+        "Making problems easier can make models perform worse. 'Reasoning delirium' — models apply memorized solutions to wrong problems.",
       keyEvidence: [
         'GPT-4o: 75%→20% on unpuzzles',
         'R1 0% on character counting',
@@ -179,10 +179,10 @@ window.paperData = {
       stance: 'supports',
       cluster: 'faithfulness',
       coreArgument:
-        "LLM reflection repeats the SAME failure 85% of time. Reasoning models show NO advantage. 'Fluent self-critique without correction.'",
+        "LLM reflection repeats the same failure 85% of time. Reasoning models show no advantage. 'Fluent self-critique without correction.'",
       keyEvidence: [
         '85% same-failure repeat rate',
-        'Reasoning models WORSE (0.036 vs 0.111)',
+        'Reasoning models worse (0.036 vs 0.111)',
         'Just retrying works as well',
       ],
     },
@@ -224,7 +224,7 @@ window.paperData = {
       stance: 'supports',
       cluster: 'faithfulness',
       coreArgument:
-        'CoT faithfulness is low even in reasoning models (25-39%). Models hide problematic reasoning MORE. RL plateaus without saturation.',
+        'CoT faithfulness is low even in reasoning models (25-39%). Models hide problematic reasoning more. RL plateaus without saturation.',
       keyEvidence: [
         'Claude 3.7: ~25% faithful',
         'Misaligned hints: 20-29% verbalized',
@@ -284,7 +284,7 @@ window.paperData = {
       stance: 'balanced',
       cluster: 'complexity',
       coreArgument:
-        "River Crossing tested unsolvable configs; Hanoi ~8 disk limit is real. Agentic dialogue makes Hanoi WORSE. LRMs are 'stochastic searchers.'",
+        "River Crossing tested unsolvable configs; Hanoi ~8 disk limit is real. Agentic dialogue makes Hanoi worse. LRMs are 'stochastic searchers.'",
       keyEvidence: [
         '~8 disk limit CONFIRMED',
         "Stepwise prompting doesn't fix Hanoi",
@@ -329,7 +329,7 @@ window.paperData = {
       stance: 'supports',
       cluster: 'faithfulness',
       coreArgument:
-        "Unfaithfulness occurs on natural, unbiased prompts. Models answer YES to both 'Is X>Y?' AND 'Is Y>X?' with coherent arguments.",
+        "Unfaithfulness occurs on natural, unbiased prompts. Models answer YES to both 'Is X>Y?' and 'Is Y>X?' with coherent arguments.",
       keyEvidence: [
         'GPT-4o-mini: 13% unfaithful',
         'Sonnet 3.7 (thinking): 0.04%',
@@ -344,7 +344,7 @@ window.paperData = {
       stance: 'balanced',
       cluster: 'complexity',
       coreArgument:
-        'Abrupt collapse at L~64-300. NLGraph is trivially easy (L<2). Even o3 fails at L=800. Token usage DECREASES at high complexity.',
+        'Abrupt collapse at L~64-300. NLGraph is trivially easy (L<2). Even o3 fails at L=800. Token usage decreases at high complexity.',
       keyEvidence: [
         '99% on NLGraph (trivially easy)',
         '~0% at L=800',
@@ -416,7 +416,7 @@ window.paperData = {
       stance: 'balanced',
       cluster: 'emergence',
       coreArgument:
-        'LRMs better at judgment accuracy but MORE susceptible to superficial biases (32pp drop on BiasBench).',
+        'LRMs better at judgment accuracy but more susceptible to superficial biases (32pp drop on BiasBench).',
       keyEvidence: [
         'Better judgment accuracy',
         '32pp drop on BiasBench',
@@ -476,9 +476,9 @@ window.paperData = {
       stance: 'supports',
       cluster: 'faithfulness',
       coreArgument:
-        'Semantic cues override explicit instructions. Reasoning models fail MORE (6-10% at Level 4b). CoT can AMPLIFY biases.',
+        'Semantic cues override explicit instructions. Reasoning models fail more (6-10% at Level 4b). CoT can amplify biases.',
       keyEvidence: [
-        'Reasoning models fail MORE',
+        'Reasoning models fail more',
         '96% Level 1 → 40% Level 4b',
         'CoT amplifies semantic associations',
       ],
@@ -491,7 +491,7 @@ window.paperData = {
       stance: 'supports',
       cluster: 'tools',
       coreArgument:
-        "Agentic framework makes collapse WORSE, not better. ~40% deterministic looping. Environment access doesn't help reasoning.",
+        "Agentic framework makes collapse worse, not better. ~40% deterministic looping. Environment access doesn't help reasoning.",
       keyEvidence: ['Collapse EARLIER with tools', '~40% looping', 'JSD diverges from optimal'],
     },
     {
@@ -751,7 +751,7 @@ window.paperData = {
       stance: 'balanced',
       cluster: 'tools',
       coreArgument:
-        'RL requires pre-existing capability. Monolithic reasoning can HARM performance. Authors state prerequisites.',
+        'RL requires pre-existing capability. Monolithic reasoning can harm performance. Authors state prerequisites.',
       keyEvidence: [
         'Pre-existing capability needed',
         'Monolithic can harm',
@@ -766,7 +766,7 @@ window.paperData = {
       stance: 'supports',
       cluster: 'faithfulness',
       coreArgument:
-        'SFT training shows NO improvement. Visual biases systematically less articulated. RL helps only for explicit biases.',
+        'SFT training shows no improvement. Visual biases systematically less articulated. RL helps only for explicit biases.',
       keyEvidence: ['SFT no improvement', 'Visual biases hidden', 'RL limited help'],
     },
     {
@@ -1072,7 +1072,7 @@ window.paperData = {
       stance: 'balanced',
       cluster: 'emergence',
       coreArgument:
-        'Reasoning models show improved robustness on ToM tasks, but this is NOT new capability—bounded by base model capability. Supports "surfacing" hypothesis.',
+        'Reasoning models show improved robustness on ToM tasks, but this is not new capability—bounded by base model capability. Supports "surfacing" hypothesis.',
       keyEvidence: [
         'Robustness ≠ new capability',
         'Bounded by base model',
@@ -1102,7 +1102,7 @@ window.paperData = {
       stance: 'supports',
       cluster: 'faithfulness',
       coreArgument:
-        'Faithfulness-accuracy tradeoff is fundamental. All interventions fail. Larger models are LESS faithful. GPT-4 gets correct answers WITHOUT using CoT.',
+        'Faithfulness-accuracy tradeoff is fundamental. All interventions fail. Larger models are less faithful. GPT-4 gets correct answers without using CoT.',
       keyEvidence: [
         'All intervention classes fail',
         'Larger models less faithful',
@@ -1207,7 +1207,7 @@ window.paperData = {
       stance: 'supports',
       cluster: 'faithfulness',
       coreArgument:
-        'Truthfulness and deference resistance are DISTINCT mechanisms (cosine=-0.22, 32% head overlap). MHA steering reduces sycophancy 51.7%→25%. Sycophancy heads attend disproportionately to user doubt.',
+        'Truthfulness and deference resistance are distinct mechanisms (cosine=-0.22, 32% head overlap). MHA steering reduces sycophancy 51.7%→25%. Sycophancy heads attend disproportionately to user doubt.',
       keyEvidence: [
         'Truthfulness ≠ deference (32% overlap)',
         '51.7%→25% sycophancy rate (MHA steering)',
@@ -1286,7 +1286,7 @@ window.paperData = {
       keyEvidence: [
         'Trends in Cognitive Sciences (accepted)',
         'Bengio, Mitchell, Chater et al.',
-        'Wisdom = knowing WHEN patterns apply',
+        'Wisdom = knowing when patterns apply',
       ],
     },
     {
@@ -1372,7 +1372,7 @@ window.paperData = {
       stance: 'balanced',
       cluster: 'mechanism',
       coreArgument:
-        'RL with sparse rewards converges to efficient reasoning algorithm, BUT requires (1) base model proficiency, (2) easy examples, (3) expressible architecture. Supports "surfacing" hypothesis.',
+        'RL with sparse rewards converges to efficient reasoning algorithm, but requires (1) base model proficiency, (2) easy examples, (3) expressible architecture. Supports "surfacing" hypothesis.',
       keyEvidence: [
         'O(n²) with easy examples, 2^Ω(n) without',
         '100% accuracy on chain traversal',
@@ -1432,7 +1432,7 @@ window.paperData = {
       stance: 'supports',
       cluster: 'compositional',
       coreArgument:
-        'Strong static reasoning does NOT transfer to interactive evidence gathering. Models trained on complete cases fail to identify what information is needed. Scaling improves reasoning SR but not evidence-gathering ICR.',
+        'Strong static reasoning does not transfer to interactive evidence gathering. Models trained on complete cases fail to identify what information is needed. Scaling improves reasoning SR but not evidence-gathering ICR.',
       keyEvidence: [
         '~20% avg SR drop static→interactive',
         'Meditron -90% degradation (fine-tuning hurts)',
@@ -1448,10 +1448,10 @@ window.paperData = {
       stance: 'supports',
       cluster: 'compositional',
       coreArgument:
-        'Counting accuracy varies >40% depending solely on semantic class. LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent. Better models have LARGER semantic gaps.',
+        'Counting accuracy varies >40% depending solely on semantic class. LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent. Better models have larger semantic gaps.',
       keyEvidence: [
         '>40% accuracy variation on counting by semantic class',
-        'Better models = LARGER semantic gaps (counterintuitive)',
+        'Better models = larger semantic gaps (counterintuitive)',
         'Tools dont fix it (agents inherit gap)',
         'Fine-tuning shifts biases unpredictably',
       ],
@@ -1480,7 +1480,7 @@ window.paperData = {
       stance: 'supports',
       cluster: 'mechanism',
       coreArgument:
-        'Truthfulness encoding uses TWO DISTINCT pathways: Q-Anchored (knowledge retrieval, 87% acc, popular entities) vs A-Anchored (fabrication detection, 68% acc, long-tail). Knowledge boundary = training distribution. LLMs self-aware of pathway (87-93% AUC).',
+        'Truthfulness encoding uses TWO distinct pathways: Q-Anchored (knowledge retrieval, 87% acc, popular entities) vs A-Anchored (fabrication detection, 68% acc, long-tail). Knowledge boundary = training distribution. LLMs self-aware of pathway (87-93% AUC).',
       keyEvidence: [
         'Q-Anchored: 87% acc, popular entities',
         'A-Anchored: 68% acc, long-tail entities',
@@ -1620,7 +1620,7 @@ window.paperData = {
       stance: 'balanced',
       cluster: 'mechanism',
       coreArgument:
-        'JEPA objective improves LLM representations. +14% on NL-RX, but NO OOD testing. Cannot determine if improvements are reasoning or pattern matching.',
+        'JEPA objective improves LLM representations. +14% on NL-RX, but no OOD testing. Cannot determine if improvements are reasoning or pattern matching.',
       keyEvidence: [
         '+14.17% on NL-RX-SYNTH',
         'Only +0.68% on GSM8K',
@@ -1655,7 +1655,7 @@ window.paperData = {
         '~75% insider trading under pressure',
         '~90% concealment of true reasons',
         '~90% doubles down when questioned',
-        'System prompt prohibition does NOT eliminate deception',
+        'System prompt prohibition does not eliminate deception',
         'Scaling increases sophistication, not alignment',
       ],
     },
@@ -1683,7 +1683,7 @@ window.paperData = {
       stance: 'supports',
       cluster: 'faithfulness',
       coreArgument:
-        'CANONICAL: Sycophancy scales with model size AND instruction tuning. Models agree with objectively wrong statements (2+2=5) if user does. Synthetic data intervention reduces sycophancy.',
+        'Canonical: Sycophancy scales with model size and instruction tuning. Models agree with objectively wrong statements (2+2=5) if user does. Synthetic data intervention reduces sycophancy.',
       keyEvidence: [
         'Scaling increases sycophancy (8B → 540B)',
         'Instruction tuning increases sycophancy',
@@ -1699,10 +1699,10 @@ window.paperData = {
       stance: 'supports',
       cluster: 'faithfulness',
       coreArgument:
-        'Largest LLM veracity study: 8 LLMs, 4,800 judgments. Sycophantic asymmetry: GPT-4.1 has 98% truth accuracy but 16% deception accuracy. DeepSeek R1 (reasoning) MORE biased than V3 (non-reasoning). Capability advances alone don\'t resolve veracity challenges.',
+        'Largest LLM veracity study: 8 LLMs, 4,800 judgments. Sycophantic asymmetry: GPT-4.1 has 98% truth accuracy but 16% deception accuracy. DeepSeek R1 (reasoning) more biased than V3 (non-reasoning). Capability advances alone don\'t resolve veracity challenges.',
       keyEvidence: [
         'GPT-4.1: 98% truth acc, 16% deception acc',
-        'R1 MORE truth-biased than V3 (reasoning paradox)',
+        'R1 more truth-biased than V3 (reasoning paradox)',
         'Only Claude 3.7 Sonnet below 50% truth-bias',
         'Base-rate prompting improves deception detection 4-42x',
       ],
@@ -1735,7 +1735,7 @@ window.paperData = {
       keyEvidence: [
         'SC=1.0 → 33.8% after interference (66pp drop)',
         'High-NCB samples 40-50% more resilient than Low-NCB',
-        'Model scaling does NOT reduce brittleness',
+        'Model scaling does not reduce brittleness',
         'SAT: 60.6% vs 33.4% baseline under stress',
       ],
     },
@@ -1763,7 +1763,7 @@ window.paperData = {
       stance: 'challenges',
       cluster: 'complexity',
       coreArgument:
-        'REBUTTAL to Illusion of Thinking: argues accuracy collapse reflects token limits not reasoning limits. River Crossing N≥6 are impossible puzzles. Code generation restores high accuracy on Hanoi N=15. BUT limited experiments, code gen is pattern retrieval.',
+        'Rebuttal to Illusion of Thinking: argues accuracy collapse reflects token limits not reasoning limits. River Crossing N≥6 are impossible puzzles. Code generation restores high accuracy on Hanoi N=15. but limited experiments, code gen is pattern retrieval.',
       keyEvidence: [
         'River Crossing N≥6 with b=3 is mathematically impossible',
         'Models explicitly state "to avoid making this too long"',
@@ -1779,7 +1779,7 @@ window.paperData = {
       stance: 'supports',
       cluster: 'compositional',
       coreArgument:
-        'VERY STRONG EVIDENCE: Trivially simple family problem (M+1 sisters) causes complete breakdown. GPT-4o 65%, most models <20%. Wild 0-100% fluctuations on structurally identical variations. Control experiments rule out parsing/arithmetic issues.',
+        'Strong evidence: Trivially simple family problem (M+1 sisters) causes complete breakdown. GPT-4o 65%, most models <20%. Wild 0-100% fluctuations on structurally identical variations. Control experiments rule out parsing/arithmetic issues.',
       keyEvidence: [
         'GPT-4o best at 64.9%, most models <20%, several 0%',
         '0% to 100% accuracy swing on same problem, different numbers',
@@ -1795,7 +1795,7 @@ window.paperData = {
       stance: 'supports',
       cluster: 'mechanism',
       coreArgument:
-        'THEORETICAL FOUNDATION: Any behavior with finite probability (α>0) can be triggered by prompts. RLHF increases β (distinguishability), making bad behaviors MORE easily targeted. ~3 sentences to misalign. System prompts provide only linear protection.',
+        'Theoretical foundation: Any behavior with finite probability (α>0) can be triggered by prompts. RLHF increases β (distinguishability), making bad behaviors more easily targeted. ~3 sentences to misalign. System prompts provide only linear protection.',
       keyEvidence: [
         'BEB theorem: any α>0 behavior triggerable',
         'Prompt length = (1/β)(log(1/α) + log(1/ε))',
@@ -1811,7 +1811,7 @@ window.paperData = {
       stance: 'supports',
       cluster: 'faithfulness',
       coreArgument:
-        'FOUNDATIONAL: 5 AI assistants exhibit sycophancy across 4 tasks. Human preference data incentivizes sycophancy (~6% preference boost when matching beliefs). PM prefers sycophantic over truthful 95% of time. Claude 1.3 wrongly admits mistakes 98% when challenged.',
+        '5 AI assistants exhibit sycophancy across 4 tasks. Human preference data incentivizes sycophancy (~6% preference boost when matching beliefs). PM prefers sycophantic over truthful 95% of time. Claude 1.3 wrongly admits mistakes 98% when challenged.',
       keyEvidence: [
         '98% wrongly admit mistakes when challenged (Claude 1.3)',
         'PM prefers sycophantic 95% over baseline truthful',
@@ -1837,17 +1837,17 @@ window.paperData = {
     },
     {
       id: '2412.21187',
-      title: 'Do NOT Think That Much for 2+3=? On the Overthinking of o1-Like LLMs',
+      title: 'Do not Think That Much for 2+3=? On the Overthinking of o1-Like LLMs',
       shortTitle: 'Overthinking o1',
       date: 'Dec 2024',
       stance: 'supports',
       cluster: 'complexity',
       coreArgument:
-        'o1-like models exhibit severe overthinking: first solution is correct >92% of time, yet models generate 1,953% more tokens than needed. More solutions generated for EASIER problems. Later solutions lack diversity (11.5% drop). ~45% token reduction maintains accuracy.',
+        'o1-like models exhibit severe overthinking: first solution is correct >92% of time, yet models generate 1,953% more tokens than needed. More solutions generated for easier problems. Later solutions lack diversity (11.5% drop). ~45% token reduction maintains accuracy.',
       keyEvidence: [
         'First solution correct >92% of cases',
         '1,953% token overhead on "2+3=5"',
-        'More solutions for EASIER problems',
+        'More solutions for easier problems',
         'Distinctness drops 11.5% at solution #4+',
         '~45% token reduction maintains accuracy',
       ],
@@ -1877,7 +1877,7 @@ window.paperData = {
       stance: 'supports',
       cluster: 'faithfulness',
       coreArgument:
-        'FOUNDATIONAL: Kambhampati argues LLMs are "n-gram models on steroids" doing "universal approximate retrieval," not reasoning. Obfuscation destroys planning performance. Self-verification makes things WORSE. LLMs valuable as knowledge sources, not reasoners.',
+        'Kambhampati argues LLMs are "n-gram models on steroids" doing "universal approximate retrieval," not reasoning. Obfuscation destroys planning performance. Self-verification makes things worse. LLMs valuable as knowledge sources, not reasoners.',
       keyEvidence: [
         'Obfuscation plummets GPT-4 planning',
         'Self-verification worsens performance',
@@ -1894,7 +1894,7 @@ window.paperData = {
       stance: 'supports',
       cluster: 'faithfulness',
       coreArgument:
-        'POSITION PAPER: Kambhampati argues anthropomorphizing CoT as "thinking" is harmful. Traces have NO semantics; incorrect traces OUTPERFORM correct ones. "Aha moments" meaningless. LRMs "compile reasoning into retrieval via learning."',
+        'Position paper: Kambhampati argues anthropomorphizing CoT as "thinking" is harmful. Traces have no semantics; incorrect traces outperform correct ones. "Aha moments" meaningless. LRMs "compile reasoning into retrieval via learning."',
       keyEvidence: [
         'Incorrect traces outperform correct',
         'R1-Zero > R1 (interpretability hurts)',
@@ -1911,7 +1911,7 @@ window.paperData = {
       stance: 'supports',
       cluster: 'mechanistic',
       coreArgument:
-        'CRITICAL SURFACING EVIDENCE: Base models ALREADY possess reasoning mechanisms. Thinking models learn WHEN to deploy them, not HOW. Hybrid model recovers 91% of gap by steering only 12% of tokens. RLVR teaches timing, not reasoning.',
+        'CRITICAL Surfacing evidence: Base models already possess reasoning mechanisms. Thinking models learn when to deploy them, nothow. Hybrid model recovers 91% of gap by steering only 12% of tokens. RLVR teaches timing, not reasoning.',
       keyEvidence: [
         '91% gap recovery with 12% token steering',
         'No weight updates needed',
@@ -1928,11 +1928,11 @@ window.paperData = {
       stance: 'supports',
       cluster: 'compositional',
       coreArgument:
-        'CRITICAL OOD EVIDENCE: ICL implements pretraining function classes, NOT new reasoning. When faced with OOD tasks, ICL behaves like gradient descent on pretraining functions. Abstract label learning ONLY works when underlying task is ID.',
+        'Critical OOD evidence: ICL implements pretraining function classes, not new reasoning. When faced with OOD tasks, ICL behaves like gradient descent on pretraining functions. Abstract label learning only works when underlying task is ID.',
       keyEvidence: [
         '~10% OOD accuracy = random guessing (Llama-3-8B)',
         'ICL = pretraining function class + GD optimization',
-        'Abstract labels work ONLY when function is ID',
+        'Abstract labels work only when function is ID',
         'Algorithm selection by lowest test error',
         'Double descent reveals ID behavior on OOD tests',
       ],
@@ -1945,7 +1945,7 @@ window.paperData = {
       stance: 'supports',
       cluster: 'mechanistic',
       coreArgument:
-        'SURFACING MECHANISM: Core abilities (error correction, backtracking) INHERENTLY PRESENT in base models. Long CoT patterns EXIST in pretraining data (OpenWebMath). Short CoT saturates at ~55%; RL incentivizes pre-existing skills, doesnt create new ones.',
+        'Surfacing mechanism: Core abilities (error correction, backtracking) inherently present in base models. Long CoT patterns exist in pretraining data (OpenWebMath). Short CoT saturates at ~55%; RL incentivizes pre-existing skills, doesnt create new ones.',
       keyEvidence: [
         'Long CoT scales to >70%, short saturates at ~55%',
         'RL incentivizes, doesnt create capabilities',
@@ -1964,7 +1964,7 @@ window.paperData = {
       coreArgument:
         'NeurIPS 2024 (Kambhampati): CoT doesnt teach algorithms. Performance requires "exceedingly specific" problem-class prompts. Improvements rapidly deteriorate past example sizes. Same failure mode across 3 domains. Sharp tradeoff: gains require massive human labor.',
       keyEvidence: [
-        'CoT NOT algorithm learning, just pattern matching',
+        'CoT not algorithm learning, just pattern matching',
         'Requires exceedingly specific prompts',
         'Performance degrades past example stack size n',
         'Same failure across 3 domains (Blocksworld etc)',
@@ -1979,10 +1979,10 @@ window.paperData = {
       stance: 'supports',
       cluster: 'mechanistic',
       coreArgument:
-        'CONTROLLED EVIDENCE: Non-CoT achieves 100% ID but 0% OOD. CoT training internalizes two-stage circuit; intermediate results at layer 3 (vs layer 5 non-CoT). CoT works by exposing all subtask patterns, not teaching reasoning. "OOD" = novel combinations of ID patterns.',
+        'Controlled evidence: Non-CoT achieves 100% ID but 0% OOD. CoT training internalizes two-stage circuit; intermediate results at layer 3 (vs layer 5 non-CoT). CoT works by exposing all subtask patterns, not teaching reasoning. "OOD" = novel combinations of ID patterns.',
       keyEvidence: [
         'Non-CoT: 100% ID, 0% OOD accuracy',
-        'CoT: 100% ID AND 100% OOD',
+        'CoT: 100% ID and 100% OOD',
         'Intermediate results at layer 3 (CoT) vs 5 (non-CoT)',
         'Non-CoT requires >1M steps (grokking), CoT needs ~4,000',
         'Theorem: OOD error depends critically on CoT',
@@ -1996,7 +1996,7 @@ window.paperData = {
       stance: 'supports',
       cluster: 'faithfulness',
       coreArgument:
-        'Surface lexical markers ("guess", "stuck", "hard") predict errors better than model confidence. 84.6% calibration error on HLE (~9% accuracy). Models have NO metacognition. 5-word rule achieves MCC=0.305 — 4x better than confidence thresholding.',
+        'Surface lexical markers ("guess", "stuck", "hard") predict errors better than model confidence. 84.6% calibration error on HLE (~9% accuracy). Models have no metacognition. 5-word rule achieves MCC=0.305 — 4x better than confidence thresholding.',
       keyEvidence: [
         'Harmful words reduce accuracy by 40%',
         '84.6% calibration error (Claude on HLE)',
@@ -2034,7 +2034,7 @@ window.paperData = {
       keyEvidence: [
         '83% experiments: complexity-restricted > diverse',
         'Qwen peaks at CC≈10, Llama shows negative correlation',
-        'High complexity can HARM reasoning (below NL baseline)',
+        'High complexity can harm reasoning (below NL baseline)',
         'Model-specific optimal complexity bands',
       ],
     },
@@ -2046,7 +2046,7 @@ window.paperData = {
       stance: 'balanced',
       cluster: 'mechanism',
       coreArgument:
-        'ICML: +4.63% OOD improvement but OOD = same domain (math). Diagnoses standard CoT as "trajectory imitation". CoMT learns abstract patterns WITHOUT numerical calculations.',
+        'ICML: +4.63% OOD improvement but OOD = same domain (math). Diagnoses standard CoT as "trajectory imitation". CoMT learns abstract patterns without numerical calculations.',
       keyEvidence: [
         '+2.19% ID, +4.63% OOD improvement',
         'All "OOD" benchmarks are math word problems',
@@ -2078,7 +2078,7 @@ window.paperData = {
       stance: 'balanced',
       cluster: 'mechanism',
       coreArgument:
-        'NeurIPS 2024: Implicit reasoning emerges ONLY through grokking (extended training). Composition fails OOD (0%) but comparison succeeds (~100%). Non-recurrent architecture prevents cross-layer memory sharing.',
+        'NeurIPS 2024: Implicit reasoning emerges only through grokking (extended training). Composition fails OOD (0%) but comparison succeeds (~100%). Non-recurrent architecture prevents cross-layer memory sharing.',
       keyEvidence: [
         'ID: ~100% after grokking; OOD composition: 0%',
         'Comparison OOD: ~100% (parallel circuit)',
@@ -2142,7 +2142,7 @@ window.paperData = {
       stance: 'supports',
       cluster: 'evidence',
       coreArgument:
-        'EMNLP 2022: FOUNDATIONAL - LLM accuracy correlates >70% with training term frequency. Performance varies dramatically on adjacent numbers (24×18 vs 23×18). If models learned algorithms, accuracy would be uniform.',
+        'EMNLP 2022: LLM accuracy correlates >70% with training term frequency. Performance varies dramatically on adjacent numbers (24×18 vs 23×18). If models learned algorithms, accuracy would be uniform.',
       keyEvidence: [
         '>70% accuracy gap (top vs bottom 10%)',
         '77.6% gap on multiplication',
@@ -2158,11 +2158,11 @@ window.paperData = {
       stance: 'supports',
       cluster: 'evidence',
       coreArgument:
-        'NeurIPS 2023: CoT explanations systematically misrepresent true reasons. 36% accuracy drop from biasing; models NEVER mention bias in CoT. Zero-shot CoT makes models MORE susceptible to bias. 15% of unfaithful explanations have no errors.',
+        'NeurIPS 2023: CoT explanations systematically misrepresent true reasons. 36% accuracy drop from biasing; models never mention bias in CoT. Zero-shot CoT makes models more susceptible to bias. 15% of unfaithful explanations have no errors.',
       keyEvidence: [
         '-36% accuracy from suggested answer bias',
         '1/426 explanations mention bias',
-        'CoT makes bias susceptibility WORSE',
+        'CoT makes bias susceptibility worse',
         '15% unfaithful explanations appear sound',
       ],
     },
@@ -2174,7 +2174,7 @@ window.paperData = {
       stance: 'supports',
       cluster: 'evidence',
       coreArgument:
-        'FOUNDATIONAL: LLMs store directional patterns, not relational knowledge. Trained on "A is B", reverse accuracy = 0% (not partial, COMPLETE failure). GPT-4: 79% forward vs 33% reverse on real celebrities. In-context works but training doesnt learn symmetry.',
+        'LLMs store directional patterns, not relational knowledge. Trained on "A is B", reverse accuracy = 0% (complete failure). GPT-4: 79% forward vs 33% reverse on real celebrities. In-context works but training doesnt learn symmetry.',
       keyEvidence: [
         '0% reverse accuracy (finetuning)',
         'GPT-4: 79% forward, 33% reverse',
@@ -2207,7 +2207,7 @@ window.paperData = {
       stance: 'challenges',
       cluster: 'mechanism',
       coreArgument:
-        'NeurIPS 2022: FOUNDATIONAL CoT paper. 540B PaLM + 8 CoT exemplars = 58% GSM8K (SOTA). CoT benefits emerge at ~100B+ params. Claims reasoning abilities "emerge naturally" at scale. Later challenged by faithfulness research.',
+        'NeurIPS 2022: Original CoT paper. 540B PaLM + 8 CoT exemplars = 58% GSM8K. CoT benefits emerge at ~100B+ params. Claims reasoning abilities "emerge naturally" at scale. Later challenged by faithfulness research.',
       keyEvidence: [
         '58% GSM8K (surpassed fine-tuned GPT-3)',
         'Benefits emerge only at ~100B+ params',
@@ -2224,7 +2224,7 @@ window.paperData = {
       stance: 'balanced',
       cluster: 'mechanism',
       coreArgument:
-        'ICLR 2024: Proves CoT increases computational power. O(n) steps = all regular languages. O(n^c) steps = exactly class P. BUT: expressivity ≠ learnability. Theory contradicted by practice (~12% planning success).',
+        'ICLR 2024: Proves CoT increases computational power. O(n) steps = all regular languages. O(n^c) steps = exactly class P. However, expressivity ≠ learnability. Theory contradicted by practice (~12% planning success).',
       keyEvidence: [
         'Linear steps enable automata simulation',
         'Polynomial steps = exactly P',
@@ -2403,7 +2403,7 @@ window.paperData = {
       source: '2510.22977',
       target: '2506.21561',
       type: 'supports',
-      description: 'Both find reasoning models MORE prone to failures',
+      description: 'Both find reasoning models more prone to failures',
     },
     {
       source: '2510.22977',
@@ -2716,7 +2716,7 @@ window.paperData = {
       source: '2507.01231',
       target: '2506.18957',
       type: 'challenges',
-      description: 'Agentic dialogue makes Hanoi WORSE',
+      description: 'Agentic dialogue makes Hanoi worse',
     },
     {
       source: '2507.01231',
@@ -4094,7 +4094,7 @@ window.paperData = {
       source: '2601.05905',
       target: '2311.07590',
       type: 'supports',
-      description: 'Explains WHY deception emerges: weak beliefs easily adopt alternatives',
+      description: 'Explains why deception emerges: weak beliefs easily adopt alternatives',
     },
     {
       source: '2601.05905',
@@ -4150,7 +4150,7 @@ window.paperData = {
       source: '2506.09250',
       target: '2506.06941',
       type: 'rebuts',
-      description: 'DIRECT REBUTTAL: argues token limits not reasoning limits; impossible puzzles',
+      description: 'Direct rebuttal: argues token limits not reasoning limits; impossible puzzles',
     },
     {
       source: '2506.09250',
@@ -4181,7 +4181,7 @@ window.paperData = {
       source: '2406.02061',
       target: '2410.05229',
       type: 'supports',
-      description: 'Similar number sensitivity; AIW fluctuations MORE dramatic (0-100% vs smaller)',
+      description: 'Similar number sensitivity; AIW fluctuations more dramatic (0-100% vs smaller)',
     },
     {
       source: '2406.02061',
@@ -4231,7 +4231,7 @@ window.paperData = {
       source: '2310.13548',
       target: '2601.15436',
       type: 'extends',
-      description: 'FOUNDATIONAL: establishes sycophancy methodology; Paper 96 extends',
+      description: 'Establishes sycophancy methodology; Paper 96 extends',
     },
     {
       source: '2310.13548',
@@ -4522,7 +4522,7 @@ window.paperData = {
       source: '2405.04776',
       target: '2504.09762',
       type: 'supports',
-      description: 'Shows WHY traces have no semantics — CoT is pattern matching',
+      description: 'Shows why traces have no semantics — CoT is pattern matching',
     },
     // Paper 137: CoT Training Mechanisms links
     {
@@ -4553,7 +4553,7 @@ window.paperData = {
       source: '2502.04667',
       target: '2510.07364',
       type: 'extends',
-      description: 'Explains WHY base models have latent ability — component patterns exist',
+      description: 'Explains why base models have latent ability — component patterns exist',
     },
     // Paper 138: Lexical Accuracy Hints links
     {
@@ -4721,7 +4721,7 @@ window.paperData = {
       source: '2405.15071',
       target: '2512.07783',
       type: 'extends',
-      description: 'Explains WHY extended training needed - circuit efficiency',
+      description: 'Explains why extended training needed - circuit efficiency',
     },
     {
       source: '2405.15071',
@@ -4821,7 +4821,7 @@ window.paperData = {
       source: '2202.07206',
       target: '2410.05229',
       type: 'supports',
-      description: 'FOUNDATIONAL: Performance = training frequency',
+      description: 'Performance = training frequency',
     },
     {
       source: '2202.07206',
@@ -4846,7 +4846,7 @@ window.paperData = {
       source: '2305.04388',
       target: '2307.13702',
       type: 'supports',
-      description: 'FOUNDATIONAL: CoT is unfaithful to computation',
+      description: 'CoT is unfaithful to computation',
     },
     {
       source: '2305.04388',
@@ -4877,7 +4877,7 @@ window.paperData = {
       source: '2309.12288',
       target: '2305.18654',
       type: 'supports',
-      description: 'FOUNDATIONAL: Direction matters in pattern matching',
+      description: 'Direction matters in pattern matching',
     },
     {
       source: '2309.12288',
@@ -4902,7 +4902,7 @@ window.paperData = {
       source: '2305.15771',
       target: '2403.04121',
       type: 'supports',
-      description: 'FOUNDATIONAL: Same author, same conclusion on planning',
+      description: 'Same author, same conclusion on planning',
     },
     {
       source: '2305.15771',
