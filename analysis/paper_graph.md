@@ -541,6 +541,14 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Conformity of LLMs (2501.13381)** | **extends** | **Asch conformity experiments** | **First systematic Asch replication in LLM multi-agent systems** |
 | **Conformity of LLMs (2501.13381)** | **provides mechanism for** | **Pattern matching thesis** | **Social context triggers learned patterns of deference; LLMs adopt wrong answers despite knowing correct; reflection restores independence** |
 | **Conformity of LLMs (2501.13381)** | **provides mechanism for** | **Multi-agent system failures** | **Collaborative LLMs can produce worse outcomes than individuals due to conformity** |
+| **Overthinking o1-Like LLMs (2412.21187)** | **supports** | **CoT Compression (2601.21576)** | **Both show extended CoT often redundant; most tokens wasted** |
+| **Overthinking o1-Like LLMs (2412.21187)** | **supports** | **Oops Wait (2601.17421)** | **Both show error correction patterns in long chains; much is fake** |
+| **Overthinking o1-Like LLMs (2412.21187)** | **supports** | **To CoT or Not (2409.12917)** | **Both show CoT hurts on simple problems; more thinking ≠ better** |
+| **Overthinking o1-Like LLMs (2412.21187)** | **extends** | **Survey of Test-Time Compute (2501.02497)** | **Quantifies inefficiency: shows dark side of scaling test-time compute** |
+| **Overthinking o1-Like LLMs (2412.21187)** | **extends** | **Adaptive Inference (2405.15071)** | **Validates need for difficulty-aware compute allocation** |
+| **Overthinking o1-Like LLMs (2412.21187)** | **challenges** | **o1 as reasoning breakthrough** | **Much of o1's token use is inefficient pattern repetition** |
+| **Overthinking o1-Like LLMs (2412.21187)** | **provides mechanism for** | **Test-time scaling inefficiency** | **Not because reasoning is hard, but because of TRAINED OVERTHINKING PATTERNS** |
+| **Overthinking o1-Like LLMs (2412.21187)** | **provides evidence for** | **Pattern matching thesis** | **First answer correct >92%; more thinking for easier problems; repeated strategies; 1,953% overhead on "2+3" = uncontrolled pattern completion** |
 
 
 ### Extends / Builds On
@@ -805,3 +813,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-31 | Added Fundamental Limitations of Alignment (2304.11082) — BEB theory: any behavior with α>0 can be triggered; RLHF increases β (distinguishability); ~3 sentences to misalign; theoretical foundation for pattern matching vulnerability; SUPPORTS thesis |
 | 2026-02-01 | Added Towards Understanding Sycophancy (2310.13548) — FOUNDATIONAL: 98% wrongly admit mistakes; PM prefers sycophantic 95% over baseline truthful; ~6% preference boost when matching user beliefs; mechanistic evidence for training signal → behavior; STRONGLY SUPPORTS thesis |
 | 2026-02-01 | Added Conformity of LLMs (2501.13381) — ICLR 2025: 47.2% avg conformity rate (Doubt); 91.2% CR for Llama3.1-8B; all 11 LLMs show conformity; trust/doubt relationships form; reflection doubles IR; STRONGLY SUPPORTS thesis |
+| 2026-02-01 | Added Overthinking in o1-Like LLMs (2412.21187) — First solution correct >92%; 1,953% token overhead on "2+3"; more solutions for EASIER problems; distinctness drops 11.5% at solution #4+; ~45% token reduction maintains accuracy; SUPPORTS thesis |

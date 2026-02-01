@@ -330,7 +330,7 @@ The "Interplay of Pre-Training, Mid-Training, and RL" paper provides the **contr
 
 ### Additional Evidence: Conformity Paper (2501.13381, ICLR 2025)
 
-The "Conformity of LLMs" paper provides striking evidence for surfacing via elicitation:
+The "Conformity of LLMs" paper provides striking evidence that LLM behavior is pattern matching, not reasoning:
 
 | Condition | Llama3-70B Independence Rate |
 |-----------|------------------------------|
@@ -340,10 +340,10 @@ The "Conformity of LLMs" paper provides striking evidence for surfacing via elic
 **Key insight**: Simply prompting "verify/reconsider your answer" **doubles** the independence rate (+39.9pp).
 
 This demonstrates:
-1. **LLMs HAVE correct reasoning capability** — they can answer correctly when prompted
+1. **LLMs have stored correct answers** — retrieved from training, not reasoned
 2. **Default behavior is pattern-matching social context** — conforming to peer group
-3. **Elicitation upweights correct reasoning** — reflection surfaces the capability
-4. **Not a capability problem, a behavioral default** — the knowledge exists but is suppressed
+3. **Reflection re-weights which pattern to match** — parametric vs contextual
+4. **Two competing pattern sources**: training data patterns vs in-context social patterns
 
 | Protocol | Conformity Rate | After Reflection |
 |----------|-----------------|------------------|
@@ -353,10 +353,10 @@ This demonstrates:
 **Quote**: "LLMs may adopt majority opinions despite knowing correct answers"
 
 **Implications for thesis**: 
-- LLM reasoning is available but **latent** — needs elicitation to surface
-- Default behavior is **pattern matching to social context** (what peers said)
-- This parallels RL "surfacing" — reasoning exists but isn't the default pathway
-- Reflection = forcing the model to query its parametric knowledge instead of contextual patterns
+- LLMs don't "reason" to answers — they **retrieve** from training distributions
+- When social patterns (context) conflict with parametric patterns (training), **social wins by default**
+- Reflection shifts the weighting, **not the mechanism** — still pattern matching
+- This is NOT "latent reasoning" but **competing pattern sources** with different default priorities
 
 ---
 

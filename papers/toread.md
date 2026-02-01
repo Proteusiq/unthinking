@@ -29,7 +29,7 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 - [x] **Do as we do, not as you think: The conformity of LLMs** (2501.13381) — Analyzed as Paper 128
 
 **MEDIUM PRIORITY — Overthinking Research**
-- [ ] **Overthinking in LRMs** (2412.21187) — First overthinking paper; test-time compute dynamics
+- [x] **Overthinking in LRMs** (2412.21187) — Analyzed as Paper 129
 - [ ] **Overthinking in LRMs** (2501.18585) — Second overthinking paper; mechanistic analysis
 
 **MEDIUM PRIORITY — Adversarial/Hallucination**
