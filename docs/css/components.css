@@ -442,15 +442,19 @@
   background: var(--glass-bg-subtle);
   transition: all var(--transition-normal);
 }
-.arxiv-link:hover,
-.analysis-link:hover {
-  background: var(--glass-bg);
-  transform: translateY(-1px);
-}
 .arxiv-link svg,
 .analysis-link svg {
   width: 12px;
   height: 12px;
+}
+.arxiv-link {
+  background: var(--accent-challenges-glow);
+  color: var(--accent-challenges);
+}
+.arxiv-link:hover {
+  background: var(--accent-challenges);
+  color: white;
+  transform: translateY(-1px);
 }
 .analysis-link {
   background: var(--accent-balanced-glow);
@@ -459,6 +463,7 @@
 .analysis-link:hover {
   background: var(--accent-balanced);
   color: white;
+  transform: translateY(-1px);
 }
 
 /* Thesis Card */
