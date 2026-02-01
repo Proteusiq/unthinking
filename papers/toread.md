@@ -124,14 +124,14 @@ These papers directly test or challenge the thesis that LLM reasoning is pattern
 |----------|-------|----------|----------|
 | 2305.04388 | **Language Models Don't Always Say What They Think** (Turpin et al.) | ✅ DONE | Analyzed as Paper 148 |
 | 2212.08073 | **Large Language Models Can Be Easily Distracted** | 🟡 MEDIUM | Irrelevant context hurts reasoning. Related to GSM-NoOp findings. |
-| 2309.12288 | **The Reversal Curse: LLMs trained on "A is B" fail to learn "B is A"** (Berglund et al.) | ⭐ CRITICAL | 79% forward, 7% reverse accuracy. 0% NameToDescription in reverse. Proves LLMs don't understand relations, just patterns. |
+| 2309.12288 | **The Reversal Curse: LLMs trained on "A is B" fail to learn "B is A"** (Berglund et al.) | ✅ DONE | Analyzed as Paper 149 |
 
 ### Relational Reasoning & World Models
 
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
 | 2206.XXXXX | **DLM: Differentiable Logic Machines** | 🟡 MEDIUM | Dramatically outperforms LLMs 100,000x larger on logical reasoning. Architectural comparison. |
-| 2305.15771 | **On the Planning Abilities of Large Language Models** (Valmeekam et al., NeurIPS Spotlight 2023) | ⭐ CRITICAL | ~12% success rate for GPT-4 on autonomous planning. Foundational critique. |
+| 2305.15771 | **On the Planning Abilities of Large Language Models** (Valmeekam et al., NeurIPS Spotlight 2023) | ✅ DONE | Analyzed as Paper 150 |
 | 2206.10498 | **PlanBench: Evaluating LLMs on Planning and Reasoning about Change** (Valmeekam et al., NeurIPS D&B 2023) | 🟠 HIGH | Benchmark used in planning investigations. |
 
 ### Emergence/Scaling Critiques
@@ -139,7 +139,7 @@ These papers directly test or challenge the thesis that LLM reasoning is pattern
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
 | 2304.15004 | **Are Emergent Abilities of LLMs a Mirage?** (Schaeffer et al.) | ✅ DONE | Analyzed as Paper 146 |
-| 2201.11903 | **Chain of Thought Prompting Elicits Reasoning** (Wei et al.) | 🟠 HIGH | Original CoT paper. Foundation for all CoT research. Need for completeness. |
+| 2201.11903 | **Chain of Thought Prompting Elicits Reasoning** (Wei et al.) | ✅ DONE | Analyzed as Paper 151 |
 
 ---
 
