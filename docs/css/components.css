@@ -448,11 +448,11 @@
   height: 12px;
 }
 .arxiv-link {
-  background: var(--accent-challenges-glow);
-  color: var(--accent-challenges);
+  background: rgba(167, 139, 250, 0.3);
+  color: #a78bfa;
 }
 .arxiv-link:hover {
-  background: var(--accent-challenges);
+  background: #a78bfa;
   color: white;
   transform: translateY(-1px);
 }
