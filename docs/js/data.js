@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 160,
+    totalAnalyzed: 161,
     lastUpdated: '2026-02-01',
   },
   nodes: [
@@ -3060,6 +3060,28 @@ window.paperData = {
       ],
       analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/150-159/155_self_consistency.md',
     },
+    // Paper 156: LLMs Still Can't Plan; Can LRMs? (Kambhampati et al.)
+    {
+      id: '2409.13373',
+      title: 'LLMs Still Can\'t Plan; Can LRMs? A Preliminary Evaluation of OpenAI\'s o1 on PlanBench',
+      shortTitle: 'o1 on PlanBench',
+      date: 'Sep 2024',
+      stance: 'balanced',
+      cluster: 'complexity',
+      coreArgument:
+        'o1 shows "quantum improvement" over LLMs (97.8% vs 62.6% Blocksworld) but still fails on obfuscated tasks (52.8% Mystery BW) and longer problems (23.6% at 20+ steps). Fast Downward achieves 100% at ~$0.',
+      keyEvidence: [
+        'o1-preview: 97.8% Blocksworld vs LLaMA 62.6%',
+        'Mystery BW: 52.8% (LLMs: 0%)',
+        '20+ step problems: 23.6%',
+        'Cost: $42.12 vs Fast Downward ~$0',
+      ],
+      keyQuotes: [
+        "While o1's performance is a quantum improvement, it is still far from saturating the benchmark.",
+        "When o1 gives an incorrect answer, it sometimes provides creative, nonsensical justification — from hallucinating to gaslighting!"
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/150-159/156_llms_still_cant_plan_lrms.md',
+    },
     // Paper 157: Token Bias (Jiang et al.)
     {
       id: '2406.11050',
@@ -3142,6 +3164,11 @@ window.paperData = {
         'Self-consistency partially mitigates',
         'Explicit instructions help but incomplete',
       ],
+      keyQuotes: [
+        "We find that the model performance is dramatically decreased when irrelevant information is included.",
+        "Large language models have achieved impressive performance... However, so far they have been evaluated primarily on benchmarks where all information in the input context is relevant."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/160-169/160_gsm_ic_distracted_irrelevant_context.md',
     },
   ],
   links: [
