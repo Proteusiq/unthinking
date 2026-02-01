@@ -19,13 +19,11 @@ What I found: LLMs search their training distribution. They match patterns seen 
 
 Chain-of-Thought works because similar chains existed in training data — not because the model invents new logic. Test-time compute helps. RL helps. They surface what already exists.
 
-This is not a criticism. Pattern matching at unprecedented scale is remarkable. Useful. Worth developing further. And we must see it clearly.
+Calling this pattern matching is not a criticism — it's clarity. These systems work. Pattern matching at unprecedented scale is genuinely useful.
 
-A prediction is not a thought.
+But a prediction is not a thought. Expect brittleness at the edges. Expect failure when the problem shifts.
 
-Expect brittleness at the edges. Expect failure when the problem shifts.
-
-The models work. Let's use them honestly. Let's expect appropriately.
+Use them. Develop them further. Just see them clearly.
 
 ---
 
