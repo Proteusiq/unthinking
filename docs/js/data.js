@@ -19,6 +19,12 @@ window.paperData = {
         'Exponential error accumulation',
         "Grokking (60 epochs) doesn't help OOD",
       ],
+      keyQuotes: [
+        "Models' success can be attributed, in part, to their exposure to training examples sub-graphs that involve the same computations required for solving test examples.",
+        'The probability of arriving at a wrong answer increases exponentially with the number of reasoning steps.',
+      ],
+      analysisUrl:
+        'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/00-09/00_faith_and_fate.md',
     },
     {
       id: '2506.06941',
@@ -35,6 +41,12 @@ window.paperData = {
         'Token usage decreases at collapse',
         'All LRMs fail at high complexity',
       ],
+      keyQuotes: [
+        'We observe a consistent pattern across all puzzles: performance drops sharply after a certain complexity threshold, rather than degrading gradually.',
+        'The models produce fewer tokens when they fail than when they succeed, suggesting they are not even attempting deeper reasoning.',
+      ],
+      analysisUrl:
+        'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/00-09/03_illusion_of_thinking.md',
     },
     {
       id: '2410.05229',
@@ -50,6 +62,12 @@ window.paperData = {
         'High variance across equivalent questions',
         'Few-shot cannot recover',
       ],
+      keyQuotes: [
+        'LLMs exhibit significant performance variability when responding to different instantiations of the same question.',
+        'Adding seemingly relevant but ultimately inconsequential statements to problems can decrease performance by up to 65%.',
+      ],
+      analysisUrl:
+        'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/00-09/01_gsm_symbolic.md',
     },
     {
       id: '2506.18880',

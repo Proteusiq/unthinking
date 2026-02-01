@@ -540,6 +540,19 @@
     const evidenceList = panel.querySelector('.panel-evidence');
     evidenceList.innerHTML = d.keyEvidence.map((e) => `<li>${e}</li>`).join('');
 
+    // Key Quotes
+    const quotesSection = panel.querySelector('.quotes-section');
+    const quotesContainer = panel.querySelector('.panel-quotes');
+    if (d.keyQuotes && d.keyQuotes.length > 0) {
+      quotesSection.classList.add('has-quotes');
+      quotesContainer.innerHTML = d.keyQuotes
+        .map((q) => `<blockquote class="panel-quote">${q}</blockquote>`)
+        .join('');
+    } else {
+      quotesSection.classList.remove('has-quotes');
+      quotesContainer.innerHTML = '';
+    }
+
     // Connections
     const outgoingList = panel.querySelector('.outgoing-list');
     const incomingList = panel.querySelector('.incoming-list');
@@ -594,6 +607,15 @@
     // ArXiv link
     const arxivLink = panel.querySelector('.arxiv-link');
     arxivLink.href = `https://arxiv.org/abs/${d.id}`;
+
+    // Analysis link
+    const analysisLink = panel.querySelector('.analysis-link');
+    if (d.analysisUrl) {
+      analysisLink.href = d.analysisUrl;
+      analysisLink.style.display = 'inline-flex';
+    } else {
+      analysisLink.style.display = 'none';
+    }
 
     // Add double-click handlers for connection items to jump to node
     panel.querySelectorAll('.connection-list li[data-id]').forEach((item) => {

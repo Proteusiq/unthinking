@@ -385,12 +385,51 @@
   background: rgba(167, 139, 250, 0.3);
   color: #a78bfa;
 }
+/* Key Quotes */
+.quotes-section {
+  display: none;
+}
+.quotes-section.has-quotes {
+  display: block;
+}
+.panel-quotes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.panel-quote {
+  position: relative;
+  padding: var(--space-sm) var(--space-md);
+  padding-left: var(--space-lg);
+  background: var(--glass-bg-subtle);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--accent-balanced);
+  font-size: 0.8125rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.panel-quote::before {
+  content: '"';
+  position: absolute;
+  left: 6px;
+  top: 4px;
+  font-size: 1.5rem;
+  font-style: normal;
+  color: var(--accent-balanced);
+  opacity: 0.5;
+  line-height: 1;
+}
+
 .panel-footer {
   flex-shrink: 0;
   padding: var(--space-sm) var(--space-md) var(--space-md);
   border-top: 1px solid var(--glass-border);
+  display: flex;
+  gap: var(--space-sm);
 }
-.arxiv-link {
+.arxiv-link,
+.analysis-link {
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
@@ -403,13 +442,23 @@
   background: var(--glass-bg-subtle);
   transition: all var(--transition-normal);
 }
-.arxiv-link:hover {
+.arxiv-link:hover,
+.analysis-link:hover {
   background: var(--glass-bg);
   transform: translateY(-1px);
 }
-.arxiv-link svg {
+.arxiv-link svg,
+.analysis-link svg {
   width: 12px;
   height: 12px;
+}
+.analysis-link {
+  background: var(--accent-balanced-glow);
+  color: var(--accent-balanced);
+}
+.analysis-link:hover {
+  background: var(--accent-balanced);
+  color: white;
 }
 
 /* Thesis Card */
