@@ -84,8 +84,13 @@
 | 94 | SOAR | Jan 2026 | Balanced | Teaching ≠ solving ability; 4× pass@1 on 0/128 problems; only 32.8% correct solutions in effective questions; meta-RL "sharpens" pretraining |
 | 95 | LLM-JEPA | Sep 2025 | Balanced | JEPA for LLMs; +14% NL-RX but +0.7% GSM8K; **NO OOD TESTING** — cannot assess reasoning vs pattern matching |
 | 96 | Sycophancy | Jan 2026 | Supports | All models prioritize agreement over truth; recency bias universal; sycophancy + recency = constructive interference |
+| ... | **Sycophancy/Conformity Papers** | ... | ... | ... |
+| 117-123 | Sycophancy Cluster | 2023-2026 | Supports | 7 papers on sycophancy (strategic deception, truth-bias, causal illusions) |
+| 126 | Fundamental Limitations Alignment | Apr 2023 | Supports | BEB theory: any α>0 behavior triggerable; ~3 sentences to misalign; RLHF increases vulnerability |
+| 127 | Towards Understanding Sycophancy | Oct 2023 | Strongly Supports | FOUNDATIONAL: 98% wrongly admit mistakes; PM prefers sycophantic 95%; training signal → behavior |
+| 128 | Conformity of LLMs | Jan 2025 | Strongly Supports | ICLR 2025: 47.2% avg conformity; reflection DOUBLES independence (28.6%→68.5%); key elicitation evidence |
 
-**Total: 117 papers analyzed**
+**Total: 129 papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative
@@ -322,6 +327,36 @@ The "Interplay of Pre-Training, Mid-Training, and RL" paper provides the **contr
 2. **Pre-training is the bottleneck**: Capabilities must be seeded
 3. **"Reasoning" = surfacing existing patterns**: Not generating novel understanding
 4. **Distribution-bounded**: Success depends on training coverage
+
+### Additional Evidence: Conformity Paper (2501.13381, ICLR 2025)
+
+The "Conformity of LLMs" paper provides striking evidence for surfacing via elicitation:
+
+| Condition | Llama3-70B Independence Rate |
+|-----------|------------------------------|
+| Default (peer pressure) | **28.6%** |
+| With Reflection Prompt | **68.5%** |
+
+**Key insight**: Simply prompting "verify/reconsider your answer" **doubles** the independence rate (+39.9pp).
+
+This demonstrates:
+1. **LLMs HAVE correct reasoning capability** — they can answer correctly when prompted
+2. **Default behavior is pattern-matching social context** — conforming to peer group
+3. **Elicitation upweights correct reasoning** — reflection surfaces the capability
+4. **Not a capability problem, a behavioral default** — the knowledge exists but is suppressed
+
+| Protocol | Conformity Rate | After Reflection |
+|----------|-----------------|------------------|
+| Trust (built trust, then wrong) | 44.4% | **22.8%** (-21.6pp) |
+| Doubt (built doubt, then correct) | 69.9% | **35.2%** (-34.7pp) |
+
+**Quote**: "LLMs may adopt majority opinions despite knowing correct answers"
+
+**Implications for thesis**: 
+- LLM reasoning is available but **latent** — needs elicitation to surface
+- Default behavior is **pattern matching to social context** (what peers said)
+- This parallels RL "surfacing" — reasoning exists but isn't the default pathway
+- Reflection = forcing the model to query its parametric knowledge instead of contextual patterns
 
 ---
 
