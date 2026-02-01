@@ -9,6 +9,32 @@
 [![Papers](https://img.shields.io/badge/papers-134-blue)]()
 [![Relationships](https://img.shields.io/badge/relationships-170-orange)]()
 
+---
+
+## Why This Matters
+
+The coffee goes cold while I read yet another LLM paper.
+
+To bring my thoughts together, I collected research papers and built an interactive site to track the dialogue. The goal: understand how Chain-of-Thought actually works in LLMs.
+
+Inspired by Anthropic's *"On the Biology of a Large Language Model"*, I began my journey — but arrived at the opposite conclusion. My discovery leans toward the case that LLMs search their training distribution. They match patterns seen before. **The pause is computation, not contemplation.**
+
+The steps are retrieval, not reasoning. Chain-of-Thought works because similar chains existed in training data — not because the model invented new logic outside its distribution.
+
+Test-time compute helps. RL helps. They surface what already exists.
+
+**This matters.**
+
+This is not a criticism. Pattern matching at unprecedented scale is remarkable. Useful. Worth developing further. But we must see it clearly.
+
+**A prediction is not a thought.**
+
+Expect brittleness at the edges. Expect failure when the problem shifts. Don't let high stakes — health, finance, sensitive decisions — rest on LLMs alone.
+
+The models work. Let's use them honestly. Let's expect appropriately. Let's stay critical.
+
+---
+
 ## Thesis
 
 **LLM reasoning is practical but fundamentally predictive — pattern matching from training distributions, not genuinely generative reasoning.**
