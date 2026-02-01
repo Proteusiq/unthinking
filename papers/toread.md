@@ -21,8 +21,8 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
 | 2310.07923 | **The Expressive Power of Transformers with Chain of Thought** (Merrill & Sabharwal) | ✅ DONE | Analyzed as Paper 152. Proves CoT adds computational power — linear steps = regular languages. |
-| 2305.14699 | **Can Transformers Learn to Solve Problems Recursively?** | 🟠 HIGH | Mechanistic interp of recursive failures. Predicts 91% of failure cases by reconstructing "shortcut" algorithms. |
-| 2108.12409 | **Train Short, Test Long: ALiBi** (Press et al.) | 🟠 HIGH | **Length extrapolation** (ICLR 2022). Linear biases enable OOD length generalization — architectural approach. |
+| 2305.14699 | **Can Transformers Learn to Solve Problems Recursively?** | ✅ DONE | Analyzed as Paper 158. Predicts 91% of failure cases by reconstructing "shortcut" algorithms. |
+| 2108.12409 | **Train Short, Test Long: ALiBi** (Press et al.) | ✅ DONE | Analyzed as Paper 159. ICLR 2022. Linear biases enable length extrapolation — architectural approach. |
 | 2206.10498 | **PlanBench** (Valmeekam et al.) | ✅ DONE | Analyzed as Paper 153. IPC-style benchmark, GPT-4 achieves ~12% on planning. |
 
 ### Medium Priority — Additional Foundations

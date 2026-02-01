@@ -489,6 +489,15 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Token Bias (2406.11050)** | **supports** | **Unfaithful CoT (2305.04388)** | **Token bias underlies CoT unfaithfulness** |
 | **Token Bias (2406.11050)** | **supports** | **Faith and Fate (2305.18654)** | **Token patterns = linearized subgraph matching** |
 | **Token Bias (2406.11050)** | **provides evidence for** | **Pattern matching thesis** | **Statistical hypothesis testing proves token bias drives performance, not reasoning** |
+| **Recursive Problems (2305.14699)** | **supports** | **Faith and Fate (2305.18654)** | **Shortcut algorithms = linearized subgraph matching** |
+| **Recursive Problems (2305.14699)** | **supports** | **Beyond Memorization (2601.13392)** | **Both show models learn patterns that break on unseen cases** |
+| **Recursive Problems (2305.14699)** | **supports** | **Grokked Transformers (2405.15071)** | **Both examine implicit reasoning; this shows recursion-specific failures** |
+| **Recursive Problems (2305.14699)** | **supports** | **Planning Gap (2601.14456)** | **ID success doesn't transfer — 82.9% ID → 0% OOD parallels recursive failures** |
+| **Recursive Problems (2305.14699)** | **provides evidence for** | **Pattern matching thesis** | **91% failure prediction from reconstructed shortcut algorithms** |
+| **ALiBi (2108.12409)** | **supports** | **Theory for Length Generalization (2404.00560)** | **Provides empirical support for architectural approach** |
+| **ALiBi (2108.12409)** | **supports** | **Interplay (2512.07783)** | **Capability must exist; ALiBi encodes recency as prior** |
+| **ALiBi (2108.12409)** | **partially addresses** | **CoT Mirage (2508.01191)** | **Addresses LENGTH failures but not compositional OOD** |
+| **ALiBi (2108.12409)** | **does not address** | **Faith and Fate (2305.18654)** | **Length extrapolation ≠ compositional generalization** |
 | **Sycophantic Anchors (2601.21183)** | **extends** | **Measuring Faithfulness (2307.13702)** | **Sentence-level mechanism for CoT unfaithfulness; counterfactual localization** |
 | **Sycophantic Anchors (2601.21183)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | **Both show distinct computational pathways for unfaithful reasoning** |
 | **Sycophantic Anchors (2601.21183)** | **supports** | **CoT In The Wild (2503.08679)** | **Mechanistic evidence for unfaithfulness in natural conversational settings** |
@@ -952,3 +961,5 @@ These papers have NO direct rebuttals found:
 | 2026-02-01 | Added Zero-Shot CoT (2205.11916) — NeurIPS 2022: Kojima "Let's think step by step." +61pp MultiArith, +30pp GSM8K. FOR thesis (but challenged by bias susceptibility) |
 | 2026-02-01 | Added Self-Consistency (2203.11171) — ICLR 2023: Wang et al. +17.9pp GSM8K via diverse sampling + majority vote. FOR thesis (mechanism paper) |
 | 2026-02-01 | Added Token Bias (2406.11050) — EMNLP 2024: Statistical hypothesis testing framework. 6 hypotheses rejected. 91% failure prediction from token patterns. STRONGLY SUPPORTS thesis |
+| 2026-02-01 | Added Recursive Problems (2305.14699) — Transformers learn "shortcut" algorithms instead of true recursion. 91% failure prediction from reconstructed algorithms. STRONGLY SUPPORTS thesis |
+| 2026-02-01 | Added ALiBi (2108.12409) — ICLR 2022: Linear biases enable length extrapolation (1024→2048). 11% faster/less memory. Addresses length but NOT compositional OOD. BALANCED |
