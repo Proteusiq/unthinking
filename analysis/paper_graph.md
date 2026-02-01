@@ -602,6 +602,22 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Stop Anthropomorphizing Tokens (2504.09762)** | **supports** | **Underthinking (2501.18585)** | **No metacognitive awareness of reasoning quality** |
 | **Stop Anthropomorphizing Tokens (2504.09762)** | **provides framework for** | **Understanding LRMs** | **"Compiling reasoning into retrieval via learning"** |
 | **Stop Anthropomorphizing Tokens (2504.09762)** | **provides evidence for** | **Pattern matching thesis** | **Incorrect traces OUTPERFORM correct; R1-Zero > R1; trace content irrelevant; "aha" meaningless** |
+| **Not All Code Is Equal (2601.21894)** | **supports** | **Demystifying Long CoT (2502.03373)** | **Both show training exposes patterns; complexity-specific > diverse** |
+| **Not All Code Is Equal (2601.21894)** | **supports** | **CoT Training Mechanisms (2502.04667)** | **Both analyze training structure effects on reasoning** |
+| **Not All Code Is Equal (2601.21894)** | **supports** | **Base Models Know How to Reason (2510.07364)** | **Code complexity surfaces latent patterns** |
+| **Not All Code Is Equal (2601.21894)** | **supports** | **WhatCounts (2601.21618)** | **Both show surface properties determine performance** |
+| **Not All Code Is Equal (2601.21894)** | **provides evidence for** | **Pattern matching thesis** | **83% of experiments show complexity-restricted training beats diverse; models respond to SURFACE structural properties, not semantic content** |
+| **Meta-Thought to Execution (2601.21909)** | **supports** | **Demystifying Long CoT (2502.03373)** | **Both show surfacing hypothesis; CoT as trajectory imitation** |
+| **Meta-Thought to Execution (2601.21909)** | **supports** | **CoT Training Mechanisms (2502.04667)** | **Both analyze CoT mechanisms** |
+| **Meta-Thought to Execution (2601.21909)** | **supports** | **Not All Code Is Equal (2601.21894)** | **Both show training data structure matters** |
+| **Meta-Thought to Execution (2601.21909)** | **challenged by** | **Can ICL Generalize OOD (2410.09695)** | **Real OOD is ~10% accuracy; Paper 141's "OOD" is within-domain (math)** |
+| **Meta-Thought to Execution (2601.21909)** | **provides evidence for** | **Pattern matching thesis** | **Diagnoses standard CoT as "trajectory imitation"; +4.63% OOD but OOD = same domain** |
+| **System 1&2 Synergy (2601.21414)** | **supports** | **Base Models Know How to Reason (2510.07364)** | **Reasoning is latent, surfaced by configuration (λ parameter)** |
+| **System 1&2 Synergy (2601.21414)** | **supports** | **Demystifying Long CoT (2502.03373)** | **Both analyze System 1/System 2 dynamic** |
+| **System 1&2 Synergy (2601.21414)** | **supports** | **Not All Code Is Equal (2601.21894)** | **Capability is continuous function of configuration** |
+| **System 1&2 Synergy (2601.21414)** | **extends** | **Overthinking (2412.21187)** | **DAMI could address overthinking via dynamic λ** |
+| **System 1&2 Synergy (2601.21414)** | **extends** | **Underthinking (2501.18585)** | **DAMI could address underthinking via dynamic λ** |
+| **System 1&2 Synergy (2601.21414)** | **provides evidence for** | **Pattern matching thesis** | **Linear interpolation works; "thinking" is quantitative (λ parameter), not qualitative capability** |
 
 
 ### Extends / Builds On
@@ -878,3 +894,6 @@ These papers have NO direct rebuttals found:
 | 2026-02-01 | Added CoT Training Mechanisms (2502.04667) — CONTROLLED: Non-CoT 100% ID/0% OOD; CoT 100%/100%; two-stage circuit; intermediate results at layer 3 vs 5; CoT exposes subtask patterns, doesn't teach reasoning; STRONGLY SUPPORTS thesis |
 | 2026-02-01 | Added Lexical Accuracy Hints (2508.15842) — Surface markers predict errors better than confidence; 84.6% calibration error; harmful words ("guess", "stuck") reduce accuracy 40%; 5-word rule MCC=0.305 vs confidence MCC=0.065; STRONGLY SUPPORTS thesis |
 | 2026-02-01 | Added Recursive Language Models (2512.24601) — ICML: Context rot confirms limits (GPT-5: 0.1% OOLONG-Pairs); RLMs provide scaffolding (58%); engineering around limitations; BALANCED |
+| 2026-02-01 | Added Not All Code Is Equal (2601.21894) — ICML: 83% of experiments show complexity-restricted training beats diverse; models respond to SURFACE structural properties; model-specific optimal complexity; SUPPORTS thesis |
+| 2026-02-01 | Added Meta-Thought to Execution (2601.21909) — ICML: +4.63% OOD but OOD = same domain (math); diagnoses standard CoT as "trajectory imitation"; meta-thought learns abstract patterns; BALANCED |
+| 2026-02-01 | Added System 1&2 Synergy (2601.21414) — IJCAI: Linear interpolation θ = (1-λ)·θ_instruct + λ·θ_thinking works; "thinking" is quantitative (λ parameter) not qualitative capability; BALANCED |

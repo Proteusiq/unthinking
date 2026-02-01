@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 142,
+    totalAnalyzed: 148,
     lastUpdated: '2026-02-01',
   },
   nodes: [
@@ -2020,6 +2020,54 @@ window.paperData = {
         'Fine-tuned RLM-8B: +28.3% avg improvement',
         'RLMs scale to 10M+ tokens',
         'Only 1,000 samples needed for fine-tuning',
+      ],
+    },
+    {
+      id: '2601.21894',
+      title: 'Not All Code Is Equal: Code Complexity and LLM Reasoning',
+      shortTitle: 'Code Complexity',
+      date: 'Jan 2026',
+      stance: 'supports',
+      cluster: 'mechanism',
+      coreArgument:
+        'ICML: 83% of experiments show complexity-restricted training beats diverse. Models respond to SURFACE structural properties (cyclomatic complexity), not semantic content. Model-specific optimal complexity.',
+      keyEvidence: [
+        '83% experiments: complexity-restricted > diverse',
+        'Qwen peaks at CC≈10, Llama shows negative correlation',
+        'High complexity can HARM reasoning (below NL baseline)',
+        'Model-specific optimal complexity bands',
+      ],
+    },
+    {
+      id: '2601.21909',
+      title: 'From Meta-Thought to Execution: Cognitively Aligned Post-Training',
+      shortTitle: 'Meta-Thought',
+      date: 'Jan 2026',
+      stance: 'balanced',
+      cluster: 'mechanism',
+      coreArgument:
+        'ICML: +4.63% OOD improvement but OOD = same domain (math). Diagnoses standard CoT as "trajectory imitation". CoMT learns abstract patterns WITHOUT numerical calculations.',
+      keyEvidence: [
+        '+2.19% ID, +4.63% OOD improvement',
+        'All "OOD" benchmarks are math word problems',
+        'CoT-SFT = trajectory imitation',
+        'Meta-thought separates structure from content',
+      ],
+    },
+    {
+      id: '2601.21414',
+      title: 'System 1&2 Synergy via Dynamic Model Interpolation',
+      shortTitle: 'System 1&2 Synergy',
+      date: 'Jan 2026',
+      stance: 'balanced',
+      cluster: 'mechanism',
+      coreArgument:
+        'IJCAI: Linear interpolation θ = (1-λ)·θ_instruct + λ·θ_thinking works smoothly. "Thinking" is quantitative (λ parameter), not qualitative capability. System 1 and System 2 share continuous representation space.',
+      keyEvidence: [
+        'Linear interpolation works (λ=0 to λ=1)',
+        'Smooth accuracy transitions',
+        'Output length is symptom, not cause',
+        'DAMI outperforms static models',
       ],
     },
   ],
@@ -4304,6 +4352,87 @@ window.paperData = {
       target: '2507.17699',
       type: 'extends',
       description: 'Both argue tools augment reasoning',
+    },
+    // Paper 140: Not All Code Is Equal links
+    {
+      source: '2601.21894',
+      target: '2502.03373',
+      type: 'supports',
+      description: 'Both show training exposes patterns; complexity-specific > diverse',
+    },
+    {
+      source: '2601.21894',
+      target: '2502.04667',
+      type: 'supports',
+      description: 'Both analyze training structure effects on reasoning',
+    },
+    {
+      source: '2601.21894',
+      target: '2510.07364',
+      type: 'supports',
+      description: 'Code complexity surfaces latent patterns',
+    },
+    {
+      source: '2601.21894',
+      target: '2601.21618',
+      type: 'supports',
+      description: 'Both show surface properties determine performance',
+    },
+    // Paper 141: Meta-Thought to Execution links
+    {
+      source: '2601.21909',
+      target: '2502.03373',
+      type: 'supports',
+      description: 'Both show surfacing hypothesis; CoT as trajectory imitation',
+    },
+    {
+      source: '2601.21909',
+      target: '2502.04667',
+      type: 'supports',
+      description: 'Both analyze CoT mechanisms',
+    },
+    {
+      source: '2601.21909',
+      target: '2601.21894',
+      type: 'supports',
+      description: 'Both show training data structure matters',
+    },
+    {
+      source: '2410.09695',
+      target: '2601.21909',
+      type: 'challenges',
+      description: 'Real OOD is ~10%; Paper 141 OOD is within-domain',
+    },
+    // Paper 142: System 1&2 Synergy links
+    {
+      source: '2601.21414',
+      target: '2510.07364',
+      type: 'supports',
+      description: 'Reasoning is latent, surfaced by λ configuration',
+    },
+    {
+      source: '2601.21414',
+      target: '2502.03373',
+      type: 'supports',
+      description: 'Both analyze System 1/System 2 dynamic',
+    },
+    {
+      source: '2601.21414',
+      target: '2601.21894',
+      type: 'supports',
+      description: 'Capability is continuous function of configuration',
+    },
+    {
+      source: '2601.21414',
+      target: '2412.21187',
+      type: 'extends',
+      description: 'DAMI could address overthinking via dynamic λ',
+    },
+    {
+      source: '2601.21414',
+      target: '2501.18585',
+      type: 'extends',
+      description: 'DAMI could address underthinking via dynamic λ',
     },
   ],
 };

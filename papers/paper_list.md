@@ -288,6 +288,9 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 137 | 2502.04667 | Feb 2025 | Unveiling the Mechanisms of Explicit CoT Training | Supports | ✅ DONE |
 | 138 | 2508.15842 | Aug 2025 | Lexical Hints of Accuracy in LLM Reasoning Chains | Strongly Supports | ✅ DONE |
 | 139 | 2512.24601 | Dec 2025 | Recursive Language Models | Balanced | ✅ DONE |
+| 140 | 2601.21894 | Jan 2026 | Not All Code Is Equal: Code Complexity and LLM Reasoning | Supports | ✅ DONE |
+| 141 | 2601.21909 | Jan 2026 | From Meta-Thought to Execution (CoMT+CCRL) | Balanced | ✅ DONE |
+| 142 | 2601.21414 | Jan 2026 | System 1&2 Synergy via Dynamic Model Interpolation | Balanced | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -303,11 +306,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 139
-- **Against Reasoning**: ~76
+- **Total Papers**: 142
+- **Against Reasoning**: ~77
 - **For Reasoning**: ~27
-- **Balanced**: ~41
+- **Balanced**: ~43
 - **Date Range**: 2023-2026
-- **Analyzed**: 139
+- **Analyzed**: 142
 
 ---
