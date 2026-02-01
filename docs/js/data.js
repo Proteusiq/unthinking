@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 131,
+    totalAnalyzed: 132,
     lastUpdated: '2026-02-01',
   },
   nodes: [
@@ -1867,6 +1867,23 @@ window.paperData = {
         '>70% incorrect contain correct thought',
         'First thoughts often correct but abandoned',
         'Tip penalty improves accuracy without training',
+      ],
+    },
+    {
+      id: '2403.04121',
+      title: 'Can Large Language Models Reason and Plan?',
+      shortTitle: 'LLMs Reason & Plan?',
+      date: 'Mar 2024',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'FOUNDATIONAL: Kambhampati argues LLMs are "n-gram models on steroids" doing "universal approximate retrieval," not reasoning. Obfuscation destroys planning performance. Self-verification makes things WORSE. LLMs valuable as knowledge sources, not reasoners.',
+      keyEvidence: [
+        'Obfuscation plummets GPT-4 planning',
+        'Self-verification worsens performance',
+        'LLMs = external System 1, not System 2',
+        'Fine-tuning = memory compilation',
+        'LLM-Modulo: LLMs + external verifiers',
       ],
     },
   ],
@@ -3884,6 +3901,31 @@ window.paperData = {
       target: '2501.02497',
       type: 'extends',
       description: 'Another failure mode of scaling test-time compute',
+    },
+    // Paper 131: Can LLMs Reason and Plan (Kambhampati) links
+    {
+      source: '2403.04121',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Approximate retrieval = linearized subgraph matching',
+    },
+    {
+      source: '2403.04121',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Predicts collapse at complexity thresholds',
+    },
+    {
+      source: '2403.04121',
+      target: '2506.18880',
+      type: 'supports',
+      description: 'Assembly problem predicts compositional failure',
+    },
+    {
+      source: '2403.04121',
+      target: '2601.14456',
+      type: 'supports',
+      description: 'Obfuscation findings predict ID/OOD gap',
     },
   ],
 };

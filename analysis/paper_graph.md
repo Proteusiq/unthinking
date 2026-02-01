@@ -555,6 +555,14 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Underthinking o1-Like LLMs (2501.18585)** | **extends** | **Survey of Test-Time Compute (2501.02497)** | **Another failure mode of scaling test-time compute** |
 | **Underthinking o1-Like LLMs (2501.18585)** | **provides mechanism for** | **CoT unfaithfulness** | **Models generate reasoning patterns without evaluating them; no metacognitive awareness** |
 | **Underthinking o1-Like LLMs (2501.18585)** | **provides evidence for** | **Pattern matching thesis** | **>70% incorrect responses contain correct thought; 418% more switching in incorrect; models can't evaluate reasoning paths; simple decoding penalty fixes it** |
+| **Can LLMs Reason and Plan (2403.04121)** | **foundational for** | **Entire thesis** | **Kambhampati's theoretical framework: LLMs = universal approximate retrieval, not reasoning** |
+| **Can LLMs Reason and Plan (2403.04121)** | **supports** | **Planning Gap (2601.14456)** | **Obfuscation findings predict ID/OOD gap** |
+| **Can LLMs Reason and Plan (2403.04121)** | **supports** | **OMEGA (2506.18880)** | **"Assembly problem" predicts compositional failure** |
+| **Can LLMs Reason and Plan (2403.04121)** | **supports** | **Faith and Fate (2305.18654)** | **"Approximate retrieval" = "linearized subgraph matching"** |
+| **Can LLMs Reason and Plan (2403.04121)** | **supports** | **Illusion of Thinking (2506.06941)** | **Predicts collapse at complexity thresholds** |
+| **Can LLMs Reason and Plan (2403.04121)** | **provides framework for** | **Surfacing hypothesis** | **Fine-tuning = memory compilation, not reasoning creation** |
+| **Can LLMs Reason and Plan (2403.04121)** | **provides framework for** | **LLM-Modulo** | **LLMs as idea generators + external verifiers** |
+| **Can LLMs Reason and Plan (2403.04121)** | **provides evidence for** | **Self-verification failures** | **Self-critiquing makes performance WORSE; hallucinate both false positives and negatives** |
 
 
 ### Extends / Builds On
@@ -821,3 +829,4 @@ These papers have NO direct rebuttals found:
 | 2026-02-01 | Added Conformity of LLMs (2501.13381) — ICLR 2025: 47.2% avg conformity rate (Doubt); 91.2% CR for Llama3.1-8B; all 11 LLMs show conformity; trust/doubt relationships form; reflection doubles IR; STRONGLY SUPPORTS thesis |
 | 2026-02-01 | Added Overthinking in o1-Like LLMs (2412.21187) — First solution correct >92%; 1,953% token overhead on "2+3"; more solutions for EASIER problems; distinctness drops 11.5% at solution #4+; ~45% token reduction maintains accuracy; SUPPORTS thesis |
 | 2026-02-01 | Added Underthinking in o1-Like LLMs (2501.18585) — Companion to Paper 129; 225% more tokens + 418% more switches in incorrect responses; >70% incorrect contain correct thought; models abandon correct paths; Tip penalty improves accuracy; SUPPORTS thesis |
+| 2026-02-01 | Added Can LLMs Reason and Plan (2403.04121) — FOUNDATIONAL: Kambhampati's skeptic manifesto; LLMs = "n-gram models on steroids"; "universal approximate retrieval" not reasoning; obfuscation destroys planning; self-verification worsens; LLM-Modulo framework; STRONGLY SUPPORTS thesis |
