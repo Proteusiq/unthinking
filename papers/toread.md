@@ -97,10 +97,10 @@ These papers directly test or challenge the thesis that LLM reasoning is pattern
 
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
-| 2301.00234 | **Transformers Learn 1-Nearest Neighbor** (Li et al.) | ⭐ CRITICAL | Proves single transformer layer = 1-NN. Mechanistic proof for pattern matching hypothesis. Cited by Faith and Fate, GSM-Symbolic. |
-| 2210.02969 | **Impact of Pretraining Term Frequencies on Few-Shot Reasoning** (Razeghi et al.) | ⭐ CRITICAL | Training frequency → test performance. Explains distribution dependence. Foundational for "pattern matching from training" claim. |
+| 2301.00234 | **Transformers Learn 1-Nearest Neighbor** (Li et al.) | ⭐ CRITICAL | WRONG ID — 2301.00234 is ICL Survey. Need to find correct paper. |
+| 2202.07206 | **Impact of Pretraining Term Frequencies on Few-Shot Reasoning** (Razeghi et al.) | ✅ DONE | Analyzed as Paper 147 |
 | 2310.XXXXX | **Token Bias in LLMs** (Jiang et al.) | 🟠 HIGH | Statistical guarantees for token bias. Foundation for fragility/sensitivity findings in GSM-Symbolic. |
-| 2206.07682 | **Emergent Abilities Are Mirage** (Schaeffer et al.) | 🟠 HIGH | Performance decays exponentially. Challenges emergence claims. Theoretical support for pattern limits. |
+| 2206.07682 | **Emergent Abilities Are Mirage** (Schaeffer et al.) | 🟠 HIGH | WRONG ID — check for correct paper. May be duplicate of 2304.15004. |
 
 ### Length/OOD Generalization Theory
 
@@ -122,7 +122,7 @@ These papers directly test or challenge the thesis that LLM reasoning is pattern
 
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
-| 2305.04388 | **Language Models Don't Always Say What They Think** (Turpin et al.) | 🟠 HIGH | CoT biased by irrelevant features. Extends Lanham et al. faithfulness concerns. Major citation in unfaithfulness literature. |
+| 2305.04388 | **Language Models Don't Always Say What They Think** (Turpin et al.) | ✅ DONE | Analyzed as Paper 148 |
 | 2212.08073 | **Large Language Models Can Be Easily Distracted** | 🟡 MEDIUM | Irrelevant context hurts reasoning. Related to GSM-NoOp findings. |
 | 2206.XXXXX | **The Reversal Curse** (Berglund et al.) | 🟠 HIGH | 79% forward, 7% reverse accuracy. Proves LLMs don't understand relations, just patterns. Cited in Comprehension Without Competence. |
 
@@ -137,8 +137,8 @@ These papers directly test or challenge the thesis that LLM reasoning is pattern
 
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
-| 2304.15004 | **Are Emergent Abilities of LLMs a Mirage?** (Schaeffer et al.) | ⭐ CRITICAL | Challenges emergence narrative. Shows abilities are artifacts of metric choice. NeurIPS 2023. |
-| 2202.07206 | **Chain of Thought Prompting Elicits Reasoning** (Wei et al.) | 🟠 HIGH | Original CoT paper. Foundation for all CoT research. Need for completeness. |
+| 2304.15004 | **Are Emergent Abilities of LLMs a Mirage?** (Schaeffer et al.) | ✅ DONE | Analyzed as Paper 146 |
+| 2201.11903 | **Chain of Thought Prompting Elicits Reasoning** (Wei et al.) | 🟠 HIGH | Original CoT paper. Foundation for all CoT research. Need for completeness. |
 
 ---
 
