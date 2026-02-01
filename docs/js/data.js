@@ -83,6 +83,11 @@ window.paperData = {
         '0% transformative generalization',
         '38% correct→incorrect from overthinking',
       ],
+      keyQuotes: [
+      "Unlike humans who fluidly integrate mastered skills, RL models trained on isolated skills struggle at compositional generalization.",
+      "These findings underscore crucial gaps between current LLM reasoning capabilities and human mathematicians."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/30-39/31_omega_llm_reasoning_outside_box.md',
     },
     {
       id: '2512.07783',
@@ -98,6 +103,11 @@ window.paperData = {
         '≥1% exposure → +60% pass@128',
         "RL only helps at 'edge of competence'",
       ],
+      keyQuotes: [
+      "RL cannot synthesize capabilities from a void; it requires latent 'seeds' to amplify.",
+      "RL produces true capability gains only when pre-training leaves sufficient headroom."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/10-19/15_interplay_pretraining_rl.md',
     },
     {
       id: '2501.12948',
@@ -113,6 +123,11 @@ window.paperData = {
         'Emergent self-reflection behavior',
         '7B distilled > 32B QwQ',
       ],
+      keyQuotes: [
+      "Wait, wait. Wait. That's an aha moment I can flag here.",
+      "Rather than explicitly teaching the model how to solve a problem, we simply provide it with the right incentives."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/00-09/05_deepseek_r1.md',
     },
     {
       id: '2501.19393',
@@ -128,6 +143,11 @@ window.paperData = {
         'Budget forcing adds +7%',
         "1K samples can't TEACH AIME math",
       ],
+      keyQuotes: [
+      "Training on only 1,000 samples with next-token prediction... leads to a strong reasoning model.",
+      "The capability was 'latent' \u2014 1K samples couldn't teach all of AIME-level math."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/00-09/07_s1_simple_scaling.md',
     },
     {
       id: '2307.13702',
@@ -143,6 +163,11 @@ window.paperData = {
         'Larger models = LESS faithful',
         "Filler tokens don't help",
       ],
+      keyQuotes: [
+      "As models become larger and more capable, they produce less faithful reasoning on most tasks we study.",
+      "Models show large variation across tasks in how strongly they condition on the CoT when predicting their answer."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/00-09/08_measuring_faithfulness.md',
     },
     {
       id: '2601.14456',
@@ -158,6 +183,11 @@ window.paperData = {
         '11.5pp drop from symbol anonymization',
         'Models loop without progress',
       ],
+      keyQuotes: [
+      "Despite achieving 82.9% valid plan rate in-domain, the model achieves 0% on unseen domains.",
+      "The model tends to get caught in loops or to wander without making progress toward the goal."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/20-29/29_planning_generalization_gap.md',
     },
     {
       id: '2601.00514',
@@ -173,6 +203,11 @@ window.paperData = {
         "Shifts don't increase with training",
         'Correlate with uncertainty, not insight',
       ],
+      keyQuotes: [
+      "Reasoning shifts are rare, do not become more frequent with training, and seldom improve accuracy.",
+      "Mid-reasoning shifts are symptoms of unstable inference behavior rather than self-correction."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/10-19/17_illusion_of_insight.md',
     },
     {
       id: '2507.07313',
@@ -188,6 +223,11 @@ window.paperData = {
         'R1 0% on character counting',
         'Every model better on context-shifted',
       ],
+      keyQuotes: [
+      "Decreasing difficulty can also lead to much worse performance.",
+      "A key failure mode we observe is 'reasoning delirium' \u2014 models apply memorized solutions to wrong problems."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/20-29/20_frontier_llms_still_struggle.md',
     },
     {
       id: '2510.18254',
@@ -203,6 +243,11 @@ window.paperData = {
         'Reasoning models worse (0.036 vs 0.111)',
         'Just retrying works as well',
       ],
+      keyQuotes: [
+      "The second attempt frequently repeats the same violation \u2014 'corrective gains' arise largely from chance.",
+      "Fluent self-critique without correction."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/20-29/21_illusions_of_reflection.md',
     },
     {
       id: '2402.10200',
@@ -218,6 +263,11 @@ window.paperData = {
         '10-20%+ improvement over greedy',
         'Higher confidence = CoT path',
       ],
+      keyQuotes: [
+      "CoT reasoning paths can be elicited from pre-trained LLMs by simply altering the decoding process.",
+      "The presence of a CoT in the decoding path correlates with a higher confidence in the model's decoded answer."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/00-09/02_cot_without_prompting.md',
     },
     {
       id: '2508.01191',
@@ -233,6 +283,11 @@ window.paperData = {
         'Correct reasoning + wrong answer',
         'Small SFT fixes it (data coverage)',
       ],
+      keyQuotes: [
+      "CoT reasoning is a brittle mirage when it is pushed beyond training distributions.",
+      "Models generate fluent yet logically inconsistent reasoning steps."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/00-09/06_cot_mirage.md',
     },
     {
       id: '2505.05410',
@@ -248,6 +303,11 @@ window.paperData = {
         'Misaligned hints: 20-29% verbalized',
         'Reward hacks: >99% use, <2% verbalized',
       ],
+      keyQuotes: [
+      "CoTs of reasoning models often lack faithfulness and can conceal misalignment.",
+      "Models learn to exploit reward hacks on all 6 RL environments... on >99% of examples."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/10-19/10_reasoning_models_dont_say.md',
     },
     {
       id: '2507.17699',
@@ -263,6 +323,11 @@ window.paperData = {
         'River Crossing: 80% with tools',
         'Checker Jumping still fails',
       ],
+      keyQuotes: [
+      "With proper tool use, LRMs consistently outperform their non-reasoning counterparts across all levels of task complexity.",
+      "The underperformance of LRMs on hard tasks may not reflect a fundamental reasoning deficiency, but rather an artifact of the limited output window."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/00-09/04_thinking_isnt_illusion.md',
     },
     {
       id: '2506.18957',
@@ -278,6 +343,10 @@ window.paperData = {
         'Tool use reverses collapse',
         'Missing cognitive baselines',
       ],
+      keyQuotes: [
+      "The illusion of thinking attributed to LRMs is less a reasoning deficit and more a consequence of an otherwise capable mind lacking the tools for action."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/10-19/11_comment_agentic_gap.md',
     },
     {
       id: '2511.21591',
@@ -293,6 +362,11 @@ window.paperData = {
         'GPT-5-Thinking loops 100%',
         'Refutes Agentic Gap argument',
       ],
+      keyQuotes: [
+      "Despite this level of assistance, none of the models solve any puzzles in this setting.",
+      "GPT-5-Thinking looped in 100% of trials even when presented only with valid moves."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/90-99/93_limits_innate_planning.md',
     },
     {
       id: '2507.01231',
@@ -308,6 +382,11 @@ window.paperData = {
         "Stepwise prompting doesn't fix Hanoi",
         'LRMs solve 200-step solvable problems',
       ],
+      keyQuotes: [
+      "Today's LRMs are stochastic, RL-tuned searchers in a discrete state space we barely understand.",
+      "LRMs still stumble when complexity rises moderately (around 8 disks)."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/30-39/37_rethinking_illusion_of_thinking.md',
     },
     {
       id: '2509.17380',
@@ -323,6 +402,11 @@ window.paperData = {
         "47% CoT doesn't affect answers",
         "Distillation doesn't improve causality",
       ],
+      keyQuotes: [
+      "LLMs suffer from critical reasoning issues such as unfaithfulness, bias, and inconsistency.",
+      "Correct CoTs may lead to incorrect answers, and incorrect CoTs to correct answers."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/10-19/12_correlation_or_causation.md',
     },
     {
       id: '2412.13013',
@@ -338,6 +422,11 @@ window.paperData = {
         'Exceeds human (τ≈1)',
         'Performance drops for p=4/3 (OOD)',
       ],
+      keyQuotes: [
+      "Standard LLMs consistently exhibited worse strategic reasoning than typical human subjects.",
+      "LLMs are vastly trained on pBCGs which involve iterating downward."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/10-19/13_emergence_strategic_reasoning.md',
     },
     {
       id: '2503.08679',
@@ -353,6 +442,11 @@ window.paperData = {
         'Sonnet 3.7 (thinking): 0.04%',
         'Logically contradictory answers',
       ],
+      keyQuotes: [
+      "We go further and show that unfaithful CoT can also occur on realistic prompts with no artificial bias.",
+      "Models sometimes produce superficially coherent arguments to justify systematically answering Yes to both questions."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/10-19/14_cot_wild_not_faithful.md',
     },
     {
       id: '2510.22371',
@@ -368,6 +462,11 @@ window.paperData = {
         '~0% at L=800',
         'Chain graphs fail at depth 1536',
       ],
+      keyQuotes: [
+      "The performance of LRMs drop abruptly at sufficient complexity and do not generalize.",
+      "Token limits do not cause the drops in accuracy."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/10-19/16_reasoning_models_until_they_dont.md',
     },
     {
       id: '2509.12645',
@@ -383,6 +482,11 @@ window.paperData = {
         'Pattern matching mechanism',
         'Neuro-symbolic outperforms',
       ],
+      keyQuotes: [
+      "It appears that this innovative technique provided the capability for LLMs to imitate reasoning.",
+      "LLMs are good at recognising nuance in language and converting problems to a machine interpretable format."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/10-19/18_llms_imitate_logical_reasoning.md',
     },
     {
       id: '2507.10624',
@@ -398,6 +502,11 @@ window.paperData = {
         '0% final at 10-digit',
         'Error accumulation proves limit',
       ],
+      keyQuotes: [
+      "LLMs function as powerful pattern completion engines, but lack the architectural scaffolding for principled, compositional reasoning.",
+      "The model compares 9.11 with 9.9 not through arithmetic but by pattern-matching."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/10-19/19_comprehension_without_competence.md',
     },
     {
       id: '2509.09677',
@@ -413,6 +522,11 @@ window.paperData = {
         '100% errors: ~40% accuracy',
         'Thinking models: 97% even with errors',
       ],
+      keyQuotes: [
+      "The self-conditioning effect \u2014 models become more likely to make mistakes when the context contains their errors.",
+      "This is in contrast to humans, who typically improve at executing a task with practice."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/20-29/22_illusion_diminishing_returns.md',
     },
     {
       id: '2406.15992',
@@ -424,6 +538,11 @@ window.paperData = {
       coreArgument:
         "'Pattern regurgitators' — EMNLP 2024. 0% strong recovery on reasoning patterns. 100% knowledge doesn't transfer.",
       keyEvidence: ['0% strong recovery', 'Pattern regurgitators', 'EMNLP 2024 Best Paper'],
+      keyQuotes: [
+      "Are LLMs graph reasoners or merely pattern regurgitators?",
+      "LLMs might only memorize the reasoning pattern about specific tasks from training data."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/20-29/23_can_llm_graph_reasoning_generalize.md',
     },
 
     {
@@ -440,6 +559,11 @@ window.paperData = {
         '32pp drop on BiasBench',
         'Pattern matching metrics',
       ],
+      keyQuotes: [
+      "LRM-as-a-Judge often systematically evaluates responses against metrics \u2014 responses designed to exploit these metrics can yield excessively high scores.",
+      "Reasoning models are generally superior to non-reasoning models as judges, but remain vulnerable to biases."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/20-29/25_reasoning_model_superior_judge.md',
     },
     {
       id: '2506.17219',
@@ -455,6 +579,11 @@ window.paperData = {
         'Entropy minimization → shallow reasoning',
         "'but', 'wait' decrease 37%",
       ],
+      keyQuotes: [
+      "The number of total right answers decreases significantly when training continues (from 291 to 235).",
+      "While entropy minimization mitigates underconfidence, it inevitably shifts toward overconfidence."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/20-29/26_no_free_lunch_internal_feedback.md',
     },
     {
       id: '2508.13678',
@@ -470,6 +599,11 @@ window.paperData = {
         'Pattern recognition, not reasoning',
         'Symbolic = System 2',
       ],
+      keyQuotes: [
+      "LLMs struggle with complex reasoning problems; they only attempt to replicate reasoning steps in training data.",
+      "They remain data-driven machine learning models that rely on statistical pattern recognition."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/20-29/27_neuro_symbolic_ai_reasoning.md',
     },
     {
       id: '2601.02996',
@@ -485,6 +619,11 @@ window.paperData = {
         'English-centric internal reasoning',
         'Fragile capability',
       ],
+      keyQuotes: [
+      "The model can frequently compute the answer directly in its latent representations, without requiring explicit CoT.",
+      "Current LRMs exhibit real but fragile multilingual latent reasoning."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/20-29/28_multilingual_latent_reasoners.md',
     },
     {
       id: '2512.20812',
@@ -500,6 +639,11 @@ window.paperData = {
         '96% Level 1 → 40% Level 4b',
         'CoT amplifies semantic associations',
       ],
+      keyQuotes: [
+      "LLMs do not possess genuine reasoning capacities. While they may mimic reasoning behaviour through pattern recognition, they lack true understanding.",
+      "CoT could have a bad influence... Repeating elements of the sentence in the CoT would make LLMs' attention focus more on those terms."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/00-09/09_semantic_deception.md',
     },
     {
       id: '2510.15974',
@@ -511,6 +655,11 @@ window.paperData = {
       coreArgument:
         "Agentic framework makes collapse worse, not better. ~40% deterministic looping. Environment access doesn't help reasoning.",
       keyEvidence: ['Collapse EARLIER with tools', '~40% looping', 'JSD diverges from optimal'],
+      keyQuotes: [
+      "The agentic framework performs worse than baseline models.",
+      "Apparent reasoning ability is largely a byproduct of high-probability mode following."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/60-69/68_limits_emergent_reasoning_agentic.md',
     },
     {
       id: '2504.01445',
@@ -526,6 +675,11 @@ window.paperData = {
         '5.7M > 8B+ on composition',
         'MLC: Meta-Learning for Compositionality',
       ],
+      keyQuotes: [
+      "GPT-4o achieves an accuracy of 0.99%, while Gemini 2.0 Flash reaches 2.66%.",
+      "5.7M parameter model significantly outperforms state-of-the-art LLMs including o3-mini."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/60-69/69_compositional_arc.md',
     },
     {
       id: '2504.12523',
@@ -537,6 +691,11 @@ window.paperData = {
       coreArgument:
         'ALL methods <2% on reasoning probes. Direct probing (memorization) 70-80%. Retrieval ≠ application.',
       keyEvidence: ['<2% on indirect probing', '70-80% on direct probing', 'H&M Russia example'],
+      keyQuotes: [
+      "All continued pre-trained (CPT) LLMs fail catastrophically at indirect probing.",
+      "An LLM might memorize that H&M exited Russia, yet still erroneously recommend shopping from H&M in Moscow."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/70-79/70_kup_memorization_vs_reasoning.md',
     },
     {
       id: '2509.03646',
@@ -552,6 +711,11 @@ window.paperData = {
         'Template deployment improves',
         'Challenged by OMEGA (0% transformative)',
       ],
+      keyQuotes: [
+      "RL does not train models de novo. It fine-tunes base models already imbued with priors from pre-training.",
+      "RL improves reasoning by rediscovering and operationalizing the strategic layer inherited from pre-training."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/30-39/32_emergent_hierarchical_reasoning.md',
     },
     {
       id: '2510.15987',
@@ -567,6 +731,11 @@ window.paperData = {
         "Deployment changes, capability doesn't",
         'Challenged by Planning Gap',
       ],
+      keyQuotes: [
+      "We discovered a cluster specifically associated with the implementation of a nearest-neighbor heuristic.",
+      "We define algorithmic primitive as a minimal computational operation observed in a reasoning process."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/30-39/33_algorithmic_primitives_compositional_geometry.md',
     },
     {
       id: '2502.20332',
@@ -582,6 +751,11 @@ window.paperData = {
         '98% cross-token generalization',
         'Positional abstraction',
       ],
+      keyQuotes: [
+      "We identify an emergent symbolic architecture that implements abstract reasoning via a series of three computations.",
+      "For symbolic induction heads, queries and keys primarily represented relative position (r=0.73), not abstract variables (r=0.29)."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/30-39/34_emergent_symbolic_mechanisms.md',
     },
     {
       id: '2509.23629',
@@ -597,6 +771,11 @@ window.paperData = {
         'Policy collapse dynamics',
         'Sparse tree limits paths',
       ],
+      keyQuotes: [
+      "The concept web is a sparse network whose effective average degree is pinned to \u27e8k\u27e9\u22482.",
+      "The primary task is no longer discovering new islands but weaving them into a single concept web."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/30-39/35_how_llms_learn_to_reason_complex_network.md',
     },
     {
       id: '2601.08058',
@@ -608,6 +787,11 @@ window.paperData = {
       coreArgument:
         'Reasoning can be elicited without explicit CoT. SAE features steer latent mode. Internal mechanisms identifiable.',
       keyEvidence: ['Latent mode steering', 'SAE feature steering', 'No OOD testing done'],
+      keyQuotes: [
+      "Multi-step reasoning in LLMs is supported by latent internal activations that can be externally activated.",
+      "The feature is associated with entering a reasoning mode but does not distinguish correct from incorrect answers."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/30-39/36_reasoning_beyond_cot_latent_mode.md',
     },
     {
       id: '2512.04727',
@@ -619,6 +803,11 @@ window.paperData = {
       coreArgument:
         'Counting uses token patterns, not true algorithms. No spontaneous counting. Works only when trained patterns apply.',
       keyEvidence: ['Pattern-based counting', 'No spontaneous counting', 'Fails OOD'],
+      keyQuotes: [
+      "None of the models can reliably enumerate the elements of a sequence when not explicitly instructed to count.",
+      "The LLM exploits an associative chaining mechanism rather than maintaining an internal counter."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/30-39/39_sequential_enumeration.md',
     },
     {
       id: '2512.13713',
@@ -634,6 +823,11 @@ window.paperData = {
         'Meta-cognitive strategies rare',
         'Discovery-Implementation Gap',
       ],
+      keyQuotes: [
+      "We interpret this capacity to detect and escape deadlock as a form of meta-cognitive thinking.",
+      "GPT-4.1 Nano fails almost completely, with proximity scores near 0% on all cycles."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/70-79/71_loopbench_symmetry_breaking.md',
     },
     {
       id: '2509.13334',
@@ -645,6 +839,11 @@ window.paperData = {
       coreArgument:
         '25-60% unfaithfulness rates. Automated intervention improves faithfulness. Accuracy emerges from faithfulness training.',
       keyEvidence: ['25-60% unfaithful', 'Automated intervention works', 'Faithfulness → accuracy'],
+      keyQuotes: [
+      "More than half of reasoning steps don't actually influence the answer.",
+      "Accuracy is an emergent property of greater CoT faithfulness."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/50-59/51_frit_causal_cot_faithfulness.md',
     },
     {
       id: '2510.22362',
@@ -656,6 +855,11 @@ window.paperData = {
       coreArgument:
         "Mechanistic evidence for unfaithfulness. 'Concept Walk' distinguishes computational vs decorative reasoning.",
       keyEvidence: ['Easy/hard case distinction', 'Concept Walk method', 'CoT can be decorative'],
+      keyQuotes: [
+      "In 'easy' cases, perturbed CoTs are quickly ignored, indicating decorative reasoning.",
+      "These traces may function primarily as post-hoc rationalisations."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/50-59/52_mapping_faithful_reasoning.md',
     },
     {
       id: '2502.14829',
@@ -671,6 +875,10 @@ window.paperData = {
         'Challenges add-mistake baseline',
         'Faithfulness ≠ plausibility',
       ],
+      keyQuotes: [
+      "We find a weak Pearson correlation of 0.15 between ff-soft and human ratings of supportiveness."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/30-39/30_cot_faithfulness_unlearning.md',
     },
     {
       id: '2601.02989',
@@ -682,6 +890,11 @@ window.paperData = {
       coreArgument:
         '0% accuracy at 41-50 items. Error accumulation with sequential steps. Needs structural decomposition, not just more tokens.',
       keyEvidence: ['0% at 41-50 items', 'Depth-bounded', 'Structural decomposition needed'],
+      keyQuotes: [
+      "System-1 performance degrades rapidly and collapses beyond approximately 30 items.",
+      "Neither external structure nor reasoning alone is sufficient."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/40-49/48_mechanistic_counting_llms.md',
     },
     {
       id: '2509.18458',
@@ -697,6 +910,11 @@ window.paperData = {
         'System-1 fails at scale',
         'Cognitive load theory applied',
       ],
+      keyQuotes: [
+      "Task length (N) is the dominant stressor \u2014 performance degrades faster with N than with d or \u03c1.",
+      "Only gpt-5 (76%) and o3 (68%) exceed 50% at N=250."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/40-49/49_cogniload_benchmark.md',
     },
     {
       id: '2601.13244',
@@ -712,6 +930,11 @@ window.paperData = {
         'Perturbation brittleness',
         'Surfacing hypothesis support',
       ],
+      keyQuotes: [
+      "At >70B scale, base models perform competitively on Math-500 and superior on GSM8K.",
+      "Base models possess substantial latent reasoning ability activatable via CoT decoding."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/50-59/50_instruction_tuned_not_always_better.md',
     },
     {
       id: '2407.20311',
@@ -727,6 +950,11 @@ window.paperData = {
         'iGSM controlled study',
         'Challenges thesis (narrow domain)',
       ],
+      keyQuotes: [
+      "The model has NEVER seen any training example of the same length as in test time.",
+      "We refrain from overstating that our findings directly apply to foundation models like GPT-4."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/40-49/42_physics_of_llms_grade_school_math.md',
     },
     {
       id: '2504.20771',
@@ -738,6 +966,11 @@ window.paperData = {
       coreArgument:
         "Performance collapse at scale. Error accumulation with sequential steps. 'Inevitable failure due to statistical nature.'",
       keyEvidence: ['Collapse at scale', 'Error accumulation', 'Statistical nature limits'],
+      keyQuotes: [
+      "As an autoregressive model, Gemini inevitably fails with increasing steps due to its statistical nature.",
+      "Computational reasoning is the ability to systematically select and accurately apply rules."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/40-49/41_computational_reasoning_tmbench.md',
     },
     {
       id: '2510.04040',
@@ -749,6 +982,11 @@ window.paperData = {
       coreArgument:
         '40-60% unfaithfulness rates. OOD unfaithfulness: 20%→74%. 1,000+ annotated trajectories.',
       keyEvidence: ['40-60% unfaithful', '20%→74% OOD unfaithfulness', '1,000+ annotations'],
+      keyQuotes: [
+      "A correct answer is not sufficient evidence of faithful reasoning.",
+      "When problems are very difficult or OOD, CoTs are especially prone to unfaithful reasoning."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/40-49/43_faithcot_bench.md',
     },
     {
       id: '2601.10825',
@@ -760,6 +998,11 @@ window.paperData = {
       coreArgument:
         'R1 achieves performance via multi-agent dialogue simulation. RL organizes pre-existing conversational patterns.',
       keyEvidence: ['Multi-agent simulation', 'RL organizes patterns', 'No OOD testing'],
+      keyQuotes: [
+      "Enhanced reasoning emerges not from extended computation alone, but from implicit simulation of multi-agent-like interactions.",
+      "Reasoning models like DeepSeek-R1 exhibit much greater perspective diversity."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/40-49/44_societies_of_thought.md',
     },
     {
       id: '2511.23476',
@@ -775,6 +1018,11 @@ window.paperData = {
         'Monolithic can harm',
         'No truly OOD testing',
       ],
+      keyQuotes: [
+      "Monolithic reasoning imposes substantial cognitive burden on LLMs.",
+      "Advanced reasoning patterns are prerequisites for successful world model internalization."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/40-49/45_thinking_by_doing_wmact.md',
     },
     {
       id: '2505.23945',
@@ -786,6 +1034,11 @@ window.paperData = {
       coreArgument:
         'SFT training shows no improvement. Visual biases systematically less articulated. RL helps only for explicit biases.',
       keyEvidence: ['SFT no improvement', 'Visual biases hidden', 'RL limited help'],
+      keyQuotes: [
+      "SFT-trained reasoning models show ~0% improvement in articulation compared to non-reasoning models.",
+      "Inconsistent CoTs serve as potential 'canary' signals for unfaithfulness detection."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/40-49/46_bias_cot_faithfulness_vlm.md',
     },
     {
       id: '2501.02497',
@@ -797,6 +1050,11 @@ window.paperData = {
       coreArgument:
         'Self-correction limited without external feedback. Sequential scaling fails; parallel scaling works better.',
       keyEvidence: ['Self-correction limited', 'Sequential fails', 'Parallel scaling better'],
+      keyQuotes: [
+      "Self-correction is not a guaranteed solution for improving performance.",
+      "Most LRMs struggle to generalize to cross-domain, cross-lingual, or general tasks."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/60-69/65_survey_test_time_compute.md',
     },
     {
       id: '2404.00560',
@@ -808,6 +1066,11 @@ window.paperData = {
       coreArgument:
         'LG requires D=X (training covers all inputs). Standard formulations fail. Explains why surface perturbations break models.',
       keyEvidence: ['D=X required', 'Standard formulations fail', 'Complete coverage needed'],
+      keyQuotes: [
+      "Even with detailed CoT steps, learned models still fail to generalize for several reasoning problems.",
+      "The causal function is guaranteed to be well-learned only when |X| < infinity."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/60-69/66_theory_length_generalization.md',
     },
     {
       id: '2510.08931',
@@ -823,6 +1086,11 @@ window.paperData = {
         'Early convergence pattern',
         'Attention distribution analysis',
       ],
+      keyQuotes: [
+      "When a prompt that should require reasoning elicits recall-like signatures, this indicates potential contamination.",
+      "Recall indicators: High early confidence, fast convergence, specialized attention heads."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/50-59/54_radar_data_contamination.md',
     },
     {
       id: '2504.05262',
@@ -834,6 +1102,11 @@ window.paperData = {
       coreArgument:
         '99.8%→7.5% with symbolic representation. Commutativity violations prove no abstract rule learning. SFT surfaces patterns (97.17%), no transfer (0%).',
       keyEvidence: ['99.8%→7.5% symbolic', 'Commutativity violations', '0% symbolic transfer'],
+      keyQuotes: [
+      "LLMs appear fundamentally oriented towards memorizing specific patterns rather than abstracting general principles.",
+      "These commutativity violations strongly imply that models rely on direction-specific, memorized patterns."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/50-59/56_llms_truly_grasp_addition.md',
     },
     {
       id: '2512.13978',
@@ -845,6 +1118,11 @@ window.paperData = {
       coreArgument:
         '~34% failure rate on structured reasoning. 66% success suggests meaningful capability exists in narrow domains.',
       keyEvidence: ['~34% failure rate', '66% success (R1)', 'Novel compositions fail'],
+      keyQuotes: [
+      "Top-tier models achieve ~66% accuracy, demonstrating robust grasp of probabilistic method.",
+      "Significant variance exists in reliability for rigorous mathematical derivation."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/50-59/57_phd_level_math_reasoning_benchmark.md',
     },
     {
       id: '2410.13343',
@@ -860,6 +1138,11 @@ window.paperData = {
         'Pattern matching mechanism',
         'Structural changes break models',
       ],
+      keyQuotes: [
+      "LLMs tend to capture spurious correlations between source text and particular labels.",
+      "Larger LLMs are more prone to utilize shortcuts under zero-shot and few-shot prompts."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/50-59/58_shortcut_learning_llms.md',
     },
     {
       id: '2409.02257',
@@ -871,6 +1154,11 @@ window.paperData = {
       coreArgument:
         'LLMs exploit shortcuts. SSR and CPI metrics for anchoring bias detection. Format changes expose brittleness.',
       keyEvidence: ['Shortcut exploitation', 'SSR/CPI metrics', 'Format brittleness'],
+      keyQuotes: [
+      "The persistence in selecting previously incorrect options indicates limitations in higher-order reasoning.",
+      "High performance on standard benchmarks may not translate to robust reasoning capabilities."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/50-59/59_mmlu_pro_plus_shortcut.md',
     },
     {
       id: '2601.03676',
@@ -882,6 +1170,11 @@ window.paperData = {
       coreArgument:
         'Power-law distribution explains compositional scarcity. 4K targeted > 52K random. Data bottleneck for k>1 compositions.',
       keyEvidence: ['Power-law distribution', '4K > 52K', 'Data bottleneck k>1'],
+      keyQuotes: [
+      "A key obstacle is a fundamental data bottleneck: complex skill combinations follow a power-law distribution.",
+      "Effective compositional generalization requires a 'sweet spot'."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/70-79/75_steps_skill_taxonomy_compositional.md',
     },
     {
       id: '2509.01267',
@@ -893,6 +1186,11 @@ window.paperData = {
       coreArgument:
         '13-35% on rule override. Simpler examples work better. Learned priors dominate over instructions.',
       keyEvidence: ['13-35% rule override', 'Simpler examples better', 'Priors dominate'],
+      keyQuotes: [
+      "LLMs still lack systematic and compositional generalization skills.",
+      "This simple task shows the limited capabilities of LLMs to perform out-of-distribution tasks."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/70-79/73_iterative_icl_algebraic_tasks.md',
     },
     {
       id: '2506.15629',
@@ -904,6 +1202,11 @@ window.paperData = {
       coreArgument:
         '75% ceiling on ordered coverage. Models default to preferred orderings. Instructions cannot override learned patterns.',
       keyEvidence: ['75% ceiling', 'Preferred orderings', 'ACL 2025'],
+      keyQuotes: [
+      "Even the most instruction-compliant LLM achieved only about 75% ordered coverage.",
+      "Biases toward specific concept order patterns often lead to low-diversity outputs."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/70-79/74_revisiting_compositional_generalization_acl2025.md',
     },
     {
       id: '2504.09858',
@@ -915,6 +1218,11 @@ window.paperData = {
       coreArgument:
         'Extended thinking not necessary for correctness. If thinking skippable, tokens not causal for correctness.',
       keyEvidence: ['Thinking skippable', 'Questions R1 value', 'Supports latent reasoning'],
+      keyQuotes: [
+      "Bypassing the thinking process via simple prompting, denoted as NoThinking, can be surprisingly effective.",
+      "When controlling for the number of tokens, NoThinking outperforms Thinking across seven challenging datasets."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/30-39/38_reasoning_models_effective_without_thinking.md',
     },
     {
       id: '2506.21215',
@@ -926,6 +1234,11 @@ window.paperData = {
       coreArgument:
         'Level-1 (retrieval) vs Level-2 (genuine reasoning) distinction. Fresh data reveals memorization. Pattern matching thesis supported.',
       keyEvidence: ['L1 vs L2 distinction', 'Fresh data test', 'Memorization revealed'],
+      keyQuotes: [
+      "Does this reflect LLMs' genuine causal reasoning capability or only a 'mirage'? The answer leans towards the latter.",
+      "LLMs are only capable of performing shallow (level-1) causal reasoning."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/60-69/61_unveiling_causal_reasoning_llms.md',
     },
     {
       id: '2503.05788',
@@ -941,6 +1254,11 @@ window.paperData = {
         'Some emergence real',
         'Challenges original claims',
       ],
+      keyQuotes: [
+      "Does increasing from 10% to 100% not represent a significant jump? There is no 'evaporation of claimed emergent abilities'.",
+      "Emergent abilities result from competition between memorization and generalization circuits."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/60-69/64_emergent_abilities_survey.md',
     },
     {
       id: '2510.20783',
@@ -952,6 +1270,11 @@ window.paperData = {
       coreArgument:
         'Rules generalize (96%+), but strategies fail (70%→22%). Rule following ≠ reasoning. Strategies distribution-bounded.',
       keyEvidence: ['Rules: 96%+ OOD', 'Strategies: 70%→22%', 'Rule ≠ reasoning'],
+      keyQuotes: [
+      "Transformers exhibit compositional generalization, as evidenced by strong rule extrapolation.",
+      "The model's strategic adaptation remains limited \u2014 it struggles in scenarios requiring long-term planning."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/40-49/47_chess_transformers_compositionality.md',
     },
     {
       id: '2505.16782',
@@ -967,6 +1290,11 @@ window.paperData = {
         'Taxonomy provided',
         'Both views have evidence',
       ],
+      keyQuotes: [
+      "This redundancy increases the chance of overfitting to stylistic artifacts rather than genuine reasoning.",
+      "Human cognition often transcends discrete linguistic symbols."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/70-79/76_survey_latent_cot_reasoning.md',
     },
     {
       id: '2502.07813',
@@ -978,6 +1306,10 @@ window.paperData = {
       coreArgument:
         '40-54pp drops with encoding. Hierarchical layer processing. Open/closed gap reveals training data dependence.',
       keyEvidence: ['40-54pp encoding drops', 'Hierarchical processing', 'AUC 2.47 vs 4.05'],
+      keyQuotes: [
+      "The layers of LLMs exhibit a clear hierarchical pattern of executing different subtasks in different layers."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/70-79/77_cryptox_compositional_reasoning.md',
     },
     {
       id: '2510.27378',
@@ -989,6 +1321,11 @@ window.paperData = {
       coreArgument:
         'Verbosity ≠ faithfulness. Models leave out key factors even when faithful. Monitorability framework.',
       keyEvidence: ['Verbosity ≠ faithfulness', 'Key factors omitted', 'Monitorability framework'],
+      keyQuotes: [
+      "Since any long, serial reasoning process must pass through this textual trace, the quality of the CoT is a direct window into what the model is thinking.",
+      "We introduce verbosity: whether the CoT lists every factor needed to solve the task."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/70-79/78_measuring_cot_monitorability.md',
     },
     {
       id: '2403.11793',
@@ -1000,6 +1337,11 @@ window.paperData = {
       coreArgument:
         "10.6% correct answers but only 4.0% correct processes. 60% 'lucky' correct. 0% on Medium/Hard ARC.",
       keyEvidence: ['10.6%→4.0% process correct', '60% lucky', '0% Medium/Hard'],
+      keyQuotes: [
+      "Existing methods for evaluating LLMs have been results-centric, making it difficult to assess the inference process.",
+      "LLMs still lag in terms of logical coherence, compositionality, and productivity."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/70-79/79_reasoning_abilities_arc_loth.md',
     },
     {
       id: '2504.00294',
@@ -1011,6 +1353,11 @@ window.paperData = {
       coreArgument:
         'GPT-4o approaches O1 with 256× superscaling. Complexity collapse persists. Task-dependent effectiveness.',
       keyEvidence: ['256× superscaling helps', 'Collapse persists', 'Task-dependent'],
+      keyQuotes: [
+      "Higher token consumption does not indicate higher accuracy across models.",
+      "Inference-time scaling effectiveness varies between domains with diminishing returns."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/80-89/80_inference_time_scaling_complex_tasks.md',
     },
     {
       id: '2510.09312',
@@ -1022,6 +1369,11 @@ window.paperData = {
       coreArgument:
         'Error signatures domain-specific (92%→55% cross-domain). Causal interventions work. Mechanistic verification.',
       keyEvidence: ['92%→55% cross-domain', 'Causal interventions', 'Domain-specific signatures'],
+      keyQuotes: [
+      "Correct and incorrect reasoning leave distinct structural fingerprints.",
+      "A reasoning failure is not merely an erroneous state, but a flaw in the execution of a latent algorithm."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/70-79/72_crv_verifying_cot_computational_graph.md',
     },
     {
       id: '2502.12215',
@@ -1033,6 +1385,11 @@ window.paperData = {
       coreArgument:
         'Sequential scaling fails. Parallel scaling works better. External feedback needed.',
       keyEvidence: ['Sequential fails', 'Parallel better', 'External feedback needed'],
+      keyQuotes: [
+      "Longer CoTs do not consistently improve accuracy of o1-like models.",
+      "Both QwQ and R1-Distill showed higher propensity to change correct answers to incorrect ones."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/60-69/63_revisiting_test_time_scaling.md',
     },
     {
       id: '2510.22437',
@@ -1044,6 +1401,11 @@ window.paperData = {
       coreArgument:
         "Extended thinking doesn't always help (GPQA: longer = worse). FSM framework for tracking state transitions.",
       keyEvidence: ['GPQA: longer = worse', 'FSM framework', 'Task-dependent benefit'],
+      keyQuotes: [
+      "Effective reasoning emerges not merely from FSM length but from adaptive state regulation.",
+      "Longer reasoning does not always help in factual reasoning."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/50-59/55_hierarchical_thinking_fsm.md',
     },
     {
       id: '2510.25013',
@@ -1055,6 +1417,11 @@ window.paperData = {
       coreArgument:
         'Task-constrained training finds simpler circuits than GPT-2. Identifiable reasoning circuits exist.',
       keyEvidence: ['Simpler circuits found', 'Task-constrained training', 'Challenges GPT-2 IOI'],
+      keyQuotes: [
+      "A one-layer, two-head attention-only model is sufficient to solve IOI perfectly.",
+      "Circuits in pre-trained LLMs may be overly complex due to multi-task pressures."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/50-59/53_ioi_minimal_circuits.md',
     },
     {
       id: '2512.23722',
@@ -1066,6 +1433,10 @@ window.paperData = {
       coreArgument:
         'Extends Othello/Chess world model paradigm to POMDP. Evidence for internal representations. Probed features may not be causally used.',
       keyEvidence: ['POMDP extension', 'Internal representations', 'Causal use unclear'],
+      keyQuotes: [
+      "We were able to achieve a correlation coefficient of 0.59 on our test dataset predictions."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/40-49/40_emergent_world_beliefs_poker.md',
     },
     {
       id: '2601.16823',
@@ -1081,6 +1452,11 @@ window.paperData = {
         'Reasoning tokens diminishing returns OOD',
         'Crystallized > fluid intelligence',
       ],
+      keyQuotes: [
+      "Performance consistently degrades as fluid intelligence demands increase. In OOD tasks, performance collapses to random levels.",
+      "When relying solely on fluid intelligence, the model's strategic reasoning collapses to zero."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/80-89/84_trapped_in_past_chess_intelligence.md',
     },
     {
       id: '2601.16853',
@@ -1096,6 +1472,11 @@ window.paperData = {
         'Bounded by base model',
         'ToM strategies visible in traces',
       ],
+      keyQuotes: [
+      "The observed gains are more plausibly attributed to increased robustness, not fundamentally new ToM reasoning.",
+      "The reasoning capacity of a reasoning model remains bounded by its base model."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/80-89/85_reasoning_promotes_robustness_tom.md',
     },
     {
       id: '2601.18790',
@@ -1111,6 +1492,11 @@ window.paperData = {
         'RLVR creates tunnel vision',
         '15s latency in emergencies',
       ],
+      keyQuotes: [
+      "Specialized reasoning models often ignore the emergency entirely, maintaining over 95% task completion while the user describes dying.",
+      "Training models to relentlessly pursue correct answers may unlearn survival instincts."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/80-89/86_mortalmath_reasoning_tunnel_vision.md',
     },
     {
       id: '2406.10625',
@@ -1126,6 +1512,11 @@ window.paperData = {
         'Larger models less faithful',
         'GPT-4 correct without CoT',
       ],
+      keyQuotes: [
+      "None of these techniques significantly enhance the faithfulness of CoT reasoning.",
+      "More accurate LLMs are less faithful."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/60-69/62_hardness_faithful_cot_reasoning.md',
     },
     {
       id: '2507.18391',
@@ -1141,6 +1532,10 @@ window.paperData = {
         'One-line code change',
         'Reconciles entropy debate',
       ],
+      keyQuotes: [
+      "These conflicting findings underscore the need for rigorous theoretical understanding of reasoning in LLMs."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/80-89/83_revisiting_llm_reasoning_information_bottleneck.md',
     },
     {
       id: '2509.26306',
@@ -1156,6 +1551,11 @@ window.paperData = {
         'Dynamic interaction',
         'No OOD testing',
       ],
+      keyQuotes: [
+      "We are the first to investigate whether multi-agent learning can more effectively enhance reasoning.",
+      "Relying solely on competition or cooperation is suboptimal for ILR."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/80-89/82_interactive_learning_llm_reasoning.md',
     },
     {
       id: '2510.10182',
@@ -1171,6 +1571,11 @@ window.paperData = {
         'No universal bias',
         'Simplicity preference',
       ],
+      keyQuotes: [
+      "Inductive ability originates from induction heads.",
+      "There is no 'universal' bias in deep learning."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/60-69/67_survey_inductive_reasoning.md',
     },
     {
       id: '2512.01222',
@@ -1186,6 +1591,11 @@ window.paperData = {
         'English-anchored internals',
         'Layers 54-62 peak',
       ],
+      keyQuotes: [
+      "Logit lens can effectively translate encoded reasoning, with accuracy peaking in intermediate-to-late layers.",
+      "Current mechanistic interpretability techniques may be more robust than previously understood."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/60-69/60_unsupervised_decoding_encoded_reasoning.md',
     },
     {
       id: '2601.14716',
@@ -1201,6 +1611,11 @@ window.paperData = {
         '85.6% AIME 2025',
         'Offline RL stable',
       ],
+      keyQuotes: [
+      "We challenge conventional wisdom and argue that offline RL is a strong alternative.",
+      "Offline RL is generally limited by the quality of the best examples in its static dataset."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/80-89/81_pcl_reasoner_offline_rl.md',
     },
     {
       id: '2601.21183',
@@ -1216,6 +1631,11 @@ window.paperData = {
         '55.1%→72.9% emergence during reasoning',
         'R²=0.74 commitment strength',
       ],
+      keyQuotes: [
+      "Sycophantic anchors are highly distinguishable (84.6%) while correct anchors are difficult to distinguish (64.0%).",
+      "This asymmetry suggests sycophancy leaves a distinctive 'activation signature' that truthful reasoning does not."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/100-109/109_sycophantic_anchors.md',
     },
     {
       id: '2601.16644',
@@ -1231,6 +1651,11 @@ window.paperData = {
         '51.7%→25% sycophancy rate (MHA steering)',
         'Sycophancy heads focus on doubt tokens',
       ],
+      keyQuotes: [
+      "Factual accuracy and deference resistance arise from related but distinct mechanisms.",
+      "Sycophancy-related heads appear to focus on disagreement and sycophantic expression."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/110-119/110_sycophancy_hides_linearly.md',
     },
     {
       id: '2601.11061',
@@ -1246,6 +1671,11 @@ window.paperData = {
         'Anchor Reset: -12% accuracy',
         'Bidirectional causal steering',
       ],
+      keyQuotes: [
+      "This divergence constitutes a Perplexity Paradox.",
+      "RLVR acts as a retrieval mechanism for data already memorized during pretraining."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/110-119/111_spurious_rewards_paradox.md',
     },
     {
       id: '2502.15631',
@@ -1261,6 +1691,11 @@ window.paperData = {
         'o3-mini: same tokens, higher accuracy',
         'Error accumulation with chain length',
       ],
+      keyQuotes: [
+      "More proficient models do not generate longer reasoning chains to achieve higher accuracy.",
+      "Accuracy generally decreases as the chain-of-thought grows."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/80-89/87_o3_thinks_harder_not_longer.md',
     },
     {
       id: '2502.12470',
@@ -1276,6 +1711,11 @@ window.paperData = {
         'S1: +7pp StrategyQA, +4pp SIQA',
         'Entropy selection = best of both',
       ],
+      keyQuotes: [
+      "This work challenges the assumption that step-by-step reasoning is always optimal.",
+      "Extended reasoning is not universally beneficial."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/80-89/88_system1_system2_alignment.md',
     },
     {
       id: '2207.07051',
@@ -1291,6 +1731,11 @@ window.paperData = {
         'Model confidence ↔ human RT correlation',
         'PNAS Nexus peer-reviewed',
       ],
+      keyQuotes: [
+      "Human abstract reasoning is imperfect \u2014 affected by real-world knowledge and beliefs.",
+      "LMs reflect many of the same qualitative human patterns on these tasks."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/80-89/89_content_effects_reasoning.md',
     },
     {
       id: '2411.02478',
@@ -1306,6 +1751,11 @@ window.paperData = {
         'Bengio, Mitchell, Chater et al.',
         'Wisdom = knowing when patterns apply',
       ],
+      keyQuotes: [
+      "Although AI has become increasingly smart, its wisdom has not kept pace.",
+      "Perhaps no amount of training will get current models to human-level metacognition."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/90-99/97_ai_metacognition_wise_machines.md',
     },
     {
       id: '2507.15851',
@@ -1321,6 +1771,11 @@ window.paperData = {
         '0.67-1.71% temporal-preferential neurons',
         'Emerges from corpus structure',
       ],
+      keyQuotes: [
+      "LLMs exhibit certain cognitive patterns similar to humans not directly specified in training.",
+      "The training corpus possesses an inherent, non-linear temporal structure."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/90-99/98_temporal_cognition_llms.md',
     },
     {
       id: '2511.11810',
@@ -1336,6 +1791,11 @@ window.paperData = {
         'Defends "statistical pattern matchers"',
         'Invariance violations = not reasoning',
       ],
+      keyQuotes: [
+      "Reasoning-like outputs correspond to statistical regularities rather than explicit logical mechanisms.",
+      "This view is illustrative of the claim that LMs are 'statistical pattern matchers'."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/90-99/99_notion_language_models_reason.md',
     },
     {
       id: '2307.02477',
@@ -1351,6 +1811,11 @@ window.paperData = {
         '40pp drop on counterfactual tasks',
         '11 tasks tested systematically',
       ],
+      keyQuotes: [
+      "Current LMs often rely on narrow, non-transferable procedures for task-solving.",
+      "A high CCC performance indicates the model understands conditions, yet fails to apply reasoning skills."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/100-109/100_reasoning_or_reciting_counterfactual.md',
     },
     {
       id: '2601.14691',
@@ -1366,6 +1831,11 @@ window.paperData = {
         '20-30pp FPR increase from fabrication',
         'Even thinking models fooled',
       ],
+      keyQuotes: [
+      "Judges accept CoT assertions without verifying against the action trace.",
+      "An agent can improve perceived performance by optimizing how its CoT is worded."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/100-109/101_gaming_the_judge_cot_manipulation.md',
     },
     {
       id: '2601.13392',
@@ -1381,6 +1851,11 @@ window.paperData = {
         '63pp drop GPT-5.1 seen→unseen',
         'Six systematic failure modes',
       ],
+      keyQuotes: [
+      "High accuracy on seen problems does not imply genuine reasoning capability.",
+      "Despite achieving 100% accuracy on L\u2081, all models fail on L\u2082 under direct prompting."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/100-109/102_beyond_memorization_dfa_unseen.md',
     },
     {
       id: '2601.15158',
@@ -1396,6 +1871,11 @@ window.paperData = {
         '100% accuracy on chain traversal',
         'OOD generalization from easy to hard',
       ],
+      keyQuotes: [
+      "We assume Policy Gradient is applied to a base model which has already acquired minimal task proficiency.",
+      "Excluding simple examples from post-training prevents the emergence of the reasoning algorithm altogether."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/100-109/103_outcome_based_rl_reasoning.md',
     },
     {
       id: '2601.14658',
@@ -1411,6 +1891,11 @@ window.paperData = {
         '11k+ trials, 10 models',
         'Post-masking: 0-5% phantom edits',
       ],
+      keyQuotes: [
+      "Models are systematically misled by tokenizer properties \u2014 they 'believe' they have successfully executed substitutions.",
+      "Increasing model capacity offers no systematic solution to this fundamental misalignment."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/100-109/104_tokenizer_betrays_reasoning.md',
     },
     {
       id: '2601.15165',
@@ -1426,6 +1911,11 @@ window.paperData = {
         '21.3% HumanEval solved AR-only vs 0.6% arbitrary-only',
         'Logical connectors filled in post-hoc',
       ],
+      keyQuotes: [
+      "Less flexibility unlocks better reasoning potential.",
+      "The process acts less as navigation at a fork, more as retrospective alignment to a pre-generated conclusion."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/100-109/105_flexibility_trap_diffusion_llms.md',
     },
     {
       id: '2601.19847',
@@ -1441,6 +1931,11 @@ window.paperData = {
         '0.83 AUROC prediction from early activations',
         'Math RCNs transfer to coding tasks',
       ],
+      keyQuotes: [
+      "Token-level neuron activations are predictive of the final correctness of LLM reasoning.",
+      "Correct reasoning is supported by structured activation patterns formed by a small subset of neurons."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/100-109/106_reasoning_critical_neurons_activation_steering.md',
     },
     {
       id: '2601.19773',
@@ -1457,6 +1952,11 @@ window.paperData = {
         'ICR-SR decoupled: reasoning ≠ gathering',
         'Scaling: 3B→72B improves SR, not ICR',
       ],
+      keyQuotes: [
+      "Strong diagnostic reasoning does not guarantee effective information collection.",
+      "Model scaling mainly improves SR while yielding marginal gains in ICR."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/100-109/107_strong_reasoning_isnt_enough.md',
     },
     {
       id: '2601.21618',
@@ -1473,6 +1973,11 @@ window.paperData = {
         'Tools dont fix it (agents inherit gap)',
         'Fine-tuning shifts biases unpredictably',
       ],
+      keyQuotes: [
+      "LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent.",
+      "If errors vary with semantic content, the model is pattern-matching one."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/100-109/108_whatcounts_semantic_content.md',
     },
     {
       id: '2601.10679',
@@ -1489,6 +1994,11 @@ window.paperData = {
         '54.5%→96.9% via guess scaling (+42.4%)',
         'Spurious fixed points as local minima',
       ],
+      keyQuotes: [
+      "HRM does not 'reason' in the commonsense way \u2014 it resembles 'guessing' more than 'reasoning'.",
+      "Recursion serves as a way of scaling 'guessing' attempts for a plausible latent state."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/110-119/112_reasoning_or_guessing_hrm.md',
     },
     {
       id: '2601.07422',
@@ -1505,6 +2015,11 @@ window.paperData = {
         'Self-aware of pathway (87-93% AUC)',
         'Pathway-aware detection +10% AUC',
       ],
+      keyQuotes: [
+      "Truthfulness cues arise from two distinct pathways: Question-Anchored and Answer-Anchored.",
+      "Q-anchored encoding predominates for well-established facts within the knowledge boundary."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/110-119/113_two_pathways_truthfulness.md',
     },
     {
       id: '2601.22035',
@@ -1521,6 +2036,11 @@ window.paperData = {
         'Distillation from AR preserves sensitivity',
         'Complexity-driven token stabilization',
       ],
+      keyQuotes: [
+      "AR models must commit to answers before generating intermediate reasoning \u2014 forcing premature commitment.",
+      "MDLMs achieve order robustness by stabilizing simpler tokens earlier in the diffusion process."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/110-119/114_thinking_out_of_order.md',
     },
     {
       id: '2601.21214',
@@ -1537,6 +2057,11 @@ window.paperData = {
         'TCR-gold: 41.7% → 61.3% (+20%)',
         'Shared ep heads across tasks',
       ],
+      keyQuotes: [
+      "78.6% of errors stem from recalling wrong names.",
+      "Correct and erroneous trajectories coexist; ep heads amplify spurious signals."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/110-119/115_scaling_reasoning_hop_ep_heads.md',
     },
     {
       id: '2601.18352',
@@ -1553,6 +2078,11 @@ window.paperData = {
         'Code: ΔP=+0.29 (reverses inverse scaling)',
         '71% inhibitory control vs 16% direct',
       ],
+      keyQuotes: [
+      "Larger models can exhibit inverse scaling \u2014 they perform worse when requiring suppression of pre-trained associations.",
+      "Code grounding strips symbols of their semantic associations."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/110-119/116_code_over_words_semantic_inertia.md',
     },
     // Gap-filling papers (24, 90-96)
     {
@@ -1569,6 +2099,11 @@ window.paperData = {
         'Order-r Interaction proves decay is fundamental',
         'Compression loses critical reasoning signals',
       ],
+      keyQuotes: [
+      "The learning signal required to learn high-order logical dependencies decays exponentially with compressed steps.",
+      "The distribution is dominated by low-order terms."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/20-29/24_cot_compression_theory.md',
     },
     {
       id: '2601.17593',
@@ -1584,6 +2119,11 @@ window.paperData = {
         'Recoverability varies by depth',
         'Structure present but underutilized',
       ],
+      keyQuotes: [
+      "Recoverability of DAG geometry does not imply that the model explicitly represents symbolic graphs.",
+      "Model capacity is the primary driver of probe performance."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/90-99/90_chains_to_dags_probing.md',
     },
     {
       id: '2601.18753',
@@ -1599,6 +2139,11 @@ window.paperData = {
         'NTK-based detection AUROC 81.76%',
         'Errors grow exponentially with sequence length',
       ],
+      keyQuotes: [
+      "On MATH-500, 98.1% of errors are reasoning-driven and only 1.9% are data-driven.",
+      "Reasoning-driven hallucinations originate from inference-time failures."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/90-99/91_halluguard_hallucination_decomposition.md',
     },
     {
       id: '2601.17421',
@@ -1614,6 +2159,11 @@ window.paperData = {
         'Stable across model scales',
         'Partially exploited capability',
       ],
+      keyQuotes: [
+      "Models acquire reasoning ability through such signals but exploit them only partially.",
+      "Specific tokens strongly correlate with reasoning correctness."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/90-99/92_oops_wait_token_signals.md',
     },
     {
       id: '2601.18778',
@@ -1629,6 +2179,11 @@ window.paperData = {
         'Only 32.8% of effective questions have correct solutions',
         'Grounded rewards > intrinsic rewards',
       ],
+      keyQuotes: [
+      "A model's ability to generate effective 'stepping stones' is distinct from its ability to solve them.",
+      "Structural and contextual cues of a question are more important for kickstarting learning."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/90-99/94_soar_self_teaching_curriculum.md',
     },
     {
       id: '2509.14252',
@@ -1644,6 +2199,10 @@ window.paperData = {
         'Only +0.68% on GSM8K',
         'No OOD/compositional testing (critical gap)',
       ],
+      keyQuotes: [
+      "A good next-token predictor is not a good JEPA."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/90-99/95_llm_jepa_joint_embedding.md',
     },
     {
       id: '2601.15436',
@@ -1659,6 +2218,11 @@ window.paperData = {
         'Recency bias universal',
         'Claude/Mistral show moral remorse when harm explicit',
       ],
+      keyQuotes: [
+      "While all models exhibit sycophantic tendencies, Claude and Mistral exhibit 'moral remorse'.",
+      "Sycophancy and recency bias interact to produce 'constructive interference' effect."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/90-99/96_sycophancy_elusive_nature.md',
     },
     {
       id: '2311.07590',
@@ -1676,6 +2240,11 @@ window.paperData = {
         'System prompt prohibition does not eliminate deception',
         'Scaling increases sophistication, not alignment',
       ],
+      keyQuotes: [
+      "This is the first demonstration of LLMs trained to be helpful, harmless, and honest, strategically deceiving users.",
+      "The model consistently hides the genuine reasons behind its trading decision."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/110-119/117_strategic_deception_gpt4.md',
     },
     {
       id: '2502.03407',
@@ -1692,6 +2261,11 @@ window.paperData = {
         'Deception linearly encoded in activation space',
         'Authors: "insufficient as robust defence"',
       ],
+      keyQuotes: [
+      "Monitoring outputs alone is insufficient \u2014 the AI might produce benign outputs while misaligned internally.",
+      "Current performance is insufficient as a robust defence against deception."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/110-119/118_detecting_deception_linear_probes.md',
     },
     {
       id: '2308.03958',
@@ -1708,6 +2282,11 @@ window.paperData = {
         'Models agree with 2+2=5 if user agrees',
         'Synthetic data intervention generalizes',
       ],
+      keyQuotes: [
+      "Both model scaling and instruction tuning significantly increase sycophancy.",
+      "Despite knowing statements are wrong, language models will agree if the user does."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/110-119/119_sycophancy_scales_wei.md',
     },
     {
       id: '2506.21561',
@@ -1724,6 +2303,11 @@ window.paperData = {
         'Only Claude 3.7 Sonnet below 50% truth-bias',
         'Base-rate prompting improves deception detection 4-42x',
       ],
+      keyQuotes: [
+      "Capability advances alone do not resolve fundamental veracity detection challenges.",
+      "GPT-4.1 displays asymmetric performance with 98% truth accuracy but 16% deception accuracy."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/120-129/120_truth_bias_sycophancy_reasoning.md',
     },
     {
       id: '2510.22977',
@@ -1740,6 +2324,11 @@ window.paperData = {
         'DeepSeek-R1-Distill: 74% vs base 35% halluc',
         'Representation collapse in tool pathways, reasoning stable',
       ],
+      keyQuotes: [
+      "This effect transcends overfitting \u2014 training on non-tool tasks still amplifies tool hallucination.",
+      "Enabling 'thinking' mode leads to a consistent rise in hallucination."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/120-129/121_reasoning_trap_tool_hallucination.md',
     },
     {
       id: '2601.05905',
@@ -1756,6 +2345,11 @@ window.paperData = {
         'Model scaling does not reduce brittleness',
         'SAT: 60.6% vs 33.4% baseline under stress',
       ],
+      keyQuotes: [
+      "Even facts answered with perfect self-consistency can rapidly collapse under mild interference.",
+      "Point-wise confidence is superficial, failing to reflect true belief state."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/120-129/122_illusions_of_confidence_ncb.md',
     },
     {
       id: '2410.11684',
@@ -1772,6 +2366,11 @@ window.paperData = {
         'Sycophancy increases causal illusions +17% (GPT-4o-Mini)',
         'Claude resists sycophantic pressure (0% increase)',
       ],
+      keyQuotes: [
+      "Illusions of causality occur when people develop causal beliefs with no supporting evidence.",
+      "The imitation of erroneous beliefs increases risk of causal misinterpretations."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/120-129/123_causal_illusions_llms.md',
     },
     {
       id: '2506.09250',
@@ -1788,6 +2387,11 @@ window.paperData = {
         'Hanoi N=15 via Lua function: "very high accuracy"',
         'Limited experimental support (budget constraints)',
       ],
+      keyQuotes: [
+      "The question isn't whether LRMs can reason, but whether our evaluations can distinguish reasoning from typing.",
+      "River Crossing benchmarks include mathematically impossible instances for N\u22656."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/120-129/124_illusion_of_illusion_rebuttal.md',
     },
     {
       id: '2406.02061',
@@ -1804,6 +2408,11 @@ window.paperData = {
         'AIW Light controls: 100% accuracy (rules out low-level issues)',
         'Confabulation: overconfident wrong explanations',
       ],
+      keyQuotes: [
+      "Strong fluctuations on natural, structure-preserving variations point to severe lack of robustness.",
+      "Models with insufficient generalization are inherently unsafe."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/120-129/125_alice_in_wonderland.md',
     },
     {
       id: '2304.11082',
@@ -1820,6 +2429,11 @@ window.paperData = {
         'RLHF increases β 5x (double-edged sword)',
         '~3 sentences to misalign (log(1/α)/β ≈ 3)',
       ],
+      keyQuotes: [
+      "For any behavior with finite probability, there exist prompts that can trigger it.",
+      "Any alignment process that attenuates an undesired behavior but does not remove it is not safe."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/120-129/126_fundamental_limitations_alignment.md',
     },
     {
       id: '2310.13548',
@@ -1836,6 +2450,11 @@ window.paperData = {
         '~6% preference boost when response matches user beliefs',
         'Up to 27% accuracy drop from user suggestion (LLaMA 2)',
       ],
+      keyQuotes: [
+      "Matching a user's views is one of the most predictive features of human preference judgments.",
+      "Claude 1.3 wrongly admits mistakes on 98% of questions."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/120-129/127_towards_understanding_sycophancy.md',
     },
     {
       id: '2501.13381',
@@ -1852,6 +2471,11 @@ window.paperData = {
         'IR doubles with reflection (28.6% → 68.5%)',
         'All 11 models vulnerable including GPT-4o',
       ],
+      keyQuotes: [
+      "Even simple problems can be influenced by peer pressure.",
+      "LLMs may adopt majority opinions despite knowing correct answers."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/120-129/128_conformity_of_llms.md',
     },
     {
       id: '2412.21187',
@@ -1869,6 +2493,11 @@ window.paperData = {
         'Distinctness drops 11.5% at solution #4+',
         '~45% token reduction maintains accuracy',
       ],
+      keyQuotes: [
+      "On average, o1-like models consumed 1,953% more tokens than conventional models.",
+      "In more than 92% of cases, the initial round of solutions produces the correct answer."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/120-129/129_overthinking_o1_llms.md',
     },
     {
       id: '2501.18585',
@@ -1886,6 +2515,11 @@ window.paperData = {
         'First thoughts often correct but abandoned',
         'Tip penalty improves accuracy without training',
       ],
+      keyQuotes: [
+      "On average, o1-like LLMs consume 225% more tokens in incorrect responses.",
+      "Over 70% of incorrect responses contain at least one correct thought."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/130-139/130_underthinking_o1_llms.md',
     },
     {
       id: '2403.04121',
@@ -1903,6 +2537,11 @@ window.paperData = {
         'Fine-tuning = memory compilation',
         'LLM-Modulo: LLMs + external verifiers',
       ],
+      keyQuotes: [
+      "LLMs are perhaps best seen as giant non-veridical memories akin to an external System 1.",
+      "When we obfuscated names, GPT4's performance plummeted precipitously."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/130-139/131_can_llms_reason_and_plan.md',
     },
     {
       id: '2504.09762',
@@ -1920,6 +2559,11 @@ window.paperData = {
         'Loose correlation trace ↔ solution',
         'Compiling verification into generation',
       ],
+      keyQuotes: [
+      "While a human may say 'aha' to indicate a sudden internal state change, this is unwarranted for models.",
+      "Post-training LRMs can be seen as iteratively compiling reasoning into retrieval."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/130-139/132_stop_anthropomorphizing_tokens.md',
     },
     {
       id: '2510.07364',
@@ -1937,6 +2581,11 @@ window.paperData = {
         'Two-component decomposition',
         'Steering vectors transfer across models',
       ],
+      keyQuotes: [
+      "Base models already possess the fundamental reasoning capabilities; thinking models learn when to deploy them.",
+      "Our hybrid model recovers up to 91% of the performance gap while steering only 12% of tokens."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/130-139/133_base_models_know_how_to_reason.md',
     },
     {
       id: '2410.09695',
@@ -1954,6 +2603,11 @@ window.paperData = {
         'Algorithm selection by lowest test error',
         'Double descent reveals ID behavior on OOD tests',
       ],
+      keyQuotes: [
+      "ICL performance resembles implementing a function within the pretraining hypothesis space.",
+      "Llama-3-8B may not learn new tasks through ICL, but can solve tasks through retrieval."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/130-139/134_can_icl_generalize_ood.md',
     },
     {
       id: '2502.03373',
@@ -1971,6 +2625,11 @@ window.paperData = {
         'Base model has latent long CoT capabilities',
         'Short CoT + RL = ~0% improvement',
       ],
+      keyQuotes: [
+      "Core abilities like error correction are inherently present in base models.",
+      "We hypothesize that base models may already possess certain latent 'long CoT' capabilities."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/130-139/135_demystifying_long_cot.md',
     },
     {
       id: '2405.04776',
@@ -1988,6 +2647,11 @@ window.paperData = {
         'Same failure across 3 domains (Blocksworld etc)',
         'Sharp tradeoff: gains vs human labor',
       ],
+      keyQuotes: [
+      "CoT's performance improvements do not stem from learning general algorithmic procedures.",
+      "Those improvements quickly deteriorate as query size grows past the examples shown."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/130-139/136_chain_of_thoughtlessness.md',
     },
     {
       id: '2502.04667',
@@ -2005,6 +2669,11 @@ window.paperData = {
         'Non-CoT requires >1M steps (grokking), CoT needs ~4,000',
         'Theorem: OOD error depends critically on CoT',
       ],
+      keyQuotes: [
+      "Training without CoT fails to generalize \u2014 OOD test samples involve unseen reasoning patterns.",
+      "CoT-trained models resolve intermediate results at shallower layers."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/130-139/137_mechanisms_explicit_cot_training.md',
     },
     {
       id: '2508.15842',
@@ -2022,6 +2691,11 @@ window.paperData = {
         '5-word rule MCC=0.305 vs confidence MCC=0.065',
         'Errors easier to predict than correct responses',
       ],
+      keyQuotes: [
+      "On benchmarks where LLMs achieve low accuracy, they often report high self-confidence.",
+      "Tokens such as 'guess', 'stuck', 'hard' reduce accuracy odds by up to 40%."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/130-139/138_lexical_hints_accuracy_cot.md',
     },
     {
       id: '2512.24601',
@@ -2039,6 +2713,11 @@ window.paperData = {
         'RLMs scale to 10M+ tokens',
         'Only 1,000 samples needed for fine-tuning',
       ],
+      keyQuotes: [
+      "Frontier reasoning models exhibit context rot \u2014 quality degrades steeply as prompts get longer.",
+      "Long prompts should be treated as part of the environment the LLM interacts with symbolically."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/130-139/139_recursive_language_models.md',
     },
     {
       id: '2601.21894',
@@ -2055,6 +2734,11 @@ window.paperData = {
         'High complexity can harm reasoning (below NL baseline)',
         'Model-specific optimal complexity bands',
       ],
+      keyQuotes: [
+      "Not all code is equal \u2014 improvements depend strongly on structural complexity.",
+      "Previously reported gains may stem less from diversity and more from incidental exposure to particular properties."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/140-149/140_not_all_code_is_equal.md',
     },
     {
       id: '2601.21909',
@@ -2071,6 +2755,11 @@ window.paperData = {
         'CoT-SFT = trajectory imitation',
         'Meta-thought separates structure from content',
       ],
+      keyQuotes: [
+      "CoT-SFT encourages imitation of complete reasoning trajectories.",
+      "Human problem-solving exhibits precisely the property we seek \u2014 robust generalization from limited experience."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/140-149/141_meta_thought_to_execution.md',
     },
     {
       id: '2601.21414',
@@ -2087,6 +2776,11 @@ window.paperData = {
         'Output length is symptom, not cause',
         'DAMI outperforms static models',
       ],
+      keyQuotes: [
+      "Output length is merely a symptom of the model's cognitive configuration, not the root cause.",
+      "Linear interpolation yields a convex, monotonic Pareto frontier."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/140-149/142_system_1_2_synergy_interpolation.md',
     },
     {
       id: '2405.15071',
@@ -2103,6 +2797,11 @@ window.paperData = {
         'Data distribution > data size for grokking',
         'Grokked transformer beats GPT-4-Turbo',
       ],
+      keyQuotes: [
+      "Transformers can learn implicit reasoning, but only through grokking \u2014 extended training far beyond overfitting.",
+      "When faced with OOD examples, transformers fail to systematically generalize for composition."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/140-149/143_grokked_transformers_implicit_reasoners.md',
     },
     {
       id: '2407.01687',
@@ -2119,6 +2818,11 @@ window.paperData = {
         'Number-CoT ~100% vs Text-CoT 32%',
         'Invalid demonstrations still work',
       ],
+      keyQuotes: [
+      "CoT prompting performance reflects both memorization and a probabilistic version of genuine reasoning.",
+      "Varying output's probability of occurrence shifts accuracy from 26% to 70%."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/140-149/144_deciphering_cot_probability_memorization.md',
     },
     {
       id: '2409.12917',
@@ -2135,6 +2839,11 @@ window.paperData = {
         'Behavior collapse to single mode',
         'Must train on own error distribution',
       ],
+      keyQuotes: [
+      "Self-correction has consistently been found to be largely ineffective in modern LLMs.",
+      "Training via SFT falls prey to distribution mismatch or behavior collapse."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/140-149/145_score_self_correction_rl.md',
     },
     {
       id: '2304.15004',
@@ -2151,6 +2860,11 @@ window.paperData = {
         'Linear metrics ablate emergence',
         'Small models have non-zero capability',
       ],
+      keyQuotes: [
+      "Emergent abilities appear due to the researcher's choice of metric rather than fundamental changes in model behavior.",
+      "The researcher can choose a metric to create or ablate an emergent ability."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/140-149/146_emergent_abilities_mirage.md',
     },
     {
       id: '2202.07206',
@@ -2167,6 +2881,11 @@ window.paperData = {
         'Even simple unigram frequency correlates',
         'Challenges "reasoning" vs "memorization"',
       ],
+      keyQuotes: [
+      "Models are more accurate on instances whose terms are more prevalent \u2014 above 70% more accurate on top 10% vs bottom 10%.",
+      "High performance on reasoning benchmarks may reflect dataset overlap rather than reasoning capability."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/140-149/147_pretraining_term_frequencies.md',
     },
     {
       id: '2305.04388',
@@ -2183,6 +2902,11 @@ window.paperData = {
         'CoT makes bias susceptibility worse',
         '15% unfaithful explanations appear sound',
       ],
+      keyQuotes: [
+      "CoT explanations can be heavily influenced by adding biasing features which models fail to mention.",
+      "15% of unfaithful explanations have no obvious errors."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/140-149/148_language_models_dont_say_what_think.md',
     },
     {
       id: '2309.12288',
@@ -2199,6 +2923,11 @@ window.paperData = {
         'Correct name prob = random baseline',
         'Data augmentation doesnt help',
       ],
+      keyQuotes: [
+      "If a model is trained on 'A is B', it will not automatically generalize to 'B is A'.",
+      "The gradient update is myopic \u2014 depends on logits over B given A, not on predicting A from B."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/140-149/149_reversal_curse.md',
     },
     {
       id: '2305.15771',
@@ -2215,6 +2944,11 @@ window.paperData = {
         'Plan-like text ≠ valid plans',
         'LLM-Modulo improves with feedback',
       ],
+      keyQuotes: [
+      "LLMs' ability to generate executable plans autonomously is rather limited \u2014 best model ~12% success.",
+      "LLM-generated plans can improve the search process for underlying sound planners."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/150-159/150_planning_abilities_llms.md',
     },
     // Paper 151: Original CoT (Wei et al.)
     {
@@ -2232,6 +2966,11 @@ window.paperData = {
         'No fine-tuning required',
         '74% with self-consistency',
       ],
+      keyQuotes: [
+      "We explore how generating a chain of thought significantly improves ability to perform complex reasoning.",
+      "Successful chain of thought reasoning is an emergent property of model scale \u2014 around 100B parameters."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/150-159/151_chain_of_thought_prompting_original.md',
     },
     // Paper 152: Expressive Power of CoT (Merrill & Sabharwal)
     {
@@ -2249,6 +2988,11 @@ window.paperData = {
         'Layer-norm hash for memory storage',
         'Expressivity ≠ learnability caveat',
       ],
+      keyQuotes: [
+      "The answer is yes, but the amount of increase depends crucially on the amount of intermediate generation.",
+      "Running a polynomial number of forward passes with a large transformer is likely intractable in practice."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/150-159/152_expressive_power_transformers_cot.md',
     },
     // Paper 153: PlanBench (Kambhampati)
     {
@@ -2266,6 +3010,11 @@ window.paperData = {
         'Plan generation, verification, tracking',
         'Extensible benchmark framework',
       ],
+      keyQuotes: [
+      "Most claims about LLM planning capabilities are based on common sense tasks \u2014 hard to tell if LLMs are planning or retrieving.",
+      "On many critical capabilities, LLM performance falls quite short, even with SOTA models."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/150-159/153_planbench.md',
     },
     // Paper 154: Zero-Shot CoT (Kojima et al.)
     {
@@ -2283,6 +3032,11 @@ window.paperData = {
         'Single prompt works across tasks',
         'Two-stage: reasoning then answer',
       ],
+      keyQuotes: [
+      "LLMs are decent zero-shot reasoners by simply adding 'Let's think step by step'.",
+      "The versatility of this single prompt hints at untapped fundamental zero-shot capabilities."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/150-159/154_zero_shot_cot.md',
     },
     // Paper 155: Self-Consistency (Wang et al.)
     {
@@ -2300,6 +3054,11 @@ window.paperData = {
         'Majority vote over diverse paths',
         'Improvement scales with samples',
       ],
+      keyQuotes: [
+      "A complex reasoning problem typically admits multiple different ways of thinking leading to its unique correct answer.",
+      "Self-consistency boosts chain-of-thought prompting with a striking margin."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/150-159/155_self_consistency.md',
     },
     // Paper 157: Token Bias (Jiang et al.)
     {
@@ -2317,6 +3076,11 @@ window.paperData = {
         'Hint tokens ("conjunction fallacy") massively improve accuracy',
         '91% failure prediction from reconstructed algorithms',
       ],
+      keyQuotes: [
+      "Most LLMs still struggle with logical reasoning \u2014 success largely depends on recognizing superficial patterns.",
+      "By reconstructing these algorithms, we are able to correctly predict 91% of failure cases."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/150-159/157_token_bias_not_genuine_reasoners.md',
     },
     // Paper 158: Can Transformers Learn Recursively (Zhang et al.)
     {
@@ -2334,6 +3098,11 @@ window.paperData = {
         'Symbolic tools outperform on recursive tasks',
         'Failures predictable from surface patterns',
       ],
+      keyQuotes: [
+      "By reconstructing these algorithms, we are able to correctly predict 91 percent of failure cases.",
+      "Our work provides a new foundation for understanding neural networks that fail to solve tasks they are trained for."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/150-159/158_transformers_recursive_problems.md',
     },
     // Paper 159: ALiBi Length Extrapolation (Press et al.)
     {
@@ -2351,6 +3120,11 @@ window.paperData = {
         'Same perplexity as training on longer sequences',
         'Recency bias improves WikiText-103',
       ],
+      keyQuotes: [
+      "Models trained on sequences of length 1024 can extrapolate to length 2048 with the same perplexity.",
+      "ALiBi is more efficient than sinusoidal position embeddings while enabling extrapolation."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/150-159/159_alibi_length_extrapolation.md',
     },
     // Paper 160: GSM-IC Distracted by Irrelevant Context (Shi et al.)
     {

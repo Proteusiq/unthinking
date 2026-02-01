@@ -30,7 +30,7 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
 | 2205.11916 | **Large Language Models are Zero-Shot Reasoners** (Kojima et al.) | ✅ DONE | Analyzed as Paper 154. "Let's think step by step" (NeurIPS 2022). |
-| 2405.00451 | **Monte Carlo Tree Search Boosts Reasoning via Iterative Preference Learning** | 🟡 MEDIUM | MCTS + DPO: +5.9% GSM8K, +5.8% MATH. AlphaZero-inspired iterative preference learning. |
+| 2405.00451 | **Monte Carlo Tree Search Boosts Reasoning via Iterative Preference Learning** | 🔵 MAYBE LATER | MCTS + DPO: +5.9% GSM8K, +5.8% MATH. AlphaZero-inspired iterative preference learning. |
 
 ---
 
@@ -135,7 +135,7 @@ These papers directly test or challenge the thesis that LLM reasoning is pattern
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
 | 2108.12409 | **Train Short, Test Long: ALiBi** (Press et al.) | 🟠 HIGH | Linear biases for length extrapolation. Architectural approach to OOD — shows what's needed to generalize. |
-| 2111.00396 | **Efficiently Modeling Long Sequences with S4** (Gu et al.) | 🟡 MEDIUM | State space models for long sequences. Alternative architecture with different reasoning properties. |
+| 2111.00396 | **Efficiently Modeling Long Sequences with S4** (Gu et al.) | 🔵 MAYBE LATER | State space models for long sequences. Alternative architecture with different reasoning properties. |
 | 2404.01445 | **Theory for Length Generalization in Learning to Reason** | 🟡 MEDIUM | Theoretical analysis of when/why length generalization fails. Already in corpus as Paper 66. |
 
 ### CoT Theoretical Foundations
@@ -144,7 +144,7 @@ These papers directly test or challenge the thesis that LLM reasoning is pattern
 |----------|-------|----------|----------|
 | 2310.07923 | **Expressive Power of Transformers with Chain of Thought** (Merrill & Sabharwal) | ✅ DONE | Analyzed as Paper 152 |
 | 2205.11916 | **Zero-Shot CoT: Let's Think Step by Step** (Kojima et al.) | ✅ DONE | Analyzed as Paper 154 |
-| 2301.00303 | **CoT Improves Sample Efficiency on Parity** (Kim & Suzuki) | 🟡 MEDIUM | Mechanistic analysis of WHY CoT helps. Relevant to Paper 137's findings. |
+| 2301.00303 | **CoT Improves Sample Efficiency on Parity** (Kim & Suzuki) | 🔵 MAYBE LATER | Mechanistic analysis of WHY CoT helps. Relevant to Paper 137's findings. |
 
 ### Faithfulness/Unfaithfulness
 
@@ -158,7 +158,7 @@ These papers directly test or challenge the thesis that LLM reasoning is pattern
 
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
-| 1906.03764 | **Differentiable Logic Machines** (Zimmer et al.) | 🟡 MEDIUM | arXiv 2019. Outperforms LLMs on logical reasoning. Neuro-symbolic architecture comparison. |
+| 1906.03764 | **Differentiable Logic Machines** (Zimmer et al.) | 🔵 MAYBE LATER | arXiv 2019. Outperforms LLMs on logical reasoning. Neuro-symbolic architecture comparison. |
 | 2305.15771 | **On the Planning Abilities of Large Language Models** (Valmeekam et al., NeurIPS Spotlight 2023) | ✅ DONE | Analyzed as Paper 150 |
 | 2206.10498 | **PlanBench: Evaluating LLMs on Planning and Reasoning about Change** (Valmeekam et al., NeurIPS D&B 2023) | ✅ DONE | Analyzed as Paper 153 |
 
