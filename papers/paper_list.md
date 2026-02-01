@@ -299,6 +299,9 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 148 | 2305.04388 | May 2023 | Language Models Don't Always Say What They Think (NeurIPS 2023) | Strongly Supports | ✅ DONE |
 | 149 | 2309.12288 | Sep 2023 | The Reversal Curse: LLMs trained on "A is B" fail to learn "B is A" | Strongly Supports | ✅ DONE |
 | 150 | 2305.15771 | May 2023 | On the Planning Abilities of Large Language Models (NeurIPS Spotlight 2023) | Strongly Supports | ✅ DONE |
+| 151 | 2201.11903 | Jan 2022 | Chain-of-Thought Prompting Elicits Reasoning in Large Language Models (NeurIPS 2022) | FOR (challenged) | ✅ DONE |
+| 152 | 2310.07923 | Oct 2023 | The Expressive Power of Transformers with Chain of Thought (ICLR 2024) | FOR (theoretical) | ✅ DONE |
+| 153 | 2206.10498 | Jun 2022 | PlanBench: Benchmark for LLM Planning and Reasoning (NeurIPS D&B 2023) | Strongly Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -314,11 +317,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 150
-- **Against Reasoning**: ~83
-- **For Reasoning**: ~27
+- **Total Papers**: 153
+- **Against Reasoning**: ~84
+- **For Reasoning**: ~29
 - **Balanced**: ~45
 - **Date Range**: 2022-2026
-- **Analyzed**: 150
+- **Analyzed**: 153
 
 ---
