@@ -284,6 +284,10 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 133 | 2510.07364 | Oct 2025 | Base Models Know How to Reason, Thinking Models Learn When | Strongly Supports | ✅ DONE |
 | 134 | 2410.09695 | Oct 2024 | Can In-context Learning Really Generalize to Out-of-distribution Tasks? | Strongly Supports | ✅ DONE |
 | 135 | 2502.03373 | Feb 2025 | Demystifying Long Chain-of-Thought Reasoning in LLMs | Supports | ✅ DONE |
+| 136 | 2405.04776 | May 2024 | Chain of Thoughtlessness? An Analysis of CoT in Planning (NeurIPS 2024) | Strongly Supports | ✅ DONE |
+| 137 | 2502.04667 | Feb 2025 | Unveiling the Mechanisms of Explicit CoT Training | Supports | ✅ DONE |
+| 138 | 2508.15842 | Aug 2025 | Lexical Hints of Accuracy in LLM Reasoning Chains | Strongly Supports | ✅ DONE |
+| 139 | 2512.24601 | Dec 2025 | Recursive Language Models | Balanced | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -299,11 +303,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 135
-- **Against Reasoning**: ~74
+- **Total Papers**: 139
+- **Against Reasoning**: ~76
 - **For Reasoning**: ~27
-- **Balanced**: ~40
+- **Balanced**: ~41
 - **Date Range**: 2023-2026
-- **Analyzed**: 135
+- **Analyzed**: 139
 
 ---

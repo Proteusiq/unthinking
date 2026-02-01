@@ -16,7 +16,7 @@ These papers directly test or challenge the thesis that LLM reasoning is pattern
 |----------|-------|----------|----------|
 | 2403.04121 | **Can Large Language Models Reason and Plan?** | ✅ DONE | Analyzed as Paper 131 |
 | 2504.09762 | **Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!** | ✅ DONE | Analyzed as Paper 132 |
-| 2405.04776 | **Chain of Thoughtlessness? An Analysis of CoT in Planning** | ⭐ HIGH | Tests CoT on planning tasks. Title suggests CoT doesn't help planning — supports "execution without understanding" argument. |
+| 2405.04776 | **Chain of Thoughtlessness? An Analysis of CoT in Planning** | ✅ DONE | Analyzed as Paper 136 |
 
 ### Surfacing Hypothesis Papers
 
@@ -28,26 +28,26 @@ These papers directly test or challenge the thesis that LLM reasoning is pattern
 
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
-| 2410.09695 | **Can In-context Learning Really Generalize to Out-of-distribution Tasks?** | ⭐ CRITICAL | OOD generalization is THE core question. If ICL fails OOD, supports distribution-bounded thesis. |
-| 2502.04667 | **Unveiling the Mechanisms of Explicit CoT Training: How CoT Enhances Reasoning Generalization** | 🟠 HIGH | Mechanistic analysis of HOW CoT helps. May reveal whether it's genuine reasoning or pattern amplification. |
+| 2410.09695 | **Can In-context Learning Really Generalize to Out-of-distribution Tasks?** | ✅ DONE | Analyzed as Paper 134 |
+| 2502.04667 | **Unveiling the Mechanisms of Explicit CoT Training: How CoT Enhances Reasoning Generalization** | ✅ DONE | Analyzed as Paper 137 |
 
 ### Long CoT / Test-Time Scaling
 
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
-| 2502.03373 | **Demystifying Long Chain-of-Thought Reasoning in LLMs** | ⭐ CRITICAL | Analyzes long CoT (test-time scaling). Tests whether more tokens = better reasoning or just more pattern matching. |
+| 2502.03373 | **Demystifying Long Chain-of-Thought Reasoning in LLMs** | ✅ DONE | Analyzed as Paper 135 |
 
 ### CoT Faithfulness Evidence
 
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
-| 2508.15842 | **Lexical Hints of Accuracy in LLM Reasoning Chains** | 🟠 HIGH | Shows lexical markers ("hard", "guess", "likely") correlate with errors. Supports unfaithfulness — models signal uncertainty through surface patterns. |
+| 2508.15842 | **Lexical Hints of Accuracy in LLM Reasoning Chains** | ✅ DONE | Analyzed as Paper 138 |
 
 ### Novel Architectures
 
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
-| 2512.24601 | **Recursive Language Models** | 🟡 MEDIUM | Novel architecture for reasoning. May provide mechanistic insights or show architectural limits. |
+| 2512.24601 | **Recursive Language Models** | ✅ DONE | Analyzed as Paper 139 |
 
 ---
 
@@ -93,6 +93,9 @@ These papers directly test or challenge the thesis that LLM reasoning is pattern
 
 ## Recently Analyzed (Removed from Queue)
 
+- ✅ **Mechanisms of Explicit CoT Training** (2502.04667) — Analyzed 2026-02-01 as Paper 137
+- ✅ **Lexical Hints of Accuracy** (2508.15842) — Analyzed 2026-02-01 as Paper 138
+- ✅ **Recursive Language Models** (2512.24601) — Analyzed 2026-02-01 as Paper 139
 - ✅ **CoT Compression** (2601.21576) — Analyzed 2026-01-31 as Paper 24
 - ✅ **Chains to DAGs** (2601.17593) — Analyzed 2026-01-31 as Paper 90
 - ✅ **HalluGuard** (2601.18753) — Analyzed 2026-01-31 as Paper 91
