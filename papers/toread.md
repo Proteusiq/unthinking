@@ -125,10 +125,10 @@ These papers directly test or challenge the thesis that LLM reasoning is pattern
 
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
-| 2301.00234 | **Transformers Learn 1-Nearest Neighbor** (Li et al.) | ⭐ CRITICAL | WRONG ID — 2301.00234 is ICL Survey. Need to find correct paper. |
+| ~~2301.00234~~ | ~~**Transformers Learn 1-Nearest Neighbor** (Li et al.)~~ | ❌ REMOVED | Paper not found on arXiv — may be non-arXiv publication or wrong citation. |
 | 2202.07206 | **Impact of Pretraining Term Frequencies on Few-Shot Reasoning** (Razeghi et al.) | ✅ DONE | Analyzed as Paper 147 |
-| 2310.XXXXX | **Token Bias in LLMs** (Jiang et al.) | 🟠 HIGH | Statistical guarantees for token bias. Foundation for fragility/sensitivity findings in GSM-Symbolic. |
-| 2206.07682 | **Emergent Abilities Are Mirage** (Schaeffer et al.) | 🟠 HIGH | WRONG ID — check for correct paper. May be duplicate of 2304.15004. |
+| 2406.11050 | **A Peek into Token Bias: LLMs Are Not Yet Genuine Reasoners** (Jiang et al.) | 🟠 HIGH | EMNLP 2024. Statistical hypothesis testing for token bias. Foundation for GSM-Symbolic fragility findings. |
+| ~~2206.07682~~ | ~~**Emergent Abilities Are Mirage** (Schaeffer et al.)~~ | ✅ DUPLICATE | Already analyzed as Paper 146 (correct ID: 2304.15004) |
 
 ### Length/OOD Generalization Theory
 
@@ -158,7 +158,7 @@ These papers directly test or challenge the thesis that LLM reasoning is pattern
 
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
-| 2206.XXXXX | **DLM: Differentiable Logic Machines** | 🟡 MEDIUM | Dramatically outperforms LLMs 100,000x larger on logical reasoning. Architectural comparison. |
+| 1906.03764 | **Differentiable Logic Machines** (Zimmer et al.) | 🟡 MEDIUM | arXiv 2019. Outperforms LLMs on logical reasoning. Neuro-symbolic architecture comparison. |
 | 2305.15771 | **On the Planning Abilities of Large Language Models** (Valmeekam et al., NeurIPS Spotlight 2023) | ✅ DONE | Analyzed as Paper 150 |
 | 2206.10498 | **PlanBench: Evaluating LLMs on Planning and Reasoning about Change** (Valmeekam et al., NeurIPS D&B 2023) | ✅ DONE | Analyzed as Paper 153 |
 
