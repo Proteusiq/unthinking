@@ -95,24 +95,6 @@ If LLM generates C, and C lies on the line between A and B = INTERPOLATION.
 
 ---
 
-## Why This Matters
-
-Inspired by Anthropic's *"On the Biology of a Large Language Model"*, I began a journey in the opposite direction. To bring my thoughts together, I collected papers and built this site to track an ongoing dialogue in the research community.
-
-What I found: LLMs search their training distribution. They match patterns seen before. The pause is computation, not contemplation. The steps are retrieval, not reasoning.
-
-**Like Leonard in Memento, LLMs have no persistent state.** Each token prediction starts fresh — no memory of what was "understood" moments ago, only the tattoos of the context window. What looks like continuous thought is actually a series of pattern-matched snapshots, each one consulting the same static weights. There is no inner monologue accumulating insight. Just retrieval, over and over.
-
-Chain-of-Thought works because similar chains existed in training data — not because the model invents new logic. Test-time compute helps. RL helps. They surface what already exists.
-
-Calling this pattern matching is not a criticism — it's clarity. These systems work. Pattern matching at unprecedented scale is genuinely useful.
-
-But a prediction is not a thought. Expect brittleness at the edges. Expect failure when the problem shifts.
-
-Let's use them. Let's see them clearly.
-
----
-
 ## Key Findings
 
 ### Evidence Supporting the Thesis
@@ -160,6 +142,16 @@ If alternative decoding on the **base model** recovers reasoning paths that impr
 - The capability was always there — greedy decoding just didn't select it
 
 See [`experiments/decoding_ablation/protocol.md`](./experiments/decoding_ablation/protocol.md) for the full experimental protocol.
+
+---
+
+## Why This Matters
+
+**Like Leonard in Memento, LLMs have no persistent state.** Each token prediction starts fresh — no memory of what was "understood" moments ago, only the tattoos of the context window. What looks like continuous thought is actually a series of pattern-matched snapshots, each one consulting the same static weights. There is no inner monologue accumulating insight. Just retrieval, over and over.
+
+Calling this pattern matching is not a criticism — it's clarity. These systems work. Pattern matching at unprecedented scale is genuinely useful. But a prediction is not a thought. Expect brittleness at the edges. Expect failure when the problem shifts.
+
+Let's use them. Let's see them clearly.
 
 ---
 
