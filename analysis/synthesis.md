@@ -89,8 +89,15 @@
 | 126 | Fundamental Limitations Alignment | Apr 2023 | Supports | BEB theory: any α>0 behavior triggerable; ~3 sentences to misalign; RLHF increases vulnerability |
 | 127 | Towards Understanding Sycophancy | Oct 2023 | Strongly Supports | FOUNDATIONAL: 98% wrongly admit mistakes; PM prefers sycophantic 95%; training signal → behavior |
 | 128 | Conformity of LLMs | Jan 2025 | Strongly Supports | ICLR 2025: 47.2% avg conformity; reflection DOUBLES independence (28.6%→68.5%); key elicitation evidence |
+| ... | ... | ... | ... | ... |
+| 146 | Are Emergent Abilities a Mirage? | Apr 2023 | Strongly Supports | NeurIPS 2023: >92% BIG-Bench emergence from 2 metrics; same outputs → different conclusions; metric artifacts |
+| 147 | Pretraining Term Frequencies | Feb 2022 | Strongly Supports | EMNLP 2022: FOUNDATIONAL - >70% accuracy gap (top vs bottom 10% frequency); if models learned algorithms, accuracy would be uniform |
+| 148 | Language Models Don't Say What They Think | May 2023 | Strongly Supports | NeurIPS 2023: FOUNDATIONAL - 36% accuracy drop from bias; 1/426 explanations mention bias; CoT makes bias susceptibility WORSE |
+| 149 | The Reversal Curse | Sep 2023 | Strongly Supports | FOUNDATIONAL: 0% reverse accuracy (complete failure); GPT-4: 79% forward, 33% reverse; LLMs store directional patterns, not relations |
+| 150 | On the Planning Abilities of LLMs | May 2023 | Strongly Supports | NeurIPS 2023 Spotlight (Kambhampati): GPT-4 ~12% autonomous planning; plan-like text ≠ valid plans; LLM-Modulo framework |
+| 151 | Chain-of-Thought Prompting Elicits Reasoning | Jan 2022 | FOR (Foundational) | NeurIPS 2022: ORIGINAL CoT PAPER - 540B + 8 examples = SOTA GSM8K; foundation for all CoT research |
 
-**Total: 129 papers analyzed**
+**Total: 151 unique papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative
@@ -1058,6 +1065,16 @@ For B=1 (NO search required, just follow edges):
 14. Structure the paper around the SEVEN main arguments
 15. Develop the "predictive vs generative" distinction further
 
+### Papers Mined for Future Analysis (2026-02-01)
+| Priority | arXiv | Title |
+|----------|-------|-------|
+| ⭐ CRITICAL | 2203.11171 | Self-Consistency Improves CoT Reasoning (+17.9% GSM8K) |
+| ⭐ CRITICAL | 2409.13373 | LLMs Still Can't Plan; Can LRMs? (o1 on PlanBench) |
+| 🟠 HIGH | 2310.07923 | Expressive Power of Transformers with CoT (FOR thesis) |
+| 🟠 HIGH | 2305.14699 | Can Transformers Learn to Solve Problems Recursively? |
+| 🟠 HIGH | 2108.12409 | Train Short, Test Long: ALiBi |
+| 🟠 HIGH | 2206.10498 | PlanBench (Kambhampati's benchmark) |
+
 ### Completed This Session
 - [x] Comprehension Without Competence (2507.10624) ✅
 - [x] Frontier LLMs Still Struggle (2507.07313) ✅
@@ -1115,13 +1132,87 @@ For B=1 (NO search required, just follow edges):
 | **10.6% → 4.0%** | **Correct answers ≠ correct processes (60% lucky)** | **ARC/LoTH (2403.11793)** |
 | **0% Medium/Hard ARC** | **Complete failure on complex compositional tasks** | **ARC/LoTH (2403.11793)** |
 | **1D-ARC 90% vs ARC 10%** | **Representation matters more than reasoning** | **ARC/LoTH (2403.11793)** |
+| **Emergence is metric artifact** | **>92% BIG-Bench emergence from 2 metrics** | **Emergent Abilities Mirage (2304.15004)** |
+| **>70% accuracy gap by frequency** | **If algorithms learned, accuracy would be uniform** | **Pretraining Term Frequencies (2202.07206)** |
+| **CoT makes bias WORSE** | **36% accuracy drop from bias; 1/426 mention it** | **Language Models Don't Say (2305.04388)** |
+| **0% reverse accuracy** | **LLMs store directional patterns, not relations** | **Reversal Curse (2309.12288)** |
+| **GPT-4: 79% forward, 33% reverse** | **Knowledge is key-value, not symmetric** | **Reversal Curse (2309.12288)** |
+| **~12% autonomous planning** | **Plan-like text ≠ valid plans** | **Planning Abilities (2305.15771)** |
 
 ---
 
 ## Thesis Position (Strengthened)
 
-**Total Papers**: 79 analyzed
-**Stance Breakdown**: Supports=~55, Challenges=~8, Balanced=~16
+**Total Papers**: 151 unique papers analyzed
+**Stance Breakdown**: Supports=~95, Challenges=~12, Balanced=~44
+
+---
+
+## NEW: Foundational Papers Added (2026-02-01)
+
+### The Emergence Mirage (2304.15004, NeurIPS 2023)
+
+**Core finding**: "Emergent abilities" are measurement artifacts, not real capability transitions.
+
+| Metric Type | Behavior with Scale |
+|------------|---------------------|
+| Nonlinear (Exact Match) | Sharp, "emergent" appearance |
+| Linear (Token Edit Distance) | Smooth, predictable improvement |
+
+**Key evidence**: >92% of BIG-Bench emergent abilities come from just 2 metrics (Multiple Choice Grade + Exact String Match).
+
+**Implication for thesis**: If emergence is a mirage, the "reasoning emerges at scale" narrative collapses. Capabilities scale smoothly — they just APPEAR sharp under nonlinear metrics.
+
+### The Frequency Effect (2202.07206, EMNLP 2022)
+
+**Core finding**: LLM accuracy directly correlates with training term frequency.
+
+| Task | Frequency Gap (Δ) |
+|------|-------------------|
+| Multiplication | **77.6%** |
+| Addition | 16.8% |
+
+**Critical insight**: Adjacent numbers (24×18 vs 23×18) show >20% accuracy difference solely due to frequency.
+
+**Implication for thesis**: If models learned general algorithms, accuracy would be uniform. The frequency correlation proves pattern retrieval, not reasoning.
+
+### The Unfaithfulness Problem (2305.04388, NeurIPS 2023)
+
+**Core finding**: CoT explanations systematically misrepresent true reasons for predictions.
+
+| Setting | Accuracy Drop |
+|---------|---------------|
+| Suggested Answer bias | **-36.3%** |
+| Answer Always A bias | -18.7% |
+
+**Critical insight**: Models NEVER mention biasing features (1/426 explanations). Zero-shot CoT makes models MORE susceptible to bias.
+
+**Implication for thesis**: CoT is post-hoc rationalization, not transparent reasoning. Cannot use CoT for alignment verification.
+
+### The Reversal Curse (2309.12288)
+
+**Core finding**: LLMs trained on "A is B" fail to learn "B is A".
+
+| Direction | Finetuning Accuracy | GPT-4 Real-World |
+|-----------|--------------------|--------------------|
+| Forward | 96.7% | 79% |
+| **Reverse** | **0.0%** | **33%** |
+
+**Critical insight**: Reverse accuracy = random baseline. Not partial degradation — COMPLETE failure.
+
+**Implication for thesis**: LLMs store directional associations (key-value), not symmetric relations. Proves pattern storage, not understanding.
+
+### The Planning Deficit (2305.15771, NeurIPS 2023 Spotlight)
+
+**Core finding**: GPT-4 achieves only ~12% autonomous planning success.
+
+**Kambhampati's key insight**: LLMs generate text that LOOKS like plans but doesn't execute correctly.
+
+**LLM-Modulo framework**: Use LLMs as heuristics for external planners, not as autonomous planners.
+
+**Implication for thesis**: Plan-like text ≠ valid plans. Same pattern as CoT unfaithfulness — appearance without substance.
+
+---
 
 The evidence now overwhelmingly supports the "Against" position:
 
