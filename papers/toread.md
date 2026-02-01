@@ -26,7 +26,7 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 
 **HIGH PRIORITY — Sycophancy/Conformity Foundational**
 - [x] **Towards Understanding Sycophancy in Language Models** (2310.13548) — Analyzed as Paper 127
-- [ ] **Do as we do, not as you think: The conformity of LLMs** (2405.00451) — Weng et al., ICLR 2025; LLM conformity behavior
+- [ ] **Do as we do, not as you think: The conformity of LLMs** (WRONG ID: 2405.00451) — Weng et al., ICLR 2025; LLM conformity behavior; NEEDS CORRECT ARXIV ID
 
 **MEDIUM PRIORITY — Overthinking Research**
 - [ ] **Overthinking in LRMs** (2412.21187) — First overthinking paper; test-time compute dynamics
