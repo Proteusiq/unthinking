@@ -177,7 +177,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | # | arXiv ID | Date | Title | Why Critical | Status |
 |---|----------|------|-------|--------------|--------|
 | F1 | 2305.18654 | May 2023 | Faith and Fate: Limits of Transformers on Compositionality (Dziri et al.) | Computation graph analysis — proves "linearized subgraph matching" mechanism. Core theoretical foundation for pattern-matching hypothesis. Cited by GSM-Symbolic. | ✅ DONE |
-| F2 | 2307.13702 | Jul 2023 | Measuring Faithfulness in Chain-of-Thought Reasoning (Lanham et al.) | Establishes CoT unfaithfulness empirically. Larger models = less faithful. Foundation for faithfulness debate. | ✅ DONE |
+| F2 | 2307.13702 | Jul 2023 | Measuring Faithfulness in Chain-of-Thought Reasoning (Lanham et al.) | Establishes CoT unfaithfulness empirically. Larger models = less faithful. Foundation for faithfulness debate. | ⚠️ DUPLICATE of #10 |
 
 ---
 
@@ -304,6 +304,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 153 | 2206.10498 | Jun 2022 | PlanBench: Benchmark for LLM Planning and Reasoning (NeurIPS D&B 2023) | Strongly Supports | ✅ DONE |
 | 154 | 2205.11916 | May 2022 | Large Language Models are Zero-Shot Reasoners (NeurIPS 2022) | FOR (contested) | ✅ DONE |
 | 155 | 2203.11171 | Mar 2022 | Self-Consistency Improves Chain of Thought Reasoning (ICLR 2023) | FOR (contested) | ✅ DONE |
+| 156 | 2409.13373 | Sep 2024 | LLMs Still Can't Plan; Can LRMs? o1 on PlanBench (Kambhampati) | Strongly Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -319,11 +320,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 155
-- **Against Reasoning**: ~84
+- **Total Papers**: 156
+- **Against Reasoning**: ~85
 - **For Reasoning**: ~31
 - **Balanced**: ~45
 - **Date Range**: 2022-2026
-- **Analyzed**: 155
+- **Analyzed**: 156
 
 ---
