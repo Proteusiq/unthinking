@@ -619,6 +619,30 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **System 1&2 Synergy (2601.21414)** | **extends** | **Underthinking (2501.18585)** | **DAMI could address underthinking via dynamic λ** |
 | **System 1&2 Synergy (2601.21414)** | **provides evidence for** | **Pattern matching thesis** | **Linear interpolation works; "thinking" is quantitative (λ parameter), not qualitative capability** |
 
+### CoT Foundational Papers (151-156)
+
+| Paper A | Relationship | Paper B | Evidence |
+|---------|--------------|---------|----------|
+| **Original CoT (2201.11903)** | **foundational for** | **Zero-Shot CoT (2205.11916)** | Wei et al. → Kojima et al. zero-shot extension |
+| **Original CoT (2201.11903)** | **foundational for** | **Self-Consistency (2203.11171)** | Wei et al. → Wang et al. majority voting |
+| **Original CoT (2201.11903)** | **foundational for** | **CoT Expressivity (2310.07923)** | Merrill & Sabharwal prove Wei's claims theoretically |
+| **Original CoT (2201.11903)** | **challenged by** | **Unfaithful CoT (2305.04388)** | Paper 148: CoT makes bias WORSE |
+| **Original CoT (2201.11903)** | **challenged by** | **Term Frequencies (2202.07206)** | Paper 147: Frequency determines accuracy, not reasoning |
+| **Zero-Shot CoT (2205.11916)** | **extends** | **Original CoT (2201.11903)** | Eliminates exemplar requirement |
+| **Zero-Shot CoT (2205.11916)** | **challenged by** | **Unfaithful CoT (2305.04388)** | Bias susceptibility in zero-shot prompting |
+| **Self-Consistency (2203.11171)** | **extends** | **Original CoT (2201.11903)** | Majority voting on diverse CoT paths |
+| **Self-Consistency (2203.11171)** | **challenged by** | **CoT Mirage (2508.01191)** | Voting won't help when OOD=0% |
+| **CoT Expressivity (2310.07923)** | **provides theory for** | **Original CoT (2201.11903)** | Proves CoT adds computational power |
+| **CoT Expressivity (2310.07923)** | **theoretically contradicted by** | **Planning Abilities (2305.15771)** | Theory: poly-CoT = P; Practice: ~12% success |
+| **CoT Expressivity (2310.07923)** | **theoretically contradicted by** | **PlanBench (2206.10498)** | Same theory-practice gap |
+| **CoT Expressivity (2310.07923)** | **theoretically contradicted by** | **o1 on PlanBench (2409.13373)** | Even o1: 97.8% → 23.6% on complexity |
+| **PlanBench (2206.10498)** | **provides benchmark for** | **Planning Abilities (2305.15771)** | Same Kambhampati research group |
+| **PlanBench (2206.10498)** | **provides benchmark for** | **o1 on PlanBench (2409.13373)** | Same benchmark, tests reasoning models |
+| **o1 on PlanBench (2409.13373)** | **extends** | **Planning Abilities (2305.15771)** | Tests o1 on same benchmark as GPT-4 |
+| **o1 on PlanBench (2409.13373)** | **extends** | **PlanBench (2206.10498)** | Tests reasoning models on PlanBench |
+| **o1 on PlanBench (2409.13373)** | **supports** | **Illusion of Thinking (2506.06941)** | Same complexity collapse pattern |
+| **o1 on PlanBench (2409.13373)** | **supports** | **Faith and Fate (2305.18654)** | Surface form dependence (Mystery BW) |
+
 
 ### Extends / Builds On
 
