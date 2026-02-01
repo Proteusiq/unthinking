@@ -1145,8 +1145,8 @@ For B=1 (NO search required, just follow edges):
 
 ## Thesis Position (Strengthened)
 
-**Total Papers**: 153 unique papers analyzed
-**Stance Breakdown**: Supports=~96, Challenges=~13, Balanced=~44
+**Total Papers**: 156 unique papers analyzed
+**Stance Breakdown**: Supports=~96, Challenges=~16, Balanced=~44
 
 ---
 

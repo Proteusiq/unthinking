@@ -82,7 +82,7 @@ Total papers to read from provided evidence (2024+ only)
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
 | 32 | 2504.01445 | Apr 2025 | Compositional-ARC: Assessing Systematic Generalization in Abstract Spatial Reasoning | ✅ DONE (analysis: 69_compositional_arc.md) |
-| 33 | 2504.01445 | Apr 2025 | Enabling Systematic Generalization through Meta-Learning for Compositionality | ✅ DONE (same as Compositional-ARC #69) |
+| 33 | 2504.01445 | Apr 2025 | Enabling Systematic Generalization through Meta-Learning for Compositionality | ⚠️ DUPLICATE of #32 (Compositional-ARC) |
 | 34 | 2601.03676 | Jan 2026 | Towards Compositional Generalization via Skill Taxonomy Guided Data Synthesis (STEPS) | ✅ DONE (analysis: 75_steps_skill_taxonomy_compositional.md) |
 
 ### Test-Time Compute Successes
@@ -209,9 +209,9 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ### Emergent Reasoning (FOR evidence)
 | # | arXiv ID | Date | Title | Stance | Status |
 |---|----------|------|-------|--------|--------|
-| 73 | 2509.03646 | Sep 2025 | Emergent Hierarchical Reasoning in LLMs through Reinforcement Learning | Balanced | ✅ DONE |
+| 73 | 2509.03646 | Sep 2025 | Emergent Hierarchical Reasoning in LLMs through Reinforcement Learning | Balanced | ⚠️ DUPLICATE of #30 |
 | 74 | 2502.20332 | Feb 2025 | Emergent Symbolic Mechanisms Support Abstract Reasoning in LLMs | Balanced | ✅ DONE |
-| 75 | 2510.15987 | Oct 2025 | Algorithmic Primitives and Compositional Geometry of Reasoning | Balanced | ✅ DONE |
+| 75 | 2510.15987 | Oct 2025 | Algorithmic Primitives and Compositional Geometry of Reasoning | Balanced | ⚠️ DUPLICATE of #27 |
 | 76 | 2509.23629 | Sep 2025 | How LLMs Learn to Reason: A Complex Network Perspective (ICLR 2026) | Balanced | ✅ DONE |
 
 ### Mechanistic Interpretability
@@ -250,7 +250,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 99 | 2511.11810 | Nov 2025 | On the Notion that Language Models Reason (NeurIPS Workshop) | Supports | ✅ DONE |
 | 100 | 2307.02477 | Jul 2023 | Reasoning or Reciting? Counterfactual Tasks (NAACL 2024) | Supports | ✅ DONE |
 | 101 | 2601.14691 | Jan 2026 | Gaming the Judge: Unfaithful CoT Undermines Agent Evaluation | Supports | ✅ DONE |
-| 102 | 2601.13392 | Jan 2026 | Beyond Memorization: Testing LLM Reasoning on Unseen DFA Tasks | Supports | ✅ DONE |
+| 102 | 2601.13392 | Jan 2026 | Beyond Memorization: Testing LLM Reasoning on Unseen DFA Tasks | Supports | ⚠️ DUPLICATE of #5 |
 | 103 | 2601.15158 | Jan 2026 | Outcome-Based RL Provably Leads Transformers to Reason, but Only With the Right Data | Balanced | ✅ DONE |
 | 104 | 2601.14658 | Jan 2026 | Say Anything but This: When Tokenizer Betrays Reasoning in LLMs | Supports | ✅ DONE |
 | 105 | 2601.15165 | Jan 2026 | The Flexibility Trap: Why Arbitrary Order Limits Reasoning Potential in Diffusion LLMs | Balanced | ✅ DONE |

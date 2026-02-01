@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 151,
+    totalAnalyzed: 156,
     lastUpdated: '2026-02-01',
   },
   nodes: [
@@ -2196,6 +2196,91 @@ window.paperData = {
         'External verifiers required for soundness',
         'Plan-like text ≠ valid plans',
         'LLM-Modulo improves with feedback',
+      ],
+    },
+    // Paper 151: Original CoT (Wei et al.)
+    {
+      id: '2201.11903',
+      title: 'Chain-of-Thought Prompting Elicits Reasoning in Large Language Models',
+      shortTitle: 'Original CoT',
+      date: 'Jan 2022',
+      stance: 'for',
+      cluster: 'mechanism',
+      coreArgument:
+        'NeurIPS 2022: FOUNDATIONAL CoT paper. 540B PaLM + 8 CoT exemplars = 58% GSM8K (SOTA). CoT benefits emerge at ~100B+ params. Claims reasoning abilities "emerge naturally" at scale.',
+      keyEvidence: [
+        '58% GSM8K (surpassed fine-tuned GPT-3)',
+        'Benefits emerge only at ~100B+ params',
+        'No fine-tuning required',
+        '74% with self-consistency',
+      ],
+    },
+    // Paper 152: Expressive Power of CoT (Merrill & Sabharwal)
+    {
+      id: '2310.07923',
+      title: 'The Expressive Power of Transformers with Chain of Thought',
+      shortTitle: 'CoT Expressivity',
+      date: 'Oct 2023',
+      stance: 'for',
+      cluster: 'mechanism',
+      coreArgument:
+        'ICLR 2024: Proves CoT increases computational power. O(n) steps = all regular languages. O(n^c) steps = exactly class P. First exact complexity characterization of transformers.',
+      keyEvidence: [
+        'Linear steps enable automata simulation',
+        'Polynomial steps = exactly P',
+        'Layer-norm hash for memory storage',
+        'Formal complexity-theoretic proof',
+      ],
+    },
+    // Paper 153: PlanBench (Kambhampati)
+    {
+      id: '2206.10498',
+      title: 'PlanBench: Evaluating LLMs on Planning and Reasoning about Change',
+      shortTitle: 'PlanBench',
+      date: 'Jun 2022',
+      stance: 'supports',
+      cluster: 'evidence',
+      coreArgument:
+        'NeurIPS D&B 2023: Kambhampatis benchmark. IPC domains distinguish planning from retrieval. Mystery Blocksworld tests true planning. LLMs fail on critical capabilities.',
+      keyEvidence: [
+        'IPC domains for rigorous evaluation',
+        'Mystery Blocksworld obfuscates patterns',
+        'Plan generation, verification, tracking',
+        'Extensible benchmark framework',
+      ],
+    },
+    // Paper 154: Zero-Shot CoT (Kojima et al.)
+    {
+      id: '2205.11916',
+      title: 'Large Language Models are Zero-Shot Reasoners',
+      shortTitle: 'Zero-Shot CoT',
+      date: 'May 2022',
+      stance: 'for',
+      cluster: 'mechanism',
+      coreArgument:
+        'NeurIPS 2022: "Lets think step by step" improves reasoning without examples. +61pp on MultiArith, +30pp on GSM8K. Claims "untapped zero-shot capabilities" in LLMs.',
+      keyEvidence: [
+        '+61pp MultiArith (17.7%→78.7%)',
+        '+30pp GSM8K (10.4%→40.7%)',
+        'Single prompt works across tasks',
+        'Two-stage: reasoning then answer',
+      ],
+    },
+    // Paper 155: Self-Consistency (Wang et al.)
+    {
+      id: '2203.11171',
+      title: 'Self-Consistency Improves Chain of Thought Reasoning',
+      shortTitle: 'Self-Consistency',
+      date: 'Mar 2022',
+      stance: 'for',
+      cluster: 'mechanism',
+      coreArgument:
+        'ICLR 2023: Sample diverse reasoning paths + majority vote. +17.9pp GSM8K, +11pp SVAMP. Claims "multiple paths to correct answer" justifies the approach.',
+      keyEvidence: [
+        '+17.9pp GSM8K (56.5%→74.4%)',
+        '+11.0pp SVAMP',
+        'Majority vote over diverse paths',
+        'Improvement scales with samples',
       ],
     },
   ],
@@ -4785,6 +4870,89 @@ window.paperData = {
       target: '2504.09762',
       type: 'supports',
       description: 'Same author extends to reasoning tokens',
+    },
+    // Paper 151: Original CoT links
+    {
+      source: '2201.11903',
+      target: '2205.11916',
+      type: 'extends',
+      description: 'Zero-shot CoT extends original few-shot CoT',
+    },
+    {
+      source: '2201.11903',
+      target: '2203.11171',
+      type: 'extends',
+      description: 'Self-consistency extends CoT with sampling',
+    },
+    {
+      source: '2201.11903',
+      target: '2310.07923',
+      type: 'supports',
+      description: 'Expressive power proves CoT adds computation',
+    },
+    {
+      source: '2201.11903',
+      target: '2305.04388',
+      type: 'challenged_by',
+      description: 'Unfaithfulness challenges CoT reasoning claims',
+    },
+    // Paper 152: CoT Expressivity links
+    {
+      source: '2310.07923',
+      target: '2201.11903',
+      type: 'supports',
+      description: 'Theoretical foundation for why CoT helps',
+    },
+    {
+      source: '2310.07923',
+      target: '2502.04667',
+      type: 'supports',
+      description: 'Both show CoT provides computational advantage',
+    },
+    // Paper 153: PlanBench links
+    {
+      source: '2206.10498',
+      target: '2305.15771',
+      type: 'supports',
+      description: 'Same authors benchmark supports planning claims',
+    },
+    {
+      source: '2206.10498',
+      target: '2403.04121',
+      type: 'supports',
+      description: 'Benchmark used in Kambhampati planning critiques',
+    },
+    {
+      source: '2206.10498',
+      target: '2409.13373',
+      type: 'extends',
+      description: 'o1 evaluation extends PlanBench findings',
+    },
+    // Paper 154: Zero-Shot CoT links
+    {
+      source: '2205.11916',
+      target: '2201.11903',
+      type: 'extends',
+      description: 'Extends CoT to zero-shot setting',
+    },
+    {
+      source: '2205.11916',
+      target: '2305.04388',
+      type: 'challenged_by',
+      description: 'Zero-shot CoT increases bias susceptibility',
+    },
+    // Paper 155: Self-Consistency links
+    {
+      source: '2203.11171',
+      target: '2201.11903',
+      type: 'extends',
+      description: 'Extends CoT with diverse sampling',
+    },
+    {
+      source: '2203.11171',
+      target: '2509.17380',
+      type: 'supports',
+      description: 'Self-consistency improves causal structure (RLVR)',
     },
   ],
 };
