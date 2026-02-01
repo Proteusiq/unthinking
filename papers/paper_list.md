@@ -303,6 +303,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 152 | 2310.07923 | Oct 2023 | The Expressive Power of Transformers with Chain of Thought (ICLR 2024) | FOR (theoretical) | ✅ DONE |
 | 153 | 2206.10498 | Jun 2022 | PlanBench: Benchmark for LLM Planning and Reasoning (NeurIPS D&B 2023) | Strongly Supports | ✅ DONE |
 | 154 | 2205.11916 | May 2022 | Large Language Models are Zero-Shot Reasoners (NeurIPS 2022) | FOR (contested) | ✅ DONE |
+| 155 | 2203.11171 | Mar 2022 | Self-Consistency Improves Chain of Thought Reasoning (ICLR 2023) | FOR (contested) | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -318,11 +319,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 154
+- **Total Papers**: 155
 - **Against Reasoning**: ~84
-- **For Reasoning**: ~30
+- **For Reasoning**: ~31
 - **Balanced**: ~45
 - **Date Range**: 2022-2026
-- **Analyzed**: 154
+- **Analyzed**: 155
 
 ---
