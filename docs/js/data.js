@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 133,
+    totalAnalyzed: 134,
     lastUpdated: '2026-02-01',
   },
   nodes: [
@@ -1901,6 +1901,23 @@ window.paperData = {
         '"Aha" = just another token',
         'Loose correlation trace ↔ solution',
         'Compiling verification into generation',
+      ],
+    },
+    {
+      id: '2510.07364',
+      title: 'Base Models Know How to Reason, Thinking Models Learn When',
+      shortTitle: 'Base Models Reason',
+      date: 'Oct 2025',
+      stance: 'supports',
+      cluster: 'mechanistic',
+      coreArgument:
+        'CRITICAL SURFACING EVIDENCE: Base models ALREADY possess reasoning mechanisms. Thinking models learn WHEN to deploy them, not HOW. Hybrid model recovers 91% of gap by steering only 12% of tokens. RLVR teaches timing, not reasoning.',
+      keyEvidence: [
+        '91% gap recovery with 12% token steering',
+        'No weight updates needed',
+        'RLVR teaches timing, not capability',
+        'Two-component decomposition',
+        'Steering vectors transfer across models',
       ],
     },
   ],
@@ -3968,6 +3985,31 @@ window.paperData = {
       target: '2412.21187',
       type: 'supports',
       description: 'No metacognitive awareness of reasoning',
+    },
+    // Paper 133: Base Models Know How to Reason links
+    {
+      source: '2510.07364',
+      target: '2512.07783',
+      type: 'supports',
+      description: 'Causal proof of surfacing hypothesis',
+    },
+    {
+      source: '2510.07364',
+      target: '2403.04121',
+      type: 'supports',
+      description: 'Shows approximate retrieval can be steered',
+    },
+    {
+      source: '2510.07364',
+      target: '2504.09762',
+      type: 'supports',
+      description: 'Shows compilation mechanism',
+    },
+    {
+      source: '2510.07364',
+      target: '2601.19847',
+      type: 'supports',
+      description: 'Both find steering activates reasoning',
     },
   ],
 };
