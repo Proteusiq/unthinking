@@ -20,10 +20,10 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
-| 2310.07923 | **The Expressive Power of Transformers with Chain of Thought** (Merrill & Sabharwal) | 🟠 HIGH | **FOR THESIS** (ICLR 2024). Proves CoT adds computational power — linear steps = regular languages. Important for balance. |
+| 2310.07923 | **The Expressive Power of Transformers with Chain of Thought** (Merrill & Sabharwal) | ✅ DONE | Analyzed as Paper 152. Proves CoT adds computational power — linear steps = regular languages. |
 | 2305.14699 | **Can Transformers Learn to Solve Problems Recursively?** | 🟠 HIGH | Mechanistic interp of recursive failures. Predicts 91% of failure cases by reconstructing "shortcut" algorithms. |
 | 2108.12409 | **Train Short, Test Long: ALiBi** (Press et al.) | 🟠 HIGH | **Length extrapolation** (ICLR 2022). Linear biases enable OOD length generalization — architectural approach. |
-| 2206.10498 | **PlanBench** (Valmeekam et al.) | 🟠 HIGH | **Kambhampati's planning benchmark** (NeurIPS D&B 2023). Used in Papers 131, 132, 150. |
+| 2206.10498 | **PlanBench** (Valmeekam et al.) | ✅ DONE | Analyzed as Paper 153. IPC-style benchmark, GPT-4 achieves ~12% on planning. |
 
 ### Medium Priority — Additional Foundations
 
@@ -142,7 +142,7 @@ These papers directly test or challenge the thesis that LLM reasoning is pattern
 
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
-| 2310.07923 | **Expressive Power of Transformers with Chain of Thought** (Merrill & Sabharwal) | 🟠 HIGH | Proves CoT gives additional computational power. FOR reasoning argument — important for balance. |
+| 2310.07923 | **Expressive Power of Transformers with Chain of Thought** (Merrill & Sabharwal) | ✅ DONE | Analyzed as Paper 152 |
 | 2205.11916 | **Zero-Shot CoT: Let's Think Step by Step** (Kojima et al.) | 🟡 MEDIUM | Original zero-shot CoT paper. Foundation for all CoT research. May already be covered. |
 | 2301.00303 | **CoT Improves Sample Efficiency on Parity** (Kim & Suzuki) | 🟡 MEDIUM | Mechanistic analysis of WHY CoT helps. Relevant to Paper 137's findings. |
 
@@ -160,7 +160,7 @@ These papers directly test or challenge the thesis that LLM reasoning is pattern
 |----------|-------|----------|----------|
 | 2206.XXXXX | **DLM: Differentiable Logic Machines** | 🟡 MEDIUM | Dramatically outperforms LLMs 100,000x larger on logical reasoning. Architectural comparison. |
 | 2305.15771 | **On the Planning Abilities of Large Language Models** (Valmeekam et al., NeurIPS Spotlight 2023) | ✅ DONE | Analyzed as Paper 150 |
-| 2206.10498 | **PlanBench: Evaluating LLMs on Planning and Reasoning about Change** (Valmeekam et al., NeurIPS D&B 2023) | 🟠 HIGH | Benchmark used in planning investigations. |
+| 2206.10498 | **PlanBench: Evaluating LLMs on Planning and Reasoning about Change** (Valmeekam et al., NeurIPS D&B 2023) | ✅ DONE | Analyzed as Paper 153 |
 
 ### Emergence/Scaling Critiques
 
