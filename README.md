@@ -23,7 +23,7 @@ Calling this pattern matching is not a criticism — it's clarity. These systems
 
 But a prediction is not a thought. Expect brittleness at the edges. Expect failure when the problem shifts.
 
-Use them. Develop them further. Just see them clearly.
+Let's use them. Let's see them clearly.
 
 ---
 
