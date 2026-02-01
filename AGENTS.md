@@ -251,6 +251,8 @@ Query: "LLM reasoning" + date:2024-2026 + category:cs.CL
 
 **IMPORTANT**: See `workflow.md` for detailed step-by-step instructions.
 
+**CRITICAL**: Nothing is done until it is pushed. A task is only complete when changes are committed AND pushed to the remote repository.
+
 ### When Analyzing a New Paper:
 1. Try fetch the full HTML version first from arXiv. If unavailable, download the PDF.
 2. Read completely, not just abstract
