@@ -2,7 +2,52 @@
 
 Curated list of papers confirmed relevant to the thesis. Promoted from `toevaluate.md` after triage.
 
-**Last updated**: 2026-01-31
+**Last updated**: 2026-02-01
+
+---
+
+## HIGH PRIORITY — Core Thesis Papers (Added 2026-02-01)
+
+These papers directly test or challenge the thesis that LLM reasoning is pattern matching, not genuine reasoning.
+
+### Foundational Skeptic Papers (Kambhampati et al.)
+
+| arXiv ID | Title | Priority | Why Read |
+|----------|-------|----------|----------|
+| 2403.04121 | **Can Large Language Models Reason and Plan?** | ⭐ CRITICAL | Kambhampati's foundational skeptic paper. Argues LLMs cannot truly reason/plan — only approximate via retrieval. Core theoretical support for thesis. |
+| 2504.09762 | **Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!** | ⭐ CRITICAL | Directly challenges "CoT = reasoning" assumption. Questions whether tokens represent reasoning or just pattern completion. Central to faithfulness debate. |
+| 2405.04776 | **Chain of Thoughtlessness? An Analysis of CoT in Planning** | ⭐ HIGH | Tests CoT on planning tasks. Title suggests CoT doesn't help planning — supports "execution without understanding" argument. |
+
+### Surfacing Hypothesis Papers
+
+| arXiv ID | Title | Priority | Why Read |
+|----------|-------|----------|----------|
+| 2510.07364 | **Base Models Know How to Reason, Thinking Models Learn When** | ⭐ CRITICAL | Directly tests surfacing hypothesis: "reasoning exists in base models, RL/SFT surfaces it." Could confirm or challenge Interplay paper findings. |
+
+### OOD Generalization Papers
+
+| arXiv ID | Title | Priority | Why Read |
+|----------|-------|----------|----------|
+| 2410.09695 | **Can In-context Learning Really Generalize to Out-of-distribution Tasks?** | ⭐ CRITICAL | OOD generalization is THE core question. If ICL fails OOD, supports distribution-bounded thesis. |
+| 2502.04667 | **Unveiling the Mechanisms of Explicit CoT Training: How CoT Enhances Reasoning Generalization** | 🟠 HIGH | Mechanistic analysis of HOW CoT helps. May reveal whether it's genuine reasoning or pattern amplification. |
+
+### Long CoT / Test-Time Scaling
+
+| arXiv ID | Title | Priority | Why Read |
+|----------|-------|----------|----------|
+| 2502.03373 | **Demystifying Long Chain-of-Thought Reasoning in LLMs** | ⭐ CRITICAL | Analyzes long CoT (test-time scaling). Tests whether more tokens = better reasoning or just more pattern matching. |
+
+### CoT Faithfulness Evidence
+
+| arXiv ID | Title | Priority | Why Read |
+|----------|-------|----------|----------|
+| 2508.15842 | **Lexical Hints of Accuracy in LLM Reasoning Chains** | 🟠 HIGH | Shows lexical markers ("hard", "guess", "likely") correlate with errors. Supports unfaithfulness — models signal uncertainty through surface patterns. |
+
+### Novel Architectures
+
+| arXiv ID | Title | Priority | Why Read |
+|----------|-------|----------|----------|
+| 2512.24601 | **Recursive Language Models** | 🟡 MEDIUM | Novel architecture for reasoning. May provide mechanistic insights or show architectural limits. |
 
 ---
 
@@ -32,13 +77,11 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 - [x] **Overthinking in LRMs** (2412.21187) — Analyzed as Paper 129
 - [x] **Underthinking in LRMs** (2501.18585) — Analyzed as Paper 130
 
-**MEDIUM PRIORITY — Adversarial/Hallucination**
-- [ ] **Fast Adversarial Attacks (BEAST)** (2402.15570) — Induces ~15% more hallucinations; shows jailbreak fragility
-
 **SKIPPED (Not Relevant to Reasoning Thesis)**
 - [x] 2509.15202 — DeepRefusal: Safety alignment METHOD, not reasoning test
 - [x] 2508.03550 — LAGER: LLM-as-Judge METHOD, not reasoning test  
 - [x] 2511.02623 — TRACE: Realignment METHOD, not reasoning test
+- [x] 2402.15570 — BEAST: Adversarial attack METHOD for jailbreaking/safety, not reasoning test
 
 ---
 
