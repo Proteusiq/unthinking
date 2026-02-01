@@ -12,7 +12,7 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
-| 2201.11903 | **Chain-of-Thought Prompting Elicits Reasoning** (Wei et al.) | ⭐ CRITICAL | **ORIGINAL CoT PAPER** (NeurIPS 2022). Foundation for ALL CoT research. 540B + 8 examples = SOTA GSM8K. Analysis file exists as Paper 151 — needs tracking. |
+| 2201.11903 | **Chain-of-Thought Prompting Elicits Reasoning** (Wei et al.) | ✅ DONE | Analyzed as Paper 151. ORIGINAL CoT PAPER (NeurIPS 2022). |
 | 2203.11171 | **Self-Consistency Improves Chain of Thought Reasoning** (Wang et al.) | ✅ DONE | Analyzed as Paper 155. +17.9% GSM8K via majority voting (ICLR 2023). |
 | 2409.13373 | **LLMs Still Can't Plan; Can LRMs?** (Kambhampati et al.) | ✅ DONE | Analyzed as Paper 156. o1: 97.8% BW, 52.8% Mystery BW, 23.6% on 20+ steps. |
 
