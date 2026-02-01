@@ -223,4 +223,4 @@ The "scaling" is not infinite — it's bounded by what exists in pretraining.
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] **Rebuttals checked**
-- [ ] **Paper graph updated**
+- [x] **Paper graph updated**
