@@ -291,6 +291,9 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 140 | 2601.21894 | Jan 2026 | Not All Code Is Equal: Code Complexity and LLM Reasoning | Supports | ✅ DONE |
 | 141 | 2601.21909 | Jan 2026 | From Meta-Thought to Execution (CoMT+CCRL) | Balanced | ✅ DONE |
 | 142 | 2601.21414 | Jan 2026 | System 1&2 Synergy via Dynamic Model Interpolation | Balanced | ✅ DONE |
+| 143 | 2405.15071 | May 2024 | Grokked Transformers are Implicit Reasoners (NeurIPS 2024) | Balanced | ✅ DONE |
+| 144 | 2407.01687 | Jul 2024 | Deciphering CoT: Probability, Memorization, Noisy Reasoning (EMNLP 2024) | Supports | ✅ DONE |
+| 145 | 2409.12917 | Sep 2024 | SCoRe: Training LMs to Self-Correct via RL (DeepMind) | Balanced | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -306,11 +309,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 142
-- **Against Reasoning**: ~77
+- **Total Papers**: 145
+- **Against Reasoning**: ~78
 - **For Reasoning**: ~27
-- **Balanced**: ~43
+- **Balanced**: ~45
 - **Date Range**: 2023-2026
-- **Analyzed**: 142
+- **Analyzed**: 145
 
 ---

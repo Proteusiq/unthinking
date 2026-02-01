@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 148,
+    totalAnalyzed: 151,
     lastUpdated: '2026-02-01',
   },
   nodes: [
@@ -2068,6 +2068,54 @@ window.paperData = {
         'Smooth accuracy transitions',
         'Output length is symptom, not cause',
         'DAMI outperforms static models',
+      ],
+    },
+    {
+      id: '2405.15071',
+      title: 'Grokked Transformers are Implicit Reasoners',
+      shortTitle: 'Grokked Transformers',
+      date: 'May 2024',
+      stance: 'balanced',
+      cluster: 'mechanism',
+      coreArgument:
+        'NeurIPS 2024: Implicit reasoning emerges ONLY through grokking (extended training). Composition fails OOD (0%) but comparison succeeds (~100%). Non-recurrent architecture prevents cross-layer memory sharing.',
+      keyEvidence: [
+        'ID: ~100% after grokking; OOD composition: 0%',
+        'Comparison OOD: ~100% (parallel circuit)',
+        'Data distribution > data size for grokking',
+        'Grokked transformer beats GPT-4-Turbo',
+      ],
+    },
+    {
+      id: '2407.01687',
+      title: 'Deciphering CoT: Probability, Memorization, Noisy Reasoning',
+      shortTitle: 'Deciphering CoT',
+      date: 'Jul 2024',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'EMNLP 2024: CoT performance = probability + memorization + noisy reasoning. Output probability swings GPT-4 accuracy from 26% to 70%. rot-13 spike from training frequency. Invalid demonstrations still work.',
+      keyEvidence: [
+        '26% → 70% from output probability alone',
+        'rot-13 spike despite max difficulty (memorization)',
+        'Number-CoT ~100% vs Text-CoT 32%',
+        'Invalid demonstrations still work',
+      ],
+    },
+    {
+      id: '2409.12917',
+      title: 'SCoRe: Training LMs to Self-Correct via RL',
+      shortTitle: 'SCoRe',
+      date: 'Sep 2024',
+      stance: 'balanced',
+      cluster: 'mechanism',
+      coreArgument:
+        'DeepMind: Self-correction ineffective in standard LLMs. SFT fails due to distribution mismatch + behavior collapse. Multi-turn RL on self-generated traces enables effective self-correction (+15.6% MATH).',
+      keyEvidence: [
+        '+15.6% MATH, +9.1% HumanEval',
+        'SFT fails: distribution mismatch',
+        'Behavior collapse to single mode',
+        'Must train on own error distribution',
       ],
     },
   ],
@@ -4433,6 +4481,99 @@ window.paperData = {
       target: '2501.18585',
       type: 'extends',
       description: 'DAMI could address underthinking via dynamic λ',
+    },
+    // Paper 143: Grokked Transformers links
+    {
+      source: '2405.15071',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Mechanistic explanation for linearized subgraph matching',
+    },
+    {
+      source: '2405.15071',
+      target: '2601.14456',
+      type: 'supports',
+      description: 'Same ID/OOD pattern: high ID, 0% OOD composition',
+    },
+    {
+      source: '2405.15071',
+      target: '2410.09695',
+      type: 'supports',
+      description: 'Both show composition fails OOD',
+    },
+    {
+      source: '2405.15071',
+      target: '2512.07783',
+      type: 'extends',
+      description: 'Explains WHY extended training needed - circuit efficiency',
+    },
+    {
+      source: '2405.15071',
+      target: '2510.07364',
+      type: 'extends',
+      description: 'Grokking surfaces latent capability',
+    },
+    // Paper 144: Deciphering CoT links
+    {
+      source: '2407.01687',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Both show probability/frequency effects on reasoning',
+    },
+    {
+      source: '2407.01687',
+      target: '2307.13702',
+      type: 'supports',
+      description: 'Both find unfaithfulness between CoT and answers',
+    },
+    {
+      source: '2407.01687',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Noisy reasoning = error accumulation mechanism',
+    },
+    {
+      source: '2407.01687',
+      target: '2601.21618',
+      type: 'supports',
+      description: 'Both show output properties determine accuracy',
+    },
+    {
+      source: '2407.01687',
+      target: '2505.05410',
+      type: 'extends',
+      description: 'Adds probability dimension to unfaithfulness',
+    },
+    // Paper 145: SCoRe links
+    {
+      source: '2409.12917',
+      target: '2510.18254',
+      type: 'supports',
+      description: 'Both show self-correction fails without special training',
+    },
+    {
+      source: '2409.12917',
+      target: '2501.02497',
+      type: 'supports',
+      description: 'Self-correction limited without external feedback',
+    },
+    {
+      source: '2409.12917',
+      target: '2506.17219',
+      type: 'supports',
+      description: 'Internal signals insufficient; RL can help',
+    },
+    {
+      source: '2409.12917',
+      target: '2512.07783',
+      type: 'extends',
+      description: 'RL can surface capabilities with right training',
+    },
+    {
+      source: '2409.12917',
+      target: '2501.12948',
+      type: 'extends',
+      description: 'Extends RL for reasoning to self-correction',
     },
   ],
 };
