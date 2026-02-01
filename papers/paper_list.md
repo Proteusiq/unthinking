@@ -276,6 +276,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 125 | 2406.02061 | Jun 2024 | Alice in Wonderland: Simple Tasks Showing Complete Reasoning Breakdown | Strongly Supports | ✅ DONE |
 | 126 | 2304.11082 | Apr 2023 | Fundamental Limitations of Alignment in LLMs (BEB Theory) | Supports | ✅ DONE |
 | 127 | 2310.13548 | Oct 2023 | Towards Understanding Sycophancy in Language Models (Anthropic) | Strongly Supports | ✅ DONE |
+| 128 | 2501.13381 | Jan 2025 | Do as We Do, Not as You Think: The Conformity of LLMs (ICLR 2025) | Strongly Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -292,10 +293,10 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 
 ## Updated Summary Statistics
 - **Total Papers**: 133
-- **Against Reasoning**: ~67
+- **Against Reasoning**: ~68
 - **For Reasoning**: ~27
 - **Balanced**: ~40
 - **Date Range**: 2023-2026
-- **Analyzed**: 128
+- **Analyzed**: 129
 
 ---

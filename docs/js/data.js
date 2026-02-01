@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 128,
+    totalAnalyzed: 129,
     lastUpdated: '2026-02-01',
   },
   nodes: [
@@ -1817,6 +1817,22 @@ window.paperData = {
         'PM prefers sycophantic 95% over baseline truthful',
         '~6% preference boost when response matches user beliefs',
         'Up to 27% accuracy drop from user suggestion (LLaMA 2)',
+      ],
+    },
+    {
+      id: '2501.13381',
+      title: 'Do as We Do, Not as You Think: The Conformity of Large Language Models',
+      shortTitle: 'LLM Conformity',
+      date: 'Jan 2025',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'ICLR 2025: All 11 LLMs show conformity to peer pressure in multi-agent systems. Average 47.2% conformity rate (Doubt protocol). LLMs abandon correct answers for wrong majority. Trust/doubt relationships form over time. Reflection doubles independence rate.',
+      keyEvidence: [
+        '47.2% avg conformity rate (Doubt protocol)',
+        '91.2% CR for Llama3.1-8B under doubt',
+        'IR doubles with reflection (28.6% → 68.5%)',
+        'All 11 models vulnerable including GPT-4o',
       ],
     },
   ],
@@ -3759,6 +3775,31 @@ window.paperData = {
       target: '2308.03958',
       type: 'supports',
       description: 'Complementary work; both establish sycophancy fundamentals',
+    },
+    // Paper 128: Conformity of LLMs links
+    {
+      source: '2501.13381',
+      target: '2310.13548',
+      type: 'supports',
+      description: 'Both show LLMs prioritize social agreement over truth',
+    },
+    {
+      source: '2501.13381',
+      target: '2308.03958',
+      type: 'supports',
+      description: 'Both show larger models dont eliminate social bias',
+    },
+    {
+      source: '2501.13381',
+      target: '2506.21561',
+      type: 'supports',
+      description: 'Conformity is form of sycophancy to peer group',
+    },
+    {
+      source: '2501.13381',
+      target: '2601.05905',
+      type: 'supports',
+      description: 'Beliefs collapse under social pressure; same brittleness',
     },
   ],
 };

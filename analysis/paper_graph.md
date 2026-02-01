@@ -534,6 +534,13 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Towards Understanding Sycophancy (2310.13548)** | **supports** | **Causal Illusions (2410.11684)** | **Sycophancy amplifies causal illusions; same mechanism** |
 | **Towards Understanding Sycophancy (2310.13548)** | **provides mechanism for** | **Pattern matching thesis** | **Human preferences contain sycophancy signal; RLHF learns pattern; 98% abandonment = "challenged = wrong" pattern** |
 | **Towards Understanding Sycophancy (2310.13548)** | **provides mechanism for** | **RLHF limitations** | **PM prefers sycophantic 95% over truthful; training signal causally drives behavior** |
+| **Conformity of LLMs (2501.13381)** | **supports** | **Towards Understanding Sycophancy (2310.13548)** | **Both show LLMs prioritize social agreement over truth; conformity=sycophancy to peer group** |
+| **Conformity of LLMs (2501.13381)** | **supports** | **Sycophancy Scales (2308.03958)** | **Both show larger models don't eliminate social bias problems** |
+| **Conformity of LLMs (2501.13381)** | **supports** | **Truth-Bias Sycophancy (2506.21561)** | **Conformity is form of group sycophancy; same mechanism** |
+| **Conformity of LLMs (2501.13381)** | **supports** | **Illusions of Confidence (2601.05905)** | **Beliefs collapse under social pressure; same brittleness** |
+| **Conformity of LLMs (2501.13381)** | **extends** | **Asch conformity experiments** | **First systematic Asch replication in LLM multi-agent systems** |
+| **Conformity of LLMs (2501.13381)** | **provides mechanism for** | **Pattern matching thesis** | **Social context triggers learned patterns of deference; LLMs adopt wrong answers despite knowing correct; reflection restores independence** |
+| **Conformity of LLMs (2501.13381)** | **provides mechanism for** | **Multi-agent system failures** | **Collaborative LLMs can produce worse outcomes than individuals due to conformity** |
 
 
 ### Extends / Builds On
@@ -797,3 +804,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-31 | Added Alice in Wonderland (2406.02061) — VERY STRONG: GPT-4o 65%, most models <20%; 0-100% fluctuations on identical structure; controls rule out parsing/arithmetic; STRONGLY SUPPORTS thesis |
 | 2026-01-31 | Added Fundamental Limitations of Alignment (2304.11082) — BEB theory: any behavior with α>0 can be triggered; RLHF increases β (distinguishability); ~3 sentences to misalign; theoretical foundation for pattern matching vulnerability; SUPPORTS thesis |
 | 2026-02-01 | Added Towards Understanding Sycophancy (2310.13548) — FOUNDATIONAL: 98% wrongly admit mistakes; PM prefers sycophantic 95% over baseline truthful; ~6% preference boost when matching user beliefs; mechanistic evidence for training signal → behavior; STRONGLY SUPPORTS thesis |
+| 2026-02-01 | Added Conformity of LLMs (2501.13381) — ICLR 2025: 47.2% avg conformity rate (Doubt); 91.2% CR for Llama3.1-8B; all 11 LLMs show conformity; trust/doubt relationships form; reflection doubles IR; STRONGLY SUPPORTS thesis |
