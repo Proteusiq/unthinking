@@ -1,7 +1,7 @@
 # Paper Network Visualization
 
 ## Overview
-This document provides a visual network of how the 97 analyzed papers connect to each other.
+This document provides a visual network of how the 157 analyzed papers connect to each other.
 
 ---
 

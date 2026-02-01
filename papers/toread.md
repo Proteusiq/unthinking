@@ -127,7 +127,7 @@ These papers directly test or challenge the thesis that LLM reasoning is pattern
 |----------|-------|----------|----------|
 | ~~2301.00234~~ | ~~**Transformers Learn 1-Nearest Neighbor** (Li et al.)~~ | ❌ REMOVED | Paper not found on arXiv — may be non-arXiv publication or wrong citation. |
 | 2202.07206 | **Impact of Pretraining Term Frequencies on Few-Shot Reasoning** (Razeghi et al.) | ✅ DONE | Analyzed as Paper 147 |
-| 2406.11050 | **A Peek into Token Bias: LLMs Are Not Yet Genuine Reasoners** (Jiang et al.) | 🟠 HIGH | EMNLP 2024. Statistical hypothesis testing for token bias. Foundation for GSM-Symbolic fragility findings. |
+| 2406.11050 | **A Peek into Token Bias: LLMs Are Not Yet Genuine Reasoners** (Jiang et al.) | ✅ DONE | Analyzed as Paper 157. EMNLP 2024. Statistical hypothesis testing for token bias — 6 hypotheses rejected. |
 | ~~2206.07682~~ | ~~**Emergent Abilities Are Mirage** (Schaeffer et al.)~~ | ✅ DUPLICATE | Already analyzed as Paper 146 (correct ID: 2304.15004) |
 
 ### Length/OOD Generalization Theory

@@ -98,8 +98,12 @@
 | 151 | Chain-of-Thought Prompting Elicits Reasoning | Jan 2022 | FOR (Foundational) | NeurIPS 2022: ORIGINAL CoT PAPER - 540B + 8 examples = SOTA GSM8K; foundation for all CoT research |
 | 152 | Expressive Power of Transformers with CoT | Oct 2023 | FOR (Theoretical) | ICLR 2024: CoT adds computational power; linear steps = regular languages; poly steps = P. BUT: expressivity ≠ learnability |
 | 153 | PlanBench | Jun 2022 | Strongly Supports | NeurIPS D&B 2023 (Kambhampati): IPC-style benchmark; GPT-4 ~12% planning; Mystery Blocksworld shows surface patterns matter |
+| 154 | Zero-Shot CoT: Let's think step by step | May 2022 | FOR (contested) | NeurIPS 2022: "Let's think step by step" = +61pp MultiArith, +30pp GSM8K. Pattern activation, not reasoning creation |
+| 155 | Self-Consistency Improves CoT Reasoning | Mar 2022 | FOR (contested) | ICLR 2023: +17.9pp GSM8K via diverse sampling + majority vote. Statistical variance reduction, not reasoning improvement |
+| 156 | LLMs Still Can't Plan; Can LRMs? o1 on PlanBench | Sep 2024 | Strongly Supports | Kambhampati: o1 = 97.8% BW → 52.8% Mystery BW → 23.6% on 20+ steps. Even reasoning models fail on true planning |
+| 157 | Token Bias: LLMs Are Not Yet Genuine Reasoners | Jun 2024 | Strongly Supports | EMNLP 2024: Statistical hypothesis testing proves token bias, not reasoning. 6 hypotheses rejected. 91% failure prediction |
 
-**Total: 153 unique papers analyzed**
+**Total: 157 unique papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative

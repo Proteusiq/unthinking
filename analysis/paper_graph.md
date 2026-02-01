@@ -483,6 +483,12 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **WhatCounts (2601.21618)** | **supports** | **Sequential Enumeration (2512.04727)** | **Both show counting failures; WhatCounts adds semantic variation axis** |
 | **WhatCounts (2601.21618)** | **challenges** | **Prompt programming claims** | **Directly rebuts "LLMs implement algorithmic operators" — semantic gap persists even with tools** |
 | **WhatCounts (2601.21618)** | **provides evidence for** | **Pattern matching thesis** | **"LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent"** |
+| **Token Bias (2406.11050)** | **supports** | **GSM-Symbolic (2410.05229)** | **Token bias explains why irrelevant information causes 65% accuracy drops** |
+| **Token Bias (2406.11050)** | **supports** | **Term Frequencies (2202.07206)** | **Token bias = frequency correlation in different form** |
+| **Token Bias (2406.11050)** | **supports** | **Reversal Curse (2309.12288)** | **Both show directional token associations, not relations** |
+| **Token Bias (2406.11050)** | **supports** | **Unfaithful CoT (2305.04388)** | **Token bias underlies CoT unfaithfulness** |
+| **Token Bias (2406.11050)** | **supports** | **Faith and Fate (2305.18654)** | **Token patterns = linearized subgraph matching** |
+| **Token Bias (2406.11050)** | **provides evidence for** | **Pattern matching thesis** | **Statistical hypothesis testing proves token bias drives performance, not reasoning** |
 | **Sycophantic Anchors (2601.21183)** | **extends** | **Measuring Faithfulness (2307.13702)** | **Sentence-level mechanism for CoT unfaithfulness; counterfactual localization** |
 | **Sycophantic Anchors (2601.21183)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | **Both show distinct computational pathways for unfaithful reasoning** |
 | **Sycophantic Anchors (2601.21183)** | **supports** | **CoT In The Wild (2503.08679)** | **Mechanistic evidence for unfaithfulness in natural conversational settings** |
@@ -642,6 +648,17 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **o1 on PlanBench (2409.13373)** | **extends** | **PlanBench (2206.10498)** | Tests reasoning models on PlanBench |
 | **o1 on PlanBench (2409.13373)** | **supports** | **Illusion of Thinking (2506.06941)** | Same complexity collapse pattern |
 | **o1 on PlanBench (2409.13373)** | **supports** | **Faith and Fate (2305.18654)** | Surface form dependence (Mystery BW) |
+
+### Paper 157: Token Bias (EMNLP 2024)
+
+| Paper A | Relationship | Paper B | Evidence |
+|---------|--------------|---------|----------|
+| **Token Bias (2406.11050)** | **supports** | **GSM-Symbolic (2410.05229)** | Token bias explains irrelevant info sensitivity |
+| **Token Bias (2406.11050)** | **supports** | **Reversal Curse (2309.12288)** | Both show directional token associations |
+| **Token Bias (2406.11050)** | **supports** | **Term Frequencies (2202.07206)** | Token bias = frequency correlation |
+| **Token Bias (2406.11050)** | **supports** | **Unfaithful CoT (2305.04388)** | Token bias underlies CoT unfaithfulness |
+| **Token Bias (2406.11050)** | **supports** | **Faith and Fate (2305.18654)** | Statistical pattern matching mechanism |
+| **Token Bias (2406.11050)** | **provides mechanism for** | **Pattern matching thesis** | 91% failure prediction from surface token patterns |
 
 
 ### Extends / Builds On
@@ -934,3 +951,4 @@ These papers have NO direct rebuttals found:
 | 2026-02-01 | Added PlanBench (2206.10498) — NeurIPS D&B 2023: Kambhampati's benchmark. IPC domains distinguish planning from retrieval. Mystery Blocksworld tests true planning. SUPPORTS thesis |
 | 2026-02-01 | Added Zero-Shot CoT (2205.11916) — NeurIPS 2022: Kojima "Let's think step by step." +61pp MultiArith, +30pp GSM8K. FOR thesis (but challenged by bias susceptibility) |
 | 2026-02-01 | Added Self-Consistency (2203.11171) — ICLR 2023: Wang et al. +17.9pp GSM8K via diverse sampling + majority vote. FOR thesis (mechanism paper) |
+| 2026-02-01 | Added Token Bias (2406.11050) — EMNLP 2024: Statistical hypothesis testing framework. 6 hypotheses rejected. 91% failure prediction from token patterns. STRONGLY SUPPORTS thesis |

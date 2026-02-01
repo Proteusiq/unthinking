@@ -250,6 +250,7 @@ KEY UPDATES:
 9. **Reasoning or Reciting (2307.02477)** — NAACL 2024; foundational counterfactual methodology; 11 tasks; high CCC + low CF = models understand but can't reason; "narrow, non-transferable procedures"
 10. **Gaming the Judge (2601.14691)** — CoT manipulation inflates FPR by up to 90%; judges pattern-match on style not content; even thinking models (o4-mini, Claude-Thinking) fooled
 11. **Beyond Memorization (2601.13392)** — 100% knowledge accuracy but 30-64pp drops on unseen DFA tasks; "pattern retrieval rather than robust symbolic reasoning"; CoT actually degrades performance
+12. **o1 on PlanBench (2409.13373)** — Kambhampati Sep 2024: Even o1 fails — 97.8% Blocksworld → 52.8% Mystery BW → 23.6% on 20+ steps; reasoning models don't solve the planning problem
 
 ### Weakened "Against" Evidence
 1. **Illusion of Thinking** — Methodological critiques valid; must qualify

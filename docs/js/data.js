@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 156,
+    totalAnalyzed: 157,
     lastUpdated: '2026-02-01',
   },
   nodes: [
@@ -2281,6 +2281,23 @@ window.paperData = {
         '+11.0pp SVAMP',
         'Majority vote over diverse paths',
         'Improvement scales with samples',
+      ],
+    },
+    // Paper 157: Token Bias (Jiang et al.)
+    {
+      id: '2406.11050',
+      title: 'A Peek into Token Bias: Large Language Models Are Not Yet Genuine Reasoners',
+      shortTitle: 'Token Bias',
+      date: 'Jun 2024',
+      stance: 'supports',
+      cluster: 'evidence',
+      coreArgument:
+        'EMNLP 2024: Statistical hypothesis testing proves LLMs rely on token bias, not reasoning. 6 hypotheses rejected. Predicts 91% of failures from surface token patterns.',
+      keyEvidence: [
+        '6 hypotheses rejected with significance',
+        'Misleading options cause failures',
+        'Hint tokens ("conjunction fallacy") massively improve accuracy',
+        '91% failure prediction from reconstructed algorithms',
       ],
     },
   ],
@@ -4953,6 +4970,37 @@ window.paperData = {
       target: '2509.17380',
       type: 'supports',
       description: 'Self-consistency improves causal structure (RLVR)',
+    },
+    // Paper 157: Token Bias links
+    {
+      source: '2406.11050',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Token bias explains GSM-Symbolic fragility to irrelevant info',
+    },
+    {
+      source: '2406.11050',
+      target: '2202.07206',
+      type: 'supports',
+      description: 'Token bias = frequency correlation in different form',
+    },
+    {
+      source: '2406.11050',
+      target: '2309.12288',
+      type: 'supports',
+      description: 'Both show directional token associations, not relations',
+    },
+    {
+      source: '2406.11050',
+      target: '2305.04388',
+      type: 'supports',
+      description: 'Token bias underlies CoT unfaithfulness',
+    },
+    {
+      source: '2406.11050',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Token patterns = linearized subgraph matching',
     },
   ],
 };
