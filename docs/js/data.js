@@ -2118,6 +2118,86 @@ window.paperData = {
         'Must train on own error distribution',
       ],
     },
+    {
+      id: '2304.15004',
+      title: 'Are Emergent Abilities of Large Language Models a Mirage?',
+      shortTitle: 'Emergent Mirage',
+      date: 'Apr 2023',
+      stance: 'supports',
+      cluster: 'mechanism',
+      coreArgument:
+        'NeurIPS 2023: Emergent abilities are measurement artifacts, not real. >92% of BIG-Bench emergence from 2 metrics (Exact Match, MCQ). Same outputs → different conclusions via metric choice. Linear metrics show smooth scaling.',
+      keyEvidence: [
+        '>92% emergence from 2 metrics',
+        'Same outputs, different conclusions',
+        'Linear metrics ablate emergence',
+        'Small models have non-zero capability',
+      ],
+    },
+    {
+      id: '2202.07206',
+      title: 'Impact of Pretraining Term Frequencies on Few-Shot Reasoning',
+      shortTitle: 'Term Frequencies',
+      date: 'Feb 2022',
+      stance: 'supports',
+      cluster: 'evidence',
+      coreArgument:
+        'EMNLP 2022: FOUNDATIONAL - LLM accuracy correlates >70% with training term frequency. Performance varies dramatically on adjacent numbers (24×18 vs 23×18). If models learned algorithms, accuracy would be uniform.',
+      keyEvidence: [
+        '>70% accuracy gap (top vs bottom 10%)',
+        '77.6% gap on multiplication',
+        'Even simple unigram frequency correlates',
+        'Challenges "reasoning" vs "memorization"',
+      ],
+    },
+    {
+      id: '2305.04388',
+      title: "Language Models Don't Always Say What They Think",
+      shortTitle: 'Unfaithful CoT',
+      date: 'May 2023',
+      stance: 'supports',
+      cluster: 'evidence',
+      coreArgument:
+        'NeurIPS 2023: CoT explanations systematically misrepresent true reasons. 36% accuracy drop from biasing; models NEVER mention bias in CoT. Zero-shot CoT makes models MORE susceptible to bias. 15% of unfaithful explanations have no errors.',
+      keyEvidence: [
+        '-36% accuracy from suggested answer bias',
+        '1/426 explanations mention bias',
+        'CoT makes bias susceptibility WORSE',
+        '15% unfaithful explanations appear sound',
+      ],
+    },
+    {
+      id: '2309.12288',
+      title: 'The Reversal Curse: LLMs trained on "A is B" fail to learn "B is A"',
+      shortTitle: 'Reversal Curse',
+      date: 'Sep 2023',
+      stance: 'supports',
+      cluster: 'evidence',
+      coreArgument:
+        'FOUNDATIONAL: LLMs store directional patterns, not relational knowledge. Trained on "A is B", reverse accuracy = 0% (not partial, COMPLETE failure). GPT-4: 79% forward vs 33% reverse on real celebrities. In-context works but training doesnt learn symmetry.',
+      keyEvidence: [
+        '0% reverse accuracy (finetuning)',
+        'GPT-4: 79% forward, 33% reverse',
+        'Correct name prob = random baseline',
+        'Data augmentation doesnt help',
+      ],
+    },
+    {
+      id: '2305.15771',
+      title: 'On the Planning Abilities of Large Language Models',
+      shortTitle: 'Planning Abilities',
+      date: 'May 2023',
+      stance: 'supports',
+      cluster: 'evidence',
+      coreArgument:
+        'NeurIPS 2023 Spotlight (Kambhampati): GPT-4 achieves only ~12% success on autonomous planning. LLMs generate text that looks like plans but doesnt execute. LLM-Modulo framework: use LLMs as heuristics, external systems for correctness.',
+      keyEvidence: [
+        'GPT-4: ~12% autonomous planning success',
+        'External verifiers required for soundness',
+        'Plan-like text ≠ valid plans',
+        'LLM-Modulo improves with feedback',
+      ],
+    },
   ],
   links: [
     // Sycophancy Scales (Paper 119 - canonical)
@@ -4574,6 +4654,137 @@ window.paperData = {
       target: '2501.12948',
       type: 'extends',
       description: 'Extends RL for reasoning to self-correction',
+    },
+    // Paper 146: Emergent Abilities Mirage links
+    {
+      source: '2304.15004',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Both show performance depends on measurement/statistics',
+    },
+    {
+      source: '2304.15004',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Smooth scaling supports linearized subgraph matching',
+    },
+    {
+      source: '2304.15004',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Emergent planning may be metric artifact',
+    },
+    {
+      source: '2304.15004',
+      target: '2202.07206',
+      type: 'supports',
+      description: 'Both show capability scales with statistics, not reasoning',
+    },
+    // Paper 147: Term Frequencies links
+    {
+      source: '2202.07206',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'FOUNDATIONAL: Performance = training frequency',
+    },
+    {
+      source: '2202.07206',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Frequency correlation supports pattern matching',
+    },
+    {
+      source: '2202.07206',
+      target: '2407.01687',
+      type: 'supports',
+      description: 'Both show frequency/probability drives performance',
+    },
+    {
+      source: '2202.07206',
+      target: '2304.15004',
+      type: 'supports',
+      description: 'Frequency effects explain apparent emergence',
+    },
+    // Paper 148: Unfaithful CoT links
+    {
+      source: '2305.04388',
+      target: '2307.13702',
+      type: 'supports',
+      description: 'FOUNDATIONAL: CoT is unfaithful to computation',
+    },
+    {
+      source: '2305.04388',
+      target: '2505.05410',
+      type: 'supports',
+      description: 'Both show CoT misrepresents true reasons',
+    },
+    {
+      source: '2305.04388',
+      target: '2308.03958',
+      type: 'supports',
+      description: 'CoT doesnt protect against sycophancy bias',
+    },
+    {
+      source: '2305.04388',
+      target: '2310.13548',
+      type: 'supports',
+      description: 'Both show models follow bias without acknowledging',
+    },
+    {
+      source: '2305.04388',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Surface patterns override stated logic',
+    },
+    // Paper 149: Reversal Curse links
+    {
+      source: '2309.12288',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'FOUNDATIONAL: Direction matters in pattern matching',
+    },
+    {
+      source: '2309.12288',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Directional storage explains fragility',
+    },
+    {
+      source: '2309.12288',
+      target: '2202.07206',
+      type: 'supports',
+      description: 'Both show performance depends on training patterns',
+    },
+    {
+      source: '2309.12288',
+      target: '2410.09695',
+      type: 'supports',
+      description: 'Both show training direction constrains capability',
+    },
+    // Paper 150: Planning Abilities links
+    {
+      source: '2305.15771',
+      target: '2403.04121',
+      type: 'supports',
+      description: 'FOUNDATIONAL: Same author, same conclusion on planning',
+    },
+    {
+      source: '2305.15771',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Extended to puzzle domains, same failure pattern',
+    },
+    {
+      source: '2305.15771',
+      target: '2405.04776',
+      type: 'supports',
+      description: 'CoT doesnt help planning (Kambhampati)',
+    },
+    {
+      source: '2305.15771',
+      target: '2504.09762',
+      type: 'supports',
+      description: 'Same author extends to reasoning tokens',
     },
   ],
 };
