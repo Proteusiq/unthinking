@@ -6,7 +6,7 @@
 
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
-[![Papers](https://img.shields.io/badge/papers-132-blue)]()
+[![Papers](https://img.shields.io/badge/papers-133-blue)]()
 [![Relationships](https://img.shields.io/badge/relationships-170-orange)]()
 
 ## Thesis
@@ -79,7 +79,7 @@ If LLM generates C, and C lies on the line between A and B = INTERPOLATION.
 Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/)**
 
 <p align="center">
-  <img src="https://img.shields.io/badge/nodes-132%20papers-4CAF50" />
+  <img src="https://img.shields.io/badge/nodes-133%20papers-4CAF50" />
   <img src="https://img.shields.io/badge/edges-170%20relationships-2196F3" />
   <img src="https://img.shields.io/badge/stance-supports%20%7C%20challenges%20%7C%20balanced-FFC107" />
 </p>

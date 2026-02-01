@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 132,
+    totalAnalyzed: 133,
     lastUpdated: '2026-02-01',
   },
   nodes: [
@@ -1884,6 +1884,23 @@ window.paperData = {
         'LLMs = external System 1, not System 2',
         'Fine-tuning = memory compilation',
         'LLM-Modulo: LLMs + external verifiers',
+      ],
+    },
+    {
+      id: '2504.09762',
+      title: 'Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!',
+      shortTitle: 'Stop Anthropomorphizing',
+      date: 'May 2025',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'POSITION PAPER: Kambhampati argues anthropomorphizing CoT as "thinking" is harmful. Traces have NO semantics; incorrect traces OUTPERFORM correct ones. "Aha moments" meaningless. LRMs "compile reasoning into retrieval via learning."',
+      keyEvidence: [
+        'Incorrect traces outperform correct',
+        'R1-Zero > R1 (interpretability hurts)',
+        '"Aha" = just another token',
+        'Loose correlation trace ↔ solution',
+        'Compiling verification into generation',
       ],
     },
   ],
@@ -3926,6 +3943,31 @@ window.paperData = {
       target: '2601.14456',
       type: 'supports',
       description: 'Obfuscation findings predict ID/OOD gap',
+    },
+    // Paper 132: Stop Anthropomorphizing Tokens (Kambhampati) links
+    {
+      source: '2504.09762',
+      target: '2403.04121',
+      type: 'extends',
+      description: 'Same author; extends to LRMs',
+    },
+    {
+      source: '2504.09762',
+      target: '2307.13702',
+      type: 'supports',
+      description: 'Theoretical grounding for unfaithfulness',
+    },
+    {
+      source: '2504.09762',
+      target: '2505.05410',
+      type: 'supports',
+      description: 'Both show traces dont reflect reasoning',
+    },
+    {
+      source: '2504.09762',
+      target: '2412.21187',
+      type: 'supports',
+      description: 'No metacognitive awareness of reasoning',
     },
   ],
 };
