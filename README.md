@@ -17,6 +17,12 @@ Inspired by Anthropic's *"On the Biology of a Large Language Model"*, I began a 
 
 What I found: LLMs search their training distribution. They match patterns seen before. The pause is computation, not contemplation. The steps are retrieval, not reasoning.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/0b0a4e0d-8e3c-4e8f-b07b-3f1c1c4c8e9a" alt="Memento" width="400" />
+</p>
+
+**Like Leonard in Memento, LLMs have no persistent state.** Each token prediction starts fresh — no memory of what was "understood" moments ago, only the tattoos of the context window. What looks like continuous thought is actually a series of pattern-matched snapshots, each one consulting the same static weights. There is no inner monologue accumulating insight. Just retrieval, over and over.
+
 Chain-of-Thought works because similar chains existed in training data — not because the model invents new logic. Test-time compute helps. RL helps. They surface what already exists.
 
 Calling this pattern matching is not a criticism — it's clarity. These systems work. Pattern matching at unprecedented scale is genuinely useful.
