@@ -306,6 +306,8 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 155 | 2203.11171 | Mar 2022 | Self-Consistency Improves Chain of Thought Reasoning (ICLR 2023) | FOR (contested) | ✅ DONE |
 | 156 | 2409.13373 | Sep 2024 | LLMs Still Can't Plan; Can LRMs? o1 on PlanBench (Kambhampati) | Strongly Supports | ✅ DONE |
 | 157 | 2406.11050 | Jun 2024 | A Peek into Token Bias: LLMs Are Not Yet Genuine Reasoners (EMNLP 2024) | Strongly Supports | ✅ DONE |
+| 158 | 2305.14699 | May 2023 | Can Transformers Learn to Solve Problems Recursively? | Strongly Supports | ✅ DONE |
+| 159 | 2108.12409 | Aug 2021 | Train Short, Test Long: ALiBi (ICLR 2022) | Balanced | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |

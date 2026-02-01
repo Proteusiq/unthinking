@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 157,
+    totalAnalyzed: 159,
     lastUpdated: '2026-02-01',
   },
   nodes: [
@@ -2298,6 +2298,40 @@ window.paperData = {
         'Misleading options cause failures',
         'Hint tokens ("conjunction fallacy") massively improve accuracy',
         '91% failure prediction from reconstructed algorithms',
+      ],
+    },
+    // Paper 158: Can Transformers Learn Recursively (Zhang et al.)
+    {
+      id: '2305.14699',
+      title: 'Can Transformers Learn to Solve Problems Recursively?',
+      shortTitle: 'Recursive Problems',
+      date: 'May 2023',
+      stance: 'supports',
+      cluster: 'compositional',
+      coreArgument:
+        'Transformers learn "shortcut" algorithms instead of true recursion. Mechanistic interpretability allows predicting 91% of failure cases by reconstructing learned algorithms.',
+      keyEvidence: [
+        '91% failure prediction from reconstructed algorithms',
+        'Shortcut algorithms instead of recursion',
+        'Symbolic tools outperform on recursive tasks',
+        'Failures predictable from surface patterns',
+      ],
+    },
+    // Paper 159: ALiBi Length Extrapolation (Press et al.)
+    {
+      id: '2108.12409',
+      title: 'Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation',
+      shortTitle: 'ALiBi',
+      date: 'Aug 2021',
+      stance: 'balanced',
+      cluster: 'mechanism',
+      coreArgument:
+        'ICLR 2022: Linear attention biases enable length extrapolation without retraining. Train on 1024, extrapolate to 2048. 11% faster, 11% less memory. Addresses length but not compositional OOD.',
+      keyEvidence: [
+        'Train 1024 → test 2048 extrapolation',
+        '11% faster, 11% less memory',
+        'Same perplexity as training on longer sequences',
+        'Recency bias improves WikiText-103',
       ],
     },
   ],
@@ -5001,6 +5035,50 @@ window.paperData = {
       target: '2305.18654',
       type: 'supports',
       description: 'Token patterns = linearized subgraph matching',
+    },
+    // Paper 158: Recursive Problems links
+    {
+      source: '2305.14699',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Shortcut algorithms = linearized subgraph matching',
+    },
+    {
+      source: '2305.14699',
+      target: '2601.13392',
+      type: 'supports',
+      description: 'Both show models learn patterns that break on unseen cases',
+    },
+    {
+      source: '2305.14699',
+      target: '2405.15071',
+      type: 'supports',
+      description: 'Both examine implicit reasoning; recursion-specific failures',
+    },
+    {
+      source: '2305.14699',
+      target: '2601.14456',
+      type: 'supports',
+      description: 'ID success doesnt transfer to novel cases',
+    },
+    // Paper 159: ALiBi links
+    {
+      source: '2108.12409',
+      target: '2404.00560',
+      type: 'supports',
+      description: 'Architectural approach to length generalization',
+    },
+    {
+      source: '2108.12409',
+      target: '2512.07783',
+      type: 'supports',
+      description: 'Capability must exist; ALiBi encodes recency as prior',
+    },
+    {
+      source: '2108.12409',
+      target: '2508.01191',
+      type: 'partially_addresses',
+      description: 'Addresses length failures but not compositional OOD',
     },
   ],
 };
