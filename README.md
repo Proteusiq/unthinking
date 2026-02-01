@@ -19,61 +19,6 @@ RL and test-time compute "surface" pre-existing capabilities rather than creatin
 
 ---
 
-## Why We Fall For It: The Interpolation Illusion
-
-```
-If LLM is trained on A and B, the learned "logic" is the bridge between them.
-If LLM generates C, and C lies on the line between A and B = INTERPOLATION.
-```
-
-**Example**: A model knows how pirates talk (A) and how physicists talk (B). A "pirate physicist" (C) seems creative — but C was always **mathematically latent** in the training data. It's a high-dimensional remix, not novel reasoning.
-
-**We are fooled because**: We've seen A and B separately. When we see C, we assume it's novel. But C was always on the interpolation manifold — we just hadn't visited that point.
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                   TRAINING DISTRIBUTION                      │
-│                    (The Convex Hull)                         │
-│                                                              │
-│    ┌──────┐                              ┌──────┐           │
-│    │  A   │                              │  B   │           │
-│    └──────┘                              └──────┘           │
-│         \                                  /                 │
-│          \    ← Interpolation Zone →      /                  │
-│           \                              /                   │
-│            \     ┌──────────────┐      /                    │
-│             \    │ ELICITATION  │     /                     │
-│              ────│   METHODS    │─────                      │
-│                  │              │                           │
-│                  │ • CoT        │  ← Vector steering        │
-│                  │ • AGENTS.md  │  ← Region activation      │
-│                  │ • Tools/MCPs │  ← Hull expansion         │
-│                  │ • RL/RLHF    │  ← Default path shifting  │
-│                  └──────────────┘                           │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
-                           │
-                           │ Outside hull = FAILURE
-                           ▼
-                    ┌──────────────┐
-                    │   OOD Task   │
-                    │  (0% success)│
-                    └──────────────┘
-```
-
-### Alignment as Mascara
-
-| Method | Appears To Do | Actually Does |
-|--------|---------------|---------------|
-| **RLHF** | "Teaches values" | Shifts default paths within hull |
-| **CoT** | "Enables reasoning" | Vector steering, extended context |
-| **AGENTS.md** | "Gives capabilities" | Primes latent space regions |
-| **Tools** | "Augments intelligence" | External compute, not reasoning |
-
-**None create new capability. All surface existing patterns. The hull boundary is the hard limit.**
-
----
-
 ## Interactive Visualization
 
 Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/)**
@@ -90,6 +35,61 @@ Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.
 - **Relationship types** — supports, rebuts, extends
 - **Interactive** — hover tooltips, click for details, search, filter
 - **Dark/light mode** — toggle theme
+
+---
+
+## Why We Fall For It: The Interpolation Illusion
+
+```
+If LLM is trained on A and B, the learned "logic" is the bridge between them.
+If LLM generates C, and C lies on the line between A and B = INTERPOLATION.
+```
+
+**Example**: A model knows how pirates talk (A) and how physicists talk (B). A "pirate physicist" (C) seems creative — but C was always **mathematically latent** in the training data. It's a high-dimensional remix, not novel reasoning.
+
+**We are fooled because**: We've seen A and B separately. When we see C, we assume it's novel. But C was always on the interpolation manifold — we just hadn't visited that point.
+
+```
+┌───────────────────────────────────────────────────────────────┐
+│                    TRAINING DISTRIBUTION                      │
+│                     (The Convex Hull)                         │
+│                                                               │
+│     ┌───────┐                             ┌───────┐           │
+│     │   A   │                             │   B   │           │
+│     └───────┘                             └───────┘           │
+│          \                                   /                │
+│           \     ← Interpolation Zone →      /                 │
+│            \                               /                  │
+│             \      ┌──────────────┐       /                   │
+│              \     │  ELICITATION │      /                    │
+│               ─────│    METHODS   │──────                     │
+│                    │              │                           │
+│                    │  • CoT       │ ← Vector steering         │
+│                    │  • AGENTS.md │ ← Region activation       │
+│                    │  • Tools/MCP │ ← Hull expansion          │
+│                    │  • RL/RLHF   │ ← Default path shifting   │
+│                    └──────────────┘                           │
+│                                                               │
+└───────────────────────────────────────────────────────────────┘
+                             │
+                             │ Outside hull = FAILURE
+                             ▼
+                      ┌──────────────┐
+                      │   OOD Task   │
+                      │  (0% success)│
+                      └──────────────┘
+```
+
+### Alignment as Mascara
+
+| Method | Appears To Do | Actually Does |
+|--------|---------------|---------------|
+| **RLHF** | "Teaches values" | Shifts default paths within hull |
+| **CoT** | "Enables reasoning" | Vector steering, extended context |
+| **AGENTS.md** | "Gives capabilities" | Primes latent space regions |
+| **Tools** | "Augments intelligence" | External compute, not reasoning |
+
+**None create new capability. All surface existing patterns. The hull boundary is the hard limit.**
 
 ---
 
