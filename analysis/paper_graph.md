@@ -563,6 +563,14 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Can LLMs Reason and Plan (2403.04121)** | **provides framework for** | **Surfacing hypothesis** | **Fine-tuning = memory compilation, not reasoning creation** |
 | **Can LLMs Reason and Plan (2403.04121)** | **provides framework for** | **LLM-Modulo** | **LLMs as idea generators + external verifiers** |
 | **Can LLMs Reason and Plan (2403.04121)** | **provides evidence for** | **Self-verification failures** | **Self-critiquing makes performance WORSE; hallucinate both false positives and negatives** |
+| **Stop Anthropomorphizing Tokens (2504.09762)** | **extends** | **Can LLMs Reason and Plan (2403.04121)** | **Same author; extends "approximate retrieval" to LRMs** |
+| **Stop Anthropomorphizing Tokens (2504.09762)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Provides theoretical grounding: traces disconnected from computation** |
+| **Stop Anthropomorphizing Tokens (2504.09762)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | **Both show traces don't reflect actual reasoning** |
+| **Stop Anthropomorphizing Tokens (2504.09762)** | **supports** | **Interplay (2512.07783)** | **"Compilation" = surfacing pre-existing patterns** |
+| **Stop Anthropomorphizing Tokens (2504.09762)** | **supports** | **Overthinking (2412.21187)** | **No metacognitive awareness of reasoning quality** |
+| **Stop Anthropomorphizing Tokens (2504.09762)** | **supports** | **Underthinking (2501.18585)** | **No metacognitive awareness of reasoning quality** |
+| **Stop Anthropomorphizing Tokens (2504.09762)** | **provides framework for** | **Understanding LRMs** | **"Compiling reasoning into retrieval via learning"** |
+| **Stop Anthropomorphizing Tokens (2504.09762)** | **provides evidence for** | **Pattern matching thesis** | **Incorrect traces OUTPERFORM correct; R1-Zero > R1; trace content irrelevant; "aha" meaningless** |
 
 
 ### Extends / Builds On
@@ -830,3 +838,4 @@ These papers have NO direct rebuttals found:
 | 2026-02-01 | Added Overthinking in o1-Like LLMs (2412.21187) — First solution correct >92%; 1,953% token overhead on "2+3"; more solutions for EASIER problems; distinctness drops 11.5% at solution #4+; ~45% token reduction maintains accuracy; SUPPORTS thesis |
 | 2026-02-01 | Added Underthinking in o1-Like LLMs (2501.18585) — Companion to Paper 129; 225% more tokens + 418% more switches in incorrect responses; >70% incorrect contain correct thought; models abandon correct paths; Tip penalty improves accuracy; SUPPORTS thesis |
 | 2026-02-01 | Added Can LLMs Reason and Plan (2403.04121) — FOUNDATIONAL: Kambhampati's skeptic manifesto; LLMs = "n-gram models on steroids"; "universal approximate retrieval" not reasoning; obfuscation destroys planning; self-verification worsens; LLM-Modulo framework; STRONGLY SUPPORTS thesis |
+| 2026-02-01 | Added Stop Anthropomorphizing Tokens (2504.09762) — POSITION: Kambhampati on LRMs; traces have NO semantics; incorrect traces OUTPERFORM correct; "aha" meaningless; "compiling reasoning into retrieval"; R1-Zero > R1; STRONGLY SUPPORTS thesis |
