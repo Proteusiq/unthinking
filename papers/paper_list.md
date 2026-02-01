@@ -297,6 +297,8 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 146 | 2304.15004 | Apr 2023 | Are Emergent Abilities of Large Language Models a Mirage? (NeurIPS 2023) | Strongly Supports | ✅ DONE |
 | 147 | 2202.07206 | Feb 2022 | Impact of Pretraining Term Frequencies on Few-Shot Reasoning (EMNLP 2022) | Strongly Supports | ✅ DONE |
 | 148 | 2305.04388 | May 2023 | Language Models Don't Always Say What They Think (NeurIPS 2023) | Strongly Supports | ✅ DONE |
+| 149 | 2309.12288 | Sep 2023 | The Reversal Curse: LLMs trained on "A is B" fail to learn "B is A" | Strongly Supports | ✅ DONE |
+| 150 | 2305.15771 | May 2023 | On the Planning Abilities of Large Language Models (NeurIPS Spotlight 2023) | Strongly Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -312,11 +314,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 148
-- **Against Reasoning**: ~81
+- **Total Papers**: 150
+- **Against Reasoning**: ~83
 - **For Reasoning**: ~27
 - **Balanced**: ~45
 - **Date Range**: 2022-2026
-- **Analyzed**: 148
+- **Analyzed**: 150
 
 ---

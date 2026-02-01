@@ -124,14 +124,15 @@ These papers directly test or challenge the thesis that LLM reasoning is pattern
 |----------|-------|----------|----------|
 | 2305.04388 | **Language Models Don't Always Say What They Think** (Turpin et al.) | ✅ DONE | Analyzed as Paper 148 |
 | 2212.08073 | **Large Language Models Can Be Easily Distracted** | 🟡 MEDIUM | Irrelevant context hurts reasoning. Related to GSM-NoOp findings. |
-| 2206.XXXXX | **The Reversal Curse** (Berglund et al.) | 🟠 HIGH | 79% forward, 7% reverse accuracy. Proves LLMs don't understand relations, just patterns. Cited in Comprehension Without Competence. |
+| 2309.12288 | **The Reversal Curse: LLMs trained on "A is B" fail to learn "B is A"** (Berglund et al.) | ⭐ CRITICAL | 79% forward, 7% reverse accuracy. 0% NameToDescription in reverse. Proves LLMs don't understand relations, just patterns. |
 
 ### Relational Reasoning & World Models
 
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
 | 2206.XXXXX | **DLM: Differentiable Logic Machines** | 🟡 MEDIUM | Dramatically outperforms LLMs 100,000x larger on logical reasoning. Architectural comparison. |
-| 2305.XXXXX | **Valmeekam et al. — Large Language Models Still Can't Plan** | 🟠 HIGH | Foundational critique of LLM planning. Cited by multiple planning papers (29, 131, 136). |
+| 2305.15771 | **On the Planning Abilities of Large Language Models** (Valmeekam et al., NeurIPS Spotlight 2023) | ⭐ CRITICAL | ~12% success rate for GPT-4 on autonomous planning. Foundational critique. |
+| 2206.10498 | **PlanBench: Evaluating LLMs on Planning and Reasoning about Change** (Valmeekam et al., NeurIPS D&B 2023) | 🟠 HIGH | Benchmark used in planning investigations. |
 
 ### Emergence/Scaling Critiques
 
