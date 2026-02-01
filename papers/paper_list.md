@@ -274,6 +274,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 123 | 2410.11684 | Oct 2024 | Are UFOs Driving Innovation? The Illusion of Causality in LLMs | Supports | ✅ DONE |
 | 124 | 2506.09250 | Jun 2025 | The Illusion of the Illusion of Thinking (Rebuttal to Paper 03) | Challenges (Weak) | ✅ DONE |
 | 125 | 2406.02061 | Jun 2024 | Alice in Wonderland: Simple Tasks Showing Complete Reasoning Breakdown | Strongly Supports | ✅ DONE |
+| 126 | 2304.11082 | Apr 2023 | Fundamental Limitations of Alignment in LLMs (BEB Theory) | Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -290,10 +291,10 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 
 ## Updated Summary Statistics
 - **Total Papers**: 132
-- **Against Reasoning**: ~65
+- **Against Reasoning**: ~66
 - **For Reasoning**: ~27
 - **Balanced**: ~40
 - **Date Range**: 2023-2026
-- **Analyzed**: 126
+- **Analyzed**: 127
 
 ---

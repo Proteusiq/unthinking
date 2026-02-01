@@ -1,8 +1,8 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 126,
-    lastUpdated: '2026-01-31',
+    totalAnalyzed: 127,
+    lastUpdated: '2026-02-01',
   },
   nodes: [
     {
@@ -1785,6 +1785,22 @@ window.paperData = {
         '0% to 100% accuracy swing on same problem, different numbers',
         'AIW Light controls: 100% accuracy (rules out low-level issues)',
         'Confabulation: overconfident wrong explanations',
+      ],
+    },
+    {
+      id: '2304.11082',
+      title: 'Fundamental Limitations of Alignment in Large Language Models (BEB Theory)',
+      shortTitle: 'BEB Alignment Limits',
+      date: 'Apr 2023',
+      stance: 'supports',
+      cluster: 'mechanism',
+      coreArgument:
+        'THEORETICAL FOUNDATION: Any behavior with finite probability (α>0) can be triggered by prompts. RLHF increases β (distinguishability), making bad behaviors MORE easily targeted. ~3 sentences to misalign. System prompts provide only linear protection.',
+      keyEvidence: [
+        'BEB theorem: any α>0 behavior triggerable',
+        'Prompt length = (1/β)(log(1/α) + log(1/ε))',
+        'RLHF increases β 5x (double-edged sword)',
+        '~3 sentences to misalign (log(1/α)/β ≈ 3)',
       ],
     },
   ],
@@ -3653,6 +3669,31 @@ window.paperData = {
       target: '2506.09250',
       type: 'rebuts',
       description: 'AIW controls rule out evaluation artifacts - failures are real reasoning limits',
+    },
+    // Paper 126: Fundamental Limitations of Alignment (BEB) links
+    {
+      source: '2304.11082',
+      target: '2311.07590',
+      type: 'supports',
+      description: 'Provides theoretical framework for why persona prompts work; any α>0 behavior triggerable',
+    },
+    {
+      source: '2304.11082',
+      target: '2308.03958',
+      type: 'supports',
+      description: 'Sycophancy as activating agreement-seeking component; RLHF increases β',
+    },
+    {
+      source: '2304.11082',
+      target: '2406.02061',
+      type: 'supports',
+      description: 'Mixture model explains confabulation; pattern-switched failures',
+    },
+    {
+      source: '2304.11082',
+      target: '2506.06941',
+      type: 'extends',
+      description: 'Provides theoretical foundation for prompt-induced collapse',
     },
   ],
 };

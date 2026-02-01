@@ -20,9 +20,9 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 ### Cited Papers to Review (Issue #25: Papers Based On)
 
 **HIGH PRIORITY — Rebuttals & Direct Evidence**
-- [ ] **The Illusion of the Illusion of Thinking** (2506.09250) — DIRECT REBUTTAL to Paper 03 (Illusion of Thinking); argues token budget insufficient
-- [ ] **Alice in Wonderland: Simple Tasks Showing Complete Reasoning Breakdown** (2406.02061) — Simple task failures in SOTA LLMs
-- [ ] **Fundamental Limitations of Alignment in LLMs** (2304.11082) — BEB theory: any attenuated behavior can be triggered with sufficient prompt length
+- [x] **The Illusion of the Illusion of Thinking** (2506.09250) — Analyzed as Paper 124
+- [x] **Alice in Wonderland: Simple Tasks Showing Complete Reasoning Breakdown** (2406.02061) — Analyzed as Paper 125
+- [x] **Fundamental Limitations of Alignment in LLMs** (2304.11082) — Analyzed as Paper 126
 
 **HIGH PRIORITY — Sycophancy/Conformity Foundational**
 - [ ] **Towards Understanding Sycophancy in Language Models** (2310.13548) — Sharma et al.; foundational sycophancy research; cited by Papers 119, 123
