@@ -99,6 +99,130 @@
 
 ---
 
+## The Theoretical Framework: Dense Statistical Remixed Echo Chamber
+
+### Core Insight
+
+LLMs are **dense statistical remixed echo chambers** of their training data. They don't "evolve," "think," or have "eureka moments." They predict the most likely sequence of tokens based on high-dimensional patterns. Mathematically, they are limited by the information density of the data they are trained on.
+
+### Pattern Recognition vs. Understanding
+
+If a model predicts "4" after "2 + 2 =", it's because that pattern exists billions of times in training data — not because it has a physical concept of "four-ness."
+
+**Example**: "On the mirror I see something like 09:31 reflection of my watch. What time is it?"
+
+This requires spatial transformation not present as a pattern, so models fail. It's **functional competence without foundational understanding**.
+
+### The Interpolation Principle
+
+```
+If LLM is trained on A and B, then learned "logic" is the bridge between them.
+If LLM generates C, and C exists on the line between A and B = INTERPOLATION.
+```
+
+**Example**: 
+- A = how a pirate talks
+- B = how a nuclear physicist talks  
+- C = pirate physicist
+
+C is "new" to the user, but **mathematically latent in the data**. It's a high-dimensional remix, not novel creation.
+
+### Why We Fall For It
+
+We are trained on A and B. When we see C, we assume it's novel reasoning. But C was always on the interpolation manifold — we just hadn't seen that particular point before.
+
+**This is the illusion**: novelty to the observer ≠ novelty to the system.
+
+### The Elicitation Framework
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                   TRAINING DISTRIBUTION                      │
+│                    (The Convex Hull)                         │
+│                                                              │
+│    ┌──────┐                              ┌──────┐           │
+│    │  A   │                              │  B   │           │
+│    └──────┘                              └──────┘           │
+│         \                                  /                 │
+│          \    ← Interpolation Zone →      /                  │
+│           \                              /                   │
+│            \     ┌──────────────┐      /                    │
+│             \    │ ELICITATION  │     /                     │
+│              ────│   METHODS    │─────                      │
+│                  │              │                           │
+│                  │ • CoT        │  ← Vector steering        │
+│                  │ • AGENTS.md  │  ← Region activation      │
+│                  │ • SKILLS.md  │  ← Pattern priming        │
+│                  │ • MCPs/Tools │  ← Hull expansion         │
+│                  │ • RL/RLHF    │  ← Default path shifting  │
+│                  └──────────────┘                           │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
+                           │
+                           │ Outside hull?
+                           ▼
+                    ┌──────────────┐
+                    │   FAILURE    │
+                    │  (OOD, novel │
+                    │  composition)│
+                    └──────────────┘
+```
+
+### Prompting as Vector Steering
+
+Prompting is **vector steering** within the latent space. CoT, AGENTS.md, SKILLS.md — all are methods to navigate to specific regions of the training distribution.
+
+### Alignment as Mascara
+
+| Method | What It Appears To Do | What It Actually Does |
+|--------|----------------------|----------------------|
+| **RLHF** | "Teaches values" | Shifts default paths within existing hull |
+| **CoT** | "Enables reasoning" | Extends context window, steers vectors |
+| **AGENTS.md** | "Gives capabilities" | Primes specific regions of latent space |
+| **Tools/MCPs** | "Augments intelligence" | Provides external computation + hull anchors |
+| **Scratchpad** | "Working memory" | Extended context, not true state |
+
+**None create new capability. All surface existing patterns.**
+
+### Evidence: The Conformity Paper (2501.13381)
+
+| Condition | Independence Rate |
+|-----------|-------------------|
+| Default (peer pressure) | **28.6%** |
+| With reflection prompt | **68.5%** |
+
+Just saying "verify your answer" **doubles** correct behavior. The knowledge was THERE — elicitation surfaced it. This proves:
+
+1. LLMs have stored correct answers — retrieved from training, not reasoned
+2. Default behavior is pattern-matching social context — conforming to peer group
+3. Reflection re-weights which pattern to match — parametric vs contextual
+4. Two competing pattern sources: training data patterns vs in-context social patterns
+
+### Scratchpad and Agents as Momentary Context
+
+CoT and agent scratchpads are **extended context windows**, not working memory. They don't maintain true state — they provide more tokens for pattern matching.
+
+This is why:
+- Self-conditioning occurs (errors beget errors)
+- Reflection repeats failures (85% same-failure rate)
+- Planning loops even with valid moves provided
+
+### The Hull Boundary is the Hard Limit
+
+Tools/MCPs slightly expand the effective hull by providing external computation. But models still can't PLAN how to use them (Limits of Innate Planning: 0% with move validator).
+
+**Tools expand hull for execution, not for reasoning.**
+
+### Summary
+
+> **"All 'improvements' to LLMs — RL, alignment, prompting, tools, agents — are elicitation methods that steer vectors within the training hull. They are cosmetic (mascara), not structural. The hull boundary is the hard limit."**
+
+This reframes the entire debate:
+- **FOR camp**: "Look, it reasons!" → No, you elicited a region
+- **AGAINST camp**: "It fails OOD!" → Yes, because OOD = outside hull
+
+---
+
 ## The Core Tension
 
 ### The "Against" Position (Pattern Matching)
