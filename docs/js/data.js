@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 134,
+    totalAnalyzed: 142,
     lastUpdated: '2026-02-01',
   },
   nodes: [
@@ -1918,6 +1918,108 @@ window.paperData = {
         'RLVR teaches timing, not capability',
         'Two-component decomposition',
         'Steering vectors transfer across models',
+      ],
+    },
+    {
+      id: '2410.09695',
+      title: 'Can In-context Learning Really Generalize to Out-of-distribution Tasks?',
+      shortTitle: 'ICL OOD Generalization',
+      date: 'Oct 2024',
+      stance: 'supports',
+      cluster: 'compositional',
+      coreArgument:
+        'CRITICAL OOD EVIDENCE: ICL implements pretraining function classes, NOT new reasoning. When faced with OOD tasks, ICL behaves like gradient descent on pretraining functions. Abstract label learning ONLY works when underlying task is ID.',
+      keyEvidence: [
+        '~10% OOD accuracy = random guessing (Llama-3-8B)',
+        'ICL = pretraining function class + GD optimization',
+        'Abstract labels work ONLY when function is ID',
+        'Algorithm selection by lowest test error',
+        'Double descent reveals ID behavior on OOD tests',
+      ],
+    },
+    {
+      id: '2502.03373',
+      title: 'Demystifying Long Chain-of-Thought Reasoning in LLMs',
+      shortTitle: 'Demystifying Long CoT',
+      date: 'Feb 2025',
+      stance: 'supports',
+      cluster: 'mechanistic',
+      coreArgument:
+        'SURFACING MECHANISM: Core abilities (error correction, backtracking) INHERENTLY PRESENT in base models. Long CoT patterns EXIST in pretraining data (OpenWebMath). Short CoT saturates at ~55%; RL incentivizes pre-existing skills, doesnt create new ones.',
+      keyEvidence: [
+        'Long CoT scales to >70%, short saturates at ~55%',
+        'RL incentivizes, doesnt create capabilities',
+        'Long CoT patterns found in OpenWebMath',
+        'Base model has latent long CoT capabilities',
+        'Short CoT + RL = ~0% improvement',
+      ],
+    },
+    {
+      id: '2405.04776',
+      title: 'Chain of Thoughtlessness? An Analysis of CoT in Planning',
+      shortTitle: 'Chain of Thoughtlessness',
+      date: 'May 2024',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'NeurIPS 2024 (Kambhampati): CoT doesnt teach algorithms. Performance requires "exceedingly specific" problem-class prompts. Improvements rapidly deteriorate past example sizes. Same failure mode across 3 domains. Sharp tradeoff: gains require massive human labor.',
+      keyEvidence: [
+        'CoT NOT algorithm learning, just pattern matching',
+        'Requires exceedingly specific prompts',
+        'Performance degrades past example stack size n',
+        'Same failure across 3 domains (Blocksworld etc)',
+        'Sharp tradeoff: gains vs human labor',
+      ],
+    },
+    {
+      id: '2502.04667',
+      title: 'Unveiling the Mechanisms of Explicit CoT Training: How CoT Enhances Reasoning Generalization',
+      shortTitle: 'CoT Training Mechanisms',
+      date: 'Feb 2025',
+      stance: 'supports',
+      cluster: 'mechanistic',
+      coreArgument:
+        'CONTROLLED EVIDENCE: Non-CoT achieves 100% ID but 0% OOD. CoT training internalizes two-stage circuit; intermediate results at layer 3 (vs layer 5 non-CoT). CoT works by exposing all subtask patterns, not teaching reasoning. "OOD" = novel combinations of ID patterns.',
+      keyEvidence: [
+        'Non-CoT: 100% ID, 0% OOD accuracy',
+        'CoT: 100% ID AND 100% OOD',
+        'Intermediate results at layer 3 (CoT) vs 5 (non-CoT)',
+        'Non-CoT requires >1M steps (grokking), CoT needs ~4,000',
+        'Theorem: OOD error depends critically on CoT',
+      ],
+    },
+    {
+      id: '2508.15842',
+      title: 'Lexical Hints of Accuracy in LLM Reasoning Chains',
+      shortTitle: 'Lexical Accuracy Hints',
+      date: 'Aug 2025',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'Surface lexical markers ("guess", "stuck", "hard") predict errors better than model confidence. 84.6% calibration error on HLE (~9% accuracy). Models have NO metacognition. 5-word rule achieves MCC=0.305 — 4x better than confidence thresholding.',
+      keyEvidence: [
+        'Harmful words reduce accuracy by 40%',
+        '84.6% calibration error (Claude on HLE)',
+        'Longer CoT = LOWER accuracy on Omni-MATH',
+        '5-word rule MCC=0.305 vs confidence MCC=0.065',
+        'Errors easier to predict than correct responses',
+      ],
+    },
+    {
+      id: '2512.24601',
+      title: 'Recursive Language Models',
+      shortTitle: 'Recursive LMs',
+      date: 'Dec 2025',
+      stance: 'balanced',
+      cluster: 'architecture',
+      coreArgument:
+        'ICML (MIT, Stanford): RLMs treat prompts as external REPL variables. GPT-5 suffers context rot (OOLONG-Pairs: 0.1%); RLM(GPT-5): 58%. Scaffolding needed for complex reasoning — engineering around limitations, not genuine emergence.',
+      keyEvidence: [
+        'GPT-5 Base: 0.1% → RLM: 58% on OOLONG-Pairs',
+        'Context rot: GPT-5 degrades past 32K on O(N) tasks',
+        'Fine-tuned RLM-8B: +28.3% avg improvement',
+        'RLMs scale to 10M+ tokens',
+        'Only 1,000 samples needed for fine-tuning',
       ],
     },
   ],
@@ -4010,6 +4112,198 @@ window.paperData = {
       target: '2601.19847',
       type: 'supports',
       description: 'Both find steering activates reasoning',
+    },
+    // Paper 134: Can ICL Generalize OOD links
+    {
+      source: '2410.09695',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Pretraining function class = linearized subgraph matching',
+    },
+    {
+      source: '2410.09695',
+      target: '2508.01191',
+      type: 'supports',
+      description: 'Both show ID=high, OOD=low pattern',
+    },
+    {
+      source: '2410.09695',
+      target: '2512.07783',
+      type: 'supports',
+      description: 'Cannot synthesize from void — directly confirmed',
+    },
+    {
+      source: '2410.09695',
+      target: '2403.04121',
+      type: 'supports',
+      description: 'Universal approximate retrieval confirmed empirically',
+    },
+    {
+      source: '2410.09695',
+      target: '2510.07364',
+      type: 'extends',
+      description: 'ICL selects from pretraining functions; Base Models shows they pre-exist',
+    },
+    // Paper 135: Demystifying Long CoT links
+    {
+      source: '2502.03373',
+      target: '2510.07364',
+      type: 'supports',
+      description: 'Both show capabilities pre-exist in base model',
+    },
+    {
+      source: '2502.03373',
+      target: '2512.07783',
+      type: 'supports',
+      description: 'Cannot synthesize from void — same finding',
+    },
+    {
+      source: '2502.03373',
+      target: '2501.19393',
+      type: 'supports',
+      description: '1K samples surfaces reasoning — same mechanism',
+    },
+    {
+      source: '2502.03373',
+      target: '2412.21187',
+      type: 'extends',
+      description: 'Explains length scaling dynamics',
+    },
+    {
+      source: '2502.03373',
+      target: '2501.18585',
+      type: 'extends',
+      description: 'Explains length scaling dynamics',
+    },
+    // Paper 136: Chain of Thoughtlessness links
+    {
+      source: '2405.04776',
+      target: '2403.04121',
+      type: 'supports',
+      description: 'Same research group, same conclusion: CoT != algorithm learning',
+    },
+    {
+      source: '2405.04776',
+      target: '2410.09695',
+      type: 'supports',
+      description: 'Both show OOD failure',
+    },
+    {
+      source: '2405.04776',
+      target: '2508.01191',
+      type: 'supports',
+      description: 'ID=high, OOD=low — same pattern',
+    },
+    {
+      source: '2405.04776',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Error accumulation = degradation with complexity',
+    },
+    {
+      source: '2405.04776',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Complexity collapse demonstrated',
+    },
+    {
+      source: '2405.04776',
+      target: '2504.09762',
+      type: 'supports',
+      description: 'Shows WHY traces have no semantics — CoT is pattern matching',
+    },
+    // Paper 137: CoT Training Mechanisms links
+    {
+      source: '2502.04667',
+      target: '2403.04121',
+      type: 'supports',
+      description: 'OOD failure confirms LLMs cant plan without pattern templates',
+    },
+    {
+      source: '2502.04667',
+      target: '2410.09695',
+      type: 'supports',
+      description: 'Both show OOD generalization failure is fundamental',
+    },
+    {
+      source: '2502.04667',
+      target: '2502.03373',
+      type: 'supports',
+      description: 'Both analyze CoT mechanisms; provides cleaner controlled evidence',
+    },
+    {
+      source: '2502.04667',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Confirms linearized subgraph matching — patterns not reason',
+    },
+    {
+      source: '2502.04667',
+      target: '2510.07364',
+      type: 'extends',
+      description: 'Explains WHY base models have latent ability — component patterns exist',
+    },
+    // Paper 138: Lexical Accuracy Hints links
+    {
+      source: '2508.15842',
+      target: '2412.21187',
+      type: 'supports',
+      description: 'Both find CoT length inversely correlated with accuracy',
+    },
+    {
+      source: '2508.15842',
+      target: '2501.18585',
+      type: 'supports',
+      description: 'Complements findings on CoT length dynamics',
+    },
+    {
+      source: '2508.15842',
+      target: '2601.05905',
+      type: 'supports',
+      description: 'Both document severe miscalibration',
+    },
+    {
+      source: '2508.15842',
+      target: '2405.04776',
+      type: 'supports',
+      description: 'Both show CoT doesnt reliably help on hard tasks',
+    },
+    {
+      source: '2508.15842',
+      target: '2504.09762',
+      type: 'supports',
+      description: 'Supports that CoT tokens != reasoning traces',
+    },
+    {
+      source: '2508.15842',
+      target: '2502.03373',
+      type: 'extends',
+      description: 'Provides lexical analysis that Demystifying paper lacks',
+    },
+    // Paper 139: Recursive LMs links
+    {
+      source: '2512.24601',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Context rot evidence confirms reasoning limits',
+    },
+    {
+      source: '2512.24601',
+      target: '2403.04121',
+      type: 'supports',
+      description: 'RLMs = external scaffolding, not native reasoning',
+    },
+    {
+      source: '2512.24601',
+      target: '2502.04667',
+      type: 'supports',
+      description: 'Both show explicit structure improves performance',
+    },
+    {
+      source: '2512.24601',
+      target: '2507.17699',
+      type: 'extends',
+      description: 'Both argue tools augment reasoning',
     },
   ],
 };

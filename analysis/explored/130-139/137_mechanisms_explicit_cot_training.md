@@ -161,4 +161,4 @@ This paper is **STRONG EVIDENCE** for the interpolation view:
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] **Rebuttals checked**
-- [x] **Paper graph updated** (pending)
+- [x] **Paper graph updated**

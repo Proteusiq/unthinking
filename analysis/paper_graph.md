@@ -368,6 +368,37 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Revisiting Compositional Gen (2506.15629)** | **supports** | **Compositional-ARC (2504.01445)** | **Both show compositional generalization failure** |
 | **Revisiting Compositional Gen (2506.15629)** | **supports** | **Iterative ICL Algebraic (2509.01267)** | **Both show instruction override fails; patterns dominate** |
 | **Revisiting Compositional Gen (2506.15629)** | **supports** | **GSM-Symbolic (2410.05229)** | **Both show distribution-bounded performance** |
+| **Can ICL Generalize OOD (2410.09695)** | **supports** | **Faith and Fate (2305.18654)** | **"Pretraining function class" = linearized subgraph matching** |
+| **Can ICL Generalize OOD (2410.09695)** | **supports** | **CoT Mirage (2508.01191)** | **Both show ID=high, OOD=low pattern** |
+| **Can ICL Generalize OOD (2410.09695)** | **supports** | **Interplay (2512.07783)** | **"Cannot synthesize from void" directly confirmed** |
+| **Can ICL Generalize OOD (2410.09695)** | **supports** | **Can LLMs Reason and Plan (2403.04121)** | **"Universal approximate retrieval" confirmed empirically** |
+| **Can ICL Generalize OOD (2410.09695)** | **extends** | **Base Models Know How to Reason (2510.07364)** | **ICL selects from pretraining functions; Paper 133 shows these pre-exist** |
+| **Demystifying Long CoT (2502.03373)** | **supports** | **Base Models Know How to Reason (2510.07364)** | **Both show capabilities pre-exist in base model** |
+| **Demystifying Long CoT (2502.03373)** | **supports** | **Interplay (2512.07783)** | **"Cannot synthesize from void" — same finding** |
+| **Demystifying Long CoT (2502.03373)** | **supports** | **s1 (2501.19393)** | **1K samples surfaces reasoning — same mechanism** |
+| **Demystifying Long CoT (2502.03373)** | **extends** | **Overthinking/Underthinking (2412.21187, 2501.18585)** | **Length scaling dynamics explained** |
+| **Demystifying Long CoT (2502.03373)** | **provides mechanism for** | **Surfacing hypothesis** | **Long CoT patterns exist in pretraining (OpenWebMath)** |
+| **Chain of Thoughtlessness (2405.04776)** | **supports** | **Can LLMs Reason and Plan (2403.04121)** | **Same research group, same conclusion: CoT ≠ algorithm learning** |
+| **Chain of Thoughtlessness (2405.04776)** | **supports** | **Can ICL Generalize OOD (2410.09695)** | **Both show OOD failure** |
+| **Chain of Thoughtlessness (2405.04776)** | **supports** | **CoT Mirage (2508.01191)** | **ID=high, OOD=low — same pattern** |
+| **Chain of Thoughtlessness (2405.04776)** | **supports** | **Faith and Fate (2305.18654)** | **Exponential error accumulation = degradation with complexity** |
+| **Chain of Thoughtlessness (2405.04776)** | **provides evidence for** | **Illusion of Thinking (2506.06941)** | **Complexity collapse demonstrated** |
+| **Chain of Thoughtlessness (2405.04776)** | **provides evidence for** | **Stop Anthropomorphizing (2504.09762)** | **Shows WHY traces have no semantics — CoT is pattern matching** |
+| **CoT Training Mechanisms (2502.04667)** | **supports** | **Can LLMs Reason and Plan (2403.04121)** | **OOD failure confirms LLMs can't plan without pattern templates** |
+| **CoT Training Mechanisms (2502.04667)** | **supports** | **Can ICL Generalize OOD (2410.09695)** | **Both show OOD generalization failure is fundamental** |
+| **CoT Training Mechanisms (2502.04667)** | **supports** | **Demystifying Long CoT (2502.03373)** | **Both analyze CoT mechanisms; provides cleaner controlled evidence** |
+| **CoT Training Mechanisms (2502.04667)** | **supports** | **Faith and Fate (2305.18654)** | **Confirms linearized subgraph matching — patterns not reason** |
+| **CoT Training Mechanisms (2502.04667)** | **extends** | **Base Models Know How to Reason (2510.07364)** | **Explains WHY base models have latent ability — component patterns exist** |
+| **Lexical Accuracy Hints (2508.15842)** | **supports** | **Overthinking (2412.21187)** | **Both find CoT length inversely correlated with accuracy** |
+| **Lexical Accuracy Hints (2508.15842)** | **supports** | **Underthinking (2501.18585)** | **Complements findings on CoT length dynamics** |
+| **Lexical Accuracy Hints (2508.15842)** | **supports** | **Illusions of Confidence (2601.05905)** | **Both document severe miscalibration** |
+| **Lexical Accuracy Hints (2508.15842)** | **supports** | **Chain of Thoughtlessness (2405.04776)** | **Both show CoT doesn't reliably help on hard tasks** |
+| **Lexical Accuracy Hints (2508.15842)** | **supports** | **Stop Anthropomorphizing (2504.09762)** | **Supports that CoT tokens ≠ reasoning traces** |
+| **Lexical Accuracy Hints (2508.15842)** | **extends** | **Demystifying Long CoT (2502.03373)** | **Provides lexical analysis that Demystifying paper lacks** |
+| **Recursive Language Models (2512.24601)** | **supports** | **Illusion of Thinking (2506.06941)** | **Context rot evidence confirms reasoning limits** |
+| **Recursive Language Models (2512.24601)** | **supports** | **Can LLMs Reason and Plan (2403.04121)** | **RLMs = external scaffolding, not native reasoning** |
+| **Recursive Language Models (2512.24601)** | **supports** | **CoT Training Mechanisms (2502.04667)** | **Both show explicit structure improves performance** |
+| **Recursive Language Models (2512.24601)** | **extends** | **Thinking Isn't Illusion (2507.17699)** | **Both argue tools augment reasoning** |
 | **Revisiting Compositional Gen (2506.15629)** | **provides evidence for** | **Instruction-pattern conflict** | **Models default to preferred orderings, ignoring instructions** |
 | **STEPS (2601.03676)** | **provides mechanism for** | **Faith and Fate (2305.18654)** | **Power-law distribution explains compositional scarcity** |
 | **STEPS (2601.03676)** | **provides mechanism for** | **Compositional-ARC (2504.01445)** | **Data bottleneck explains why k>1 compositions fail** |
@@ -841,3 +872,9 @@ These papers have NO direct rebuttals found:
 | 2026-02-01 | Added Stop Anthropomorphizing Tokens (2504.09762) — POSITION: Kambhampati on LRMs; traces have NO semantics; incorrect traces OUTPERFORM correct; "aha" meaningless; "compiling reasoning into retrieval"; R1-Zero > R1; STRONGLY SUPPORTS thesis |
 
 | 2026-02-01 | Added Base Models Know How to Reason (2510.07364) — CRITICAL SURFACING: 91% gap recovery with 12% token steering; RLVR teaches timing not capability; two-component decomposition; steering vectors transfer; STRONGLY SUPPORTS thesis |
+| 2026-02-01 | Added Can ICL Generalize OOD (2410.09695) — CRITICAL OOD: ICL implements pretraining functions, not new ones; ~10% OOD accuracy = random guessing; abstract labels work ONLY when underlying function is ID; algorithm selection by lowest test error; STRONGLY SUPPORTS thesis |
+| 2026-02-01 | Added Demystifying Long CoT (2502.03373) — SURFACING MECHANISM: Core abilities (error correction) INHERENTLY PRESENT in base models; long CoT patterns exist in pretraining data (OpenWebMath); short CoT saturates at ~55%; RL incentivizes, doesn't create; STRONGLY SUPPORTS thesis |
+| 2026-02-01 | Added Chain of Thoughtlessness (2405.04776) — NeurIPS 2024 (Kambhampati): CoT doesn't teach algorithms; requires "exceedingly specific" prompts; performance degrades rapidly past example size; same failure across 3 domains; STRONGLY SUPPORTS thesis |
+| 2026-02-01 | Added CoT Training Mechanisms (2502.04667) — CONTROLLED: Non-CoT 100% ID/0% OOD; CoT 100%/100%; two-stage circuit; intermediate results at layer 3 vs 5; CoT exposes subtask patterns, doesn't teach reasoning; STRONGLY SUPPORTS thesis |
+| 2026-02-01 | Added Lexical Accuracy Hints (2508.15842) — Surface markers predict errors better than confidence; 84.6% calibration error; harmful words ("guess", "stuck") reduce accuracy 40%; 5-word rule MCC=0.305 vs confidence MCC=0.065; STRONGLY SUPPORTS thesis |
+| 2026-02-01 | Added Recursive Language Models (2512.24601) — ICML: Context rot confirms limits (GPT-5: 0.1% OOLONG-Pairs); RLMs provide scaffolding (58%); engineering around limitations; BALANCED |

@@ -216,4 +216,4 @@ This paper provides the **controlled experimental evidence** for the interpolati
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] **Rebuttals checked**
-- [ ] **Paper graph updated**
+- [x] **Paper graph updated**

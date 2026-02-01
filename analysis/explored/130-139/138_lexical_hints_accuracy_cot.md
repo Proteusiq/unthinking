@@ -192,4 +192,4 @@ This is exactly what pattern-matching looks like when it fails:
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] **Rebuttals checked**
-- [x] **Paper graph updated** (pending)
+- [x] **Paper graph updated**
