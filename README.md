@@ -13,8 +13,6 @@
 
 ## Why This Matters
 
-The coffee goes cold while I read yet another LLM paper.
-
 Inspired by Anthropic's *"On the Biology of a Large Language Model"*, I began a journey in the opposite direction. To bring my thoughts together, I collected papers and built this site to track an ongoing dialogue in the research community.
 
 What I found: LLMs search their training distribution. They match patterns seen before. The pause is computation, not contemplation. The steps are retrieval, not reasoning.
