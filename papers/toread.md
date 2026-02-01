@@ -30,7 +30,7 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 
 **MEDIUM PRIORITY — Overthinking Research**
 - [x] **Overthinking in LRMs** (2412.21187) — Analyzed as Paper 129
-- [ ] **Overthinking in LRMs** (2501.18585) — Second overthinking paper; mechanistic analysis
+- [x] **Underthinking in LRMs** (2501.18585) — Analyzed as Paper 130
 
 **MEDIUM PRIORITY — Adversarial/Hallucination**
 - [ ] **Fast Adversarial Attacks (BEAST)** (2402.15570) — Induces ~15% more hallucinations; shows jailbreak fragility

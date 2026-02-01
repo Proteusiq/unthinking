@@ -278,6 +278,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 127 | 2310.13548 | Oct 2023 | Towards Understanding Sycophancy in Language Models (Anthropic) | Strongly Supports | ✅ DONE |
 | 128 | 2501.13381 | Jan 2025 | Do as We Do, Not as You Think: The Conformity of LLMs (ICLR 2025) | Strongly Supports | ✅ DONE |
 | 129 | 2412.21187 | Dec 2024 | Do NOT Think That Much for 2+3=? On the Overthinking of o1-Like LLMs | Supports | ✅ DONE |
+| 130 | 2501.18585 | Jan 2025 | Thoughts Are All Over the Place: On the Underthinking of o1-Like LLMs | Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -294,10 +295,10 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 
 ## Updated Summary Statistics
 - **Total Papers**: 133
-- **Against Reasoning**: ~69
+- **Against Reasoning**: ~70
 - **For Reasoning**: ~27
 - **Balanced**: ~40
 - **Date Range**: 2023-2026
-- **Analyzed**: 130
+- **Analyzed**: 131
 
 ---

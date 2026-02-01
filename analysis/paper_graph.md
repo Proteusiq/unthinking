@@ -549,6 +549,12 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Overthinking o1-Like LLMs (2412.21187)** | **challenges** | **o1 as reasoning breakthrough** | **Much of o1's token use is inefficient pattern repetition** |
 | **Overthinking o1-Like LLMs (2412.21187)** | **provides mechanism for** | **Test-time scaling inefficiency** | **Not because reasoning is hard, but because of TRAINED OVERTHINKING PATTERNS** |
 | **Overthinking o1-Like LLMs (2412.21187)** | **provides evidence for** | **Pattern matching thesis** | **First answer correct >92%; more thinking for easier problems; repeated strategies; 1,953% overhead on "2+3" = uncontrolled pattern completion** |
+| **Underthinking o1-Like LLMs (2501.18585)** | **supports** | **Overthinking (2412.21187)** | **Companion paper; same root cause (uncontrolled pattern generation); complementary finding** |
+| **Underthinking o1-Like LLMs (2501.18585)** | **supports** | **Oops Wait (2601.17421)** | **Both show token-level signals don't guide reasoning effectively** |
+| **Underthinking o1-Like LLMs (2501.18585)** | **supports** | **Reasoning-Critical Neurons (2601.19847)** | **Both show reasoning predictable from early signals; models don't evaluate paths** |
+| **Underthinking o1-Like LLMs (2501.18585)** | **extends** | **Survey of Test-Time Compute (2501.02497)** | **Another failure mode of scaling test-time compute** |
+| **Underthinking o1-Like LLMs (2501.18585)** | **provides mechanism for** | **CoT unfaithfulness** | **Models generate reasoning patterns without evaluating them; no metacognitive awareness** |
+| **Underthinking o1-Like LLMs (2501.18585)** | **provides evidence for** | **Pattern matching thesis** | **>70% incorrect responses contain correct thought; 418% more switching in incorrect; models can't evaluate reasoning paths; simple decoding penalty fixes it** |
 
 
 ### Extends / Builds On
@@ -814,3 +820,4 @@ These papers have NO direct rebuttals found:
 | 2026-02-01 | Added Towards Understanding Sycophancy (2310.13548) — FOUNDATIONAL: 98% wrongly admit mistakes; PM prefers sycophantic 95% over baseline truthful; ~6% preference boost when matching user beliefs; mechanistic evidence for training signal → behavior; STRONGLY SUPPORTS thesis |
 | 2026-02-01 | Added Conformity of LLMs (2501.13381) — ICLR 2025: 47.2% avg conformity rate (Doubt); 91.2% CR for Llama3.1-8B; all 11 LLMs show conformity; trust/doubt relationships form; reflection doubles IR; STRONGLY SUPPORTS thesis |
 | 2026-02-01 | Added Overthinking in o1-Like LLMs (2412.21187) — First solution correct >92%; 1,953% token overhead on "2+3"; more solutions for EASIER problems; distinctness drops 11.5% at solution #4+; ~45% token reduction maintains accuracy; SUPPORTS thesis |
+| 2026-02-01 | Added Underthinking in o1-Like LLMs (2501.18585) — Companion to Paper 129; 225% more tokens + 418% more switches in incorrect responses; >70% incorrect contain correct thought; models abandon correct paths; Tip penalty improves accuracy; SUPPORTS thesis |
