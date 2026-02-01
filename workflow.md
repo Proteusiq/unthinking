@@ -184,22 +184,40 @@ If paper provides significant evidence, update `analysis/synthesis.md`:
 
 ```javascript
 {
-  "id": "XXXX.XXXXX",
-  "title": "Paper Title",
-  "shortTitle": "Short Name",
-  "stance": "supports|challenges|balanced",
-  "argument": "Core argument in one sentence",
-  "evidence": ["Key finding 1", "Key finding 2"],
-  "arxiv": "XXXX.XXXXX",
-  "date": "YYYY-MM-DD"
+  id: 'XXXX.XXXXX',              // arXiv ID
+  title: 'Paper Title',          // Full title
+  shortTitle: 'Short Name',      // Display name for graph
+  date: 'Mon YYYY',              // e.g., 'May 2023'
+  stance: 'supports',            // supports | challenges | balanced
+  cluster: 'compositional',      // Thematic cluster
+  coreArgument: '...',           // Paper's claim (NO CAPS EMPHASIS)
+  keyEvidence: ['...'],          // Array of key findings
+  keyQuotes: [                   // 1-2 quotes from paper's own words
+    "Direct quote from paper...",
+    "Another key quote..."
+  ],
+  analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/XX-XX/XX_paper_name.md'
 }
 ```
+
+**Important data.js guidelines:**
+- `coreArgument`: Use paper's own language, NO ALL CAPS for emphasis
+- `keyQuotes`: Extract from "Key Quotes" section of analysis file
+- `analysisUrl`: Link to the full analysis markdown file
+- `stance`: Use only `supports`, `challenges`, or `balanced`
 
 2. Add links to other papers:
 
 ```javascript
-{"source": "XXXX.XXXXX", "target": "YYYY.YYYYY", "type": "supports|rebuts|extends", "description": "Brief description"}
+{
+  source: 'XXXX.XXXXX',
+  target: 'YYYY.YYYYY', 
+  type: 'supports',              // supports | rebuts | extends
+  description: 'Brief description'
+}
 ```
+
+3. Update `meta.totalAnalyzed` count at top of file
 
 ---
 

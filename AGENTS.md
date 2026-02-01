@@ -279,11 +279,61 @@ Run through this checklist after every paper analysis:
 - [ ] **synthesis.md updated** (papers table + evidence mapping if significant)
 - [ ] **rebuttals.md updated** (if paper rebuts or is rebutted by existing papers)
 - [ ] **paper_network.md updated** (update counts + add to cluster if significant)
-- [ ] **data.js updated** (new node + links + meta.totalAnalyzed)
+- [ ] **data.js updated** (new node + links + meta.totalAnalyzed + keyQuotes + analysisUrl)
 - [ ] **README.md updated** (paper counts in badges and folder)
 - [ ] **Rebuttals section complete** in analysis file
 - [ ] **File numbering sequential** (no gaps in XX_paper_name.md)
 - [ ] **Committed and pushed**
+
+---
+
+## Visualization Data (data.js)
+
+When adding a paper to `docs/js/data.js`, include these fields:
+
+### Required Fields
+```javascript
+{
+  id: '2305.18654',           // arXiv ID
+  title: 'Faith and Fate...', // Full title
+  shortTitle: 'Faith & Fate', // Display name (for graph labels)
+  date: 'May 2023',           // Publication date
+  stance: 'supports',         // supports | challenges | balanced
+  cluster: 'compositional',   // Thematic cluster
+  coreArgument: '...',        // One sentence - paper's own claim, NO EDITORIAL EMPHASIS
+  keyEvidence: ['...'],       // Array of key findings
+}
+```
+
+### Optional Fields (Recommended)
+```javascript
+{
+  keyQuotes: [                // 1-2 quotes from the paper's own words
+    "Direct quote from paper...",
+    "Another key quote..."
+  ],
+  analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/XX-XX/XX_paper_name.md'
+}
+```
+
+### Guidelines for coreArgument
+- Use the paper's own language, not editorial emphasis
+- NO ALL CAPS for emphasis (e.g., ~~"FOUNDATIONAL"~~, ~~"WORSE"~~)
+- Keep objective — let the evidence speak for itself
+- One sentence summarizing what the paper claims
+
+### Guidelines for keyQuotes
+- Extract from the "Key Quotes" section of the analysis file
+- Use the paper's exact words
+- Keep under 200 characters if possible
+- Choose quotes that capture the paper's core contribution
+
+### Stance Values
+| Value | Meaning | Color |
+|-------|---------|-------|
+| `supports` | Supports thesis (LLMs are pattern matchers) | Green |
+| `challenges` | Challenges thesis (evidence for reasoning) | Red |
+| `balanced` | Mixed evidence | Yellow |
 
 ### Verification Checklist (Run Periodically)
 Ensure node count in `docs/js/data.js` matches analyzed papers:
