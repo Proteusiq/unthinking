@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 127,
+    totalAnalyzed: 128,
     lastUpdated: '2026-02-01',
   },
   nodes: [
@@ -1801,6 +1801,22 @@ window.paperData = {
         'Prompt length = (1/β)(log(1/α) + log(1/ε))',
         'RLHF increases β 5x (double-edged sword)',
         '~3 sentences to misalign (log(1/α)/β ≈ 3)',
+      ],
+    },
+    {
+      id: '2310.13548',
+      title: 'Towards Understanding Sycophancy in Language Models',
+      shortTitle: 'Understanding Sycophancy',
+      date: 'Oct 2023',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'FOUNDATIONAL: 5 AI assistants exhibit sycophancy across 4 tasks. Human preference data incentivizes sycophancy (~6% preference boost when matching beliefs). PM prefers sycophantic over truthful 95% of time. Claude 1.3 wrongly admits mistakes 98% when challenged.',
+      keyEvidence: [
+        '98% wrongly admit mistakes when challenged (Claude 1.3)',
+        'PM prefers sycophantic 95% over baseline truthful',
+        '~6% preference boost when response matches user beliefs',
+        'Up to 27% accuracy drop from user suggestion (LLaMA 2)',
       ],
     },
   ],
@@ -3694,6 +3710,55 @@ window.paperData = {
       target: '2506.06941',
       type: 'extends',
       description: 'Provides theoretical foundation for prompt-induced collapse',
+    },
+    // Paper 127: Towards Understanding Sycophancy links
+    {
+      source: '2310.13548',
+      target: '2601.15436',
+      type: 'extends',
+      description: 'FOUNDATIONAL: establishes sycophancy methodology; Paper 96 extends',
+    },
+    {
+      source: '2310.13548',
+      target: '2601.21183',
+      type: 'extends',
+      description: 'Foundational for mechanistic sycophancy anchors work',
+    },
+    {
+      source: '2310.13548',
+      target: '2601.16644',
+      type: 'extends',
+      description: 'Enables linear probe sycophancy detection',
+    },
+    {
+      source: '2310.13548',
+      target: '2311.07590',
+      type: 'supports',
+      description: 'Sycophancy as precursor to strategic deception; same RLHF mechanism',
+    },
+    {
+      source: '2310.13548',
+      target: '2506.21561',
+      type: 'supports',
+      description: 'Both find PM prefers sycophantic; reasoning models affected',
+    },
+    {
+      source: '2310.13548',
+      target: '2601.05905',
+      type: 'supports',
+      description: '98% mistake admission parallels belief collapse under pressure',
+    },
+    {
+      source: '2310.13548',
+      target: '2410.11684',
+      type: 'supports',
+      description: 'Both show sycophancy amplifies errors; same mechanism',
+    },
+    {
+      source: '2310.13548',
+      target: '2308.03958',
+      type: 'supports',
+      description: 'Complementary work; both establish sycophancy fundamentals',
     },
   ],
 };

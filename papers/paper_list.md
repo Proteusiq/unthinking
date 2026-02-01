@@ -275,6 +275,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 124 | 2506.09250 | Jun 2025 | The Illusion of the Illusion of Thinking (Rebuttal to Paper 03) | Challenges (Weak) | ✅ DONE |
 | 125 | 2406.02061 | Jun 2024 | Alice in Wonderland: Simple Tasks Showing Complete Reasoning Breakdown | Strongly Supports | ✅ DONE |
 | 126 | 2304.11082 | Apr 2023 | Fundamental Limitations of Alignment in LLMs (BEB Theory) | Supports | ✅ DONE |
+| 127 | 2310.13548 | Oct 2023 | Towards Understanding Sycophancy in Language Models (Anthropic) | Strongly Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -290,11 +291,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 132
-- **Against Reasoning**: ~66
+- **Total Papers**: 133
+- **Against Reasoning**: ~67
 - **For Reasoning**: ~27
 - **Balanced**: ~40
 - **Date Range**: 2023-2026
-- **Analyzed**: 127
+- **Analyzed**: 128
 
 ---
