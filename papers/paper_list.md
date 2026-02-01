@@ -283,6 +283,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 132 | 2504.09762 | May 2025 | Stop Anthropomorphizing Intermediate Tokens as Reasoning! (Kambhampati) | Strongly Supports | ✅ DONE |
 | 133 | 2510.07364 | Oct 2025 | Base Models Know How to Reason, Thinking Models Learn When | Strongly Supports | ✅ DONE |
 | 134 | 2410.09695 | Oct 2024 | Can In-context Learning Really Generalize to Out-of-distribution Tasks? | Strongly Supports | ✅ DONE |
+| 135 | 2502.03373 | Feb 2025 | Demystifying Long Chain-of-Thought Reasoning in LLMs | Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -298,11 +299,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 134
-- **Against Reasoning**: ~73
+- **Total Papers**: 135
+- **Against Reasoning**: ~74
 - **For Reasoning**: ~27
 - **Balanced**: ~40
 - **Date Range**: 2023-2026
-- **Analyzed**: 134
+- **Analyzed**: 135
 
 ---
