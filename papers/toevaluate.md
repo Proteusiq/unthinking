@@ -323,6 +323,7 @@ Large Language Models (LLMs) increasingly exhibit strong reasoning abilities, of
 
 | Date | Paper | arXiv | Reason |
 |------|-------|-------|--------|
+| 2026-02-01 | Not All Code Is Equal: Code Complexity and LLM Reasoning | 2601.21894 | 83% of experiments show complexity-specific training beats diverse; supports pattern-matching |
 | 2026-01-31 | Semantic Content Determines Algorithmic Performance (WhatCounts) | 2601.21618 | 40% accuracy variation on counting based on SEMANTIC CONTENT |
 | 2026-01-30 | Scaling Reasoning Hop | 2601.21214 | ep heads suppress correct trajectories — mechanistic |
 | 2026-01-30 | Thinking Out of Order | 2601.22035 | 67% AR drop on answer-before-reasoning |

@@ -91,6 +91,14 @@ These papers directly test or challenge the thesis that LLM reasoning is pattern
 
 ---
 
+## NEW — Promoted from Triage (2026-02-01)
+
+| arXiv ID | Title | Priority | Why Read |
+|----------|-------|----------|----------|
+| 2601.21894 | **Not All Code Is Equal: Code Complexity and LLM Reasoning** | 🟠 HIGH | 83% of experiments show complexity-restricted code training beats diverse code. Supports pattern-matching thesis — models learn SPECIFIC structural patterns, not general reasoning. |
+
+---
+
 ## Recently Analyzed (Removed from Queue)
 
 - ✅ **Mechanisms of Explicit CoT Training** (2502.04667) — Analyzed 2026-02-01 as Paper 137
