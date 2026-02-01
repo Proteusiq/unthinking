@@ -14,7 +14,7 @@ These papers directly test or challenge the thesis that LLM reasoning is pattern
 
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
-| 2403.04121 | **Can Large Language Models Reason and Plan?** | ⭐ CRITICAL | Kambhampati's foundational skeptic paper. Argues LLMs cannot truly reason/plan — only approximate via retrieval. Core theoretical support for thesis. |
+| 2403.04121 | **Can Large Language Models Reason and Plan?** | ✅ DONE | Analyzed as Paper 131 |
 | 2504.09762 | **Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!** | ⭐ CRITICAL | Directly challenges "CoT = reasoning" assumption. Questions whether tokens represent reasoning or just pattern completion. Central to faithfulness debate. |
 | 2405.04776 | **Chain of Thoughtlessness? An Analysis of CoT in Planning** | ⭐ HIGH | Tests CoT on planning tasks. Title suggests CoT doesn't help planning — supports "execution without understanding" argument. |
 
