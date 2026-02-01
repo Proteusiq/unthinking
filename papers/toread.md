@@ -6,6 +6,34 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 
 ---
 
+## NEW — Mined from Analysis Files 70+ (2026-02-01)
+
+### Critical Foundational Papers
+
+| arXiv ID | Title | Priority | Why Read |
+|----------|-------|----------|----------|
+| 2201.11903 | **Chain-of-Thought Prompting Elicits Reasoning** (Wei et al.) | ⭐ CRITICAL | **ORIGINAL CoT PAPER** (NeurIPS 2022). Foundation for ALL CoT research. 540B + 8 examples = SOTA GSM8K. Analysis file exists as Paper 151 — needs tracking. |
+| 2203.11171 | **Self-Consistency Improves Chain of Thought Reasoning** (Wang et al.) | ⭐ CRITICAL | **SELF-CONSISTENCY** (ICLR 2023). +17.9% GSM8K, +11.0% SVAMP via diverse reasoning paths + majority voting. |
+| 2409.13373 | **LLMs Still Can't Plan; Can LRMs?** (Kambhampati et al.) | ⭐ CRITICAL | **o1 on PlanBench** (Sep 2024). Tests o1/Strawberry — quantum improvement but STILL doesn't saturate. Extends Paper 150. |
+
+### High Priority — Theoretical Foundations
+
+| arXiv ID | Title | Priority | Why Read |
+|----------|-------|----------|----------|
+| 2310.07923 | **The Expressive Power of Transformers with Chain of Thought** (Merrill & Sabharwal) | 🟠 HIGH | **FOR THESIS** (ICLR 2024). Proves CoT adds computational power — linear steps = regular languages. Important for balance. |
+| 2305.14699 | **Can Transformers Learn to Solve Problems Recursively?** | 🟠 HIGH | Mechanistic interp of recursive failures. Predicts 91% of failure cases by reconstructing "shortcut" algorithms. |
+| 2108.12409 | **Train Short, Test Long: ALiBi** (Press et al.) | 🟠 HIGH | **Length extrapolation** (ICLR 2022). Linear biases enable OOD length generalization — architectural approach. |
+| 2206.10498 | **PlanBench** (Valmeekam et al.) | 🟠 HIGH | **Kambhampati's planning benchmark** (NeurIPS D&B 2023). Used in Papers 131, 132, 150. |
+
+### Medium Priority — Additional Foundations
+
+| arXiv ID | Title | Priority | Why Read |
+|----------|-------|----------|----------|
+| 2205.11916 | **Large Language Models are Zero-Shot Reasoners** (Kojima et al.) | 🟡 MEDIUM | **"Let's think step by step"** (NeurIPS 2022). Original zero-shot CoT paper. |
+| 2405.00451 | **Monte Carlo Tree Search Boosts Reasoning via Iterative Preference Learning** | 🟡 MEDIUM | MCTS + DPO: +5.9% GSM8K, +5.8% MATH. AlphaZero-inspired iterative preference learning. |
+
+---
+
 ## HIGH PRIORITY — Core Thesis Papers (Added 2026-02-01)
 
 These papers directly test or challenge the thesis that LLM reasoning is pattern matching, not genuine reasoning.
