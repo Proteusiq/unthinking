@@ -96,8 +96,10 @@
 | 149 | The Reversal Curse | Sep 2023 | Strongly Supports | FOUNDATIONAL: 0% reverse accuracy (complete failure); GPT-4: 79% forward, 33% reverse; LLMs store directional patterns, not relations |
 | 150 | On the Planning Abilities of LLMs | May 2023 | Strongly Supports | NeurIPS 2023 Spotlight (Kambhampati): GPT-4 ~12% autonomous planning; plan-like text ≠ valid plans; LLM-Modulo framework |
 | 151 | Chain-of-Thought Prompting Elicits Reasoning | Jan 2022 | FOR (Foundational) | NeurIPS 2022: ORIGINAL CoT PAPER - 540B + 8 examples = SOTA GSM8K; foundation for all CoT research |
+| 152 | Expressive Power of Transformers with CoT | Oct 2023 | FOR (Theoretical) | ICLR 2024: CoT adds computational power; linear steps = regular languages; poly steps = P. BUT: expressivity ≠ learnability |
+| 153 | PlanBench | Jun 2022 | Strongly Supports | NeurIPS D&B 2023 (Kambhampati): IPC-style benchmark; GPT-4 ~12% planning; Mystery Blocksworld shows surface patterns matter |
 
-**Total: 151 unique papers analyzed**
+**Total: 153 unique papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative
@@ -1143,8 +1145,8 @@ For B=1 (NO search required, just follow edges):
 
 ## Thesis Position (Strengthened)
 
-**Total Papers**: 151 unique papers analyzed
-**Stance Breakdown**: Supports=~95, Challenges=~12, Balanced=~44
+**Total Papers**: 153 unique papers analyzed
+**Stance Breakdown**: Supports=~96, Challenges=~13, Balanced=~44
 
 ---
 
@@ -1211,6 +1213,44 @@ For B=1 (NO search required, just follow edges):
 **LLM-Modulo framework**: Use LLMs as heuristics for external planners, not as autonomous planners.
 
 **Implication for thesis**: Plan-like text ≠ valid plans. Same pattern as CoT unfaithfulness — appearance without substance.
+
+### PlanBench (2206.10498, NeurIPS D&B 2023)
+
+**Core finding**: Systematic benchmark separating planning from retrieval.
+
+| Capability | GPT-4 Performance |
+|------------|-------------------|
+| Plan Generation | ~12% |
+| Plan Verification | ~55% |
+| Mystery Blocksworld | ~5-10% |
+
+**Critical insight**: Mystery Blocksworld (obfuscated domain names) performance drops further — proving surface pattern reliance.
+
+**Implication for thesis**: When patterns are removed, performance collapses. Same logical structure, different surface form → failure.
+
+### Expressive Power of Transformers with CoT (2310.07923, ICLR 2024)
+
+**THEORETICAL UPPER BOUND** — Important paper FOR reasoning capabilities.
+
+| CoT Steps | Computational Class |
+|-----------|-------------------|
+| O(1) | TC⁰ |
+| O(log n) | L |
+| O(n) | Regular languages |
+| O(n^c) | **Exactly P** |
+
+**Key contribution**: First exact characterization of transformers in complexity classes.
+
+**BUT — The Expressivity-Learnability Gap**:
+- **Theory**: Poly-CoT transformers can represent any P algorithm
+- **Practice**: GPT-4 achieves ~12% on planning (Paper 150/153)
+
+This gap is exactly what the thesis predicts:
+1. The theoretical weights exist (expressivity)
+2. Training doesn't find them (learnability)
+3. Instead, models learn surface patterns from training distribution
+
+**Implication for thesis**: The theoretical capability exists but isn't realized. Same as universal approximation — can represent any function, but training produces pattern matchers.
 
 ---
 
