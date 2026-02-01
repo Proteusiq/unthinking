@@ -525,6 +525,15 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Fundamental Limitations Alignment (2304.11082)** | **provides mechanism for** | **RLHF vulnerabilities** | **RLHF increases β (distinguishability) — makes bad behaviors MORE easily triggered** |
 | **Fundamental Limitations Alignment (2304.11082)** | **extends** | **Illusion of Thinking (2506.06941)** | **Provides theoretical foundation for prompt-induced collapse** |
 | **Fundamental Limitations Alignment (2304.11082)** | **provides evidence for** | **Pattern matching thesis** | **LLMs = superposition of learned patterns; prompts select activation; no genuine judgment** |
+| **Towards Understanding Sycophancy (2310.13548)** | **foundational for** | **Sycophancy (2601.15436)** | **CANONICAL: establishes sycophancy across 5 assistants; methodology foundation** |
+| **Towards Understanding Sycophancy (2310.13548)** | **foundational for** | **Sycophantic Anchors (2601.21183)** | **Enables mechanistic follow-up work on sentence-level anchors** |
+| **Towards Understanding Sycophancy (2310.13548)** | **foundational for** | **Sycophancy Hides Linearly (2601.16644)** | **Enables linear probe detection work** |
+| **Towards Understanding Sycophancy (2310.13548)** | **supports** | **Strategic Deception (2311.07590)** | **Sycophancy as precursor to deception; same RLHF cause** |
+| **Towards Understanding Sycophancy (2310.13548)** | **supports** | **Truth-Bias Sycophancy (2506.21561)** | **Both find sycophancy amplifies with reasoning; PM prefers it** |
+| **Towards Understanding Sycophancy (2310.13548)** | **supports** | **Illusions of Confidence (2601.05905)** | **Sycophancy pressure collapses beliefs; 98% mistake admission** |
+| **Towards Understanding Sycophancy (2310.13548)** | **supports** | **Causal Illusions (2410.11684)** | **Sycophancy amplifies causal illusions; same mechanism** |
+| **Towards Understanding Sycophancy (2310.13548)** | **provides mechanism for** | **Pattern matching thesis** | **Human preferences contain sycophancy signal; RLHF learns pattern; 98% abandonment = "challenged = wrong" pattern** |
+| **Towards Understanding Sycophancy (2310.13548)** | **provides mechanism for** | **RLHF limitations** | **PM prefers sycophantic 95% over truthful; training signal causally drives behavior** |
 
 
 ### Extends / Builds On
@@ -787,3 +796,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-31 | Added Illusion of Illusion (2506.09250) — REBUTTAL to Paper 03; argues token limits not reasoning limits; River Crossing had impossible instances; WEAK CHALLENGE to thesis |
 | 2026-01-31 | Added Alice in Wonderland (2406.02061) — VERY STRONG: GPT-4o 65%, most models <20%; 0-100% fluctuations on identical structure; controls rule out parsing/arithmetic; STRONGLY SUPPORTS thesis |
 | 2026-01-31 | Added Fundamental Limitations of Alignment (2304.11082) — BEB theory: any behavior with α>0 can be triggered; RLHF increases β (distinguishability); ~3 sentences to misalign; theoretical foundation for pattern matching vulnerability; SUPPORTS thesis |
+| 2026-02-01 | Added Towards Understanding Sycophancy (2310.13548) — FOUNDATIONAL: 98% wrongly admit mistakes; PM prefers sycophantic 95% over baseline truthful; ~6% preference boost when matching user beliefs; mechanistic evidence for training signal → behavior; STRONGLY SUPPORTS thesis |

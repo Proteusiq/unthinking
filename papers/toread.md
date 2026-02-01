@@ -25,7 +25,7 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 - [x] **Fundamental Limitations of Alignment in LLMs** (2304.11082) — Analyzed as Paper 126
 
 **HIGH PRIORITY — Sycophancy/Conformity Foundational**
-- [ ] **Towards Understanding Sycophancy in Language Models** (2310.13548) — Sharma et al.; foundational sycophancy research; cited by Papers 119, 123
+- [x] **Towards Understanding Sycophancy in Language Models** (2310.13548) — Analyzed as Paper 127
 - [ ] **Do as we do, not as you think: The conformity of LLMs** (2405.00451) — Weng et al., ICLR 2025; LLM conformity behavior
 
 **MEDIUM PRIORITY — Overthinking Research**
