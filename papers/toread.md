@@ -96,6 +96,8 @@ These papers directly test or challenge the thesis that LLM reasoning is pattern
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
 | 2601.21894 | **Not All Code Is Equal: Code Complexity and LLM Reasoning** | 🟠 HIGH | 83% of experiments show complexity-restricted code training beats diverse code. Supports pattern-matching thesis — models learn SPECIFIC structural patterns, not general reasoning. |
+| 2601.21909 | **From Meta-Thought to Execution: Cognitively Aligned Post-Training** | 🟠 HIGH | Claims 4.63% OOD improvement with meta-thought training. Verify if OOD claim is real. |
+| 2601.21414 | **System 1&2 Synergy via Dynamic Model Interpolation** | 🟡 MEDIUM | Interpolates Instruct/Thinking checkpoints. May reveal what "thinking" actually adds mechanistically. |
 
 ---
 
