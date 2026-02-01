@@ -2204,10 +2204,10 @@ window.paperData = {
       title: 'Chain-of-Thought Prompting Elicits Reasoning in Large Language Models',
       shortTitle: 'Original CoT',
       date: 'Jan 2022',
-      stance: 'for',
+      stance: 'challenges',
       cluster: 'mechanism',
       coreArgument:
-        'NeurIPS 2022: FOUNDATIONAL CoT paper. 540B PaLM + 8 CoT exemplars = 58% GSM8K (SOTA). CoT benefits emerge at ~100B+ params. Claims reasoning abilities "emerge naturally" at scale.',
+        'NeurIPS 2022: FOUNDATIONAL CoT paper. 540B PaLM + 8 CoT exemplars = 58% GSM8K (SOTA). CoT benefits emerge at ~100B+ params. Claims reasoning abilities "emerge naturally" at scale. Later challenged by faithfulness research.',
       keyEvidence: [
         '58% GSM8K (surpassed fine-tuned GPT-3)',
         'Benefits emerge only at ~100B+ params',
@@ -2221,15 +2221,15 @@ window.paperData = {
       title: 'The Expressive Power of Transformers with Chain of Thought',
       shortTitle: 'CoT Expressivity',
       date: 'Oct 2023',
-      stance: 'for',
+      stance: 'balanced',
       cluster: 'mechanism',
       coreArgument:
-        'ICLR 2024: Proves CoT increases computational power. O(n) steps = all regular languages. O(n^c) steps = exactly class P. First exact complexity characterization of transformers.',
+        'ICLR 2024: Proves CoT increases computational power. O(n) steps = all regular languages. O(n^c) steps = exactly class P. BUT: expressivity ≠ learnability. Theory contradicted by practice (~12% planning success).',
       keyEvidence: [
         'Linear steps enable automata simulation',
         'Polynomial steps = exactly P',
         'Layer-norm hash for memory storage',
-        'Formal complexity-theoretic proof',
+        'Expressivity ≠ learnability caveat',
       ],
     },
     // Paper 153: PlanBench (Kambhampati)
@@ -2255,10 +2255,10 @@ window.paperData = {
       title: 'Large Language Models are Zero-Shot Reasoners',
       shortTitle: 'Zero-Shot CoT',
       date: 'May 2022',
-      stance: 'for',
+      stance: 'challenges',
       cluster: 'mechanism',
       coreArgument:
-        'NeurIPS 2022: "Lets think step by step" improves reasoning without examples. +61pp on MultiArith, +30pp on GSM8K. Claims "untapped zero-shot capabilities" in LLMs.',
+        'NeurIPS 2022: "Lets think step by step" improves reasoning without examples. +61pp on MultiArith, +30pp on GSM8K. Claims "untapped zero-shot capabilities" but later challenged by bias susceptibility research.',
       keyEvidence: [
         '+61pp MultiArith (17.7%→78.7%)',
         '+30pp GSM8K (10.4%→40.7%)',
@@ -2272,10 +2272,10 @@ window.paperData = {
       title: 'Self-Consistency Improves Chain of Thought Reasoning',
       shortTitle: 'Self-Consistency',
       date: 'Mar 2022',
-      stance: 'for',
+      stance: 'challenges',
       cluster: 'mechanism',
       coreArgument:
-        'ICLR 2023: Sample diverse reasoning paths + majority vote. +17.9pp GSM8K, +11pp SVAMP. Claims "multiple paths to correct answer" justifies the approach.',
+        'ICLR 2023: Sample diverse reasoning paths + majority vote. +17.9pp GSM8K, +11pp SVAMP. Mechanism is statistical variance reduction; challenged by CoT Mirage showing voting wont help when OOD=0%.',
       keyEvidence: [
         '+17.9pp GSM8K (56.5%→74.4%)',
         '+11.0pp SVAMP',
