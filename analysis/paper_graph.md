@@ -905,3 +905,8 @@ These papers have NO direct rebuttals found:
 | 2026-02-01 | Added Unfaithful CoT (2305.04388) — NeurIPS 2023: FOUNDATIONAL - 36% accuracy drop from bias; 1/426 explanations mention bias; CoT makes bias susceptibility WORSE; 15% unfaithful explanations appear sound; STRONGLY SUPPORTS thesis |
 | 2026-02-01 | Added Reversal Curse (2309.12288) — FOUNDATIONAL: LLMs store directional patterns, not relations; 0% reverse accuracy (complete failure); GPT-4: 79% forward, 33% reverse; in-context works but training doesnt learn symmetry; STRONGLY SUPPORTS thesis |
 | 2026-02-01 | Added Planning Abilities (2305.15771) — NeurIPS 2023 Spotlight (Kambhampati): GPT-4 ~12% autonomous planning success; plan-like text ≠ valid plans; LLM-Modulo framework; STRONGLY SUPPORTS thesis |
+| 2026-02-01 | Added Original CoT (2201.11903) — NeurIPS 2022: FOUNDATIONAL. Wei et al. 540B + 8 exemplars = 58% GSM8K. "Reasoning emerges at scale." FOR thesis (but challenged by later faithfulness work) |
+| 2026-02-01 | Added CoT Expressivity (2310.07923) — ICLR 2024: Merrill & Sabharwal prove CoT adds computational power. O(n) = regular languages, O(n^c) = exactly P. FOR thesis (theoretical foundation) |
+| 2026-02-01 | Added PlanBench (2206.10498) — NeurIPS D&B 2023: Kambhampati's benchmark. IPC domains distinguish planning from retrieval. Mystery Blocksworld tests true planning. SUPPORTS thesis |
+| 2026-02-01 | Added Zero-Shot CoT (2205.11916) — NeurIPS 2022: Kojima "Let's think step by step." +61pp MultiArith, +30pp GSM8K. FOR thesis (but challenged by bias susceptibility) |
+| 2026-02-01 | Added Self-Consistency (2203.11171) — ICLR 2023: Wang et al. +17.9pp GSM8K via diverse sampling + majority vote. FOR thesis (mechanism paper) |
