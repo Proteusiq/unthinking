@@ -1124,24 +1124,140 @@ def get_bin_folder(paper_num: int) -> str:
     end = start + 9
     return f"{start:02d}-{end:02d}"
 
-def main():
-    """Print quotes data for manual insertion or generate update script."""
+def build_quotes_lookup() -> dict[str, dict]:
+    """Build a lookup from arXiv ID to quotes and analysis URL."""
     base_url = "https://github.com/Proteusiq/unthinking/blob/main/analysis/explored"
+    lookup = {}
     
     for arxiv_id, data in QUOTES.items():
-        # Determine bin folder from filename
         filename = data['file']
         paper_num = int(filename.split('_')[0])
         bin_folder = get_bin_folder(paper_num)
         
-        analysis_url = f"{base_url}/{bin_folder}/{filename}"
-        quotes = data['quotes']
+        lookup[arxiv_id] = {
+            'quotes': data['quotes'],
+            'url': f"{base_url}/{bin_folder}/{filename}"
+        }
+    
+    return lookup
+
+
+def update_data_js(input_path: Path, output_path: Path) -> tuple[int, int]:
+    """
+    Update data.js by adding keyQuotes and analysisUrl to nodes.
+    
+    Returns (updated_count, skipped_count)
+    """
+    content = input_path.read_text()
+    lookup = build_quotes_lookup()
+    
+    updated = 0
+    skipped = 0
+    
+    # Process each paper ID in the lookup
+    for arxiv_id, quote_data in lookup.items():
+        # Pattern to find a node with this ID that doesn't already have keyQuotes
+        # We look for the closing of keyEvidence array and add after it
         
-        print(f"'{arxiv_id}': {{")
-        print(f"  keyQuotes: {json.dumps(quotes, indent=4)},")
-        print(f"  analysisUrl: '{analysis_url}'")
-        print("},")
-        print()
+        # First check if this ID exists in the file
+        if f"id: '{arxiv_id}'" not in content:
+            skipped += 1
+            continue
+        
+        # Check if already has keyQuotes
+        # Find the node block for this ID
+        id_pattern = f"id: '{arxiv_id}'"
+        id_pos = content.find(id_pattern)
+        
+        if id_pos == -1:
+            skipped += 1
+            continue
+        
+        # Find the end of this node (next '},' or the end of nodes array)
+        # We'll look for keyEvidence: [ ... ], and add after it
+        
+        # Find where keyEvidence ends for this node
+        # Start from id_pos and find keyEvidence
+        search_start = id_pos
+        key_evidence_pos = content.find('keyEvidence:', search_start)
+        
+        if key_evidence_pos == -1 or key_evidence_pos > search_start + 2000:
+            # No keyEvidence found nearby, skip
+            skipped += 1
+            continue
+        
+        # Check if keyQuotes already exists for this node
+        next_node_pos = content.find("id: '", id_pos + 10)
+        if next_node_pos == -1:
+            next_node_pos = len(content)
+        
+        node_block = content[id_pos:next_node_pos]
+        if 'keyQuotes:' in node_block:
+            # Already has quotes
+            skipped += 1
+            continue
+        
+        # Find the closing bracket of keyEvidence array
+        bracket_count = 0
+        in_array = False
+        end_pos = key_evidence_pos
+        
+        for i, char in enumerate(content[key_evidence_pos:key_evidence_pos + 1000]):
+            if char == '[':
+                in_array = True
+                bracket_count += 1
+            elif char == ']':
+                bracket_count -= 1
+                if bracket_count == 0 and in_array:
+                    end_pos = key_evidence_pos + i + 1
+                    break
+        
+        if end_pos == key_evidence_pos:
+            skipped += 1
+            continue
+        
+        # Check what comes after the closing bracket
+        after_bracket = content[end_pos:end_pos + 10].strip()
+        
+        # Format the new fields
+        quotes_json = json.dumps(quote_data['quotes'], indent=6)
+        # Fix indentation to match JS style
+        quotes_lines = quotes_json.split('\n')
+        if len(quotes_lines) > 1:
+            quotes_formatted = quotes_lines[0] + '\n' + '\n'.join('      ' + line.lstrip() for line in quotes_lines[1:])
+        else:
+            quotes_formatted = quotes_json
+        
+        new_fields = f""",
+      keyQuotes: {quotes_formatted},
+      analysisUrl: '{quote_data['url']}'"""
+        
+        # Insert after the keyEvidence closing bracket
+        content = content[:end_pos] + new_fields + content[end_pos:]
+        updated += 1
+    
+    output_path.write_text(content)
+    return updated, skipped
+
+
+def main():
+    """Update data.js with quotes from all analyzed papers."""
+    data_js_path = Path(__file__).parent.parent / "docs" / "js" / "data.js"
+    
+    if not data_js_path.exists():
+        print(f"Error: {data_js_path} not found")
+        return
+    
+    print(f"Processing {data_js_path}")
+    print(f"Total quotes available: {len(QUOTES)}")
+    
+    updated, skipped = update_data_js(data_js_path, data_js_path)
+    
+    print(f"\nResults:")
+    print(f"  Updated: {updated}")
+    print(f"  Skipped: {skipped} (already have quotes or not in data.js)")
+    print(f"\nDone!")
+
 
 if __name__ == "__main__":
     main()
