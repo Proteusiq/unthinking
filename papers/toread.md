@@ -22,7 +22,7 @@ These papers directly test or challenge the thesis that LLM reasoning is pattern
 
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
-| 2510.07364 | **Base Models Know How to Reason, Thinking Models Learn When** | ⭐ CRITICAL | Directly tests surfacing hypothesis: "reasoning exists in base models, RL/SFT surfaces it." Could confirm or challenge Interplay paper findings. |
+| 2510.07364 | **Base Models Know How to Reason, Thinking Models Learn When** | ✅ DONE | Analyzed as Paper 133 |
 
 ### OOD Generalization Papers
 

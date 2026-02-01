@@ -281,6 +281,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 130 | 2501.18585 | Jan 2025 | Thoughts Are All Over the Place: On the Underthinking of o1-Like LLMs | Supports | ✅ DONE |
 | 131 | 2403.04121 | Mar 2024 | Can Large Language Models Reason and Plan? (Kambhampati) | Strongly Supports | ✅ DONE |
 | 132 | 2504.09762 | May 2025 | Stop Anthropomorphizing Intermediate Tokens as Reasoning! (Kambhampati) | Strongly Supports | ✅ DONE |
+| 133 | 2510.07364 | Oct 2025 | Base Models Know How to Reason, Thinking Models Learn When | Strongly Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |

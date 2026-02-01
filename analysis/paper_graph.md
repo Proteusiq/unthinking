@@ -839,3 +839,5 @@ These papers have NO direct rebuttals found:
 | 2026-02-01 | Added Underthinking in o1-Like LLMs (2501.18585) — Companion to Paper 129; 225% more tokens + 418% more switches in incorrect responses; >70% incorrect contain correct thought; models abandon correct paths; Tip penalty improves accuracy; SUPPORTS thesis |
 | 2026-02-01 | Added Can LLMs Reason and Plan (2403.04121) — FOUNDATIONAL: Kambhampati's skeptic manifesto; LLMs = "n-gram models on steroids"; "universal approximate retrieval" not reasoning; obfuscation destroys planning; self-verification worsens; LLM-Modulo framework; STRONGLY SUPPORTS thesis |
 | 2026-02-01 | Added Stop Anthropomorphizing Tokens (2504.09762) — POSITION: Kambhampati on LRMs; traces have NO semantics; incorrect traces OUTPERFORM correct; "aha" meaningless; "compiling reasoning into retrieval"; R1-Zero > R1; STRONGLY SUPPORTS thesis |
+
+| 2026-02-01 | Added Base Models Know How to Reason (2510.07364) — CRITICAL SURFACING: 91% gap recovery with 12% token steering; RLVR teaches timing not capability; two-component decomposition; steering vectors transfer; STRONGLY SUPPORTS thesis |
