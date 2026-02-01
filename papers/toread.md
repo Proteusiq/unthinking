@@ -29,7 +29,7 @@ Curated list of papers confirmed relevant to the thesis. Promoted from `toevalua
 
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
-| 2205.11916 | **Large Language Models are Zero-Shot Reasoners** (Kojima et al.) | 🟡 MEDIUM | **"Let's think step by step"** (NeurIPS 2022). Original zero-shot CoT paper. |
+| 2205.11916 | **Large Language Models are Zero-Shot Reasoners** (Kojima et al.) | ✅ DONE | Analyzed as Paper 154. "Let's think step by step" (NeurIPS 2022). |
 | 2405.00451 | **Monte Carlo Tree Search Boosts Reasoning via Iterative Preference Learning** | 🟡 MEDIUM | MCTS + DPO: +5.9% GSM8K, +5.8% MATH. AlphaZero-inspired iterative preference learning. |
 
 ---
@@ -143,7 +143,7 @@ These papers directly test or challenge the thesis that LLM reasoning is pattern
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
 | 2310.07923 | **Expressive Power of Transformers with Chain of Thought** (Merrill & Sabharwal) | ✅ DONE | Analyzed as Paper 152 |
-| 2205.11916 | **Zero-Shot CoT: Let's Think Step by Step** (Kojima et al.) | 🟡 MEDIUM | Original zero-shot CoT paper. Foundation for all CoT research. May already be covered. |
+| 2205.11916 | **Zero-Shot CoT: Let's Think Step by Step** (Kojima et al.) | ✅ DONE | Analyzed as Paper 154 |
 | 2301.00303 | **CoT Improves Sample Efficiency on Parity** (Kim & Suzuki) | 🟡 MEDIUM | Mechanistic analysis of WHY CoT helps. Relevant to Paper 137's findings. |
 
 ### Faithfulness/Unfaithfulness
