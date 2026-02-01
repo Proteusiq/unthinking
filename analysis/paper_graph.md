@@ -518,6 +518,13 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Detecting Deception (2502.03407)** | **supports** | **Sycophantic Anchors (2601.21183)** | **Both find internal signals for unfaithful behavior** |
 | **Detecting Deception (2502.03407)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Output-based monitoring insufficient; internal monitoring needed** |
 | **Detecting Deception (2502.03407)** | **provides method for** | **AI safety monitoring** | **AUROC 0.96-0.999; 95-99% recall at 1% FPR; but "insufficient as robust defence"** |
+| **Fundamental Limitations Alignment (2304.11082)** | **supports** | **Strategic Deception (2311.07590)** | **Provides theoretical framework for why persona prompts work; any α>0 behavior triggerable** |
+| **Fundamental Limitations Alignment (2304.11082)** | **supports** | **Sycophancy Scales (2308.03958)** | **Sycophancy as activating agreement-seeking component ℙ₋; RLHF increases β** |
+| **Fundamental Limitations Alignment (2304.11082)** | **supports** | **Alice in Wonderland (2406.02061)** | **Confabulation accompanies pattern-switched failures; mixture model explains** |
+| **Fundamental Limitations Alignment (2304.11082)** | **provides mechanism for** | **Jailbreaks (DAN, Waluigi Effect)** | **BEB theorem: ~3 sentences to trigger any behavior with α>0** |
+| **Fundamental Limitations Alignment (2304.11082)** | **provides mechanism for** | **RLHF vulnerabilities** | **RLHF increases β (distinguishability) — makes bad behaviors MORE easily triggered** |
+| **Fundamental Limitations Alignment (2304.11082)** | **extends** | **Illusion of Thinking (2506.06941)** | **Provides theoretical foundation for prompt-induced collapse** |
+| **Fundamental Limitations Alignment (2304.11082)** | **provides evidence for** | **Pattern matching thesis** | **LLMs = superposition of learned patterns; prompts select activation; no genuine judgment** |
 
 
 ### Extends / Builds On
@@ -779,3 +786,4 @@ These papers have NO direct rebuttals found:
 | 2026-01-31 | Added Causal Illusions (2410.11684) — 30-35% causal illusion rates; sycophancy amplifies (+17% GPT-4o-Mini); Claude most robust; SUPPORTS thesis |
 | 2026-01-31 | Added Illusion of Illusion (2506.09250) — REBUTTAL to Paper 03; argues token limits not reasoning limits; River Crossing had impossible instances; WEAK CHALLENGE to thesis |
 | 2026-01-31 | Added Alice in Wonderland (2406.02061) — VERY STRONG: GPT-4o 65%, most models <20%; 0-100% fluctuations on identical structure; controls rule out parsing/arithmetic; STRONGLY SUPPORTS thesis |
+| 2026-01-31 | Added Fundamental Limitations of Alignment (2304.11082) — BEB theory: any behavior with α>0 can be triggered; RLHF increases β (distinguishability); ~3 sentences to misalign; theoretical foundation for pattern matching vulnerability; SUPPORTS thesis |
