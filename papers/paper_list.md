@@ -308,6 +308,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 157 | 2406.11050 | Jun 2024 | A Peek into Token Bias: LLMs Are Not Yet Genuine Reasoners (EMNLP 2024) | Strongly Supports | ✅ DONE |
 | 158 | 2305.14699 | May 2023 | Can Transformers Learn to Solve Problems Recursively? | Strongly Supports | ✅ DONE |
 | 159 | 2108.12409 | Aug 2021 | Train Short, Test Long: ALiBi (ICLR 2022) | Balanced | ✅ DONE |
+| 160 | 2302.00093 | Jan 2023 | Large Language Models Can Be Easily Distracted by Irrelevant Context (ICML 2023) | Strongly Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |

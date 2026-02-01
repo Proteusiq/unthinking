@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 159,
+    totalAnalyzed: 160,
     lastUpdated: '2026-02-01',
   },
   nodes: [
@@ -2350,6 +2350,23 @@ window.paperData = {
         '11% faster, 11% less memory',
         'Same perplexity as training on longer sequences',
         'Recency bias improves WikiText-103',
+      ],
+    },
+    // Paper 160: GSM-IC Distracted by Irrelevant Context (Shi et al.)
+    {
+      id: '2302.00093',
+      title: 'Large Language Models Can Be Easily Distracted by Irrelevant Context',
+      shortTitle: 'GSM-IC',
+      date: 'Jan 2023',
+      stance: 'supports',
+      cluster: 'evidence',
+      coreArgument:
+        'ICML 2023: GSM-IC benchmark shows LLMs dramatically fail when irrelevant info added. Precursor to GSM-Symbolic. Self-consistency and instructions help but dont fully solve.',
+      keyEvidence: [
+        'Dramatic accuracy drop with irrelevant context',
+        'All prompting techniques affected',
+        'Self-consistency partially mitigates',
+        'Explicit instructions help but incomplete',
       ],
     },
   ],
@@ -5097,6 +5114,31 @@ window.paperData = {
       target: '2508.01191',
       type: 'partially_addresses',
       description: 'Addresses length failures but not compositional OOD',
+    },
+    // Paper 160: GSM-IC links
+    {
+      source: '2302.00093',
+      target: '2410.05229',
+      type: 'precursor',
+      description: 'GSM-IC precursor to GSM-Symbolic; both show irrelevant info causes failures',
+    },
+    {
+      source: '2302.00093',
+      target: '2406.11050',
+      type: 'supports',
+      description: 'Irrelevant context = distracting tokens that trigger wrong patterns',
+    },
+    {
+      source: '2302.00093',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Distractibility consistent with linearized subgraph matching',
+    },
+    {
+      source: '2302.00093',
+      target: '2207.07051',
+      type: 'supports',
+      description: 'Both show semantic content affects reasoning — no logical filtering',
     },
   ],
 };
