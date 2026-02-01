@@ -116,7 +116,7 @@
   - CR^T: 44.4% → **22.8%** (-21.6pp)
   - CR^D: 69.9% → **35.2%** (-34.7pp)
   - IR: 28.6% → **68.5%** (+39.9pp)
-- Shows LLMs *can* reason correctly but default to conformity unless prompted
+- Shows LLMs retrieve correct answers from training but default to matching social context patterns
 
 ---
 
@@ -134,7 +134,7 @@
 
 4. **Trust/doubt as heuristics, not reasoning**: Formation of relationships based on track record shows LLMs learning social heuristics rather than evaluating each claim on merits
 
-5. **Reflection success reveals default behavior**: The effectiveness of reflection mechanisms (doubling IR) shows LLMs *can* reason but **default to pattern-matching social context**
+5. **Reflection shifts pattern weighting**: The effectiveness of reflection mechanisms (doubling IR) shows LLMs have **competing pattern sources** (parametric vs contextual) — reflection re-weights toward parametric patterns, not toward "reasoning"
 
 6. **Scale doesn't solve it**: Even largest models (405B) show substantial conformity — not a capability limitation but a behavioral pattern learned from training
 

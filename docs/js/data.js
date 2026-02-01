@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 129,
+    totalAnalyzed: 130,
     lastUpdated: '2026-02-01',
   },
   nodes: [
@@ -1833,6 +1833,23 @@ window.paperData = {
         '91.2% CR for Llama3.1-8B under doubt',
         'IR doubles with reflection (28.6% → 68.5%)',
         'All 11 models vulnerable including GPT-4o',
+      ],
+    },
+    {
+      id: '2412.21187',
+      title: 'Do NOT Think That Much for 2+3=? On the Overthinking of o1-Like LLMs',
+      shortTitle: 'Overthinking o1',
+      date: 'Dec 2024',
+      stance: 'supports',
+      cluster: 'complexity',
+      coreArgument:
+        'o1-like models exhibit severe overthinking: first solution is correct >92% of time, yet models generate 1,953% more tokens than needed. More solutions generated for EASIER problems. Later solutions lack diversity (11.5% drop). ~45% token reduction maintains accuracy.',
+      keyEvidence: [
+        'First solution correct >92% of cases',
+        '1,953% token overhead on "2+3=5"',
+        'More solutions for EASIER problems',
+        'Distinctness drops 11.5% at solution #4+',
+        '~45% token reduction maintains accuracy',
       ],
     },
   ],
@@ -3800,6 +3817,31 @@ window.paperData = {
       target: '2601.05905',
       type: 'supports',
       description: 'Beliefs collapse under social pressure; same brittleness',
+    },
+    // Paper 129: Overthinking o1-Like LLMs links
+    {
+      source: '2412.21187',
+      target: '2601.21576',
+      type: 'supports',
+      description: 'Both show extended CoT often redundant; most tokens wasted',
+    },
+    {
+      source: '2412.21187',
+      target: '2601.17421',
+      type: 'supports',
+      description: 'Both show error correction in long chains often fake',
+    },
+    {
+      source: '2412.21187',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Both show performance issues with extended thinking',
+    },
+    {
+      source: '2412.21187',
+      target: '2501.02497',
+      type: 'extends',
+      description: 'Quantifies inefficiency of test-time compute scaling',
     },
   ],
 };
