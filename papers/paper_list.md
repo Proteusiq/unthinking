@@ -294,6 +294,9 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 143 | 2405.15071 | May 2024 | Grokked Transformers are Implicit Reasoners (NeurIPS 2024) | Balanced | ✅ DONE |
 | 144 | 2407.01687 | Jul 2024 | Deciphering CoT: Probability, Memorization, Noisy Reasoning (EMNLP 2024) | Supports | ✅ DONE |
 | 145 | 2409.12917 | Sep 2024 | SCoRe: Training LMs to Self-Correct via RL (DeepMind) | Balanced | ✅ DONE |
+| 146 | 2304.15004 | Apr 2023 | Are Emergent Abilities of Large Language Models a Mirage? (NeurIPS 2023) | Strongly Supports | ✅ DONE |
+| 147 | 2202.07206 | Feb 2022 | Impact of Pretraining Term Frequencies on Few-Shot Reasoning (EMNLP 2022) | Strongly Supports | ✅ DONE |
+| 148 | 2305.04388 | May 2023 | Language Models Don't Always Say What They Think (NeurIPS 2023) | Strongly Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -309,11 +312,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 145
-- **Against Reasoning**: ~78
+- **Total Papers**: 148
+- **Against Reasoning**: ~81
 - **For Reasoning**: ~27
 - **Balanced**: ~45
-- **Date Range**: 2023-2026
-- **Analyzed**: 145
+- **Date Range**: 2022-2026
+- **Analyzed**: 148
 
 ---
