@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 130,
+    totalAnalyzed: 131,
     lastUpdated: '2026-02-01',
   },
   nodes: [
@@ -1850,6 +1850,23 @@ window.paperData = {
         'More solutions for EASIER problems',
         'Distinctness drops 11.5% at solution #4+',
         '~45% token reduction maintains accuracy',
+      ],
+    },
+    {
+      id: '2501.18585',
+      title: 'Thoughts Are All Over the Place: On the Underthinking of o1-Like LLMs',
+      shortTitle: 'Underthinking o1',
+      date: 'Jan 2025',
+      stance: 'supports',
+      cluster: 'complexity',
+      coreArgument:
+        'Companion to Overthinking paper. o1-like models abandon correct reasoning paths prematurely. 225% more tokens and 418% more thought switches in incorrect vs correct responses. >70% of incorrect responses contain at least one correct thought that was abandoned.',
+      keyEvidence: [
+        '225% more tokens in incorrect responses',
+        '418% more thought switches in incorrect',
+        '>70% incorrect contain correct thought',
+        'First thoughts often correct but abandoned',
+        'Tip penalty improves accuracy without training',
       ],
     },
   ],
@@ -3842,6 +3859,31 @@ window.paperData = {
       target: '2501.02497',
       type: 'extends',
       description: 'Quantifies inefficiency of test-time compute scaling',
+    },
+    // Paper 130: Underthinking o1-Like LLMs links
+    {
+      source: '2501.18585',
+      target: '2412.21187',
+      type: 'supports',
+      description: 'Companion paper; same root cause (uncontrolled pattern generation)',
+    },
+    {
+      source: '2501.18585',
+      target: '2601.17421',
+      type: 'supports',
+      description: 'Both show token-level signals dont guide reasoning effectively',
+    },
+    {
+      source: '2501.18585',
+      target: '2601.19847',
+      type: 'supports',
+      description: 'Both show reasoning predictable from early signals',
+    },
+    {
+      source: '2501.18585',
+      target: '2501.02497',
+      type: 'extends',
+      description: 'Another failure mode of scaling test-time compute',
     },
   ],
 };
