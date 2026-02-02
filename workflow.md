@@ -275,10 +275,16 @@ Remove analyzed paper from `papers/toread.md` or mark as done.
 
 ## Automation
 
+<!-- PAUSED: Stopping at 160 papers to dive deep with existing corpus
 - **Daily at 8am UTC**: GitHub Action searches arXiv for new papers
 - **Auto-creates**: `papers/toevaluate.md` entries with relevance assessment
 - **Auto-creates**: GitHub issue notifying of new papers
 - **Manual**: Triage `toevaluate.md` -> promote to `toread.md`
+-->
+
+**Status**: Auto-discovery PAUSED (2026-02-01)
+- Corpus frozen at 160 papers for deep analysis
+- To resume: uncomment the automation section above and re-enable GitHub Action
 
 ---
 
