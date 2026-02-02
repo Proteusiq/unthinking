@@ -97,25 +97,37 @@ If LLM generates C, and C lies on the line between A and B = INTERPOLATION.
 
 ---
 
-## Key Findings
+## The Seven Pillars of Evidence
 
-### Evidence Supporting the Thesis
+Based on cross-analysis of 160 papers, the evidence converges on seven pillars:
 
-| Finding | Papers | Key Evidence |
-|---------|--------|--------------|
-| **ID/OOD Gap** | Faith & Fate, CoT Mirage, Planning Gap | ~100% in-distribution → ~0% out-of-distribution |
-| **Complexity Collapse** | Illusion of Thinking, Until They Don't | Abrupt failure at complexity thresholds (~8 disks Hanoi) |
-| **CoT Unfaithfulness** | Measuring Faithfulness, Don't Say What They Think | 25-60% of CoT doesn't reflect actual computation |
-| **RL Surfaces, Doesn't Create** | Interplay, No Free Lunch | 0% exposure → RL fails; RL amplifies existing patterns |
-| **Compositional Failure** | OMEGA, Compositional-ARC | >69% isolated skills → near-0% when composed |
+| Pillar | Core Finding | Key Papers | Strongest Number |
+|--------|--------------|------------|------------------|
+| **1. Compositional Failure** | ID success doesn't transfer to OOD | Faith & Fate, GSM-Symbolic, CoT Mirage, Planning Gap | ~100% ID → ~0% OOD |
+| **2. CoT Unfaithfulness** | Chain-of-thought often doesn't reflect actual computation | Measuring Faithfulness, Reasoning Models Don't Say | Larger models = LESS faithful |
+| **3. Surfacing Hypothesis** | RL surfaces pre-existing capability, doesn't create it | Interplay, s1, Base Models Know How | 0% exposure → RL fails |
+| **4. Complexity Collapse** | Abrupt failure at complexity thresholds | Illusion of Thinking, Until They Don't | Collapse at ~8-10 disks |
+| **5. Surface Pattern Dependence** | Performance determined by token frequency | Term Frequencies, Token Bias, Reversal Curse | >70% accuracy gap |
+| **6. Sycophancy** | Models prioritize social agreement over truth | Towards Understanding Sycophancy, Sycophancy Scales | 98% wrong admissions |
+| **7. Tool Debate** | Tools help execution but not reasoning | Limits of Innate Planning, Rethinking Illusion | 0% even with validator |
 
 ### Counter-Evidence (Steel-manned)
 
 | Challenge | Papers | Limitation |
 |-----------|--------|------------|
 | Emergent reasoning via RL | DeepSeek-R1 | "Aha moments" are rare (~2-6%), don't improve accuracy |
-| Tool use reverses collapse | Thinking Isn't Illusion | Move validator still yields 0% — planning is bottleneck |
+| Tool use reverses collapse | Thinking Isn't Illusion | Limits of Innate Planning: 0% with move validator |
 | Test-time scaling works | s1 | 1K samples can't teach AIME math — surfaces pre-existing |
+| Synthetic OOD success | Physics of LLMs | Narrow domain; doesn't generalize |
+| O3 meta-cognition | LoopBench | Only O3; most models fail completely |
+
+### Statistical Summary
+
+| Stance | Count | Percentage |
+|--------|-------|------------|
+| **Supports thesis** | 118 | 74% |
+| **Balanced** | 35 | 22% |
+| **Challenges thesis** | 7 | 4% |
 
 ---
 
@@ -157,18 +169,48 @@ Let's use them. Let's see them clearly.
 
 ---
 
+## The Narrative Arc (2022-2026)
+
+The field evolved through seven phases:
+
+```
+PHASE 1: INITIAL CLAIMS (2022-2023)
+    CoT works! → But wait... how does it work?
+
+PHASE 2: UNFAITHFULNESS DISCOVERY (2023-2024)
+    CoT often post-hoc → Larger models LESS faithful
+
+PHASE 3: COMPOSITIONAL FAILURE (2023-2024)  
+    ID ≠ OOD → 100% ID, 0% OOD → 82.9% → 0%
+
+PHASE 4: MECHANISM DISCOVERY (2024-2025)
+    RL requires pre-existing capability → Performance = training frequency
+
+PHASE 5: COMPLEXITY COLLAPSE (2025)
+    Collapse at thresholds → Token usage DECREASES at collapse
+
+PHASE 6: SYCOPHANCY & SOCIAL (2025-2026)
+    Models prioritize agreement over truth → Scales with size
+
+PHASE 7: THEORETICAL FRAMEWORK (2026)
+    "Universal approximate retrieval" → Tokens have NO semantics
+```
+
+---
+
 ## Repository Structure
 
 ```
 ├── analysis/
 │   ├── synthesis.md          # Main thesis synthesis
+│   ├── mindmap.md            # Cross-reference of all 160 papers
 │   ├── paper_graph.md        # Paper interaction graph
 │   ├── rebuttals.md          # Rebuttal matrix
-│   └── explored/             # Individual paper analyses (97 files)
+│   └── explored/             # Individual paper analyses (160 files)
 │       ├── 00-09/            # Papers 00-09
 │       ├── 10-19/            # Papers 10-19
 │       ├── ...               # (10-paper bins)
-│       └── 90-99/            # Papers 90-99
+│       └── 160-169/          # Papers 160+
 ├── scripts/
 │   └── discovery/            # Paper discovery package
 │       ├── __main__.py       # Entry: uv run scripts/discovery/__main__.py
@@ -208,14 +250,32 @@ Let's use them. Let's see them clearly.
 
 ---
 
+## Key Quotes from the Literature
+
+> "Transformers solve compositional tasks via linearized subgraph matching, not systematic problem-solving." — **Faith and Fate**
+
+> "LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent." — **WhatCounts**
+
+> "LLMs are n-gram models on steroids doing universal approximate retrieval." — **Kambhampati et al.**
+
+> "0% exposure → RL FAILS; ≥1% exposure → RL succeeds." — **Interplay**
+
+> "Incorrect traces can OUTPERFORM correct ones." — **Stop Anthropomorphizing**
+
+> "95-100% step accuracy, 0% final accuracy — split-brain syndrome." — **Comprehension Without Competence**
+
+---
+
 ## Automated Paper Discovery
 
-New papers are discovered daily via GitHub Actions, classified using an LLM with thesis context.
+**Status**: PAUSED at 160 papers for deep analysis.
+
+New papers were discovered daily via GitHub Actions, classified using an LLM with thesis context.
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                     Paper Discovery Flow                        │
-│                   (runs daily at 8am UTC)                       │
+│                   (PAUSED - manual trigger only)                │
 └─────────────────────────────────────────────────────────────────┘
 
 1. SEARCH arXiv (last 3 days)
