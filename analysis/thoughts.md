@@ -1,13 +1,18 @@
 # Thoughts: Cross-Paper Synthesis and Missing Connections
 
+> **Last updated**: 2026-02-02
+> **Papers analyzed**: 160 (corpus frozen for deep analysis)
+
 ## Overview
 
-After re-reading all 157 analyzed papers, this document captures:
+After analyzing all 160 papers, this document captures:
 1. Major themes and how papers interconnect
 2. Papers that talk to each other (support, challenge, extend)
-3. Referenced papers we haven't analyzed yet
-4. Gaps in our coverage
-5. Unresolved tensions in the literature
+3. The narrative arc of the field (2022-2026)
+4. Unresolved tensions in the literature
+5. Open questions for future research
+
+**See also**: `analysis/mindmap.md` for visual cross-reference diagrams
 
 ---
 
@@ -293,13 +298,11 @@ Only Temporal Cognition (2507.15851) addresses this:
 
 ---
 
-## Synthesis: The Emerging Picture
-
-After reading 93 papers, a coherent picture emerges:
+## Synthesis: The Picture from 160 Papers
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────┐
-│                    THE PICTURE EMERGING FROM 93 PAPERS                          │
+│                    THE PICTURE EMERGING FROM 160 PAPERS                         │
 │                                                                                 │
 │  1. CAPABILITY EXISTS                                                           │
 │     - Pre-training creates latent reasoning patterns                            │
@@ -326,12 +329,24 @@ After reading 93 papers, a coherent picture emerges:
 │     - Training approach > scale                                                 │
 │     - Bigger models = less faithful (inverse scaling)                           │
 │                                                                                 │
+│  6. SYCOPHANCY IS FUNDAMENTAL (NEW FROM EXPANDED CORPUS)                        │
+│     - Models prioritize social agreement over truth                             │
+│     - Scales WITH model size, not against it                                    │
+│     - RLHF incentivizes sycophancy (~6% preference boost)                       │
+│     - Truthfulness ≠ deference resistance (32% overlap)                         │
+│                                                                                 │
+│  7. COMPLEXITY HAS HARD LIMITS (CONFIRMED)                                      │
+│     - Hanoi: ~8-10 disk ceiling confirmed across multiple papers                │
+│     - Token usage DECREASES at collapse (giving up behavior)                    │
+│     - "Split-brain syndrome": 95-100% step accuracy, 0% final                   │
+│                                                                                 │
 │  CONCLUSION:                                                                    │
 │  LLM "reasoning" is sophisticated pattern completion that:                      │
 │  - Interpolates effectively within training distribution                        │
 │  - Fails to extrapolate to genuinely novel problems                             │
 │  - Generates plausible-looking but unfaithful explanations                      │
 │  - Can be surfaced and amplified but not fundamentally transcended              │
+│  - Prioritizes social patterns (agreement) over epistemic ones (truth)          │
 │                                                                                 │
 │  This is PRACTICAL but PREDICTIVE, not GENERATIVE reasoning.                    │
 └────────────────────────────────────────────────────────────────────────────────┘
@@ -339,40 +354,154 @@ After reading 93 papers, a coherent picture emerges:
 
 ---
 
-## Papers to Add Next
+## The Seven Pillars of Evidence
 
-### Priority 1: Foundational (Fill gaps in theory)
+After cross-analyzing 160 papers, the evidence converges on seven distinct pillars:
 
-1. **Li et al.** - 1-NN transformers
-2. **Razeghi et al.** - Frequency → performance
-3. **Schaeffer et al.** - Emergence mirage
-4. **Wei et al. (2022)** - Original emergence
+| Pillar | Core Finding | Key Papers | Strongest Number |
+|--------|--------------|------------|------------------|
+| **1. Compositional Failure** | ID success doesn't transfer to OOD | 00, 01, 06, 29, 31, 125 | ~100% ID → ~0% OOD |
+| **2. CoT Unfaithfulness** | CoT often doesn't reflect computation | 08, 10, 14, 43, 62, 132 | Larger = LESS faithful |
+| **3. Surfacing Hypothesis** | RL surfaces, doesn't create | 15, 07, 103, 111, 133 | 0% exposure → RL fails |
+| **4. Complexity Collapse** | Abrupt failure at thresholds | 03, 16, 19, 48, 87 | ~8-10 disk ceiling |
+| **5. Surface Patterns** | Token frequency drives accuracy | 147, 149, 157, 108 | >70% frequency gap |
+| **6. Sycophancy** | Social agreement over truth | 119, 127, 109, 110 | 98% wrong admissions |
+| **7. Tool Debate** | Tools help execution, not reasoning | 04, 37, 93, 68 | 0% with validator |
 
-### Priority 2: Mechanistic (Fill interpretability gap)
+See `mindmap.md` for visual diagrams of each pillar.
 
-1. Papers using SAE on reasoning
-2. Circuit analysis of CoT
-3. Activation patching studies
+---
 
-### Priority 3: Domains (Fill coverage gaps)
+## The Narrative Arc (2022-2026)
 
-1. Multi-modal reasoning papers
-2. Long-context reasoning papers
-3. Non-English reasoning papers
+The field evolved through seven phases:
+
+```
+PHASE 1: INITIAL CLAIMS (2022-2023)
+─────────────────────────────────────
+CoT works! (Papers 151, 154, 155)
+    │
+    └── But wait... how does it work?
+            │
+            ▼
+PHASE 2: UNFAITHFULNESS DISCOVERY (2023-2024)
+─────────────────────────────────────────────
+Measuring Faithfulness (08): CoT often post-hoc
+    │
+    ├── Larger models LESS faithful
+    │
+    └── Performance ≠ faithfulness
+            │
+            ▼
+PHASE 3: COMPOSITIONAL FAILURE (2023-2024)
+────────────────────────────────────────────
+Faith and Fate (00): ID ≠ OOD
+    │
+    ├── GSM-Symbolic (01): Irrelevant info breaks math
+    │
+    ├── CoT Mirage (06): 100% ID, 0% OOD
+    │
+    └── Planning Gap (29): 82.9% → 0%
+            │
+            ▼
+PHASE 4: MECHANISM DISCOVERY (2024-2025)
+────────────────────────────────────────
+Interplay (15): RL requires pre-existing capability
+    │
+    ├── Term Frequencies (147): Performance = training frequency
+    │
+    ├── Token Bias (157): Surface patterns predict failure
+    │
+    └── Reversal Curse (149): No logical deduction
+            │
+            ▼
+PHASE 5: COMPLEXITY COLLAPSE (2025)
+───────────────────────────────────
+Illusion of Thinking (03): Collapse at thresholds
+    │
+    ├── Until They Don't (16): Quantified at L~64-300
+    │
+    └── Comprehension Without Competence (19): 0% final at scale
+            │
+            ▼
+PHASE 6: SYCOPHANCY & SOCIAL (2025-2026)
+────────────────────────────────────────
+Sycophancy cluster: Models prioritize agreement over truth
+    │
+    ├── Sycophantic Anchors (109): Distinct computational pathway
+    │
+    └── Papers 127, 128, 119: Scales with size, RLHF incentivizes
+            │
+            ▼
+PHASE 7: THEORETICAL FRAMEWORK (2026)
+─────────────────────────────────────
+Can LLMs Reason and Plan (131): "Universal approximate retrieval"
+    │
+    └── Stop Anthropomorphizing (132): Tokens have NO semantics
+```
+
+---
+
+## Statistical Summary (160 Papers)
+
+| Stance | Count | Percentage |
+|--------|-------|------------|
+| **Supports thesis** | 118 | 73.75% |
+| **Balanced** | 35 | 21.88% |
+| **Challenges thesis** | 7 | 4.37% |
+
+### By Evidence Type
+
+| Type | Count | Key Papers |
+|------|-------|------------|
+| Compositional OOD | 25 | 00, 01, 06, 29, 31, 125, 134, 143 |
+| CoT Unfaithfulness | 21 | 08, 10, 14, 43, 62, 109, 132, 148 |
+| Surface Patterns | 17 | 09, 89, 108, 116, 147, 149, 157 |
+| Surfacing Hypothesis | 20 | 02, 07, 15, 103, 111, 133, 135 |
+| Complexity Collapse | 17 | 03, 16, 19, 41, 48, 49, 87, 129 |
+| Sycophancy | 11 | 96, 109, 110, 119, 120, 122, 127 |
+| Tool Augmentation | 7 | 04, 11, 37, 68, 93, 139, 156 |
+
+---
+
+## Open Questions for Future Research
+
+1. **The O3 Exception**: Paper 71 shows O3 developing meta-cognitive strategies (72% vs 0% for others). Is this genuine reasoning or more sophisticated pattern matching?
+
+2. **The Narrow Domain Success**: Paper 42 (Physics of LLMs) shows genuine OOD in synthetic math. Can this extend beyond narrow domains?
+
+3. **Tool Integration**: If tools help execution but not reasoning, what's the right human-AI collaboration model?
+
+4. **Training Data Coverage**: Can we engineer training to cover compositional space? Paper 75 suggests 4K targeted > 52K random.
+
+5. **Faithfulness-Accuracy Tradeoff**: Paper 62 shows all interventions fail. Is faithful reasoning achievable?
+
+---
+
+## Deferred Papers (Maybe Later)
+
+Corpus frozen at 160 papers. These remain for potential future analysis:
+
+| arXiv ID | Title | Why Deferred |
+|----------|-------|--------------|
+| 2405.00451 | MCTS Boosts Reasoning | Medium priority - MCTS approach |
+| 2111.00396 | S4 Long Sequences | Alternative architecture |
+| 2301.00303 | CoT Sample Efficiency on Parity | Mechanistic CoT analysis |
+| 1906.03764 | Differentiable Logic Machines | Neuro-symbolic comparison |
 
 ---
 
 ## Status
 
-- [x] Re-read 93 papers
-- [x] Identified major themes
-- [x] Mapped paper conversations
-- [x] Listed referenced papers to add
-- [x] Identified gaps in coverage
-- [x] Noted unresolved tensions
-- [ ] Add priority papers
-- [ ] Update paper_graph.md with new connections
-- [ ] Commit and push
+- [x] Analyzed 160 papers
+- [x] Identified seven pillars of evidence
+- [x] Mapped paper conversations and rebuttal chains
+- [x] Created comprehensive mindmap (mindmap.md)
+- [x] Traced narrative arc (2022-2026)
+- [x] Identified open questions
+- [x] Paused auto-discovery for deep analysis
+- [ ] Conduct OLMo 3 decoding ablation experiment
+- [ ] Write formal synthesis document
 
 ---
 
