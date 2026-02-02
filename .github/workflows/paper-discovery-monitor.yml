@@ -1,9 +1,11 @@
 name: Paper Discovery Monitor
 
+# PAUSED: Stopping at 160 papers to dive deep with existing corpus (2026-02-01)
+# To resume: uncomment the schedule triggers below
 on:
-  schedule:
-    - cron: '0 9 * * *'
-    - cron: '0 19 * * *'
+  # schedule:
+  #   - cron: '0 9 * * *'
+  #   - cron: '0 19 * * *'
   workflow_dispatch:
 
 permissions:

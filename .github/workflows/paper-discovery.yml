@@ -1,10 +1,12 @@
 name: Daily Paper Discovery
 
+# PAUSED: Stopping at 160 papers to dive deep with existing corpus (2026-02-01)
+# To resume: uncomment the schedule trigger below
 on:
-  schedule:
-    # Morning run only: 8:00 AM UTC (9:00 AM CET / 10:00 AM CEST)
-    - cron: '0 8 * * *'
-  workflow_dispatch: # Allow manual trigger
+  # schedule:
+  #   # Morning run only: 8:00 AM UTC (9:00 AM CET / 10:00 AM CEST)
+  #   - cron: '0 8 * * *'
+  workflow_dispatch: # Allow manual trigger only
 
 permissions:
   contents: write
