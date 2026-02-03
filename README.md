@@ -161,11 +161,19 @@ See [`experiments/decoding_ablation/protocol.md`](./experiments/decoding_ablatio
 
 ## Why This Matters
 
-**Like Leonard in Memento, LLMs have no persistent state.** Each token prediction starts fresh — no memory of what was "understood" moments ago, only the tattoos of the context window. What looks like continuous thought is actually a series of pattern-matched snapshots, each one consulting the same static weights. There is no inner monologue accumulating insight. Just retrieval, over and over.
+### Investment & Strategy
+The AI industry is built on assumptions about what LLMs can do. If they're fundamentally pattern matchers rather than reasoners — current approaches to AGI may be hitting a ceiling, scaling laws may not lead where people expect, and investment strategies could be misallocated.
 
-Calling this pattern matching is not a criticism — it's clarity. These systems work. Pattern matching at unprecedented scale is genuinely useful. But a prediction is not a thought. Expect brittleness at the edges. Expect failure when the problem shifts.
+### Safety & Deployment
+If we misunderstand LLM capabilities, we either **overestimate** (deploying in critical domains where they'll fail unpredictably on novel situations) or **underestimate** (missing genuine capabilities). Getting this right matters.
 
-Let's use them. Let's see them clearly.
+### The Fundamental Question
+Can reasoning emerge from next-token prediction? What's the relationship between memorization and generalization? Are there hard limits to what pattern matching can achieve? This is about understanding intelligence itself.
+
+### Clarity, Not Criticism
+**Like Leonard in Memento, LLMs have no persistent state.** Each token prediction starts fresh — no memory of what was "understood" moments ago, only the tattoos of the context window. What looks like continuous thought is pattern-matched snapshots consulting static weights. No foundational understanding. It is the tattoos, over and over.
+
+Calling this pattern matching is clarity, not criticism. These systems work. It's interpolation within the training manifold, not generation beyond it. Expect brittleness when the problem shifts outside learned data distribution.
 
 ---
 
