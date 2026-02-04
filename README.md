@@ -133,7 +133,7 @@ Based on cross-analysis of 160 papers, the evidence converges on seven pillars:
 
 ## Experimental Evidence: OLMo 3 Decoding Ablation
 
-Beyond the literature review, we provide **original experimental evidence** using OLMo 3.
+Beyond the literature review, we provide **experimental evidence** using OLMo 3.
 
 ### Hypothesis
 
