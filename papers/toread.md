@@ -42,6 +42,13 @@ Papers promoted from `toevaluate.md` after manual triage of 76 auto-discovered p
 |----------|-------|----------|----------|
 | 2602.02465 | **MentisOculi: Limits of Reasoning with Mental Imagery** | 🟡 MEDIUM | Visual thoughts "do not yet benefit model reasoning." UMMs fail to leverage even ground-truth visualizations |
 
+### POTENTIAL CHALLENGES — Steel-man the Opposition
+
+| arXiv ID | Title | Priority | Why Read |
+|----------|-------|----------|----------|
+| 2602.04843 | **Fluid Representations in Reasoning Models** | 🔴 CRITICAL | Claims QwQ-32B "gradually improves internal representation during reasoning." Shows abstract encodings. **Could challenge pattern-matching thesis** — must evaluate critically |
+| 2602.03837 | **Accelerating Scientific Research with Gemini** | 🟡 MEDIUM | Google claims Gemini contributed to "novel mathematical discovery." Case studies — check evidence quality |
+
 ---
 
 ## NEW — Mined from Analysis Files 70+ (2026-02-01)

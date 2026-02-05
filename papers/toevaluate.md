@@ -174,6 +174,33 @@ Discard if paper:
 
 ---
 
+## POTENTIAL CHALLENGES TO THESIS — Need Investigation
+
+Papers that might provide evidence AGAINST the pattern-matching thesis. Critical to review for steel-manning.
+
+### [Fluid Representations in Reasoning Models](https://arxiv.org/abs/2602.04843v1)
+- **arXiv**: 2602.04843v1
+- **Published**: 2026-02-04
+- **Stance**: CHALLENGES (potentially)
+- **Priority**: 8/10
+- **Why investigate**: **MECHANISTIC** — Claims QwQ-32B "gradually improves its internal representation of actions and concepts during reasoning." Shows "abstract encodings that focus on structure rather than specific action names." Steering experiments show "injecting refined representations from successful traces boosts accuracy." Could suggest genuine in-context learning/reasoning. **MUST READ** to evaluate claims critically.
+
+### [Accelerating Scientific Research with Gemini: Case Studies](https://arxiv.org/abs/2602.03837v1)
+- **arXiv**: 2602.03837v1
+- **Published**: 2026-02-03
+- **Stance**: CHALLENGES (potentially)
+- **Priority**: 6/10
+- **Why investigate**: Google claims Gemini Deep Think contributed to "novel, expert-level mathematical discovery." Case studies of researcher-AI collaboration. Could be cherry-picked but worth checking what evidence is presented.
+
+### [The Illusion of the Illusion of Thinking](https://arxiv.org/abs/2506.09250)
+- **arXiv**: 2506.09250
+- **Published**: 2025-06
+- **Stance**: CHALLENGES
+- **Priority**: 9/10
+- **Why investigate**: **DIRECT REBUTTAL** — Already analyzed as Paper 124. Claims original "Illusion of Thinking" paper methodology was flawed. Important counter-evidence to track.
+
+---
+
 ## Summary Statistics
 
 - **Total relevant papers**: 20
