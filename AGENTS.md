@@ -398,6 +398,20 @@ Add analysis: [Paper Title] (arXiv ID)
 - Rebuts/Supports: [other paper]
 ```
 
+## GitHub CLI
+
+Before using `gh` commands (issues, PRs, etc.), always verify and switch to the correct account:
+
+```bash
+# Check current account
+gh auth status
+
+# Switch to Proteusiq account (repo owner)
+gh auth switch --user Proteusiq
+```
+
+The repo is owned by `Proteusiq`, not enterprise accounts.
+
 ---
 
 ## File Structure
