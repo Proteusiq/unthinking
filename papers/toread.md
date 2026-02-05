@@ -2,7 +2,45 @@
 
 Curated list of papers confirmed relevant to the thesis. Promoted from `toevaluate.md` after triage.
 
-**Last updated**: 2026-02-01
+**Last updated**: 2026-02-05
+
+---
+
+## NEW — High Priority from Discovery (2026-02-05)
+
+Papers promoted from `toevaluate.md` after manual triage of 76 auto-discovered papers.
+
+### Mechanistic/Theoretical Foundations
+
+| arXiv ID | Title | Priority | Why Read |
+|----------|-------|----------|----------|
+| 2602.04288 | **Contextual Drag: How Errors in the Context Affect LLM Reasoning** | 🟠 HIGH | 10-20% drops from contextual drag across 11 models; "reasoning trajectories inherit error patterns" — supports pattern-matching thesis |
+| 2602.01017 | **How Does Unfaithful Reasoning Emerge from Autoregressive Training?** | 🟠 HIGH | Controlled synthetic experiments. Faithful reasoning only when noise < threshold (simplicity bias). Transition from faithful → skip-step reasoning |
+| 2602.04212 | **Language Models Struggle to Use Representations Learned In-Context** | 🟠 HIGH | LLMs encode novel semantics BUT can't deploy them. Even SOTA reasoning models "cannot reliably leverage novel patterns in-context" |
+| 2602.02103 | **No Global Plan in Chain-of-Thought: Uncover the Latent Planning Horizon** | 🟠 HIGH | Tele-Lens probing: "LLMs exhibit myopic horizon, incremental transitions without global planning" — direct evidence against planning |
+| 2602.01763 | **A Provable Expressiveness Hierarchy in Hybrid Linear-Full Attention** | 🟠 HIGH | First provable separation: (L+1) full attention sufficient for function composition, but L-1 full + 2^{3L²} linear CANNOT |
+| 2602.02909 | **Reasoning about Reasoning: BAPO Bounds on CoT Token Complexity** | 🟠 HIGH | Proves Ω(n) reasoning tokens required for majority/matching/reachability. Frontier models fail below this — fundamental bottlenecks |
+
+### Entropy/Dynamics Diagnostics
+
+| arXiv ID | Title | Priority | Why Read |
+|----------|-------|----------|----------|
+| 2602.01288 | **EDIS: Diagnosing LLM Reasoning via Entropy Dynamics** | 🟠 HIGH | "Erroneous solutions exhibit unstable dynamics" = intrinsic properties of reasoning failure. Entropy as diagnostic |
+| 2602.02863 | **"I May Not Have Articulated Myself Clearly": Dynamic Instability** | 🟠 HIGH | Instability predicts failure (above-chance AUC). Early instability = corrective, late = destructive. Training-free |
+| 2602.02427 | **Embedding Perturbation Reflects Uncertainty in LLM Reasoning** | 🟡 MEDIUM | Incorrect steps = tokens sensitive to embedding perturbations. Perturbation outperforms probability/entropy for UQ |
+
+### Causal/Planning Evidence
+
+| arXiv ID | Title | Priority | Why Read |
+|----------|-------|----------|----------|
+| 2602.02983 | **Are LLMs Biased Like Humans? Causal Reasoning** | 🟠 HIGH | 20+ LLMs on 11 collider tasks. "Most LLMs exhibit rule-like reasoning strategies" — supports pattern-matching. Don't mirror human biases |
+| 2601.21826 | **Mil-SCORE: Long-Context Geospatial Reasoning and Planning** | 🟡 MEDIUM | Expert-authored multi-hop planning. "Substantial headroom... struggle with scenario-level long-context planning" |
+
+### Visual Reasoning
+
+| arXiv ID | Title | Priority | Why Read |
+|----------|-------|----------|----------|
+| 2602.02465 | **MentisOculi: Limits of Reasoning with Mental Imagery** | 🟡 MEDIUM | Visual thoughts "do not yet benefit model reasoning." UMMs fail to leverage even ground-truth visualizations |
 
 ---
 
