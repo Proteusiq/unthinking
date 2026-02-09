@@ -309,6 +309,8 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 158 | 2305.14699 | May 2023 | Can Transformers Learn to Solve Problems Recursively? | Strongly Supports | ✅ DONE |
 | 159 | 2108.12409 | Aug 2021 | Train Short, Test Long: ALiBi (ICLR 2022) | Balanced | ✅ DONE |
 | 160 | 2302.00093 | Jan 2023 | Large Language Models Can Be Easily Distracted by Irrelevant Context (ICML 2023) | Strongly Supports | ✅ DONE |
+| 161 | 2404.15758 | Apr 2024 | Let's Think Dot by Dot: Hidden Computation in Transformer Language Models | Supports | ✅ DONE |
+| 162 | 2505.21024 | May 2025 | Pause Tokens Strictly Increase the Expressivity of Constant-Depth Transformers | Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -324,11 +326,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 156
-- **Against Reasoning**: ~85
+- **Total Papers**: 162
+- **Against Reasoning**: ~87
 - **For Reasoning**: ~31
 - **Balanced**: ~45
-- **Date Range**: 2022-2026
-- **Analyzed**: 156
+- **Date Range**: 2021-2026
+- **Analyzed**: 162
 
 ---
