@@ -3752,4 +3752,27 @@ window.paperNodes = [
       ],
       analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/180-189/185_hallucination_inevitable_open_world.md',
     },
+    // Paper 186: An LLM can Fool Itself
+    {
+      id: '2310.13345',
+      title: 'An LLM can Fool Itself: A Prompt-Based Adversarial Attack',
+      shortTitle: 'LLM Fools Itself',
+      date: 'Oct 2023',
+      stance: 'supports',
+      cluster: 'evidence',
+      coreArgument:
+        'LLMs can be instructed to generate adversarial examples that fool themselves. PromptAttack uses three components (Original Input, Attack Objective, Attack Guidance) to craft semantic-preserving perturbations. A simple emoji can mislead GPT-3.5.',
+      keyEvidence: [
+        'Higher attack success rate than AdvGLUE/AdvGLUE++',
+        'Single emoji can flip predictions',
+        'Character, word, sentence-level perturbations work',
+        'Semantic-preserving attacks effective',
+        'LLM generates its own adversarial examples',
+      ],
+      keyQuotes: [
+        "PromptAttack converts adversarial textual attacks into an attack prompt that can cause the victim LLM to output the adversarial sample to fool itself.",
+        "A simple emoji can easily mislead GPT-3.5 to make wrong predictions."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/180-189/186_llm_can_fool_itself.md',
+    },
 ];
