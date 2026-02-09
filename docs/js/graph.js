@@ -14,12 +14,12 @@
 
   const CONFIG = {
     simulation: {
-      chargeStrength: -150,
-      linkDistance: 80,
-      collisionRadius: 25,
+      chargeStrength: -300,       // Stronger repulsion to spread nodes
+      linkDistance: 150,          // Longer links
+      collisionRadius: 40,        // Larger collision buffer
       alphaDecay: 0.02,
       velocityDecay: 0.5,
-      centerStrength: 0.15,
+      centerStrength: 0.1,        // Weaker center pull for more spread
     },
     node: {
       minRadius: 8,
