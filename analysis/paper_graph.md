@@ -706,6 +706,17 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Unfaithful Reasoning Emergence (2602.01017)** | **extends** | **CoT Training Mechanisms (2502.04667)** | Both use controlled synthetic experiments on arithmetic |
 | **Unfaithful Reasoning Emergence (2602.01017)** | **provides evidence for** | **Pattern matching thesis** | Skip-step reasoning (bypassing CoT) is DEFAULT under realistic training noise |
 
+### Paper 173: One Token to Fool LLM-as-a-Judge
+
+| Paper A | Relationship | Paper B | Evidence |
+|---------|--------------|---------|----------|
+| **One Token to Fool (2507.08794)** | **extends** | **Gaming the Judge (2601.14691)** | Same attack surface (CoT manipulation), but minimal (single token) |
+| **One Token to Fool (2507.08794)** | **supports** | **Measuring Faithfulness (2307.13702)** | Both show CoT evaluation is superficial pattern matching |
+| **One Token to Fool (2507.08794)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | Both show reasoning appearance ≠ reasoning reality |
+| **One Token to Fool (2507.08794)** | **supports** | **Semantic Deception (2512.20812)** | Both show surface patterns override content |
+| **One Token to Fool (2507.08794)** | **supports** | **Lexical Hints (2508.15842)** | Both identify specific tokens that signal behavior |
+| **One Token to Fool (2507.08794)** | **provides evidence for** | **Pattern matching thesis** | Single tokens (":", ".") trigger positive rewards — pure statistical association, not reasoning evaluation |
+
 ### CoT Foundational Papers (151-156)
 
 | Paper A | Relationship | Paper B | Evidence |

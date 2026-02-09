@@ -53,9 +53,18 @@ This makes the debate accessible and engaging.
 
 ## Data Pipeline
 
+### File Structure (Split for Maintainability)
+
+As of 2026-02-09, the data is split into three files:
+- `js/nodes.js` - Paper node definitions (~3,500 lines)
+- `js/links.js` - Relationship link definitions (~3,200 lines)  
+- `js/data.js` - Meta info and combines nodes/links (~20 lines)
+
+All three must be loaded in order: `nodes.js`, `links.js`, then `data.js`.
+
 ### Where Node Data Comes From
 
-The `js/data.js` file is generated from paper analyses in `/analysis/explored/`. Each paper analysis (e.g., `05_deepseek_r1.md`) contains structured metadata that gets extracted into node format.
+The node and link files are generated from paper analyses in `/analysis/explored/`. Each paper analysis (e.g., `05_deepseek_r1.md`) contains structured metadata that gets extracted into node format.
 
 ### Generating Nodes from Paper Analyses
 

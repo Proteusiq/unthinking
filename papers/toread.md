@@ -42,6 +42,13 @@ Papers from your Italy Summer 2025 reading not yet analyzed.
 | [2510.07192](https://arxiv.org/abs/2510.07192) | **Poisoning Attacks Require Few Samples** | 🟠 MED | ~250 samples enough |
 | [2509.11208](https://arxiv.org/abs/2509.11208) | **Predictable Compression Failures** | ✅ DONE | Analyzed as Paper 168 |
 | [2402.06702](https://arxiv.org/abs/2402.06702) | **Mind Your Tone (Politeness)** | 🟠 MED | Prompt sensitivity |
+| ~~[2507.08794](https://arxiv.org/abs/2507.08794)~~ | ~~**One Token to Fool LLM-as-a-Judge**~~ | ✅ DONE | Analyzed as Paper 173 |
+| [2405.05741](https://arxiv.org/abs/2405.05741) | **Can LLMs Understand Uncommon Meanings?** | 🔴 HIGH | GPT-4 lags 16-year-old humans by 3.9%; fails on low-frequency word meanings |
+| [2506.11928](https://arxiv.org/abs/2506.11928) | **LiveCodeBench Pro: Olympiad Medalists Judge LLMs** | 🔴 HIGH | 0% on hard problems; success = implementation not reasoning |
+| [2505.23701](https://arxiv.org/abs/2505.23701) | **Can LLMs Reason Abstractly Without CoT?** | 🔴 HIGH | CoT primarily aids computation, not abstract formulation |
+| [2507.14417](https://arxiv.org/abs/2507.14417) | **Inverse Scaling in Test-Time Compute** | 🔴 HIGH | More reasoning = WORSE performance (TMLR published) |
+| [2506.11135](https://arxiv.org/abs/2506.11135) | **LLMs and Emergence** (Melanie Mitchell) | 🔴 HIGH | Complex systems perspective on emergence & intelligence |
+| [2506.23921](https://arxiv.org/abs/2506.23921) | **Trilemma of Truth in LLMs** | 🔴 HIGH | Truth/falsehood not symmetric; third signal distinct from both (NeurIPS 2025) |
 
 ### 🟡 LOWER PRIORITY — Methods/Foundations
 
