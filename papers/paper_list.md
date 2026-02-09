@@ -334,6 +334,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 183 | 2510.07192 | Oct 2025 | Poisoning Attacks on LLMs Require a Near-constant Number of Poison Samples (UK AI Security Institute) | Supports | ✅ DONE |
 | 184 | 2510.13928 | Oct 2025 | LLMs Can Get "Brain Rot"! (UT Austin, Purdue) | Strongly Supports | ✅ DONE |
 | 185 | 2510.05116 | Sep 2025 | Hallucination is Inevitable for LLMs with the Open World Assumption (Temple) | Supports | ✅ DONE |
+| 186 | 2310.13345 | Oct 2023 | An LLM can Fool Itself: A Prompt-Based Adversarial Attack | Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -349,11 +350,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 185
-- **Against Reasoning**: ~107
+- **Total Papers**: 186
+- **Against Reasoning**: ~108
 - **For Reasoning**: ~31
 - **Balanced**: ~47
 - **Date Range**: 2021-2026
-- **Analyzed**: 185
+- **Analyzed**: 186
 
 ---

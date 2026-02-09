@@ -3738,4 +3738,35 @@ window.paperLinks = [
       type: 'supports',
       description: 'Generalization failure = pattern matching without genuine reasoning',
     },
+    // Paper 186: LLM can Fool Itself links
+    {
+      source: '2310.13345',
+      target: '2507.08794',
+      type: 'supports',
+      description: 'Both show single tokens/characters can fool LLMs',
+    },
+    {
+      source: '2310.13345',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Both show surface-level fragility in LLM reasoning',
+    },
+    {
+      source: '2310.13345',
+      target: '2305.04388',
+      type: 'supports',
+      description: 'Both show LLMs misled by surface patterns',
+    },
+    {
+      source: '2310.13345',
+      target: '2406.11050',
+      type: 'supports',
+      description: 'Token bias explains why simple perturbations work',
+    },
+    {
+      source: '2310.13345',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Surface perturbations override reasoning = pattern matching',
+    },
 ];
