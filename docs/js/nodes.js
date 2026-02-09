@@ -3488,4 +3488,28 @@ window.paperNodes = [
       ],
       analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/170-179/174_inverse_scaling_test_time_compute.md',
     },
+    // Paper 175: Uncommon Meanings of Common Words
+    {
+      id: '2405.05741',
+      title: 'Can Large Language Models Understand Uncommon Meanings of Common Words?',
+      shortTitle: 'Uncommon Meanings',
+      date: 'May 2024',
+      stance: 'supports',
+      cluster: 'evidence',
+      coreArgument:
+        'GPT-4 lags behind 16-year-old humans by 3.9% on uncommon word meanings. GPT-3.5 lags by 22.3%. LLMs default to high-frequency meanings — frequency-based pattern matching, not understanding.',
+      keyEvidence: [
+        'GPT-4: 88.1% vs Human: 92%',
+        'GPT-3.5: 69.7% (22.3% gap)',
+        'RAG helps small models more',
+        'LLMs focus on misleading over corrective info',
+        'Authors cite "stochastic parrots"',
+      ],
+      keyQuotes: [
+        "Even the state-of-the-art LLMs GPT-4 and GPT-3.5 lag behind 16-year-old humans by 3.9% and 22.3%, respectively.",
+        "LLMs significantly focus more on misleading information over corrective instructions",
+        "Despite remarkable performance on challenging NLU tasks, state-of-the-art language models still have fundamental weaknesses in lexical context understanding."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/170-179/175_uncommon_meanings_common_words.md',
+    },
 ];
