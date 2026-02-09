@@ -3704,4 +3704,28 @@ window.paperNodes = [
       ],
       analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/180-189/183_poisoning_attacks_constant.md',
     },
+    // Paper 184: Brain Rot
+    {
+      id: '2510.13928',
+      title: 'LLMs Can Get "Brain Rot"!',
+      shortTitle: 'Brain Rot',
+      date: 'Oct 2025',
+      stance: 'supports',
+      cluster: 'evidence',
+      coreArgument:
+        'Continual exposure to junk web text induces lasting cognitive decline in LLMs. Thought-skipping is the primary lesion. Partial healing only — persistent representational drift. Data quality is a CAUSAL driver of capability decay.',
+      keyEvidence: [
+        'ARC-Challenge: 74.9% -> 57.2% after junk data',
+        'RULER-CWE: 84.4% -> 52.3%',
+        'Thought-skipping explains most error growth',
+        'Cannot fully restore baseline after remediation',
+        'Popularity > length as Brain Rot indicator',
+      ],
+      keyQuotes: [
+        "We identify thought-skipping as the primary lesion: models increasingly truncate or skip reasoning chains, explaining most of the error growth.",
+        "Partial but incomplete healing is observed: scaling instruction tuning and clean data pre-training improve the declined cognition yet cannot restore baseline capability.",
+        "Data quality is a causal driver of LLM capability decay."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/180-189/184_brain_rot.md',
+    },
 ];
