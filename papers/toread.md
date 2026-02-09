@@ -46,7 +46,7 @@ Papers from your Italy Summer 2025 reading not yet analyzed.
 | [2405.05741](https://arxiv.org/abs/2405.05741) | **Can LLMs Understand Uncommon Meanings?** | 🔴 HIGH | GPT-4 lags 16-year-old humans by 3.9%; fails on low-frequency word meanings |
 | [2506.11928](https://arxiv.org/abs/2506.11928) | **LiveCodeBench Pro: Olympiad Medalists Judge LLMs** | 🔴 HIGH | 0% on hard problems; success = implementation not reasoning |
 | [2505.23701](https://arxiv.org/abs/2505.23701) | **Can LLMs Reason Abstractly Without CoT?** | 🔴 HIGH | CoT primarily aids computation, not abstract formulation |
-| [2507.14417](https://arxiv.org/abs/2507.14417) | **Inverse Scaling in Test-Time Compute** | 🔴 HIGH | More reasoning = WORSE performance (TMLR published) |
+| ~~[2507.14417](https://arxiv.org/abs/2507.14417)~~ | ~~**Inverse Scaling in Test-Time Compute**~~ | ✅ DONE | Analyzed as Paper 174 (TMLR Featured) |
 | [2506.11135](https://arxiv.org/abs/2506.11135) | **LLMs and Emergence** (Melanie Mitchell) | 🔴 HIGH | Complex systems perspective on emergence & intelligence |
 | [2506.23921](https://arxiv.org/abs/2506.23921) | **Trilemma of Truth in LLMs** | 🔴 HIGH | Truth/falsehood not symmetric; third signal distinct from both (NeurIPS 2025) |
 

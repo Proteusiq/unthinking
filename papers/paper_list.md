@@ -322,6 +322,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 171 | 2410.21272 | Oct 2024 | Arithmetic Without Algorithms: Bag of Heuristics (Technion) | Strongly Supports | ✅ DONE |
 | 172 | 2602.01017 | Feb 2026 | How Does Unfaithful Reasoning Emerge from Autoregressive Training? (UW-Madison) | Strongly Supports | ✅ DONE |
 | 173 | 2507.08794 | Jul 2025 | One Token to Fool LLM-as-a-Judge | Strongly Supports | ✅ DONE |
+| 174 | 2507.14417 | Jul 2025 | Inverse Scaling in Test-Time Compute (TMLR Featured) | Strongly Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -337,11 +338,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 173
-- **Against Reasoning**: ~95
+- **Total Papers**: 174
+- **Against Reasoning**: ~96
 - **For Reasoning**: ~31
 - **Balanced**: ~47
 - **Date Range**: 2021-2026
-- **Analyzed**: 173
+- **Analyzed**: 174
 
 ---

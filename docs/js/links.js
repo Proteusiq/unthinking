@@ -3173,4 +3173,53 @@ window.paperLinks = [
       type: 'supports',
       description: 'Both identify specific tokens that signal behavior',
     },
+    // Paper 174: Inverse Scaling in Test-Time Compute links
+    {
+      source: '2507.14417',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Both show reasoning collapse; this adds INVERSE scaling evidence',
+    },
+    {
+      source: '2507.14417',
+      target: '2412.21187',
+      type: 'supports',
+      description: 'Both show more tokens can hurt; systematic evidence',
+    },
+    {
+      source: '2507.14417',
+      target: '2501.18585',
+      type: 'supports',
+      description: 'Complementary failure modes of extended reasoning',
+    },
+    {
+      source: '2507.14417',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Distraction failure = irrelevant info sensitivity',
+    },
+    {
+      source: '2507.14417',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Spurious correlations = pattern matching mechanism',
+    },
+    {
+      source: '2507.14417',
+      target: '2502.15631',
+      type: 'supports',
+      description: 'Both challenge test-time compute scaling benefits',
+    },
+    {
+      source: '2507.14417',
+      target: '2501.02497',
+      type: 'challenges',
+      description: 'Provides counter-evidence to scaling claims',
+    },
+    {
+      source: '2507.14417',
+      target: '2501.19393',
+      type: 'challenges',
+      description: 'Challenges log-linear scaling assumption',
+    },
 ];

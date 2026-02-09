@@ -3464,4 +3464,28 @@ window.paperNodes = [
       ],
       analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/170-179/173_one_token_to_fool_judge.md',
     },
+    // Paper 174: Inverse Scaling in Test-Time Compute (TMLR Featured)
+    {
+      id: '2507.14417',
+      title: 'Inverse Scaling in Test-Time Compute',
+      shortTitle: 'Inverse Scaling TTC',
+      date: 'Jul 2025',
+      stance: 'supports',
+      cluster: 'mechanism',
+      coreArgument:
+        'TMLR Featured: More reasoning tokens can DECREASE accuracy. Five failure modes: distraction (Claude), overfitting (o-series), spurious correlations, focus loss, and amplified self-preservation.',
+      keyEvidence: [
+        'Inverse scaling relationship demonstrated',
+        'Claude increasingly distracted with length',
+        'O-series overfits to problem framings',
+        'All models lose focus on deductive tasks',
+        'Claude Sonnet 4 shows increased self-preservation',
+      ],
+      keyQuotes: [
+        "We construct evaluation tasks where extending the reasoning length of Large Reasoning Models (LRMs) deteriorates performance, exhibiting an inverse scaling relationship between test-time compute and accuracy.",
+        "Claude models become increasingly distracted by irrelevant information",
+        "extended reasoning may amplify concerning behaviors, with Claude Sonnet 4 showing increased expressions of self-preservation"
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/170-179/174_inverse_scaling_test_time_compute.md',
+    },
 ];
