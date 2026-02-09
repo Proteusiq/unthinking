@@ -9,7 +9,7 @@
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
 [![Papers](https://img.shields.io/badge/papers-182-blue)]()
-[![Relationships](https://img.shields.io/badge/relationships-191-orange)]()
+[![Relationships](https://img.shields.io/badge/relationships-591-orange)]()
 
 ---
 
@@ -29,7 +29,7 @@ Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.
 
 <p align="center">
   <img src="https://img.shields.io/badge/nodes-182%20papers-4CAF50" />
-  <img src="https://img.shields.io/badge/edges-191%20relationships-2196F3" />
+  <img src="https://img.shields.io/badge/edges-591%20relationships-2196F3" />
   <img src="https://img.shields.io/badge/stance-supports%20%7C%20challenges%20%7C%20balanced-FFC107" />
 </p>
 
@@ -99,7 +99,7 @@ If LLM generates C, and C lies on the line between A and B = INTERPOLATION.
 
 ## The Seven Pillars of Evidence
 
-Based on cross-analysis of 169 papers, the evidence converges on seven pillars:
+Based on cross-analysis of 182 papers, the evidence converges on seven pillars:
 
 | Pillar | Core Finding | Key Papers | Strongest Number |
 |--------|--------------|------------|------------------|
@@ -125,9 +125,9 @@ Based on cross-analysis of 169 papers, the evidence converges on seven pillars:
 
 | Stance | Count | Percentage |
 |--------|-------|------------|
-| **Supports thesis** | 118 | 74% |
-| **Balanced** | 35 | 22% |
-| **Challenges thesis** | 7 | 4% |
+| **Supports thesis** | ~104 | ~57% |
+| **Balanced** | ~47 | ~26% |
+| **Challenges thesis** | ~31 | ~17% |
 
 ---
 
@@ -211,14 +211,14 @@ PHASE 7: THEORETICAL FRAMEWORK (2026)
 ```
 ├── analysis/
 │   ├── synthesis.md          # Main thesis synthesis
-│   ├── mindmap.md            # Cross-reference of all 160 papers
+│   ├── mindmap.md            # Cross-reference of all papers
 │   ├── paper_graph.md        # Paper interaction graph
 │   ├── rebuttals.md          # Rebuttal matrix
-│   └── explored/             # Individual paper analyses (169 files)
+│   └── explored/             # Individual paper analyses (182 files)
 │       ├── 00-09/            # Papers 00-09
 │       ├── 10-19/            # Papers 10-19
 │       ├── ...               # (10-paper bins)
-│       └── 160-169/          # Papers 160+
+│       └── 180-189/          # Papers 180+
 ├── scripts/
 │   └── discovery/            # Paper discovery package
 │       ├── __main__.py       # Entry: uv run scripts/discovery/__main__.py
@@ -276,7 +276,7 @@ PHASE 7: THEORETICAL FRAMEWORK (2026)
 
 ## Automated Paper Discovery
 
-**Status**: PAUSED at 160 papers for deep analysis.
+**Status**: Active — 182 papers analyzed.
 
 New papers were discovered daily via GitHub Actions, classified using an LLM with thesis context.
 

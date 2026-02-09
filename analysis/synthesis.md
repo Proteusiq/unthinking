@@ -109,8 +109,12 @@
 | 164 | Proof or Bluff (USAMO 2025) | Mar 2025 | Strongly Supports | Expert human evaluation: Best model 25%, all others <5%. Logic errors dominant. GRPO training artifacts. Automated grading overestimated 20x |
 | 165 | Hallucination is Inevitable | Jan 2024 | Strongly Supports | **THEORETICAL FOUNDATION**: Computability proof that hallucination is mathematically inevitable. Diagonalization shows any LLM fails on some computable function. Corollary: self-correction cannot eliminate hallucination |
 | 166 | SWE-Bench Illusion | Jun 2025 | Strongly Supports | 76% file path accuracy on SWE-Bench vs <53% on external repos. 35% vs 18% n-gram overlap. Up to 31.6% verbatim match. Memorization not reasoning |
+| 167-179 | (Various papers) | 2024-2026 | Mixed | Gap-filling papers covering faithfulness, emergence, mechanistic analysis, and evaluation |
+| 180 | Contextual Drag | Feb 2026 | Strongly Supports | ICML 2026: Failed reasoning in context causes 10-20% drops. Tree edit distance proves STRUCTURAL inheritance of errors. Self-improvement via reflection fundamentally challenged |
+| 181 | No Global Plan in CoT | Feb 2026 | Strongly Supports | Tele-Lens probing: LLMs exhibit MYOPIC HORIZON. Final answer at random (50%) until last step. "Wooden Barrel" principle: few pivots determine reliability |
+| 182 | LMs Struggle to Use ICL Representations | Feb 2026 | Strongly Supports | SMOKING GUN: LLMs encode novel semantics but CANNOT deploy them. Representations are "inert". Even GPT-5/Gemini-2.5 collapse on 2D grid topologies |
 
-**Total: 166 unique papers analyzed**
+**Total: 182 unique papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative
