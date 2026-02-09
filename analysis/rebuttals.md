@@ -1,5 +1,8 @@
 # Rebuttals & Counter-Evidence Matrix
 
+> **Last updated**: 2026-02-09
+> **Papers analyzed**: 182
+
 This document tracks rebuttals **in both directions**:
 - Rebuttals to "Against" papers (challenging pattern-matching thesis)
 - Rebuttals to "For" papers (challenging genuine reasoning thesis)
@@ -312,3 +315,58 @@ KEY UPDATES:
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
+
+
+---
+
+## New Evidence from Papers 180-182 (2026-02-09)
+
+### Paper 180: Contextual Drag (2602.04288)
+
+**Challenges**: Self-improvement literature (e.g., Madaan et al. Self-Refine)
+
+**Key evidence**:
+- 10-20% drops across 11 models when conditioned on incorrect drafts
+- Tree edit distance proves **structural inheritance** of errors
+- Self-improvement via reflection fundamentally challenged
+- "Iterative self-refinement in models with severe contextual drag can collapse into self-deterioration"
+
+**Assessment**: Directly challenges the assumption that models can learn from mistakes.
+
+### Paper 181: No Global Plan in CoT (2602.02103)
+
+**Challenges**: Claims of internal planning in LLMs
+
+**Key evidence**:
+- Final-answer probing at random (50%) until LAST step
+- No global plan — only myopic, incremental transitions
+- "Wooden Barrel" principle: reliability determined by few pivot positions
+
+**Assessment**: Mechanistic evidence against global planning in LLMs.
+
+### Paper 182: LMs Struggle to Use ICL Representations (2602.04212)
+
+**Challenges**: ICL enables genuine learning
+
+**Key evidence**:
+- LLMs encode novel semantics but CANNOT deploy them
+- Representations are "inert" — exist but not causally used
+- Even GPT-5 and Gemini-2.5 collapse on 2D grid topologies
+
+**Assessment**: Smoking gun for pattern matching. Encoding ≠ understanding.
+
+---
+
+## Updated Summary
+
+| Category | Count | Notes |
+|----------|-------|-------|
+| Papers analyzed | 182 | +3 from last update |
+| Direct rebuttals identified | 12 | +0 |
+| Counter-rebuttals identified | 3 | +0 |
+| Remaining contested claims | 3 | Unchanged |
+
+---
+
+*Last updated: 2026-02-09*
+

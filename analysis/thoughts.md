@@ -1,11 +1,11 @@
 # Thoughts: Cross-Paper Synthesis and Missing Connections
 
 > **Last updated**: 2026-02-09
-> **Papers analyzed**: 166 (ongoing)
+> **Papers analyzed**: 182
 
 ## Overview
 
-After analyzing all 166 papers, this document captures:
+After analyzing all 182 papers, this document captures:
 1. Major themes and how papers interconnect
 2. Papers that talk to each other (support, challenge, extend)
 3. The narrative arc of the field (2022-2026)
@@ -883,3 +883,53 @@ The blog explicitly frames this as an alignment/safety problem, not just an acad
 ---
 
 *Last updated: 2026-01-31*
+
+
+---
+
+## Papers 180-182: New Evidence (2026-02-09)
+
+### Paper 180: Contextual Drag (2602.04288)
+
+**Theme**: Self-improvement via reflection is fundamentally challenged.
+
+**Key findings**:
+- Failed reasoning attempts in context bias subsequent generations toward **structurally similar errors**
+- 10-20% performance drops across 11 models, 8 tasks
+- Tree edit distance proves **structural inheritance** of error patterns
+- Neither external feedback NOR successful self-verification eliminates the effect
+- Iterative self-refinement can **collapse into self-deterioration**
+
+**Thesis relevance**: Directly challenges the assumption that models can "learn from mistakes." Instead, they inherit the structural patterns of those mistakes — exactly what pattern matching predicts.
+
+### Paper 181: No Global Plan in CoT (2602.02103)
+
+**Theme**: LLMs exhibit myopic horizon — no global planning.
+
+**Key findings**:
+- Tele-Lens probing reveals **myopic horizon** in LLMs
+- Final-answer probing at **random (50%) until the LAST step**
+- Parity task: 0.51 → 0.97 accuracy only at completion
+- Subsequent token F1: 0.90 → 0.03 at offset 16
+- Coarse early signals are **perceptual cues, NOT plans**
+- "Wooden Barrel" principle: few pivot positions determine reliability
+
+**Thesis relevance**: Direct mechanistic evidence that LLMs do NOT have global plans. They operate via incremental, local transitions — exactly what pattern matching predicts.
+
+### Paper 182: LMs Struggle to Use ICL Representations (2602.04212)
+
+**Theme**: Encoding ≠ Deployment (SMOKING GUN)
+
+**Key findings**:
+- LLMs **encode** novel semantics from context into latent representations
+- But they **CANNOT deploy** those representations to complete downstream tasks
+- Representations are "**inert**" — exist but not causally used
+- AWM task: near-chance with in-context topology, but >75% with explicit description
+- Even GPT-5 and Gemini-2.5 **collapse on 2D grid topologies**
+
+**Thesis relevance**: This is a smoking gun for pattern matching. The model "knows" the information (it's in the hidden states) but cannot USE it. This dissociation between encoding and deployment is exactly what pattern matchers would do — encode statistical regularities without genuinely understanding them.
+
+---
+
+*Last updated: 2026-02-09*
+

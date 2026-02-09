@@ -1,6 +1,7 @@
-# Mind Map: 160 Papers on LLM Reasoning
+# Mind Map: 182 Papers on LLM Reasoning
 
 > **Generated**: 2026-02-01
+> **Last updated**: 2026-02-09
 > **Purpose**: Cross-reference analysis of how papers talk to each other
 
 ---
