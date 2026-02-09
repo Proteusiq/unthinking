@@ -1338,15 +1338,38 @@
       document.querySelector('.header').classList.add('collapsed');
     }
 
-    // Window resize
+    // Window resize (including orientation change)
     let resizeTimeout;
-    window.addEventListener('resize', () => {
+    function handleResize() {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(() => {
+        // Stop old simulation
+        if (state.simulation) {
+          state.simulation.stop();
+        }
+        
+        // Recreate everything
         createSVG();
+        createSimulation();
         createElements();
+        
+        // Restart simulation
+        state.simulation.alpha(0.3).restart();
+        
+        // Fade in links after short delay
+        setTimeout(() => {
+          if (state.linkElements) {
+            state.linkElements
+              .transition()
+              .duration(300)
+              .style('opacity', null);
+          }
+        }, 500);
       }, 250);
-    });
+    }
+    
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleResize);
 
     // Keyboard shortcuts
     document.addEventListener('keydown', (e) => {
