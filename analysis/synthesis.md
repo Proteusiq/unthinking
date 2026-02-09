@@ -102,8 +102,15 @@
 | 155 | Self-Consistency Improves CoT Reasoning | Mar 2022 | FOR (contested) | ICLR 2023: +17.9pp GSM8K via diverse sampling + majority vote. Statistical variance reduction, not reasoning improvement |
 | 156 | LLMs Still Can't Plan; Can LRMs? o1 on PlanBench | Sep 2024 | Strongly Supports | Kambhampati: o1 = 97.8% BW → 52.8% Mystery BW → 23.6% on 20+ steps. Even reasoning models fail on true planning |
 | 157 | Token Bias: LLMs Are Not Yet Genuine Reasoners | Jun 2024 | Strongly Supports | EMNLP 2024: Statistical hypothesis testing proves token bias, not reasoning. 6 hypotheses rejected. 91% failure prediction |
+| 158-160 | (Recursive, GSM-IC, Dot by Dot) | 2023-2024 | Mixed | Foundational papers on recursion, distractibility, filler tokens |
+| 161 | Let's Think Dot by Dot | Apr 2024 | Supports | Filler tokens ('......') replace CoT; benefits from compute not reasoning. 100% vs 66% on 3SUM |
+| 162 | Pause Tokens Expressivity | May 2025 | Supports | FORMAL PROOF: TF[1,L,P] = AC⁰, strict separation. Parity impossible without pause tokens |
+| 163 | Mechanistic Understanding of CoT | Feb 2024 | Supports | First mechanistic analysis of CoT. "Functional rift" at layer 16; induction-circuit compositions, not symbolic reasoning |
+| 164 | Proof or Bluff (USAMO 2025) | Mar 2025 | Strongly Supports | Expert human evaluation: Best model 25%, all others <5%. Logic errors dominant. GRPO training artifacts. Automated grading overestimated 20x |
+| 165 | Hallucination is Inevitable | Jan 2024 | Strongly Supports | **THEORETICAL FOUNDATION**: Computability proof that hallucination is mathematically inevitable. Diagonalization shows any LLM fails on some computable function. Corollary: self-correction cannot eliminate hallucination |
+| 166 | SWE-Bench Illusion | Jun 2025 | Strongly Supports | 76% file path accuracy on SWE-Bench vs <53% on external repos. 35% vs 18% n-gram overlap. Up to 31.6% verbatim match. Memorization not reasoning |
 
-**Total: 157 unique papers analyzed**
+**Total: 166 unique papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative
@@ -1149,8 +1156,8 @@ For B=1 (NO search required, just follow edges):
 
 ## Thesis Position (Strengthened)
 
-**Total Papers**: 156 unique papers analyzed
-**Stance Breakdown**: Supports=~96, Challenges=~16, Balanced=~44
+**Total Papers**: 166 unique papers analyzed
+**Stance Breakdown**: Supports=~122, Challenges=~7, Balanced=~37
 
 ---
 

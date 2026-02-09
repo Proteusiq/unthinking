@@ -99,7 +99,7 @@ If LLM generates C, and C lies on the line between A and B = INTERPOLATION.
 
 ## The Seven Pillars of Evidence
 
-Based on cross-analysis of 160 papers, the evidence converges on seven pillars:
+Based on cross-analysis of 166 papers, the evidence converges on seven pillars:
 
 | Pillar | Core Finding | Key Papers | Strongest Number |
 |--------|--------------|------------|------------------|
