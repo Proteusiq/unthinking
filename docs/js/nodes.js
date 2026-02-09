@@ -3775,4 +3775,27 @@ window.paperNodes = [
       ],
       analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/180-189/186_llm_can_fool_itself.md',
     },
+    // Paper 187: TIP of the Iceberg
+    {
+      id: '2501.18626',
+      title: 'The TIP of the Iceberg: Revealing a Hidden Class of Task-in-Prompt Adversarial Attacks on LLMs',
+      shortTitle: 'TIP Attacks',
+      date: 'Jan 2025',
+      stance: 'supports',
+      cluster: 'evidence',
+      coreArgument:
+        'Task-in-Prompt (TIP) attacks embed seq2seq tasks (ciphers, riddles, code) to bypass safety safeguards. All 6 tested models vulnerable. TIP Python achieves 86% ASR on GPT-4o. Keyword filtering: 0% detection. LLM safety alignment learns trigger patterns, not semantic intent.',
+      keyEvidence: [
+        'TIP Python: 86% ASR on GPT-4o (best of all methods)',
+        'Llama Guard 3 detects only 7% of TIP Python',
+        'Keyword filtering: 0% detection rate',
+        'All 6 models vulnerable (4 at 100% ASR)',
+        'Sanity check: 0% ASR on direct requests (safeguards work normally)',
+      ],
+      keyQuotes: [
+        "LLMs, during safety alignment, learn to recognise and filter out certain trigger words or inquiries. By avoiding these specific trigger words and embedding unsafe content within a benign transformation task, an adversary could force the model to infer the word through an intermediate task.",
+        "TIP attacks bypass filters by encoding safety-triggering words and appear generally benign to neural defences, posing as legitimate task-solving requests."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/180-189/187_tip_of_iceberg.md',
+    },
 ];
