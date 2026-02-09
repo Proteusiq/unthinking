@@ -220,7 +220,7 @@
 
     // Center the view (start zoomed out to see full network)
     const isMobile = width <= 768;
-    const initialScale = isMobile ? 0.5 : 0.6;
+    const initialScale = isMobile ? 0.5 : 0.55;
     const initialTransform = d3.zoomIdentity.translate(width / 2, height / 2).scale(initialScale);
 
     state.svg.call(state.zoom.transform, initialTransform);
@@ -857,7 +857,7 @@
     const height = container.clientHeight;
 
     const isMobile = width <= 768;
-    const resetScale = isMobile ? 0.5 : 0.6;
+    const resetScale = isMobile ? 0.5 : 0.55;
     const transform = d3.zoomIdentity.translate(width / 2, height / 2).scale(resetScale);
 
     state.svg
