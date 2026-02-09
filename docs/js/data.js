@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 171,
+    totalAnalyzed: 172,
     lastUpdated: '2026-02-09',
   },
   nodes: [
@@ -3420,6 +3420,30 @@ window.paperData = {
       ],
       analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/170-179/171_arithmetic_without_algorithms.md',
     },
+    // Paper 172: Unfaithful Reasoning Emergence (UW-Madison)
+    {
+      id: '2602.01017',
+      title: 'How Does Unfaithful Reasoning Emerge from Autoregressive Training?',
+      shortTitle: 'Unfaithful Emergence',
+      date: 'Feb 2026',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'Faithful CoT reasoning only emerges when training noise is below a critical threshold. Training dynamics exhibit phase transition: stepwise → mixed → skip-step reasoning. Simplicity bias determines which mode dominates.',
+      keyEvidence: [
+        'Critical noise threshold τc for faithfulness',
+        'Four training phases identified',
+        'Entropy spike during mixed mode (self-verification)',
+        'Larger complexity gap → more faithful reasoning',
+        'Skip-step reasoning = pattern matching from prompt',
+      ],
+      keyQuotes: [
+        "Models can learn faithful reasoning that causally follows the underlying arithmetic rules, but only when the training noise is below a critical threshold.",
+        "At higher noise levels, training dynamics exhibit a transition from faithful stepwise reasoning to unfaithful skip-step reasoning.",
+        "Low noise in training data and large complexity gaps in reasoning steps are critical to inducing high faithfulness in CoT reasoning."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/170-179/172_unfaithful_reasoning_emergence.md',
+    },
   ],
   links: [
     // Sycophancy Scales (Paper 119 - canonical)
@@ -6513,6 +6537,55 @@ window.paperData = {
       target: '2305.14699',
       type: 'extends',
       description: 'Shortcut algorithms = bag of heuristics',
+    },
+    // Paper 172: Unfaithful Reasoning Emergence links
+    {
+      source: '2602.01017',
+      target: '2405.15092',
+      type: 'supports',
+      description: 'Both show two distinct reasoning modes',
+    },
+    {
+      source: '2602.01017',
+      target: '2305.04388',
+      type: 'supports',
+      description: 'Explains WHY CoT is often unfaithful',
+    },
+    {
+      source: '2602.01017',
+      target: '2307.13702',
+      type: 'supports',
+      description: 'Validates intervention-based faithfulness methodology',
+    },
+    {
+      source: '2602.01017',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Explains how pattern matching emerges from training',
+    },
+    {
+      source: '2602.01017',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Complexity threshold = noise threshold for transition',
+    },
+    {
+      source: '2602.01017',
+      target: '2410.21272',
+      type: 'supports',
+      description: 'Bag of heuristics = skip-step reasoning mode',
+    },
+    {
+      source: '2602.01017',
+      target: '2502.03373',
+      type: 'extends',
+      description: 'Adds training dynamics perspective on CoT',
+    },
+    {
+      source: '2602.01017',
+      target: '2502.04667',
+      type: 'extends',
+      description: 'Both use controlled synthetic experiments',
     },
   ],
 };
