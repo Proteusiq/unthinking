@@ -3512,4 +3512,28 @@ window.paperNodes = [
       ],
       analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/170-179/175_uncommon_meanings_common_words.md',
     },
+    // Paper 176: LiveCodeBench Pro
+    {
+      id: '2506.11928',
+      title: 'LiveCodeBench Pro: How Do Olympiad Medalists Judge LLMs in Competitive Programming?',
+      shortTitle: 'LiveCodeBench Pro',
+      date: 'Jun 2025',
+      stance: 'supports',
+      cluster: 'evidence',
+      coreArgument:
+        'ALL models achieve 0% on hard competitive programming problems. Best model only 53% on medium. LLMs succeed on knowledge-heavy (template) problems but fail on observation-heavy (insight) problems. Success driven by implementation precision and tool augmentation, not reasoning.',
+      keyEvidence: [
+        '0% pass rate on hard tier (ALL models)',
+        'Best: 53.5% on medium (o4-mini-high)',
+        '+34 conceptual errors vs humans',
+        '-25 implementation errors vs humans',
+        'pass@10 still 0% on hard',
+      ],
+      keyQuotes: [
+        "Without external tools, the best model achieves only 53% pass@1 on medium-difficulty problems and 0% on hard problems, domains where expert humans still excel.",
+        "Knowledge-heavy problems are comfort zones for LLMs... LLMs excel because the requisite patterns appear verbatim in the training data.",
+        "Solving these problems usually hinges on the discovery of novel insights, something that cannot be retrieved from memorized snippets alone."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/170-179/176_livecodebench_pro.md',
+    },
 ];

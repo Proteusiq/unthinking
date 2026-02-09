@@ -742,6 +742,19 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Uncommon Meanings (2405.05741)** | **supports** | **GSM-Symbolic (2410.05229)** | Both show training distribution bounds understanding; novel = failure |
 | **Uncommon Meanings (2405.05741)** | **provides evidence for** | **Pattern matching thesis** | GPT-4 lags 16-year-old humans by 3.9%; GPT-3.5 by 22.3%; authors cite "stochastic parrots" |
 
+### Paper 176: LiveCodeBench Pro (Olympiad Medalists Judge LLMs)
+
+| Paper A | Relationship | Paper B | Evidence |
+|---------|--------------|---------|----------|
+| **LiveCodeBench Pro (2506.11928)** | **supports** | **Illusion of Thinking (2506.06941)** | Both show complete failure at complexity thresholds; 0% on hard tier |
+| **LiveCodeBench Pro (2506.11928)** | **supports** | **Faith and Fate (2305.18654)** | Both show distribution-bounded capabilities; "patterns appear verbatim in training data" |
+| **LiveCodeBench Pro (2506.11928)** | **supports** | **OMEGA (2506.18880)** | Same compositional/complexity collapse pattern |
+| **LiveCodeBench Pro (2506.11928)** | **supports** | **Planning Gap (2601.14456)** | ID→OOD accuracy gap; easy→hard collapse (83% easy → 0% hard) |
+| **LiveCodeBench Pro (2506.11928)** | **supports** | **GSM-Symbolic (2410.05229)** | Both show training distribution bounds performance |
+| **LiveCodeBench Pro (2506.11928)** | **supports** | **SWE-Bench Illusion (2506.12286)** | Both show high benchmark scores reflect memorization, not reasoning |
+| **LiveCodeBench Pro (2506.11928)** | **supports** | **Proof or Bluff (2503.21934)** | Both show frontier models fail completely on expert-level problems |
+| **LiveCodeBench Pro (2506.11928)** | **provides evidence for** | **Pattern matching thesis** | Knowledge-heavy success = "patterns appear verbatim"; observation-heavy failure = "cannot be retrieved from memorized snippets" |
+
 ### CoT Foundational Papers (151-156)
 
 | Paper A | Relationship | Paper B | Evidence |
