@@ -325,6 +325,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 174 | 2507.14417 | Jul 2025 | Inverse Scaling in Test-Time Compute (TMLR Featured) | Strongly Supports | ✅ DONE |
 | 175 | 2405.05741 | May 2024 | Can Large Language Models Understand Uncommon Meanings of Common Words? (NAACL 2024) | Strongly Supports | ✅ DONE |
 | 176 | 2506.11928 | Jun 2025 | LiveCodeBench Pro: How Do Olympiad Medalists Judge LLMs in Competitive Programming? | Strongly Supports | ✅ DONE |
+| 177 | 2505.23701 | May 2025 | Can LLMs Reason Abstractly Over Math Word Problems Without CoT? (Mila/McGill) | Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -340,11 +341,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 176
-- **Against Reasoning**: ~98
+- **Total Papers**: 177
+- **Against Reasoning**: ~99
 - **For Reasoning**: ~31
 - **Balanced**: ~47
 - **Date Range**: 2021-2026
-- **Analyzed**: 176
+- **Analyzed**: 177
 
 ---

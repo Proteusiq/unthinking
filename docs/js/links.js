@@ -3296,4 +3296,41 @@ window.paperLinks = [
       type: 'supports',
       description: 'Both show frontier models fail on expert-level problems',
     },
+    // Paper 177: Abstract Reasoning Without CoT links
+    {
+      source: '2505.23701',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Both show pattern matching mechanism; abstraction = learned associations',
+    },
+    {
+      source: '2505.23701',
+      target: '2410.21272',
+      type: 'supports',
+      description: 'Both show computation via heuristics, not algorithms',
+    },
+    {
+      source: '2505.23701',
+      target: '2502.20332',
+      type: 'supports',
+      description: 'Both find identifiable mechanisms for reasoning components',
+    },
+    {
+      source: '2505.23701',
+      target: '2509.23629',
+      type: 'supports',
+      description: 'Both show internal mechanisms for reasoning mode activation',
+    },
+    {
+      source: '2505.23701',
+      target: '2502.03373',
+      type: 'extends',
+      description: 'Adds computation vs abstraction distinction to CoT analysis',
+    },
+    {
+      source: '2505.23701',
+      target: '2410.05229',
+      type: 'extends',
+      description: 'Explains WHY GSM-Symbolic perturbations fail: abstraction OK, computation fails',
+    },
 ];
