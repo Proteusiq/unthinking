@@ -94,6 +94,22 @@
         .style('opacity', null);  // Reset to CSS default
     }, 2000);  // Wait 2 seconds for nodes to settle
 
+    // Slow zoom-in animation to final view
+    setTimeout(() => {
+      const container = document.getElementById('graph');
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+      const isMobile = width <= 768;
+      const finalScale = isMobile ? 0.5 : 0.55;
+      const finalTransform = d3.zoomIdentity.translate(width / 2, height / 2).scale(finalScale);
+      
+      state.svg
+        .transition()
+        .duration(3000)  // 3 second slow zoom
+        .ease(d3.easeCubicInOut)
+        .call(state.zoom.transform, finalTransform);
+    }, 2500);  // Start after links fade in
+
     // Start the dialogue system
     initDialogue();
   }
@@ -218,10 +234,10 @@
     // Create main group for transformations
     state.g = state.svg.append('g');
 
-    // Center the view (start zoomed out to see full network)
+    // Start very zoomed out to see full network
     const isMobile = width <= 768;
-    const initialScale = isMobile ? 0.5 : 0.55;
-    const initialTransform = d3.zoomIdentity.translate(width / 2, height / 2).scale(initialScale);
+    const startScale = isMobile ? 0.25 : 0.3;
+    const initialTransform = d3.zoomIdentity.translate(width / 2, height / 2).scale(startScale);
 
     state.svg.call(state.zoom.transform, initialTransform);
   }
