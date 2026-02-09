@@ -3800,4 +3800,153 @@ window.paperLinks = [
       type: 'supports',
       description: 'Both show surface features override semantic understanding',
     },
+    // Paper 19: Comprehension Without Competence (2507.10624)
+    {
+      source: '2507.10624',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Cites Faith and Fate linearized subgraph matching',
+    },
+    {
+      source: '2507.10624',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Cites GSM-Symbolic 65% degradation',
+    },
+    {
+      source: '2507.10624',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Same complexity collapse pattern',
+    },
+    {
+      source: '2507.10624',
+      target: '2506.18880',
+      type: 'supports',
+      description: '0% transformative generalization confirms split-brain',
+    },
+    // Paper 13: Strategic Reasoning (2412.13013)
+    {
+      source: '2412.13013',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Both show reasoning collapse at complexity thresholds',
+    },
+    {
+      source: '2412.13013',
+      target: '2501.12948',
+      type: 'supports',
+      description: 'Both examine reasoning model capabilities',
+    },
+    // Paper 63: Revisiting Test-Time Scaling (2502.12215)
+    {
+      source: '2502.12215',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Both challenge test-time compute scaling benefits',
+    },
+    {
+      source: '2502.12215',
+      target: '2507.14417',
+      type: 'supports',
+      description: 'Both show inverse/diminishing returns in test-time compute',
+    },
+    // Paper 30: CoT Faithfulness Unlearning (2502.14829)
+    {
+      source: '2502.14829',
+      target: '2307.13702',
+      type: 'extends',
+      description: 'Extends faithfulness measurement with unlearning approach',
+    },
+    {
+      source: '2502.14829',
+      target: '2505.05410',
+      type: 'supports',
+      description: 'Both address CoT unfaithfulness problem',
+    },
+    // Paper 83: IB Reasoning (2507.18391)
+    {
+      source: '2507.18391',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Information bottleneck explains GSM-Symbolic fragility',
+    },
+    {
+      source: '2507.18391',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'IB theory supports pattern matching hypothesis',
+    },
+    // Paper 22: Diminishing Returns (2509.09677)
+    {
+      source: '2509.09677',
+      target: '2507.14417',
+      type: 'supports',
+      description: 'Both show diminishing/inverse returns in scaling',
+    },
+    {
+      source: '2509.09677',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Both challenge scaling assumptions for reasoning',
+    },
+    // Paper 95: LLM-JEPA (2509.14252)
+    {
+      source: '2509.14252',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Alternative architecture addresses pattern matching limits',
+    },
+    // Paper 82: Interactive Learning (2509.26306)
+    {
+      source: '2509.26306',
+      target: '2501.19393',
+      type: 'extends',
+      description: 'Both explore surfacing latent reasoning capabilities',
+    },
+    {
+      source: '2509.26306',
+      target: '2512.07783',
+      type: 'supports',
+      description: 'Both show learning depends on pretraining foundation',
+    },
+    // Paper 25: Superior Judge (2601.03630)
+    {
+      source: '2601.03630',
+      target: '2507.08794',
+      type: 'rebuts',
+      description: 'Claims reasoning models are better judges vs token bias finding',
+    },
+    {
+      source: '2601.03630',
+      target: '2501.12948',
+      type: 'supports',
+      description: 'Both examine reasoning model capabilities',
+    },
+    // Paper 90: Chains to DAGs (2601.17593)
+    {
+      source: '2601.17593',
+      target: '2307.13702',
+      type: 'extends',
+      description: 'Extends CoT analysis to graph structure',
+    },
+    {
+      source: '2601.17593',
+      target: '2508.01191',
+      type: 'supports',
+      description: 'Both analyze CoT reasoning structure',
+    },
+    // Paper 94: SOAR (2601.18778)
+    {
+      source: '2601.18778',
+      target: '2501.19393',
+      type: 'extends',
+      description: 'Both explore self-teaching for reasoning',
+    },
+    {
+      source: '2601.18778',
+      target: '2502.04667',
+      type: 'supports',
+      description: 'Both study explicit CoT training effects',
+    },
 ];
