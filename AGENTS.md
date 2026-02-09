@@ -410,8 +410,6 @@ gh auth status
 gh auth switch --user Proteusiq
 ```
 
-The repo is owned by `Proteusiq`, not enterprise accounts.
-
 ---
 
 ## File Structure
