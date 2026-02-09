@@ -14,7 +14,7 @@ Papers from your Italy Summer 2025 reading not yet analyzed.
 
 | arXiv ID | Title | Priority | Theme |
 |----------|-------|----------|-------|
-| [2305.11169](https://arxiv.org/abs/2305.11169) | **Arithmetic Without Algorithms** (Dziri) | 🔴 HIGH | Math = bag of heuristics |
+| ~~[2305.11169](https://arxiv.org/abs/2305.11169)~~ | ~~**Arithmetic Without Algorithms** (Dziri)~~ | ❌ WRONG ID | Correct ID is 2410.21272 (Nikankin et al., Technion) — Analyzed as Paper 171 |
 | ~~[2310.07191](https://arxiv.org/abs/2310.07191)~~ | ~~**GSM-Symbolic**~~ | ❌ WRONG ID | Wrong arXiv ID — GSM-Symbolic is 2410.05229 (Paper 1) |
 | [2404.15758](https://arxiv.org/abs/2404.15758) | **Let's Think Dot by Dot** | ✅ DONE | Analyzed as Paper 161 |
 | [2402.18312](https://arxiv.org/abs/2402.18312) | **Mechanistic Understanding of CoT** | ✅ DONE | Analyzed as Paper 163 |
