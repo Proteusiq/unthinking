@@ -1352,23 +1352,29 @@
           state.simulation.stop();
         }
         
-        // Recreate everything
-        createSVG();
-        createSimulation();
-        createElements();
+        // Get new dimensions
+        const container = document.getElementById('graph');
+        const width = container.clientWidth;
+        const height = container.clientHeight;
         
-        // Restart simulation
-        state.simulation.alpha(0.3).restart();
+        // Update SVG dimensions without destroying it
+        state.svg
+          .attr('width', width)
+          .attr('height', height)
+          .attr('viewBox', [0, 0, width, height]);
         
-        // Fade in links after short delay
-        setTimeout(() => {
-          if (state.linkElements) {
-            state.linkElements
-              .transition()
-              .duration(300)
-              .style('opacity', null);
-          }
-        }, 500);
+        // Update zoom transform to re-center
+        const isMobile = width <= 768;
+        const scale = isMobile ? 0.5 : 0.55;
+        const transform = d3.zoomIdentity.translate(width / 2, height / 2).scale(scale);
+        state.svg.call(state.zoom.transform, transform);
+        
+        // Update simulation center force
+        state.simulation
+          .force('center', d3.forceCenter(0, 0).strength(CONFIG.simulation.centerStrength))
+          .alpha(0.3)
+          .restart();
+          
       }, 250);
     }
     
