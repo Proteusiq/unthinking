@@ -72,7 +72,7 @@ Papers promoted from `toevaluate.md` after manual triage of 76 auto-discovered p
 |----------|-------|----------|----------|
 | ~~2602.04288~~ | ~~**Contextual Drag: How Errors in the Context Affect LLM Reasoning**~~ | ✅ DONE | Analyzed as Paper 180 |
 | ~~2602.01017~~ | ~~**How Does Unfaithful Reasoning Emerge from Autoregressive Training?**~~ | ✅ DONE | Analyzed as Paper 172 |
-| 2602.04212 | **Language Models Struggle to Use Representations Learned In-Context** | 🟠 HIGH | LLMs encode novel semantics BUT can't deploy them. Even SOTA reasoning models "cannot reliably leverage novel patterns in-context" |
+| ~~2602.04212~~ | ~~**Language Models Struggle to Use Representations Learned In-Context**~~ | ✅ DONE | Analyzed as Paper 182 |
 | ~~2602.02103~~ | ~~**No Global Plan in Chain-of-Thought: Uncover the Latent Planning Horizon**~~ | ✅ DONE | Analyzed as Paper 181 |
 | 2602.01763 | **A Provable Expressiveness Hierarchy in Hybrid Linear-Full Attention** | 🟠 HIGH | First provable separation: (L+1) full attention sufficient for function composition, but L-1 full + 2^{3L²} linear CANNOT |
 | 2602.02909 | **Reasoning about Reasoning: BAPO Bounds on CoT Token Complexity** | 🟠 HIGH | Proves Ω(n) reasoning tokens required for majority/matching/reachability. Frontier models fail below this — fundamental bottlenecks |

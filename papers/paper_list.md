@@ -330,6 +330,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 179 | 2506.11135 | Jun 2025 | Large Language Models and Emergence: A Complex Systems Perspective (Melanie Mitchell) | Strongly Supports | ✅ DONE |
 | 180 | 2602.04288 | Feb 2026 | Contextual Drag: How Errors in Context Affect LLM Reasoning (Princeton, ICML 2026) | Strongly Supports | ✅ DONE |
 | 181 | 2602.02103 | Feb 2026 | No Global Plan in Chain-of-Thought: Uncover the Latent Planning Horizon (WeChat AI) | Strongly Supports | ✅ DONE |
+| 182 | 2602.04212 | Feb 2026 | Language Models Struggle to Use Representations Learned In-Context (Google DeepMind) | Strongly Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -345,11 +346,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 181
-- **Against Reasoning**: ~103
+- **Total Papers**: 182
+- **Against Reasoning**: ~104
 - **For Reasoning**: ~31
 - **Balanced**: ~47
 - **Date Range**: 2021-2026
-- **Analyzed**: 181
+- **Analyzed**: 182
 
 ---

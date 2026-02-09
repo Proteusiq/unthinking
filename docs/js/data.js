@@ -2,7 +2,7 @@
 // Nodes and links loaded from separate files for maintainability
 window.paperData = {
   meta: {
-    totalAnalyzed: 181,
+    totalAnalyzed: 182,
     lastUpdated: '2026-02-09',
   },
   // Nodes loaded from nodes.js

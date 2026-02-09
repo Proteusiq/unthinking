@@ -3656,4 +3656,28 @@ window.paperNodes = [
       ],
       analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/180-189/181_no_global_plan_cot.md',
     },
+    // Paper 182: LMs Struggle to Use In-Context Representations
+    {
+      id: '2602.04212',
+      title: 'Language Models Struggle to Use Representations Learned In-Context',
+      shortTitle: 'Inert Representations',
+      date: 'Feb 2026',
+      stance: 'supports',
+      cluster: 'mechanistic',
+      coreArgument:
+        'LLMs encode novel semantics in latent representations but CANNOT deploy them for downstream tasks. Representations are "inert". Even SOTA reasoning models (GPT-5, Gemini-2.5) fail on adaptive world modeling with 2D grids.',
+      keyEvidence: [
+        'Encoding ≠ deployment (same representations, cant use)',
+        'AWM: near-chance with in-context topology',
+        'AWM: >75% with explicit topology description',
+        'Frontier models collapse on 2D grid topologies',
+        'Representations degrade in few-shot examples',
+      ],
+      keyQuotes: [
+        "We find evidence that open-weights LLMs struggle to deploy representations of novel semantics that are defined in-context, even if they encode these semantics in their latent representations.",
+        "Even the most performant LLMs cannot reliably leverage novel patterns presented in-context.",
+        "Representations learned in-context are largely inert."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/180-189/182_lms_struggle_icl_representations.md',
+    },
 ];
