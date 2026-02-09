@@ -62,6 +62,40 @@ Papers from your Italy Summer 2025 reading not yet analyzed.
 
 ---
 
+## NEW — Cited by Papers 180-182 (2026-02-09)
+
+Papers discovered from citations in today's analyses (Contextual Drag, No Global Plan, Inert Representations).
+
+### HIGH PRIORITY — Directly Supports Thesis
+
+| arXiv ID | Title | Priority | Why Read |
+|----------|-------|----------|----------|
+| 2412.03782 | **ICLR: In-Context Learning of Representations** (Park et al., ICLR 2025) | 🔴 HIGH | Foundation for Paper 182 — shows LLMs encode but can't deploy representations. Encoding ≠ understanding. |
+| 2509.19284 | **Patterns over Principles: The Fragility of Inductive Reasoning in LLMs** (ACL 2025) | 🔴 HIGH | Title literally says "patterns over principles" — inductive reasoning fragile with noisy observations |
+| 2406.04692 | **Can LMs Perform Robust Reasoning in CoT with Noisy Rationales?** (Zhou et al.) | 🔴 HIGH | Shows CoT degrades with noisy context — models can't filter bad rationales |
+| 2601.07226 | **Lost in the Noise: How Reasoning Models Fail with Contextual Distractors** (Lee et al.) | 🔴 HIGH | Reasoning models fail with distractors — extends Paper 180 findings |
+| 2310.01382 | **Embers of Autoregression: How LLMs Are Shaped by Training** (McCoy et al.) | 🔴 HIGH | How autoregressive training shapes/limits capabilities — training distribution bounds |
+
+### MEDIUM PRIORITY — Mechanistic/Planning Evidence
+
+| arXiv ID | Title | Priority | Why Read |
+|----------|-------|----------|----------|
+| 2503.19786 | **Knowing Before Saying: LLM Representations Encode CoT Success Before Completion** (Afzal et al.) | 🟠 MED | Early encoding — but Paper 181 shows this is coarse, not precise planning |
+| 2507.21513 | **Emergent Response Planning in LLMs** (Dong et al.) | 🟠 MED | Internal planning before CoT — challenged by myopic horizon finding |
+| 2512.03771 | **How Far Can Transformers Reason? The Globality Barrier** (Abbe et al.) | 🟠 MED | Theoretical limits — compositional reasoning fails beyond local |
+| 2505.15392 | **Martingale Score: Bayesian Rationality in LLM Reasoning** (He et al.) | 🟠 MED | Belief persistence patterns — related to contextual drag |
+| 2507.09075 | **Context-Parametric Inversion: Why Instruction Finetuning May Not Improve Context Reliance** (Goyal et al.) | 🟠 MED | Instruction tuning doesn't improve context reliance |
+
+### MEDIUM PRIORITY — Self-Improvement Challenges
+
+| arXiv ID | Title | Priority | Why Read |
+|----------|-------|----------|----------|
+| 2504.11373 | **Rethinking Mixture-of-Agents: Is Mixing Different LLMs Beneficial?** (Li et al.) | 🟠 MED | Challenges multi-agent improvement assumption |
+| 2505.09388 | **Rethinking Thinking Tokens: LLMs as Improvement Operators** (Madaan et al.) | 🟠 MED | Self-improvement assumption — challenged by contextual drag |
+| 2502.00674 | **Recursive Self-Aggregation Unlocks Deep Thinking** (Venkatraman et al.) | 🟡 LOW | Self-improvement via aggregation — may challenge thesis |
+
+---
+
 ## NEW — High Priority from Discovery (2026-02-05)
 
 Papers promoted from `toevaluate.md` after manual triage of 76 auto-discovered papers.
