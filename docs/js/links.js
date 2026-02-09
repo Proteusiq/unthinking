@@ -3222,4 +3222,35 @@ window.paperLinks = [
       type: 'challenges',
       description: 'Challenges log-linear scaling assumption',
     },
+    // Paper 175: Uncommon Meanings of Common Words links
+    {
+      source: '2405.05741',
+      target: '2202.07206',
+      type: 'supports',
+      description: 'Both show frequency determines performance',
+    },
+    {
+      source: '2405.05741',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Both show distribution-bounded understanding',
+    },
+    {
+      source: '2405.05741',
+      target: '2309.12288',
+      type: 'supports',
+      description: 'Both show frequency-dependent learning',
+    },
+    {
+      source: '2405.05741',
+      target: '2406.11050',
+      type: 'supports',
+      description: 'Token frequency → performance correlation',
+    },
+    {
+      source: '2405.05741',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Both show training distribution bounds understanding',
+    },
 ];

@@ -731,6 +731,17 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Inverse Scaling TTC (2507.14417)** | **challenges** | **s1 (2501.19393)** | Challenges log-linear scaling assumption |
 | **Inverse Scaling TTC (2507.14417)** | **provides evidence for** | **Pattern matching thesis** | More reasoning = more pattern matching errors; no metacognitive control |
 
+### Paper 175: Uncommon Meanings of Common Words (NAACL 2024)
+
+| Paper A | Relationship | Paper B | Evidence |
+|---------|--------------|---------|----------|
+| **Uncommon Meanings (2405.05741)** | **supports** | **Term Frequencies (2202.07206)** | Both show frequency determines performance; uncommon meanings = low frequency |
+| **Uncommon Meanings (2405.05741)** | **supports** | **Faith and Fate (2305.18654)** | Both show distribution-bounded understanding; "stochastic parrots" |
+| **Uncommon Meanings (2405.05741)** | **supports** | **Reversal Curse (2309.12288)** | Both show frequency-dependent learning; unidirectional token associations |
+| **Uncommon Meanings (2405.05741)** | **supports** | **Token Bias (2406.11050)** | Token frequency → performance correlation; high-frequency meanings dominate |
+| **Uncommon Meanings (2405.05741)** | **supports** | **GSM-Symbolic (2410.05229)** | Both show training distribution bounds understanding; novel = failure |
+| **Uncommon Meanings (2405.05741)** | **provides evidence for** | **Pattern matching thesis** | GPT-4 lags 16-year-old humans by 3.9%; GPT-3.5 by 22.3%; authors cite "stochastic parrots" |
+
 ### CoT Foundational Papers (151-156)
 
 | Paper A | Relationship | Paper B | Evidence |
