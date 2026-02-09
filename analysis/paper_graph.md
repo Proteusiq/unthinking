@@ -778,6 +778,17 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Trilemma of Truth (2506.23921)** | **extends** | **Emergent Symbolic Mechanisms (2502.20332)** | Adds veracity-specific mechanistic analysis |
 | **Trilemma of Truth (2506.23921)** | **provides evidence for** | **Pattern matching thesis** | "Probabilistic knowledge" = learned associations from training; binary probes confounded by spurious correlations |
 
+### Paper 179: LLMs and Emergence (Melanie Mitchell, Santa Fe Institute)
+
+| Paper A | Relationship | Paper B | Evidence |
+|---------|--------------|---------|----------|
+| **LLMs & Emergence (2506.11135)** | **supports** | **Faith and Fate (2305.18654)** | Both argue capabilities are distribution-bounded, not generalizable |
+| **LLMs & Emergence (2506.11135)** | **supports** | **Emergent Abilities Mirage (2304.15004)** | Both question emergence claims; metrics artifact |
+| **LLMs & Emergence (2506.11135)** | **supports** | **OMEGA (2506.18880)** | Both show compositional generalization fails |
+| **LLMs & Emergence (2506.11135)** | **supports** | **Illusion of Thinking (2506.06941)** | Both distinguish capability from intelligence |
+| **LLMs & Emergence (2506.11135)** | **extends** | **Emergent Symbolic Mechanisms (2502.20332)** | Provides theoretical framing (KO vs KI emergence) |
+| **LLMs & Emergence (2506.11135)** | **provides theoretical framework for** | **Pattern matching thesis** | "Emergent capability ≠ emergent intelligence"; "Rube Goldberg logic"; "more is more" vs "less is more" |
+
 ### CoT Foundational Papers (151-156)
 
 | Paper A | Relationship | Paper B | Evidence |

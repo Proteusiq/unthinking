@@ -3364,4 +3364,35 @@ window.paperLinks = [
       type: 'extends',
       description: 'Adds veracity-specific mechanistic analysis',
     },
+    // Paper 179: LLMs and Emergence (Melanie Mitchell) links
+    {
+      source: '2506.11135',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Both argue capabilities are distribution-bounded, not generalizable',
+    },
+    {
+      source: '2506.11135',
+      target: '2304.15004',
+      type: 'supports',
+      description: 'Both question emergence claims; metrics artifact',
+    },
+    {
+      source: '2506.11135',
+      target: '2506.18880',
+      type: 'supports',
+      description: 'Both show compositional generalization fails',
+    },
+    {
+      source: '2506.11135',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Both distinguish capability from intelligence',
+    },
+    {
+      source: '2506.11135',
+      target: '2502.20332',
+      type: 'extends',
+      description: 'Provides theoretical framing for mechanistic findings',
+    },
 ];
