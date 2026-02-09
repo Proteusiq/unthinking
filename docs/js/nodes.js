@@ -3680,4 +3680,28 @@ window.paperNodes = [
       ],
       analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/180-189/182_lms_struggle_icl_representations.md',
     },
+    // Paper 183: Poisoning Attacks Require Constant Samples
+    {
+      id: '2510.07192',
+      title: 'Poisoning Attacks on LLMs Require a Near-constant Number of Poison Samples',
+      shortTitle: 'Poisoning Attacks',
+      date: 'Oct 2025',
+      stance: 'supports',
+      cluster: 'evidence',
+      coreArgument:
+        'Poisoning attacks require a near-constant NUMBER of documents (not percentage) regardless of dataset size. 250 documents can backdoor models from 600M to 13B parameters. Larger models are NOT safer despite training on 20x more clean data.',
+      keyEvidence: [
+        '250 documents backdoor all model sizes (600M-13B)',
+        '13B model: 0.00016% poison rate still works',
+        '20x more clean data does NOT help',
+        'Same dynamics for pretraining and fine-tuning',
+        'Attacks become EASIER at scale',
+      ],
+      keyQuotes: [
+        "We find that 250 poisoned documents similarly compromise models across all model and dataset sizes, despite the largest models training on more than 20 times more clean data.",
+        "Our results suggest that injecting backdoors through data poisoning may be easier for large models than previously believed.",
+        "As training datasets grow larger, the attack surface for injecting malicious content expands proportionally, while the adversary's requirements remain nearly constant."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/180-189/183_poisoning_attacks_constant.md',
+    },
 ];
