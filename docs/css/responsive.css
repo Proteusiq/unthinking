@@ -165,21 +165,4 @@
   .graph-container {
     padding-top: 200px;
   }
-
-  /* View toggle on mobile */
-  .view-toggle-btn {
-    bottom: calc(var(--space-xl) + 80px);
-    right: var(--space-md);
-    padding: var(--space-xs) var(--space-sm);
-    font-size: 0.6875rem;
-  }
-
-  .view-toggle-btn .view-label {
-    display: none;
-  }
-
-  .view-toggle-btn svg {
-    width: 14px;
-    height: 14px;
-  }
 }

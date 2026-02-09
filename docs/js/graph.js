@@ -14,40 +14,29 @@
 
   const CONFIG = {
     simulation: {
-      chargeStrength: -400,      // Stronger repulsion for more spacing
-      linkDistance: 150,         // More distance between connected nodes
-      collisionRadius: 40,       // Larger collision buffer
+      chargeStrength: -150,
+      linkDistance: 80,
+      collisionRadius: 25,
       alphaDecay: 0.02,
       velocityDecay: 0.5,
-      centerStrength: 0.08,      // Gentler centering for more spread
+      centerStrength: 0.15,
     },
     node: {
-      minRadius: 6,
-      maxRadius: 22,
+      minRadius: 8,
+      maxRadius: 25,
       labelOffset: 8,
     },
     zoom: {
-      min: 0.1,                  // Allow more zoom out
+      min: 0.2,
       max: 4,
       step: 0.3,
-      initialScale: 0.6,         // Start more zoomed out
     },
     animation: {
       duration: 300,
-      viewTransition: 800,       // Transition between views
     },
     alive: {
       enabled: true,
-      stanceForce: 0.05,         // Stronger stance-based separation
-    },
-    timeline: {
-      yearStart: 2022,
-      yearEnd: 2026,
-      minNodeRadius: 5,          // Older papers (far)
-      maxNodeRadius: 18,         // Newer papers (near)
-      minOpacity: 0.35,
-      maxOpacity: 1.0,
-      perspectiveNarrow: 0.5,    // How much to narrow at top (past)
+      stanceForce: 0.03, // Gentle push toward stance position
     },
   };
 
@@ -72,9 +61,6 @@
     dialogueVisible: true,
     dialogueInterval: null,
     currentSpeaker: null,
-    currentView: 'network',      // 'network' or 'timeline'
-    width: 0,
-    height: 0,
   };
 
   // ==========================================================================
@@ -115,17 +101,11 @@
     const nodeMap = new Map();
 
     state.nodes = data.nodes.map((node, i) => {
-      // Extract year from date string (e.g., "Jan 2025" -> 2025)
-      const yearMatch = node.date ? node.date.match(/(\d{4})/) : null;
-      const year = yearMatch ? parseInt(yearMatch[1]) : 2024;
-      
       const processed = {
         ...node,
         id: node.id,
         index: i,
         connectionCount: 0,
-        year: year,
-        cluster: node.cluster || 'other',
       };
       nodeMap.set(node.id, processed);
       return processed;
@@ -169,8 +149,8 @@
 
   function createSVG() {
     const container = document.getElementById('graph');
-    state.width = container.clientWidth;
-    state.height = container.clientHeight;
+    const width = container.clientWidth;
+    const height = container.clientHeight;
 
     // Clear any existing SVG
     d3.select('#graph svg').remove();
@@ -179,9 +159,9 @@
     state.svg = d3
       .select('#graph')
       .append('svg')
-      .attr('width', state.width)
-      .attr('height', state.height)
-      .attr('viewBox', [0, 0, state.width, state.height]);
+      .attr('width', width)
+      .attr('height', height)
+      .attr('viewBox', [0, 0, width, height]);
 
     // Add defs for gradients and filters
     const defs = state.svg.append('defs');
@@ -230,10 +210,8 @@
     // Create main group for transformations
     state.g = state.svg.append('g');
 
-    // Center the view - start more zoomed out for better overview
-    const initialTransform = d3.zoomIdentity
-      .translate(state.width / 2, state.height / 2)
-      .scale(CONFIG.zoom.initialScale);
+    // Center the view
+    const initialTransform = d3.zoomIdentity.translate(width / 2, height / 2).scale(0.8);
 
     state.svg.call(state.zoom.transform, initialTransform);
   }
@@ -243,6 +221,10 @@
   // ==========================================================================
 
   function createSimulation() {
+    const container = document.getElementById('graph');
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+
     state.simulation = d3
       .forceSimulation(state.nodes)
       .force(
@@ -251,7 +233,6 @@
           .forceLink(state.links)
           .id((d) => d.id)
           .distance(CONFIG.simulation.linkDistance)
-          .strength(0.3)  // Softer links for more spread
       )
       .force('charge', d3.forceManyBody().strength(CONFIG.simulation.chargeStrength))
       .force('center', d3.forceCenter(0, 0).strength(CONFIG.simulation.centerStrength))
@@ -273,237 +254,25 @@
   // Custom force to push nodes by stance and keep unconnected nodes close
   function stanceForce() {
     return function (alpha) {
-      // Only apply in network view
-      if (state.currentView !== 'network') return;
-      
       const strength = CONFIG.alive.stanceForce * alpha;
 
       state.nodes.forEach((node) => {
         // Supports (green) -> left, Challenges (red) -> right
-        // Balanced (yellow) -> slight center-left (since most evidence supports)
+        // Balanced (yellow) -> center
         if (node.stance === 'supports') {
-          node.vx -= strength * 80; // Push left (stronger)
+          node.vx -= strength * 50; // Push left
         } else if (node.stance === 'challenges') {
-          node.vx += strength * 120; // Push right (even stronger to separate minority)
-        } else {
-          node.vx -= strength * 20; // Balanced slight left
+          node.vx += strength * 50; // Push right
         }
 
-        // Unconnected nodes: moderate pull to center
+        // Unconnected nodes: strong pull to center
         if (node.connectionCount === 0) {
-          node.vx -= node.x * 0.05 * alpha;
-          node.vy -= node.y * 0.05 * alpha;
+          node.vx -= node.x * 0.1 * alpha;
+          node.vy -= node.y * 0.1 * alpha;
         }
       });
     };
   }
-
-  // ==========================================================================
-  // Timeline Layout
-  // ==========================================================================
-
-  // Calculate timeline position for a node
-  function getTimelinePosition(node) {
-    const { yearStart, yearEnd, perspectiveNarrow } = CONFIG.timeline;
-    
-    // Y position: time (older = top, newer = bottom)
-    const yearRange = yearEnd - yearStart;
-    const yearProgress = (node.year - yearStart) / yearRange; // 0 (2022) to 1 (2026)
-    const y = -state.height * 0.4 + yearProgress * state.height * 0.8;
-    
-    // Perspective: older (top) is narrower, newer (bottom) is wider
-    const perspective = perspectiveNarrow + (1 - perspectiveNarrow) * yearProgress;
-    
-    // X position: stance-based with perspective narrowing
-    const maxSpread = state.width * 0.35 * perspective;
-    let baseX;
-    if (node.stance === 'supports') {
-      baseX = -maxSpread * 0.6; // Left side
-    } else if (node.stance === 'challenges') {
-      baseX = maxSpread * 0.8;  // Right side (more spread for visibility)
-    } else {
-      baseX = 0; // Center
-    }
-    
-    // Add cluster-based jitter to spread papers within stance groups
-    const clusterHash = hashString(node.cluster || 'other');
-    const nodeHash = hashString(node.id);
-    const jitterX = ((nodeHash % 100) / 100 - 0.5) * maxSpread * 0.5;
-    const jitterY = ((clusterHash % 100) / 100 - 0.5) * 40;
-    
-    return {
-      x: baseX + jitterX,
-      y: y + jitterY,
-      yearProgress: yearProgress,
-    };
-  }
-
-  // Simple string hash for consistent jitter
-  function hashString(str) {
-    let hash = 0;
-    for (let i = 0; i < str.length; i++) {
-      const char = str.charCodeAt(i);
-      hash = ((hash << 5) - hash) + char;
-      hash = hash & hash;
-    }
-    return Math.abs(hash);
-  }
-
-  // Get node visual properties based on view and time
-  function getNodeRadius(node) {
-    if (state.currentView === 'timeline') {
-      const { minNodeRadius, maxNodeRadius, yearStart, yearEnd } = CONFIG.timeline;
-      const yearProgress = (node.year - yearStart) / (yearEnd - yearStart);
-      // Newer = larger (closer in perspective)
-      return minNodeRadius + (maxNodeRadius - minNodeRadius) * yearProgress;
-    }
-    return node.radius;
-  }
-
-  function getNodeOpacity(node) {
-    if (state.currentView === 'timeline') {
-      const { minOpacity, maxOpacity, yearStart, yearEnd } = CONFIG.timeline;
-      const yearProgress = (node.year - yearStart) / (yearEnd - yearStart);
-      // Newer = more opaque (closer)
-      return minOpacity + (maxOpacity - minOpacity) * yearProgress;
-    }
-    return 1;
-  }
-
-  // Apply timeline layout to all nodes
-  function applyTimelineLayout() {
-    state.nodes.forEach((node) => {
-      const pos = getTimelinePosition(node);
-      node.targetX = pos.x;
-      node.targetY = pos.y;
-    });
-  }
-
-  // Transition between views
-  function transitionToView(viewName) {
-    if (viewName === state.currentView) return;
-    
-    const previousView = state.currentView;
-    state.currentView = viewName;
-    
-    if (viewName === 'timeline') {
-      // Stop force simulation
-      state.simulation.stop();
-      
-      // Calculate target positions
-      applyTimelineLayout();
-      
-      // Animate nodes to timeline positions
-      state.nodeElements
-        .transition()
-        .duration(CONFIG.animation.viewTransition)
-        .ease(d3.easeCubicInOut)
-        .attr('transform', (d) => `translate(${d.targetX},${d.targetY})`)
-        .select('circle')
-        .attr('r', (d) => getNodeRadius(d))
-        .style('opacity', (d) => getNodeOpacity(d));
-      
-      // Update link positions
-      state.linkElements
-        .transition()
-        .duration(CONFIG.animation.viewTransition)
-        .ease(d3.easeCubicInOut)
-        .attr('x1', (d) => {
-          const source = state.nodes.find(n => n.id === (typeof d.source === 'object' ? d.source.id : d.source));
-          return source ? source.targetX : 0;
-        })
-        .attr('y1', (d) => {
-          const source = state.nodes.find(n => n.id === (typeof d.source === 'object' ? d.source.id : d.source));
-          return source ? source.targetY : 0;
-        })
-        .attr('x2', (d) => {
-          const target = state.nodes.find(n => n.id === (typeof d.target === 'object' ? d.target.id : d.target));
-          return target ? target.targetX : 0;
-        })
-        .attr('y2', (d) => {
-          const target = state.nodes.find(n => n.id === (typeof d.target === 'object' ? d.target.id : d.target));
-          return target ? target.targetY : 0;
-        })
-        .style('opacity', (d) => {
-          // Fade older links
-          const source = state.nodes.find(n => n.id === (typeof d.source === 'object' ? d.source.id : d.source));
-          const target = state.nodes.find(n => n.id === (typeof d.target === 'object' ? d.target.id : d.target));
-          if (source && target) {
-            const avgOpacity = (getNodeOpacity(source) + getNodeOpacity(target)) / 2;
-            return avgOpacity * 0.6;
-          }
-          return 0.3;
-        });
-      
-      // After transition, update node positions for hover/click
-      setTimeout(() => {
-        state.nodes.forEach((node) => {
-          node.x = node.targetX;
-          node.y = node.targetY;
-        });
-      }, CONFIG.animation.viewTransition);
-      
-    } else {
-      // Switch back to network view
-      // Re-enable simulation
-      state.simulation.alpha(1).restart();
-      
-      // Reset visual properties
-      state.nodeElements
-        .transition()
-        .duration(CONFIG.animation.viewTransition)
-        .ease(d3.easeCubicInOut)
-        .select('circle')
-        .attr('r', (d) => d.radius)
-        .style('opacity', 1);
-      
-      state.linkElements
-        .transition()
-        .duration(CONFIG.animation.viewTransition)
-        .style('opacity', null); // Reset to CSS default
-    }
-    
-    // Update year labels visibility
-    updateYearLabels();
-  }
-
-  // Add year labels for timeline view
-  function createYearLabels() {
-    const years = [2022, 2023, 2024, 2025, 2026];
-    const { yearStart, yearEnd } = CONFIG.timeline;
-    
-    state.yearLabels = state.g.append('g')
-      .attr('class', 'year-labels')
-      .style('opacity', 0)
-      .selectAll('.year-label')
-      .data(years)
-      .join('text')
-      .attr('class', 'year-label')
-      .attr('x', -state.width * 0.4)
-      .attr('y', (d) => {
-        const yearProgress = (d - yearStart) / (yearEnd - yearStart);
-        return -state.height * 0.4 + yearProgress * state.height * 0.8;
-      })
-      .attr('text-anchor', 'end')
-      .attr('dominant-baseline', 'middle')
-      .text((d) => d)
-      .style('font-size', '14px')
-      .style('font-weight', '600')
-      .style('fill', 'var(--text-secondary)');
-  }
-
-  function updateYearLabels() {
-    if (!state.yearLabels) return;
-    
-    state.g.select('.year-labels')
-      .transition()
-      .duration(CONFIG.animation.viewTransition)
-      .style('opacity', state.currentView === 'timeline' ? 1 : 0);
-  }
-
-  // ==========================================================================
-  // Breathing Animation
-  // ==========================================================================
 
   // Continuous smooth breathing animation - never stops
   function startBreathing() {
@@ -518,8 +287,7 @@
     });
 
     function animate(time) {
-      // Only animate in network view
-      if (!state.breathingPaused && state.currentView === 'network') {
+      if (!state.breathingPaused) {
         const delta = time - lastTime;
 
         // Apply smooth sine-wave motion to each node
@@ -586,9 +354,6 @@
       .on('mouseenter', handleNodeHover)
       .on('mouseleave', handleNodeLeave)
       .on('click', handleNodeClick);
-    
-    // Create year labels for timeline view (hidden initially)
-    createYearLabels();
   }
 
   // ==========================================================================
@@ -611,23 +376,17 @@
 
   function drag(simulation) {
     function dragstarted(event) {
-      // Disable drag in timeline view
-      if (state.currentView === 'timeline') return;
       if (!event.active) simulation.alphaTarget(0.3).restart();
       event.subject.fx = event.subject.x;
       event.subject.fy = event.subject.y;
     }
 
     function dragged(event) {
-      // Disable drag in timeline view
-      if (state.currentView === 'timeline') return;
       event.subject.fx = event.x;
       event.subject.fy = event.y;
     }
 
     function dragended(event) {
-      // Disable drag in timeline view
-      if (state.currentView === 'timeline') return;
       if (!event.active) simulation.alphaTarget(0);
       event.subject.fx = null;
       event.subject.fy = null;
@@ -1082,31 +841,16 @@
   }
 
   function zoomReset() {
-    const transform = d3.zoomIdentity
-      .translate(state.width / 2, state.height / 2)
-      .scale(CONFIG.zoom.initialScale);
+    const container = document.getElementById('graph');
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+
+    const transform = d3.zoomIdentity.translate(width / 2, height / 2).scale(0.8);
 
     state.svg
       .transition()
       .duration(CONFIG.animation.duration)
       .call(state.zoom.transform, transform);
-  }
-
-  // ==========================================================================
-  // View Toggle
-  // ==========================================================================
-
-  function updateViewToggleButton() {
-    const btn = document.getElementById('view-toggle');
-    if (!btn) return;
-
-    const label = btn.querySelector('.view-label');
-    const isTimeline = state.currentView === 'timeline';
-
-    btn.classList.toggle('active', isTimeline);
-    if (label) {
-      label.textContent = isTimeline ? 'Network' : 'Timeline';
-    }
   }
 
   // ==========================================================================
@@ -1500,16 +1244,6 @@
     document.getElementById('zoom-out').addEventListener('click', zoomOut);
     document.getElementById('zoom-reset').addEventListener('click', zoomReset);
 
-    // View toggle
-    const viewToggle = document.getElementById('view-toggle');
-    if (viewToggle) {
-      viewToggle.addEventListener('click', () => {
-        const newView = state.currentView === 'network' ? 'timeline' : 'network';
-        transitionToView(newView);
-        updateViewToggleButton();
-      });
-    }
-
     // Thesis card toggle - double-click to hide
     const thesisCard = document.getElementById('thesis-card');
     if (thesisCard) {
@@ -1600,14 +1334,8 @@
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(() => {
-        const wasTimeline = state.currentView === 'timeline';
         createSVG();
         createElements();
-        // Restore timeline view if active
-        if (wasTimeline) {
-          state.currentView = 'network'; // Reset so transition runs
-          transitionToView('timeline');
-        }
       }, 250);
     });
 
@@ -1621,12 +1349,6 @@
       if (e.key === '/' && !e.target.matches('input')) {
         e.preventDefault();
         searchInput.focus();
-      }
-      // T to toggle timeline view
-      if (e.key === 't' && !e.target.matches('input') && !e.metaKey && !e.ctrlKey) {
-        const newView = state.currentView === 'network' ? 'timeline' : 'network';
-        transitionToView(newView);
-        updateViewToggleButton();
       }
     });
   }
