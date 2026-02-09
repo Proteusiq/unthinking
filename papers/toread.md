@@ -70,8 +70,8 @@ Papers promoted from `toevaluate.md` after manual triage of 76 auto-discovered p
 
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
-| 2602.04288 | **Contextual Drag: How Errors in the Context Affect LLM Reasoning** | 🟠 HIGH | 10-20% drops from contextual drag across 11 models; "reasoning trajectories inherit error patterns" — supports pattern-matching thesis |
-| 2602.01017 | **How Does Unfaithful Reasoning Emerge from Autoregressive Training?** | 🟠 HIGH | Controlled synthetic experiments. Faithful reasoning only when noise < threshold (simplicity bias). Transition from faithful → skip-step reasoning |
+| ~~2602.04288~~ | ~~**Contextual Drag: How Errors in the Context Affect LLM Reasoning**~~ | ✅ DONE | Analyzed as Paper 180 |
+| ~~2602.01017~~ | ~~**How Does Unfaithful Reasoning Emerge from Autoregressive Training?**~~ | ✅ DONE | Analyzed as Paper 172 |
 | 2602.04212 | **Language Models Struggle to Use Representations Learned In-Context** | 🟠 HIGH | LLMs encode novel semantics BUT can't deploy them. Even SOTA reasoning models "cannot reliably leverage novel patterns in-context" |
 | 2602.02103 | **No Global Plan in Chain-of-Thought: Uncover the Latent Planning Horizon** | 🟠 HIGH | Tele-Lens probing: "LLMs exhibit myopic horizon, incremental transitions without global planning" — direct evidence against planning |
 | 2602.01763 | **A Provable Expressiveness Hierarchy in Hybrid Linear-Full Attention** | 🟠 HIGH | First provable separation: (L+1) full attention sufficient for function composition, but L-1 full + 2^{3L²} linear CANNOT |
@@ -102,7 +102,7 @@ Papers promoted from `toevaluate.md` after manual triage of 76 auto-discovered p
 
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
-| 2602.04843 | **Fluid Representations in Reasoning Models** | 🔴 CRITICAL | Claims QwQ-32B "gradually improves internal representation during reasoning." Shows abstract encodings. **Could challenge pattern-matching thesis** — must evaluate critically |
+| ~~2602.04843~~ | ~~**Fluid Representations in Reasoning Models**~~ | ✅ DONE | Analyzed as Paper 170 — supports thesis after critical evaluation |
 | 2602.03837 | **Accelerating Scientific Research with Gemini** | 🟡 MEDIUM | Google claims Gemini contributed to "novel mathematical discovery." Case studies — check evidence quality |
 
 ---

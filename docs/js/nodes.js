@@ -3608,4 +3608,28 @@ window.paperNodes = [
       ],
       analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/170-179/179_llms_and_emergence.md',
     },
+    // Paper 180: Contextual Drag
+    {
+      id: '2602.04288',
+      title: 'Contextual Drag: How Errors in the Context Affect LLM Reasoning',
+      shortTitle: 'Contextual Drag',
+      date: 'Feb 2026',
+      stance: 'supports',
+      cluster: 'evidence',
+      coreArgument:
+        'Failed reasoning attempts in context bias subsequent generations toward structurally similar errors. Neither external feedback nor self-verification eliminates this effect. Iterative self-refinement can collapse into self-deterioration.',
+      keyEvidence: [
+        '10-20% drops across 11 models, 8 tasks',
+        'GPT-OSS-20B: 51.88% -> 17.50% on AIME24',
+        'Tree edit distance proves structural inheritance',
+        'External error signals insufficient',
+        'Self-deterioration in iterative refinement',
+      ],
+      keyQuotes: [
+        "Contextual drag is not only a performance phenomenon but a systematic structural distortion of reasoning.",
+        "Iterative self-refinement in models with severe contextual drag can collapse into self-deterioration.",
+        "We demonstrate that neither external feedback nor successful self-verification suffices to eliminate this effect."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/180-189/180_contextual_drag.md',
+    },
 ];

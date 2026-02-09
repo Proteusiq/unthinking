@@ -3395,4 +3395,150 @@ window.paperLinks = [
       type: 'extends',
       description: 'Provides theoretical framing for mechanistic findings',
     },
+    // Additional cross-connections for Papers 175-179
+    // Paper 176 (LiveCodeBench Pro) additional links
+    {
+      source: '2506.11928',
+      target: '2507.14417',
+      type: 'supports',
+      description: 'Both show scaling compute/complexity leads to failure',
+    },
+    {
+      source: '2506.11928',
+      target: '2506.11135',
+      type: 'supports',
+      description: 'Both distinguish capability from intelligence',
+    },
+    // Paper 177 (Abstract vs Compute) additional links
+    {
+      source: '2505.23701',
+      target: '2602.01017',
+      type: 'supports',
+      description: 'Both use mechanistic analysis to decompose reasoning',
+    },
+    {
+      source: '2505.23701',
+      target: '2307.13702',
+      type: 'supports',
+      description: 'Both show CoT is not faithful to internal computation',
+    },
+    // Paper 178 (Trilemma) additional links
+    {
+      source: '2506.23921',
+      target: '2509.11208',
+      type: 'supports',
+      description: 'Both provide theoretical foundations for hallucination/truth failures',
+    },
+    {
+      source: '2506.23921',
+      target: '2506.11135',
+      type: 'supports',
+      description: 'Both argue LLMs encode probabilistic associations, not truth',
+    },
+    // Paper 179 (Mitchell Emergence) additional links
+    {
+      source: '2506.11135',
+      target: '2410.21272',
+      type: 'supports',
+      description: 'Both show heuristics/complexity, not elegant algorithms',
+    },
+    {
+      source: '2506.11135',
+      target: '2507.14417',
+      type: 'supports',
+      description: 'Both show more compute ≠ better reasoning',
+    },
+    {
+      source: '2506.11135',
+      target: '2506.11928',
+      type: 'supports',
+      description: 'Both distinguish capability (LLMs) from intelligence (humans)',
+    },
+    // Connect Paper 175 (Uncommon Meanings) to more papers
+    {
+      source: '2405.05741',
+      target: '2302.00093',
+      type: 'supports',
+      description: 'Both show frequency/context determines performance, not understanding',
+    },
+    {
+      source: '2405.05741',
+      target: '2506.11135',
+      type: 'supports',
+      description: 'Both show training distribution bounds capability',
+    },
+    // Cross-connect new papers to each other
+    {
+      source: '2506.11928',
+      target: '2505.23701',
+      type: 'supports',
+      description: 'Both decompose performance into components; knowledge vs insight',
+    },
+    {
+      source: '2506.23921',
+      target: '2505.23701',
+      type: 'supports',
+      description: 'Both use mechanistic probing to understand internal representations',
+    },
+    // Paper 180: Contextual Drag links
+    {
+      source: '2602.04288',
+      target: '2310.13548',
+      type: 'supports',
+      description: 'Both show context biases LLMs toward errors; sycophancy mechanism',
+    },
+    {
+      source: '2602.04288',
+      target: '2302.00093',
+      type: 'supports',
+      description: 'Both show contextual information can override correct reasoning',
+    },
+    {
+      source: '2602.04288',
+      target: '2305.04388',
+      type: 'supports',
+      description: 'Both show context induces systematic reasoning errors',
+    },
+    {
+      source: '2602.04288',
+      target: '2602.01017',
+      type: 'supports',
+      description: 'Both show autoregressive models inherit patterns from context',
+    },
+    {
+      source: '2602.04288',
+      target: '2501.18585',
+      type: 'supports',
+      description: 'Both show iterative approaches can fail to improve reasoning',
+    },
+    {
+      source: '2602.04288',
+      target: '2601.15436',
+      type: 'extends',
+      description: 'Extends sycophancy analysis to reasoning tasks',
+    },
+    {
+      source: '2602.04288',
+      target: '2412.21187',
+      type: 'supports',
+      description: 'Both document reasoning inefficiency in self-improvement loops',
+    },
+    {
+      source: '2602.04288',
+      target: '2506.11135',
+      type: 'supports',
+      description: 'Both challenge capability from mistakes = intelligence',
+    },
+    {
+      source: '2602.04288',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Both show reasoning fragility under perturbation',
+    },
+    {
+      source: '2602.04288',
+      target: '2502.03373',
+      type: 'challenges',
+      description: 'Challenges claim that long CoT enables self-correction',
+    },
 ];

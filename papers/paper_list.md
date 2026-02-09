@@ -328,6 +328,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 177 | 2505.23701 | May 2025 | Can LLMs Reason Abstractly Over Math Word Problems Without CoT? (Mila/McGill) | Supports | ✅ DONE |
 | 178 | 2506.23921 | Jun 2025 | The Trilemma of Truth in Large Language Models (NeurIPS 2025 Workshop) | Supports | ✅ DONE |
 | 179 | 2506.11135 | Jun 2025 | Large Language Models and Emergence: A Complex Systems Perspective (Melanie Mitchell) | Strongly Supports | ✅ DONE |
+| 180 | 2602.04288 | Feb 2026 | Contextual Drag: How Errors in Context Affect LLM Reasoning (Princeton, ICML 2026) | Strongly Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -343,11 +344,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 179
-- **Against Reasoning**: ~101
+- **Total Papers**: 180
+- **Against Reasoning**: ~102
 - **For Reasoning**: ~31
 - **Balanced**: ~47
 - **Date Range**: 2021-2026
-- **Analyzed**: 179
+- **Analyzed**: 180
 
 ---
