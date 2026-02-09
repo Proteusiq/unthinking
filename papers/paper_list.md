@@ -324,6 +324,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 173 | 2507.08794 | Jul 2025 | One Token to Fool LLM-as-a-Judge | Strongly Supports | ✅ DONE |
 | 174 | 2507.14417 | Jul 2025 | Inverse Scaling in Test-Time Compute (TMLR Featured) | Strongly Supports | ✅ DONE |
 | 175 | 2405.05741 | May 2024 | Can Large Language Models Understand Uncommon Meanings of Common Words? (NAACL 2024) | Strongly Supports | ✅ DONE |
+| 176 | 2506.11928 | Jun 2025 | LiveCodeBench Pro: How Do Olympiad Medalists Judge LLMs in Competitive Programming? | Strongly Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -339,11 +340,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 175
-- **Against Reasoning**: ~97
+- **Total Papers**: 176
+- **Against Reasoning**: ~98
 - **For Reasoning**: ~31
 - **Balanced**: ~47
 - **Date Range**: 2021-2026
-- **Analyzed**: 175
+- **Analyzed**: 176
 
 ---

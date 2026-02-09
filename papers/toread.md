@@ -44,7 +44,7 @@ Papers from your Italy Summer 2025 reading not yet analyzed.
 | [2402.06702](https://arxiv.org/abs/2402.06702) | **Mind Your Tone (Politeness)** | 🟠 MED | Prompt sensitivity |
 | ~~[2507.08794](https://arxiv.org/abs/2507.08794)~~ | ~~**One Token to Fool LLM-as-a-Judge**~~ | ✅ DONE | Analyzed as Paper 173 |
 | ~~[2405.05741](https://arxiv.org/abs/2405.05741)~~ | ~~**Can LLMs Understand Uncommon Meanings?**~~ | ✅ DONE | Analyzed as Paper 175 |
-| [2506.11928](https://arxiv.org/abs/2506.11928) | **LiveCodeBench Pro: Olympiad Medalists Judge LLMs** | 🔴 HIGH | 0% on hard problems; success = implementation not reasoning |
+| ~~[2506.11928](https://arxiv.org/abs/2506.11928)~~ | ~~**LiveCodeBench Pro: Olympiad Medalists Judge LLMs**~~ | ✅ DONE | Analyzed as Paper 176 |
 | [2505.23701](https://arxiv.org/abs/2505.23701) | **Can LLMs Reason Abstractly Without CoT?** | 🔴 HIGH | CoT primarily aids computation, not abstract formulation |
 | ~~[2507.14417](https://arxiv.org/abs/2507.14417)~~ | ~~**Inverse Scaling in Test-Time Compute**~~ | ✅ DONE | Analyzed as Paper 174 (TMLR Featured) |
 | [2506.11135](https://arxiv.org/abs/2506.11135) | **LLMs and Emergence** (Melanie Mitchell) | 🔴 HIGH | Complex systems perspective on emergence & intelligence |

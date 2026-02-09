@@ -3253,4 +3253,47 @@ window.paperLinks = [
       type: 'supports',
       description: 'Both show training distribution bounds understanding',
     },
+    // Paper 176: LiveCodeBench Pro links
+    {
+      source: '2506.11928',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Both show complete failure at complexity thresholds (0% hard tier)',
+    },
+    {
+      source: '2506.11928',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Both show distribution-bounded capabilities; pattern matching',
+    },
+    {
+      source: '2506.11928',
+      target: '2506.18880',
+      type: 'supports',
+      description: 'Same compositional/complexity collapse pattern',
+    },
+    {
+      source: '2506.11928',
+      target: '2601.14456',
+      type: 'supports',
+      description: 'ID→OOD accuracy gap; easy→hard collapse',
+    },
+    {
+      source: '2506.11928',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Both show training distribution bounds performance',
+    },
+    {
+      source: '2506.11928',
+      target: '2506.12286',
+      type: 'supports',
+      description: 'Both show high scores reflect memorization, not reasoning',
+    },
+    {
+      source: '2506.11928',
+      target: '2503.21934',
+      type: 'supports',
+      description: 'Both show frontier models fail on expert-level problems',
+    },
 ];
