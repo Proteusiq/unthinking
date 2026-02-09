@@ -3541,4 +3541,59 @@ window.paperLinks = [
       type: 'challenges',
       description: 'Challenges claim that long CoT enables self-correction',
     },
+    // Paper 181: No Global Plan in CoT links
+    {
+      source: '2602.02103',
+      target: '2305.15771',
+      type: 'supports',
+      description: 'Both show LLMs lack genuine planning capabilities',
+    },
+    {
+      source: '2602.02103',
+      target: '2409.13373',
+      type: 'supports',
+      description: 'Both provide evidence against planning in LLMs',
+    },
+    {
+      source: '2602.02103',
+      target: '2403.04121',
+      type: 'supports',
+      description: 'Both support Kambhampati skeptic view on reasoning',
+    },
+    {
+      source: '2602.02103',
+      target: '2504.09762',
+      type: 'supports',
+      description: 'Both show CoT traces lack semantic planning',
+    },
+    {
+      source: '2602.02103',
+      target: '2402.18312',
+      type: 'extends',
+      description: 'Extends mechanistic probing to understand planning horizon',
+    },
+    {
+      source: '2602.02103',
+      target: '2404.15758',
+      type: 'supports',
+      description: 'Both show CoT provides compute steps, not planning',
+    },
+    {
+      source: '2602.02103',
+      target: '2502.03373',
+      type: 'extends',
+      description: 'Extends understanding of WHY long CoT helps',
+    },
+    {
+      source: '2602.02103',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Both show compositional tasks require step-by-step computation',
+    },
+    {
+      source: '2602.02103',
+      target: '2602.04288',
+      type: 'supports',
+      description: 'Both show LLMs operate locally without global understanding',
+    },
 ];

@@ -3632,4 +3632,28 @@ window.paperNodes = [
       ],
       analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/180-189/180_contextual_drag.md',
     },
+    // Paper 181: No Global Plan in CoT
+    {
+      id: '2602.02103',
+      title: 'No Global Plan in Chain-of-Thought: Uncover the Latent Planning Horizon of LLMs',
+      shortTitle: 'No Global Plan',
+      date: 'Feb 2026',
+      stance: 'supports',
+      cluster: 'mechanistic',
+      coreArgument:
+        'LLMs exhibit myopic horizon — incremental transitions without precise global planning. Final-answer probing at random (50%) until last step. Coarse early signals are vague perceptual cues, not pre-planned reasoning paths.',
+      keyEvidence: [
+        'Final answer planned only 1 step before completion',
+        'Parity: 0.51 -> 0.97 accuracy at last step',
+        'Subsequent token F1: 0.90 -> 0.03 at offset 16',
+        '16.2% CoT bypass with only 0.03 accuracy drop',
+        'Wooden Barrel: few pivot positions determine reliability',
+      ],
+      keyQuotes: [
+        "LLMs exhibit a myopic horizon, primarily conducting incremental transitions without precise global planning.",
+        "The coarse predictive signals primarily reflect a vague perceptual cue, but not resulting from exercising a pre-planned reasoning path.",
+        "For explicit compositional tasks, hidden states can reliably capture the precise answer only one or two steps away from reasoning completion."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/180-189/181_no_global_plan_cot.md',
+    },
 ];
