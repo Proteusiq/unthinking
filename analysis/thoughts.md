@@ -1,7 +1,7 @@
 # Thoughts: Cross-Paper Synthesis and Missing Connections
 
-> **Last updated**: 2026-02-02
-> **Papers analyzed**: 160 (corpus frozen for deep analysis)
+> **Last updated**: 2026-02-09
+> **Papers analyzed**: 160+ (ongoing)
 
 ## Overview
 
@@ -69,6 +69,8 @@ After analyzing all 160 papers, this document captures:
 
 **Implication**: We cannot trust stated reasoning as window into computation. "Thinking" is often performance, not process.
 
+**2025+ Consensus**: CoT is neither fully fake nor fully real — it is a **lossy projection** of internal computation. Some internal computation mediates the answer, but the explanation is a compressed projection that may not faithfully represent the causal path.
+
 ---
 
 ### Theme 4: Tool Augmentation Debate (PARTIALLY RESOLVED)
@@ -122,6 +124,24 @@ After analyzing all 160 papers, this document captures:
 
 2. **DeepSeek-R1 (2501.12948)**: "Aha moments" emerge without training
    - **BUT**: Interplay shows this requires pre-training seeds
+
+**The Reconciliation (2025+ view)**:
+
+Models contain **algorithmic subcircuits**, but the whole model is **not an algorithm**. They simulate reasoning using pieces of real reasoning.
+
+| Level | Nature |
+|-------|--------|
+| Token | Statistical pattern completion |
+| Circuit | Real computation (localized) |
+| Whole model | Heuristic simulation |
+
+This explains why:
+- CoT helps → gives model structure to simulate reasoning
+- CoT lies → explanation ≠ causal path
+- Math breaks with noise → fragile heuristic routing
+- Search helps → compensates for lack of persistent state
+- Mechanistic circuits exist → local algorithms learned
+- General reasoning unstable → no global algorithm
 
 ---
 
@@ -349,6 +369,13 @@ Only Temporal Cognition (2507.15851) addresses this:
 │  - Prioritizes social patterns (agreement) over epistemic ones (truth)          │
 │                                                                                 │
 │  This is PRACTICAL but PREDICTIVE, not GENERATIVE reasoning.                    │
+│                                                                                 │
+│  REFRAMED (2025+):                                                              │
+│  LLMs are PREDICTIVE SIMULATORS of reasoning traces.                            │
+│  They do NOT: run a reasoning process to produce text                           │
+│  They DO: predict the text of a reasoning process                               │
+│  BUT: to predict accurately, parts of the network learn                         │
+│       internal computations resembling algorithms.                              │
 └────────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -475,6 +502,12 @@ Can LLMs Reason and Plan (131): "Universal approximate retrieval"
 4. **Training Data Coverage**: Can we engineer training to cover compositional space? Paper 75 suggests 4K targeted > 52K random.
 
 5. **Faithfulness-Accuracy Tradeoff**: Paper 62 shows all interventions fail. Is faithful reasoning achievable?
+
+6. **The Reframed Question**: Instead of "Are LLMs pattern matching?", the modern question is: **When does pattern matching become computation?** The current best answer: LLMs are compression systems that sometimes instantiate real computation when it minimizes prediction error.
+
+7. **Fundamental vs Fixable**: The biggest disagreement in the field (2025+):
+   - **Limits camp**: Scaling cannot produce stable general reasoning (Illusion of Thinking, Context Rot, Hallucination Inevitable)
+   - **Fixable camp**: Reasoning emerges when the model is allowed to search (Tree/Graph search, Tool-augmented reasoning)
 
 ---
 
