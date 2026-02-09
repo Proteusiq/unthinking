@@ -1,4 +1,4 @@
-> **Based on systematic analysis of 160+ peer-reviewed papers (2022-2026)**
+> **Based on systematic analysis of 166 peer-reviewed papers (2022-2026)**
 >
 > Full corpus: [github.com/Proteusiq/unthinking](https://github.com/Proteusiq/unthinking)
 

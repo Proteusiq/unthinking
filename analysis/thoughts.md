@@ -1,11 +1,11 @@
 # Thoughts: Cross-Paper Synthesis and Missing Connections
 
 > **Last updated**: 2026-02-09
-> **Papers analyzed**: 160+ (ongoing)
+> **Papers analyzed**: 166 (ongoing)
 
 ## Overview
 
-After analyzing all 160 papers, this document captures:
+After analyzing all 166 papers, this document captures:
 1. Major themes and how papers interconnect
 2. Papers that talk to each other (support, challenge, extend)
 3. The narrative arc of the field (2022-2026)
@@ -31,8 +31,10 @@ After analyzing all 160 papers, this document captures:
 | **CoT Without Prompting (2402.10200)** | Reasoning exists in top-k tokens, hidden by greedy decoding |
 | **Emergent Hierarchical Reasoning (2509.03646)** | "RL rediscovers pre-training priors" |
 | **How LLMs Learn to Reason (2509.23629)** | RL "weaves" existing skill islands |
+| **Mechanistic Understanding of CoT (2402.18312)** | First mechanistic analysis: "functional rift" at layer 16; induction circuits, not symbolic reasoning |
+| **Hallucination is Inevitable (2401.11817)** | **THEORETICAL FOUNDATION**: Computability proof that hallucination is mathematically inevitable; self-correction cannot eliminate it |
 
-**Implication**: The "thinking" that appears to emerge from RL was always there — RL is activation, not creation.
+**Implication**: The "thinking" that appears to emerge from RL was always there — RL is activation, not creation. Paper 165 proves this is a **fundamental limit** — no amount of training or self-correction can escape it.
 
 ---
 
@@ -49,8 +51,9 @@ After analyzing all 160 papers, this document captures:
 | **OMEGA (2506.18880)** | >69% isolated skills → near-0% composed; 0% transformative |
 | **Compositional-ARC (2504.01445)** | 64% 3-shot → 0.53% systematicity (o3-mini) |
 | **GSM-Symbolic (2410.05229)** | Up to 65% drop from irrelevant info |
+| **SWE-Bench Illusion (2506.12286)** | 76% file path accuracy on SWE-Bench vs <53% on external repos; up to 31.6% verbatim match = memorization |
 
-**The pattern is consistent**: High ID accuracy creates illusion of capability; OOD testing reveals pattern matching.
+**The pattern is consistent**: High ID accuracy creates illusion of capability; OOD testing reveals pattern matching. Paper 166 shows even SWE-Bench success may be memorization, not reasoning.
 
 ---
 
@@ -66,8 +69,9 @@ After analyzing all 160 papers, this document captures:
 | **CoT In The Wild (2503.17276)** | 0.04-13% faithful on natural prompts |
 | **FaithCoT-Bench (2510.04040)** | 20% → 74% OOD unfaithfulness |
 | **Hardness of Faithful CoT (2406.10625)** | Faithfulness-accuracy tradeoff; ALL interventions fail |
+| **Proof or Bluff (2503.21934)** | Expert human evaluation: Best model 25%, all others <5%; automated grading overestimated 20x; logic errors dominant |
 
-**Implication**: We cannot trust stated reasoning as window into computation. "Thinking" is often performance, not process.
+**Implication**: We cannot trust stated reasoning as window into computation. "Thinking" is often performance, not process. Paper 164 shows automated evaluation CANNOT detect unfaithfulness — human experts required.
 
 **2025+ Consensus**: CoT is neither fully fake nor fully real — it is a **lossy projection** of internal computation. Some internal computation mediates the answer, but the explanation is a compressed projection that may not faithfully represent the causal path.
 
@@ -318,11 +322,11 @@ Only Temporal Cognition (2507.15851) addresses this:
 
 ---
 
-## Synthesis: The Picture from 160 Papers
+## Synthesis: The Picture from 166 Papers
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────┐
-│                    THE PICTURE EMERGING FROM 160 PAPERS                         │
+│                    THE PICTURE EMERGING FROM 166 PAPERS                         │
 │                                                                                 │
 │  1. CAPABILITY EXISTS                                                           │
 │     - Pre-training creates latent reasoning patterns                            │
@@ -383,7 +387,7 @@ Only Temporal Cognition (2507.15851) addresses this:
 
 ## The Seven Pillars of Evidence
 
-After cross-analyzing 160 papers, the evidence converges on seven distinct pillars:
+After cross-analyzing 166 papers, the evidence converges on seven distinct pillars:
 
 | Pillar | Core Finding | Key Papers | Strongest Number |
 |--------|--------------|------------|------------------|
@@ -469,13 +473,13 @@ Can LLMs Reason and Plan (131): "Universal approximate retrieval"
 
 ---
 
-## Statistical Summary (160 Papers)
+## Statistical Summary (166 Papers)
 
 | Stance | Count | Percentage |
 |--------|-------|------------|
-| **Supports thesis** | 118 | 73.75% |
-| **Balanced** | 35 | 21.88% |
-| **Challenges thesis** | 7 | 4.37% |
+| **Supports thesis** | 122 | 73.5% |
+| **Balanced** | 37 | 22.3% |
+| **Challenges thesis** | 7 | 4.2% |
 
 ### By Evidence Type
 
@@ -513,7 +517,7 @@ Can LLMs Reason and Plan (131): "Universal approximate retrieval"
 
 ## Deferred Papers (Maybe Later)
 
-Corpus frozen at 160 papers. These remain for potential future analysis:
+Corpus at 166 papers. These remain for potential future analysis:
 
 | arXiv ID | Title | Why Deferred |
 |----------|-------|--------------|
@@ -526,7 +530,7 @@ Corpus frozen at 160 papers. These remain for potential future analysis:
 
 ## Status
 
-- [x] Analyzed 160 papers
+- [x] Analyzed 166 papers
 - [x] Identified seven pillars of evidence
 - [x] Mapped paper conversations and rebuttal chains
 - [x] Created comprehensive mindmap (mindmap.md)
