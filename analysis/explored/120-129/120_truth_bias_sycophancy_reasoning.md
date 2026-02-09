@@ -204,4 +204,4 @@ This paper provides **critical evidence** for the pattern-matching thesis:
 - [x] Key evidence with numbers
 - [x] Methodology documented
 - [x] Rebuttals checked
-- [ ] Paper graph updated
+- [x] Paper graph updated

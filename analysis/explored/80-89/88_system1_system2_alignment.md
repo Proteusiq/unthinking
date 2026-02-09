@@ -227,5 +227,5 @@ The paper is balanced because:
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] Rebuttals checked
-- [ ] Paper graph updated
-- [ ] data.js updated
+- [x] Paper graph updated
+- [x] nodes.js updated

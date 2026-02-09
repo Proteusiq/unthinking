@@ -241,7 +241,7 @@ This paper reveals a DIFFERENT failure mode than OOD generalization:
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] **Rebuttals checked**
-- [ ] **Paper graph updated**
+- [x] Paper graph updated
 
 ---
 

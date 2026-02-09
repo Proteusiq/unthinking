@@ -129,4 +129,4 @@ The paper shows Transformers *can* compute TC⁰ functions with pause tokens (ex
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] Rebuttals checked
-- [ ] Paper graph updated
+- [x] Paper graph updated

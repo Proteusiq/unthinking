@@ -180,7 +180,7 @@ This aligns with the thesis that LLMs are pattern matchers, not reasoners.
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] Rebuttals checked
-- [ ] Paper graph updated
+- [x] Paper graph updated
 - [ ] Full paper read (HTML unavailable, based on abstract + related work)
 
 ---

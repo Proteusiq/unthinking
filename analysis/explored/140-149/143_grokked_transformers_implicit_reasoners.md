@@ -214,4 +214,4 @@ This paper provides the **mechanistic explanation** for why:
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] **Rebuttals checked**
-- [ ] **Paper graph updated**
+- [x] Paper graph updated

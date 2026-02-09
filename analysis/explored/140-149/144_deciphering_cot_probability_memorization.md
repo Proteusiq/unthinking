@@ -216,4 +216,4 @@ The paper's framing — "probabilistic version of genuine reasoning" — is gene
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] **Rebuttals checked**
-- [ ] **Paper graph updated**
+- [x] Paper graph updated

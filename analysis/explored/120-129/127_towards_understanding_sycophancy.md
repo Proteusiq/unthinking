@@ -212,4 +212,4 @@ No direct rebuttals found. This is a foundational empirical paper widely cited.
 - [x] Cross-references identified
 - [x] **Rebuttals checked**
 - [x] **Critical assessment included**
-- [ ] **Paper graph updated**
+- [x] Paper graph updated

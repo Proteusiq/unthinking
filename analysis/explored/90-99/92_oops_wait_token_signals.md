@@ -146,7 +146,7 @@ This means:
 - [ ] Key evidence with numbers (not available)
 - [x] Cross-references identified
 - [x] Rebuttals checked
-- [ ] Paper graph updated
+- [x] Paper graph updated
 
 ---
 

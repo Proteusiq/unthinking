@@ -206,7 +206,7 @@ The fact that a statistical technique (majority voting) dramatically improves "r
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] **Rebuttals checked**
-- [ ] **Paper graph updated**
+- [x] Paper graph updated
 
 ---
 

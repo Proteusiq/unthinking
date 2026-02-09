@@ -218,7 +218,7 @@ Provides **deployable solution**: ISR-based answer/abstain decisions achieve nea
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] Rebuttals checked
-- [ ] Paper graph updated
+- [x] Paper graph updated
 
 ---
 

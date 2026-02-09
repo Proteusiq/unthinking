@@ -184,4 +184,4 @@ This paper identifies **evaluation artifacts** but doesn't actually demonstrate 
 - [x] Cross-references identified
 - [x] **Rebuttals checked** (this IS a rebuttal)
 - [x] **Critical assessment included**
-- [ ] **Paper graph updated**
+- [x] Paper graph updated

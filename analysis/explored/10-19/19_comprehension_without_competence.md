@@ -289,7 +289,7 @@ No direct arXiv rebuttal found.
 - [x] Critical analysis
 - [x] Cross-references identified
 - [x] **Rebuttals checked** — None found
-- [ ] **Paper graph updated**
+- [x] Paper graph updated
 
 ---
 

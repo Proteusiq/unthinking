@@ -291,5 +291,5 @@ This is a **foundational paper** for the "against" side. It:
 - [x] Analyzed
 - [x] Graph links identified
 - [x] Interaction diagram created
-- [ ] Cross-referenced with rebuttals
-- [ ] Critical cited papers evaluated
+- [x] Cross-referenced with rebuttals
+- [x] Critical cited papers evaluated

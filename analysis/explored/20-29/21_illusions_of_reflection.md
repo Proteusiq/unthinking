@@ -279,4 +279,4 @@ This directly challenges the "scaling reasoning" hypothesis.
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] Rebuttals checked
-- [ ] Paper graph updated (need to do)
+- [x] Paper graph updated

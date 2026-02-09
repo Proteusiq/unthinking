@@ -225,4 +225,4 @@ No direct rebuttals found (January 2025 paper).
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] **Rebuttals checked**
-- [ ] **Paper graph updated**
+- [x] Paper graph updated

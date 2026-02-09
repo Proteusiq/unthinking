@@ -212,6 +212,6 @@ The paper demonstrates that:
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] Rebuttals checked
-- [ ] Paper graph updated
-- [ ] nodes.js updated
-- [ ] links.js updated
+- [x] Paper graph updated
+- [x] nodes.js updated
+- [x] links.js updated

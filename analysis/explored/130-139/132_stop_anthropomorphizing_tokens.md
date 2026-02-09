@@ -193,4 +193,4 @@ No direct rebuttals found (May 2025 position paper).
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] **Rebuttals checked**
-- [ ] **Paper graph updated**
+- [x] Paper graph updated

@@ -201,7 +201,7 @@ Without causal analysis, correlation doesn't resolve the debate.
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] **Rebuttals checked**
-- [ ] **Paper graph updated**
+- [x] Paper graph updated
 
 ---
 
