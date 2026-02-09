@@ -315,6 +315,9 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 164 | 2503.21934 | Mar 2025 | Proof or Bluff? Evaluating LLMs on 2025 USA Math Olympiad | Strongly Supports | ✅ DONE |
 | 165 | 2401.11817 | Jan 2024 | Hallucination is Inevitable: An Innate Limitation of Large Language Models | Strongly Supports | ✅ DONE |
 | 166 | 2506.12286 | Jun 2025 | The SWE-Bench Illusion: When State-of-the-Art LLMs Remember Instead of Reason | Strongly Supports | ✅ DONE |
+| 167 | 2301.13379 | Jan 2023 | Faithful Chain-of-Thought Reasoning (Lyu et al., IJCNLP-AACL 2023) | Supports | ✅ DONE |
+| 168 | 2509.11208 | Sep 2025 | Predictable Compression Failures: Why Language Models Actually Hallucinate | Strongly Supports | ✅ DONE |
+| 169 | 2405.15092 | May 2024 | Dissociation of Faithful and Unfaithful Reasoning in LLMs (UC San Diego) | Strongly Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |

@@ -650,6 +650,30 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **System 1&2 Synergy (2601.21414)** | **extends** | **Underthinking (2501.18585)** | **DAMI could address underthinking via dynamic λ** |
 | **System 1&2 Synergy (2601.21414)** | **provides evidence for** | **Pattern matching thesis** | **Linear interpolation works; "thinking" is quantitative (λ parameter), not qualitative capability** |
 
+### Papers 167-169: Faithfulness and Hallucination Theory
+
+| Paper A | Relationship | Paper B | Evidence |
+|---------|--------------|---------|----------|
+| **Faithful CoT (2301.13379)** | **extends** | **Measuring Faithfulness (2307.13702)** | Provides constructive solution via neuro-symbolic framework |
+| **Faithful CoT (2301.13379)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | Both confirm CoT doesn't reflect internal computation |
+| **Faithful CoT (2301.13379)** | **supports** | **CoT In The Wild (2503.08679)** | Both document unfaithfulness; Faithful CoT proposes fix |
+| **Faithful CoT (2301.13379)** | **extends** | **Original CoT (2201.11903)** | Proposes solution to CoT's faithfulness limitation |
+| **Faithful CoT (2301.13379)** | **provides mechanism for** | **LLM-Modulo (Kambhampati)** | Concrete neuro-symbolic implementation |
+| **Faithful CoT (2301.13379)** | **provides evidence for** | **Pattern matching thesis** | LLMs good at TRANSLATION (pattern matching); need SOLVERS for execution |
+| **Predictable Compression Failures (2509.11208)** | **extends** | **Hallucination Inevitable (2401.11817)** | Complementary theoretical foundations (compression vs computability) |
+| **Predictable Compression Failures (2509.11208)** | **supports** | **HalluGuard (2601.18753)** | Both analyze hallucination mechanisms |
+| **Predictable Compression Failures (2509.11208)** | **provides mechanism for** | **CoT Compression (2601.21576)** | Both use information-theoretic analysis |
+| **Predictable Compression Failures (2509.11208)** | **provides mechanism for** | **On the Notion that LLMs Reason (2511.11810)** | "Bayesian in expectation" = statistical pattern matching |
+| **Predictable Compression Failures (2509.11208)** | **provides evidence for** | **Pattern matching thesis** | Hallucinations = predictable compression failures, not random bugs |
+| **Dissociation of Faithful/Unfaithful (2405.15092)** | **extends** | **Measuring Faithfulness (2307.13702)** | Provides mechanistic explanation for unfaithfulness |
+| **Dissociation of Faithful/Unfaithful (2405.15092)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | Both confirm hidden vs stated reasoning diverge |
+| **Dissociation of Faithful/Unfaithful (2405.15092)** | **supports** | **CoT In The Wild (2503.08679)** | Explains WHY natural prompts show unfaithfulness |
+| **Dissociation of Faithful/Unfaithful (2405.15092)** | **supports** | **Unfaithful CoT (2305.04388)** | Same phenomenon, different methodology |
+| **Dissociation of Faithful/Unfaithful (2405.15092)** | **extends** | **Faithful CoT (2301.13379)** | Validates need for external verification |
+| **Dissociation of Faithful/Unfaithful (2405.15092)** | **challenges** | **DeepSeek-R1 (2501.12948)** | Claims CoT reflects reasoning; this paper shows it often doesn't |
+| **Dissociation of Faithful/Unfaithful (2405.15092)** | **provides mechanism for** | **Two reasoning modes** | Divergent effects prove distinct mechanisms |
+| **Dissociation of Faithful/Unfaithful (2405.15092)** | **provides evidence for** | **Pattern matching thesis** | Opaque mode = shortcuts that don't involve stated reasoning |
+
 ### CoT Foundational Papers (151-156)
 
 | Paper A | Relationship | Paper B | Evidence |
@@ -986,3 +1010,6 @@ These papers have NO direct rebuttals found:
 | 2026-02-09 | Added Proof or Bluff (2503.21934) — Expert human evaluation of USAMO 2025 proofs. Best model (Gemini-2.5-Pro) 25%; all others <5%. Logic errors dominant. GRPO training artifacts. Automated grading overestimates 20x. STRONGLY SUPPORTS thesis |
 | 2026-02-09 | Added Hallucination Inevitable (2401.11817) — Computability theory proof: hallucination mathematically inevitable for LLMs as general problem solvers. Diagonalization argument. Corollary: self-correction cannot eliminate hallucination. STRONGLY SUPPORTS thesis |
 | 2026-02-09 | Added SWE-Bench Illusion (2506.12286) — 76% file path accuracy on SWE-Bench vs <53% on external repos. 35% vs 18% n-gram overlap. Verbatim match up to 31.6%. Memorization not reasoning. STRONGLY SUPPORTS thesis |
+| 2026-02-09 | Added Faithful CoT (2301.13379) — IJCNLP-AACL 2023: Two-stage framework (NL→symbolic + solver) guarantees faithfulness. Standard CoT "does not necessarily reflect how the model arrives at the answer." +6-21% gains with external solvers. SUPPORTS thesis |
+| 2026-02-09 | Added Predictable Compression Failures (2509.11208) — THEORETICAL: Hallucinations = compression failures. "Bayesian in expectation, not in realization." O(log n) deviation bounds (QMV theorem). ~0.13 fewer hallucinations per nat. ISR-based abstention achieves near-0% hallucination at 24% abstention. STRONGLY SUPPORTS thesis |
+| 2026-02-09 | Added Dissociation of Faithful/Unfaithful (2405.15092) — TWO DISTINCT MECHANISMS for error recovery. Factors increasing faithful recovery DECREASE unfaithful recovery (divergent effects). LLMs have separate interpretable vs opaque reasoning modes. "Examining CoT output is not sufficient for verifying conclusions." STRONGLY SUPPORTS thesis |

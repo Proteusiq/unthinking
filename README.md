@@ -8,7 +8,7 @@
 
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
-[![Papers](https://img.shields.io/badge/papers-166-blue)]()
+[![Papers](https://img.shields.io/badge/papers-169-blue)]()
 [![Relationships](https://img.shields.io/badge/relationships-170-orange)]()
 
 ---
@@ -28,7 +28,7 @@ RL and test-time compute "surface" pre-existing capabilities rather than creatin
 Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/)**
 
 <p align="center">
-  <img src="https://img.shields.io/badge/nodes-166%20papers-4CAF50" />
+  <img src="https://img.shields.io/badge/nodes-169%20papers-4CAF50" />
   <img src="https://img.shields.io/badge/edges-170%20relationships-2196F3" />
   <img src="https://img.shields.io/badge/stance-supports%20%7C%20challenges%20%7C%20balanced-FFC107" />
 </p>
@@ -99,7 +99,7 @@ If LLM generates C, and C lies on the line between A and B = INTERPOLATION.
 
 ## The Seven Pillars of Evidence
 
-Based on cross-analysis of 166 papers, the evidence converges on seven pillars:
+Based on cross-analysis of 169 papers, the evidence converges on seven pillars:
 
 | Pillar | Core Finding | Key Papers | Strongest Number |
 |--------|--------------|------------|------------------|
@@ -214,7 +214,7 @@ PHASE 7: THEORETICAL FRAMEWORK (2026)
 │   ├── mindmap.md            # Cross-reference of all 160 papers
 │   ├── paper_graph.md        # Paper interaction graph
 │   ├── rebuttals.md          # Rebuttal matrix
-│   └── explored/             # Individual paper analyses (166 files)
+│   └── explored/             # Individual paper analyses (169 files)
 │       ├── 00-09/            # Papers 00-09
 │       ├── 10-19/            # Papers 10-19
 │       ├── ...               # (10-paper bins)
