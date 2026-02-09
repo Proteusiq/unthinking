@@ -3596,4 +3596,47 @@ window.paperLinks = [
       type: 'supports',
       description: 'Both show LLMs operate locally without global understanding',
     },
+    // Paper 182: LMs Struggle to Use In-Context Representations links
+    {
+      source: '2602.04212',
+      target: '2410.09695',
+      type: 'supports',
+      description: 'Both show ICL implements pretraining functions, not new capabilities',
+    },
+    {
+      source: '2602.04212',
+      target: '2309.12288',
+      type: 'supports',
+      description: 'Both show LLMs store information but cant use it flexibly',
+    },
+    {
+      source: '2602.04212',
+      target: '2602.04843',
+      type: 'supports',
+      description: 'Both probe representations; this shows they dont support task completion',
+    },
+    {
+      source: '2602.04212',
+      target: '2402.18312',
+      type: 'extends',
+      description: 'Both use probing to understand internal representations',
+    },
+    {
+      source: '2602.04212',
+      target: '2602.02103',
+      type: 'supports',
+      description: 'Both show representations fail to support flexible reasoning',
+    },
+    {
+      source: '2602.04212',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Both show compositional tasks expose fundamental limitations',
+    },
+    {
+      source: '2602.04212',
+      target: '2506.11135',
+      type: 'supports',
+      description: 'Both show capability ≠ flexible deployment/intelligence',
+    },
 ];
