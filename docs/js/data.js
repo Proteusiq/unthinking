@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 162,
+    totalAnalyzed: 163,
     lastUpdated: '2026-02-09',
   },
   nodes: [
@@ -3214,6 +3214,29 @@ window.paperData = {
       ],
       analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/160-169/162_pause_tokens_expressivity.md',
     },
+    // Paper 163: Mechanistic Understanding of CoT (Dutta et al.)
+    {
+      id: '2402.18312',
+      title: 'How to think step-by-step: A mechanistic understanding of chain-of-thought reasoning',
+      shortTitle: 'Mechanistic CoT',
+      date: 'Feb 2024',
+      stance: 'supports',
+      cluster: 'mechanistic',
+      coreArgument:
+        'First mechanistic analysis of CoT reasoning in production LLMs. LLMs deploy multiple parallel pathways of answer generation via induction-circuit compositions, not symbolic reasoning.',
+      keyEvidence: [
+        'Functional rift at layer 16 separates processing phases',
+        'Answer-writing heads all appear at layers 17-32',
+        'Token mixing for ontological relations peaks at layers 10-15',
+        'Parallel pathways collect from CoT, question, AND few-shot context',
+        '35.9% accuracy on fictional ontology reasoning',
+      ],
+      keyQuotes: [
+        "We observe a functional rift at the very middle of the LLM (16th decoder block), which marks a phase shift in the content of residual streams and the functionality of the attention heads.",
+        "Despite different reasoning requirements across different stages of CoT generation, the functional components of the model remain almost the same. Different neural algorithms are implemented as compositions of induction circuit-like mechanisms."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/160-169/163_mechanistic_understanding_cot.md',
+    },
   ],
   links: [
     // Sycophancy Scales (Paper 119 - canonical)
@@ -6022,6 +6045,31 @@ window.paperData = {
       target: '2310.07923',
       type: 'supports',
       description: 'Places pause tokens in relation to CoT expressivity bounds',
+    },
+    // Paper 163: Mechanistic CoT links
+    {
+      source: '2402.18312',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'CoT via induction circuits = pattern matching',
+    },
+    {
+      source: '2402.18312',
+      target: '2307.13702',
+      type: 'supports',
+      description: 'Parallel pathways explain CoT unfaithfulness',
+    },
+    {
+      source: '2402.18312',
+      target: '2404.15758',
+      type: 'supports',
+      description: 'Both show CoT benefits from computation not semantics',
+    },
+    {
+      source: '2402.18312',
+      target: '2310.07923',
+      type: 'supports',
+      description: 'Mechanistic evidence for theoretical CoT expressivity',
     },
   ],
 };

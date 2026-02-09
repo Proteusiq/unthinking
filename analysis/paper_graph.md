@@ -164,6 +164,11 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Pause Tokens (2505.21024)** | **extends** | **Dot by Dot (2404.15758)** | **Proves formal separation conjectured in Dot by Dot** |
 | **Pause Tokens (2505.21024)** | **supports** | **Faith and Fate (2305.18654)** | **Proves fundamental computational limits** |
 | **Pause Tokens (2505.21024)** | **supports** | **Expressive Power of CoT (2310.07923)** | **Places pause tokens in relation to CoT expressivity** |
+| **Mechanistic CoT (2402.18312)** | **supports** | **Faith and Fate (2305.18654)** | **CoT via induction circuits = pattern matching, not symbolic reasoning** |
+| **Mechanistic CoT (2402.18312)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Parallel pathways explain why CoT divorced from actual computation** |
+| **Mechanistic CoT (2402.18312)** | **supports** | **Dot by Dot (2404.15758)** | **Both show CoT benefits from computation, not semantic content** |
+| **Mechanistic CoT (2402.18312)** | **extends** | **Induction Heads (Olsson et al., 2022)** | **Shows induction-head-like mechanisms compose for multi-step reasoning** |
+| **Mechanistic CoT (2402.18312)** | **supports** | **Expressive Power of CoT (2310.07923)** | **Provides mechanistic evidence for theoretical claims** |
 | **Emergent Hierarchical Reasoning (2509.03646)** | **supports** | **Interplay (2512.07783)** | **Explicitly states RL "rediscovers" pre-training priors** |
 | **Emergent Hierarchical Reasoning (2509.03646)** | **supports** | **DeepSeek-R1 (2501.12948)** | **RL improves ID performance via strategic template deployment** |
 | **Emergent Hierarchical Reasoning (2509.03646)** | **challenged by** | **OMEGA (2506.18880)** | **OMEGA shows 0% compositional/transformative despite same RL methods** |
@@ -977,3 +982,4 @@ These papers have NO direct rebuttals found:
 | 2026-02-01 | Added GSM-IC (2302.00093) — ICML 2023: LLMs distracted by irrelevant context. Precursor to GSM-Symbolic. Self-consistency helps but incomplete. STRONGLY SUPPORTS thesis |
 | 2026-02-09 | Added Dot by Dot (2404.15758) — Filler tokens ('......') can replace CoT; benefits from additional compute, not reasoning. 100% vs 66% on 3SUM with fillers. SUPPORTS thesis |
 | 2026-02-09 | Added Pause Tokens Expressivity (2505.21024) — FORMAL PROOF: TF[1,L,P] = AC⁰, strict separation from TF[1,L,0]. Parity impossible without pause. Extends Dot by Dot theoretically. SUPPORTS thesis |
+| 2026-02-09 | Added Mechanistic CoT (2402.18312) — First mechanistic analysis of CoT reasoning in production LLMs (Llama-2 7B). "Functional rift" at layer 16; parallel pathways via induction-circuit compositions. Answer-writing heads layers 17-32; token mixing layers 1-16. 35.9% accuracy on fictional ontology. SUPPORTS thesis |

@@ -17,7 +17,7 @@ Papers from your Italy Summer 2025 reading not yet analyzed.
 | [2305.11169](https://arxiv.org/abs/2305.11169) | **Arithmetic Without Algorithms** (Dziri) | 🔴 HIGH | Math = bag of heuristics |
 | [2310.07191](https://arxiv.org/abs/2310.07191) | **GSM-Symbolic** | 🔴 HIGH | Math limitations under perturbation |
 | [2404.15758](https://arxiv.org/abs/2404.15758) | **Let's Think Dot by Dot** | 🔴 HIGH | Hidden computation, filler tokens work |
-| [2402.18312](https://arxiv.org/abs/2402.18312) | **Mechanistic Understanding of CoT** | 🔴 HIGH | Localized computational pathways |
+| [2402.18312](https://arxiv.org/abs/2402.18312) | **Mechanistic Understanding of CoT** | ✅ DONE | Analyzed as Paper 163 |
 | [2301.13379](https://arxiv.org/abs/2301.13379) | **Faithful Chain-of-Thought Reasoning** (Lanham) | 🔴 HIGH | CoT faithfulness analysis |
 | [2406.12837](https://arxiv.org/abs/2406.12837) | **RCoT: Detecting Unfaithful Reasoning** | 🔴 HIGH | Reverse CoT detects unfaithfulness |
 | [2401.11817](https://arxiv.org/abs/2401.11817) | **Hallucination is Inevitable** (computability) | 🔴 HIGH | Theoretical proof of inevitability |
