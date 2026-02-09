@@ -896,3 +896,55 @@
 .search-indicator.visible {
   opacity: 1;
 }
+
+/* View Toggle Button */
+.view-toggle-btn {
+  position: fixed;
+  bottom: calc(var(--space-xl) + 120px);
+  right: var(--space-sm);
+  z-index: var(--z-controls);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  border: none;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+.view-toggle-btn:hover {
+  color: var(--text-primary);
+  transform: scale(1.05);
+}
+.view-toggle-btn svg {
+  width: 16px;
+  height: 16px;
+}
+.view-toggle-btn .timeline-icon {
+  display: none;
+}
+.view-toggle-btn.active {
+  background: var(--accent-balanced-glow);
+  color: var(--accent-balanced);
+}
+.view-toggle-btn.active .network-icon {
+  display: none;
+}
+.view-toggle-btn.active .timeline-icon {
+  display: block;
+}
+
+/* Timeline Year Labels */
+.year-labels {
+  pointer-events: none;
+}
+.year-label {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  fill: var(--text-muted);
+  opacity: 0.7;
+}
