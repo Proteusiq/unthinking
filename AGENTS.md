@@ -400,17 +400,14 @@ Add analysis: [Paper Title] (arXiv ID)
 
 ## GitHub CLI
 
-Before using `gh` commands (issues, PRs, etc.), always verify and switch to the correct account:
+Before using `gh` commands (issues, PRs, etc.), always verify the active account has permission:
 
 ```bash
-# Check current account
+# Check current account and list all authenticated accounts
 gh auth status
 
-# Get repo owner from git remote
-git remote -v | grep origin | head -1 | sed 's/.*github.com[:/]\([^/]*\).*/\1/'
-
-# Switch to the repo owner account
-gh auth switch --user <owner>
+# If needed, switch account
+gh auth switch --user <username>
 ```
 
 ---
