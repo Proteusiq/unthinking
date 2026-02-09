@@ -3333,4 +3333,35 @@ window.paperLinks = [
       type: 'extends',
       description: 'Explains WHY GSM-Symbolic perturbations fail: abstraction OK, computation fails',
     },
+    // Paper 178: Trilemma of Truth links
+    {
+      source: '2506.23921',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Both show distribution-bounded knowledge; training determines truth',
+    },
+    {
+      source: '2506.23921',
+      target: '2601.16644',
+      type: 'supports',
+      description: 'Both find asymmetric encoding of truth-related signals',
+    },
+    {
+      source: '2506.23921',
+      target: '2307.13702',
+      type: 'supports',
+      description: 'Both show probing can find spurious correlations',
+    },
+    {
+      source: '2506.23921',
+      target: '2401.11817',
+      type: 'supports',
+      description: 'Both suggest fundamental limits on truth assessment',
+    },
+    {
+      source: '2506.23921',
+      target: '2502.20332',
+      type: 'extends',
+      description: 'Adds veracity-specific mechanistic analysis',
+    },
 ];
