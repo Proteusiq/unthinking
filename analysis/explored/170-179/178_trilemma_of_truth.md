@@ -150,7 +150,7 @@ The paper shows LLMs don't have a simple "truth detector" — they have complex,
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] Rebuttals checked
-- [ ] Paper graph updated
+- [x] Paper graph updated
 
 ---
 

@@ -157,7 +157,7 @@ The mechanistic finding that "explicit counting" shows periodic patterns at deca
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] **Rebuttals checked**
-- [ ] **Paper graph updated**
+- [x] Paper graph updated
 
 ---
 

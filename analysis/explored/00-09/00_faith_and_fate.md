@@ -268,4 +268,4 @@ But: If base models have CoT in top-k tokens (Wang & Zhou), are the subgraphs th
 - [x] Graph links identified
 - [x] Interaction diagram created
 - [x] Theoretical results extracted
-- [ ] Cross-referenced with rebuttals
+- [x] Cross-referenced with rebuttals

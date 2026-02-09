@@ -212,7 +212,7 @@ The paper shows models ENCODE reasoning structure but don't necessarily USE it c
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] Rebuttals checked
-- [ ] Paper graph updated
+- [x] Paper graph updated
 
 ---
 

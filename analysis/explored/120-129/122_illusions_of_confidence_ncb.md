@@ -221,4 +221,4 @@ No direct rebuttals found yet (paper is from January 2026).
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] **Rebuttals checked**
-- [ ] **Paper graph updated**
+- [x] Paper graph updated

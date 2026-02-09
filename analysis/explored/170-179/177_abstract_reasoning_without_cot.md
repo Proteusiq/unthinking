@@ -163,7 +163,7 @@ Example: Patching "x−y" abstraction changes 5+3=8 to 5−3=2
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] Rebuttals checked
-- [ ] Paper graph updated
+- [x] Paper graph updated
 
 ---
 

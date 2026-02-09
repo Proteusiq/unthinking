@@ -192,7 +192,7 @@ The paper provides **controlled synthetic evidence** for something observed empi
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] Rebuttals checked
-- [ ] Paper graph updated
+- [x] Paper graph updated
 
 ---
 

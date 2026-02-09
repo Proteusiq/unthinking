@@ -171,4 +171,4 @@ Both support the view that LLM "reasoning" is fundamentally different from expli
 - [x] Key evidence identified
 - [x] Cross-references identified
 - [x] **Rebuttals checked**
-- [ ] **Paper graph updated**
+- [x] Paper graph updated

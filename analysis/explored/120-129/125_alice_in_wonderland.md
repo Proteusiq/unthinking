@@ -237,4 +237,4 @@ This paper should be cited as **primary evidence** that LLMs pattern match rathe
 - [x] Cross-references identified
 - [x] **Rebuttals checked**
 - [x] **Critical assessment included**
-- [ ] **Paper graph updated**
+- [x] Paper graph updated

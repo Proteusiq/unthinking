@@ -149,4 +149,4 @@ This paper is **methodologically significant** for the pattern-matching thesis:
 - [x] Core claims extracted
 - [x] Key evidence with numbers
 - [x] Rebuttals checked
-- [ ] Paper graph updated
+- [x] Paper graph updated

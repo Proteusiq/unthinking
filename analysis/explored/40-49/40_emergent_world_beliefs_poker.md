@@ -187,7 +187,7 @@ This is a well-executed probing study, but it doesn't challenge the core thesis.
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] **Rebuttals checked**
-- [ ] **Paper graph updated**
+- [x] Paper graph updated
 
 ---
 

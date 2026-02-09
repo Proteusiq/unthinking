@@ -284,4 +284,4 @@ This paper supports the argument:
 - [x] Graph links identified
 - [x] Interaction diagram created
 - [x] Relevance to thesis assessed
-- [ ] Cross-referenced with faithfulness papers
+- [x] Cross-referenced with faithfulness papers

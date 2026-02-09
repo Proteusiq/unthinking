@@ -268,7 +268,7 @@ No direct arXiv rebuttal found (paper is very recent: Jan 2, 2026).
 - [x] Critical analysis
 - [x] Cross-references identified
 - [x] **Rebuttals checked** — None found (very recent paper)
-- [ ] **Paper graph updated**
+- [x] Paper graph updated
 
 ---
 

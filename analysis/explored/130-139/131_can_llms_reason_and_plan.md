@@ -200,4 +200,4 @@ This paper is **foundational** for the thesis. Kambhampati articulates the core 
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] **Rebuttals checked**
-- [ ] **Paper graph updated**
+- [x] Paper graph updated

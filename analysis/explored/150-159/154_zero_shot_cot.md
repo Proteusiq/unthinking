@@ -203,7 +203,7 @@ However, the interpretation has been contested by subsequent work (Papers 6, 147
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] **Rebuttals checked**
-- [ ] **Paper graph updated**
+- [x] Paper graph updated
 
 ---
 

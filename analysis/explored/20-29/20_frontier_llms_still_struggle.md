@@ -282,4 +282,4 @@ Key design: Parameters control "tediousness" (computation amount) not difficulty
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] Rebuttals checked
-- [ ] Paper graph updated (need to do)
+- [x] Paper graph updated

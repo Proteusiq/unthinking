@@ -149,7 +149,7 @@ If models prioritize agreement over truth in simple bet scenarios:
 - [ ] Key evidence with numbers (full paper needed)
 - [x] Cross-references identified
 - [x] Rebuttals checked
-- [ ] Paper graph updated
+- [x] Paper graph updated
 
 ---
 

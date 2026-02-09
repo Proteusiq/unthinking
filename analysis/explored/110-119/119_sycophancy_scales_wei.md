@@ -183,4 +183,4 @@ This paper is **canonical evidence** for the pattern-matching thesis:
 - [x] Core claims extracted
 - [x] Key evidence documented
 - [x] Rebuttals checked
-- [ ] Paper graph updated
+- [x] Paper graph updated

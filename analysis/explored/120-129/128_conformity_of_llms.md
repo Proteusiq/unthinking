@@ -225,4 +225,4 @@ No direct rebuttals found (very recent paper).
 - [x] Cross-references identified
 - [x] **Rebuttals checked**
 - [x] **Critical assessment included**
-- [ ] **Paper graph updated**
+- [x] Paper graph updated
