@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 166,
+    totalAnalyzed: 169,
     lastUpdated: '2026-02-09',
   },
   nodes: [
@@ -3306,6 +3306,73 @@ window.paperData = {
       ],
       analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/160-169/166_swe_bench_illusion.md',
     },
+    // Paper 167: Faithful CoT (Lyu et al.)
+    {
+      id: '2301.13379',
+      title: 'Faithful Chain-of-Thought Reasoning',
+      shortTitle: 'Faithful CoT',
+      date: 'Jan 2023',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'Standard CoT is unfaithful — the reasoning chain does not reflect how the model arrives at the answer. Two-stage framework (NL→symbolic + external solver) guarantees faithfulness and improves accuracy.',
+      keyEvidence: [
+        '+6-21% accuracy gains with external solvers',
+        '95%+ accuracy on 6/7 benchmarks with GPT-4/Codex',
+        'Faithful CoT outperforms standard CoT on 9/10 benchmarks',
+        'External verification required for reliable reasoning',
+      ],
+      keyQuotes: [
+        "The generated reasoning chain does not necessarily reflect how the model arrives at the answer (aka. faithfulness).",
+        "This guarantees that the reasoning chain provides a faithful explanation of the final answer."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/160-169/167_faithful_cot_reasoning.md',
+    },
+    // Paper 168: Predictable Compression Failures (Chlon et al.)
+    {
+      id: '2509.11208',
+      title: 'Predictable Compression Failures: Why Language Models Actually Hallucinate',
+      shortTitle: 'Compression Failures',
+      date: 'Sep 2025',
+      stance: 'supports',
+      cluster: 'mechanism',
+      coreArgument:
+        'Hallucinations are predictable compression failures. LLMs are Bayesian in expectation, not in realization. Order-induced deviations scale as O(log n). Near-zero hallucination achievable via calibrated refusal.',
+      keyEvidence: [
+        'O(log n) deviation bounds (QMV theorem)',
+        '~0.13 fewer hallucinations per additional nat',
+        'Near-0% hallucination at 24% abstention rate',
+        '96.2% boundary alignment in pre-specified audit',
+        'Empirical validation: Qwen2-7B b≈0.377, Llama-3.1-8B b≈0.147',
+      ],
+      keyQuotes: [
+        "LLMs perform near-Bayesian inference yet violate permutation invariance on exchangeable data... This makes them Bayesian in expectation, not in realization.",
+        "The framework turns hallucinations into predictable compression failures and enables principled information budgeting."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/160-169/168_predictable_compression_failures.md',
+    },
+    // Paper 169: Dissociation of Faithful/Unfaithful (Yee et al.)
+    {
+      id: '2405.15092',
+      title: 'Dissociation of Faithful and Unfaithful Reasoning in LLMs',
+      shortTitle: 'Faithful vs Unfaithful',
+      date: 'May 2024',
+      stance: 'supports',
+      cluster: 'faithfulness',
+      coreArgument:
+        'LLMs exhibit two distinct reasoning mechanisms — faithful (interpretable) and unfaithful (opaque). Factors increasing faithful recovery DECREASE unfaithful recovery, proving separate underlying processes.',
+      keyEvidence: [
+        'Divergent effects on faithful vs unfaithful recovery (p<0.001)',
+        'Error magnitude: larger errors increase faithful recovery but decrease unfaithful',
+        'Context noise: opposite effects on GPT-4 (faithful ↑, unfaithful ↓)',
+        'Recoverability: faithful strongly affected by evidence; unfaithful constant',
+      ],
+      keyQuotes: [
+        "LLMs operate with two distinct modes of reasoning. In one mode, the model generates text optimized for human interpretability... In the other mode, the LLM arrives at conclusions through internal processes not fully captured in the generated text.",
+        "Examining a model's chain of thought output is not sufficient for verifying its conclusions."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/160-169/169_dissociation_faithful_unfaithful.md',
+    },
   ],
   links: [
     // Sycophancy Scales (Paper 119 - canonical)
@@ -6226,6 +6293,111 @@ window.paperData = {
       target: '2202.07206',
       type: 'supports',
       description: 'Training exposure determines performance',
+    },
+    // Paper 167: Faithful CoT links
+    {
+      source: '2301.13379',
+      target: '2307.13702',
+      type: 'extends',
+      description: 'Provides constructive solution via neuro-symbolic framework',
+    },
+    {
+      source: '2301.13379',
+      target: '2505.05410',
+      type: 'supports',
+      description: 'Both confirm CoT doesnt reflect internal computation',
+    },
+    {
+      source: '2301.13379',
+      target: '2503.08679',
+      type: 'supports',
+      description: 'Both document unfaithfulness; Faithful CoT proposes fix',
+    },
+    {
+      source: '2301.13379',
+      target: '2201.11903',
+      type: 'extends',
+      description: 'Proposes solution to CoTs faithfulness limitation',
+    },
+    {
+      source: '2301.13379',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'LLMs good at translation (pattern matching); need solvers for execution',
+    },
+    // Paper 168: Predictable Compression Failures links
+    {
+      source: '2509.11208',
+      target: '2401.11817',
+      type: 'extends',
+      description: 'Complementary theoretical foundations (compression vs computability)',
+    },
+    {
+      source: '2509.11208',
+      target: '2601.18753',
+      type: 'supports',
+      description: 'Both analyze hallucination mechanisms',
+    },
+    {
+      source: '2509.11208',
+      target: '2601.21576',
+      type: 'supports',
+      description: 'Both use information-theoretic analysis',
+    },
+    {
+      source: '2509.11208',
+      target: '2511.11810',
+      type: 'supports',
+      description: 'Bayesian in expectation = statistical pattern matching',
+    },
+    {
+      source: '2509.11208',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Hallucinations = predictable compression failures',
+    },
+    // Paper 169: Dissociation of Faithful/Unfaithful links
+    {
+      source: '2405.15092',
+      target: '2307.13702',
+      type: 'extends',
+      description: 'Provides mechanistic explanation for unfaithfulness',
+    },
+    {
+      source: '2405.15092',
+      target: '2505.05410',
+      type: 'supports',
+      description: 'Both confirm hidden vs stated reasoning diverge',
+    },
+    {
+      source: '2405.15092',
+      target: '2503.08679',
+      type: 'supports',
+      description: 'Explains WHY natural prompts show unfaithfulness',
+    },
+    {
+      source: '2405.15092',
+      target: '2305.04388',
+      type: 'supports',
+      description: 'Same phenomenon, different methodology',
+    },
+    {
+      source: '2405.15092',
+      target: '2301.13379',
+      type: 'extends',
+      description: 'Validates need for external verification',
+    },
+    {
+      source: '2405.15092',
+      target: '2501.12948',
+      type: 'challenges',
+      description: 'Claims CoT reflects reasoning; this paper shows it often doesnt',
+    },
+    {
+      source: '2405.15092',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Opaque mode = shortcuts that dont involve stated reasoning',
     },
   ],
 };

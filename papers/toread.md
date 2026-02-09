@@ -18,15 +18,15 @@ Papers from your Italy Summer 2025 reading not yet analyzed.
 | ~~[2310.07191](https://arxiv.org/abs/2310.07191)~~ | ~~**GSM-Symbolic**~~ | ❌ WRONG ID | Wrong arXiv ID — GSM-Symbolic is 2410.05229 (Paper 1) |
 | [2404.15758](https://arxiv.org/abs/2404.15758) | **Let's Think Dot by Dot** | ✅ DONE | Analyzed as Paper 161 |
 | [2402.18312](https://arxiv.org/abs/2402.18312) | **Mechanistic Understanding of CoT** | ✅ DONE | Analyzed as Paper 163 |
-| [2301.13379](https://arxiv.org/abs/2301.13379) | **Faithful Chain-of-Thought Reasoning** (Lyu et al.) | 🔴 HIGH | CoT faithfulness analysis (NOT Lanham) |
-| [2406.12837](https://arxiv.org/abs/2406.12837) | **RCoT: Detecting Unfaithful Reasoning** | 🔴 HIGH | Reverse CoT detects unfaithfulness |
+| [2301.13379](https://arxiv.org/abs/2301.13379) | **Faithful Chain-of-Thought Reasoning** (Lyu et al.) | ✅ DONE | Analyzed as Paper 167 |
+| ~~[2406.12837](https://arxiv.org/abs/2406.12837)~~ | ~~**RCoT: Detecting Unfaithful Reasoning**~~ | ❌ WRONG ID | Actually "LayerMerge" (NN pruning) — NOT about reasoning faithfulness |
 | [2401.11817](https://arxiv.org/abs/2401.11817) | **Hallucination is Inevitable** (computability) | ✅ DONE | Analyzed as Paper 165 |
-| [2405.20947](https://arxiv.org/abs/2405.20947) | **Predictable Compression Failures** | 🔴 HIGH | Hallucinations as compression failures |
-| [2406.02088](https://arxiv.org/abs/2406.02088) | **LLMs Get Lost in Multi-Turn** | 🔴 HIGH | Context degradation |
-| [2406.13121](https://arxiv.org/abs/2406.13121) | **Context Rot** | 🔴 HIGH | More tokens → worse performance |
+| ~~[2405.20947](https://arxiv.org/abs/2405.20947)~~ | ~~**Predictable Compression Failures**~~ | ❌ WRONG ID | Actually "OR-Bench" (over-refusal) — Correct ID is 2509.11208 (Paper 168) |
+| ~~[2406.02088](https://arxiv.org/abs/2406.02088)~~ | ~~**LLMs Get Lost in Multi-Turn**~~ | ❌ WRONG ID | Actually Strassen's FPGA paper — need correct ID |
+| ~~[2406.13121](https://arxiv.org/abs/2406.13121)~~ | ~~**Context Rot**~~ | ❌ WRONG ID | Actually "LOFT" (long-context benchmark) — need correct ID |
 | [2506.12286](https://arxiv.org/abs/2506.12286) | **SWE-Bench Illusion** | ✅ DONE | Analyzed as Paper 166 |
 | [2503.21934](https://arxiv.org/abs/2503.21934) | **Proof or Bluff (USAMO 2025)** | ✅ DONE | Analyzed as Paper 164 |
-| [2406.14193](https://arxiv.org/abs/2406.14193) | **The Wall Confronting LLMs** | 🔴 HIGH | Scaling limits |
+| ~~[2406.14193](https://arxiv.org/abs/2406.14193)~~ | ~~**The Wall Confronting LLMs**~~ | ❌ WRONG ID | Actually condensed matter physics paper — need correct ID |
 
 ### 🟠 MEDIUM PRIORITY — Supporting Evidence
 
@@ -40,7 +40,7 @@ Papers from your Italy Summer 2025 reading not yet analyzed.
 | [2510.05116](https://arxiv.org/abs/2510.05116) | **Hallucination Inevitable (Open World)** | 🟠 MED | Hallucination theory |
 | [2510.13928](https://arxiv.org/abs/2510.13928) | **LLMs Can Get Brain Rot** | 🟠 MED | Data quality decay |
 | [2510.07192](https://arxiv.org/abs/2510.07192) | **Poisoning Attacks Require Few Samples** | 🟠 MED | ~250 samples enough |
-| [2509.11208](https://arxiv.org/abs/2509.11208) | **Predictable Compression Failures** | 🟠 MED | Bayesian in expectation |
+| [2509.11208](https://arxiv.org/abs/2509.11208) | **Predictable Compression Failures** | ✅ DONE | Analyzed as Paper 168 |
 | [2402.06702](https://arxiv.org/abs/2402.06702) | **Mind Your Tone (Politeness)** | 🟠 MED | Prompt sensitivity |
 
 ### 🟡 LOWER PRIORITY — Methods/Foundations
