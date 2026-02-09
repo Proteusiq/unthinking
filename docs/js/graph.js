@@ -86,6 +86,14 @@
       state.simulation.alpha(1).restart();
     }, 100);
 
+    // Fade in links after nodes have fully settled
+    setTimeout(() => {
+      state.linkElements
+        .transition()
+        .duration(500)
+        .style('opacity', null);  // Reset to CSS default
+    }, 2000);  // Wait 2 seconds for nodes to settle
+
     // Start the dialogue system
     initDialogue();
   }
@@ -316,7 +324,7 @@
   // ==========================================================================
 
   function createElements() {
-    // Create links
+    // Create links (hidden initially - fade in after nodes appear)
     const linkGroup = state.g.append('g').attr('class', 'links');
 
     state.linkElements = linkGroup
@@ -324,7 +332,8 @@
       .data(state.links)
       .join('line')
       .attr('class', (d) => `link ${d.type}`)
-      .attr('marker-end', (d) => `url(#arrow-${d.type})`);
+      .attr('marker-end', (d) => `url(#arrow-${d.type})`)
+      .style('opacity', 0);
 
     // Create nodes
     const nodeGroup = state.g.append('g').attr('class', 'nodes');
