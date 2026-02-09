@@ -3584,4 +3584,28 @@ window.paperNodes = [
       ],
       analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/170-179/178_trilemma_of_truth.md',
     },
+    // Paper 179: LLMs and Emergence (Melanie Mitchell)
+    {
+      id: '2506.11135',
+      title: 'Large Language Models and Emergence: A Complex Systems Perspective',
+      shortTitle: 'LLMs & Emergence',
+      date: 'Jun 2025',
+      stance: 'supports',
+      cluster: 'theoretical',
+      coreArgument:
+        'Emergent capability is not emergent intelligence. LLMs exhibit "Rube Goldberg logic" — massive complexity for simple tasks. Intelligence is "less is more" (efficient abstraction); LLMs are "more is more" (trained capability). Knowledge-In systems are engineered, not truly emergent.',
+      keyEvidence: [
+        '"Rube Goldberg logic" citing Anthropic',
+        'KI (trained) vs KO (emergent) distinction',
+        '"More is more" ≠ intelligence',
+        'Abilities lack generality and robustness',
+        'No coarse-grained internal models found',
+      ],
+      keyQuotes: [
+        "Emergent intelligence is clearly a feature of human reasoning and human language, but as of yet, an unproven feature of LLMs, which at best demonstrate emergent capability.",
+        "A mathematician is described as intelligent because they can do 'more with less'... not 'more with more'.",
+        "LLMs exhibit a Rube Goldberg logic, whose most consistent feature is the massive complexity underlying the model's responses even in relatively simple contexts."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/170-179/179_llms_and_emergence.md',
+    },
 ];
