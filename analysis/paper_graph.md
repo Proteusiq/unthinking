@@ -692,6 +692,20 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Arithmetic Without Algorithms (2410.21272)** | **extends** | **Recursive Problems (2305.14699)** | "Shortcut algorithms" = bag of heuristics |
 | **Arithmetic Without Algorithms (2410.21272)** | **provides evidence for** | **Pattern matching thesis** | MECHANISTIC SMOKING GUN: 91% of important neurons implement heuristics, not algorithms |
 
+### Paper 172: Unfaithful Reasoning Emergence
+
+| Paper A | Relationship | Paper B | Evidence |
+|---------|--------------|---------|----------|
+| **Unfaithful Reasoning Emergence (2602.01017)** | **strongly supports** | **Dissociation of Faithful/Unfaithful (2405.15092)** | Both show two distinct reasoning modes with different mechanisms |
+| **Unfaithful Reasoning Emergence (2602.01017)** | **provides mechanism for** | **Unfaithful CoT (2305.04388)** | Explains WHY CoT is often unfaithful — noise threshold |
+| **Unfaithful Reasoning Emergence (2602.01017)** | **supports** | **Measuring Faithfulness (2307.13702)** | Validates intervention-based faithfulness methodology |
+| **Unfaithful Reasoning Emergence (2602.01017)** | **provides mechanism for** | **Faith and Fate (2305.18654)** | Explains how linearized pattern matching emerges from training |
+| **Unfaithful Reasoning Emergence (2602.01017)** | **provides mechanism for** | **Illusion of Thinking (2506.06941)** | Complexity threshold = noise threshold for faithful→unfaithful |
+| **Unfaithful Reasoning Emergence (2602.01017)** | **supports** | **Arithmetic Without Algorithms (2410.21272)** | Bag of heuristics = skip-step reasoning mode |
+| **Unfaithful Reasoning Emergence (2602.01017)** | **extends** | **Demystifying Long CoT (2502.03373)** | Adds training dynamics perspective on CoT emergence |
+| **Unfaithful Reasoning Emergence (2602.01017)** | **extends** | **CoT Training Mechanisms (2502.04667)** | Both use controlled synthetic experiments on arithmetic |
+| **Unfaithful Reasoning Emergence (2602.01017)** | **provides evidence for** | **Pattern matching thesis** | Skip-step reasoning (bypassing CoT) is DEFAULT under realistic training noise |
+
 ### CoT Foundational Papers (151-156)
 
 | Paper A | Relationship | Paper B | Evidence |
@@ -1033,3 +1047,4 @@ These papers have NO direct rebuttals found:
 | 2026-02-09 | Added Dissociation of Faithful/Unfaithful (2405.15092) — TWO DISTINCT MECHANISMS for error recovery. Factors increasing faithful recovery DECREASE unfaithful recovery (divergent effects). LLMs have separate interpretable vs opaque reasoning modes. "Examining CoT output is not sufficient for verifying conclusions." STRONGLY SUPPORTS thesis |
 | 2026-02-09 | Added Fluid Representations (2602.04843) — QwQ-32B shows representational adaptation, but BASE MODEL shows SAME adaptation. Semantic obfuscation 96%→35%. Effect sizes small (1.5-1.8%). Capability inherent to LLMs, not special to reasoning models. BALANCED (leans supports) |
 | 2026-02-09 | Added Arithmetic Without Algorithms (2410.21272) — MECHANISTIC SMOKING GUN: LLMs use "bag of heuristics" not algorithms. ~200 neurons/layer implement pattern-matching rules. 91% of important neurons classified as heuristics. Mechanism emerges early in training. STRONGLY SUPPORTS thesis |
+| 2026-02-09 | Added Unfaithful Reasoning Emergence (2602.01017) — CONTROLLED EVIDENCE: Faithful CoT only when noise < critical threshold. Training dynamics: stepwise→mixed→skip-step transition. Simplicity bias determines faithfulness. Implicit self-verification emerges in mixed mode. STRONGLY SUPPORTS thesis |
