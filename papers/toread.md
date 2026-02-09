@@ -2,7 +2,56 @@
 
 Curated list of papers confirmed relevant to the thesis. Promoted from `toevaluate.md` after triage.
 
-**Last updated**: 2026-02-05
+**Last updated**: 2026-02-09
+
+---
+
+## NEW — From Summer 2025 Reading (Issues #30-32, #35)
+
+Papers from your Italy Summer 2025 reading not yet analyzed.
+
+### 🔴 HIGH PRIORITY — Core Thesis Papers
+
+| arXiv ID | Title | Priority | Theme |
+|----------|-------|----------|-------|
+| [2305.11169](https://arxiv.org/abs/2305.11169) | **Arithmetic Without Algorithms** (Dziri) | 🔴 HIGH | Math = bag of heuristics |
+| [2310.07191](https://arxiv.org/abs/2310.07191) | **GSM-Symbolic** | 🔴 HIGH | Math limitations under perturbation |
+| [2404.15758](https://arxiv.org/abs/2404.15758) | **Let's Think Dot by Dot** | 🔴 HIGH | Hidden computation, filler tokens work |
+| [2402.18312](https://arxiv.org/abs/2402.18312) | **Mechanistic Understanding of CoT** | 🔴 HIGH | Localized computational pathways |
+| [2301.13379](https://arxiv.org/abs/2301.13379) | **Faithful Chain-of-Thought Reasoning** (Lanham) | 🔴 HIGH | CoT faithfulness analysis |
+| [2406.12837](https://arxiv.org/abs/2406.12837) | **RCoT: Detecting Unfaithful Reasoning** | 🔴 HIGH | Reverse CoT detects unfaithfulness |
+| [2401.11817](https://arxiv.org/abs/2401.11817) | **Hallucination is Inevitable** (computability) | 🔴 HIGH | Theoretical proof of inevitability |
+| [2405.20947](https://arxiv.org/abs/2405.20947) | **Predictable Compression Failures** | 🔴 HIGH | Hallucinations as compression failures |
+| [2406.02088](https://arxiv.org/abs/2406.02088) | **LLMs Get Lost in Multi-Turn** | 🔴 HIGH | Context degradation |
+| [2406.13121](https://arxiv.org/abs/2406.13121) | **Context Rot** | 🔴 HIGH | More tokens → worse performance |
+| [2404.17038](https://arxiv.org/abs/2404.17038) | **SWE-Bench Illusion** | 🔴 HIGH | Remember instead of reason |
+| [2507.11473](https://arxiv.org/abs/2507.11473) | **Proof or Bluff (USAMO 2025)** | 🔴 HIGH | Math olympiad failures |
+| [2406.14193](https://arxiv.org/abs/2406.14193) | **The Wall Confronting LLMs** | 🔴 HIGH | Scaling limits |
+
+### 🟠 MEDIUM PRIORITY — Supporting Evidence
+
+| arXiv ID | Title | Priority | Theme |
+|----------|-------|----------|-------|
+| [2310.08518](https://arxiv.org/abs/2310.08518) | **Language Models Don't Always Say What They Think** (Anthropic) | 🟠 MED | Faithfulness |
+| [2405.00675](https://arxiv.org/abs/2405.00675) | **The Confidence Paradox** | 🟠 MED | Calibration failures |
+| [2507.11768](https://arxiv.org/abs/2507.11768) | **One Token to Fool LLM-as-a-Judge** | 🟠 MED | Adversarial |
+| [2310.13345](https://arxiv.org/abs/2310.13345) | **An LLM can Fool Itself** | 🟠 MED | Adversarial |
+| [2501.18626](https://arxiv.org/abs/2501.18626) | **TIP of the Iceberg (Task-in-Prompt)** | 🟠 MED | Jailbreak |
+| [2510.05116](https://arxiv.org/abs/2510.05116) | **Hallucination Inevitable (Open World)** | 🟠 MED | Hallucination theory |
+| [2510.13928](https://arxiv.org/abs/2510.13928) | **LLMs Can Get Brain Rot** | 🟠 MED | Data quality decay |
+| [2510.07192](https://arxiv.org/abs/2510.07192) | **Poisoning Attacks Require Few Samples** | 🟠 MED | ~250 samples enough |
+| [2509.11208](https://arxiv.org/abs/2509.11208) | **Predictable Compression Failures** | 🟠 MED | Bayesian in expectation |
+| [2402.06702](https://arxiv.org/abs/2402.06702) | **Mind Your Tone (Politeness)** | 🟠 MED | Prompt sensitivity |
+
+### 🟡 LOWER PRIORITY — Methods/Foundations
+
+| arXiv ID | Title | Priority | Theme |
+|----------|-------|----------|-------|
+| [2305.18290](https://arxiv.org/abs/2305.18290) | **DPO** (Rafailov) | 🟡 LOW | Training method |
+| [2203.02155](https://arxiv.org/abs/2203.02155) | **InstructGPT** (Ouyang) | 🟡 LOW | Foundational RLHF |
+| [2406.08464](https://arxiv.org/abs/2406.08464) | **Beyond SFT: RL with Minimal Labels** | 🟡 LOW | Training |
+| [2502.06607](https://arxiv.org/abs/2502.06607) | **Generalized Correctness Models** | 🟡 LOW | Training |
+| [2505.01854](https://arxiv.org/abs/2505.01854) | **EchoLeak: Zero-Click Injection** | 🟡 LOW | Security |
 
 ---
 
