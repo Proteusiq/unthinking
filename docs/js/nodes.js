@@ -3536,4 +3536,28 @@ window.paperNodes = [
       ],
       analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/170-179/176_livecodebench_pro.md',
     },
+    // Paper 177: Abstract Reasoning Without CoT
+    {
+      id: '2505.23701',
+      title: 'Can LLMs Reason Abstractly Over Math Word Problems Without CoT? Disentangling Abstract Formulation From Arithmetic Computation',
+      shortTitle: 'Abstract vs Compute',
+      date: 'May 2025',
+      stance: 'supports',
+      cluster: 'mechanistic',
+      coreArgument:
+        'Math performance bottlenecked by computation, not abstraction. CoT primarily aids computation (+58.7%) with limited impact on abstract formulation (+6.7%). Models use abstract-then-compute mechanism: pattern recognition followed by execution.',
+      keyEvidence: [
+        'CoT: +58.7% computation vs +6.7% abstraction',
+        'Abstract-then-compute mechanism in single pass',
+        'Layers 13-14: abstraction; Layer 18: compute',
+        'Abstractions transferable via activation patching',
+        'Poor accuracy = arithmetic errors, not reasoning deficits',
+      ],
+      keyQuotes: [
+        "CoT primarily aids in computation, with limited impact on abstract formulation.",
+        "Final-answer accuracy alone may give a misleading picture of models' reasoning abilities.",
+        "These two skills are composed conjunctively even in a single forward pass via an abstract-then-compute mechanism."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/170-179/177_abstract_reasoning_without_cot.md',
+    },
 ];

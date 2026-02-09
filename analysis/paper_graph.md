@@ -755,6 +755,18 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **LiveCodeBench Pro (2506.11928)** | **supports** | **Proof or Bluff (2503.21934)** | Both show frontier models fail completely on expert-level problems |
 | **LiveCodeBench Pro (2506.11928)** | **provides evidence for** | **Pattern matching thesis** | Knowledge-heavy success = "patterns appear verbatim"; observation-heavy failure = "cannot be retrieved from memorized snippets" |
 
+### Paper 177: Abstract Reasoning Without CoT (Mila/McGill)
+
+| Paper A | Relationship | Paper B | Evidence |
+|---------|--------------|---------|----------|
+| **Abstract vs Compute (2505.23701)** | **supports** | **Faith and Fate (2305.18654)** | Both show pattern matching mechanism; abstraction = learned associations |
+| **Abstract vs Compute (2505.23701)** | **supports** | **Arithmetic Without Algorithms (2410.21272)** | Both show computation via heuristics, not algorithms |
+| **Abstract vs Compute (2505.23701)** | **supports** | **Emergent Symbolic Mechanisms (2502.20332)** | Both find identifiable mechanisms for reasoning components |
+| **Abstract vs Compute (2505.23701)** | **supports** | **How LLMs Learn to Reason (2509.23629)** | Both show internal mechanisms for reasoning mode activation |
+| **Abstract vs Compute (2505.23701)** | **extends** | **Demystifying Long CoT (2502.03373)** | Adds computation vs abstraction distinction to CoT analysis |
+| **Abstract vs Compute (2505.23701)** | **extends** | **GSM-Symbolic (2410.05229)** | Explains WHY perturbations fail: abstraction OK, computation fails |
+| **Abstract vs Compute (2505.23701)** | **provides evidence for** | **Pattern matching thesis** | CoT: +58.7% computation vs +6.7% abstraction; abstract-then-compute = pattern retrieval then execution |
+
 ### CoT Foundational Papers (151-156)
 
 | Paper A | Relationship | Paper B | Evidence |
