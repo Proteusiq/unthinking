@@ -312,6 +312,9 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 161 | 2404.15758 | Apr 2024 | Let's Think Dot by Dot: Hidden Computation in Transformer Language Models | Supports | ✅ DONE |
 | 162 | 2505.21024 | May 2025 | Pause Tokens Strictly Increase the Expressivity of Constant-Depth Transformers | Supports | ✅ DONE |
 | 163 | 2402.18312 | Feb 2024 | How to think step-by-step: A mechanistic understanding of chain-of-thought reasoning | Supports | ✅ DONE |
+| 164 | 2503.21934 | Mar 2025 | Proof or Bluff? Evaluating LLMs on 2025 USA Math Olympiad | Strongly Supports | ✅ DONE |
+| 165 | 2401.11817 | Jan 2024 | Hallucination is Inevitable: An Innate Limitation of Large Language Models | Strongly Supports | ✅ DONE |
+| 166 | 2506.12286 | Jun 2025 | The SWE-Bench Illusion: When State-of-the-Art LLMs Remember Instead of Reason | Strongly Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -327,11 +330,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 163
-- **Against Reasoning**: ~88
+- **Total Papers**: 166
+- **Against Reasoning**: ~91
 - **For Reasoning**: ~31
 - **Balanced**: ~45
 - **Date Range**: 2021-2026
-- **Analyzed**: 163
+- **Analyzed**: 166
 
 ---

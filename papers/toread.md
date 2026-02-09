@@ -20,12 +20,12 @@ Papers from your Italy Summer 2025 reading not yet analyzed.
 | [2402.18312](https://arxiv.org/abs/2402.18312) | **Mechanistic Understanding of CoT** | ✅ DONE | Analyzed as Paper 163 |
 | [2301.13379](https://arxiv.org/abs/2301.13379) | **Faithful Chain-of-Thought Reasoning** (Lyu et al.) | 🔴 HIGH | CoT faithfulness analysis (NOT Lanham) |
 | [2406.12837](https://arxiv.org/abs/2406.12837) | **RCoT: Detecting Unfaithful Reasoning** | 🔴 HIGH | Reverse CoT detects unfaithfulness |
-| [2401.11817](https://arxiv.org/abs/2401.11817) | **Hallucination is Inevitable** (computability) | 🔴 HIGH | Theoretical proof of inevitability |
+| [2401.11817](https://arxiv.org/abs/2401.11817) | **Hallucination is Inevitable** (computability) | ✅ DONE | Analyzed as Paper 165 |
 | [2405.20947](https://arxiv.org/abs/2405.20947) | **Predictable Compression Failures** | 🔴 HIGH | Hallucinations as compression failures |
 | [2406.02088](https://arxiv.org/abs/2406.02088) | **LLMs Get Lost in Multi-Turn** | 🔴 HIGH | Context degradation |
 | [2406.13121](https://arxiv.org/abs/2406.13121) | **Context Rot** | 🔴 HIGH | More tokens → worse performance |
-| [2404.17038](https://arxiv.org/abs/2404.17038) | **SWE-Bench Illusion** | 🔴 HIGH | Remember instead of reason |
-| [2507.11473](https://arxiv.org/abs/2507.11473) | **Proof or Bluff (USAMO 2025)** | 🔴 HIGH | Math olympiad failures |
+| [2506.12286](https://arxiv.org/abs/2506.12286) | **SWE-Bench Illusion** | ✅ DONE | Analyzed as Paper 166 |
+| [2503.21934](https://arxiv.org/abs/2503.21934) | **Proof or Bluff (USAMO 2025)** | ✅ DONE | Analyzed as Paper 164 |
 | [2406.14193](https://arxiv.org/abs/2406.14193) | **The Wall Confronting LLMs** | 🔴 HIGH | Scaling limits |
 
 ### 🟠 MEDIUM PRIORITY — Supporting Evidence
