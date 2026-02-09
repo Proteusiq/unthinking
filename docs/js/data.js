@@ -1,8 +1,8 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 161,
-    lastUpdated: '2026-02-01',
+    totalAnalyzed: 162,
+    lastUpdated: '2026-02-09',
   },
   nodes: [
     {
@@ -3170,6 +3170,50 @@ window.paperData = {
       ],
       analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/160-169/160_gsm_ic_distracted_irrelevant_context.md',
     },
+    // Paper 161: Let's Think Dot by Dot (Pfau et al.)
+    {
+      id: '2404.15758',
+      title: 'Let\'s Think Dot by Dot: Hidden Computation in Transformer Language Models',
+      shortTitle: 'Dot by Dot',
+      date: 'Apr 2024',
+      stance: 'supports',
+      cluster: 'mechanistic',
+      coreArgument:
+        'Meaningless filler tokens ("......") can replace CoT with equivalent performance. Benefits stem from additional computation, not human-like task decomposition.',
+      keyEvidence: [
+        '100% vs 66% on 3SUM with filler tokens',
+        'Requires parallelizable CoT supervision',
+        'Current LLMs (GPT-3.5, Claude 2) don\'t benefit from filler tokens',
+        '93.6% vs 78.7% on 2SUM-Transform',
+      ],
+      keyQuotes: [
+        "Chain-of-thought tokens need not provide information about the intermediate computational steps involved in multi-token computations.",
+        "The fact that intermediate tokens can act as filler tokens raises concerns about large language models engaging in unauditable, hidden computations."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/160-169/161_dot_by_dot_filler_tokens.md',
+    },
+    // Paper 162: Pause Tokens Strictly Increase Expressivity (London & Kanade)
+    {
+      id: '2505.21024',
+      title: 'Pause Tokens Strictly Increase the Expressivity of Constant-Depth Transformers',
+      shortTitle: 'Pause Tokens',
+      date: 'May 2025',
+      stance: 'supports',
+      cluster: 'mechanistic',
+      coreArgument:
+        'First formal proof that pause tokens strictly increase Transformer expressivity. TF[1,L,P] = AC⁰. Parity learnable with pause tokens, impossible without.',
+      keyEvidence: [
+        'TF[1,L,0] ⊊ TF[1,L,P] (strict separation)',
+        'TF[L,L,P] = TC⁰',
+        '100% parity accuracy with pause tokens vs 50% without',
+        'Extends to 300-bit sequences',
+      ],
+      keyQuotes: [
+        "We provide the first formal separation result, proving that adding pause tokens to constant-depth, logarithmic-width Transformers strictly increases their computational expressivity.",
+        "Pause tokens provide 'wider' parallel computation, while CoT enables 'deeper' sequential computation."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/160-169/162_pause_tokens_expressivity.md',
+    },
   ],
   links: [
     // Sycophancy Scales (Paper 119 - canonical)
@@ -5940,6 +5984,44 @@ window.paperData = {
       target: '2207.07051',
       type: 'supports',
       description: 'Both show semantic content affects reasoning — no logical filtering',
+    },
+    // Paper 161: Dot by Dot links
+    {
+      source: '2404.15758',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'CoT benefits from computation, not task decomposition',
+    },
+    {
+      source: '2404.15758',
+      target: '2307.13702',
+      type: 'supports',
+      description: 'Tokens can be divorced from actual computation',
+    },
+    {
+      source: '2404.15758',
+      target: '2310.07923',
+      type: 'supports',
+      description: 'Provides empirical evidence for theoretical CoT expressivity claims',
+    },
+    // Paper 162: Pause Tokens links
+    {
+      source: '2505.21024',
+      target: '2404.15758',
+      type: 'extends',
+      description: 'Proves formal separation conjectured in Dot by Dot',
+    },
+    {
+      source: '2505.21024',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Proves fundamental computational limits of transformers',
+    },
+    {
+      source: '2505.21024',
+      target: '2310.07923',
+      type: 'supports',
+      description: 'Places pause tokens in relation to CoT expressivity bounds',
     },
   ],
 };

@@ -158,6 +158,12 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **OMEGA (2506.18880)** | **supports** | **Illusion of Thinking (2506.06941)** | **Performance collapse at complexity threshold; 0% transformative** |
 | **OMEGA (2506.18880)** | **extends** | **GSM-Symbolic (2410.05229)** | **From surface perturbation to systematic generalization axes** |
 | **OMEGA (2506.18880)** | **provides mechanism for** | **Overthinking failures** | **38% "correct→incorrect" from CoT second-guessing** |
+| **Dot by Dot (2404.15758)** | **supports** | **Faith and Fate (2305.18654)** | **CoT benefits from computation, not task decomposition** |
+| **Dot by Dot (2404.15758)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Tokens can be divorced from actual computation** |
+| **Dot by Dot (2404.15758)** | **supports** | **Expressive Power of CoT (2310.07923)** | **Provides empirical evidence for theoretical claims** |
+| **Pause Tokens (2505.21024)** | **extends** | **Dot by Dot (2404.15758)** | **Proves formal separation conjectured in Dot by Dot** |
+| **Pause Tokens (2505.21024)** | **supports** | **Faith and Fate (2305.18654)** | **Proves fundamental computational limits** |
+| **Pause Tokens (2505.21024)** | **supports** | **Expressive Power of CoT (2310.07923)** | **Places pause tokens in relation to CoT expressivity** |
 | **Emergent Hierarchical Reasoning (2509.03646)** | **supports** | **Interplay (2512.07783)** | **Explicitly states RL "rediscovers" pre-training priors** |
 | **Emergent Hierarchical Reasoning (2509.03646)** | **supports** | **DeepSeek-R1 (2501.12948)** | **RL improves ID performance via strategic template deployment** |
 | **Emergent Hierarchical Reasoning (2509.03646)** | **challenged by** | **OMEGA (2506.18880)** | **OMEGA shows 0% compositional/transformative despite same RL methods** |
@@ -969,3 +975,5 @@ These papers have NO direct rebuttals found:
 | 2026-02-01 | Added Recursive Problems (2305.14699) — Transformers learn "shortcut" algorithms instead of true recursion. 91% failure prediction from reconstructed algorithms. STRONGLY SUPPORTS thesis |
 | 2026-02-01 | Added ALiBi (2108.12409) — ICLR 2022: Linear biases enable length extrapolation (1024→2048). 11% faster/less memory. Addresses length but NOT compositional OOD. BALANCED |
 | 2026-02-01 | Added GSM-IC (2302.00093) — ICML 2023: LLMs distracted by irrelevant context. Precursor to GSM-Symbolic. Self-consistency helps but incomplete. STRONGLY SUPPORTS thesis |
+| 2026-02-09 | Added Dot by Dot (2404.15758) — Filler tokens ('......') can replace CoT; benefits from additional compute, not reasoning. 100% vs 66% on 3SUM with fillers. SUPPORTS thesis |
+| 2026-02-09 | Added Pause Tokens Expressivity (2505.21024) — FORMAL PROOF: TF[1,L,P] = AC⁰, strict separation from TF[1,L,0]. Parity impossible without pause. Extends Dot by Dot theoretically. SUPPORTS thesis |
