@@ -1,4 +1,4 @@
-> **Based on systematic analysis of 166 peer-reviewed papers (2022-2026)**
+> **Based on systematic analysis of 182 peer-reviewed papers (2022-2026)**
 >
 > Full corpus: [github.com/Proteusiq/unthinking](https://github.com/Proteusiq/unthinking)
 
@@ -366,33 +366,29 @@ This isn’t pedantry. It’s the difference between understanding and imitation
 
 ### The Simulation vs Instantiation Distinction
 
-Consider three systems:
+Consider two systems playing chess:
 
-**System A: Video of Fire**
+**System A: Pattern-Matching Chess Engine**
 
-- Shows flames, smoke, heat shimmer
-- Looks exactly like fire
-- Doesn’t burn, doesn’t spread, doesn’t consume fuel
+- Memorizes millions of board positions and their evaluations
+- For any new position, finds similar positions and interpolates
+- Plays brilliantly within its pattern database
+- Fails catastrophically on novel positions outside its training
 
-**System B: Chemical Simulation**
+**System B: Algorithmic Chess Engine (like Stockfish)**
 
-- Models combustion equations
-- Predicts fire behavior accurately
-- Still doesn’t burn anything
+- Implements minimax search with alpha-beta pruning
+- Evaluates positions using compositional rules
+- Can analyze ANY legal position, including ones never seen
+- Performance degrades gracefully with time constraints, not abruptly
 
-**System C: Actual Fire**
+LLMs are System A, not System B. They interpolate within their training distribution without executing the algorithms that would enable true generalization.
 
-- Is combustion
-- Burns things
-- Has causal powers
+**The common response:** "But if it plays like it understands chess, doesn't it understand chess?"
 
-LLMs are System A, not System C. They display reasoning-like outputs without instantiating reasoning processes.
+**My answer:** No. The mechanism determines what happens at distribution boundaries.
 
-**The common response:** “But if it looks like reasoning and works like reasoning, isn’t it reasoning?”
-
-**My answer:** No. The mechanism determines what happens at boundaries.
-
-The video of fire works perfectly for observation but fails completely for cooking. No amount of video quality fixes this.
+The pattern-matching engine works perfectly on common positions but fails completely on novel compositions. No amount of memorized patterns fixes this—the failure mode is architectural.
 
 LLMs work perfectly for in-distribution text but fail completely for novel composition. No amount of parameters fixes this.
 
@@ -1115,7 +1111,7 @@ Current evidence: All five criteria fail.
 
 ### C. Research Repository
 
-Full analysis of 160+ papers with interactive visualization: **[github.com/Proteusiq/unthinking](https://github.com/Proteusiq/unthinking)**
+Full analysis of 182 papers with interactive visualization: **[github.com/Proteusiq/unthinking](https://github.com/Proteusiq/unthinking)**
 
 Papers organized by:
 - Compositional failure (Papers #1, #6, #7, #69, #74, #77)
@@ -1126,10 +1122,10 @@ Papers organized by:
 - Social dynamics (Papers #109, #110, #127, #128)
 - Tool augmentation (Papers #4, #10, #11, #68)
 
-**73.75% support thesis | 21.88% balanced | 4.37% challenge**
+**~57% support thesis | ~26% balanced | ~17% challenge**
 
 -----
 
 **About the Author**
 
-This article synthesizes research from over 160 peer-reviewed papers examining LLM capabilities, limitations, and mechanisms. The analysis draws on work in machine learning, cognitive science, philosophy of mind, and formal verification. For ongoing discussion and updates, see github.com/Proteusiq/unthinking.
+This article synthesizes research from 182 peer-reviewed papers examining LLM capabilities, limitations, and mechanisms. The analysis draws on work in machine learning, cognitive science, philosophy of mind, and formal verification. For ongoing discussion and updates, see github.com/Proteusiq/unthinking.
