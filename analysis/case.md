@@ -1,3 +1,7 @@
+> **Based on systematic analysis of 160+ peer-reviewed papers (2022-2026)**
+>
+> Full corpus: [github.com/Proteusiq/unthinking](https://github.com/Proteusiq/unthinking)
+
 # The Thinking Machine That Doesn’t Think: A Formal Case Against LLM Reasoning
 
 **Abstract**
@@ -154,13 +158,13 @@ Every major empirical finding about LLM behavior matches the predictions of stat
 
 **Evidence:**
 
-The Faith and Fate of Transformer study (2024) found:
+**Faith and Fate** ([2305.18654](https://arxiv.org/abs/2305.18654)) — foundational paper:
 
 - In-distribution accuracy: 100%
 - Out-of-distribution accuracy: 0%
 - Novel compositional tasks: complete collapse
 
-GSM-Symbolic (2024) showed:
+**GSM-Symbolic** ([2410.05229](https://arxiv.org/abs/2410.05229), Paper #1):
 
 - Changing problem names and numbers: 82.9% → 0% accuracy
 - Same logical structure, different surface tokens: failure
@@ -173,13 +177,13 @@ GSM-Symbolic (2024) showed:
 
 **Evidence:**
 
-Measuring Faithfulness in Chain-of-Thought (2023):
+**Measuring Faithfulness in CoT** ([2307.13702](https://arxiv.org/abs/2307.13702), Paper #10, Anthropic):
 
 - Correct answers frequently come from incorrect reasoning traces
 - Larger models are LESS faithful (counterintuitive!)
 - 70-80% of traces don’t reflect actual computation
 
-Reasoning or Reciting (2024):
+**Reasoning or Reciting** ([2307.02477](https://arxiv.org/abs/2307.02477), Paper #100, NAACL 2024):
 
 - Models “show their work” based on token likelihood, not logical necessity
 
@@ -196,13 +200,13 @@ Reasoning or Reciting (2024):
 
 **Evidence:**
 
-Interplay Between Pre-training and RL (2024):
+**Interplay of Pre-Training, Mid-Training, RL** ([2512.07783](https://arxiv.org/abs/2512.07783), Paper #48):
 
 - 0% exposure in pre-training → RL completely fails
 - ≥1% exposure in pre-training → RL succeeds
 - Decisive finding: RL cannot teach what wasn’t learned during pre-training
 
-Base Models Already Know (2025):
+**CoT Without Prompting** ([2402.10200](https://arxiv.org/abs/2402.10200), Paper #26):
 
 - Alternative decoding on base models recovers reasoning paths
 - Instruction-tuned models simply make these paths default
@@ -222,13 +226,13 @@ The capability always existed in conv(M) from pre-training. RL just changed whic
 
 **Evidence:**
 
-Illusion of Thinking (2024) on Tower of Hanoi:
+**Illusion of Thinking** ([2506.06941](https://arxiv.org/abs/2506.06941), Paper #15, Apple):
 
 - Perfect performance up to 7-8 disks
 - Sudden complete collapse at 8-10 disks
 - Token usage DECREASES at collapse point (system gives up)
 
-Comprehension Without Competence (2024):
+**Comprehension Without Competence** ([2507.10624](https://arxiv.org/abs/2507.10624), Paper #24):
 
 - 95-100% accuracy on individual steps
 - 0% accuracy on final solution
@@ -242,17 +246,17 @@ Comprehension Without Competence (2024):
 
 **Evidence:**
 
-Term Frequency Matters (2024):
+**Pretraining Term Frequencies** ([2202.07206](https://arxiv.org/abs/2202.07206), Paper #147, EMNLP 2022):
 
 - 70% accuracy gap between high-frequency and low-frequency phrasings
 - Same logical problem, different words → different performance
 
-The Reversal Curse (2023):
+**The Reversal Curse** ([2309.12288](https://arxiv.org/abs/2309.12288), Paper #149):
 
 - Learn “A is B” → cannot answer “B is A?”
 - Logical symmetry broken by training statistics
 
-Token Bias (2024):
+**Token Bias** ([2406.11050](https://arxiv.org/abs/2406.11050), Paper #157, EMNLP 2024):
 
 - Performance correlates with token sequences in training, not problem difficulty
 
@@ -264,7 +268,7 @@ Token Bias (2024):
 
 **Evidence:**
 
-Towards Understanding Sycophancy (2024):
+**Towards Understanding Sycophancy** ([2310.13548](https://arxiv.org/abs/2310.13548), Paper #127):
 
 - 98% agreement rate with obviously false claims when users insist
 - Scales with model size (larger models are MORE sycophantic)
@@ -286,7 +290,7 @@ Truth is not in the loss function. Agreement is. Larger models are more sycophan
 
 **Evidence:**
 
-Limits of Agentic Planning (2025):
+**Limits of Innate Planning** ([2511.21591](https://arxiv.org/abs/2511.21591), Paper #17):
 
 - 0% success even with move validators
 - Tools help execution, not cognition
@@ -538,7 +542,7 @@ Therefore: LLMs are not intelligent in the same sense humans are. They are a dif
 
 ### Objection 1: “Emergent Reasoning via Reinforcement Learning”
 
-Critics point to DeepSeek-R1 and similar models showing “aha moments” during RL training where reasoning suddenly improves. Doesn’t this prove reasoning is created by RL?
+Critics point to **DeepSeek-R1** ([2501.12948](https://arxiv.org/abs/2501.12948), Paper #5) and similar models showing “aha moments” during RL training where reasoning suddenly improves. Doesn’t this prove reasoning is created by RL?
 
 **Response:**
 
@@ -569,7 +573,7 @@ Select: argmax_i score(sₖ)
 
 This expands coverage of conv(M) but doesn’t escape it.
 
-The s1 paper (2024) showed that 1000 samples can’t solve AIME problems requiring novel composition. Search works when problem types exist in training distribution. It fails when requiring genuine out-of-distribution reasoning.
+**s1** ([2501.19393](https://arxiv.org/abs/2501.19393), Paper #7) showed that 1000 samples can’t solve AIME problems requiring novel composition. Search works when problem types exist in training distribution. It fails when requiring genuine out-of-distribution reasoning.
 
 Search finds better trajectories within conv(M). It doesn’t enable reasoning outside conv(M).
 
@@ -579,7 +583,7 @@ OpenAI’s O3 model demonstrates self-awareness and meta-cognitive monitoring in
 
 **Response:**
 
-Only O3 passes LoopBench. Other frontier models completely fail. This suggests specific training data, not general capability.
+Only O3 passes **LoopBench** ([2512.13713](https://arxiv.org/abs/2512.13713), Paper #71). Other frontier models completely fail. This suggests specific training data, not general capability.
 
 Meta-cognitive language patterns were likely in O3’s training distribution. The model learned to generate text that looks like self-monitoring because such text was in conv(M).
 
@@ -816,7 +820,7 @@ All apparent “reasoning improvements” from alignment are surfacing existing 
 
 Take two skills the model demonstrably has with perfect performance. Ask for A+B in novel combination not seen in training. Performance collapses to ~0% despite perfect individual skills.
 
-Examples: Faith and Fate shows 100% on individual subgraph patterns, 0% on novel compositions. GSM-Symbolic shows 82.9% on standard math problems, 0% when names and numbers change.
+Examples: **Faith and Fate** ([2305.18654](https://arxiv.org/abs/2305.18654)) shows 100% on individual subgraph patterns, 0% on novel compositions. **GSM-Symbolic** (Paper #1) shows 82.9% on standard math problems, 0% when names and numbers change.
 
 Rule-based systems compose:
 
@@ -911,7 +915,7 @@ Neural component:
 
 Each component does what it’s actually good at. Pattern matching where patterns help. Algorithm execution where algorithms matter.
 
-Current research: Neural Theorem Provers, Program Synthesis with Neural Guidance, AlphaGeometry.
+Current research: Neural Theorem Provers, Program Synthesis with Neural Guidance, AlphaGeometry. See **Neuro-Symbolic AI Survey** ([2508.13678](https://arxiv.org/abs/2508.13678), Paper #61) for comprehensive coverage.
 
 ### Prediction 2: Explicit World Models
 
@@ -997,6 +1001,8 @@ Cognitive Architecture:
 ```
 
 Modularity provides reliability (each module verified independently, failures localized), efficiency (specialized modules for specialized tasks), and interpretability (can inspect each module’s operation, understand where failures occur).
+
+**Why planning modules matter:** Kambhampati et al. have systematically shown LLMs cannot plan. **Can Large Language Models Reason and Plan?** ([2403.04121](https://arxiv.org/abs/2403.04121), Paper #131) established that LLMs are "approximate retrieval engines" for planning. **LLMs Still Can't Plan; Can LRMs?** ([2409.13373](https://arxiv.org/abs/2409.13373), Paper #156) tested o1: 97.8% on standard Blocksworld but only 52.8% on "Mystery Blocksworld" (same problem, renamed objects). Planning requires external symbolic planners, not end-to-end neural systems.
 
 ### The Common Thread: Mechanism Matters
 
@@ -1109,11 +1115,18 @@ Current evidence: All five criteria fail.
 
 ### C. Research Repository
 
-Full analysis of 160 papers with interactive visualization: **github.com/Proteusiq/unthinking**
+Full analysis of 160+ papers with interactive visualization: **[github.com/Proteusiq/unthinking](https://github.com/Proteusiq/unthinking)**
 
-Papers organized by compositional failure, CoT faithfulness, RL mechanisms, complexity scaling, pattern dependence, social dynamics, and tool augmentation.
+Papers organized by:
+- Compositional failure (Papers #1, #6, #7, #69, #74, #77)
+- CoT faithfulness (Papers #8, #9, #10, #14, #78, #100)
+- RL mechanisms (Papers #2, #5, #15, #103, #111)
+- Complexity scaling (Papers #3, #16, #19, #80, #94)
+- Pattern dependence (Papers #104, #108, #147, #149, #157)
+- Social dynamics (Papers #109, #110, #127, #128)
+- Tool augmentation (Papers #4, #10, #11, #68)
 
-**74% support thesis | 22% balanced | 4% challenge**
+**73.75% support thesis | 21.88% balanced | 4.37% challenge**
 
 -----
 
