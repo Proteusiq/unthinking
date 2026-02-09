@@ -767,6 +767,17 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Abstract vs Compute (2505.23701)** | **extends** | **GSM-Symbolic (2410.05229)** | Explains WHY perturbations fail: abstraction OK, computation fails |
 | **Abstract vs Compute (2505.23701)** | **provides evidence for** | **Pattern matching thesis** | CoT: +58.7% computation vs +6.7% abstraction; abstract-then-compute = pattern retrieval then execution |
 
+### Paper 178: Trilemma of Truth (NeurIPS 2025 Workshop)
+
+| Paper A | Relationship | Paper B | Evidence |
+|---------|--------------|---------|----------|
+| **Trilemma of Truth (2506.23921)** | **supports** | **Faith and Fate (2305.18654)** | Both show distribution-bounded knowledge; training determines "truth" |
+| **Trilemma of Truth (2506.23921)** | **supports** | **Sycophancy Hides Linearly (2601.16644)** | Both find asymmetric encoding of truth-related signals |
+| **Trilemma of Truth (2506.23921)** | **supports** | **Measuring Faithfulness (2307.13702)** | Both show probing can find spurious correlations |
+| **Trilemma of Truth (2506.23921)** | **supports** | **Hallucination Inevitable (2401.11817)** | Both suggest fundamental limits on truth assessment |
+| **Trilemma of Truth (2506.23921)** | **extends** | **Emergent Symbolic Mechanisms (2502.20332)** | Adds veracity-specific mechanistic analysis |
+| **Trilemma of Truth (2506.23921)** | **provides evidence for** | **Pattern matching thesis** | "Probabilistic knowledge" = learned associations from training; binary probes confounded by spurious correlations |
+
 ### CoT Foundational Papers (151-156)
 
 | Paper A | Relationship | Paper B | Evidence |

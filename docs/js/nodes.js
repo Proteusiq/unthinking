@@ -3560,4 +3560,28 @@ window.paperNodes = [
       ],
       analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/170-179/177_abstract_reasoning_without_cot.md',
     },
+    // Paper 178: Trilemma of Truth
+    {
+      id: '2506.23921',
+      title: 'The Trilemma of Truth in Large Language Models',
+      shortTitle: 'Trilemma of Truth',
+      date: 'Jun 2025',
+      stance: 'supports',
+      cluster: 'mechanistic',
+      coreArgument:
+        'Common veracity probes fail and perform worse than zero-shot prompting. Truth and falsehood are not encoded symmetrically. LLMs encode a third signal distinct from both — reflecting learned associations from training, not genuine truth understanding.',
+      keyEvidence: [
+        'Binary probes confounded by spurious correlations',
+        'Truth/falsehood NOT symmetric opposites',
+        'Third signal = neither true nor false',
+        'P(φ|K) ≠ 1 - P(¬φ|K)',
+        'sAwMIL multiclass probe needed',
+      ],
+      keyQuotes: [
+        "Common probing methods fail to provide a reliable and transferable veracity direction and, in some settings, perform worse than zero-shot prompting.",
+        "Truth and falsehood are not encoded symmetrically.",
+        "LLMs encode a third type of signal that is distinct from both true and false."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/170-179/178_trilemma_of_truth.md',
+    },
 ];
