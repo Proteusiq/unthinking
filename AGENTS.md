@@ -406,8 +406,11 @@ Before using `gh` commands (issues, PRs, etc.), always verify and switch to the 
 # Check current account
 gh auth status
 
-# Switch to Proteusiq account (repo owner)
-gh auth switch --user Proteusiq
+# Get repo owner from git remote
+git remote -v | grep origin | head -1 | sed 's/.*github.com[:/]\([^/]*\).*/\1/'
+
+# Switch to the repo owner account
+gh auth switch --user <owner>
 ```
 
 ---
