@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 163,
+    totalAnalyzed: 166,
     lastUpdated: '2026-02-09',
   },
   nodes: [
@@ -3237,6 +3237,75 @@ window.paperData = {
       ],
       analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/160-169/163_mechanistic_understanding_cot.md',
     },
+    // Paper 164: Proof or Bluff (Petrov et al.)
+    {
+      id: '2503.21934',
+      title: 'Proof or Bluff? Evaluating LLMs on 2025 USA Math Olympiad',
+      shortTitle: 'Proof or Bluff',
+      date: 'Mar 2025',
+      stance: 'supports',
+      cluster: 'compositional',
+      coreArgument:
+        'Expert human evaluation of USAMO 2025 proofs reveals massive gap between answer-only and proof-based performance. Best model 25%, all others under 5%.',
+      keyEvidence: [
+        'Gemini-2.5-Pro: 25% (10.1/42); all others <5%',
+        'Logic errors most common failure mode',
+        'Automated grading overestimated scores by up to 20x',
+        'GRPO training artifacts: answer-boxing compulsion',
+        'Models claim success even when failing',
+      ],
+      keyQuotes: [
+        "Our results reveal that all tested models struggled significantly: only Gemini-2.5-Pro achieves a non-trivial score of 25%, while all other models achieve less than 5%.",
+        "All evaluated LLMs consistently claimed to have solved the problems. This discrepancy poses a significant challenge for mathematical applications."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/160-169/164_proof_or_bluff_usamo.md',
+    },
+    // Paper 165: Hallucination is Inevitable (Xu et al.)
+    {
+      id: '2401.11817',
+      title: 'Hallucination is Inevitable: An Innate Limitation of Large Language Models',
+      shortTitle: 'Hallucination Inevitable',
+      date: 'Jan 2024',
+      stance: 'supports',
+      cluster: 'theoretical',
+      coreArgument:
+        'Computability theory proof that hallucination is mathematically inevitable for LLMs used as general problem solvers. Diagonalization shows any LLM will fail on some computable function.',
+      keyEvidence: [
+        'Theorem 3: For all computable LLMs, exists f such that LLM hallucinates',
+        'Corollary 1: Self-correction cannot eliminate hallucination',
+        'All LLMs failed linear order transitive reasoning task',
+        'All LLMs failed combinatorial list task L(7,{a,b})',
+        'External tools only mitigation',
+      ],
+      keyQuotes: [
+        "All computable LLMs cannot prevent themselves from hallucinating... methods relying on LLMs themselves to mitigate hallucination cannot eliminate hallucination.",
+        "All LLMs trained only with input-output pairs will hallucinate when used as general problem solvers."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/160-169/165_hallucination_inevitable.md',
+    },
+    // Paper 166: SWE-Bench Illusion (Liang et al.)
+    {
+      id: '2506.12286',
+      title: 'The SWE-Bench Illusion: When State-of-the-Art LLMs Remember Instead of Reason',
+      shortTitle: 'SWE-Bench Illusion',
+      date: 'Jun 2025',
+      stance: 'supports',
+      cluster: 'compositional',
+      coreArgument:
+        'SWE-Bench performance is partially driven by memorization not reasoning. Models achieve 76% file path accuracy without repo context on SWE-Bench, but only 53% on external repos.',
+      keyEvidence: [
+        '76% file path accuracy (SWE-Bench) vs <53% (external repos)',
+        '35% 5-gram overlap (SWE-Bench) vs 18% (other benchmarks)',
+        'Up to 31.6% verbatim code match from prefix alone',
+        'Cross-vendor consistency indicates systematic training exposure',
+        'Post-cutoff performance drops to baseline',
+      ],
+      keyQuotes: [
+        "The ability of models to reproduce exact code sequences when provided merely with contextual prefixes strongly suggests that performance reflects memorization rather than algorithmic reasoning.",
+        "High scores on SWE-Bench are not purely indicative of generalizable coding abilities. Instead, they are likely inflated by these confounding factors."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/160-169/166_swe_bench_illusion.md',
+    },
   ],
   links: [
     // Sycophancy Scales (Paper 119 - canonical)
@@ -6070,6 +6139,93 @@ window.paperData = {
       target: '2310.07923',
       type: 'supports',
       description: 'Mechanistic evidence for theoretical CoT expressivity',
+    },
+    // Paper 164: Proof or Bluff links
+    {
+      source: '2503.21934',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Pattern matching fails when proofs required',
+    },
+    {
+      source: '2503.21934',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Same collapse pattern at genuine complexity',
+    },
+    {
+      source: '2503.21934',
+      target: '2307.13702',
+      type: 'supports',
+      description: 'Models produce proof-shaped text without validity',
+    },
+    {
+      source: '2503.21934',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Answer-only benchmarks hide reasoning limits',
+    },
+    {
+      source: '2503.21934',
+      target: '2506.17219',
+      type: 'supports',
+      description: 'GRPO training artifacts show format over reasoning',
+    },
+    // Paper 165: Hallucination Inevitable links
+    {
+      source: '2401.11817',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Formal foundation for compositional limits',
+    },
+    {
+      source: '2401.11817',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Explains why complexity thresholds exist',
+    },
+    {
+      source: '2401.11817',
+      target: '2403.04121',
+      type: 'supports',
+      description: 'Formalizes approximate retrieval argument',
+    },
+    {
+      source: '2401.11817',
+      target: '2510.18254',
+      type: 'supports',
+      description: 'Corollary 1 explains self-correction failures',
+    },
+    // Paper 166: SWE-Bench Illusion links
+    {
+      source: '2506.12286',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Distribution-bounded performance',
+    },
+    {
+      source: '2506.12286',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Benchmark scores dont reflect true capability',
+    },
+    {
+      source: '2506.12286',
+      target: '2601.13392',
+      type: 'supports',
+      description: 'Same pattern: high seen, low unseen',
+    },
+    {
+      source: '2506.12286',
+      target: '2307.02477',
+      type: 'extends',
+      description: 'Extends counterfactual methodology to coding',
+    },
+    {
+      source: '2506.12286',
+      target: '2202.07206',
+      type: 'supports',
+      description: 'Training exposure determines performance',
     },
   ],
 };
