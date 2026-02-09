@@ -3769,4 +3769,35 @@ window.paperLinks = [
       type: 'supports',
       description: 'Surface perturbations override reasoning = pattern matching',
     },
+    // Paper 187: TIP of the Iceberg links
+    {
+      source: '2501.18626',
+      target: '2310.13345',
+      type: 'supports',
+      description: 'Both show surface-level fragility; TIP exploits pattern space separation',
+    },
+    {
+      source: '2501.18626',
+      target: '2304.11082',
+      type: 'supports',
+      description: 'TIP attacks empirically demonstrate BEB theory: any behavior triggerable',
+    },
+    {
+      source: '2501.18626',
+      target: '2403.04121',
+      type: 'supports',
+      description: 'TIP confirms Kambhampati: safety = pattern matching on trigger words',
+    },
+    {
+      source: '2501.18626',
+      target: '2507.08794',
+      type: 'supports',
+      description: 'Both show encoding/tokens bypass safety mechanisms',
+    },
+    {
+      source: '2501.18626',
+      target: '2305.04388',
+      type: 'supports',
+      description: 'Both show surface features override semantic understanding',
+    },
 ];

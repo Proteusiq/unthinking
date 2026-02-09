@@ -335,6 +335,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 184 | 2510.13928 | Oct 2025 | LLMs Can Get "Brain Rot"! (UT Austin, Purdue) | Strongly Supports | ✅ DONE |
 | 185 | 2510.05116 | Sep 2025 | Hallucination is Inevitable for LLMs with the Open World Assumption (Temple) | Supports | ✅ DONE |
 | 186 | 2310.13345 | Oct 2023 | An LLM can Fool Itself: A Prompt-Based Adversarial Attack | Supports | ✅ DONE |
+| 187 | 2501.18626 | Jan 2025 | The TIP of the Iceberg: Task-in-Prompt Adversarial Attacks on LLMs | Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -350,11 +351,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 186
-- **Against Reasoning**: ~108
+- **Total Papers**: 187
+- **Against Reasoning**: ~109
 - **For Reasoning**: ~31
 - **Balanced**: ~47
 - **Date Range**: 2021-2026
-- **Analyzed**: 186
+- **Analyzed**: 187
 
 ---

@@ -36,7 +36,7 @@ Papers from your Italy Summer 2025 reading not yet analyzed.
 | [2405.00675](https://arxiv.org/abs/2405.00675) | **The Confidence Paradox** | 🟠 MED | Calibration failures |
 | ~~[2507.11768](https://arxiv.org/abs/2507.11768)~~ | ~~**One Token to Fool LLM-as-a-Judge**~~ | ❌ WRONG ID | Correct ID is **2507.08794** — "master keys" like `:` or `"Let's solve..."` fool judges |
 | ~~[2310.13345](https://arxiv.org/abs/2310.13345)~~ | ~~**An LLM can Fool Itself**~~ | ✅ DONE | Analyzed as Paper 186 |
-| [2501.18626](https://arxiv.org/abs/2501.18626) | **TIP of the Iceberg (Task-in-Prompt)** | 🟠 MED | Jailbreak |
+| ~~[2501.18626](https://arxiv.org/abs/2501.18626)~~ | ~~**TIP of the Iceberg (Task-in-Prompt)**~~ | ✅ DONE | Analyzed as Paper 187 |
 | ~~[2510.05116](https://arxiv.org/abs/2510.05116)~~ | ~~**Hallucination Inevitable (Open World)**~~ | ✅ DONE | Analyzed as Paper 185 |
 | ~~[2510.13928](https://arxiv.org/abs/2510.13928)~~ | ~~**LLMs Can Get Brain Rot**~~ | ✅ DONE | Analyzed as Paper 184 |
 | ~~[2510.07192](https://arxiv.org/abs/2510.07192)~~ | ~~**Poisoning Attacks Require Few Samples**~~ | ✅ DONE | Analyzed as Paper 183 |
