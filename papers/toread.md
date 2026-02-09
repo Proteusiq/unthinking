@@ -15,10 +15,10 @@ Papers from your Italy Summer 2025 reading not yet analyzed.
 | arXiv ID | Title | Priority | Theme |
 |----------|-------|----------|-------|
 | [2305.11169](https://arxiv.org/abs/2305.11169) | **Arithmetic Without Algorithms** (Dziri) | 🔴 HIGH | Math = bag of heuristics |
-| [2310.07191](https://arxiv.org/abs/2310.07191) | **GSM-Symbolic** | 🔴 HIGH | Math limitations under perturbation |
-| [2404.15758](https://arxiv.org/abs/2404.15758) | **Let's Think Dot by Dot** | 🔴 HIGH | Hidden computation, filler tokens work |
+| ~~[2310.07191](https://arxiv.org/abs/2310.07191)~~ | ~~**GSM-Symbolic**~~ | ❌ WRONG ID | Wrong arXiv ID — GSM-Symbolic is 2410.05229 (Paper 1) |
+| [2404.15758](https://arxiv.org/abs/2404.15758) | **Let's Think Dot by Dot** | ✅ DONE | Analyzed as Paper 161 |
 | [2402.18312](https://arxiv.org/abs/2402.18312) | **Mechanistic Understanding of CoT** | ✅ DONE | Analyzed as Paper 163 |
-| [2301.13379](https://arxiv.org/abs/2301.13379) | **Faithful Chain-of-Thought Reasoning** (Lanham) | 🔴 HIGH | CoT faithfulness analysis |
+| [2301.13379](https://arxiv.org/abs/2301.13379) | **Faithful Chain-of-Thought Reasoning** (Lyu et al.) | 🔴 HIGH | CoT faithfulness analysis (NOT Lanham) |
 | [2406.12837](https://arxiv.org/abs/2406.12837) | **RCoT: Detecting Unfaithful Reasoning** | 🔴 HIGH | Reverse CoT detects unfaithfulness |
 | [2401.11817](https://arxiv.org/abs/2401.11817) | **Hallucination is Inevitable** (computability) | 🔴 HIGH | Theoretical proof of inevitability |
 | [2405.20947](https://arxiv.org/abs/2405.20947) | **Predictable Compression Failures** | 🔴 HIGH | Hallucinations as compression failures |
@@ -228,7 +228,7 @@ These papers directly test or challenge the thesis that LLM reasoning is pattern
 
 | arXiv ID | Title | Priority | Why Read |
 |----------|-------|----------|----------|
-| 2108.12409 | **Train Short, Test Long: ALiBi** (Press et al.) | 🟠 HIGH | Linear biases for length extrapolation. Architectural approach to OOD — shows what's needed to generalize. |
+| 2108.12409 | **Train Short, Test Long: ALiBi** (Press et al.) | ✅ DONE | Analyzed as Paper 159 |
 | 2111.00396 | **Efficiently Modeling Long Sequences with S4** (Gu et al.) | 🔵 MAYBE LATER | State space models for long sequences. Alternative architecture with different reasoning properties. |
 | 2404.01445 | **Theory for Length Generalization in Learning to Reason** | 🟡 MEDIUM | Theoretical analysis of when/why length generalization fails. Already in corpus as Paper 66. |
 
