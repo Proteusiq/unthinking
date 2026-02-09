@@ -1,7 +1,7 @@
 // Paper data for visualization - auto-generated
 window.paperData = {
   meta: {
-    totalAnalyzed: 169,
+    totalAnalyzed: 171,
     lastUpdated: '2026-02-09',
   },
   nodes: [
@@ -3373,6 +3373,53 @@ window.paperData = {
       ],
       analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/160-169/169_dissociation_faithful_unfaithful.md',
     },
+    // Paper 170: Fluid Representations in Reasoning Models (ETH Zurich)
+    {
+      id: '2602.04843',
+      title: 'Fluid Representations in Reasoning Models',
+      shortTitle: 'Fluid Representations',
+      date: 'Feb 2026',
+      stance: 'balanced',
+      cluster: 'mechanism',
+      coreArgument:
+        'QwQ-32B progressively adapts internal representations during extended reasoning, but base model shows SAME adaptation. Capability is inherent to all LLMs, not special to reasoning models.',
+      keyEvidence: [
+        'Semantic obfuscation: 96% → 35% accuracy drop',
+        'Positive steering: +1.5-1.8% mean improvement',
+        'Base model shows same adaptation dynamics',
+        'Cross-naming transfer works at ~7k tokens',
+        'Effect sizes small but causal',
+      ],
+      keyQuotes: [
+        "Both models [QwQ and its base model] exhibit similar adaptation dynamics... This finding indicates representational adaptation is an inherent property of large language models rather than a specialized reasoning model feature.",
+        "The model performs worst on namings suggesting reversible operations or coherent alternative domains."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/170-179/170_fluid_representations_reasoning.md',
+    },
+    // Paper 171: Arithmetic Without Algorithms (Technion)
+    {
+      id: '2410.21272',
+      title: 'Arithmetic Without Algorithms: Language Models Solve Math With a Bag of Heuristics',
+      shortTitle: 'Bag of Heuristics',
+      date: 'Oct 2024',
+      stance: 'supports',
+      cluster: 'mechanism',
+      coreArgument:
+        'LLMs perform arithmetic using a bag of heuristics — sparse neurons implementing pattern-matching rules — not robust algorithms or memorization. Each neuron fires for specific numerical patterns.',
+      keyEvidence: [
+        '~200 neurons per layer implement heuristics',
+        '91% of important neurons classified as heuristics',
+        '96% circuit faithfulness',
+        '29% accuracy drop when ablating heuristic neurons',
+        'Mechanism emerges early and is reinforced',
+      ],
+      keyQuotes: [
+        "LLMs perform arithmetic using neither robust algorithms nor memorization; rather, they rely on a 'bag of heuristics'.",
+        "Each heuristic identifies a numerical input pattern and outputs corresponding answers.",
+        "Models learn these heuristics early and reinforce them over time, potentially overfitting to early simple strategies."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/170-179/171_arithmetic_without_algorithms.md',
+    },
   ],
   links: [
     // Sycophancy Scales (Paper 119 - canonical)
@@ -6398,6 +6445,74 @@ window.paperData = {
       target: '2305.18654',
       type: 'supports',
       description: 'Opaque mode = shortcuts that dont involve stated reasoning',
+    },
+    // Paper 170: Fluid Representations links
+    {
+      source: '2602.04843',
+      target: '2510.07364',
+      type: 'supports',
+      description: 'Both show base models have latent capabilities',
+    },
+    {
+      source: '2602.04843',
+      target: '2502.03373',
+      type: 'supports',
+      description: 'Both show extended reasoning enables existing capabilities',
+    },
+    {
+      source: '2602.04843',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Compositional failures still occur (96%→35%)',
+    },
+    {
+      source: '2602.04843',
+      target: '2506.18880',
+      type: 'supports',
+      description: 'OOD generalization still fails',
+    },
+    // Paper 171: Arithmetic Without Algorithms links
+    {
+      source: '2410.21272',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Bag of heuristics = linearized subgraph matching at neuron level',
+    },
+    {
+      source: '2410.21272',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Explains WHY perturbations cause failures - heuristics are pattern-specific',
+    },
+    {
+      source: '2410.21272',
+      target: '2202.07206',
+      type: 'supports',
+      description: 'Frequency-based patterns are a type of heuristic',
+    },
+    {
+      source: '2410.21272',
+      target: '2406.11050',
+      type: 'supports',
+      description: 'Token bias = heuristic-like pattern matching',
+    },
+    {
+      source: '2410.21272',
+      target: '2506.06941',
+      type: 'supports',
+      description: 'Complexity collapse = heuristics fail at scale',
+    },
+    {
+      source: '2410.21272',
+      target: '2406.02061',
+      type: 'supports',
+      description: 'Simple task failures = missing heuristics for unusual patterns',
+    },
+    {
+      source: '2410.21272',
+      target: '2305.14699',
+      type: 'extends',
+      description: 'Shortcut algorithms = bag of heuristics',
     },
   ],
 };

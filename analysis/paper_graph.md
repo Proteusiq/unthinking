@@ -674,6 +674,24 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Dissociation of Faithful/Unfaithful (2405.15092)** | **provides mechanism for** | **Two reasoning modes** | Divergent effects prove distinct mechanisms |
 | **Dissociation of Faithful/Unfaithful (2405.15092)** | **provides evidence for** | **Pattern matching thesis** | Opaque mode = shortcuts that don't involve stated reasoning |
 
+### Papers 170-171: Fluid Representations and Arithmetic Mechanisms
+
+| Paper A | Relationship | Paper B | Evidence |
+|---------|--------------|---------|----------|
+| **Fluid Representations (2602.04843)** | **supports** | **Base Models Know How to Reason (2510.07364)** | Both show base models have latent capabilities; reasoning training surfaces them |
+| **Fluid Representations (2602.04843)** | **supports** | **Demystifying Long CoT (2502.03373)** | Both show extended reasoning enables capabilities already present |
+| **Fluid Representations (2602.04843)** | **does not rebut** | **Faith and Fate (2305.18654)** | Compositional failures still occur (96%→35% under obfuscation) |
+| **Fluid Representations (2602.04843)** | **does not rebut** | **OMEGA (2506.18880)** | OOD generalization still fails despite representational adaptation |
+| **Fluid Representations (2602.04843)** | **provides evidence for** | **Pattern matching thesis** | In-context adaptation is adaptive pattern matching; base model shows same capability |
+| **Arithmetic Without Algorithms (2410.21272)** | **strongly supports** | **Faith and Fate (2305.18654)** | "Bag of heuristics" = "linearized subgraph matching" at neuron level |
+| **Arithmetic Without Algorithms (2410.21272)** | **provides mechanism for** | **GSM-Symbolic (2410.05229)** | Explains WHY perturbations cause failures — heuristics are pattern-specific |
+| **Arithmetic Without Algorithms (2410.21272)** | **supports** | **Term Frequencies (2202.07206)** | Frequency-based patterns are a type of heuristic |
+| **Arithmetic Without Algorithms (2410.21272)** | **supports** | **Token Bias (2406.11050)** | Token bias = heuristic-like pattern matching |
+| **Arithmetic Without Algorithms (2410.21272)** | **provides mechanism for** | **Illusion of Thinking (2506.06941)** | Complexity collapse = heuristics fail at scale |
+| **Arithmetic Without Algorithms (2410.21272)** | **provides mechanism for** | **Alice in Wonderland (2406.02061)** | Simple task failures = missing heuristics for unusual patterns |
+| **Arithmetic Without Algorithms (2410.21272)** | **extends** | **Recursive Problems (2305.14699)** | "Shortcut algorithms" = bag of heuristics |
+| **Arithmetic Without Algorithms (2410.21272)** | **provides evidence for** | **Pattern matching thesis** | MECHANISTIC SMOKING GUN: 91% of important neurons implement heuristics, not algorithms |
+
 ### CoT Foundational Papers (151-156)
 
 | Paper A | Relationship | Paper B | Evidence |
@@ -1013,3 +1031,5 @@ These papers have NO direct rebuttals found:
 | 2026-02-09 | Added Faithful CoT (2301.13379) — IJCNLP-AACL 2023: Two-stage framework (NL→symbolic + solver) guarantees faithfulness. Standard CoT "does not necessarily reflect how the model arrives at the answer." +6-21% gains with external solvers. SUPPORTS thesis |
 | 2026-02-09 | Added Predictable Compression Failures (2509.11208) — THEORETICAL: Hallucinations = compression failures. "Bayesian in expectation, not in realization." O(log n) deviation bounds (QMV theorem). ~0.13 fewer hallucinations per nat. ISR-based abstention achieves near-0% hallucination at 24% abstention. STRONGLY SUPPORTS thesis |
 | 2026-02-09 | Added Dissociation of Faithful/Unfaithful (2405.15092) — TWO DISTINCT MECHANISMS for error recovery. Factors increasing faithful recovery DECREASE unfaithful recovery (divergent effects). LLMs have separate interpretable vs opaque reasoning modes. "Examining CoT output is not sufficient for verifying conclusions." STRONGLY SUPPORTS thesis |
+| 2026-02-09 | Added Fluid Representations (2602.04843) — QwQ-32B shows representational adaptation, but BASE MODEL shows SAME adaptation. Semantic obfuscation 96%→35%. Effect sizes small (1.5-1.8%). Capability inherent to LLMs, not special to reasoning models. BALANCED (leans supports) |
+| 2026-02-09 | Added Arithmetic Without Algorithms (2410.21272) — MECHANISTIC SMOKING GUN: LLMs use "bag of heuristics" not algorithms. ~200 neurons/layer implement pattern-matching rules. 91% of important neurons classified as heuristics. Mechanism emerges early in training. STRONGLY SUPPORTS thesis |

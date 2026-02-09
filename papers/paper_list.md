@@ -318,6 +318,8 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 167 | 2301.13379 | Jan 2023 | Faithful Chain-of-Thought Reasoning (Lyu et al., IJCNLP-AACL 2023) | Supports | ✅ DONE |
 | 168 | 2509.11208 | Sep 2025 | Predictable Compression Failures: Why Language Models Actually Hallucinate | Strongly Supports | ✅ DONE |
 | 169 | 2405.15092 | May 2024 | Dissociation of Faithful and Unfaithful Reasoning in LLMs (UC San Diego) | Strongly Supports | ✅ DONE |
+| 170 | 2602.04843 | Feb 2026 | Fluid Representations in Reasoning Models (ETH Zurich) | Balanced | ✅ DONE |
+| 171 | 2410.21272 | Oct 2024 | Arithmetic Without Algorithms: Bag of Heuristics (Technion) | Strongly Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -333,11 +335,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 166
-- **Against Reasoning**: ~91
+- **Total Papers**: 171
+- **Against Reasoning**: ~93
 - **For Reasoning**: ~31
-- **Balanced**: ~45
+- **Balanced**: ~47
 - **Date Range**: 2021-2026
-- **Analyzed**: 166
+- **Analyzed**: 171
 
 ---
