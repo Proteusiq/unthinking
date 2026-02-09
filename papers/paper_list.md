@@ -336,6 +336,8 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 185 | 2510.05116 | Sep 2025 | Hallucination is Inevitable for LLMs with the Open World Assumption (Temple) | Supports | ✅ DONE |
 | 186 | 2310.13345 | Oct 2023 | An LLM can Fool Itself: A Prompt-Based Adversarial Attack | Supports | ✅ DONE |
 | 187 | 2501.18626 | Jan 2025 | The TIP of the Iceberg: Task-in-Prompt Adversarial Attacks on LLMs | Supports | ✅ DONE |
+| 188 | 2402.14531 | Feb 2024 | Should We Respect LLMs? Prompt Politeness Cross-Lingual Study (SICon 2024) | Supports | ✅ DONE |
+| 189 | 2506.23464 | Jun 2025 | The Confidence Paradox: Can LLM Know When It's Wrong? (IJCNLP-AACL 2025) | Balanced | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -351,11 +353,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 187
-- **Against Reasoning**: ~109
+- **Total Papers**: 189
+- **Against Reasoning**: ~110
 - **For Reasoning**: ~31
-- **Balanced**: ~47
+- **Balanced**: ~48
 - **Date Range**: 2021-2026
-- **Analyzed**: 187
+- **Analyzed**: 189
 
 ---

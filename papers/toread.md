@@ -3,7 +3,7 @@
 Curated list of papers confirmed relevant to the thesis.
 
 **Last updated**: 2026-02-09
-**Total remaining**: 39 papers
+**Total remaining**: 36 papers
 
 ---
 
@@ -82,8 +82,6 @@ Curated list of papers confirmed relevant to the thesis.
 | arXiv ID | Title |
 |----------|-------|
 | [2310.08518](https://arxiv.org/abs/2310.08518) | Don't Always Say What They Think (Anthropic) |
-| [2405.00675](https://arxiv.org/abs/2405.00675) | The Confidence Paradox |
-| [2402.06702](https://arxiv.org/abs/2402.06702) | Mind Your Tone |
 | [2503.19786](https://arxiv.org/abs/2503.19786) | Knowing Before Saying |
 | [2507.21513](https://arxiv.org/abs/2507.21513) | Emergent Response Planning |
 | [2512.03771](https://arxiv.org/abs/2512.03771) | The Globality Barrier |
@@ -105,8 +103,8 @@ Curated list of papers confirmed relevant to the thesis.
 |----------|--------|--------|
 | 🔴 Counter-Evidence | 14 | #40, #41, #42, #43 |
 | 🔴 Supports Thesis | 10 | #44 |
-| 🟠 Medium | 15 | #45 |
-| **Total** | **39** | 6 issues |
+| 🟠 Medium | 12 | #45 |
+| **Total** | **36** | 6 issues |
 
 ---
 

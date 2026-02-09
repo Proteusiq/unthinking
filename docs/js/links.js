@@ -3949,4 +3949,48 @@ window.paperLinks = [
       type: 'supports',
       description: 'Both study explicit CoT training effects',
     },
+    // Paper 188: Mind Your Tone (Politeness) (2402.14531)
+    {
+      source: '2402.14531',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Both show irrelevant features affect reasoning performance',
+    },
+    {
+      source: '2402.14531',
+      target: '2308.03958',
+      type: 'supports',
+      description: 'Politeness sensitivity relates to sycophancy pattern matching',
+    },
+    {
+      source: '2402.14531',
+      target: '2501.18626',
+      type: 'supports',
+      description: 'Both show sensitivity to prompt surface features',
+    },
+    {
+      source: '2402.14531',
+      target: '2302.00093',
+      type: 'supports',
+      description: 'Both show irrelevant context affects performance',
+    },
+    // Paper 189: Confidence Paradox (2506.23464)
+    {
+      source: '2506.23464',
+      target: '2401.11817',
+      type: 'supports',
+      description: 'Both show models produce confidently wrong answers',
+    },
+    {
+      source: '2506.23464',
+      target: '2601.05905',
+      type: 'supports',
+      description: 'Both study confidence-accuracy misalignment',
+    },
+    {
+      source: '2506.23464',
+      target: '2509.11208',
+      type: 'supports',
+      description: 'Both address hallucination/overconfidence problems',
+    },
 ];

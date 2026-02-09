@@ -3798,4 +3798,50 @@ window.paperNodes = [
       ],
       analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/180-189/187_tip_of_iceberg.md',
     },
+    // Paper 188: Mind Your Tone (Politeness)
+    {
+      id: '2402.14531',
+      title: 'Should We Respect LLMs? A Cross-Lingual Study on the Influence of Prompt Politeness on LLM Performance',
+      shortTitle: 'Mind Your Tone',
+      date: 'Feb 2024',
+      stance: 'supports',
+      cluster: 'evidence',
+      coreArgument:
+        'Prompt politeness affects LLM performance by 13-48%. Impolite prompts degrade performance; optimal politeness differs by language/culture. RLHF introduces sensitivity to irrelevant surface features. LLMs pattern-match to cultural norms, not reason about content.',
+      keyEvidence: [
+        'Llama2-70B: -48.5% accuracy drop with rude prompts',
+        'GPT-3.5 English: -13.5% with rude vs polite',
+        'RLHF vs base: -22.75 pts sensitivity gap at rude level',
+        'Optimal politeness differs: EN=high, CN=moderate, JP=lower',
+        'Output length varies with politeness (task-irrelevant)',
+      ],
+      keyQuotes: [
+        "We observed that impolite prompts often result in poor performance, but overly polite language does not guarantee better outcomes. The best politeness level is different according to the language.",
+        "This phenomenon suggests that LLMs not only reflect human behavior but are also influenced by language, particularly in different cultural contexts."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/180-189/188_mind_your_tone.md',
+    },
+    // Paper 189: Confidence Paradox
+    {
+      id: '2506.23464',
+      title: 'The Confidence Paradox: Can LLM Know When It\'s Wrong?',
+      shortTitle: 'Confidence Paradox',
+      date: 'Jun 2025',
+      stance: 'balanced',
+      cluster: 'evidence',
+      coreArgument:
+        'DocVQA models produce overconfident incorrect answers. HonestVQA framework aligns confidence with correctness using weighted loss and contrastive learning. H-Score and ECI metrics introduced. Improves accuracy 3-4% while reducing overconfidence 35-40%.',
+      keyEvidence: [
+        'Base models: ~20% confidence-accuracy gap (H-Score 0.185-0.203)',
+        'HonestVQA reduces H-Score by 35-40%',
+        'Accuracy improves 3-4% with calibration',
+        'Cross-domain: 4-6% performance drops',
+        'IoU visual-text alignment: 69.1% vs 58-61% baseline',
+      ],
+      keyQuotes: [
+        "DocVQA models often produce overconfident or ethically misaligned responses, especially under uncertainty.",
+        "We acknowledge the risk that no model can be entirely free of errors or biases, especially when applied across diverse real-world scenarios."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/180-189/189_confidence_paradox.md',
+    },
 ];
