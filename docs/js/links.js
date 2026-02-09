@@ -3664,4 +3664,53 @@ window.paperLinks = [
       type: 'extends',
       description: 'Both show models learn specific associations not general rules',
     },
+    // Paper 184: Brain Rot links
+    {
+      source: '2510.13928',
+      target: '2602.01017',
+      type: 'supports',
+      description: 'Both show training data quality affects reasoning mode',
+    },
+    {
+      source: '2510.13928',
+      target: '2510.07192',
+      type: 'supports',
+      description: 'Both show data quality as causal driver of model behavior',
+    },
+    {
+      source: '2510.13928',
+      target: '2401.11817',
+      type: 'supports',
+      description: 'Both show fundamental limits of statistical learning',
+    },
+    {
+      source: '2510.13928',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Thought-skipping = pattern matching without reasoning chains',
+    },
+    {
+      source: '2510.13928',
+      target: '2412.21187',
+      type: 'supports',
+      description: 'Both show reasoning chain truncation as failure mode',
+    },
+    {
+      source: '2510.13928',
+      target: '2501.18585',
+      type: 'supports',
+      description: 'Both show reasoning chain quality affects performance',
+    },
+    {
+      source: '2510.13928',
+      target: '2509.11208',
+      type: 'supports',
+      description: 'Both show data-driven degradation mechanisms',
+    },
+    {
+      source: '2510.13928',
+      target: '2506.11135',
+      type: 'supports',
+      description: 'Both show capability is data-dependent, not emergent intelligence',
+    },
 ];

@@ -332,6 +332,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 181 | 2602.02103 | Feb 2026 | No Global Plan in Chain-of-Thought: Uncover the Latent Planning Horizon (WeChat AI) | Strongly Supports | ✅ DONE |
 | 182 | 2602.04212 | Feb 2026 | Language Models Struggle to Use Representations Learned In-Context (Google DeepMind) | Strongly Supports | ✅ DONE |
 | 183 | 2510.07192 | Oct 2025 | Poisoning Attacks on LLMs Require a Near-constant Number of Poison Samples (UK AI Security Institute) | Supports | ✅ DONE |
+| 184 | 2510.13928 | Oct 2025 | LLMs Can Get "Brain Rot"! (UT Austin, Purdue) | Strongly Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -347,11 +348,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 183
-- **Against Reasoning**: ~105
+- **Total Papers**: 184
+- **Against Reasoning**: ~106
 - **For Reasoning**: ~31
 - **Balanced**: ~47
 - **Date Range**: 2021-2026
-- **Analyzed**: 183
+- **Analyzed**: 184
 
 ---
