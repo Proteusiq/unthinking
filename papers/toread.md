@@ -39,7 +39,7 @@ Papers from your Italy Summer 2025 reading not yet analyzed.
 | [2501.18626](https://arxiv.org/abs/2501.18626) | **TIP of the Iceberg (Task-in-Prompt)** | 🟠 MED | Jailbreak |
 | [2510.05116](https://arxiv.org/abs/2510.05116) | **Hallucination Inevitable (Open World)** | 🟠 MED | Hallucination theory |
 | [2510.13928](https://arxiv.org/abs/2510.13928) | **LLMs Can Get Brain Rot** | 🟠 MED | Data quality decay |
-| [2510.07192](https://arxiv.org/abs/2510.07192) | **Poisoning Attacks Require Few Samples** | 🟠 MED | ~250 samples enough |
+| ~~[2510.07192](https://arxiv.org/abs/2510.07192)~~ | ~~**Poisoning Attacks Require Few Samples**~~ | ✅ DONE | Analyzed as Paper 183 |
 | [2509.11208](https://arxiv.org/abs/2509.11208) | **Predictable Compression Failures** | ✅ DONE | Analyzed as Paper 168 |
 | [2402.06702](https://arxiv.org/abs/2402.06702) | **Mind Your Tone (Politeness)** | 🟠 MED | Prompt sensitivity |
 | ~~[2507.08794](https://arxiv.org/abs/2507.08794)~~ | ~~**One Token to Fool LLM-as-a-Judge**~~ | ✅ DONE | Analyzed as Paper 173 |

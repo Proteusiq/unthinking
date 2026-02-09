@@ -3639,4 +3639,29 @@ window.paperLinks = [
       type: 'supports',
       description: 'Both show capability ≠ flexible deployment/intelligence',
     },
+    // Paper 183: Poisoning Attacks links
+    {
+      source: '2510.07192',
+      target: '2401.11817',
+      type: 'supports',
+      description: 'Both show fundamental limits of statistical learning',
+    },
+    {
+      source: '2510.07192',
+      target: '2310.13548',
+      type: 'supports',
+      description: 'Both show models prioritize local patterns over global coherence',
+    },
+    {
+      source: '2510.07192',
+      target: '2602.01017',
+      type: 'supports',
+      description: 'Both show autoregressive models learn unintended patterns',
+    },
+    {
+      source: '2510.07192',
+      target: '2309.12288',
+      type: 'extends',
+      description: 'Both show models learn specific associations not general rules',
+    },
 ];
