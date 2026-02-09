@@ -717,6 +717,20 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **One Token to Fool (2507.08794)** | **supports** | **Lexical Hints (2508.15842)** | Both identify specific tokens that signal behavior |
 | **One Token to Fool (2507.08794)** | **provides evidence for** | **Pattern matching thesis** | Single tokens (":", ".") trigger positive rewards — pure statistical association, not reasoning evaluation |
 
+### Paper 174: Inverse Scaling in Test-Time Compute (TMLR Featured)
+
+| Paper A | Relationship | Paper B | Evidence |
+|---------|--------------|---------|----------|
+| **Inverse Scaling TTC (2507.14417)** | **supports** | **Illusion of Thinking (2506.06941)** | Both show reasoning collapse; this adds INVERSE scaling evidence |
+| **Inverse Scaling TTC (2507.14417)** | **supports** | **Overthinking (2412.21187)** | Both show more tokens can hurt; systematic evidence |
+| **Inverse Scaling TTC (2507.14417)** | **supports** | **Underthinking (2501.18585)** | Complementary failure modes |
+| **Inverse Scaling TTC (2507.14417)** | **supports** | **GSM-Symbolic (2410.05229)** | Distraction failure = irrelevant info sensitivity |
+| **Inverse Scaling TTC (2507.14417)** | **supports** | **Faith and Fate (2305.18654)** | Spurious correlations = pattern matching |
+| **Inverse Scaling TTC (2507.14417)** | **supports** | **o3 Thinks Harder (2502.15631)** | Both challenge test-time compute scaling |
+| **Inverse Scaling TTC (2507.14417)** | **challenges** | **Survey of Test-Time Compute (2501.02497)** | Provides counter-evidence to scaling claims |
+| **Inverse Scaling TTC (2507.14417)** | **challenges** | **s1 (2501.19393)** | Challenges log-linear scaling assumption |
+| **Inverse Scaling TTC (2507.14417)** | **provides evidence for** | **Pattern matching thesis** | More reasoning = more pattern matching errors; no metacognitive control |
+
 ### CoT Foundational Papers (151-156)
 
 | Paper A | Relationship | Paper B | Evidence |
