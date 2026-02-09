@@ -3713,4 +3713,29 @@ window.paperLinks = [
       type: 'supports',
       description: 'Both show capability is data-dependent, not emergent intelligence',
     },
+    // Paper 185: Hallucination Inevitable (Open World) links
+    {
+      source: '2510.05116',
+      target: '2401.11817',
+      type: 'extends',
+      description: 'Both prove hallucination inevitable via different mechanisms (Open World vs computability)',
+    },
+    {
+      source: '2510.05116',
+      target: '2509.11208',
+      type: 'supports',
+      description: 'Both see hallucinations as predictable failures of statistical learning',
+    },
+    {
+      source: '2510.05116',
+      target: '2506.11135',
+      type: 'supports',
+      description: 'Both argue capabilities bounded by training distribution',
+    },
+    {
+      source: '2510.05116',
+      target: '2305.18654',
+      type: 'supports',
+      description: 'Generalization failure = pattern matching without genuine reasoning',
+    },
 ];

@@ -3728,4 +3728,28 @@ window.paperNodes = [
       ],
       analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/180-189/184_brain_rot.md',
     },
+    // Paper 185: Hallucination Inevitable (Open World)
+    {
+      id: '2510.05116',
+      title: 'Hallucination is Inevitable for LLMs with the Open World Assumption',
+      shortTitle: 'Open World Hallucination',
+      date: 'Sep 2025',
+      stance: 'supports',
+      cluster: 'theoretical',
+      coreArgument:
+        'Hallucination is a manifestation of the generalization problem. Under Closed World (training=test), hallucinations may be mitigated. Under Open World (unbounded), hallucinations become inevitable. Distinguishes Type-I (memorization, corrigible) from Type-II (generalization, inevitable).',
+      keyEvidence: [
+        'No Free Lunch theorem invoked',
+        'Type-I = false memorization (corrigible)',
+        'Type-II = false generalization (inevitable)',
+        'Detector training merely displaces problem',
+        'AGI requires Open World assumption',
+      ],
+      keyQuotes: [
+        "This paper reframes 'hallucination' as a manifestation of the generalization problem.",
+        "Type-II hallucination arises from false generalization to cases not present in the training set. This latter form is inescapable under the Open World assumption.",
+        "Training a detector is not promising – it still needs generalization."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/180-189/185_hallucination_inevitable_open_world.md',
+    },
 ];
