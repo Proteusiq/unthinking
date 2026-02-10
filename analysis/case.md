@@ -617,7 +617,7 @@ Therefore: LLMs are not intelligent in the same sense humans are. They are a dif
 
 -----
 
-## VII. Addressing Every Serious Objection
+## VII. Addressing Objections
 
 ### Objection 1: “Emergent Reasoning via Reinforcement Learning”
 
