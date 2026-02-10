@@ -31,6 +31,20 @@ This document tracks how papers interact with each other — rebuttals, counter-
 └───────────────────────┘                           └───────────────────────┘
 
 
+                         "MIRROR" REBUTTAL: OPPOSITE FINDINGS
+                         ====================================
+
+┌───────────────────────┐          rebuts           ┌───────────────────────┐
+│  Mind Your Tone       │ ─────────────────────────>│  Mind Your Tone       │
+│  Rude = BETTER        │   (OPPOSITE FINDING!)     │  Rude = WORSE         │
+│  (2510.04950) GPT-4o  │                           │  (2402.14531) Llama2  │
+│  84.8% rude > 80.8%   │                           │  -48.5% with rude     │
+└───────────────────────┘                           └───────────────────────┘
+         │                                                    │
+         └──────────── SAME QUESTION, OPPOSITE ANSWERS ───────┘
+                     LLMs are mirrors - you find what you look for
+
+
                               SUPPORTS / CONFIRMS
                               ===================
 
@@ -91,6 +105,7 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | Thinking Isn't Illusion (2507.17699) | rebuts | Illusion of Thinking (2506.06941) | Tool augmentation restores performance (Hanoi) |
 | Comment: Agentic Gap (2506.18957) | rebuts | Illusion of Thinking (2506.06941) | Execution gap, not reasoning gap |
 | **Illusion of Insight (2601.00514)** | **rebuts** | **DeepSeek-R1 (2501.12948)** | **"Aha!" moments are rare, don't improve with training, seldom help accuracy** |
+| **Mind Your Tone: Rude=Better (2510.04950)** | **rebuts** | **Mind Your Tone: Rude=Worse (2402.14531)** | **OPPOSITE FINDING: GPT-4o 84.8% rude > 80.8% polite vs Llama2-70B -48.5% rude. Same question, different models, opposite conclusions. "LLMs are mirrors."** |
 
 ### Counter-Rebuttals (Rebuttals of Rebuttals)
 
