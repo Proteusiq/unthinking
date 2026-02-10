@@ -3865,6 +3865,6 @@ window.paperNodes = [
         "Contrary to expectations, impolite prompts consistently outperformed polite ones, with accuracy ranging from 80.8% for Very Polite prompts to 84.8% for Very Rude prompts.",
         "These findings differ from earlier studies that associated rudeness with poorer outcomes, suggesting that newer LLMs may respond differently to tonal variation."
       ],
-      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/180-189/190_mind_your_tone_rude_better.md',
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/190-199/190_mind_your_tone_rude_better.md',
     },
 ];
