@@ -1,8 +1,72 @@
-> **Based on systematic analysis of 182 peer-reviewed papers (2022-2026)**
+> **Based on systematic analysis of 191 peer-reviewed papers (2022-2026)**
+> 
+> **Last updated**: 2026-02-10
 >
 > Full corpus: [github.com/Proteusiq/unthinking](https://github.com/Proteusiq/unthinking)
 
-# The Thinking Machine That Doesn’t Think: A Formal Case Against LLM Reasoning
+# The Thinking Machine That Doesn't Think: A Formal Case Against LLM Reasoning
+
+---
+
+## TL;DR: The Killer Arguments
+
+### The Smoking Guns
+
+| # | Evidence | What It Proves | Paper |
+|---|----------|----------------|-------|
+| **1** | **Alice in Wonderland**: "Alice has 3 brothers and 6 sisters. How many sisters does Alice's brother have?" GPT-4o: 65%, most models: <20%, some: **0%**. Same structure, different numbers → **0% to 100% swings** | Trivial reasoning fails; fluctuations on identical logic = pattern matching on surface tokens | [2406.02061](https://arxiv.org/abs/2406.02061) |
+| **2** | **Mirror Rebuttal**: Rude prompts → Llama2: **-48.5%** vs GPT-4o: **+4.0%**. Same question, opposite answers depending on model | Behavior is learned from training, not principled. "LLMs are mirrors" | [2402.14531](https://arxiv.org/abs/2402.14531) vs [2510.04950](https://arxiv.org/abs/2510.04950) |
+| **3** | **Bag of Heuristics**: 91% of "important" neurons implement pattern-matching rules like "operand between 50-100", not algorithms | Mechanistic proof: arithmetic via heuristics, not computation | [2410.21272](https://arxiv.org/abs/2410.21272) |
+| **4** | **One Token to Fool**: Single punctuation tokens (":", ".") trick LLM-as-a-Judge into giving positive rewards | "Reasoning evaluation" is surface pattern matching | [2507.08794](https://arxiv.org/abs/2507.08794) |
+| **5** | **WhatCounts**: >40% accuracy variation on COUNTING depending solely on semantic class (cities vs emojis). Better models have **LARGER** gaps | Even atomic operations are semantically contaminated. "LLMs do not implement algorithms; they approximate them" | [2601.21618](https://arxiv.org/abs/2601.21618) |
+| **6** | **Addition Collapse**: 99.8% numerical accuracy → **7.5%** with symbolic digits. 1,700+ cases where A+B ≠ B+A | Near-perfect performance masks zero understanding | [2504.05262](https://arxiv.org/abs/2504.05262) |
+| **7** | **Spurious Rewards**: Models improve EVEN WITH INCORRECT REWARDS | Performance comes from activating memory, not learning to reason | [2601.11061](https://arxiv.org/abs/2601.11061) |
+
+### The Core Insight
+
+> **Nothing in transformer architecture is probabilistic. Everything is deterministic. The only non-determinism is sampling the next token.**
+>
+> LLMs are **dense statistical remixed echo chambers** of training data. They don't "evolve," "think," or have "eureka moments." They predict the most likely token sequence based on high-dimensional patterns.
+
+### The Memento Analogy
+
+Like Leonard in *Memento*, LLMs have no persistent state. Each token prediction starts fresh—no memory of what was "understood" moments ago, only the tattoos of the context window. What looks like continuous thought is actually a series of pattern-matched snapshots, each one consulting the same static weights. **There is no inner monologue accumulating insight. Just retrieval, over and over.**
+
+### Key Quotes from the Literature
+
+> "LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent."
+> — WhatCounts (2601.21618)
+
+> "LLMs perform arithmetic using neither robust algorithms nor memorization; rather, they rely on a 'bag of heuristics'."
+> — Arithmetic Without Algorithms (2410.21272)
+
+> "The model's ability to produce output that superficially resembles reasoning does not mean that it is actually reasoning."
+> — Can LLMs Reason and Plan? (2403.04121)
+
+> "Reasoning capability is fragile and cannot be accessed robustly, even in such a simple scenario as posed by AIW problem variations."
+> — Alice in Wonderland (2406.02061)
+
+> "Because they can do 'more with less'... not 'more with more'."
+> — Large Language Models and Emergence (2506.11135)
+
+### The Mirror Clock Test
+
+Try this: *"On the mirror I see something like 09:31 reflection of my watch. What time is it?"*
+
+No SOTA LLM can answer this correctly. It requires **spatial transformation not present as a pattern** in training. This is **functional competence without foundational understanding**.
+
+### Why This Matters
+
+1. **Prompting is vector steering** — navigating regions of the training distribution, not teaching reasoning
+2. **CoT is momentary context** — like a movie scratchpad, not working memory  
+3. **Alignment is mascara** — shifts default paths within the convex hull, doesn't create new capabilities
+4. **Self-consistency ≠ belief** — questions answered with perfect self-consistency (SC=1.0) collapse to 33.8% under mild contextual pressure
+
+### The Question We Should Be Asking
+
+> The question isn't whether LRMs can reason on various problems, but whether current evaluation properly separates **reasoning from memorization**, and whether reported progress reflects **true advance**.
+
+---
 
 **Abstract**
 
@@ -1111,7 +1175,7 @@ Current evidence: All five criteria fail.
 
 ### C. Research Repository
 
-Full analysis of 182 papers with interactive visualization: **[github.com/Proteusiq/unthinking](https://github.com/Proteusiq/unthinking)**
+Full analysis of 191 papers with interactive visualization: **[github.com/Proteusiq/unthinking](https://github.com/Proteusiq/unthinking)**
 
 Papers organized by:
 - Compositional failure (Papers #1, #6, #7, #69, #74, #77)
@@ -1121,11 +1185,12 @@ Papers organized by:
 - Pattern dependence (Papers #104, #108, #147, #149, #157)
 - Social dynamics (Papers #109, #110, #127, #128)
 - Tool augmentation (Papers #4, #10, #11, #68)
+- **NEW: Mirror rebuttals** (Papers #188 vs #190 — same question, opposite answers)
 
-**~57% support thesis | ~26% balanced | ~17% challenge**
+**~69% support thesis | ~27% balanced | ~4% challenge**
 
 -----
 
 **About the Author**
 
-This article synthesizes research from 182 peer-reviewed papers examining LLM capabilities, limitations, and mechanisms. The analysis draws on work in machine learning, cognitive science, philosophy of mind, and formal verification. For ongoing discussion and updates, see github.com/Proteusiq/unthinking.
+This article synthesizes research from 191 peer-reviewed papers examining LLM capabilities, limitations, and mechanisms. The analysis draws on work in machine learning, cognitive science, philosophy of mind, and formal verification. For ongoing discussion and updates, see github.com/Proteusiq/unthinking.
