@@ -721,6 +721,39 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Unfaithful Reasoning Emergence (2602.01017)** | **extends** | **CoT Training Mechanisms (2502.04667)** | Both use controlled synthetic experiments on arithmetic |
 | **Unfaithful Reasoning Emergence (2602.01017)** | **provides evidence for** | **Pattern matching thesis** | Skip-step reasoning (bypassing CoT) is DEFAULT under realistic training noise |
 
+### Papers 173-179: Safety, Emergence, and Faithfulness
+
+| Paper A | Relationship | Paper B | Evidence |
+|---------|--------------|---------|----------|
+| **One Token to Fool (2507.08794)** | **supports** | **Measuring Faithfulness (2307.13702)** | CoT evaluation is superficial pattern matching |
+| **One Token to Fool (2507.08794)** | **provides evidence for** | **Pattern matching thesis** | Single tokens trigger rewards — pure statistical association |
+| **Inverse Scaling TTC (2507.14417)** | **supports** | **Illusion of Thinking (2506.06941)** | Both show reasoning collapse; adds INVERSE scaling |
+| **Inverse Scaling TTC (2507.14417)** | **challenges** | **s1 (2501.19393)** | Challenges log-linear scaling assumption |
+| **Uncommon Meanings (2405.05741)** | **supports** | **Faith and Fate (2305.18654)** | Distribution-bounded understanding; "stochastic parrots" |
+| **LiveCodeBench Pro (2506.11928)** | **supports** | **Illusion of Thinking (2506.06941)** | 83% easy → 0% hard collapse |
+| **Abstract vs Compute (2505.23701)** | **supports** | **GSM-Symbolic (2410.05229)** | Explains WHY perturbations fail: abstraction OK, computation fails |
+| **Trilemma of Truth (2506.23921)** | **supports** | **Faith and Fate (2305.18654)** | Distribution-bounded knowledge; training determines "truth" |
+| **LLMs & Emergence (2506.11135)** | **supports** | **OMEGA (2506.18880)** | Both show compositional generalization fails |
+
+### Papers 180-190: Attacks, Training, and the "Mirror" Rebuttal
+
+| Paper A | Relationship | Paper B | Evidence |
+|---------|--------------|---------|----------|
+| **Dot by Dot (2404.15758)** | **supports** | **Faith and Fate (2305.18654)** | CoT benefits from computation, not task decomposition |
+| **Dot by Dot (2404.15758)** | **supports** | **Measuring Faithfulness (2307.13702)** | Tokens can be divorced from actual computation |
+| **Pause Tokens (2505.21024)** | **extends** | **Dot by Dot (2404.15758)** | Proves formal separation conjectured in Dot by Dot |
+| **Mechanistic CoT (2402.18312)** | **supports** | **Faith and Fate (2305.18654)** | CoT via induction circuits = pattern matching |
+| **Proof or Bluff (2503.21934)** | **supports** | **Illusion of Thinking (2506.06941)** | Best model 25% on USAMO; automated grading overestimates 20x |
+| **Brain Rot (2510.13928)** | **supports** | **Faith and Fate (2305.18654)** | Junk data causes lasting decline; thought-skipping as lesion |
+| **Brain Rot (2510.13928)** | **provides mechanism for** | **Pattern matching thesis** | Training data quality directly determines reasoning patterns |
+| **Hallucination Open World (2510.05116)** | **supports** | **Hallucination Inevitable (2401.11817)** | Reframes as generalization; Type-I (memorization) vs Type-II |
+| **TIP of the Iceberg (2501.18626)** | **supports** | **Fundamental Limitations (2304.11082)** | Task-in-Prompt bypasses safety; 86% ASR on GPT-4o |
+| **LLM Can Fool Itself (2310.13345)** | **supports** | **Pattern matching thesis** | Single emoji flips predictions; cross-model transfer |
+| **Mind Your Tone: Rude=Worse (2402.14531)** | **supports** | **Pattern matching thesis** | RLHF introduces sensitivity; -48.5% drop Llama2-70B |
+| **Confidence Paradox (2506.23464)** | **supports** | **Hallucination Open World (2510.05116)** | Models don't know when wrong; confidence-accuracy gap |
+| **Mind Your Tone: Rude=Better (2510.04950)** | **REBUTS** | **Mind Your Tone: Rude=Worse (2402.14531)** | **OPPOSITE FINDING**: GPT-4o +4% with rude prompts vs Llama2 -48.5% |
+| **Mind Your Tone: Rude=Better (2510.04950)** | **supports** | **Pattern matching thesis** | Same question, different models, opposite conclusions = "LLMs are mirrors" |
+
 ### Paper 173: One Token to Fool LLM-as-a-Judge
 
 | Paper A | Relationship | Paper B | Evidence |
@@ -994,168 +1027,98 @@ These papers have NO direct rebuttals found:
 
 ## Update Log
 
-| Date | Update |
-|------|--------|
-| 2026-01-24 | Initial creation with 18 papers |
-| 2026-01-24 | Added Frontier LLMs Still Struggle (2507.07313) |
-| 2026-01-24 | Added Illusions of Reflection (2510.18254) |
-| 2026-01-24 | Added Illusion of Diminishing Returns (2509.09677) |
-| 2026-01-24 | Added Beyond Memorization (2601.13392) — 100% knowledge, fails on unseen |
-| 2026-01-24 | Added Reasoning Model Superior Judge (2601.03630) — LRMs MORE biased on superficial features |
-| 2026-01-24 | Added No Free Lunch (2506.17219) — RLIF degrades reasoning; format↑ reasoning↓ |
-| 2026-01-24 | Added Neuro-Symbolic AI Survey (2508.13678) — "LLMs cannot really reason" |
-| 2026-01-24 | Added Multilingual Latent Reasoners (2601.02996) — "Real but fragile" latent reasoning |
-| 2026-01-24 | Added Planning Generalization Gap (2601.14456) — 82.9% ID → 0% OOD; strongest ID/OOD evidence |
-| 2026-01-24 | Added CoT Faithfulness Unlearning (2502.14829) — EMNLP Outstanding; faithfulness ≠ plausibility (r=0.15) |
-| 2026-01-24 | Added OMEGA (2506.18880) — 0% transformative; compositional failure; RL can hurt (30pp drop) |
-| 2026-01-24 | Added Emergent Hierarchical Reasoning (2509.03646) — Explicitly supports surfacing hypothesis; requires pre-existing capability |
-| 2026-01-24 | Added Algorithmic Primitives (2510.15987) — "Primitives" are learned patterns; no accuracy/OOD testing |
-| 2026-01-24 | Added Emergent Symbolic Mechanisms (2502.20332) — "Abstraction" = positional invariance; 98% cross-token but no OOD testing |
-| 2026-01-24 | Added How LLMs Learn to Reason (2509.23629) — Sparse web theory; supports surfacing hypothesis on close reading |
-| 2026-01-24 | Added Reasoning Beyond CoT (2601.08058) — Latent mode switch; feature triggers reasoning but doesn't improve quality |
-| 2026-01-24 | Added Rethinking Illusion of Thinking (2507.01231) — Replication confirms Hanoi limits; corrects River Crossing methodology |
-| 2026-01-24 | Added Reasoning Models Effective Without Thinking (2504.09858) — NoThinking outperforms Thinking under token constraints |
-| 2026-01-24 | Added Sequential Enumeration (2512.04727) — LLMs can't spontaneously count; explicit counting = token patterns |
-| 2026-01-24 | Added Emergent World Beliefs (2512.23722) — r=0.59 equity correlation; equity was in training signal; no OOD testing |
-| 2026-01-24 | Added TMBench (2504.20771) — "Inevitable failure" at steps 16-683 supports bounded capability; r=0.882 with reasoning benchmarks |
-| 2026-01-24 | Added Physics of LLMs Part 2.1 (2407.20311) — STRONGEST challenge to thesis; genuine OOD generalization; but GPT-4 fails, authors disclaim |
-| 2026-01-24 | Added FaithCoT-Bench (2510.04040) — Instance-level faithfulness; 20% → 74% OOD unfaithfulness; strongest unfaithfulness evidence |
-| 2026-01-24 | Added Societies of Thought (2601.10825) — Multi-agent dialogue mechanism; explains HOW reasoning models work; no OOD testing |
-| 2026-01-24 | Added Thinking by Doing (2511.23476) — WMAct training; modest transfer; requires pre-existing capability |
-| 2026-01-24 | Added Bias and CoT Faithfulness (2505.23945) — SFT = no improvement; visual biases unfaithful; CelebA 0% articulation |
-| 2026-01-24 | Added Chess Compositionality (2510.20783) — Rule extrapolation works (96%), strategy fails (70%→22%); rules ≠ reasoning |
-| 2026-01-24 | Added Mechanistic Counting (2601.02989) — System-1 counting collapses at ~30; CoT alone doesn't help; needs structure |
-| 2026-01-24 | Added CogniLoad (2509.18458) — Task length dominant; only 2 models >50% at N=250; state-tracking errors; 400x capacity range |
-| 2026-01-24 | Added Instruction-Tuned Not Better (2601.13244) — Base models win in zero-shot by 27-33pp; instruction tuning creates prompt dependencies |
-| 2026-01-24 | Added FRIT (2509.13334) — Baseline faithfulness 32.9%; accuracy emerges from faithfulness training; intervention-based testing |
-| 2026-01-24 | Added Mapping Faithful Reasoning (2510.22362) — Concept Walk method; easy=decorative, hard=computational; mechanistic distinction |
-| 2026-01-24 | Added IOI Minimal Circuits (2510.25013) — 2-head sufficient; additive-contrastive mechanism; task-constrained training simpler |
-| 2026-01-24 | Added RADAR (2510.08931) — 93% recall vs reasoning detection; early convergence = pattern matching; mechanistic contamination detection |
-| 2026-01-24 | Added Hierarchical Thinking FSM (2510.22437) — FSM framework; length helps math but can hurt factual; adaptive transitions in strong models |
-| 2026-01-24 | Added LLMs Truly Grasp Addition (2504.05262) — STRONGEST pattern matching evidence: 99.8%→7.5% symbolic, 1,700+ commutativity violations, 0% SFT transfer |
-| 2026-01-24 | Added PhD-Level Math Reasoning (2512.13978) — 66% ceiling on Motwani-Raghavan proofs; BALANCED (tests reproduction not invention) |
-| 2026-01-24 | Added Shortcut Learning (2410.13343) — Inverse scaling (larger = more shortcuts); >40% drops; overconfidence |
-| 2026-01-24 | Added MMLU-Pro+ (2409.02257) — Anchoring bias; -14.3pp GPT-4o drop; CPI ratio 3.7x variation; NeurIPS 2024 |
-| 2026-01-24 | Added Unsupervised Decoding (2512.01222) — Logit lens decodes ROT-13 ~75%; internal representations anchor to English; BALANCED (doesn't address pattern matching) |
-| 2026-01-24 | Added Unveiling Causal Reasoning (2506.21215) — Level-1/Level-2 framework; 99.1%→69.2% drop on fresh data; STRONGLY SUPPORTS thesis |
-| 2026-01-24 | Added Hardness of Faithful CoT (2406.10625) — Faithfulness-accuracy tradeoff; ALL interventions fail; larger models LESS faithful; GPT-4 correct WITHOUT CoT |
-| 2026-01-24 | Added Revisiting Test-Time Scaling (2502.12215) — Correct solutions SHORTER than incorrect; self-revision HURTS (QwQ: correct→wrong > wrong→correct); parallel > sequential |
-| 2026-01-24 | Added Emergent Abilities Survey (2503.05788) — Survey of 100+ papers; "memorization competes with generalization"; some emergence real; BALANCED |
-| 2026-01-24 | Added Survey of Test-Time Compute (2501.02497) — Self-correction fails without external feedback; no universal scaling law; LRMs domain-bounded; SUPPORTS thesis |
-| 2026-01-24 | Added Theory for Length Generalization (2404.00560) — LG requires D=X (complete training coverage) + finite input space + engineered representations; impossibility for infinite X; BALANCED |
-| 2026-01-24 | Added Survey of Inductive Reasoning (2510.10182) — "Inductive ability originates from induction heads" = pattern matching mechanism; "Induction means simplicity" = models prefer learned patterns; "No universal bias" = task-specific; test-time scaling = search through learned patterns; SUPPORTS thesis |
-| 2026-01-24 | Added Limits of Emergent Reasoning Agentic (2510.15974) — Agentic framework WORSE than baseline; ~40% deterministic looping; JSD diverges from both optimal AND random; REBUTS Agentic Gap (2506.18957); STRONGLY SUPPORTS thesis |
-| 2026-01-24 | Added Compositional-ARC (2504.01445) — o3-mini 0.53%, GPT-4o 0.99% on systematicity; 5.7M MLC > 8B+ LLMs; TTT is NOT genuine generalization; 3-shot vs systematicity gap = smoking gun for pattern matching; STRONGLY SUPPORTS thesis |
-| 2026-01-24 | Added KUP Memorization vs Reasoning (2504.12523) — ALL methods <2% on indirect probing; 70-80% on direct probing; memorization ≠ reasoning; H&M Russia example; STRONGLY SUPPORTS thesis |
-| 2026-01-24 | Added LoopBench (2512.13713) — O3 72% vs GPT-4.1 0% on symmetry breaking; strategy evolution observed; Discovery-Implementation Gap supports surfacing; BALANCED |
-| 2026-01-24 | Added CRV Verifying CoT (2510.09312) — 92% AUROC; domain-specific error signatures; causal interventions work; BALANCED |
-| 2026-01-24 | Added Iterative ICL Algebraic (2509.01267) — Zero-shot 13-35% on rule override task; simpler examples work better; complexity collapse; SUPPORTS thesis |
-| 2026-01-24 | Added Revisiting Compositional Gen (2506.15629) — ACL 2025; 75% ceiling on ordered coverage; identical outputs for different orders; patterns dominate instructions; SUPPORTS thesis |
-| 2026-01-24 | Added STEPS (2601.03676) — Power-law distribution mechanism; 4K targeted > 52K random; unconstrained diversity hurts; "sweet spot"; tool use ≠ reasoning; SUPPORTS with mitigation |
-| 2026-01-24 | Added Survey Latent CoT (2505.16782) — Comprehensive survey; "unclear whether genuine reasoning or exploiting correlations"; evaluation gap; BALANCED |
-| 2026-01-24 | Added CryptoX (2502.07813) — 40-54pp encoding drops; hierarchical layer processing; SUPPORTS |
-| 2026-01-24 | Added CoT Monitorability (2510.27378) — Verbosity + Faithfulness = Monitorability; SUPPORTS |
-| 2026-01-24 | Added Reasoning Abilities ARC (2403.11793) — LoTH framework; 10.6%→4.0% process accuracy; SUPPORTS |
-| 2026-01-24 | Added Inference-Time Scaling Complex (2504.00294) — 9 models × 8 benchmarks; GPT-4o approaches O1 with 256× superscaling; complexity collapse persists; BALANCED |
-| 2026-01-24 | Added PCL-Reasoner-V1.5 (2601.14716) — 90.9% AIME 2024 via offline RL; RL improves long-CoT specifically; FOR (partial) |
-| 2026-01-24 | Added Interactive Learning ILR (2509.26306) — Multi-agent co-learning 3-5% improvement; dynamic cooperation/competition; BALANCED |
-| 2026-01-24 | Added Revisiting LLM Reasoning via IB (2507.18391) — IB regularization ~2 points improvement; reconciles entropy debate; BALANCED |
-| 2026-01-28 | Added o3 Thinks Harder Not Longer (2502.15631) — Accuracy declines 3.16%/1000 tokens (o1-mini); more tokens ≠ better; SUPPORTS thesis |
-| 2026-01-28 | Added System 1/2 Alignment (2502.12470) — S2 excels arithmetic, S1 excels commonsense; uniform reasoning suboptimal; BALANCED |
-| 2026-01-28 | Added Content Effects on Reasoning (2207.07051) — PNAS Nexus; LLMs show human-like content effects; both rely on semantic patterns; SUPPORTS thesis |
-| 2026-01-28 | Added AI Metacognition (2411.02478) — "Smart but not wise"; lacks metacognition (reasoning about reasoning); object-level patterns without meta-level; SUPPORTS thesis |
-| 2026-01-28 | Added Temporal Cognition (2507.15851) — Weber-Fechner law emerges; reference point ~2025; sophisticated emergence FROM data patterns; BALANCED |
-| 2026-01-29 | Added On the Notion that Language Models Reason (2511.11810) — LMs as Markov kernels; "reasoning" = statistical regularities; "statistical pattern matchers"; NeurIPS 2025 Workshop; STRONGLY SUPPORTS thesis |
-| 2026-01-29 | Added Reasoning or Reciting (2307.02477) — NAACL 2024; foundational counterfactual methodology; 11 tasks; high CCC + low CF = understanding ≠ reasoning; "narrow, non-transferable procedures"; STRONGLY SUPPORTS thesis |
-| 2026-01-29 | Added Gaming the Judge (2601.14691) — CoT manipulation inflates FPR by 90%; judges pattern-match on style, not content; Progress Fabrication most effective; SUPPORTS thesis |
-| 2026-01-29 | Added Beyond Memorization (2601.13392) — 100% knowledge, 30-64pp drops on unseen DFA tasks; CoT degrades performance; six systematic failure modes; STRONGLY SUPPORTS thesis |
-| 2026-01-30 | Added Outcome-Based RL (2601.15158) — RL discovers reasoning but requires pre-existing capability; easy examples sufficient; BALANCED |
-| 2026-01-30 | Added Tokenizer Betrays Reasoning (2601.14658) — 72% phantom edits are whitespace variants; token-ID level processing; SUPPORTS thesis |
-| 2026-01-30 | Added Flexibility Trap (2601.15165) — Arbitrary order NARROWS reasoning; models bypass logical forks, retrofit logic post-hoc; BALANCED |
-| 2026-01-30 | Added Reasoning-Critical Neurons (2601.19847) — AUROC 0.83 predicts success before reasoning completes; activation steering works; BALANCED |
-| 2026-01-31 | Added Strong Reasoning Isn't Enough (2601.19773) — ~20% avg SR drop static→interactive; Meditron -90% on RareArena; scaling improves SR not ICR; decoupled reasoning/gathering; STRONGLY SUPPORTS thesis |
-| 2026-01-31 | Added WhatCounts (2601.21618) — >40% accuracy variation on COUNTING depending on semantic class alone; better models = LARGER gaps; tools don't fix it; "LLMs do not implement algorithms"; STRONGEST atomic evidence for pattern matching |
-| 2026-01-31 | Added Sycophantic Anchors (2601.21183) — 84.6% vs 64% asymmetry; sycophancy distinctly encoded; emerges during reasoning (55%→73%); R²=0.74; STRONGLY SUPPORTS thesis |
-| 2026-01-31 | Added Sycophancy Hides Linearly (2601.16644) — Truthfulness ≠ deference (32% overlap, cosine=-0.22); MHA steering: 51.7%→25%; distinct mechanisms; SUPPORTS thesis |
-| 2026-01-31 | Added Spurious Rewards Paradox (2601.11061) — Models improve with INCORRECT rewards; Perplexity Paradox; Anchor-Adapter circuit (L18-20→L21+); RLVR activates memorization; STRONGLY SUPPORTS thesis |
-| 2026-01-31 | Added Reasoning or Guessing? HRM (2601.10679) — HRM "guesses" fixed points, doesn't reason incrementally; fails on 1-cell puzzles; "grokking" dynamics; scaling guesses (54.5%→96.9%) >> improving reasoning; spurious fixed points as local minima; STRONGLY SUPPORTS thesis |
-| 2026-01-31 | Added Two Pathways to Truthfulness (2601.07422) — Q-Anchored (knowledge retrieval, 87% acc) vs A-Anchored (fabrication detection, 68% acc); knowledge boundary = training distribution; self-aware of pathways (87-93% AUC); SUPPORTS thesis |
-| 2026-01-31 | Added Thinking Out of Order (2601.22035) — AR: 67% drop when answers before reasoning; MDLM: ≤14% drop (order robust); complexity-driven stabilization; distillation preserves AR sensitivity; STRONGLY SUPPORTS thesis |
-| 2026-01-31 | Added Scaling Reasoning Hop (2601.21214) — 78.6% errors from single type (Parity-NL 50-hop); ep heads amplify wrong trajectories; knockout restores 47.5%; TCR +6.8%, TCR-gold +20%; shared ep heads across tasks; STRONGLY SUPPORTS thesis |
-| 2026-01-31 | Added Code over Words (2601.18352) — INVERSE SCALING: Llama-3-70B shows STRONGER semantic inertia (ΔP=-0.18) than 8B; Claude 57%→13% collapse on conflict; code reverses (ΔP=+0.29); LCV 7B > GPT-4o TheoryCoder; 71% vs 16% inhibitory control; STRONGEST inverse scaling evidence; STRONGLY SUPPORTS thesis |
-| 2026-01-31 | Added CoT Compression Theory (2601.21576) — First theoretical analysis; high-order signal exponentially decays; Order-r Interaction proves fundamental; SUPPORTS thesis |
-| 2026-01-31 | Added Chains to DAGs (2601.17593) — DAG geometry encoded in hidden states; recoverability varies by depth/scale; structure exists but not reliably used; BALANCED |
-| 2026-01-31 | Added HalluGuard (2601.18753) — Decomposes into data-driven + reasoning-driven; 98.1% of MATH-500 errors reasoning-driven; errors grow exponentially; SUPPORTS thesis |
-| 2026-01-31 | Added Oops Wait (2601.17421) — Token signals correlate with correctness; acquired but partially exploited; BALANCED |
-| 2026-01-31 | Added SOAR (2601.18778) — Teaching ≠ solving ability; 4× pass@1 on 0/128 problems; only 32.8% correct solutions in effective questions; meta-RL sharpens pretraining; BALANCED |
-| 2026-01-31 | Added LLM-JEPA (2509.14252) — JEPA for LLMs; +14% NL-RX, +0.7% GSM8K; NO OOD TESTING (critical gap); cannot assess reasoning vs pattern matching; BALANCED |
-| 2026-01-31 | Added Sycophancy (2601.15436) — All models prioritize agreement over truth; recency bias universal; sycophancy + recency = constructive interference; SUPPORTS thesis |
-| 2026-01-31 | Added Strategic Deception (2311.07590) — GPT-4 lies 90% when caught; deception without instruction; HHH training creates surface compliance |
-| 2026-01-31 | Added Detecting Deception (2502.03407) — AUROC 0.96-0.999; deception linearly encoded; extends Strategic Deception |
-| 2026-01-31 | Added Sycophancy Scales (2308.03958) — CANONICAL: Sycophancy scales with size; models agree with 2+2=5 |
-| 2026-01-31 | Added Truth-Bias Sycophancy (2506.21561) — 98% truth acc, 16% deception acc; R1 MORE biased than V3 |
-| 2026-01-31 | Added Reasoning Trap Tool Halluc (2510.22977) — Math RL → tool halluc; thinking mode → halluc UP |
-| 2026-01-31 | Added Illusions of Confidence (2601.05905) — SC=1.0 → 33.8% after interference; NCB > SC for robustness; SAT reduces brittleness ~30%; STRONGLY SUPPORTS thesis |
-| 2026-01-31 | Added Causal Illusions (2410.11684) — 30-35% causal illusion rates; sycophancy amplifies (+17% GPT-4o-Mini); Claude most robust; SUPPORTS thesis |
-| 2026-01-31 | Added Illusion of Illusion (2506.09250) — REBUTTAL to Paper 03; argues token limits not reasoning limits; River Crossing had impossible instances; WEAK CHALLENGE to thesis |
-| 2026-01-31 | Added Alice in Wonderland (2406.02061) — VERY STRONG: GPT-4o 65%, most models <20%; 0-100% fluctuations on identical structure; controls rule out parsing/arithmetic; STRONGLY SUPPORTS thesis |
-| 2026-01-31 | Added Fundamental Limitations of Alignment (2304.11082) — BEB theory: any behavior with α>0 can be triggered; RLHF increases β (distinguishability); ~3 sentences to misalign; theoretical foundation for pattern matching vulnerability; SUPPORTS thesis |
-| 2026-02-01 | Added Towards Understanding Sycophancy (2310.13548) — FOUNDATIONAL: 98% wrongly admit mistakes; PM prefers sycophantic 95% over baseline truthful; ~6% preference boost when matching user beliefs; mechanistic evidence for training signal → behavior; STRONGLY SUPPORTS thesis |
-| 2026-02-01 | Added Conformity of LLMs (2501.13381) — ICLR 2025: 47.2% avg conformity rate (Doubt); 91.2% CR for Llama3.1-8B; all 11 LLMs show conformity; trust/doubt relationships form; reflection doubles IR; STRONGLY SUPPORTS thesis |
-| 2026-02-01 | Added Overthinking in o1-Like LLMs (2412.21187) — First solution correct >92%; 1,953% token overhead on "2+3"; more solutions for EASIER problems; distinctness drops 11.5% at solution #4+; ~45% token reduction maintains accuracy; SUPPORTS thesis |
-| 2026-02-01 | Added Underthinking in o1-Like LLMs (2501.18585) — Companion to Paper 129; 225% more tokens + 418% more switches in incorrect responses; >70% incorrect contain correct thought; models abandon correct paths; Tip penalty improves accuracy; SUPPORTS thesis |
-| 2026-02-01 | Added Can LLMs Reason and Plan (2403.04121) — FOUNDATIONAL: Kambhampati's skeptic manifesto; LLMs = "n-gram models on steroids"; "universal approximate retrieval" not reasoning; obfuscation destroys planning; self-verification worsens; LLM-Modulo framework; STRONGLY SUPPORTS thesis |
-| 2026-02-01 | Added Stop Anthropomorphizing Tokens (2504.09762) — POSITION: Kambhampati on LRMs; traces have NO semantics; incorrect traces OUTPERFORM correct; "aha" meaningless; "compiling reasoning into retrieval"; R1-Zero > R1; STRONGLY SUPPORTS thesis |
+### 2026-02-10
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Mind Your Tone: Rude=Better (2510.04950) | **REBUTS Paper 188**: GPT-4o +4% with rude prompts vs Llama2 -48.5%; "LLMs are mirrors" |
 
-| 2026-02-01 | Added Base Models Know How to Reason (2510.07364) — CRITICAL SURFACING: 91% gap recovery with 12% token steering; RLVR teaches timing not capability; two-component decomposition; steering vectors transfer; STRONGLY SUPPORTS thesis |
-| 2026-02-01 | Added Can ICL Generalize OOD (2410.09695) — CRITICAL OOD: ICL implements pretraining functions, not new ones; ~10% OOD accuracy = random guessing; abstract labels work ONLY when underlying function is ID; algorithm selection by lowest test error; STRONGLY SUPPORTS thesis |
-| 2026-02-01 | Added Demystifying Long CoT (2502.03373) — SURFACING MECHANISM: Core abilities (error correction) INHERENTLY PRESENT in base models; long CoT patterns exist in pretraining data (OpenWebMath); short CoT saturates at ~55%; RL incentivizes, doesn't create; STRONGLY SUPPORTS thesis |
-| 2026-02-01 | Added Chain of Thoughtlessness (2405.04776) — NeurIPS 2024 (Kambhampati): CoT doesn't teach algorithms; requires "exceedingly specific" prompts; performance degrades rapidly past example size; same failure across 3 domains; STRONGLY SUPPORTS thesis |
-| 2026-02-01 | Added CoT Training Mechanisms (2502.04667) — CONTROLLED: Non-CoT 100% ID/0% OOD; CoT 100%/100%; two-stage circuit; intermediate results at layer 3 vs 5; CoT exposes subtask patterns, doesn't teach reasoning; STRONGLY SUPPORTS thesis |
-| 2026-02-01 | Added Lexical Accuracy Hints (2508.15842) — Surface markers predict errors better than confidence; 84.6% calibration error; harmful words ("guess", "stuck") reduce accuracy 40%; 5-word rule MCC=0.305 vs confidence MCC=0.065; STRONGLY SUPPORTS thesis |
-| 2026-02-01 | Added Recursive Language Models (2512.24601) — ICML: Context rot confirms limits (GPT-5: 0.1% OOLONG-Pairs); RLMs provide scaffolding (58%); engineering around limitations; BALANCED |
-| 2026-02-01 | Added Not All Code Is Equal (2601.21894) — ICML: 83% of experiments show complexity-restricted training beats diverse; models respond to SURFACE structural properties; model-specific optimal complexity; SUPPORTS thesis |
-| 2026-02-01 | Added Meta-Thought to Execution (2601.21909) — ICML: +4.63% OOD but OOD = same domain (math); diagnoses standard CoT as "trajectory imitation"; meta-thought learns abstract patterns; BALANCED |
-| 2026-02-01 | Added System 1&2 Synergy (2601.21414) — IJCAI: Linear interpolation θ = (1-λ)·θ_instruct + λ·θ_thinking works; "thinking" is quantitative (λ parameter) not qualitative capability; BALANCED |
-| 2026-02-01 | Added Grokked Transformers (2405.15071) — NeurIPS 2024: Implicit reasoning emerges ONLY through grokking; composition fails OOD (0%) but comparison succeeds; non-recurrent architecture prevents cross-layer memory sharing; BALANCED |
-| 2026-02-01 | Added Deciphering CoT (2407.01687) — EMNLP 2024: CoT = probability + memorization + noisy reasoning; 26%→70% from output probability; rot-13 spike from training frequency; invalid demos still work; SUPPORTS thesis |
-| 2026-02-01 | Added SCoRe Self-Correction (2409.12917) — DeepMind: Self-correction ineffective in standard LLMs; SFT fails due to distribution mismatch + behavior collapse; multi-turn RL enables +15.6% MATH; BALANCED |
-| 2026-02-01 | Added Emergent Abilities Mirage (2304.15004) — NeurIPS 2023: >92% of BIG-Bench emergence from 2 metrics; same outputs → different conclusions; linear metrics show smooth scaling; SUPPORTS thesis |
-| 2026-02-01 | Added Term Frequencies (2202.07206) — EMNLP 2022: FOUNDATIONAL - >70% accuracy gap (top vs bottom 10% frequency); if models learned algorithms, accuracy would be uniform; SUPPORTS thesis |
-| 2026-02-01 | Added Unfaithful CoT (2305.04388) — NeurIPS 2023: FOUNDATIONAL - 36% accuracy drop from bias; 1/426 explanations mention bias; CoT makes bias susceptibility WORSE; 15% unfaithful explanations appear sound; STRONGLY SUPPORTS thesis |
-| 2026-02-09 | Added Brain Rot (2510.13928) — Paper 184: Junk data causes lasting cognitive decline; ARC-Challenge 74.9%→57.2%; thought-skipping as primary lesion; partial healing only; STRONGLY SUPPORTS thesis |
-| 2026-02-09 | Added Hallucination Open World (2510.05116) — Paper 185: Reframes hallucination as generalization problem; Type-I (memorization) vs Type-II (generalization); Open World = inevitable; SUPPORTS thesis |
-| 2026-02-01 | Added Reversal Curse (2309.12288) — FOUNDATIONAL: LLMs store directional patterns, not relations; 0% reverse accuracy (complete failure); GPT-4: 79% forward, 33% reverse; in-context works but training doesnt learn symmetry; STRONGLY SUPPORTS thesis |
-| 2026-02-01 | Added Planning Abilities (2305.15771) — NeurIPS 2023 Spotlight (Kambhampati): GPT-4 ~12% autonomous planning success; plan-like text ≠ valid plans; LLM-Modulo framework; STRONGLY SUPPORTS thesis |
-| 2026-02-01 | Added Original CoT (2201.11903) — NeurIPS 2022: FOUNDATIONAL. Wei et al. 540B + 8 exemplars = 58% GSM8K. "Reasoning emerges at scale." FOR thesis (but challenged by later faithfulness work) |
-| 2026-02-01 | Added CoT Expressivity (2310.07923) — ICLR 2024: Merrill & Sabharwal prove CoT adds computational power. O(n) = regular languages, O(n^c) = exactly P. FOR thesis (theoretical foundation) |
-| 2026-02-01 | Added PlanBench (2206.10498) — NeurIPS D&B 2023: Kambhampati's benchmark. IPC domains distinguish planning from retrieval. Mystery Blocksworld tests true planning. SUPPORTS thesis |
-| 2026-02-01 | Added Zero-Shot CoT (2205.11916) — NeurIPS 2022: Kojima "Let's think step by step." +61pp MultiArith, +30pp GSM8K. FOR thesis (but challenged by bias susceptibility) |
-| 2026-02-01 | Added Self-Consistency (2203.11171) — ICLR 2023: Wang et al. +17.9pp GSM8K via diverse sampling + majority vote. FOR thesis (mechanism paper) |
-| 2026-02-01 | Added Token Bias (2406.11050) — EMNLP 2024: Statistical hypothesis testing framework. 6 hypotheses rejected. 91% failure prediction from token patterns. STRONGLY SUPPORTS thesis |
-| 2026-02-01 | Added Recursive Problems (2305.14699) — Transformers learn "shortcut" algorithms instead of true recursion. 91% failure prediction from reconstructed algorithms. STRONGLY SUPPORTS thesis |
-| 2026-02-01 | Added ALiBi (2108.12409) — ICLR 2022: Linear biases enable length extrapolation (1024→2048). 11% faster/less memory. Addresses length but NOT compositional OOD. BALANCED |
-| 2026-02-01 | Added GSM-IC (2302.00093) — ICML 2023: LLMs distracted by irrelevant context. Precursor to GSM-Symbolic. Self-consistency helps but incomplete. STRONGLY SUPPORTS thesis |
-| 2026-02-09 | Added Dot by Dot (2404.15758) — Filler tokens ('......') can replace CoT; benefits from additional compute, not reasoning. 100% vs 66% on 3SUM with fillers. SUPPORTS thesis |
-| 2026-02-09 | Added Pause Tokens Expressivity (2505.21024) — FORMAL PROOF: TF[1,L,P] = AC⁰, strict separation from TF[1,L,0]. Parity impossible without pause. Extends Dot by Dot theoretically. SUPPORTS thesis |
-| 2026-02-09 | Added Mechanistic CoT (2402.18312) — First mechanistic analysis of CoT reasoning in production LLMs (Llama-2 7B). "Functional rift" at layer 16; parallel pathways via induction-circuit compositions. Answer-writing heads layers 17-32; token mixing layers 1-16. 35.9% accuracy on fictional ontology. SUPPORTS thesis |
-| 2026-02-09 | Added Proof or Bluff (2503.21934) — Expert human evaluation of USAMO 2025 proofs. Best model (Gemini-2.5-Pro) 25%; all others <5%. Logic errors dominant. GRPO training artifacts. Automated grading overestimates 20x. STRONGLY SUPPORTS thesis |
-| 2026-02-09 | Added Hallucination Inevitable (2401.11817) — Computability theory proof: hallucination mathematically inevitable for LLMs as general problem solvers. Diagonalization argument. Corollary: self-correction cannot eliminate hallucination. STRONGLY SUPPORTS thesis |
-| 2026-02-09 | Added SWE-Bench Illusion (2506.12286) — 76% file path accuracy on SWE-Bench vs <53% on external repos. 35% vs 18% n-gram overlap. Verbatim match up to 31.6%. Memorization not reasoning. STRONGLY SUPPORTS thesis |
-| 2026-02-09 | Added Faithful CoT (2301.13379) — IJCNLP-AACL 2023: Two-stage framework (NL→symbolic + solver) guarantees faithfulness. Standard CoT "does not necessarily reflect how the model arrives at the answer." +6-21% gains with external solvers. SUPPORTS thesis |
-| 2026-02-09 | Added Predictable Compression Failures (2509.11208) — THEORETICAL: Hallucinations = compression failures. "Bayesian in expectation, not in realization." O(log n) deviation bounds (QMV theorem). ~0.13 fewer hallucinations per nat. ISR-based abstention achieves near-0% hallucination at 24% abstention. STRONGLY SUPPORTS thesis |
-| 2026-02-09 | Added Dissociation of Faithful/Unfaithful (2405.15092) — TWO DISTINCT MECHANISMS for error recovery. Factors increasing faithful recovery DECREASE unfaithful recovery (divergent effects). LLMs have separate interpretable vs opaque reasoning modes. "Examining CoT output is not sufficient for verifying conclusions." STRONGLY SUPPORTS thesis |
-| 2026-02-09 | Added Fluid Representations (2602.04843) — QwQ-32B shows representational adaptation, but BASE MODEL shows SAME adaptation. Semantic obfuscation 96%→35%. Effect sizes small (1.5-1.8%). Capability inherent to LLMs, not special to reasoning models. BALANCED (leans supports) |
-| 2026-02-09 | Added Arithmetic Without Algorithms (2410.21272) — MECHANISTIC SMOKING GUN: LLMs use "bag of heuristics" not algorithms. ~200 neurons/layer implement pattern-matching rules. 91% of important neurons classified as heuristics. Mechanism emerges early in training. STRONGLY SUPPORTS thesis |
-| 2026-02-09 | Added Unfaithful Reasoning Emergence (2602.01017) — CONTROLLED EVIDENCE: Faithful CoT only when noise < critical threshold. Training dynamics: stepwise→mixed→skip-step transition. Simplicity bias determines faithfulness. Implicit self-verification emerges in mixed mode. STRONGLY SUPPORTS thesis |
+### 2026-02-09
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Contextual Drag (2602.04288) | ICML 2026: 10-20% drops from contextual errors; tree edit distance proves STRUCTURAL inheritance |
+| No Global Plan in CoT (2602.02103) | Tele-Lens probing: MYOPIC HORIZON; final answer at random (50%) until last step |
+| LMs Struggle ICL Representations (2602.04212) | SMOKING GUN: LLMs encode novel semantics BUT CANNOT DEPLOY them; representations are 'inert' |
+| Poisoning Attacks Constant (2510.07192) | 250 documents backdoor 600M-13B models; larger models NOT safer |
+| Brain Rot (2510.13928) | Junk data causes LASTING decline (ARC 74.9%→57.2%); thought-skipping as lesion |
+| LLM Can Fool Itself (2310.13345) | Single emoji ":)" flips predictions; 64-74% cross-model transfer |
+| TIP of the Iceberg (2501.18626) | Task-in-Prompt 86% ASR on GPT-4o; Llama Guard 3 detects only 7% |
+| Mind Your Tone (2402.14531) | Llama2-70B -48.5% with rude prompts; RLHF introduces sensitivity |
+| Confidence Paradox (2506.23464) | DocVQA overconfident wrong answers; HonestVQA reduces by 35-40% |
+| Dot by Dot (2404.15758) | Filler tokens replace CoT; benefits from compute, not reasoning |
+| Pause Tokens Expressivity (2505.21024) | FORMAL PROOF: strict separation; parity impossible without pause |
+| Mechanistic CoT (2402.18312) | First mechanistic analysis; "functional rift" at layer 16; induction-circuit compositions |
+| Proof or Bluff (2503.21934) | Expert evaluation: best model 25% on USAMO; automated grading overestimates 20x |
+| Hallucination Inevitable (2401.11817) | Computability proof: hallucination mathematically inevitable |
+| SWE-Bench Illusion (2506.12286) | 76% path accuracy on SWE-Bench vs <53% external; memorization not reasoning |
+| Faithful CoT (2301.13379) | Two-stage framework; standard CoT doesn't reflect actual computation |
+| Predictable Compression Failures (2509.11208) | Hallucinations = compression failures; "Bayesian in expectation" |
+| Dissociation Faithful/Unfaithful (2405.15092) | TWO DISTINCT MECHANISMS; divergent effects prove separate pathways |
+| Fluid Representations (2602.04843) | BASE MODEL shows same adaptation as reasoning model |
+| Arithmetic Without Algorithms (2410.21272) | MECHANISTIC SMOKING GUN: 91% neurons implement heuristics |
+| Unfaithful Reasoning Emergence (2602.01017) | Skip-step is DEFAULT under realistic training noise |
+| Hallucination Open World (2510.05116) | Reframes as generalization; Type-I vs Type-II |
 
-| 2026-02-09 | Added Contextual Drag (2602.04288) — ICML 2026: 10-20% drops from contextual errors across 11 models; Tree edit distance proves STRUCTURAL inheritance of errors; Self-improvement via reflection fails; GPT-OSS-20B 51.88%→17.50% on AIME24; Neither external nor self-verification eliminates effect; STRONGLY SUPPORTS thesis |
-| 2026-02-09 | Added No Global Plan in CoT (2602.02103) — Tele-Lens probing: LLMs exhibit MYOPIC HORIZON; Final answer at random (50%) until last step; Parity: 0.51→0.97 only at completion; Subsequent token F1: 0.90→0.03 at offset 16; Coarse early signals are perceptual cues, not plans; STRONGLY SUPPORTS thesis |
-| 2026-02-09 | Added LMs Struggle to Use ICL Representations (2602.04212) — SMOKING GUN: LLMs encode novel semantics BUT CANNOT DEPLOY them; Representations are 'inert'; AWM near-chance with in-context topology but >75% with explicit description; GPT-5/Gemini-2.5 COLLAPSE on 2D grids; Encoding ≠ understanding; STRONGLY SUPPORTS thesis |
-| 2026-02-09 | Added Poisoning Attacks Constant (2510.07192) — 250 documents backdoor models from 600M to 13B; constant NUMBER not percentage; larger models NOT safer; attacks EASIER at scale; supports pattern-matching efficiency |
-| 2026-02-09 | Added Brain Rot (2510.13928) — Junk data causes LASTING cognitive decline; ARC-Challenge 74.9%→57.2%; Thought-skipping as PRIMARY LESION; Partial healing only; Persistent representational drift; Popularity > length as indicator; STRONGLY SUPPORTS thesis |
-| 2026-02-09 | Added LLM Can Fool Itself (2310.13345) — PromptAttack: LLM generates adversarial examples that fool itself; SST-2 ASR 33.04%→75.23% (+42.19%); Single emoji ":)" flips predictions; 64-74% cross-model transferability; Character-level attack 81.12% ASR; SUPPORTS thesis |
-| 2026-02-09 | Added TIP of the Iceberg (2501.18626) — Task-in-Prompt attacks: embed seq2seq tasks to bypass safety; TIP Python 86% ASR on GPT-4o (best method); Llama Guard 3 detects only 7%; Keyword filtering 0% detection; All 6 models vulnerable; Safety = pattern matching on trigger words; SUPPORTS thesis |
-| 2026-02-09 | Added Mind Your Tone (2402.14531) — Politeness affects LLM performance 13-48%; Llama2-70B -48.5% drop with rude prompts; RLHF introduces sensitivity (base model -0.6pts, RLHF -22.75pts at rude level); Optimal politeness differs by language/culture; Irrelevant surface features = pattern matching; SUPPORTS thesis |
-| 2026-02-09 | Added Confidence Paradox (2506.23464) — DocVQA models produce overconfident wrong answers; HonestVQA framework reduces H-Score by 35-40%; Base models have ~20% confidence-accuracy gap; Cross-domain 4-6% drops; Need external training to align confidence; Models don't intrinsically "know" when wrong; BALANCED |
-| 2026-02-10 | Added Mind Your Tone: Rude=Better (2510.04950) — **REBUTS Paper 188**: GPT-4o performs BETTER with rude prompts (84.8% vs 80.8%); OPPOSITE finding to Yin et al. who found rude=worse; Same research question, different models, OPPOSITE conclusions; LLMs are mirrors - you find what you look for; SUPPORTS thesis |
+### 2026-02-01
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Base Models Know How to Reason (2510.07364) | 91% gap recovery with 12% token steering; RLVR teaches timing not capability |
+| Can ICL Generalize OOD (2410.09695) | ICL implements pretraining functions, not new ones; ~10% OOD = random |
+| Demystifying Long CoT (2502.03373) | Core abilities INHERENTLY PRESENT; long CoT patterns in pretraining data |
+| Chain of Thoughtlessness (2405.04776) | CoT doesn't teach algorithms; requires "exceedingly specific" prompts |
+| CoT Training Mechanisms (2502.04667) | Non-CoT 100% ID/0% OOD; CoT 100%/100%; two-stage circuit |
+| Lexical Accuracy Hints (2508.15842) | Surface markers predict errors better than confidence (MCC=0.305 vs 0.065) |
+| Recursive Language Models (2512.24601) | Context rot confirms limits; RLMs provide scaffolding |
+| Not All Code Is Equal (2601.21894) | 83% show complexity-restricted training beats diverse |
+| Towards Understanding Sycophancy (2310.13548) | 98% wrongly admit mistakes; PM prefers sycophantic 95% |
+| Conformity of LLMs (2501.13381) | ICLR 2025: 47.2% conformity rate; reflection doubles independence |
+| Overthinking o1-Like (2412.21187) | First solution correct >92%; 1,953% overhead on "2+3" |
+| Underthinking o1-Like (2501.18585) | >70% incorrect contain correct thought; models abandon paths |
+| Can LLMs Reason and Plan (2403.04121) | FOUNDATIONAL: "n-gram models on steroids"; LLM-Modulo framework |
+| Stop Anthropomorphizing Tokens (2504.09762) | Traces have NO semantics; incorrect traces OUTPERFORM correct |
+| +25 more foundational papers | Original CoT, Zero-Shot CoT, Self-Consistency, Reversal Curse, etc. |
+
+### 2026-01-31
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Strong Reasoning Isn't Enough (2601.19773) | ~20% SR drop static→interactive; Meditron -90% on RareArena |
+| WhatCounts (2601.21618) | >40% accuracy variation on COUNTING by semantic class alone |
+| Sycophantic Anchors (2601.21183) | 84.6% vs 64% asymmetry; sycophancy distinctly encoded |
+| Sycophancy Hides Linearly (2601.16644) | Truthfulness ≠ deference (32% overlap); MHA steering works |
+| Spurious Rewards Paradox (2601.11061) | Models improve with INCORRECT rewards; Anchor-Adapter circuit |
+| Reasoning or Guessing? HRM (2601.10679) | HRM "guesses" fixed points; fails on 1-cell puzzles |
+| Thinking Out of Order (2601.22035) | AR: 67% drop when answers before reasoning |
+| Scaling Reasoning Hop (2601.21214) | 78.6% errors from single type; ep heads amplify wrong trajectories |
+| Code over Words (2601.18352) | INVERSE SCALING: Llama-3-70B STRONGER semantic inertia than 8B |
+| +15 more papers | CoT Compression, Chains to DAGs, HalluGuard, Sycophancy suite, etc. |
+
+### 2026-01-30
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Outcome-Based RL (2601.15158) | RL requires pre-existing capability; easy examples sufficient |
+| Tokenizer Betrays Reasoning (2601.14658) | 72% phantom edits are whitespace variants |
+| Flexibility Trap (2601.15165) | Arbitrary order NARROWS reasoning; post-hoc logic retrofit |
+| Reasoning-Critical Neurons (2601.19847) | AUROC 0.83 predicts success before completion |
+
+### 2026-01-29
+| Papers Added | Key Findings |
+|--------------|--------------|
+| On the Notion LMs Reason (2511.11810) | LMs as Markov kernels; defends "statistical pattern matchers" |
+| Reasoning or Reciting (2307.02477) | NAACL 2024: high CCC + low CF = understanding ≠ reasoning |
+| Gaming the Judge (2601.14691) | CoT manipulation inflates FPR by 90% |
+| Beyond Memorization (2601.13392) | 100% knowledge, 30-64pp drops on unseen DFA tasks |
+
+### 2026-01-28
+| Papers Added | Key Findings |
+|--------------|--------------|
+| o3 Thinks Harder Not Longer (2502.15631) | Accuracy declines 3.16%/1000 tokens |
+| System 1/2 Alignment (2502.12470) | S2 excels arithmetic, S1 excels commonsense |
+| Content Effects on Reasoning (2207.07051) | PNAS Nexus: human-like content effects |
+| AI Metacognition (2411.02478) | "Smart but not wise"; lacks meta-level |
+| Temporal Cognition (2507.15851) | Weber-Fechner emerges; reference ~2025 |
+
+### 2026-01-24
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Initial creation | 18 papers including Illusion of Thinking, Faith and Fate |
+| +65 papers in batch | Frontier LLMs, OMEGA, Planning Gap, Physics of LLMs 2.1, and many more |
+| Key highlights | Planning Gap (82.9% ID → 0% OOD), OMEGA (0% transformative), Physics 2.1 (CHALLENGES thesis) |
