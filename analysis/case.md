@@ -8,6 +8,25 @@
 
 ---
 
+> *"Evolution selects for adaptive behavior, not for true beliefs. Natural selection doesn't care whether your beliefs are true — only whether your behavior helps you survive."*
+>
+> — Alvin Plantinga, *Warrant and Proper Function* (1993)
+
+**The Plantinga Parallel:**
+
+| Biological Evolution | LLM Training |
+|---------------------|--------------|
+| Selects for **survival** | Selects for **next-token prediction** |
+| False beliefs can produce adaptive behavior | False reasoning can produce correct outputs |
+| No guarantee cognition tracks **truth** | No guarantee CoT reflects **actual computation** |
+| Organisms that *act* correctly survive | Models that *output* correctly get rewarded |
+
+Just as evolution optimizes for reproductive fitness rather than epistemic accuracy, LLM training optimizes for probability matching rather than genuine reasoning. A system can produce correct outputs through entirely wrong processes — and there's no selection pressure against this.
+
+**The implication is stark**: We cannot trust that apparent reasoning reflects actual reasoning, because the training objective never required them to align.
+
+---
+
 ## TL;DR: The Killer Arguments
 
 ### The Smoking Guns
