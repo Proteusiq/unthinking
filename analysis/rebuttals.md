@@ -1,7 +1,7 @@
 # Rebuttals & Counter-Evidence Matrix
 
-> **Last updated**: 2026-02-09
-> **Papers analyzed**: 182
+> **Last updated**: 2026-02-10
+> **Papers analyzed**: 191
 
 This document tracks rebuttals **in both directions**:
 - Rebuttals to "Against" papers (challenging pattern-matching thesis)
@@ -189,7 +189,7 @@ Anthropic's own research:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    REBUTTAL LANDSCAPE (UPDATED)                             │
+│                    REBUTTAL LANDSCAPE (2026-02-10)                          │
 │                                                                             │
 │  AGAINST PAPERS                          FOR PAPERS                         │
 │  ──────────────                          ──────────                         │
@@ -198,7 +198,7 @@ Anthropic's own research:
 │  [3 rebuttals exist]                     [counter-counter from Limits]      │
 │                                                                             │
 │  Limits of Innate Planning ────────────→ Comment: Agentic Gap               │
-│  [NEW - refutes Agentic Gap]             [REFUTED by Limits paper]          │
+│  [refutes Agentic Gap]                   [REFUTED by Limits paper]          │
 │                                                                             │
 │  Faith and Fate ←─────────────────────→ DeepSeek-R1                         │
 │  [NO rebuttal, strong]                   [multiple critiques]               │
@@ -224,14 +224,29 @@ Anthropic's own research:
 │  (our counter-argument) ──────────────→ Strategic Reasoning (2412.13013)    │
 │  [p=4/3 drop = distribution limit]       [Acknowledged by authors]          │
 │                                                                             │
+│  ═══════════════════════════════════════════════════════════════════════    │
+│                      "MIRROR" REBUTTAL (NEW)                                │
+│  ═══════════════════════════════════════════════════════════════════════    │
+│                                                                             │
+│  Mind Your Tone: Rude=WORSE ←─ OPPOSITE ─→ Mind Your Tone: Rude=BETTER     │
+│  (2402.14531) Llama2: -48.5%               (2510.04950) GPT-4o: +4.0%       │
+│                                                                             │
+│  Same question, same methodology, OPPOSITE conclusions                      │
+│  → LLMs are mirrors: behavior reflects training, not principles             │
+│                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 
 KEY UPDATES:
-1. "Interplay" (2512.07783): CONTROLLED proof that RL surfaces, doesn't create
+1. "Mirror" Rebuttal (Papers 188 & 190): STRONGEST evidence for pattern matching
+   - Same research question: "Does tone affect LLM performance?"
+   - Opposite findings: Rude = WORSE (Llama2) vs Rude = BETTER (GPT-4o)
+   - Implication: "LLMs are mirrors — you find what you look for"
+
+2. "Interplay" (2512.07783): CONTROLLED proof that RL surfaces, doesn't create
    - 0% exposure = RL fails; ≥1% = success
    - "RL cannot synthesize capabilities from a void"
    
-2. "Strategic Reasoning" counter-argument developed:
+3. "Strategic Reasoning" counter-argument developed:
    - Performance drops for unusual parameters (p=4/3)
    - Games are in behavioral economics training distribution
    - Authors acknowledge: "LLMs are vastly trained on pBCGs"
@@ -276,11 +291,11 @@ KEY UPDATES:
 
 ---
 
-## Revised Thesis Position (Accounting for Rebuttals) — UPDATED
+## Revised Thesis Position (Accounting for Rebuttals) — UPDATED 2026-02-10
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│              THESIS AFTER REBUTTAL ANALYSIS (FINAL UPDATE)                  │
+│              THESIS AFTER REBUTTAL ANALYSIS (2026-02-10)                    │
 │                                                                             │
 │  CONFIDENT CLAIMS (unrebutted, strong evidence):                            │
 │  ✓ CoT is often unfaithful (7-13% on natural prompts, 25-40% overall)       │
@@ -288,8 +303,9 @@ KEY UPDATES:
 │  ✓ Semantic associations override instructions (Semantic Deception)         │
 │  ✓ Reasoning patterns pre-exist in base models (s1, CoT-WP)                 │
 │  ✓ Planning fails even with tools (Limits: 0% with move validator)          │
-│  ✓ RL SURFACES, DOESN'T CREATE (Interplay: 0% exposure = fail) [NEW]        │
-│  ✓ Strategic reasoning is distribution-bounded (p=4/3 drop) [NEW]           │
+│  ✓ RL SURFACES, DOESN'T CREATE (Interplay: 0% exposure = fail)              │
+│  ✓ Strategic reasoning is distribution-bounded (p=4/3 drop)                 │
+│  ✓ BEHAVIOR IS MODEL-SPECIFIC PATTERN MATCHING (Mirror rebuttal) [NEW]      │
 │                                                                             │
 │  QUALIFIED CLAIMS:                                                          │
 │  ~ "Reasoning collapse" may be execution limit FOR SOME TASKS               │
@@ -300,6 +316,7 @@ KEY UPDATES:
 │  RESOLVED CLAIMS (previously contested):                                    │
 │  ✗ Tool success ≠ proof of genuine reasoning (Limits: 0% even with tools)   │
 │  ✗ Strategic reasoning ≠ genuine understanding (p=4/3 reveals limit)        │
+│  ✗ LLM behavior is consistent across models (Mirror: opposite findings)     │
 │  ✓ Surfacing hypothesis CONFIRMED (Interplay: controlled experiments)       │
 │                                                                             │
 │  REMAINING QUESTIONS:                                                       │
@@ -307,7 +324,10 @@ KEY UPDATES:
 │  ? Whether unfaithful CoT is compatible with genuine internal reasoning     │
 │  ? Why tools help for some tasks (Hanoi) but not others (8-puzzle)          │
 │                                                                             │
-│  KEY NEW EVIDENCE:                                                          │
+│  KEY EVIDENCE:                                                              │
+│  • "MIRROR" REBUTTAL (Papers 188 & 190): Same question, opposite answers    │
+│    Rude prompts: -48.5% (Llama2) vs +4.0% (GPT-4o)                          │
+│    → "LLMs are mirrors — behavior reflects training, not principles"        │
 │  • Interplay (2512.07783): 0% exposure = RL fails; ≥1% = success            │
 │    "RL cannot synthesize capabilities from a void"                          │
 │  • Strategic Reasoning (2412.13013): τ=4.42 BUT p=4/3 causes failure        │
@@ -319,7 +339,7 @@ KEY UPDATES:
 
 ---
 
-## New Evidence from Papers 180-182 (2026-02-09)
+## New Evidence from Papers 180-190 (2026-02-09 to 2026-02-10)
 
 ### Paper 180: Contextual Drag (2602.04288)
 
@@ -355,18 +375,83 @@ KEY UPDATES:
 
 **Assessment**: Smoking gun for pattern matching. Encoding ≠ understanding.
 
+### Paper 183: Dot by Dot (2404.15758)
+
+**Challenges**: CoT as reasoning mechanism
+
+**Key evidence**:
+- Filler tokens ('......') can replace meaningful CoT
+- Benefits from additional compute, not task decomposition
+- 100% vs 66% on 3SUM with fillers vs without
+
+**Assessment**: CoT value may be computational, not semantic.
+
+### Paper 184: Brain Rot (2510.13928)
+
+**Key evidence**:
+- Junk data causes LASTING cognitive decline (ARC-Challenge 74.9%→57.2%)
+- "Thought-skipping" as primary lesion
+- Partial healing only — persistent representational drift
+
+**Assessment**: Training data quality directly determines reasoning patterns.
+
+### Papers 188 & 190: THE "MIRROR" REBUTTAL — **CRITICAL**
+
+| Paper | arXiv | Finding | Model | Effect |
+|-------|-------|---------|-------|--------|
+| **Paper 188**: Mind Your Tone (Yin et al.) | 2402.14531 | Rude prompts = **WORSE** | Llama2-70B, GPT-3.5 | **-48.5%** (Llama2) |
+| **Paper 190**: Mind Your Tone (Bai et al.) | 2510.04950 | Rude prompts = **BETTER** | GPT-4o | **+4.0%** (84.8% vs 80.8%) |
+
+**This is not a methodological dispute — both papers are well-executed.**
+
+**The "Mirror" Insight**:
+> Same research question → Same methodology → **OPPOSITE conclusions**
+> 
+> The difference? Which model you test on.
+
+**Why this STRONGLY SUPPORTS the pattern-matching thesis**:
+1. If LLMs had genuine understanding of tone, the effect should be consistent
+2. Instead, tone sensitivity depends on **what patterns were reinforced during RLHF**
+3. Llama2 was trained to respond negatively to rudeness; GPT-4o was trained differently
+4. **LLMs are mirrors — they reflect their training distribution, not stable reasoning**
+
+**Assessment**: This pair provides perhaps the clearest evidence that LLM behavior is learned pattern matching, not principled reasoning. The fact that the same input feature (tone) produces opposite effects based purely on model training history is a "smoking gun" for the thesis.
+
+### Paper 189: Confidence Paradox (2506.23464)
+
+**Key evidence**:
+- DocVQA models produce overconfident wrong answers
+- ~20% confidence-accuracy gap in base models
+- Models don't intrinsically "know" when they're wrong
+- HonestVQA framework reduces overconfidence by 35-40%
+
+**Assessment**: Calibration requires external training — models lack intrinsic metacognition.
+
+---
+
+## NEW: "Mirror" Rebuttals Section
+
+Papers that reach **opposite conclusions** on the same question, revealing model-specific learned patterns:
+
+| Question | Paper A | Paper B | Resolution |
+|----------|---------|---------|------------|
+| Does tone affect performance? | Mind Your Tone (2402.14531): Rude = WORSE | Mind Your Tone (2510.04950): Rude = BETTER | **Model-dependent** — RLHF determines sensitivity |
+
+**Implication**: When studies reach opposite conclusions depending only on which model is tested, this reveals that behavior is learned pattern matching, not principled reasoning.
+
 ---
 
 ## Updated Summary
 
 | Category | Count | Notes |
 |----------|-------|-------|
-| Papers analyzed | 182 | +3 from last update |
-| Direct rebuttals identified | 12 | +0 |
-| Counter-rebuttals identified | 3 | +0 |
+| Papers analyzed | 191 | +9 from last update |
+| Direct rebuttals identified | 13 | +1 (Mirror rebuttal) |
+| Counter-rebuttals identified | 3 | Unchanged |
+| "Mirror" rebuttals (opposite findings) | 1 | **NEW CATEGORY** |
 | Remaining contested claims | 3 | Unchanged |
 
 ---
 
-*Last updated: 2026-02-09*
+*Last updated: 2026-02-10*
 

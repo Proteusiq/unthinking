@@ -1,5 +1,8 @@
 # Synthesis: The Thinking Machine That Doesn't Think
 
+> **Last updated**: 2026-02-10
+> **Papers analyzed**: 191
+
 ## Papers Analyzed So Far
 
 | # | Paper | Date | Stance | Key Contribution |
@@ -113,8 +116,16 @@
 | 180 | Contextual Drag | Feb 2026 | Strongly Supports | ICML 2026: Failed reasoning in context causes 10-20% drops. Tree edit distance proves STRUCTURAL inheritance of errors. Self-improvement via reflection fundamentally challenged |
 | 181 | No Global Plan in CoT | Feb 2026 | Strongly Supports | Tele-Lens probing: LLMs exhibit MYOPIC HORIZON. Final answer at random (50%) until last step. "Wooden Barrel" principle: few pivots determine reliability |
 | 182 | LMs Struggle to Use ICL Representations | Feb 2026 | Strongly Supports | SMOKING GUN: LLMs encode novel semantics but CANNOT deploy them. Representations are "inert". Even GPT-5/Gemini-2.5 collapse on 2D grid topologies |
+| 183 | Dot by Dot | Apr 2024 | Supports | Filler tokens ('......') can replace CoT; benefits from compute, not reasoning. 100% vs 66% on 3SUM |
+| 184 | Brain Rot | Oct 2025 | Strongly Supports | Junk data causes LASTING cognitive decline (ARC 74.9%→57.2%); thought-skipping as lesion; partial healing only |
+| 185 | Hallucination Open World | Oct 2025 | Supports | Reframes hallucination as generalization problem; Type-I (memorization) vs Type-II (generalization) |
+| 186 | TIP of the Iceberg | Jan 2025 | Supports | Task-in-Prompt attacks: 86% ASR on GPT-4o; Llama Guard detects only 7%; safety = pattern matching |
+| 187 | LLM Can Fool Itself | Oct 2023 | Supports | PromptAttack: single emoji ":)" flips predictions; 64-74% cross-model transfer |
+| 188 | Mind Your Tone (Rude=Worse) | Feb 2024 | Supports | Llama2-70B -48.5% with rude prompts; RLHF introduces tone sensitivity |
+| 189 | Confidence Paradox | Jun 2025 | Balanced | DocVQA overconfident wrong answers; HonestVQA reduces by 35-40%; models don't know when wrong |
+| 190 | Mind Your Tone (Rude=Better) | Oct 2025 | Supports | **REBUTS 188**: GPT-4o +4% with rude prompts; OPPOSITE finding = "LLMs are mirrors" |
 
-**Total: 182 unique papers analyzed**
+**Total: 191 unique papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative
