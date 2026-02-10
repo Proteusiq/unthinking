@@ -1,11 +1,11 @@
 # Thoughts: Cross-Paper Synthesis and Missing Connections
 
-> **Last updated**: 2026-02-09
-> **Papers analyzed**: 182
+> **Last updated**: 2026-02-10
+> **Papers analyzed**: 191
 
 ## Overview
 
-After analyzing all 182 papers, this document captures:
+After analyzing all 191 papers, this document captures:
 1. Major themes and how papers interconnect
 2. Papers that talk to each other (support, challenge, extend)
 3. The narrative arc of the field (2022-2026)
@@ -322,11 +322,11 @@ Only Temporal Cognition (2507.15851) addresses this:
 
 ---
 
-## Synthesis: The Picture from 166 Papers
+## Synthesis: The Picture from 191 Papers
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────┐
-│                    THE PICTURE EMERGING FROM 166 PAPERS                         │
+│                    THE PICTURE EMERGING FROM 191 PAPERS                         │
 │                                                                                 │
 │  1. CAPABILITY EXISTS                                                           │
 │     - Pre-training creates latent reasoning patterns                            │
@@ -387,7 +387,7 @@ Only Temporal Cognition (2507.15851) addresses this:
 
 ## The Seven Pillars of Evidence
 
-After cross-analyzing 166 papers, the evidence converges on seven distinct pillars:
+After cross-analyzing 191 papers, the evidence converges on seven distinct pillars:
 
 | Pillar | Core Finding | Key Papers | Strongest Number |
 |--------|--------------|------------|------------------|
@@ -473,13 +473,13 @@ Can LLMs Reason and Plan (131): "Universal approximate retrieval"
 
 ---
 
-## Statistical Summary (166 Papers)
+## Statistical Summary (191 Papers)
 
 | Stance | Count | Percentage |
 |--------|-------|------------|
-| **Supports thesis** | 122 | 73.5% |
-| **Balanced** | 37 | 22.3% |
-| **Challenges thesis** | 7 | 4.2% |
+| **Supports thesis** | 131 | 68.6% |
+| **Balanced** | 52 | 27.2% |
+| **Challenges thesis** | 8 | 4.2% |
 
 ### By Evidence Type
 
@@ -530,7 +530,7 @@ Corpus at 166 papers. These remain for potential future analysis:
 
 ## Status
 
-- [x] Analyzed 166 papers
+- [x] Analyzed 191 papers
 - [x] Identified seven pillars of evidence
 - [x] Mapped paper conversations and rebuttal chains
 - [x] Created comprehensive mindmap (mindmap.md)
@@ -931,5 +931,134 @@ The blog explicitly frames this as an alignment/safety problem, not just an acad
 
 ---
 
-*Last updated: 2026-02-09*
+## Papers 183-190: New Evidence (2026-02-10)
+
+### Paper 183: Dot by Dot (2404.15758)
+
+**Theme**: CoT benefits from compute, not semantic content.
+
+**Key findings**:
+- Filler tokens ('......') can **replace meaningful CoT**
+- 100% vs 66% accuracy on 3SUM with fillers vs without
+- Benefits come from **additional computation**, not task decomposition
+- Extends to formal proofs: pause tokens prove strict expressivity separation
+
+**Thesis relevance**: If meaningless tokens work as well as semantic CoT, then CoT's value is computational (more forward passes), not reasoning (task decomposition).
+
+### Paper 184: Brain Rot (2510.13928)
+
+**Theme**: Training data quality directly determines reasoning patterns.
+
+**Key findings**:
+- Junk data causes **LASTING cognitive decline** (ARC-Challenge 74.9%→57.2%)
+- "Thought-skipping" as **primary lesion** — models learn to skip reasoning steps
+- Only **partial healing** with clean data — persistent representational drift
+- Popularity (not length) predicts harm
+
+**Thesis relevance**: If junk data permanently damages reasoning patterns, this proves reasoning IS the patterns. No abstract reasoning capability exists independent of learned patterns.
+
+### Paper 185: Hallucination Open World (2510.05116)
+
+**Theme**: Hallucination as generalization problem.
+
+**Key findings**:
+- Type-I (memorization): Model hasn't seen correct answer
+- Type-II (generalization): Model has seen answer but fails to retrieve/apply
+- **Open World setting** makes hallucination inevitable
+- Reframes from "bug" to "fundamental limitation"
+
+**Thesis relevance**: Aligns with Hallucination Inevitable (Paper 165) — mathematical necessity, not engineering problem.
+
+### Papers 186-187: Adversarial Attacks
+
+**Paper 186: TIP of the Iceberg (2501.18626)**
+- Task-in-Prompt embeds seq2seq to bypass safety
+- **86% ASR** on GPT-4o with TIP Python
+- Llama Guard 3 detects only **7%**
+- Safety = pattern matching on trigger words
+
+**Paper 187: LLM Can Fool Itself (2310.13345)**
+- PromptAttack: LLM generates adversarial examples that fool itself
+- Single emoji ":)" flips predictions
+- **64-74% cross-model transferability**
+- Character-level attacks achieve 81% ASR
+
+**Thesis relevance**: If models can be fooled by their own adversarial examples, and single characters flip predictions, this proves surface pattern matching, not semantic understanding.
+
+### Papers 188 & 190: THE "MIRROR" REBUTTAL — Critical New Finding
+
+**The Setup**:
+- Paper 188 (Yin et al., 2402.14531): "Does tone affect LLM performance?"
+- Paper 190 (Bai et al., 2510.04950): Same question, same methodology
+
+**The Results**:
+| Paper | Model | Finding | Effect |
+|-------|-------|---------|--------|
+| 188 | Llama2-70B | Rude = **WORSE** | **-48.5%** |
+| 190 | GPT-4o | Rude = **BETTER** | **+4.0%** |
+
+**Why This Is Critical**:
+
+This is NOT a methodological dispute. Both papers are well-executed. The difference is **which model they tested**.
+
+**The "Mirror" Insight**:
+> Same research question → Same methodology → **OPPOSITE conclusions**
+> 
+> The only variable is the model. Therefore, tone sensitivity is **learned from training**, not a principled response.
+
+**Implications**:
+1. If LLMs had genuine understanding of social dynamics, tone effects should be consistent
+2. Instead, Llama2 was RLHF'd to respond negatively to rudeness; GPT-4o wasn't (or was trained differently)
+3. **"LLMs are mirrors — you find what you look for"**
+4. This is perhaps the clearest evidence that LLM behavior is learned pattern matching
+
+**New Theme**: "Mirror rebuttals" — when studies reach opposite conclusions based solely on which model is tested.
+
+### Paper 189: Confidence Paradox (2506.23464)
+
+**Theme**: Models don't know when they're wrong.
+
+**Key findings**:
+- DocVQA models produce **overconfident wrong answers**
+- ~20% confidence-accuracy gap in base models
+- HonestVQA framework reduces overconfidence by 35-40%
+- Models require **external training** to calibrate confidence
+
+**Thesis relevance**: If models can't intrinsically distinguish correct from incorrect outputs, they lack metacognition — consistent with pattern matching without understanding.
+
+---
+
+## Updated Synthesis (191 Papers)
+
+### New Theme: "Mirror Rebuttals"
+
+Papers 188 & 190 introduce a new category: studies that reach **opposite conclusions** based solely on which model is tested. This is strong evidence for:
+
+1. **Behavior is model-specific** — learned from training, not principled
+2. **No universal LLM behavior** — each model reflects its training distribution
+3. **"LLMs are mirrors"** — you find what you (or the training data) look for
+
+### Updated Statistical Summary
+
+| Stance | Count | Percentage |
+|--------|-------|------------|
+| **Supports thesis** | 131 | 68.6% |
+| **Balanced** | 52 | 27.2% |
+| **Challenges thesis** | 8 | 4.2% |
+
+### The Seven Pillars (Updated)
+
+| Pillar | Core Finding | Key Papers | Strongest Number |
+|--------|--------------|------------|------------------|
+| **1. Compositional Failure** | ID success doesn't transfer to OOD | 00, 01, 06, 29, 31, 125 | ~100% ID → ~0% OOD |
+| **2. CoT Unfaithfulness** | CoT often doesn't reflect computation | 08, 10, 14, 43, 62, 132, 183 | Filler tokens work |
+| **3. Surfacing Hypothesis** | RL surfaces, doesn't create | 15, 07, 103, 111, 133 | 0% exposure → RL fails |
+| **4. Complexity Collapse** | Abrupt failure at thresholds | 03, 16, 19, 48, 87, 184 | Brain rot = lasting damage |
+| **5. Surface Patterns** | Token frequency drives accuracy | 147, 149, 157, 108, 187 | Single emoji flips prediction |
+| **6. Sycophancy** | Social agreement over truth | 119, 127, 109, 110 | 98% wrong admissions |
+| **7. Mirror Effect** | Model-specific learned behavior | **188, 190** | **Same question, opposite answers** |
+
+---
+
+*Last updated: 2026-02-10*
 
