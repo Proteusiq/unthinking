@@ -3844,4 +3844,27 @@ window.paperNodes = [
       ],
       analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/180-189/189_confidence_paradox.md',
     },
+    // Paper 190: Mind Your Tone (Rude = Better) - REBUTS Paper 188
+    {
+      id: '2510.04950',
+      title: 'Mind Your Tone: Investigating How Prompt Politeness Affects LLM Accuracy',
+      shortTitle: 'Tone: Rude=Better',
+      date: 'Oct 2025',
+      stance: 'supports',
+      cluster: 'evidence',
+      coreArgument:
+        'OPPOSITE of Paper 188: Impolite prompts outperform polite ones on GPT-4o. Very Rude 84.8% vs Very Polite 80.8%. Statistically significant (p<0.05). LLMs are mirrors - you find what you look for. Same question, different models, opposite answers.',
+      keyEvidence: [
+        'Very Rude: 84.8% accuracy (best)',
+        'Very Polite: 80.8% accuracy (worst)',
+        '+4.0% advantage for rudeness',
+        'All 8 tone pairs statistically significant (p<0.05)',
+        'REBUTS Paper 188 which found rude=worse',
+      ],
+      keyQuotes: [
+        "Contrary to expectations, impolite prompts consistently outperformed polite ones, with accuracy ranging from 80.8% for Very Polite prompts to 84.8% for Very Rude prompts.",
+        "These findings differ from earlier studies that associated rudeness with poorer outcomes, suggesting that newer LLMs may respond differently to tonal variation."
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/180-189/190_mind_your_tone_rude_better.md',
+    },
 ];

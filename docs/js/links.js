@@ -3993,4 +3993,24 @@ window.paperLinks = [
       type: 'supports',
       description: 'Both address hallucination/overconfidence problems',
     },
+    // Paper 190: Mind Your Tone - Rude=Better (2510.04950)
+    // CRITICAL: This paper REBUTS Paper 188 with OPPOSITE findings
+    {
+      source: '2510.04950',
+      target: '2402.14531',
+      type: 'rebuts',
+      description: 'OPPOSITE FINDING: Rude=better (GPT-4o) vs Rude=worse (Llama2/GPT-3.5)',
+    },
+    {
+      source: '2510.04950',
+      target: '2410.05229',
+      type: 'supports',
+      description: 'Both show irrelevant features affect reasoning performance',
+    },
+    {
+      source: '2510.04950',
+      target: '2302.00093',
+      type: 'supports',
+      description: 'Both show sensitivity to prompt surface features',
+    },
 ];
