@@ -137,7 +137,7 @@
 | 189 | Confidence Paradox | Jun 2025 | Balanced | DocVQA overconfident wrong answers; HonestVQA reduces by 35-40%; models don't know when wrong |
 | 190 | Mind Your Tone (Rude=Better) | Oct 2025 | Supports | **REBUTS 188**: GPT-4o +4% with rude prompts; OPPOSITE finding = "LLMs are mirrors" |
 
-**Total: 191 unique papers analyzed**
+**Total: 192 unique papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative
@@ -303,7 +303,7 @@ Base Model → Latent Reasoning → RL/Decoding Surfaces It → Real Capability
 - 1K samples sufficient to surface reasoning (s1)
 - Confidence correlates with reasoning presence
 
-### NEW: The Tool Augmentation Debate (Resolved?)
+### The Tool Augmentation Debate (Resolved?)
 
 | Paper | Claim | Evidence |
 |-------|-------|----------|
@@ -318,7 +318,7 @@ Base Model → Latent Reasoning → RL/Decoding Surfaces It → Real Capability
 
 ---
 
-## NEW: The Faithfulness Problem
+## The Faithfulness Problem
 
 ### Key Finding from Lanham et al. (2023)
 
@@ -338,7 +338,7 @@ Base Model → Latent Reasoning → RL/Decoding Surfaces It → Real Capability
 2. **Internal process ≠ stated process**: What models say ≠ how they compute
 3. **Size makes it worse**: More capable models rely LESS on their stated reasoning
 
-### NEW: Unfaithfulness "In The Wild" (Arcuschin et al., 2025)
+### Unfaithfulness "In The Wild" (Arcuschin et al., 2025)
 
 **Critical extension**: Previous work required artificial bias in prompts. This paper shows unfaithfulness on **natural, unbiased prompts**.
 
@@ -361,7 +361,7 @@ Base Model → Latent Reasoning → RL/Decoding Surfaces It → Real Capability
 
 ---
 
-## NEW: The Surfacing Hypothesis (s1 Evidence)
+## The Surfacing Hypothesis (s1 Evidence)
 
 ### Key Finding from s1 Paper
 
@@ -381,7 +381,7 @@ This directly supports: **"RL/SFT surfaces reasoning, doesn't create it"**
 
 ---
 
-## NEW: The Semantic Override Principle
+## The Semantic Override Principle
 
 ### Key Finding from Semantic Deception
 
@@ -404,7 +404,7 @@ Semantic load affects computation even when task recognition succeeds.
 
 ---
 
-## NEW: The Planning Deficit (Limits of Innate Planning)
+## The Planning Deficit (Limits of Innate Planning)
 
 ### Key Finding: Move Validator Test
 
@@ -458,7 +458,7 @@ Model only needs to SELECT best move — execution is completely offloaded.
 
 ---
 
-## NEW: The "Surfacing" Hypothesis Confirmed (Interplay Paper)
+## The "Surfacing" Hypothesis Confirmed (Interplay Paper)
 
 ### Controlled Experimental Evidence (2512.07783)
 
@@ -531,7 +531,7 @@ This demonstrates:
 
 ---
 
-## NEW: Addressing "Strategic Reasoning" Evidence (Counter-Argument)
+## Addressing "Strategic Reasoning" Evidence (Counter-Argument)
 
 ### The Challenge
 
@@ -575,7 +575,7 @@ This aligns with our core thesis: **practical but predictive** — works within 
 
 ---
 
-## NEW: The "Aha Moment" Illusion (Illusion of Insight)
+## The "Aha Moment" Illusion (Illusion of Insight)
 
 ### DeepSeek-R1's Claim (Challenged)
 
@@ -623,7 +623,7 @@ Analysis of **1M+ reasoning traces** across multiple domains and architectures:
 
 ---
 
-## NEW: The Benchmark Illusion (Reasoning Models Reason Well, Until They Don't)
+## The Benchmark Illusion (Reasoning Models Reason Well, Until They Don't)
 
 ### Key Finding: Existing Benchmarks Are Trivially Easy
 
@@ -1188,7 +1188,7 @@ For B=1 (NO search required, just follow edges):
 
 ---
 
-## NEW: Foundational Papers Added (2026-02-01)
+## Foundational Papers Added (2026-02-01)
 
 ### The Emergence Mirage (2304.15004, NeurIPS 2023)
 
