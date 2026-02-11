@@ -201,6 +201,33 @@ This survey is a **cornerstone paper** for the literature review because:
 
 ---
 
+## How Our Project Complements This Survey
+
+**The survey provides taxonomy; we provide the interaction graph.**
+
+### What They Have (Figures 1-5)
+- **Figure 1**: 2-axis taxonomy matrix (reasoning type × failure type)
+- **Figure 2**: Hierarchical survey structure diagram
+- **Figures 3-5**: Detailed taxonomies for Informal, Formal, and Embodied reasoning failures
+- **GitHub repo**: Curated paper list organized by category
+
+### What They Don't Have (Our Contribution)
+- **NO paper interaction graph** - Their survey categorizes papers but doesn't show how papers relate to each other
+- **NO rebuttal tracking** - They don't visualize which papers challenge or support each other
+- **NO network visualization** - Papers are listed, not connected
+
+### Our Interactive Visualization Fills This Gap
+Our project at [proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/) provides:
+- **Force-directed graph** showing paper-to-paper relationships
+- **Relationship types**: supports, rebuts, extends
+- **Rebuttal chains**: A rebuts B, C rebuts A's rebuttal
+- **Color-coded stances**: supports thesis (green), challenges (red), balanced (yellow)
+- **Interactive exploration**: hover, click, search, filter
+
+**Together**: Their taxonomy + Our interaction graph = Complete picture of the LLM reasoning failures literature
+
+---
+
 ## Status
 - [x] Read complete (HTML version)
 - [x] Core claims extracted
