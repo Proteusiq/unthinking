@@ -3867,4 +3867,28 @@ window.paperNodes = [
       ],
       analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/190-199/190_mind_your_tone_rude_better.md',
     },
+    // Paper 191: LLM Reasoning Failures Survey (CORNERSTONE - hub node)
+    {
+      id: '2602.06176',
+      title: 'Large Language Model Reasoning Failures',
+      shortTitle: 'Reasoning Failures Survey',
+      date: 'Feb 2026',
+      stance: 'supports',
+      cluster: 'survey',
+      coreArgument:
+        'First comprehensive survey of LLM reasoning failures. 2-axis taxonomy (reasoning type x failure type) reveals systematic failures stem from architectural constraints, training paradigms, and lack of embodied grounding. LLMs rely on pattern matching rather than genuine reasoning.',
+      keyEvidence: [
+        '170+ papers synthesized into unified taxonomy',
+        'Wisconsin Card Sort: 25.1% accuracy on rule switches',
+        'Two-hop reasoning: ~0.33 uniform probability (guessing)',
+        'Reversal curse persists across scales',
+        'Working memory: severe proactive interference',
+      ],
+      keyQuotes: [
+        "Unlike humans - who develop fundamental cognitive functions through embodied, goal-driven interactions with the physical and social world - LLMs learn passively from text alone, lacking grounding and experiential feedback.",
+        "Research shows models rely on superficial pattern-matching rather than arithmetic algorithms, thus struggling notably in middle-digits.",
+        "The systematic study of reasoning failures in LLMs parallels fault-tolerance research in early computing: understanding failure is a prerequisite for building resilient systems.",
+      ],
+      analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/190-199/191_llm_reasoning_failures_survey.md',
+    },
 ];
