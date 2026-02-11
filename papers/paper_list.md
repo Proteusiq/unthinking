@@ -339,6 +339,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 188 | 2402.14531 | Feb 2024 | Should We Respect LLMs? Prompt Politeness Cross-Lingual Study (SICon 2024) | Supports | ✅ DONE |
 | 189 | 2506.23464 | Jun 2025 | The Confidence Paradox: Can LLM Know When It's Wrong? (IJCNLP-AACL 2025) | Balanced | ✅ DONE |
 | 190 | 2510.04950 | Oct 2025 | Mind Your Tone: Rude Prompts = Better Accuracy (ACL 2025 Findings) | Supports | ✅ DONE |
+| 191 | 2602.06176 | Feb 2026 | Large Language Model Reasoning Failures (TMLR Survey - CORNERSTONE) | Strongly Supports | ✅ DONE |
 
 ### Gap-Filling Papers (Added 2026-01-31)
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -354,11 +355,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 190
-- **Against Reasoning**: ~111
+- **Total Papers**: 192
+- **Against Reasoning**: ~112
 - **For Reasoning**: ~31
 - **Balanced**: ~48
 - **Date Range**: 2021-2026
-- **Analyzed**: 190
+- **Analyzed**: 192
 
 ---

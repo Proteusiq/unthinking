@@ -4013,4 +4013,90 @@ window.paperLinks = [
       type: 'supports',
       description: 'Both show sensitivity to prompt surface features',
     },
+    // Paper 191: LLM Reasoning Failures Survey (2602.06176) - CORNERSTONE HUB NODE
+    // This survey synthesizes 170+ papers - connects to 14 we've already analyzed
+    {
+      source: '2602.06176',
+      target: '2410.05229',
+      type: 'extends',
+      description: 'Survey cites GSM-Symbolic as key evidence for mathematical fragility',
+    },
+    {
+      source: '2602.06176',
+      target: '2305.18654',
+      type: 'extends',
+      description: 'Survey cites Faith & Fate as foundational compositional reasoning evidence',
+    },
+    {
+      source: '2602.06176',
+      target: '2309.12288',
+      type: 'extends',
+      description: 'Survey cites Reversal Curse as key logic failure evidence',
+    },
+    {
+      source: '2602.06176',
+      target: '2406.11050',
+      type: 'extends',
+      description: 'Survey cites Token Bias paper on genuine reasoning failures',
+    },
+    {
+      source: '2602.06176',
+      target: '2307.02477',
+      type: 'extends',
+      description: 'Survey cites Reasoning or Reciting as counterfactual evidence',
+    },
+    {
+      source: '2602.06176',
+      target: '2506.06941',
+      type: 'extends',
+      description: 'Survey cites Illusion of Thinking on complexity collapse',
+    },
+    {
+      source: '2602.06176',
+      target: '2506.09250',
+      type: 'extends',
+      description: 'Survey includes rebuttal to Illusion of Thinking',
+    },
+    {
+      source: '2602.06176',
+      target: '2506.18880',
+      type: 'extends',
+      description: 'Survey cites OMEGA on out-of-distribution math failures',
+    },
+    {
+      source: '2602.06176',
+      target: '2507.07313',
+      type: 'extends',
+      description: 'Survey cites Frontier LLMs Still Struggle on simple task failures',
+    },
+    {
+      source: '2602.06176',
+      target: '2406.02061',
+      type: 'extends',
+      description: 'Survey cites Alice in Wonderland on complete reasoning breakdown',
+    },
+    {
+      source: '2602.06176',
+      target: '2410.21272',
+      type: 'extends',
+      description: 'Survey cites Arithmetic Without Algorithms on heuristic arithmetic',
+    },
+    {
+      source: '2602.06176',
+      target: '2409.15454',
+      type: 'extends',
+      description: 'Survey cites A-Not-B Errors on cognitive failures',
+    },
+    {
+      source: '2602.06176',
+      target: '2302.00093',
+      type: 'extends',
+      description: 'Survey cites Distracted by Irrelevant Context on robustness',
+    },
+    {
+      source: '2602.06176',
+      target: '2408.00137',
+      type: 'extends',
+      description: 'Survey cites negative bias correction work',
+    },
 ];

@@ -5,6 +5,53 @@ This document tracks how papers interact with each other — rebuttals, counter-
 
 ---
 
+## CORNERSTONE SURVEY: LLM Reasoning Failures (2602.06176)
+
+```
+                           ╔════════════════════════════════════╗
+                           ║  LLM REASONING FAILURES SURVEY     ║
+                           ║  (2602.06176) - TMLR 2026          ║
+                           ║  Song, Han, Goodman                ║
+                           ║  170+ papers synthesized           ║
+                           ╚════════════════════════════════════╝
+                                          │
+           ┌──────────────────────────────┼──────────────────────────────┐
+           │                              │                              │
+           ▼                              ▼                              ▼
+   ┌───────────────┐              ┌───────────────┐              ┌───────────────┐
+   │ COGNITIVE     │              │ FORMAL        │              │ EMBODIED      │
+   │ FAILURES      │              │ REASONING     │              │ REASONING     │
+   ├───────────────┤              ├───────────────┤              ├───────────────┤
+   │ Working Memory│              │ Reversal Curse│              │ Physical      │
+   │ Cognitive Bias│              │ Compositional │              │ Commonsense   │
+   │ ToM Failures  │              │ Arithmetic    │              │ Spatial/3D    │
+   └───────────────┘              └───────────────┘              └───────────────┘
+           │                              │                              │
+           ▼                              ▼                              ▼
+   ┌───────────────────────────────────────────────────────────────────────────┐
+   │                      PAPERS IN OUR CORPUS (14 overlap)                    │
+   ├───────────────────────────────────────────────────────────────────────────┤
+   │ • 2410.05229 (GSM-Symbolic)      • 2305.18654 (Faith & Fate)              │
+   │ • 2309.12288 (Reversal Curse)    • 2406.11050 (Token Bias)                │
+   │ • 2307.02477 (Reasoning/Recite)  • 2506.06941 (Illusion of Thinking)      │
+   │ • 2406.02061 (Alice Wonderland)  • 2410.21272 (Arithmetic w/o Algorithms) │
+   │ • 2409.15454 (A-Not-B Errors)    • 2302.00093 (Distracted Context)        │
+   │ • 2506.09250 (Illusion Rebuttal) • 2506.18880 (OMEGA)                     │
+   │ • 2507.07313 (Frontier Struggle) • 2408.00137 (Negative Bias)             │
+   └───────────────────────────────────────────────────────────────────────────┘
+```
+
+**Taxonomy (2-Axis Framework)**:
+- **Axis 1 (Reasoning Type)**: Non-Embodied (Informal/Formal) vs Embodied (1D/2D/3D)
+- **Axis 2 (Failure Type)**: Fundamental | Application-Specific | Robustness
+
+**Root Causes Identified**:
+1. Architectural: attention dispersal, causal masking, auto-regressive commitment
+2. Training: next-token prediction, RLHF bias amplification, passive learning
+3. Grounding: no world models, no embodied experience, no goal-driven feedback
+
+---
+
 ## Visual Graph
 
 ```

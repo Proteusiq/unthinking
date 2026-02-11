@@ -1,7 +1,19 @@
 # Synthesis: The Thinking Machine That Doesn't Think
 
-> **Last updated**: 2026-02-10
-> **Papers analyzed**: 191
+> **Last updated**: 2026-02-11
+> **Papers analyzed**: 192
+
+---
+
+## CORNERSTONE SURVEY
+
+| # | Paper | arXiv | Date | Stance | Key Contribution |
+|---|-------|-------|------|--------|------------------|
+| 191 | **LLM Reasoning Failures Survey** | 2602.06176 | Feb 2026 | Strongly Supports | **FIRST COMPREHENSIVE SURVEY** of LLM reasoning failures. 2-axis taxonomy (reasoning type × failure type). Synthesizes 170+ papers. Identifies root causes: architectural constraints (attention dispersal, causal masking), training paradigms (next-token prediction, RLHF bias amplification), lack of embodied grounding. Connects to 14 papers in our corpus. |
+
+> "Unlike humans – who develop fundamental cognitive functions through embodied, goal-driven interactions with the physical and social world – LLMs learn passively from text alone, lacking grounding and experiential feedback."
+
+---
 
 ## Papers Analyzed So Far
 
