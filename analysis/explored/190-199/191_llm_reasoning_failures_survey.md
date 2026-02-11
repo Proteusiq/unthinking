@@ -98,17 +98,38 @@ The authors note a common pattern in the literature:
 
 ## Relationship to Other Papers
 
-### Supports (14 papers we've analyzed that appear in this survey)
-- 2410.05229 - GSM-Symbolic (mathematical reasoning fragility)
-- 2305.18654 - Faith and Fate (compositional reasoning limits)
-- 2309.12288 - Reversal Curse
-- 2406.11050 - Token Bias (not genuine reasoners)
-- 2307.02477 - Reasoning or Reciting (counterfactual tasks)
-- 2506.06941 - The Illusion of Thinking
-- 2406.02061 - Alice in Wonderland (complete reasoning breakdown)
-- 2410.21272 - Arithmetic Without Algorithms
-- 2409.15454 - A-Not-B Errors in ICL
-- 2302.00093 - Easily Distracted by Irrelevant Context
+### Supports (14 papers we analyzed BEFORE discovering this survey)
+
+**Note**: These 14 papers were independently analyzed as part of our literature review BEFORE we found this survey. The overlap validates our paper selection methodology.
+
+| arXiv ID | Title | Our Analysis |
+|----------|-------|--------------|
+| 2410.05229 | GSM-Symbolic (mathematical reasoning fragility) | ✅ Analyzed independently |
+| 2305.18654 | Faith and Fate (compositional reasoning limits) | ✅ Analyzed independently |
+| 2309.12288 | Reversal Curse | ✅ Analyzed independently |
+| 2406.11050 | Token Bias (not genuine reasoners) | ✅ Analyzed independently |
+| 2307.02477 | Reasoning or Reciting (counterfactual tasks) | ✅ Analyzed independently |
+| 2506.06941 | The Illusion of Thinking | ✅ Analyzed independently |
+| 2506.09250 | Illusion of Illusion (rebuttal) | ✅ Analyzed independently |
+| 2506.18880 | OMEGA (OOD math reasoning) | ✅ Analyzed independently |
+| 2507.07313 | Frontier LLMs Still Struggle | ✅ Analyzed independently |
+| 2406.02061 | Alice in Wonderland (complete breakdown) | ✅ Analyzed independently |
+| 2410.21272 | Arithmetic Without Algorithms | ✅ Analyzed independently |
+| 2409.15454 | A-Not-B Errors in ICL | ✅ Analyzed independently |
+| 2302.00093 | Easily Distracted by Irrelevant Context | ✅ Analyzed independently |
+| 2408.00137 | Correcting Negative Bias | ✅ Analyzed independently |
+
+### New Papers to Review (135 from survey)
+
+**Status**: This section will be updated as we review the 135 new papers from the survey.
+
+Tracked in GitHub issues:
+- [#48](https://github.com/Proteusiq/unthinking/issues/48) - Cognitive Skills & Biases (~25 papers)
+- [#49](https://github.com/Proteusiq/unthinking/issues/49) - Theory of Mind & Social (~16 papers)
+- [#50](https://github.com/Proteusiq/unthinking/issues/50) - Logic & Compositional (~27 papers)
+- [#51](https://github.com/Proteusiq/unthinking/issues/51) - Benchmark Robustness (~19 papers)
+- [#52](https://github.com/Proteusiq/unthinking/issues/52) - Arithmetic & Math (~24 papers)
+- [#53](https://github.com/Proteusiq/unthinking/issues/53) - Embodied & Physical (~16 papers)
 
 ### Extends
 - This survey **synthesizes** 170+ papers into a unified taxonomy
