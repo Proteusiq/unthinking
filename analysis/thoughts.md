@@ -1,11 +1,11 @@
 # Thoughts: Cross-Paper Synthesis and Missing Connections
 
-> **Last updated**: 2026-02-10
-> **Papers analyzed**: 191
+> **Last updated**: 2026-02-11
+> **Papers analyzed**: 192
 
 ## Overview
 
-After analyzing all 191 papers, this document captures:
+After analyzing all 192 papers, this document captures:
 1. Major themes and how papers interconnect
 2. Papers that talk to each other (support, challenge, extend)
 3. The narrative arc of the field (2022-2026)
@@ -322,11 +322,11 @@ Only Temporal Cognition (2507.15851) addresses this:
 
 ---
 
-## Synthesis: The Picture from 191 Papers
+## Synthesis: The Picture from 192 Papers
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────┐
-│                    THE PICTURE EMERGING FROM 191 PAPERS                         │
+│                    THE PICTURE EMERGING FROM 192 PAPERS                         │
 │                                                                                 │
 │  1. CAPABILITY EXISTS                                                           │
 │     - Pre-training creates latent reasoning patterns                            │
@@ -387,7 +387,7 @@ Only Temporal Cognition (2507.15851) addresses this:
 
 ## The Seven Pillars of Evidence
 
-After cross-analyzing 191 papers, the evidence converges on seven distinct pillars:
+After cross-analyzing 192 papers, the evidence converges on seven distinct pillars:
 
 | Pillar | Core Finding | Key Papers | Strongest Number |
 |--------|--------------|------------|------------------|
@@ -473,12 +473,12 @@ Can LLMs Reason and Plan (131): "Universal approximate retrieval"
 
 ---
 
-## Statistical Summary (191 Papers)
+## Statistical Summary (192 Papers)
 
 | Stance | Count | Percentage |
 |--------|-------|------------|
-| **Supports thesis** | 131 | 68.6% |
-| **Balanced** | 52 | 27.2% |
+| **Supports thesis** | 132 | 68.8% |
+| **Balanced** | 52 | 27.1% |
 | **Challenges thesis** | 8 | 4.2% |
 
 ### By Evidence Type
@@ -530,7 +530,7 @@ Corpus at 166 papers. These remain for potential future analysis:
 
 ## Status
 
-- [x] Analyzed 191 papers
+- [x] Analyzed 192 papers
 - [x] Identified seven pillars of evidence
 - [x] Mapped paper conversations and rebuttal chains
 - [x] Created comprehensive mindmap (mindmap.md)
