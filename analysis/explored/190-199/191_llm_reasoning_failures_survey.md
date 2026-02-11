@@ -6,6 +6,7 @@
 - **Authors**: Peiyang Song (Caltech/Stanford), Pengrui Han (Carleton College), Noah Goodman (Stanford)
 - **Date**: February 2026
 - **Venue**: TMLR 2026 (Survey Certification)
+- **GitHub**: https://github.com/Peiyang-Song/Awesome-LLM-Reasoning-Failures
 
 ---
 
