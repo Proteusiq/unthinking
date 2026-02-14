@@ -300,41 +300,35 @@
     };
   }
 
-  // Continuous smooth breathing animation - never stops
+  // CSS-based breathing - no JS loop, 0% CPU when idle
+  // D3 simulation stops naturally; CSS handles the visual "alive" effect
   function startBreathing() {
-    let lastTime = 0;
-
-    // Give each node a unique phase offset for organic movement
-    state.nodes.forEach((node, i) => {
-      node.phaseX = Math.random() * Math.PI * 2;
-      node.phaseY = Math.random() * Math.PI * 2;
-      node.speedX = 0.0003 + Math.random() * 0.0002;
-      node.speedY = 0.0003 + Math.random() * 0.0002;
-    });
-
-    function animate(time) {
-      if (!state.breathingPaused) {
-        const delta = time - lastTime;
-
-        // Apply smooth sine-wave motion to each node
-        state.nodes.forEach((node) => {
-          if (!node.fx && !node.fy) {
-            node.vx += Math.sin(time * node.speedX + node.phaseX) * 0.015;
-            node.vy += Math.cos(time * node.speedY + node.phaseY) * 0.015;
-          }
-        });
-
-        // Keep simulation gently alive
-        if (state.simulation.alpha() < 0.02) {
-          state.simulation.alpha(0.02).restart();
-        }
+    // Wait for simulation to settle, then enable CSS breathing
+    state.simulation.on('end.breathing', enableCSSBreathing);
+    
+    // Fallback: enable after 6 seconds if simulation doesn't fully end
+    setTimeout(() => {
+      if (state.simulation.alpha() < 0.1) {
+        enableCSSBreathing();
       }
+    }, 6000);
+  }
 
-      lastTime = time;
-      requestAnimationFrame(animate);
-    }
+  function enableCSSBreathing() {
+    if (state.breathingPaused) return;
+    
+    // Add breathing class to nodes - CSS animation on circles (not transform!)
+    state.nodeElements.classed('breathing', true);
+    
+    // Stagger animation delays for organic feel
+    state.nodeElements.each(function(d, i) {
+      const delay = (i % 11) * -0.5; // 11 different phases
+      d3.select(this).select('circle').style('animation-delay', `${delay}s`);
+    });
+  }
 
-    requestAnimationFrame(animate);
+  function disableCSSBreathing() {
+    state.nodeElements.classed('breathing', false);
   }
 
   // ==========================================================================
@@ -403,6 +397,8 @@
 
   function drag(simulation) {
     function dragstarted(event) {
+      // Temporarily disable CSS breathing during drag
+      disableCSSBreathing();
       if (!event.active) simulation.alphaTarget(0.3).restart();
       event.subject.fx = event.subject.x;
       event.subject.fy = event.subject.y;
@@ -417,6 +413,12 @@
       if (!event.active) simulation.alphaTarget(0);
       event.subject.fx = null;
       event.subject.fy = null;
+      
+      // Re-enable CSS breathing after simulation settles
+      simulation.on('end.dragRestore', () => {
+        enableCSSBreathing();
+        simulation.on('end.dragRestore', null); // One-time listener
+      });
     }
 
     return d3.drag().on('start', dragstarted).on('drag', dragged).on('end', dragended);

@@ -822,7 +822,50 @@
   animation: pulse 2s ease-in-out infinite;
 }
 
+/* CSS breathing animation - uses stroke-width and filter, NOT transform */
+/* This avoids conflict with D3's transform="translate(x,y)" positioning */
+.node.breathing.supports circle {
+  animation: breathe-supports 5s ease-in-out infinite;
+}
+.node.breathing.challenges circle {
+  animation: breathe-challenges 5s ease-in-out infinite;
+}
+.node.breathing.balanced circle {
+  animation: breathe-balanced 5s ease-in-out infinite;
+}
+
 /* Animations */
+@keyframes breathe-supports {
+  0%, 100% {
+    stroke-width: 2px;
+    filter: drop-shadow(0 0 8px var(--accent-supports-glow));
+  }
+  50% {
+    stroke-width: 3px;
+    filter: drop-shadow(0 0 14px var(--accent-supports-glow));
+  }
+}
+@keyframes breathe-challenges {
+  0%, 100% {
+    stroke-width: 2px;
+    filter: drop-shadow(0 0 8px var(--accent-challenges-glow));
+  }
+  50% {
+    stroke-width: 3px;
+    filter: drop-shadow(0 0 14px var(--accent-challenges-glow));
+  }
+}
+@keyframes breathe-balanced {
+  0%, 100% {
+    stroke-width: 2px;
+    filter: drop-shadow(0 0 8px var(--accent-balanced-glow));
+  }
+  50% {
+    stroke-width: 3px;
+    filter: drop-shadow(0 0 14px var(--accent-balanced-glow));
+  }
+}
+
 @keyframes pulse {
   0%,
   100% {
