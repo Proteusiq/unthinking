@@ -1127,6 +1127,163 @@ BUT: River Crossing failures were methodological error — original tested unsol
 
 ---
 
+## Section XVII: Papers 40-49 — The Counter-Evidence and Its Limits
+
+### The Strongest Counter-Evidence (#42 Physics of LLMs)
+
+This paper provides the most rigorous controlled evidence FOR genuine OOD generalization:
+
+**The Setup**:
+- Custom-trained GPT-2 (120M params) on grade-school math
+- Trained on 7-op, generalized to 12-op problems
+- Controlled curriculum with specific data requirements
+
+**The Results**:
+| Training | Test (OOD) | Accuracy |
+|----------|------------|----------|
+| 7 operations | 12 operations | **High** (length generalization) |
+| Clean data | Clean test | Works |
+| GPT-4 on their benchmark | - | **FAILS** |
+
+**Critical Caveats** (authors themselves note):
+> "Our model is NOT intended to draw any conclusion about GPT-4"
+> "We do NOT know what training data GPT-4 used"
+
+**The Pattern**: In a perfectly controlled setting with known data, length generalization IS possible. But:
+1. The controlled model succeeds where GPT-4 fails
+2. Real-world LLMs have unknown training data contamination
+3. This proves the CAPABILITY exists but doesn't prove deployment models USE it
+
+### Faithfulness Collapses Under Distribution Shift (#43)
+
+**FaithCoT-Bench findings**:
+| Condition | Unfaithfulness Rate |
+|-----------|---------------------|
+| In-distribution | 20% |
+| Out-of-distribution | **74%** |
+
+**Critical insight**: Correct answers can come from unfaithful reasoning chains. The model gets the right answer for the wrong reasons — pattern matching to answers, not following the CoT.
+
+### The Multi-Agent Illusion (#44 Societies of Thought)
+
+Reasoning models (o1, R1) appear to simulate multi-agent dialogue internally:
+- "Wait, let me reconsider..." = agent switching
+- Steering a "surprise" feature doubles accuracy on some tasks
+- But this is still mode-switching, not genuine deliberation
+
+### Rules Transfer, Strategies Don't (#47 Chess)
+
+The chess decomposition reveals the pattern beautifully:
+
+| Component | Transfer | Accuracy |
+|-----------|----------|----------|
+| Legal move rules | ✓ Generalizes | 96%+ |
+| Strategic adaptation | ✗ Fails | 70%→22% |
+
+**The Mechanism**: Rules are pattern-matchable (finite, explicit). Strategies require genuine composition of rules with context — and that fails.
+
+### Counting: The Definitive System-1 Failure (#48)
+
+**Mechanistic analysis of counting reveals**:
+
+| Range | System-1 (Direct) | System-2 (CoT alone) | Structured Output |
+|-------|-------------------|----------------------|-------------------|
+| 1-10 | Works | Works | Works |
+| 11-40 | Degrades | **No benefit** | Works |
+| 41-50 | **0%** | **0%** | Works |
+
+**Critical Finding**: CoT alone provides NO benefit for counting. You need external structure (JSON output forcing enumeration). The "thinking" trace is not doing the computation — it's the output format that forces systematic enumeration.
+
+### Task Length is the Dominant Constraint (#49 CogniLoad)
+
+**The Complexity Analysis**:
+| Factor | Contribution to Difficulty |
+|--------|---------------------------|
+| Task length (N) | **Dominant** |
+| Complexity type | Secondary |
+| Model size | 400x capacity variance |
+
+At N=250 operations, only gpt-5/o3 exceed 50% accuracy. The constraint is operational, not conceptual.
+
+### World Models: Balanced Evidence (#40 Poker)
+
+Poker playing shows emergent world beliefs about:
+- Hand strength estimation
+- Opponent modeling
+- Bet sizing
+
+But this is consistent with sophisticated pattern matching on game states — the "world model" could be a lookup table approximation.
+
+### Turing Machines: Inevitable Failure (#41)
+
+On Turing machine simulation:
+> "Inevitable failure" on unbounded computation
+
+LLMs cannot simulate arbitrary computation. This is expected under the pattern-matching hypothesis — they can approximate finite state machines but not true Turing completeness.
+
+### VLM Faithfulness: Only RL Helps (#46)
+
+For vision-language models:
+| Training Method | Faithfulness Improvement |
+|-----------------|-------------------------|
+| SFT (Supervised Fine-Tuning) | **None** |
+| RLHF | **Significant** |
+
+SFT teaches the model to produce "reasoning-like" text. RL actually shapes the computation. But even RL doesn't create reasoning — it just better aligns outputs with correct answers.
+
+### Connection Map (Papers 40-49)
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                    PAPERS 40-49: CONNECTION MAP                      │
+│                                                                      │
+│  STRONGEST COUNTER-EVIDENCE:                                         │
+│  #42 (Physics of LLMs) ──► OOD generalization POSSIBLE in controlled │
+│       BUT: Authors disclaim GPT-4 transfer; GPT-4 fails their test   │
+│                                                                      │
+│  FAITHFULNESS COLLAPSE:                                              │
+│  #43 (FaithCoT) ──► 20%→74% unfaithfulness under distribution shift  │
+│  #46 (VLM) ──► SFT = no help; only RL improves faithfulness          │
+│                                                                      │
+│  COMPONENT DECOMPOSITION:                                            │
+│  #47 (Chess) ──► Rules transfer (96%), strategies fail (22%)         │
+│  #48 (Counting) ──► CoT alone = 0% benefit; needs external structure │
+│                                                                      │
+│  CAPACITY LIMITS:                                                    │
+│  #49 (CogniLoad) ──► Task length dominant; 400x model variance       │
+│  #41 (Turing) ──► "Inevitable failure" on unbounded computation      │
+│                                                                      │
+│  MECHANISMS:                                                         │
+│  #44 (Societies) ──► Multi-agent simulation; steering helps          │
+│  #40 (Poker) ──► World beliefs emerge (but could be lookup tables)   │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### Key Numbers to Remember (Papers 40-49)
+
+| Metric | Value | Paper |
+|--------|-------|-------|
+| OOD unfaithfulness rate | 74% (vs 20% ID) | #43 |
+| Rule transfer in chess | 96%+ | #47 |
+| Strategy transfer in chess | 22% (from 70%) | #47 |
+| CoT benefit for counting (41-50 items) | 0% | #48 |
+| System-1 counting accuracy (41-50) | 0% | #48 |
+| Models exceeding 50% at N=250 | Only gpt-5/o3 | #49 |
+| SFT faithfulness improvement | 0% | #46 |
+
+### The Physics Paper Paradox
+
+Paper #42 is the most important to understand correctly:
+
+1. **What it PROVES**: Under perfect data control, transformers CAN learn length-generalizable algorithms
+2. **What it DOESN'T prove**: That deployed LLMs (GPT-4, Claude) actually do this
+3. **The Gap**: Their controlled model succeeds; GPT-4 fails on the same benchmark
+4. **Implication**: The capability exists in the architecture, but training on web data doesn't reliably produce it
+
+This is actually CONSISTENT with the thesis: LLMs CAN compute, but their training produces pattern matchers instead. The potential is there; the actualization isn't.
+
+---
+
 *This memento represents the complete picture from 192 papers. The tattoos don't lie. The hull boundary is real. The evidence converges.*
 
 **Remember: It's retrieval, not reasoning. Over and over.**
