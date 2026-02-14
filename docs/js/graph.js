@@ -37,6 +37,7 @@
     alive: {
       enabled: true,
       stanceForce: 0.03, // Gentle push toward stance position
+      useCSS: true, // Use CSS animations instead of JS (0% CPU when idle)
     },
   };
 
@@ -300,87 +301,47 @@
     };
   }
 
-  // Idle breathing - periodic nudges instead of continuous animation loop
-  // Uses setTimeout (non-blocking) instead of requestAnimationFrame (CPU-bound)
+  // CSS-based breathing - true 0% CPU when idle
+  // D3 simulation stops completely; CSS animations run on GPU compositor thread
   function startBreathing() {
-    let isVisible = true;
-    let isTabActive = true;
-    let nudgeTimeout = null;
-    const NUDGE_INTERVAL = 3000; // Nudge every 3 seconds
-    const NUDGE_STRENGTH = 0.008;
-
-    // Give each node a unique phase offset for organic movement
-    state.nodes.forEach((node, i) => {
-      node.phaseOffset = Math.random() * Math.PI * 2;
+    // When simulation ends, enable CSS breathing animation on nodes
+    state.simulation.on('end.breathing', () => {
+      enableCSSBreathing();
     });
 
-    function nudge() {
-      // Only nudge if visible, tab active, and not paused
-      if (!state.breathingPaused && isVisible && isTabActive) {
-        const time = Date.now();
-        
-        // Apply gentle random drift to a subset of nodes (not all)
-        state.nodes.forEach((node, i) => {
-          if (!node.fx && !node.fy && i % 3 === Math.floor(time / 1000) % 3) {
-            // Gentle sine-based nudge
-            node.vx += Math.sin(time * 0.001 + node.phaseOffset) * NUDGE_STRENGTH;
-            node.vy += Math.cos(time * 0.001 + node.phaseOffset) * NUDGE_STRENGTH;
-          }
-        });
-
-        // Wake simulation briefly - it will settle on its own
-        state.simulation.alpha(0.03).restart();
+    // Also enable after a timeout in case simulation doesn't fully "end"
+    setTimeout(() => {
+      if (state.simulation.alpha() < 0.05) {
+        enableCSSBreathing();
       }
+    }, 8000);
+  }
 
-      // Schedule next nudge (non-blocking, doesn't spin CPU)
-      nudgeTimeout = setTimeout(nudge, NUDGE_INTERVAL);
-    }
-
-    function stopNudging() {
-      if (nudgeTimeout) {
-        clearTimeout(nudgeTimeout);
-        nudgeTimeout = null;
-      }
-      if (state.simulation) {
-        state.simulation.stop();
-      }
-    }
-
-    function startNudging() {
-      if (!nudgeTimeout && isVisible && isTabActive) {
-        nudge();
-      }
-    }
-
-    // Pause when tab is hidden (Page Visibility API)
-    document.addEventListener('visibilitychange', () => {
-      isTabActive = document.visibilityState === 'visible';
-      if (!isTabActive) {
-        stopNudging();
-      } else if (isVisible) {
-        startNudging();
-      }
+  function enableCSSBreathing() {
+    if (state.breathingPaused) return;
+    
+    // Stop the D3 simulation completely - 0% CPU
+    state.simulation.stop();
+    
+    // Add breathing class to nodes - CSS animation takes over (GPU)
+    state.nodeElements.classed('breathing', true);
+    
+    // Stagger animation delays for organic feel
+    state.nodeElements.each(function(d, i) {
+      const delay = (i % 7) * -0.6; // 7 different phases
+      d3.select(this).style('animation-delay', `${delay}s`);
     });
+  }
 
-    // Pause when graph is not in viewport (Intersection Observer)
-    const graphContainer = document.getElementById('graph');
-    if (graphContainer && 'IntersectionObserver' in window) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          isVisible = entries[0].isIntersecting;
-          if (!isVisible) {
-            stopNudging();
-          } else if (isTabActive) {
-            startNudging();
-          }
-        },
-        { threshold: 0.1 }
-      );
-      observer.observe(graphContainer);
+  function disableCSSBreathing() {
+    state.nodeElements.classed('breathing', false);
+  }
+
+  // Re-enable breathing after user interaction ends
+  function onSimulationSettled() {
+    if (CONFIG.alive.enabled && CONFIG.alive.useCSS) {
+      enableCSSBreathing();
     }
-
-    // Start after initial settling (let the entrance animation finish)
-    setTimeout(startNudging, 5000);
   }
 
   // ==========================================================================
@@ -449,6 +410,10 @@
 
   function drag(simulation) {
     function dragstarted(event) {
+      // Disable CSS breathing during drag
+      if (CONFIG.alive.useCSS) {
+        disableCSSBreathing();
+      }
       if (!event.active) simulation.alphaTarget(0.3).restart();
       event.subject.fx = event.subject.x;
       event.subject.fy = event.subject.y;
@@ -463,6 +428,13 @@
       if (!event.active) simulation.alphaTarget(0);
       event.subject.fx = null;
       event.subject.fy = null;
+      // Re-enable CSS breathing after simulation settles
+      if (CONFIG.alive.useCSS) {
+        simulation.on('end.dragRestore', () => {
+          enableCSSBreathing();
+          simulation.on('end.dragRestore', null); // Remove one-time listener
+        });
+      }
     }
 
     return d3.drag().on('start', dragstarted).on('drag', dragged).on('end', dragended);
