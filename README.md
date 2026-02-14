@@ -210,8 +210,11 @@ PHASE 7: THEORETICAL FRAMEWORK (2026)
 
 ```
 ├── analysis/
+│   ├── memento.md            # Executive summary (start here!)
 │   ├── synthesis.md          # Main thesis synthesis
-│   ├── mindmap.md            # Cross-reference of all papers
+│   ├── case.md               # Formal case against LLM reasoning
+│   ├── thoughts.md           # Cross-paper synthesis & connections
+│   ├── mindmap.md            # Visual cross-reference of all papers
 │   ├── paper_graph.md        # Paper interaction graph
 │   ├── rebuttals.md          # Rebuttal matrix
 │   └── explored/             # Individual paper analyses (192 files)
