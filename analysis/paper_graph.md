@@ -1,5 +1,9 @@
 # Paper Interaction Graph
 
+> **Last updated**: 2026-02-14
+> **Papers tracked**: 192
+> **See also**: `memento.md` for executive summary
+
 ## Overview
 This document tracks how papers interact with each other — rebuttals, counter-rebuttals, extensions, and supporting evidence.
 
