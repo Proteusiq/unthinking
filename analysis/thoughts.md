@@ -1088,6 +1088,16 @@ Karpathy argues LLMs occupy a fundamentally different point in "intelligence spa
 **Why "Ghosts"**:
 > "They are these imperfect replicas, a kind of statistical distillation of humanity's documents with some sprinkle on top."
 
+**The Primordial Layer — Statistical Simulation**:
+
+Karpathy identifies a layered architecture of LLM behavior, with statistical text simulation as the foundation:
+
+> "The most supervision bits come from the **statistical simulation of human text** => 'shape shifter' token tumbler, statistical imitator of any region of the training data distribution. These are the primordial behaviors (token traces) on top of which everything else gets bolted on."
+
+> "Increasingly finetuned by RL on problem distributions => innate urge to guess at the underlying environment/task to collect task rewards."
+
+This framing is critical: all higher-level capabilities (reasoning, planning, tool use) are built **on top of** this statistical foundation. The base layer is pattern matching on text — everything else is fine-tuning that foundation.
+
 ### The Verifiability Principle
 
 Karpathy identifies **verifiability** as the key predictor of AI automation (parallel to specifiability in 1980s computing):
