@@ -357,6 +357,11 @@
   background: var(--glass-bg);
   transform: translateX(4px);
 }
+.connection-list li.active {
+  background: var(--glass-bg);
+  transform: translateX(4px);
+  box-shadow: 0 0 0 1px var(--accent-primary);
+}
 .connection-list li.empty {
   color: var(--text-muted);
   font-style: italic;
@@ -798,6 +803,11 @@
 .link.highlighted {
   stroke-opacity: 1;
   stroke-width: 3px;
+}
+.link.path-primary {
+  stroke-opacity: 1;
+  stroke-width: 4px;
+  filter: drop-shadow(0 0 6px currentColor);
 }
 .link.dimmed {
   stroke-opacity: 0.1;
