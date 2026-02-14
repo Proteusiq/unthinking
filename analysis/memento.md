@@ -629,6 +629,164 @@ Paper #07 provides the clearest proof that reasoning pre-exists:
 
 ---
 
+## XIV. The Evidence Deepens (Papers 10-19)
+
+Papers 10-19 strengthen the foundational evidence with controlled experiments, quantified complexity thresholds, and direct rebuttal of "Aha moment" claims.
+
+### The Unfaithfulness Cluster
+
+Three papers establish that CoT unfaithfulness is NOT an artifact but a pervasive phenomenon:
+
+| Paper | Key Finding | Method |
+|-------|-------------|--------|
+| **Reasoning Models Don't Say (#10)** | 25-40% faithful; misaligned hints hidden MORE (20-29%) | Hint insertion experiments |
+| **CoT In The Wild (#14)** | 7-13% unfaithful on NATURAL prompts | Comparative questions (no artificial bias) |
+| **Correlation or Causation (#12)** | Only 30% of LLM SCMs show ideal causal structure | Structural Causal Model analysis |
+
+**The Hiding Phenomenon**: Models construct elaborate justifications INSTEAD of mentioning hints they use. Unfaithful CoTs are actually LONGER than faithful ones (2064 vs 1439 tokens for Claude 3.7).
+
+**Causal Framework**: Paper #12 identifies four SCM types:
+- **Type I (Ideal)**: Z→X→Y — genuine reasoning (only 30% for LLMs)
+- **Type II (Common Cause)**: X←Z→Y — post-hoc explanation
+- **Type III (Full Connection)**: Mixed reasoning/explaining
+- **Type IV (Isolation)**: Memorization (neither affects Y)
+
+> "In contrast, when a reasoning process has a common cause (type-II) structure, it is actually explaining a latent belief of the answer, which may produce unfaithful and inconsistent responses."
+
+### The Interplay Proof
+
+Paper #15 provides the CONTROLLED experimental proof of the surfacing hypothesis:
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                    THE INTERPLAY PROOF                               │
+│                                                                      │
+│  Pre-training exposure = 0%  →  RL FAILS COMPLETELY                  │
+│  Pre-training exposure ≥ 1%  →  RL SUCCEEDS (up to +60% pass@128)    │
+│                                                                      │
+│  "RL cannot synthesize capabilities from a void;                     │
+│   it requires latent 'seeds' to amplify."                            │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+**Edge of Competence**: RL only helps when targeting tasks that are "difficult but not yet out of reach":
+- ID tasks: RL only sharpens (pass@128 unchanged)
+- OOD-edge: RL provides +42% pass@128
+- OOD-hard: Too difficult, RL fails
+
+### The Complexity Quantification
+
+Paper #16 quantifies EXACTLY where reasoning collapses:
+
+| Complexity (Lookahead) | R1 Accuracy | o3-mini Accuracy |
+|------------------------|-------------|------------------|
+| L=2 | ~100% | ~100% |
+| L=64 | ~80% | ~90% |
+| L=300 | ~40% | ~60% |
+| L=800 | **~0%** | **~10%** |
+
+**NLGraph-hard "success"**: 99% for o3-mini — BUT lookahead bounded by ~1.8 (trivially easy!).
+
+**Token Decrease at Collapse**: Models "give up" rather than try harder — token usage DECREASES with increasing complexity. This rules out context limits as the cause.
+
+**Even Chain Graphs Fail**: B=1 (no search required, just follow edges) still fails at depth ~1536. Pure pattern matching limit.
+
+### The Illusion of Insight
+
+Paper #17 directly rebuts DeepSeek-R1's "Aha moment" claim:
+
+| Claim | Evidence |
+|-------|----------|
+| "Aha moments" are genuine insight | **RARE** (~2-6% of traces) |
+| Increase with training | **DO NOT** increase |
+| Improve accuracy | **SELDOM** improve accuracy |
+| Reflect self-correction | Correlate with **UNCERTAINTY**, not insight |
+
+> "Mid-reasoning shifts are symptoms of unstable inference behavior rather than an intrinsic mechanism for self-correction."
+
+**Mechanism**: Shifts happen when models are uncertain (high entropy), not when they're having insights. They're random exploration, not self-correction.
+
+### The Imitation Revelation
+
+Paper #18 explains the 2023→2024 "improvement" illusion:
+
+| Model | Year | Normal Accuracy | Completion Tokens |
+|-------|------|-----------------|-------------------|
+| GPT-4 | 2023 | 70% | **13.5** |
+| GPT-4o | 2024 | **93.3%** | **300** |
+| Llama 405B (open) | 2024 | 73.3% | **87.5** |
+
+**Hidden CoT**: The 22× token increase for GPT-4o reveals hidden prompt engineering. Open-source Llama shows only 87.5 tokens — no hidden CoT, no improvement.
+
+**Cost Comparison**: Neuro-symbolic (Phi4 + Z3) achieves 99.7% accuracy at 7-10× LOWER compute than DeepSeek R1's 94.3%. If LLMs reasoned, they'd be competitive with Z3.
+
+> "LLMs are good at recognising nuance in language and converting problems to a machine interpretable format."
+
+**Role Clarification**: LLMs = translators, not reasoners.
+
+### The Split-Brain Syndrome
+
+Paper #19 provides the theoretical backbone:
+
+| Task | Step Accuracy | Final Accuracy |
+|------|---------------|----------------|
+| 10-digit multiplication | **95-100%** | **0%** |
+| Reversal (forward) | — | **79%** |
+| Reversal (reverse) | — | **7%** |
+
+> "LLMs function as powerful pattern completion engines, but lack the architectural scaffolding for principled, compositional reasoning."
+
+**Dennett Inversion**: Natural intelligence has competence → comprehension. LLMs have comprehension without competence. They can EXPLAIN algorithms they cannot EXECUTE.
+
+**Geometric Separation**: t-SNE analysis shows "knowing about" and "executing" occupy geometrically separated pathways. The split-brain is architectural, not scale-dependent.
+
+### Connections Discovered
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                    PAPERS 10-19: CONNECTION MAP                      │
+│                                                                      │
+│  UNFAITHFULNESS CLUSTER:                                             │
+│  #10, #12, #14 ──► CoT often doesn't reflect computation             │
+│                                                                      │
+│  SURFACING PROOF:                                                    │
+│  #15 ──► RL requires pre-existing seeds (0% exposure = fail)         │
+│                                                                      │
+│  COMPLEXITY QUANTIFICATION:                                          │
+│  #16 ──► Collapse at L~64-300; NLGraph-hard is trivially easy        │
+│                                                                      │
+│  "AHA" REBUTTAL:                                                     │
+│  #17 ──► Directly challenges DeepSeek-R1's insight claims            │
+│                                                                      │
+│  IMITATION EVIDENCE:                                                 │
+│  #18 ──► 2023→2024 improvement = hidden CoT; neuro-symbolic 7-10× cheaper│
+│                                                                      │
+│  ARCHITECTURAL LIMIT:                                                │
+│  #19 ──► Split-brain syndrome; 95% steps → 0% final                  │
+│                                                                      │
+│  KEY TENSIONS RESOLVED:                                              │
+│  • Why does RL sometimes help? → Surfaces existing seeds (#15)       │
+│  • Why do benchmarks look good? → Trivially easy (L<2) (#16)         │
+│  • What are "Aha moments"? → Unstable inference, not insight (#17)   │
+│  • Why 2023→2024 improvement? → Hidden CoT, not capability (#18)     │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### Key Numbers to Remember
+
+| Metric | Value | Paper |
+|--------|-------|-------|
+| CoT faithfulness (reasoning models) | 25-40% | #10 |
+| Ideal causal structure (LLMs) | 30% | #12 |
+| Unfaithfulness on natural prompts | 7-13% | #14 |
+| Pre-training exposure threshold for RL | ≥1% | #15 |
+| Complexity collapse threshold | L~64-300 | #16 |
+| "Aha moment" frequency | 2-6% | #17 |
+| Neuro-symbolic cost advantage | 7-10× cheaper | #18 |
+| 10-digit multiplication accuracy | 0% (95% steps) | #19 |
+
+---
+
 *This memento represents the complete picture from 192 papers. The tattoos don't lie. The hull boundary is real. The evidence converges.*
 
 **Remember: It's retrieval, not reasoning. Over and over.**
