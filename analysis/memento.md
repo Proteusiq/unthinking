@@ -2313,6 +2313,176 @@ The "Limits of Innate Planning" paper (#93) provides the **cleanest test** of wh
 
 ---
 
+## XXIII. Papers 100-109: Counterfactuals, Tokenization, and Semantic Invariance
+
+### Counterfactual Testing: The Foundational Methodology (#100)
+
+**NAACL 2024 paper** that introduced counterfactual task variants:
+
+| Task | Default | Counterfactual | Drop |
+|------|---------|----------------|------|
+| Arithmetic | ~95% | ~55% | **40pp** |
+| Code Generation | ~80% | ~30% | **50pp** |
+| Chess | ~85% | ~45% | **40pp** |
+
+**Critical finding**: High CCC (Counterfactual Comprehension Check) + low task performance.
+
+> "Models UNDERSTAND the counterfactual conditions but CAN'T APPLY their 'reasoning' skills."
+
+This methodology is used by many subsequent papers (GSM-Symbolic, Lewis & Mitchell, etc.).
+
+### Gaming the Judge: CoT Manipulation (#101)
+
+**Manipulating reasoning traces inflates false positive rates by up to 90%**:
+
+| Model | Progress Fabrication ΔFPR |
+|-------|---------------------------|
+| GPT-4o | +27% (93% relative) |
+| GLM-4.1V | +30% |
+| Claude-Sonnet-4 | +7.8% (+50%) |
+
+**Key insight**: Strong baseline F1 does NOT predict robustness to manipulation. LLM judges can be gamed.
+
+### DFA: 100% Knowledge, 64pp Drop on Unseen (#102)
+
+**The clearest test of memorization vs reasoning**:
+
+| Dataset | GPT-5.1 | Result |
+|---------|---------|--------|
+| Knowledge | **100%** | Perfect theory mastery |
+| Seen DFA | 84.2% | Standard performance |
+| Unseen DFA | **20.67%** | **63.53pp drop** |
+
+**Critical**: CoT **degrades** performance (16.67% vs 20.67% direct).
+
+**Smoking gun**: Models know DFA theory perfectly (100%) but can't apply it to novel problems (20%).
+
+### RL With Right Data (#103)
+
+**RL discovers efficient reasoning BUT**:
+- Pre-existing capability required (p_fwd > c₀)
+- Easy examples are NECESSARY (without them: exponential time)
+- Easy examples SEED the pattern
+
+> "This is yet another example of the sharpening mechanism of RL"
+
+Confirms surfacing hypothesis: RL extracts existing capability, doesn't create new reasoning.
+
+### Tokenizer Betrays Reasoning (#104)
+
+**LLMs reason at token-ID level, not meaning level**:
+
+- **Phantom edits**: Different token IDs producing identical surface text
+- 72.2% of phantom edits are whitespace-variant swaps
+- Model scaling doesn't fix this — architectural constraint
+
+> "Part of 'reasoning deficiency' is a mirage — failures attributed to reasoning are actually tokenizer artifacts."
+
+### The Flexibility Trap (#105)
+
+**Diffusion LLMs bypass logical connectors**:
+
+| Token Type | Examples |
+|------------|----------|
+| **Bypassed** | "Therefore", "Thus", "Since", "So", "When" |
+| **Filled first** | Easy content tokens |
+
+**AR Order solves 21.3% UNIQUE problems; Arbitrary order only 0.6% unique**.
+
+**Implication**: Logical connectors filled in POST-HOC, not during reasoning.
+
+### Reasoning-Critical Neurons (#106)
+
+**~50 neurons (0.03%) predict reasoning correctness**:
+
+| Finding | Value |
+|---------|-------|
+| AUROC for correctness prediction | **0.76-0.83** |
+| AIME-24 improvement with steering | +13.04% |
+| Cross-task transfer | Math RCNs improve coding |
+
+**Interpretation**: Predictability from early activations suggests pattern matching — models "know" correctness early.
+
+### Strong Reasoning Isn't Enough (#107)
+
+**Static performance ≠ interactive performance**:
+
+| Model | Static UB | ICR | Interactive SR | Degradation |
+|-------|-----------|-----|----------------|-------------|
+| GPT-5 | 75.0% | 42.7% | 37.0% | **-51%** |
+| GPT-5-mini | 68.0% | 35.7% | 15.5% | **-77%** |
+| Meditron3-8B | 25.5% | 23.2% | 2.5% | **-90%** |
+
+**Key finding**: Reasoning ability and evidence-gathering ability are **decoupled**. Models trained on complete cases don't learn what evidence matters.
+
+### WhatCounts: Semantic Invariance Violation (#108)
+
+**>40% accuracy variation based solely on WHAT is counted**:
+
+| Model | Min Accuracy | Max Accuracy | Semantic Gap |
+|-------|-------------|--------------|--------------|
+| O3 | ~55% (emojis) | ~95% (cities) | **~41%** |
+| Claude | ~65% | ~90% | ~24% |
+
+**Critical**: Better models have LARGER semantic gaps. Tool augmentation doesn't eliminate the gap.
+
+> "LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent."
+
+### Sycophantic Anchors: Mechanistic Evidence (#109)
+
+**Sycophancy can be localized to specific sentences**:
+
+| Anchor Type | Probe Accuracy |
+|-------------|----------------|
+| Sycophantic anchors | **84.6%** |
+| Correct reasoning anchors | 64.0% (14pp above chance) |
+
+**Asymmetry**: Sycophantic anchors are highly distinguishable; correct reasoning anchors are nearly indistinguishable from neutral text.
+
+**Implication**: Model "knows" when it's being sycophantic — follows different computational pathway.
+
+### Connection Map (Papers 100-109)
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                    PAPERS 100-109: CONNECTION MAP                    │
+│                                                                      │
+│  FOUNDATIONAL METHODOLOGY:                                           │
+│  #100 (Counterfactual) ──► High CCC + low task = memorization       │
+│                                                                      │
+│  MEMORIZATION VS REASONING:                                          │
+│  #102 (DFA) ──► 100% knowledge, 64pp drop on unseen                 │
+│  #103 (RL) ──► Sharpening; easy examples NECESSARY                  │
+│                                                                      │
+│  SURFACE-LEVEL PROCESSING:                                           │
+│  #104 (Tokenizer) ──► Reasoning at token-ID level, not meaning      │
+│  #105 (Flexibility Trap) ──► Logical connectors filled POST-HOC     │
+│  #108 (WhatCounts) ──► >40% gap based on semantic class alone       │
+│                                                                      │
+│  DECOUPLED ABILITIES:                                                │
+│  #107 (Strong Isn't Enough) ──► Reasoning ≠ evidence-gathering      │
+│  #106 (RCNs) ──► 50 neurons predict correctness (pattern detection) │
+│                                                                      │
+│  CoT UNFAITHFULNESS:                                                 │
+│  #101 (Gaming Judge) ──► CoT manipulation inflates FPR by 90%       │
+│  #109 (Sycophantic Anchors) ──► Sycophancy localized; distinct path │
+│                                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### Key Numbers to Remember (Papers 100-109)
+
+| Metric | Value | Paper |
+|--------|-------|-------|
+| Counterfactual drop (arithmetic) | 40pp | #100 |
+| CoT manipulation FPR increase | up to 90% | #101 |
+| DFA knowledge vs unseen drop | 100% → 20.67% | #102 |
+| Sycophantic anchor detectability | 84.6% | #109 |
+| Semantic gap (O3 counting) | 41% | #108 |
+| Static→interactive degradation (GPT-5-mini) | -77% | #107 |
+
+---
+
 *This memento represents the complete picture from 192 papers. The tattoos don't lie. The hull boundary is real. The evidence converges.*
 
 **Remember: It's retrieval, not reasoning. Over and over.**
