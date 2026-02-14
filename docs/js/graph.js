@@ -37,7 +37,6 @@
     alive: {
       enabled: true,
       stanceForce: 0.03, // Gentle push toward stance position
-      useCSS: true, // Use CSS animations instead of JS (0% CPU when idle)
     },
   };
 
@@ -301,47 +300,41 @@
     };
   }
 
-  // CSS-based breathing - true 0% CPU when idle
-  // D3 simulation stops completely; CSS animations run on GPU compositor thread
+  // Continuous smooth breathing animation - never stops
   function startBreathing() {
-    // When simulation ends, enable CSS breathing animation on nodes
-    state.simulation.on('end.breathing', () => {
-      enableCSSBreathing();
+    let lastTime = 0;
+
+    // Give each node a unique phase offset for organic movement
+    state.nodes.forEach((node, i) => {
+      node.phaseX = Math.random() * Math.PI * 2;
+      node.phaseY = Math.random() * Math.PI * 2;
+      node.speedX = 0.0003 + Math.random() * 0.0002;
+      node.speedY = 0.0003 + Math.random() * 0.0002;
     });
 
-    // Also enable after a timeout in case simulation doesn't fully "end"
-    setTimeout(() => {
-      if (state.simulation.alpha() < 0.05) {
-        enableCSSBreathing();
+    function animate(time) {
+      if (!state.breathingPaused) {
+        const delta = time - lastTime;
+
+        // Apply smooth sine-wave motion to each node
+        state.nodes.forEach((node) => {
+          if (!node.fx && !node.fy) {
+            node.vx += Math.sin(time * node.speedX + node.phaseX) * 0.015;
+            node.vy += Math.cos(time * node.speedY + node.phaseY) * 0.015;
+          }
+        });
+
+        // Keep simulation gently alive
+        if (state.simulation.alpha() < 0.02) {
+          state.simulation.alpha(0.02).restart();
+        }
       }
-    }, 8000);
-  }
 
-  function enableCSSBreathing() {
-    if (state.breathingPaused) return;
-    
-    // Stop the D3 simulation completely - 0% CPU
-    state.simulation.stop();
-    
-    // Add breathing class to nodes - CSS animation takes over (GPU)
-    state.nodeElements.classed('breathing', true);
-    
-    // Stagger animation delays for organic feel
-    state.nodeElements.each(function(d, i) {
-      const delay = (i % 7) * -0.6; // 7 different phases
-      d3.select(this).style('animation-delay', `${delay}s`);
-    });
-  }
-
-  function disableCSSBreathing() {
-    state.nodeElements.classed('breathing', false);
-  }
-
-  // Re-enable breathing after user interaction ends
-  function onSimulationSettled() {
-    if (CONFIG.alive.enabled && CONFIG.alive.useCSS) {
-      enableCSSBreathing();
+      lastTime = time;
+      requestAnimationFrame(animate);
     }
+
+    requestAnimationFrame(animate);
   }
 
   // ==========================================================================
@@ -410,10 +403,6 @@
 
   function drag(simulation) {
     function dragstarted(event) {
-      // Disable CSS breathing during drag
-      if (CONFIG.alive.useCSS) {
-        disableCSSBreathing();
-      }
       if (!event.active) simulation.alphaTarget(0.3).restart();
       event.subject.fx = event.subject.x;
       event.subject.fy = event.subject.y;
@@ -428,13 +417,6 @@
       if (!event.active) simulation.alphaTarget(0);
       event.subject.fx = null;
       event.subject.fy = null;
-      // Re-enable CSS breathing after simulation settles
-      if (CONFIG.alive.useCSS) {
-        simulation.on('end.dragRestore', () => {
-          enableCSSBreathing();
-          simulation.on('end.dragRestore', null); // Remove one-time listener
-        });
-      }
     }
 
     return d3.drag().on('start', dragstarted).on('drag', dragged).on('end', dragended);
