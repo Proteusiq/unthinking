@@ -492,7 +492,56 @@
 
   function clearHighlights() {
     state.nodeElements.classed('highlighted', false).classed('dimmed', false);
-    state.linkElements.classed('highlighted', false).classed('dimmed', false);
+    state.linkElements.classed('highlighted', false).classed('dimmed', false).classed('path-primary', false);
+    // Also clear active state on connection list items
+    document.querySelectorAll('.connection-list li.active').forEach(li => li.classList.remove('active'));
+  }
+
+  // Highlight the path between two nodes AND show what the target connects to
+  function highlightPath(fromNode, toNode) {
+    // Collect: fromNode, toNode, and all of toNode's connections
+    const highlightedIds = new Set([fromNode.id, toNode.id]);
+    
+    // Add all nodes that toNode connects to
+    state.links.forEach((link) => {
+      const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
+      const targetId = typeof link.target === 'object' ? link.target.id : link.target;
+      
+      if (sourceId === toNode.id) highlightedIds.add(targetId);
+      if (targetId === toNode.id) highlightedIds.add(sourceId);
+    });
+
+    // Update node styles
+    state.nodeElements.classed('highlighted', (d) => highlightedIds.has(d.id));
+    state.nodeElements.classed('dimmed', (d) => !highlightedIds.has(d.id));
+    
+    // Highlight the direct link between fromNode and toNode strongly
+    // And toNode's other connections slightly less
+    state.linkElements
+      .classed('highlighted', (d) => {
+        const sourceId = typeof d.source === 'object' ? d.source.id : d.source;
+        const targetId = typeof d.target === 'object' ? d.target.id : d.target;
+        // Direct link between the two nodes
+        const isDirect = (sourceId === fromNode.id && targetId === toNode.id) ||
+                        (sourceId === toNode.id && targetId === fromNode.id);
+        // Links from toNode to its connections
+        const isToNodeLink = sourceId === toNode.id || targetId === toNode.id;
+        return isDirect || isToNodeLink;
+      })
+      .classed('path-primary', (d) => {
+        // The direct link gets extra emphasis
+        const sourceId = typeof d.source === 'object' ? d.source.id : d.source;
+        const targetId = typeof d.target === 'object' ? d.target.id : d.target;
+        return (sourceId === fromNode.id && targetId === toNode.id) ||
+               (sourceId === toNode.id && targetId === fromNode.id);
+      })
+      .classed('dimmed', (d) => {
+        const sourceId = typeof d.source === 'object' ? d.source.id : d.source;
+        const targetId = typeof d.target === 'object' ? d.target.id : d.target;
+        const isRelevant = sourceId === fromNode.id || targetId === fromNode.id ||
+                          sourceId === toNode.id || targetId === toNode.id;
+        return !isRelevant;
+      });
   }
 
   // ==========================================================================
@@ -644,13 +693,32 @@
       analysisLink.style.display = 'none';
     }
 
-    // Add double-click handlers for connection items to jump to node
+    // Add click handlers for connection items
     panel.querySelectorAll('.connection-list li[data-id]').forEach((item) => {
       item.style.cursor = 'pointer';
+      
+      // Single click: highlight path from current node to this connection
+      // AND show what this connection links to
+      item.addEventListener('click', (event) => {
+        const nodeId = item.dataset.id;
+        const targetNode = state.nodes.find((n) => n.id === nodeId);
+        if (targetNode && d) {
+          // Highlight the path: current node -> clicked node -> its connections
+          highlightPath(d, targetNode);
+          
+          // Mark this item as active
+          panel.querySelectorAll('.connection-list li').forEach(li => li.classList.remove('active'));
+          item.classList.add('active');
+        }
+      });
+      
+      // Double click: navigate to node (focus, open its panel)
       item.addEventListener('dblclick', () => {
         const nodeId = item.dataset.id;
         const node = state.nodes.find((n) => n.id === nodeId);
         if (node) {
+          // Clear path highlight class before switching
+          state.linkElements.classed('path-primary', false);
           focusOnNode(node);
           highlightConnections(node);
           openSidePanel(node);
