@@ -283,7 +283,7 @@ Remove analyzed paper from `papers/toread.md` or mark as done.
 -->
 
 **Status**: Auto-discovery PAUSED (2026-02-01)
-- Corpus frozen at 160 papers for deep analysis
+- Corpus at 192 papers
 - To resume: uncomment the automation section above and re-enable GitHub Action
 
 ---

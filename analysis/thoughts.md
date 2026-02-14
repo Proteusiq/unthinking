@@ -1042,8 +1042,8 @@ Papers 188 & 190 introduce a new category: studies that reach **opposite conclus
 
 | Stance | Count | Percentage |
 |--------|-------|------------|
-| **Supports thesis** | 131 | 68.6% |
-| **Balanced** | 52 | 27.2% |
+| **Supports thesis** | 132 | 68.8% |
+| **Balanced** | 52 | 27.1% |
 | **Challenges thesis** | 8 | 4.2% |
 
 ### The Seven Pillars (Updated)
