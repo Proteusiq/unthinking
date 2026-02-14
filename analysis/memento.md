@@ -980,6 +980,153 @@ Paper #29 provides the starkest evidence:
 
 ---
 
+## XVI. The Mechanistic Picture (Papers 30-39)
+
+Papers 30-39 reveal the mechanisms: OMEGA's generalization taxonomy, the "concept web" structure, emergent symbolic circuits, and the surprising finding that thinking may not be necessary.
+
+### OMEGA: The Generalization Taxonomy
+
+Paper #31 provides the definitive taxonomy of what LLMs can and cannot do:
+
+| Generalization Type | Definition | RL Improvement |
+|---------------------|------------|----------------|
+| **Exploratory** | Same skills, harder instances | **+61pp** (Zebra Logic) |
+| **Compositional** | Combine mastered skills | **Near 0%** |
+| **Transformative** | Novel strategies | **0%** |
+
+> "Unlike humans who fluidly integrate mastered skills, RL models trained on isolated skills struggle at compositional generalization."
+
+**Overthinking leads to error spirals**: 38% of incorrect responses — models initially arrive at correct answer, then second-guess to incorrect.
+
+**RL can HURT**: Matrix rank dropped 30pp after RL training (reinforced suboptimal patterns).
+
+### The Concept Web Structure
+
+Paper #35 (How LLMs Learn to Reason) reveals the internal structure of reasoning:
+
+- **Average degree ≈ 2**: Essentially tree-like, not densely connected
+- **Sparse structure is FRAGILE**: Single bridge edges connect entire subtrees
+- **SFT severs bridges**: Catastrophic forgetting = topological disconnection
+
+> "RL improves reasoning by rediscovering and operationalizing the strategic layer of reasoning inherited from the model's pre-training priors."
+
+This explicitly confirms the **surfacing hypothesis**: RL deploys pre-existing patterns, doesn't create new reasoning.
+
+### Emergent Mechanisms — Or Learned Templates?
+
+Papers #33, #34 identify internal mechanisms:
+
+**Algorithmic Primitives (#33)**:
+- Clusters like `nearest_neighbor`, `compute_distance` found in attention heads
+- BUT: These are well-known heuristics from training data
+- Injection increases pattern frequency, NOT accuracy
+
+**Emergent Symbolic Mechanisms (#34)**:
+- Three-stage architecture: Symbol Abstraction → Symbolic Induction → Retrieval
+- 98% cross-token generalization
+- BUT: "Abstraction" is **positional** (r=0.73), not semantic (r=0.29)
+
+> "For symbolic induction heads, queries and keys primarily represented the relative position within each in-context example, not abstract variables."
+
+The "symbolic" mechanisms track positional templates — sophisticated learned structure, not genuine abstraction.
+
+### Thinking Is Optional
+
+Paper #38 (Effective Without Thinking) makes a startling finding:
+
+| Setting | NoThinking | Thinking |
+|---------|------------|----------|
+| ACM 23 (700 tokens) | **51.3** | 28.9 |
+| Token efficiency | 2-5× fewer | Baseline |
+| Latency | Up to 9× faster | Baseline |
+
+**If bypassing thinking works equally well, what was the thinking doing?**
+
+This suggests thinking tokens are NOT causal for correctness — the model already "knows" the answer from training. Extended thinking is exploration over learned patterns, not genuine computation.
+
+### Counting: The Litmus Test
+
+Paper #39 (Sequential Enumeration) provides mechanistic proof:
+
+| Condition | Result |
+|-----------|--------|
+| Spontaneous counting | **Zero models counted systematically** |
+| Explicit counting | Works, but via **token patterns**, not true counters |
+| Mental counting | Some internal encoding (accumulator-like PCA) |
+
+**Mechanistic finding**: Explicit counting shows periodic dips at multiples of 10 — exploiting decade number frequency in training, not implementing a counting algorithm.
+
+> "Explicit prompting leads to high performance via less interpretable, potentially token-based mechanisms."
+
+### The Faithfulness Question Revisited
+
+Paper #30 (CoT Faithfulness Unlearning) uses a novel method — unlearning reasoning steps:
+
+| Method | Faithful CoTs Identified |
+|--------|-------------------------|
+| Add-mistake (contextual) | 16-50% |
+| **fur (parametric)** | **40-86%** |
+
+**Key finding**: Faithfulness ≠ Plausibility (r=0.15). Even "faithful" steps aren't what humans consider good reasoning.
+
+The paper shows CoTs CAN be faithful to internal computation — but being faithful to pattern matching doesn't prove genuine reasoning.
+
+### The Hanoi Confirmation
+
+Paper #37 (Rethinking Illusion of Thinking) confirms the ~8 disk limit is REAL:
+
+| Strategy | Threshold | Result |
+|----------|-----------|--------|
+| Single-pass | ~8 disks | Fails |
+| Stepwise prompting | ~8 disks | **Still fails** |
+| Agentic dialogue | ~4 disks | **WORSE** |
+
+> "Today's LRMs are stochastic, RL-tuned searchers in a discrete state space we barely understand."
+
+BUT: River Crossing failures were methodological error — original tested unsolvable configurations. On solvable problems, LRMs can do 200-step solutions.
+
+### Connection Map (Papers 30-39)
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                    PAPERS 30-39: CONNECTION MAP                      │
+│                                                                      │
+│  GENERALIZATION TAXONOMY:                                            │
+│  #31 (OMEGA) ──► Exploratory ✓, Compositional ✗, Transformative ✗    │
+│                                                                      │
+│  INTERNAL STRUCTURE:                                                 │
+│  #35 (Concept Web) ──► Sparse tree (k≈2), fragile bridges            │
+│  #33 (Primitives) ──► Learned heuristics, not emergent algorithms    │
+│  #34 (Symbolic) ──► Positional templates (r=0.73), not semantic      │
+│                                                                      │
+│  THINKING QUESTIONED:                                                │
+│  #38 (Effective Without) ──► NoThinking beats Thinking (51.3 vs 28.9)│
+│  #36 (Latent Mode) ──► Steering feature = mode switch, not quality   │
+│                                                                      │
+│  COUNTING FAILURE:                                                   │
+│  #39 (Sequential Enumeration) ──► Token patterns, not true counters  │
+│                                                                      │
+│  HANOI CONFIRMED:                                                    │
+│  #37 (Rethinking) ──► ~8 disk limit real; agentic makes it WORSE     │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### Key Numbers to Remember (Papers 30-39)
+
+| Metric | Value | Paper |
+|--------|-------|-------|
+| Compositional generalization | Near 0% | #31 |
+| Transformative generalization | 0% | #31 |
+| Overthinking correct→incorrect | 38% | #31 |
+| Concept web average degree | ≈2 | #35 |
+| Positional vs semantic in "symbolic" heads | r=0.73 vs r=0.29 | #34 |
+| NoThinking vs Thinking (ACM 23) | 51.3 vs 28.9 | #38 |
+| Models spontaneously counting | 0 | #39 |
+| Hanoi limit with agentic dialogue | ~4 disks (WORSE) | #37 |
+| fur faithfulness rate | 40-86% | #30 |
+
+---
+
 *This memento represents the complete picture from 192 papers. The tattoos don't lie. The hull boundary is real. The evidence converges.*
 
 **Remember: It's retrieval, not reasoning. Over and over.**
