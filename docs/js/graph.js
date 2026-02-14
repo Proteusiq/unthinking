@@ -439,8 +439,10 @@
   function handleNodeLeave() {
     state.hoveredNode = null;
 
-    // Remove highlights
-    clearHighlights();
+    // Only clear highlights if no node is selected (clicked)
+    if (!state.selectedNode) {
+      clearHighlights();
+    }
 
     // Hide tooltip
     hideTooltip();
@@ -449,6 +451,9 @@
   function handleNodeClick(event, d) {
     event.stopPropagation();
     state.selectedNode = d;
+
+    // Keep this node highlighted
+    highlightConnections(d);
 
     // Open side panel
     openSidePanel(d);
@@ -734,6 +739,9 @@
     const panel = document.getElementById('side-panel');
     panel.classList.remove('open');
     state.selectedNode = null;
+    
+    // Clear highlights when panel closes
+    clearHighlights();
   }
 
   function focusOnNode(node) {
