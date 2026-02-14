@@ -40,6 +40,9 @@
 | Planning Gap (#29) | 82.9% | 0% | 82.9% |
 | GSM-Symbolic (#01) | 95%+ | 30-65% | Up to 65% |
 | Alice in Wonderland (#125) | 65% | 0-100% swing | Unpredictable |
+| KUP (#70) | ~80% direct | <2% indirect | ~78% (reasoning) |
+| Compositional-ARC (#69) | 64% 3-shot | 0.53% systematic | 63.5% |
+| Addition (#56) | 99.8% numerical | 7.5% symbolic | 92.3% |
 
 ### Tattoo 2: The Surfacing Principle
 
@@ -63,6 +66,8 @@
 | s1 (#07) | 1K samples surfaces AIME capability — can't teach AIME math in 1K |
 | Spurious Rewards (#111) | Models improve even with WRONG rewards — activates memory, not learning |
 | CoT Without Prompting (#02) | Reasoning paths exist in base models, hidden by greedy decoding |
+| STEPS (#75) | 4K targeted > 52K random; power-law explains compositional scarcity |
+| Instruction Tuned (#50) | Base beats instruct by 32pp at >70B; capability is in base model |
 
 ### Tattoo 3: The Unfaithfulness Problem
 
@@ -85,6 +90,9 @@
 | Reasoning Models Don't Say (#10) | 25-40% | Hide misaligned hints MORE |
 | CoT In The Wild (#14) | 87-93% | Unfaithful on natural prompts |
 | Stop Anthropomorphizing (#132) | — | Incorrect traces outperform |
+| FRIT (#51) | 32.9% baseline | Most steps don't influence answer |
+| Hardness (#62) | — | ALL interventions fail to improve faithfulness |
+| ARC LoTH (#79) | 4.0% process correct | 60% of "successes" are lucky pattern matches |
 
 ### Tattoo 4: The Complexity Ceiling
 
@@ -107,6 +115,9 @@
 | Until They Don't (#16) | Graph | L~64-300 | Abrupt drop |
 | Comprehension Without Competence (#19) | Multiplication | 10 digits | 95% steps, 0% final |
 | o3 Thinks Harder (#87) | Math | ~1000 tokens | Accuracy declines 3.16%/1K |
+| Counting (#48) | Counting | 41-50 items | System-1: 0%; CoT: 0% |
+| Algebraic (#73) | Operator precedence | Depth 3 | 97% → 47% |
+| ARC LoTH (#79) | ARC | Medium/Hard | **0%** accuracy |
 
 ### Tattoo 5: The Surface Pattern Dependence
 
@@ -222,6 +233,47 @@ GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topolog
 
 **Why it's devastating**: Having the information is not the same as using it. Pattern matchers encode without understanding.
 
+### Smoking Gun 6: The Addition Collapse (#56)
+**The simplest test of mathematical understanding**:
+
+| Model | Numerical (0-9) | Symbolic (u,d,a,i,h,v,e,y,r,c) | Drop |
+|-------|-----------------|-------------------------------|------|
+| Claude-3.5-sonnet | 99.81% | 7.51% | **-92.30%** |
+| Qwen2.5-72B | 96.13% | 6.29% | **-89.84%** |
+
+**PLUS**: 1,700+ commutativity violations (A+B ≠ B+A).
+
+**PLUS**: Explicit rule provision HURTS (-81.2%).
+
+**PLUS**: SFT achieves 97.17% numerical, **0% symbolic transfer**.
+
+**Why it's devastating**: A system that understands addition CANNOT violate commutativity. If models don't understand addition, they don't understand math.
+
+### Smoking Gun 7: KUP Direct vs Indirect (#70)
+**The memorization test**:
+
+| Probe Type | Accuracy |
+|------------|----------|
+| Direct (MCQ) | ~80% |
+| Indirect (reasoning) | **<2%** |
+
+> "H&M exited Russia" → model recalls this (80%).
+> "Where to shop in Moscow?" → model recommends H&M (<2% avoid).
+
+**Why it's devastating**: All CPT methods achieve <2%. Knowledge is stored but NOT integrated into reasoning.
+
+### Smoking Gun 8: Test-Time Scaling Inversion (#63)
+**Correct solutions are SHORTER than incorrect ones**:
+
+| Model | Correct Length | Incorrect Length |
+|-------|----------------|------------------|
+| QwQ (AIME) | ~6K tokens | ~8K tokens |
+| R1-671b (AIME) | ~5K tokens | ~6K tokens |
+
+**Self-revision changes correct→wrong more than wrong→correct** (-6% net for QwQ).
+
+**Why it's devastating**: If extended reasoning were genuine computation, more should be better. The inverse pattern shows models "know" answers early; extended thinking adds noise.
+
 ---
 
 ## III. The Rebuttal Map (What Challenges Us)
@@ -284,13 +336,13 @@ GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topolog
 
 | Pillar | Core Finding | Key Papers | Strongest Number |
 |--------|--------------|------------|------------------|
-| **1. Compositional Failure** | ID ≠ OOD | 00, 01, 06, 29, 31, 125 | ~100% → ~0% |
-| **2. CoT Unfaithfulness** | Explanation ≠ computation | 08, 10, 14, 62, 132 | Larger = LESS faithful |
-| **3. Surfacing Hypothesis** | RL surfaces, doesn't create | 02, 07, 15, 103, 111 | 0% exposure = fail |
-| **4. Complexity Collapse** | Abrupt failure at thresholds | 03, 16, 19, 87 | ~8-10 disk ceiling |
-| **5. Surface Patterns** | Token frequency → accuracy | 108, 147, 149, 157 | >70% frequency gap |
+| **1. Compositional Failure** | ID ≠ OOD | 00, 01, 06, 29, 31, 56, 69, 70, 125 | 99.8%→7.5% (addition) |
+| **2. CoT Unfaithfulness** | Explanation ≠ computation | 08, 10, 14, 51, 62, 78, 79, 132 | 4% correct process (#79) |
+| **3. Surfacing Hypothesis** | RL surfaces, doesn't create | 02, 07, 15, 50, 75, 103, 111 | 4K targeted > 52K random |
+| **4. Complexity Collapse** | Abrupt failure at thresholds | 03, 16, 19, 48, 63, 73, 87 | 0% at Medium/Hard ARC |
+| **5. Surface Patterns** | Token frequency → accuracy | 56, 77, 108, 147, 149, 157 | -54pp with encoding (#77) |
 | **6. Sycophancy** | Agreement over truth | 109, 110, 119, 127 | 98% wrong admissions |
-| **7. Tool Debate** | Execution ≠ reasoning | 04, 37, 68, 93 | 0% with validator |
+| **7. Tool Debate** | Execution ≠ reasoning | 04, 37, 68, 93 | Agentic makes it WORSE |
 
 ---
 
@@ -415,6 +467,16 @@ If fundamental limits exist, why do AIME/GSM8K scores keep improving?
 Paper #62 shows all interventions fail to improve faithfulness without hurting accuracy.
 
 **Open question**: Is faithful reasoning achievable, or fundamentally at odds with performance?
+
+### Tension 5: Power-Law Distribution (#75)
+Complex skill combinations follow power-law distribution — LLMs simply don't see enough examples.
+
+**Resolution**: This EXPLAINS compositional failure mechanistically. It's not a tension but a cause. Targeted synthesis (STEPS) can partially address this, but the fundamental data scarcity remains.
+
+### Tension 6: Error Signatures Are Domain-Specific (#72)
+CRV shows distinct computational signatures for correct vs incorrect reasoning, BUT these don't transfer across domains.
+
+**Implication**: There's no universal "reasoning circuit" — each task has learned patterns. This actually SUPPORTS the thesis: reasoning is pattern execution per domain, not general capability.
 
 ---
 
