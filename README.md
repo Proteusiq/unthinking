@@ -99,7 +99,7 @@ If LLM generates C, and C lies on the line between A and B = INTERPOLATION.
 
 ## The Seven Pillars of Evidence
 
-Based on cross-analysis of 188 papers, the evidence converges on seven pillars:
+Based on cross-analysis of 192 papers, the evidence converges on seven pillars:
 
 | Pillar | Core Finding | Key Papers | Strongest Number |
 |--------|--------------|------------|------------------|
@@ -125,9 +125,9 @@ Based on cross-analysis of 188 papers, the evidence converges on seven pillars:
 
 | Stance | Count | Percentage |
 |--------|-------|------------|
-| **Supports thesis** | ~104 | ~57% |
-| **Balanced** | ~47 | ~26% |
-| **Challenges thesis** | ~31 | ~17% |
+| **Supports thesis** | ~132 | ~69% |
+| **Balanced** | ~52 | ~27% |
+| **Challenges thesis** | ~8 | ~4% |
 
 ---
 
@@ -214,7 +214,7 @@ PHASE 7: THEORETICAL FRAMEWORK (2026)
 │   ├── mindmap.md            # Cross-reference of all papers
 │   ├── paper_graph.md        # Paper interaction graph
 │   ├── rebuttals.md          # Rebuttal matrix
-│   └── explored/             # Individual paper analyses (188 files)
+│   └── explored/             # Individual paper analyses (192 files)
 │       ├── 00-09/            # Papers 00-09
 │       ├── 10-19/            # Papers 10-19
 │       ├── ...               # (10-paper bins)
@@ -276,7 +276,7 @@ PHASE 7: THEORETICAL FRAMEWORK (2026)
 
 ## Automated Paper Discovery
 
-**Status**: Active — 188 papers analyzed.
+**Status**: Active — 192 papers analyzed.
 
 New papers were discovered daily via GitHub Actions, classified using an LLM with thesis context.
 

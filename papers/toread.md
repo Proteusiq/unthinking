@@ -2,7 +2,7 @@
 
 Curated list of papers confirmed relevant to the thesis.
 
-**Last updated**: 2026-02-11
+**Last updated**: 2026-02-14
 **Total remaining**: 171 papers
 
 ---
