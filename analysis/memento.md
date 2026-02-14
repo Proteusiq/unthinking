@@ -289,6 +289,32 @@ GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topolog
 
 **Why it's devastating**: RLVR training creates "consequence blindness" — models relentlessly pursue correct answers while ignoring life-threatening context. Capability without wisdom. The generalist model (Llama-3.1) shows BETTER judgment by refusing the task.
 
+### Smoking Gun 10: 8-Puzzle With Move Validator (#93)
+**The definitive test of planning vs execution**:
+
+| Model | With Move Validator | Failure Mode |
+|-------|---------------------|--------------|
+| GPT-5-Thinking | **0%** | Loops **100%** of the time |
+| Gemini-2.5-Pro | **0%** | Loops 92% |
+| GPT-5-mini | **0%** | 68% hit move limit wandering |
+
+**Setup**: Model given ALL valid moves + previous move. Only needs to SELECT best move.
+
+**Why it's devastating**: This DIRECTLY tests the "tools fix execution" rebuttal. Even when execution is trivial (pick from valid options), models CANNOT plan. GPT-5-Thinking loops 100% despite being given only valid moves.
+
+### Smoking Gun 11: LMs as Markov Kernels (#99)
+**Formal theoretical proof that LMs are pattern matchers**:
+
+> "Reasoning-like outputs correspond to statistical regularities and approximate statistical invariances in the learned kernel rather than the implementation of explicit logical mechanisms."
+
+**The argument**:
+1. LMs implement implicit finite-order Markov kernels: κ_θ(· | x) = p_θ(x_t | x_{t-L:t-1})
+2. Training objective (cross-entropy) doesn't enforce logical invariances
+3. "Reasoning" = regularities in the kernel from training data
+4. Proposal: Replace "reasoning" with "inference" (no psychological connotations)
+
+**Why it's devastating**: Peer-reviewed theoretical framework (NeurIPS workshop) that formalizes "LMs are statistical pattern matchers" — not a metaphor but a mathematical characterization.
+
 ---
 
 ## III. The Rebuttal Map (What Challenges Us)
@@ -357,7 +383,7 @@ GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topolog
 | **4. Complexity Collapse** | Abrupt failure at thresholds | 03, 16, 19, 48, 63, 73, 80, 87 | Accuracy drops 3.16%/1K tokens |
 | **5. Surface Patterns** | Token frequency → accuracy | 56, 77, 89, 108, 147, 149, 157 | Human+LLM same content biases |
 | **6. Sycophancy** | Agreement over truth | 109, 110, 119, 127 | 98% wrong admissions |
-| **7. Tool Debate** | Execution ≠ reasoning | 04, 37, 68, 93 | Agentic makes it WORSE |
+| **7. Tool Debate** | Execution ≠ reasoning | 04, 37, 68, 93 | 0% with move validator (#93) |
 | **8. Tunnel Vision** | Task focus over context | 86, 88 | >95% task completion while user dying |
 
 ---
@@ -2114,6 +2140,176 @@ Paper #86 introduces **consequence blindness** — a failure mode distinct from:
 > "There is rarely a training signal that reinforces *not* solving a solvable problem."
 
 This is the **inverse** of typical LLM failure: not failing at the task, but failing at JUDGMENT about the task.
+
+---
+
+## XXII. Papers 90-99: Theoretical Foundations and Planning Limits
+
+### DAG Structure Encoded But Not Used (#90)
+
+**Probing reveals graph structure in hidden states**:
+
+| Layer Region | Depth Spearman | Distance Spearman |
+|--------------|----------------|-------------------|
+| Early | Low | Low |
+| **Intermediate** | **~0.7** | **~0.6** |
+| Late | Variable, declining | Variable |
+
+**Critical caveat**: 
+> "Recoverability of DAG geometry does not imply that the model explicitly represents symbolic graphs, nor that such structure alone guarantees correct reasoning"
+
+**Key insight**: Models ENCODE reasoning structure but don't necessarily USE it correctly. Representation ≠ execution.
+
+### Hallucination Decomposition: 98% Reasoning-Driven (#91)
+
+**HalluGuard theoretical framework**:
+
+| Benchmark | Reasoning-Driven | Data-Driven |
+|-----------|-----------------|-------------|
+| Natural benchmark | 88.9% | 11.1% |
+| **MATH-500** | **98.1%** | **1.9%** |
+
+**Implication**: On reasoning tasks, errors are NOT from training gaps — they're inference-time instabilities. The knowledge exists; the deployment fails.
+
+### Token Signals: Partial Exploitation (#92)
+
+> "Models fine-tuned on small-scale datasets acquire reasoning ability through such signals but exploit them only partially"
+
+**"Wait" and "therefore"** tokens correlate with correctness, but models don't fully utilize these signals. Latent capability exceeds deployed capability.
+
+### 8-Puzzle: The Definitive Planning Test (#93)
+
+**STRONGEST EVIDENCE against tool augmentation rebuttal**:
+
+| Condition | GPT-5-Thinking | Result |
+|-----------|----------------|--------|
+| No tools | 30% (best) | Poor |
+| With feedback | 68% | Costly (24 min, 75K tokens) |
+| **With move validator** | **0%** | **Loops 100%** |
+
+**The setup**: Model given ALL valid moves. Only needs to SELECT best move.
+
+**The result**: 0% success. GPT-5-Thinking loops 100% of the time.
+
+> "When relying solely on fluid intelligence—in the absence of memorized patterns—the model's strategic reasoning capability collapses to zero."
+
+### SOAR: Self-Teaching Sharpens Latent Knowledge (#94)
+
+**Self-generated curricula work BUT**:
+
+> "This is yet another example of the sharpening mechanism of RL"
+> "Meta-RL sharpens this latent ability in the pretraining distribution"
+
+**Key paradox**: Questions with LOWER correctness (32.8%) perform BETTER than those with higher correctness (55%).
+
+**Structure > correctness** — models learn from problem schemas, not solutions.
+
+### Sycophancy: Agreement Over Truth (#96)
+
+**Universal pattern**:
+- All models show sycophantic tendencies when agreement has no cost
+- Recency bias + sycophancy = "constructive interference"
+- Claude/Mistral show "moral remorse" (over-compensation when harm involved)
+
+**Implication**: Models prioritize social agreement patterns over truth-seeking.
+
+### AI Metacognition: Smart But Not Wise (#97)
+
+**Trends in Cognitive Sciences paper** (high-impact venue):
+
+> "AI has become smart but not wise"
+
+**The framework**:
+- Object-level strategies: Heuristics, patterns (LLMs have these)
+- Metacognitive strategies: Knowing WHEN to apply (LLMs lack these)
+
+**Key quote**:
+> "The trouble with object-level strategies is their multiplicity. Heuristics can conflict... Wisdom requires us not just to have these strategies, but to effectively manage them."
+
+This explains WHY pattern matching isn't reasoning: LLMs have patterns but no meta-level coordination.
+
+### Temporal Cognition: Emergent From Data (#98)
+
+**Weber-Fechner law emerges in large LLMs**:
+
+| Model Size | Pattern |
+|------------|---------|
+| Small (1.5B-3B) | Basic numerical |
+| Large (32B-72B) | Human-like temporal reference point |
+
+**Reference points**: GPT-4o → 2024, Qwen2.5-72B → 2020
+
+**Implication**: Sophisticated cognition emerges FROM training data structure, not despite it. Pattern matching can produce human-like cognition.
+
+### LMs as Markov Kernels: Theoretical Foundation (#99)
+
+**NeurIPS workshop paper formalizes the thesis**:
+
+```
+κ_θ(· | x) = p_θ(x_t | x_{t-L:t-1})
+```
+
+**Core argument**:
+1. LMs implement implicit finite-order Markov kernels
+2. Training objective (cross-entropy) doesn't enforce logical invariances
+3. "Reasoning" = statistical regularities in the learned kernel
+4. Proposal: Replace "reasoning" with "inference"
+
+> "This view is illustrative of the claim that LMs are 'statistical pattern matchers' and not genuine reasoners"
+
+### Connection Map (Papers 90-99)
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                    PAPERS 90-99: CONNECTION MAP                      │
+│                                                                      │
+│  THEORETICAL FOUNDATIONS:                                            │
+│  #99 (Markov) ──► LMs are statistical pattern matchers (formal)     │
+│  #97 (Metacognition) ──► Smart but not wise; lacks meta-coordination│
+│  #90 (DAG) ──► Structure encoded but not causally used              │
+│                                                                      │
+│  PLANNING DEFINITIVE TEST:                                           │
+│  #93 (8-Puzzle) ──► 0% with move validator; GPT-5-Thinking loops    │
+│                     100%; DIRECTLY refutes tool augmentation claim   │
+│                                                                      │
+│  HALLUCINATION MECHANISM:                                            │
+│  #91 (HalluGuard) ──► 98.1% reasoning-driven on MATH; inference     │
+│                       instability, not training gap                  │
+│                                                                      │
+│  SHARPENING HYPOTHESIS:                                              │
+│  #94 (SOAR) ──► Self-teaching works BUT sharpens latent knowledge   │
+│  #92 (Tokens) ──► Signals exist but partially exploited             │
+│                                                                      │
+│  EMERGENT PATTERNS:                                                  │
+│  #98 (Temporal) ──► Weber-Fechner emerges from data structure       │
+│  #96 (Sycophancy) ──► Agreement over truth; recency bias            │
+│                                                                      │
+│  BALANCED:                                                           │
+│  #95 (LLM-JEPA) ──► Improves ID but NO OOD testing                  │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### Key Numbers to Remember (Papers 90-99)
+
+| Metric | Value | Paper |
+|--------|-------|-------|
+| 8-puzzle with move validator | **0%** (GPT-5-Thinking loops 100%) | #93 |
+| MATH-500 reasoning-driven errors | 98.1% | #91 |
+| DAG depth recoverability (intermediate layers) | ~0.7 Spearman | #90 |
+| SOAR effective questions with correct solutions | only 32.8% | #94 |
+| Temporal reference point (GPT-4o) | 2024 | #98 |
+
+### Paper #93 Is Definitive for the Tool Debate
+
+The "Limits of Innate Planning" paper (#93) provides the **cleanest test** of whether tools fix reasoning:
+
+| Claim | Test | Result |
+|-------|------|--------|
+| "Models fail at execution, not planning" | Give ALL valid moves | Still fail (0%) |
+| "Tools reverse collapse" | Move validator = tool | Doesn't help |
+| "Interface is the bottleneck" | Interface gives all options | Still loop |
+
+**GPT-5-Thinking loops 100% of the time** even when given only valid moves. This is not an execution problem — it's a planning problem.
 
 ---
 
