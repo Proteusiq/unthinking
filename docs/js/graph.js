@@ -300,9 +300,12 @@
     };
   }
 
-  // Continuous smooth breathing animation - never stops
+  // Smart breathing animation - pauses when not visible to save CPU
   function startBreathing() {
     let lastTime = 0;
+    let animationId = null;
+    let isVisible = true;
+    let isTabActive = true;
 
     // Give each node a unique phase offset for organic movement
     state.nodes.forEach((node, i) => {
@@ -313,28 +316,57 @@
     });
 
     function animate(time) {
-      if (!state.breathingPaused) {
-        const delta = time - lastTime;
+      // Only animate if visible, tab active, and not paused
+      if (!state.breathingPaused && isVisible && isTabActive) {
+        // Throttle to ~20fps (every 50ms) instead of 60fps
+        if (time - lastTime > 50) {
+          // Apply smooth sine-wave motion to each node
+          state.nodes.forEach((node) => {
+            if (!node.fx && !node.fy) {
+              node.vx += Math.sin(time * node.speedX + node.phaseX) * 0.015;
+              node.vy += Math.cos(time * node.speedY + node.phaseY) * 0.015;
+            }
+          });
 
-        // Apply smooth sine-wave motion to each node
-        state.nodes.forEach((node) => {
-          if (!node.fx && !node.fy) {
-            node.vx += Math.sin(time * node.speedX + node.phaseX) * 0.015;
-            node.vy += Math.cos(time * node.speedY + node.phaseY) * 0.015;
+          // Keep simulation gently alive, but let it settle more
+          if (state.simulation.alpha() < 0.01) {
+            state.simulation.alpha(0.01).restart();
           }
-        });
-
-        // Keep simulation gently alive
-        if (state.simulation.alpha() < 0.02) {
-          state.simulation.alpha(0.02).restart();
+          lastTime = time;
         }
       }
 
-      lastTime = time;
-      requestAnimationFrame(animate);
+      animationId = requestAnimationFrame(animate);
     }
 
-    requestAnimationFrame(animate);
+    // Pause when tab is hidden (Page Visibility API)
+    document.addEventListener('visibilitychange', () => {
+      isTabActive = document.visibilityState === 'visible';
+      if (!isTabActive && state.simulation) {
+        state.simulation.stop();
+      } else if (isTabActive && state.simulation && isVisible) {
+        state.simulation.restart();
+      }
+    });
+
+    // Pause when graph is not in viewport (Intersection Observer)
+    const graphContainer = document.getElementById('graph');
+    if (graphContainer && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          isVisible = entries[0].isIntersecting;
+          if (!isVisible && state.simulation) {
+            state.simulation.stop();
+          } else if (isVisible && isTabActive && state.simulation) {
+            state.simulation.alpha(0.01).restart();
+          }
+        },
+        { threshold: 0.1 }
+      );
+      observer.observe(graphContainer);
+    }
+
+    animationId = requestAnimationFrame(animate);
   }
 
   // ==========================================================================
