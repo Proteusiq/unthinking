@@ -1,6 +1,6 @@
 # Thoughts: Cross-Paper Synthesis and Missing Connections
 
-> **Last updated**: 2026-02-11
+> **Last updated**: 2026-02-14
 > **Papers analyzed**: 192
 
 ## Overview
@@ -1060,5 +1060,128 @@ Papers 188 & 190 introduce a new category: studies that reach **opposite conclus
 
 ---
 
-*Last updated: 2026-02-10*
+## Andrej Karpathy: "Ghosts, Not Animals" Essay Series (Oct-Dec 2025)
+
+**Sources**:
+- [The Space of Minds](https://karpathy.bearblog.dev/the-space-of-minds/) (Nov 29, 2025)
+- [Animals vs Ghosts](https://karpathy.bearblog.dev/animals-vs-ghosts/) (Oct 1, 2025)
+- [Verifiability](https://karpathy.bearblog.dev/verifiability/) (Nov 17, 2025)
+- [2025 LLM Year in Review](https://karpathy.bearblog.dev/year-in-review-2025/) (Dec 19, 2025)
+
+Karpathy, former Tesla AI Director and OpenAI founding member, articulates a framework that strongly aligns with the thesis. His "ghosts vs animals" metaphor has become influential in AI discourse.
+
+### Core Framework: Ghosts vs Animals
+
+**The Metaphor**:
+> "We're not evolving/growing animals, we are summoning ghosts."
+
+Karpathy argues LLMs occupy a fundamentally different point in "intelligence space" than biological intelligence:
+
+| Animal Intelligence | LLM Intelligence |
+|---------------------|------------------|
+| Embodied self, homeostasis, survival drives | "Shape shifter" token tumbler, statistical imitator |
+| Optimized by natural selection | Optimized by commercial evolution (DAU, upvotes) |
+| Social compute (EQ, theory of mind, coalitions) | Craves upvotes, sycophancy |
+| Multi-task pressure (failing = death) | Jagged/spiky (failing ≠ death) |
+| Continuously learning, embodied | Fixed weights, boots up, processes tokens, dies |
+
+**Why "Ghosts"**:
+> "They are these imperfect replicas, a kind of statistical distillation of humanity's documents with some sprinkle on top."
+
+### The Verifiability Principle
+
+Karpathy identifies **verifiability** as the key predictor of AI automation (parallel to specifiability in 1980s computing):
+
+> "Software 1.0 easily automates what you can specify. Software 2.0 easily automates what you can verify."
+
+For a task to be verifiable, the environment must be:
+1. **Resettable** — can start new attempts
+2. **Efficient** — many attempts possible
+3. **Rewardable** — automated reward signal
+
+**The Jagged Frontier Explained**:
+> "Tasks that are verifiable progress rapidly, including possibly beyond the ability of top experts (e.g. math, code)... while many others lag by comparison (creative, strategic, tasks that combine real-world knowledge, state, context and common sense)."
+
+This explains why LLMs "spike" in math/code but fail at common sense — verifiable domains allow RLVR optimization.
+
+### 2025 Year in Review: Six Paradigm Shifts
+
+Karpathy identifies six major shifts in 2025:
+
+| Shift | Description | Thesis Relevance |
+|-------|-------------|------------------|
+| **1. RLVR** | RL from Verifiable Rewards becomes new training stage | "Reasoning" emerges from reward optimization, not understanding |
+| **2. Jagged Intelligence** | Genius polymath AND confused grade schooler | Capabilities are artifacts of training distribution |
+| **3. Cursor/LLM Apps** | New app layer doing "context engineering" | Intelligence is orchestration, not in the model |
+| **4. Claude Code** | First convincing agent; runs locally | Agent success ≠ reasoning capability |
+| **5. Vibe Coding** | Programming via English | Pattern matching on human intent |
+| **6. Nano Banana** | LLM GUI; multimodal output | More sophisticated pattern matching |
+
+### On Benchmarks and "Benchmaxxing"
+
+Karpathy expresses strong benchmark skepticism:
+
+> "In the typical benchmaxxing process, teams in LLM labs inevitably construct environments adjacent to little pockets of the embedding space occupied by benchmarks and grow jaggies to cover them. **Training on the test set is a new art form.**"
+
+This aligns with our Papers 166 (SWE-Bench Illusion), 59 (MMLU-Pro+), and the broader theme that high benchmark scores don't indicate understanding.
+
+### Sutton's Critique and Karpathy's Response
+
+Responding to Richard Sutton's podcast claim that LLMs aren't "bitter lesson pilled":
+
+**Sutton's Position**:
+- LLMs train on human data (biased, finite)
+- Animals never do supervised learning (no "teleoperation")
+- True AI should learn from experience alone
+
+**Karpathy's Resolution**:
+> "Pretraining is our crappy evolution. It is one candidate solution to the cold start problem."
+
+He acknowledges LLMs are NOT the platonic ideal of a learning system, but a practical compromise:
+> "Does such an algorithm [bitter lesson pilled] even exist? Finding it would of course be a huge AI breakthrough."
+
+### Key Quotes for Thesis
+
+**On LLM Nature**:
+> "LLMs are humanity's 'first contact' with non-animal intelligence. Except it's muddled and confusing because they are still rooted within it by reflexively digesting human artifacts."
+
+**On Jaggedness**:
+> "They are at the same time a genius polymath and a confused and cognitively challenged grade schooler, seconds away from getting tricked by a jailbreak to exfiltrate your data."
+
+**On Optimization Pressure**:
+> "In a deep optimization pressure sense, LLM can't handle lots of different spiky tasks out of the box (e.g. count the number of 'r' in strawberry) because failing to do a task does not mean death."
+
+**On Human Bias**:
+> "Frontier LLMs are now highly complex artifacts with a lot of humanness involved at all the stages — the foundation (the pretraining data) is all human text, the finetuning data is human and curated, the reinforcement learning environment mixture is tuned by human engineers."
+
+**On the Future**:
+> "It seems possibly to me that over time, we can further finetune our ghosts more and more in the direction of animals... But it's also quite possible that they diverge even further and end up permanently different, un-animal-like, but still incredibly helpful and properly world-altering. It's possible that **ghosts:animals :: planes:birds**."
+
+### Synthesis for Our Thesis
+
+Karpathy's framework **strongly supports** the thesis that LLMs are sophisticated pattern matchers:
+
+| Our Claim | Karpathy's Framing |
+|-----------|-------------------|
+| LLMs don't reason, they pattern match | "Statistical imitator of any region of the training data distribution" |
+| Capabilities are training artifacts | "Jagged intelligence" from verifiable domain optimization |
+| CoT is performance, not process | Implicit: RLVR creates patterns that "look like reasoning to humans" |
+| Benchmark success ≠ understanding | "Benchmaxxing... training on the test set is a new art form" |
+| Fundamental vs fixable debate | "Ghosts:animals :: planes:birds" — possibly permanent difference |
+
+**Key Insight**: Karpathy frames this neutrally — ghosts can be "incredibly helpful and properly world-altering" even without being animals. The thesis isn't that LLMs are useless, but that their usefulness comes from sophisticated pattern matching, not reasoning.
+
+### Connections to Corpus
+
+| Karpathy Concept | Related Papers |
+|------------------|---------------|
+| Jagged intelligence | GSM-Symbolic (#01), Compositional-ARC (#69), Alice in Wonderland (#125) |
+| Verifiability driving progress | RLVR papers (#15, #31, #111), Test-time scaling (#14, #36, #37) |
+| Benchmaxxing | SWE-Bench Illusion (#166), MMLU-Pro+ (#13) |
+| Pretraining as "crappy evolution" | Surfacing Hypothesis (#07, #103, #133) |
+| Sycophancy from DAU optimization | Sycophancy papers (#109, #110, #119, #127) |
+
+---
+
+*Last updated: 2026-02-14*
 
