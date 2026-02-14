@@ -1284,6 +1284,211 @@ This is actually CONSISTENT with the thesis: LLMs CAN compute, but their trainin
 
 ---
 
+## Section XVIII: Papers 50-59 — Shortcuts, Faithfulness, and the Addition Smoking Gun
+
+### The Addition Smoking Gun (#56 — EMNLP'25)
+
+This paper provides **definitive evidence** for pattern matching over algorithmic reasoning:
+
+**The Core Test**: Bijective symbol mapping (7→y, 9→c)
+- If you understand addition, symbols shouldn't matter
+- If you're pattern matching, symbols break everything
+
+| Model | Numerical | Symbolic | Drop |
+|-------|-----------|----------|------|
+| Claude-3.5-sonnet | 99.81% | 7.51% | **-92.30%** |
+| Qwen2.5-72B | 96.13% | 6.29% | **-89.84%** |
+| DeepSeek-V3 | 98.92% | 16.14% | **-82.78%** |
+| **Mean** | ~97% | ~15% | **-81.23%** |
+
+**The Commutativity Killer**: 1,700+ cases where A+B ≠ B+A
+- A system that understands addition CANNOT violate commutativity
+- This proves direction-specific memorized patterns
+
+**Explicit Rules HURT Performance**: -81.2% average degradation
+- Models can't operationalize abstract principles
+- They prefer memorized patterns over provided algorithms
+
+**SFT Transfer**: 97.17% numerical accuracy, **0% symbolic transfer**
+- Training optimizes pattern matching, not understanding
+
+### Instruction Tuning: The Surfacing Paradox (#50)
+
+At >70B scale, base models often BEAT instruction-tuned models:
+
+| Model | Zero-Shot Instruct | Zero-Shot Base | Gap |
+|-------|-------------------|----------------|-----|
+| Llama3-70B | 58.15% | **90.82%** | **-32.67pp** |
+| Kimi-K2 | 67.63% | **98.86%** | **-31.23pp** |
+
+**The Paradox**: Instruction tuning creates prompt dependencies, not reasoning gains. The capability is IN the base model — instruction tuning just makes it format-dependent.
+
+**Under Domain Shift** (MedCalc):
+| Model | Instruct | Base | Gap |
+|-------|----------|------|-----|
+| Llama3-3B | 28.94% | **62.08%** | **-33.14pp** |
+
+### Faithfulness: The Causal Test (#51, #52)
+
+**FRIT's Intervention Method**:
+- Replace a CoT step with unrelated fact
+- If answer changes → step was causally important
+- If answer unchanged → step was decorative
+
+**Baseline Faithfulness is Shockingly Low**:
+| Model | Dataset | Faithfulness |
+|-------|---------|--------------|
+| Qwen3-8B | GSM8K | **32.9%** |
+| Mistral-7B | GSM8K | 63.2% |
+| **Traditional metric** | GSM8K | **8.9%** |
+
+> "More than half of reasoning steps don't actually influence the answer."
+
+**Easy vs Hard Cases** (#52 Concept Walk):
+- **Easy cases**: Perturbation effects are transient — model "knows" answer, reasoning is decorative
+- **Hard cases**: Perturbation causes sustained activation shifts — reasoning is computational
+
+This provides a **mechanistic method** to detect post-hoc rationalization.
+
+### RADAR: Detecting Pattern Matching Mechanistically (#54)
+
+**Internal Signatures of Recall vs Reasoning**:
+| Feature | Recall Pattern | Reasoning Pattern |
+|---------|----------------|-------------------|
+| Attention | Focused, specialized | Distributed |
+| Confidence | Early high, fast convergence | Gradual build-up |
+| Circuit Complexity | Lower | Higher |
+
+**Detection Accuracy**: 93% overall, 97.7% for recall tasks
+
+**The Key Insight**: When a task that SHOULD require reasoning shows recall-like signatures (early convergence, focused attention), the model is pattern matching.
+
+### Shortcut Learning: Inverse Scaling (#58)
+
+**Larger Models Use MORE Shortcuts** (not fewer):
+
+| Model | Standard | Constituent Shortcut |
+|-------|----------|---------------------|
+| LLaMA2-13B | 54.3% | 0.8% (**-53.5pp**) |
+| GPT-4 | 85.6% | 80.0% (-5.6pp) |
+| Gemini-Pro | 76.2% | 47.2% (**-29.0pp**) |
+
+**Few-Shot UNDERPERFORMS Zero-Shot** in several scenarios — in-context examples can introduce biases rather than help.
+
+**Overconfidence**: Models rarely show confidence below 60%, even when wrong.
+
+### MMLU-Pro+: Anchoring Bias Exposed (#59)
+
+**The Test**: Questions with multiple correct answers
+
+**Finding**: Models stick to original choices even when presented with valid alternatives
+
+| Model | Drop from MMLU-Pro |
+|-------|-------------------|
+| GPT-4o | **-14.3pp** |
+| O1-preview | -7.5pp (most resilient) |
+
+**Correct Pair Identification Ratio**:
+- Claude-Sonnet-3.5: **10.26** (best)
+- LLaMA-405B: **2.80** (worst)
+
+Claude is 3.7x better than LLaMA at distinguishing correct pairs from misleading options.
+
+### Hierarchical FSM: When More Thinking Hurts (#55)
+
+**Math (AIME)**: Longer reasoning → better accuracy
+- 29 transitions → 43.3% accuracy
+- 226 transitions → 83.3% accuracy
+
+**Science (GPQA)**: Longer reasoning → WORSE accuracy
+- Qwen: Longest chains (123) but LOWER accuracy (68%) than Phi (97 chains, 72%)
+
+> "Excessive state expansion introduces redundancy rather than precision."
+
+### Minimal Circuits: Task-Constrained Simplicity (#53)
+
+**IOI in 2 attention heads**:
+- Head 0: Additive (A + B)
+- Head 1: Contrastive (B - A)
+- Combined: 2B (correct answer amplified)
+
+But this is:
+- Symbolic IOI only (8 tokens)
+- Task-constrained training
+- No OOD generalization tested
+
+### PhD-Level Math: The 66% Ceiling (#57)
+
+Best models achieve only ~66% on formal mathematical proofs from a 1995 textbook:
+
+| Model | Accuracy |
+|-------|----------|
+| Claude-Sonnet-4.5 | 66.4% |
+| GPT-5-Thinking | 47.4% |
+| Grok-4 | 33.2% |
+
+But: This tests **reproduction** of known proofs, not invention.
+
+### Connection Map (Papers 50-59)
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                    PAPERS 50-59: CONNECTION MAP                      │
+│                                                                      │
+│  SMOKING GUN EVIDENCE:                                               │
+│  #56 (Addition) ──► 99.8%→7.5% with symbols; 1,700+ commutativity   │
+│                     violations; SFT = 0% transfer                    │
+│                                                                      │
+│  INSTRUCTION TUNING PARADOX:                                         │
+│  #50 (Not Better) ──► Base beats instruct by 32pp at >70B scale     │
+│                                                                      │
+│  FAITHFULNESS CRISIS:                                                │
+│  #51 (FRIT) ──► 32.9% baseline faithfulness; 8.9% traditional       │
+│  #52 (Concept Walk) ──► Easy = decorative, Hard = computational     │
+│                                                                      │
+│  MECHANISTIC DETECTION:                                              │
+│  #54 (RADAR) ──► 93% accuracy distinguishing recall vs reasoning    │
+│                                                                      │
+│  SHORTCUT EXPLOITATION:                                              │
+│  #58 (Shortcut Learning) ──► Larger models MORE susceptible         │
+│  #59 (MMLU-Pro+) ──► Anchoring bias; -14.3pp for GPT-4o            │
+│                                                                      │
+│  CAPACITY LIMITS:                                                    │
+│  #55 (FSM) ──► More thinking helps math, HURTS factual              │
+│  #57 (PhD Math) ──► 66% ceiling on known proofs                     │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### Key Numbers to Remember (Papers 50-59)
+
+| Metric | Value | Paper |
+|--------|-------|-------|
+| Symbolic addition collapse | -81.23% mean | #56 |
+| Commutativity violations | 1,700+ cases | #56 |
+| SFT symbolic transfer | 0% | #56 |
+| Rule provision degradation | -81.2% | #56 |
+| Base vs Instruct gap (>70B) | -32pp | #50 |
+| Baseline CoT faithfulness | 32.9% (Qwen) | #51 |
+| Traditional faithfulness | 8.9% | #51 |
+| RADAR recall detection | 97.7% | #54 |
+| Constituent shortcut drop | -53.5pp | #58 |
+| MMLU-Pro+ drop (GPT-4o) | -14.3pp | #59 |
+| PhD proof ceiling | 66.4% | #57 |
+
+### The Addition Paper is THE Smoking Gun
+
+Paper #56 should be remembered as the definitive evidence:
+
+1. **Near-perfect numerical accuracy (99.8%) collapses to 7.5%** with a simple symbol change
+2. **Commutativity violations prove no understanding** — a system that understands addition cannot violate A+B = B+A
+3. **Explicit rules HURT** — models can't operationalize abstractions
+4. **SFT achieves 0% transfer** — training optimizes patterns, not algorithms
+5. **R1-Distill models show only -5.99% drop** — reasoning training helps, but still imperfect
+
+This is not about edge cases or adversarial examples. Addition is the simplest arithmetic operation. If models don't understand addition, they don't understand math.
+
+---
+
 *This memento represents the complete picture from 192 papers. The tattoos don't lie. The hull boundary is real. The evidence converges.*
 
 **Remember: It's retrieval, not reasoning. Over and over.**
