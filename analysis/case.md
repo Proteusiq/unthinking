@@ -1,8 +1,10 @@
 > **Based on systematic analysis of 192 peer-reviewed papers (2022-2026)**
 > 
-> **Last updated**: 2026-02-11
+> **Last updated**: 2026-02-14
 >
 > Full corpus: [github.com/Proteusiq/unthinking](https://github.com/Proteusiq/unthinking)
+>
+> **See also**: `memento.md` for executive summary, `synthesis.md` for evidence table
 
 # The Thinking Machine That Doesn't Think: A Formal Case Against LLM Reasoning
 
