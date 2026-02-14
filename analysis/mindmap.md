@@ -1,8 +1,9 @@
-# Mind Map: 182 Papers on LLM Reasoning
+# Mind Map: 192 Papers on LLM Reasoning
 
 > **Generated**: 2026-02-01
-> **Last updated**: 2026-02-09
+> **Last updated**: 2026-02-14
 > **Purpose**: Cross-reference analysis of how papers talk to each other
+> **See also**: `memento.md` for executive summary
 
 ---
 
@@ -610,9 +611,9 @@ Can LLMs Reason and Plan (131): "Universal approximate retrieval"
 
 | Stance | Count | Percentage |
 |--------|-------|------------|
-| **Supports thesis** | 118 | 73.75% |
-| **Balanced** | 35 | 21.88% |
-| **Challenges thesis** | 7 | 4.37% |
+| **Supports thesis** | 132 | 68.8% |
+| **Balanced** | 52 | 27.1% |
+| **Challenges thesis** | 8 | 4.2% |
 
 ### By Evidence Type
 
@@ -676,4 +677,4 @@ Can LLMs Reason and Plan (131): "Universal approximate retrieval"
 
 ---
 
-*This mind map represents the interconnected evidence from 160 papers. The thesis is supported by converging evidence from multiple independent research groups using diverse methodologies.*
+*This mind map represents the interconnected evidence from 192 papers. The thesis is supported by converging evidence from multiple independent research groups using diverse methodologies.*

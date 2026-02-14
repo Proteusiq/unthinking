@@ -517,7 +517,7 @@ Can LLMs Reason and Plan (131): "Universal approximate retrieval"
 
 ## Deferred Papers (Maybe Later)
 
-Corpus at 166 papers. These remain for potential future analysis:
+Corpus at 192 papers. These remain for potential future analysis:
 
 | arXiv ID | Title | Why Deferred |
 |----------|-------|--------------|
@@ -525,6 +525,15 @@ Corpus at 166 papers. These remain for potential future analysis:
 | 2111.00396 | S4 Long Sequences | Alternative architecture |
 | 2301.00303 | CoT Sample Efficiency on Parity | Mechanistic CoT analysis |
 | 1906.03764 | Differentiable Logic Machines | Neuro-symbolic comparison |
+
+---
+
+## Cross-References
+
+- **Executive Summary**: See `memento.md` for the complete picture in one document
+- **Visual Map**: See `mindmap.md` for paper relationship diagrams
+- **Formal Case**: See `case.md` for the formal argument against LLM reasoning
+- **Evidence Table**: See `synthesis.md` for the full paper-by-paper breakdown
 
 ---
 

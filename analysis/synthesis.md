@@ -1,7 +1,9 @@
 # Synthesis: The Thinking Machine That Doesn't Think
 
-> **Last updated**: 2026-02-11
+> **Last updated**: 2026-02-14
 > **Papers analyzed**: 192
+>
+> **See also**: `memento.md` for executive summary
 
 ---
 
