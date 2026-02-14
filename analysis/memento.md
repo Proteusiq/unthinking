@@ -1489,6 +1489,190 @@ This is not about edge cases or adversarial examples. Addition is the simplest a
 
 ---
 
+## Section XIX: Papers 60-69 — Test-Time Scaling, Compositional Failure, and the Surveys
+
+### The Test-Time Scaling Myth (#63)
+
+One of the most important papers for understanding "reasoning" models:
+
+**Core Finding**: Correct solutions are SHORTER than incorrect ones:
+
+| Model | Correct Length | Incorrect Length |
+|-------|----------------|------------------|
+| QwQ (AIME) | ~6K tokens | ~8K tokens |
+| R1-671b (AIME) | ~5K tokens | ~6K tokens |
+| LIMO (AIME) | ~5K tokens | ~7K tokens |
+
+**Self-Revision is HARMFUL**:
+| Model | Wrong→Correct | Correct→Wrong | Net Effect |
+|-------|---------------|---------------|------------|
+| QwQ | 12% | 18% | **-6% (harmful)** |
+| R1-Distill-1.5b | 8% | 15% | **-7% (harmful)** |
+
+> "Models are more likely to change correct answers to incorrect ones than vice versa."
+
+**Parallel > Sequential**: Sampling multiple short solutions outperforms generating one long solution.
+
+**Key Insight**: The model "knows" the answer early. Extended thinking introduces noise, not insight.
+
+### Causal Reasoning: Level-1 Only (#61)
+
+**The Two Levels**:
+- **Level-1**: Retrieving causal knowledge from parameters (pattern matching)
+- **Level-2**: Deducing NEW causal knowledge (genuine reasoning)
+
+**Fresh Data Test** (CausalProbe 2024 — post-training cutoff):
+| Model | COPA (known) | CausalProbe-H (fresh) | Drop |
+|-------|--------------|----------------------|------|
+| Claude 3 opus | 99.1% | 69.2% | **-29.9pp** |
+| GPT 3.5 turbo | 94.8% | 67.1% | **-27.7pp** |
+| LLaMA 3 8B | 93.7% | 65.2% | **-28.5pp** |
+
+> "Sequential causality is not equivalent to logical causality." — David Hume (via the paper)
+
+### The Faithfulness-Accuracy Tradeoff (#62)
+
+**Fundamental Problem**: Current techniques cannot improve CoT faithfulness without sacrificing accuracy.
+
+**Inverse Scaling for Faithfulness**:
+| Model | Accuracy | Faithfulness |
+|-------|----------|--------------|
+| GPT-4 | Highest | **Lowest** |
+| GPT-3.5-Turbo | Medium | Medium |
+| Llama-3-8b-Instruct | Lowest | **Highest** |
+
+**Why?** RLHF optimizes for human-pleasing outputs, not truth. Larger models are better at producing convincing rationalization.
+
+> "GPT-4 gets correct answers WITHOUT using CoT" — the model already "knows" the answer.
+
+### Compositional-ARC: The Systematicity Test (#69)
+
+**The Smoking Gun for Compositional Failure**:
+
+| Model | 3-Shot (seen composition) | Systematicity (novel composition) |
+|-------|---------------------------|-----------------------------------|
+| o3-mini | **64.04%** | **0.53%** |
+| GPT-4o | 22.28% | 0.99% |
+| Gemini 2.0 Flash | N/A | 2.66% |
+| MLC (5.7M params) | 99.92% | **78.26%** |
+
+**The Pattern**:
+- 3-shot = pattern matching (see composition, reproduce it)
+- Systematicity = genuine composition (combine primitives into novel whole)
+- o3-mini: BEST on 3-shot, WORST on systematicity
+
+**5.7M parameters with right training > 8B+ parameters with standard training**
+
+### Agentic Framework Makes It WORSE (#68)
+
+**Tower of Hanoi with Environment Interface**:
+
+| Setting | n=3 | n=4 | n=5 | n=6 | n=7 | n=8 |
+|---------|-----|-----|-----|-----|-----|-----|
+| Claude Baseline | ~100% | ~90% | ~60% | ~20% | ~5% | ~0% |
+| Claude + Env | ~100% | ~85% | ~40% | ~10% | ~0% | ~0% |
+
+**Agentic framework performs WORSE** — collapse occurs at LOWER complexity with environment interface.
+
+**Why?** Looping behavior dominates. Models return to previously visited states and execute identical suboptimal sequences, **despite having full history**.
+
+> "Apparent reasoning ability is largely a byproduct of high-probability mode following, rather than genuine reasoning."
+
+### The Surveys Confirm Everything (#64, #65, #67)
+
+**Emergent Abilities Survey (#64)**:
+> "Emergent abilities result from the competition between memorization and generalization circuits; heavy memorization delays generalization."
+
+**Test-Time Compute Survey (#65)**:
+- "Self-correction effectiveness has remained controversial"
+- "Most LRMs struggle to generalize to cross-domain, cross-lingual, or general tasks"
+- "No universal test-time scaling law" — unlike training
+
+**Inductive Reasoning Survey (#67)**:
+> "Inductive ability originates from induction heads" — the same mechanism as ICL = pattern matching
+
+### Length Generalization Theory (#66)
+
+**When Length Generalization Works**:
+1. Finite input space for each reasoning step
+2. Training covers ALL step inputs (D = X)
+3. Specific representation engineering required
+
+> "The causal function is guaranteed to be well-learned only when |X| < infinity."
+
+This is **pattern matching with complete coverage**, not generative reasoning.
+
+### Interpretability: Reading Encoded Reasoning (#60)
+
+**Logit lens can decode ROT-13 reasoning**:
+- Internal representations anchor to English even when output is encrypted
+- Peak decoding at layers 54-62 (of 70)
+
+But: This shows we can READ internal states, not that they constitute genuine reasoning. Pattern matching is perfectly decodable.
+
+### Connection Map (Papers 60-69)
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                    PAPERS 60-69: CONNECTION MAP                      │
+│                                                                      │
+│  TEST-TIME SCALING FAILURE:                                          │
+│  #63 (Revisiting) ──► Correct = shorter; self-revision harmful       │
+│  #65 (Survey) ──► No universal scaling law; self-correction disputed │
+│                                                                      │
+│  CAUSAL REASONING LIMITED:                                           │
+│  #61 (Causal) ──► Level-1 only; -30pp on fresh data                 │
+│                                                                      │
+│  FAITHFULNESS TRADEOFF:                                              │
+│  #62 (Hardness) ──► Larger models = LESS faithful                   │
+│                                                                      │
+│  COMPOSITIONAL FAILURE:                                              │
+│  #69 (Comp-ARC) ──► o3-mini: 64% 3-shot, 0.53% systematicity        │
+│  #66 (Theory LG) ──► Requires D=X (complete coverage)               │
+│                                                                      │
+│  AGENTIC LIMITATIONS:                                                │
+│  #68 (Limits) ──► Environment interface makes it WORSE              │
+│                                                                      │
+│  SURVEY CONFIRMATIONS:                                               │
+│  #64 ──► "Heavy memorization delays generalization"                  │
+│  #67 ──► "Inductive ability originates from induction heads"         │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### Key Numbers to Remember (Papers 60-69)
+
+| Metric | Value | Paper |
+|--------|-------|-------|
+| Correct vs incorrect solution length | Correct SHORTER | #63 |
+| Self-revision net effect (QwQ) | -6% (harmful) | #63 |
+| Causal reasoning drop (Claude, fresh data) | -29.9pp | #61 |
+| o3-mini systematicity accuracy | 0.53% | #69 |
+| o3-mini 3-shot accuracy | 64.04% | #69 |
+| MLC model parameters | 5.7M (beats 8B+) | #69 |
+| TTT improvement for LLMs | ~100x (but requires test training) | #69 |
+| Agentic collapse disk threshold | LOWER than baseline | #68 |
+| Loop rate at n=8 Hanoi | 60-70% | #68 |
+
+### The Compositional Failure is Definitive
+
+Paper #69 provides the cleanest test of systematic generalization:
+
+1. **3-shot vs Systematicity gap** reveals the mechanism
+   - 3-shot: "Here's the pattern, reproduce it" → works
+   - Systematicity: "Combine these primitives into novel composition" → fails catastrophically
+
+2. **o3-mini's inversion is damning**
+   - Best "reasoning" model on pattern matching (3-shot)
+   - Worst on genuine composition (systematicity)
+   - Extended thinking doesn't help composition — may hurt
+
+3. **5.7M > 8B+ with right training**
+   - Scale doesn't solve systematicity
+   - Training approach fundamentally matters
+   - MLC (meta-learning for compositionality) achieves what scale cannot
+
+---
+
 *This memento represents the complete picture from 192 papers. The tattoos don't lie. The hull boundary is real. The evidence converges.*
 
 **Remember: It's retrieval, not reasoning. Over and over.**
