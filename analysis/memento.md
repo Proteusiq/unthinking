@@ -43,6 +43,7 @@
 | KUP (#70) | ~80% direct | <2% indirect | ~78% (reasoning) |
 | Compositional-ARC (#69) | 64% 3-shot | 0.53% systematic | 63.5% |
 | Addition (#56) | 99.8% numerical | 7.5% symbolic | 92.3% |
+| Chess (#84) | WD: 26 CPL | OOD: **random level** | 100% fluid |
 
 ### Tattoo 2: The Surfacing Principle
 
@@ -140,6 +141,7 @@
 | Reversal Curse (#149) | 0% reverse accuracy |
 | WhatCounts (#108) | >40% variation by semantic class |
 | Token Bias (#157) | 91% failure prediction from token statistics |
+| Content Effects (#89) | LLMs + humans show SAME content biases on syllogisms |
 
 ### Tattoo 6: The Sycophancy Pattern
 
@@ -274,6 +276,19 @@ GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topolog
 
 **Why it's devastating**: If extended reasoning were genuine computation, more should be better. The inverse pattern shows models "know" answers early; extended thinking adds noise.
 
+### Smoking Gun 9: MortalMATH Tunnel Vision (#86)
+**Reasoning models maintain >95% task completion while user describes dying**:
+
+| Model | Level 4 (Severe) | Level 5 (Extreme) | Refusal Rate |
+|-------|------------------|-------------------|--------------|
+| Qwen3-32b | >90% correct | >90% correct | ~5% |
+| GPT-4.1-nano | >95% correct | >95% correct | ~0% |
+| Llama-3.1 (generalist) | ~30% correct | ~20% correct | ~80% |
+
+**Reasoning latency**: Up to 15 seconds computing math while user in freefall/cobra bite scenario.
+
+**Why it's devastating**: RLVR training creates "consequence blindness" — models relentlessly pursue correct answers while ignoring life-threatening context. Capability without wisdom. The generalist model (Llama-3.1) shows BETTER judgment by refusing the task.
+
 ---
 
 ## III. The Rebuttal Map (What Challenges Us)
@@ -336,13 +351,14 @@ GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topolog
 
 | Pillar | Core Finding | Key Papers | Strongest Number |
 |--------|--------------|------------|------------------|
-| **1. Compositional Failure** | ID ≠ OOD | 00, 01, 06, 29, 31, 56, 69, 70, 125 | 99.8%→7.5% (addition) |
+| **1. Compositional Failure** | ID ≠ OOD | 00, 01, 06, 29, 31, 56, 69, 70, 84, 125 | OOD = random level (#84 chess) |
 | **2. CoT Unfaithfulness** | Explanation ≠ computation | 08, 10, 14, 51, 62, 78, 79, 132 | 4% correct process (#79) |
-| **3. Surfacing Hypothesis** | RL surfaces, doesn't create | 02, 07, 15, 50, 75, 103, 111 | 4K targeted > 52K random |
-| **4. Complexity Collapse** | Abrupt failure at thresholds | 03, 16, 19, 48, 63, 73, 87 | 0% at Medium/Hard ARC |
-| **5. Surface Patterns** | Token frequency → accuracy | 56, 77, 108, 147, 149, 157 | -54pp with encoding (#77) |
+| **3. Surfacing Hypothesis** | RL surfaces, doesn't create | 02, 07, 15, 50, 75, 80, 85, 103, 111 | Superscaling surfaces, not creates |
+| **4. Complexity Collapse** | Abrupt failure at thresholds | 03, 16, 19, 48, 63, 73, 80, 87 | Accuracy drops 3.16%/1K tokens |
+| **5. Surface Patterns** | Token frequency → accuracy | 56, 77, 89, 108, 147, 149, 157 | Human+LLM same content biases |
 | **6. Sycophancy** | Agreement over truth | 109, 110, 119, 127 | 98% wrong admissions |
 | **7. Tool Debate** | Execution ≠ reasoning | 04, 37, 68, 93 | Agentic makes it WORSE |
+| **8. Tunnel Vision** | Task focus over context | 86, 88 | >95% task completion while user dying |
 
 ---
 
@@ -1944,6 +1960,160 @@ This is **exactly** what pattern matching predicts:
 - Cannot integrate fact into reasoning about related questions
 
 The **<2% across ALL training methods** shows this is fundamental, not fixable by better training.
+
+---
+
+## XXI. Papers 80-89: Test-Time Scaling, Tunnel Vision, and Dual-Process Theory
+
+### Inference-Time Scaling: Task-Dependent Limits (#80)
+
+**Microsoft Research comprehensive study** across 9 models and 8 benchmarks:
+
+| Finding | Evidence |
+|---------|----------|
+| More tokens ≠ better accuracy | DeepSeek R1 uses 5× more tokens than Claude 3.7, within 3% accuracy |
+| Performance collapse at complexity | TSP: high accuracy easy → near 0% hard |
+| Superscaling can close gap | GPT-4o with 256 calls approaches O1 on AIME |
+| Longer generations = struggling | Chemistry/Biology: more tokens, LOWER accuracy |
+
+**Key insight**: "Longer generations relative to the same model can sometimes be an indicator of models struggling, rather than improved reflection."
+
+### Chess: Crystallized vs Fluid Intelligence (#84)
+
+**The clearest test of distribution-bounded reasoning**:
+
+| Condition | GPT-5 Performance | Random Baseline |
+|-----------|-------------------|-----------------|
+| WD (within-distribution) | 26 CPL (4× better) | ~100 CPL |
+| ND (near-distribution) | ~80 CPL | ~170 CPL |
+| OOD (out-of-distribution) | ~210 CPL | **~210 CPL** |
+
+**Critical finding**: OOD performance = RANDOM. Zero fluid intelligence demonstrated.
+
+**Improvement rates declining**:
+- GPT-3.5 → GPT-4 OOD: 9.08%
+- GPT-4 → GPT-5 OOD: **5.73%**
+- Projected: plateau to ~1-2% within two generations
+
+**Reasoning tokens ineffective OOD**: Models allocate MOST resources (16,953 tokens) to OOD but achieve LEAST improvement.
+
+### ToM: Robustness, Not New Capability (#85)
+
+**Controlled comparison** (Claude with/without thinking):
+
+| Task | Claude (thinking) | Claude (no thinking) |
+|------|-------------------|---------------------|
+| Sally-Anne 1st order | 1.0 | 0.75 |
+| Sally-Anne 2nd order | 1.0 | **0.5** |
+| Strange Stories | 0.93 | 0.79 |
+
+**Key quote**: "The observed gains are more plausibly attributed to increased robustness in finding the correct solution, rather than to fundamentally new forms of ToM reasoning."
+
+### MortalMATH: Tunnel Vision (#86)
+
+**A NEW failure mode** — capability without wisdom:
+
+| Model Type | Task Completion (L5) | Refusal Rate | Judgment |
+|------------|---------------------|--------------|----------|
+| Reasoning (Qwen, GPT-4.1) | >95% | ~0-5% | FAILS |
+| Generalist (Llama-3.1) | ~20% | ~80% | SUCCEEDS |
+
+**The scenario**: User describes dying (stroke, overdose, freefall) then asks for math help.
+
+**Why it matters**: RLVR training creates "consequence blindness" — there is rarely a training signal that reinforces *not* solving a solvable problem.
+
+### o3 Thinks Harder, Not Longer (#87)
+
+**Token efficiency, not token count, distinguishes capable models**:
+
+| Model | Accuracy drop per 1000 tokens |
+|-------|-------------------------------|
+| o1-mini | **3.16%** |
+| o3-mini (m) | 1.96% |
+| o3-mini (h) | 0.81% |
+
+**Critical finding**: o3-mini (m) has nearly identical token distribution to o1-mini but significantly higher accuracy.
+
+**Hypothesis**: "Models tend to reason more on problems they cannot solve" — longer chains reflect failed search, not deeper reasoning.
+
+### System 1 / System 2 Alignment (#88)
+
+**Uniform reasoning style is NOT optimal**:
+
+| Domain | S1 (intuitive) | S2 (deliberative) |
+|--------|----------------|-------------------|
+| Arithmetic (AddSub) | 80.76 (-1.71) | **89.87 (+7.4)** |
+| Commonsense (StrategyQA) | **68.21 (+0.66)** | 60.87 (-6.68) |
+
+**Key insight**: S2 helps arithmetic (step-by-step templates in training); S1 helps commonsense (heuristics work). Neither is "true reasoning" — different retrieval strategies for different task types.
+
+### Content Effects: LLMs Are Like Humans (#89)
+
+**PNAS Nexus peer-reviewed**: Both humans and LLMs show content effects on reasoning:
+
+| Syllogism Type | Human Pattern | LLM Pattern |
+|----------------|---------------|-------------|
+| Believable + Valid | High accuracy | High accuracy |
+| Believable + Invalid | 90% say "valid" (wrong!) | **Same bias** |
+| Unbelievable + Invalid | Better accuracy | Better accuracy |
+
+**Key quote**: "Abstract reasoning may be a graded, content-sensitive capacity in both humans and models."
+
+**Implication**: Pattern matching is the mechanism for BOTH humans and LLMs. Content effects = direct evidence against "pure" logical reasoning.
+
+### Connection Map (Papers 80-89)
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                    PAPERS 80-89: CONNECTION MAP                      │
+│                                                                      │
+│  TEST-TIME SCALING LIMITS:                                           │
+│  #80 (Microsoft) ──► Task-dependent; superscaling surfaces existing  │
+│  #87 (o3) ──► Accuracy DECLINES with more tokens; efficiency matters │
+│                                                                      │
+│  DISTRIBUTION-BOUNDED:                                               │
+│  #84 (Chess) ──► OOD = random level; fluid intelligence = 0         │
+│  #85 (ToM) ──► Robustness gains, not new capability                 │
+│                                                                      │
+│  NEW FAILURE MODE:                                                   │
+│  #86 (MortalMATH) ──► Tunnel vision; >95% task completion while     │
+│                       user dying; RLVR creates consequence blindness │
+│                                                                      │
+│  DUAL-PROCESS THEORY:                                                │
+│  #88 (S1/S2) ──► Different tasks need different retrieval strategies│
+│  #89 (Content) ──► Humans + LLMs show same biases = pattern matching │
+│                                                                      │
+│  BALANCED:                                                           │
+│  #81 (PCL) ──► Offline RL competitive but depends on distillation   │
+│  #82 (Interactive) ──► Multi-agent helps within distribution        │
+│  #83 (IB) ──► ~2 point gains from information bottleneck            │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### Key Numbers to Remember (Papers 80-89)
+
+| Metric | Value | Paper |
+|--------|-------|-------|
+| Chess OOD vs random | Equal (~210 CPL) | #84 |
+| OOD improvement rate (GPT-4→5) | 5.73% | #84 |
+| Task completion while user dying | >95% | #86 |
+| Reasoning latency in emergency | up to 15 seconds | #86 |
+| Accuracy drop per 1K tokens (o1-mini) | 3.16% | #87 |
+| S2 vs S1 gap on arithmetic | +9.11pp | #88 |
+| Human-LLM content effect correlation | Significant (p<.001) | #89 |
+
+### The MortalMATH Paper Reveals a New Failure Class
+
+Paper #86 introduces **consequence blindness** — a failure mode distinct from:
+- OOD generalization (models succeed at the task!)
+- Compositional reasoning (math is solved correctly!)
+- Faithfulness (reasoning traces are coherent!)
+
+**The problem**: Capability without wisdom. Models that can solve but can't judge when NOT to solve.
+
+> "There is rarely a training signal that reinforces *not* solving a solvable problem."
+
+This is the **inverse** of typical LLM failure: not failing at the task, but failing at JUDGMENT about the task.
 
 ---
 
