@@ -787,6 +787,199 @@ Paper #19 provides the theoretical backbone:
 
 ---
 
+## XV. The Evidence Crystallizes (Papers 20-29)
+
+Papers 20-29 establish devastating evidence for the pattern-matching thesis: the "Unpuzzle" paradigm, the planning generalization gap, and the mathematical impossibility of implicit reasoning.
+
+### The Unpuzzle Paradigm
+
+Paper #20 (Frontier LLMs Still Struggle) introduces "Unpuzzles" — problems made TRIVIAL:
+
+| Model | Original Puzzle | Trivial Version | Context-Shifted |
+|-------|----------------|-----------------|-----------------|
+| GPT-4o | 75.3% | **19.6%** | 52% |
+| o1 | 86.7% | 59.8% | 59% |
+| R1 | 87.6% | 59.8% | 67% |
+
+**Reasoning Delirium**: Models apply memorized solutions to wrong problems. Making puzzles EASIER makes performance WORSE because memorization interferes.
+
+**R1 at 0% on character counting**: Flagship reasoning model fails at trivially simple task.
+
+### Reflection Is Illusion
+
+Paper #21 (Illusions of Reflection) shows that LLM "reflection" doesn't work like human meta-reasoning:
+
+| Metric | Value |
+|--------|-------|
+| Same-failure repetition rate | **85.36%** |
+| Chance benchmark | 74.69% |
+| Reasoning model advantage | **NONE** (actually worse: -0.075) |
+
+> "Fluent self-critique without correction."
+
+Models produce text that LOOKS like reflection (mentioning constraints, acknowledging errors) but fail to bind those labels to generation. Just trying again works as well as "reflection."
+
+### The Self-Conditioning Effect
+
+Paper #22 (Illusion of Diminishing Returns) discovers that errors beget errors:
+
+| Induced Error Rate | Turn 100 Accuracy |
+|--------------------|-------------------|
+| 0% (healed) | ~90% |
+| 50% | ~60% |
+| 100% | **~40%** |
+
+**Critical**: This is OPPOSITE to humans who improve with practice. Models condition on their mistakes.
+
+**Thinking models fix this**: Qwen3-32B thinking shows only 1% degradation vs 50% for non-thinking.
+
+**GPT-5 executes 2176 steps** — 5× ahead of next competitor (Claude-4: 432).
+
+### The Pattern Regurgitator Proof
+
+Paper #23 (Can LLM Graph Reasoning Generalize) provides peer-reviewed terminology:
+
+| Pattern Type | Significant Transfer | Strong Recovery |
+|--------------|---------------------|-----------------|
+| Semantic | 69% | 21% |
+| Numerical | ~75% | ~35% |
+| Structural | ~75% | ~50% |
+| **Reasoning** | **33%** | **0%** |
+| **Real-world** | **6%** | **69% counterproductive** |
+
+> "LLMs are pattern regurgitators, not robust graph reasoners." (EMNLP 2024)
+
+**Synthetic training HURTS real-world**: 69% of cases show degradation after synthetic graph tuning.
+
+### The Exponential Barrier
+
+Paper #24 (CoT Compression Theory) proves mathematically why implicit reasoning fails:
+
+| Interaction Order | Signal Strength | Sample Requirement |
+|-------------------|-----------------|-------------------|
+| r = 2 | Θ(m^-2) | n ∝ m² |
+| r = 3 | Θ(m^-3) | n ∝ m⁴ |
+| r = 4 | Θ(m^-4) | n ∝ m⁶ |
+
+**Why commonsense "works"**: Low-order correlations dominate (semantic shortcuts).
+
+**Why math fails**: Requires genuinely high-order logic that can't be approximated by pattern matching.
+
+> "The learning signal required to learn high-order logical dependencies decays exponentially."
+
+### The Superficial Bias Paradox
+
+Paper #25 (Reasoning Model Is Superior Judge) reveals a paradox:
+
+| Model | BiasBench (length bias) |
+|-------|------------------------|
+| DeepSeek-V3 | 88.24 |
+| **DeepSeek-R1** | **58.82** |
+
+**Reasoning models are MORE susceptible to superficial biases!** If they truly reasoned, they should be LESS fooled by length.
+
+> "LRM-as-a-Judge often systematically evaluates responses against metrics" — pattern matching the metric words.
+
+### The No Free Lunch Principle
+
+Paper #26 (No Free Lunch: Internal Feedback) shows RLIF (RL from Internal Feedback) degrades performance:
+
+| Steps | Total Right Answers |
+|-------|---------------------|
+| 0 | 291 |
+| 40 | **235** |
+
+**Format improves, reasoning degrades**: Models get better at format (pass rate up) while actual correct answers decrease.
+
+> "The increase in performance is mainly due to enhancement of instruction-following ability, while reasoning ability increases a little."
+
+**Transitional words decrease 37%**: "but", "wait", "let me check" suppressed by entropy minimization → reasoning paths cut off.
+
+### The Neuro-Symbolic Consensus
+
+Paper #27 (Neuro-Symbolic AI survey) states explicitly:
+
+> "LLMs struggle with complex reasoning problems; they only attempt to replicate reasoning steps in training data, and cannot really reason."
+
+> "They remain data-driven machine learning models that rely on statistical pattern recognition rather than formal logical reasoning."
+
+The entire neuro-symbolic field exists because LLMs cannot reason alone.
+
+### The English-Centric Boundary
+
+Paper #28 (Multilingual Latent Reasoners) shows latent reasoning is real but fragile:
+
+| Benchmark | English LRS (7B) |
+|-----------|------------------|
+| MGSM (easy) | 0.38 |
+| **AIME (hard)** | **0.03** |
+
+**92% drop on hard problems**. Latent reasoning converges to English-centric pathway — distribution-bounded.
+
+> "Large Reasoning Models Are **(Not Yet)** Multilingual Latent Reasoners"
+
+### The Planning Gap
+
+Paper #29 provides the starkest evidence:
+
+| Condition | Valid Plan Rate |
+|-----------|-----------------|
+| In-domain | **82.9%** |
+| Unseen domains | **0%** |
+
+**Symbol anonymization causes catastrophic collapse**: Maintenance domain 98% → 0%.
+
+> "The model tends to get caught in loops or to wander without making progress toward the goal."
+
+**RL doesn't help OOD**: Verifier-reward RL doesn't improve cross-domain generalization.
+
+### Connection Map (Papers 20-29)
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                    PAPERS 20-29: CONNECTION MAP                      │
+│                                                                      │
+│  MEMORIZATION EVIDENCE:                                              │
+│  #20 (Unpuzzles) ──► Easier = worse when memorization interferes     │
+│  #23 (NLGift) ──► "Pattern regurgitators" (EMNLP peer-reviewed)      │
+│                                                                      │
+│  REFLECTION FAILURE:                                                 │
+│  #21 (Illusions of Reflection) ──► 85% same-failure repetition       │
+│  #26 (No Free Lunch) ──► RLIF degrades reasoning (291→235)           │
+│                                                                      │
+│  EXECUTION LIMITS:                                                   │
+│  #22 (Diminishing Returns) ──► Self-conditioning (errors beget)      │
+│  #29 (Planning Gap) ──► 82.9% ID → 0% OOD                            │
+│                                                                      │
+│  MATHEMATICAL FOUNDATION:                                            │
+│  #24 (CoT Compression) ──► Exponential decay of high-order signal    │
+│  #27 (Neuro-Symbolic) ──► "Cannot really reason" (survey consensus)  │
+│                                                                      │
+│  DISTRIBUTION BOUNDARIES:                                            │
+│  #28 (Multilingual) ──► English-centric, fragile on hard problems    │
+│  #25 (LRM Judge) ──► MORE susceptible to superficial biases          │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### Key Numbers to Remember (Papers 20-29)
+
+| Metric | Value | Paper |
+|--------|-------|-------|
+| GPT-4o Unpuzzle collapse | 75% → 20% | #20 |
+| R1 character counting accuracy | 0% | #20 |
+| Reflection same-failure rate | 85.36% | #21 |
+| Self-conditioning degradation | -50% at 100% error | #22 |
+| GPT-5 execution horizon | 2176 steps | #22 |
+| Reasoning pattern strong recovery | 0% | #23 |
+| Real-world transfer counterproductive | 69% | #23 |
+| High-order signal decay | Θ(m^-r) | #24 |
+| LRM length bias susceptibility | 32pp WORSE | #25 |
+| RLIF correct answer decrease | 291→235 | #26 |
+| Latent reasoning AIME collapse | 0.38→0.03 | #28 |
+| Planning ID→OOD gap | 82.9%→0% | #29 |
+
+---
+
 *This memento represents the complete picture from 192 papers. The tattoos don't lie. The hull boundary is real. The evidence converges.*
 
 **Remember: It's retrieval, not reasoning. Over and over.**
