@@ -1183,5 +1183,66 @@ Karpathy's framework **strongly supports** the thesis that LLMs are sophisticate
 
 ---
 
+## AI Thought Leaders: Key Quotes on LLM Limitations (2025-2026)
+
+A collection of influential quotes from four key thinkers who share overlapping themes: realism about limitations, need for human oversight, and paradigm shifts beyond pure scaling.
+
+### Andrej Karpathy
+
+| Quote | Source | Meaning |
+|-------|--------|---------|
+| "We're summoning ghosts, not building animals" | 2025 LLM Year in Review (Dec 2025) | LLMs are pattern-matchers from text optimization — not evolved intelligences |
+| "Jagged intelligence" | 2025 Year in Review | Superhuman in verifiable domains, drops sharply on basics (counting, spatial reasoning) |
+| "Slopacolypse" | Jan 2026 X thread | Forecast: massive flood of low-quality AI-generated content |
+| "Feel the AGI moments" | Jan 2026 X thread | Agents loop tirelessly on problems — huge leverage, but still fallible |
+| "Threshold of coherence" | Jan 2026 X thread | ~Dec 2025 point where agents became reliably coherent over long horizons |
+| "Agentic engineering" | Feb 2026 retrospective | Evolution from "vibe coding" to orchestrating agents with engineering oversight |
+
+### Richard Sutton
+
+| Quote | Source | Meaning |
+|-------|--------|---------|
+| "The Bitter Lesson" | 2019 essay, reaffirmed 2025 | Compute-leveraging methods ultimately outperform human-knowledge injection |
+| "LLMs are a dead end" | Dwarkesh Patel interview (Sep 2025) | Next-token prediction lacks goals, world models, continual learning |
+| "No on-the-job learning" | 2025 podcasts | Core LLM flaw: mimicry without adaptation/experience like animals |
+
+**Thesis Relevance**: Sutton's critique is foundational — LLMs fundamentally lack the experiential learning loop that characterizes animal intelligence. This aligns with Karpathy's "ghosts vs animals" and our surfacing hypothesis.
+
+### Jeremy Howard
+
+| Quote | Source | Meaning |
+|-------|--------|---------|
+| "99.9% of attention is about to be LLM attention" | March 2025 (llms.txt proposal) | Future web must prioritize LLM consumption over human readers |
+| "Build to Last" | O'Reilly/Fast.ai (Nov 2025) | Defend software craftsmanship amid AI hype; resist abandoning mastery |
+| "Dialogue engineering" | 2025 Latent Space, Answer.ai | Beyond prompt engineering: structured human-AI conversations |
+
+**Thesis Relevance**: Howard emphasizes the need for human expertise and craftsmanship — AI amplifies but doesn't replace skill. The "dialogue engineering" concept acknowledges LLMs need human guidance.
+
+### Ethan Mollick
+
+| Quote | Source | Meaning |
+|-------|--------|---------|
+| "Always invite AI to the table" | Co-Intelligence book (2024-2025) | Include AI in every task to discover capabilities through experimentation |
+| "Be the human in the loop" | Co-Intelligence | Essential oversight: guide, correct, verify AI outputs |
+| "Co-intelligence" | Book title & concept | Humans + AI as symbiotic partners; harness jagged frontier thoughtfully |
+| "Working with wizards" | Sep 2025 Substack | Shift from collaborative partners to conjuring from black boxes |
+
+**Thesis Relevance**: Mollick's "jagged frontier" directly acknowledges uneven capabilities. His emphasis on human-in-the-loop implicitly recognizes LLMs cannot be trusted autonomously.
+
+### Synthesis: The Emerging Consensus
+
+All four thinkers converge on key points that align with our thesis:
+
+| Theme | Karpathy | Sutton | Howard | Mollick |
+|-------|----------|--------|--------|---------|
+| **LLM limitations are structural** | Ghosts, not animals | Dead end without new architectures | Build to Last | Jagged frontier |
+| **Human oversight required** | Agentic engineering | On-the-job learning missing | Dialogue engineering | Human in the loop |
+| **Pattern matching, not reasoning** | Statistical imitator | No world models | — | Working with wizards |
+| **Pragmatic optimism** | Useful ghosts | Bitter lesson (compute works) | LLM attention era | Co-intelligence |
+
+**Key Insight**: None of these thinkers claim LLMs "reason" in the human sense. They advocate productive use while acknowledging fundamental limitations — exactly the position our corpus supports.
+
+---
+
 *Last updated: 2026-02-14*
 
