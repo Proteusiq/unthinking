@@ -300,52 +300,65 @@
     };
   }
 
-  // Smart breathing animation - pauses when not visible to save CPU
+  // Idle breathing - periodic nudges instead of continuous animation loop
+  // Uses setTimeout (non-blocking) instead of requestAnimationFrame (CPU-bound)
   function startBreathing() {
-    let lastTime = 0;
-    let animationId = null;
     let isVisible = true;
     let isTabActive = true;
+    let nudgeTimeout = null;
+    const NUDGE_INTERVAL = 3000; // Nudge every 3 seconds
+    const NUDGE_STRENGTH = 0.008;
 
     // Give each node a unique phase offset for organic movement
     state.nodes.forEach((node, i) => {
-      node.phaseX = Math.random() * Math.PI * 2;
-      node.phaseY = Math.random() * Math.PI * 2;
-      node.speedX = 0.0003 + Math.random() * 0.0002;
-      node.speedY = 0.0003 + Math.random() * 0.0002;
+      node.phaseOffset = Math.random() * Math.PI * 2;
     });
 
-    function animate(time) {
-      // Only animate if visible, tab active, and not paused
+    function nudge() {
+      // Only nudge if visible, tab active, and not paused
       if (!state.breathingPaused && isVisible && isTabActive) {
-        // Throttle to ~20fps (every 50ms) instead of 60fps
-        if (time - lastTime > 50) {
-          // Apply smooth sine-wave motion to each node
-          state.nodes.forEach((node) => {
-            if (!node.fx && !node.fy) {
-              node.vx += Math.sin(time * node.speedX + node.phaseX) * 0.015;
-              node.vy += Math.cos(time * node.speedY + node.phaseY) * 0.015;
-            }
-          });
-
-          // Keep simulation gently alive, but let it settle more
-          if (state.simulation.alpha() < 0.01) {
-            state.simulation.alpha(0.01).restart();
+        const time = Date.now();
+        
+        // Apply gentle random drift to a subset of nodes (not all)
+        state.nodes.forEach((node, i) => {
+          if (!node.fx && !node.fy && i % 3 === Math.floor(time / 1000) % 3) {
+            // Gentle sine-based nudge
+            node.vx += Math.sin(time * 0.001 + node.phaseOffset) * NUDGE_STRENGTH;
+            node.vy += Math.cos(time * 0.001 + node.phaseOffset) * NUDGE_STRENGTH;
           }
-          lastTime = time;
-        }
+        });
+
+        // Wake simulation briefly - it will settle on its own
+        state.simulation.alpha(0.03).restart();
       }
 
-      animationId = requestAnimationFrame(animate);
+      // Schedule next nudge (non-blocking, doesn't spin CPU)
+      nudgeTimeout = setTimeout(nudge, NUDGE_INTERVAL);
+    }
+
+    function stopNudging() {
+      if (nudgeTimeout) {
+        clearTimeout(nudgeTimeout);
+        nudgeTimeout = null;
+      }
+      if (state.simulation) {
+        state.simulation.stop();
+      }
+    }
+
+    function startNudging() {
+      if (!nudgeTimeout && isVisible && isTabActive) {
+        nudge();
+      }
     }
 
     // Pause when tab is hidden (Page Visibility API)
     document.addEventListener('visibilitychange', () => {
       isTabActive = document.visibilityState === 'visible';
-      if (!isTabActive && state.simulation) {
-        state.simulation.stop();
-      } else if (isTabActive && state.simulation && isVisible) {
-        state.simulation.restart();
+      if (!isTabActive) {
+        stopNudging();
+      } else if (isVisible) {
+        startNudging();
       }
     });
 
@@ -355,10 +368,10 @@
       const observer = new IntersectionObserver(
         (entries) => {
           isVisible = entries[0].isIntersecting;
-          if (!isVisible && state.simulation) {
-            state.simulation.stop();
-          } else if (isVisible && isTabActive && state.simulation) {
-            state.simulation.alpha(0.01).restart();
+          if (!isVisible) {
+            stopNudging();
+          } else if (isTabActive) {
+            startNudging();
           }
         },
         { threshold: 0.1 }
@@ -366,7 +379,8 @@
       observer.observe(graphContainer);
     }
 
-    animationId = requestAnimationFrame(animate);
+    // Start after initial settling (let the entrance animation finish)
+    setTimeout(startNudging, 5000);
   }
 
   // ==========================================================================
