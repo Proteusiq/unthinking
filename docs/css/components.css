@@ -812,14 +812,6 @@
   animation: pulse 2s ease-in-out infinite;
 }
 
-/* GPU-accelerated breathing animation - runs on compositor thread, 0% CPU */
-/* Animate the circle INSIDE the node group, not the group itself */
-/* This preserves D3's transform="translate(x,y)" on the parent <g> */
-.node.breathing circle {
-  animation: breathe 4s ease-in-out infinite;
-  will-change: transform;
-}
-
 /* Animations */
 @keyframes pulse {
   0%,
@@ -830,16 +822,6 @@
   50% {
     transform: scale(1.05);
     opacity: 0.8;
-  }
-}
-
-/* Breathing animation - GPU-accelerated via transform */
-@keyframes breathe {
-  0%, 100% {
-    transform: scale(1) translateZ(0);
-  }
-  50% {
-    transform: scale(1.03) translateZ(0);
   }
 }
 @keyframes float {
