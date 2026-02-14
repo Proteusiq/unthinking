@@ -1673,6 +1673,218 @@ Paper #69 provides the cleanest test of systematic generalization:
 
 ---
 
+## Section XX: Papers 70-79 — Memorization vs Reasoning, Circuit Verification, and the Power-Law
+
+### The Knowledge Update Paradox (#70)
+
+**Direct vs Indirect Probing** — the smoking gun for memorization:
+
+| Method | Direct Probing (MCQ) | Indirect Probing (Reasoning) |
+|--------|---------------------|------------------------------|
+| Standard CPT | ~70% | **<2%** |
+| CPT + Rephrase | ~75% | **<2%** |
+| MCT (their best) | ~80% | **<2%** |
+| RAG Oracle | ~95% | ~85% |
+
+> "An LLM might memorize that H&M exited Russia, yet still erroneously recommend shopping from H&M in Moscow when probed indirectly"
+
+**ALL continued pre-training methods fail at <2%** for indirect probing (reasoning).
+
+**Direct probing = pattern matching** (retrieve what was seen)
+**Indirect probing = reasoning** (apply knowledge to novel situation)
+
+### Circuit Verification: Error Signatures Are Domain-Specific (#72)
+
+**CRV achieves 92.47% AUROC** for detecting reasoning errors via attribution graphs.
+
+**Critical finding: No universal reasoning circuit**
+
+| Train On | Test On Arithmetic | Test On GSM8K |
+|----------|-------------------|---------------|
+| Arithmetic | 92.47 | 57.04 |
+| GSM8K | 55.11 | 70.17 |
+| Boolean | 69.59 | 44.37 |
+
+Error signatures are domain-specific — each task has its own learned patterns.
+
+**Causal interventions work**: Clamping specific features can fix errors. But this shows reasoning is pattern execution, not flexible derivation.
+
+### The Power-Law Explains Compositional Failure (#75 STEPS)
+
+**THE mechanism for why compositions fail**:
+
+> "While individual atomic skills are abundantly represented in training corpora, complex skill combinations follow a long-tailed, power-law distribution"
+
+**Models don't see enough examples** of complex combinations.
+
+| Skill Depth (k) | Performance |
+|-----------------|-------------|
+| k=1 (atomic) | -22.75 |
+| k=2 | **+23.91** (critical leap) |
+| k=3 | 24.82 |
+| k∈[1,6] mix | **31.52** |
+
+**4K targeted samples > 52K random samples** — targeted synthesis beats volume.
+
+**Unconstrained diversity HURTS**: Random combinations conflict with learned patterns.
+
+### Ordered Composition: 75% Ceiling (#74 — ACL 2025)
+
+**Even the best model (Llama3.1-405B) achieves only ~75%** when asked to include concepts in a specific order:
+
+| Model | Coverage w/o order | Coverage w/ order |
+|-------|-------------------|-------------------|
+| Llama3.1-405B | 98.91% | **74.44%** |
+| GPT-4o | 95.26% | 42.19% |
+| Qwen2-72B | 94.99% | 32.09% |
+
+**Models produce identical outputs despite different orders** — ignoring instructions to follow learned patterns.
+
+### Algebraic Tasks: Can't Override Priors (#73)
+
+**Simple test**: Swap operator precedence (addition before multiplication)
+
+| Model | 0-shot | Best with iterative prompting |
+|-------|--------|-------------------------------|
+| Gemini-2.0 | 0.35 | 0.525 |
+| DeepSeek-R | 0.665 | 0.87 |
+
+> "LLMs fail to generalize to patterns beyond their observed data"
+
+**Simpler examples often work better** — suggests pattern matching from examples, not rule learning.
+
+### CryptoX: 40-54pp Drops with Encoding (#77)
+
+**Encoding a few words collapses performance**:
+
+| Model | 0 words encoded | 10 words encoded | Drop |
+|-------|-----------------|------------------|------|
+| o1 | 96.99% | 84.48% | -12.5pp |
+| GPT-4o | 75.95% | 36.49% | **-39.5pp** |
+| Qwen2.5-72B | 87.58% | 37.5% | **-50pp** |
+| Llama-3.1-70B | 66.93% | 12.9% | **-54pp** |
+
+**Open vs Closed gap**: Best open-source AUC (2.47) < median closed-source
+
+**Mechanistic analysis**: Different layers handle decoding vs reasoning — sequential pattern application.
+
+### ARC and Language of Thought (#79)
+
+**Process vs Results** — the critical distinction:
+
+| Measure | Value |
+|---------|-------|
+| Correct answers (CoT) | 10.6% |
+| Correct answers + correct process | **4.0%** |
+
+**60% of "successes" were lucky pattern matches** — wrong reasoning, right answer.
+
+**By difficulty**:
+| Difficulty | Average Accuracy |
+|------------|-----------------|
+| Entry | 56.67% |
+| Easy | 23.67% |
+| Medium | **0%** |
+| Hard | **0.95%** |
+
+**LoTH Framework** identifies three deficits:
+1. **Logical Coherence**: Wrong processes produce right answers
+2. **Compositionality**: Can't combine functions
+3. **Productivity**: Can't generate novel instances
+
+### Monitorability: Faithfulness + Verbosity (#78)
+
+**New insight**: Even "faithful" CoT may not be monitorable.
+
+- **Faithful but not verbose**: Correct reasoning that isn't fully articulated
+- **Verbose but not faithful**: Lists factors but doesn't use them
+
+**Models leave out key factors** — hidden computation we can't audit.
+
+### O3 Shows Strategy Evolution (#71 — Balanced Evidence)
+
+**O3 develops meta-cognitive strategies** on symmetry breaking:
+
+| Agent | C3 Proximity | C5 Proximity |
+|-------|--------------|--------------|
+| O3 | **72.5%** | **57.5%** |
+| GPT-4.1 Nano | 1.2% | 4.4% |
+| Other models | Failed | Failed |
+
+**But**: Most models still fail completely. GPT-4.1, O3-mini all stuck in loops.
+
+**Discovery-Implementation Gap**: O3 surfaces strategies that weaker models can execute but not discover.
+
+### Latent CoT Survey (#76)
+
+**Explicit CoT limitations**:
+- Expressive redundancy (filler tokens)
+- Semantic bottleneck (forcing thought into tokens)
+
+**Latent CoT promise**:
+- Richer representations
+- Faster inference
+
+**BUT**:
+> "It is unclear whether models are performing genuine reasoning or simply exploiting input-output correlations"
+
+The survey acknowledges this is unresolved.
+
+### Connection Map (Papers 70-79)
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                    PAPERS 70-79: CONNECTION MAP                      │
+│                                                                      │
+│  MEMORIZATION VS REASONING:                                          │
+│  #70 (KUP) ──► Direct: ~80%, Indirect: <2%; H&M example              │
+│                                                                      │
+│  POWER-LAW MECHANISM:                                                │
+│  #75 (STEPS) ──► Compositions follow power-law; explains failure     │
+│  #73 (Algebraic) ──► Can't override learned priors                   │
+│  #74 (Ordered) ──► 75% ceiling; ignore instructions for patterns     │
+│                                                                      │
+│  CIRCUIT STRUCTURE:                                                  │
+│  #72 (CRV) ──► Error signatures domain-specific; no universal circuit│
+│  #77 (CryptoX) ──► Layered processing = sequential patterns          │
+│                                                                      │
+│  PROCESS ANALYSIS:                                                   │
+│  #79 (ARC LoTH) ──► 10.6% correct answers, only 4.0% correct process │
+│  #78 (Monitorability) ──► Even faithful CoT may not be verbose       │
+│                                                                      │
+│  BALANCED:                                                           │
+│  #71 (LoopBench) ──► O3 shows strategy evolution, most models fail   │
+│  #76 (Latent CoT) ──► Promise but "genuine reasoning" unresolved     │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### Key Numbers to Remember (Papers 70-79)
+
+| Metric | Value | Paper |
+|--------|-------|-------|
+| Indirect probing accuracy (ALL methods) | <2% | #70 |
+| CRV AUROC for error detection | 92.47% | #72 |
+| STEPS: 4K targeted > 52K random | 4K wins | #75 |
+| Ordered composition ceiling | 75% | #74 |
+| CryptoX encoding drop (Llama-70B) | -54pp | #77 |
+| ARC correct process rate | 4.0% (vs 10.6% answers) | #79 |
+| O3 symmetry breaking vs GPT-4.1 Nano | 72.5% vs 1.2% | #71 |
+
+### The KUP Paper is Definitive for Memorization vs Reasoning
+
+Paper #70 provides the clearest test:
+
+1. **Direct probing**: "What happened to H&M in Russia?" → 80% correct
+2. **Indirect probing**: "Where should I shop in Moscow?" → <2% avoid recommending H&M
+
+This is **exactly** what pattern matching predicts:
+- Can retrieve fact when asked directly
+- Cannot integrate fact into reasoning about related questions
+
+The **<2% across ALL training methods** shows this is fundamental, not fixable by better training.
+
+---
+
 *This memento represents the complete picture from 192 papers. The tattoos don't lie. The hull boundary is real. The evidence converges.*
 
 **Remember: It's retrieval, not reasoning. Over and over.**
