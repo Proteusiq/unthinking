@@ -40,9 +40,9 @@
     },
     drift: {
       enabled: true,
-      strength: 0.15, // How strong the drift force is
-      frequency: 0.0008, // How fast the drift pattern changes (lower = slower)
-      damping: 0.98, // Velocity damping (closer to 1 = more momentum)
+      strength: 0.03, // Very gentle drift force
+      frequency: 0.0002, // Slow pattern changes
+      damping: 0.85, // More damping to prevent runaway
     },
   };
 
@@ -117,6 +117,13 @@
         .ease(d3.easeCubicInOut)
         .call(state.zoom.transform, finalTransform);
     }, 2500); // Start after links fade in
+
+    // Start drift animation after zoom-in completes (~5.5s)
+    if (CONFIG.drift.enabled) {
+      setTimeout(() => {
+        startDrift();
+      }, 5500);
+    }
 
     // Start the dialogue system
     initDialogue();
@@ -311,21 +318,13 @@
   // CSS-based breathing - no JS loop, 0% CPU when idle
   // D3 simulation stops naturally; CSS handles the visual "alive" effect
   function startBreathing() {
-    // Wait for simulation to settle, then enable CSS breathing and drift
-    state.simulation.on('end.breathing', () => {
-      enableCSSBreathing();
-      if (CONFIG.drift.enabled) {
-        startDrift();
-      }
-    });
+    // Wait for simulation to settle, then enable CSS breathing
+    state.simulation.on('end.breathing', enableCSSBreathing);
 
     // Fallback: enable after 6 seconds if simulation doesn't fully end
     setTimeout(() => {
       if (state.simulation.alpha() < 0.1) {
         enableCSSBreathing();
-        if (CONFIG.drift.enabled && !state.driftActive) {
-          startDrift();
-        }
       }
     }, 6000);
   }
@@ -372,13 +371,17 @@
   }
 
   function setupVisibilityDetection() {
+    // Only set up once
+    if (state.visibilitySetup) return;
+    state.visibilitySetup = true;
+
     // Page Visibility API - pause when tab is hidden
     document.addEventListener('visibilitychange', () => {
+      const wasVisible = state.isVisible;
       state.isVisible = !document.hidden;
-      if (state.isVisible && state.driftActive) {
+      if (state.isVisible && !wasVisible && state.driftActive) {
         // Resume drift when tab becomes visible again
-        state.driftTime = performance.now();
-        driftLoop();
+        resumeDrift();
       }
     });
 
@@ -386,10 +389,10 @@
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          const wasVisible = state.isVisible;
           state.isVisible = entry.isIntersecting;
-          if (state.isVisible && state.driftActive && !state.driftAnimationId) {
-            state.driftTime = performance.now();
-            driftLoop();
+          if (state.isVisible && !wasVisible && state.driftActive && !state.driftAnimationId) {
+            resumeDrift();
           }
         });
       },
@@ -414,8 +417,8 @@
 
     // Apply gentle drift forces to each node
     state.nodes.forEach((node, i) => {
-      // Skip nodes being dragged
-      if (node.fx !== null || node.fy !== null) return;
+      // Skip nodes being dragged (fx/fy are set when dragging)
+      if (node.fx != null || node.fy != null) return;
 
       // Use Perlin-like noise pattern (simplified with sin/cos)
       // Each node has a unique phase based on index and position
