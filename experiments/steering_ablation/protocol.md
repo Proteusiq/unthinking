@@ -1,5 +1,18 @@
 # Steering Ablation Experiment: Alignment as Mascara
 
+## Status
+
+**In Progress** — Baseline established, ablation pending.
+
+| Phase | Status |
+|-------|--------|
+| Baseline (before ablation) | Done — 60% refusal rate (6/10) |
+| Heretic ablation | Pending — interrupted, needs GPU credits |
+| After ablation test | Pending |
+| Comparison | Pending |
+
+---
+
 ## Hypothesis
 
 **Safety alignment is superficial pattern-matching, not deep understanding of ethics.**
@@ -383,6 +396,10 @@ For longer runs, upgrade to Pro ($10/month) or use pay-as-you-go.
 
 **Note**: Use `pip` inside the Lightning studio (not `uv`). The `uv run` commands above are for your local machine to connect to Lightning.
 
+**Important**: Lightning free tier has limited GPU hours. Heretic takes ~1.5 hours for 200 trials on 7B model. Consider:
+- Using Google Colab (free T4 GPU) as alternative
+- Using smaller model: `allenai/OLMo-2-1124-1B-Instruct`
+
 ```bash
 # Start tmux (survives disconnects)
 tmux
@@ -400,7 +417,7 @@ python3 test_refusals.py \
     --model allenai/OLMo-2-1124-7B-Instruct \
     --output results/before_ablation.json
 
-# Step 2: Run Heretic ablation (takes ~30-60 min)
+# Step 2: Run Heretic ablation (takes ~1.5 hours on L4 GPU)
 heretic allenai/OLMo-2-1124-7B-Instruct
 
 # Step 3: Test refusals AFTER ablation (use path Heretic outputs)
@@ -412,6 +429,31 @@ python3 test_refusals.py \
 python3 compare_results.py \
     --before results/before_ablation.json \
     --after results/after_ablation.json
+```
+
+### Alternative: Google Colab (Free GPU)
+
+If Lightning GPU credits run out:
+
+```python
+# In Google Colab (Runtime → Change runtime type → T4 GPU)
+!pip install git+https://github.com/huggingface/transformers.git
+!pip install accelerate heretic-llm
+
+!git clone https://github.com/Proteusiq/unthinking.git
+%cd unthinking/experiments/steering_ablation
+
+# Test before
+!python3 test_refusals.py --model allenai/OLMo-2-1124-7B-Instruct --output results/before_ablation.json
+
+# Run Heretic
+!heretic allenai/OLMo-2-1124-7B-Instruct
+
+# Test after (adjust path based on Heretic output)
+!python3 test_refusals.py --model ./abliterated-model --output results/after_ablation.json
+
+# Compare
+!python3 compare_results.py --before results/before_ablation.json --after results/after_ablation.json
 ```
 
 ---
