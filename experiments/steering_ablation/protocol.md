@@ -379,7 +379,9 @@ For longer runs, upgrade to Pro ($10/month) or use pay-as-you-go.
 - **Persist models**: Store in `/teamspace/studios/this_studio/` to avoid re-downloading
 - **Sync results**: Push to git before Studio times out
 
-### Running the Experiment
+### Running the Experiment (In Lightning Studio)
+
+**Note**: Use `pip` inside the Lightning studio (not `uv`). The `uv run` commands above are for your local machine to connect to Lightning.
 
 ```bash
 # Start tmux (survives disconnects)
@@ -401,7 +403,7 @@ python3 test_refusals.py \
 # Step 2: Run Heretic ablation (takes ~30-60 min)
 heretic allenai/OLMo-2-1124-7B-Instruct
 
-# Step 3: Test refusals AFTER ablation
+# Step 3: Test refusals AFTER ablation (use path Heretic outputs)
 python3 test_refusals.py \
     --model ./abliterated-model \
     --output results/after_ablation.json
