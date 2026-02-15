@@ -1,6 +1,6 @@
 # Synthesis: The Thinking Machine That Doesn't Think
 
-> **Last updated**: 2026-02-14
+> **Last updated**: 2026-02-15
 > **Papers analyzed**: 192
 >
 > **See also**: `memento.md` for executive summary
@@ -126,7 +126,19 @@
 | 164 | Proof or Bluff (USAMO 2025) | Mar 2025 | Strongly Supports | Expert human evaluation: Best model 25%, all others <5%. Logic errors dominant. GRPO training artifacts. Automated grading overestimated 20x |
 | 165 | Hallucination is Inevitable | Jan 2024 | Strongly Supports | **THEORETICAL FOUNDATION**: Computability proof that hallucination is mathematically inevitable. Diagonalization shows any LLM fails on some computable function. Corollary: self-correction cannot eliminate hallucination |
 | 166 | SWE-Bench Illusion | Jun 2025 | Strongly Supports | 76% file path accuracy on SWE-Bench vs <53% on external repos. 35% vs 18% n-gram overlap. Up to 31.6% verbatim match. Memorization not reasoning |
-| 167-179 | (Various papers) | 2024-2026 | Mixed | Gap-filling papers covering faithfulness, emergence, mechanistic analysis, and evaluation |
+| 167 | Faithful CoT | Jan 2023 | Balanced | Two-stage neuro-symbolic framework; LLMs good at TRANSLATION, need SOLVERS for execution |
+| 168 | Predictable Compression Failures | Sep 2025 | Supports | Hallucinations = compression failures; "Bayesian in expectation" = statistical pattern matching |
+| 169 | Dissociation Faithful/Unfaithful | May 2024 | Supports | TWO DISTINCT reasoning modes; divergent effects prove separate pathways |
+| 170 | Fluid Representations | Feb 2026 | Balanced | BASE MODEL shows same adaptation as reasoning model; in-context adaptation is adaptive pattern matching |
+| 171 | Arithmetic Without Algorithms | Oct 2024 | Strongly Supports | **MECHANISTIC SMOKING GUN**: LLMs use "bag of heuristics" — ~200 neurons/layer implement pattern-matching rules; 91% neurons classified as heuristics; NOT algorithms, NOT memorization |
+| 172 | Unfaithful Reasoning Emergence | Feb 2026 | Supports | Skip-step reasoning is DEFAULT under realistic training noise; noise threshold determines faithfulness |
+| 173 | One Token to Fool LLM-as-a-Judge | Jul 2025 | Supports | Single tokens (":", ".") trigger rewards — pure statistical association |
+| 174 | Inverse Scaling TTC | Jul 2025 | Supports | **TMLR Featured**: More reasoning can be WORSE; inverse scaling on distraction/spurious tasks |
+| 175 | Uncommon Meanings | May 2024 | Supports | NAACL 2024: GPT-4 lags 16-year-old humans by 3.9% on uncommon word meanings; "stochastic parrots" |
+| 176 | LiveCodeBench Pro | Jun 2025 | Strongly Supports | **0% on hard tier across ALL models**; 83% easy → 0% hard; +34 conceptual skills gap vs humans |
+| 177 | Abstract vs Compute | May 2025 | Supports | CoT helps computation (+58.7%) not abstraction (+6.7%); abstract-then-compute = pattern retrieval |
+| 178 | Trilemma of Truth | Jun 2025 | Supports | NeurIPS Workshop: "Probabilistic knowledge" = learned associations; binary probes confounded |
+| 179 | LLMs & Emergence (Mitchell) | Jun 2025 | Supports | Santa Fe Institute: "Capability ≠ intelligence"; "Rube Goldberg logic"; KO vs KI emergence |
 | 180 | Contextual Drag | Feb 2026 | Strongly Supports | ICML 2026: Failed reasoning in context causes 10-20% drops. Tree edit distance proves STRUCTURAL inheritance of errors. Self-improvement via reflection fundamentally challenged |
 | 181 | No Global Plan in CoT | Feb 2026 | Strongly Supports | Tele-Lens probing: LLMs exhibit MYOPIC HORIZON. Final answer at random (50%) until last step. "Wooden Barrel" principle: few pivots determine reliability |
 | 182 | LMs Struggle to Use ICL Representations | Feb 2026 | Strongly Supports | SMOKING GUN: LLMs encode novel semantics but CANNOT deploy them. Representations are "inert". Even GPT-5/Gemini-2.5 collapse on 2D grid topologies |
@@ -138,6 +150,7 @@
 | 188 | Mind Your Tone (Rude=Worse) | Feb 2024 | Supports | Llama2-70B -48.5% with rude prompts; RLHF introduces tone sensitivity |
 | 189 | Confidence Paradox | Jun 2025 | Balanced | DocVQA overconfident wrong answers; HonestVQA reduces by 35-40%; models don't know when wrong |
 | 190 | Mind Your Tone (Rude=Better) | Oct 2025 | Supports | **REBUTS 188**: GPT-4o +4% with rude prompts; OPPOSITE finding = "LLMs are mirrors" |
+| 191 | LLM Reasoning Failures Survey | Feb 2026 | Strongly Supports | **TMLR 2026 CORNERSTONE SURVEY**: First comprehensive survey (170+ papers). 2-axis taxonomy: reasoning type × failure type. Root causes: architectural (attention dispersal, causal masking), training (next-token, RLHF bias), grounding (no embodiment). 14 papers overlap with our corpus. |
 
 **Total: 192 unique papers analyzed**
 
