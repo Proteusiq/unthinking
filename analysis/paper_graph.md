@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Last updated**: 2026-02-14
+> **Last updated**: 2026-02-15
 > **Papers tracked**: 192
 > **See also**: `memento.md` for executive summary
 
@@ -758,6 +758,17 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Arithmetic Without Algorithms (2410.21272)** | **extends** | **Recursive Problems (2305.14699)** | "Shortcut algorithms" = bag of heuristics |
 | **Arithmetic Without Algorithms (2410.21272)** | **provides evidence for** | **Pattern matching thesis** | MECHANISTIC SMOKING GUN: 91% of important neurons implement heuristics, not algorithms |
 
+### Paper 165: Hallucination is Inevitable (THEORETICAL FOUNDATION)
+
+| Paper A | Relationship | Paper B | Evidence |
+|---------|--------------|---------|----------|
+| **Hallucination Inevitable (2401.11817)** | **provides theoretical foundation for** | **Faith and Fate (2305.18654)** | Formalizes compositional generalization limits via computability |
+| **Hallucination Inevitable (2401.11817)** | **provides theoretical foundation for** | **Illusion of Thinking (2506.06941)** | Explains why complexity thresholds exist — mathematical necessity |
+| **Hallucination Inevitable (2401.11817)** | **supports** | **Can LLMs Reason and Plan (2403.04121)** | Formalizes Kambhampati's "approximate retrieval" argument |
+| **Hallucination Inevitable (2401.11817)** | **explains** | **Self-correction failures** | Corollary 1: LLMs cannot verify their own outputs |
+| **Hallucination Inevitable (2401.11817)** | **provides mechanism for** | **Pattern matching thesis** | Diagonalization shows any LLM can be "fooled" — characteristic of pattern matching |
+| **Hallucination Inevitable (2401.11817)** | **challenges** | **All CoT self-correction claims** | "Methods relying on LLMs themselves... cannot *eliminate* hallucination" |
+
 ### Paper 172: Unfaithful Reasoning Emergence
 
 | Paper A | Relationship | Paper B | Evidence |
@@ -785,6 +796,29 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Abstract vs Compute (2505.23701)** | **supports** | **GSM-Symbolic (2410.05229)** | Explains WHY perturbations fail: abstraction OK, computation fails |
 | **Trilemma of Truth (2506.23921)** | **supports** | **Faith and Fate (2305.18654)** | Distribution-bounded knowledge; training determines "truth" |
 | **LLMs & Emergence (2506.11135)** | **supports** | **OMEGA (2506.18880)** | Both show compositional generalization fails |
+
+### Papers 180-191: Myopic Horizon, Inert Representations, and the Cornerstone Survey
+
+| Paper A | Relationship | Paper B | Evidence |
+|---------|--------------|---------|----------|
+| **No Global Plan in CoT (2602.02103)** | **strongly supports** | **Faith and Fate (2305.18654)** | Both show no global planning; myopic = linearized pattern matching |
+| **No Global Plan in CoT (2602.02103)** | **supports** | **Planning Abilities (2305.15771)** | Both show LLMs lack genuine planning capabilities |
+| **No Global Plan in CoT (2602.02103)** | **supports** | **Can LLMs Reason and Plan (2403.04121)** | Both support Kambhampati's skeptic view |
+| **No Global Plan in CoT (2602.02103)** | **supports** | **Stop Anthropomorphizing (2504.09762)** | Both show CoT traces lack semantic planning |
+| **No Global Plan in CoT (2602.02103)** | **extends** | **Demystifying Long CoT (2502.03373)** | Explains WHY long CoT helps (more local transitions) |
+| **No Global Plan in CoT (2602.02103)** | **provides mechanism for** | **Pattern matching thesis** | Final answer at 50% until LAST step; myopic horizon confirmed |
+| **LMs Struggle ICL Representations (2602.04212)** | **strongly supports** | **Faith and Fate (2305.18654)** | Encoding ≠ deployment; inert representations = pattern matching |
+| **LMs Struggle ICL Representations (2602.04212)** | **supports** | **Reversal Curse (2309.12288)** | Both show LLMs store information but can't use it flexibly |
+| **LMs Struggle ICL Representations (2602.04212)** | **supports** | **Can ICL Generalize OOD (2410.09695)** | ICL implements pretraining functions, not new capabilities |
+| **LMs Struggle ICL Representations (2602.04212)** | **extends** | **No Global Plan (2602.02103)** | Another way representations fail to support reasoning |
+| **LMs Struggle ICL Representations (2602.04212)** | **provides SMOKING GUN for** | **Pattern matching thesis** | LLMs encode but CANNOT deploy; even GPT-5/Gemini-2.5 collapse on 2D grids |
+| **Contextual Drag (2602.04288)** | **strongly supports** | **Faith and Fate (2305.18654)** | Error inheritance = pattern matching; errors propagate structurally |
+| **Contextual Drag (2602.04288)** | **challenges** | **Self-improvement literature** | Self-refinement can collapse into self-deterioration |
+| **Contextual Drag (2602.04288)** | **supports** | **Illusions of Reflection (2510.18254)** | Both show self-correction fails; 85% same-failure rate |
+| **Contextual Drag (2602.04288)** | **provides mechanism for** | **Pattern matching thesis** | Tree edit distance proves STRUCTURAL inheritance of errors |
+| **LLM Reasoning Failures Survey (2602.06176)** | **synthesizes** | **14 papers in our corpus** | GSM-Symbolic, Faith & Fate, Reversal Curse, Token Bias, etc. |
+| **LLM Reasoning Failures Survey (2602.06176)** | **supports** | **Pattern matching thesis** | "Pattern matching, statistical associations, and heuristics rather than human-like reasoning" |
+| **LLM Reasoning Failures Survey (2602.06176)** | **provides framework for** | **Entire thesis** | 2-axis taxonomy (reasoning type × failure type) organizes evidence |
 
 ### Papers 180-190: Attacks, Training, and the "Mirror" Rebuttal
 
@@ -1077,6 +1111,17 @@ These papers have NO direct rebuttals found:
 ---
 
 ## Update Log
+
+### 2026-02-15
+| Papers Added | Key Findings |
+|--------------|--------------|
+| No Global Plan in CoT (2602.02103) | Tele-Lens probing: MYOPIC HORIZON; final answer at random (50%) until last step; "Wooden Barrel" principle |
+| LMs Struggle ICL Representations (2602.04212) | SMOKING GUN: LLMs encode novel semantics BUT CANNOT DEPLOY them; representations are 'inert'; even GPT-5/Gemini-2.5 fail |
+| Hallucination Inevitable (2401.11817) | THEORETICAL FOUNDATION: Computability proof via diagonalization; self-correction cannot eliminate hallucination |
+| Arithmetic Without Algorithms (2410.21272) | MECHANISTIC SMOKING GUN: ~200 neurons/layer implement "bag of heuristics"; 91% neurons classified as pattern-matchers |
+| LiveCodeBench Pro (2506.11928) | 0% on hard tier across ALL models; 83% easy → 0% hard; +34 conceptual skills gap vs humans |
+| LLM Reasoning Failures Survey (2602.06176) | TMLR 2026: COMPREHENSIVE SURVEY; 170+ papers; 2-axis taxonomy; 14 papers overlap with our corpus |
+| Contextual Drag (2602.04288) | ICML 2026: 10-20% drops from failed reasoning in context; structural inheritance of errors |
 
 ### 2026-02-10
 | Papers Added | Key Findings |
