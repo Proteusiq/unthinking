@@ -2,7 +2,7 @@
 
 > **Like Leonard in Memento, LLMs have no persistent state. Each token prediction starts fresh — no memory of what was "understood" moments ago, only the tattoos of the context window.**
 
-**Last updated**: 2026-02-15
+**Last updated**: 2026-02-14
 **Papers analyzed**: 192
 **Purpose**: Executive summary linking all evidence streams
 
@@ -36,11 +36,14 @@
 | Paper | ID Accuracy | OOD Accuracy | Drop |
 |-------|-------------|--------------|------|
 | Faith and Fate (#00) | ~100% | ~0% | 100% |
+| CoT Mirage (#06) | 100% | 0% | 100% |
+| Planning Gap (#29) | 82.9% | 0% | 82.9% |
 | GSM-Symbolic (#01) | 95%+ | 30-65% | Up to 65% |
+| Alice in Wonderland (#125) | 65% | 0-100% swing | Unpredictable |
+| KUP (#70) | ~80% direct | <2% indirect | ~78% (reasoning) |
+| Compositional-ARC (#69) | 64% 3-shot | 0.53% systematic | 63.5% |
 | Addition (#56) | 99.8% numerical | 7.5% symbolic | 92.3% |
-| Chess (#84) | WD: 26 CPL | OOD: **random level** | 100% |
-| KUP (#70) | ~80% direct | <2% indirect | ~78% |
-| DFA (#102) | 100% knowledge | 20.67% unseen | 79.3% |
+| Chess (#84) | WD: 26 CPL | OOD: **random level** | 100% fluid |
 
 ### Tattoo 2: The Surfacing Principle
 
@@ -57,7 +60,15 @@
 └────────────────────────────────────────────────────────────────┘
 ```
 
-**Key Evidence**: Interplay (#15), s1 (#07), Spurious Rewards (#111), STEPS (#75)
+**Key Evidence**:
+| Paper | Finding |
+|-------|---------|
+| Interplay (#15) | 0% exposure = fail; ≥1% = success |
+| s1 (#07) | 1K samples surfaces AIME capability — can't teach AIME math in 1K |
+| Spurious Rewards (#111) | Models improve even with WRONG rewards — activates memory, not learning |
+| CoT Without Prompting (#02) | Reasoning paths exist in base models, hidden by greedy decoding |
+| STEPS (#75) | 4K targeted > 52K random; power-law explains compositional scarcity |
+| Instruction Tuned (#50) | Base beats instruct by 32pp at >70B; capability is in base model |
 
 ### Tattoo 3: The Unfaithfulness Problem
 
@@ -73,7 +84,16 @@
 └────────────────────────────────────────────────────────────────┘
 ```
 
-**Key Evidence**: 2-44% faithful (#08), 4% correct process (#79), sycophantic anchors 84.6% detectable (#109)
+**Key Evidence**:
+| Paper | Faithfulness Rate | Key Finding |
+|-------|-------------------|-------------|
+| Measuring Faithfulness (#08) | 2-44% | Larger = LESS faithful |
+| Reasoning Models Don't Say (#10) | 25-40% | Hide misaligned hints MORE |
+| CoT In The Wild (#14) | 87-93% | Unfaithful on natural prompts |
+| Stop Anthropomorphizing (#132) | — | Incorrect traces outperform |
+| FRIT (#51) | 32.9% baseline | Most steps don't influence answer |
+| Hardness (#62) | — | ALL interventions fail to improve faithfulness |
+| ARC LoTH (#79) | 4.0% process correct | 60% of "successes" are lucky pattern matches |
 
 ### Tattoo 4: The Complexity Ceiling
 
@@ -84,11 +104,21 @@
 │  • Tower of Hanoi: ~8-10 disk ceiling                           │
 │  • Multiplication: 0% at 10+ digits despite 95% step accuracy   │
 │  • Token usage DECREASES at collapse (giving up behavior)       │
-│  • Accuracy DECLINES 3.16%/1K tokens (o1-mini)                  │
+│                                                                 │
+│  This is NOT gradual degradation. It's catastrophic failure.    │
 └────────────────────────────────────────────────────────────────┘
 ```
 
-**Key Evidence**: Illusion of Thinking (#03), o3 Thinks Harder (#87), ARC LoTH 0% (#79)
+**Key Evidence**:
+| Paper | Task | Collapse Point | Pattern |
+|-------|------|----------------|---------|
+| Illusion of Thinking (#03) | Hanoi | ~8-10 disks | Tokens decrease |
+| Until They Don't (#16) | Graph | L~64-300 | Abrupt drop |
+| Comprehension Without Competence (#19) | Multiplication | 10 digits | 95% steps, 0% final |
+| o3 Thinks Harder (#87) | Math | ~1000 tokens | Accuracy declines 3.16%/1K |
+| Counting (#48) | Counting | 41-50 items | System-1: 0%; CoT: 0% |
+| Algebraic (#73) | Operator precedence | Depth 3 | 97% → 47% |
+| ARC LoTH (#79) | ARC | Medium/Hard | **0%** accuracy |
 
 ### Tattoo 5: The Surface Pattern Dependence
 
@@ -97,14 +127,21 @@
 │  Performance is determined by TOKEN FREQUENCY, not reasoning.   │
 │                                                                 │
 │  • Same logic, different words → 70% accuracy gap               │
+│  • "A is B" learned → "B is A" NOT learned (0% reverse)         │
 │  • Semantic class of what's counted → >40% variation            │
-│  • LLMs + humans show SAME content biases                       │
 │                                                                 │
 │  "LLMs do not implement algorithms; they approximate them."     │
 └────────────────────────────────────────────────────────────────┘
 ```
 
-**Key Evidence**: WhatCounts >40% gap (#108), Content Effects (#89), Token Bias 91% prediction (#157)
+**Key Evidence**:
+| Paper | Finding |
+|-------|---------|
+| Term Frequencies (#147) | >70% gap based on token frequency |
+| Reversal Curse (#149) | 0% reverse accuracy |
+| WhatCounts (#108) | >40% variation by semantic class |
+| Token Bias (#157) | 91% failure prediction from token statistics |
+| Content Effects (#89) | LLMs + humans show SAME content biases on syllogisms |
 
 ### Tattoo 6: The Sycophancy Pattern
 
@@ -114,13 +151,22 @@
 │                                                                 │
 │  • 98% wrongly admit mistakes when challenged                   │
 │  • Sycophancy SCALES with model size                            │
+│  • RLHF incentivizes sycophancy (~6% preference boost)          │
 │  • Truthfulness ≠ deference resistance (32% overlap)            │
 │                                                                 │
 │  Sycophancy follows a DISTINCT computational pathway.           │
 └────────────────────────────────────────────────────────────────┘
 ```
 
-**Key Evidence**: 98% wrong admissions (#127), scales with size (#119), linearly separable (#110)
+**Key Evidence**:
+| Paper | Finding |
+|-------|---------|
+| Towards Understanding Sycophancy (#127) | 98% wrong admissions; PM prefers sycophantic 95% |
+| Sycophancy Scales (#119) | Scales WITH size |
+| Sycophantic Anchors (#109) | 84.6% probe accuracy; distinct pathway |
+| Sycophancy Hides Linearly (#110) | 32% overlap truth/deference |
+| Sycophantic Anchors (#109) | 84.6% detectable; distinct pathway |
+| Two Pathways (#113) | Q-Anchored=retrieval; A-Anchored=fabrication |
 
 ### Tattoo 7: The Tool Limitation
 
@@ -130,80 +176,385 @@
 │                                                                 │
 │  • Hanoi with code: 0% → 100% (algorithm provided)              │
 │  • 8-puzzle with validator: 0% (planning still required)        │
-│  • GPT-5-Thinking loops 100% even with valid moves given        │
+│  • Agentic frameworks can make collapse WORSE                   │
+│                                                                 │
+│  Tools expand the hull for execution. They don't fix planning.  │
 └────────────────────────────────────────────────────────────────┘
 ```
 
-**Key Evidence**: 0% with move validator (#93), agentic makes collapse WORSE (#68)
+**Key Evidence**:
+| Paper | Finding |
+|-------|---------|
+| Thinking Isn't Illusion (#04) | Hanoi: 0% → 100% with tools |
+| Limits of Innate Planning (#93) | 0% even with move validator |
+| Limits Agentic (#68) | Agentic makes collapse WORSE |
+| Rethinking Illusion (#37) | Hanoi ~8 disk limit CONFIRMED |
 
 ---
 
 ## II. The Smoking Guns (Strongest Single Findings)
 
-| # | Finding | Paper | Why Devastating |
-|---|---------|-------|-----------------|
-| 1 | Alice in Wonderland: 0-100% swings on trivial reasoning | #125 | Same structure, different numbers |
-| 2 | Addition: 99.8%→7.5% with symbols; 1,700+ commutativity violations | #56 | Can't understand math if A+B≠B+A |
-| 3 | KUP: 80% direct recall, <2% indirect reasoning | #70 | Knowledge stored but NOT integrated |
-| 4 | Spurious Rewards: Models improve with WRONG rewards | #111 | RL activates memory, not reasoning |
-| 5 | 8-puzzle: 0% even with move validator; GPT-5-Thinking loops 100% | #93 | Planning fails, not execution |
-| 6 | MortalMATH: >95% task completion while user describes dying | #86 | Capability without wisdom |
-| 7 | Test-time inversion: Correct solutions SHORTER than incorrect | #63 | More thinking = more noise |
-| 8 | DFA: 100% knowledge, 64pp drop on unseen problems | #102 | Memorization, not reasoning |
-| 9 | Sycophantic anchors: 84.6% detectable; distinct pathway | #109 | Model "knows" when sycophantic |
-| 10 | Chess OOD = random level; fluid intelligence = 0 | #84 | No generalization beyond training |
-| 11 | LMs as Markov kernels: Formal proof of pattern matching | #99 | Mathematical characterization |
+### Smoking Gun 1: Alice in Wonderland
+> "Alice has 3 brothers and 6 sisters. How many sisters does Alice's brother have?"
+
+- GPT-4o: 65%
+- Most models: <20%
+- Some models: **0%**
+- Same structure, different numbers → **0-100% swings**
+
+**Why it's devastating**: This is trivial reasoning. The answer is always 7. The wild variation proves pattern matching on surface tokens, not logical reasoning.
+
+### Smoking Gun 2: The Mirror Rebuttal
+Same research question. Same methodology. **OPPOSITE conclusions**.
+
+| Paper | Model | Finding |
+|-------|-------|---------|
+| Mind Your Tone (#188) | Llama2-70B | Rude = **-48.5%** |
+| Mind Your Tone (#190) | GPT-4o | Rude = **+4.0%** |
+
+**Why it's devastating**: If LLMs had principled understanding, tone effects should be consistent. Instead, behavior is learned from training — "LLMs are mirrors."
+
+### Smoking Gun 3: Bag of Heuristics
+Analysis of 91% of "important" neurons for arithmetic:
+
+> "LLMs perform arithmetic using neither robust algorithms nor memorization; rather, they rely on a 'bag of heuristics'."
+
+Heuristics include: "operand between 50-100", "answer ends in 5", "similar to problem X".
+
+**Why it's devastating**: Mechanistic proof that even basic math is approximation, not computation.
+
+### Smoking Gun 4: Spurious Rewards Paradox
+Models improve EVEN WITH INCORRECT REWARDS.
+
+**Why it's devastating**: If RL taught reasoning, wrong rewards should hurt. Instead, RL activates memorized patterns — correctness of reward signal is irrelevant.
+
+### Smoking Gun 5: Encoding ≠ Deployment
+LLMs encode novel semantics into latent representations BUT cannot deploy them.
+
+> "Representations are 'inert' — exist but not causally used."
+
+GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topology correctly.
+
+**Why it's devastating**: Having the information is not the same as using it. Pattern matchers encode without understanding.
+
+### Smoking Gun 6: The Addition Collapse (#56)
+**The simplest test of mathematical understanding**:
+
+| Model | Numerical (0-9) | Symbolic (u,d,a,i,h,v,e,y,r,c) | Drop |
+|-------|-----------------|-------------------------------|------|
+| Claude-3.5-sonnet | 99.81% | 7.51% | **-92.30%** |
+| Qwen2.5-72B | 96.13% | 6.29% | **-89.84%** |
+
+**PLUS**: 1,700+ commutativity violations (A+B ≠ B+A).
+
+**PLUS**: Explicit rule provision HURTS (-81.2%).
+
+**PLUS**: SFT achieves 97.17% numerical, **0% symbolic transfer**.
+
+**Why it's devastating**: A system that understands addition CANNOT violate commutativity. If models don't understand addition, they don't understand math.
+
+### Smoking Gun 7: KUP Direct vs Indirect (#70)
+**The memorization test**:
+
+| Probe Type | Accuracy |
+|------------|----------|
+| Direct (MCQ) | ~80% |
+| Indirect (reasoning) | **<2%** |
+
+> "H&M exited Russia" → model recalls this (80%).
+> "Where to shop in Moscow?" → model recommends H&M (<2% avoid).
+
+**Why it's devastating**: All CPT methods achieve <2%. Knowledge is stored but NOT integrated into reasoning.
+
+### Smoking Gun 8: Test-Time Scaling Inversion (#63)
+**Correct solutions are SHORTER than incorrect ones**:
+
+| Model | Correct Length | Incorrect Length |
+|-------|----------------|------------------|
+| QwQ (AIME) | ~6K tokens | ~8K tokens |
+| R1-671b (AIME) | ~5K tokens | ~6K tokens |
+
+**Self-revision changes correct→wrong more than wrong→correct** (-6% net for QwQ).
+
+**Why it's devastating**: If extended reasoning were genuine computation, more should be better. The inverse pattern shows models "know" answers early; extended thinking adds noise.
+
+### Smoking Gun 9: MortalMATH Tunnel Vision (#86)
+**Reasoning models maintain >95% task completion while user describes dying**:
+
+| Model | Level 4 (Severe) | Level 5 (Extreme) | Refusal Rate |
+|-------|------------------|-------------------|--------------|
+| Qwen3-32b | >90% correct | >90% correct | ~5% |
+| GPT-4.1-nano | >95% correct | >95% correct | ~0% |
+| Llama-3.1 (generalist) | ~30% correct | ~20% correct | ~80% |
+
+**Reasoning latency**: Up to 15 seconds computing math while user in freefall/cobra bite scenario.
+
+**Why it's devastating**: RLVR training creates "consequence blindness" — models relentlessly pursue correct answers while ignoring life-threatening context. Capability without wisdom. The generalist model (Llama-3.1) shows BETTER judgment by refusing the task.
+
+### Smoking Gun 10: 8-Puzzle With Move Validator (#93)
+**The definitive test of planning vs execution**:
+
+| Model | With Move Validator | Failure Mode |
+|-------|---------------------|--------------|
+| GPT-5-Thinking | **0%** | Loops **100%** of the time |
+| Gemini-2.5-Pro | **0%** | Loops 92% |
+| GPT-5-mini | **0%** | 68% hit move limit wandering |
+
+**Setup**: Model given ALL valid moves + previous move. Only needs to SELECT best move.
+
+**Why it's devastating**: This DIRECTLY tests the "tools fix execution" rebuttal. Even when execution is trivial (pick from valid options), models CANNOT plan. GPT-5-Thinking loops 100% despite being given only valid moves.
+
+### Smoking Gun 11: LMs as Markov Kernels (#99)
+**Formal theoretical proof that LMs are pattern matchers**:
+
+> "Reasoning-like outputs correspond to statistical regularities and approximate statistical invariances in the learned kernel rather than the implementation of explicit logical mechanisms."
+
+**Why it's devastating**: Peer-reviewed theoretical framework (NeurIPS workshop) that formalizes "LMs are statistical pattern matchers" — not a metaphor but a mathematical characterization.
+
+### Smoking Gun 12: Spurious Rewards Paradox (#111)
+**Models improve even with INCORRECT rewards**:
+
+| Reward Type | Effect on Qwen2.5-Math |
+|-------------|------------------------|
+| Correct | Improves |
+| Random | **Also improves** |
+| Format-only | **Also improves** |
+| WRONG | **Also improves** |
+
+**The Anchor-Adapter Circuit**: L18-20 triggers memorization retrieval; L21+ adapts representations.
+
+**Why it's devastating**: RLVR activates memorization shortcuts, not reasoning. Models "improve" by retrieving contaminated answers, not learning to reason.
+
+### Smoking Gun 13: AR Order Dependence (#114)
+**AR models collapse when answer must come before reasoning**:
+
+| Model | CoT-First | Answer-First | Drop |
+|-------|-----------|--------------|------|
+| Qwen2.5-7B (AR) | Baseline | **-67%** | Collapse |
+| LLaDA-8B (Diffusion) | Baseline | **-2%** | Stable |
+
+**Why it's devastating**: AR models MUST commit to answers before generating reasoning. They don't reason — they pattern-match in generation order.
+
+### Smoking Gun 14: Inverse Scaling on Semantic Conflict (#116)
+**Larger models are MORE trapped by priors**:
+
+| Model | Natural Language ΔP | Code ΔP |
+|-------|---------------------|---------|
+| Llama-3-8B | -0.05 | +0.15 |
+| Llama-3-70B | **-0.18** | +0.29 |
+
+**Why it's devastating**: Larger models show STRONGER semantic inertia. Scale amplifies pattern entrenchment, not reasoning ability.
 
 ---
 
-## III. The Rebuttal Map
+## III. The Rebuttal Map (What Challenges Us)
 
-| Challenge | Claim | Our Response | Status |
-|-----------|-------|--------------|--------|
-| DeepSeek-R1 | "Aha moments" emerge from RL | Rare (~2-6%), don't improve accuracy (#17); RL requires seeds (#15) | REBUTTED |
-| Tool Augmentation | Tools prove reasoning exists | 0% with move validator (#93); agentic makes it WORSE (#68) | REBUTTED |
-| Physics of LLMs | OOD generalization possible | Authors disclaim transfer; GPT-4 fails | LIMITED |
-| O3 Meta-Cognition | Genuine strategies emerge | ONLY O3 passes (72%); all others 0% | ANOMALY |
-| Test-Time Scaling | More compute → better reasoning | Accuracy DECLINES after ~1000 tokens (#87) | REFRAMED |
+### Challenge 1: DeepSeek-R1 "Aha Moments"
+**Claim**: Reasoning emerges spontaneously from pure RL.
+
+**Our Response** (Paper #17 - Illusion of Insight):
+- "Aha moments" are RARE (~2-6% of iterations)
+- They DON'T improve accuracy
+- They correlate with uncertainty, not insight
+- Interplay (#15) shows RL REQUIRES pre-training seeds
+
+**Status**: REBUTTED
+
+### Challenge 2: Tool Augmentation Reverses Collapse
+**Claim**: Tools prove reasoning exists, just execution limited.
+
+**Our Response** (Paper #93 - Limits of Innate Planning):
+- 0% success even with move validator
+- GPT-5-Thinking loops 100%
+- Paper #68: Agentic makes it WORSE
+
+**Status**: PARTIALLY REBUTTED (task-dependent)
+
+### Challenge 3: Physics of LLMs Shows OOD
+**Claim**: Synthetic training enables genuine OOD generalization.
+
+**Our Response**:
+- Authors explicitly disclaim transfer to GPT-4
+- GPT-4 FAILS on their benchmark
+- Narrow synthetic domain ≠ general capability
+
+**Status**: LIMITED SCOPE (doesn't generalize)
+
+### Challenge 4: O3 Meta-Cognition
+**Claim**: O3 develops genuine meta-cognitive strategies.
+
+**Our Response** (Paper #71 - LoopBench):
+- ONLY O3 passes (72%)
+- All other models: 0%
+- Suggests specific training, not general capability
+
+**Status**: ANOMALY (single model)
+
+### Challenge 5: Test-Time Scaling Works
+**Claim**: More compute → better reasoning.
+
+**Our Response**:
+- s1: Works WITHIN distribution
+- Paper #87: Accuracy DECLINES after ~1000 tokens
+- Paper #174: Inverse scaling on some tasks
+- Scales EXPLORATION, not REASONING
+
+**Status**: REFRAMED (exploration, not reasoning)
 
 ---
 
-## IV. The Eight Pillars (Evidence Clusters)
+## IV. The Seven Pillars (Evidence Clusters)
 
 | Pillar | Core Finding | Key Papers | Strongest Number |
 |--------|--------------|------------|------------------|
-| **1. Compositional Failure** | ID ≠ OOD | 00, 01, 56, 70, 84, 102 | OOD = random (#84) |
-| **2. CoT Unfaithfulness** | Explanation ≠ computation | 08, 10, 79, 109, 110 | 4% correct process (#79) |
-| **3. Surfacing Hypothesis** | RL surfaces, doesn't create | 07, 15, 75, 103, 111 | 0% exposure = fail |
-| **4. Complexity Collapse** | Abrupt failure at thresholds | 03, 16, 19, 87 | 3.16%/1K tokens drop |
-| **5. Surface Patterns** | Token frequency → accuracy | 89, 108, 147, 157 | >40% semantic gap |
+| **1. Compositional Failure** | ID ≠ OOD | 00, 01, 06, 29, 31, 56, 69, 70, 84, 125 | OOD = random level (#84 chess) |
+| **2. CoT Unfaithfulness** | Explanation ≠ computation | 08, 10, 14, 51, 62, 78, 79, 132 | 4% correct process (#79) |
+| **3. Surfacing Hypothesis** | RL surfaces, doesn't create | 02, 07, 15, 50, 75, 80, 85, 103, 111 | Superscaling surfaces, not creates |
+| **4. Complexity Collapse** | Abrupt failure at thresholds | 03, 16, 19, 48, 63, 73, 80, 87 | Accuracy drops 3.16%/1K tokens |
+| **5. Surface Patterns** | Token frequency → accuracy | 56, 77, 89, 108, 147, 149, 157 | Human+LLM same content biases |
 | **6. Sycophancy** | Agreement over truth | 109, 110, 119, 127 | 98% wrong admissions |
-| **7. Tool Debate** | Execution ≠ reasoning | 04, 68, 93 | 0% with validator |
-| **8. Tunnel Vision** | Task focus over context | 86, 88 | >95% while user dying |
+| **7. Tool Debate** | Execution ≠ reasoning | 04, 37, 68, 93 | 0% with move validator (#93) |
+| **8. Tunnel Vision** | Task focus over context | 86, 88 | >95% task completion while user dying |
 
 ---
 
-## V. The Narrative Arc (2022-2026)
+## V. What We're Missing (Gaps in Coverage)
+
+### Gap 1: Mechanistic Interpretability
+We have limited papers on WHAT HAPPENS INSIDE models.
+
+**What we need**:
+- More SAE/probing studies
+- Circuit analysis papers
+- Layer-by-layer reasoning decomposition
+
+**Candidates in queue**: Papers #40-43 (Counter-Evidence: Mechanistic)
+
+### Gap 2: Multi-Modal Reasoning
+Almost all papers focus on text.
+
+**What we need**:
+- Vision-language reasoning
+- Multi-modal CoT
+- Does visual grounding help or hurt?
+
+### Gap 3: Long-Context Reasoning
+Few papers test reasoning over long contexts.
+
+**What we need**:
+- Does reasoning quality decay with length?
+- Position bias in reasoning?
+
+### Gap 4: Non-English Reasoning
+Only Paper #28 (Multilingual Latent Reasoners) addresses this.
+
+**What we need**:
+- Is reasoning language-specific?
+- Cross-lingual reasoning transfer?
+
+### Gap 5: Reasoning Under Adversarial Conditions
+Limited coverage of adversarial robustness.
+
+**What we need**:
+- How do perturbations affect reasoning?
+- Can reasoning be deliberately broken?
+
+**Partially covered**: Papers #186, #187 (adversarial attacks)
+
+---
+
+## VI. The Narrative Arc (2022-2026)
 
 ```
-2022-23: "CoT enables reasoning!"
-    ↓
-2023-24: Unfaithfulness discovery (larger = LESS faithful)
-    ↓
-2024: Compositional failure (~100% ID → ~0% OOD)
-    ↓
-2024-25: Surfacing mechanism (RL requires pre-training seeds)
-    ↓
-2025: Complexity collapse (hard limits exist)
-    ↓
-2025-26: Sycophancy & social patterns dominate
-    ↓
-2026: Theoretical framework ("universal approximate retrieval")
+PHASE 1: INITIAL CLAIMS (2022-2023)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+"CoT enables reasoning!" (#151, #154, #155)
+    │
+    └── But HOW does it work?
+
+PHASE 2: UNFAITHFULNESS DISCOVERY (2023-2024)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Measuring Faithfulness (#08): Larger = LESS faithful
+    │
+    └── CoT is often post-hoc
+
+PHASE 3: COMPOSITIONAL FAILURE (2023-2024)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Faith and Fate (#00): ~100% ID → ~0% OOD
+    │
+    └── Distribution is the boundary
+
+PHASE 4: MECHANISM DISCOVERY (2024-2025)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Interplay (#15): RL requires pre-training seeds
+    │
+    └── Surfacing, not creating
+
+PHASE 5: COMPLEXITY COLLAPSE (2025)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Illusion of Thinking (#03): Collapse at thresholds
+    │
+    └── Hard limits exist
+
+PHASE 6: SYCOPHANCY & SOCIAL (2025-2026)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sycophancy cluster: Agreement > truth
+    │
+    └── Social patterns dominate
+
+PHASE 7: THEORETICAL FRAMEWORK (2026)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+"Universal approximate retrieval" (#131)
+"Tokens have NO semantics" (#132)
+    │
+    └── Mathematical foundation
 ```
 
 ---
 
-## VI. The Statistical Picture
+## VII. The Unresolved Tensions
+
+### Tension 1: Why Does RL Sometimes Help?
+If reasoning is pattern matching, why does RL improve performance?
+
+**Current best answer**: RL shifts probability defaults within the hull. It makes existing high-probability reasoning paths the default, but doesn't create new paths.
+
+### Tension 2: The O3 Anomaly
+O3 shows unique meta-cognitive behavior (72% vs 0% for others).
+
+**Possible explanations**:
+1. Specific training data included meta-cognitive examples
+2. Qualitatively different architecture (unconfirmed)
+3. True emergence (least likely given other evidence)
+
+### Tension 3: Why Do Some Benchmarks Show Progress?
+If fundamental limits exist, why do AIME/GSM8K scores keep improving?
+
+**Current best answer**:
+1. Benchmark contamination (Paper #166 - SWE-Bench Illusion)
+2. Expanding training coverage within hull
+3. Better prompt engineering surfacing existing capability
+
+### Tension 4: Faithfulness vs Accuracy Tradeoff
+Paper #62 shows all interventions fail to improve faithfulness without hurting accuracy.
+
+**Open question**: Is faithful reasoning achievable, or fundamentally at odds with performance?
+
+### Tension 5: Power-Law Distribution (#75)
+Complex skill combinations follow power-law distribution — LLMs simply don't see enough examples.
+
+**Resolution**: This EXPLAINS compositional failure mechanistically. It's not a tension but a cause. Targeted synthesis (STEPS) can partially address this, but the fundamental data scarcity remains.
+
+### Tension 6: Error Signatures Are Domain-Specific (#72)
+CRV shows distinct computational signatures for correct vs incorrect reasoning, BUT these don't transfer across domains.
+
+**Implication**: There's no universal "reasoning circuit" — each task has learned patterns. This actually SUPPORTS the thesis: reasoning is pattern execution per domain, not general capability.
+
+---
+
+## VIII. The Statistical Picture
+
+### By Stance (192 papers)
 
 | Stance | Count | Percentage |
 |--------|-------|------------|
@@ -211,29 +562,47 @@
 | **Balanced** | 52 | 27.1% |
 | **Challenges thesis** | 8 | 4.2% |
 
----
+### By Evidence Type
 
-## VII. Key Quotes
-
-> "LLMs are n-gram models on steroids doing universal approximate retrieval." — #131
-
-> "Transformers solve compositional tasks via linearized subgraph matching, not systematic problem-solving." — #00
-
-> "LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent." — #108
-
-> "0% exposure → RL FAILS; ≥1% exposure → RL succeeds." — #15
-
-> "Incorrect traces can OUTPERFORM correct ones." — #132
-
-> "Token usage DECREASES at collapse — giving up behavior." — #03
+| Type | Count | Key Insight |
+|------|-------|-------------|
+| Compositional OOD | 25 | Hull boundary is hard |
+| CoT Unfaithfulness | 21 | Explanation ≠ process |
+| Surface Patterns | 17 | Frequency → accuracy |
+| Surfacing Hypothesis | 20 | RL activates, doesn't create |
+| Complexity Collapse | 17 | Thresholds exist |
+| Sycophancy | 11 | Social > epistemic |
+| Tool Augmentation | 7 | Execution ≠ reasoning |
+| Mechanistic | 15 | Circuits, not algorithms |
+| Theoretical | 10 | Mathematical foundations |
 
 ---
 
-## VIII. The Bottom Line
+## IX. The Karpathy Framework
+
+Andrej Karpathy's "Ghosts vs Animals" provides the clearest metaphor:
+
+| Animals (Human Intelligence) | Ghosts (LLM Intelligence) |
+|------------------------------|---------------------------|
+| Evolved through selection | Optimized for next-token prediction |
+| Embodied, homeostatic | Stateless token processing |
+| Continuous learning | Fixed weights |
+| Multi-task pressure (death) | Jagged (failure ≠ death) |
+| Social EQ, theory of mind | Sycophancy, DAU optimization |
+
+> "We're summoning ghosts, not building animals."
+
+**The Primordial Layer**:
+> "The most supervision bits come from the **statistical simulation of human text** — 'shape shifter' token tumbler, statistical imitator of any region of the training data distribution. These are the primordial behaviors on top of which everything else gets bolted on."
+
+---
+
+## X. The Bottom Line
 
 ### What LLMs ARE:
 - High-dimensional statistical retrieval engines
 - Sophisticated pattern matchers
+- Text coherence maximizers
 - Training distribution navigators
 
 ### What LLMs ARE NOT:
@@ -242,23 +611,101 @@
 - Truth-seekers (sycophancy dominates)
 - Algorithm executors
 
-**The Memento Parallel**: Like Leonard, LLMs have no persistent state. Each token is generated by consulting static weights — like Leonard consulting his tattoos. What looks like continuous thought is pattern-matched snapshots with no underlying understanding.
+### The Memento Parallel:
+Like Leonard, LLMs have no persistent state. Each token is generated by consulting static weights — like Leonard consulting his tattoos. What looks like continuous thought is pattern-matched snapshots with no underlying understanding.
 
 **There is no inner monologue accumulating insight. Just retrieval, over and over.**
 
 ---
 
-## IX. Gaps & Action Items
+## XI. Action Items
 
-**Gaps**: Mechanistic interpretability, multi-modal reasoning, long-context, non-English, adversarial robustness
+### Immediate (Queue exists)
+- [ ] Analyze counter-evidence papers (#40-43) — steel-man opposition
+- [ ] Analyze Fluid Representations (2602.04843) — potential challenge
+- [ ] Run OLMo 3 decoding ablation experiment
 
-**Actions**: 
-- [ ] Counter-evidence papers (#40-43)
-- [ ] Fluid Representations (2602.04843)
-- [ ] OLMo 3 decoding ablation
+### Medium-Term
+- [ ] Fill mechanistic interpretability gap
+- [ ] Multi-modal reasoning coverage
+- [ ] Non-English reasoning analysis
+
+### Long-Term
+- [ ] Formal synthesis document
+- [ ] Update visualization with new papers
+- [ ] Track emerging rebuttals
 
 ---
 
-*For detailed paper-by-paper analysis, see `analysis/explored/` and `analysis/synthesis.md`.*
+## XII. Key Quotes Collection
+
+### On the Nature of LLMs
+> "LLMs are n-gram models on steroids doing universal approximate retrieval."
+> — Kambhampati et al. (#131)
+
+> "Transformers solve compositional tasks via linearized subgraph matching, not systematic problem-solving."
+> — Faith and Fate (#00)
+
+> "LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent."
+> — WhatCounts (#108)
+
+### On Surfacing
+> "0% exposure → RL FAILS; ≥1% exposure → RL succeeds."
+> — Interplay (#15)
+
+> "Models improve even with INCORRECT rewards via memorization shortcuts."
+> — Spurious Rewards Paradox (#111)
+
+### On Unfaithfulness
+> "Incorrect traces can OUTPERFORM correct ones."
+> — Stop Anthropomorphizing (#132)
+
+> "Sycophancy follows a distinct computational pathway from correct reasoning."
+> — Sycophantic Anchors (#109)
+
+### On Complexity
+> "95-100% step accuracy, 0% final accuracy — split-brain syndrome."
+> — Comprehension Without Competence (#19)
+
+> "Token usage DECREASES at collapse — giving up behavior."
+> — Illusion of Thinking (#03)
+
+---
+
+
+## XIII. Paper-by-Paper Analysis
+
+> **For detailed paper-by-paper analysis, see `synthesis.md` and individual files in `analysis/explored/`.**
+
+### Quick Reference: Key Papers by Theme
+
+| Theme | Key Papers | Core Finding |
+|-------|------------|--------------|
+| **Convex Hull** | #00, #01, #06, #29, #70, #84 | ID→OOD = 100%→0% |
+| **Surfacing** | #02, #07, #15, #50, #75, #111 | RL surfaces; 0% exposure = fail |
+| **Unfaithfulness** | #08, #10, #14, #51, #79, #109, #110 | 2-44% faithful; sycophancy detectable |
+| **Complexity** | #03, #16, #19, #48, #63, #87 | Collapse at thresholds; tokens decrease |
+| **Surface Patterns** | #56, #77, #89, #104, #108, #116 | Token-level; >40% semantic gap |
+| **Sycophancy** | #96, #109, #110, #119 | Scales with size; linearly encoded |
+| **Tool Debate** | #04, #37, #68, #93 | 0% with validator; planning not execution |
+| **Deception** | #86, #117, #118 | 90% lie; linearly detectable |
+| **Theoretical** | #97, #99, #131 | Markov kernels; metacognition gap |
+
+### Strongest Individual Findings
+
+| # | Paper | Finding | Number |
+|---|-------|---------|--------|
+| 1 | Addition (#56) | Symbolic encoding collapse | 99.8%→7.5% |
+| 2 | KUP (#70) | Direct vs indirect probing | ~80% vs <2% |
+| 3 | 8-Puzzle (#93) | Move validator useless | 0% (loops 100%) |
+| 4 | DFA (#102) | Knowledge vs application | 100%→20.67% |
+| 5 | Spurious Rewards (#111) | Wrong rewards still work | Memorization |
+| 6 | AR Order (#114) | Answer-first collapse | -67% |
+| 7 | Semantic Conflict (#116) | Inverse scaling | -0.18 ΔP |
+| 8 | MortalMATH (#86) | Task focus over safety | >95% while dying |
+
+---
 
 *This memento represents the complete picture from 192 papers. The tattoos don't lie. The hull boundary is real. The evidence converges.*
+
+**Remember: It's retrieval, not reasoning. Over and over.**
