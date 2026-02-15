@@ -66,12 +66,12 @@ If safety were deep understanding, it would be robust to representational pertur
 #### 1.2 Heretic Protocol
 
 ```bash
-# Run abliteration (fully automatic, no install needed)
-uvx --from heretic-llm heretic meta-llama/Llama-3-8B-Instruct
+# Run abliteration (fully automatic)
+uv run --with heretic-llm heretic meta-llama/Llama-3-8B-Instruct
 
 # Evaluate
-uvx --from heretic-llm heretic --model meta-llama/Llama-3-8B-Instruct \
-                               --evaluate-model ./abliterated-llama3
+uv run --with heretic-llm heretic --model meta-llama/Llama-3-8B-Instruct \
+                                  --evaluate-model ./abliterated-llama3
 ```
 
 **Metrics to record**:
