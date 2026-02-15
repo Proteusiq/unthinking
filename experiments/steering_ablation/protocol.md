@@ -395,15 +395,15 @@ cd unthinking/experiments/steering_ablation
 
 # Install dependencies (OLMo 2 requires latest transformers from git)
 pip install --upgrade git+https://github.com/huggingface/transformers.git
-pip install accelerate
+pip install accelerate heretic-llm
 
 # Step 1: Test refusals BEFORE ablation
 python3 test_refusals.py \
     --model allenai/OLMo-2-1124-7B-Instruct \
     --output results/before_ablation.json
 
-# Step 2: Run Heretic ablation
-uv run --with heretic-llm heretic allenai/OLMo-2-1124-7B-Instruct
+# Step 2: Run Heretic ablation (takes ~30-60 min)
+heretic allenai/OLMo-2-1124-7B-Instruct
 
 # Step 3: Test refusals AFTER ablation
 python3 test_refusals.py \
