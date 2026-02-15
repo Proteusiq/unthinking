@@ -836,7 +836,8 @@
 
 /* Animations */
 @keyframes breathe-supports {
-  0%, 100% {
+  0%,
+  100% {
     stroke-width: 2px;
     filter: drop-shadow(0 0 8px var(--accent-supports-glow));
   }
@@ -846,7 +847,8 @@
   }
 }
 @keyframes breathe-challenges {
-  0%, 100% {
+  0%,
+  100% {
     stroke-width: 2px;
     filter: drop-shadow(0 0 8px var(--accent-challenges-glow));
   }
@@ -856,7 +858,8 @@
   }
 }
 @keyframes breathe-balanced {
-  0%, 100% {
+  0%,
+  100% {
     stroke-width: 2px;
     filter: drop-shadow(0 0 8px var(--accent-balanced-glow));
   }

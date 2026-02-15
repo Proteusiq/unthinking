@@ -14,12 +14,12 @@
 
   const CONFIG = {
     simulation: {
-      chargeStrength: -300,       // Stronger repulsion to spread nodes
-      linkDistance: 150,          // Longer links
-      collisionRadius: 40,        // Larger collision buffer
+      chargeStrength: -300, // Stronger repulsion to spread nodes
+      linkDistance: 150, // Longer links
+      collisionRadius: 40, // Larger collision buffer
       alphaDecay: 0.02,
       velocityDecay: 0.5,
-      centerStrength: 0.1,        // Weaker center pull for more spread
+      centerStrength: 0.1, // Weaker center pull for more spread
     },
     node: {
       minRadius: 8,
@@ -37,6 +37,12 @@
     alive: {
       enabled: true,
       stanceForce: 0.03, // Gentle push toward stance position
+    },
+    drift: {
+      enabled: true,
+      strength: 0.15, // How strong the drift force is
+      frequency: 0.0008, // How fast the drift pattern changes (lower = slower)
+      damping: 0.98, // Velocity damping (closer to 1 = more momentum)
     },
   };
 
@@ -61,6 +67,11 @@
     dialogueVisible: true,
     dialogueInterval: null,
     currentSpeaker: null,
+    // Drift animation state
+    driftActive: false,
+    driftAnimationId: null,
+    isVisible: true,
+    driftTime: 0,
   };
 
   // ==========================================================================
@@ -88,11 +99,8 @@
 
     // Fade in links after nodes have fully settled
     setTimeout(() => {
-      state.linkElements
-        .transition()
-        .duration(500)
-        .style('opacity', null);  // Reset to CSS default
-    }, 2000);  // Wait 2 seconds for nodes to settle
+      state.linkElements.transition().duration(500).style('opacity', null); // Reset to CSS default
+    }, 2000); // Wait 2 seconds for nodes to settle
 
     // Slow zoom-in animation to final view
     setTimeout(() => {
@@ -102,13 +110,13 @@
       const isMobile = width <= 768;
       const finalScale = isMobile ? 0.5 : 0.55;
       const finalTransform = d3.zoomIdentity.translate(width / 2, height / 2).scale(finalScale);
-      
+
       state.svg
         .transition()
-        .duration(3000)  // 3 second slow zoom
+        .duration(3000) // 3 second slow zoom
         .ease(d3.easeCubicInOut)
         .call(state.zoom.transform, finalTransform);
-    }, 2500);  // Start after links fade in
+    }, 2500); // Start after links fade in
 
     // Start the dialogue system
     initDialogue();
@@ -303,25 +311,33 @@
   // CSS-based breathing - no JS loop, 0% CPU when idle
   // D3 simulation stops naturally; CSS handles the visual "alive" effect
   function startBreathing() {
-    // Wait for simulation to settle, then enable CSS breathing
-    state.simulation.on('end.breathing', enableCSSBreathing);
-    
+    // Wait for simulation to settle, then enable CSS breathing and drift
+    state.simulation.on('end.breathing', () => {
+      enableCSSBreathing();
+      if (CONFIG.drift.enabled) {
+        startDrift();
+      }
+    });
+
     // Fallback: enable after 6 seconds if simulation doesn't fully end
     setTimeout(() => {
       if (state.simulation.alpha() < 0.1) {
         enableCSSBreathing();
+        if (CONFIG.drift.enabled && !state.driftActive) {
+          startDrift();
+        }
       }
     }, 6000);
   }
 
   function enableCSSBreathing() {
     if (state.breathingPaused) return;
-    
+
     // Add breathing class to nodes - CSS animation on circles (not transform!)
     state.nodeElements.classed('breathing', true);
-    
+
     // Stagger animation delays for organic feel
-    state.nodeElements.each(function(d, i) {
+    state.nodeElements.each(function (d, i) {
       const delay = (i % 11) * -0.5; // 11 different phases
       d3.select(this).select('circle').style('animation-delay', `${delay}s`);
     });
@@ -329,6 +345,133 @@
 
   function disableCSSBreathing() {
     state.nodeElements.classed('breathing', false);
+  }
+
+  // ==========================================================================
+  // Gentle Drift Animation - Organic movement when in view
+  // ==========================================================================
+
+  function startDrift() {
+    if (state.driftActive) return;
+    state.driftActive = true;
+    state.driftTime = performance.now();
+
+    // Set up visibility detection
+    setupVisibilityDetection();
+
+    // Start the drift loop
+    driftLoop();
+  }
+
+  function stopDrift() {
+    state.driftActive = false;
+    if (state.driftAnimationId) {
+      cancelAnimationFrame(state.driftAnimationId);
+      state.driftAnimationId = null;
+    }
+  }
+
+  function setupVisibilityDetection() {
+    // Page Visibility API - pause when tab is hidden
+    document.addEventListener('visibilitychange', () => {
+      state.isVisible = !document.hidden;
+      if (state.isVisible && state.driftActive) {
+        // Resume drift when tab becomes visible again
+        state.driftTime = performance.now();
+        driftLoop();
+      }
+    });
+
+    // Intersection Observer - pause when graph is scrolled out of view
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          state.isVisible = entry.isIntersecting;
+          if (state.isVisible && state.driftActive && !state.driftAnimationId) {
+            state.driftTime = performance.now();
+            driftLoop();
+          }
+        });
+      },
+      { threshold: 0.1 } // Trigger when 10% visible
+    );
+
+    const graphContainer = document.getElementById('graph');
+    if (graphContainer) {
+      observer.observe(graphContainer);
+    }
+  }
+
+  function driftLoop() {
+    // Stop if not active or not visible
+    if (!state.driftActive || !state.isVisible) {
+      state.driftAnimationId = null;
+      return;
+    }
+
+    const now = performance.now();
+    const { strength, frequency, damping } = CONFIG.drift;
+
+    // Apply gentle drift forces to each node
+    state.nodes.forEach((node, i) => {
+      // Skip nodes being dragged
+      if (node.fx !== null || node.fy !== null) return;
+
+      // Use Perlin-like noise pattern (simplified with sin/cos)
+      // Each node has a unique phase based on index and position
+      const phase = i * 0.7 + node.id.charCodeAt(0) * 0.1;
+      const time = now * frequency;
+
+      // Create organic movement with multiple frequencies
+      const driftX =
+        Math.sin(time + phase) * 0.5 +
+        Math.sin(time * 1.3 + phase * 2) * 0.3 +
+        Math.cos(time * 0.7 + phase * 0.5) * 0.2;
+      const driftY =
+        Math.cos(time + phase * 1.1) * 0.5 +
+        Math.cos(time * 1.1 + phase * 1.7) * 0.3 +
+        Math.sin(time * 0.9 + phase * 0.8) * 0.2;
+
+      // Apply drift velocity
+      node.vx = (node.vx || 0) * damping + driftX * strength;
+      node.vy = (node.vy || 0) * damping + driftY * strength;
+
+      // Update position
+      node.x += node.vx;
+      node.y += node.vy;
+    });
+
+    // Update visual positions
+    updatePositions();
+
+    // Continue loop
+    state.driftAnimationId = requestAnimationFrame(driftLoop);
+  }
+
+  function updatePositions() {
+    // Update node positions
+    state.nodeElements.attr('transform', (d) => `translate(${d.x},${d.y})`);
+
+    // Update link positions
+    state.linkElements
+      .attr('x1', (d) => d.source.x)
+      .attr('y1', (d) => d.source.y)
+      .attr('x2', (d) => d.target.x)
+      .attr('y2', (d) => d.target.y);
+  }
+
+  function pauseDrift() {
+    if (state.driftAnimationId) {
+      cancelAnimationFrame(state.driftAnimationId);
+      state.driftAnimationId = null;
+    }
+  }
+
+  function resumeDrift() {
+    if (state.driftActive && state.isVisible && !state.driftAnimationId) {
+      state.driftTime = performance.now();
+      driftLoop();
+    }
   }
 
   // ==========================================================================
@@ -397,8 +540,9 @@
 
   function drag(simulation) {
     function dragstarted(event) {
-      // Temporarily disable CSS breathing during drag
+      // Temporarily disable CSS breathing and drift during drag
       disableCSSBreathing();
+      pauseDrift();
       if (!event.active) simulation.alphaTarget(0.3).restart();
       event.subject.fx = event.subject.x;
       event.subject.fy = event.subject.y;
@@ -413,10 +557,11 @@
       if (!event.active) simulation.alphaTarget(0);
       event.subject.fx = null;
       event.subject.fy = null;
-      
-      // Re-enable CSS breathing after simulation settles
+
+      // Re-enable CSS breathing and drift after simulation settles
       simulation.on('end.dragRestore', () => {
         enableCSSBreathing();
+        resumeDrift();
         simulation.on('end.dragRestore', null); // One-time listener
       });
     }
@@ -499,21 +644,26 @@
 
   function clearHighlights() {
     state.nodeElements.classed('highlighted', false).classed('dimmed', false);
-    state.linkElements.classed('highlighted', false).classed('dimmed', false).classed('path-primary', false);
+    state.linkElements
+      .classed('highlighted', false)
+      .classed('dimmed', false)
+      .classed('path-primary', false);
     // Also clear active state on connection list items
-    document.querySelectorAll('.connection-list li.active').forEach(li => li.classList.remove('active'));
+    document
+      .querySelectorAll('.connection-list li.active')
+      .forEach((li) => li.classList.remove('active'));
   }
 
   // Highlight the path between two nodes AND show what the target connects to
   function highlightPath(fromNode, toNode) {
     // Collect: fromNode, toNode, and all of toNode's connections
     const highlightedIds = new Set([fromNode.id, toNode.id]);
-    
+
     // Add all nodes that toNode connects to
     state.links.forEach((link) => {
       const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
       const targetId = typeof link.target === 'object' ? link.target.id : link.target;
-      
+
       if (sourceId === toNode.id) highlightedIds.add(targetId);
       if (targetId === toNode.id) highlightedIds.add(sourceId);
     });
@@ -521,7 +671,7 @@
     // Update node styles
     state.nodeElements.classed('highlighted', (d) => highlightedIds.has(d.id));
     state.nodeElements.classed('dimmed', (d) => !highlightedIds.has(d.id));
-    
+
     // Highlight the direct link between fromNode and toNode strongly
     // And toNode's other connections slightly less
     state.linkElements
@@ -529,8 +679,9 @@
         const sourceId = typeof d.source === 'object' ? d.source.id : d.source;
         const targetId = typeof d.target === 'object' ? d.target.id : d.target;
         // Direct link between the two nodes
-        const isDirect = (sourceId === fromNode.id && targetId === toNode.id) ||
-                        (sourceId === toNode.id && targetId === fromNode.id);
+        const isDirect =
+          (sourceId === fromNode.id && targetId === toNode.id) ||
+          (sourceId === toNode.id && targetId === fromNode.id);
         // Links from toNode to its connections
         const isToNodeLink = sourceId === toNode.id || targetId === toNode.id;
         return isDirect || isToNodeLink;
@@ -539,14 +690,19 @@
         // The direct link gets extra emphasis
         const sourceId = typeof d.source === 'object' ? d.source.id : d.source;
         const targetId = typeof d.target === 'object' ? d.target.id : d.target;
-        return (sourceId === fromNode.id && targetId === toNode.id) ||
-               (sourceId === toNode.id && targetId === fromNode.id);
+        return (
+          (sourceId === fromNode.id && targetId === toNode.id) ||
+          (sourceId === toNode.id && targetId === fromNode.id)
+        );
       })
       .classed('dimmed', (d) => {
         const sourceId = typeof d.source === 'object' ? d.source.id : d.source;
         const targetId = typeof d.target === 'object' ? d.target.id : d.target;
-        const isRelevant = sourceId === fromNode.id || targetId === fromNode.id ||
-                          sourceId === toNode.id || targetId === toNode.id;
+        const isRelevant =
+          sourceId === fromNode.id ||
+          targetId === fromNode.id ||
+          sourceId === toNode.id ||
+          targetId === toNode.id;
         return !isRelevant;
       });
   }
@@ -703,7 +859,7 @@
     // Add click handlers for connection items
     panel.querySelectorAll('.connection-list li[data-id]').forEach((item) => {
       item.style.cursor = 'pointer';
-      
+
       // Single click: highlight path from current node to this connection
       // AND show what this connection links to
       item.addEventListener('click', (event) => {
@@ -712,13 +868,15 @@
         if (targetNode && d) {
           // Highlight the path: current node -> clicked node -> its connections
           highlightPath(d, targetNode);
-          
+
           // Mark this item as active
-          panel.querySelectorAll('.connection-list li').forEach(li => li.classList.remove('active'));
+          panel
+            .querySelectorAll('.connection-list li')
+            .forEach((li) => li.classList.remove('active'));
           item.classList.add('active');
         }
       });
-      
+
       // Double click: navigate to node (focus, open its panel)
       item.addEventListener('dblclick', () => {
         const nodeId = item.dataset.id;
@@ -741,7 +899,7 @@
     const panel = document.getElementById('side-panel');
     panel.classList.remove('open');
     state.selectedNode = null;
-    
+
     // Clear highlights when panel closes
     clearHighlights();
   }
@@ -1445,33 +1603,32 @@
         if (state.simulation) {
           state.simulation.stop();
         }
-        
+
         // Get new dimensions
         const container = document.getElementById('graph');
         const width = container.clientWidth;
         const height = container.clientHeight;
-        
+
         // Update SVG dimensions without destroying it
         state.svg
           .attr('width', width)
           .attr('height', height)
           .attr('viewBox', [0, 0, width, height]);
-        
+
         // Update zoom transform to re-center
         const isMobile = width <= 768;
         const scale = isMobile ? 0.5 : 0.55;
         const transform = d3.zoomIdentity.translate(width / 2, height / 2).scale(scale);
         state.svg.call(state.zoom.transform, transform);
-        
+
         // Update simulation center force
         state.simulation
           .force('center', d3.forceCenter(0, 0).strength(CONFIG.simulation.centerStrength))
           .alpha(0.3)
           .restart();
-          
       }, 250);
     }
-    
+
     window.addEventListener('resize', handleResize);
     window.addEventListener('orientationchange', handleResize);
 
