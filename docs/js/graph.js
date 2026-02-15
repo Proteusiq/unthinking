@@ -414,26 +414,29 @@
 
     const now = performance.now();
     const { strength, frequency, damping } = CONFIG.drift;
+    const time = now * frequency;
+
+    // Calculate a single global drift vector - all nodes move together
+    // This prevents link shaking since connected nodes move in the same direction
+    const globalDriftX =
+      Math.sin(time) * 0.5 +
+      Math.sin(time * 1.3) * 0.3 +
+      Math.cos(time * 0.7) * 0.2;
+    const globalDriftY =
+      Math.cos(time * 1.1) * 0.5 +
+      Math.cos(time * 0.9) * 0.3 +
+      Math.sin(time * 0.8) * 0.2;
 
     // Apply gentle drift forces to each node
     state.nodes.forEach((node, i) => {
       // Skip nodes being dragged (fx/fy are set when dragging)
       if (node.fx != null || node.fy != null) return;
 
-      // Use Perlin-like noise pattern (simplified with sin/cos)
-      // Each node has a unique phase based on index and position
-      const phase = i * 0.7 + node.id.charCodeAt(0) * 0.1;
-      const time = now * frequency;
-
-      // Create organic movement with multiple frequencies
-      const driftX =
-        Math.sin(time + phase) * 0.5 +
-        Math.sin(time * 1.3 + phase * 2) * 0.3 +
-        Math.cos(time * 0.7 + phase * 0.5) * 0.2;
-      const driftY =
-        Math.cos(time + phase * 1.1) * 0.5 +
-        Math.cos(time * 1.1 + phase * 1.7) * 0.3 +
-        Math.sin(time * 0.9 + phase * 0.8) * 0.2;
+      // Small per-node variation (very subtle) to avoid perfectly uniform movement
+      const phase = i * 0.01;
+      const localVariation = 0.1; // 10% individual variation
+      const driftX = globalDriftX + Math.sin(time + phase) * localVariation;
+      const driftY = globalDriftY + Math.cos(time + phase) * localVariation;
 
       // Apply drift velocity
       node.vx = (node.vx || 0) * damping + driftX * strength;
