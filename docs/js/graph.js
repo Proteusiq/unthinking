@@ -43,7 +43,7 @@
       strength: 0.03, // Very gentle drift force
       frequency: 0.0002, // Slow pattern changes
       damping: 0.85, // More damping to prevent runaway
-      frameSkip: 2, // Only update every N frames to reduce jitter
+      frameSkip: 3, // Only update every N frames (~20fps) to reduce CPU
     },
   };
 

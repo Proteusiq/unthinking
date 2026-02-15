@@ -727,6 +727,7 @@
 .node {
   cursor: pointer;
   transition: all var(--transition-normal);
+  will-change: transform; /* GPU hint for drift animation */
 }
 .node:hover {
   filter: brightness(1.2);
@@ -790,6 +791,7 @@
   stroke-opacity: 0.4;
   stroke-width: 1.5px;
   transition: all var(--transition-normal);
+  will-change: x1, y1, x2, y2; /* GPU hint for drift animation */
 }
 .link.supports {
   stroke: var(--edge-supports);
