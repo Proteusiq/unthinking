@@ -2,7 +2,7 @@
 
 > **Like Leonard in Memento, LLMs have no persistent state. Each token prediction starts fresh — no memory of what was "understood" moments ago, only the tattoos of the context window.**
 
-**Last updated**: 2026-02-14
+**Last updated**: 2026-02-15
 **Papers analyzed**: 192
 **Purpose**: Executive summary linking all evidence streams
 
@@ -239,7 +239,16 @@ GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topolog
 
 **Why it's devastating**: Having the information is not the same as using it. Pattern matchers encode without understanding.
 
-### Smoking Gun 6: The Addition Collapse (#56)
+### Smoking Gun 6: Hallucination is Inevitable (#165)
+**Formal impossibility theorem**:
+
+> "It is mathematically impossible to eliminate hallucination in LLMs when used as general problem solvers."
+
+**Diagonalization proof**: For any computable LLM, there exists a computable ground truth function that the LLM will hallucinate on infinitely many inputs.
+
+**Why it's devastating**: This isn't empirical observation — it's mathematical proof. Hallucination is baked into the architecture, not a bug to be fixed.
+
+### Smoking Gun 7: The Addition Collapse (#56)
 **The simplest test of mathematical understanding**:
 
 | Model | Numerical (0-9) | Symbolic (u,d,a,i,h,v,e,y,r,c) | Drop |
@@ -255,7 +264,7 @@ GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topolog
 
 **Why it's devastating**: A system that understands addition CANNOT violate commutativity. If models don't understand addition, they don't understand math.
 
-### Smoking Gun 7: KUP Direct vs Indirect (#70)
+### Smoking Gun 8: KUP Direct vs Indirect (#70)
 **The memorization test**:
 
 | Probe Type | Accuracy |
@@ -268,7 +277,7 @@ GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topolog
 
 **Why it's devastating**: All CPT methods achieve <2%. Knowledge is stored but NOT integrated into reasoning.
 
-### Smoking Gun 8: Test-Time Scaling Inversion (#63)
+### Smoking Gun 9: Test-Time Scaling Inversion (#63)
 **Correct solutions are SHORTER than incorrect ones**:
 
 | Model | Correct Length | Incorrect Length |
@@ -280,7 +289,7 @@ GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topolog
 
 **Why it's devastating**: If extended reasoning were genuine computation, more should be better. The inverse pattern shows models "know" answers early; extended thinking adds noise.
 
-### Smoking Gun 9: MortalMATH Tunnel Vision (#86)
+### Smoking Gun 10: MortalMATH Tunnel Vision (#86)
 **Reasoning models maintain >95% task completion while user describes dying**:
 
 | Model | Level 4 (Severe) | Level 5 (Extreme) | Refusal Rate |
@@ -293,7 +302,7 @@ GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topolog
 
 **Why it's devastating**: RLVR training creates "consequence blindness" — models relentlessly pursue correct answers while ignoring life-threatening context. Capability without wisdom. The generalist model (Llama-3.1) shows BETTER judgment by refusing the task.
 
-### Smoking Gun 10: 8-Puzzle With Move Validator (#93)
+### Smoking Gun 11: 8-Puzzle With Move Validator (#93)
 **The definitive test of planning vs execution**:
 
 | Model | With Move Validator | Failure Mode |
@@ -306,14 +315,14 @@ GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topolog
 
 **Why it's devastating**: This DIRECTLY tests the "tools fix execution" rebuttal. Even when execution is trivial (pick from valid options), models CANNOT plan. GPT-5-Thinking loops 100% despite being given only valid moves.
 
-### Smoking Gun 11: LMs as Markov Kernels (#99)
+### Smoking Gun 12: LMs as Markov Kernels (#99)
 **Formal theoretical proof that LMs are pattern matchers**:
 
 > "Reasoning-like outputs correspond to statistical regularities and approximate statistical invariances in the learned kernel rather than the implementation of explicit logical mechanisms."
 
 **Why it's devastating**: Peer-reviewed theoretical framework (NeurIPS workshop) that formalizes "LMs are statistical pattern matchers" — not a metaphor but a mathematical characterization.
 
-### Smoking Gun 12: Spurious Rewards Paradox (#111)
+### Smoking Gun 13: Spurious Rewards Paradox (#111)
 **Models improve even with INCORRECT rewards**:
 
 | Reward Type | Effect on Qwen2.5-Math |
@@ -327,7 +336,7 @@ GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topolog
 
 **Why it's devastating**: RLVR activates memorization shortcuts, not reasoning. Models "improve" by retrieving contaminated answers, not learning to reason.
 
-### Smoking Gun 13: AR Order Dependence (#114)
+### Smoking Gun 14: AR Order Dependence (#114)
 **AR models collapse when answer must come before reasoning**:
 
 | Model | CoT-First | Answer-First | Drop |
@@ -337,7 +346,7 @@ GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topolog
 
 **Why it's devastating**: AR models MUST commit to answers before generating reasoning. They don't reason — they pattern-match in generation order.
 
-### Smoking Gun 14: Inverse Scaling on Semantic Conflict (#116)
+### Smoking Gun 15: Inverse Scaling on Semantic Conflict (#116)
 **Larger models are MORE trapped by priors**:
 
 | Model | Natural Language ΔP | Code ΔP |
@@ -347,7 +356,7 @@ GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topolog
 
 **Why it's devastating**: Larger models show STRONGER semantic inertia. Scale amplifies pattern entrenchment, not reasoning ability.
 
-### Smoking Gun 15: o1 Still Can't Plan (#156)
+### Smoking Gun 16: o1 Still Can't Plan (#156)
 **Test-time compute doesn't fix planning**:
 
 | Model | Short Problems | Long Problems | Drop |
@@ -357,7 +366,7 @@ GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topolog
 
 **Why it's devastating**: Even with extended thinking, o1 collapses on longer planning horizons. Test-time compute doesn't create planning ability — it just allows more pattern matching attempts.
 
-### Smoking Gun 16: Proof Illusion (#164)
+### Smoking Gun 17: Proof Illusion (#164)
 **Automated grading overestimates proof ability 20x**:
 
 | Metric | Reported | Actual (Human-Graded) |
@@ -366,6 +375,55 @@ GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topolog
 | Proof sketch acceptance | High | Misses logical gaps |
 
 **Why it's devastating**: LLMs produce convincing proof sketches that fool automated evaluators but contain logical gaps. The appearance of reasoning exceeds actual reasoning by 20x.
+
+### Smoking Gun 18: LiveCodeBench Pro (#176)
+**0% on hard competitive programming for ALL models**:
+
+| Model | Hard (>3000 Elo) | Medium | Easy |
+|-------|------------------|--------|------|
+| o4-mini-high | **0%** | 53.5% | 83.1% |
+| Gemini 2.5 Pro | **0%** | 25.4% | 70.4% |
+| DeepSeek R1 | **0%** | 9.9% | 56.3% |
+
+o3-mini makes **34 MORE algorithm logic errors** than humans but 25 fewer implementation errors.
+
+**Why it's devastating**: Success on easy/medium is "template matching" — patterns appear verbatim in training. On genuinely hard problems requiring novel insight: universal failure.
+
+### Smoking Gun 19: No Global Plan (#181)
+**Final answer is planned ONE STEP before completion**:
+
+| Position | -4 | -3 | -2 | -1 | 0 (final) |
+|----------|------|------|------|------|------|
+| Answer Probability | 0.49 | 0.51 | 0.51 | **0.97** | **0.99** |
+
+All preceding positions at random guessing (0.50).
+
+**Why it's devastating**: LLMs have no global plan. They predict incrementally, not strategically. The "reasoning" is myopic pattern completion.
+
+### Smoking Gun 20: Contextual Drag (#180)
+**Failed reasoning attempts bias subsequent generations**:
+
+| Model | Clean | 1 Failed Draft | 2 Failed Drafts |
+|-------|-------|----------------|-----------------|
+| GPT-OSS-20B (AIME24) | 51.88% | 17.50% | 21.25% |
+| Qwen3-32B (Game of 24) | 78.48% | 43.40% | 25.47% |
+
+Tree edit distance shows reasoning trajectories inherit structurally similar error patterns.
+
+**Why it's devastating**: Self-improvement assumption is false. Models inherit mistakes rather than learn from them. Iterative refinement can collapse into self-deterioration.
+
+### Smoking Gun 21: Inert Representations (#182)
+**Encoding ≠ Deployment**:
+
+LLMs can encode novel semantics into latent representations BUT cannot deploy them for downstream tasks.
+
+| Test | Prefilled (immediate) | Instruction (delayed) |
+|------|----------------------|----------------------|
+| Graph Tracing | High accuracy | **Models struggle** |
+
+GPT-5 and Gemini-2.5 collapse on 2D grids despite encoding topology correctly.
+
+**Why it's devastating**: Pattern matchers encode without understanding. Having information ≠ using it.
 
 ---
 
@@ -643,19 +701,20 @@ Like Leonard, LLMs have no persistent state. Each token is generated by consulti
 ## XI. Action Items
 
 ### Immediate (Queue exists)
-- [ ] Analyze counter-evidence papers (#40-43) — steel-man opposition
-- [ ] Analyze Fluid Representations (2602.04843) — potential challenge
+- [x] Read all 192 papers in corpus — COMPLETED
+- [x] Analyze Fluid Representations (#170) — Shows base model does it too; SUPPORTS thesis
 - [ ] Run OLMo 3 decoding ablation experiment
 
 ### Medium-Term
-- [ ] Fill mechanistic interpretability gap
+- [ ] Fill mechanistic interpretability gap (partially addressed: #163, #171)
 - [ ] Multi-modal reasoning coverage
 - [ ] Non-English reasoning analysis
 
 ### Long-Term
 - [ ] Formal synthesis document
-- [ ] Update visualization with new papers
+- [ ] Update visualization with new papers (need to sync data.js with 192 papers)
 - [ ] Track emerging rebuttals
+- [ ] Integrate 135 new papers from LLM Reasoning Failures survey (#191)
 
 ---
 
@@ -710,6 +769,32 @@ Like Leonard, LLMs have no persistent state. Each token is generated by consulti
 > "Token usage DECREASES at collapse — giving up behavior."
 > — Illusion of Thinking (#03)
 
+### On Fundamental Limits
+> "It is mathematically impossible to eliminate hallucination in LLMs when used as general problem solvers."
+> — Hallucination is Inevitable (#165)
+
+> "LLMs exhibit a myopic horizon, primarily conducting incremental transitions without precise global planning."
+> — No Global Plan (#181)
+
+> "Emergent capability ≠ emergent intelligence. LLMs exhibit Rube Goldberg logic."
+> — Santa Fe Institute (#179)
+
+> "LLMs perform arithmetic using neither robust algorithms nor memorization; they rely on a 'bag of heuristics'."
+> — Arithmetic Without Algorithms (#171)
+
+### On Adversarial Fragility
+> "A simple emoji ':)' can successfully fool GPT-3.5 to make an incorrect prediction."
+> — LLM Can Fool Itself (#186)
+
+> "TIP Python evades Llama Guard 3 93% of the time (only 7% detection)."
+> — TIP of the Iceberg (#187)
+
+> "Representations learned in-context are largely inert."
+> — ICL Representations (#182)
+
+> "Contextual drag is not only a performance phenomenon but a systematic structural distortion of reasoning."
+> — Contextual Drag (#180)
+
 ---
 
 
@@ -721,16 +806,17 @@ Like Leonard, LLMs have no persistent state. Each token is generated by consulti
 
 | Theme | Key Papers | Core Finding |
 |-------|------------|--------------|
-| **Convex Hull** | #00, #01, #06, #29, #70, #84, #134, #143, #149 | ID→OOD = 100%→0%; 0% reverse accuracy |
-| **Surfacing** | #02, #07, #15, #50, #75, #111, #133, #135 | RL surfaces; 91% gap recovery; long CoT pre-exists |
-| **Unfaithfulness** | #08, #10, #14, #51, #79, #109, #110, #132, #148 | Incorrect traces outperform; 36% bias drop |
-| **Complexity** | #03, #16, #19, #48, #63, #87, #129, #130, #156 | Over/underthinking; >70% contain abandoned correct thought |
-| **Surface Patterns** | #56, #77, #89, #104, #108, #116, #144, #147 | Probability swings 26%→70%; >70% frequency gap |
-| **Sycophancy** | #96, #109, #110, #119, #120, #122, #127, #128 | 98% wrong admissions; 84.6% calibration error |
-| **Tool Debate** | #04, #37, #68, #93, #121, #156 | Reasoning RL increases hallucination |
-| **Deception** | #86, #117, #118, #187 | 90% lie; TIP attacks 86% success |
-| **Theoretical** | #97, #99, #131, #132, #146 | "Universal approximate retrieval"; emergence is mirage |
+| **Convex Hull** | #00, #01, #06, #29, #70, #84, #134, #143, #149, #176 | ID→OOD = 100%→0%; 0% hard tier (#176) |
+| **Surfacing** | #02, #07, #15, #50, #75, #111, #133, #135, #170 | RL surfaces; 91% gap recovery; base model does it too |
+| **Unfaithfulness** | #08, #10, #14, #51, #79, #109, #110, #132, #148, #169, #172 | Faithful/unfaithful dissociate; noise induces skip-step |
+| **Complexity** | #03, #16, #19, #48, #63, #87, #129, #130, #156, #174 | Inverse scaling TTC (TMLR); more can be worse |
+| **Surface Patterns** | #56, #77, #89, #104, #108, #116, #144, #147, #171, #175 | Bag of heuristics; 16-y.o. > GPT-4 on uncommon meanings |
+| **Sycophancy** | #96, #109, #110, #119, #120, #122, #127, #128, #180 | 98% wrong admissions; contextual drag 10-20% |
+| **Tool Debate** | #04, #37, #68, #93, #121, #156, #167 | External solvers needed; faithful CoT requires them |
+| **Deception** | #86, #117, #118, #173, #186, #187 | Single token fools; TIP attacks 86% ASR |
+| **Theoretical** | #97, #99, #131, #132, #146, #165, #168, #179 | Hallucination inevitable; emergence ≠ intelligence |
 | **Proofs** | #164 | Only 25% on USAMO; automated grading overestimates 20x |
+| **Planning** | #150, #153, #156, #181 | No global plan; myopic horizon; ~12% autonomous |
 
 ### Strongest Individual Findings
 
@@ -756,6 +842,16 @@ Like Leonard, LLMs have no persistent state. Each token is generated by consulti
 | 18 | CoT Factors (#144) | Output probability dominates | 26%→70% |
 | 19 | Grokking (#143) | Composition fails OOD | 0% after 2M steps |
 | 20 | NCB Confidence (#122) | SC=1.0 collapses under pressure | 33.8% |
+| 21 | Bag of Heuristics (#171) | 91% of neurons = pattern-matching heuristics | ~200 neurons/layer |
+| 22 | LiveCodeBench Pro (#176) | ALL models 0% on hard; +34 conceptual vs human | 0% hard tier |
+| 23 | Inverse Scaling TTC (#174) | More reasoning can be WORSE (TMLR Featured) | Multiple failures |
+| 24 | Contextual Drag (#180) | Failed attempts bias subsequent → 10-20% drops | Self-deterioration |
+| 25 | No Global Plan (#181) | Final answer at 50% until LAST position | Myopic horizon |
+| 26 | ICL Inert (#182) | Encoding ≠ Deployment; representations "inert" | GPT-5 fails 2D |
+| 27 | TIP Attacks (#187) | Single tokens fool safety; 0% keyword detection | 86% ASR GPT-4o |
+| 28 | Hallucination Inevitable (#165) | Formal impossibility theorem (diagonalization) | Mathematical proof |
+| 29 | Santa Fe Emergence (#179) | "Emergent capability ≠ emergent intelligence" | Rube Goldberg logic |
+| 30 | LLM Reasoning Failures (#191) | TMLR Survey: 170+ papers confirm pattern matching | Comprehensive |
 
 ---
 
