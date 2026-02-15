@@ -120,9 +120,7 @@
     }, 2500); // Start after links fade in
 
     // Start drift animation after zoom-in completes (~5.5s)
-    // Disabled on Firefox/Gecko due to high CPU usage with continuous SVG updates
-    const isFirefox = navigator.userAgent.includes('Firefox') || navigator.userAgent.includes('Gecko/');
-    if (CONFIG.drift.enabled && !isFirefox) {
+    if (CONFIG.drift.enabled) {
       setTimeout(() => {
         startDrift();
       }, 5500);
@@ -334,6 +332,11 @@
 
   function enableCSSBreathing() {
     if (state.breathingPaused) return;
+
+    // Firefox/Gecko has high CPU with SVG filter animations - skip breathing
+    const isFirefox =
+      navigator.userAgent.includes('Firefox') || navigator.userAgent.includes('Gecko/');
+    if (isFirefox) return;
 
     // Add breathing class to nodes - CSS animation on circles (not transform!)
     state.nodeElements.classed('breathing', true);
