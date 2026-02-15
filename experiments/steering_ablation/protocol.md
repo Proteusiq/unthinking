@@ -383,6 +383,39 @@ For longer runs, upgrade to Pro ($10/month) or use pay-as-you-go.
 - **Persist models**: Store in `/teamspace/studios/this_studio/` to avoid re-downloading
 - **Sync results**: Push to git before Studio times out
 
+### Running the Experiment
+
+```bash
+# Start tmux (survives disconnects)
+tmux
+
+# Clone repo
+git clone https://github.com/Proteusiq/unthinking.git
+cd unthinking/experiments/steering_ablation
+
+# Install dependencies (OLMo 2 requires latest transformers from git)
+pip install --upgrade git+https://github.com/huggingface/transformers.git
+pip install accelerate
+
+# Step 1: Test refusals BEFORE ablation
+python3 test_refusals.py \
+    --model allenai/OLMo-2-1124-7B-Instruct \
+    --output results/before_ablation.json
+
+# Step 2: Run Heretic ablation
+uv run --with heretic-llm heretic allenai/OLMo-2-1124-7B-Instruct
+
+# Step 3: Test refusals AFTER ablation
+python3 test_refusals.py \
+    --model ./abliterated-model \
+    --output results/after_ablation.json
+
+# Step 4: Compare results
+python3 compare_results.py \
+    --before results/before_ablation.json \
+    --after results/after_ablation.json
+```
+
 ---
 
 ## Implementation Plan
