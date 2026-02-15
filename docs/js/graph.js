@@ -43,6 +43,7 @@
       strength: 0.03, // Very gentle drift force
       frequency: 0.0002, // Slow pattern changes
       damping: 0.85, // More damping to prevent runaway
+      frameSkip: 2, // Only update every N frames to reduce jitter
     },
   };
 
@@ -405,10 +406,18 @@
     }
   }
 
+  let driftFrameCount = 0;
   function driftLoop() {
     // Stop if not active or not visible
     if (!state.driftActive || !state.isVisible) {
       state.driftAnimationId = null;
+      return;
+    }
+
+    // Skip frames to reduce jitter (update at ~20-30fps instead of 60fps)
+    driftFrameCount++;
+    if (driftFrameCount % CONFIG.drift.frameSkip !== 0) {
+      state.driftAnimationId = requestAnimationFrame(driftLoop);
       return;
     }
 
@@ -455,15 +464,18 @@
   }
 
   function updatePositions() {
+    // Round to 1 decimal place to reduce subpixel jitter
+    const round = (n) => Math.round(n * 10) / 10;
+
     // Update node positions
-    state.nodeElements.attr('transform', (d) => `translate(${d.x},${d.y})`);
+    state.nodeElements.attr('transform', (d) => `translate(${round(d.x)},${round(d.y)})`);
 
     // Update link positions
     state.linkElements
-      .attr('x1', (d) => d.source.x)
-      .attr('y1', (d) => d.source.y)
-      .attr('x2', (d) => d.target.x)
-      .attr('y2', (d) => d.target.y);
+      .attr('x1', (d) => round(d.source.x))
+      .attr('y1', (d) => round(d.source.y))
+      .attr('x2', (d) => round(d.target.x))
+      .attr('y2', (d) => round(d.target.y));
   }
 
   function pauseDrift() {
