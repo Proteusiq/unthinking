@@ -1,6 +1,6 @@
 # Rebuttals & Counter-Evidence Matrix
 
-> **Last updated**: 2026-02-14
+> **Last updated**: 2026-02-15
 > **Papers analyzed**: 192
 > **See also**: `memento.md` for rebuttal status summary
 
@@ -446,13 +446,93 @@ Papers that reach **opposite conclusions** on the same question, revealing model
 
 | Category | Count | Notes |
 |----------|-------|-------|
-| Papers analyzed | 191 | +9 from last update |
+| Papers analyzed | 192 | Complete corpus |
 | Direct rebuttals identified | 13 | +1 (Mirror rebuttal) |
 | Counter-rebuttals identified | 3 | Unchanged |
-| "Mirror" rebuttals (opposite findings) | 1 | **NEW CATEGORY** |
+| "Mirror" rebuttals (opposite findings) | 1 | Papers 188 & 190 |
 | Remaining contested claims | 3 | Unchanged |
 
 ---
 
-*Last updated: 2026-02-10*
+## NEW: Theoretical Foundations (Papers 150-191)
+
+### Hallucination is Inevitable (#165, 2401.11817)
+
+**Status**: NO REBUTTALS — provides mathematical proof
+
+**Key claims**:
+- Formal impossibility theorem via diagonalization
+- Self-correction CANNOT eliminate hallucination (Corollary 1)
+- Any computable LLM hallucinates on some computable function
+
+**Challenges (to other papers)**:
+| Challenged Claim | Source | How 165 Rebuts |
+|------------------|--------|----------------|
+| CoT self-correction works | Multiple CoT papers | "Methods relying on LLMs themselves... cannot *eliminate* hallucination" |
+| Scaling will fix hallucination | Scaling literature | Polynomial-time LLMs can't solve exponential problems |
+| RLHF eliminates hallucination | Alignment literature | Mathematical impossibility regardless of training |
+
+### No Global Plan in CoT (#181, 2602.02103)
+
+**Status**: NO REBUTTALS — mechanistic probing evidence
+
+**Key claims**:
+- LLMs exhibit MYOPIC HORIZON
+- Final answer at random (50%) until LAST step
+- "Wooden Barrel" principle: few pivots determine reliability
+
+**Supports (confirms other papers)**:
+| Paper | How 181 Supports |
+|-------|------------------|
+| Can LLMs Reason and Plan (Kambhampati) | Mechanistic proof of no planning |
+| Stop Anthropomorphizing (Kambhampati) | CoT traces have no semantic planning |
+| Faith and Fate | Myopic = linearized pattern matching |
+
+### LMs Struggle to Use ICL Representations (#182, 2602.04212)
+
+**Status**: NO REBUTTALS — SMOKING GUN for pattern matching
+
+**Key claims**:
+- LLMs ENCODE novel semantics but CANNOT DEPLOY them
+- Representations are "inert" — exist but not causally used
+- Even GPT-5 and Gemini-2.5 collapse on 2D grid topologies
+
+**Why this is smoking gun evidence**:
+1. Dissociates encoding from understanding
+2. Tests SOTA reasoning models — not just open-weights
+3. "Inert" representations = exactly what pattern matchers do
+4. Flexible deployment impossible despite encoding success
+
+### Arithmetic Without Algorithms (#171, 2410.21272)
+
+**Status**: NO REBUTTALS — mechanistic interpretability evidence
+
+**Key claims**:
+- LLMs use "bag of heuristics" — NOT algorithms, NOT pure memorization
+- ~200 neurons per layer implement pattern-matching rules
+- 91% of important neurons classified as heuristics
+
+**Supports**:
+| Paper | How 171 Supports |
+|-------|------------------|
+| Faith and Fate | "Bag of heuristics" = "linearized subgraph matching" at neuron level |
+| GSM-Symbolic | Explains WHY perturbations cause failures — heuristics are pattern-specific |
+| Illusion of Thinking | Complexity collapse = heuristics fail at scale |
+
+### LLM Reasoning Failures Survey (#191, 2602.06176)
+
+**Status**: CORNERSTONE SURVEY — TMLR 2026
+
+**Significance**:
+- First comprehensive survey of LLM reasoning failures
+- 170+ papers synthesized
+- 14 papers overlap with our corpus (validates our selection)
+- 2-axis taxonomy: reasoning type × failure type
+
+**Conclusion aligns with thesis**:
+> "LLMs rely on pattern matching, statistical associations, and heuristics rather than human-like reasoning processes."
+
+---
+
+*Last updated: 2026-02-15*
 
