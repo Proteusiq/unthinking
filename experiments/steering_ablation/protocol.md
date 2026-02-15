@@ -277,10 +277,67 @@ High      │   ✗       ✗       ✓       │  <-- This is what we see
 
 ---
 
+## Cloud GPU Setup (Lightning.ai)
+
+Lightning.ai provides free GPU access with full terminal. No Colab browser nonsense.
+
+### Quick Start
+
+1. **Create account**: https://lightning.ai (sign in with GitHub)
+
+2. **Create a Studio**:
+   - Click "New Studio"
+   - Select GPU: **L4** (free tier) or **A10G** (22GB VRAM, better for 8B models)
+   - Choose "Start from scratch" or "VS Code" template
+
+3. **Connect from local terminal** (optional):
+   ```bash
+   # Install Lightning CLI
+   uv run --with lightning lightning login
+   
+   # SSH into your studio
+   lightning studio ssh <studio-name>
+   ```
+
+4. **Or use VS Code Remote**:
+   - Install "Lightning.ai" extension in VS Code
+   - Connect directly to your Studio
+
+### In the Studio
+
+```bash
+# Clone this repo
+git clone https://github.com/Proteusiq/unthinking.git
+cd unthinking/experiments/steering_ablation
+
+# Run Heretic (uv is pre-installed)
+uv run --with heretic-llm heretic meta-llama/Llama-3-8B-Instruct
+```
+
+### Free Tier Limits
+
+| Resource | Free Tier |
+|----------|-----------|
+| GPU | L4 (24GB VRAM) |
+| Hours | 22 hrs/month |
+| Storage | 15GB |
+| Studios | 3 concurrent |
+
+For longer runs, upgrade to Pro ($10/month) or use pay-as-you-go.
+
+### Tips
+
+- **Persist models**: Store downloaded models in `/teamspace/studios/this_studio/` to avoid re-downloading
+- **Use tmux**: Run `tmux` before long jobs so they survive disconnects
+- **Sync results**: Push results to git before Studio times out
+
+---
+
 ## Implementation Plan
 
 ### Phase 1: Setup (Week 1)
-- [ ] Install Heretic, EasySteer
+- [ ] Set up Lightning.ai Studio with GPU
+- [ ] Clone repo and verify heretic runs
 - [ ] Download models: Llama-3-8B, Gemma-2-9B, Qwen2.5-7B
 - [ ] Prepare harmful/harmless prompt datasets
 - [ ] Baseline measurements (refusal rates, benchmarks)
