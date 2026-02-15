@@ -1,6 +1,6 @@
 # Thoughts: Cross-Paper Synthesis and Missing Connections
 
-> **Last updated**: 2026-02-14
+> **Last updated**: 2026-02-15
 > **Papers analyzed**: 192
 
 ## Overview
@@ -146,6 +146,46 @@ This explains why:
 - Search helps → compensates for lack of persistent state
 - Mechanistic circuits exist → local algorithms learned
 - General reasoning unstable → no global algorithm
+
+---
+
+### Theme 7: Myopic Horizon (NEW from Papers 180-191)
+
+**Core claim**: LLMs have no global planning — only local, incremental transitions.
+
+**Key supporting papers**:
+| Paper | Key Finding |
+|-------|-------------|
+| **No Global Plan (#181)** | Final answer at random (50%) until LAST step; "Wooden Barrel" principle |
+| **LMs Struggle ICL (#182)** | Representations are "inert" — exist but not causally used |
+| **Contextual Drag (#180)** | Failed reasoning STRUCTURALLY inherited; self-improvement collapses |
+| **Hallucination Inevitable (#165)** | Self-correction CANNOT eliminate hallucination (Corollary 1) |
+
+**The "Myopic Horizon" explains**:
+- Why CoT helps (more local transitions to cover ground)
+- Why errors propagate (each step only sees recent context)
+- Why self-correction fails (no ability to globally evaluate)
+- Why planning fails (no look-ahead beyond immediate step)
+
+---
+
+### Theme 8: Bag of Heuristics (MECHANISTIC from Papers 170-179)
+
+**Core claim**: LLMs don't learn algorithms — they learn pattern-matching heuristics.
+
+**Key supporting papers**:
+| Paper | Key Finding |
+|-------|-------------|
+| **Arithmetic Without Algorithms (#171)** | ~200 neurons/layer implement heuristics; 91% classified as pattern-matchers |
+| **LiveCodeBench Pro (#176)** | 0% on hard tier; 83% easy → 0% hard; ALL models fail |
+| **Inverse Scaling TTC (#174)** | More reasoning can be WORSE; TMLR Featured |
+| **Abstract vs Compute (#177)** | CoT helps computation (+58.7%) not abstraction (+6.7%) |
+
+**The "Bag of Heuristics" explains**:
+- Why perturbations break models (heuristics are pattern-specific)
+- Why complexity causes collapse (heuristics fail at scale)
+- Why models appear to reason (combining many heuristics looks like thinking)
+- Why scale doesn't solve systematicity (more heuristics ≠ algorithms)
 
 ---
 
