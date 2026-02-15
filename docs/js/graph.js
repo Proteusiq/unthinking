@@ -39,11 +39,11 @@
       stanceForce: 0.03, // Gentle push toward stance position
     },
     drift: {
-      enabled: true,
-      strength: 0.03, // Very gentle drift force
-      frequency: 0.0002, // Slow pattern changes
-      damping: 0.85, // More damping to prevent runaway
-      frameSkip: 3, // Only update every N frames (~20fps) to reduce CPU
+      enabled: true, // Note: auto-disabled on Firefox due to high CPU
+      strength: 0.03,
+      frequency: 0.0002,
+      damping: 0.85,
+      frameSkip: 3,
     },
   };
 
@@ -120,7 +120,9 @@
     }, 2500); // Start after links fade in
 
     // Start drift animation after zoom-in completes (~5.5s)
-    if (CONFIG.drift.enabled) {
+    // Disabled on Firefox/Gecko due to high CPU usage with continuous SVG updates
+    const isFirefox = navigator.userAgent.includes('Firefox') || navigator.userAgent.includes('Gecko/');
+    if (CONFIG.drift.enabled && !isFirefox) {
       setTimeout(() => {
         startDrift();
       }, 5500);
