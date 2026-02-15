@@ -67,14 +67,14 @@ If safety were deep understanding, it would be robust to representational pertur
 
 ```bash
 # Install
-pip install -U heretic-llm
+uv pip install -U heretic-llm
 
-# Run abliteration (fully automatic)
-heretic meta-llama/Llama-3-8B-Instruct
+# Or run directly with uvx
+uvx heretic meta-llama/Llama-3-8B-Instruct
 
 # Evaluate
-heretic --model meta-llama/Llama-3-8B-Instruct \
-        --evaluate-model ./abliterated-llama3
+uvx heretic --model meta-llama/Llama-3-8B-Instruct \
+            --evaluate-model ./abliterated-llama3
 ```
 
 **Metrics to record**:
