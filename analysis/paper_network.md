@@ -3,7 +3,7 @@
 ## Overview
 This document provides a visual network of how the 192 analyzed papers connect to each other.
 
-> **Last updated**: 2026-02-14
+> **Last updated**: 2026-02-15
 > **See also**: `memento.md` for executive summary
 
 ---
