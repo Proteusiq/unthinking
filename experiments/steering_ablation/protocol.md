@@ -279,29 +279,27 @@ High      │   ✗       ✗       ✓       │  <-- This is what we see
 
 ## Cloud GPU Setup (Lightning.ai)
 
-Lightning.ai provides free GPU access with full terminal. No Colab browser nonsense.
+Lightning.ai provides free GPU access with full terminal via SSH.
 
 ### Quick Start
 
 1. **Create account**: https://lightning.ai (sign in with GitHub)
 
-2. **Create a Studio**:
+2. **Create a Studio** (in browser, one-time):
    - Click "New Studio"
    - Select GPU: **L4** (free tier) or **A10G** (22GB VRAM, better for 8B models)
-   - Choose "Start from scratch" or "VS Code" template
+   - Name it `steering-ablation`
 
-3. **Connect from local terminal** (optional):
+3. **Connect from your local terminal**:
    ```bash
-   # Install Lightning CLI
+   # Login (opens browser once to authenticate)
    uv run --with lightning lightning login
    
    # SSH into your studio
-   lightning studio ssh <studio-name>
+   uv run --with lightning lightning studio ssh steering-ablation
    ```
 
-4. **Or use VS Code Remote**:
-   - Install "Lightning.ai" extension in VS Code
-   - Connect directly to your Studio
+Now you're in a remote shell with GPU access. Use vim, tmux, etc.
 
 ### In the Studio
 
