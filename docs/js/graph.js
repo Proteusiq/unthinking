@@ -97,11 +97,6 @@
       state.simulation.alpha(1).restart();
     }, 100);
 
-    // Fade in links after nodes have fully settled
-    setTimeout(() => {
-      state.linkElements.transition().duration(500).style('opacity', null); // Reset to CSS default
-    }, 2000); // Wait 2 seconds for nodes to settle
-
     // Slow zoom-in animation to final view
     setTimeout(() => {
       const container = document.getElementById('graph');
@@ -116,7 +111,12 @@
         .duration(3000) // 3 second slow zoom
         .ease(d3.easeCubicInOut)
         .call(state.zoom.transform, finalTransform);
-    }, 2500); // Start after links fade in
+    }, 2500);
+
+    // Fade in links after nodes have fully settled and zoom completes
+    setTimeout(() => {
+      state.linkElements.transition().duration(800).style('opacity', null); // Reset to CSS default
+    }, 5000); // Wait 5 seconds for nodes to settle
 
     // Start drift animation after zoom-in completes (~5.5s)
     if (CONFIG.drift.enabled) {
