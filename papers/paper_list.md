@@ -316,6 +316,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 195 | 2310.02226 | Oct 2023 | Think before you speak: Training Language Models With Pause Tokens (ICLR 2024) | Balanced | ✅ DONE (analysis: 195_pause_tokens_think_before_speak.md) |
 | 196 | 2411.02344 | Nov 2024 | Seq-VCR: Preventing Collapse with Dummy Pause Tokens (Mila/Meta FAIR) | Supports | ✅ DONE (analysis: 196_seq_vcr_dummy_pause_tokens.md) |
 | 197 | 2509.24884 | Sep 2025 | Expanding Computation Spaces of LLMs at Inference Time (Copenhagen) | Supports | ✅ DONE (analysis: 197_expanding_computation_spaces_inference.md) |
+| 198 | 2506.03616 | Jun 2025 | Learning to Insert [PAUSE] Tokens for Better Reasoning (ACL Findings, KAIST) | Supports | ✅ DONE (analysis: 198_learning_insert_pause_tokens.md) |
 | 163 | 2402.18312 | Feb 2024 | How to think step-by-step: A mechanistic understanding of chain-of-thought reasoning | Supports | ✅ DONE |
 | 164 | 2503.21934 | Mar 2025 | Proof or Bluff? Evaluating LLMs on 2025 USA Math Olympiad | Strongly Supports | ✅ DONE |
 | 165 | 2401.11817 | Jan 2024 | Hallucination is Inevitable: An Innate Limitation of Large Language Models | Strongly Supports | ✅ DONE |
@@ -360,11 +361,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 197
-- **Against Reasoning**: ~115
+- **Total Papers**: 198
+- **Against Reasoning**: ~116
 - **For Reasoning**: ~31
 - **Balanced**: ~50
 - **Date Range**: 2021-2026
-- **Analyzed**: 197
+- **Analyzed**: 198
 
 ---
