@@ -4128,4 +4128,23 @@ window.paperLinks = [
     type: 'supports',
     description: 'Latent tokens replacing steps supports unfaithfulness findings',
   },
+  // CoT Monitorability (Paper 194)
+  {
+    source: '2507.05246',
+    target: '2307.13702',
+    type: 'extends',
+    description: 'Reframes unfaithfulness as feature of easy tasks; hard tasks force transparency',
+  },
+  {
+    source: '2507.05246',
+    target: '2505.05410',
+    type: 'extends',
+    description: 'Hard tasks require externalized reasoning, improving monitorability',
+  },
+  {
+    source: '2507.05246',
+    target: '2506.06941',
+    type: 'supports',
+    description: 'Both identify complexity thresholds where behavior changes',
+  },
 ];
