@@ -314,6 +314,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 161 | 2404.15758 | Apr 2024 | Let's Think Dot by Dot: Hidden Computation in Transformer Language Models | Supports | ✅ DONE |
 | 162 | 2505.21024 | May 2025 | Pause Tokens Strictly Increase the Expressivity of Constant-Depth Transformers | Supports | ✅ DONE |
 | 195 | 2310.02226 | Oct 2023 | Think before you speak: Training Language Models With Pause Tokens (ICLR 2024) | Balanced | ✅ DONE (analysis: 195_pause_tokens_think_before_speak.md) |
+| 196 | 2411.02344 | Nov 2024 | Seq-VCR: Preventing Collapse with Dummy Pause Tokens (Mila/Meta FAIR) | Supports | ✅ DONE (analysis: 196_seq_vcr_dummy_pause_tokens.md) |
 | 163 | 2402.18312 | Feb 2024 | How to think step-by-step: A mechanistic understanding of chain-of-thought reasoning | Supports | ✅ DONE |
 | 164 | 2503.21934 | Mar 2025 | Proof or Bluff? Evaluating LLMs on 2025 USA Math Olympiad | Strongly Supports | ✅ DONE |
 | 165 | 2401.11817 | Jan 2024 | Hallucination is Inevitable: An Innate Limitation of Large Language Models | Strongly Supports | ✅ DONE |
@@ -358,11 +359,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 195
-- **Against Reasoning**: ~113
+- **Total Papers**: 196
+- **Against Reasoning**: ~114
 - **For Reasoning**: ~31
 - **Balanced**: ~50
 - **Date Range**: 2021-2026
-- **Analyzed**: 195
+- **Analyzed**: 196
 
 ---

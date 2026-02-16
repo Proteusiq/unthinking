@@ -4120,4 +4120,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/190-199/195_pause_tokens_think_before_speak.md',
   },
+  {
+    id: '2411.02344',
+    title:
+      'Seq-VCR: Preventing Collapse in Intermediate Transformer Representations for Enhanced Reasoning',
+    shortTitle: 'Seq-VCR Dummy Pause',
+    date: 'Nov 2024',
+    stance: 'supports',
+    cluster: 'latent_cot',
+    coreArgument:
+      'Representation collapse in intermediate layers limits reasoning. Dummy pause tokens + Seq-VCR regularization achieve 99.5% on 5x5 multiplication vs 44% GPT-4 with CoT, without explicit reasoning steps.',
+    keyEvidence: [
+      '99.5% on 5x5 multiplication (vs 0% baseline, 44% GPT-4)',
+      '5x faster inference than CoT',
+      'Pause tokens alone: 0%, Seq-VCR alone: 0%, combined: 99.5%',
+      'Llama 1B: 0% vanilla → 97.4% with Seq-VCR',
+    ],
+    keyQuotes: [
+      'We incorporate dummy pause tokens as substitutes for chain-of-thought tokens... without the need for explicit intermediate reasoning steps.',
+      'Representation collapse prevents the model from effectively performing sub-tasks by calculating successive carryovers and storing intermediate results.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/190-199/196_seq_vcr_dummy_pause_tokens.md',
+  },
 ];
