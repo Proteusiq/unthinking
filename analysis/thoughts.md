@@ -1,11 +1,11 @@
 # Thoughts: Cross-Paper Synthesis and Missing Connections
 
-> **Last updated**: 2026-02-15
-> **Papers analyzed**: 192
+> **Last updated**: 2026-02-16
+> **Papers analyzed**: 195
 
 ## Overview
 
-After analyzing all 192 papers, this document captures:
+After analyzing all 195 papers, this document captures:
 1. Major themes and how papers interconnect
 2. Papers that talk to each other (support, challenge, extend)
 3. The narrative arc of the field (2022-2026)
@@ -186,6 +186,37 @@ This explains why:
 - Why complexity causes collapse (heuristics fail at scale)
 - Why models appear to reason (combining many heuristics looks like thinking)
 - Why scale doesn't solve systematicity (more heuristics ≠ algorithms)
+
+---
+
+### Theme 9: Computational Workspace, Not Semantic Reasoning
+
+**Core claim**: What matters for "reasoning" tasks is having enough serial computational depth, not having meaningful intermediate steps.
+
+**Key supporting papers**:
+| Paper | Key Finding |
+|-------|-------------|
+| **Dot by Dot (#161, 2404.15758)** | Filler tokens ("...") can replace meaningful CoT steps and still improve performance |
+| **Pause Tokens (#195, 2310.02226)** | Learnable `<pause>` tokens (meaningless) improve performance; +18% SQuAD, +8% CommonSenseQA |
+| **Pause Tokens Expressivity (#162, 2505.21024)** | **Formal proof**: pause tokens strictly increase transformer expressivity; parity impossible without them |
+| **Token Assorted (#193, 2502.03275)** | Latent tokens replace early CoT; "linguistic coherence rather than core reasoning information" |
+| **CoT Monitorability (#194, 2507.05246)** | Distinguishes CoT-as-rationalization (easy) from CoT-as-computation (hard) |
+
+**The insight**: Intermediate tokens provide:
+- Additional hidden vectors for the model to manipulate
+- More "thinking time" before committing to an answer
+- Computational workspace — NOT semantic reasoning steps
+
+**Critical finding from Pause Tokens (#195)**:
+> "Standard pretraining biases the model to be 'quick' in its computations."
+
+Models must be **trained** to use extra computation. Off-the-shelf models can't utilize inference-time delays — the capability must be learned. This supports the pattern matching thesis: the "reasoning" pathway is a learned behavior tied to training distribution.
+
+**The "Computational Workspace" explains**:
+- Why CoT helps → provides serial depth for computation
+- Why filler tokens work → content irrelevant, only computation matters
+- Why models must be trained with pauses → capability is learned, not innate
+- Why semantic content is redundant → 17% shorter latent traces work BETTER (Token Assorted)
 
 ---
 
