@@ -4074,4 +4074,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/190-199/193_token_assorted_latent_text_mixing.md',
   },
+  {
+    id: '2507.05246',
+    title:
+      'When Chain of Thought is Necessary, Language Models Struggle to Evade Monitors',
+    shortTitle: 'CoT Monitorability',
+    date: 'Jul 2025',
+    stance: 'balanced',
+    cluster: 'faithfulness',
+    coreArgument:
+      'Distinguishes CoT-as-rationalization (easy tasks, unfaithful) from CoT-as-computation (hard tasks, faithful by necessity). Models struggle to evade monitors without significant help.',
+    keyEvidence: [
+      'Complex hints resolve unfaithfulness (returns to baseline)',
+      'Hard math problems force CoT reliance',
+      'Monitor evasion requires 1000s of RL steps',
+      'Models fail to evade without detailed instructions',
+    ],
+    keyQuotes: [
+      'If a model must think out loud to do something bad, and if its natural mode of thinking is human-like, then we can detect and prevent the harm.',
+      'Making the task difficult resolves this unfaithful behavior by forcing the model to reason about the hint explicitly.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/190-199/194_cot_monitorability_evasion.md',
+  },
 ];

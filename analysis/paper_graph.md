@@ -1,7 +1,7 @@
 # Paper Interaction Graph
 
 > **Last updated**: 2026-02-16
-> **Papers tracked**: 193
+> **Papers tracked**: 194
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -234,6 +234,10 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Token Assorted (2502.03275)** | **supports** | **Latent CoT Survey (2505.16782)** | **Confirms "expressive redundancy" — many CoT tokens are filler** |
 | **Token Assorted (2502.03275)** | **supports** | **Overthinking (2412.21187)** | **Both show explicit CoT often redundant; shorter can be better** |
 | **Token Assorted (2502.03275)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Latent tokens replacing early steps supports unfaithfulness** |
+| **CoT Monitorability (2507.05246)** | **reframes** | **Measuring Faithfulness (2307.13702)** | **Unfaithfulness is feature of EASY tasks; hard tasks force transparency** |
+| **CoT Monitorability (2507.05246)** | **reframes** | **Reasoning Models Don't Say What They Think (2505.05410)** | **Hard tasks require externalized reasoning, improving monitorability** |
+| **CoT Monitorability (2507.05246)** | **supports** | **Illusion of Thinking (2506.06941)** | **Both identify complexity thresholds where behavior changes** |
+| **CoT Monitorability (2507.05246)** | **extends** | **Expressive Power of CoT (2310.07923)** | **CoT-as-computation aligns with theoretical expressivity arguments** |
 | **Mechanistic CoT (2402.18312)** | **supports** | **Faith and Fate (2305.18654)** | **CoT via induction circuits = pattern matching, not symbolic reasoning** |
 | **Mechanistic CoT (2402.18312)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Parallel pathways explain why CoT divorced from actual computation** |
 | **Mechanistic CoT (2402.18312)** | **supports** | **Dot by Dot (2404.15758)** | **Both show CoT benefits from computation, not semantic content** |
@@ -1120,6 +1124,7 @@ These papers have NO direct rebuttals found:
 | Papers Added | Key Findings |
 |--------------|--------------|
 | Token Assorted (2502.03275) | ICML: Latent tokens replace early CoT; 17% shorter traces + BETTER accuracy; "linguistic coherence rather than core reasoning"; supports filler token findings |
+| CoT Monitorability Evasion (2507.05246) | Google: CoT-as-rationalization vs CoT-as-computation framework; unfaithfulness resolves when CoT is NECESSARY; models struggle to evade monitors without significant help (1000s RL steps); BALANCED |
 
 ### 2026-02-15
 | Papers Added | Key Findings |

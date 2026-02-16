@@ -136,6 +136,7 @@ Total papers to read from provided evidence (2024+ only)
 |---|----------|------|-------|--------|
 | 52 | 2403.11793 | Mar 2024 | Reasoning Abilities of LLMs: In-Depth Analysis on Abstraction and Reasoning Corpus | ✅ DONE (analysis: 79_reasoning_abilities_arc_loth.md) |
 | 53 | 2510.27378 | Oct 2025 | Measuring Chain-of-Thought Monitorability Through Faithfulness and Verbosity | ✅ DONE (analysis: 78_measuring_cot_monitorability.md) |
+| 194 | 2507.05246 | Jul 2025 | When Chain of Thought is Necessary, Language Models Struggle to Evade Monitors (Google) | ✅ DONE (analysis: 194_cot_monitorability_evasion.md) |
 
 ### Mixed Evidence on Specific Mechanisms
 | # | arXiv ID | Date | Title | Status |
@@ -356,11 +357,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 193
+- **Total Papers**: 194
 - **Against Reasoning**: ~113
 - **For Reasoning**: ~31
-- **Balanced**: ~48
+- **Balanced**: ~49
 - **Date Range**: 2021-2026
-- **Analyzed**: 193
+- **Analyzed**: 194
 
 ---
