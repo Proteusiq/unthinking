@@ -8,7 +8,7 @@
 
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
-[![Papers](https://img.shields.io/badge/papers-192-blue)]()
+[![Papers](https://img.shields.io/badge/papers-193-blue)]()
 [![Relationships](https://img.shields.io/badge/relationships-650-orange)]()
 
 ---
@@ -28,7 +28,7 @@ RL and test-time compute "surface" pre-existing capabilities rather than creatin
 Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/)**
 
 <p align="center">
-  <img src="https://img.shields.io/badge/nodes-192%20papers-4CAF50" />
+  <img src="https://img.shields.io/badge/nodes-193%20papers-4CAF50" />
   <img src="https://img.shields.io/badge/edges-650%20relationships-2196F3" />
   <img src="https://img.shields.io/badge/stance-supports%20%7C%20challenges%20%7C%20balanced-FFC107" />
 </p>
@@ -217,7 +217,7 @@ PHASE 7: THEORETICAL FRAMEWORK (2026)
 │   ├── mindmap.md            # Visual cross-reference of all papers
 │   ├── paper_graph.md        # Paper interaction graph
 │   ├── rebuttals.md          # Rebuttal matrix
-│   └── explored/             # Individual paper analyses (192 files)
+│   └── explored/             # Individual paper analyses (193 files)
 │       ├── 00-09/            # Papers 00-09
 │       ├── 10-19/            # Papers 10-19
 │       ├── ...               # (10-paper bins)

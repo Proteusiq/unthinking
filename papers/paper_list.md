@@ -99,6 +99,7 @@ Total papers to read from provided evidence (2024+ only)
 | 39 | 2510.09312 | Oct 2025 | Verifying Chain-of-Thought Reasoning via Its Computational Graph (CRV) | ✅ DONE (analysis: 72_crv_verifying_cot_computational_graph.md) |
 | 40 | 2505.16782 | May 2025 | Reasoning Beyond Language: A Comprehensive Survey on Latent Chain-of-Thought Reasoning | ✅ DONE (analysis: 76_survey_latent_cot_reasoning.md) |
 | 41 | 2507.18391 | Jul 2025 | Revisiting LLM Reasoning via Information Bottleneck | ✅ DONE (analysis: 83_revisiting_llm_reasoning_information_bottleneck.md) |
+| 193 | 2502.03275 | Feb 2025 | Token Assorted: Mixing Latent and Text Tokens for Improved Language Model Reasoning (ICML) | ✅ DONE (analysis: 193_token_assorted_latent_text_mixing.md) |
 
 ### Advanced Reasoning Demonstrations
 | # | arXiv ID | Date | Title | Status |
@@ -355,11 +356,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 192
-- **Against Reasoning**: ~112
+- **Total Papers**: 193
+- **Against Reasoning**: ~113
 - **For Reasoning**: ~31
 - **Balanced**: ~48
 - **Date Range**: 2021-2026
-- **Analyzed**: 192
+- **Analyzed**: 193
 
 ---

@@ -1,7 +1,7 @@
 # Paper Interaction Graph
 
-> **Last updated**: 2026-02-15
-> **Papers tracked**: 192
+> **Last updated**: 2026-02-16
+> **Papers tracked**: 193
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -230,6 +230,10 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Pause Tokens (2505.21024)** | **extends** | **Dot by Dot (2404.15758)** | **Proves formal separation conjectured in Dot by Dot** |
 | **Pause Tokens (2505.21024)** | **supports** | **Faith and Fate (2305.18654)** | **Proves fundamental computational limits** |
 | **Pause Tokens (2505.21024)** | **supports** | **Expressive Power of CoT (2310.07923)** | **Places pause tokens in relation to CoT expressivity** |
+| **Token Assorted (2502.03275)** | **supports** | **Dot by Dot (2404.15758)** | **Both show compressed/filler tokens work as well as full CoT** |
+| **Token Assorted (2502.03275)** | **supports** | **Latent CoT Survey (2505.16782)** | **Confirms "expressive redundancy" — many CoT tokens are filler** |
+| **Token Assorted (2502.03275)** | **supports** | **Overthinking (2412.21187)** | **Both show explicit CoT often redundant; shorter can be better** |
+| **Token Assorted (2502.03275)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Latent tokens replacing early steps supports unfaithfulness** |
 | **Mechanistic CoT (2402.18312)** | **supports** | **Faith and Fate (2305.18654)** | **CoT via induction circuits = pattern matching, not symbolic reasoning** |
 | **Mechanistic CoT (2402.18312)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Parallel pathways explain why CoT divorced from actual computation** |
 | **Mechanistic CoT (2402.18312)** | **supports** | **Dot by Dot (2404.15758)** | **Both show CoT benefits from computation, not semantic content** |
@@ -1111,6 +1115,11 @@ These papers have NO direct rebuttals found:
 ---
 
 ## Update Log
+
+### 2026-02-16
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Token Assorted (2502.03275) | ICML: Latent tokens replace early CoT; 17% shorter traces + BETTER accuracy; "linguistic coherence rather than core reasoning"; supports filler token findings |
 
 ### 2026-02-15
 | Papers Added | Key Findings |

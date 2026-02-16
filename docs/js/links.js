@@ -4103,4 +4103,29 @@ window.paperLinks = [
     type: 'extends',
     description: 'Survey cites negative bias correction work',
   },
+  // Token Assorted (Paper 193)
+  {
+    source: '2502.03275',
+    target: '2404.15758',
+    type: 'supports',
+    description: 'Both show compressed/filler tokens work as well as full CoT',
+  },
+  {
+    source: '2502.03275',
+    target: '2505.16782',
+    type: 'supports',
+    description: 'Confirms expressive redundancy in CoT tokens',
+  },
+  {
+    source: '2502.03275',
+    target: '2412.21187',
+    type: 'supports',
+    description: 'Both show explicit CoT often redundant; shorter can be better',
+  },
+  {
+    source: '2502.03275',
+    target: '2307.13702',
+    type: 'supports',
+    description: 'Latent tokens replacing steps supports unfaithfulness findings',
+  },
 ];
