@@ -364,7 +364,7 @@ GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topolog
 | o1 | 97.8% | **23.63%** | -74% |
 | o3-mini | 92.9% | **6.74%** | -86% |
 
-**Why it's devastating**: Even with extended thinking, o1 collapses on longer planning horizons. Test-time compute doesn't create planning ability — it just allows more pattern matching attempts.
+**Why it's devastating**: Even with extended thinking, o1 collapses on longer planning horizons. Test-time compute doesn't create planning ability — it allows more pattern matching attempts.
 
 ### Smoking Gun 17: Proof Illusion (#164)
 **Automated grading overestimates proof ability 20x**:

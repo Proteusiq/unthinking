@@ -420,7 +420,7 @@ Only Temporal Cognition (2507.15851) addresses this:
 
 ### Tension 1: Why Does RL Sometimes Help?
 
-**The puzzle**: If reasoning is just pattern matching, why does RL improve performance?
+**The puzzle**: If reasoning is pattern matching, why does RL improve performance?
 
 **Possible resolutions**:
 1. RL activates latent patterns (Interplay evidence)

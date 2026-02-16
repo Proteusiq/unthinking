@@ -191,7 +191,7 @@ C is "new" to the user, but **mathematically latent in the data**. It's a high-d
 
 ### Why We Fall For It
 
-We are trained on A and B. When we see C, we assume it's novel reasoning. But C was always on the interpolation manifold — we just hadn't seen that particular point before.
+We are trained on A and B. When we see C, we assume it's novel reasoning. But C was always on the interpolation manifold — we hadn't seen that particular point before.
 
 **This is the illusion**: novelty to the observer ≠ novelty to the system.
 
@@ -933,7 +933,7 @@ For B=1 (NO search required, just follow edges):
 
 ### Argument 8: Tool Use Supports Imitation, Not Reasoning
 - **Evidence**: Thinking Isn't Illusion (tools fix Hanoi), Limits of Innate Planning (tools don't fix 8-puzzle)
-- **Claim**: Tools work when they provide the algorithm; model just executes
+- **Claim**: Tools work when they provide the algorithm; model executes
 - **Implication**: "Tool-augmented success" proves execution capability, not reasoning
 - **Key insight**: If models could reason, they wouldn't need tools for problems humans solve mentally
 
