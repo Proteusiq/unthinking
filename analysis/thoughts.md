@@ -149,7 +149,7 @@ This explains why:
 
 ---
 
-### Theme 7: Myopic Horizon (NEW from Papers 180-191)
+### Theme 7: Myopic Horizon (Papers 180-191)
 
 **Core claim**: LLMs have no global planning — only local, incremental transitions.
 
@@ -393,7 +393,7 @@ Only Temporal Cognition (2507.15851) addresses this:
 │     - Training approach > scale                                                 │
 │     - Bigger models = less faithful (inverse scaling)                           │
 │                                                                                 │
-│  6. SYCOPHANCY IS FUNDAMENTAL (NEW FROM EXPANDED CORPUS)                        │
+│  6. SYCOPHANCY IS FUNDAMENTAL                                                   │
 │     - Models prioritize social agreement over truth                             │
 │     - Scales WITH model size, not against it                                    │
 │     - RLHF incentivizes sycophancy (~6% preference boost)                       │
@@ -1116,7 +1116,7 @@ Papers 188 & 190 introduce a new category: studies that reach **opposite conclus
 - [Animals vs Ghosts](https://karpathy.bearblog.dev/animals-vs-ghosts/) (Oct 1, 2025)
 - [Verifiability](https://karpathy.bearblog.dev/verifiability/) (Nov 17, 2025)
 - [2025 LLM Year in Review](https://karpathy.bearblog.dev/year-in-review-2025/) (Dec 19, 2025)
-- [microgpt](https://karpathy.github.io/2026/02/12/microgpt/) (Feb 12, 2026) — **NEW**
+- [microgpt](https://karpathy.github.io/2026/02/12/microgpt/) (Feb 12, 2026)
 
 Karpathy, former Tesla AI Director and OpenAI founding member, articulates a framework that strongly aligns with the thesis. His "ghosts vs animals" metaphor has become influential in AI discourse.
 
