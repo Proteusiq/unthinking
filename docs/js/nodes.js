@@ -4231,4 +4231,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/190-199/200_harp_hesitation_aware_reframing.md',
   },
+  {
+    id: '2502.18848',
+    title: 'A Causal Lens for Evaluating Faithfulness Metrics',
+    shortTitle: 'Causal Lens Faithfulness',
+    date: 'Feb 2025',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'Filler Tokens metric (replacing CoT with "...") is the most reliable faithfulness test. Uses knowledge editing to create causal ground truth for faithful/unfaithful pairs. Simulatability fails (near-random).',
+    keyEvidence: [
+      'Filler Tokens: highest Copeland score (29)',
+      'Only metric > 0.5 on ALL tasks/models',
+      'Simulatability: 0.50-0.51 (random)',
+      'Continuous metrics >> binary metrics',
+    ],
+    keyQuotes: [
+      'Filler Tokens is the most reliable overall, significantly outperforming the baseline value of 0.5 across all tasks and models.',
+      'The Multi-hop task is particularly challenging, as all other metrics fail to significantly exceed baseline performance.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/190-199/201_causal_lens_faithfulness_metrics.md',
+  },
 ];
