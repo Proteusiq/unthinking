@@ -4166,4 +4166,29 @@ window.paperLinks = [
     type: 'supports',
     description: 'Both show intermediate tokens serve computation not semantics',
   },
+  // Seq-VCR Dummy Pause (Paper 196)
+  {
+    source: '2411.02344',
+    target: '2404.15758',
+    type: 'supports',
+    description: 'Both show meaningless tokens replace CoT; Seq-VCR explains via representation collapse',
+  },
+  {
+    source: '2411.02344',
+    target: '2310.02226',
+    type: 'extends',
+    description: 'Adds Seq-VCR regularization to pause tokens for dramatically better results',
+  },
+  {
+    source: '2411.02344',
+    target: '2505.21024',
+    type: 'supports',
+    description: 'Provides empirical evidence for theoretical expressivity claims',
+  },
+  {
+    source: '2411.02344',
+    target: '2502.03275',
+    type: 'supports',
+    description: 'Both show semantic content redundant; Seq-VCR provides mechanism',
+  },
 ];
