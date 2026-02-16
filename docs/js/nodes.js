@@ -4051,4 +4051,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/190-199/191_llm_reasoning_failures_survey.md',
   },
+  {
+    id: '2502.03275',
+    title:
+      'Token Assorted: Mixing Latent and Text Tokens for Improved Language Model Reasoning',
+    shortTitle: 'Token Assorted',
+    date: 'Feb 2025',
+    stance: 'supports',
+    cluster: 'latent_cot',
+    coreArgument:
+      'Much of CoT serves linguistic coherence, not reasoning. Discrete latent tokens can replace early reasoning steps with 17% shorter traces while improving accuracy.',
+    keyEvidence: [
+      'Math +4.2%, GSM8K +4.1% with latent tokens',
+      'Gaokao-Math +13.3% improvement',
+      '17% average trace length reduction',
+      'ProsQA: 77.5% → 96.2% (+18.7%)',
+    ],
+    keyQuotes: [
+      'Much of the text serves primarily to maintain linguistic coherence, rather than conveying core reasoning information.',
+      'Our latent approach shows an average 17% reduction in token numbers compared with CoT while surpassing it in prediction accuracy.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/190-199/193_token_assorted_latent_text_mixing.md',
+  },
 ];
