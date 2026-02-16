@@ -4209,4 +4209,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/190-199/199_bottlenecked_transformers_kv_cache.md',
   },
+  {
+    id: '2412.07282',
+    title: 'HARP: Hesitation-Aware Reframing in Transformer Inference Pass',
+    shortTitle: 'HARP',
+    date: 'Dec 2024',
+    stance: 'supports',
+    cluster: 'latent_cot',
+    coreArgument:
+      'When models are uncertain (high entropy), dropout-based embedding perturbation and logit averaging improves performance. Training-free, model-agnostic. Single reframe is optimal; more can hurt.',
+    keyEvidence: [
+      '+5.16% LAMBADA (LLaMA 8B)',
+      '+4.79% GSM8K (Mistral 7B)',
+      '2x faster than beam search',
+      'Unconditional reframing can HURT; selectivity crucial',
+    ],
+    keyQuotes: [
+      'Surprisingly, increasing the number of additional steps often leads to a decline in performance.',
+      'Our analysis reveals that unconditionally adding an extra forward step is not universally beneficial.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/190-199/200_harp_hesitation_aware_reframing.md',
+  },
 ];

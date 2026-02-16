@@ -1,7 +1,7 @@
 # Paper Interaction Graph
 
 > **Last updated**: 2026-02-16
-> **Papers tracked**: 199
+> **Papers tracked**: 200
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -256,6 +256,11 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Bottlenecked Transformers (2505.16950)** | **confirms** | **Pause Tokens Training (2310.02226)** | **Confirms pause tokens alone (without pretraining) don't reliably help** |
 | **Bottlenecked Transformers (2505.16950)** | **supports** | **Dot by Dot (2404.15758)** | **Both support computational workspace hypothesis** |
 | **Bottlenecked Transformers (2505.16950)** | **provides theory for** | **Filler tokens** | **Information Bottleneck explains why compression of irrelevant input helps** |
+| **HARP (2412.07282)** | **supports** | **Pause Tokens Training (2310.02226)** | **Both show additional computation helps; HARP shows training not always required** |
+| **HARP (2412.07282)** | **supports** | **Seq-VCR (2411.02344)** | **Both show computational mechanisms underlie reasoning improvements** |
+| **HARP (2412.07282)** | **supports** | **Expanding Computation (2509.24884)** | **Both work at inference-only; HARP is selective, #197 is uniform** |
+| **HARP (2412.07282)** | **supports** | **Dot by Dot (2404.15758)** | **Both show filler/dummy computation improves performance** |
+| **HARP (2412.07282)** | **extends** | **Learning to Insert PAUSE (2506.03616)** | **DIT identifies hard positions via confidence; HARP uses entropy at inference** |
 | **Mechanistic CoT (2402.18312)** | **supports** | **Faith and Fate (2305.18654)** | **CoT via induction circuits = pattern matching, not symbolic reasoning** |
 | **Mechanistic CoT (2402.18312)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Parallel pathways explain why CoT divorced from actual computation** |
 | **Mechanistic CoT (2402.18312)** | **supports** | **Dot by Dot (2404.15758)** | **Both show CoT benefits from computation, not semantic content** |
