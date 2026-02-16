@@ -4279,4 +4279,29 @@ window.paperLinks = [
     type: 'extends',
     description: 'DIT identifies hard positions via confidence; HARP uses entropy at inference',
   },
+  // Causal Lens Faithfulness (Paper 201)
+  {
+    source: '2502.18848',
+    target: '2307.13702',
+    type: 'extends',
+    description: 'Extends Lanham et al. corruption methods; Filler Tokens best metric',
+  },
+  {
+    source: '2502.18848',
+    target: '2411.02344',
+    type: 'supports',
+    description: 'Both show filler/dummy tokens reveal true computation vs decoration',
+  },
+  {
+    source: '2502.18848',
+    target: '2404.15758',
+    type: 'supports',
+    description: 'Filler tokens metric confirms hidden computation hypothesis',
+  },
+  {
+    source: '2502.18848',
+    target: '2505.05410',
+    type: 'extends',
+    description: 'Provides causal framework for testing unfaithfulness',
+  },
 ];

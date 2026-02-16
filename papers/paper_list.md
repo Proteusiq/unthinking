@@ -319,6 +319,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 198 | 2506.03616 | Jun 2025 | Learning to Insert [PAUSE] Tokens for Better Reasoning (ACL Findings, KAIST) | Supports | ✅ DONE (analysis: 198_learning_insert_pause_tokens.md) |
 | 199 | 2505.16950 | May 2025 | Bottlenecked Transformers: Periodic KV Cache Consolidation for Generalised Reasoning (UCL/Huawei) | Balanced | ✅ DONE (analysis: 199_bottlenecked_transformers_kv_cache.md) |
 | 200 | 2412.07282 | Dec 2024 | HARP: Hesitation-Aware Reframing in Transformer Inference Pass (NAACL 2025) | Supports | ✅ DONE (analysis: 200_harp_hesitation_aware_reframing.md) |
+| 201 | 2502.18848 | Feb 2025 | A Causal Lens for Evaluating Faithfulness Metrics (EMNLP 2025) | Supports | ✅ DONE (analysis: 201_causal_lens_faithfulness_metrics.md) |
 | 163 | 2402.18312 | Feb 2024 | How to think step-by-step: A mechanistic understanding of chain-of-thought reasoning | Supports | ✅ DONE |
 | 164 | 2503.21934 | Mar 2025 | Proof or Bluff? Evaluating LLMs on 2025 USA Math Olympiad | Strongly Supports | ✅ DONE |
 | 165 | 2401.11817 | Jan 2024 | Hallucination is Inevitable: An Innate Limitation of Large Language Models | Strongly Supports | ✅ DONE |
@@ -363,11 +364,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 200
-- **Against Reasoning**: ~117
+- **Total Papers**: 201
+- **Against Reasoning**: ~118
 - **For Reasoning**: ~31
 - **Balanced**: ~51
 - **Date Range**: 2021-2026
-- **Analyzed**: 200
+- **Analyzed**: 201
 
 ---
