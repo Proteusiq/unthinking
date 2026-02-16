@@ -1116,6 +1116,7 @@ Papers 188 & 190 introduce a new category: studies that reach **opposite conclus
 - [Animals vs Ghosts](https://karpathy.bearblog.dev/animals-vs-ghosts/) (Oct 1, 2025)
 - [Verifiability](https://karpathy.bearblog.dev/verifiability/) (Nov 17, 2025)
 - [2025 LLM Year in Review](https://karpathy.bearblog.dev/year-in-review-2025/) (Dec 19, 2025)
+- [microgpt](https://karpathy.github.io/2026/02/12/microgpt/) (Feb 12, 2026) — **NEW**
 
 Karpathy, former Tesla AI Director and OpenAI founding member, articulates a framework that strongly aligns with the thesis. His "ghosts vs animals" metaphor has become influential in AI discourse.
 
@@ -1230,6 +1231,25 @@ Karpathy's framework **strongly supports** the thesis that LLMs are sophisticate
 
 **Key Insight**: Karpathy frames this neutrally — ghosts can be "incredibly helpful and properly world-altering" even without being animals. The thesis isn't that LLMs are useless, but that their usefulness comes from sophisticated pattern matching, not reasoning.
 
+### microgpt: The Algorithm in 200 Lines (Feb 2026)
+
+Karpathy's [microgpt](https://karpathy.github.io/2026/02/12/microgpt/) distills GPT to its bare essentials — 200 lines of pure Python with no dependencies. This pedagogical project makes explicit what LLMs actually are:
+
+**On "Understanding"**:
+> "Does the model 'understand' anything? That's a philosophical question, but mechanically: **no magic is happening**. The model is a big math function that maps input tokens to a probability distribution over the next token. During training, the parameters are adjusted to make the correct next token more probable. Whether this constitutes 'understanding' is up to you, but the mechanism is fully contained in the 200 lines above."
+
+**On Hallucinations**:
+> "The model generates tokens by sampling from a probability distribution. **It has no concept of truth**, it only knows what sequences are statistically plausible given the training data. microgpt 'hallucinating' a name like 'karia' is the same phenomenon as ChatGPT confidently stating a false fact. Both are plausible-sounding completions that happen not to be real."
+
+**On ChatGPT**:
+> "ChatGPT is this same core loop (predict next token, sample, repeat) scaled up enormously, with post-training to make it conversational. When you chat with it, the system prompt, your message, and its reply are all just tokens in a sequence. The model is completing the document one token at a time, same as microgpt completing a name."
+
+**Thesis Relevance**: This is the clearest possible articulation of what LLMs mechanically are. No matter how large the model, it's still:
+1. A function mapping tokens → probability distribution
+2. Optimized to predict plausible next tokens
+3. Has no concept of truth, only statistical plausibility
+4. Fundamentally the same algorithm at any scale
+
 ### Connections to Corpus
 
 | Karpathy Concept | Related Papers |
@@ -1256,6 +1276,8 @@ A collection of influential quotes from four key thinkers who share overlapping 
 | "Feel the AGI moments" | Jan 2026 X thread | Agents loop tirelessly on problems — huge leverage, but still fallible |
 | "Threshold of coherence" | Jan 2026 X thread | ~Dec 2025 point where agents became reliably coherent over long horizons |
 | "Agentic engineering" | Feb 2026 retrospective | Evolution from "vibe coding" to orchestrating agents with engineering oversight |
+| "No magic is happening" | microgpt (Feb 2026) | The model is a big math function mapping tokens to probabilities — no understanding |
+| "It has no concept of truth" | microgpt (Feb 2026) | Model only knows what sequences are statistically plausible given training data |
 
 ### Richard Sutton
 
