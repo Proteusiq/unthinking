@@ -1206,7 +1206,7 @@ Papers organized by:
 - Pattern dependence (Papers #104, #108, #147, #149, #157)
 - Social dynamics (Papers #109, #110, #127, #128)
 - Tool augmentation (Papers #4, #10, #11, #68)
-- **NEW: Mirror rebuttals** (Papers #188 vs #190 — same question, opposite answers)
+- Mirror rebuttals (Papers #188 vs #190 — same question, opposite answers)
 
 **~69% support thesis | ~27% balanced | ~4% challenge**
 

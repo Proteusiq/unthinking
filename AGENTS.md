@@ -101,6 +101,16 @@ For EVERY paper analyzed, you MUST update the paper interaction graph:
   - GOOD: "Evidence for the claim..."
 - The analysis should read as neutral scholarly work, not persuasive writing
 
+### 7. No Temporal Markers
+- **NEVER** use "NEW", "UPDATED", "RECENT" or similar temporal markers in documentation
+- Content should be timeless — dates speak for themselves
+- If something is new, the date/commit history shows it
+- Examples:
+  - BAD: `- [microgpt](url) (Feb 2026) — **NEW**`
+  - GOOD: `- [microgpt](url) (Feb 2026)`
+  - BAD: `### NEW: Mirror Rebuttals Section`
+  - GOOD: `### Mirror Rebuttals Section`
+
 ---
 
 ## Paper Interaction Graph

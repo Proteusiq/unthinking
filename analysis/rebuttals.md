@@ -226,7 +226,7 @@ Anthropic's own research:
 │  [p=4/3 drop = distribution limit]       [Acknowledged by authors]          │
 │                                                                             │
 │  ═══════════════════════════════════════════════════════════════════════    │
-│                      "MIRROR" REBUTTAL (NEW)                                │
+│                      "MIRROR" REBUTTAL                                      │
 │  ═══════════════════════════════════════════════════════════════════════    │
 │                                                                             │
 │  Mind Your Tone: Rude=WORSE ←─ OPPOSITE ─→ Mind Your Tone: Rude=BETTER     │
@@ -279,7 +279,7 @@ KEY UPDATES:
 2. **RL surfaces capability** — But still distribution-bounded
 3. ~~Tool augmentation works~~ — **WEAKENED by Limits of Innate Planning**
 
-### Weakened "For" Evidence (NEW)
+### Weakened "For" Evidence
 1. **Agentic Gap / Tool augmentation** — Directly refuted by Limits of Innate Planning
    - Move validator = 0% success
    - Execution vs reasoning distinction doesn't hold for planning
@@ -306,7 +306,7 @@ KEY UPDATES:
 │  ✓ Planning fails even with tools (Limits: 0% with move validator)          │
 │  ✓ RL SURFACES, DOESN'T CREATE (Interplay: 0% exposure = fail)              │
 │  ✓ Strategic reasoning is distribution-bounded (p=4/3 drop)                 │
-│  ✓ BEHAVIOR IS MODEL-SPECIFIC PATTERN MATCHING (Mirror rebuttal) [NEW]      │
+│  ✓ BEHAVIOR IS MODEL-SPECIFIC PATTERN MATCHING (Mirror rebuttal)            │
 │                                                                             │
 │  QUALIFIED CLAIMS:                                                          │
 │  ~ "Reasoning collapse" may be execution limit FOR SOME TASKS               │
@@ -430,7 +430,7 @@ KEY UPDATES:
 
 ---
 
-## NEW: "Mirror" Rebuttals Section
+## "Mirror" Rebuttals Section
 
 Papers that reach **opposite conclusions** on the same question, revealing model-specific learned patterns:
 
@@ -454,7 +454,7 @@ Papers that reach **opposite conclusions** on the same question, revealing model
 
 ---
 
-## NEW: Theoretical Foundations (Papers 150-191)
+## Theoretical Foundations (Papers 150-191)
 
 ### Hallucination is Inevitable (#165, 2401.11817)
 

@@ -706,7 +706,7 @@ For B=1 (NO search required, just follow edges):
 | DeepSeek-R1 | RL surfaces behaviors from base model |
 | **s1** | **1K samples activates pre-existing reasoning** |
 
-### For "RL Surfaces, Doesn't Create" (CRITICAL NEW EVIDENCE)
+### For "RL Surfaces, Doesn't Create"
 
 | Paper | Supporting Evidence |
 |-------|---------------------|
@@ -724,7 +724,7 @@ For B=1 (NO search required, just follow edges):
 - ≥1% exposure → RL succeeds (up to +60% pass@128)
 - "Edge of competence" matters: RL only helps when task is "difficult but not yet out of reach"
 
-### For "CoT ≠ Internal Computation" (NEW)
+### For "CoT ≠ Internal Computation"
 
 | Paper | Supporting Evidence |
 |-------|---------------------|
@@ -749,7 +749,7 @@ For B=1 (NO search required, just follow edges):
 | **Gaming the Judge (2601.14691)** | **Judges pattern-match on CoT style; 90% FPR inflation from fabrication; surface features override evidence** |
 | **Beyond Memorization (2601.13392)** | **100% knowledge + 0% novel application; 63pp drop seen→unseen; CoT degrades performance** |
 
-### For "Tools ≠ Proof of Reasoning" (NEW)
+### For "Tools ≠ Proof of Reasoning"
 
 | Paper | Supporting Evidence |
 |-------|---------------------|
@@ -757,7 +757,7 @@ For B=1 (NO search required, just follow edges):
 | **Limits of Innate Planning** | GPT-5-Thinking loops 100% even with valid moves |
 | Conceptual argument | Tools often provide algorithm; execution ≠ understanding |
 
-### For "CoT is Correlation, Not Causation" (NEW)
+### For "CoT is Correlation, Not Causation"
 
 | Paper | Supporting Evidence |
 |-------|---------------------|
@@ -794,7 +794,7 @@ For B=1 (NO search required, just follow edges):
 - The "Aha moment" likely reflects learned self-correction patterns
 
 ### 3. Is the stated reasoning faithful?
-**Answer: OFTEN NO** (NEW)
+**Answer: OFTEN NO**
 - CoT can be post-hoc rationalization (Measuring Faithfulness)
 - Larger models generate LESS faithful reasoning
 - Reasoning models can fall for semantic traps (Semantic Deception)
@@ -884,7 +884,7 @@ For B=1 (NO search required, just follow edges):
               │  • Reasoning exists (FOR)     │
               │  • RL surfaces it (FOR)       │
               │  • It's predictive (AGAINST)  │
-              │  • It's often unfaithful (NEW)│
+              │  • It's often unfaithful     │
               │  • Practical but bounded      │
               │                               │
               │  "Thinking Machine That       │
@@ -959,7 +959,7 @@ For B=1 (NO search required, just follow edges):
 - **The L1→L2 example**: 100% on "third-to-last is 'a'", 0% on "fourth-to-last is 'a' AND 'bb' never precedes 'a'"
 - **Implication**: Pattern retrieval from training, not compositional symbolic reasoning
 
-### Argument 11: Compositional Generalization is THE Failure Mode (NEW)
+### Argument 11: Compositional Generalization is THE Failure Mode
 - **Evidence**: Compositional-ARC (o3-mini 0.53%), STEPS (power-law), KUP (<2% indirect)
 - **Claim**: The fundamental limitation is composing known skills into novel combinations
 - **Key findings**:
@@ -968,7 +968,7 @@ For B=1 (NO search required, just follow edges):
   - Direct probing (memorization) 70-80%, indirect probing (reasoning) <2%
 - **Implication**: Not a capability limit, but a TRAINING DISTRIBUTION limit
 
-### Argument 12: Instructions Cannot Override Learned Patterns (NEW)
+### Argument 12: Instructions Cannot Override Learned Patterns
 - **Evidence**: Iterative ICL (13-35%), Revisiting Compositional (75% ceiling)
 - **Claim**: Explicit instructions fail when they conflict with training patterns
 - **Key findings**:
@@ -977,7 +977,7 @@ For B=1 (NO search required, just follow edges):
   - Models produce IDENTICAL outputs for different orderings
 - **Implication**: Training distribution dominates over explicit user instructions
 
-### Argument 13: Environment Interface Doesn't Help Reasoning (NEW)
+### Argument 13: Environment Interface Doesn't Help Reasoning
 - **Evidence**: Limits of Emergent Reasoning Agentic (collapse EARLIER with tools)
 - **Claim**: Agentic frameworks don't solve reasoning limits
 - **Key findings**:
@@ -986,7 +986,7 @@ For B=1 (NO search required, just follow edges):
   - JSD diverges from BOTH optimal AND random policies
 - **Implication**: "High-probability mode following, not genuine reasoning"
 
-### Argument 14: Only Frontier Models Show Meta-Cognition (NEW)
+### Argument 14: Only Frontier Models Show Meta-Cognition
 - **Evidence**: LoopBench (O3 72%, GPT-4.1 0%)
 - **Claim**: Meta-cognitive reasoning is extremely rare and scale-dependent
 - **Key findings**:
