@@ -199,15 +199,15 @@ We are trained on A and B. When we see C, we assume it's novel reasoning. But C 
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                   TRAINING DISTRIBUTION                      │
-│                    (The Convex Hull)                         │
-│                                                              │
+│                   TRAINING DISTRIBUTION                     │
+│                    (The Convex Hull)                        │
+│                                                             │
 │    ┌──────┐                              ┌──────┐           │
 │    │  A   │                              │  B   │           │
 │    └──────┘                              └──────┘           │
-│         \                                  /                 │
-│          \    ← Interpolation Zone →      /                  │
-│           \                              /                   │
+│         \                                  /                │
+│          \    ← Interpolation Zone →      /                 │
+│           \                              /                  │
 │            \     ┌──────────────┐      /                    │
 │             \    │ ELICITATION  │     /                     │
 │              ────│   METHODS    │─────                      │
@@ -218,7 +218,7 @@ We are trained on A and B. When we see C, we assume it's novel reasoning. But C 
 │                  │ • MCPs/Tools │  ← Hull expansion         │
 │                  │ • RL/RLHF    │  ← Default path shifting  │
 │                  └──────────────┘                           │
-│                                                              │
+│                                                             │
 └─────────────────────────────────────────────────────────────┘
                            │
                            │ Outside hull?

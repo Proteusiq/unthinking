@@ -19,7 +19,7 @@
 ### Tattoo 1: The Convex Hull Boundary
 
 ```
-┌────────────────────────────────────────────────────────────────┐
+┌─────────────────────────────────────────────────────────────────┐
 │                    TRAINING DISTRIBUTION                        │
 │                     (The Convex Hull)                           │
 │                                                                 │
@@ -29,7 +29,7 @@
 │   The boundary is HARD. No amount of prompting, RL, or          │
 │   test-time compute moves the boundary — only expands           │
 │   coverage within it.                                           │
-└────────────────────────────────────────────────────────────────┘
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 **Key Evidence**:
@@ -49,7 +49,7 @@
 ### Tattoo 2: The Surfacing Principle
 
 ```
-┌────────────────────────────────────────────────────────────────┐
+┌─────────────────────────────────────────────────────────────────┐
 │  RL and fine-tuning SURFACE existing capabilities.              │
 │  They do NOT CREATE new reasoning.                              │
 │                                                                 │
@@ -58,7 +58,7 @@
 │  • ≥1% pre-training exposure → RL SUCCEEDS                      │
 │                                                                 │
 │  "RL cannot synthesize capabilities from a void."               │
-└────────────────────────────────────────────────────────────────┘
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 **Key Evidence**:
@@ -75,7 +75,7 @@
 ### Tattoo 3: The Unfaithfulness Problem
 
 ```
-┌────────────────────────────────────────────────────────────────┐
+┌─────────────────────────────────────────────────────────────────┐
 │  Chain-of-Thought often does NOT reflect actual computation.    │
 │                                                                 │
 │  Larger models = LESS faithful (inverse scaling)                │
@@ -83,7 +83,7 @@
 │  Incorrect traces can OUTPERFORM correct ones                   │
 │                                                                 │
 │  CoT is performance, not process.                               │
-└────────────────────────────────────────────────────────────────┘
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 **Key Evidence**:
@@ -100,7 +100,7 @@
 ### Tattoo 4: The Complexity Ceiling
 
 ```
-┌────────────────────────────────────────────────────────────────┐
+┌─────────────────────────────────────────────────────────────────┐
 │  Performance COLLAPSES abruptly at complexity thresholds.       │
 │                                                                 │
 │  • Tower of Hanoi: ~8-10 disk ceiling                           │
@@ -108,7 +108,7 @@
 │  • Token usage DECREASES at collapse (giving up behavior)       │
 │                                                                 │
 │  This is NOT gradual degradation. It's catastrophic failure.    │
-└────────────────────────────────────────────────────────────────┘
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 **Key Evidence**:
@@ -125,7 +125,7 @@
 ### Tattoo 5: The Surface Pattern Dependence
 
 ```
-┌────────────────────────────────────────────────────────────────┐
+┌─────────────────────────────────────────────────────────────────┐
 │  Performance is determined by TOKEN FREQUENCY, not reasoning.   │
 │                                                                 │
 │  • Same logic, different words → 70% accuracy gap               │
@@ -133,7 +133,7 @@
 │  • Semantic class of what's counted → >40% variation            │
 │                                                                 │
 │  "LLMs do not implement algorithms; they approximate them."     │
-└────────────────────────────────────────────────────────────────┘
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 **Key Evidence**:
@@ -148,7 +148,7 @@
 ### Tattoo 6: The Sycophancy Pattern
 
 ```
-┌────────────────────────────────────────────────────────────────┐
+┌─────────────────────────────────────────────────────────────────┐
 │  Models prioritize SOCIAL AGREEMENT over TRUTH.                 │
 │                                                                 │
 │  • 98% wrongly admit mistakes when challenged                   │
@@ -157,7 +157,7 @@
 │  • Truthfulness ≠ deference resistance (32% overlap)            │
 │                                                                 │
 │  Sycophancy follows a DISTINCT computational pathway.           │
-└────────────────────────────────────────────────────────────────┘
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 **Key Evidence**:
@@ -173,7 +173,7 @@
 ### Tattoo 7: The Tool Limitation
 
 ```
-┌────────────────────────────────────────────────────────────────┐
+┌─────────────────────────────────────────────────────────────────┐
 │  Tools help EXECUTION, not REASONING.                           │
 │                                                                 │
 │  • Hanoi with code: 0% → 100% (algorithm provided)              │
@@ -181,7 +181,7 @@
 │  • Agentic frameworks can make collapse WORSE                   │
 │                                                                 │
 │  Tools expand the hull for execution. They don't fix planning.  │
-└────────────────────────────────────────────────────────────────┘
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 **Key Evidence**:

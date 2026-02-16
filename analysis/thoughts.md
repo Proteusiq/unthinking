@@ -365,7 +365,7 @@ Only Temporal Cognition (2507.15851) addresses this:
 ## Synthesis: The Picture from 192 Papers
 
 ```
-┌────────────────────────────────────────────────────────────────────────────────┐
+┌─────────────────────────────────────────────────────────────────────────────────┐
 │                    THE PICTURE EMERGING FROM 192 PAPERS                         │
 │                                                                                 │
 │  1. CAPABILITY EXISTS                                                           │
@@ -420,7 +420,7 @@ Only Temporal Cognition (2507.15851) addresses this:
 │  They DO: predict the text of a reasoning process                               │
 │  BUT: to predict accurately, parts of the network learn                         │
 │       internal computations resembling algorithms.                              │
-└────────────────────────────────────────────────────────────────────────────────┘
+└─────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

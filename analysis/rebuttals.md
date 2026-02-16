@@ -195,7 +195,7 @@ Anthropic's own research:
 │  AGAINST PAPERS                          FOR PAPERS                         │
 │  ──────────────                          ──────────                         │
 │                                                                             │
-│  Illusion of Thinking ←───────────────→ Thinking Isn't Illusion            │
+│  Illusion of Thinking ←───────────────→ Thinking Isn't Illusion             │
 │  [3 rebuttals exist]                     [counter-counter from Limits]      │
 │                                                                             │
 │  Limits of Innate Planning ────────────→ Comment: Agentic Gap               │
@@ -229,7 +229,7 @@ Anthropic's own research:
 │                      "MIRROR" REBUTTAL                                      │
 │  ═══════════════════════════════════════════════════════════════════════    │
 │                                                                             │
-│  Mind Your Tone: Rude=WORSE ←─ OPPOSITE ─→ Mind Your Tone: Rude=BETTER     │
+│  Mind Your Tone: Rude=WORSE ←─ OPPOSITE ─→ Mind Your Tone: Rude=BETTER      │
 │  (2402.14531) Llama2: -48.5%               (2510.04950) GPT-4o: +4.0%       │
 │                                                                             │
 │  Same question, same methodology, OPPOSITE conclusions                      │

@@ -111,6 +111,20 @@ For EVERY paper analyzed, you MUST update the paper interaction graph:
   - BAD: `### NEW: Mirror Rebuttals Section`
   - GOOD: `### Mirror Rebuttals Section`
 
+### 8. ASCII Box Alignment
+- All lines in an ASCII box **MUST** have the same length
+- Use Python to verify alignment before committing:
+  ```python
+  # Check box alignment
+  lines = """┌─────────────────────────┐
+  │  Content here           │
+  └─────────────────────────┘""".split('\n')
+  lengths = [len(line) for line in lines]
+  assert len(set(lengths)) == 1, f"Misaligned: {set(lengths)}"
+  ```
+- When fixing, add/remove spaces before the closing `│`
+- Each box can have its own width, but all lines within must match
+
 ---
 
 ## Paper Interaction Graph
