@@ -4191,4 +4191,23 @@ window.paperLinks = [
     type: 'supports',
     description: 'Both show semantic content redundant; Seq-VCR provides mechanism',
   },
+  // Expanding Computation Spaces (Paper 197)
+  {
+    source: '2509.24884',
+    target: '2404.15758',
+    type: 'supports',
+    description: 'Both show filler tokens provide computational benefit independent of content',
+  },
+  {
+    source: '2509.24884',
+    target: '2310.02226',
+    type: 'extends',
+    description: 'Shows inference-time benefits WITHOUT training (but smaller gains)',
+  },
+  {
+    source: '2509.24884',
+    target: '2411.02344',
+    type: 'supports',
+    description: 'Complementary: Seq-VCR needs training; this works at inference only',
+  },
 ];

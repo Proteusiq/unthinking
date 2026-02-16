@@ -4143,4 +4143,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/190-199/196_seq_vcr_dummy_pause_tokens.md',
   },
+  {
+    id: '2509.24884',
+    title: 'Expanding Computation Spaces of LLMs at Inference Time',
+    shortTitle: 'Expanding Computation',
+    date: 'Sep 2025',
+    stance: 'supports',
+    cluster: 'latent_cot',
+    coreArgument:
+      'Filler tokens (period, newline, space, etc.) work at inference time without training. Tests 6 token types; smaller models benefit most (+12.4pp). Position before Answer: is critical.',
+    keyEvidence: [
+      '+12.4pp for SmolLM2-1.7B with period tokens',
+      '+10.2pp on ARC with newline tokens',
+      '16-256 tokens optimal; >1024 collapses to 20%',
+      'Works at inference only (no training needed)',
+    ],
+    keyQuotes: [
+      'Smaller models benefit most... indicating that these spaces act as additional computational capacity rather than redundant input.',
+      'Placing filler tokens directly before the final Answer: token is most effective.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/190-199/197_expanding_computation_spaces_inference.md',
+  },
 ];

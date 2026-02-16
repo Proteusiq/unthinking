@@ -1,7 +1,7 @@
 # Paper Interaction Graph
 
 > **Last updated**: 2026-02-16
-> **Papers tracked**: 196
+> **Papers tracked**: 197
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -246,6 +246,9 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Seq-VCR (2411.02344)** | **extends** | **Pause Tokens Training (2310.02226)** | **Adds Seq-VCR regularization to pause tokens for dramatically better results** |
 | **Seq-VCR (2411.02344)** | **supports** | **Pause Tokens Expressivity (2505.21024)** | **Provides empirical evidence for theoretical expressivity claims** |
 | **Seq-VCR (2411.02344)** | **supports** | **Token Assorted (2502.03275)** | **Both show semantic content is redundant; Seq-VCR provides mechanism** |
+| **Expanding Computation Spaces (2509.24884)** | **supports** | **Dot by Dot (2404.15758)** | **Both show filler tokens provide computational benefit independent of content** |
+| **Expanding Computation Spaces (2509.24884)** | **extends** | **Pause Tokens Training (2310.02226)** | **Shows inference-time benefits WITHOUT training (but smaller gains)** |
+| **Expanding Computation Spaces (2509.24884)** | **supports** | **Seq-VCR (2411.02344)** | **Complementary: Seq-VCR needs training; this works at inference only** |
 | **Mechanistic CoT (2402.18312)** | **supports** | **Faith and Fate (2305.18654)** | **CoT via induction circuits = pattern matching, not symbolic reasoning** |
 | **Mechanistic CoT (2402.18312)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Parallel pathways explain why CoT divorced from actual computation** |
 | **Mechanistic CoT (2402.18312)** | **supports** | **Dot by Dot (2404.15758)** | **Both show CoT benefits from computation, not semantic content** |
@@ -1135,6 +1138,7 @@ These papers have NO direct rebuttals found:
 | CoT Monitorability Evasion (2507.05246) | Google: CoT-as-rationalization vs CoT-as-computation framework; unfaithfulness resolves when CoT is NECESSARY; models struggle to evade monitors without significant help (1000s RL steps); BALANCED |
 | Pause Tokens Training (2310.02226) | ICLR 2024: Foundational pause token paper; +18% SQuAD, +8% CommonSenseQA; requires BOTH pretraining AND finetuning with pauses; confirms filler tokens don't help without training; BALANCED |
 | Seq-VCR Dummy Pause (2411.02344) | Mila/Meta FAIR: **99.5% on 5×5 multiplication** with dummy pause tokens vs 44% GPT-4 CoT; representation collapse limits reasoning; 5× faster than CoT; STRONGLY SUPPORTS |
+| Expanding Computation Spaces (2509.24884) | Copenhagen: Tests 6 filler token types at inference (no training); **+12.4pp** for small models; period/newline work best; position before "Answer:" critical; SUPPORTS |
 
 ### 2026-02-15
 | Papers Added | Key Findings |
