@@ -4229,4 +4229,23 @@ window.paperLinks = [
     type: 'supports',
     description: 'Both show meaningless tokens provide computational benefit',
   },
+  // Bottlenecked Transformers (Paper 199)
+  {
+    source: '2505.16950',
+    target: '2411.02344',
+    type: 'supports',
+    description: 'Both identify representation dynamics as key; training-based > inference-only',
+  },
+  {
+    source: '2505.16950',
+    target: '2310.02226',
+    type: 'supports',
+    description: 'Confirms pause tokens alone without pretraining dont reliably help',
+  },
+  {
+    source: '2505.16950',
+    target: '2404.15758',
+    type: 'supports',
+    description: 'Both support computational workspace hypothesis',
+  },
 ];
