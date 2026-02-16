@@ -95,6 +95,31 @@ If LLM generates C, and C lies on the line between A and B = INTERPOLATION.
 
 **None create new capability. All surface existing patterns. The hull boundary is the hard limit.**
 
+### CoT as Compute, Not Content
+
+**The model doesn't need the *content* of reasoning steps — it needs the *compute time*.**
+
+```
+Without CoT:  Input → [N layers] → Output (one pass)
+
+With CoT:     Input → [N layers] → Token₁ → [N layers] → Token₂ → ... → Output
+                                      ↑                     ↑
+                            more forward passes = more compute
+```
+
+Pause tokens (`...`) work as well as meaningful CoT because:
+- Each token = one full pass through all layers
+- More tokens = more attention operations
+- KV cache accumulates intermediate processing
+
+| What we thought | What's actually happening |
+|-----------------|---------------------------|
+| CoT = reasoning steps | CoT = more forward passes |
+| Model "thinks through" | Model gets more compute cycles |
+| Semantic content matters | Token count matters more |
+
+> **The words are incidental. The forward passes are what matter.**
+
 ---
 
 ## The Seven Pillars of Evidence

@@ -218,6 +218,60 @@ Models must be **trained** to use extra computation. Off-the-shelf models can't 
 - Why models must be trained with pauses → capability is learned, not innate
 - Why semantic content is redundant → 17% shorter latent traces work BETTER (Token Assorted)
 
+### What's Actually Happening: CoT as Compute, Not Content
+
+**The model doesn't need the *content* of CoT steps — it needs the *compute time*.**
+
+When you add pause tokens (`...`) or dummy tokens, the model gets:
+1. More forward passes through its layers
+2. More attention operations to process/consolidate information
+3. More "workspace" in the KV cache to store intermediate states
+
+**The Mechanism**:
+```
+Input → [Layer 1] → [Layer 2] → ... → [Layer N] → Output
+              ↑
+        Each token = one full pass through all layers
+```
+
+Without CoT:
+- Input goes through N layers once → output
+
+With CoT (or pause tokens):
+- Input goes through N layers
+- Token 1 goes through N layers (can attend to input)
+- Token 2 goes through N layers (can attend to input + token 1)
+- ... more compute ...
+- Final token benefits from accumulated processing
+
+**The Implication for the Thesis**:
+
+This strongly supports the pattern-matching view:
+
+| What we thought | What's actually happening |
+|-----------------|---------------------------|
+| CoT = explicit reasoning steps | CoT = more forward passes |
+| Model "thinks through" the problem | Model gets more compute cycles |
+| Semantic content matters | Token count matters more |
+
+**Evidence from papers 193-201**:
+- Pause tokens work (~same as CoT) — #195, #196, #198
+- Dummy/random tokens work — #161, #199
+- Truncating CoT often doesn't change answer — #201
+- Models can hide real reasoning while showing fake CoT — #194
+- KV cache consolidation beats meaningful tokens — #199, #200
+
+**The "Thinking" is Compute**:
+
+The model isn't "reasoning" through steps — it's:
+1. Iteratively refining attention patterns
+2. Accumulating information in KV cache
+3. Using extra layers of processing
+
+This is why pause tokens work: `Let me think... ... ... ... Answer: 42` gives the same compute benefit as `Let me think. First, I consider X. Then Y. Therefore Z. Answer: 42`.
+
+> **The words are incidental. The forward passes are what matter.**
+
 ---
 
 ## Paper Conversations: Who Talks to Whom
