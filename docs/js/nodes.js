@@ -4165,4 +4165,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/190-199/197_expanding_computation_spaces_inference.md',
   },
+  {
+    id: '2506.03616',
+    title: 'Learning to Insert [PAUSE] Tokens for Better Reasoning',
+    shortTitle: 'DIT PAUSE Tokens',
+    date: 'Jun 2025',
+    stance: 'supports',
+    cluster: 'latent_cot',
+    coreArgument:
+      'Dynamic Inserting Tokens Training (DIT) places [PAUSE] tokens at positions of lowest model confidence. Acts as focal loss mechanism, increasing learning signal for difficult tokens.',
+    keyEvidence: [
+      '+4.7pp on GSM8K (Phi-2)',
+      '+3.23pp on AQUA-RAT',
+      '+3.4pp on MBPP (pass@1)',
+      'Works without pretraining (fine-tune only)',
+    ],
+    keyQuotes: [
+      'This method effectively heightens the loss for tokens that are challenging to predict based on previous tokens, thereby encouraging the model trained more robustly.',
+      'The effect of [PAUSE] tokens can be likened to NoiseBoost... recalibrating the model focus during training.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/190-199/198_learning_insert_pause_tokens.md',
+  },
 ];

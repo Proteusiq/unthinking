@@ -4210,4 +4210,23 @@ window.paperLinks = [
     type: 'supports',
     description: 'Complementary: Seq-VCR needs training; this works at inference only',
   },
+  // Learning to Insert PAUSE (Paper 198)
+  {
+    source: '2506.03616',
+    target: '2310.02226',
+    type: 'extends',
+    description: 'Shows fine-tuning only can work (no pretraining needed)',
+  },
+  {
+    source: '2506.03616',
+    target: '2411.02344',
+    type: 'supports',
+    description: 'Both show fine-tuning with pause tokens improves reasoning',
+  },
+  {
+    source: '2506.03616',
+    target: '2404.15758',
+    type: 'supports',
+    description: 'Both show meaningless tokens provide computational benefit',
+  },
 ];
