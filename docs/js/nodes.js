@@ -4187,4 +4187,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/190-199/198_learning_insert_pause_tokens.md',
   },
+  {
+    id: '2505.16950',
+    title: 'Bottlenecked Transformers: Periodic KV Cache Consolidation for Generalised Reasoning',
+    shortTitle: 'Bottlenecked Transformers',
+    date: 'May 2025',
+    stance: 'balanced',
+    cluster: 'latent_cot',
+    coreArgument:
+      'KV cache retains too much input information, hurting generalization. Periodic cache consolidation via Information Bottleneck principle compresses irrelevant info while preserving predictive information. Outperforms pause tokens by +6.6pp.',
+    keyEvidence: [
+      '+6.6pp SVAMP (Llama 1B)',
+      '+4.6pp GSM8K (Llama 3B)',
+      'Pause tokens show variable/lower performance than SFT',
+      'IB theory explains why memory rewriting helps',
+    ],
+    keyQuotes: [
+      'Autoregressive training leads to internal sequence representations that are minimally compressive of their inputs as well as maximally predictive of future outputs.',
+      'The pause-token baseline shows variable and often lower performance than plain SFT when used only at fine-tuning.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/190-199/199_bottlenecked_transformers_kv_cache.md',
+  },
 ];
