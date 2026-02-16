@@ -51,7 +51,7 @@ If LLM generates C, and C lies on the line between A and B = INTERPOLATION.
 
 **Example**: A model knows how pirates talk (A) and how physicists talk (B). A "pirate physicist" (C) seems creative — but C was always **mathematically latent** in the training data. It's a high-dimensional remix, not novel reasoning.
 
-**We are fooled because**: We've seen A and B separately. When we see C, we assume it's novel. But C was always on the interpolation manifold — we just hadn't visited that point.
+**We are fooled because**: We've seen A and B separately. When we see C, we assume it's novel. But C was always on the interpolation manifold — we hadn't visited that point.
 
 ```
 ┌───────────────────────────────────────────────────────────────┐
@@ -178,7 +178,7 @@ If alternative decoding on the **base model** recovers reasoning paths that impr
 
 - Reasoning is **learned during pre-training**
 - RL/SFT merely **surfaces** it as the default path
-- The capability was always there — greedy decoding just didn't select it
+- The capability was always there — greedy decoding didn't select it
 
 See [`experiments/decoding_ablation/protocol.md`](./experiments/decoding_ablation/protocol.md) for the full experimental protocol.
 

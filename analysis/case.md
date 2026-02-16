@@ -303,7 +303,7 @@ Before RL: P(reasoning_path) = 0.15 (exists but not default)
 After RL:  P(reasoning_path) = 0.85 (now default)
 ```
 
-The capability always existed in conv(M) from pre-training. RL just changed which paths are sampled by default.
+The capability always existed in conv(M) from pre-training. RL changed which paths are sampled by default.
 
 ### Pillar 4: Complexity Collapse
 
@@ -576,8 +576,8 @@ Imagine:
 - Just a lookup table: P(next symbol | all previous symbols)
 - Input comes in, probability gradients computed, output emerges
 - No entity anywhere has understanding
-  - Not the table (it’s just data)
-  - Not the process (it’s just arithmetic)
+  - Not the table (it’s data)
+  - Not the process (it’s arithmetic)
   - Not the room as a whole (there’s no “whole” to have mental states)
 
 Where is the understanding supposed to be?
@@ -721,7 +721,7 @@ No amount of scale can overcome architectural limits.
 1. Compositional reasoning requires rule execution
 1. Therefore: Scale improves density, not reasoning capacity
 
-The decisive test: If scale were sufficient, largest models should show best compositional generalization. Reality: GPT-4, Claude 3 Opus fail zero-shot composition just like smaller models. The failure mode is the same, just less frequent in-distribution.
+The decisive test: If scale were sufficient, largest models should show best compositional generalization. Reality: GPT-4, Claude 3 Opus fail zero-shot composition like smaller models. The failure mode is the same, less frequent in-distribution.
 
 ### Objection 6: “Human Brains Are Also Statistical”
 
