@@ -4097,4 +4097,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/190-199/194_cot_monitorability_evasion.md',
   },
+  {
+    id: '2310.02226',
+    title: 'Think before you speak: Training Language Models With Pause Tokens',
+    shortTitle: 'Pause Tokens (ICLR)',
+    date: 'Oct 2023',
+    stance: 'balanced',
+    cluster: 'latent_cot',
+    coreArgument:
+      'Learnable pause tokens delay output and widen computational pathways. Benefits require BOTH pretraining AND finetuning with pauses. Filler tokens without training provide no gains.',
+    keyEvidence: [
+      '+18% EM on SQuAD with pause training',
+      '+8% on CommonSenseQA',
+      '+1% on GSM8k (7.5% → 8.5%)',
+      'Gains on 8 of 9 tasks for 1B model',
+      'Filler periods at inference: no gains',
+    ],
+    keyQuotes: [
+      'The number of operations determining the next token is limited by the number of tokens seen so far.',
+      'Standard pretraining biases the model to be quick in its computations.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/190-199/195_pause_tokens_think_before_speak.md',
+  },
 ];
