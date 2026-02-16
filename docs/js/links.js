@@ -4147,4 +4147,23 @@ window.paperLinks = [
     type: 'supports',
     description: 'Both identify complexity thresholds where behavior changes',
   },
+  // Pause Tokens Training (Paper 195)
+  {
+    source: '2310.02226',
+    target: '2404.15758',
+    type: 'supports',
+    description: 'Both show meaningless tokens improve performance via computation',
+  },
+  {
+    source: '2310.02226',
+    target: '2505.21024',
+    type: 'supports',
+    description: 'Empirical basis for formal expressivity proof',
+  },
+  {
+    source: '2310.02226',
+    target: '2502.03275',
+    type: 'supports',
+    description: 'Both show intermediate tokens serve computation not semantics',
+  },
 ];
