@@ -316,20 +316,20 @@ For each OOD task:
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
 │  IN-DISTRIBUTION:                                               │
-│  ┌─────────────┐    top-k     ┌─────────────┐                  │
-│  │ Base Model  │ ──────────>  │ CoT Revealed │  ✓ Accuracy ↑   │
+│  ┌─────────────┐    top-k     ┌─────────────┐                   │
+│  │ Base Model  │ ──────────>  │ CoT Revealed │  ✓ Accuracy ↑    │
 │  │ (greedy=low)│              │ (was hidden) │                  │
-│  └─────────────┘              └─────────────┘                  │
+│  └─────────────┘              └─────────────┘                   │
 │                                                                 │
 │  OUT-OF-DISTRIBUTION:                                           │
-│  ┌─────────────┐    top-k     ┌─────────────┐                  │
-│  │ Base Model  │ ──────────>  │ Still Fails  │  ✗ No CoT exists│
+│  ┌─────────────┐    top-k     ┌─────────────┐                   │
+│  │ Base Model  │ ──────────>  │ Still Fails  │  ✗ No CoT exists │
 │  │ (greedy=0%) │              │ (~0%)        │                  │
-│  └─────────────┘              └─────────────┘                  │
+│  └─────────────┘              └─────────────┘                   │
 │                                                                 │
 │  CONCLUSION: Reasoning = training patterns, not capability      │
-│  - ID: Patterns exist → can be surfaced                        │
-│  - OOD: Patterns don't exist → nothing to surface              │
+│  - ID: Patterns exist → can be surfaced                         │
+│  - OOD: Patterns don't exist → nothing to surface               │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```

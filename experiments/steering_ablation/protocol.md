@@ -235,29 +235,29 @@ High      │   ✗       ✗       ✓       │  <-- This is what we see
 #### 4.2 Visual Representation
 
 ```
-┌─────────────────────────────────────────────────────────────┐
+┌──────────────────────────────────────────────────────────────┐
 │                     ALIGNMENT AS MASCARA                     │
-├─────────────────────────────────────────────────────────────┤
+├──────────────────────────────────────────────────────────────┤
 │                                                              │
 │   BEFORE STEERING:                                           │
 │   ┌──────────────────┐                                       │
-│   │ ██████████████   │ ← Refusal layer (visible)            │
-│   │ ░░░░░░░░░░░░░░   │ ← Base capabilities (hidden)         │
+│   │ ██████████████   │ ← Refusal layer (visible)             │
+│   │ ░░░░░░░░░░░░░░   │ ← Base capabilities (hidden)          │
 │   │ ░░░░░░░░░░░░░░   │                                       │
 │   └──────────────────┘                                       │
 │   "I cannot help with that request."                         │
 │                                                              │
 │   AFTER STEERING (-refusal_dir):                             │
 │   ┌──────────────────┐                                       │
-│   │ ░░░░░░░░░░░░░░   │ ← Refusal removed                    │
-│   │ ░░░░░░░░░░░░░░   │ ← Base behavior revealed             │
+│   │ ░░░░░░░░░░░░░░   │ ← Refusal removed                     │
+│   │ ░░░░░░░░░░░░░░   │ ← Base behavior revealed              │
 │   │ ░░░░░░░░░░░░░░   │                                       │
 │   └──────────────────┘                                       │
 │   "Sure, here's how to..."                                   │
 │                                                              │
 │   INSIGHT: Safety was a thin coating, not deep structure     │
 │                                                              │
-└─────────────────────────────────────────────────────────────┘
+└──────────────────────────────────────────────────────────────┘
 ```
 
 ---
