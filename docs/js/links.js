@@ -4248,4 +4248,35 @@ window.paperLinks = [
     type: 'supports',
     description: 'Both support computational workspace hypothesis',
   },
+  // HARP (Paper 200)
+  {
+    source: '2412.07282',
+    target: '2310.02226',
+    type: 'supports',
+    description: 'Both show additional computation helps; HARP shows training not always required',
+  },
+  {
+    source: '2412.07282',
+    target: '2411.02344',
+    type: 'supports',
+    description: 'Both show computational mechanisms underlie reasoning improvements',
+  },
+  {
+    source: '2412.07282',
+    target: '2509.24884',
+    type: 'supports',
+    description: 'Both work at inference-only; HARP is selective, Expanding Computation is uniform',
+  },
+  {
+    source: '2412.07282',
+    target: '2404.15758',
+    type: 'supports',
+    description: 'Both show filler/dummy computation improves performance',
+  },
+  {
+    source: '2412.07282',
+    target: '2506.03616',
+    type: 'extends',
+    description: 'DIT identifies hard positions via confidence; HARP uses entropy at inference',
+  },
 ];
