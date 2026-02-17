@@ -150,6 +150,7 @@
 | 189 | Confidence Paradox | Jun 2025 | Balanced | DocVQA overconfident wrong answers; HonestVQA reduces by 35-40%; models don't know when wrong |
 | 190 | Mind Your Tone (Rude=Better) | Oct 2025 | Supports | **REBUTS 188**: GPT-4o +4% with rude prompts; OPPOSITE finding = "LLMs are mirrors" |
 | 191 | LLM Reasoning Failures Survey | Feb 2026 | Strongly Supports | **TMLR 2026 CORNERSTONE SURVEY**: First comprehensive survey (170+ papers). 2-axis taxonomy: reasoning type × failure type. Root causes: architectural (attention dispersal, causal masking), training (next-token, RLHF bias), grounding (no embodiment). 14 papers overlap with our corpus. |
+| 202 | **Embers of Autoregression** | Sep 2023 | Strongly Supports | **PNAS 2024 FOUNDATIONAL**: LLM accuracy depends on task/output/input PROBABILITY — even on deterministic tasks. Shift cipher 51% vs 13% (output prob), Acronyms 76% vs 3% (task prob), Sorting 80% vs 32% (frequency). "To understand what LLMs are, we must understand what they were trained to be." |
 
 **Total: 200+ unique papers analyzed**
 

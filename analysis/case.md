@@ -40,6 +40,7 @@ Just as evolution optimizes for reproductive fitness rather than epistemic accur
 | **5** | **WhatCounts**: >40% accuracy variation on COUNTING depending solely on semantic class (cities vs emojis). Better models have **LARGER** gaps | Even atomic operations are semantically contaminated. "LLMs do not implement algorithms; they approximate them" | [2601.21618](https://arxiv.org/abs/2601.21618) |
 | **6** | **Addition Collapse**: 99.8% numerical accuracy → **7.5%** with symbolic digits. 1,700+ cases where A+B ≠ B+A | Near-perfect performance masks zero understanding | [2504.05262](https://arxiv.org/abs/2504.05262) |
 | **7** | **Spurious Rewards**: Models improve EVEN WITH INCORRECT REWARDS | Performance comes from activating memory, not learning to reason | [2601.11061](https://arxiv.org/abs/2601.11061) |
+| **8** | **Embers of Autoregression**: Acronyms 76% (1st letter) vs 3% (2nd letter) — **25× difference** on identical algorithm. Shift cipher 51% vs 13% based on output probability. Sorting 80% vs 32% based on training frequency | Probability determines performance on DETERMINISTIC tasks. "To understand LLMs, understand what they were trained to be" | [2309.13638](https://arxiv.org/abs/2309.13638) |
 
 ### The Core Insight
 
@@ -67,6 +68,9 @@ Like Leonard in *Memento*, LLMs have no persistent state. Each token prediction 
 
 > "Because they can do 'more with less'... not 'more with more'."
 > — Large Language Models and Emergence (2506.11135)
+
+> "To understand what language models are, we must understand what we have trained them to be."
+> — Embers of Autoregression (2309.13638)
 
 ### The Mirror Clock Test
 

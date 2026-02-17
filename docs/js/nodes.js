@@ -4251,6 +4251,30 @@ window.paperNodes = [
       'The Multi-hop task is particularly challenging, as all other metrics fail to significantly exceed baseline performance.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/190-199/201_causal_lens_faithfulness_metrics.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/200-209/201_causal_lens_faithfulness_metrics.md',
+  },
+  {
+    id: '2309.13638',
+    title: 'Embers of Autoregression: Understanding LLMs Through the Problem They are Trained to Solve',
+    shortTitle: 'Embers of Autoregression',
+    date: 'Sep 2023',
+    stance: 'supports',
+    cluster: 'surface-patterns',
+    coreArgument:
+      'LLM accuracy is influenced by task probability, output probability, and input probability — even on deterministic tasks where probability should not matter. This reveals their nature as statistical next-word predictors.',
+    keyEvidence: [
+      'Shift cipher: 51% (high-prob output) vs 13% (low-prob) — 4× difference on deterministic task',
+      'Acronyms: 76% (first letter) vs 3% (second letter) — 25× difference, same algorithm',
+      'Sorting: 80% (alphabetical) vs 32% (reverse) — frequency drives accuracy',
+      'Linear functions: 33% (C→F) vs 0% (arbitrary) — only memorized functions work',
+      'Rot-13: 50%+, Rot-2: <3% — not difficulty, just training frequency',
+    ],
+    keyQuotes: [
+      'To understand what language models are, we must understand what we have trained them to be.',
+      "GPT-4's accuracy at decoding a simple cipher is 51% when the output is a high-probability word sequence but only 13% when it is low-probability.",
+      'We should not evaluate LLMs as if they are humans but should instead treat them as a distinct type of system.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/200-209/202_embers_of_autoregression.md',
   },
 ];

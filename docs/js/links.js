@@ -4304,4 +4304,53 @@ window.paperLinks = [
     type: 'extends',
     description: 'Provides causal framework for testing unfaithfulness',
   },
+  // Embers of Autoregression (Paper 202) - FOUNDATIONAL
+  {
+    source: '2309.13638',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Both show pattern matching over reasoning; probability sensitivity proves it',
+  },
+  {
+    source: '2309.13638',
+    target: '2410.05229',
+    type: 'supports',
+    description: 'Both show surface changes break models; training frequency explains why',
+  },
+  {
+    source: '2309.13638',
+    target: '2309.12288',
+    type: 'supports',
+    description: 'Reversal curse explained by probability asymmetry',
+  },
+  {
+    source: '2309.13638',
+    target: '2202.07206',
+    type: 'extends',
+    description: 'Both show training frequency predicts performance',
+  },
+  {
+    source: '2309.13638',
+    target: '2406.11050',
+    type: 'supports',
+    description: 'Token statistics drive decisions, not reasoning',
+  },
+  {
+    source: '2309.13638',
+    target: '2601.21618',
+    type: 'supports',
+    description: 'Both show counting varies by semantic class due to probability',
+  },
+  {
+    source: '2309.13638',
+    target: '2410.21272',
+    type: 'supports',
+    description: 'Bag of heuristics explained by probability-driven pattern matching',
+  },
+  {
+    source: '2309.13638',
+    target: '2403.04121',
+    type: 'supports',
+    description: 'Teleological approach aligns with Kambhampati "approximate retrieval" view',
+  },
 ];
