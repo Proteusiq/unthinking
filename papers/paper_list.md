@@ -54,6 +54,7 @@ Total papers to read from provided evidence (2024+ only)
 | # | arXiv ID | Date | Title | Status |
 |---|----------|------|-------|--------|
 | 202 | 2309.13638 | Sep 2023 | Embers of Autoregression: Understanding LLMs Through the Problem They are Trained to Solve (PNAS 2024) | ✅ DONE |
+| 203 | 2410.01792 | Oct 2024 | When Optimized for Reasoning, Does It Still Show Embers? An Analysis of o1 | ✅ DONE |
 | 20 | 2509.12645 | Sep 2025 | Large Language Models Imitate Logical Reasoning, but at what Cost? | ✅ DONE |
 | 21 | REMOVED | - | Beyond Accuracy: Rethinking Hallucination and Regulatory Response | REMOVED (policy paper, not technical) |
 | 22 | 2512.20812 | Dec 2025 | Semantic Deception: When Reasoning Models Can't Compute an Addition | ✅ DONE |
@@ -365,11 +366,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 202
-- **Against Reasoning**: ~119
+- **Total Papers**: 203
+- **Against Reasoning**: ~120
 - **For Reasoning**: ~31
 - **Balanced**: ~51
 - **Date Range**: 2021-2026
-- **Analyzed**: 202
+- **Analyzed**: 203
 
 ---

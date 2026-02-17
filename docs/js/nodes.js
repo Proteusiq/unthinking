@@ -4277,4 +4277,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/200-209/202_embers_of_autoregression.md',
   },
+  {
+    id: '2410.01792',
+    title: 'When Optimized for Reasoning, Does It Still Show Embers of Autoregression? An Analysis of OpenAI o1',
+    shortTitle: 'o1 Embers Analysis',
+    date: 'Oct 2024',
+    stance: 'supports',
+    cluster: 'surface-patterns',
+    coreArgument:
+      'Even o1, optimized for reasoning, still shows embers of autoregression. Output probability sensitivity persists (92% vs 47% on shift cipher). Task frequency effects reduced but not eliminated. Thinking tokens reveal hidden difficulty — o1 uses more tokens for hard cases even when accuracy is similar.',
+    keyEvidence: [
+      'Shift cipher: 92% (high-prob) vs 47% (low-prob) — 45% gap persists',
+      'Acronyms: 100 vs 2000 thinking tokens for common vs rare — 20× more effort',
+      'Task frequency effects reappear when ceiling effects removed',
+      'Same qualitative pattern as GPT-4, just quantitatively better',
+    ],
+    keyQuotes: [
+      'These results show that optimizing a language model for reasoning can mitigate but might not fully overcome the language model\'s probability sensitivity.',
+      'The sparks of AGI that LLMs may be producing continue to be accompanied by embers of autoregression.',
+      'It is not clear what modeling enhancements would suffice to fully overcome the limitations that we have highlighted.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/200-209/203_o1_embers_of_autoregression.md',
+  },
 ];

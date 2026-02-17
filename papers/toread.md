@@ -2,7 +2,7 @@
 
 Curated list of papers confirmed relevant to the thesis.
 
-**Total remaining**: 183 papers
+**Total remaining**: 182 papers
 
 ---
 
@@ -80,7 +80,7 @@ Curated list of papers confirmed relevant to the thesis.
 
 | arXiv ID | Title | Citations | Why Relevant |
 |----------|-------|-----------|--------------|
-| [2410.01792](https://arxiv.org/abs/2410.01792) | When Optimized for Reasoning, Does It Still Show Embers? (o1 Analysis) | 23 | Same authors test o1 — embers persist even with reasoning optimization |
+
 | [2403.06963](https://arxiv.org/abs/2403.06963) | The Pitfalls of Next-Token Prediction | 146 | Theoretical analysis of why NTP limits reasoning |
 | [2402.08939](https://arxiv.org/abs/2402.08939) | Premise Order Matters in Reasoning | 116 | Shows reasoning is surface-pattern dependent (order shouldn't matter for logic) |
 | [2310.20707](https://arxiv.org/abs/2310.20707) | What's In My Big Data? | 177 | Training data analysis — explains probability biases |
