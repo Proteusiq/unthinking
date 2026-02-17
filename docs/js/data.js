@@ -5,6 +5,15 @@ window.paperData = {
     get totalAnalyzed() {
       return window.paperNodes?.length || 0;
     },
+    get supports() {
+      return window.paperNodes?.filter(n => n.stance === 'supports').length || 0;
+    },
+    get challenges() {
+      return window.paperNodes?.filter(n => n.stance === 'challenges').length || 0;
+    },
+    get balanced() {
+      return window.paperNodes?.filter(n => n.stance === 'balanced').length || 0;
+    },
   },
   // Nodes loaded from nodes.js
   get nodes() {
