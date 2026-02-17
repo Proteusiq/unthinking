@@ -2,14 +2,32 @@
    Components - Panels, cards, tooltips, legend, graph elements
    ========================================================================== */
 
-/* Legend */
+/* Legend - collapsed by default, expands on hover */
 .legend {
   position: fixed;
   bottom: var(--space-xl);
   left: var(--space-sm);
   z-index: var(--z-controls);
-  padding: var(--space-sm) var(--space-md);
   border-radius: var(--radius-lg);
+  transition: all 0.2s ease;
+}
+.legend-collapsed {
+  padding: var(--space-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.legend-expanded {
+  display: none;
+  padding: var(--space-sm) var(--space-md);
+}
+.legend:hover .legend-collapsed {
+  display: none;
+}
+.legend:hover .legend-expanded {
+  display: block;
 }
 .legend-title {
   font-size: 0.625rem;

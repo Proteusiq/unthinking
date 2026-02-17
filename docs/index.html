@@ -164,38 +164,46 @@
         </button>
       </div>
 
-      <!-- Legend -->
+      <!-- Legend (hover to expand) -->
       <div class="legend glass">
-        <h3 class="legend-title">Legend</h3>
-        <div class="legend-items">
-          <div class="legend-section">
-            <h4>Stance</h4>
-            <div class="legend-item">
-              <span class="node-indicator supports"></span>
-              <span>Supports Thesis</span>
+        <div class="legend-collapsed">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 16v-4M12 8h.01"/>
+          </svg>
+        </div>
+        <div class="legend-expanded">
+          <h3 class="legend-title">Legend</h3>
+          <div class="legend-items">
+            <div class="legend-section">
+              <h4>Stance</h4>
+              <div class="legend-item">
+                <span class="node-indicator supports"></span>
+                <span>Supports Thesis</span>
+              </div>
+              <div class="legend-item">
+                <span class="node-indicator challenges"></span>
+                <span>Challenges Thesis</span>
+              </div>
+              <div class="legend-item">
+                <span class="node-indicator balanced"></span>
+                <span>Balanced</span>
+              </div>
             </div>
-            <div class="legend-item">
-              <span class="node-indicator challenges"></span>
-              <span>Challenges Thesis</span>
-            </div>
-            <div class="legend-item">
-              <span class="node-indicator balanced"></span>
-              <span>Balanced</span>
-            </div>
-          </div>
-          <div class="legend-section">
-            <h4>Connections</h4>
-            <div class="legend-item">
-              <span class="edge-indicator supports"></span>
-              <span>Supports</span>
-            </div>
-            <div class="legend-item">
-              <span class="edge-indicator rebuts"></span>
-              <span>Rebuts</span>
-            </div>
-            <div class="legend-item">
-              <span class="edge-indicator extends"></span>
-              <span>Extends</span>
+            <div class="legend-section">
+              <h4>Connections</h4>
+              <div class="legend-item">
+                <span class="edge-indicator supports"></span>
+                <span>Supports</span>
+              </div>
+              <div class="legend-item">
+                <span class="edge-indicator rebuts"></span>
+                <span>Rebuts</span>
+              </div>
+              <div class="legend-item">
+                <span class="edge-indicator extends"></span>
+                <span>Extends</span>
+              </div>
             </div>
           </div>
         </div>
