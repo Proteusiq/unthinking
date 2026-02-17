@@ -1,6 +1,6 @@
-> **Based on systematic analysis of 192 peer-reviewed papers (2022-2026)**
+> **Based on systematic analysis of 201 peer-reviewed papers (2022-2026)**
 > 
-> **Last updated**: 2026-02-15
+> **Last updated**: 2026-02-17
 >
 > Full corpus: [github.com/Proteusiq/unthinking](https://github.com/Proteusiq/unthinking)
 >

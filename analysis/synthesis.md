@@ -1,7 +1,7 @@
 # Synthesis: The Thinking Machine That Doesn't Think
 
-> **Last updated**: 2026-02-15
-> **Papers analyzed**: 192
+> **Last updated**: 2026-02-17
+> **Papers analyzed**: 201
 >
 > **See also**: `memento.md` for executive summary
 
@@ -152,7 +152,7 @@
 | 190 | Mind Your Tone (Rude=Better) | Oct 2025 | Supports | **REBUTS 188**: GPT-4o +4% with rude prompts; OPPOSITE finding = "LLMs are mirrors" |
 | 191 | LLM Reasoning Failures Survey | Feb 2026 | Strongly Supports | **TMLR 2026 CORNERSTONE SURVEY**: First comprehensive survey (170+ papers). 2-axis taxonomy: reasoning type × failure type. Root causes: architectural (attention dispersal, causal masking), training (next-token, RLHF bias), grounding (no embodiment). 14 papers overlap with our corpus. |
 
-**Total: 192 unique papers analyzed**
+**Total: 201 unique papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative
