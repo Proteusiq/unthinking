@@ -622,6 +622,9 @@
     event.stopPropagation();
     state.selectedNode = d;
 
+    // Hide tooltip when panel opens
+    hideTooltip();
+
     // Keep this node highlighted
     highlightConnections(d);
 
