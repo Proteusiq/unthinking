@@ -4428,4 +4428,29 @@ window.paperLinks = [
     type: 'challenges',
     description: 'Claims truth representation; Kambhampati argues pattern matching suffices',
   },
+  // Paper 207: Tree of Thoughts
+  {
+    source: '2305.10601',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'ToT compensates for compositional failures via search; 60% first-step failure shows pattern matching limits',
+  },
+  {
+    source: '2305.10601',
+    target: '2506.06941',
+    type: 'supports',
+    description: 'Both show complexity thresholds; ToT addresses via more search',
+  },
+  {
+    source: '2305.10601',
+    target: '2512.07783',
+    type: 'supports',
+    description: 'ToT surfaces latent capabilities via exploration; Interplay shows RL does similar',
+  },
+  {
+    source: '2305.10601',
+    target: '2403.04121',
+    type: 'supports',
+    description: 'Authors call LM "System 1"; Kambhampati also argues LMs are pattern matchers needing external scaffolding',
+  },
 ];

@@ -4372,4 +4372,28 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/200-209/206_mechanistic_arithmetic.md',
   },
+  {
+    id: '2305.10601',
+    title: 'Tree of Thoughts: Deliberate Problem Solving with Large Language Models',
+    shortTitle: 'Tree of Thoughts',
+    date: 'May 2023',
+    stance: 'supports',
+    cluster: 'test-time-compute',
+    coreArgument:
+      'Authors explicitly frame LM as "System 1" (associative). ToT adds "System 2" search scaffolding. 60% of CoT samples fail at first step. Improvement comes from search (BFS/DFS), not LM reasoning. 74% Game of 24 (vs 4% CoT) but uses 5-100x more compute.',
+    keyEvidence: [
+      'Game of 24: 74% ToT vs 4% CoT (18.5x improvement)',
+      '60% of CoT samples fail at FIRST step (first 3 words)',
+      'Mini Crosswords: 60% words vs 16% CoT',
+      'Generation bottleneck: GPT-4 gen + GPT-3.5 eval = 64% vs GPT-3.5 gen + GPT-4 eval = 31%',
+      'ToT requires 5-100x more tokens than CoT',
+    ],
+    keyQuotes: [
+      'The simple associative token-level choices of LMs are also reminiscent of "System 1".',
+      'Notably, around 60% of CoT samples already failed the task after generating the first step.',
+      'The games bottleneck is thought generation.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/200-209/207_tree_of_thoughts.md',
+  },
 ];
