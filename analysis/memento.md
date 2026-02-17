@@ -2,8 +2,7 @@
 
 > **Like Leonard in Memento, LLMs have no persistent state. Each token prediction starts fresh — no memory of what was "understood" moments ago, only the tattoos of the context window.**
 
-**Last updated**: 2026-02-15
-**Papers analyzed**: 192
+**Papers analyzed**: 200+
 **Purpose**: Executive summary linking all evidence streams
 
 ---
@@ -43,6 +42,7 @@
 | KUP (#70) | ~80% direct | <2% indirect | ~78% (reasoning) |
 | Compositional-ARC (#69) | 64% 3-shot | 0.53% systematic | 63.5% |
 | Addition (#56) | 99.8% numerical | 7.5% symbolic | 92.3% |
+| Embers (#202) | 76% (1st letter) | 3% (2nd letter) | 25× diff on same algo |
 | Chess (#84) | WD: 26 CPL | OOD: **random level** | 100% fluid |
 | Grokking Composition (#143) | 100% ID | 0% OOD | 100% (after 2M steps) |
 

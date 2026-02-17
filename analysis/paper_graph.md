@@ -1,7 +1,6 @@
 # Paper Interaction Graph
 
-> **Last updated**: 2026-02-16
-> **Papers tracked**: 201
+> **Papers tracked**: 202
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1218,6 +1217,11 @@ These papers have NO direct rebuttals found:
 | Can LLMs Reason and Plan (2403.04121) | FOUNDATIONAL: "n-gram models on steroids"; LLM-Modulo framework |
 | Stop Anthropomorphizing Tokens (2504.09762) | Traces have NO semantics; incorrect traces OUTPERFORM correct |
 | +25 more foundational papers | Original CoT, Zero-Shot CoT, Self-Consistency, Reversal Curse, etc. |
+
+### 2026-02-17
+| Papers Added | Key Findings |
+|--------------|--------------|
+| **Embers of Autoregression (2309.13638)** | FOUNDATIONAL: Probability sensitivity proves pattern matching. Shift cipher 51% vs 13% (output prob); Acronyms 76% vs 3% (task prob); Sorting 80% vs 32% (frequency). "To understand LLMs, understand what they were trained to be." |
 
 ### 2026-01-31
 | Papers Added | Key Findings |

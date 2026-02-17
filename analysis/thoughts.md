@@ -519,7 +519,7 @@ After cross-analyzing 200+ papers, the evidence converges on seven distinct pill
 | **2. CoT Unfaithfulness** | CoT often doesn't reflect computation | 08, 10, 14, 43, 62, 132 | Larger = LESS faithful |
 | **3. Surfacing Hypothesis** | RL surfaces, doesn't create | 15, 07, 103, 111, 133 | 0% exposure → RL fails |
 | **4. Complexity Collapse** | Abrupt failure at thresholds | 03, 16, 19, 48, 87 | ~8-10 disk ceiling |
-| **5. Surface Patterns** | Token frequency drives accuracy | 147, 149, 157, 108 | >70% frequency gap |
+| **5. Surface Patterns** | Token frequency drives accuracy | 147, 149, 157, 108, **202** | >70% frequency gap; 25× acronym diff |
 | **6. Sycophancy** | Social agreement over truth | 119, 127, 109, 110 | 98% wrong admissions |
 | **7. Tool Debate** | Tools help execution, not reasoning | 04, 37, 93, 68 | 0% with validator |
 

@@ -2,8 +2,7 @@
 
 Curated list of papers confirmed relevant to the thesis.
 
-**Last updated**: 2026-02-14
-**Total remaining**: 171 papers
+**Total remaining**: 170 papers
 
 ---
 
@@ -69,7 +68,7 @@ Curated list of papers confirmed relevant to the thesis.
 | [2509.19284](https://arxiv.org/abs/2509.19284) | Patterns over Principles |
 | [2406.04692](https://arxiv.org/abs/2406.04692) | Robust Reasoning with Noisy Rationales |
 | [2601.07226](https://arxiv.org/abs/2601.07226) | Lost in the Noise |
-| [2310.01382](https://arxiv.org/abs/2310.01382) | Embers of Autoregression |
+
 | [2602.01763](https://arxiv.org/abs/2602.01763) | Provable Expressiveness Hierarchy |
 | [2602.02909](https://arxiv.org/abs/2602.02909) | BAPO Bounds on CoT Complexity |
 | [2602.01288](https://arxiv.org/abs/2602.01288) | EDIS: Entropy Dynamics |

@@ -1,7 +1,6 @@
-# Mind Map: 192 Papers on LLM Reasoning
+# Mind Map: 200+ Papers on LLM Reasoning
 
 > **Generated**: 2026-02-01
-> **Last updated**: 2026-02-15
 > **Purpose**: Cross-reference analysis of how papers talk to each other
 > **See also**: `memento.md` for executive summary
 
@@ -240,10 +239,16 @@
 └─────────────────┘ └─────────────────┘ └─────────────────┘
 ```
 
-**Supporting Papers**: 54, 58, 59, 61, 67, 70, 73, 89, 104, 108, 116, 144, 147, 148, 149, 157, 160
+**Supporting Papers**: 54, 58, 59, 61, 67, 70, 73, 89, 104, 108, 116, 144, 147, 148, 149, 157, 160, **202**
 
 **Key Insight**: Paper 108 (WhatCounts) states definitively:
 > "LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent"
+
+**Paper 202 (Embers of Autoregression)** provides the theoretical foundation:
+> "To understand what language models are, we must understand what we have trained them to be."
+- Acronyms: 76% (first letter) vs 3% (second letter) — 25× difference on same algorithm
+- Shift cipher: 51% vs 13% — output probability drives deterministic task accuracy
+- Sorting: 80% vs 32% — training frequency, not algorithm difficulty
 
 ---
 
