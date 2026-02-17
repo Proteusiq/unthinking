@@ -10,7 +10,7 @@ Technical specifications for the interactive visualization of "The Thinking Mach
 
 This is an **interactive literature review visualization** for the thesis:
 
-> "LLM reasoning is practical but fundamentally **predictive** (pattern matching from training distributions), not genuinely **generative**. RL and test-time compute **surface** pre-existing capabilities rather than creating new reasoning abilities."
+> LLM reasoning is practical but fundamentally **predictive** (pattern matching from training distributions), not genuinely **generative**. RL and test-time compute **surface** pre-existing capabilities rather than creating new reasoning abilities.
 
 The visualization shows **83 research papers** as nodes in a force-directed graph, with edges showing how papers relate to each other (support, rebut, extend). Users can explore the academic debate visually.
 
