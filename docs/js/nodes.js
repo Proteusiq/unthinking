@@ -4396,4 +4396,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/200-209/207_tree_of_thoughts.md',
   },
+  {
+    id: '2308.09687',
+    title: 'Graph of Thoughts: Solving Elaborate Problems with Large Language Models',
+    shortTitle: 'Graph of Thoughts',
+    date: 'Aug 2023',
+    stance: 'supports',
+    cluster: 'test-time-compute',
+    coreArgument:
+      'GoT extends ToT with aggregation but reasoning structure (GoO) is pre-defined by humans. Authors admit LLMs cannot sort beyond short sequences. 62% improvement comes from external merge sort, not LLM reasoning.',
+    keyEvidence: [
+      '~75% on sorting 128 numbers (not 100%)',
+      'LLMs unable to sort beyond certain length',
+      'GoO is static, constructed BEFORE execution',
+      '62% gain from merge sort algorithm',
+      '~91% on set union (not 100%)',
+    ],
+    keyQuotes: [
+      'The considered LLMs are unable to sort a sequence of such numbers correctly beyond a certain length.',
+      'GoO is a static structure constructed once, before execution starts.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/200-209/208_graph_of_thoughts.md',
+  },
 ];
