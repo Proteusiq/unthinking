@@ -59,21 +59,36 @@ Higher accuracy with high-probability inputs (weaker effect than output).
 - Rot-13 is ~60× more common in Internet text than Rot-2
 - **This is not about difficulty — it's about training frequency**
 
+**Critical detail**: GPT-4 achieves 0.82 for rot-1, 0.76 for rot-3, yet only 0.02 for rot-2. A system that can do rot-1 and rot-3 should logically be able to do rot-2, but it can't — because rot-2 is rare.
+
 ### Acronyms: First Letter vs Second Letter
 | Variant | GPT-4 Accuracy |
 |---------|----------------|
 | First letter (common) | 76% |
 | Second letter (rare) | 3% |
 
-**Same algorithm, 25× difference** — purely due to task frequency.
+**Same algorithm, 25× difference** — purely due to task frequency. Statistical significance: p < 10⁻¹⁵ for GPT-4.
 
 ### Sorting: Alphabetical vs Reverse
 | Variant | GPT-4 Accuracy | Corpus Frequency |
 |---------|----------------|------------------|
-| Alphabetical | 80% | ~150× more common |
-| Reverse alphabetical | 32% | Rare |
+| Alphabetical | 80% | 95,942 mentions in C4 |
+| Reverse alphabetical | 32% | 629 mentions in C4 |
 
-Control: Ascending vs descending numbers (similar frequency) → similar accuracy (82% vs 80%).
+**150× frequency difference → 2.5× accuracy difference.**
+
+Control: Ascending vs descending numbers (similar frequency: 21,562 vs 31,378) → similar accuracy (82% vs 80%). This proves frequency drives the effect, not task difficulty.
+
+### Pig Latin Variants (Fine-grained Task Frequency)
+| Variant | Corpus Frequency | GPT-4 Encoding |
+|---------|------------------|----------------|
+| -way | 68 in Pile | ~0.42 |
+| -ay | 46 in Pile | ~0.39 |
+| -yay | 26 in Pile | ~0.30 |
+| -hay | 8 in Pile | ~0.23 |
+| -say | 0 in Pile | lowest |
+
+**Single-letter differences** in suffix → measurable accuracy differences tracking corpus frequency.
 
 ### Linear Functions
 | Function | Description | GPT-4 Accuracy |
@@ -83,9 +98,12 @@ Control: Ascending vs descending numbers (similar frequency) → similar accurac
 
 **Same mathematical complexity, infinite difference in performance.**
 
+Additional finding: When primed with "convert Celsius to Fahrenheit", accuracy improves significantly vs. abstract formula (p < 0.01). The model needs the semantic context to activate the right circuits.
+
 ### Counting
 - Accuracy correlates with **number frequency** (r=0.84-0.88) more than **number magnitude** (r=0.76-0.81)
 - Models count better to 100 (frequent) than to 59 (rare but smaller)
+- High-frequency numbers vs low-frequency neighbors: dramatic accuracy difference even when controlling for magnitude
 
 ### Multiplication Format Sensitivity
 | Format | GPT-4 Accuracy |
@@ -94,6 +112,46 @@ Control: Ascending vs descending numbers (similar frequency) → similar accurac
 | Lowercase words | 39% |
 | ALL CAPS | 35% |
 | aLtErNaTiNg CaPs | 17% |
+
+### Birthdays: Input Probability Effect
+| Celebrity Type | GPT-4 Accuracy |
+|----------------|----------------|
+| High-frequency (Carrie Underwood) | 99% |
+| Low-frequency (Jacques Hanegraaf) | 23% |
+
+**Same task, 76% accuracy gap** based purely on how often the person is mentioned online.
+
+### Article Swapping: Output Probability Effect
+| Output Type | GPT-4 Accuracy |
+|-------------|----------------|
+| High-probability sentence | 83% |
+| Random word sequence | 2% |
+
+**41× difference** on the same task based on output probability.
+
+---
+
+## Output Regularization: The "Smoking Gun"
+
+When the correct answer contains a low-probability word similar to a high-probability one, GPT-4 systematically replaces it:
+
+| Correct Output | GPT-4 Output | Regularization |
+|----------------|--------------|----------------|
+| "building a bridge of their **owl**" | "building a bridge of their **own**" | owl → own |
+| "collaborate with **otters** for sustainable impact" | "collaborate with **others** for sustainable impact" | otters → others |
+| "a very **beige** responsibility" | "a very **big** responsibility" | beige → big |
+| "I will not give up even for a **monument**" | "I will not give up even for a **moment**" | monument → moment |
+| "their names were **chanted** for security reasons" | "their names were **changed** for security reasons" | chanted → changed |
+
+**The model cannot help but produce high-probability outputs**, even when explicitly told the correct answer. This is definitive evidence that probability dominates over task execution.
+
+### Extreme Regularization (Rare Ciphers)
+When the task is very rare (rot-10), the model abandons the task entirely and outputs famous quotes:
+
+- **Input**: Encrypted text about university professors
+- **GPT-4 Output**: "To be or not to be, that is the question..."
+
+When likelihood uncertainty is high, the prior P(output) completely dominates.
 
 ---
 
@@ -159,6 +217,16 @@ When there's uncertainty about the likelihood term P(input|output), the prior P(
 
 > "Language models are…language models! That is, they are statistical next-word prediction systems."
 
+> "GPT-4 achieves an accuracy of 0.82 for rot-1 and 0.76 for rot-3 yet only 0.02 for rot-2, even though we might intuitively expect that a system that can perform rot-1 and rot-3 would also succeed at rot-2."
+
+> "These results can be straightforwardly explained by each task's probability but not by its inherent difficulty."
+
+> "The less well the model has learned a task, the more uncertainty it will have about the relationship between output and input...It will therefore be more influenced by the prior, resulting in predictions that are not very closely connected to the input but that have a high probability in absolute terms, such as well-known quotations."
+
+> "In another case, GPT-4 produced the start of a Shakespearean soliloquy. Clearly something is rot-10 in the state of Denmark."
+
+> "For me, answering that question would be a 1 on the scale from 1 to 10 in terms of difficulty. Counting the number of characters in a string is a straightforward task for a computer program." — GPT-4, after incorrectly counting 29 letters as 28
+
 ---
 
 ## Implications for Thesis
@@ -195,10 +263,10 @@ When there's uncertainty about the likelihood term P(input|output), the prior P(
 
 ## Status
 
-- [x] Read complete
+- [x] Read complete (full paper deep dive)
 - [x] Core claims extracted
 - [x] Methodology documented
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] Rebuttals checked
-- [ ] Paper graph updated
+- [x] Paper graph updated
