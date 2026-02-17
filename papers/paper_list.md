@@ -233,6 +233,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 82 | 2512.23722 | Dec 2025 | Emergent World Beliefs: Exploring Transformers in Stochastic Games | Balanced | ✅ DONE |
 | 83 | 2511.23476 | Nov 2025 | Thinking by Doing: Building Efficient World Model Reasoning | Balanced | ✅ DONE |
 | 204 | 2310.02207 | Oct 2023 | Language Models Represent Space and Time (MIT, Tegmark) | Balanced | ✅ DONE |
+| 205 | 2310.06824 | Oct 2023 | The Geometry of Truth: Emergent Linear Structure in LLM Representations (MIT, Tegmark) | Balanced | ✅ DONE |
 
 ### Other Notable Papers
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -367,11 +368,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 204
+- **Total Papers**: 205
 - **Against Reasoning**: ~120
 - **For Reasoning**: ~31
-- **Balanced**: ~52
+- **Balanced**: ~53
 - **Date Range**: 2021-2026
-- **Analyzed**: 204
+- **Analyzed**: 205
 
 ---
