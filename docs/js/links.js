@@ -4409,4 +4409,23 @@ window.paperLinks = [
     type: 'challenges',
     description: 'Claims world model ingredients; Kambhampati argues encoding isnt reasoning',
   },
+  // Paper 205: Geometry of Truth
+  {
+    source: '2310.06824',
+    target: '2310.02207',
+    type: 'related',
+    description: 'Same authors (Tegmark), same methodology (linear probing), same limitations',
+  },
+  {
+    source: '2310.06824',
+    target: '2309.13638',
+    type: 'related',
+    description: 'Embers shows frequency drives behavior; truth direction may be familiarity direction',
+  },
+  {
+    source: '2310.06824',
+    target: '2403.04121',
+    type: 'challenges',
+    description: 'Claims truth representation; Kambhampati argues pattern matching suffices',
+  },
 ];

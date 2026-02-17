@@ -4324,4 +4324,28 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/200-209/204_language_models_represent_space_and_time.md',
   },
+  {
+    id: '2310.06824',
+    title: 'The Geometry of Truth: Emergent Linear Structure in LLM Representations of True/False Datasets',
+    shortTitle: 'Geometry of Truth',
+    date: 'Oct 2023',
+    stance: 'balanced',
+    cluster: 'world-models',
+    coreArgument:
+      'Linear probes find a "truth direction" in LLaMA-2. Causal interventions can flip outputs. But authors explicitly cannot distinguish truth from "commonly believed" — and probes trained on non-factual "likely" data still work for intervention.',
+    keyEvidence: [
+      'Probes trained on cities transfer to sp_en_trans at 95%+',
+      'Causal intervention: adding truth direction flips P(TRUE) (NIE=0.68)',
+      '"likely" dataset probes ALSO work for intervention (NIE=0.55)',
+      'neg_cities: truth correlates at r=-0.63 with probability',
+      'Larger models show more unified truth direction across datasets',
+    ],
+    keyQuotes: [
+      'We focus on simple, uncontroversial statements, and therefore cannot disambiguate truth from closely related features, such as commonly believed or verifiable.',
+      'We make no attempt to disambiguate true statements from closely-related notions like: uncontroversial statements, statements which are widely believed.',
+      'Why were interventions with mass-mean probe directions extracted from the likely dataset so effective, despite these probes not themselves being accurate at classifying true/false statements?',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/200-209/205_geometry_of_truth.md',
+  },
 ];

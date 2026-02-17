@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 204
+> **Papers tracked**: 205
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1224,6 +1224,7 @@ These papers have NO direct rebuttals found:
 | **Embers of Autoregression (2309.13638)** | FOUNDATIONAL: Probability sensitivity proves pattern matching. Shift cipher 51% vs 13% (output prob); Acronyms 76% vs 3% (task prob); Sorting 80% vs 32% (frequency). "To understand LLMs, understand what they were trained to be." |
 | **o1 Embers Analysis (2410.01792)** | SAME AUTHORS TEST o1: Embers persist. Shift cipher 92% vs 47% (45% gap). Thinking tokens 100 vs 2000 (common vs rare). "Sparks of AGI accompanied by embers of autoregression." |
 | **Space and Time (2310.02207)** | COUNTER-EVIDENCE (BALANCED): Linear probes extract space/time from Llama-2. R²=0.91 world, 0.36 NYC. Authors admit: "does not imply model uses these representations." Generalization degrades significantly on holdout. Compatible with pattern matching: encoding ≠ understanding. |
+| **Geometry of Truth (2310.06824)** | COUNTER-EVIDENCE (BALANCED): Same authors (Tegmark). Linear "truth direction" found. Authors admit: "cannot disambiguate truth from 'commonly believed'". Suspiciously, probes trained on "likely" (non-factual) data WORK for intervention. May be "familiarity" direction, not truth. |
 
 ### 2026-01-31
 | Papers Added | Key Findings |
