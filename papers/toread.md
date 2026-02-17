@@ -2,7 +2,7 @@
 
 Curated list of papers confirmed relevant to the thesis.
 
-**Total remaining**: 182 papers
+**Total remaining**: 181 papers
 
 ---
 
@@ -36,7 +36,6 @@ Curated list of papers confirmed relevant to the thesis.
 
 | arXiv ID | Title |
 |----------|-------|
-| [2310.02207](https://arxiv.org/abs/2310.02207) | Language Models Represent Space and Time |
 | [2310.06824](https://arxiv.org/abs/2310.06824) | The Geometry of Truth |
 | [2309.16609](https://arxiv.org/abs/2309.16609) | Do LLMs Encode Space and Time? |
 

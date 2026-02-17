@@ -4300,4 +4300,28 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/200-209/203_o1_embers_of_autoregression.md',
   },
+  {
+    id: '2310.02207',
+    title: 'Language Models Represent Space and Time',
+    shortTitle: 'Space & Time',
+    date: 'Oct 2023',
+    stance: 'balanced',
+    cluster: 'world-models',
+    coreArgument:
+      'Linear probes can extract spatial (lat/long) and temporal coordinates from Llama-2 activations. Authors claim this suggests "basic ingredients of a world model" but explicitly acknowledge probing does not prove the model uses these representations.',
+    keyEvidence: [
+      'R² = 0.91 for world locations (Llama-2-70B)',
+      'R² = 0.36 for NYC locations (lower frequency = worse)',
+      'Generalization degrades significantly on country holdout',
+      'Random distracting tokens severely degrade performance',
+      'MLP probes no better than linear — representations are linear',
+    ],
+    keyQuotes: [
+      'High predictive performance on out-of-sample data indicates that the base model has temporal and spatial information linearly decodable in its representations, although this does not imply that the model actually uses these representations.',
+      'The probe itself could be learning some linear combination of simpler features which are actually used by the model.',
+      'We conjecture, but do not show, these basic primitives underlie a more comprehensive causal world model.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/200-209/204_language_models_represent_space_and_time.md',
+  },
 ];

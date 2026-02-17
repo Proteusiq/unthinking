@@ -4390,4 +4390,23 @@ window.paperLinks = [
     type: 'supports',
     description: 'Confirms Kambhampati: even o1 cant escape approximate retrieval',
   },
+  // Paper 204: Space and Time
+  {
+    source: '2310.02207',
+    target: '2309.13638',
+    type: 'related',
+    description: 'Both study internal representations; Embers shows frequency drives encoding',
+  },
+  {
+    source: '2310.02207',
+    target: '2305.18654',
+    type: 'related',
+    description: 'Both use probing; Faith & Fate shows probing can miss generalization failures',
+  },
+  {
+    source: '2310.02207',
+    target: '2403.04121',
+    type: 'challenges',
+    description: 'Claims world model ingredients; Kambhampati argues encoding isnt reasoning',
+  },
 ];
