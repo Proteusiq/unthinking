@@ -4353,4 +4353,41 @@ window.paperLinks = [
     type: 'supports',
     description: 'Teleological approach aligns with Kambhampati "approximate retrieval" view',
   },
+  // o1 Embers Analysis (Paper 203) - Follow-up to 202
+  {
+    source: '2410.01792',
+    target: '2309.13638',
+    type: 'extends',
+    description: 'Same authors test o1 — embers persist even with reasoning optimization',
+  },
+  {
+    source: '2410.01792',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'o1 still shows probability sensitivity at distribution boundaries',
+  },
+  {
+    source: '2410.01792',
+    target: '2410.05229',
+    type: 'supports',
+    description: 'Both show surface patterns affect performance even in advanced models',
+  },
+  {
+    source: '2410.01792',
+    target: '2506.06941',
+    type: 'supports',
+    description: 'Both show reasoning models have fundamental limits',
+  },
+  {
+    source: '2410.01792',
+    target: '2501.12948',
+    type: 'supports',
+    description: 'Both test reasoning-optimized models; both find probability sensitivity',
+  },
+  {
+    source: '2410.01792',
+    target: '2403.04121',
+    type: 'supports',
+    description: 'Confirms Kambhampati: even o1 cant escape approximate retrieval',
+  },
 ];

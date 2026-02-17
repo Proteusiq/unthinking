@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 202
+> **Papers tracked**: 203
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1222,6 +1222,7 @@ These papers have NO direct rebuttals found:
 | Papers Added | Key Findings |
 |--------------|--------------|
 | **Embers of Autoregression (2309.13638)** | FOUNDATIONAL: Probability sensitivity proves pattern matching. Shift cipher 51% vs 13% (output prob); Acronyms 76% vs 3% (task prob); Sorting 80% vs 32% (frequency). "To understand LLMs, understand what they were trained to be." |
+| **o1 Embers Analysis (2410.01792)** | SAME AUTHORS TEST o1: Embers persist. Shift cipher 92% vs 47% (45% gap). Thinking tokens 100 vs 2000 (common vs rare). "Sparks of AGI accompanied by embers of autoregression." |
 
 ### 2026-01-31
 | Papers Added | Key Findings |
