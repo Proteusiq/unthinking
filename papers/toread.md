@@ -2,7 +2,7 @@
 
 Curated list of papers confirmed relevant to the thesis.
 
-**Total remaining**: 170 papers
+**Total remaining**: 183 papers
 
 ---
 
@@ -68,12 +68,36 @@ Curated list of papers confirmed relevant to the thesis.
 | [2509.19284](https://arxiv.org/abs/2509.19284) | Patterns over Principles |
 | [2406.04692](https://arxiv.org/abs/2406.04692) | Robust Reasoning with Noisy Rationales |
 | [2601.07226](https://arxiv.org/abs/2601.07226) | Lost in the Noise |
-
 | [2602.01763](https://arxiv.org/abs/2602.01763) | Provable Expressiveness Hierarchy |
 | [2602.02909](https://arxiv.org/abs/2602.02909) | BAPO Bounds on CoT Complexity |
 | [2602.01288](https://arxiv.org/abs/2602.01288) | EDIS: Entropy Dynamics |
 | [2602.02863](https://arxiv.org/abs/2602.02863) | Dynamic Instability Predicts Failure |
 | [2602.02983](https://arxiv.org/abs/2602.02983) | Are LLMs Biased Like Humans? |
+
+### Papers Citing Embers of Autoregression (2309.13638)
+
+**Supports Thesis:**
+
+| arXiv ID | Title | Citations | Why Relevant |
+|----------|-------|-----------|--------------|
+| [2410.01792](https://arxiv.org/abs/2410.01792) | When Optimized for Reasoning, Does It Still Show Embers? (o1 Analysis) | 23 | Same authors test o1 — embers persist even with reasoning optimization |
+| [2403.06963](https://arxiv.org/abs/2403.06963) | The Pitfalls of Next-Token Prediction | 146 | Theoretical analysis of why NTP limits reasoning |
+| [2402.08939](https://arxiv.org/abs/2402.08939) | Premise Order Matters in Reasoning | 116 | Shows reasoning is surface-pattern dependent (order shouldn't matter for logic) |
+| [2310.20707](https://arxiv.org/abs/2310.20707) | What's In My Big Data? | 177 | Training data analysis — explains probability biases |
+| [2303.13988](https://arxiv.org/abs/2303.13988) | Machine Psychology | 232 | Cognitive testing of LLMs — pattern matching behavior |
+| [2404.09932](https://arxiv.org/abs/2404.09932) | Foundational Challenges in Assuring LLM Safety | 309 | Safety = pattern matching to training |
+| [2404.01869](https://arxiv.org/abs/2404.01869) | Beyond Accuracy: Evaluating Reasoning Behavior — Survey | 120 | Survey on evaluating reasoning (not just accuracy) |
+| [2402.08115](https://arxiv.org/abs/2402.08115) | Self-Verification Limitations (Kambhampati) | 114 | LLMs can't self-verify reasoning |
+| [2311.09247](https://arxiv.org/abs/2311.09247) | Comparing Humans, GPT-4 on Abstraction (Mitchell) | 106 | ARC testing — humans vs LLMs |
+| [2310.18362](https://arxiv.org/abs/2310.18362) | SoK: Memorization in LLMs | 86 | Memorization survey — supports pattern matching view |
+
+**Potentially Challenges Thesis:**
+
+| arXiv ID | Title | Citations | Why Relevant |
+|----------|-------|-----------|--------------|
+| [2501.17047](https://arxiv.org/abs/2501.17047) | How Linguistics Learned to Love LLMs | 43 | Argues LLMs DO learn language; counter-argument to Embers |
+| [2406.19384](https://arxiv.org/abs/2406.19384) | The Remarkable Robustness of LLMs | 65 | Models retain 72% performance after layer deletion — suggests redundancy/robustness |
+| [2402.18225](https://arxiv.org/abs/2402.18225) | CogBench: LLM Walks into Psychology Lab | 66 | Cognitive benchmarking — mixed findings |
 
 ---
 
