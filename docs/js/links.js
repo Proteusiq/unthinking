@@ -4453,4 +4453,53 @@ window.paperLinks = [
     type: 'supports',
     description: 'Authors call LM "System 1"; Kambhampati also argues LMs are pattern matchers needing external scaffolding',
   },
+  // Paper 208: Graph of Thoughts
+  {
+    source: '2308.09687',
+    target: '2305.10601',
+    type: 'extends',
+    description: 'GoT extends ToT with aggregation operation; both add external scaffolding',
+  },
+  {
+    source: '2308.09687',
+    target: '2201.11903',
+    type: 'extends',
+    description: 'GoT subsumes CoT as special case; graph generalizes chain',
+  },
+  {
+    source: '2308.09687',
+    target: '2203.11171',
+    type: 'extends',
+    description: 'GoT subsumes Self-Consistency; aggregation generalizes voting',
+  },
+  {
+    source: '2308.09687',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Both show decomposition helps but doesnt create reasoning; LLMs handle sub-problems within distribution',
+  },
+  {
+    source: '2308.09687',
+    target: '2512.07783',
+    type: 'supports',
+    description: 'Both show external scaffolding surfaces existing capability; doesnt create new reasoning',
+  },
+  {
+    source: '2308.09687',
+    target: '2506.06941',
+    type: 'supports',
+    description: 'Both show complexity thresholds; GoT addresses by chunking, not by LLM reasoning better',
+  },
+  {
+    source: '2308.09687',
+    target: '2410.05229',
+    type: 'supports',
+    description: 'Both show LLMs fail on variations; GoT works by reducing to known patterns',
+  },
+  {
+    source: '2308.09687',
+    target: '2403.04121',
+    type: 'supports',
+    description: 'Similar philosophy: LLM for heuristics, external systems for correctness',
+  },
 ];
