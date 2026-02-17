@@ -1,11 +1,11 @@
 # Thoughts: Cross-Paper Synthesis and Missing Connections
 
-> **Last updated**: 2026-02-16
-> **Papers analyzed**: 195
+> **Last updated**: 2026-02-17
+> **Papers analyzed**: 201
 
 ## Overview
 
-After analyzing all 195 papers, this document captures:
+After analyzing all 201 papers, this document captures:
 1. Major themes and how papers interconnect
 2. Papers that talk to each other (support, challenge, extend)
 3. The narrative arc of the field (2022-2026)
@@ -447,11 +447,11 @@ Only Temporal Cognition (2507.15851) addresses this:
 
 ---
 
-## Synthesis: The Picture from 192 Papers
+## Synthesis: The Picture from 201 Papers
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────┐
-│                    THE PICTURE EMERGING FROM 192 PAPERS                         │
+│                    THE PICTURE EMERGING FROM 201 PAPERS                         │
 │                                                                                 │
 │  1. CAPABILITY EXISTS                                                           │
 │     - Pre-training creates latent reasoning patterns                            │
@@ -512,7 +512,7 @@ Only Temporal Cognition (2507.15851) addresses this:
 
 ## The Seven Pillars of Evidence
 
-After cross-analyzing 192 papers, the evidence converges on seven distinct pillars:
+After cross-analyzing 201 papers, the evidence converges on seven distinct pillars:
 
 | Pillar | Core Finding | Key Papers | Strongest Number |
 |--------|--------------|------------|------------------|
@@ -598,13 +598,13 @@ Can LLMs Reason and Plan (131): "Universal approximate retrieval"
 
 ---
 
-## Statistical Summary (192 Papers)
+## Statistical Summary (201 Papers)
 
 | Stance | Count | Percentage |
 |--------|-------|------------|
-| **Supports thesis** | 132 | 68.8% |
-| **Balanced** | 52 | 27.1% |
-| **Challenges thesis** | 8 | 4.2% |
+| **Supports thesis** | 132 | 65.7% |
+| **Balanced** | 56 | 27.9% |
+| **Challenges thesis** | 13 | 6.5% |
 
 ### By Evidence Type
 
@@ -642,7 +642,7 @@ Can LLMs Reason and Plan (131): "Universal approximate retrieval"
 
 ## Deferred Papers (Maybe Later)
 
-Corpus at 192 papers. These remain for potential future analysis:
+Corpus at 201 papers. These remain for potential future analysis:
 
 | arXiv ID | Title | Why Deferred |
 |----------|-------|--------------|
@@ -664,7 +664,7 @@ Corpus at 192 papers. These remain for potential future analysis:
 
 ## Status
 
-- [x] Analyzed 192 papers
+- [x] Analyzed 201 papers
 - [x] Identified seven pillars of evidence
 - [x] Mapped paper conversations and rebuttal chains
 - [x] Created comprehensive mindmap (mindmap.md)
