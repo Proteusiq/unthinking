@@ -232,6 +232,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 81 | 2601.10825 | Jan 2026 | Reasoning Models Generate Societies of Thought | Balanced | ✅ DONE |
 | 82 | 2512.23722 | Dec 2025 | Emergent World Beliefs: Exploring Transformers in Stochastic Games | Balanced | ✅ DONE |
 | 83 | 2511.23476 | Nov 2025 | Thinking by Doing: Building Efficient World Model Reasoning | Balanced | ✅ DONE |
+| 204 | 2310.02207 | Oct 2023 | Language Models Represent Space and Time (MIT, Tegmark) | Balanced | ✅ DONE |
 
 ### Other Notable Papers
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -366,11 +367,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 203
+- **Total Papers**: 204
 - **Against Reasoning**: ~120
 - **For Reasoning**: ~31
-- **Balanced**: ~51
+- **Balanced**: ~52
 - **Date Range**: 2021-2026
-- **Analyzed**: 203
+- **Analyzed**: 204
 
 ---
