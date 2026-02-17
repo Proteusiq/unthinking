@@ -60,16 +60,6 @@ Curated list of papers confirmed relevant to the thesis.
 
 ---
 
-## 🔴 HIGH PRIORITY — Blog Posts & Non-arXiv Resources
-
-| URL | Title | Author | Date |
-|-----|-------|--------|------|
-| [microgpt](http://karpathy.github.io/2026/02/12/microgpt/) | microgpt — 200 lines of pure Python GPT | Andrej Karpathy | Feb 2026 |
-
-**Key quote**: "Does the model 'understand' anything? That's a philosophical question, but mechanically: **no magic is happening**. The model is a big math function that maps input tokens to a probability distribution over the next token."
-
----
-
 ## 🔴 HIGH PRIORITY — Supports Thesis (Issue #44)
 
 | arXiv ID | Title |
