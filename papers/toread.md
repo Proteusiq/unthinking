@@ -28,7 +28,6 @@ Curated list of papers confirmed relevant to the thesis.
 
 | arXiv ID | Title |
 |----------|-------|
-| [2305.15054](https://arxiv.org/abs/2305.15054) | Mechanistic Interpretation of Arithmetic Reasoning |
 | [2301.05217](https://arxiv.org/abs/2301.05217) | Progress Measures for Grokking |
 | [2310.03714](https://arxiv.org/abs/2310.03714) | Representation Engineering |
 
