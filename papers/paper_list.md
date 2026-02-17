@@ -235,6 +235,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 204 | 2310.02207 | Oct 2023 | Language Models Represent Space and Time (MIT, Tegmark) | Balanced | ✅ DONE |
 | 205 | 2310.06824 | Oct 2023 | The Geometry of Truth: Emergent Linear Structure in LLM Representations (MIT, Tegmark) | Balanced | ✅ DONE |
 | 206 | 2305.15054 | May 2023 | A Mechanistic Interpretation of Arithmetic Reasoning in Language Models (ETH Zürich) | Balanced | ✅ DONE |
+| 207 | 2305.10601 | May 2023 | Tree of Thoughts: Deliberate Problem Solving with Large Language Models (NeurIPS 2023) | Supports | ✅ DONE (analysis: 207_tree_of_thoughts.md) |
 
 ### Other Notable Papers
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -369,11 +370,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 205
-- **Against Reasoning**: ~120
+- **Total Papers**: 207
+- **Against Reasoning**: ~121
 - **For Reasoning**: ~31
 - **Balanced**: ~53
 - **Date Range**: 2021-2026
-- **Analyzed**: 205
+- **Analyzed**: 207
 
 ---

@@ -8,7 +8,7 @@
 
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
-[![Papers](https://img.shields.io/badge/papers-205-blue)]()
+[![Papers](https://img.shields.io/badge/papers-207-blue)]()
 [![Relationships](https://img.shields.io/badge/relationships-670-orange)]()
 
 ---
@@ -28,7 +28,7 @@ RL and test-time compute "surface" pre-existing capabilities rather than creatin
 Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/)**
 
 <p align="center">
-  <img src="https://img.shields.io/badge/nodes-203%20papers-4CAF50" />
+  <img src="https://img.shields.io/badge/nodes-207%20papers-4CAF50" />
   <img src="https://img.shields.io/badge/edges-670%20relationships-2196F3" />
   <img src="https://img.shields.io/badge/stance-supports%20%7C%20challenges%20%7C%20balanced-FFC107" />
 </p>
@@ -242,7 +242,7 @@ PHASE 7: THEORETICAL FRAMEWORK (2026)
 │   ├── mindmap.md            # Visual cross-reference of all papers
 │   ├── paper_graph.md        # Paper interaction graph
 │   ├── rebuttals.md          # Rebuttal matrix
-│   └── explored/             # Individual paper analyses (198 files)
+│   └── explored/             # Individual paper analyses (207 files)
 │       ├── 00-09/            # Papers 00-09
 │       ├── 10-19/            # Papers 10-19
 │       ├── ...               # (10-paper bins)
@@ -304,7 +304,7 @@ PHASE 7: THEORETICAL FRAMEWORK (2026)
 
 ## Automated Paper Discovery
 
-**Status**: Active — 192 papers analyzed.
+**Status**: Active — 207 papers analyzed.
 
 New papers were discovered daily via GitHub Actions, classified using an LLM with thesis context.
 
