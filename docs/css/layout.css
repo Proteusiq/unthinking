@@ -352,6 +352,11 @@ body {
   gap: var(--space-xs);
   padding: var(--space-sm);
   border-radius: var(--radius-lg);
+  transition: opacity 0.2s ease;
+}
+.zoom-controls.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 .zoom-btn {
   display: flex;
