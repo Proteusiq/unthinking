@@ -1225,6 +1225,7 @@ These papers have NO direct rebuttals found:
 | **o1 Embers Analysis (2410.01792)** | SAME AUTHORS TEST o1: Embers persist. Shift cipher 92% vs 47% (45% gap). Thinking tokens 100 vs 2000 (common vs rare). "Sparks of AGI accompanied by embers of autoregression." |
 | **Space and Time (2310.02207)** | COUNTER-EVIDENCE (BALANCED): Linear probes extract space/time from Llama-2. R²=0.91 world, 0.36 NYC. Authors admit: "does not imply model uses these representations." Generalization degrades significantly on holdout. Compatible with pattern matching: encoding ≠ understanding. |
 | **Geometry of Truth (2310.06824)** | COUNTER-EVIDENCE (BALANCED): Same authors (Tegmark). Linear "truth direction" found. Authors admit: "cannot disambiguate truth from 'commonly believed'". Suspiciously, probes trained on "likely" (non-factual) data WORK for intervention. May be "familiarity" direction, not truth. |
+| **Mechanistic Arithmetic (2305.15054)** | COUNTER-EVIDENCE (BALANCED): Causal mediation finds arithmetic circuits in late MLPs (L19-20). Only 9-10% neuron overlap with factual knowledge (= random). BUT: Small range (1-300), division worst (40.8%), circuits emerge from fine-tuning. Compatible with learned lookup, not computation. |
 
 ### 2026-01-31
 | Papers Added | Key Findings |

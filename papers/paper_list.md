@@ -234,6 +234,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 83 | 2511.23476 | Nov 2025 | Thinking by Doing: Building Efficient World Model Reasoning | Balanced | ✅ DONE |
 | 204 | 2310.02207 | Oct 2023 | Language Models Represent Space and Time (MIT, Tegmark) | Balanced | ✅ DONE |
 | 205 | 2310.06824 | Oct 2023 | The Geometry of Truth: Emergent Linear Structure in LLM Representations (MIT, Tegmark) | Balanced | ✅ DONE |
+| 206 | 2305.15054 | May 2023 | A Mechanistic Interpretation of Arithmetic Reasoning in Language Models (ETH Zürich) | Balanced | ✅ DONE |
 
 ### Other Notable Papers
 | # | arXiv ID | Date | Title | Stance | Status |

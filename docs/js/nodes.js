@@ -4348,4 +4348,28 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/200-209/205_geometry_of_truth.md',
   },
+  {
+    id: '2305.15054',
+    title: 'A Mechanistic Interpretation of Arithmetic Reasoning in Language Models using Causal Mediation Analysis',
+    shortTitle: 'Mechanistic Arithmetic',
+    date: 'May 2023',
+    stance: 'balanced',
+    cluster: 'mechanistic',
+    coreArgument:
+      'Causal mediation analysis identifies specific circuits for arithmetic: early MLPs encode operands, attention transfers to last token, late MLPs (L19-20) output results. Only 9-10% neuron overlap with factual knowledge. But small number range (1-300) and division worst (40.8%) suggest learned lookup, not computation.',
+    keyEvidence: [
+      'Late MLPs (L19-20) specifically encode results, not operands (IE drops when r=r\')',
+      'Only 9-10% neuron overlap between arithmetic and factual knowledge circuits (= random)',
+      'GPT-J division accuracy: 40.8% (worst) vs multiplication 82.8% (best)',
+      'Fine-tuning creates circuits: 3-operand goes from 0.9% to 39.7%',
+      'Number range limited to 1-300 (single tokens)',
+    ],
+    keyQuotes: [
+      'Our experimental results indicate that LMs process the input by transmitting the information relevant to the query from mid-sequence early layers to the final token using the attention mechanism.',
+      'The overlaps between the top neurons for the arithmetic operations and the factual predictions (between 9% and 10%) are not larger than for random rankings.',
+      'Answering correctly this type of questions [3-operand] represents a challenging task for pre-trained language models, and we observe poor accuracy (below 10%) with GPT-J.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/200-209/206_mechanistic_arithmetic.md',
+  },
 ];
