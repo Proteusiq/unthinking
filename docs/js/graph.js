@@ -917,6 +917,9 @@
       });
     });
 
+    // Hide zoom controls when panel is open
+    document.querySelector('.zoom-controls').classList.add('hidden');
+
     // Open panel
     panel.classList.add('open');
   }
@@ -925,6 +928,9 @@
     const panel = document.getElementById('side-panel');
     panel.classList.remove('open');
     state.selectedNode = null;
+
+    // Show zoom controls when panel closes
+    document.querySelector('.zoom-controls').classList.remove('hidden');
 
     // Clear highlights when panel closes
     clearHighlights();
