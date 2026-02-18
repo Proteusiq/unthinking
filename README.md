@@ -8,8 +8,8 @@
 
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
-[![Papers](https://img.shields.io/badge/papers-209-blue)]()
-[![Relationships](https://img.shields.io/badge/relationships-670-orange)]()
+[![Papers](https://img.shields.io/badge/papers-200+-blue)]()
+[![Relationships](https://img.shields.io/badge/relationships-733-orange)]()
 
 ---
 
@@ -28,8 +28,8 @@ RL and test-time compute "surface" pre-existing capabilities rather than creatin
 Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/)**
 
 <p align="center">
-  <img src="https://img.shields.io/badge/nodes-209%20papers-4CAF50" />
-  <img src="https://img.shields.io/badge/edges-670%20relationships-2196F3" />
+  <img src="https://img.shields.io/badge/nodes-200+%20papers-4CAF50" />
+  <img src="https://img.shields.io/badge/edges-733%20relationships-2196F3" />
   <img src="https://img.shields.io/badge/stance-supports%20%7C%20challenges%20%7C%20balanced-FFC107" />
 </p>
 
@@ -124,7 +124,7 @@ Pause tokens (`...`) work as well as meaningful CoT because:
 
 ## The Seven Pillars of Evidence
 
-Based on cross-analysis of 192 papers, the evidence converges on seven pillars:
+Based on cross-analysis of 200+ papers, the evidence converges on seven pillars:
 
 | Pillar | Core Finding | Key Papers | Strongest Number |
 |--------|--------------|------------|------------------|
@@ -150,9 +150,9 @@ Based on cross-analysis of 192 papers, the evidence converges on seven pillars:
 
 | Stance | Count | Percentage |
 |--------|-------|------------|
-| **Supports thesis** | ~132 | ~69% |
-| **Balanced** | ~52 | ~27% |
-| **Challenges thesis** | ~8 | ~4% |
+| **Supports thesis** | 136 | 65% |
+| **Balanced** | 59 | 28% |
+| **Challenges thesis** | 14 | 7% |
 
 ---
 
@@ -242,11 +242,11 @@ PHASE 7: THEORETICAL FRAMEWORK (2026)
 │   ├── mindmap.md            # Visual cross-reference of all papers
 │   ├── paper_graph.md        # Paper interaction graph
 │   ├── rebuttals.md          # Rebuttal matrix
-│   └── explored/             # Individual paper analyses (207 files)
+│   └── explored/             # Individual paper analyses (200+ files)
 │       ├── 00-09/            # Papers 00-09
 │       ├── 10-19/            # Papers 10-19
 │       ├── ...               # (10-paper bins)
-│       └── 180-189/          # Papers 180+
+│       └── 200-209/          # Papers 200+
 ├── scripts/
 │   └── discovery/            # Paper discovery package
 │       ├── __main__.py       # Entry: uv run scripts/discovery/__main__.py
@@ -304,7 +304,7 @@ PHASE 7: THEORETICAL FRAMEWORK (2026)
 
 ## Automated Paper Discovery
 
-**Status**: Active — 207 papers analyzed.
+**Status**: Active — 200+ papers analyzed.
 
 New papers were discovered daily via GitHub Actions, classified using an LLM with thesis context.
 
