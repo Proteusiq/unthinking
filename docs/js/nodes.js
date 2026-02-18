@@ -4419,4 +4419,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/200-209/208_graph_of_thoughts.md',
   },
+  {
+    id: '2410.03717',
+    title: 'Revisiting the Superficial Alignment Hypothesis',
+    shortTitle: 'Revisiting SAH',
+    date: 'Sep 2024',
+    stance: 'balanced',
+    cluster: 'training-dynamics',
+    coreArgument:
+      'Claims to challenge Superficial Alignment Hypothesis but evidence supports it: style saturates at ~100 examples (confirms SAH), continued improvement is pattern coverage not reasoning, no OOD testing, power law scaling consistent with statistical learning.',
+    keyEvidence: [
+      'Style/formatting saturates at ~100 examples',
+      'Performance scales as power law P ∝ D^(1/b)',
+      'Post-trained models better at new facts (81% vs 65%)',
+      'No OOD generalization tested',
+      'r² = 0.98 correlation "reasoning errors" vs total mistakes',
+    ],
+    keyQuotes: [
+      'Style and formatting improvements saturate quickly.',
+      'Post-training task performance scales as a power law against the number of finetuning examples.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/200-209/209_revisiting_superficial_alignment.md',
+  },
 ];
