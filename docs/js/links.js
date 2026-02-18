@@ -4649,13 +4649,26 @@ window.paperLinks = [
   {
     source: '2505.17072',
     target: '2410.10862',
-    type: 'challenges',
-    description: 'Challenges SSAH: explicit [CLS] achieves robust safety, not brittle',
+    type: 'extends',
+    description: 'Same authors (Li & Kim): implements SSAH theoretical framework with explicit [CLS] tokens',
   },
   {
     source: '2505.17072',
     target: '2410.03717',
     type: 'supports',
     description: 'Both challenge SAH: alignment CAN teach more than style with right approach',
+  },
+  {
+    source: '2505.17072',
+    target: '2502.04602',
+    type: 'challenges',
+    description: '#213 shows safety is 100% superficial (linear head); #214 method requires explicit classification, not linear',
+  },
+  // Cross-references between #212 and #213
+  {
+    source: '2410.10862',
+    target: '2502.04602',
+    type: 'supports',
+    description: 'Both show safety is localized/superficial: SCU neurons (#212) vs linear head (#213)',
   },
 ];

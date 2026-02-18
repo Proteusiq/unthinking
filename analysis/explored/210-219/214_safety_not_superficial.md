@@ -172,14 +172,14 @@ With "Annealing" re-classification strategy:
 - **LIMA (2305.11206)** — #211: Challenges the implication that alignment is ONLY superficial
 - **#210 LLM Probability Concentration (2506.17871)**: Challenges the view that alignment only selects paths; shows alignment CAN teach robust safety
 
-### Builds Upon / Extends
-- **Li & Kim (2024) Superficial Safety Alignment Hypothesis**: This paper is by the same authors — implements their theoretical framework
-- **Qi et al. (2024)**: Cites their data augmentation approach but claims to go beyond it
+### Builds Upon / Extends (Same Authors)
+- **#212 Superficial Safety Alignment Hypothesis (2410.10862)**: Li & Kim's earlier paper defining SSAH. This paper implements SSAH's theoretical framework with explicit [CLS] tokens and dynamic re-evaluation. #212 shows safety IS superficial in current methods; #214 shows it CAN be deep with explicit signals.
 
 ### Related
 - **#209 Revisiting SAH (2410.03717)**: Both challenge SAH but from different angles
   - #209: Shows reasoning continues improving after style saturates
   - This paper: Shows safety can be made robust with explicit signals
+- **#213 Extracting Superficial Knowledge (2502.04602)**: #213 shows existing safety alignment is 100% superficial (linear head captures all). #214's method would NOT be captured by a linear head — explicit [CLS] classification is architecturally different.
 
 ---
 
