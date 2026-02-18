@@ -11,14 +11,14 @@
 
 ## Core Claims
 
-The paper claims to challenge the Superficial Alignment Hypothesis (SAH), which states:
+The paper challenges the Superficial Alignment Hypothesis (SAH), which states:
 - C1: A model's knowledge is learned entirely during pre-training
 - C2: A small number of examples can saturate performance
 - C3: Post-training is largely about style, not new capabilities
 
 **Authors' Claims**:
 1. Post-training performance scales as a power law with data (P ∝ D^(1/b))
-2. Style/formatting saturates quickly (~100 examples), but "reasoning" continues to improve
+2. Style/formatting saturates quickly (~100 examples), but reasoning continues to improve
 3. Models can learn to integrate new knowledge beyond pre-training cutoff
 
 ---
@@ -58,17 +58,19 @@ The paper claims to challenge the Superficial Alignment Hypothesis (SAH), which 
 
 Performance follows P ∝ D^(1/b) across all tasks.
 
-### Style vs Reasoning Breakdown (Figure 3)
+### Style vs Reasoning Breakdown (Figure 3) — KEY EVIDENCE
 
-**Critical admission**: "Style and formatting improvements saturate quickly"
+**Critical finding**: Style and reasoning improvements are SEPARABLE
 
-| Finetuning Level | Formatting Errors | Reasoning Errors |
-|------------------|-------------------|------------------|
-| 100 examples | ~5% | ~70% |
-| 1000 examples | ~5% | ~50% |
-| Full dataset | ~5% | ~40% |
+| Finetuning Level | Formatting Errors | Reasoning Errors | Total Mistakes |
+|------------------|-------------------|------------------|----------------|
+| 100 examples | ~5% | ~70% | High |
+| 1000 examples | ~5% | ~50% | Medium |
+| Full dataset | ~5% | ~40% | Lower |
 
-Formatting errors plateau at ~100 examples while "reasoning errors" continue to decrease.
+- Formatting errors plateau at ~100 examples
+- Reasoning errors continue to decrease with more data
+- Total mistakes correlate with reasoning errors (r² = 0.98), not formatting
 
 ### New Knowledge Results (Table 4)
 
@@ -77,123 +79,85 @@ Formatting errors plateau at ~100 examples while "reasoning errors" continue to 
 | Base Model | 65% | 37% |
 | Post-trained Model | 81% | 55% |
 
-Post-trained models better at integrating new facts.
+Post-trained models significantly better at integrating AND USING new facts.
+
+### Model Scaling (Figure 2)
+
+Larger models show steeper improvement curves with more data:
+- 70B models curve upward with additional training data
+- This suggests capacity is being leveraged for capability, not just memorization
 
 ---
 
-## Critical Assessment: Does This Actually Challenge the Thesis?
+## Why This Paper CHALLENGES the Thesis
 
-### Classification: **SUPPORTS** (Balanced)
+### Classification: **CHALLENGES** (Balanced)
 
-**Despite the authors' framing, this paper SUPPORTS the pattern matching thesis.**
+### 1. Clear Separation of Style vs Capability
 
-### Why the Paper's Evidence SUPPORTS Our Thesis
+The paper demonstrates that style and task capability are separable:
+- Style saturates at ~100 examples (confirms SAH on this narrow point)
+- But task performance continues improving significantly beyond this
+- If it were purely pattern matching with fixed templates, both should plateau together
 
-**1. Power law scaling is CONSISTENT with pattern matching**
+### 2. Reasoning Errors Decrease Independently
 
-The finding that P ∝ D^(1/b) is exactly what you'd expect from statistical learning:
-- More examples → more patterns covered
-- Diminishing returns (power law, not linear) → approaching distribution boundary
-- This is how pattern matching systems scale, not evidence of reasoning
+After formatting is learned, models still make fewer reasoning errors with more data:
+- This suggests learning something beyond surface patterns
+- The high correlation (r² = 0.98) between reasoning errors and total mistakes shows reasoning is the bottleneck, not style
 
-**2. The paper CONFIRMS the core SAH claim**
+### 3. Novel Combinations on Test Set
 
-Direct quote: "Style and formatting improvements saturate quickly"
+While GSM8k train→test is same distribution, test problems ARE novel combinations:
+- The model hasn't seen the exact problems
+- Getting better on novel combinations within distribution suggests compositional ability
+- This is evidence that post-training teaches more than memorization
 
-This is precisely what SAH claims! The paper agrees that style is superficial and learned quickly.
+### 4. Larger Models Show Accelerating Returns
 
-**3. What they call "reasoning" is pattern coverage**
+70B models show steeper improvement curves:
+- More capacity → better utilization of additional data
+- This suggests models are learning generalizable patterns, not just memorizing
 
-The continued improvement after 100 examples isn't "reasoning" — it's:
-- More problem templates memorized
-- More answer patterns seen
-- Better coverage of the training distribution
+### 5. New Knowledge Integration
 
-**Evidence**: GSM8k has only 7,500 training examples. The model is memorizing problem-solution pairs, not learning arithmetic algorithms.
-
-**4. No OOD generalization test**
-
-Critical flaw: They test GSM8k train → GSM8k test (same distribution). This tests pattern coverage, not reasoning.
-
-Compare to GSM-Symbolic (2410.05229) which showed:
-- Models trained on GSM8k fail on symbolic variations
-- Same structure, different numbers = failure
-- THIS tests reasoning; the current paper doesn't
-
-**5. "New knowledge" is pattern retrieval, not reasoning**
-
-The Facts100 experiment shows models can:
-- Store new facts via SFT
-- Retrieve facts from context (RAG)
-
-But this is **retrieval + template application**, not reasoning. The post-trained model learned the SubQA *format* better, so it:
-- Recalls the fact
-- Applies the multihop template
-- Outputs the pattern
-
-**6. Correlations don't prove causation**
-
-The paper shows correlation (r² = 0.98) between "reasoning errors" and total mistakes. But:
-- "Reasoning errors" are operationalized as errors in the reasoning chain
-- These could be pattern mismatches, not reasoning failures
-- The categorization is done by GPT-4o, which itself may conflate patterns with reasoning
+The Facts100 experiment shows post-trained models:
+- Better at storing new facts (81% vs 65%)
+- Better at USING facts in multihop reasoning (55% vs 37%)
+- The gap in multihop (18 percentage points) suggests learning to reason with new facts, not just retrieve them
 
 ---
 
 ## Relationship to Other Papers
 
-### Supports (Counter-intuitively)
-- **Interplay (2512.07783)**: Both show post-training surfaces latent capabilities (more data = more patterns surfaced)
-- **Demystifying Long CoT (2502.03373)**: Both show capabilities pre-exist; training exposes them
-- **Faith and Fate (2305.18654)**: Power law scaling is consistent with linearized subgraph matching
+### Challenges
+- **Interplay (2512.07783)**: This paper suggests post-training does MORE than surface capabilities
+- **Faith and Fate (2305.18654)**: Evidence that in-distribution compositional ability improves with training
+
+### Supports (Partially)
+- **Demystifying Long CoT (2502.03373)**: Both show training exposes capabilities
+- **Base Models Know How to Reason (2510.07364)**: Post-training surfaces latent abilities
 
 ### Related
-- **GSM-Symbolic (2410.05229)**: Actually tests OOD; finds catastrophic failure. This paper doesn't test OOD.
-- **LIMA (Zhou et al., 2024)**: The paper being "challenged" — but evidence actually supports LIMA's core claims
-
-### Challenges (Superficially)
-- Claims to challenge SAH, but evidence doesn't support this claim
+- **GSM-Symbolic (2410.05229)**: Different methodology — tests OOD, which this paper doesn't
+- **LIMA (Zhou et al., 2024)**: The paper being challenged — provides counter-evidence
 
 ---
 
-## REBUTTALS TO THIS PAPER
+## Limitations and Counter-Arguments
 
-### Why This Paper Should NOT Be Cited as Evidence Against Pattern Matching
+### What the Paper Doesn't Show
 
-**1. Methodological flaw: No OOD testing**
+1. **No OOD generalization test**: Same-distribution evaluation (GSM8k train→test)
+2. **"Reasoning errors" operationalized by GPT-4o**: May conflate pattern errors with reasoning
+3. **Power law could be pattern coverage**: More data = more patterns (alternative explanation)
 
-The paper tests same-distribution generalization:
-- GSM8k train → GSM8k test
-- SubQA train → SubQA test
+### The Thesis Can Still Accommodate This
 
-This conflates pattern coverage with reasoning. To test reasoning, you need:
-- Symbolic perturbations (GSM-Symbolic)
-- Novel compositions (Faith & Fate)
-- Distribution shift (OMEGA)
-
-**2. Power law is evidence FOR pattern matching**
-
-Statistical pattern matching systems show power law scaling because:
-- Each new example adds patterns
-- Diminishing returns as distribution is covered
-- This is a signature of statistical learning, not reasoning
-
-**3. The paper confirms SAH's core claim**
-
-"Style and formatting improvements saturate quickly" — this IS the Superficial Alignment Hypothesis.
-
-**4. "Reasoning errors" are operationally defined**
-
-The paper uses GPT-4o to classify errors as "reasoning errors." But:
-- What GPT-4o calls "reasoning errors" may be pattern mismatches
-- No independent verification that these are genuine reasoning failures vs. pattern coverage gaps
-
-**5. Facts100 tests retrieval, not reasoning**
-
-The new knowledge experiment shows:
-- Models can store facts (SFT) or retrieve them (RAG)
-- Post-trained models apply templates better
-- This is retrieval + template, not reasoning
+The surfacing hypothesis (Interplay paper) suggests:
+- Capabilities exist in base model
+- Post-training surfaces and refines them
+- This is compatible with the current paper's findings
 
 ---
 
@@ -201,48 +165,38 @@ The new knowledge experiment shows:
 
 > "Style and formatting improvements saturate quickly."
 
-This confirms SAH's core claim.
+Confirms SAH's claim about style, but the paper shows this isn't the whole story.
 
 > "Model performance is instead correlated with its reasoning ability and it improves significantly with more examples"
 
-But "reasoning ability" is measured by errors in reasoning chains — which could be pattern coverage, not reasoning.
+Key evidence that post-training teaches more than style.
 
 > "Post-training task performance scales as a power law against the number of finetuning examples"
 
-Power law scaling is consistent with statistical pattern matching.
+Establishes predictable scaling for capabilities.
 
 > "Models post-trained for reasoning are significantly better at learning new knowledge"
 
-"Learning knowledge" is storing patterns. "Using knowledge" is applying templates.
-
----
-
-## What This Paper Actually Shows
-
-1. **Post-training scales predictably**: More data → more patterns → better coverage
-2. **Style is learned quickly**: ~100 examples for format (confirms SAH)
-3. **"Reasoning" improvements are gradual**: More data → more problem templates
-4. **Models can store new facts**: Via SFT or RAG
-5. **Post-trained models apply templates better**: Format training helps pattern application
+Evidence for capability transfer, not just pattern memorization.
 
 ---
 
 ## Honest Assessment
 
-The paper makes an interesting contribution by:
-1. Establishing power law scaling for post-training
-2. Decomposing style vs. "reasoning" improvements
-3. Exploring new knowledge integration
+### For the Thesis (Counter-Evidence)
+- Post-training improves reasoning performance, not just style
+- The separation of style (~100 examples) and capability (continues scaling) is strong evidence
+- New knowledge experiment shows learning to USE facts, not just store them
 
-However, the claim that this "challenges" SAH is not supported. The evidence shows:
-- Style saturates quickly (confirms SAH)
-- Continued improvement is pattern coverage
-- No OOD generalization tested
-- Power law is consistent with statistical learning
+### Limitations
+- No OOD testing — doesn't address whether this is true generalization
+- Same-distribution evaluation — could be pattern coverage within distribution
+- r² correlation doesn't prove causation
 
-**Classification**: SUPPORTS thesis (despite authors' framing)
-- The paper's own evidence supports pattern matching over reasoning
-- The "challenge" to SAH is based on conflating pattern coverage with reasoning
+### Verdict
+This paper provides genuine counter-evidence to the strong form of the pattern matching thesis. It shows that post-training teaches task-specific capabilities that go beyond style/format learning. However, it doesn't address whether these capabilities generalize OOD.
+
+**Classification**: CHALLENGES (with balanced caveats)
 
 ---
 
@@ -253,5 +207,5 @@ However, the claim that this "challenges" SAH is not supported. The evidence sho
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] Rebuttals checked
-- [x] **Critical assessment formed independently**
-- [ ] Paper graph updated
+- [x] Critical assessment revised after researcher feedback
+- [x] Paper graph updated

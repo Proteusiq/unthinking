@@ -4424,20 +4424,20 @@ window.paperNodes = [
     title: 'Revisiting the Superficial Alignment Hypothesis',
     shortTitle: 'Revisiting SAH',
     date: 'Sep 2024',
-    stance: 'balanced',
+    stance: 'challenges',
     cluster: 'training-dynamics',
     coreArgument:
-      'Claims to challenge Superficial Alignment Hypothesis but evidence supports it: style saturates at ~100 examples (confirms SAH), continued improvement is pattern coverage not reasoning, no OOD testing, power law scaling consistent with statistical learning.',
+      'Challenges Superficial Alignment Hypothesis: style saturates at ~100 examples but reasoning continues improving. Post-training teaches task capabilities beyond style. Larger models show steeper gains. Post-trained models better at integrating AND using new knowledge.',
     keyEvidence: [
-      'Style/formatting saturates at ~100 examples',
+      'Style saturates at ~100 examples; reasoning keeps improving',
+      'r² = 0.98: reasoning errors correlate with total mistakes, not formatting',
+      'Post-trained models: 55% vs 37% on multihop with new facts',
+      '70B models show accelerating returns with more data',
       'Performance scales as power law P ∝ D^(1/b)',
-      'Post-trained models better at new facts (81% vs 65%)',
-      'No OOD generalization tested',
-      'r² = 0.98 correlation "reasoning errors" vs total mistakes',
     ],
     keyQuotes: [
+      'Model performance is instead correlated with its reasoning ability and it improves significantly with more examples.',
       'Style and formatting improvements saturate quickly.',
-      'Post-training task performance scales as a power law against the number of finetuning examples.',
     ],
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/200-209/209_revisiting_superficial_alignment.md',
