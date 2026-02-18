@@ -4533,4 +4533,47 @@ window.paperLinks = [
     type: 'supports',
     description: 'Both show training exposes capabilities; this paper adds reasoning improves too',
   },
+  // Paper 210: LLM Probability Concentration - KILLER EVIDENCE
+  {
+    source: '2506.17871',
+    target: '2512.07783',
+    type: 'supports',
+    description: 'Both prove surfacing hypothesis: alignment selects pre-existing low-entropy paths',
+  },
+  {
+    source: '2506.17871',
+    target: '2502.03373',
+    type: 'supports',
+    description: 'Both show capabilities pre-exist; BF proves alignment is path selection',
+  },
+  {
+    source: '2506.17871',
+    target: '2309.13638',
+    type: 'supports',
+    description: 'BF explains probability sensitivity — aligned models locked into narrow paths',
+  },
+  {
+    source: '2506.17871',
+    target: '2510.07364',
+    type: 'supports',
+    description: 'Nudging proves base models have latent low-BF paths; alignment surfaces them',
+  },
+  {
+    source: '2506.17871',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'BF explains compositional failures — narrow paths dont cover OOD compositions',
+  },
+  {
+    source: '2506.17871',
+    target: '2410.03717',
+    type: 'extends',
+    description: 'Provides quantitative mechanism (BF) for why style saturates quickly',
+  },
+  {
+    source: '2506.17871',
+    target: '2506.06941',
+    type: 'supports',
+    description: 'Low BF may explain complexity collapse — narrow paths fail on novel problems',
+  },
 ];
