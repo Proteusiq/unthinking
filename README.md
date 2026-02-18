@@ -176,7 +176,7 @@ Using OLMo 3 (fully open weights, data, and checkpoints):
 
 If alternative decoding on the **base model** recovers reasoning paths that improve accuracy, this proves:
 
-- Reasoning is **learned during pre-training**
+- "Reasoning" is **learned during pre-training**
 - RL/SFT merely **surfaces** it as the default path
 - The capability was always there — greedy decoding didn't select it
 
