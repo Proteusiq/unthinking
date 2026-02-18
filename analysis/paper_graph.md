@@ -155,18 +155,18 @@ This document tracks how papers interact with each other — rebuttals, counter-
                     ┌───────────────┼───────────────┐
                     │               │               │
                     ▼               │               ▼
-    ┌───────────────────────┐      │      ┌───────────────────────┐
-    │ #209 Revisiting SAH   │      │      │ #210 Probability      │
-    │ (Sep 2024)            │      │      │ Concentration (Jun'25)│
-    │ CHALLENGES            │      │      │ SUPPORTS              │
-    │                       │      │      │                       │
-    │ • Reasoning improves  │      │      │ • BF drops 12→1.2     │
-    │   beyond style        │      │      │ • Alignment = path    │
-    │ • Power law scaling   │      │      │   selection           │
-    │ • New knowledge       │      │      │ • Nudging proves      │
-    │   integration         │      │      │   pre-existence       │
-    └───────────────────────┘      │      └───────────────────────┘
-                                   │
+    ┌───────────────────────┐       │      ┌───────────────────────┐
+    │ #209 Revisiting SAH   │       │      │ #210 Probability      │
+    │ (Sep 2024)            │       │      │ Concentration (Jun'25)│
+    │ CHALLENGES            │       │      │ SUPPORTS              │
+    │                       │       │      │                       │
+    │ • Reasoning improves  │       │      │ • BF drops 12→1.2     │
+    │   beyond style        │       │      │ • Alignment = path    │
+    │ • Power law scaling   │       │      │   selection           │
+    │ • New knowledge       │       │      │ • Nudging proves      │
+    │   integration         │       │      │   pre-existence       │
+    └───────────────────────┘       │      └───────────────────────┘
+                                    │
                           ⚠️ Gap: #210 doesn't cite #209
 ```
 
