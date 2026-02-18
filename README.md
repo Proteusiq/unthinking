@@ -15,7 +15,7 @@
 
 ## Thesis
 
-**LLM reasoning is practical but fundamentally predictive — pattern matching from training distributions, not genuinely generative reasoning.**
+**LLM reasoning is practical but fundamentally predictive — pattern matching from training distributions, not genuine understanding.**
 
 LLMs are **dense statistical remixed echo chambers** of their training data. They don't "evolve," "think," or have "eureka moments." They predict the most likely sequence of tokens based on high-dimensional patterns.
 
