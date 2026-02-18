@@ -4465,4 +4465,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/210-219/210_llm_probability_concentration.md',
   },
+  {
+    id: '2305.11206',
+    title: 'LIMA: Less Is More for Alignment',
+    shortTitle: 'LIMA (SAH)',
+    date: 'May 2023',
+    stance: 'supports',
+    cluster: 'training-dynamics',
+    coreArgument:
+      'Defines the Superficial Alignment Hypothesis: A model\'s knowledge is learnt almost entirely during pretraining; alignment teaches which subdistribution of formats to use. 1,000 examples sufficient — RLHF not necessary.',
+    keyEvidence: [
+      'LIMA (1K examples) competitive with GPT-4 in 43% of cases',
+      'Outperforms Alpaca 65B (52K examples — 52x more data)',
+      'Doubling training data shows NO improvement',
+      '88% of outputs meet requirements with only 1K examples',
+      'Diversity matters more than quantity',
+    ],
+    keyQuotes: [
+      'A model\'s knowledge and capabilities are learnt almost entirely during pretraining, while alignment teaches it which subdistribution of formats should be used when interacting with users.',
+      'If alignment is largely about learning style, then one could sufficiently tune a pretrained language model with a rather small set of examples.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/210-219/211_lima_less_is_more_alignment.md',
+  },
 ];

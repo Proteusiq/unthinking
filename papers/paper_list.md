@@ -239,6 +239,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 208 | 2308.09687 | Aug 2023 | Graph of Thoughts: Solving Elaborate Problems with Large Language Models (AAAI 2024) | Supports | ✅ DONE (analysis: 208_graph_of_thoughts.md) |
 | 209 | 2410.03717 | Sep 2024 | Revisiting the Superficial Alignment Hypothesis (Scale AI) | Challenges | ✅ DONE (analysis: 209_revisiting_superficial_alignment.md) |
 | 210 | 2506.17871 | Jun 2025 | LLM Probability Concentration: How Alignment Shrinks the Generative Horizon (UChicago) | Supports | ✅ DONE (analysis: 210_llm_probability_concentration.md) |
+| 211 | 2305.11206 | May 2023 | LIMA: Less Is More for Alignment (Meta AI, NeurIPS 2023) | Balanced | ✅ DONE (analysis: 211_lima_less_is_more_alignment.md) |
 
 ### Other Notable Papers
 | # | arXiv ID | Date | Title | Stance | Status |

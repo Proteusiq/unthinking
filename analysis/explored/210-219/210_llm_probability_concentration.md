@@ -151,7 +151,7 @@ The nudging experiment is definitive: prompting base models with aligned-style p
 - **Base Models Know How to Reason (2510.07364)**: Nudging proves base models have latent paths
 
 ### Builds On
-- **LIMA (2305.11206)**: The foundational SAH paper — this paper provides quantitative measure (BF) for superficiality
+- **LIMA (2305.11206)** — #211: The foundational SAH paper. This paper provides the quantitative mechanism (Branching Factor) for LIMA's claim that "alignment teaches which subdistribution of formats should be used." The 10x BF reduction shows alignment narrows to specific low-entropy paths.
 
 ### Unaddressed Counter-Evidence
 - **Revisiting SAH (2410.03717)**: #209 shows reasoning errors decrease independently of style saturation — this paper doesn't engage with that finding. Potential reconciliation: paths that enable better reasoning may pre-exist, but #209's evidence of continued improvement beyond style saturation remains unexplained by pure path selection.
