@@ -20,6 +20,20 @@ Curated list of papers confirmed relevant to the thesis.
 
 ---
 
+## 🔴 HIGH PRIORITY — Papers Citing "Revisiting SAH" (2410.03717)
+
+Discovered via citation tracking. Relevant to alignment/style/reasoning.
+
+| arXiv ID | Title | Year | Why Relevant |
+|----------|-------|------|--------------|
+| [2506.07452](https://arxiv.org/abs/2506.07452) | When Style Breaks Safety: Defending LLMs Against Superficial Style Alignment | 2025 | Style patterns compromise safety; confirms "alignment is superficial" |
+| [2506.06998](https://arxiv.org/abs/2506.06998) | What makes Reasoning Models Different? Follow the Reasoning Leader | 2025 | Reasoning vs non-reasoning differs at stylistic "thinking cues", not deep reasoning |
+| [2510.13928](https://arxiv.org/abs/2510.13928) | LLMs Can Get "Brain Rot"! | 2025 | Data quality causes capability decay; training-time safety |
+| [2601.21571](https://arxiv.org/abs/2601.21571) | Shaping Capabilities with Token-Level Data Filtering (OpenAI, Radford) | 2026 | Capabilities shaped during pretraining; token filtering > document filtering |
+| [2602.07340](https://arxiv.org/abs/2602.07340) | Revisiting Robustness for LLM Safety Alignment via Selective Geometry Control | 2026 | Safety alignment is brittle; geometry-aware optimization |
+
+---
+
 ## 🔴 HIGH PRIORITY — Counter-Evidence (Steel-Man)
 
 **Critical**: Must read to make thesis defensible.
@@ -41,11 +55,11 @@ Curated list of papers confirmed relevant to the thesis.
 
 | arXiv ID | Title |
 |----------|-------|
-| [2305.10601](https://arxiv.org/abs/2305.10601) | Tree of Thoughts |
-| [2308.09687](https://arxiv.org/abs/2308.09687) | Graph of Thoughts |
 | [2303.11366](https://arxiv.org/abs/2303.11366) | Reflexion |
 | [2408.03314](https://arxiv.org/abs/2408.03314) | Scaling Test-Time Compute Optimally |
 | [2309.11495](https://arxiv.org/abs/2309.11495) | Chain-of-Verification |
+
+*Note: Tree of Thoughts (2305.10601) and Graph of Thoughts (2308.09687) already analyzed as #207 and #208*
 
 ### Emergence & Theory (Issue #43)
 
