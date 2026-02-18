@@ -259,7 +259,7 @@ GoT **strongly supports** the pattern matching thesis:
 4. **Performance ceilings persist** — 75%, not 100% on deterministic tasks
 5. **LLM role is pattern completion** — handle small, in-distribution sub-problems
 
-**The paper is evidence FOR our thesis, not against it.**
+**The paper is evidence FOR the thesis, not against it.**
 
 ---
 

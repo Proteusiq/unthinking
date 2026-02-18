@@ -207,7 +207,7 @@ Tracked in GitHub issues:
 
 ---
 
-## Significance for Our Thesis
+## Significance for the Thesis
 
 This survey is a **cornerstone paper** for the literature review because:
 
