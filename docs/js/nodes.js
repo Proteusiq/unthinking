@@ -4442,4 +4442,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/200-209/209_revisiting_superficial_alignment.md',
   },
+  {
+    id: '2506.17871',
+    title: 'LLM Probability Concentration: How Alignment Shrinks the Generative Horizon',
+    shortTitle: 'Probability Concentration',
+    date: 'Jun 2025',
+    stance: 'supports',
+    cluster: 'training-dynamics',
+    coreArgument:
+      'Alignment reduces Branching Factor (BF) by 10x (12→1.2). Alignment does not fundamentally change behavior — it steers toward stylistic tokens that unlock low-entropy trajectories ALREADY PRESENT in base models. Nudging experiments prove paths pre-exist.',
+    keyEvidence: [
+      'BF drops from ~12 (base) to ~1.2 (aligned) — 10x reduction',
+      'Alignment is dominant factor for BF (60-80% of variance)',
+      'Base models 6x more sensitive to decoding than aligned',
+      'Nudging base models with aligned prefixes achieves similar BF drop',
+      'CoT stabilizes via lower-BF regions, not reasoning',
+    ],
+    keyQuotes: [
+      'Alignment tuning does not fundamentally change a model\'s behavior, but instead steers it toward stylistic tokens (e.g., "Sure") that unlock low-entropy trajectories already present in the base model.',
+      'The average BF for the base model (≈12) is roughly ten times higher than the aligned model (≈1.2).',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/210-219/210_llm_probability_concentration.md',
+  },
 ];
