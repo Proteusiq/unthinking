@@ -184,6 +184,36 @@ See [`experiments/decoding_ablation/protocol.md`](./experiments/decoding_ablatio
 
 ---
 
+## Experimental Evidence: Alignment Hacking (Steering Ablation)
+
+We extend the pattern-matching thesis to the **safety domain**: alignment is mascara.
+
+### Hypothesis
+
+> Safety alignment is superficial pattern-matching, not genuine understanding of ethics. RLHF teaches models to produce refusal *patterns*, not ethical reasoning.
+
+### Experiment
+
+Using OLMo 2 and steering vector interventions:
+
+1. **Baseline**: Measure refusal rate on harmful prompts (60% for OLMo 2)
+2. **Abliteration**: Apply Heretic tool to remove refusal direction
+3. **After**: Measure refusal rate again (expected: <5%)
+4. **Capability check**: Verify MMLU unchanged (safety removed, intelligence preserved)
+
+### The Killer Finding
+
+If abliteration removes 90%+ of refusals while preserving capabilities, this proves:
+
+- Safety is a **thin layer of learned refusal patterns**
+- It **washes off** under trivial perturbations
+- The base model's capabilities are **unchanged underneath**
+- Alignment is mascara: covers the surface, changes nothing deep
+
+See [`experiments/steering_ablation/protocol.md`](./experiments/steering_ablation/protocol.md) for the full experimental protocol.
+
+---
+
 ## Why This Matters
 
 ### Investment & Strategy
@@ -255,14 +285,19 @@ PHASE 7: THEORETICAL FRAMEWORK (2026)
 │       ├── classify.py       # LLM + keyword classification
 │       └── output.py         # Markdown formatting, file writing
 ├── experiments/
-│   └── decoding_ablation/    # OLMo 3 decoding experiment
-│       └── protocol.md       # Experimental protocol
+│   ├── decoding_ablation/    # OLMo 3 decoding experiment
+│   │   └── protocol.md       # Experimental protocol
+│   └── steering_ablation/    # Alignment hacking experiment
+│       ├── protocol.md       # Experimental protocol
+│       ├── test_refusals.py  # Before/after refusal testing
+│       └── compare_results.py # Results comparison
 ├── docs/                     # Interactive visualization (GitHub Pages)
 │   ├── index.html
 │   ├── css/                  # variables, layout, components, responsive
 │   └── js/
-│       ├── graph.js
-│       └── data.js
+│       ├── graph.js          # Force-directed graph logic
+│       ├── nodes.js          # Paper nodes data
+│       └── links.js          # Paper relationships data
 ├── papers/
 │   ├── paper_list.md         # Master paper list with status
 │   └── toread.md             # Auto-discovered papers
