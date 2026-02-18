@@ -8,7 +8,7 @@
 
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
-[![Papers](https://img.shields.io/badge/papers-200+-blue)]()
+[![Papers](https://img.shields.io/badge/papers-209-blue)]()
 [![Relationships](https://img.shields.io/badge/relationships-733-orange)]()
 
 ---
@@ -28,7 +28,7 @@ RL and test-time compute "surface" pre-existing capabilities rather than creatin
 Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/)**
 
 <p align="center">
-  <img src="https://img.shields.io/badge/nodes-200+%20papers-4CAF50" />
+  <img src="https://img.shields.io/badge/nodes-209%20papers-4CAF50" />
   <img src="https://img.shields.io/badge/edges-733%20relationships-2196F3" />
   <img src="https://img.shields.io/badge/stance-supports%20%7C%20challenges%20%7C%20balanced-FFC107" />
 </p>
@@ -304,7 +304,7 @@ PHASE 7: THEORETICAL FRAMEWORK (2026)
 
 ## Automated Paper Discovery
 
-**Status**: Active — 200+ papers analyzed.
+**Status**: Active — 209 papers analyzed.
 
 New papers were discovered daily via GitHub Actions, classified using an LLM with thesis context.
 
