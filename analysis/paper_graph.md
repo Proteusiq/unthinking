@@ -140,6 +140,34 @@ This document tracks how papers interact with each other — rebuttals, counter-
 │  Don't Say (2505.05410│   (reasoning models)      │  Faithfulness         │
 └───────────────────────┘                           │  (2307.13702)         │
                                                     └───────────────────────┘
+
+
+                    SUPERFICIAL ALIGNMENT HYPOTHESIS DEBATE
+                    =======================================
+
+                    ┌─────────────────────────────────────┐
+                    │  #211 LIMA (May 2023)               │
+                    │  "Superficial Alignment Hypothesis" │
+                    │  1K examples sufficient             │
+                    │  Alignment = style selection        │
+                    └─────────────────────────────────────┘
+                                    │
+                    ┌───────────────┼───────────────┐
+                    │               │               │
+                    ▼               │               ▼
+    ┌───────────────────────┐      │      ┌───────────────────────┐
+    │ #209 Revisiting SAH   │      │      │ #210 Probability      │
+    │ (Sep 2024)            │      │      │ Concentration (Jun'25)│
+    │ CHALLENGES            │      │      │ SUPPORTS              │
+    │                       │      │      │                       │
+    │ • Reasoning improves  │      │      │ • BF drops 12→1.2     │
+    │   beyond style        │      │      │ • Alignment = path    │
+    │ • Power law scaling   │      │      │   selection           │
+    │ • New knowledge       │      │      │ • Nudging proves      │
+    │   integration         │      │      │   pre-existence       │
+    └───────────────────────┘      │      └───────────────────────┘
+                                   │
+                          ⚠️ Gap: #210 doesn't cite #209
 ```
 
 ---
@@ -156,6 +184,7 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | Comment: Agentic Gap (2506.18957) | rebuts | Illusion of Thinking (2506.06941) | Execution gap, not reasoning gap |
 | **Illusion of Insight (2601.00514)** | **rebuts** | **DeepSeek-R1 (2501.12948)** | **"Aha!" moments are rare, don't improve with training, seldom help accuracy** |
 | **Mind Your Tone: Rude=Better (2510.04950)** | **rebuts** | **Mind Your Tone: Rude=Worse (2402.14531)** | **OPPOSITE FINDING: GPT-4o 84.8% rude > 80.8% polite vs Llama2-70B -48.5% rude. Same question, different models, opposite conclusions. "LLMs are mirrors."** |
+| **Revisiting SAH #209 (2410.03717)** | **rebuts** | **LIMA #211 (2305.11206)** | **Reasoning errors decrease beyond style saturation (~100 examples); power law scaling contradicts "1K sufficient"** |
 
 ### Counter-Rebuttals (Rebuttals of Rebuttals)
 
@@ -203,6 +232,9 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **No Free Lunch (2506.17219)** | **supports** | **Illusions of Reflection (2510.18254)** | **Self-correction without external feedback fails** |
 | **No Free Lunch (2506.17219)** | **provides mechanism for** | **Faith and Fate (2305.18654)** | **Transitional word loss = exploration loss** |
 | **Neuro-Symbolic AI (2508.13678)** | **supports** | **Faith and Fate (2305.18654)** | **"Errors propagate and amplify" — same mechanism** |
+| **Probability Concentration #210 (2506.17871)** | **supports** | **LIMA #211 (2305.11206)** | **BF mechanism explains SAH: alignment narrows to pre-existing low-entropy paths** |
+| **LIMA #211 (2305.11206)** | **supports** | **Interplay (2512.07783)** | **SAH consistent with surfacing hypothesis: knowledge in pretraining** |
+| **LIMA #211 (2305.11206)** | **supports** | **Demystifying Long CoT (2502.03373)** | **SAH consistent: capabilities pre-exist, tuning exposes** |
 | **Neuro-Symbolic AI (2508.13678)** | **supports** | **LLMs Imitate Logical Reasoning (2509.12645)** | **"Replicate reasoning steps... cannot really reason"** |
 | **Neuro-Symbolic AI (2508.13678)** | **provides framework for** | **Thinking Isn't Illusion (2507.17699)** | **Tool augmentation = symbolic assistance** |
 | **Neuro-Symbolic AI (2508.13678)** | **provides framework for** | **Limits of Innate Planning (2511.21591)** | **Planning requires symbolic methods** |
