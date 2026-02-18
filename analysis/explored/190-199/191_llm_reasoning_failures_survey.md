@@ -99,11 +99,11 @@ The authors note a common pattern in the literature:
 
 ## Relationship to Other Papers
 
-### Supports (14 papers we analyzed BEFORE discovering this survey)
+### Supports (14 papers analyzed BEFORE discovering this survey)
 
-**Note**: These 14 papers were independently analyzed as part of our literature review BEFORE we found this survey. The overlap validates our paper selection methodology.
+**Note**: These 14 papers were independently analyzed as part of this literature review BEFORE discovering this survey. The overlap validates the paper selection methodology.
 
-| arXiv ID | Title | Our Analysis |
+| arXiv ID | Title | Analysis Status |
 |----------|-------|--------------|
 | 2410.05229 | GSM-Symbolic (mathematical reasoning fragility) | ✅ Analyzed independently |
 | 2305.18654 | Faith and Fate (compositional reasoning limits) | ✅ Analyzed independently |
@@ -211,11 +211,11 @@ Tracked in GitHub issues:
 
 This survey is a **cornerstone paper** for the literature review because:
 
-1. **Provides comprehensive taxonomy** - The 2-axis framework (reasoning type x failure type) organizes our evidence systematically
+1. **Provides comprehensive taxonomy** - The 2-axis framework (reasoning type x failure type) organizes the evidence systematically
 
 2. **Strong alignment with thesis** - The survey concludes that current LLMs rely on "pattern matching, statistical associations, and heuristics rather than human-like reasoning processes"
 
-3. **Massive hub node** - Connects to 14 papers we've already analyzed and provides 135 new papers to review
+3. **Massive hub node** - Connects to 14 papers already analyzed and provides 135 new papers to review
 
 4. **Identifies root causes** - Points to architectural constraints (attention dispersal, causal masking), training paradigms (next-token prediction), and lack of embodied grounding as fundamental reasons for failures
 
@@ -223,7 +223,7 @@ This survey is a **cornerstone paper** for the literature review because:
 
 ---
 
-## How Our Project Complements This Survey
+## How This Project Complements the Survey
 
 **The survey provides taxonomy; we provide the interaction graph.**
 
@@ -233,20 +233,20 @@ This survey is a **cornerstone paper** for the literature review because:
 - **Figures 3-5**: Detailed taxonomies for Informal, Formal, and Embodied reasoning failures
 - **GitHub repo**: Curated paper list organized by category
 
-### What They Don't Have (Our Contribution)
+### What They Don't Have (This Project's Contribution)
 - **NO paper interaction graph** - Their survey categorizes papers but doesn't show how papers relate to each other
 - **NO rebuttal tracking** - They don't visualize which papers challenge or support each other
 - **NO network visualization** - Papers are listed, not connected
 
-### Our Interactive Visualization Fills This Gap
-Our project at [proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/) provides:
+### The Interactive Visualization Fills This Gap
+The project at [proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/) provides:
 - **Force-directed graph** showing paper-to-paper relationships
 - **Relationship types**: supports, rebuts, extends
 - **Rebuttal chains**: A rebuts B, C rebuts A's rebuttal
 - **Color-coded stances**: supports thesis (green), challenges (red), balanced (yellow)
 - **Interactive exploration**: hover, click, search, filter
 
-**Together**: Their taxonomy + Our interaction graph = Complete picture of the LLM reasoning failures literature
+**Together**: Their taxonomy + this project's interaction graph = complete picture of the LLM reasoning failures literature
 
 ---
 

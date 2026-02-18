@@ -119,7 +119,7 @@ This paper provides **quantitative proof** of the pattern matching thesis:
 
 > "We hypothesize that alignment tuning does not fundamentally change a model's behavior, but instead steers it toward stylistic tokens (e.g., 'Sure') that unlock low-entropy trajectories **already present in the base model**."
 
-This is exactly our "surfacing hypothesis" — alignment surfaces pre-existing capabilities.
+This aligns with the "surfacing hypothesis" — alignment surfaces pre-existing capabilities.
 
 ### 2. BF Reduction Explains "Alignment is Mascara"
 
