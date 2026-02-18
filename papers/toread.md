@@ -24,6 +24,12 @@ Curated list of papers confirmed relevant to the thesis.
 
 Papers directly addressing whether alignment is superficial. Critical for thesis.
 
+### FOUNDATIONAL — Must Read First
+
+| arXiv ID | Title | Year | Key Finding |
+|----------|-------|------|-------------|
+| [2305.11206](https://arxiv.org/abs/2305.11206) | LIMA: Less is More for Alignment | 2023 | **ORIGINAL SAH PAPER**: 1000 examples sufficient; alignment is about learning style/format, not knowledge |
+
 ### SUPPORTS Thesis (Alignment IS Superficial)
 
 | arXiv ID | Title | Year | Key Finding |

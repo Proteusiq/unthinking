@@ -130,9 +130,13 @@ The Facts100 experiment shows post-trained models:
 
 ## Relationship to Other Papers
 
+### Directly Rebuts
+- **LIMA (2305.11206)**: The foundational SAH paper — this paper provides counter-evidence showing reasoning improves beyond style saturation
+
 ### Challenges
 - **Interplay (2512.07783)**: This paper suggests post-training does MORE than surface capabilities
 - **Faith and Fate (2305.18654)**: Evidence that in-distribution compositional ability improves with training
+- **LLM Probability Concentration (2506.17871)**: #210 argues alignment is path selection; this paper argues it teaches reasoning (tension unresolved — #210 doesn't cite this paper)
 
 ### Supports (Partially)
 - **Demystifying Long CoT (2502.03373)**: Both show training exposes capabilities
@@ -140,7 +144,6 @@ The Facts100 experiment shows post-trained models:
 
 ### Related
 - **GSM-Symbolic (2410.05229)**: Different methodology — tests OOD, which this paper doesn't
-- **LIMA (Zhou et al., 2024)**: The paper being challenged — provides counter-evidence
 
 ---
 
