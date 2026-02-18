@@ -144,7 +144,7 @@ This paper is **consistent with Embers of Autoregression**:
 
 ## Relationship to Other Papers
 
-### Supports (in our corpus)
+### Supports (in the corpus)
 - **Embers of Autoregression** (202): Frequency-dependent encoding
 - **Othello-GPT** (Li et al. 2022): Similar probing methodology, similar limitations
 - **Stochastic Parrots** (Bender & Koller 2020): Cited as alternative hypothesis
