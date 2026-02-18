@@ -307,6 +307,7 @@ Run through this checklist after every paper analysis:
 - [ ] **README.md updated** (paper counts in badges and folder)
 - [ ] **Rebuttals section complete** in analysis file
 - [ ] **File numbering sequential** (no gaps in XX_paper_name.md)
+- [ ] **Objective language verified** (no "our/your thesis", "we analyzed", etc.)
 - [ ] **Committed and pushed**
 
 ---
