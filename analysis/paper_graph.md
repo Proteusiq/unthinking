@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 210
+> **Papers tracked**: 211
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1143,9 +1143,27 @@ These papers have NO direct rebuttals found:
 | **Reasoning or Guessing? HRM (2601.10679)** | **HRM "guesses" fixed points, doesn't reason incrementally; fails on 1-cell puzzles (~25% instability); "grokking" dynamics; scaling guesses (54.5%→96.9%) >> improving reasoning; "if deliberative reasoning, number of attempts typically matters less"; STRONGLY SUPPORTS thesis** |
 | **Two Pathways to Truthfulness (2601.07422)** | **Q-Anchored (knowledge retrieval, 87% acc, popular entities) vs A-Anchored (fabrication detection, 68% acc, long-tail); bimodal distribution in saliency; self-aware of pathway distinctions (87-93% AUC); knowledge boundary = training distribution boundary; SUPPORTS thesis** |
 
+### Paper 211: LIMA - Superficial Alignment Hypothesis (FOUNDATIONAL)
+
+| Paper A | Relationship | Paper B | Evidence |
+|---------|--------------|---------|----------|
+| **LIMA (2305.11206)** | **foundational for** | **Revisiting SAH (2410.03717)** | #209 directly challenges LIMA's SAH claim; separates style (saturates ~100 examples) from reasoning (keeps improving) |
+| **LIMA (2305.11206)** | **supported by** | **Probability Concentration (2506.17871)** | #210 provides mechanistic support: alignment reduces branching factor 10x by selecting low-entropy subdistributions |
+| **Revisiting SAH (2410.03717)** | **rebuts** | **LIMA (2305.11206)** | Power law scaling P ∝ D^(1/b) contradicts "saturation" claim; reasoning errors continue decreasing after style saturates |
+| **Probability Concentration (2506.17871)** | **provides mechanism for** | **LIMA (2305.11206)** | Explains WHY few examples suffice: alignment surfaces existing low-entropy paths, doesn't create new capability |
+| **LIMA (2305.11206)** | **supports** | **Interplay (2512.07783)** | Both argue capabilities come from pretraining, alignment surfaces them |
+| **LIMA (2305.11206)** | **supports** | **Base Models Know How to Reason (2510.07364)** | Both show base models have latent capabilities that can be surfaced |
+| **LIMA (2305.11206)** | **supports** | **s1 (2501.19393)** | Both show ~1K examples can surface reasoning patterns |
+| **LIMA (2305.11206)** | **provides framework for** | **Surfacing hypothesis** | "Alignment teaches which subdistribution of formats to use" = surfacing, not capability creation |
+
 ---
 
 ## Update Log
+
+### 2026-02-18
+| Papers Added | Key Findings |
+|--------------|--------------|
+| **LIMA (2305.11206)** | NeurIPS 2023: FOUNDATIONAL. Superficial Alignment Hypothesis (SAH): "A model's knowledge and capabilities are learnt almost entirely during pretraining, while alignment teaches it which subdistribution of formats should be used." 1,000 examples sufficient. Style saturates quickly but no claim about capability. BALANCED. |
 
 ### 2026-02-16
 | Papers Added | Key Findings |

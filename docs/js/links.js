@@ -4576,4 +4576,29 @@ window.paperLinks = [
     type: 'supports',
     description: 'Low BF may explain complexity collapse — narrow paths fail on novel problems',
   },
+  // LIMA (SAH foundational paper) relationships
+  {
+    source: '2410.03717',
+    target: '2305.11206',
+    type: 'rebuts',
+    description: 'Directly challenges LIMA: reasoning improves beyond style saturation, power law scaling',
+  },
+  {
+    source: '2506.17871',
+    target: '2305.11206',
+    type: 'supports',
+    description: 'Provides mechanistic support: BF reduction shows alignment selects subdistribution as LIMA claimed',
+  },
+  {
+    source: '2305.11206',
+    target: '2512.07783',
+    type: 'supports',
+    description: 'LIMA consistent with Interplay: capabilities exist in pretraining, alignment surfaces them',
+  },
+  {
+    source: '2305.11206',
+    target: '2502.03373',
+    type: 'supports',
+    description: 'LIMA consistent with Demystifying: capabilities pre-exist, tuning exposes them',
+  },
 ];

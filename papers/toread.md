@@ -24,11 +24,11 @@ Curated list of papers confirmed relevant to the thesis.
 
 Papers directly addressing whether alignment is superficial. Critical for thesis.
 
-### FOUNDATIONAL — Must Read First
+### FOUNDATIONAL — ✅ DONE
 
-| arXiv ID | Title | Year | Key Finding |
-|----------|-------|------|-------------|
-| [2305.11206](https://arxiv.org/abs/2305.11206) | LIMA: Less is More for Alignment | 2023 | **ORIGINAL SAH PAPER**: 1000 examples sufficient; alignment is about learning style/format, not knowledge |
+| arXiv ID | Title | Year | Status |
+|----------|-------|------|--------|
+| [2305.11206](https://arxiv.org/abs/2305.11206) | LIMA: Less is More for Alignment | 2023 | **✅ ANALYZED as #211** |
 
 ### SUPPORTS Thesis (Alignment IS Superficial)
 
@@ -36,7 +36,7 @@ Papers directly addressing whether alignment is superficial. Critical for thesis
 |----------|-------|------|-------------|
 | [2410.10862](https://arxiv.org/abs/2410.10862) | Superficial Safety Alignment Hypothesis | 2024 | Safety is implicit binary classification; only few neurons establish guardrails |
 | [2502.04602](https://arxiv.org/abs/2502.04602) | Extracting and Understanding Superficial Knowledge in Alignment | 2025 | Formalizes "superficial knowledge" as token restyling; safety/detox mostly superficial |
-| [2506.17871](https://arxiv.org/abs/2506.17871) | LLM Probability Concentration: How Alignment Shrinks the Generative Horizon | 2025 | **KILLER**: Alignment reduces BF 10x; steers to stylistic tokens unlocking low-entropy paths already in base model |
+| [2506.17871](https://arxiv.org/abs/2506.17871) | LLM Probability Concentration | 2025 | **✅ ANALYZED as #210** |
 | [2506.07452](https://arxiv.org/abs/2506.07452) | When Style Breaks Safety | 2025 | Style patterns compromise safety; same-style training creates same-style vulnerabilities |
 
 ### CHALLENGES Thesis (Alignment Can Be Deep)

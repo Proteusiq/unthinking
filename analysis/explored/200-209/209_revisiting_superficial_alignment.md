@@ -131,7 +131,7 @@ The Facts100 experiment shows post-trained models:
 ## Relationship to Other Papers
 
 ### Directly Rebuts
-- **LIMA (2305.11206)**: The foundational SAH paper — this paper provides counter-evidence showing reasoning improves beyond style saturation
+- **LIMA (2305.11206)** — #211: The foundational SAH paper that claims "A model's knowledge and capabilities are learnt almost entirely during pretraining, while alignment teaches it which subdistribution of formats should be used." This paper provides counter-evidence showing reasoning errors continue decreasing AFTER style saturates (~100 examples), contradicting LIMA's core claim.
 
 ### Challenges
 - **Interplay (2512.07783)**: This paper suggests post-training does MORE than surface capabilities
