@@ -90,7 +90,7 @@
 2. **Even the best model eventually fails** — Gemini fails somewhere between step 16-683
 3. **Correlation with math benchmarks exists** — but correlation ≠ causation
 
-### Key Finding That SUPPORTS Our Thesis
+### Key Finding That SUPPORTS the Thesis
 
 > "As an autoregressive model, Gemini inevitably fails with increasing steps due to its statistical nature, underscoring Gemini's computational limits."
 
@@ -124,7 +124,7 @@ This is direct evidence that LLMs have **bounded computational capability** — 
 
 ## Relationship to Other Papers
 
-### Supports (from OUR thesis perspective)
+### Supports (from the thesis perspective)
 - **Illusion of Thinking (2506.06941)**: Both show performance collapse at scale
 - **Faith and Fate (2305.18654)**: Error accumulation with sequential steps
 - **Sequential Enumeration (2512.04727)**: Both show LLMs fail at iterative processes

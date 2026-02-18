@@ -119,8 +119,8 @@
 - **OMEGA (2506.18880)**: Compositional generalization fails
 - **Faith and Fate (2305.18654)**: Probed features may not be causally used
 
-### Key Difference from Our Thesis
-This paper shows models can learn **statistical correlations** within a domain. Our thesis doesn't deny this — it claims:
+### Key Difference from the Thesis
+This paper shows models can learn **statistical correlations** within a domain. The thesis doesn't deny this — it claims:
 1. These correlations are from training distribution (✓ confirmed — equity was in training)
 2. They don't generalize compositionally (not tested here)
 3. Pattern matching is sufficient explanation (not rebutted)

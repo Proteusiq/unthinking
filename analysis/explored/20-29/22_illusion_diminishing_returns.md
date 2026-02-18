@@ -259,7 +259,7 @@ This suggests:
 The "Against" papers show LLMs fail at long tasks
 → This paper shows WHY: self-conditioning, not reasoning inability
 → Thinking models improve, but don't fully solve
-→ Our thesis: "practical but predictive" = can do short tasks, fails long ones
+→ The thesis: "practical but predictive" = can do short tasks, fails long ones
 
 ---
 

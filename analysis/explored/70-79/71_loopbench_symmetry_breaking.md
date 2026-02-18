@@ -101,7 +101,7 @@ This suggests a **"Discovery-Implementation Gap"**: reasoning needed to find str
 
 ### Partially Challenges
 - **Illusion of Thinking (2506.06941)**: O3 shows genuine strategy development, not just pattern matching
-- **Our thesis**: O3's meta-cognitive reasoning appears to go beyond simple pattern retrieval
+- **The thesis**: O3's meta-cognitive reasoning appears to go beyond simple pattern retrieval
 
 ### Supports
 - **Limits of Emergent Reasoning Agentic (2510.15974)**: Smaller models still fail completely and loop

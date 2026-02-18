@@ -199,7 +199,7 @@ This frames LLMs as System 1 (intuitive pattern matching) that need System 2 (sy
 4. **Tool use reframed**
    - Tool augmentation = symbolic assistance
    - LLMs provide NL interface, symbolic does reasoning
-   - Supports our Argument 8 (Tool use supports imitation thesis)
+   - Supports Argument 8 (Tool use supports imitation thesis)
 
 ### Caveat
 

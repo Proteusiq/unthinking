@@ -122,7 +122,7 @@ Parallel sampling reliably improves performance (though this is more "coverage" 
 - **s1 (2501.19393)**: Survey covers the "budget forcing" strategy explicitly
 
 ### Provides Framework For
-- **Our thesis**: Survey's System-1/System-2 distinction maps to our "predictive vs. generative" distinction
+- **The thesis**: Survey's System-1/System-2 distinction maps to the "predictive vs. generative" distinction
 - **Why parallel > sequential**: Coverage of learned patterns vs. depth of reasoning
 
 ---

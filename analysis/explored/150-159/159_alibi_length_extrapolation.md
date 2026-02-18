@@ -109,7 +109,7 @@ Same perplexity as training on longer sequences, but:
 
 ### Who Might Cite This Against the Thesis?
 - Researchers arguing "architectural improvements can solve OOD"
-- But: Our thesis is about REASONING, not sequence length
+- But: The thesis is about REASONING, not sequence length
 
 ---
 

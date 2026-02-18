@@ -209,7 +209,7 @@ At 0% truncation (no reasoning visible), models can still answer correctly:
 
 ### Net Assessment
 
-This paper provides the strongest "FOR" evidence we've seen:
+This paper provides strong "FOR" evidence:
 - Latent reasoning is measurable and real
 - Not pure memorization
 - Some genuine computation
