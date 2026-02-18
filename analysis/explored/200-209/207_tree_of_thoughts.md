@@ -196,7 +196,7 @@ ToT uses 5-100× more compute than CoT. This is buying performance by:
 
 ### Key Insight for Thesis
 
-The paper's own framing supports our thesis:
+The paper's own framing supports the thesis:
 - LM = System 1 (fast, associative, pattern matching)
 - ToT = System 2 scaffolding (deliberate search)
 - Improvement comes from search, not from the LM reasoning better
@@ -281,7 +281,7 @@ ToT **strongly supports** the pattern matching thesis:
 4. Generation (pattern completion) is the bottleneck
 5. Performance ceiling (74%, not 100%) shows fundamental limits
 
-**The paper is evidence FOR our thesis, not against it.**
+**The paper is evidence FOR the thesis, not against it.**
 
 ---
 

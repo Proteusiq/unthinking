@@ -195,9 +195,9 @@ The nudging experiment is definitive: prompting base models with aligned-style p
 
 ---
 
-## Implications for Our Thesis
+## Implications for the Thesis
 
-### This Paper is a "Killer" for Our Argument
+### Strong Evidence for the Pattern Matching Hypothesis
 
 1. **Quantifies superficiality**: BF provides a concrete measure (10x reduction)
 2. **Proves pre-existence**: Nudging shows paths exist before alignment
