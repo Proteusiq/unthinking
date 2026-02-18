@@ -150,9 +150,11 @@ The nudging experiment is definitive: prompting base models with aligned-style p
 - **Embers of Autoregression (2309.13638)**: BF explains why probability sensitivity exists
 - **Base Models Know How to Reason (2510.07364)**: Nudging proves base models have latent paths
 
-### Extends
-- **Superficial Alignment Hypothesis (LIMA)**: Provides quantitative measure (BF) for superficiality
-- **Revisiting SAH (2410.03717)**: Explains WHY style saturates quickly (~100 examples) — it's just path selection
+### Builds On
+- **LIMA (2305.11206)**: The foundational SAH paper — this paper provides quantitative measure (BF) for superficiality
+
+### Unaddressed Counter-Evidence
+- **Revisiting SAH (2410.03717)**: #209 shows reasoning errors decrease independently of style saturation — this paper doesn't engage with that finding. Potential reconciliation: paths that enable better reasoning may pre-exist, but #209's evidence of continued improvement beyond style saturation remains unexplained by pure path selection.
 
 ### Provides Mechanism For
 - **Faith and Fate (2305.18654)**: BF explains why compositional failures occur — aligned models lock into narrow paths
