@@ -336,4 +336,4 @@ No direct arXiv rebuttal found as of analysis date.
    - 1% of problems have L > 20 (LRMs fail)
    - "Near-term utility" + "substantial failure potential"
 
-**For thesis**: This paper provides the quantitative backbone for our argument. It shows EXACTLY where the distribution boundary is, proves that benchmark success is misleading, and demonstrates that ALL models — including SOTA o3 — eventually collapse. The abrupt cliff pattern confirms that LRM reasoning is bounded pattern matching, not genuine generalization.
+**For thesis**: This paper provides the quantitative backbone for the argument. It shows EXACTLY where the distribution boundary is, proves that benchmark success is misleading, and demonstrates that ALL models — including SOTA o3 — eventually collapse. The abrupt cliff pattern confirms that LRM reasoning is bounded pattern matching, not genuine generalization.

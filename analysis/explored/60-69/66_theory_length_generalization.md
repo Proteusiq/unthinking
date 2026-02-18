@@ -82,7 +82,7 @@ The paper designs special CoT formulations where:
 - **GSM-Symbolic (2410.05229)**: Explains WHY surface perturbations break models (R changes)
 
 ### Challenges
-- **Our thesis (partially)**: Paper shows LG IS achievable, BUT only with very specific representations
+- **The thesis (partially)**: Paper shows LG IS achievable, BUT only with very specific representations
 - **OMEGA (2506.18880)**: Paper would predict LG should work if (n,r)-consistent
 
 ### Critical Point for Thesis
@@ -147,7 +147,7 @@ This means:
 3. **Standard/natural representations fail**: Confirms pattern matching on surface forms
 4. **Impossibility with infinite input space**: Real-world arithmetic has infinite input space
 
-### Evidence AGAINST Our Thesis
+### Evidence AGAINST the Thesis
 
 1. **LG is theoretically achievable**: Shows it's not fundamentally impossible
 2. **Successful demonstrations**: Parity, addition, multiplication with perfect LG

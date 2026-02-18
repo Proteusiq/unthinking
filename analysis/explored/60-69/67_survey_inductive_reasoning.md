@@ -168,7 +168,7 @@ This creates challenges for evaluation, but also reveals that LLMs are selecting
 
 5. **Enhancement methods don't create reasoning**: Post-training provides more patterns; test-time scaling searches existing patterns; data augmentation provides external patterns. None create genuine inductive capability.
 
-### What Survey Gets Right (For Our Thesis)
+### What Survey Gets Right (For the Thesis)
 
 The survey provides mechanistic evidence (induction heads) that inductive reasoning in LLMs is pattern completion:
 - Induction heads do template matching

@@ -171,7 +171,7 @@
 
 5. **Fixed problem structure**: Problems have specific dependency graph format
 
-### How This Relates to Our Thesis
+### How This Relates to the Thesis
 
 **CHALLENGES thesis for structured, learnable domains**:
 - OOD length generalization suggests genuine rule learning
@@ -190,7 +190,7 @@
 
 ### Challenges
 - **Faith and Fate (2305.18654)**: Shows genuine OOD generalization, not just template matching
-- **Our thesis**: Provides controlled evidence for reasoning capabilities in narrow domains
+- **The thesis**: Provides controlled evidence for reasoning capabilities in narrow domains
 
 ### Supports (partially)
 - **Interplay (2512.07783)**: Shows capability must exist in training distribution (iGSM provides this)
@@ -259,7 +259,7 @@
 4. ✗ That GPT-4 or similar models use these mechanisms
 
 ### Key distinction for thesis:
-- Our thesis claims LLM reasoning is "practical but predictive (pattern matching from training distributions)"
+- The thesis claims LLM reasoning is "practical but predictive (pattern matching from training distributions)"
 - This paper shows a small model CAN learn to generalize within a structured domain
 - But: GPT-4 FAILS on this task, suggesting current LLMs don't exhibit these properties
 - The "training distribution" for iGSM is specifically designed to enable generalization
@@ -281,7 +281,7 @@
 
 ## Verdict: CHALLENGES THESIS (for narrow domains)
 
-This is the **strongest paper challenging the thesis** that we've analyzed. It provides controlled evidence for:
+This is the **strongest paper challenging the thesis** in the corpus. It provides controlled evidence for:
 - Genuine OOD generalization (not memorization)
 - Mental planning (not purely reactive)
 - Learning beyond training requirements
