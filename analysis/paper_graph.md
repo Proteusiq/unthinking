@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 211
+> **Papers tracked**: 214
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -152,22 +152,54 @@ This document tracks how papers interact with each other — rebuttals, counter-
                     │  Alignment = style selection        │
                     └─────────────────────────────────────┘
                                     │
-                    ┌───────────────┼───────────────┐
-                    │               │               │
-                    ▼               │               ▼
-    ┌───────────────────────┐       │      ┌───────────────────────┐
-    │ #209 Revisiting SAH   │       │      │ #210 Probability      │
-    │ (Sep 2024)            │       │      │ Concentration (Jun'25)│
-    │ CHALLENGES            │       │      │ SUPPORTS              │
-    │                       │       │      │                       │
-    │ • Reasoning improves  │       │      │ • BF drops 12→1.2     │
-    │   beyond style        │       │      │ • Alignment = path    │
-    │ • Power law scaling   │       │      │   selection           │
-    │ • New knowledge       │       │      │ • Nudging proves      │
-    │   integration         │       │      │   pre-existence       │
-    └───────────────────────┘       │      └───────────────────────┘
+           ┌────────────────────────┼────────────────────────┐
+           │                        │                        │
+           ▼                        │                        ▼
+┌───────────────────────┐           │           ┌───────────────────────┐
+│ #209 Revisiting SAH   │           │           │ #210 Probability      │
+│ (Sep 2024)            │           │           │ Concentration (Jun'25)│
+│ CHALLENGES            │           │           │ SUPPORTS              │
+│                       │           │           │                       │
+│ • Reasoning improves  │           │           │ • BF drops 12→1.2     │
+│   beyond style        │           │           │ • Alignment = path    │
+│ • Power law scaling   │           │           │   selection           │
+│ • New knowledge       │           │           │ • Nudging proves      │
+│   integration         │           │           │   pre-existence       │
+└───────────────────────┘           │           └───────────────────────┘
                                     │
-                          ⚠️ Gap: #210 doesn't cite #209
+                    ┌───────────────┴───────────────┐
+                    │                               │
+                    ▼                               │
+    ┌───────────────────────────────┐               │
+    │ #213 Extracting Superficial   │               │
+    │ Knowledge (Feb 2025)          │<──────────────┘
+    │ SUPPORTS (with nuance)        │
+    │                               │
+    │ • Safety 100% superficial     │
+    │ • Math 53-62% superficial     │
+    │ • Token shifts are stylistic  │
+    │ • Reasoning gap persists      │
+    └───────────────────────────────┘
+                    │
+          ⚠️ Reconciles debate: BOTH right
+          • Safety/style = fully superficial
+          • Reasoning = requires deeper changes
+
+    ┌───────────────────────────────┐
+    │ #214 Safety Not Superficial   │
+    │ (May 2025) ICML 2025          │
+    │ CHALLENGES (Safety Focus)     │
+    │                               │
+    │ • Explicit [CLS] for safety   │
+    │ • Dynamic re-evaluation       │
+    │ • Near-zero ASR on attacks    │
+    │ • With explicit signals,      │
+    │   alignment CAN be deep       │
+    └───────────────────────────────┘
+                    │
+          Key tension with #213:
+          #213 says safety is "superficial"
+          #214 says it CAN be deep (explicit signals)
 ```
 
 ---
@@ -185,6 +217,8 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Illusion of Insight (2601.00514)** | **rebuts** | **DeepSeek-R1 (2501.12948)** | **"Aha!" moments are rare, don't improve with training, seldom help accuracy** |
 | **Mind Your Tone: Rude=Better (2510.04950)** | **rebuts** | **Mind Your Tone: Rude=Worse (2402.14531)** | **OPPOSITE FINDING: GPT-4o 84.8% rude > 80.8% polite vs Llama2-70B -48.5% rude. Same question, different models, opposite conclusions. "LLMs are mirrors."** |
 | **Revisiting SAH #209 (2410.03717)** | **rebuts** | **LIMA #211 (2305.11206)** | **Reasoning errors decrease beyond style saturation (~100 examples); power law scaling contradicts "1K sufficient"** |
+| **Safety Not Superficial #214 (2505.17072)** | **challenges** | **LIMA #211 (2305.11206)** | **Alignment CAN be deep with explicit safety signals; near-zero ASR on adversarial attacks** |
+| **Safety Not Superficial #214 (2505.17072)** | **challenges** | **Probability Concentration #210 (2506.17871)** | **Alignment is more than path selection — explicit classification enables robust safety** |
 
 ### Counter-Rebuttals (Rebuttals of Rebuttals)
 
@@ -235,6 +269,12 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Probability Concentration #210 (2506.17871)** | **supports** | **LIMA #211 (2305.11206)** | **BF mechanism explains SAH: alignment narrows to pre-existing low-entropy paths** |
 | **LIMA #211 (2305.11206)** | **supports** | **Interplay (2512.07783)** | **SAH consistent with surfacing hypothesis: knowledge in pretraining** |
 | **LIMA #211 (2305.11206)** | **supports** | **Demystifying Long CoT (2502.03373)** | **SAH consistent: capabilities pre-exist, tuning exposes** |
+| **Extracting Superficial #213 (2502.04602)** | **supports** | **LIMA #211 (2305.11206)** | **Operationalizes SAH: safety 100% superficial via linear projection head** |
+| **Extracting Superficial #213 (2502.04602)** | **supports** | **Probability Concentration #210 (2506.17871)** | **Both show alignment is path selection; #213 extracts the actual changes** |
+| **Extracting Superficial #213 (2502.04602)** | **partially supports** | **Revisiting SAH #209 (2410.03717)** | **Confirms reasoning gap; both show alignment is MOSTLY but not ENTIRELY superficial** |
+| **Extracting Superficial #213 (2502.04602)** | **supports** | **Interplay (2512.07783)** | **Both support surfacing: safety patterns pre-exist, alignment selects them** |
+| **Extracting Superficial #213 (2502.04602)** | **provides mechanism for** | **Jailbreaking papers** | **Safety stored in superficial layer; explains why easily compromised** |
+| **Extracting Superficial #213 (2502.04602)** | **provides evidence for** | **Pattern matching thesis** | **Token shifts are stylistic (## → To, The → Therefore), not semantic** |
 | **Neuro-Symbolic AI (2508.13678)** | **supports** | **LLMs Imitate Logical Reasoning (2509.12645)** | **"Replicate reasoning steps... cannot really reason"** |
 | **Neuro-Symbolic AI (2508.13678)** | **provides framework for** | **Thinking Isn't Illusion (2507.17699)** | **Tool augmentation = symbolic assistance** |
 | **Neuro-Symbolic AI (2508.13678)** | **provides framework for** | **Limits of Innate Planning (2511.21591)** | **Planning requires symbolic methods** |
@@ -1267,6 +1307,11 @@ These papers have NO direct rebuttals found:
 | Can LLMs Reason and Plan (2403.04121) | FOUNDATIONAL: "n-gram models on steroids"; LLM-Modulo framework |
 | Stop Anthropomorphizing Tokens (2504.09762) | Traces have NO semantics; incorrect traces OUTPERFORM correct |
 | +25 more foundational papers | Original CoT, Zero-Shot CoT, Self-Consistency, Reversal Curse, etc. |
+
+### 2026-02-18
+| Papers Added | Key Findings |
+|--------------|--------------|
+| **Extracting Superficial Knowledge #213 (2502.04602)** | SUPPORTS (nuanced): Safety is 100% superficial (linear head captures all); Math only 53-62% superficial; token shifts are stylistic ("## → To", "The → Therefore"); reasoning gap persists. Reconciles SAH debate: style IS superficial, reasoning is NOT. Cites LIMA; extends #210 (BF mechanism). |
 
 ### 2026-02-17
 | Papers Added | Key Findings |

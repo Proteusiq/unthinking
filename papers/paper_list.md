@@ -240,6 +240,8 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 209 | 2410.03717 | Sep 2024 | Revisiting the Superficial Alignment Hypothesis (Scale AI) | Challenges | ✅ DONE (analysis: 209_revisiting_superficial_alignment.md) |
 | 210 | 2506.17871 | Jun 2025 | LLM Probability Concentration: How Alignment Shrinks the Generative Horizon (UChicago) | Supports | ✅ DONE (analysis: 210_llm_probability_concentration.md) |
 | 211 | 2305.11206 | May 2023 | LIMA: Less Is More for Alignment (Meta AI, NeurIPS 2023) | Balanced | ✅ DONE (analysis: 211_lima_less_is_more_alignment.md) |
+| 213 | 2502.04602 | Feb 2025 | Extracting and Understanding Superficial Knowledge in Alignment (UT Austin, LLNL) | Supports | ✅ DONE (analysis: 213_extracting_superficial_knowledge.md) |
+| 214 | 2505.17072 | May 2025 | Safety Alignment Can Be Not Superficial With Explicit Safety Signals (ICML 2025) | Challenges | ✅ DONE (analysis: 214_safety_not_superficial.md) |
 
 ### Other Notable Papers
 | # | arXiv ID | Date | Title | Stance | Status |
@@ -374,11 +376,11 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 207
-- **Against Reasoning**: ~121
+- **Total Papers**: 208
+- **Against Reasoning**: ~122
 - **For Reasoning**: ~31
 - **Balanced**: ~53
 - **Date Range**: 2021-2026
-- **Analyzed**: 207
+- **Analyzed**: 208
 
 ---
