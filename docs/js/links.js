@@ -4601,4 +4601,61 @@ window.paperLinks = [
     type: 'supports',
     description: 'LIMA consistent with Demystifying: capabilities pre-exist, tuning exposes them',
   },
+  // Superficial Safety Alignment Hypothesis (#212) relationships
+  {
+    source: '2410.10862',
+    target: '2305.11206',
+    type: 'extends',
+    description: 'SSAH extends LIMA SAH to safety domain: binary classification (fulfill/refuse)',
+  },
+  {
+    source: '2410.10862',
+    target: '2506.17871',
+    type: 'supports',
+    description: 'Both show alignment is localized: SSAH=1.3% units, BF=path selection',
+  },
+  // Extracting Superficial Knowledge (#213) relationships
+  {
+    source: '2502.04602',
+    target: '2305.11206',
+    type: 'supports',
+    description: 'Operationalizes LIMA SAH: linear head captures 100% of safety alignment',
+  },
+  {
+    source: '2502.04602',
+    target: '2506.17871',
+    type: 'supports',
+    description: 'Both show alignment is surface-level: linear projection vs BF path selection',
+  },
+  {
+    source: '2502.04602',
+    target: '2410.03717',
+    type: 'partially supports',
+    description: 'Confirms reasoning gap (53-62% captured) — agrees alignment not ENTIRELY superficial',
+  },
+  {
+    source: '2502.04602',
+    target: '2410.10862',
+    type: 'supports',
+    description: 'Both show safety alignment is superficial and localized',
+  },
+  // Safety Not Superficial (#214) relationships
+  {
+    source: '2505.17072',
+    target: '2305.11206',
+    type: 'challenges',
+    description: 'Challenges SAH: explicit signals make alignment NOT superficial (uses LIMA data)',
+  },
+  {
+    source: '2505.17072',
+    target: '2410.10862',
+    type: 'challenges',
+    description: 'Challenges SSAH: explicit [CLS] achieves robust safety, not brittle',
+  },
+  {
+    source: '2505.17072',
+    target: '2410.03717',
+    type: 'supports',
+    description: 'Both challenge SAH: alignment CAN teach more than style with right approach',
+  },
 ];

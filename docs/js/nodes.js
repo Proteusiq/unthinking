@@ -4488,4 +4488,70 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/210-219/211_lima_less_is_more_alignment.md',
   },
+  {
+    id: '2410.10862',
+    title: 'Superficial Safety Alignment Hypothesis',
+    shortTitle: 'SSAH',
+    date: 'Oct 2024',
+    stance: 'supports',
+    cluster: 'training-dynamics',
+    coreArgument:
+      'Safety alignment is an implicit binary classification task. Only 1.3-1.4% of parameters (Safety Critical Units) control safety. Safety is superficial because it can be transferred to utility via fine-tuning.',
+    keyEvidence: [
+      'Only 1.3-1.4% of units are safety-critical',
+      '~20% of parameters are redundant and can be repurposed',
+      'Freezing safety-critical units preserves safety during fine-tuning',
+      'Refusal mechanisms are standardized across attacks',
+    ],
+    keyQuotes: [
+      'Safety alignment teaches the model the correct reasoning direction—the model\'s inclination to either fulfill or refuse a user request based on safety consideration.',
+      'SSAH characterizes safety alignment as an implicit binary classification task.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/210-219/212_superficial_safety_alignment.md',
+  },
+  {
+    id: '2502.04602',
+    title: 'Extracting and Understanding Superficial Knowledge in Alignment',
+    shortTitle: 'Superficial Knowledge',
+    date: 'Feb 2025',
+    stance: 'supports',
+    cluster: 'training-dynamics',
+    coreArgument:
+      'Alignment knowledge is largely superficial: a linear projection head captures 100% of safety alignment. Math reasoning is 53-62% superficial. Token shifts are stylistic (## → To, The → Therefore).',
+    keyEvidence: [
+      'Safety: 100% captured by linear head (HarmRate 66% → 0%)',
+      'Math: only 53-62% captured (0.140 vs 0.230 GSM accuracy)',
+      'First 10 tokens contain most alignment signal',
+      'Superficial knowledge transfers across model scales (7B → 13B)',
+    ],
+    keyQuotes: [
+      'Safety alignment is almost entirely superficial — a linear projection head alone captures essentially all safety behavior.',
+      'Math shows persistent gap — alignment involves changes beyond what superficial extraction captures.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/210-219/213_extracting_superficial_knowledge.md',
+  },
+  {
+    id: '2505.17072',
+    title: 'Safety Alignment Can Be Not Superficial With Explicit Safety Signals',
+    shortTitle: 'Safety Not Superficial',
+    date: 'May 2025',
+    stance: 'challenges',
+    cluster: 'training-dynamics',
+    coreArgument:
+      'Safety alignment CAN be deep with explicit safety signals. Existing alignment is superficial because safety is diluted by competing objectives. Explicit [CLS] token + dynamic re-evaluation achieves near-zero attack success.',
+    keyEvidence: [
+      'Prefill attack: 39.62% → 0.4% (two orders of magnitude)',
+      'GCG attack: 28.0% → 0.0%',
+      'Decoding attack: 87% → 0.0%',
+      'Uses LIMA data (1K examples) but achieves robust safety',
+    ],
+    keyQuotes: [
+      'Existing safety training is superficial because safety signals are diluted by competing objectives.',
+      'We propose explicit safety classification via [CLS] token to separate safety from other objectives.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/210-219/214_safety_not_superficial.md',
+  },
 ];
