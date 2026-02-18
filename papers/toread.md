@@ -20,13 +20,33 @@ Curated list of papers confirmed relevant to the thesis.
 
 ---
 
+## 🔴 HIGH PRIORITY — Superficial Alignment Debate (Core Papers)
+
+Papers directly addressing whether alignment is superficial. Critical for thesis.
+
+### SUPPORTS Thesis (Alignment IS Superficial)
+
+| arXiv ID | Title | Year | Key Finding |
+|----------|-------|------|-------------|
+| [2410.10862](https://arxiv.org/abs/2410.10862) | Superficial Safety Alignment Hypothesis | 2024 | Safety is implicit binary classification; only few neurons establish guardrails |
+| [2502.04602](https://arxiv.org/abs/2502.04602) | Extracting and Understanding Superficial Knowledge in Alignment | 2025 | Formalizes "superficial knowledge" as token restyling; safety/detox mostly superficial |
+| [2506.17871](https://arxiv.org/abs/2506.17871) | LLM Probability Concentration: How Alignment Shrinks the Generative Horizon | 2025 | **KILLER**: Alignment reduces BF 10x; steers to stylistic tokens unlocking low-entropy paths already in base model |
+| [2506.07452](https://arxiv.org/abs/2506.07452) | When Style Breaks Safety | 2025 | Style patterns compromise safety; same-style training creates same-style vulnerabilities |
+
+### CHALLENGES Thesis (Alignment Can Be Deep)
+
+| arXiv ID | Title | Year | Key Finding |
+|----------|-------|------|-------------|
+| [2505.17072](https://arxiv.org/abs/2505.17072) | Safety Alignment Can Be Not Superficial With Explicit Safety Signals (ICML 2025) | 2025 | Explicit safety signals make alignment robust; proposes binary classification task |
+
+---
+
 ## 🔴 HIGH PRIORITY — Papers Citing "Revisiting SAH" (2410.03717)
 
 Discovered via citation tracking. Relevant to alignment/style/reasoning.
 
 | arXiv ID | Title | Year | Why Relevant |
 |----------|-------|------|--------------|
-| [2506.07452](https://arxiv.org/abs/2506.07452) | When Style Breaks Safety: Defending LLMs Against Superficial Style Alignment | 2025 | Style patterns compromise safety; confirms "alignment is superficial" |
 | [2506.06998](https://arxiv.org/abs/2506.06998) | What makes Reasoning Models Different? Follow the Reasoning Leader | 2025 | Reasoning vs non-reasoning differs at stylistic "thinking cues", not deep reasoning |
 | [2510.13928](https://arxiv.org/abs/2510.13928) | LLMs Can Get "Brain Rot"! | 2025 | Data quality causes capability decay; training-time safety |
 | [2601.21571](https://arxiv.org/abs/2601.21571) | Shaping Capabilities with Token-Level Data Filtering (OpenAI, Radford) | 2026 | Capabilities shaped during pretraining; token filtering > document filtering |
