@@ -197,9 +197,13 @@ SSAH adds:
 
 ## Relationship to Other Papers
 
+### Extended By (Same Authors)
+- **#214 Safety Not Superficial (2505.17072)**: Li & Kim's follow-up paper that implements SSAH's theoretical framework with explicit [CLS] tokens and dynamic re-evaluation. Shows safety CAN be robust with explicit signals.
+
 ### Supports
 - **#210 LLM Probability Concentration (2506.17871)**: Both argue alignment surfaces pre-existing capabilities; BF reduction aligns with binary classification framing
 - **#211 LIMA (2305.11206)**: Directly extends SAH to safety domain
+- **#213 Extracting Superficial Knowledge (2502.04602)**: Both show safety alignment is localized; #213 finds linear head captures 100% of safety
 
 ### Related
 - **#209 Revisiting SAH (2410.03717)**: Challenges SAH by showing reasoning improves beyond style saturation; SSAH doesn't address this (focuses on safety, not reasoning)

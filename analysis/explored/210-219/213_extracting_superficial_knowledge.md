@@ -189,6 +189,25 @@ Yes, the paper directly engages with LIMA and the Superficial Alignment Hypothes
 3. ~1000 examples suffice because style learning is simple (#211)
 4. But reasoning requires deeper changes that style alone can't provide (#213, #209)
 
+### Relationship to #212 (Superficial Safety Alignment Hypothesis)
+
+**#212 Claims**: Safety alignment is binary classification; only 1.3-1.4% of units are safety-critical
+
+**This Paper**: Provides complementary evidence:
+- Both show safety is highly localized/superficial
+- #212: Safety in specific neurons (SCU)
+- #213: Safety in linear projection head
+- Both: 100% of safety captured by small intervention
+
+### Relationship to #214 (Safety Not Superficial)
+
+**#214 Claims**: Safety alignment CAN be deep with explicit [CLS] signals
+
+**This Paper's Response**: Not directly addressed, but:
+- #213 shows EXISTING alignment is superficial
+- #214 shows FUTURE alignment could be deep with different methods
+- Compatible findings: Current methods = superficial; explicit signals = potential for depth
+
 ---
 
 ## REBUTTALS TO THIS PAPER

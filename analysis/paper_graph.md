@@ -152,54 +152,46 @@ This document tracks how papers interact with each other — rebuttals, counter-
                     │  Alignment = style selection        │
                     └─────────────────────────────────────┘
                                     │
-           ┌────────────────────────┼────────────────────────┐
-           │                        │                        │
-           ▼                        │                        ▼
-┌───────────────────────┐           │           ┌───────────────────────┐
-│ #209 Revisiting SAH   │           │           │ #210 Probability      │
-│ (Sep 2024)            │           │           │ Concentration (Jun'25)│
-│ CHALLENGES            │           │           │ SUPPORTS              │
-│                       │           │           │                       │
-│ • Reasoning improves  │           │           │ • BF drops 12→1.2     │
-│   beyond style        │           │           │ • Alignment = path    │
-│ • Power law scaling   │           │           │   selection           │
-│ • New knowledge       │           │           │ • Nudging proves      │
-│   integration         │           │           │   pre-existence       │
-└───────────────────────┘           │           └───────────────────────┘
-                                    │
-                    ┌───────────────┴───────────────┐
-                    │                               │
-                    ▼                               │
-    ┌───────────────────────────────┐               │
-    │ #213 Extracting Superficial   │               │
-    │ Knowledge (Feb 2025)          │<──────────────┘
-    │ SUPPORTS (with nuance)        │
-    │                               │
-    │ • Safety 100% superficial     │
-    │ • Math 53-62% superficial     │
-    │ • Token shifts are stylistic  │
-    │ • Reasoning gap persists      │
-    └───────────────────────────────┘
-                    │
-          ⚠️ Reconciles debate: BOTH right
-          • Safety/style = fully superficial
-          • Reasoning = requires deeper changes
+     ┌──────────────────────────────┼──────────────────────────────┐
+     │                              │                              │
+     ▼                              ▼                              ▼
+┌─────────────────┐    ┌─────────────────────┐    ┌─────────────────────┐
+│ #209 Revisiting │    │ #212 SSAH (Oct 24)  │    │ #210 Probability    │
+│ CHALLENGES      │    │ SUPPORTS            │    │ Concentration       │
+│                 │    │                     │    │ SUPPORTS            │
+│ Reasoning       │    │ Safety = 1.3-1.4%   │    │                     │
+│ improves beyond │    │ of parameters       │    │ BF drops 12→1.2     │
+│ style saturation│    │ Binary classify     │    │ Path selection      │
+└─────────────────┘    └─────────────────────┘    └─────────────────────┘
+                                │                          │
+                                │ same authors             │
+                                ▼                          │
+                  ┌─────────────────────────┐              │
+                  │ #214 Safety Not         │              │
+                  │ Superficial (ICML 2025) │              │
+                  │ CHALLENGES              │              │
+                  │                         │              │
+                  │ Explicit [CLS] achieves │              │
+                  │ near-zero attack rate   │              │
+                  │ (implements SSAH fix)   │              │
+                  └─────────────────────────┘              │
+                                │                          │
+                                │ challenges               │
+                                ▼                          │
+                  ┌─────────────────────────┐              │
+                  │ #213 Extracting         │<─────────────┘
+                  │ Superficial Knowledge   │    supports
+                  │ SUPPORTS (nuanced)      │
+                  │                         │
+                  │ Safety = 100% linear    │
+                  │ Math = 53-62% only      │
+                  │ (Reconciles debate)     │
+                  └─────────────────────────┘
 
-    ┌───────────────────────────────┐
-    │ #214 Safety Not Superficial   │
-    │ (May 2025) ICML 2025          │
-    │ CHALLENGES (Safety Focus)     │
-    │                               │
-    │ • Explicit [CLS] for safety   │
-    │ • Dynamic re-evaluation       │
-    │ • Near-zero ASR on attacks    │
-    │ • With explicit signals,      │
-    │   alignment CAN be deep       │
-    └───────────────────────────────┘
-                    │
-          Key tension with #213:
-          #213 says safety is "superficial"
-          #214 says it CAN be deep (explicit signals)
+     ⚠️ Key findings:
+     • #212/#213: Current safety alignment IS superficial
+     • #214: Safety CAN be deep with explicit signals
+     • #213: Reasoning requires deeper changes than style
 ```
 
 ---
