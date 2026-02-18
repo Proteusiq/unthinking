@@ -4502,4 +4502,41 @@ window.paperLinks = [
     type: 'supports',
     description: 'Similar philosophy: LLM for heuristics, external systems for correctness',
   },
+  // Paper 209: Revisiting Superficial Alignment Hypothesis
+  {
+    source: '2410.03717',
+    target: '2512.07783',
+    type: 'supports',
+    description: 'Both show post-training surfaces latent capabilities; more data = more patterns surfaced',
+  },
+  {
+    source: '2410.03717',
+    target: '2502.03373',
+    type: 'supports',
+    description: 'Both show capabilities pre-exist; training exposes patterns',
+  },
+  {
+    source: '2410.03717',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Power law scaling consistent with linearized subgraph matching',
+  },
+  {
+    source: '2410.03717',
+    target: '2410.05229',
+    type: 'related',
+    description: 'GSM-Symbolic tests OOD and finds failure; this paper doesnt test OOD',
+  },
+  {
+    source: '2410.03717',
+    target: '2510.07364',
+    type: 'supports',
+    description: 'Both show post-training surfaces pre-existing capabilities',
+  },
+  {
+    source: '2410.03717',
+    target: '2202.07206',
+    type: 'supports',
+    description: 'Both show performance correlates with training frequency/data quantity',
+  },
 ];

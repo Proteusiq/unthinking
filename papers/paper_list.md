@@ -237,6 +237,7 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 206 | 2305.15054 | May 2023 | A Mechanistic Interpretation of Arithmetic Reasoning in Language Models (ETH Zürich) | Balanced | ✅ DONE |
 | 207 | 2305.10601 | May 2023 | Tree of Thoughts: Deliberate Problem Solving with Large Language Models (NeurIPS 2023) | Supports | ✅ DONE (analysis: 207_tree_of_thoughts.md) |
 | 208 | 2308.09687 | Aug 2023 | Graph of Thoughts: Solving Elaborate Problems with Large Language Models (AAAI 2024) | Supports | ✅ DONE (analysis: 208_graph_of_thoughts.md) |
+| 209 | 2410.03717 | Sep 2024 | Revisiting the Superficial Alignment Hypothesis (Scale AI) | Balanced | ✅ DONE (analysis: 209_revisiting_superficial_alignment.md) |
 
 ### Other Notable Papers
 | # | arXiv ID | Date | Title | Stance | Status |
