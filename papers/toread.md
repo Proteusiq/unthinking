@@ -32,18 +32,18 @@ Papers directly addressing whether alignment is superficial. Critical for thesis
 
 ### SUPPORTS Thesis (Alignment IS Superficial)
 
-| arXiv ID | Title | Year | Key Finding |
-|----------|-------|------|-------------|
-| [2410.10862](https://arxiv.org/abs/2410.10862) | Superficial Safety Alignment Hypothesis | 2024 | Safety is implicit binary classification; only few neurons establish guardrails |
-| [2502.04602](https://arxiv.org/abs/2502.04602) | Extracting and Understanding Superficial Knowledge in Alignment | 2025 | Formalizes "superficial knowledge" as token restyling; safety/detox mostly superficial |
+| arXiv ID | Title | Year | Status |
+|----------|-------|------|--------|
+| [2410.10862](https://arxiv.org/abs/2410.10862) | Superficial Safety Alignment Hypothesis | 2024 | **✅ ANALYZED as #212** |
+| [2502.04602](https://arxiv.org/abs/2502.04602) | Extracting Superficial Knowledge | 2025 | **✅ ANALYZED as #213** |
 | [2506.17871](https://arxiv.org/abs/2506.17871) | LLM Probability Concentration | 2025 | **✅ ANALYZED as #210** |
-| [2506.07452](https://arxiv.org/abs/2506.07452) | When Style Breaks Safety | 2025 | Style patterns compromise safety; same-style training creates same-style vulnerabilities |
+| [2506.07452](https://arxiv.org/abs/2506.07452) | When Style Breaks Safety | 2025 | Style patterns compromise safety |
 
 ### CHALLENGES Thesis (Alignment Can Be Deep)
 
-| arXiv ID | Title | Year | Key Finding |
-|----------|-------|------|-------------|
-| [2505.17072](https://arxiv.org/abs/2505.17072) | Safety Alignment Can Be Not Superficial With Explicit Safety Signals (ICML 2025) | 2025 | Explicit safety signals make alignment robust; proposes binary classification task |
+| arXiv ID | Title | Year | Status |
+|----------|-------|------|--------|
+| [2505.17072](https://arxiv.org/abs/2505.17072) | Safety Not Superficial (ICML 2025) | 2025 | **✅ ANALYZED as #214** |
 
 ---
 
