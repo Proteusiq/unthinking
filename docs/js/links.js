@@ -4671,4 +4671,23 @@ window.paperLinks = [
     type: 'supports',
     description: 'Both show safety is localized/superficial: SCU neurons (#212) vs linear head (#213)',
   },
+  // Prompt Repetition (#215) relationships
+  {
+    source: '2512.14982',
+    target: '2412.21187',
+    type: 'supports',
+    description: 'Authors note o1 learns to repeat prompts via RL; this paper explains why it works',
+  },
+  {
+    source: '2512.14982',
+    target: '2404.15758',
+    type: 'supports',
+    description: 'Both show extra computation (via different mechanisms) improves performance',
+  },
+  {
+    source: '2512.14982',
+    target: '2310.02226',
+    type: 'supports',
+    description: 'Both show additional processing before output improves accuracy',
+  },
 ];
