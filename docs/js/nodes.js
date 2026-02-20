@@ -4554,4 +4554,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/210-219/214_safety_not_superficial.md',
   },
+  {
+    id: '2512.14982',
+    title: 'Prompt Repetition Improves Non-Reasoning LLMs',
+    shortTitle: 'Prompt Repetition',
+    date: 'Dec 2024',
+    stance: 'supports',
+    cluster: 'test-time',
+    coreArgument:
+      'Repeating the prompt verbatim improves LLM performance by enabling all tokens to attend to all prompt content, overcoming causal attention limitations.',
+    keyEvidence: [
+      '47 wins, 0 losses across 70 benchmark-model combinations',
+      'NameIndex: 21.33% → 97.33% (Flash-Lite)',
+      'Reasoning models already learn to repeat prompts via RL',
+      'No increase in output tokens or latency',
+    ],
+    keyQuotes: [
+      'We propose to repeat the prompt, i.e. transform the input from "<QUERY>" to "<QUERY><QUERY>". This enables each prompt token to attend to every other prompt token.',
+      'As further motivation, we observe that reasoning models trained with RL often learn to repeat (parts of) the user\'s request.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/210-219/215_prompt_repetition.md',
+  },
 ];

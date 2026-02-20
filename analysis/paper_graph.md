@@ -324,6 +324,12 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **HARP (2412.07282)** | **supports** | **Expanding Computation (2509.24884)** | **Both work at inference-only; HARP is selective, #197 is uniform** |
 | **HARP (2412.07282)** | **supports** | **Dot by Dot (2404.15758)** | **Both show filler/dummy computation improves performance** |
 | **HARP (2412.07282)** | **extends** | **Learning to Insert PAUSE (2506.03616)** | **DIT identifies hard positions via confidence; HARP uses entropy at inference** |
+| **Prompt Repetition (2512.14982)** | **supports** | **Overthinking o1-Like LLMs (2412.21187)** | **Authors note o1 learns to repeat prompts via RL; this paper shows why that works** |
+| **Prompt Repetition (2512.14982)** | **supports** | **Dot by Dot (2404.15758)** | **Both show extra computation (via different mechanisms) improves performance** |
+| **Prompt Repetition (2512.14982)** | **supports** | **Pause Tokens Training (2310.02226)** | **Both show additional processing before output improves accuracy** |
+| **Prompt Repetition (2512.14982)** | **extends** | **Re-reading improves reasoning (Xu et al., 2309.06275)** | **Cited in paper; extends to full prompt repetition with systematic evaluation** |
+| **Prompt Repetition (2512.14982)** | **challenges** | **Zero-Shot Reasoners (2205.11916)** | **Suggests CoT overhead may be unnecessary if prompt repetition achieves similar gains** |
+| **Prompt Repetition (2512.14982)** | **provides evidence for** | **Pattern matching thesis** | **76-point improvement on "find 25th item" reveals severe attention limitations that reasoning shouldn't exhibit** |
 | **Causal Lens Faithfulness (2502.18848)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Extends Lanham et al.'s corruption methods; Filler Tokens best** |
 | **Causal Lens Faithfulness (2502.18848)** | **supports** | **Seq-VCR (2411.02344)** | **Both show filler/dummy tokens reveal true computation vs. decoration** |
 | **Causal Lens Faithfulness (2502.18848)** | **supports** | **Dot by Dot (2404.15758)** | **Filler tokens metric confirms hidden computation hypothesis** |
@@ -1313,6 +1319,11 @@ These papers have NO direct rebuttals found:
 | **Space and Time (2310.02207)** | COUNTER-EVIDENCE (BALANCED): Linear probes extract space/time from Llama-2. R²=0.91 world, 0.36 NYC. Authors admit: "does not imply model uses these representations." Generalization degrades significantly on holdout. Compatible with pattern matching: encoding ≠ understanding. |
 | **Geometry of Truth (2310.06824)** | COUNTER-EVIDENCE (BALANCED): Same authors (Tegmark). Linear "truth direction" found. Authors admit: "cannot disambiguate truth from 'commonly believed'". Suspiciously, probes trained on "likely" (non-factual) data WORK for intervention. May be "familiarity" direction, not truth. |
 | **Mechanistic Arithmetic (2305.15054)** | COUNTER-EVIDENCE (BALANCED): Causal mediation finds arithmetic circuits in late MLPs (L19-20). Only 9-10% neuron overlap with factual knowledge (= random). BUT: Small range (1-300), division worst (40.8%), circuits emerge from fine-tuning. Compatible with learned lookup, not computation. |
+
+### 2026-02-20
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Prompt Repetition (2512.14982) | 47/70 wins, 0 losses; repeating prompt enables full attention; NameIndex 21%→97%; reasoning models learn this via RL |
 
 ### 2026-01-31
 | Papers Added | Key Findings |

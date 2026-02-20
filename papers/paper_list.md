@@ -373,15 +373,16 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 94 | 2601.18778 | Jan 2026 | Teaching Models to Teach Themselves (SOAR) | Balanced | ✅ DONE |
 | 95 | 2509.14252 | Sep 2025 | LLM-JEPA: Large Language Models Meet Joint Embedding Predictive Architectures | Balanced | ✅ DONE |
 | 96 | 2601.15436 | Jan 2026 | Not Your Typical Sycophant: The Elusive Nature of Sycophancy | Supports | ✅ DONE |
+| 215 | 2512.14982 | Dec 2024 | Prompt Repetition Improves Non-Reasoning LLMs (Google Research) | Supports | ✅ DONE |
 
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 208
-- **Against Reasoning**: ~122
+- **Total Papers**: 215
+- **Against Reasoning**: ~123
 - **For Reasoning**: ~31
 - **Balanced**: ~53
 - **Date Range**: 2021-2026
-- **Analyzed**: 208
+- **Analyzed**: 215
 
 ---
