@@ -1638,8 +1638,8 @@
       document.querySelector('.header').classList.add('collapsed');
     }
 
-    // Position thesis card below header (initial + after any layout shift)
-    requestAnimationFrame(positionThesisCard);
+    // Position thesis card below header, then dialogue below thesis
+    requestAnimationFrame(() => { positionThesisCard(); positionDialoguePanel(); });
 
     // Window resize (including orientation change)
     let resizeTimeout;
