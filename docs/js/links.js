@@ -4368,7 +4368,7 @@ window.paperLinks = [
     source: '2502.03275',
     target: '2404.15758',
     type: 'supports',
-    description: 'Both show compressed/filler tokens work as well as full CoT',
+    description: 'Latent tokens replace explicit steps; 3SUM 100% filler vs 66% no-filler baseline',
   },
   {
     source: '2502.03275',
@@ -4380,7 +4380,7 @@ window.paperLinks = [
     source: '2502.03275',
     target: '2412.21187',
     type: 'supports',
-    description: 'Both show explicit CoT often redundant; shorter can be better',
+    description: 'Latent tokens match full CoT; overthinking wastes 1953% tokens on easy problems',
   },
   {
     source: '2502.03275',
@@ -4412,7 +4412,7 @@ window.paperLinks = [
     source: '2310.02226',
     target: '2404.15758',
     type: 'supports',
-    description: 'Both show meaningless tokens improve performance via computation',
+    description: '+18% EM from pause tokens; +34% from filler dots — content irrelevant in both',
   },
   {
     source: '2310.02226',
@@ -4424,7 +4424,7 @@ window.paperLinks = [
     source: '2310.02226',
     target: '2502.03275',
     type: 'supports',
-    description: 'Both show intermediate tokens serve computation not semantics',
+    description: 'Pause gains only with pretraining (2/9 vs 8/9 tasks); latent tokens confirm same',
   },
   // Seq-VCR Dummy Pause (Paper 196)
   {
@@ -4432,7 +4432,7 @@ window.paperLinks = [
     target: '2404.15758',
     type: 'supports',
     description:
-      'Both show meaningless tokens replace CoT; Seq-VCR explains via representation collapse',
+      'Dummy tokens match CoT; Seq-VCR prevents representation collapse for +dramatic gains',
   },
   {
     source: '2411.02344',
@@ -4450,14 +4450,14 @@ window.paperLinks = [
     source: '2411.02344',
     target: '2502.03275',
     type: 'supports',
-    description: 'Both show semantic content redundant; Seq-VCR provides mechanism',
+    description: 'Seq-VCR regularization + latent tokens; semantic content redundant in both',
   },
   // Expanding Computation Spaces (Paper 197)
   {
     source: '2509.24884',
     target: '2404.15758',
     type: 'supports',
-    description: 'Both show filler tokens provide computational benefit independent of content',
+    description: 'Inference-time filler works without training but smaller gains than Dot by Dot',
   },
   {
     source: '2509.24884',
@@ -4482,13 +4482,13 @@ window.paperLinks = [
     source: '2506.03616',
     target: '2411.02344',
     type: 'supports',
-    description: 'Both show fine-tuning with pause tokens improves reasoning',
+    description: 'Fine-tuning only works (no pretraining); Seq-VCR regularization further improves',
   },
   {
     source: '2506.03616',
     target: '2404.15758',
     type: 'supports',
-    description: 'Both show meaningless tokens provide computational benefit',
+    description: 'DIT learns WHERE to pause; both show meaningless tokens boost performance',
   },
   // Bottlenecked Transformers (Paper 199)
   {
@@ -4514,13 +4514,13 @@ window.paperLinks = [
     source: '2412.07282',
     target: '2310.02226',
     type: 'supports',
-    description: 'Both show additional computation helps; HARP shows training not always required',
+    description: 'HARP uses entropy at inference; pause tokens need pretraining — complementary',
   },
   {
     source: '2412.07282',
     target: '2411.02344',
     type: 'supports',
-    description: 'Both show computational mechanisms underlie reasoning improvements',
+    description: 'HARP selects hard positions via entropy; Seq-VCR prevents representation collapse',
   },
   {
     source: '2412.07282',
@@ -4532,7 +4532,7 @@ window.paperLinks = [
     source: '2412.07282',
     target: '2404.15758',
     type: 'supports',
-    description: 'Both show filler/dummy computation improves performance',
+    description: 'HARP selective + Dot by Dot uniform; extra computation works regardless of method',
   },
   {
     source: '2412.07282',
@@ -4551,7 +4551,7 @@ window.paperLinks = [
     source: '2502.18848',
     target: '2411.02344',
     type: 'supports',
-    description: 'Both show filler/dummy tokens reveal true computation vs decoration',
+    description: 'Filler Tokens metric best for faithfulness; reveals hidden vs decorative compute',
   },
   {
     source: '2502.18848',
@@ -4570,13 +4570,13 @@ window.paperLinks = [
     source: '2309.13638',
     target: '2305.18654',
     type: 'supports',
-    description: 'Both show pattern matching over reasoning; probability sensitivity proves it',
+    description: 'Rot-2 at 2% vs Rot-1 at 82% — same difficulty, different frequency drives accuracy',
   },
   {
     source: '2309.13638',
     target: '2410.05229',
     type: 'supports',
-    description: 'Both show surface changes break models; training frequency explains why',
+    description: '41x accuracy gap (83% vs 2%) on article swapping; frequency predicts fragility',
   },
   {
     source: '2309.13638',
@@ -4588,7 +4588,7 @@ window.paperLinks = [
     source: '2309.13638',
     target: '2202.07206',
     type: 'extends',
-    description: 'Both show training frequency predicts performance',
+    description: 'Output regularization: "owl"→"own", "otters"→"others"; high-prob overrides',
   },
   {
     source: '2309.13638',
@@ -4600,7 +4600,7 @@ window.paperLinks = [
     source: '2309.13638',
     target: '2601.21618',
     type: 'supports',
-    description: 'Both show counting varies by semantic class due to probability',
+    description: 'Letter counting varies by word frequency; probability drives both phenomena',
   },
   {
     source: '2309.13638',
@@ -4631,13 +4631,13 @@ window.paperLinks = [
     source: '2410.01792',
     target: '2410.05229',
     type: 'supports',
-    description: 'Both show surface patterns affect performance even in advanced models',
+    description: 'o1 still shows probability sensitivity; embers persist despite reasoning training',
   },
   {
     source: '2410.01792',
     target: '2506.06941',
     type: 'supports',
-    description: 'Both show reasoning models have fundamental limits',
+    description: 'o1 embers + Illusion 0% hard tier; reasoning optimization cannot escape frequency',
   },
   {
     source: '2410.01792',
@@ -4702,7 +4702,7 @@ window.paperLinks = [
     source: '2305.10601',
     target: '2506.06941',
     type: 'supports',
-    description: 'Both show complexity thresholds; ToT addresses via more search',
+    description: '74% vs 4% on Game-of-24; ToT compensates via search where CoT hits threshold',
   },
   {
     source: '2305.10601',
@@ -4742,27 +4742,27 @@ window.paperLinks = [
     target: '2305.18654',
     type: 'supports',
     description:
-      'Both show decomposition helps but doesnt create reasoning; LLMs handle sub-problems within distribution',
+      '62% sorting gain from external merge sort; LLMs admit unable to sort beyond certain length',
   },
   {
     source: '2308.09687',
     target: '2512.07783',
     type: 'supports',
     description:
-      'Both show external scaffolding surfaces existing capability; doesnt create new reasoning',
+      'GoO (Graph of Operations) is pre-constructed by humans; external scaffolding surfaces latent',
   },
   {
     source: '2308.09687',
     target: '2506.06941',
     type: 'supports',
     description:
-      'Both show complexity thresholds; GoT addresses by chunking, not by LLM reasoning better',
+      '75% vs 50% sorting 128 numbers; GoT chunks problem, LLM handles only sub-problem size',
   },
   {
     source: '2308.09687',
     target: '2410.05229',
     type: 'supports',
-    description: 'Both show LLMs fail on variations; GoT works by reducing to known patterns',
+    description: 'Set intersection 75.7% vs 60.9%; graph structure reduces variations to known ops',
   },
   {
     source: '2308.09687',
@@ -4795,13 +4795,13 @@ window.paperLinks = [
     source: '2410.03717',
     target: '2510.07364',
     type: 'supports',
-    description: 'Both show post-training surfaces/improves capabilities',
+    description: 'Post-training teaches reasoning beyond style; power law scaling vs saturation',
   },
   {
     source: '2410.03717',
     target: '2502.03373',
     type: 'supports',
-    description: 'Both show training exposes capabilities; this paper adds reasoning improves too',
+    description: 'Demystifying shows pre-existence; Revisiting shows reasoning separable from style',
   },
   // Paper 210: LLM Probability Concentration - KILLER EVIDENCE
   {
@@ -4815,7 +4815,7 @@ window.paperLinks = [
     source: '2506.17871',
     target: '2502.03373',
     type: 'supports',
-    description: 'Both show capabilities pre-exist; BF proves alignment is path selection',
+    description: 'BF (Branching Factor) reduction proves alignment selects pre-existing paths',
   },
   {
     source: '2506.17871',
@@ -4886,7 +4886,7 @@ window.paperLinks = [
     source: '2410.10862',
     target: '2506.17871',
     type: 'supports',
-    description: 'Both show alignment is localized: SSAH=1.3% units, BF=path selection',
+    description: 'SSAH: 1.3% units control safety; BF: alignment locks into narrow paths',
   },
   // Extracting Superficial Knowledge (#213) relationships
   {
@@ -4899,7 +4899,7 @@ window.paperLinks = [
     source: '2502.04602',
     target: '2506.17871',
     type: 'supports',
-    description: 'Both show alignment is surface-level: linear projection vs BF path selection',
+    description: 'Linear head captures 100% safety; BF shows low-entropy paths pre-exist',
   },
   {
     source: '2502.04602',
@@ -4912,7 +4912,7 @@ window.paperLinks = [
     source: '2502.04602',
     target: '2410.10862',
     type: 'supports',
-    description: 'Both show safety alignment is superficial and localized',
+    description: 'SCU neurons (#212) + linear head (#213); safety is sparse and extractable',
   },
   // Safety Not Superficial (#214) relationships
   {
@@ -4947,7 +4947,7 @@ window.paperLinks = [
     target: '2502.04602',
     type: 'supports',
     description:
-      'Both show safety is localized/superficial: SCU neurons (#212) vs linear head (#213)',
+      'SCU neurons + linear head extraction; safety binary classification is sparse',
   },
   // Prompt Repetition (#215) relationships
   {
@@ -4961,12 +4961,12 @@ window.paperLinks = [
     source: '2512.14982',
     target: '2404.15758',
     type: 'supports',
-    description: 'Both show extra computation (via different mechanisms) improves performance',
+    description: 'Prompt repetition adds compute like filler dots; o1 learns this via RL',
   },
   {
     source: '2512.14982',
     target: '2310.02226',
     type: 'supports',
-    description: 'Both show additional processing before output improves accuracy',
+    description: 'Prompt repetition + pause tokens; extra processing before output helps accuracy',
   },
 ];
