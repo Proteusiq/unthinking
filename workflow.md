@@ -180,7 +180,9 @@ If paper provides significant evidence, update `analysis/synthesis.md`:
 
 ## Step 8: Update Website Data
 
-1. Edit `docs/js/data.js` to add new node:
+### 8a. Add Node to `docs/js/nodes.js`
+
+All fields are REQUIRED:
 
 ```javascript
 {
@@ -191,33 +193,90 @@ If paper provides significant evidence, update `analysis/synthesis.md`:
   stance: 'supports',            // supports | challenges | balanced
   cluster: 'compositional',      // Thematic cluster
   coreArgument: '...',           // Paper's claim (NO CAPS EMPHASIS)
-  keyEvidence: ['...'],          // Array of key findings
-  keyQuotes: [                   // 1-2 quotes from paper's own words
-    "Direct quote from paper...",
-    "Another key quote..."
-  ],
+  keyEvidence: ['...'],          // 3-4 findings with specific numbers
+  keyQuotes: ['...'],            // 1-2 direct quotes from paper
   analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/XX-XX/XX_paper_name.md'
 }
 ```
 
-**Important data.js guidelines:**
-- `coreArgument`: Use paper's own language, NO ALL CAPS for emphasis
+**Node guidelines:**
+- `coreArgument`: Paper's own language, one sentence, NO ALL CAPS emphasis
+- `keyEvidence`: Include specific numbers (e.g., `'100% vs 66% on 3SUM'`)
 - `keyQuotes`: Extract from "Key Quotes" section of analysis file
 - `analysisUrl`: Link to the full analysis markdown file
-- `stance`: Use only `supports`, `challenges`, or `balanced`
 
-2. Add links to other papers:
+### 8b. Add Links to `docs/js/links.js`
+
+Aim for **3-5 outgoing links** per paper. Every link MUST have a description.
 
 ```javascript
 {
-  source: 'XXXX.XXXXX',
-  target: 'YYYY.YYYYY', 
-  type: 'supports',              // supports | rebuts | extends
-  description: 'Brief description'
+  source: 'XXXX.XXXXX',          // This paper (newer/citing)
+  target: 'YYYY.YYYYY',          // Referenced paper (older/cited)
+  type: 'supports',              // supports | extends | rebuts | challenges
+  description: 'CoT benefits from computation, not task decomposition'
 }
 ```
 
-3. Update `meta.totalAnalyzed` count at top of file
+**Link types** (only use these four — others have no CSS styling):
+
+| Type | When to Use |
+|------|-------------|
+| `supports` | Findings reinforce the target paper's claims |
+| `extends` | Builds on target paper with new methods/scope |
+| `rebuts` | Directly contradicts target paper's conclusions |
+| `challenges` | Provides evidence that weakens target paper's claims |
+
+**Writing descriptions** — answer: "What specific relationship exists between these two papers?"
+
+The description is the most valuable part of a link. It tells the reader *how* two papers
+relate, not just *that* they relate. Compare:
+
+**Weak** (Grasp Addition → Faith & Fate):
+```javascript
+{ source: '2504.05262', target: '2305.18654', type: 'supports',
+  description: 'Pattern matching, no abstract rules' }
+```
+- 5 words — barely more than the type badge
+- Generic — could describe half the corpus
+- No mechanism — what did this paper specifically find?
+- Wastes the paper's rich evidence (99.8%→7.5%, commutativity violations)
+
+**Strong** (Dot by Dot → Faith & Fate):
+```javascript
+{ source: '2404.15758', target: '2305.18654', type: 'supports',
+  description: 'CoT benefits from computation, not task decomposition' }
+```
+- Specific mechanism — computation vs task decomposition
+- Tells you something you didn't know from the type badge alone
+- Unique — no other link in the corpus has this description
+
+**More strong examples:**
+```
+'Proves formal separation conjectured in Dot by Dot'
+'Both show meaningless tokens replace CoT; Seq-VCR explains via representation collapse'
+'Extends sycophancy analysis to reasoning models with 4800 judgments'
+'99.8%→7.5% with symbolic repr; commutativity violations prove memorized patterns'
+```
+
+**The test:** if you swap the paper names and the description still sounds right,
+it's too generic. A good description only makes sense for *this specific pair*.
+
+**Description rules:**
+- 30-100 characters, one sentence, no trailing period
+- Name the specific mechanism, finding, or number that connects the papers
+- No generic phrases ("related work", "similar findings", "both about X")
+- No type echoing ("supports the claim..." — badge already says SUPPORTS)
+- No ALL CAPS emphasis
+- Each description must be unique across all links for a paper
+
+**Choosing what to link** (priority order):
+1. Papers this one directly cites or rebuts
+2. Papers with shared experimental methodology
+3. Papers with same finding via different method (strongest evidence)
+4. Papers in same cluster with contrasting conclusions
+
+### 8c. Update `meta.totalAnalyzed` count in `docs/js/data.js`
 
 ---
 
@@ -238,6 +297,8 @@ git add analysis/explored/XX_paper_name.md
 git add papers/paper_list.md
 git add analysis/paper_graph.md
 git add analysis/synthesis.md
+git add docs/js/nodes.js
+git add docs/js/links.js
 git add docs/js/data.js
 git add README.md
 git commit -m "Add analysis: [Paper Title] (arXiv ID)
@@ -269,7 +330,9 @@ Remove analyzed paper from `papers/toread.md` or mark as done.
 | `analysis/paper_graph.md` | Paper relationships |
 | `analysis/paper_network.md` | Network visualization + cluster counts |
 | `analysis/rebuttals.md` | Rebuttal tracking matrix |
-| `docs/js/data.js` | Website visualization data |
+| `docs/js/nodes.js` | Paper node definitions |
+| `docs/js/links.js` | Relationship link definitions |
+| `docs/js/data.js` | Meta + combines nodes/links |
 
 ---
 
@@ -290,24 +353,24 @@ Remove analyzed paper from `papers/toread.md` or mark as done.
 
 ## Verification (Run Periodically)
 
-Ensure `docs/js/data.js` node count matches analyzed papers:
+Ensure `docs/js/nodes.js` node count matches analyzed papers:
 
 ```bash
-# Count nodes in data.js
-grep -c "id: '" docs/js/data.js
+# Count nodes
+grep -c "id: '" docs/js/nodes.js
 
 # Count DONE papers in paper_list.md  
 grep -c "DONE" papers/paper_list.md
 
-# Find papers missing from data.js
-grep "id: '" docs/js/data.js | sed "s/.*id: '\\([^']*\\)'.*/\\1/" | sort > /tmp/data_ids.txt
+# Find papers missing from nodes.js
+grep "id: '" docs/js/nodes.js | sed "s/.*id: '\\([^']*\\)'.*/\\1/" | sort > /tmp/data_ids.txt
 grep -E "^\| [0-9]+ \| [0-9]" papers/paper_list.md | awk -F'|' '{gsub(/ /,"",$3); print $3}' | sort > /tmp/paper_ids.txt
 comm -23 /tmp/paper_ids.txt /tmp/data_ids.txt
 ```
 
 If mismatch found:
-1. Add missing papers to `docs/js/data.js` nodes array
-2. Add relevant links for the new papers
-3. Update `meta.totalAnalyzed` count
+1. Add missing papers to `docs/js/nodes.js`
+2. Add relevant links to `docs/js/links.js` (3-5 outgoing, each with unique description)
+3. Update `meta.totalAnalyzed` count in `docs/js/data.js`
 4. **Update README.md** paper counts (badges and folder count)
 5. Commit and push to trigger deploy
