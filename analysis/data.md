@@ -134,29 +134,32 @@ More data, better filtering, higher quality — but the pipeline remains fundame
 | Dataset | Year | Size | Innovation |
 |---------|------|------|------------|
 | BooksCorpus | 2015 | 985M words | First book corpus for pre-training (BERT, GPT) |
-| WebText | 2019 | 40GB | Reddit karma as quality proxy (GPT-2) |
+| [OpenWebText](https://huggingface.co/datasets/Skylion007/openwebtext) | 2019 | 40GB | Open reproduction of WebText; Reddit karma as quality proxy (GPT-2) |
 | CCNet | 2019 | Varies | KenLM perplexity sorting on Wikipedia |
-| C4 | 2019 | 156B tokens | First large-scale cleaned CC (T5) |
+| [C4](https://huggingface.co/datasets/allenai/c4) | 2019 | 156B tokens | First large-scale cleaned CC (T5) |
 
 ### Scale-Up Era (2020–2022)
 
 | Dataset | Year | Size | Innovation |
 |---------|------|------|------------|
 | GPT-3 Dataset | 2020 | 400B tokens | First model-based quality classifier |
-| The Pile | 2021 | ~275B tokens | 22 curated domains; WARC > WET discovery |
+| [The Pile](https://huggingface.co/datasets/EleutherAI/the_pile_deduplicated) | 2021 | ~275B tokens | 22 curated domains; WARC > WET discovery |
 | MassiveText | 2021 | 10.5TB | SafeSearch toxicity; Gopher trained on 12% |
-| The Stack | 2022 | 3.1TB code | License-aware code filtering (137M repos) |
+| [The Stack](https://huggingface.co/datasets/bigcode/the-stack) | 2022 | 3.1TB code | License-aware code filtering (137M repos) |
 
 ### Modern Era (2023–2024)
 
 | Dataset | Year | Size | Innovation |
 |---------|------|------|------------|
 | LLaMA Dataset | 2023 | 1.2T tokens | Multi-source recipe template |
-| RefinedWeb | 2023 | 5T tokens | Proved web-only matches multi-source |
-| FineWeb | 2024 | 15T tokens | PII anonymization + educational subset |
-| Dolma | 2024 | 3T tokens | Bloom filter dedup + dual toxicity classifiers |
-| DCLM | 2024 | 240T→3.8T | Benchmarking data curation itself |
-| Nemotron-CC | 2024 | 6.3T tokens | Synthetic rephrasing of filtered-out data |
+| [RedPajama v1](https://huggingface.co/datasets/togethercomputer/RedPajama-Data-1T) | 2023 | 1.2T tokens | Open reproduction of LLaMA training mix |
+| [SlimPajama](https://huggingface.co/datasets/cerebras/SlimPajama-627B) | 2023 | 627B tokens | Deduplicated RedPajama; MinHash cleaning |
+| [RefinedWeb](https://huggingface.co/datasets/tiiuae/falcon-refinedweb) | 2023 | 5T tokens | Proved web-only matches multi-source |
+| [FineWeb](https://huggingface.co/datasets/HuggingFaceFW/fineweb) | 2024 | 15T tokens | PII anonymization + educational subset |
+| [FineWeb-Edu](https://huggingface.co/datasets/HuggingFaceFW/fineweb-edu) | 2024 | 1.3T tokens | Educational quality scoring via LLM annotations |
+| [Dolma](https://huggingface.co/datasets/allenai/dolma) | 2024 | 3T tokens | Bloom filter dedup + dual toxicity classifiers |
+| [DCLM](https://huggingface.co/datasets/mlfoundations/dclm-baseline-1.0) | 2024 | 240T→3.8T | Benchmarking data curation itself |
+| [Nemotron-CC](https://huggingface.co/datasets/nvidia/Nemotron-CC-v2.1) | 2024 | 6.3T tokens | Synthetic rephrasing of filtered-out data |
 
 ---
 
