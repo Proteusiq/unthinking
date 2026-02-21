@@ -1394,20 +1394,133 @@ A collection of influential quotes from four key thinkers who share overlapping 
 
 **Thesis Relevance**: Mollick's "jagged frontier" directly acknowledges uneven capabilities. His emphasis on human-in-the-loop implicitly recognizes LLMs cannot be trusted autonomously.
 
+### Sebastian Raschka
+
+| Quote | Source | Meaning |
+|-------|--------|---------|
+| "Whether LLMs actually 'think' is a different discussion" | Understanding Reasoning LLMs (Feb 2025) | Careful separation of mechanism from capability claims |
+| "Distillation is far more effective than pure RL for smaller models" | Understanding Reasoning LLMs (Feb 2025) | Pattern imitation (SFT) outperforms emergent discovery (RL) at scale |
+| "Reasoning models are sometimes more prone to errors due to 'overthinking'" | Understanding Reasoning LLMs (Feb 2025) | More compute can hurt — not a hallmark of genuine reasoning |
+
+**Thesis Relevance**: Raschka's engineering perspective demystifies "reasoning" by showing the full pipeline (matrix multiplications → learned attention patterns → reward-optimized outputs). His from-scratch implementations make explicit that no step involves understanding — only statistical association.
+
 ### Synthesis: The Emerging Consensus
 
-All four thinkers converge on key points that align with our thesis:
+All five thinkers converge on key points that align with the thesis:
 
-| Theme | Karpathy | Sutton | Howard | Mollick |
-|-------|----------|--------|--------|---------|
-| **LLM limitations are structural** | Ghosts, not animals | Dead end without new architectures | Build to Last | Jagged frontier |
-| **Human oversight required** | Agentic engineering | On-the-job learning missing | Dialogue engineering | Human in the loop |
-| **Pattern matching, not reasoning** | Statistical imitator | No world models | — | Working with wizards |
-| **Pragmatic optimism** | Useful ghosts | Bitter lesson (compute works) | LLM attention era | Co-intelligence |
+| Theme | Karpathy | Sutton | Howard | Mollick | Raschka |
+|-------|----------|--------|--------|---------|---------|
+| **LLM limitations are structural** | Ghosts, not animals | Dead end without new architectures | Build to Last | Jagged frontier | Scaling doesn't fix reasoning |
+| **Human oversight required** | Agentic engineering | On-the-job learning missing | Dialogue engineering | Human in the loop | Use the right tool for the task |
+| **Pattern matching, not reasoning** | Statistical imitator | No world models | — | Working with wizards | "Whether LLMs 'think' is a separate discussion" |
+| **Pragmatic optimism** | Useful ghosts | Bitter lesson (compute works) | LLM attention era | Co-intelligence | Distillation democratizes access |
 
-**Key Insight**: None of these thinkers claim LLMs "reason" in the human sense. They advocate productive use while acknowledging fundamental limitations — exactly the position our corpus supports.
+**Key Insight**: None of these thinkers claim LLMs "reason" in the human sense. They advocate productive use while acknowledging fundamental limitations — exactly the position the corpus supports.
 
 ---
 
-*Last updated: 2026-02-14*
+## Sebastian Raschka: The Mechanist's View (2023-2025)
+
+**Sources**:
+- [Understanding Reasoning LLMs](https://magazine.sebastianraschka.com/p/understanding-reasoning-llms) (Feb 5, 2025)
+- [Understanding and Coding Self-Attention](https://magazine.sebastianraschka.com/p/understanding-and-coding-self-attention) (Jan 14, 2024)
+- [Understanding Large Language Models](https://magazine.sebastianraschka.com/p/understanding-large-language-models) (Apr 16, 2023)
+
+Sebastian Raschka, PhD — author of *Build a Large Language Model (From Scratch)* and machine learning researcher — provides a practitioner's perspective that is technically precise and rhetorically cautious about the "reasoning" framing.
+
+### The Reasoning Models Article: What Raschka Actually Claims
+
+Raschka defines reasoning narrowly: "the process of answering questions that require complex, multi-step generation with intermediate steps." He immediately hedges: "Whether and how an LLM actually 'thinks' is a separate discussion."
+
+He identifies four approaches to building reasoning models:
+
+| Approach | Example | Key Insight |
+|----------|---------|-------------|
+| **1. Inference-time scaling** | CoT, voting, beam search | No training needed; just more compute at inference |
+| **2. Pure RL** | DeepSeek-R1-Zero | Reasoning "emerges" from reward optimization alone |
+| **3. SFT + RL** | DeepSeek-R1 | Standard pipeline; highest performance |
+| **4. Distillation (pure SFT)** | R1-Distill models | Smaller models fine-tuned on larger model outputs |
+
+**Thesis-relevant observations from Raschka**:
+
+1. **"Reasoning" is domain-specific, not general**: Raschka explicitly notes reasoning models are "not necessary for simpler tasks like summarization, translation, or knowledge-based question answering" and can be "more prone to errors due to overthinking." This aligns with the jagged intelligence thesis.
+
+2. **Distillation outperforms RL at smaller scales**: The R1-Distill models (pure SFT on R1 outputs) outperform pure RL on smaller models. If reasoning were a genuine emergent capability, RL should produce it at any scale. Instead, pattern imitation (SFT) works better — exactly what the surfacing hypothesis predicts.
+
+3. **The "Aha moment" is qualified**: Raschka describes DeepSeek's "Aha moment" where R1-Zero begins generating reasoning traces. But he frames it carefully: this "confirms that it is possible to develop a reasoning model using pure RL." He does not claim the model is reasoning — only that it produces reasoning-like traces.
+
+4. **Inference-time scaling is just more compute**: CoT prompting "makes inference more expensive through generating more output tokens." This aligns with our Computational Workspace theme (Papers 161, 195, 196) — the benefit is more forward passes, not semantic reasoning steps.
+
+5. **Journey learning exposes the training dependence**: Raschka highlights "journey learning" (training on incorrect + correct solution paths) as potentially superior to "shortcut learning" (correct paths only). This is significant: the model must be *shown* mistakes to learn from them. It cannot discover errors through reasoning — it must pattern-match on explicit error examples.
+
+### The Self-Attention Article: The Mechanism Laid Bare
+
+Raschka's from-scratch implementation of self-attention reveals what "understanding" reduces to mechanically:
+
+1. Embed tokens as vectors
+2. Project via learned weight matrices (Wq, Wk, Wv)
+3. Compute dot products between queries and keys
+4. Normalize via softmax
+5. Weight-sum the values
+
+Every step is a differentiable linear algebra operation. There is no step where "understanding" or "reasoning" enters. The mechanism determines which tokens attend to which other tokens based on learned statistical associations — exactly the pattern-matching thesis.
+
+**Causal attention** (the mask that prevents attending to future tokens) is particularly revealing: "the prediction for each next word should only depend on the preceding words." The model processes left-to-right, one token at a time, assembling context through weighted sums. This is the mechanistic foundation for why LLMs exhibit myopic horizon (Paper 181) — the architecture itself is incremental.
+
+### The "Understanding LLMs" Article: Scaling Doesn't Fix Reasoning
+
+Raschka's literature survey includes a key finding from the Gopher paper (Rae et al., 2022):
+
+> "Tasks related to logical and mathematical reasoning benefit less from architecture scaling."
+
+This is significant coming from a survey written in 2023, before our corpus largely confirmed it. Scaling helps comprehension, fact-checking, and toxicity detection — but not reasoning. This early observation foreshadows the complexity collapse findings (Papers 03, 16, 19).
+
+### Raschka vs Karpathy: Complementary Angles
+
+| Dimension | Karpathy | Raschka |
+|-----------|----------|---------|
+| **Framing** | Philosophical ("ghosts vs animals") | Engineering ("here's the pipeline") |
+| **On reasoning** | "Statistical imitator" | "Whether LLMs 'think' is a different discussion" |
+| **On CoT** | Implicit: RLVR creates reasoning-like patterns | Explicit: more inference compute, not understanding |
+| **On scaling** | Jagged intelligence | Scaling helps less for reasoning tasks |
+| **Key contribution** | Conceptual framework | Mechanistic transparency |
+
+Both reach similar conclusions through different paths. Karpathy provides the metaphor (ghosts), Raschka provides the implementation (matrix multiplications). Neither claims LLMs reason in the human sense.
+
+### Key Quotes for Thesis
+
+**On "reasoning"**:
+> "Whether and how an LLM actually 'thinks' is a separate discussion."
+— Understanding Reasoning LLMs (Feb 2025)
+
+**On CoT prompting**:
+> "[CoT] can be seen as inference-time scaling because it makes inference more expensive through generating more output tokens."
+— Understanding Reasoning LLMs (Feb 2025)
+
+**On distillation vs RL**:
+> "The results suggest that distillation is far more effective than pure RL for smaller models."
+— Understanding Reasoning LLMs (Feb 2025)
+
+**On reasoning models' limitations**:
+> "Reasoning models are... sometimes more prone to errors due to 'overthinking.'"
+— Understanding Reasoning LLMs (Feb 2025)
+
+**On scaling and reasoning** (from Gopher survey):
+> "Tasks related to logical and mathematical reasoning benefit less from architecture scaling."
+— Understanding Large Language Models (Apr 2023)
+
+### Connections to Corpus
+
+| Raschka Observation | Related Papers |
+|---------------------|---------------|
+| Reasoning as emergent from RL | DeepSeek-R1 (#07), Interplay (#15), Surfacing Hypothesis |
+| Distillation > RL at small scale | s1 (#133), LIMA (#211) — small data, big impact |
+| CoT = more compute | Dot by Dot (#161), Pause Tokens (#195, #196) |
+| Reasoning models can "overthink" | Inverse Scaling TTC (#174), Overthinking in o1 (#36) |
+| Scaling doesn't fix reasoning | Gopher → Complexity Collapse (#03, #16, #19) |
+| Journey learning (error exposure) | Contextual Drag (#180) — errors structurally inherited |
+
+---
+
+*Last updated: 2026-02-21*
 
