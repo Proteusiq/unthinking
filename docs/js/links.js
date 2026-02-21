@@ -30,7 +30,7 @@ window.paperLinks = [
     source: '2308.03958',
     target: '2410.05229',
     type: 'supports',
-    description: 'Both show models override correct reasoning under pressure',
+    description: 'Sycophancy overrides correct answers; GSM-Symbolic shows same fragility pattern',
   },
   // Truth-Bias Sycophancy (Paper 120)
   {
@@ -93,7 +93,7 @@ window.paperLinks = [
     target: '2601.15436',
     type: 'supports',
     description:
-      'Both show LLMs prioritize user-pleasing over truth; deception is extreme sycophancy',
+      'Strategic deception as extreme sycophancy; user-pleasing overrides truth in both',
   },
   {
     source: '2311.07590',
@@ -126,7 +126,7 @@ window.paperLinks = [
     source: '2502.03407',
     target: '2601.16644',
     type: 'supports',
-    description: 'Both find behavioral traits linearly encoded in activations',
+    description: 'AUROC 0.96-0.999 deception detection; sycophancy also linearly separable',
   },
   {
     source: '2502.03407',
@@ -327,7 +327,7 @@ window.paperLinks = [
     target: '2601.13392',
     type: 'supports',
     description:
-      'Both show 0% on unseen domains despite near-perfect in-domain; syntax learned, not goals',
+      '84-90% seen vs 20-59% unseen; 0% on composed constraints despite 100% knowledge',
   },
   {
     source: '2601.14456',
@@ -483,7 +483,7 @@ window.paperLinks = [
     target: '2510.15987',
     type: 'supports',
     description:
-      'Both find causally necessary attention heads; symbolic induction r=0.86 with function vectors',
+      'Symbolic induction heads r=0.86; primitives compose via vector arithmetic',
   },
   {
     source: '2502.20332',
@@ -705,7 +705,7 @@ window.paperLinks = [
     source: '2509.13334',
     target: '2505.05410',
     type: 'supports',
-    description: 'Both find 25-60% of CoT steps are causally unimportant',
+    description: '32.9% faithfulness baseline; 25-60% CoT steps causally unimportant',
   },
   {
     source: '2510.22362',
@@ -1968,7 +1968,7 @@ window.paperLinks = [
     source: '2601.05905',
     target: '2601.16644',
     type: 'supports',
-    description: 'Both find sycophancy has distinct computational signature',
+    description: 'SC=1.0 collapses under interference; sycophancy linearly separable in activations',
   },
   {
     source: '2601.05905',
@@ -1981,7 +1981,7 @@ window.paperLinks = [
     source: '2410.11684',
     target: '2308.03958',
     type: 'supports',
-    description: 'Both show sycophancy amplifies erroneous beliefs',
+    description: 'Causal illusion on correlation cues; sycophantic pressure amplifies errors',
   },
   {
     source: '2410.11684',
@@ -2032,7 +2032,7 @@ window.paperLinks = [
     source: '2406.02061',
     target: '2506.06941',
     type: 'supports',
-    description: 'Both show reasoning collapse on simple problems; AIW is even simpler',
+    description: 'AIW 0-100% fluctuation on simple combinations; Illusion 0% hard tier',
   },
   {
     source: '2406.02061',
@@ -2050,7 +2050,7 @@ window.paperLinks = [
     source: '2406.02061',
     target: '2601.21618',
     type: 'supports',
-    description: 'Both show semantic/numeric content affects "reasoning" dramatically',
+    description: 'AIW number sensitivity + letter counting class effects; content drives output',
   },
   {
     source: '2406.02061',
@@ -2315,7 +2315,7 @@ window.paperLinks = [
     target: '2601.19847',
     type: 'supports',
     description:
-      'Both show ~0.03% of parameters causally necessary; steering activates latent reasoning paths',
+      '~0.03% parameters causally necessary; steering activates pre-existing latent paths',
   },
   // Paper 134: Can ICL Generalize OOD links
   {
@@ -2354,7 +2354,7 @@ window.paperLinks = [
     source: '2502.03373',
     target: '2510.07364',
     type: 'supports',
-    description: 'Both show capabilities pre-exist in base model',
+    description: 'CoT as trajectory imitation; capabilities pre-exist and get surfaced',
   },
   {
     source: '2502.03373',
@@ -2458,7 +2458,7 @@ window.paperLinks = [
     source: '2508.15842',
     target: '2412.21187',
     type: 'supports',
-    description: 'Both find CoT length inversely correlated with accuracy',
+    description: '-6.2% accuracy per 1000 words; overthinking wastes 1953% tokens similarly',
   },
   {
     source: '2508.15842',
@@ -2526,7 +2526,7 @@ window.paperLinks = [
     source: '2601.21894',
     target: '2502.03373',
     type: 'supports',
-    description: 'Both show training exposes patterns; complexity-specific > diverse',
+    description: '83% experiments: complexity-restricted beats diverse; ρ≈-1.00 with complexity',
   },
   {
     source: '2601.21894',
@@ -2553,7 +2553,7 @@ window.paperLinks = [
     source: '2601.21909',
     target: '2502.03373',
     type: 'supports',
-    description: 'Both show surfacing hypothesis; CoT as trajectory imitation',
+    description: 'CoMT separates meta-knowledge from execution; +4.63% OOD via abstraction',
   },
   {
     source: '2601.21909',
@@ -2664,7 +2664,7 @@ window.paperLinks = [
     source: '2407.01687',
     target: '2601.21618',
     type: 'supports',
-    description: 'Both show output properties determine accuracy',
+    description: 'GPT-4 26-70% swing on output probability; letter counting varies by class',
   },
   {
     source: '2407.01687',
@@ -2677,7 +2677,7 @@ window.paperLinks = [
     source: '2409.12917',
     target: '2510.18254',
     type: 'supports',
-    description: 'Both show self-correction fails without special training',
+    description: 'SFT collapses; SCoRe +15.6% MATH via multi-turn RL only',
   },
   {
     source: '2409.12917',
@@ -2729,7 +2729,7 @@ window.paperLinks = [
     source: '2304.15004',
     target: '2202.07206',
     type: 'supports',
-    description: 'Both show capability scales with statistics, not reasoning',
+    description: '>70% gap frequent vs rare terms; emergence may be metric artifact',
   },
   // Paper 147: Term Frequencies links
   {
@@ -2750,7 +2750,7 @@ window.paperLinks = [
     source: '2202.07206',
     target: '2407.01687',
     type: 'supports',
-    description: 'Both show frequency/probability drives performance',
+    description: '>70% frequency gap + 26-70% probability swing; statistics drive output',
   },
   {
     source: '2202.07206',
@@ -2885,7 +2885,7 @@ window.paperLinks = [
     source: '2310.07923',
     target: '2502.04667',
     type: 'supports',
-    description: 'Both show CoT provides computational advantage',
+    description: 'TC⁰→TC⁰[poly(n)] expressivity; CoT resolves at layer 3 vs non-CoT at layer 5',
   },
   // Paper 153: PlanBench links
   {
@@ -2949,7 +2949,7 @@ window.paperLinks = [
     source: '2406.11050',
     target: '2309.12288',
     type: 'supports',
-    description: 'Both show directional token associations, not relations',
+    description: '91% failures predicted by token-bias; 97% forward vs 0.1% reverse',
   },
   {
     source: '2406.11050',
@@ -2974,7 +2974,7 @@ window.paperLinks = [
     source: '2305.14699',
     target: '2601.13392',
     type: 'supports',
-    description: 'Both show models learn patterns that break on unseen cases',
+    description: 'Shortcut algorithms fail on recursion; 100%→0% on unseen DFA compositions',
   },
   {
     source: '2305.14699',
@@ -3030,7 +3030,7 @@ window.paperLinks = [
     source: '2302.00093',
     target: '2207.07051',
     type: 'supports',
-    description: 'Both show semantic content affects reasoning — no logical filtering',
+    description: 'Irrelevant context distracts; negation triggers wrong patterns similarly',
   },
   // Paper 161: Dot by Dot links
   {
@@ -3087,7 +3087,7 @@ window.paperLinks = [
     source: '2402.18312',
     target: '2404.15758',
     type: 'supports',
-    description: 'Both show CoT benefits from computation not semantics',
+    description: '~400/1024 heads retain 90%; functional rift at layer 16 confirms compute benefit',
   },
   {
     source: '2402.18312',
@@ -3300,7 +3300,7 @@ window.paperLinks = [
     source: '2602.04843',
     target: '2510.07364',
     type: 'supports',
-    description: 'Both show base models have latent capabilities',
+    description: 'Cross-naming converges at ~7000 tokens; steering +1.8% accuracy on latent',
   },
   {
     source: '2602.04843',
@@ -3450,13 +3450,13 @@ window.paperLinks = [
     source: '2507.14417',
     target: '2506.06941',
     type: 'supports',
-    description: 'Both show reasoning collapse; this adds INVERSE scaling evidence',
+    description: '5 failure modes; TMLR Featured; more compute actively hurts on some tasks',
   },
   {
     source: '2507.14417',
     target: '2412.21187',
     type: 'supports',
-    description: 'Both show more tokens can hurt; systematic evidence',
+    description: '1953% token overhead on easy problems; inverse scaling confirms systematic waste',
   },
   {
     source: '2507.14417',
