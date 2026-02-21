@@ -1272,6 +1272,17 @@
     }, 4000);
   }
 
+  function positionThesisCard() {
+    const header = document.querySelector('.header');
+    const thesisCard = document.getElementById('thesis-card');
+    const thesisShowBtn = document.getElementById('thesis-show-btn');
+    if (!header || !thesisCard) return;
+    const headerRect = header.getBoundingClientRect();
+    const top = headerRect.bottom + 8;
+    thesisCard.style.top = `${top}px`;
+    if (thesisShowBtn) thesisShowBtn.style.top = `${top}px`;
+  }
+
   function positionDialoguePanel() {
     const thesisCard = document.getElementById('thesis-card');
     const thesisShowBtn = document.getElementById('thesis-show-btn');
@@ -1560,8 +1571,8 @@
         const thesisCard = document.getElementById('thesis-card');
         thesisCard.classList.remove('collapsed');
         thesisShowBtn.classList.remove('visible');
-        // Reposition dialogue panel
-        setTimeout(positionDialoguePanel, 400);
+        // Reposition panels
+        setTimeout(() => { positionThesisCard(); positionDialoguePanel(); }, 400);
       });
     }
 
@@ -1570,8 +1581,8 @@
     if (headerToggle) {
       headerToggle.addEventListener('click', () => {
         document.querySelector('.header').classList.toggle('collapsed');
-        // Reposition dialogue panel after transition
-        setTimeout(positionDialoguePanel, 400);
+        // Reposition panels after transition
+        setTimeout(() => { positionThesisCard(); positionDialoguePanel(); }, 400);
       });
     }
 
@@ -1582,6 +1593,7 @@
         // Don't collapse if clicking on interactive elements
         if (e.target.closest('input, button, .filter-btn')) return;
         header.classList.add('collapsed');
+        setTimeout(() => { positionThesisCard(); positionDialoguePanel(); }, 400);
       });
     }
 
@@ -1591,8 +1603,8 @@
       headerCompact.addEventListener('click', (e) => {
         if (e.target.closest('.search-container-compact')) return;
         document.querySelector('.header').classList.remove('collapsed');
-        // Reposition dialogue panel after transition
-        setTimeout(positionDialoguePanel, 400);
+        // Reposition panels after transition
+        setTimeout(() => { positionThesisCard(); positionDialoguePanel(); }, 400);
       });
     }
 
@@ -1625,6 +1637,9 @@
     if (window.innerWidth <= 768) {
       document.querySelector('.header').classList.add('collapsed');
     }
+
+    // Position thesis card below header (initial + after any layout shift)
+    requestAnimationFrame(positionThesisCard);
 
     // Window resize (including orientation change)
     let resizeTimeout;
@@ -1661,8 +1676,8 @@
       }, 250);
     }
 
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('orientationchange', handleResize);
+    window.addEventListener('resize', () => { handleResize(); positionThesisCard(); positionDialoguePanel(); });
+    window.addEventListener('orientationchange', () => { handleResize(); positionThesisCard(); positionDialoguePanel(); });
 
     // Keyboard shortcuts
     document.addEventListener('keydown', (e) => {
