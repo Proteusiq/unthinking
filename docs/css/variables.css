@@ -30,6 +30,12 @@
   --edge-supports: #34d399;
   --edge-rebuts: #fb7185;
   --edge-extends: #a78bfa;
+  --edge-challenges: #fb7185;
+
+  --thesis-post-training: #56d364;
+  --thesis-architecture: #58a6ff;
+  --thesis-data: #d29922;
+  --overlay-bg: #0d1117;
 
   --node-stroke: rgba(255, 255, 255, 0.9);
 

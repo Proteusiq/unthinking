@@ -330,7 +330,7 @@
   transition: color var(--transition-normal);
 }
 .panel-arxiv:hover {
-  color: #a78bfa;
+  color: var(--edge-extends);
 }
 .panel-section {
   margin-bottom: var(--space-md);
@@ -458,7 +458,7 @@
 }
 .connection-type.extends {
   background: rgba(167, 139, 250, 0.3);
-  color: #a78bfa;
+  color: var(--edge-extends);
 }
 /* Key Quotes */
 .quotes-section {
@@ -513,10 +513,10 @@
 }
 .arxiv-link {
   background: rgba(167, 139, 250, 0.3);
-  color: #a78bfa;
+  color: var(--edge-extends);
 }
 .arxiv-link:hover {
-  background: #a78bfa;
+  background: var(--edge-extends);
   color: white;
   transform: translateY(-1px);
 }
@@ -614,28 +614,28 @@
 }
 .post-training-link {
   background: rgba(86, 211, 100, 0.15);
-  color: #56d364;
+  color: var(--thesis-post-training);
 }
 .post-training-link:hover {
-  background: #56d364;
+  background: var(--thesis-post-training);
   color: white;
   transform: translateY(-1px);
 }
 .architecture-link {
   background: rgba(88, 166, 255, 0.15);
-  color: #58a6ff;
+  color: var(--thesis-architecture);
 }
 .architecture-link:hover {
-  background: #58a6ff;
+  background: var(--thesis-architecture);
   color: white;
   transform: translateY(-1px);
 }
 .data-link {
   background: rgba(210, 153, 34, 0.15);
-  color: #d29922;
+  color: var(--thesis-data);
 }
 .data-link:hover {
-  background: #d29922;
+  background: var(--thesis-data);
   color: white;
   transform: translateY(-1px);
 }
@@ -710,7 +710,7 @@
   border-radius: var(--radius-lg);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
-  background: #0d1117;
+  background: var(--overlay-bg);
   opacity: 0;
   transform: translateY(30px) scale(0.96);
   transition:

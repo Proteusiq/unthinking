@@ -222,7 +222,7 @@
     feMerge.append('feMergeNode').attr('in', 'SourceGraphic');
 
     // Arrow markers for directed edges (smaller, offset from node)
-    ['supports', 'rebuts', 'extends'].forEach((type) => {
+    ['supports', 'rebuts', 'extends', 'challenges'].forEach((type) => {
       defs
         .append('marker')
         .attr('id', `arrow-${type}`)
