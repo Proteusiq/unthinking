@@ -589,6 +589,88 @@
   transform: translateY(-1px);
 }
 
+/* Overlay Modal */
+.overlay-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0);
+  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
+  pointer-events: none;
+  transition:
+    background 0.3s ease,
+    -webkit-backdrop-filter 0.3s ease,
+    backdrop-filter 0.3s ease;
+}
+.overlay-modal.open {
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  pointer-events: auto;
+}
+.overlay-chrome {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 var(--space-md);
+  z-index: 2;
+}
+.overlay-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+  opacity: 0;
+  transform: scale(0.8);
+}
+.overlay-modal.open .overlay-close {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.15s;
+}
+.overlay-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+.overlay-close svg {
+  width: 18px;
+  height: 18px;
+}
+.overlay-frame {
+  width: 92vw;
+  height: 90vh;
+  max-width: 1100px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+  background: #0d1117;
+  opacity: 0;
+  transform: translateY(30px) scale(0.96);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+.overlay-modal.open .overlay-frame {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
 .thesis-show-btn {
   position: fixed;
   top: 105px;
