@@ -235,25 +235,28 @@ window.paperLinks = [
     source: '2507.07313',
     target: '2506.06941',
     type: 'supports',
-    description: 'Same abrupt collapse',
+    description:
+      'o1/R1 fail at depth-12 logic (~35%, random=25%); scaling tediousness breaks all models',
   },
   {
     source: '2507.07313',
     target: '2305.18654',
     type: 'supports',
-    description: 'Error accumulation mechanism',
+    description:
+      'Unpuzzles: trivializing famous puzzles breaks models that solved originals — memorization exposed',
   },
   {
     source: '2507.07313',
     target: '2410.05229',
     type: 'supports',
-    description: 'Distribution-dependent failures',
+    description:
+      'Making problems easier can make models worse — counter-intuitive memorization effect',
   },
   {
     source: '2507.07313',
     target: '2501.12948',
     type: 'challenges',
-    description: 'R1 at 0% character counting',
+    description: 'R1 at 0% single-character counting; only o1 succeeds at length 150',
   },
   {
     source: '2510.18254',
@@ -381,7 +384,8 @@ window.paperLinks = [
     source: '2505.05410',
     target: '2307.13702',
     type: 'extends',
-    description: 'Extends to reasoning models',
+    description:
+      'Claude 3.7 ~25% faithful, R1 ~39%; harder tasks = less faithful (GPQA -32-44% vs MMLU)',
   },
   {
     source: '2507.01231',
@@ -459,31 +463,35 @@ window.paperLinks = [
     source: '2502.20332',
     target: '2510.15987',
     type: 'supports',
-    description: 'Identifiable mechanisms',
+    description:
+      'Both find causally necessary attention heads; symbolic induction r=0.86 with function vectors',
   },
   {
     source: '2502.20332',
     target: '2402.10200',
     type: 'supports',
-    description: 'Latent reasoning capabilities',
+    description:
+      'Three-stage symbolic circuit (abstraction→induction→retrieval) with 98%+ cross-token transfer',
   },
   {
     source: '2509.23629',
     target: '2512.07783',
     type: 'supports',
-    description: 'RL integrates existing patterns',
+    description:
+      'Concept web has avg degree ~2; SFT severs bridge edges causing topological disconnection',
   },
   {
     source: '2509.23629',
     target: '2506.17219',
     type: 'supports',
-    description: 'Policy collapse mechanism',
+    description:
+      'Each skill undergoes phase-transition collapse from exploration to exploitation at leaf nodes',
   },
   {
     source: '2509.23629',
     target: '2506.06941',
     type: 'supports',
-    description: 'Sparse web → collapse',
+    description: 'Sparse tree-like reasoning web — removing one bridge disconnects entire subtree',
   },
   {
     source: '2601.08058',
@@ -603,13 +611,15 @@ window.paperLinks = [
     source: '2510.20783',
     target: '2502.20332',
     type: 'supports',
-    description: 'Identifiable mechanisms',
+    description:
+      'Chess: 97-99% legal moves OOD but strategy drops -68% (Knights&Rooks) — rule vs strategy split',
   },
   {
     source: '2510.20783',
     target: '2506.18880',
     type: 'supports',
-    description: 'Rules generalize, strategies fail',
+    description:
+      'Zero-probability OOD positions: rules compose, strategies remain distribution-bounded',
   },
   {
     source: '2601.02989',
@@ -634,13 +644,15 @@ window.paperLinks = [
     source: '2509.18458',
     target: '2506.06941',
     type: 'supports',
-    description: 'State-tracking errors dominate',
+    description:
+      'Task length (N) is dominant constraint; only gpt-5/o3 exceed 50% at N=250 statements',
   },
   {
     source: '2509.18458',
     target: '2601.02989',
     type: 'supports',
-    description: 'System-1 fails at scale',
+    description:
+      'U-shaped distractor response; models show cognitive fingerprints — distinct failure profiles',
   },
   {
     source: '2601.13244',
@@ -759,13 +771,15 @@ window.paperLinks = [
     source: '2409.02257',
     target: '2410.13343',
     type: 'supports',
-    description: 'Shortcut exploitation',
+    description:
+      'Anchoring bias: models stick to original choices; GPT-4o drops -14.3pp on multi-answer',
   },
   {
     source: '2409.02257',
     target: '2410.05229',
     type: 'supports',
-    description: 'Format changes expose brittleness',
+    description:
+      'Shortcut selection ratio reveals models maintain wrong answers rather than reassess',
   },
   {
     source: '2512.01222',
@@ -783,19 +797,22 @@ window.paperLinks = [
     source: '2506.21215',
     target: '2305.18654',
     type: 'supports',
-    description: 'Pattern matching over reasoning',
+    description:
+      'Only level-1 (retrieval) causal reasoning; ~30pp drop on CausalProbe 2024 post-training data',
   },
   {
     source: '2506.21215',
     target: '2410.05229',
     type: 'supports',
-    description: 'High accuracy hides brittleness',
+    description:
+      'Sequential causality ≠ logical causality; autoregressive mechanism creates spurious associations',
   },
   {
     source: '2506.21215',
     target: '2601.14456',
     type: 'supports',
-    description: 'ID/OOD gap evidence',
+    description:
+      'Fresh data benchmark confirms distribution-bounded reasoning; same ID/OOD collapse pattern',
   },
   {
     source: '2503.05788',
@@ -849,19 +866,21 @@ window.paperLinks = [
     source: '2510.15974',
     target: '2506.06941',
     type: 'supports',
-    description: "Collapse pattern; tools don't help",
+    description: 'Agentic Hanoi collapses EARLIER than baseline; 60-70% loop rate at n=8 disks',
   },
   {
     source: '2510.15974',
     target: '2506.18957',
     type: 'rebuts',
-    description: "Agentic framework doesn't solve",
+    description:
+      'Environment interface makes Hanoi worse, not better; execution gap IS reasoning gap',
   },
   {
     source: '2510.15974',
     target: '2507.17699',
     type: 'rebuts',
-    description: "Environment interface doesn't help",
+    description:
+      'Dynamic state feedback + tool calls make planning worse; deterministic looping, not exploration',
   },
   {
     source: '2504.01445',
@@ -948,13 +967,14 @@ window.paperLinks = [
     source: '2601.03676',
     target: '2504.01445',
     type: 'supports',
-    description: 'Data bottleneck k>1',
+    description: '4K targeted samples beat 52K random; critical leap at k=2 skill compositions',
   },
   {
     source: '2601.03676',
     target: '2506.18880',
     type: 'supports',
-    description: 'Compositional collapse',
+    description:
+      'Skill combos follow power-law: atomic abundant, k>1 compositions vanishingly rare in training',
   },
   {
     source: '2505.16782',
