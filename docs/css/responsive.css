@@ -162,6 +162,10 @@
     max-height: calc(70vh - 100px);
   }
 
+  .zoom-controls {
+    display: none;
+  }
+
   .graph-container {
     padding-top: 200px;
   }
