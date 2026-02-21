@@ -1254,8 +1254,8 @@
     // Start at random position in dialogue list
     dialogueIndex = Math.floor(Math.random() * dialogues.length);
 
-    // Position below thesis card
-    positionDialoguePanel();
+    // Position below thesis card (repositionPanels handles the chain)
+    repositionPanels();
 
     // Double-click to hide
     panel.addEventListener('dblclick', hideDialogue);
@@ -1272,48 +1272,47 @@
     }, 4000);
   }
 
-  function positionThesisCard() {
+  // ── Reactive panel positioning ──
+  // Single function that chains: header → thesis card → dialogue panel.
+  // Called by ResizeObserver + transitionend so panels always follow each other.
+  let _rafId = 0;
+  function repositionPanels() {
+    cancelAnimationFrame(_rafId);
+    _rafId = requestAnimationFrame(_repositionNow);
+  }
+  function _repositionNow() {
     const header = document.querySelector('.header');
     const thesisCard = document.getElementById('thesis-card');
     const thesisShowBtn = document.getElementById('thesis-show-btn');
-    if (!header || !thesisCard) return;
-    const headerRect = header.getBoundingClientRect();
-    const top = headerRect.bottom + 8;
-    thesisCard.style.top = `${top}px`;
-    if (thesisShowBtn) thesisShowBtn.style.top = `${top}px`;
-  }
+    const dialoguePanel = document.getElementById('dialogue-panel');
+    const dialogueShowBtn = document.getElementById('dialogue-show-btn');
+    if (!header) return;
 
-  function positionDialoguePanel() {
-    const thesisCard = document.getElementById('thesis-card');
-    const thesisShowBtn = document.getElementById('thesis-show-btn');
-    const panel = document.getElementById('dialogue-panel');
-    const showBtn = document.getElementById('dialogue-show-btn');
-
-    if (!panel) return;
-
-    // On mobile, dialogue is at bottom - don't reposition
-    if (window.innerWidth <= 768) return;
-
-    let topPosition;
-
-    // If thesis is collapsed, position below thesis show button or header
-    if (thesisCard && thesisCard.classList.contains('collapsed')) {
-      if (thesisShowBtn) {
-        const btnRect = thesisShowBtn.getBoundingClientRect();
-        topPosition = btnRect.bottom + 12;
-      } else {
-        topPosition = 180; // fallback
-      }
-    } else if (thesisCard) {
-      const thesisRect = thesisCard.getBoundingClientRect();
-      topPosition = thesisRect.bottom + 12; // 12px gap
-    } else {
-      topPosition = 180; // fallback
+    // 1. Thesis card sits below header
+    if (thesisCard) {
+      const headerBottom = header.getBoundingClientRect().bottom;
+      const thesisTop = headerBottom + 8;
+      thesisCard.style.top = `${thesisTop}px`;
+      if (thesisShowBtn) thesisShowBtn.style.top = `${thesisTop}px`;
     }
 
-    panel.style.top = `${topPosition}px`;
-    if (showBtn) showBtn.style.top = `${topPosition}px`;
+    // 2. Dialogue panel sits below thesis card (or thesis show-btn if collapsed)
+    if (dialoguePanel && window.innerWidth > 768) {
+      let dialogueTop;
+      if (thesisCard && !thesisCard.classList.contains('collapsed')) {
+        dialogueTop = thesisCard.getBoundingClientRect().bottom + 12;
+      } else if (thesisShowBtn && thesisShowBtn.classList.contains('visible')) {
+        dialogueTop = thesisShowBtn.getBoundingClientRect().bottom + 12;
+      } else {
+        dialogueTop = header.getBoundingClientRect().bottom + 20;
+      }
+      dialoguePanel.style.top = `${dialogueTop}px`;
+      if (dialogueShowBtn) dialogueShowBtn.style.top = `${dialogueTop}px`;
+    }
   }
+  // Keep old names as aliases so existing call-sites still work
+  function positionThesisCard() { repositionPanels(); }
+  function positionDialoguePanel() { repositionPanels(); }
 
   function hideDialogue() {
     const panel = document.getElementById('dialogue-panel');
@@ -1559,8 +1558,6 @@
         const thesisShowBtn = document.getElementById('thesis-show-btn');
         thesisCard.classList.add('collapsed');
         if (thesisShowBtn) thesisShowBtn.classList.add('visible');
-        // Reposition dialogue panel
-        setTimeout(positionDialoguePanel, 400);
       });
     }
 
@@ -1571,8 +1568,6 @@
         const thesisCard = document.getElementById('thesis-card');
         thesisCard.classList.remove('collapsed');
         thesisShowBtn.classList.remove('visible');
-        // Reposition panels
-        setTimeout(() => { positionThesisCard(); positionDialoguePanel(); }, 400);
       });
     }
 
@@ -1581,8 +1576,6 @@
     if (headerToggle) {
       headerToggle.addEventListener('click', () => {
         document.querySelector('.header').classList.toggle('collapsed');
-        // Reposition panels after transition
-        setTimeout(() => { positionThesisCard(); positionDialoguePanel(); }, 400);
       });
     }
 
@@ -1593,7 +1586,6 @@
         // Don't collapse if clicking on interactive elements
         if (e.target.closest('input, button, .filter-btn')) return;
         header.classList.add('collapsed');
-        setTimeout(() => { positionThesisCard(); positionDialoguePanel(); }, 400);
       });
     }
 
@@ -1603,8 +1595,6 @@
       headerCompact.addEventListener('click', (e) => {
         if (e.target.closest('.search-container-compact')) return;
         document.querySelector('.header').classList.remove('collapsed');
-        // Reposition panels after transition
-        setTimeout(() => { positionThesisCard(); positionDialoguePanel(); }, 400);
       });
     }
 
@@ -1638,8 +1628,23 @@
       document.querySelector('.header').classList.add('collapsed');
     }
 
-    // Position thesis card below header, then dialogue below thesis
-    requestAnimationFrame(() => { positionThesisCard(); positionDialoguePanel(); });
+    // ── Reactive positioning: panels follow each other automatically ──
+    // Listen for transitionend on header and thesis card so panels
+    // reposition whenever either finishes animating (collapse/expand).
+    if (header) {
+      header.addEventListener('transitionend', repositionPanels);
+    }
+    if (thesisCard) {
+      thesisCard.addEventListener('transitionend', repositionPanels);
+    }
+    // ResizeObserver catches size changes from font load, reflow, etc.
+    if (typeof ResizeObserver !== 'undefined') {
+      const ro = new ResizeObserver(repositionPanels);
+      if (header) ro.observe(header);
+      if (thesisCard) ro.observe(thesisCard);
+    }
+    // Initial position + resize/orientation
+    repositionPanels();
 
     // Window resize (including orientation change)
     let resizeTimeout;
@@ -1676,8 +1681,8 @@
       }, 250);
     }
 
-    window.addEventListener('resize', () => { handleResize(); positionThesisCard(); positionDialoguePanel(); });
-    window.addEventListener('orientationchange', () => { handleResize(); positionThesisCard(); positionDialoguePanel(); });
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleResize);
 
     // Keyboard shortcuts
     document.addEventListener('keydown', (e) => {
