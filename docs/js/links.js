@@ -184,7 +184,8 @@ window.paperLinks = [
     source: '2508.01191',
     target: '2305.18654',
     type: 'supports',
-    description: 'ID=100%, OOD=0%',
+    description:
+      'DataAlchemy from-scratch training: ID=100%, OOD=0% across task, length, and format shifts',
   },
   {
     source: '2410.05229',
@@ -196,19 +197,22 @@ window.paperLinks = [
     source: '2601.00514',
     target: '2501.12948',
     type: 'rebuts',
-    description: "Aha moments are rare, don't help",
+    description:
+      '1M+ traces: aha moments ~2-6% of traces, no increase with training, seldom improve accuracy',
   },
   {
     source: '2601.00514',
     target: '2307.13702',
     type: 'supports',
-    description: 'Shifts are unfaithful',
+    description:
+      'Mid-trace shifts are unstable inference, not self-correction — correlate with entropy',
   },
   {
     source: '2601.00514',
     target: '2505.05410',
     type: 'supports',
-    description: "CoT doesn't reflect computation",
+    description:
+      'Extrinsic forced shifts help; intrinsic aha moments do not — appearance without substance',
   },
   {
     source: '2509.12645',
@@ -508,13 +512,15 @@ window.paperLinks = [
     source: '2504.20771',
     target: '2506.06941',
     type: 'supports',
-    description: 'Performance collapse at scale',
+    description:
+      'Gemini fails Turing machine at step 16-683; inevitable collapse from statistical nature',
   },
   {
     source: '2504.20771',
     target: '2305.18654',
     type: 'supports',
-    description: 'Error accumulation',
+    description:
+      'Even 94% pass rate at 30 steps masks deterministic rule-following failure at scale',
   },
   {
     source: '2407.20311',
@@ -570,12 +576,19 @@ window.paperLinks = [
     type: 'supports',
     description: 'Monolithic reasoning can harm',
   },
-  { source: '2505.23945', target: '2307.13702', type: 'extends', description: 'Extends to VLMs' },
+  {
+    source: '2505.23945',
+    target: '2307.13702',
+    type: 'extends',
+    description:
+      'First comprehensive VLM faithfulness study; SFT shows 0% improvement over non-reasoning',
+  },
   {
     source: '2505.23945',
     target: '2505.05410',
     type: 'supports',
-    description: 'Visual biases less articulated',
+    description:
+      'Visual biases 0% articulation (CelebA gender); models use biases they refuse to admit',
   },
   {
     source: '2510.20783',
@@ -593,19 +606,20 @@ window.paperLinks = [
     source: '2601.02989',
     target: '2506.06941',
     type: 'supports',
-    description: 'Collapse at complexity threshold',
+    description:
+      'System-1 counting hits 0% at 41-50 items; CoT alone also 0% — needs external structure',
   },
   {
     source: '2601.02989',
     target: '2512.04727',
     type: 'supports',
-    description: "Can't count at scale",
+    description: 'Mechanistic probing: internal counter saturates at ~30 items, layer 22 critical',
   },
   {
     source: '2601.02989',
     target: '2305.18654',
     type: 'supports',
-    description: 'Error accumulation, depth-bounded',
+    description: 'Depth-bounded counters saturate — error accumulates across transformer layers',
   },
   {
     source: '2509.18458',
@@ -659,7 +673,7 @@ window.paperLinks = [
     source: '2510.25013',
     target: '2502.20332',
     type: 'supports',
-    description: 'Identifiable circuits',
+    description: 'Minimal 2-head additive-contrastive circuit for IOI; task-specific, not general',
   },
   {
     source: '2510.08931',
@@ -689,19 +703,22 @@ window.paperLinks = [
     source: '2504.05262',
     target: '2410.05229',
     type: 'supports',
-    description: 'High accuracy hides brittleness',
+    description:
+      '99.8% numerical → 7.5% symbolic; both show near-perfect scores mask zero generalization',
   },
   {
     source: '2504.05262',
     target: '2305.18654',
     type: 'supports',
-    description: 'Pattern matching, no abstract rules',
+    description:
+      '1,700+ commutativity violations (A+B ≠ B+A) prove direction-specific memorized patterns',
   },
   {
     source: '2504.05262',
     target: '2512.04727',
     type: 'supports',
-    description: "Can't compute algorithmically",
+    description:
+      'SFT achieves 97.17% numerical but 0% symbolic transfer — optimizes patterns, not rules',
   },
   {
     source: '2512.13978',
@@ -857,13 +874,13 @@ window.paperLinks = [
     source: '2504.12523',
     target: '2305.18654',
     type: 'supports',
-    description: "Can't apply learned patterns",
+    description: '70-80% direct probing vs <2% indirect — memorizes facts, cannot reason over them',
   },
   {
     source: '2504.12523',
     target: '2504.01445',
     type: 'supports',
-    description: "Can pattern match, can't compose",
+    description: 'Same pattern: retrieves facts (MCQ ~80%) but fails to compose implications (<2%)',
   },
   {
     source: '2512.13713',
@@ -881,7 +898,8 @@ window.paperLinks = [
     source: '2510.09312',
     target: '2510.22362',
     type: 'supports',
-    description: 'Mechanistic distinction',
+    description:
+      '92.47% AUROC via attribution graphs; error signatures are domain-specific, not universal',
   },
   {
     source: '2509.01267',
@@ -953,13 +971,14 @@ window.paperLinks = [
     source: '2510.27378',
     target: '2307.13702',
     type: 'extends',
-    description: 'Verbosity dimension',
+    description:
+      'Adds verbosity dimension: faithful CoT can still omit key factors, blocking monitoring',
   },
   {
     source: '2510.27378',
     target: '2505.05410',
     type: 'supports',
-    description: "CoT doesn't reflect reasoning",
+    description: 'Models appear faithful yet remain unmonitorable — key factors hidden from CoT',
   },
   {
     source: '2403.11793',

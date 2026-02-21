@@ -348,7 +348,9 @@ Run through this checklist after every paper analysis:
 - [ ] **synthesis.md updated** (papers table + evidence mapping if significant)
 - [ ] **rebuttals.md updated** (if paper rebuts or is rebutted by existing papers)
 - [ ] **paper_network.md updated** (update counts + add to cluster if significant)
-- [ ] **data.js updated** (new node + links + meta.totalAnalyzed + keyQuotes + analysisUrl)
+- [ ] **nodes.js updated** (new node with ALL required fields)
+- [ ] **links.js updated** (3-5 outgoing links, each with unique description)
+- [ ] **data.js updated** (meta.totalAnalyzed count)
 - [ ] **README.md updated** (paper counts in badges and folder)
 - [ ] **Rebuttals section complete** in analysis file
 - [ ] **File numbering sequential** (no gaps in XX_paper_name.md)
@@ -357,11 +359,11 @@ Run through this checklist after every paper analysis:
 
 ---
 
-## Visualization Data (data.js)
+## Visualization Data
 
-When adding a paper to `docs/js/data.js`, include these fields:
+Nodes live in `docs/js/nodes.js`, links in `docs/js/links.js`, meta in `docs/js/data.js`.
 
-### Required Fields
+### Node Fields (ALL REQUIRED)
 ```javascript
 {
   id: '2305.18654',           // arXiv ID
@@ -371,17 +373,8 @@ When adding a paper to `docs/js/data.js`, include these fields:
   stance: 'supports',         // supports | challenges | balanced
   cluster: 'compositional',   // Thematic cluster
   coreArgument: '...',        // One sentence - paper's own claim, NO EDITORIAL EMPHASIS
-  keyEvidence: ['...'],       // Array of key findings
-}
-```
-
-### Optional Fields (Recommended)
-```javascript
-{
-  keyQuotes: [                // 1-2 quotes from the paper's own words
-    "Direct quote from paper...",
-    "Another key quote..."
-  ],
+  keyEvidence: ['...'],       // 3-4 findings with specific numbers
+  keyQuotes: ['...'],         // 1-2 direct quotes from paper's own words
   analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/XX-XX/XX_paper_name.md'
 }
 ```
@@ -391,6 +384,11 @@ When adding a paper to `docs/js/data.js`, include these fields:
 - NO ALL CAPS for emphasis (e.g., ~~"FOUNDATIONAL"~~, ~~"WORSE"~~)
 - Keep objective — let the evidence speak for itself
 - One sentence summarizing what the paper claims
+
+### Guidelines for keyEvidence
+- 3-4 items, each a short phrase with a specific number
+- Format: `'[metric/finding] [number]'`
+- Examples: `'100% vs 66% on 3SUM with filler tokens'`, `'Up to 65% drop (NoOp)'`
 
 ### Guidelines for keyQuotes
 - Extract from the "Key Quotes" section of the analysis file
@@ -405,21 +403,79 @@ When adding a paper to `docs/js/data.js`, include these fields:
 | `challenges` | Challenges thesis (evidence for reasoning) | Red |
 | `balanced` | Mixed evidence | Yellow |
 
+### Link Fields (ALL REQUIRED)
+```javascript
+{
+  source: '2404.15758',      // Citing paper (newer)
+  target: '2305.18654',      // Cited paper (older)
+  type: 'supports',          // supports | extends | rebuts | challenges
+  description: 'CoT benefits from computation, not task decomposition'
+}
+```
+
+### Link Types (only use these four — others have no CSS styling)
+| Type | CSS Color | When to Use |
+|------|-----------|-------------|
+| `supports` | Green | Findings reinforce the target paper's claims |
+| `extends` | Purple | Builds on target with new methods/scope |
+| `rebuts` | Red | Directly contradicts target's conclusions |
+| `challenges` | Red | Evidence that weakens target's claims |
+
+### Writing Link Descriptions
+
+Answer: **"What specific relationship exists between these two papers?"**
+
+Compare weak vs strong for the same link type (`supports` → Faith & Fate):
+
+```javascript
+// WEAK (Grasp Addition): generic, could describe half the corpus
+description: 'Pattern matching, no abstract rules'
+
+// STRONG (Dot by Dot): names the specific mechanism
+description: 'CoT benefits from computation, not task decomposition'
+```
+
+The weak description wastes the paper's evidence (99.8%→7.5%, commutativity violations).
+The strong description tells you something the type badge alone cannot.
+
+**The test:** if you swap the paper names and the description still fits, it's too generic.
+
+```
+GOOD: 'Both show CoT benefits from computation not semantics'
+GOOD: 'Proves formal separation conjectured in Dot by Dot'
+GOOD: 'Both show meaningless tokens replace CoT; Seq-VCR explains via representation collapse'
+
+BAD:  'Related work on reasoning'           (too vague)
+BAD:  'Supports this paper'                 (redundant with type badge)
+BAD:  'Both about CoT'                      (what about CoT?)
+BAD:  'Pattern matching, no abstract rules'  (generic — which paper?)
+BAD:  "Can't compute algorithmically"        (too terse, no specifics)
+```
+
+**Rules:**
+- 30-100 characters, one sentence, no trailing period
+- Name the specific mechanism, finding, or number that connects the papers
+- No generic phrases ("related work", "similar findings", "both about X")
+- No type echoing ("supports the claim..." — badge already says SUPPORTS)
+- No ALL CAPS emphasis
+- Each description must be unique across a paper's links
+- Aim for 3-5 outgoing links per paper
+
 ### Verification Checklist (Run Periodically)
-Ensure node count in `docs/js/data.js` matches analyzed papers:
+Ensure node count in `docs/js/nodes.js` matches analyzed papers:
 ```bash
-# Count nodes in data.js
-grep -c "id: '" docs/js/data.js
+# Count nodes
+grep -c "id: '" docs/js/nodes.js
 
 # Count DONE papers in paper_list.md
 grep -c "DONE" papers/paper_list.md
 
-# Find papers missing from data.js
-grep "id: '" docs/js/data.js | sed "s/.*id: '\\([^']*\\)'.*/\\1/" | sort > /tmp/data_ids.txt
+# Find papers missing from nodes.js
+grep "id: '" docs/js/nodes.js | sed "s/.*id: '\\([^']*\\)'.*/\\1/" | sort > /tmp/data_ids.txt
 grep -E "^\\| [0-9]+ \\| [0-9]" papers/paper_list.md | awk -F'|' '{gsub(/ /,"",$3); print $3}' | sort > /tmp/paper_ids.txt
 comm -23 /tmp/paper_ids.txt /tmp/data_ids.txt
 ```
-If mismatch found, add missing papers to `docs/js/data.js` nodes and links.
+If mismatch found, add missing papers to `docs/js/nodes.js` and `docs/js/links.js`.
 
 ---
 
