@@ -794,8 +794,19 @@
     stanceBadge.textContent = d.stance;
     stanceBadge.className = `panel-stance-badge ${d.stance}`;
 
+    // Cluster badge
+    const clusterBadge = panel.querySelector('.panel-cluster-badge');
+    if (d.cluster) {
+      clusterBadge.textContent = d.cluster;
+      clusterBadge.style.display = 'inline-block';
+    } else {
+      clusterBadge.style.display = 'none';
+    }
+
     panel.querySelector('.panel-title').textContent = d.title;
-    panel.querySelector('.panel-arxiv').textContent = d.id;
+    const arxivEl = panel.querySelector('.panel-arxiv');
+    arxivEl.textContent = d.id;
+    arxivEl.href = `https://arxiv.org/abs/${d.id}`;
     panel.querySelector('.panel-date').textContent = d.date;
 
     // Core argument
@@ -803,6 +814,7 @@
 
     // Evidence
     const evidenceList = panel.querySelector('.panel-evidence');
+    evidenceList.className = `panel-evidence ${d.stance}`;
     evidenceList.innerHTML = d.keyEvidence.map((e) => `<li>${e}</li>`).join('');
 
     // Key Quotes
@@ -843,30 +855,21 @@
       }
     });
 
+    const connectionHtml = (c) => `
+      <li data-id="${c.node.id}">
+        <span class="connection-type ${c.type}">${c.type}</span>
+        <span class="connection-info">
+          <span class="connection-name">${c.node.shortTitle || c.node.title}</span>
+          ${c.description ? `<span class="connection-desc">${c.description}</span>` : ''}
+        </span>
+      </li>`;
+
     outgoingList.innerHTML = outgoing.length
-      ? outgoing
-          .map(
-            (c) => `
-            <li data-id="${c.node.id}">
-                <span class="connection-type ${c.type}">${c.type}</span>
-                <span>${c.node.shortTitle || c.node.title}</span>
-            </li>
-        `
-          )
-          .join('')
+      ? outgoing.map(connectionHtml).join('')
       : '<li class="empty">No outgoing connections</li>';
 
     incomingList.innerHTML = incoming.length
-      ? incoming
-          .map(
-            (c) => `
-            <li data-id="${c.node.id}">
-                <span class="connection-type ${c.type}">${c.type}</span>
-                <span>${c.node.shortTitle || c.node.title}</span>
-            </li>
-        `
-          )
-          .join('')
+      ? incoming.map(connectionHtml).join('')
       : '<li class="empty">No incoming connections</li>';
 
     // ArXiv link
