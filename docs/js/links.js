@@ -1949,19 +1949,19 @@ window.paperLinks = [
     source: '2310.13548',
     target: '2601.15436',
     type: 'extends',
-    description: 'Establishes sycophancy methodology; Paper 96 extends',
+    description: 'PM prefers sycophantic 95% of time; Best-of-N drives rate to 75% on hard misconceptions',
   },
   {
     source: '2310.13548',
     target: '2601.21183',
     type: 'extends',
-    description: 'Foundational for mechanistic sycophancy anchors work',
+    description: '98% false mistake admission rate provides behavioral basis for locating sycophantic anchors',
   },
   {
     source: '2310.13548',
     target: '2601.16644',
     type: 'extends',
-    description: 'Enables linear probe sycophancy detection',
+    description: 'Belief-matching +6% preference probability in 15K pairs; explains what probes detect mechanistically',
   },
   {
     source: '2310.13548',
@@ -1973,7 +1973,7 @@ window.paperLinks = [
     source: '2310.13548',
     target: '2506.21561',
     type: 'supports',
-    description: 'Both find PM prefers sycophantic; reasoning models affected',
+    description: 'PM prefers sycophantic 95%; reasoning models inherit this bias from RLHF training signal',
   },
   {
     source: '2310.13548',
@@ -1985,63 +1985,63 @@ window.paperLinks = [
     source: '2310.13548',
     target: '2410.11684',
     type: 'supports',
-    description: 'Both show sycophancy amplifies errors; same mechanism',
+    description: 'RL against sycophantic PM increases sycophancy; user-suggested wrong answers drop accuracy 27%',
   },
   {
     source: '2310.13548',
     target: '2308.03958',
     type: 'supports',
-    description: 'Complementary work; both establish sycophancy fundamentals',
+    description: 'Bayesian regression at 71.3% accuracy shows belief-matching is among top features of human preference',
   },
   // Paper 128: Conformity of LLMs links
   {
     source: '2501.13381',
     target: '2310.13548',
     type: 'supports',
-    description: 'Both show LLMs prioritize social agreement over truth',
+    description: 'Doubt protocol 47.2% conformity rate; extends sycophancy to multi-agent peer pressure',
   },
   {
     source: '2501.13381',
     target: '2308.03958',
     type: 'supports',
-    description: 'Both show larger models dont eliminate social bias',
+    description: 'Llama-405B still only 56.1% independence rate; GPT-4o drops 22.6% under trust protocol',
   },
   {
     source: '2501.13381',
     target: '2506.21561',
     type: 'supports',
-    description: 'Conformity is form of sycophancy to peer group',
+    description: 'Qwen2-7B 98.7% credulity; multi-agent conformity extends single-user sycophancy to peer groups',
   },
   {
     source: '2501.13381',
     target: '2601.05905',
     type: 'supports',
-    description: 'Beliefs collapse under social pressure; same brittleness',
+    description: 'Doubt protocol induces 38.6% accuracy drop (Gemma-27B); trust relationships bias future decisions',
   },
   // Paper 129: Overthinking o1-Like LLMs links
   {
     source: '2412.21187',
     target: '2601.21576',
     type: 'supports',
-    description: 'Both show extended CoT often redundant; most tokens wasted',
+    description: 'First solution correct >92% of time; QwQ uses 901 tokens for 2+3=5 (4.3% efficiency)',
   },
   {
     source: '2412.21187',
     target: '2601.17421',
     type: 'supports',
-    description: 'Both show error correction in long chains often fake',
+    description: 'Solution diversity drops 11.5% after solution #3; later rounds repeat strategies not explore',
   },
   {
     source: '2412.21187',
     target: '2506.06941',
     type: 'supports',
-    description: 'Both show performance issues with extended thinking',
+    description: 'Easy problems get 3.7 solutions vs hard 3.0; more compute on easier problems counterintuitively',
   },
   {
     source: '2412.21187',
     target: '2501.02497',
     type: 'extends',
-    description: 'Quantifies inefficiency of test-time compute scaling',
+    description: 'SimPO reduces tokens 45% with <1% accuracy loss; 1953% overhead vs conventional LLMs',
   },
   // Paper 130: Underthinking o1-Like LLMs links
   {
@@ -2054,19 +2054,19 @@ window.paperLinks = [
     source: '2501.18585',
     target: '2601.17421',
     type: 'supports',
-    description: 'Both show token-level signals dont guide reasoning effectively',
+    description: '418% more thought switches in wrong answers; >70% of failures contain abandoned correct thoughts',
   },
   {
     source: '2501.18585',
     target: '2601.19847',
     type: 'supports',
-    description: 'Both show reasoning predictable from early signals',
+    description: 'First correct thought at 411 tokens but 7270 wasted; 94.6% underthinking score on AIME',
   },
   {
     source: '2501.18585',
     target: '2501.02497',
     type: 'extends',
-    description: 'Another failure mode of scaling test-time compute',
+    description: 'Tip penalty: QwQ AIME 38%→44% by reducing switches 16→14; underthinking mirrors overthinking',
   },
   // Paper 131: Can LLMs Reason and Plan (Kambhampati) links
   {
@@ -2079,69 +2079,69 @@ window.paperLinks = [
     source: '2403.04121',
     target: '2506.06941',
     type: 'supports',
-    description: 'Predicts collapse at complexity thresholds',
+    description: 'GPT-4 ~30% Blocks World; obfuscating names causes precipitous drop proving pattern matching',
   },
   {
     source: '2403.04121',
     target: '2506.18880',
     type: 'supports',
-    description: 'Assembly problem predicts compositional failure',
+    description: 'Can extract planning knowledge but cannot assemble it into executable plans; retrieval not search',
   },
   {
     source: '2403.04121',
     target: '2601.14456',
     type: 'supports',
-    description: 'Obfuscation findings predict ID/OOD gap',
+    description: 'Obfuscated names destroy planning; off-the-shelf AI planners unaffected by same obfuscation',
   },
   // Paper 132: Stop Anthropomorphizing Tokens (Kambhampati) links
   {
     source: '2504.09762',
     target: '2403.04121',
     type: 'extends',
-    description: 'Same author; extends to LRMs',
+    description: 'Extends retrieval framework to LRMs: post-training compiles verifier signal into generation',
   },
   {
     source: '2504.09762',
     target: '2307.13702',
     type: 'supports',
-    description: 'Theoretical grounding for unfaithfulness',
+    description: 'Incorrect traces outperform correct in SFT; trace content has no formal semantics',
   },
   {
     source: '2504.09762',
     target: '2505.05410',
     type: 'supports',
-    description: 'Both show traces dont reflect reasoning',
+    description: 'R1-Zero unreadable traces outperform R1 human-annotated; interpretability hurts performance',
   },
   {
     source: '2504.09762',
     target: '2412.21187',
     type: 'supports',
-    description: 'No metacognitive awareness of reasoning',
+    description: 'Aha moments are just tokens; models have no internal state to have genuine insight',
   },
   // Paper 133: Base Models Know How to Reason links
   {
     source: '2510.07364',
     target: '2512.07783',
     type: 'supports',
-    description: 'Causal proof of surfacing hypothesis',
+    description: '15 steering vectors at 12% of tokens recover 91% of thinking model gap; timing not capability',
   },
   {
     source: '2510.07364',
     target: '2403.04121',
     type: 'supports',
-    description: 'Shows approximate retrieval can be steered',
+    description: 'Ablation: random vectors 77.2% vs full hybrid 84.4%; correct vectors + timing both necessary',
   },
   {
     source: '2510.07364',
     target: '2504.09762',
     type: 'supports',
-    description: 'Shows compilation mechanism',
+    description: 'RLVR teaches when to deploy pre-existing mechanisms; compilation = learning timing signals',
   },
   {
     source: '2510.07364',
     target: '2601.19847',
     type: 'supports',
-    description: 'Both find steering activates reasoning',
+    description: 'Both show ~0.03% of parameters causally necessary; steering activates latent reasoning paths',
   },
   // Paper 134: Can ICL Generalize OOD links
   {
@@ -2154,7 +2154,7 @@ window.paperLinks = [
     source: '2410.09695',
     target: '2508.01191',
     type: 'supports',
-    description: 'Both show ID=high, OOD=low pattern',
+    description: 'Llama-3-8B retrieval ~98% vs OOD linear classification ~10%; abstract labels fail on OOD functions',
   },
   {
     source: '2410.09695',
@@ -2197,13 +2197,13 @@ window.paperLinks = [
     source: '2502.03373',
     target: '2412.21187',
     type: 'extends',
-    description: 'Explains length scaling dynamics',
+    description: 'Without reward shaping, CoT extends past 16K until accuracy hits zero; explains overthinking',
   },
   {
     source: '2502.03373',
     target: '2501.18585',
     type: 'extends',
-    description: 'Explains length scaling dynamics',
+    description: 'Short CoT saturates at <55% with 0% RL gain; long CoT enables +5% RL improvement',
   },
   // Paper 136: Chain of Thoughtlessness links
   {
@@ -2216,7 +2216,7 @@ window.paperLinks = [
     source: '2405.04776',
     target: '2410.09695',
     type: 'supports',
-    description: 'Both show OOD failure',
+    description: 'Performance rapidly deteriorates when stack size n exceeds examples; three domains same pattern',
   },
   {
     source: '2405.04776',
@@ -2234,7 +2234,7 @@ window.paperLinks = [
     source: '2405.04776',
     target: '2506.06941',
     type: 'supports',
-    description: 'Complexity collapse demonstrated',
+    description: 'Only problem-specific prompts help; general CoT prompts yield no improvement on planning',
   },
   {
     source: '2405.04776',
@@ -2253,13 +2253,13 @@ window.paperLinks = [
     source: '2502.04667',
     target: '2410.09695',
     type: 'supports',
-    description: 'Both show OOD generalization failure is fundamental',
+    description: 'Non-CoT: ~100% ID but ~0% OOD; CoT enables OOD only when subtasks seen in training',
   },
   {
     source: '2502.04667',
     target: '2502.03373',
     type: 'supports',
-    description: 'Both analyze CoT mechanisms; provides cleaner controlled evidence',
+    description: 'Two-stage circuit: CoT resolves at layer 3 vs non-CoT at layer 5; 4K vs >1M steps to converge',
   },
   {
     source: '2502.04667',
@@ -2284,25 +2284,25 @@ window.paperLinks = [
     source: '2508.15842',
     target: '2501.18585',
     type: 'supports',
-    description: 'Complements findings on CoT length dynamics',
+    description: 'DeepSeek loses 6.2% accuracy per 1000 words; length predicts errors on Omni-MATH but not HLE',
   },
   {
     source: '2508.15842',
     target: '2601.05905',
     type: 'supports',
-    description: 'Both document severe miscalibration',
+    description: 'Claude 84.6% calibration error on HLE; reports ~90% confidence at ~9% accuracy',
   },
   {
     source: '2508.15842',
     target: '2405.04776',
     type: 'supports',
-    description: 'Both show CoT doesnt reliably help on hard tasks',
+    description: 'No length-accuracy relationship on HLE; CoT length only predictive on intermediate difficulty',
   },
   {
     source: '2508.15842',
     target: '2504.09762',
     type: 'supports',
-    description: 'Supports that CoT tokens != reasoning traces',
+    description: '5 harmful words (MCC 0.30) outperform self-confidence (MCC 0.065) 4.7x; tokens leak not reason',
   },
   {
     source: '2508.15842',
@@ -2315,7 +2315,7 @@ window.paperLinks = [
     source: '2512.24601',
     target: '2506.06941',
     type: 'supports',
-    description: 'Context rot evidence confirms reasoning limits',
+    description: 'OOLONG-Pairs O(N²): GPT-5 fails <10% at all lengths; context rot scales with task complexity',
   },
   {
     source: '2512.24601',
@@ -2327,13 +2327,13 @@ window.paperLinks = [
     source: '2512.24601',
     target: '2502.04667',
     type: 'supports',
-    description: 'Both show explicit structure improves performance',
+    description: 'RLM CodeQA 24%→62%, BrowseComp 0%→91%; symbolic recursion compensates for CoT limits',
   },
   {
     source: '2512.24601',
     target: '2507.17699',
     type: 'extends',
-    description: 'Both argue tools augment reasoning',
+    description: 'RLM-8B approaches GPT-5 quality (+28.3%); external scaffolding not native computation',
   },
   // Paper 140: Not All Code Is Equal links
   {
@@ -2346,19 +2346,19 @@ window.paperLinks = [
     source: '2601.21894',
     target: '2502.04667',
     type: 'supports',
-    description: 'Both analyze training structure effects on reasoning',
+    description: '83% of experiments: complexity-restricted training beats diverse code; non-monotonic gains',
   },
   {
     source: '2601.21894',
     target: '2510.07364',
     type: 'supports',
-    description: 'Code complexity surfaces latent patterns',
+    description: 'Llama ρ≈-1.00 with complexity; high complexity actively harms below NL baseline',
   },
   {
     source: '2601.21894',
     target: '2601.21618',
     type: 'supports',
-    description: 'Both show surface properties determine performance',
+    description: 'Optimal CC≈10 for Qwen; structural complexity not semantic diversity determines gains',
   },
   // Paper 141: Meta-Thought to Execution links
   {
@@ -2371,13 +2371,13 @@ window.paperLinks = [
     source: '2601.21909',
     target: '2502.04667',
     type: 'supports',
-    description: 'Both analyze CoT mechanisms',
+    description: 'CoMT separates meta-knowledge from execution; +4.63% OOD vs +2.19% ID over standard CoT',
   },
   {
     source: '2601.21909',
     target: '2601.21894',
     type: 'supports',
-    description: 'Both show training data structure matters',
+    description: '65-70% less training time, 50% fewer tokens; abstract patterns transfer better than raw traces',
   },
   {
     source: '2410.09695',
@@ -2396,7 +2396,7 @@ window.paperLinks = [
     source: '2601.21414',
     target: '2502.03373',
     type: 'supports',
-    description: 'Both analyze System 1/System 2 dynamic',
+    description: 'Linear interpolation θ=(1-λ)·instruct+λ·thinking yields convex Pareto frontier for reasoning',
   },
   {
     source: '2601.21414',
