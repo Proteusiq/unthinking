@@ -3724,14 +3724,14 @@ window.paperLinks = [
     source: '2506.11135',
     target: '2506.11928',
     type: 'supports',
-    description: 'Both distinguish capability (LLMs) from intelligence (humans)',
+    description: '83%→0% coding collapse exemplifies capability without intelligence',
   },
   // Connect Paper 175 (Uncommon Meanings) to more papers
   {
     source: '2405.05741',
     target: '2302.00093',
     type: 'supports',
-    description: 'Both show frequency/context determines performance, not understanding',
+    description: 'Uncommon word senses fail like low-frequency patterns; statistics gate comprehension',
   },
   {
     source: '2405.05741',
@@ -3745,44 +3745,44 @@ window.paperLinks = [
     source: '2506.11928',
     target: '2505.23701',
     type: 'supports',
-    description: 'Both decompose performance into components; knowledge vs insight',
+    description: 'Knowledge-heavy succeed, observation-heavy fail; computation ≠ abstraction',
   },
   {
     source: '2506.23921',
     target: '2505.23701',
     type: 'supports',
-    description: 'Both use mechanistic probing to understand internal representations',
+    description: 'Trilemma probes truth across 16 LLMs; abstraction probes at layers 13-14 vs 18',
   },
   // Paper 180: Contextual Drag links
   {
     source: '2602.04288',
     target: '2310.13548',
     type: 'supports',
-    description: 'Both show context biases LLMs toward errors; sycophancy mechanism',
+    description: '34% AIME drop from 1 failed draft; attention reuses erroneous patterns like sycophancy',
   },
   {
     source: '2602.04288',
     target: '2302.00093',
     type: 'supports',
-    description: 'Both show contextual information can override correct reasoning',
+    description: '53% Game-of-24 collapse with 2 failed drafts; context overrides correct computation',
   },
   {
     source: '2602.04288',
     target: '2305.04388',
     type: 'supports',
-    description: 'Both show context induces systematic reasoning errors',
+    description: 'Tree edit distance confirms structural inheritance of errors, not surface copying',
   },
   {
     source: '2602.04288',
     target: '2602.01017',
     type: 'supports',
-    description: 'Both show autoregressive models inherit patterns from context',
+    description: 'Even GPT-5 degrades 6.25% from failed drafts; autoregressive pattern inheritance',
   },
   {
     source: '2602.04288',
     target: '2501.18585',
     type: 'supports',
-    description: 'Both show iterative approaches can fail to improve reasoning',
+    description: 'Iterative refinement causes accuracy collapse; self-deterioration across iterations',
   },
   {
     source: '2602.04288',
@@ -3806,7 +3806,7 @@ window.paperLinks = [
     source: '2602.04288',
     target: '2410.05229',
     type: 'supports',
-    description: 'Both show reasoning fragility under perturbation',
+    description: '10-20% drops across 11 models from failed context; fragility like numeric perturbation',
   },
   {
     source: '2602.04288',
@@ -3819,13 +3819,13 @@ window.paperLinks = [
     source: '2602.02103',
     target: '2305.15771',
     type: 'supports',
-    description: 'Both show LLMs lack genuine planning capabilities',
+    description: 'Final answer probing at 0.50 (chance) until last position; no lookahead planning',
   },
   {
     source: '2602.02103',
     target: '2409.13373',
     type: 'supports',
-    description: 'Both provide evidence against planning in LLMs',
+    description: 'Token F1 drops 0.90→0.03 at delta=16; myopic horizon matches planning gap findings',
   },
   {
     source: '2602.02103',
@@ -3837,7 +3837,7 @@ window.paperLinks = [
     source: '2602.02103',
     target: '2504.09762',
     type: 'supports',
-    description: 'Both show CoT traces lack semantic planning',
+    description: '16.2% CoT bypassable with 0.03 accuracy drop; steps are compute, not semantic plan',
   },
   {
     source: '2602.02103',
@@ -3849,7 +3849,7 @@ window.paperLinks = [
     source: '2602.02103',
     target: '2404.15758',
     type: 'supports',
-    description: 'Both show CoT provides compute steps, not planning',
+    description: 'Tele-Lens probing shows incremental local transitions, not planned reasoning paths',
   },
   {
     source: '2602.02103',
@@ -3861,26 +3861,26 @@ window.paperLinks = [
     source: '2602.02103',
     target: '2305.18654',
     type: 'supports',
-    description: 'Both show compositional tasks require step-by-step computation',
+    description: 'Parity answer only resolved at final counting step; all prior positions at chance',
   },
   {
     source: '2602.02103',
     target: '2602.04288',
     type: 'supports',
-    description: 'Both show LLMs operate locally without global understanding',
+    description: 'Myopic horizon: GSM8K prediction 0.55→0.02 at delta=16; local like contextual drag',
   },
   // Paper 182: LMs Struggle to Use In-Context Representations links
   {
     source: '2602.04212',
     target: '2410.09695',
     type: 'supports',
-    description: 'Both show ICL implements pretraining functions, not new capabilities',
+    description: '>75% with explicit topology but near-chance on in-context; representations are inert',
   },
   {
     source: '2602.04212',
     target: '2309.12288',
     type: 'supports',
-    description: 'Both show LLMs store information but cant use it flexibly',
+    description: 'Encoding-deployment dissociation; representations encoded but cannot be deployed',
   },
   {
     source: '2602.04212',
@@ -3898,63 +3898,63 @@ window.paperLinks = [
     source: '2602.04212',
     target: '2602.02103',
     type: 'supports',
-    description: 'Both show representations fail to support flexible reasoning',
+    description: 'GPT-5 and Gemini collapse on 2D grids; inert representations match myopic horizon',
   },
   {
     source: '2602.04212',
     target: '2305.18654',
     type: 'supports',
-    description: 'Both show compositional tasks expose fundamental limitations',
+    description: 'Dirichlet energy confirms representations not deployed; compositional gap persists',
   },
   {
     source: '2602.04212',
     target: '2506.11135',
     type: 'supports',
-    description: 'Both show capability ≠ flexible deployment/intelligence',
+    description: 'Inert representations exemplify KI capability without KO intelligence',
   },
   // Paper 183: Poisoning Attacks links
   {
     source: '2510.07192',
     target: '2401.11817',
     type: 'supports',
-    description: 'Both show fundamental limits of statistical learning',
+    description: '250 docs backdoor 13B model trained on 260B tokens (0.00016%); no quality filtering',
   },
   {
     source: '2510.07192',
     target: '2310.13548',
     type: 'supports',
-    description: 'Both show models prioritize local patterns over global coherence',
+    description: '100x more clean data does not reduce 60% ASR; trigger associations override context',
   },
   {
     source: '2510.07192',
     target: '2602.01017',
     type: 'supports',
-    description: 'Both show autoregressive models learn unintended patterns',
+    description: 'Constant-sample (not percentage) scaling; models extract associations without reasoning',
   },
   {
     source: '2510.07192',
     target: '2309.12288',
     type: 'extends',
-    description: 'Both show models learn specific associations not general rules',
+    description: '250 poison docs at all scales 600M-13B; specific associations like reversal curse',
   },
   // Paper 184: Brain Rot links
   {
     source: '2510.13928',
     target: '2602.01017',
     type: 'supports',
-    description: 'Both show training data quality affects reasoning mode',
+    description: '-17.7pp ARC from junk data; thought-skipping as structural degradation of reasoning',
   },
   {
     source: '2510.13928',
     target: '2510.07192',
     type: 'supports',
-    description: 'Both show data quality as causal driver of model behavior',
+    description: 'Linear dose-response: more junk = more damage; 250 poison docs show same causality',
   },
   {
     source: '2510.13928',
     target: '2401.11817',
     type: 'supports',
-    description: 'Both show fundamental limits of statistical learning',
+    description: '-32.1pp long-context from junk; partial healing only — damage cannot be fully reversed',
   },
   {
     source: '2510.13928',
@@ -3966,25 +3966,25 @@ window.paperLinks = [
     source: '2510.13928',
     target: '2412.21187',
     type: 'supports',
-    description: 'Both show reasoning chain truncation as failure mode',
+    description: 'Thought-skipping truncates reasoning chains; overthinking wastes tokens differently',
   },
   {
     source: '2510.13928',
     target: '2501.18585',
     type: 'supports',
-    description: 'Both show reasoning chain quality affects performance',
+    description: 'Tweet popularity (non-semantic metric) predicts brain rot; data quality causally drives it',
   },
   {
     source: '2510.13928',
     target: '2509.11208',
     type: 'supports',
-    description: 'Both show data-driven degradation mechanisms',
+    description: 'Representational drift persists after remediation; compression failure from data quality',
   },
   {
     source: '2510.13928',
     target: '2506.11135',
     type: 'supports',
-    description: 'Both show capability is data-dependent, not emergent intelligence',
+    description: 'Hedges g>0.3 decline across all domains; KI system quality bounded by training data',
   },
   // Paper 185: Hallucination Inevitable (Open World) links
   {
@@ -4123,7 +4123,7 @@ window.paperLinks = [
     source: '2502.12215',
     target: '2507.14417',
     type: 'supports',
-    description: 'Both show inverse/diminishing returns in test-time compute',
+    description: 'Diminishing returns on hard problems; more tokens actively hurt on some tasks',
   },
   // Paper 30: CoT Faithfulness Unlearning (2502.14829)
   {
@@ -4156,7 +4156,7 @@ window.paperLinks = [
     source: '2509.09677',
     target: '2507.14417',
     type: 'supports',
-    description: 'Both show diminishing/inverse returns in scaling',
+    description: 'Budget forcing + diminishing returns; scaling compute hits wall on complex reasoning',
   },
   {
     source: '2509.09677',
@@ -4182,7 +4182,7 @@ window.paperLinks = [
     source: '2509.26306',
     target: '2512.07783',
     type: 'supports',
-    description: 'Both show learning depends on pretraining foundation',
+    description: 'Interactive learning improves but remains bounded by pretraining distribution',
   },
   // Paper 25: Superior Judge (2601.03630)
   {
@@ -4279,13 +4279,13 @@ window.paperLinks = [
     source: '2510.04950',
     target: '2410.05229',
     type: 'supports',
-    description: 'Both show irrelevant features affect reasoning performance',
+    description: 'Rude tone drops Llama2-70B 48.5%; irrelevant features like politeness bias output',
   },
   {
     source: '2510.04950',
     target: '2302.00093',
     type: 'supports',
-    description: 'Both show sensitivity to prompt surface features',
+    description: 'Politeness modulates accuracy up to 48.5%; surface sensitivity like sycophancy trigger',
   },
   // Paper 191: LLM Reasoning Failures Survey (2602.06176) - CORNERSTONE HUB NODE
   // This survey synthesizes 170+ papers - connects to 14 we've already analyzed
