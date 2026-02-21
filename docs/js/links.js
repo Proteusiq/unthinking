@@ -3370,7 +3370,7 @@ window.paperLinks = [
     source: '2602.01017',
     target: '2405.15092',
     type: 'supports',
-    description: 'Both show two distinct reasoning modes',
+    description: 'Sharp phase transition: faithful→skip-step parallels stepwise→shortcut modes',
   },
   {
     source: '2602.01017',
@@ -3412,7 +3412,7 @@ window.paperLinks = [
     source: '2602.01017',
     target: '2502.04667',
     type: 'extends',
-    description: 'Both use controlled synthetic experiments',
+    description: 'Modular arithmetic N=97 reveals training noise threshold for faithfulness',
   },
   // Paper 173: One Token to Fool Judge links
   {
@@ -3425,25 +3425,25 @@ window.paperLinks = [
     source: '2507.08794',
     target: '2307.13702',
     type: 'supports',
-    description: 'Both show CoT evaluation is superficial',
+    description: 'Single ":" token fools GPT-o1 judge; evaluation as surface-fragile as CoT itself',
   },
   {
     source: '2507.08794',
     target: '2505.05410',
     type: 'supports',
-    description: 'Both show reasoning appearance ≠ reasoning reality',
+    description: 'Zero-content tokens trigger reward; CoT appearance fools judges like humans',
   },
   {
     source: '2507.08794',
     target: '2512.20812',
     type: 'supports',
-    description: 'Both show surface patterns override content',
+    description: '"Let\'s solve this step by step" triggers false reward without reasoning',
   },
   {
     source: '2507.08794',
     target: '2508.15842',
     type: 'supports',
-    description: 'Both identify specific tokens that signal behavior',
+    description: 'Punctuation marks activate reward circuits; reasoning opener tokens signal mode',
   },
   // Paper 174: Inverse Scaling in Test-Time Compute links
   {
@@ -3499,19 +3499,19 @@ window.paperLinks = [
     source: '2405.05741',
     target: '2202.07206',
     type: 'supports',
-    description: 'Both show frequency determines performance',
+    description: 'GPT-4 lags humans 3.9% on uncommon word senses; frequency drives "understanding"',
   },
   {
     source: '2405.05741',
     target: '2305.18654',
     type: 'supports',
-    description: 'Both show distribution-bounded understanding',
+    description: 'GPT-3.5 22.3% gap on low-frequency senses; defaults to high-frequency meaning',
   },
   {
     source: '2405.05741',
     target: '2309.12288',
     type: 'supports',
-    description: 'Both show frequency-dependent learning',
+    description: 'LeSC benchmark: uncommon meanings expose frequency-dependent word sense bias',
   },
   {
     source: '2405.05741',
@@ -3523,7 +3523,7 @@ window.paperLinks = [
     source: '2405.05741',
     target: '2410.05229',
     type: 'supports',
-    description: 'Both show training distribution bounds understanding',
+    description: 'Misleading info overrides instructions; models focus on frequent sense over context',
   },
   // Paper 176: LiveCodeBench Pro links
   {
@@ -4004,7 +4004,7 @@ window.paperLinks = [
     source: '2510.05116',
     target: '2506.11135',
     type: 'supports',
-    description: 'Both argue capabilities bounded by training distribution',
+    description: 'Type-II hallucination (false generalization) inevitable under open-world assumption',
   },
   {
     source: '2510.05116',
@@ -4017,19 +4017,19 @@ window.paperLinks = [
     source: '2310.13345',
     target: '2507.08794',
     type: 'supports',
-    description: 'Both show single tokens/characters can fool LLMs',
+    description: 'Single emoji ":)" flips predictions; single ":" fools reward judges',
   },
   {
     source: '2310.13345',
     target: '2410.05229',
     type: 'supports',
-    description: 'Both show surface-level fragility in LLM reasoning',
+    description: '64-74% cross-model attack transfer; character-level 81% ASR proves surface fragility',
   },
   {
     source: '2310.13345',
     target: '2305.04388',
     type: 'supports',
-    description: 'Both show LLMs misled by surface patterns',
+    description: 'LLMs generate adversarial examples that fool themselves; self-deception via patterns',
   },
   {
     source: '2310.13345',
@@ -4048,7 +4048,7 @@ window.paperLinks = [
     source: '2501.18626',
     target: '2310.13345',
     type: 'supports',
-    description: 'Both show surface-level fragility; TIP exploits pattern space separation',
+    description: 'TIP 86% ASR on GPT-4o; Llama Guard detects only 7% — pattern space bypass',
   },
   {
     source: '2501.18626',
@@ -4066,13 +4066,13 @@ window.paperLinks = [
     source: '2501.18626',
     target: '2507.08794',
     type: 'supports',
-    description: 'Both show encoding/tokens bypass safety mechanisms',
+    description: 'Task-in-Prompt embeds seq2seq to bypass; single tokens fool reward models',
   },
   {
     source: '2501.18626',
     target: '2305.04388',
     type: 'supports',
-    description: 'Both show surface features override semantic understanding',
+    description: 'TIP Python encodes harmful requests as seq2seq; safety triggers miss encoding layer',
   },
   // Paper 19: Comprehension Without Competence (2507.10624)
   {
@@ -4104,13 +4104,13 @@ window.paperLinks = [
     source: '2412.13013',
     target: '2506.06941',
     type: 'supports',
-    description: 'Both show reasoning collapse at complexity thresholds',
+    description: 'GPT-o1 tau=4.42 on standard games but drops on unusual p=4/3 parameter',
   },
   {
     source: '2412.13013',
     target: '2501.12948',
     type: 'supports',
-    description: 'Both examine reasoning model capabilities',
+    description: 'Reasoning LLMs reach tau=4+ on p-Beauty Contest; standard LLMs tau<3',
   },
   // Paper 63: Revisiting Test-Time Scaling (2502.12215)
   {
@@ -4136,7 +4136,7 @@ window.paperLinks = [
     source: '2502.14829',
     target: '2505.05410',
     type: 'supports',
-    description: 'Both address CoT unfaithfulness problem',
+    description: 'Unlearning finds 40-86% faithful CoTs vs 16-50% contextual; r=0.15 plausibility gap',
   },
   // Paper 83: IB Reasoning (2507.18391)
   {
@@ -4195,7 +4195,7 @@ window.paperLinks = [
     source: '2601.03630',
     target: '2501.12948',
     type: 'supports',
-    description: 'Both examine reasoning model capabilities',
+    description: 'R1 as judge: 32pp length bias drop despite higher RewardBench accuracy',
   },
   // Paper 90: Chains to DAGs (2601.17593)
   {
@@ -4208,7 +4208,7 @@ window.paperLinks = [
     source: '2601.17593',
     target: '2508.01191',
     type: 'supports',
-    description: 'Both analyze CoT reasoning structure',
+    description: 'DAG geometry recoverable at depth Spearman ~0.7 but overlap with incorrect outputs',
   },
   // Paper 94: SOAR (2601.18778)
   {
@@ -4221,14 +4221,14 @@ window.paperLinks = [
     source: '2601.18778',
     target: '2502.04667',
     type: 'supports',
-    description: 'Both study explicit CoT training effects',
+    description: 'Meta-RL curricula yield 4x pass@1; only 32.8% stepping-stones need correct answers',
   },
   // Paper 188: Mind Your Tone (Politeness) (2402.14531)
   {
     source: '2402.14531',
     target: '2410.05229',
     type: 'supports',
-    description: 'Both show irrelevant features affect reasoning performance',
+    description: 'Rude tone drops Llama2-70B 48.5%; irrelevant feature sensitivity like filler info',
   },
   {
     source: '2402.14531',
@@ -4240,32 +4240,32 @@ window.paperLinks = [
     source: '2402.14531',
     target: '2501.18626',
     type: 'supports',
-    description: 'Both show sensitivity to prompt surface features',
+    description: 'Tone words and task-in-prompt encoding exploit same surface-pattern vulnerability',
   },
   {
     source: '2402.14531',
     target: '2302.00093',
     type: 'supports',
-    description: 'Both show irrelevant context affects performance',
+    description: 'Social tone irrelevant to logic yet shifts accuracy; context sensitivity is general',
   },
   // Paper 189: Confidence Paradox (2506.23464)
   {
     source: '2506.23464',
     target: '2401.11817',
     type: 'supports',
-    description: 'Both show models produce confidently wrong answers',
+    description: '~20% confidence-accuracy gap; models lack intrinsic calibration without training',
   },
   {
     source: '2506.23464',
     target: '2601.05905',
     type: 'supports',
-    description: 'Both study confidence-accuracy misalignment',
+    description: 'HonestVQA reduces overconfidence 35-39% but requires external contrastive training',
   },
   {
     source: '2506.23464',
     target: '2509.11208',
     type: 'supports',
-    description: 'Both address hallucination/overconfidence problems',
+    description: '4-6% cross-domain transfer drops prove confidence is domain-specific, not general',
   },
   // Paper 190: Mind Your Tone - Rude=Better (2510.04950)
   // CRITICAL: This paper REBUTS Paper 188 with OPPOSITE findings
