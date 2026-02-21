@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLM Pre-training Data Pipeline | The Thinking Machine That Doesn't Think</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0d1117; color: #c9d1d9; font-family: 'Courier New', monospace; padding: 1.5rem 1rem 3rem; }
+
+.topbar { display: flex; align-items: center; justify-content: space-between; width: 760px; margin: 0 auto 1.6rem; flex-wrap: wrap; gap: 0.5rem; }
+h2 { color: #d29922; letter-spacing: 2px; font-size: 0.8rem; text-transform: uppercase; }
+.toggle-wrap { display: flex; gap: 0; border: 1px solid #30363d; border-radius: 5px; overflow: hidden; }
+.toggle-btn { background: #161b22; color: #8b949e; border: none; padding: 5px 13px; font-family: 'Courier New', monospace; font-size: 0.63rem; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: background 0.15s, color 0.15s; border-right: 1px solid #30363d; }
+.toggle-btn:last-child { border-right: none; }
+.toggle-btn.active { background: #d29922; color: #0d1117; font-weight: bold; }
+
+#view-pipeline, #view-datasets, #view-research { display: none; }
+#view-pipeline.show, #view-datasets.show, #view-research.show { display: block; }
+
+/* PIPELINE */
+.founding-banners { display: flex; gap: 8px; width: 760px; margin: 0 auto 1.1rem; flex-wrap: wrap; }
+.fb { font-size: 0.63rem; padding: 6px 10px; border-radius: 4px; line-height: 1.65; flex: 1; min-width: 220px; }
+.fb b { display: block; font-size: 0.65rem; margin-bottom: 3px; }
+
+.outer { display: flex; gap: 0; width: 760px; margin: 0 auto; }
+.timeline { width: 66px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; padding-top: 20px; }
+.tl-item { display: flex; flex-direction: column; align-items: center; }
+.tl-year { font-size: 0.55rem; color: #d29922; font-weight: bold; white-space: nowrap; }
+.tl-dot { width: 8px; height: 8px; border-radius: 50%; background: #30363d; margin: 3px 0; flex-shrink: 0; }
+.tl-dot.active { background: #d29922; box-shadow: 0 0 5px #d2992288; }
+.tl-line { width: 2px; background: #21262d; flex: 1; min-height: 10px; }
+
+.pipeline { flex: 1; display: flex; flex-direction: column; align-items: flex-start; }
+.stage-wrap { width: 100%; }
+.box { border: 1px solid #30363d; border-radius: 6px; padding: 0.75rem 0.95rem; background: #161b22; cursor: pointer; transition: border-color 0.2s, background 0.2s; width: 100%; }
+.box:hover { border-color: #d29922; background: #1c2128; }
+.box-header { display: flex; justify-content: space-between; align-items: flex-start; }
+.snum { font-size: 0.55rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.55; margin-bottom: 2px; }
+.sname { font-size: 0.86rem; font-weight: bold; }
+.chevron { font-size: 0.6rem; color: #30363d; transition: transform 0.2s; flex-shrink: 0; padding-left: 6px; margin-top: 2px; }
+.box.open .chevron { transform: rotate(180deg); color: #d29922; }
+.sdesc-short { font-size: 0.69rem; color: #8b949e; line-height: 1.7; margin-top: 0.32rem; }
+.sdesc-detail { font-size: 0.69rem; color: #8b949e; line-height: 1.8; margin-top: 0.6rem; padding-top: 0.6rem; border-top: 1px solid #21262d; display: none; }
+.box.open .sdesc-detail { display: block; }
+.sdesc-short b, .sdesc-detail b { color: #e6edf3; }
+.math-block { background: #0d1117; border: 1px solid #21262d; border-radius: 4px; padding: 5px 9px; margin: 5px 0; font-size: 0.67rem; color: #79c0ff; line-height: 1.55; }
+.crit-note { border-top: 1px dashed #f0883e; padding-top: 0.5rem; margin-top: 0.35rem; font-size: 0.67rem; }
+.crit-label { color: #f0883e; font-size: 0.6rem; letter-spacing: 1px; text-transform: uppercase; font-weight: bold; margin-bottom: 0.2rem; }
+
+.arrow { text-align: left; padding-left: 12px; color: #30363d; font-size: 1rem; line-height: 1.35; }
+.arrow-label { font-size: 0.55rem; color: #30363d; letter-spacing: 1px; display: block; }
+
+.c-crawl{--ac:#79c0ff}.c-text{--ac:#d2a8ff}.c-filt{--ac:#56d364}.c-dedup{--ac:#e3b341}.c-mix{--ac:#ffa657}.c-train{--ac:#f85149}
+[class*="c-"] .box{border-left:3px solid var(--ac)}
+[class*="c-"] .sname{color:var(--ac)}
+[class*="c-"] .snum{color:var(--ac)}
+
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 6px; }
+.stat-item { background: #0d1117; border-radius: 4px; padding: 5px 7px; font-size: 0.65rem; color: #8b949e; line-height: 1.6; border: 1px solid #21262d; }
+.stat-item b { color: #c9d1d9; }
+
+.labs-section-title { width: 100%; text-align: center; font-size: 0.57rem; color: #8b949e; letter-spacing: 1.5px; text-transform: uppercase; margin: 1.2rem 0 0.45rem; }
+.labs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; width: 100%; }
+.lab { background: #161b22; border: 1px solid #30363d; border-radius: 5px; padding: 7px 9px; font-size: 0.63rem; color: #8b949e; line-height: 1.65; }
+.lab b { color: #e6edf3; }
+.lab .lname { font-size: 0.58rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3px; font-weight: bold; }
+
+.note { width: 100%; font-size: 0.68rem; color: #8b949e; border: 1px solid #21262d; border-radius: 6px; padding: 0.82rem 1rem; background: #0d1117; line-height: 1.85; margin-top: 1.3rem; }
+.note b { color: #c9d1d9; }
+.note-title { font-size: 0.59rem; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 0.42rem; }
+
+/* DATASETS */
+.ds-wrap { width: 760px; margin: 0 auto; }
+.ds-era { margin-bottom: 1.5rem; }
+.ds-era-title { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; font-weight: bold; margin-bottom: 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid #21262d; }
+.ds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+.ds-card { background: #161b22; border: 1px solid #30363d; border-radius: 5px; padding: 8px 10px; cursor: pointer; transition: border-color 0.15s; }
+.ds-card:hover { border-color: #d2992266; }
+.ds-card.open { border-color: #d29922; }
+.ds-card-header { display: flex; justify-content: space-between; align-items: flex-start; }
+.ds-name { font-size: 0.76rem; font-weight: bold; margin-bottom: 2px; }
+.ds-chev { font-size: 0.6rem; color: #30363d; transition: transform 0.2s; }
+.ds-card.open .ds-chev { transform: rotate(180deg); color: #d29922; }
+.ds-meta { font-size: 0.6rem; color: #8b949e; margin-bottom: 3px; }
+.ds-tag { display: inline-block; font-size: 0.55rem; border-radius: 3px; padding: 1px 5px; margin-right: 3px; font-weight: bold; }
+.ds-key { font-size: 0.63rem; color: #8b949e; line-height: 1.55; }
+.ds-detail { display: none; margin-top: 7px; padding-top: 7px; border-top: 1px solid #21262d; font-size: 0.63rem; line-height: 1.7; color: #8b949e; }
+.ds-card.open .ds-detail { display: block; }
+.ds-detail b { color: #e6edf3; }
+.ds-open-tag { font-size: 0.57rem; padding: 1px 5px; border-radius: 3px; }
+
+.ds-table-wrap { overflow-x: auto; margin-top: 1.5rem; }
+.ds-table { width: 100%; border-collapse: collapse; font-size: 0.63rem; }
+.ds-table th { background: #0d1117; color: #d29922; padding: 5px 8px; text-align: left; font-size: 0.57rem; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid #30363d; white-space: nowrap; }
+.ds-table td { padding: 5px 8px; border-bottom: 1px solid #21262d; color: #8b949e; vertical-align: top; }
+.ds-table td b { color: #e6edf3; }
+.ds-table tr:hover td { background: #1c2128; }
+
+/* RESEARCH */
+.rw { width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.3rem; }
+.rw-section { border: 1px solid #30363d; border-radius: 6px; background: #161b22; overflow: hidden; }
+.rw-header { padding: 0.65rem 1rem; display: flex; align-items: baseline; gap: 0.7rem; border-bottom: 1px solid #21262d; background: #0d1117; cursor: pointer; }
+.rw-header:hover { background: #161b22; }
+.rw-num { font-size: 0.6rem; color: #d29922; letter-spacing: 2px; text-transform: uppercase; font-weight: bold; flex-shrink: 0; }
+.rw-title { font-size: 0.88rem; font-weight: bold; flex: 1; }
+.rw-chev { font-size: 0.6rem; color: #30363d; transition: transform 0.2s; }
+.rw-section.open .rw-chev { transform: rotate(180deg); color: #d29922; }
+.rw-body { font-size: 0.69rem; color: #8b949e; line-height: 1.85; padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s; }
+.rw-section.open .rw-body { padding: 0.82rem 1rem; max-height: 5000px; }
+.rw-body b { color: #e6edf3; }
+.rw-body h4 { font-size: 0.63rem; color: #d29922; letter-spacing: 1px; text-transform: uppercase; margin: 0.65rem 0 0.28rem; }
+.rw-body h4:first-child { margin-top: 0; }
+.rw-body .math-block { font-size: 0.67rem; }
+.rw-body .ref { font-size: 0.63rem; color: #3fb950; margin: 2px 0; }
+.rw-body .ref::before { content: "\2192  "; }
+.rw-table { width: 100%; border-collapse: collapse; font-size: 0.67rem; margin-top: 0.5rem; }
+.rw-table th { background: #0d1117; color: #d29922; padding: 5px 9px; text-align: left; font-size: 0.6rem; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid #30363d; }
+.rw-table td { padding: 5px 9px; border-bottom: 1px solid #21262d; color: #8b949e; vertical-align: top; }
+.rw-table td b { color: #e6edf3; }
+.rw-table tr:last-child td { border-bottom: none; }
+.rw-table tr:hover td { background: #1c2128; }
+.open-problems { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 0.5rem; }
+.op-item { background: #0d1117; border: 1px solid #21262d; border-radius: 4px; padding: 7px 9px; font-size: 0.67rem; color: #8b949e; line-height: 1.6; }
+.op-item b { color: #f0883e; }
+
+/* Back link */
+.back-link { display: inline-flex; align-items: center; gap: 6px; color: #d29922; text-decoration: none; font-size: 0.7rem; margin-bottom: 1rem; opacity: 0.8; transition: opacity 0.15s; }
+.back-link:hover { opacity: 1; }
+.back-link svg { width: 14px; height: 14px; }
+</style>
+</head>
+<body>
+
+<div style="width: 760px; margin: 0 auto;">
+  <a href="index.html" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    Back to Paper Network
+  </a>
+</div>
+
+<div class="topbar">
+  <h2>LLM Pre-training Data</h2>
+  <div class="toggle-wrap">
+    <button class="toggle-btn active" id="btn-pipeline" onclick="setMode('pipeline')">Pipeline</button>
+    <button class="toggle-btn" id="btn-datasets" onclick="setMode('datasets')">Datasets</button>
+    <button class="toggle-btn" id="btn-research" onclick="setMode('research')">Research</button>
+  </div>
+</div>
+
+<!-- ════════════ PIPELINE ════════════ -->
+<div id="view-pipeline" class="show">
+<div class="founding-banners">
+  <div class="fb" style="background:#2d220022;border:1px solid #d2992233;">
+    <b style="color:#d29922">Common Crawl (2007&ndash;)</b>
+    Non-profit web archive. ~100 crawls since 2008. Apache Nutch crawler on ~100 machines over 10&ndash;12 days per crawl. Hundreds of millions of seed URLs. Nearly every pre-training dataset builds on Common Crawl.
+  </div>
+  <div class="fb" style="background:#1b2e1f22;border:1px solid #56d36433;">
+    <b style="color:#56d364">"Data does not fall from the sky"</b>
+    Companies openly publish architecture details but keep data pipelines secret. Data curation is the key differentiator&mdash;and the most labor-intensive, least scalable part of building frontier LLMs. Much of the pipeline is heuristic.
+  </div>
+</div>
+
+<div class="outer">
+  <div class="timeline">
+    <div class="tl-item"><span class="tl-year">Source</span><div class="tl-dot active"></div></div>
+    <div class="tl-item"><div class="tl-line" style="min-height:34px"></div></div>
+    <div class="tl-item"><div class="tl-dot"></div></div>
+    <div class="tl-item"><div class="tl-line" style="min-height:34px"></div></div>
+    <div class="tl-item"><span class="tl-year">Clean</span><div class="tl-dot active"></div></div>
+    <div class="tl-item"><div class="tl-line" style="min-height:40px"></div></div>
+    <div class="tl-item"><div class="tl-dot"></div></div>
+    <div class="tl-item"><div class="tl-line" style="min-height:40px"></div></div>
+    <div class="tl-item"><span class="tl-year">Refine</span><div class="tl-dot active"></div></div>
+    <div class="tl-item"><div class="tl-line" style="min-height:34px"></div></div>
+    <div class="tl-item"><div class="tl-dot"></div></div>
+    <div class="tl-item"><div class="tl-line" style="min-height:34px"></div></div>
+    <div class="tl-item"><span class="tl-year">Train</span><div class="tl-dot active"></div></div>
+    <div class="tl-item"><div class="tl-line" style="flex:1"></div></div>
+  </div>
+
+  <div class="pipeline">
+    <div class="stage-wrap c-crawl">
+      <div class="box" onclick="toggle(this)">
+        <div class="box-header"><div><div class="snum">Stage 1</div><div class="sname">Web Crawling</div></div><span class="chevron">&#x25BC;</span></div>
+        <div class="sdesc-short">Common Crawl harvests the open web. Hundreds of millions of seed URLs, politeness policies, robots.txt.</div>
+        <div class="sdesc-detail">
+          <b>Two output formats:</b><br>
+          &bull; <b>WARC</b> &mdash; raw HTML as captured by the crawler. Preferred: you control text extraction.<br>
+          &bull; <b>WET</b> &mdash; pre-extracted plain text. Lossy conversion, lower downstream quality.<br><br>
+          <b>DCLM demonstrated</b> that choosing WARC over WET and converting HTML yourself materially improves downstream model accuracy.
+          <div class="stat-grid">
+            <div class="stat-item"><b>~100 crawls</b> archived since 2008</div>
+            <div class="stat-item"><b>10&ndash;12 days</b> per crawl on ~100 machines</div>
+            <div class="stat-item"><b>Hundreds of millions</b> of seed URLs</div>
+            <div class="stat-item"><b>Policies:</b> selection, politeness (robots.txt), re-visit frequency</div>
+          </div>
+          <div class="crit-note"><div class="crit-label">&#x26A0; Challenge</div>Dynamic URLs, duplicate content, malicious injection. Wikipedia dump timing can be exploited for data poisoning.</div>
+        </div>
+      </div>
+    </div>
+    <div class="arrow">&#x2502;<br>&#x25BC;</div>
+
+    <div class="stage-wrap c-text">
+      <div class="box" onclick="toggle(this)">
+        <div class="box-header"><div><div class="snum">Stage 2</div><div class="sname">Text Extraction (HTML &rarr; Text)</div></div><span class="chevron">&#x25BC;</span></div>
+        <div class="sdesc-short">Convert raw HTML into clean text. Tool choice matters: <b>trafilatura</b>, <b>jusText</b>, <b>resiliparse</b>.</div>
+        <div class="sdesc-detail">
+          &bull; <b>trafilatura</b> &mdash; widely used (FineWeb, RefinedWeb). Good precision, some recall loss.<br>
+          &bull; <b>jusText</b> &mdash; higher token yield. Chosen by Nemotron-CC for this reason.<br>
+          &bull; <b>resiliparse</b> &mdash; fast C-based parser.<br>
+          &bull; <b>markdownify</b> &mdash; preserves document structure as Markdown.<br><br>
+          <b>Key finding (DCLM, Pile-CC):</b> starting from WARC and extracting text yourself consistently outperforms using pre-converted WET files.
+          <div class="crit-note"><div class="crit-label">&#x26A0; Critical</div>This seemingly mundane step has outsized impact. The choice between trafilatura and jusText alone changes token counts by &gt;20% and affects downstream benchmark scores.</div>
+        </div>
+      </div>
+    </div>
+    <div class="arrow">&#x2502;<br>&#x25BC;</div>
+
+    <div class="stage-wrap c-filt">
+      <div class="box" onclick="toggle(this)">
+        <div class="box-header"><div><div class="snum">Stage 3</div><div class="sname">Filtering</div></div><span class="chevron">&#x25BC;</span></div>
+        <div class="sdesc-short">Remove low-quality, toxic, non-target-language content. Two schools: rule-based vs. model-based.</div>
+        <div class="sdesc-detail">
+          <b>3a. Language Identification</b><br>
+          fastText classifier (176 languages, trained on Wikipedia + Tatoeba). Thresholds vary widely: C4 uses p(en)&ge;0.99, FineWeb uses p(en)&gt;0.65, Dolma uses p(en)&ge;0.5.<br><br>
+          <b>3b. Quality Filtering &mdash; Rule-based</b><br>
+          Explicit heuristics (C4, Gopher, RefinedWeb, FineWeb, Dolma): lines must end in punctuation, &ge;5 words, &ge;3 sentences, no "bad words", no `{`, no "lorem ipsum", &ge;80% words with alphabetic chars.<br><br>
+          <b>3c. Quality Filtering &mdash; Model-based</b> (becoming the norm)<br>
+          &bull; <b>GPT-3:</b> linear classifier, positives = {WebText, Wikipedia, Books}<br>
+          &bull; <b>LLaMA:</b> positives = Wikipedia-referenced pages<br>
+          &bull; <b>DCLM:</b> fastText, positives = {OpenHermes-2.5 (GPT-4 generated), ELI5 subreddit}<br>
+          &bull; <b>phi-1:</b> GPT-4 labels 100K subset for "educational value" &rarr; 17.68% HumanEval vs 12.19% unfiltered<br><br>
+          <b>3d. Toxicity Filtering</b><br>
+          &bull; <b>Dolma:</b> Jigsaw Toxic Comments dataset, fastText classifiers for hate + NSFW<br>
+          &bull; <b>Gopher:</b> Google SafeSearch API<br>
+          &bull; <b>C4:</b> removed pages with any word from LDNOOBW list (blunt)
+          <div class="crit-note"><div class="crit-label">&#x26A0; Tension</div>Rule-based avoids ML bias but model-based produces better downstream performance. FineWebEdu and DCLM remove ~90% of data. Nemotron-CC addresses this with ensemble classifiers + synthetic rephrasing of filtered content.</div>
+        </div>
+      </div>
+    </div>
+    <div class="arrow">&#x2502;<br>&#x25BC;</div>
+
+    <div class="stage-wrap c-dedup">
+      <div class="box" onclick="toggle(this)">
+        <div class="box-header"><div><div class="snum">Stage 4</div><div class="sname">Deduplication</div></div><span class="chevron">&#x25BC;</span></div>
+        <div class="sdesc-short">Remove exact and near-duplicate content. Reduces memorization, improves training efficiency.</div>
+        <div class="sdesc-detail">
+          <b>Why deduplicate?</b> C4 contained one product description repeated <b>61,036 times</b>. Duplicates waste compute and increase memorization (copyright/privacy risk).<br><br>
+          <b>4a. Exact Deduplication</b><br>
+          Hash each item (MurmurHash). Group by hash. Keep one per group. Simple, high precision, parallelizable (MapReduce). Misses near-duplicates.<br><br>
+          <b>4b. Bloom Filters</b><br>
+          Memory-efficient probabilistic set membership. No false negatives; tunable false positive rate. <b>Dolma:</b> Bloom filter dedup on paragraphs (FP rate 1e-15).<br><br>
+          <b>4c. Fuzzy Dedup &mdash; MinHash + LSH</b><br>
+          Jaccard similarity: J(A,B) = |A&cap;B| / |A&cup;B|. MinHash gives Pr[h(A)=h(B)] = J(A,B). Locality-Sensitive Hashing (LSH) sharpens the threshold via banding: n hashes split into b bands of r rows.
+          <div class="math-block">Threshold &asymp; (1/b)^(1/r) &nbsp;&mdash;&nbsp; AND within bands, OR across bands &rarr; S-curve around threshold</div>
+          <b>RefinedWeb, FineWeb, SlimPajama</b> all use MinHash 5-gram dedup with LSH.
+        </div>
+      </div>
+    </div>
+    <div class="arrow">&#x2502;<br>&#x25BC;</div>
+
+    <div class="stage-wrap c-mix">
+      <div class="box" onclick="toggle(this)">
+        <div class="box-header"><div><div class="snum">Stage 5</div><div class="sname">Data Mixing &amp; Staging</div></div><span class="chevron">&#x25BC;</span></div>
+        <div class="sdesc-short">Weight different sources. Upsample high-quality domains. Stage from pre-training to mid-training to post-training.</div>
+        <div class="sdesc-detail">
+          <b>Pre-training</b> &mdash; large amounts of lower-quality, high-diversity web data. Token budgets: Llama 3 trained on <b>15T tokens</b>, Qwen3 on <b>36T tokens</b>.<br><br>
+          <b>Mid-training</b> &mdash; high-quality subset + long-context data. Continued pre-training on curated mix. Shifts distribution toward quality.<br><br>
+          <b>Post-training</b> &mdash; instruction data, chat, RLHF. Tiny volume (&lt;1M examples), high curation effort.<br><br>
+          <b>Domain weighting:</b> GPT-3 upsampled Wikipedia and Books 2&ndash;3&times; vs. raw proportion. Most labs keep exact mixing ratios secret.
+          <div class="crit-note"><div class="crit-label">&#x26A0; Critical</div>The mixing recipe is arguably the most guarded secret in LLM development. Different mixes produce dramatically different capabilities.</div>
+        </div>
+      </div>
+    </div>
+    <div class="arrow">&#x2502;<br>&#x25BC;</div>
+
+    <div class="stage-wrap c-train">
+      <div class="box" style="cursor:default">
+        <div class="snum">Output</div>
+        <div class="sname">Training-Ready Token Stream</div>
+        <div class="sdesc-short">Tokenized, shuffled, packed into sequences. Fed to the model as next-token prediction targets.</div>
+      </div>
+    </div>
+
+    <!-- LANDMARK DATASETS -->
+    <div class="labs-section-title">Landmark Datasets</div>
+    <div class="labs">
+      <div class="lab"><div class="lname" style="color:#8b949e">C4 (2019)</div><b>156B tokens</b> from 1 CC snapshot. Rule-based filtering only. The first large-scale cleaned CC dataset. Used by T5.</div>
+      <div class="lab"><div class="lname" style="color:#79c0ff">The Pile (2021)</div><b>275B tokens</b> from 22 curated sources. Grassroots open-source effort. Included arXiv, PubMed, GitHub, Books3.</div>
+      <div class="lab"><div class="lname" style="color:#56d364">RefinedWeb (2023)</div><b>5T tokens</b> (600B released). "Web data is all you need." WARC + trafilatura + Gopher rules + MinHash.</div>
+      <div class="lab"><div class="lname" style="color:#d29922">FineWeb (2024)</div><b>15T tokens</b> from 95 CC dumps. HuggingFace. Rules + MinHash + PII anonymization. Fully open.</div>
+      <div class="lab"><div class="lname" style="color:#d2a8ff">DCLM (2024)</div><b>240T raw &rarr; 3.8T filtered</b>. DataComp-LM. fastText quality classifier. Open benchmark for data curation.</div>
+      <div class="lab"><div class="lname" style="color:#ffa657">Nemotron-CC (2024)</div><b>6.3T tokens</b> (1.1T HQ subset). NVIDIA. Ensemble classifier + synthetic rephrasing of low-quality data.</div>
+    </div>
+
+    <div class="note" style="border-color:#d2992233;">
+      <div class="note-title" style="color:#d29922">The Data Scaling Arc</div>
+      <b>2019:</b> C4 = 156B tokens from 1 snapshot &rarr; <b>2020:</b> GPT-3 = 400B tokens &rarr; <b>2023:</b> RefinedWeb = 5T tokens &rarr; <b>2024:</b> Llama 3 trains on 15T tokens, Qwen3 on 36T tokens, DCLM-pool = 240T raw tokens.<br>
+      The trend: more data, better filtering, higher quality&mdash;but the pipeline remains fundamentally heuristic with "many opportunities to improve."
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════ DATASETS ════════════ -->
+<div id="view-datasets">
+<div class="ds-wrap" id="ds-content"></div>
+</div>
+
+<!-- ════════════ RESEARCH ════════════ -->
+<div id="view-research">
+<div class="rw">
+
+  <div class="rw-section open">
+    <div class="rw-header" onclick="toggleSection(this.parentElement)"><span class="rw-num">&sect;1</span><span class="rw-title" style="color:#56d364">Quality Filtering Algorithms</span><span class="rw-chev">&#x25BC;</span></div>
+    <div class="rw-body">
+      <h4>General framework</h4>
+      Given <b>target data T</b> (small, high quality) and <b>raw data R</b> (large, noisy), find subset T' of R similar to T. Must generalize from T and run extremely fast on huge R.
+
+      <h4>1a. KenLM (n-gram language model)</h4>
+      <div class="ref">CCNet (Wenzek et al., 2019)</div>
+      Kneser-Ney smoothed n-gram model. Extremely simple and fast. <b>Generative approach:</b> score(x) = p_T(x). Sort by perplexity, keep top fraction.
+      <div class="math-block">score(x) = perplexity_T(x) = exp(−1/n &sdot; &sum; log p(w_i | w_{i-k}...w_{i-1}))</div>
+      <b>CCNet:</b> KenLM trained on Wikipedia, keep top 1/3 lowest perplexity paragraphs.<br>
+      <b>OpenMathText:</b> KenLM on ProofPile, threshold &lt;15,000 perplexity &rarr; 14.7B math tokens. A 1.4B model trained on this beat models with 20&times; more data.
+
+      <h4>1b. fastText classifier</h4>
+      <div class="ref">Joulin et al. (2016) &mdash; Bag of Tricks for Efficient Text Classification</div>
+      Bag of n-gram embeddings + linear head. Hashing trick (10M bins) for unbounded vocab. Asynchronous SGD.
+      <div class="math-block">score(x) = p(T | x) &nbsp;&mdash;&nbsp; discriminative approach, keep if score &ge; threshold</div>
+      Orders of magnitude faster than BERT/LLM classifiers. <b>DCLM</b> showed fastText quality classifier outperforms all rule-based methods.
+
+      <h4>1c. DSIR (importance resampling)</h4>
+      <div class="ref">Xie et al. (2023) &mdash; Data Selection for Language Models via Importance Resampling</div>
+      Fit bag-of-hashed-ngram distributions to both target and raw data. Resample proportionally to importance weights.
+      <div class="math-block">score(x) = p_T(x) / p_R(x) &nbsp;&mdash;&nbsp; importance weight, resample proportionally</div>
+      More principled than heuristic classification (captures diversity). Slightly better than fastText on GLUE, similar compute.
+
+      <h4>Comparison</h4>
+      <table class="rw-table">
+        <thead><tr><th>Method</th><th>Approach</th><th>Speed</th><th>Quality signal</th><th>Used by</th></tr></thead>
+        <tbody>
+          <tr><td><b>KenLM</b></td><td>Generative: p(x)</td><td>Very fast</td><td>Proximity to reference</td><td>CCNet, OpenMathText</td></tr>
+          <tr><td><b>fastText</b></td><td>Discriminative: p(T|x)</td><td>Very fast</td><td>Binary quality label</td><td>DCLM, GPT-3, LLaMA</td></tr>
+          <tr><td><b>DSIR</b></td><td>Importance: p_T/p_R</td><td>Fast</td><td>Distribution matching</td><td>Research datasets</td></tr>
+          <tr><td><b>LLM judge</b></td><td>Prompted scoring</td><td>Slow</td><td>Rich semantic</td><td>phi-1 (GPT-4 labels)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="rw-section">
+    <div class="rw-header" onclick="toggleSection(this.parentElement)"><span class="rw-num">&sect;2</span><span class="rw-title" style="color:#79c0ff">Language Identification</span><span class="rw-chev">&#x25BC;</span></div>
+    <div class="rw-body">
+      <div class="ref">fastText language identification &mdash; 176 languages, trained on Wikipedia + Tatoeba + SETimes</div>
+      <h4>Threshold sensitivity</h4>
+      <table class="rw-table">
+        <thead><tr><th>Dataset</th><th>Threshold</th><th>Effect</th></tr></thead>
+        <tbody>
+          <tr><td><b>C4</b></td><td>p(en) &ge; 0.99</td><td>Very aggressive &mdash; removes multilingual content, code, LaTeX</td></tr>
+          <tr><td><b>FineWeb</b></td><td>p(en) &gt; 0.65</td><td>Moderate &mdash; retains code-heavy and mixed-language content</td></tr>
+          <tr><td><b>Dolma</b></td><td>p(en) &ge; 0.5</td><td>Permissive &mdash; keeps dialect, code-switching</td></tr>
+        </tbody>
+      </table>
+      <h4>Known failure modes</h4>
+      &bull; Short text (fewer features to classify)<br>
+      &bull; Low-resource languages (poor training data)<br>
+      &bull; Dialects and code-switching (mixed languages in one document)<br>
+      &bull; LaTeX and source code (not natural language)
+    </div>
+  </div>
+
+  <div class="rw-section">
+    <div class="rw-header" onclick="toggleSection(this.parentElement)"><span class="rw-num">&sect;3</span><span class="rw-title" style="color:#d2a8ff">Toxicity Filtering</span><span class="rw-chev">&#x25BC;</span></div>
+    <div class="rw-body">
+      <table class="rw-table">
+        <thead><tr><th>Dataset</th><th>Approach</th><th>Training data</th><th>Tradeoff</th></tr></thead>
+        <tbody>
+          <tr><td><b>C4</b></td><td>Word blocklist (LDNOOBW)</td><td>N/A</td><td>Blunt &mdash; removes medical/sexual health content</td></tr>
+          <tr><td><b>Dolma</b></td><td>fastText classifiers (2 models)</td><td>Jigsaw Toxic Comments (Wikipedia talk pages)</td><td>Separates hate from NSFW; more nuanced</td></tr>
+          <tr><td><b>Gopher</b></td><td>Google SafeSearch API</td><td>Google's proprietary data</td><td>Production-grade but non-reproducible</td></tr>
+        </tbody>
+      </table>
+      <h4>Dolma's two-classifier design</h4>
+      &bull; <b>Hate classifier:</b> positive = unlabeled + obscene (Jigsaw), negative = clean<br>
+      &bull; <b>NSFW classifier:</b> positive = obscene subset, negative = rest<br>
+      Separating hate from NSFW allows independent thresholds. Medical/health content is less likely to be caught.
+    </div>
+  </div>
+
+  <div class="rw-section">
+    <div class="rw-header" onclick="toggleSection(this.parentElement)"><span class="rw-num">&sect;4</span><span class="rw-title" style="color:#e3b341">Exact Deduplication &amp; Bloom Filters</span><span class="rw-chev">&#x25BC;</span></div>
+    <div class="rw-body">
+      <h4>Exact dedup</h4>
+      Hash each item (document, paragraph, or n-gram span) with a fast non-cryptographic hash (MurmurHash, CityHash). Group by hash. Keep one per group.<br><br>
+      <b>Design choices:</b> What is an "item"? Document-level (coarse), paragraph-level (Dolma), 3-sentence spans (C4), n-gram spans. Finer granularity catches more but risks creating incoherent documents.
+
+      <h4>Hash functions</h4>
+      <table class="rw-table">
+        <thead><tr><th>Type</th><th>Examples</th><th>Speed</th><th>Use case</th></tr></thead>
+        <tbody>
+          <tr><td><b>Cryptographic</b></td><td>SHA-256, MD5</td><td>Slow</td><td>Collision-resistant verification</td></tr>
+          <tr><td><b>Non-cryptographic</b></td><td>MurmurHash, CityHash, DJB2</td><td>Fast</td><td>Dedup, Bloom filters, MinHash</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Bloom filters</h4>
+      Probabilistic set membership. <b>No false negatives; tunable false positive rate.</b> Uses k hash functions mapping to an m-bit array.
+      <div class="math-block">Optimal k = ln(2) &sdot; m/n &nbsp;&mdash;&nbsp; False positive rate = 0.5^k</div>
+      <b>Dolma:</b> Bloom filter dedup on paragraphs with false positive rate set to 10<sup>-15</sup>. Memory-efficient: a set of billions of items can be represented in a few GB.
+    </div>
+  </div>
+
+  <div class="rw-section">
+    <div class="rw-header" onclick="toggleSection(this.parentElement)"><span class="rw-num">&sect;5</span><span class="rw-title" style="color:#ffa657">Fuzzy Deduplication (Jaccard, MinHash, LSH)</span><span class="rw-chev">&#x25BC;</span></div>
+    <div class="rw-body">
+      <h4>Jaccard similarity</h4>
+      <div class="math-block">J(A, B) = |A &cap; B| / |A &cup; B| &nbsp;&mdash;&nbsp; near-duplicates defined as J &ge; threshold (e.g. 0.8)</div>
+      Documents represented as sets of character n-grams (typically 5-grams). Computing exact Jaccard for all pairs is O(n&sup2;) &mdash; intractable at web scale.
+
+      <h4>MinHash</h4>
+      <div class="ref">Broder (1997) &mdash; On the resemblance and containment of documents</div>
+      Hash function where <b>Pr[h(A) = h(B)] = J(A, B)</b>. Uses the minimum hash value over the set. With k independent hash functions, estimate J by fraction of matching min-hashes. Empirically verified: 100 hash functions closely approximates true Jaccard.
+
+      <h4>Locality-Sensitive Hashing (LSH)</h4>
+      Problem: MinHash alone is too stochastic for clean thresholding. Solution: n hash functions split into <b>b bands of r rows</b>.
+      <div class="math-block">Collision iff &exist; a band where all r hashes match<br>AND within bands (raises threshold) &sdot; OR across bands (catches matches)<br>Creates S-curve around threshold &asymp; (1/b)^(1/r)</div>
+      <b>Tuning:</b> increasing r &rarr; sharper threshold, shifted right (harder to match). Increasing b &rarr; shifted left (easier to match).<br><br>
+      <b>Example:</b> n=9000 hashes, b=20 bands, r=450 rows &rarr; threshold &asymp; 0.998.
+
+      <h4>Production usage</h4>
+      <table class="rw-table">
+        <thead><tr><th>Dataset</th><th>Method</th><th>Granularity</th></tr></thead>
+        <tbody>
+          <tr><td><b>RefinedWeb</b></td><td>MinHash 5-gram + LSH</td><td>Document-level</td></tr>
+          <tr><td><b>FineWeb</b></td><td>MinHash + LSH</td><td>Document-level</td></tr>
+          <tr><td><b>SlimPajama</b></td><td>MinHashLSH</td><td>Document-level (627B token subset)</td></tr>
+          <tr><td><b>GPT-3</b></td><td>Fuzzy dedup</td><td>Document-level + benchmark contamination check</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="rw-section">
+    <div class="rw-header" onclick="toggleSection(this.parentElement)"><span class="rw-num">&sect;6</span><span class="rw-title" style="color:#f0883e">HTML&rarr;Text Conversion Wars</span><span class="rw-chev">&#x25BC;</span></div>
+    <div class="rw-body">
+      <table class="rw-table">
+        <thead><tr><th>Tool</th><th>Approach</th><th>Used by</th><th>Tradeoff</th></tr></thead>
+        <tbody>
+          <tr><td><b>WET files</b></td><td>Pre-extracted by Common Crawl</td><td>C4, early CC datasets</td><td>Convenient but lossy</td></tr>
+          <tr><td><b>trafilatura</b></td><td>Python, content extraction heuristics</td><td>RefinedWeb, FineWeb</td><td>Good precision, some recall loss</td></tr>
+          <tr><td><b>jusText</b></td><td>Block-level classification</td><td>Nemotron-CC</td><td>Higher token yield than trafilatura</td></tr>
+          <tr><td><b>resiliparse</b></td><td>Fast C-based HTML parser</td><td>DCLM</td><td>Speed-optimized</td></tr>
+        </tbody>
+      </table>
+      <h4>Key finding</h4>
+      DCLM and Pile-CC independently demonstrated that <b>WARC &rarr; custom text extraction consistently outperforms pre-converted WET files</b> on downstream benchmarks. This "mundane" step has outsized impact on final model quality.<br><br>
+      <b>Nemotron-CC chose jusText</b> over trafilatura specifically because it yields more tokens per document. Since Nemotron-CC's thesis is that over-filtering loses valuable data, maximizing raw token extraction is structurally aligned with their approach.
+    </div>
+  </div>
+
+  <div class="rw-section">
+    <div class="rw-header" onclick="toggleSection(this.parentElement)"><span class="rw-num">&sect;7</span><span class="rw-title" style="color:#f85149">Copyright, Fair Use &amp; Data Secrecy</span><span class="rw-chev">&#x25BC;</span></div>
+    <div class="rw-body">
+      <h4>The copyright landscape</h4>
+      Most internet content is copyrighted. Fair use for ML training is legally unsettled. Major lawsuits ongoing (NYT v. OpenAI, Getty v. Stability AI, etc.).<br><br>
+      <b>Shadow libraries in the training mix:</b><br>
+      &bull; <b>LibGen</b> &mdash; ~4M books. Meta confirmed training LLaMA on LibGen.<br>
+      &bull; <b>Sci-Hub</b> &mdash; ~88M academic papers.<br>
+      &bull; <b>Books3</b> (The Pile) &mdash; 196K books from Bibliotik shadow library. Taken down.<br>
+      &bull; <b>BooksCorpus</b> &mdash; 7K self-published books from Smashwords. Taken down for TOS violation.
+
+      <h4>Data secrecy dynamics</h4>
+      Competitive advantage + copyright liability = frontier labs disclose almost nothing about training data. Architecture and training algorithms are published; data pipelines are not.<br><br>
+      <b>Exceptions:</b> Dolma, FineWeb, DCLM, Nemotron-CC are fully open with documented pipelines. The Pile pioneered grassroots open data curation.
+
+      <h4>Benchmark contamination</h4>
+      GPT-3 ran fuzzy dedup against benchmarks to check for leakage. Not universally practiced. A growing concern as datasets scale to hundreds of trillions of tokens.
+    </div>
+  </div>
+
+  <div class="rw-section">
+    <div class="rw-header" onclick="toggleSection(this.parentElement)"><span class="rw-num">&sect;8</span><span class="rw-title" style="color:#d29922">Open Questions &amp; Tensions</span><span class="rw-chev">&#x25BC;</span></div>
+    <div class="rw-body">
+      <div class="open-problems">
+        <div class="op-item"><b>Rule-based vs. model-based filtering</b><br>Rules avoid bias but classifiers produce better downstream performance. No consensus.</div>
+        <div class="op-item"><b>What is "quality"?</b><br>Wikipedia-like? Educational? Instruction-like? Each choice biases the model differently.</div>
+        <div class="op-item"><b>Over-filtering</b><br>FineWebEdu/DCLM remove ~90% of data. Nemotron-CC's synthetic rephrasing is one response.</div>
+        <div class="op-item"><b>Synthetic data in the pipeline</b><br>Nemotron-CC uses LM rephrasing. How far can synthetic augmentation of pre-training data go?</div>
+        <div class="op-item"><b>Data poisoning</b><br>Wikipedia dump timing exploitable. CC seed URL injection. No robust defenses at scale.</div>
+        <div class="op-item"><b>Copyright liability</b><br>Fair use for ML training legally unsettled. Major lawsuits in progress.</div>
+        <div class="op-item"><b>Benchmark contamination</b><br>Fuzzy dedup against benchmarks needed but not universal. Gets harder as dataset scale grows.</div>
+        <div class="op-item"><b>Pipeline is fundamentally heuristic</b><br>"Many opportunities to improve." Data curation scales with human effort, not compute.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script>
+// ── DATASET DATA ──
+const DATASETS = [
+  // Early Era (2015-2019)
+  {era:"early",year:2015,name:"BooksCorpus",size:"985M words",sources:"7K self-published books (Smashwords)",
+   filtering:"None",open:"Taken down",color:"#8b949e",
+   key:"First large-scale book corpus for pre-training. Used by BERT and GPT.",
+   detail:"Self-published fiction from Smashwords. Taken down for TOS violation. No filtering applied. Paired with Wikipedia for BERT pre-training.",
+   innovation:"Proved books data improves language understanding"},
+  {era:"early",year:2019,name:"WebText / OpenWebText",size:"40GB (8M pages)",sources:"Reddit outlinks with >=3 karma",
+   filtering:"Karma as quality proxy",open:"OpenWebText: Yes",color:"#8b949e",
+   key:"Reddit karma as a cheap quality signal. Foundation of GPT-2.",
+   detail:"All Reddit outbound links with >=3 karma. Assumption: upvoted content is higher quality. OpenWebText is the open replication. Used fastText for English filtering + near-dedup.",
+   innovation:"Social voting as quality proxy"},
+  {era:"early",year:2019,name:"CCNet",size:"Varies (tool)",sources:"Common Crawl",
+   filtering:"KenLM perplexity (top 1/3)",open:"Yes (tool)",color:"#79c0ff",
+   key:"First systematic CC cleaning pipeline. KenLM trained on Wikipedia as quality signal.",
+   detail:"Dedup + fastText language ID + KenLM 5-gram trained on Wikipedia. Sort paragraphs by perplexity, keep top 1/3 lowest. Basis for LLaMA's CC processing.",
+   innovation:"Perplexity-based quality sorting"},
+  {era:"early",year:2019,name:"C4",size:"806GB / 156B tokens",sources:"1 CC snapshot (1.4T tokens)",
+   filtering:"Rule-based heuristics",open:"Yes",color:"#56d364",
+   key:"First large cleaned CC dataset. Rule-based filtering only. Used by T5.",
+   detail:"Lines must end in punctuation, >=5 words, >=3 sentences, no 'bad words', no '{', no 'lorem ipsum', p(en) >= 0.99. Exact dedup on 3-sentence spans. One product description repeated 61,036 times before dedup.",
+   innovation:"Rule-based heuristic filtering at scale"},
+
+  // Scale-Up Era (2020-2021)
+  {era:"scale",year:2020,name:"GPT-3 Dataset",size:"570GB / 400B tokens",sources:"CC + WebText2 + Books1/Books2 + Wikipedia",
+   filtering:"Quality classifier + fuzzy dedup",open:"No",color:"#f85149",
+   key:"First model-based quality classifier for CC filtering. Books1/Books2 remain mysterious.",
+   detail:"Quality classifier: positive = {WebText, Wikipedia, Books}, negative = CC rest. Stochastic keep via Pareto(9) distribution. Fuzzy dedup. Benchmark contamination check. Upsampled Wikipedia and Books 2-3x.",
+   innovation:"Model-based quality filtering + domain upsampling"},
+  {era:"scale",year:2021,name:"The Pile",size:"825GB / ~275B tokens",sources:"22 curated domains",
+   filtering:"Per-source curation",open:"Partially (Books3 removed)",color:"#d2a8ff",
+   key:"Grassroots open-source effort. Pile-CC used WARC + jusText (better than WET).",
+   detail:"Pile-CC, PubMed Central (5M papers), arXiv (LaTeX since 1991), Enron emails (500K), Project Gutenberg (~75K books), Books3 (196K, taken down), StackExchange, GitHub. Pioneered curated multi-domain approach.",
+   innovation:"Multi-domain curation, WARC > WET discovery"},
+  {era:"scale",year:2021,name:"MassiveText (Gopher)",size:"10.5TB",sources:"MassiveWeb + C4 + Books + News + GitHub + Wikipedia",
+   filtering:"Rules + Google SafeSearch",open:"No",color:"#f85149",
+   key:"Largest dataset at the time. Gopher trained on only 12% (300B tokens). Rule-based quality.",
+   detail:"MassiveWeb quality rules: 80% words must have alphabetic chars. Google SafeSearch for toxicity. Gopher trained on 300B tokens = 12% of total. Showed diminishing returns from more data without better filtering.",
+   innovation:"SafeSearch for toxicity filtering"},
+  {era:"scale",year:2022,name:"The Stack",size:"3.1TB code",sources:"137M GitHub repos",
+   filtering:"License + MinHash dedup",open:"Yes",color:"#56d364",
+   key:"Permissive-license-only code dataset. 137M repos to 51B files to 5B unique to 3.1TB.",
+   detail:"Started from 137M repos. Filtered to permissive licenses only (Apache, MIT, BSD, etc.). MinHash dedup. Used for StarCoder and code-specific LLMs.",
+   innovation:"License-aware code filtering"},
+
+  // Modern Era (2023-2024)
+  {era:"modern",year:2023,name:"LLaMA Dataset",size:"1.2T tokens",sources:"CC/CCNet + C4 + GitHub + Wiki + Gutenberg + Books3 + arXiv + StackExchange",
+   filtering:"Mixed (CCNet + rules)",open:"No",color:"#f85149",
+   key:"Multi-source recipe that became the template. RedPajama v1 is the open replication.",
+   detail:"Combined CCNet-processed CC with C4, GitHub, Wikipedia, Gutenberg, Books3, arXiv, StackExchange. RedPajama v1: open replication. SlimPajama: 627B token deduped subset (MinHashLSH). RedPajama v2: 84 CC snapshots, 30T tokens, minimal filtering.",
+   innovation:"Multi-source recipe as open template"},
+  {era:"modern",year:2023,name:"RefinedWeb (Falcon)",size:"5T tokens (600B released)",sources:"Common Crawl (WARC)",
+   filtering:"Gopher rules + MinHash 5-gram",open:"Partial (600B released)",color:"#e3b341",
+   key:"\"Web data is all you need.\" Showed filtered CC alone is competitive with curated multi-source.",
+   detail:"WARC + trafilatura for text extraction. Gopher rules (no ML filtering). MinHash 5-gram dedup. Released 600B of 5T tokens. Key insight: high-quality web filtering alone matches curated multi-source datasets.",
+   innovation:"Proved web-only can match multi-source"},
+  {era:"modern",year:2024,name:"FineWeb",size:"15T tokens",sources:"95 CC dumps",
+   filtering:"Rules + MinHash + PII anonymization",open:"Yes",color:"#56d364",
+   key:"HuggingFace. Started as RefinedWeb replication, then improved. Fully open. 95 CC dumps.",
+   detail:"URL filtering, lang ID (p(en) > 0.65), Gopher + C4 + custom rules, MinHash dedup, PII anonymization. FineWebEdu subset: educational quality classifier removes ~90% for a high-quality subset.",
+   innovation:"PII anonymization + educational quality subset"},
+  {era:"modern",year:2024,name:"Dolma",size:"3T tokens",sources:"CC + Reddit (Pushshift) + PeS2o + C4 + Gutenberg + Wikipedia",
+   filtering:"Rules + Bloom filter dedup + Jigsaw toxicity",open:"Yes",color:"#56d364",
+   key:"AI2. Fully open with documented pipeline. Bloom filter dedup. Jigsaw toxicity filtering.",
+   detail:"Bloom filter dedup on paragraphs (FP rate 1e-15). Jigsaw Toxic Comments classifiers (hate + NSFW). PeS2o: 40M academic papers. Permissive lang ID threshold (p(en) >= 0.5). OLMo's training data.",
+   innovation:"Bloom filter dedup + dual toxicity classifiers"},
+  {era:"modern",year:2024,name:"DCLM (DataComp-LM)",size:"240T raw / 3.8T filtered",sources:"Common Crawl (DCLM-pool)",
+   filtering:"fastText quality classifier",open:"Yes",color:"#56d364",
+   key:"Open benchmark for data curation. fastText classifier (positives: OpenHermes-2.5 + ELI5) outperforms all rules.",
+   detail:"DCLM-pool: processed CC at 240T tokens. DCLM-baseline: fastText quality classifier trained with positives = {OpenHermes-2.5 (GPT-4 generated), ELI5 subreddit}, negatives = RefinedWeb. Demonstrated WARC > WET. Open competition format for data curation.",
+   innovation:"Benchmarking data curation itself"},
+  {era:"modern",year:2024,name:"Nemotron-CC",size:"6.3T tokens (1.1T HQ)",sources:"Common Crawl",
+   filtering:"Ensemble classifier + synthetic rephrasing",open:"Yes",color:"#56d364",
+   key:"NVIDIA. Addresses over-filtering. jusText for extraction. Classifier ensemble + synthetic rephrasing of low-quality data.",
+   detail:"Uses jusText (more tokens than trafilatura). Nemotron-340B education scorer + DCLM classifier ensemble. Key innovation: synthetic rephrasing of low-quality documents rather than discarding them. HQ subset: 1.1T tokens.",
+   innovation:"Synthetic rephrasing of filtered-out data"},
+];
+
+const ERA_META = {
+  early: {label:"Early Era (2015\u20132019)", color:"#8b949e"},
+  scale: {label:"Scale-Up Era (2020\u20132022)", color:"#79c0ff"},
+  modern:{label:"Modern Era (2023\u20132024)", color:"#d29922"},
+};
+
+function drawDatasets(){
+  let html = "";
+  for(const [eraId, meta] of Object.entries(ERA_META)){
+    const items = DATASETS.filter(d=>d.era===eraId);
+    html += `<div class="ds-era">`;
+    html += `<div class="ds-era-title" style="color:${meta.color}">${meta.label} &mdash; ${items.length} datasets</div>`;
+    html += `<div class="ds-grid">`;
+    items.forEach((d,i) => {
+      const openColor = d.open.includes("Yes") ? "#56d364" :
+                        d.open.includes("Partial") ? "#e3b341" :
+                        d.open === "No" ? "#f85149" : "#8b949e";
+      const openBg = d.open.includes("Yes") ? "#1b2e1f" :
+                     d.open.includes("Partial") ? "#2d2200" :
+                     d.open === "No" ? "#2d0f0e" : "#21262d";
+      html += `<div class="ds-card" id="ds-${eraId}-${i}" onclick="togDs('ds-${eraId}-${i}')" style="border-left:3px solid ${d.color}">
+        <div class="ds-card-header">
+          <div>
+            <div class="ds-name" style="color:${d.color}">${d.name}</div>
+            <div class="ds-meta">${d.year} &middot; ${d.size}</div>
+          </div>
+          <span class="ds-chev">&#x25BC;</span>
+        </div>
+        <div style="margin:3px 0">
+          <span class="ds-open-tag" style="background:${openBg};color:${openColor}">${d.open}</span>
+        </div>
+        <div class="ds-key">${d.key}</div>
+        <div class="ds-detail">
+          <b>Sources:</b> ${d.sources}<br>
+          <b>Filtering:</b> ${d.filtering}<br><br>
+          ${d.detail}<br><br>
+          <span style="color:#d29922;font-size:0.6rem">Key innovation: ${d.innovation}</span>
+        </div>
+      </div>`;
+    });
+    html += `</div></div>`;
+  }
+
+  // Comparison table
+  html += `<div class="ds-table-wrap"><table class="ds-table">
+    <thead><tr><th>Dataset</th><th>Year</th><th>Size</th><th>Filtering</th><th>Open</th></tr></thead><tbody>`;
+  DATASETS.forEach(d => {
+    const openColor = d.open.includes("Yes") ? "#56d364" :
+                      d.open.includes("Partial") ? "#e3b341" :
+                      d.open === "No" ? "#f85149" : "#8b949e";
+    html += `<tr>
+      <td><b>${d.name}</b></td>
+      <td>${d.year}</td>
+      <td style="white-space:nowrap">${d.size}</td>
+      <td>${d.filtering}</td>
+      <td style="color:${openColor}">${d.open}</td>
+    </tr>`;
+  });
+  html += `</tbody></table></div>`;
+
+  document.getElementById("ds-content").innerHTML = html;
+}
+
+window.togDs = id => document.getElementById(id).classList.toggle("open");
+
+// ── TAB SWITCHING ──
+function toggle(box){
+  if(!document.getElementById('view-pipeline').classList.contains('show')) return;
+  box.classList.toggle('open');
+}
+function toggleSection(sec){ sec.classList.toggle('open'); }
+function setMode(m){
+  ['pipeline','datasets','research'].forEach(v=>{
+    document.getElementById('view-'+v).classList.toggle('show',v===m);
+    document.getElementById('btn-'+v).classList.toggle('active',v===m);
+  });
+  if(m==='datasets') drawDatasets();
+}
+
+window.addEventListener("load",()=>{ drawDatasets(); });
+</script>
+</body>
+</html>

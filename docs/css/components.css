@@ -588,6 +588,15 @@
   color: white;
   transform: translateY(-1px);
 }
+.data-link {
+  background: rgba(210, 153, 34, 0.15);
+  color: #d29922;
+}
+.data-link:hover {
+  background: #d29922;
+  color: white;
+  transform: translateY(-1px);
+}
 
 /* Overlay Modal */
 .overlay-modal {
