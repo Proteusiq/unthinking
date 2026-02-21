@@ -160,25 +160,29 @@ window.paperLinks = [
     source: '2512.07783',
     target: '2501.19393',
     type: 'supports',
-    description: 'Controlled evidence for surfacing',
+    description:
+      'RL needs ≥1% pre-training exposure to transfer; 0% exposure = complete RL failure',
   },
   {
     source: '2512.07783',
     target: '2501.12948',
     type: 'supports',
-    description: "RL surfaces, doesn't create",
+    description:
+      'RL gains only at edge-of-competence; OOD-hard tasks show no improvement regardless of RL data',
   },
   {
     source: '2510.22371',
     target: '2506.06941',
     type: 'supports',
-    description: 'Abrupt collapse pattern',
+    description:
+      'DeepRD: o3-mini 99% on NLGraph but collapses to ~0% at high lookahead; abrupt not gradual',
   },
   {
     source: '2510.22371',
     target: '2305.18654',
     type: 'supports',
-    description: 'Propagation error mechanism',
+    description:
+      'Token usage decreases at collapse — models give up faster, not hitting context limits',
   },
   {
     source: '2508.01191',
@@ -216,15 +220,16 @@ window.paperLinks = [
   },
   {
     source: '2509.12645',
-    target: '2305.18654',
+    target: '2410.05229',
     type: 'supports',
-    description: 'Imitation = pattern matching',
+    description:
+      '2023→2024 gains from hidden CoT, not reasoning; neuro-symbolic achieves 99.7% at 10% compute',
   },
   {
     source: '2509.12645',
     target: '2506.06941',
     type: 'supports',
-    description: 'Not genuine reasoning',
+    description: 'Thinking models imitate reasoning; Phi4+Z3 beats R1 at 10x less compute',
   },
   {
     source: '2507.07313',
@@ -296,25 +301,27 @@ window.paperLinks = [
     source: '2601.14456',
     target: '2305.18654',
     type: 'supports',
-    description: 'ID/OOD gap; surface pattern matching',
+    description: '82.9% in-domain → 0% unseen-domain; symbol anonymization drops 11.5pp',
   },
   {
     source: '2601.14456',
     target: '2512.07783',
     type: 'supports',
-    description: "RL doesn't improve OOD",
+    description: 'Verifier-reward RL (v3) fails to improve cross-domain planning generalization',
   },
   {
     source: '2601.14456',
     target: '2601.13392',
     type: 'supports',
-    description: 'Same pattern: high ID, zero OOD',
+    description:
+      'Both show 0% on unseen domains despite near-perfect in-domain; syntax learned, not goals',
   },
   {
     source: '2601.14456',
     target: '2410.05229',
     type: 'supports',
-    description: 'Surface form sensitivity',
+    description:
+      'Compact serialization (format only) causes >10pp drop despite preserving semantics',
   },
   {
     source: '2601.13392',
@@ -538,19 +545,21 @@ window.paperLinks = [
     source: '2510.04040',
     target: '2503.08679',
     type: 'supports',
-    description: 'Pervasive unfaithfulness',
+    description:
+      '1000+ expert-annotated traces: 58% spurious chains, 42% post-hoc rationalizations',
   },
   {
     source: '2510.04040',
     target: '2307.13702',
-    type: 'supports',
-    description: 'Confirms unfaithfulness',
+    type: 'extends',
+    description: 'First instance-level faithfulness benchmark; best detector still <80% F1',
   },
   {
     source: '2510.04040',
     target: '2505.05410',
     type: 'supports',
-    description: '40-60% unfaithfulness rates',
+    description:
+      '~40% of instances show correctness-faithfulness divergence; correct answers from wrong CoT',
   },
   {
     source: '2601.10825',
@@ -691,13 +700,15 @@ window.paperLinks = [
     source: '2510.22437',
     target: '2506.06941',
     type: 'supports',
-    description: "Extended thinking doesn't always help",
+    description:
+      'FSM analysis: longest chains (123 states) yield lower GPQA accuracy than shorter ones',
   },
   {
     source: '2510.22437',
     target: '2504.09858',
     type: 'supports',
-    description: 'Sometimes shorter is better',
+    description:
+      'Math benefits from longer thinking; science does not — task-specific, not general reasoning',
   },
   {
     source: '2504.05262',
@@ -802,13 +813,13 @@ window.paperLinks = [
     source: '2501.02497',
     target: '2510.18254',
     type: 'supports',
-    description: 'Self-correction limited',
+    description: 'Survey confirms self-correction bottleneck is error locating, not error fixing',
   },
   {
     source: '2501.02497',
     target: '2506.17219',
     type: 'supports',
-    description: 'RL limited effectiveness',
+    description: 'No universal test-time scaling law; LRMs struggle to generalize cross-domain',
   },
   {
     source: '2404.00560',
@@ -905,13 +916,15 @@ window.paperLinks = [
     source: '2509.01267',
     target: '2410.05229',
     type: 'supports',
-    description: 'Struggle with rule variations',
+    description:
+      'Cannot override learned priors (addition before multiplication); zero-shot <35% on rule variants',
   },
   {
     source: '2509.01267',
     target: '2504.01445',
     type: 'supports',
-    description: 'Systematicity failures',
+    description:
+      'Performance degrades monotonically with expression depth; simpler shots work better',
   },
   {
     source: '2506.15629',
@@ -947,13 +960,15 @@ window.paperLinks = [
     source: '2505.16782',
     target: '2307.13702',
     type: 'supports',
-    description: 'CoT unfaithfulness problem',
+    description:
+      'Survey identifies expressive redundancy and semantic bottleneck as fundamental CoT limits',
   },
   {
     source: '2505.16782',
     target: '2601.08058',
     type: 'supports',
-    description: 'Latent reasoning modes',
+    description:
+      'Coconut, CODI achieve 5.7x speedup — latent space decouples reasoning from language',
   },
   {
     source: '2502.07813',
@@ -996,13 +1011,15 @@ window.paperLinks = [
     source: '2504.00294',
     target: '2501.02497',
     type: 'supports',
-    description: 'Task-dependent scaling',
+    description:
+      'R1 uses 5x tokens as Claude 3.7 for ~same accuracy; more tokens ≠ better reasoning',
   },
   {
     source: '2504.00294',
     target: '2506.06941',
     type: 'supports',
-    description: 'Complexity collapse persists',
+    description:
+      'TSP accuracy near 0% at hard levels; token usage saturates while accuracy still drops',
   },
   // Paper #84: Trapped in the Past (2601.16823)
   {
