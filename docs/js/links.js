@@ -2947,19 +2947,19 @@ window.paperLinks = [
     source: '2506.12286',
     target: '2305.18654',
     type: 'supports',
-    description: 'Distribution-bounded performance',
+    description: '76% file path accuracy on SWE-Bench Verified vs <53% on external repos; 47pp memorization gap',
   },
   {
     source: '2506.12286',
     target: '2410.05229',
     type: 'supports',
-    description: 'Benchmark scores dont reflect true capability',
+    description: '5-gram overlap 35% on Verified vs 14% external; Claude 4 Opus 31.6% verbatim prefix match',
   },
   {
     source: '2506.12286',
     target: '2601.13392',
     type: 'supports',
-    description: 'Same pattern: high seen, low unseen',
+    description: 'Instance-specific + repository-bias memorization; newer Claude models show monotonic contamination increase',
   },
   {
     source: '2506.12286',
@@ -2971,7 +2971,7 @@ window.paperLinks = [
     source: '2506.12286',
     target: '2202.07206',
     type: 'supports',
-    description: 'Training exposure determines performance',
+    description: 'File path identification 60-76% without repo context; performance tracks repository familiarity',
   },
   // Paper 167: Faithful CoT links
   {
@@ -3015,13 +3015,13 @@ window.paperLinks = [
     source: '2509.11208',
     target: '2601.18753',
     type: 'supports',
-    description: 'Both analyze hallucination mechanisms',
+    description: '0.13 fewer hallucinations per additional nat; ISR achieves ~0% hallucination at 24% abstention',
   },
   {
     source: '2509.11208',
     target: '2601.21576',
     type: 'supports',
-    description: 'Both use information-theoretic analysis',
+    description: 'Order-induced deviations scale O(log n); Martingale Violation theorem quantifies positional effects',
   },
   {
     source: '2509.11208',
@@ -3058,13 +3058,13 @@ window.paperLinks = [
     source: '2405.15092',
     target: '2305.04388',
     type: 'supports',
-    description: 'Same phenomenon, different methodology',
+    description: 'Faithful recovery scales with evidence availability; unfaithful stays constant — divergent p<0.001',
   },
   {
     source: '2405.15092',
     target: '2301.13379',
     type: 'extends',
-    description: 'Validates need for external verification',
+    description: 'Context noise increases unfaithful recovery in Claude/Llama; evidence quality doesnt help opaque mode',
   },
   {
     source: '2405.15092',
@@ -3089,7 +3089,7 @@ window.paperLinks = [
     source: '2602.04843',
     target: '2502.03373',
     type: 'supports',
-    description: 'Both show extended reasoning enables existing capabilities',
+    description: 'Cross-naming representations converge at ~7000 tokens; steering boosts accuracy +1.8% cross-naming',
   },
   {
     source: '2602.04843',
@@ -3101,7 +3101,7 @@ window.paperLinks = [
     source: '2602.04843',
     target: '2506.18880',
     type: 'supports',
-    description: 'OOD generalization still fails',
+    description: 'QwQ 96% standard → 35% mystery BlocksWorld; coherent semantic domains worst at 5-14%',
   },
   // Paper 171: Arithmetic Without Algorithms links
   {
