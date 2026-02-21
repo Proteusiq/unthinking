@@ -47,6 +47,51 @@ uvx ruff check --fix .
 uvx ty check .
 ```
 
+### HTML / CSS / JS Style (docs/)
+
+No build tools, no framework — vanilla HTML + CSS + JS. D3.js only dependency.
+See `docs/SPECS.md` for design system, component layout, and graph details.
+
+#### HTML
+- Semantic elements: `<header>`, `<nav>`, `<main>`, `<button>` (never `<div onclick>`)
+- `<button>` for actions, `<a>` for navigation
+- `alt` on every `<img>` (empty `alt=""` for decorative)
+- Double quotes for attributes
+- Scripts before `</body>`, CSS in `<head>`
+
+#### CSS
+- 2-space indent, one property per line
+- Hyphenated class names: `.thesis-card`, `.side-panel` (no camelCase)
+- Use custom properties from `variables.css` — never hardcode colors/spacing
+- Flat selectors (1–2 levels max), no `!important`
+- Animate with `transform` / `opacity` (GPU-composited)
+- Safari: always pair `backdrop-filter` with `-webkit-backdrop-filter`
+
+#### JavaScript
+- `const` by default, `let` when needed, never `var`
+- IIFE module pattern: `(() => { ... })()`
+- `addEventListener` over inline `onclick` (standalone pages may use `onclick`)
+- Cache DOM refs, batch reads/writes
+- `requestAnimationFrame` for layout, debounce expensive handlers
+- Reactive positioning: `ResizeObserver` + `transitionend`, no `setTimeout` for layout
+
+#### Standalone Pages (`architecture.html`, `post-training.html`, `data.html`)
+- Self-contained: inline `<style>` + `<script>`, no external CSS/JS
+- Dark terminal aesthetic: `#0d1117` bg, `Courier New`, color-coded sections
+- Tab switching: JS `setMode()` pattern, CSS `.show` class toggle
+- Data-driven: JS arrays → DOM (not hand-written HTML for repeated elements)
+- Width: 720–960px centered
+- Credits footer: sources attributed at page bottom
+
+#### Tooling
+
+```bash
+cd docs
+npm run format          # Prettier
+npm run format:check    # Check only
+python3 -m http.server 8000  # Local dev
+```
+
 ---
 
 ## Core Principles
@@ -471,9 +516,16 @@ gh auth switch --user <username>
 │       └── protocol.md         # OLMo 3 experiment design
 └── docs/                        # Interactive visualization
     ├── SPECS.md                # Technical specs for this folder
-    ├── index.html
+    ├── index.html              # Main page (graph + overlays)
+    ├── architecture.html       # Standalone: LLM Architecture Evolution
+    ├── post-training.html      # Standalone: Post-Training Pipeline
+    ├── data.html               # Standalone: Pre-training Data Pipeline
     ├── css/                    # variables, layout, components, responsive
-    └── js/                     # data.js, graph.js
+    └── js/
+        ├── nodes.js            # Paper node definitions
+        ├── links.js            # Relationship link definitions
+        ├── data.js             # Meta + combines nodes/links
+        └── graph.js            # D3 simulation, interactions, dialogue
 ```
 
 **Note**: All files are lowercase except `AGENTS.md` and `README.md`.
