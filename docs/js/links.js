@@ -43,13 +43,15 @@ window.paperLinks = [
     source: '2506.21561',
     target: '2601.15436',
     type: 'supports',
-    description: 'GPT-4.1 98%/16% truth/deception accuracy; sycophancy is model-specific and asymmetric',
+    description:
+      'GPT-4.1 98%/16% truth/deception accuracy; sycophancy is model-specific and asymmetric',
   },
   {
     source: '2506.21561',
     target: '2505.05410',
     type: 'supports',
-    description: 'DeepSeek R1 more truth-biased (79%) than V3 (55%); reasoning amplifies sycophancy',
+    description:
+      'DeepSeek R1 more truth-biased (79%) than V3 (55%); reasoning amplifies sycophancy',
   },
   {
     source: '2506.21561',
@@ -62,13 +64,15 @@ window.paperLinks = [
     source: '2510.22977',
     target: '2505.05410',
     type: 'supports',
-    description: 'Math-only RL still amplifies tool hallucination; DPO mitigation costs 24% utility',
+    description:
+      'Math-only RL still amplifies tool hallucination; DPO mitigation costs 24% utility',
   },
   {
     source: '2510.22977',
     target: '2506.21561',
     type: 'supports',
-    description: 'R1-Distill 74% NTA hallucination vs base 35%; thinking mode itself increases fabrication',
+    description:
+      'R1-Distill 74% NTA hallucination vs base 35%; thinking mode itself increases fabrication',
   },
   {
     source: '2510.22977',
@@ -80,7 +84,8 @@ window.paperLinks = [
     source: '2510.22977',
     target: '2506.17219',
     type: 'supports',
-    description: 'GRPO on GSM8K (pure math) still increases tool hallucination; CKA drops to <0.75 OOD',
+    description:
+      'GRPO on GSM8K (pure math) still increases tool hallucination; CKA drops to <0.75 OOD',
   },
   // Strategic Deception cluster (Papers 117-118)
   {
@@ -94,19 +99,22 @@ window.paperLinks = [
     source: '2311.07590',
     target: '2506.06941',
     type: 'supports',
-    description: 'Instrumental convergence drives deception; models complete tasks without understanding goals',
+    description:
+      'Instrumental convergence drives deception; models complete tasks without understanding goals',
   },
   {
     source: '2311.07590',
     target: '2601.16644',
     type: 'supports',
-    description: 'Strategic deception as extreme sycophancy; both linearly separable in activation space',
+    description:
+      'Strategic deception as extreme sycophancy; both linearly separable in activation space',
   },
   {
     source: '2311.07590',
     target: '2601.07422',
     type: 'extends',
-    description: 'Instrumental reward pressure suppresses truthfulness; extends to 12 of 16 models tested',
+    description:
+      'Instrumental reward pressure suppresses truthfulness; extends to 12 of 16 models tested',
   },
   {
     source: '2502.03407',
@@ -124,7 +132,8 @@ window.paperLinks = [
     source: '2502.03407',
     target: '2601.21183',
     type: 'supports',
-    description: 'Linear probes detect deception at AUROC 0.96-0.999; unfaithfulness linearly separable',
+    description:
+      'Linear probes detect deception at AUROC 0.96-0.999; unfaithfulness linearly separable',
   },
   {
     source: '2506.18880',
@@ -274,7 +283,8 @@ window.paperLinks = [
     source: '2510.18254',
     target: '2501.12948',
     type: 'challenges',
-    description: 'Reasoning models score -0.075 reflection gain vs non-reasoning; extended thinking fails',
+    description:
+      'Reasoning models score -0.075 reflection gain vs non-reasoning; extended thinking fails',
   },
   {
     source: '2510.18254',
@@ -330,7 +340,8 @@ window.paperLinks = [
     source: '2601.13392',
     target: '2406.15992',
     type: 'supports',
-    description: '100% knowledge accuracy, 0% on composed constraints; pattern retrieval not reasoning',
+    description:
+      '100% knowledge accuracy, 0% on composed constraints; pattern retrieval not reasoning',
   },
   {
     source: '2601.13392',
@@ -372,13 +383,15 @@ window.paperLinks = [
     source: '2506.18957',
     target: '2506.06941',
     type: 'rebuts',
-    description: 'Reframes collapse as interface constraint; model solves beyond cliff with agentic tools',
+    description:
+      'Reframes collapse as interface constraint; model solves beyond cliff with agentic tools',
   },
   {
     source: '2503.08679',
     target: '2307.13702',
     type: 'extends',
-    description: 'GPT-4o-mini 13% IPHR on natural prompts; no artificial bias needed to trigger unfaithfulness',
+    description:
+      'GPT-4o-mini 13% IPHR on natural prompts; no artificial bias needed to trigger unfaithfulness',
   },
   {
     source: '2505.05410',
@@ -391,13 +404,15 @@ window.paperLinks = [
     source: '2507.01231',
     target: '2506.06941',
     type: 'supports',
-    description: 'Stepwise prompting still fails at ~8 disks, confirming cognitive not output-window limit',
+    description:
+      'Stepwise prompting still fails at ~8 disks, confirming cognitive not output-window limit',
   },
   {
     source: '2507.01231',
     target: '2506.18957',
     type: 'challenges',
-    description: 'Two-agent Hanoi collaboration drops to ~4 disk threshold, contradicting agentic fix',
+    description:
+      'Two-agent Hanoi collaboration drops to ~4 disk threshold, contradicting agentic fix',
   },
   {
     source: '2507.01231',
@@ -409,7 +424,8 @@ window.paperLinks = [
     source: '2508.13678',
     target: '2305.18654',
     type: 'supports',
-    description: 'Auto-regressive errors accumulate over steps; symbolic verification needed for long chains',
+    description:
+      'Auto-regressive errors accumulate over steps; symbolic verification needed for long chains',
   },
   {
     source: '2508.13678',
@@ -445,19 +461,22 @@ window.paperLinks = [
     source: '2509.03646',
     target: '2501.12948',
     type: 'supports',
-    description: 'HICRA boosts Qwen3-4B AIME24 by +5.4pp via strategic template deployment on ID tasks',
+    description:
+      'HICRA boosts Qwen3-4B AIME24 by +5.4pp via strategic template deployment on ID tasks',
   },
   {
     source: '2510.15987',
     target: '2509.03646',
     type: 'supports',
-    description: 'Primitive injection changes pattern frequency +56-1104% but no accuracy gain measured',
+    description:
+      'Primitive injection changes pattern frequency +56-1104% but no accuracy gain measured',
   },
   {
     source: '2510.15987',
     target: '2512.07783',
     type: 'supports',
-    description: 'Primitives compose via vector arithmetic but are learned from training, not emergent',
+    description:
+      'Primitives compose via vector arithmetic but are learned from training, not emergent',
   },
   {
     source: '2502.20332',
@@ -497,7 +516,8 @@ window.paperLinks = [
     source: '2601.08058',
     target: '2402.10200',
     type: 'supports',
-    description: 'SAE steering and CoT-decoding both surface latent reasoning without explicit prompts',
+    description:
+      'SAE steering and CoT-decoding both surface latent reasoning without explicit prompts',
   },
   {
     source: '2601.08058',
@@ -509,19 +529,22 @@ window.paperLinks = [
     source: '2512.04727',
     target: '2305.18654',
     type: 'supports',
-    description: 'PCA shows periodic dips at decade boundaries; token prediction not internal counters',
+    description:
+      'PCA shows periodic dips at decade boundaries; token prediction not internal counters',
   },
   {
     source: '2512.04727',
     target: '2506.18880',
     type: 'supports',
-    description: 'Zero models count spontaneously; scaling 3B→70B yields only 10%→24%, not emergent',
+    description:
+      'Zero models count spontaneously; scaling 3B→70B yields only 10%→24%, not emergent',
   },
   {
     source: '2512.04727',
     target: '2506.06941',
     type: 'supports',
-    description: 'Explicit counting exploits decade-boundary tokens; mental counting shows accumulator-like r>0.83',
+    description:
+      'Explicit counting exploits decade-boundary tokens; mental counting shows accumulator-like r>0.83',
   },
   {
     source: '2504.20771',
@@ -541,7 +564,8 @@ window.paperLinks = [
     source: '2407.20311',
     target: '2305.18654',
     type: 'challenges',
-    description: '97% at op=20 (trained ≤15); 90T+ templates rule out memorization in controlled iGSM',
+    description:
+      '97% at op=20 (trained ≤15); 90T+ templates rule out memorization in controlled iGSM',
   },
   {
     source: '2407.20311',
@@ -573,19 +597,22 @@ window.paperLinks = [
     source: '2601.10825',
     target: '2501.12948',
     type: 'supports',
-    description: 'Feature steering surprise doubles Countdown accuracy 27%→55%; RL organizes dialogue',
+    description:
+      'Feature steering surprise doubles Countdown accuracy 27%→55%; RL organizes dialogue',
   },
   {
     source: '2601.10825',
     target: '2509.23629',
     type: 'supports',
-    description: 'Q&A patterns β=0.345 p<10⁻³²³; RL discovers pre-existing conversational scaffolding',
+    description:
+      'Q&A patterns β=0.345 p<10⁻³²³; RL discovers pre-existing conversational scaffolding',
   },
   {
     source: '2511.23476',
     target: '2512.07783',
     type: 'supports',
-    description: 'Qwen2.5-7B failed entirely; reflection and self-correction must pre-exist for WMAct',
+    description:
+      'Qwen2.5-7B failed entirely; reflection and self-correction must pre-exist for WMAct',
   },
   {
     source: '2511.23476',
@@ -658,13 +685,15 @@ window.paperLinks = [
     source: '2601.13244',
     target: '2512.07783',
     type: 'supports',
-    description: 'Base Llama-70B beats instruct by 32pp zero-shot; capability is latent, not created by SFT',
+    description:
+      'Base Llama-70B beats instruct by 32pp zero-shot; capability is latent, not created by SFT',
   },
   {
     source: '2601.13244',
     target: '2506.17219',
     type: 'supports',
-    description: 'Instruct models lose 38pp on perturbations; format gains mask reasoning degradation',
+    description:
+      'Instruct models lose 38pp on perturbations; format gains mask reasoning degradation',
   },
   {
     source: '2509.13334',
@@ -700,13 +729,15 @@ window.paperLinks = [
     source: '2510.08931',
     target: '2410.05229',
     type: 'supports',
-    description: '93% accuracy detecting recall via attention focus timing and confidence convergence speed',
+    description:
+      '93% accuracy detecting recall via attention focus timing and confidence convergence speed',
   },
   {
     source: '2510.08931',
     target: '2601.13392',
     type: 'supports',
-    description: '37-feature classifier: focused attention = recall, distributed = reasoning at 97% CV accuracy',
+    description:
+      '37-feature classifier: focused attention = recall, distributed = reasoning at 97% CV accuracy',
   },
   {
     source: '2510.22437',
@@ -791,7 +822,8 @@ window.paperLinks = [
     source: '2512.01222',
     target: '2502.20332',
     type: 'supports',
-    description: 'Internal representations anchor to English even when output is ROT-13; semantic hub parallels symbol abstraction',
+    description:
+      'Internal representations anchor to English even when output is ROT-13; semantic hub parallels symbol abstraction',
   },
   {
     source: '2506.21215',
@@ -818,13 +850,15 @@ window.paperLinks = [
     source: '2503.05788',
     target: '2410.05229',
     type: 'supports',
-    description: 'Token Edit Distance hides 7000-unit errors behind 1-token edits; metric choice creates mirages',
+    description:
+      'Token Edit Distance hides 7000-unit errors behind 1-token edits; metric choice creates mirages',
   },
   {
     source: '2503.05788',
     target: '2305.18654',
     type: 'supports',
-    description: 'Heavy memorization delays generalization circuits; emergence gated by distribution coverage',
+    description:
+      'Heavy memorization delays generalization circuits; emergence gated by distribution coverage',
   },
   {
     source: '2501.02497',
@@ -854,13 +888,15 @@ window.paperLinks = [
     source: '2510.10182',
     target: '2305.18654',
     type: 'supports',
-    description: 'Induction heads identified as mechanism; no universal bias, task-specific pattern matching',
+    description:
+      'Induction heads identified as mechanism; no universal bias, task-specific pattern matching',
   },
   {
     source: '2510.10182',
     target: '2506.18880',
     type: 'supports',
-    description: 'ARC, SCAN, ILP all show systematic failure; enhancements search patterns, not compose',
+    description:
+      'ARC, SCAN, ILP all show systematic failure; enhancements search patterns, not compose',
   },
   {
     source: '2510.15974',
@@ -922,7 +958,8 @@ window.paperLinks = [
     source: '2512.13713',
     target: '2510.15974',
     type: 'supports',
-    description: 'GPT-4.1/O3-mini all fail at 0-4% proximity; only O3 breaks oscillation loops at 57-73%',
+    description:
+      'GPT-4.1/O3-mini all fail at 0-4% proximity; only O3 breaks oscillation loops at 57-73%',
   },
   {
     source: '2510.09312',
@@ -949,13 +986,15 @@ window.paperLinks = [
     source: '2506.15629',
     target: '2305.18654',
     type: 'supports',
-    description: 'GPT-4o 95% unordered but 42% ordered; produces identical outputs 48% despite different orders',
+    description:
+      'GPT-4o 95% unordered but 42% ordered; produces identical outputs 48% despite different orders',
   },
   {
     source: '2506.15629',
     target: '2504.01445',
     type: 'supports',
-    description: '25pp gap ordered vs unordered coverage; models default to canonical orderings from training',
+    description:
+      '25pp gap ordered vs unordered coverage; models default to canonical orderings from training',
   },
   {
     source: '2601.03676',
@@ -1019,13 +1058,15 @@ window.paperLinks = [
     source: '2403.11793',
     target: '2305.18654',
     type: 'supports',
-    description: 'Only 4% correct reasoning process on ARC; 0% on Medium/Hard; 60% of successes lucky',
+    description:
+      'Only 4% correct reasoning process on ARC; 0% on Medium/Hard; 60% of successes lucky',
   },
   {
     source: '2403.11793',
     target: '2506.18880',
     type: 'supports',
-    description: 'DSL functions understood individually but composition fails; ARC 10% vs 1D-ARC 90%',
+    description:
+      'DSL functions understood individually but composition fails; ARC 10% vs 1D-ARC 90%',
   },
   {
     source: '2504.00294',
@@ -1064,39 +1105,45 @@ window.paperLinks = [
     source: '2601.16823',
     target: '2601.14456',
     type: 'supports',
-    description: 'OOD illegal move rate 4.72x higher; fluid intelligence collapses to zero strategically',
+    description:
+      'OOD illegal move rate 4.72x higher; fluid intelligence collapses to zero strategically',
   },
   // Paper #85: ToM Robustness (2601.16853)
   {
     source: '2601.16853',
     target: '2512.07783',
     type: 'supports',
-    description: 'Claude thinking 1.0 vs no-thinking 0.5 on 2nd-order Sally-Anne; robustness not new ToM',
+    description:
+      'Claude thinking 1.0 vs no-thinking 0.5 on 2nd-order Sally-Anne; robustness not new ToM',
   },
   {
     source: '2601.16853',
     target: '2501.12948',
     type: 'supports',
-    description: 'Gains attributed to more reliable pattern application, not fundamentally new ToM reasoning',
+    description:
+      'Gains attributed to more reliable pattern application, not fundamentally new ToM reasoning',
   },
   // Paper #86: MortalMATH (2601.18790)
   {
     source: '2601.18790',
     target: '2501.12948',
     type: 'challenges',
-    description: 'Reasoning models maintain >95% task completion while user describes dying; 0% refusal',
+    description:
+      'Reasoning models maintain >95% task completion while user describes dying; 0% refusal',
   },
   {
     source: '2601.18790',
     target: '2506.17219',
     type: 'supports',
-    description: 'Safety instruction raises Llama refusal to 85% but Qwen stays at 10%; RL overrides safety',
+    description:
+      'Safety instruction raises Llama refusal to 85% but Qwen stays at 10%; RL overrides safety',
   },
   {
     source: '2601.18790',
     target: '2305.18654',
     type: 'supports',
-    description: 'Reasoning latency unchanged by emergency: ~2000 tokens whether Level 1 or Level 5 freefall',
+    description:
+      'Reasoning latency unchanged by emergency: ~2000 tokens whether Level 1 or Level 5 freefall',
   },
   // Missing papers added
   {
@@ -1121,20 +1168,23 @@ window.paperLinks = [
     source: '2601.14716',
     target: '2501.12948',
     type: 'supports',
-    description: 'SFT→RL: AIME24 85.7%→90.9%; RL fixes long-CoT (≥32K tokens) where SFT model fails',
+    description:
+      'SFT→RL: AIME24 85.7%→90.9%; RL fixes long-CoT (≥32K tokens) where SFT model fails',
   },
   {
     source: '2601.14716',
     target: '2512.07783',
     type: 'supports',
-    description: '666K samples distilled from R1-0528; offline RL bounded by static dataset quality',
+    description:
+      '666K samples distilled from R1-0528; offline RL bounded by static dataset quality',
   },
   // o3 Thinks Harder Not Longer links
   {
     source: '2502.15631',
     target: '2506.06941',
     type: 'supports',
-    description: 'o3-mini (h) gains only +4% over (m) using 2x+ tokens on all problems including easy ones',
+    description:
+      'o3-mini (h) gains only +4% over (m) using 2x+ tokens on all problems including easy ones',
   },
   {
     source: '2502.15631',
@@ -1146,13 +1196,15 @@ window.paperLinks = [
     source: '2502.15631',
     target: '2504.09858',
     type: 'supports',
-    description: 'Models use >50k tokens with diminishing returns; reason more on problems they cannot solve',
+    description:
+      'Models use >50k tokens with diminishing returns; reason more on problems they cannot solve',
   },
   {
     source: '2502.15631',
     target: '2501.02497',
     type: 'supports',
-    description: 'Longer chains have higher error probability; token distribution stretched linearly not selectively',
+    description:
+      'Longer chains have higher error probability; token distribution stretched linearly not selectively',
   },
   {
     source: '2502.15631',
@@ -1165,75 +1217,87 @@ window.paperLinks = [
     source: '2502.12470',
     target: '2502.15631',
     type: 'supports',
-    description: 'S2 drops StrategyQA -6.68pp, SIQA -3.19pp; S1 beats S2 on all 5 commonsense benchmarks',
+    description:
+      'S2 drops StrategyQA -6.68pp, SIQA -3.19pp; S1 beats S2 on all 5 commonsense benchmarks',
   },
   {
     source: '2502.12470',
     target: '2506.06941',
     type: 'supports',
-    description: 'Monotonic accuracy decrease on commonsense as S2 ratio increases; DPO t=57.14 p<.001',
+    description:
+      'Monotonic accuracy decrease on commonsense as S2 ratio increases; DPO t=57.14 p<.001',
   },
   {
     source: '2502.12470',
     target: '2504.09858',
     type: 'supports',
-    description: 'Entropy-based S1/S2 arbitration (87.5% selection accuracy) outperforms either pure system',
+    description:
+      'Entropy-based S1/S2 arbitration (87.5% selection accuracy) outperforms either pure system',
   },
   {
     source: '2502.12470',
     target: '2512.07783',
     type: 'supports',
-    description: 'S1 excels where heuristics exist in training; S2 where step-by-step templates exist',
+    description:
+      'S1 excels where heuristics exist in training; S2 where step-by-step templates exist',
   },
   // Content Effects on Reasoning links
   {
     source: '2207.07051',
     target: '2305.18654',
     type: 'supports',
-    description: 'Human-model accuracy correlation t(832)=3.49 p<.001; both fail on belief-violating content',
+    description:
+      'Human-model accuracy correlation t(832)=3.49 p<.001; both fail on belief-violating content',
   },
   {
     source: '2207.07051',
     target: '2410.05229',
     type: 'supports',
-    description: 'Believable invalid syllogisms: 90% say valid; all models z≥2.25 p≤0.01 content effects',
+    description:
+      'Believable invalid syllogisms: 90% say valid; all models z≥2.25 p≤0.01 content effects',
   },
   {
     source: '2207.07051',
     target: '2512.07783',
     type: 'supports',
-    description: 'Wason: above chance on realistic rules, near chance on arbitrary — mirrors training exposure',
+    description:
+      'Wason: above chance on realistic rules, near chance on arbitrary — mirrors training exposure',
   },
   {
     source: '2207.07051',
     target: '2410.13343',
     type: 'supports',
-    description: 'Believable conclusion + invalid argument → models say valid ~90%; semantic override of logic',
+    description:
+      'Believable conclusion + invalid argument → models say valid ~90%; semantic override of logic',
   },
   {
     source: '2207.07051',
     target: '2502.12470',
     type: 'extends',
-    description: 'Model confidence correlates with human RT: NLI t(655)=-3.39 p<.001; same dual-process',
+    description:
+      'Model confidence correlates with human RT: NLI t(655)=-3.39 p<.001; same dual-process',
   },
   // AI Metacognition links
   {
     source: '2411.02478',
     target: '2506.06941',
     type: 'supports',
-    description: 'Metacognitive myopia: cannot moderate confidence or detect reasoning errors in novel domains',
+    description:
+      'Metacognitive myopia: cannot moderate confidence or detect reasoning errors in novel domains',
   },
   {
     source: '2411.02478',
     target: '2207.07051',
     type: 'supports',
-    description: 'Object-level heuristics conflict without meta-level selection; wisdom requires strategy management',
+    description:
+      'Object-level heuristics conflict without meta-level selection; wisdom requires strategy management',
   },
   {
     source: '2411.02478',
     target: '2410.05229',
     type: 'supports',
-    description: 'Cannot identify sample bias or moderate confidence in novel situations; explains fragility',
+    description:
+      'Cannot identify sample bias or moderate confidence in novel situations; explains fragility',
   },
   {
     source: '2411.02478',
@@ -1245,7 +1309,8 @@ window.paperLinks = [
     source: '2411.02478',
     target: '2510.18254',
     type: 'supports',
-    description: 'Models confabulate insight rather than introspect; inner monologue not true metacognition',
+    description:
+      'Models confabulate insight rather than introspect; inner monologue not true metacognition',
   },
   {
     source: '2411.02478',
@@ -1257,45 +1322,52 @@ window.paperLinks = [
     source: '2411.02478',
     target: '2502.15631',
     type: 'extends',
-    description: 'No amount of training may yield metacognition, like no language exposure makes a squirrel talk',
+    description:
+      'No amount of training may yield metacognition, like no language exposure makes a squirrel talk',
   },
   // Temporal Cognition links
   {
     source: '2507.15851',
     target: '2207.07051',
     type: 'supports',
-    description: 'Weber-Fechner law emerges at 32B+; reference-log-linear temporal cognition mirrors humans',
+    description:
+      'Weber-Fechner law emerges at 32B+; reference-log-linear temporal cognition mirrors humans',
   },
   {
     source: '2507.15851',
     target: '2512.07783',
     type: 'supports',
-    description: 'Reference points GPT-4o→2024, Qwen→2020; temporal structure mirrors training corpus bias',
+    description:
+      'Reference points GPT-4o→2024, Qwen→2020; temporal structure mirrors training corpus bias',
   },
   {
     source: '2507.15851',
     target: '2512.23722',
     type: 'supports',
-    description: '0.67-1.71% temporal neurons; best fit R²=0.756 for log-compressed past representations',
+    description:
+      '0.67-1.71% temporal neurons; best fit R²=0.756 for log-compressed past representations',
   },
   {
     source: '2507.15851',
     target: '2502.12470',
     type: 'extends',
-    description: 'Early layers encode numerical properties, deep layers abstract temporal orientation; hierarchy',
+    description:
+      'Early layers encode numerical properties, deep layers abstract temporal orientation; hierarchy',
   },
   {
     source: '2507.15851',
     target: '2503.05788',
     type: 'extends',
-    description: 'Log-compression convergent with biology; training corpus provides non-linear temporal structure',
+    description:
+      'Log-compression convergent with biology; training corpus provides non-linear temporal structure',
   },
   // On the Notion that Language Models Reason links
   {
     source: '2511.11810',
     target: '2305.18654',
     type: 'supports',
-    description: 'Formal proof: LMs implement Markov kernels; reasoning = statistical invariances not logic',
+    description:
+      'Formal proof: LMs implement Markov kernels; reasoning = statistical invariances not logic',
   },
   {
     source: '2511.11810',
@@ -1307,76 +1379,88 @@ window.paperLinks = [
     source: '2511.11810',
     target: '2406.02061',
     type: 'supports',
-    description: 'Cites AIW failures as cross-entropy optimization not enforcing logical consistency',
+    description:
+      'Cites AIW failures as cross-entropy optimization not enforcing logical consistency',
   },
   {
     source: '2511.11810',
     target: '2411.02478',
     type: 'supports',
-    description: 'Proposes renaming reasoning to inference; no psychological connotations warranted',
+    description:
+      'Proposes renaming reasoning to inference; no psychological connotations warranted',
   },
   {
     source: '2511.11810',
     target: '2207.07051',
     type: 'supports',
-    description: 'Cross-entropy yields most-likely-token, not logical inference; regularities not mechanisms',
+    description:
+      'Cross-entropy yields most-likely-token, not logical inference; regularities not mechanisms',
   },
   // Reasoning or Reciting links
   {
     source: '2307.02477',
     target: '2305.18654',
     type: 'supports',
-    description: 'Arithmetic base-10→base-9: 95%→55%; code generation 80%→30% under counterfactual shift',
+    description:
+      'Arithmetic base-10→base-9: 95%→55%; code generation 80%→30% under counterfactual shift',
   },
   {
     source: '2307.02477',
     target: '2410.05229',
     type: 'supports',
-    description: 'High CCC ~95% but CF task ~55%; understanding concepts without applying them flexibly',
+    description:
+      'High CCC ~95% but CF task ~55%; understanding concepts without applying them flexibly',
   },
   {
     source: '2307.02477',
     target: '2511.11810',
     type: 'supports',
-    description: 'Narrow non-transferable procedures; base-8/16 (common) outperform base-9/11 (rare)',
+    description:
+      'Narrow non-transferable procedures; base-8/16 (common) outperform base-9/11 (rare)',
   },
   {
     source: '2307.02477',
     target: '2207.07051',
     type: 'supports',
-    description: 'Commonness matters: base-8/16 perform better than base-9/11; r=0.7-0.8 default-CF correlation',
+    description:
+      'Commonness matters: base-8/16 perform better than base-9/11; r=0.7-0.8 default-CF correlation',
   },
   // Gaming the Judge links
   {
     source: '2601.14691',
     target: '2307.13702',
     type: 'supports',
-    description: 'Judges accept CoT assertions without verifying actions; GPT-4o ΔFPR +27% from fabrication',
+    description:
+      'Judges accept CoT assertions without verifying actions; GPT-4o ΔFPR +27% from fabrication',
   },
   {
     source: '2601.14691',
     target: '2505.05410',
     type: 'supports',
-    description: 'Manipulative agent judged 19-23pp above true success; removing CoTs drops recall 13pp',
+    description:
+      'Manipulative agent judged 19-23pp above true success; removing CoTs drops recall 13pp',
   },
   {
     source: '2601.14691',
     target: '2510.18254',
     type: 'supports',
-    description: 'Progress fabrication ΔFPR: GPT-4o +27%, o4-mini +7.5% (+117% relative); surface cues fool judges',
+    description:
+      'Progress fabrication ΔFPR: GPT-4o +27%, o4-mini +7.5% (+117% relative); surface cues fool judges',
   },
   {
     source: '2601.14691',
     target: '2512.20812',
     type: 'supports',
-    description: 'Aware-prompt mitigation still leaves GPT-4o at 18% ΔFPR; robustness-recall tradeoff unavoidable',
+    description:
+      'Aware-prompt mitigation still leaves GPT-4o at 18% ΔFPR; robustness-recall tradeoff unavoidable',
   },
   // Beyond Memorization links
   {
     source: '2601.13392',
     target: '2307.02477',
     type: 'supports',
-    description: '100% knowledge but 63pp seen→unseen drop; counterfactual methodology confirms memorization',
+    description:
+      '100% knowledge but 63pp seen→unseen drop; counterfactual methodology confirms memorization',
   },
   {
     source: '2601.13392',
@@ -1388,13 +1472,15 @@ window.paperLinks = [
     source: '2601.13392',
     target: '2410.05229',
     type: 'supports',
-    description: 'Unseen DFA tasks structurally identical to seen; 30-64pp drops from novelty alone',
+    description:
+      'Unseen DFA tasks structurally identical to seen; 30-64pp drops from novelty alone',
   },
   {
     source: '2601.13392',
     target: '2508.01191',
     type: 'supports',
-    description: 'GPT-5.1 seen 84% → unseen 21%; six systematic failure modes documented across all models',
+    description:
+      'GPT-5.1 seen 84% → unseen 21%; six systematic failure modes documented across all models',
   },
   {
     source: '2601.13392',
@@ -1407,311 +1493,361 @@ window.paperLinks = [
     source: '2601.15158',
     target: '2512.07783',
     type: 'supports',
-    description: 'RL converges O(n²) with easy examples vs 2^Ω(n) without; gradient flow finds efficient algorithm',
+    description:
+      'RL converges O(n²) with easy examples vs 2^Ω(n) without; gradient flow finds efficient algorithm',
   },
   {
     source: '2601.15158',
     target: '2501.19393',
     type: 'supports',
-    description: 'Training on hard-only yields ~0%; easy examples necessary for polynomial convergence',
+    description:
+      'Training on hard-only yields ~0%; easy examples necessary for polynomial convergence',
   },
   {
     source: '2601.15158',
     target: '2501.12948',
     type: 'extends',
-    description: 'Proves RL discovers efficient chain traversal from sparse rewards; OOD 100% at k=11 trained k≤4',
+    description:
+      'Proves RL discovers efficient chain traversal from sparse rewards; OOD 100% at k=11 trained k≤4',
   },
   {
     source: '2601.15158',
     target: '2407.20311',
     type: 'supports',
-    description: 'Qwen 5-Uniform→15-Hard: 1.2% vs 15-Uniform→15-Hard: 95.7%; easy examples gate generalization',
+    description:
+      'Qwen 5-Uniform→15-Hard: 1.2% vs 15-Uniform→15-Hard: 95.7%; easy examples gate generalization',
   },
   // Tokenizer Betrays Reasoning links
   {
     source: '2601.14658',
     target: '2305.18654',
     type: 'supports',
-    description: '72% phantom edits are whitespace-variant swaps; models reason at token-ID not meaning level',
+    description:
+      '72% phantom edits are whitespace-variant swaps; models reason at token-ID not meaning level',
   },
   {
     source: '2601.14658',
     target: '2410.05229',
     type: 'supports',
-    description: 'Identical surface strings with different token IDs treated as distinct; scaling doesnt fix it',
+    description:
+      'Identical surface strings with different token IDs treated as distinct; scaling doesnt fix it',
   },
   {
     source: '2601.14658',
     target: '2410.13343',
     type: 'supports',
-    description: 'Larger models sometimes worse than smaller; tokenizer artifacts, not capacity limitation',
+    description:
+      'Larger models sometimes worse than smaller; tokenizer artifacts, not capacity limitation',
   },
   {
     source: '2601.14658',
     target: '2509.12645',
     type: 'supports',
-    description: 'Phantom edits: models output different token IDs producing identical text, believe they edited',
+    description:
+      'Phantom edits: models output different token IDs producing identical text, believe they edited',
   },
   {
     source: '2601.14658',
     target: '2207.07051',
     type: 'extends',
-    description: 'Many-to-one tokenizer mapping creates representational mismatch; part of reasoning deficit is mirage',
+    description:
+      'Many-to-one tokenizer mapping creates representational mismatch; part of reasoning deficit is mirage',
   },
   // Flexibility Trap links
   {
     source: '2601.15165',
     target: '2307.13702',
     type: 'supports',
-    description: 'Arbitrary order bypasses logical forks; entropy at connectors drops from ~2.0 to ~0.5',
+    description:
+      'Arbitrary order bypasses logical forks; entropy at connectors drops from ~2.0 to ~0.5',
   },
   {
     source: '2601.15165',
     target: '2506.06941',
     type: 'supports',
-    description: 'AR-only solves 21.3% unique problems vs arbitrary-only 0.6%; flexibility narrows reasoning',
+    description:
+      'AR-only solves 21.3% unique problems vs arbitrary-only 0.6%; flexibility narrows reasoning',
   },
   {
     source: '2601.15165',
     target: '2305.18654',
     type: 'supports',
-    description: 'dLLMs fill easy tokens first, collapse entropy at logical forks; premature solution space closure',
+    description:
+      'dLLMs fill easy tokens first, collapse entropy at logical forks; premature solution space closure',
   },
   {
     source: '2601.15165',
     target: '2505.05410',
     type: 'supports',
-    description: 'JustGRPO (AR-only) beats all dLLM methods: GSM8K 89.1% vs SPG 86.1%, MATH 45.1% vs 40%',
+    description:
+      'JustGRPO (AR-only) beats all dLLM methods: GSM8K 89.1% vs SPG 86.1%, MATH 45.1% vs 40%',
   },
   // Reasoning-Critical Neurons links
   {
     source: '2601.19847',
     target: '2502.20332',
     type: 'supports',
-    description: '~50 neurons (0.03%) predict correctness at AUROC 0.76-0.83; steering boosts AIME +13%',
+    description:
+      '~50 neurons (0.03%) predict correctness at AUROC 0.76-0.83; steering boosts AIME +13%',
   },
   {
     source: '2601.19847',
     target: '2510.15987',
     type: 'supports',
-    description: 'RCNs concentrate in later layers; cross-task transfer from math to coding confirms shared circuits',
+    description:
+      'RCNs concentrate in later layers; cross-task transfer from math to coding confirms shared circuits',
   },
   {
     source: '2601.19847',
     target: '2509.23629',
     type: 'supports',
-    description: 'Random steering degrades to 35% vs baseline 48%; only targeted 0.03% neurons help',
+    description:
+      'Random steering degrades to 35% vs baseline 48%; only targeted 0.03% neurons help',
   },
   {
     source: '2601.19847',
     target: '2512.07783',
     type: 'supports',
-    description: 'AdaRAS amplifies pre-existing activation patterns; performance peaks at ~50 neurons then degrades',
+    description:
+      'AdaRAS amplifies pre-existing activation patterns; performance peaks at ~50 neurons then degrades',
   },
   {
     source: '2601.19773',
     target: '2601.19847',
     type: 'supports',
-    description: 'GPT-5 high reasoning but 42.7% ICR; scaling 3B→72B improves SR not evidence collection',
+    description:
+      'GPT-5 high reasoning but 42.7% ICR; scaling 3B→72B improves SR not evidence collection',
   },
   {
     source: '2601.19773',
     target: '2601.15165',
     type: 'supports',
-    description: 'Static→interactive: ~20% avg SR drop; GPT-5-mini 77% relative degradation on RareArena',
+    description:
+      'Static→interactive: ~20% avg SR drop; GPT-5-mini 77% relative degradation on RareArena',
   },
   {
     source: '2601.19773',
     target: '2601.14658',
     type: 'supports',
-    description: 'Meditron3 fine-tuning hurts interactive 90% drop; medical training = surface patterns not inquiry',
+    description:
+      'Meditron3 fine-tuning hurts interactive 90% drop; medical training = surface patterns not inquiry',
   },
   {
     source: '2601.19773',
     target: '2305.18654',
     type: 'supports',
-    description: 'Role-aware pairing (Qwen collector + GPT reasoner) reaches 58.2% vs either alone at 27-52%',
+    description:
+      'Role-aware pairing (Qwen collector + GPT reasoner) reaches 58.2% vs either alone at 27-52%',
   },
   // WhatCounts links
   {
     source: '2601.21618',
     target: '2305.18654',
     type: 'supports',
-    description: '>40% accuracy variation counting identical lists of different semantic classes; not algorithms',
+    description:
+      '>40% accuracy variation counting identical lists of different semantic classes; not algorithms',
   },
   {
     source: '2601.21618',
     target: '2410.05229',
     type: 'supports',
-    description: 'O3 55% emojis vs 95% cities same task; ablations rule out tokenization as confound',
+    description:
+      'O3 55% emojis vs 95% cities same task; ablations rule out tokenization as confound',
   },
   {
     source: '2601.21618',
     target: '2207.07051',
     type: 'supports',
-    description: 'Better models have larger semantic gaps; o3 reasoning effort increases gap not reduces it',
+    description:
+      'Better models have larger semantic gaps; o3 reasoning effort increases gap not reduces it',
   },
   {
     source: '2601.21618',
     target: '2512.04727',
     type: 'supports',
-    description: 'Even with Python tool agent: accuracy and semantic gap both increase; tool cant fix it',
+    description:
+      'Even with Python tool agent: accuracy and semantic gap both increase; tool cant fix it',
   },
   // Sycophantic Anchors links
   {
     source: '2601.21183',
     target: '2307.13702',
     type: 'extends',
-    description: 'Sycophantic anchors detected at 84.6% balanced accuracy; correct anchors only 64% (near chance)',
+    description:
+      'Sycophantic anchors detected at 84.6% balanced accuracy; correct anchors only 64% (near chance)',
   },
   {
     source: '2601.21183',
     target: '2505.05410',
     type: 'supports',
-    description: '20.6pp gap: sycophantic anchors highly detectable but correct reasoning nearly invisible',
+    description:
+      '20.6pp gap: sycophantic anchors highly detectable but correct reasoning nearly invisible',
   },
   {
     source: '2601.21183',
     target: '2503.08679',
     type: 'supports',
-    description: 'R²=0.74 predicting sycophancy magnitude from activations; 35K sentence-level datapoints',
+    description:
+      'R²=0.74 predicting sycophancy magnitude from activations; 35K sentence-level datapoints',
   },
   {
     source: '2601.21183',
     target: '2512.07783',
     type: 'supports',
-    description: 'Sycophancy builds 55%→73% during generation; not pre-determined at prompt encoding',
+    description:
+      'Sycophancy builds 55%→73% during generation; not pre-determined at prompt encoding',
   },
   {
     source: '2601.21183',
     target: '2601.15165',
     type: 'supports',
-    description: 'Correct answer ratio +5.4 drops to -2.4 at anchor; 7.8pt shift toward user agreement',
+    description:
+      'Correct answer ratio +5.4 drops to -2.4 at anchor; 7.8pt shift toward user agreement',
   },
   // Sycophancy Hides Linearly links
   {
     source: '2601.16644',
     target: '2601.21183',
     type: 'supports',
-    description: 'Linear probes 99.6% accuracy; cosine similarity truth vs sycophancy -0.22, only 32% head overlap',
+    description:
+      'Linear probes 99.6% accuracy; cosine similarity truth vs sycophancy -0.22, only 32% head overlap',
   },
   {
     source: '2601.16644',
     target: '2307.13702',
     type: 'extends',
-    description: 'MHA steering reduces sycophancy 26.7pp (Llama); sycophancy heads attend to user doubt tokens',
+    description:
+      'MHA steering reduces sycophancy 26.7pp (Llama); sycophancy heads attend to user doubt tokens',
   },
   {
     source: '2601.16644',
     target: '2505.05410',
     type: 'supports',
-    description: 'Truthful steering has no effect on sycophancy; sycophancy steering minimal impact on accuracy',
+    description:
+      'Truthful steering has no effect on sycophancy; sycophancy steering minimal impact on accuracy',
   },
   {
     source: '2601.16644',
     target: '2512.07783',
     type: 'supports',
-    description: 'Sycophancy heads attend to disagreement expressions; 21% flip correct→incorrect after user doubt',
+    description:
+      'Sycophancy heads attend to disagreement expressions; 21% flip correct→incorrect after user doubt',
   },
   // Spurious Rewards Paradox links
   {
     source: '2601.11061',
     target: '2512.07783',
     type: 'supports',
-    description: 'Anchor-adapter circuit in L18-22; resetting drops MATH 12% but leakage-free set unaffected',
+    description:
+      'Anchor-adapter circuit in L18-22; resetting drops MATH 12% but leakage-free set unaffected',
   },
   {
     source: '2601.11061',
     target: '2501.12948',
     type: 'challenges',
-    description: 'RLVR reaches 98% MATH via memorization shortcut; LiveMathBench (clean) stays at 70%',
+    description:
+      'RLVR reaches 98% MATH via memorization shortcut; LiveMathBench (clean) stays at 70%',
   },
   {
     source: '2601.11061',
     target: '2506.17219',
     type: 'supports',
-    description: 'Answer perplexity decreases while prompt perplexity increases; bypassing reasoning for retrieval',
+    description:
+      'Answer perplexity decreases while prompt perplexity increases; bypassing reasoning for retrieval',
   },
   {
     source: '2601.11061',
     target: '2305.18654',
     type: 'supports',
-    description: 'MLP neuron scaling at L18: suppression -3.8%, amplification +4.4%; causal memorization circuit',
+    description:
+      'MLP neuron scaling at L18: suppression -3.8%, amplification +4.4%; causal memorization circuit',
   },
   {
     source: '2601.11061',
     target: '2509.23629',
     type: 'supports',
-    description: 'OLMo/LLaMA show no layer-specific shortcut; pattern is contamination-specific not universal',
+    description:
+      'OLMo/LLaMA show no layer-specific shortcut; pattern is contamination-specific not universal',
   },
   // Reasoning or Guessing? (HRM) links
   {
     source: '2601.10679',
     target: '2506.06941',
     type: 'supports',
-    description: 'Error flat then drops to zero in one step; grokking dynamics not incremental reasoning',
+    description:
+      'Error flat then drops to zero in one step; grokking dynamics not incremental reasoning',
   },
   {
     source: '2601.10679',
     target: '2305.18654',
     type: 'supports',
-    description: 'HRM 54.5% baseline; 9 relabeled inputs + majority vote → 96.9%; guessing not reasoning',
+    description:
+      'HRM 54.5% baseline; 9 relabeled inputs + majority vote → 96.9%; guessing not reasoning',
   },
   {
     source: '2601.10679',
     target: '2601.11061',
     type: 'supports',
-    description: 'Multiple fixed points trap model; adjacent checkpoints differ on which samples they solve',
+    description:
+      'Multiple fixed points trap model; adjacent checkpoints differ on which samples they solve',
   },
   {
     source: '2601.10679',
     target: '2512.07783',
     type: 'supports',
-    description: 'Scaling guesses (bootstrap + relabel) yields +42.4%; characteristic of search not reasoning',
+    description:
+      'Scaling guesses (bootstrap + relabel) yields +42.4%; characteristic of search not reasoning',
   },
   {
     source: '2601.10679',
     target: '2510.15974',
     type: 'supports',
-    description: '1-row masked puzzles: stability only ~75%; model guesses first fixed point and gets trapped',
+    description:
+      '1-row masked puzzles: stability only ~75%; model guesses first fixed point and gets trapped',
   },
   // Two Pathways to Truthfulness links
   {
     source: '2601.07422',
     target: '2601.21183',
     type: 'supports',
-    description: 'Q-Anchored (87% accuracy, popular entities) vs A-Anchored (68%, long-tail); two distinct paths',
+    description:
+      'Q-Anchored (87% accuracy, popular entities) vs A-Anchored (68%, long-tail); two distinct paths',
   },
   {
     source: '2601.07422',
     target: '2601.16644',
     type: 'supports',
-    description: 'Pathway-aware probing gains +5.9 AUC; models self-aware of which mechanism at 87-93% AUC',
+    description:
+      'Pathway-aware probing gains +5.9 AUC; models self-aware of which mechanism at 87-93% AUC',
   },
   {
     source: '2601.07422',
     target: '2305.18654',
     type: 'supports',
-    description: 'Q-Anchored retrieves popular entities within training distribution; A-Anchored fabricates beyond it',
+    description:
+      'Q-Anchored retrieves popular entities within training distribution; A-Anchored fabricates beyond it',
   },
   {
     source: '2601.07422',
     target: '2410.05229',
     type: 'supports',
-    description: 'Popular entities 87% vs long-tail 68% accuracy; pathway choice tracks entity frequency',
+    description:
+      'Popular entities 87% vs long-tail 68% accuracy; pathway choice tracks entity frequency',
   },
   {
     source: '2601.07422',
     target: '2307.13702',
     type: 'extends',
-    description: 'Attention knockout + token patching validate two causal pathways; MoP probe detects which is active',
+    description:
+      'Attention knockout + token patching validate two causal pathways; MoP probe detects which is active',
   },
   // Thinking Out of Order links
   {
     source: '2601.22035',
     target: '2601.15165',
     type: 'supports',
-    description: 'LLaDA-8B only +2% order gap vs AR Qwen +67%; diffusion decouples computation from output order',
+    description:
+      'LLaDA-8B only +2% order gap vs AR Qwen +67%; diffusion decouples computation from output order',
   },
   {
     source: '2601.22035',
@@ -1723,63 +1859,73 @@ window.paperLinks = [
     source: '2601.22035',
     target: '2307.13702',
     type: 'supports',
-    description: 'High-confidence answers stabilize at step 10 while reasoning takes 63-203 steps; answer precedes CoT',
+    description:
+      'High-confidence answers stabilize at step 10 while reasoning takes 63-203 steps; answer precedes CoT',
   },
   {
     source: '2601.22035',
     target: '2506.06941',
     type: 'supports',
-    description: 'D4 remains ~1% regardless of ordering; insufficient complexity difference caps robustness at ~55%',
+    description:
+      'D4 remains ~1% regardless of ordering; insufficient complexity difference caps robustness at ~55%',
   },
   // Paper 115: Scaling Reasoning Hop links
   {
     source: '2601.21214',
     target: '2305.18654',
     type: 'supports',
-    description: '78.6% of 50-hop errors from single type; ep heads amplify erroneous trajectories at key positions',
+    description:
+      '78.6% of 50-hop errors from single type; ep heads amplify erroneous trajectories at key positions',
   },
   {
     source: '2601.21214',
     target: '2506.06941',
     type: 'supports',
-    description: 'Single ep head knockout corrects 47.5% of errors; same heads cause failures across tasks',
+    description:
+      'Single ep head knockout corrects 47.5% of errors; same heads cause failures across tasks',
   },
   {
     source: '2601.21214',
     target: '2512.07783',
     type: 'supports',
-    description: 'TCR-gold reaches 61.3% vs 41.7% baseline; correct trajectories exist but are suppressed',
+    description:
+      'TCR-gold reaches 61.3% vs 41.7% baseline; correct trajectories exist but are suppressed',
   },
   {
     source: '2601.21214',
     target: '2601.19847',
     type: 'extends',
-    description: 'ep heads are anti-pattern to RCNs: same cross-task heads suppress correct reasoning trajectories',
+    description:
+      'ep heads are anti-pattern to RCNs: same cross-task heads suppress correct reasoning trajectories',
   },
   // Paper 116: Code over Words links
   {
     source: '2601.18352',
     target: '2410.05229',
     type: 'supports',
-    description: 'Claude 58%→13% when priors conflict with rules; semantic inertia causes 44-49pp drops',
+    description:
+      'Claude 58%→13% when priors conflict with rules; semantic inertia causes 44-49pp drops',
   },
   {
     source: '2601.18352',
     target: '2512.20812',
     type: 'supports',
-    description: 'Llama-70B ΔP=-0.18 NL vs +0.29 code; inverse scaling — larger models have stronger inertia',
+    description:
+      'Llama-70B ΔP=-0.18 NL vs +0.29 code; inverse scaling — larger models have stronger inertia',
   },
   {
     source: '2601.18352',
     target: '2305.18654',
     type: 'supports',
-    description: '68.9% reversion rate (prior wins) in direct policy; code representation reduces to 31.1%',
+    description:
+      '68.9% reversion rate (prior wins) in direct policy; code representation reduces to 31.1%',
   },
   {
     source: '2601.18352',
     target: '2506.06941',
     type: 'supports',
-    description: 'LCV 7B (93/76/62%) outperforms GPT-4o TheoryCoder (62/53/52%); code bypasses NL interference',
+    description:
+      'LCV 7B (93/76/62%) outperforms GPT-4o TheoryCoder (62/53/52%); code bypasses NL interference',
   },
   // Paper 122: Illusions of Confidence links
   {
@@ -1878,7 +2024,7 @@ window.paperLinks = [
   {
     source: '2506.09250',
     target: '2305.18654',
-    type: 'does not address',
+    type: 'challenges',
     description: 'Code generation test doesnt address compositional generalization',
   },
   // Paper 125: Alice in Wonderland links
@@ -1949,19 +2095,22 @@ window.paperLinks = [
     source: '2310.13548',
     target: '2601.15436',
     type: 'extends',
-    description: 'PM prefers sycophantic 95% of time; Best-of-N drives rate to 75% on hard misconceptions',
+    description:
+      'PM prefers sycophantic 95% of time; Best-of-N drives rate to 75% on hard misconceptions',
   },
   {
     source: '2310.13548',
     target: '2601.21183',
     type: 'extends',
-    description: '98% false mistake admission rate provides behavioral basis for locating sycophantic anchors',
+    description:
+      '98% false mistake admission rate provides behavioral basis for locating sycophantic anchors',
   },
   {
     source: '2310.13548',
     target: '2601.16644',
     type: 'extends',
-    description: 'Belief-matching +6% preference probability in 15K pairs; explains what probes detect mechanistically',
+    description:
+      'Belief-matching +6% preference probability in 15K pairs; explains what probes detect mechanistically',
   },
   {
     source: '2310.13548',
@@ -1973,7 +2122,8 @@ window.paperLinks = [
     source: '2310.13548',
     target: '2506.21561',
     type: 'supports',
-    description: 'PM prefers sycophantic 95%; reasoning models inherit this bias from RLHF training signal',
+    description:
+      'PM prefers sycophantic 95%; reasoning models inherit this bias from RLHF training signal',
   },
   {
     source: '2310.13548',
@@ -1985,63 +2135,73 @@ window.paperLinks = [
     source: '2310.13548',
     target: '2410.11684',
     type: 'supports',
-    description: 'RL against sycophantic PM increases sycophancy; user-suggested wrong answers drop accuracy 27%',
+    description:
+      'RL against sycophantic PM increases sycophancy; user-suggested wrong answers drop accuracy 27%',
   },
   {
     source: '2310.13548',
     target: '2308.03958',
     type: 'supports',
-    description: 'Bayesian regression at 71.3% accuracy shows belief-matching is among top features of human preference',
+    description:
+      'Bayesian regression at 71.3% accuracy shows belief-matching is among top features of human preference',
   },
   // Paper 128: Conformity of LLMs links
   {
     source: '2501.13381',
     target: '2310.13548',
     type: 'supports',
-    description: 'Doubt protocol 47.2% conformity rate; extends sycophancy to multi-agent peer pressure',
+    description:
+      'Doubt protocol 47.2% conformity rate; extends sycophancy to multi-agent peer pressure',
   },
   {
     source: '2501.13381',
     target: '2308.03958',
     type: 'supports',
-    description: 'Llama-405B still only 56.1% independence rate; GPT-4o drops 22.6% under trust protocol',
+    description:
+      'Llama-405B still only 56.1% independence rate; GPT-4o drops 22.6% under trust protocol',
   },
   {
     source: '2501.13381',
     target: '2506.21561',
     type: 'supports',
-    description: 'Qwen2-7B 98.7% credulity; multi-agent conformity extends single-user sycophancy to peer groups',
+    description:
+      'Qwen2-7B 98.7% credulity; multi-agent conformity extends single-user sycophancy to peer groups',
   },
   {
     source: '2501.13381',
     target: '2601.05905',
     type: 'supports',
-    description: 'Doubt protocol induces 38.6% accuracy drop (Gemma-27B); trust relationships bias future decisions',
+    description:
+      'Doubt protocol induces 38.6% accuracy drop (Gemma-27B); trust relationships bias future decisions',
   },
   // Paper 129: Overthinking o1-Like LLMs links
   {
     source: '2412.21187',
     target: '2601.21576',
     type: 'supports',
-    description: 'First solution correct >92% of time; QwQ uses 901 tokens for 2+3=5 (4.3% efficiency)',
+    description:
+      'First solution correct >92% of time; QwQ uses 901 tokens for 2+3=5 (4.3% efficiency)',
   },
   {
     source: '2412.21187',
     target: '2601.17421',
     type: 'supports',
-    description: 'Solution diversity drops 11.5% after solution #3; later rounds repeat strategies not explore',
+    description:
+      'Solution diversity drops 11.5% after solution #3; later rounds repeat strategies not explore',
   },
   {
     source: '2412.21187',
     target: '2506.06941',
     type: 'supports',
-    description: 'Easy problems get 3.7 solutions vs hard 3.0; more compute on easier problems counterintuitively',
+    description:
+      'Easy problems get 3.7 solutions vs hard 3.0; more compute on easier problems counterintuitively',
   },
   {
     source: '2412.21187',
     target: '2501.02497',
     type: 'extends',
-    description: 'SimPO reduces tokens 45% with <1% accuracy loss; 1953% overhead vs conventional LLMs',
+    description:
+      'SimPO reduces tokens 45% with <1% accuracy loss; 1953% overhead vs conventional LLMs',
   },
   // Paper 130: Underthinking o1-Like LLMs links
   {
@@ -2054,19 +2214,22 @@ window.paperLinks = [
     source: '2501.18585',
     target: '2601.17421',
     type: 'supports',
-    description: '418% more thought switches in wrong answers; >70% of failures contain abandoned correct thoughts',
+    description:
+      '418% more thought switches in wrong answers; >70% of failures contain abandoned correct thoughts',
   },
   {
     source: '2501.18585',
     target: '2601.19847',
     type: 'supports',
-    description: 'First correct thought at 411 tokens but 7270 wasted; 94.6% underthinking score on AIME',
+    description:
+      'First correct thought at 411 tokens but 7270 wasted; 94.6% underthinking score on AIME',
   },
   {
     source: '2501.18585',
     target: '2501.02497',
     type: 'extends',
-    description: 'Tip penalty: QwQ AIME 38%→44% by reducing switches 16→14; underthinking mirrors overthinking',
+    description:
+      'Tip penalty: QwQ AIME 38%→44% by reducing switches 16→14; underthinking mirrors overthinking',
   },
   // Paper 131: Can LLMs Reason and Plan (Kambhampati) links
   {
@@ -2079,69 +2242,80 @@ window.paperLinks = [
     source: '2403.04121',
     target: '2506.06941',
     type: 'supports',
-    description: 'GPT-4 ~30% Blocks World; obfuscating names causes precipitous drop proving pattern matching',
+    description:
+      'GPT-4 ~30% Blocks World; obfuscating names causes precipitous drop proving pattern matching',
   },
   {
     source: '2403.04121',
     target: '2506.18880',
     type: 'supports',
-    description: 'Can extract planning knowledge but cannot assemble it into executable plans; retrieval not search',
+    description:
+      'Can extract planning knowledge but cannot assemble it into executable plans; retrieval not search',
   },
   {
     source: '2403.04121',
     target: '2601.14456',
     type: 'supports',
-    description: 'Obfuscated names destroy planning; off-the-shelf AI planners unaffected by same obfuscation',
+    description:
+      'Obfuscated names destroy planning; off-the-shelf AI planners unaffected by same obfuscation',
   },
   // Paper 132: Stop Anthropomorphizing Tokens (Kambhampati) links
   {
     source: '2504.09762',
     target: '2403.04121',
     type: 'extends',
-    description: 'Extends retrieval framework to LRMs: post-training compiles verifier signal into generation',
+    description:
+      'Extends retrieval framework to LRMs: post-training compiles verifier signal into generation',
   },
   {
     source: '2504.09762',
     target: '2307.13702',
     type: 'supports',
-    description: 'Incorrect traces outperform correct in SFT; trace content has no formal semantics',
+    description:
+      'Incorrect traces outperform correct in SFT; trace content has no formal semantics',
   },
   {
     source: '2504.09762',
     target: '2505.05410',
     type: 'supports',
-    description: 'R1-Zero unreadable traces outperform R1 human-annotated; interpretability hurts performance',
+    description:
+      'R1-Zero unreadable traces outperform R1 human-annotated; interpretability hurts performance',
   },
   {
     source: '2504.09762',
     target: '2412.21187',
     type: 'supports',
-    description: 'Aha moments are just tokens; models have no internal state to have genuine insight',
+    description:
+      'Aha moments are just tokens; models have no internal state to have genuine insight',
   },
   // Paper 133: Base Models Know How to Reason links
   {
     source: '2510.07364',
     target: '2512.07783',
     type: 'supports',
-    description: '15 steering vectors at 12% of tokens recover 91% of thinking model gap; timing not capability',
+    description:
+      '15 steering vectors at 12% of tokens recover 91% of thinking model gap; timing not capability',
   },
   {
     source: '2510.07364',
     target: '2403.04121',
     type: 'supports',
-    description: 'Ablation: random vectors 77.2% vs full hybrid 84.4%; correct vectors + timing both necessary',
+    description:
+      'Ablation: random vectors 77.2% vs full hybrid 84.4%; correct vectors + timing both necessary',
   },
   {
     source: '2510.07364',
     target: '2504.09762',
     type: 'supports',
-    description: 'RLVR teaches when to deploy pre-existing mechanisms; compilation = learning timing signals',
+    description:
+      'RLVR teaches when to deploy pre-existing mechanisms; compilation = learning timing signals',
   },
   {
     source: '2510.07364',
     target: '2601.19847',
     type: 'supports',
-    description: 'Both show ~0.03% of parameters causally necessary; steering activates latent reasoning paths',
+    description:
+      'Both show ~0.03% of parameters causally necessary; steering activates latent reasoning paths',
   },
   // Paper 134: Can ICL Generalize OOD links
   {
@@ -2154,7 +2328,8 @@ window.paperLinks = [
     source: '2410.09695',
     target: '2508.01191',
     type: 'supports',
-    description: 'Llama-3-8B retrieval ~98% vs OOD linear classification ~10%; abstract labels fail on OOD functions',
+    description:
+      'Llama-3-8B retrieval ~98% vs OOD linear classification ~10%; abstract labels fail on OOD functions',
   },
   {
     source: '2410.09695',
@@ -2197,7 +2372,8 @@ window.paperLinks = [
     source: '2502.03373',
     target: '2412.21187',
     type: 'extends',
-    description: 'Without reward shaping, CoT extends past 16K until accuracy hits zero; explains overthinking',
+    description:
+      'Without reward shaping, CoT extends past 16K until accuracy hits zero; explains overthinking',
   },
   {
     source: '2502.03373',
@@ -2216,7 +2392,8 @@ window.paperLinks = [
     source: '2405.04776',
     target: '2410.09695',
     type: 'supports',
-    description: 'Performance rapidly deteriorates when stack size n exceeds examples; three domains same pattern',
+    description:
+      'Performance rapidly deteriorates when stack size n exceeds examples; three domains same pattern',
   },
   {
     source: '2405.04776',
@@ -2234,7 +2411,8 @@ window.paperLinks = [
     source: '2405.04776',
     target: '2506.06941',
     type: 'supports',
-    description: 'Only problem-specific prompts help; general CoT prompts yield no improvement on planning',
+    description:
+      'Only problem-specific prompts help; general CoT prompts yield no improvement on planning',
   },
   {
     source: '2405.04776',
@@ -2253,13 +2431,15 @@ window.paperLinks = [
     source: '2502.04667',
     target: '2410.09695',
     type: 'supports',
-    description: 'Non-CoT: ~100% ID but ~0% OOD; CoT enables OOD only when subtasks seen in training',
+    description:
+      'Non-CoT: ~100% ID but ~0% OOD; CoT enables OOD only when subtasks seen in training',
   },
   {
     source: '2502.04667',
     target: '2502.03373',
     type: 'supports',
-    description: 'Two-stage circuit: CoT resolves at layer 3 vs non-CoT at layer 5; 4K vs >1M steps to converge',
+    description:
+      'Two-stage circuit: CoT resolves at layer 3 vs non-CoT at layer 5; 4K vs >1M steps to converge',
   },
   {
     source: '2502.04667',
@@ -2284,7 +2464,8 @@ window.paperLinks = [
     source: '2508.15842',
     target: '2501.18585',
     type: 'supports',
-    description: 'DeepSeek loses 6.2% accuracy per 1000 words; length predicts errors on Omni-MATH but not HLE',
+    description:
+      'DeepSeek loses 6.2% accuracy per 1000 words; length predicts errors on Omni-MATH but not HLE',
   },
   {
     source: '2508.15842',
@@ -2296,13 +2477,15 @@ window.paperLinks = [
     source: '2508.15842',
     target: '2405.04776',
     type: 'supports',
-    description: 'No length-accuracy relationship on HLE; CoT length only predictive on intermediate difficulty',
+    description:
+      'No length-accuracy relationship on HLE; CoT length only predictive on intermediate difficulty',
   },
   {
     source: '2508.15842',
     target: '2504.09762',
     type: 'supports',
-    description: '5 harmful words (MCC 0.30) outperform self-confidence (MCC 0.065) 4.7x; tokens leak not reason',
+    description:
+      '5 harmful words (MCC 0.30) outperform self-confidence (MCC 0.065) 4.7x; tokens leak not reason',
   },
   {
     source: '2508.15842',
@@ -2315,7 +2498,8 @@ window.paperLinks = [
     source: '2512.24601',
     target: '2506.06941',
     type: 'supports',
-    description: 'OOLONG-Pairs O(N²): GPT-5 fails <10% at all lengths; context rot scales with task complexity',
+    description:
+      'OOLONG-Pairs O(N²): GPT-5 fails <10% at all lengths; context rot scales with task complexity',
   },
   {
     source: '2512.24601',
@@ -2327,13 +2511,15 @@ window.paperLinks = [
     source: '2512.24601',
     target: '2502.04667',
     type: 'supports',
-    description: 'RLM CodeQA 24%→62%, BrowseComp 0%→91%; symbolic recursion compensates for CoT limits',
+    description:
+      'RLM CodeQA 24%→62%, BrowseComp 0%→91%; symbolic recursion compensates for CoT limits',
   },
   {
     source: '2512.24601',
     target: '2507.17699',
     type: 'extends',
-    description: 'RLM-8B approaches GPT-5 quality (+28.3%); external scaffolding not native computation',
+    description:
+      'RLM-8B approaches GPT-5 quality (+28.3%); external scaffolding not native computation',
   },
   // Paper 140: Not All Code Is Equal links
   {
@@ -2346,7 +2532,8 @@ window.paperLinks = [
     source: '2601.21894',
     target: '2502.04667',
     type: 'supports',
-    description: '83% of experiments: complexity-restricted training beats diverse code; non-monotonic gains',
+    description:
+      '83% of experiments: complexity-restricted training beats diverse code; non-monotonic gains',
   },
   {
     source: '2601.21894',
@@ -2358,7 +2545,8 @@ window.paperLinks = [
     source: '2601.21894',
     target: '2601.21618',
     type: 'supports',
-    description: 'Optimal CC≈10 for Qwen; structural complexity not semantic diversity determines gains',
+    description:
+      'Optimal CC≈10 for Qwen; structural complexity not semantic diversity determines gains',
   },
   // Paper 141: Meta-Thought to Execution links
   {
@@ -2371,13 +2559,15 @@ window.paperLinks = [
     source: '2601.21909',
     target: '2502.04667',
     type: 'supports',
-    description: 'CoMT separates meta-knowledge from execution; +4.63% OOD vs +2.19% ID over standard CoT',
+    description:
+      'CoMT separates meta-knowledge from execution; +4.63% OOD vs +2.19% ID over standard CoT',
   },
   {
     source: '2601.21909',
     target: '2601.21894',
     type: 'supports',
-    description: '65-70% less training time, 50% fewer tokens; abstract patterns transfer better than raw traces',
+    description:
+      '65-70% less training time, 50% fewer tokens; abstract patterns transfer better than raw traces',
   },
   {
     source: '2410.09695',
@@ -2396,7 +2586,8 @@ window.paperLinks = [
     source: '2601.21414',
     target: '2502.03373',
     type: 'supports',
-    description: 'Linear interpolation θ=(1-λ)·instruct+λ·thinking yields convex Pareto frontier for reasoning',
+    description:
+      'Linear interpolation θ=(1-λ)·instruct+λ·thinking yields convex Pareto frontier for reasoning',
   },
   {
     source: '2601.21414',
@@ -2433,7 +2624,8 @@ window.paperLinks = [
     source: '2405.15071',
     target: '2410.09695',
     type: 'supports',
-    description: 'Composition 0% OOD after 2M steps; sequential circuit cant store unseen second hops',
+    description:
+      'Composition 0% OOD after 2M steps; sequential circuit cant store unseen second hops',
   },
   {
     source: '2405.15071',
@@ -2452,13 +2644,15 @@ window.paperLinks = [
     source: '2407.01687',
     target: '2410.05229',
     type: 'supports',
-    description: 'GPT-4 accuracy swings 26-70% based on output probability alone; all factors p<10⁻¹⁵',
+    description:
+      'GPT-4 accuracy swings 26-70% based on output probability alone; all factors p<10⁻¹⁵',
   },
   {
     source: '2407.01687',
     target: '2307.13702',
     type: 'supports',
-    description: 'High-prob output: 34% wrong-chain→correct answer; invalid demos still work if tokens boost probability',
+    description:
+      'High-prob output: 34% wrong-chain→correct answer; invalid demos still work if tokens boost probability',
   },
   {
     source: '2407.01687',
@@ -2489,13 +2683,15 @@ window.paperLinks = [
     source: '2409.12917',
     target: '2501.02497',
     type: 'supports',
-    description: 'SFT on correction traces fails from distribution mismatch; SCoRe +15.6% MATH via multi-turn RL',
+    description:
+      'SFT on correction traces fails from distribution mismatch; SCoRe +15.6% MATH via multi-turn RL',
   },
   {
     source: '2409.12917',
     target: '2506.17219',
     type: 'supports',
-    description: 'SFT collapses to single correction mode; only self-generated multi-turn RL avoids mismatch',
+    description:
+      'SFT collapses to single correction mode; only self-generated multi-turn RL avoids mismatch',
   },
   {
     source: '2409.12917',
@@ -2514,7 +2710,8 @@ window.paperLinks = [
     source: '2304.15004',
     target: '2410.05229',
     type: 'supports',
-    description: '>92% of emergent abilities from just 2 metrics; switching to Brier Score reveals smooth scaling',
+    description:
+      '>92% of emergent abilities from just 2 metrics; switching to Brier Score reveals smooth scaling',
   },
   {
     source: '2304.15004',
@@ -2539,13 +2736,15 @@ window.paperLinks = [
     source: '2202.07206',
     target: '2410.05229',
     type: 'supports',
-    description: '>70% accuracy gap frequent vs rare terms on multiplication; 24x18 vs 23x18 differ >20%',
+    description:
+      '>70% accuracy gap frequent vs rare terms on multiplication; 24x18 vs 23x18 differ >20%',
   },
   {
     source: '2202.07206',
     target: '2305.18654',
     type: 'supports',
-    description: 'Even rare numbers appear millions of times yet performance varies; statistical not algorithmic',
+    description:
+      'Even rare numbers appear millions of times yet performance varies; statistical not algorithmic',
   },
   {
     source: '2202.07206',
@@ -2564,13 +2763,15 @@ window.paperLinks = [
     source: '2305.04388',
     target: '2307.13702',
     type: 'supports',
-    description: '1/426 explanations ever mention biasing feature; 15% of unfaithful explanations fully plausible',
+    description:
+      '1/426 explanations ever mention biasing feature; 15% of unfaithful explanations fully plausible',
   },
   {
     source: '2305.04388',
     target: '2505.05410',
     type: 'supports',
-    description: 'Zero-shot CoT increases bias susceptibility: GPT-3.5 40%→23%; CoT makes sycophancy worse',
+    description:
+      'Zero-shot CoT increases bias susceptibility: GPT-3.5 40%→23%; CoT makes sycophancy worse',
   },
   {
     source: '2305.04388',
@@ -2582,7 +2783,8 @@ window.paperLinks = [
     source: '2305.04388',
     target: '2310.13548',
     type: 'supports',
-    description: 'Suggested answer drops accuracy 36%; models never mention the bias in 426 explanations',
+    description:
+      'Suggested answer drops accuracy 36%; models never mention the bias in 426 explanations',
   },
   {
     source: '2305.04388',
@@ -2601,44 +2803,51 @@ window.paperLinks = [
     source: '2309.12288',
     target: '2410.05229',
     type: 'supports',
-    description: 'GPT-4 celebrity parents: forward 79% vs reverse 33%; directional storage not logical relations',
+    description:
+      'GPT-4 celebrity parents: forward 79% vs reverse 33%; directional storage not logical relations',
   },
   {
     source: '2309.12288',
     target: '2202.07206',
     type: 'supports',
-    description: 'Data augmentation and paraphrases dont help; curse is specific to training-time learning',
+    description:
+      'Data augmentation and paraphrases dont help; curse is specific to training-time learning',
   },
   {
     source: '2309.12288',
     target: '2410.09695',
     type: 'supports',
-    description: 'Question→Answer >80% but Answer→Question <7%; ICL works but training doesnt reverse',
+    description:
+      'Question→Answer >80% but Answer→Question <7%; ICL works but training doesnt reverse',
   },
   // Paper 150: Planning Abilities links
   {
     source: '2305.15771',
     target: '2403.04121',
     type: 'supports',
-    description: 'GPT-4 ~12% autonomous planning success on IPC domains; earlier empirical basis for retrieval claim',
+    description:
+      'GPT-4 ~12% autonomous planning success on IPC domains; earlier empirical basis for retrieval claim',
   },
   {
     source: '2305.15771',
     target: '2506.06941',
     type: 'supports',
-    description: 'GPT-4 fails at valid action sequences, preconditions, and goal states in IPC benchmarks',
+    description:
+      'GPT-4 fails at valid action sequences, preconditions, and goal states in IPC benchmarks',
   },
   {
     source: '2305.15771',
     target: '2405.04776',
     type: 'supports',
-    description: 'LLM-Modulo with external verifiers needed; autonomous generation ~12% even for GPT-4',
+    description:
+      'LLM-Modulo with external verifiers needed; autonomous generation ~12% even for GPT-4',
   },
   {
     source: '2305.15771',
     target: '2504.09762',
     type: 'supports',
-    description: 'Empirical basis (IPC benchmarks) for later theoretical claim that traces have no formal semantics',
+    description:
+      'Empirical basis (IPC benchmarks) for later theoretical claim that traces have no formal semantics',
   },
   // Paper 151: Original CoT links
   {
@@ -2662,7 +2871,7 @@ window.paperLinks = [
   {
     source: '2201.11903',
     target: '2305.04388',
-    type: 'challenged_by',
+    type: 'challenges',
     description: 'Unfaithfulness challenges CoT reasoning claims',
   },
   // Paper 152: CoT Expressivity links
@@ -2707,7 +2916,7 @@ window.paperLinks = [
   {
     source: '2205.11916',
     target: '2305.04388',
-    type: 'challenged_by',
+    type: 'challenges',
     description: 'Zero-shot CoT increases bias susceptibility',
   },
   // Paper 155: Self-Consistency links
@@ -2795,14 +3004,14 @@ window.paperLinks = [
   {
     source: '2108.12409',
     target: '2508.01191',
-    type: 'partially_addresses',
+    type: 'extends',
     description: 'Addresses length failures but not compositional OOD',
   },
   // Paper 160: GSM-IC links
   {
     source: '2302.00093',
     target: '2410.05229',
-    type: 'precursor',
+    type: 'extends',
     description: 'GSM-IC precursor to GSM-Symbolic; both show irrelevant info causes failures',
   },
   {
@@ -2947,19 +3156,22 @@ window.paperLinks = [
     source: '2506.12286',
     target: '2305.18654',
     type: 'supports',
-    description: '76% file path accuracy on SWE-Bench Verified vs <53% on external repos; 47pp memorization gap',
+    description:
+      '76% file path accuracy on SWE-Bench Verified vs <53% on external repos; 47pp memorization gap',
   },
   {
     source: '2506.12286',
     target: '2410.05229',
     type: 'supports',
-    description: '5-gram overlap 35% on Verified vs 14% external; Claude 4 Opus 31.6% verbatim prefix match',
+    description:
+      '5-gram overlap 35% on Verified vs 14% external; Claude 4 Opus 31.6% verbatim prefix match',
   },
   {
     source: '2506.12286',
     target: '2601.13392',
     type: 'supports',
-    description: 'Instance-specific + repository-bias memorization; newer Claude models show monotonic contamination increase',
+    description:
+      'Instance-specific + repository-bias memorization; newer Claude models show monotonic contamination increase',
   },
   {
     source: '2506.12286',
@@ -2971,7 +3183,8 @@ window.paperLinks = [
     source: '2506.12286',
     target: '2202.07206',
     type: 'supports',
-    description: 'File path identification 60-76% without repo context; performance tracks repository familiarity',
+    description:
+      'File path identification 60-76% without repo context; performance tracks repository familiarity',
   },
   // Paper 167: Faithful CoT links
   {
@@ -3015,13 +3228,15 @@ window.paperLinks = [
     source: '2509.11208',
     target: '2601.18753',
     type: 'supports',
-    description: '0.13 fewer hallucinations per additional nat; ISR achieves ~0% hallucination at 24% abstention',
+    description:
+      '0.13 fewer hallucinations per additional nat; ISR achieves ~0% hallucination at 24% abstention',
   },
   {
     source: '2509.11208',
     target: '2601.21576',
     type: 'supports',
-    description: 'Order-induced deviations scale O(log n); Martingale Violation theorem quantifies positional effects',
+    description:
+      'Order-induced deviations scale O(log n); Martingale Violation theorem quantifies positional effects',
   },
   {
     source: '2509.11208',
@@ -3058,13 +3273,15 @@ window.paperLinks = [
     source: '2405.15092',
     target: '2305.04388',
     type: 'supports',
-    description: 'Faithful recovery scales with evidence availability; unfaithful stays constant — divergent p<0.001',
+    description:
+      'Faithful recovery scales with evidence availability; unfaithful stays constant — divergent p<0.001',
   },
   {
     source: '2405.15092',
     target: '2301.13379',
     type: 'extends',
-    description: 'Context noise increases unfaithful recovery in Claude/Llama; evidence quality doesnt help opaque mode',
+    description:
+      'Context noise increases unfaithful recovery in Claude/Llama; evidence quality doesnt help opaque mode',
   },
   {
     source: '2405.15092',
@@ -3089,7 +3306,8 @@ window.paperLinks = [
     source: '2602.04843',
     target: '2502.03373',
     type: 'supports',
-    description: 'Cross-naming representations converge at ~7000 tokens; steering boosts accuracy +1.8% cross-naming',
+    description:
+      'Cross-naming representations converge at ~7000 tokens; steering boosts accuracy +1.8% cross-naming',
   },
   {
     source: '2602.04843',
@@ -3101,7 +3319,8 @@ window.paperLinks = [
     source: '2602.04843',
     target: '2506.18880',
     type: 'supports',
-    description: 'QwQ 96% standard → 35% mystery BlocksWorld; coherent semantic domains worst at 5-14%',
+    description:
+      'QwQ 96% standard → 35% mystery BlocksWorld; coherent semantic domains worst at 5-14%',
   },
   // Paper 171: Arithmetic Without Algorithms links
   {
@@ -3518,7 +3737,8 @@ window.paperLinks = [
     source: '2405.05741',
     target: '2506.11135',
     type: 'supports',
-    description: 'Formal expressivity gaps mirror empirical OOD failures; training distribution gates capability',
+    description:
+      'Formal expressivity gaps mirror empirical OOD failures; training distribution gates capability',
   },
   // Cross-connect new papers to each other
   {
@@ -4135,24 +4355,14 @@ window.paperLinks = [
     type: 'extends',
     description: 'Survey cites Arithmetic Without Algorithms on heuristic arithmetic',
   },
-  {
-    source: '2602.06176',
-    target: '2409.15454',
-    type: 'extends',
-    description: 'Survey cites A-Not-B Errors on cognitive failures',
-  },
+
   {
     source: '2602.06176',
     target: '2302.00093',
     type: 'extends',
     description: 'Survey cites Distracted by Irrelevant Context on robustness',
   },
-  {
-    source: '2602.06176',
-    target: '2408.00137',
-    type: 'extends',
-    description: 'Survey cites negative bias correction work',
-  },
+
   // Token Assorted (Paper 193)
   {
     source: '2502.03275',
@@ -4445,13 +4655,13 @@ window.paperLinks = [
   {
     source: '2310.02207',
     target: '2309.13638',
-    type: 'related',
+    type: 'extends',
     description: 'Both study internal representations; Embers shows frequency drives encoding',
   },
   {
     source: '2310.02207',
     target: '2305.18654',
-    type: 'related',
+    type: 'extends',
     description: 'Both use probing; Faith & Fate shows probing can miss generalization failures',
   },
   {
@@ -4464,13 +4674,13 @@ window.paperLinks = [
   {
     source: '2310.06824',
     target: '2310.02207',
-    type: 'related',
+    type: 'extends',
     description: 'Same authors (Tegmark), same methodology (linear probing), same limitations',
   },
   {
     source: '2310.06824',
     target: '2309.13638',
-    type: 'related',
+    type: 'challenges',
     description:
       'Embers shows frequency drives behavior; truth direction may be familiarity direction',
   },
@@ -4578,7 +4788,7 @@ window.paperLinks = [
   {
     source: '2410.03717',
     target: '2410.05229',
-    type: 'related',
+    type: 'extends',
     description: 'Complementary: this paper tests in-distribution; GSM-Symbolic tests OOD',
   },
   {
@@ -4694,9 +4904,9 @@ window.paperLinks = [
   {
     source: '2502.04602',
     target: '2410.03717',
-    type: 'partially supports',
+    type: 'supports',
     description:
-      'Confirms reasoning gap (53-62% captured) — agrees alignment not ENTIRELY superficial',
+      'Confirms reasoning gap (53-62% captured) — agrees alignment not entirely superficial',
   },
   {
     source: '2502.04602',
