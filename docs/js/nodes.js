@@ -4053,8 +4053,7 @@ window.paperNodes = [
   },
   {
     id: '2502.03275',
-    title:
-      'Token Assorted: Mixing Latent and Text Tokens for Improved Language Model Reasoning',
+    title: 'Token Assorted: Mixing Latent and Text Tokens for Improved Language Model Reasoning',
     shortTitle: 'Token Assorted',
     date: 'Feb 2025',
     stance: 'supports',
@@ -4076,8 +4075,7 @@ window.paperNodes = [
   },
   {
     id: '2507.05246',
-    title:
-      'When Chain of Thought is Necessary, Language Models Struggle to Evade Monitors',
+    title: 'When Chain of Thought is Necessary, Language Models Struggle to Evade Monitors',
     shortTitle: 'CoT Monitorability',
     date: 'Jul 2025',
     stance: 'balanced',
@@ -4255,7 +4253,8 @@ window.paperNodes = [
   },
   {
     id: '2309.13638',
-    title: 'Embers of Autoregression: Understanding LLMs Through the Problem They are Trained to Solve',
+    title:
+      'Embers of Autoregression: Understanding LLMs Through the Problem They are Trained to Solve',
     shortTitle: 'Embers of Autoregression',
     date: 'Sep 2023',
     stance: 'supports',
@@ -4279,7 +4278,8 @@ window.paperNodes = [
   },
   {
     id: '2410.01792',
-    title: 'When Optimized for Reasoning, Does It Still Show Embers of Autoregression? An Analysis of OpenAI o1',
+    title:
+      'When Optimized for Reasoning, Does It Still Show Embers of Autoregression? An Analysis of OpenAI o1',
     shortTitle: 'o1 Embers Analysis',
     date: 'Oct 2024',
     stance: 'supports',
@@ -4293,7 +4293,7 @@ window.paperNodes = [
       'Same qualitative pattern as GPT-4, just quantitatively better',
     ],
     keyQuotes: [
-      'These results show that optimizing a language model for reasoning can mitigate but might not fully overcome the language model\'s probability sensitivity.',
+      "These results show that optimizing a language model for reasoning can mitigate but might not fully overcome the language model's probability sensitivity.",
       'The sparks of AGI that LLMs may be producing continue to be accompanied by embers of autoregression.',
       'It is not clear what modeling enhancements would suffice to fully overcome the limitations that we have highlighted.',
     ],
@@ -4326,7 +4326,8 @@ window.paperNodes = [
   },
   {
     id: '2310.06824',
-    title: 'The Geometry of Truth: Emergent Linear Structure in LLM Representations of True/False Datasets',
+    title:
+      'The Geometry of Truth: Emergent Linear Structure in LLM Representations of True/False Datasets',
     shortTitle: 'Geometry of Truth',
     date: 'Oct 2023',
     stance: 'balanced',
@@ -4350,7 +4351,8 @@ window.paperNodes = [
   },
   {
     id: '2305.15054',
-    title: 'A Mechanistic Interpretation of Arithmetic Reasoning in Language Models using Causal Mediation Analysis',
+    title:
+      'A Mechanistic Interpretation of Arithmetic Reasoning in Language Models using Causal Mediation Analysis',
     shortTitle: 'Mechanistic Arithmetic',
     date: 'May 2023',
     stance: 'balanced',
@@ -4358,7 +4360,7 @@ window.paperNodes = [
     coreArgument:
       'Causal mediation analysis identifies specific circuits for arithmetic: early MLPs encode operands, attention transfers to last token, late MLPs (L19-20) output results. Only 9-10% neuron overlap with factual knowledge. But small number range (1-300) and division worst (40.8%) suggest learned lookup, not computation.',
     keyEvidence: [
-      'Late MLPs (L19-20) specifically encode results, not operands (IE drops when r=r\')',
+      "Late MLPs (L19-20) specifically encode results, not operands (IE drops when r=r')",
       'Only 9-10% neuron overlap between arithmetic and factual knowledge circuits (= random)',
       'GPT-J division accuracy: 40.8% (worst) vs multiplication 82.8% (best)',
       'Fine-tuning creates circuits: 3-operand goes from 0.9% to 39.7%',
@@ -4473,7 +4475,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'training-dynamics',
     coreArgument:
-      'Defines the Superficial Alignment Hypothesis: A model\'s knowledge is learnt almost entirely during pretraining; alignment teaches which subdistribution of formats to use. 1,000 examples sufficient — RLHF not necessary.',
+      "Defines the Superficial Alignment Hypothesis: A model's knowledge is learnt almost entirely during pretraining; alignment teaches which subdistribution of formats to use. 1,000 examples sufficient — RLHF not necessary.",
     keyEvidence: [
       'LIMA (1K examples) competitive with GPT-4 in 43% of cases',
       'Outperforms Alpaca 65B (52K examples — 52x more data)',
@@ -4482,7 +4484,7 @@ window.paperNodes = [
       'Diversity matters more than quantity',
     ],
     keyQuotes: [
-      'A model\'s knowledge and capabilities are learnt almost entirely during pretraining, while alignment teaches it which subdistribution of formats should be used when interacting with users.',
+      "A model's knowledge and capabilities are learnt almost entirely during pretraining, while alignment teaches it which subdistribution of formats should be used when interacting with users.",
       'If alignment is largely about learning style, then one could sufficiently tune a pretrained language model with a rather small set of examples.',
     ],
     analysisUrl:
@@ -4504,7 +4506,7 @@ window.paperNodes = [
       'Refusal mechanisms are standardized across attacks',
     ],
     keyQuotes: [
-      'Safety alignment teaches the model the correct reasoning direction—the model\'s inclination to either fulfill or refuse a user request based on safety consideration.',
+      "Safety alignment teaches the model the correct reasoning direction—the model's inclination to either fulfill or refuse a user request based on safety consideration.",
       'SSAH characterizes safety alignment as an implicit binary classification task.',
     ],
     analysisUrl:
@@ -4571,7 +4573,7 @@ window.paperNodes = [
     ],
     keyQuotes: [
       'We propose to repeat the prompt, i.e. transform the input from "<QUERY>" to "<QUERY><QUERY>". This enables each prompt token to attend to every other prompt token.',
-      'As further motivation, we observe that reasoning models trained with RL often learn to repeat (parts of) the user\'s request.',
+      "As further motivation, we observe that reasoning models trained with RL often learn to repeat (parts of) the user's request.",
     ],
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/210-219/215_prompt_repetition.md',

@@ -433,13 +433,9 @@
     // Calculate a single global drift vector - all nodes move together
     // This prevents link shaking since connected nodes move in the same direction
     const globalDriftX =
-      Math.sin(time) * 0.5 +
-      Math.sin(time * 1.3) * 0.3 +
-      Math.cos(time * 0.7) * 0.2;
+      Math.sin(time) * 0.5 + Math.sin(time * 1.3) * 0.3 + Math.cos(time * 0.7) * 0.2;
     const globalDriftY =
-      Math.cos(time * 1.1) * 0.5 +
-      Math.cos(time * 0.9) * 0.3 +
-      Math.sin(time * 0.8) * 0.2;
+      Math.cos(time * 1.1) * 0.5 + Math.cos(time * 0.9) * 0.3 + Math.sin(time * 0.8) * 0.2;
 
     // Apply gentle drift forces to each node
     state.nodes.forEach((node, i) => {
@@ -872,14 +868,14 @@
       ? incoming.map(connectionHtml).join('')
       : '<li class="empty">No incoming connections</li>';
 
-    // ArXiv link
+    // ArXiv link (opens in new tab)
     const arxivLink = panel.querySelector('.arxiv-link');
-    arxivLink.href = `https://arxiv.org/abs/${d.id}`;
+    arxivLink.dataset.href = `https://arxiv.org/abs/${d.id}`;
 
-    // Analysis link
+    // Analysis link (GitHub blob URLs block iframes, so open in new tab)
     const analysisLink = panel.querySelector('.analysis-link');
     if (d.analysisUrl) {
-      analysisLink.href = d.analysisUrl;
+      analysisLink.dataset.href = d.analysisUrl;
       analysisLink.style.display = 'inline-flex';
     } else {
       analysisLink.style.display = 'none';
@@ -1314,8 +1310,12 @@
     }
   }
   // Keep old names as aliases so existing call-sites still work
-  function positionThesisCard() { repositionPanels(); }
-  function positionDialoguePanel() { repositionPanels(); }
+  function positionThesisCard() {
+    repositionPanels();
+  }
+  function positionDialoguePanel() {
+    repositionPanels();
+  }
 
   function hideDialogue() {
     const panel = document.getElementById('dialogue-panel');

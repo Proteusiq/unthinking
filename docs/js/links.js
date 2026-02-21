@@ -4171,7 +4171,8 @@ window.paperLinks = [
     source: '2411.02344',
     target: '2404.15758',
     type: 'supports',
-    description: 'Both show meaningless tokens replace CoT; Seq-VCR explains via representation collapse',
+    description:
+      'Both show meaningless tokens replace CoT; Seq-VCR explains via representation collapse',
   },
   {
     source: '2411.02344',
@@ -4420,7 +4421,8 @@ window.paperLinks = [
     source: '2310.06824',
     target: '2309.13638',
     type: 'related',
-    description: 'Embers shows frequency drives behavior; truth direction may be familiarity direction',
+    description:
+      'Embers shows frequency drives behavior; truth direction may be familiarity direction',
   },
   {
     source: '2310.06824',
@@ -4433,7 +4435,8 @@ window.paperLinks = [
     source: '2305.10601',
     target: '2305.18654',
     type: 'supports',
-    description: 'ToT compensates for compositional failures via search; 60% first-step failure shows pattern matching limits',
+    description:
+      'ToT compensates for compositional failures via search; 60% first-step failure shows pattern matching limits',
   },
   {
     source: '2305.10601',
@@ -4445,13 +4448,15 @@ window.paperLinks = [
     source: '2305.10601',
     target: '2512.07783',
     type: 'supports',
-    description: 'ToT surfaces latent capabilities via exploration; Interplay shows RL does similar',
+    description:
+      'ToT surfaces latent capabilities via exploration; Interplay shows RL does similar',
   },
   {
     source: '2305.10601',
     target: '2403.04121',
     type: 'supports',
-    description: 'Authors call LM "System 1"; Kambhampati also argues LMs are pattern matchers needing external scaffolding',
+    description:
+      'Authors call LM "System 1"; Kambhampati also argues LMs are pattern matchers needing external scaffolding',
   },
   // Paper 208: Graph of Thoughts
   {
@@ -4476,19 +4481,22 @@ window.paperLinks = [
     source: '2308.09687',
     target: '2305.18654',
     type: 'supports',
-    description: 'Both show decomposition helps but doesnt create reasoning; LLMs handle sub-problems within distribution',
+    description:
+      'Both show decomposition helps but doesnt create reasoning; LLMs handle sub-problems within distribution',
   },
   {
     source: '2308.09687',
     target: '2512.07783',
     type: 'supports',
-    description: 'Both show external scaffolding surfaces existing capability; doesnt create new reasoning',
+    description:
+      'Both show external scaffolding surfaces existing capability; doesnt create new reasoning',
   },
   {
     source: '2308.09687',
     target: '2506.06941',
     type: 'supports',
-    description: 'Both show complexity thresholds; GoT addresses by chunking, not by LLM reasoning better',
+    description:
+      'Both show complexity thresholds; GoT addresses by chunking, not by LLM reasoning better',
   },
   {
     source: '2308.09687',
@@ -4507,13 +4515,15 @@ window.paperLinks = [
     source: '2410.03717',
     target: '2512.07783',
     type: 'challenges',
-    description: 'Challenges surfacing-only view: post-training teaches reasoning beyond style, not just surfaces',
+    description:
+      'Challenges surfacing-only view: post-training teaches reasoning beyond style, not just surfaces',
   },
   {
     source: '2410.03717',
     target: '2305.18654',
     type: 'challenges',
-    description: 'Shows in-distribution capability improves with training; reasoning separable from style',
+    description:
+      'Shows in-distribution capability improves with training; reasoning separable from style',
   },
   {
     source: '2410.03717',
@@ -4538,7 +4548,8 @@ window.paperLinks = [
     source: '2506.17871',
     target: '2512.07783',
     type: 'supports',
-    description: 'Both prove surfacing hypothesis: alignment selects pre-existing low-entropy paths',
+    description:
+      'Both prove surfacing hypothesis: alignment selects pre-existing low-entropy paths',
   },
   {
     source: '2506.17871',
@@ -4581,19 +4592,22 @@ window.paperLinks = [
     source: '2410.03717',
     target: '2305.11206',
     type: 'rebuts',
-    description: 'Directly challenges LIMA: reasoning improves beyond style saturation, power law scaling',
+    description:
+      'Directly challenges LIMA: reasoning improves beyond style saturation, power law scaling',
   },
   {
     source: '2506.17871',
     target: '2305.11206',
     type: 'supports',
-    description: 'Provides mechanistic support: BF reduction shows alignment selects subdistribution as LIMA claimed',
+    description:
+      'Provides mechanistic support: BF reduction shows alignment selects subdistribution as LIMA claimed',
   },
   {
     source: '2305.11206',
     target: '2512.07783',
     type: 'supports',
-    description: 'LIMA consistent with Interplay: capabilities exist in pretraining, alignment surfaces them',
+    description:
+      'LIMA consistent with Interplay: capabilities exist in pretraining, alignment surfaces them',
   },
   {
     source: '2305.11206',
@@ -4631,7 +4645,8 @@ window.paperLinks = [
     source: '2502.04602',
     target: '2410.03717',
     type: 'partially supports',
-    description: 'Confirms reasoning gap (53-62% captured) — agrees alignment not ENTIRELY superficial',
+    description:
+      'Confirms reasoning gap (53-62% captured) — agrees alignment not ENTIRELY superficial',
   },
   {
     source: '2502.04602',
@@ -4650,7 +4665,8 @@ window.paperLinks = [
     source: '2505.17072',
     target: '2410.10862',
     type: 'extends',
-    description: 'Same authors (Li & Kim): implements SSAH theoretical framework with explicit [CLS] tokens',
+    description:
+      'Same authors (Li & Kim): implements SSAH theoretical framework with explicit [CLS] tokens',
   },
   {
     source: '2505.17072',
@@ -4662,21 +4678,24 @@ window.paperLinks = [
     source: '2505.17072',
     target: '2502.04602',
     type: 'challenges',
-    description: '#213 shows safety is 100% superficial (linear head); #214 method requires explicit classification, not linear',
+    description:
+      '#213 shows safety is 100% superficial (linear head); #214 method requires explicit classification, not linear',
   },
   // Cross-references between #212 and #213
   {
     source: '2410.10862',
     target: '2502.04602',
     type: 'supports',
-    description: 'Both show safety is localized/superficial: SCU neurons (#212) vs linear head (#213)',
+    description:
+      'Both show safety is localized/superficial: SCU neurons (#212) vs linear head (#213)',
   },
   // Prompt Repetition (#215) relationships
   {
     source: '2512.14982',
     target: '2412.21187',
     type: 'supports',
-    description: 'Authors note o1 learns to repeat prompts via RL; this paper explains why it works',
+    description:
+      'Authors note o1 learns to repeat prompts via RL; this paper explains why it works',
   },
   {
     source: '2512.14982',

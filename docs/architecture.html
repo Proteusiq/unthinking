@@ -1,530 +1,1654 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LLM Architecture Evolution | The Thinking Machine That Doesn't Think</title>
-<style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: #0d1117; color: #c9d1d9; font-family: 'Courier New', monospace; padding: 1.2rem 1rem 3rem; }
-.topbar { display: flex; align-items: center; justify-content: space-between; max-width: 960px; margin: 0 auto 1rem; flex-wrap: wrap; gap: 0.5rem; }
-h2 { color: #58a6ff; letter-spacing: 2px; font-size: 0.8rem; text-transform: uppercase; }
-.toggle-wrap { display: flex; gap: 0; border: 1px solid #30363d; border-radius: 5px; overflow: hidden; }
-.tbtn { background: #161b22; color: #8b949e; border: none; padding: 5px 12px; font-family: 'Courier New', monospace; font-size: 0.62rem; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-right: 1px solid #30363d; transition: background 0.15s; }
-.tbtn:last-child { border-right: none; }
-.tbtn.active { background: #58a6ff; color: #0d1117; font-weight: bold; }
-.wrap { max-width: 960px; margin: 0 auto; }
-.view { display: none; }
-.view.show { display: block; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LLM Architecture Evolution | The Thinking Machine That Doesn't Think</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: #0d1117;
+        color: #c9d1d9;
+        font-family: 'Courier New', monospace;
+        padding: 1.2rem 1rem 3rem;
+      }
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 960px;
+        margin: 0 auto 1rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      h2 {
+        color: #58a6ff;
+        letter-spacing: 2px;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+      }
+      .toggle-wrap {
+        display: flex;
+        gap: 0;
+        border: 1px solid #30363d;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      .tbtn {
+        background: #161b22;
+        color: #8b949e;
+        border: none;
+        padding: 5px 12px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.62rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-right: 1px solid #30363d;
+        transition: background 0.15s;
+      }
+      .tbtn:last-child {
+        border-right: none;
+      }
+      .tbtn.active {
+        background: #58a6ff;
+        color: #0d1117;
+        font-weight: bold;
+      }
+      .wrap {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      .view {
+        display: none;
+      }
+      .view.show {
+        display: block;
+      }
 
-/* ── EMBED ── */
-.era-tabs { display: flex; gap: 5px; margin-bottom: 0.8rem; flex-wrap: wrap; }
-.era-tab { padding: 4px 10px; border-radius: 3px; font-size: 0.6rem; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border: 1px solid transparent; transition: all 0.15s; background: #161b22; }
-.embed-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 7px; }
-.embed-card { background: #161b22; border: 1px solid #30363d; border-radius: 5px; padding: 8px 10px; cursor: pointer; transition: border-color 0.15s; }
-.embed-card:hover { border-color: #58a6ff55; }
-.embed-card.open { border-color: #58a6ff; }
-.ec-year { font-size: 0.57rem; margin-bottom: 2px; }
-.ec-name { font-size: 0.76rem; font-weight: bold; margin-bottom: 3px; }
-.ec-key  { font-size: 0.63rem; color: #8b949e; line-height: 1.55; }
-.ec-detail { display: none; margin-top: 7px; padding-top: 7px; border-top: 1px solid #21262d; font-size: 0.63rem; line-height: 1.7; color: #8b949e; }
-.embed-card.open .ec-detail { display: block; }
-.ec-detail b { color: #e6edf3; }
-.ec-limit { margin-top: 5px; font-size: 0.61rem; color: #f0883e; }
-.ec-use   { margin-top: 2px; font-size: 0.61rem; color: #3fb950; }
-.ec-chev  { float: right; font-size: 0.6rem; color: #30363d; transition: transform 0.2s; }
-.embed-card.open .ec-chev { transform: rotate(180deg); color: #58a6ff; }
+      /* ── EMBED ── */
+      .era-tabs {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 0.8rem;
+        flex-wrap: wrap;
+      }
+      .era-tab {
+        padding: 4px 10px;
+        border-radius: 3px;
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: all 0.15s;
+        background: #161b22;
+      }
+      .embed-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+        gap: 7px;
+      }
+      .embed-card {
+        background: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 5px;
+        padding: 8px 10px;
+        cursor: pointer;
+        transition: border-color 0.15s;
+      }
+      .embed-card:hover {
+        border-color: #58a6ff55;
+      }
+      .embed-card.open {
+        border-color: #58a6ff;
+      }
+      .ec-year {
+        font-size: 0.57rem;
+        margin-bottom: 2px;
+      }
+      .ec-name {
+        font-size: 0.76rem;
+        font-weight: bold;
+        margin-bottom: 3px;
+      }
+      .ec-key {
+        font-size: 0.63rem;
+        color: #8b949e;
+        line-height: 1.55;
+      }
+      .ec-detail {
+        display: none;
+        margin-top: 7px;
+        padding-top: 7px;
+        border-top: 1px solid #21262d;
+        font-size: 0.63rem;
+        line-height: 1.7;
+        color: #8b949e;
+      }
+      .embed-card.open .ec-detail {
+        display: block;
+      }
+      .ec-detail b {
+        color: #e6edf3;
+      }
+      .ec-limit {
+        margin-top: 5px;
+        font-size: 0.61rem;
+        color: #f0883e;
+      }
+      .ec-use {
+        margin-top: 2px;
+        font-size: 0.61rem;
+        color: #3fb950;
+      }
+      .ec-chev {
+        float: right;
+        font-size: 0.6rem;
+        color: #30363d;
+        transition: transform 0.2s;
+      }
+      .embed-card.open .ec-chev {
+        transform: rotate(180deg);
+        color: #58a6ff;
+      }
 
-/* ── BLOCK ── */
-.block-intro { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 0.9rem 1rem; margin-bottom: 0.8rem; }
-.block-legend { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 0.7rem; }
-.bl-chip { font-size: 0.58rem; padding: 2px 7px; border-radius: 3px; border: 1px solid transparent; }
-.btbl-wrap { overflow-x: auto; }
-.btbl { width: 100%; border-collapse: collapse; font-size: 0.63rem; }
-.btbl th { background: #0d1117; padding: 5px 8px; text-align: left; font-size: 0.57rem; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid #30363d; white-space: nowrap; color: #8b949e; }
-.btbl td { padding: 5px 8px; border-bottom: 1px solid #21262d; vertical-align: top; }
-.btbl tr:hover td { background: #1c2128; }
-.chip { display: inline-block; font-size: 0.57rem; border-radius: 3px; padding: 1px 5px; white-space: nowrap; }
+      /* ── BLOCK ── */
+      .block-intro {
+        background: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 6px;
+        padding: 0.9rem 1rem;
+        margin-bottom: 0.8rem;
+      }
+      .block-legend {
+        display: flex;
+        gap: 5px;
+        flex-wrap: wrap;
+        margin-bottom: 0.7rem;
+      }
+      .bl-chip {
+        font-size: 0.58rem;
+        padding: 2px 7px;
+        border-radius: 3px;
+        border: 1px solid transparent;
+      }
+      .btbl-wrap {
+        overflow-x: auto;
+      }
+      .btbl {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.63rem;
+      }
+      .btbl th {
+        background: #0d1117;
+        padding: 5px 8px;
+        text-align: left;
+        font-size: 0.57rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border-bottom: 1px solid #30363d;
+        white-space: nowrap;
+        color: #8b949e;
+      }
+      .btbl td {
+        padding: 5px 8px;
+        border-bottom: 1px solid #21262d;
+        vertical-align: top;
+      }
+      .btbl tr:hover td {
+        background: #1c2128;
+      }
+      .chip {
+        display: inline-block;
+        font-size: 0.57rem;
+        border-radius: 3px;
+        padding: 1px 5px;
+        white-space: nowrap;
+      }
 
-/* ── ACTIVATIONS ── */
-.act-intro { font-size: 0.64rem; color: #8b949e; line-height: 1.8; margin-bottom: 0.85rem; border: 1px solid #21262d; border-radius: 5px; padding: 0.65rem 0.9rem; background: #0d1117; }
-.act-timeline { display: flex; flex-direction: column; gap: 0; }
-.act-row { display: flex; align-items: stretch; gap: 0; }
-.act-year-col { width: 56px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; }
-.act-yr-label { font-size: 0.58rem; color: #58a6ff; font-weight: bold; padding-top: 10px; white-space: nowrap; }
-.act-yr-blank { flex: 1; }
-.act-tl-col { width: 22px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; }
-.act-dot { width: 10px; height: 10px; border-radius: 50%; border: 2px solid; flex-shrink: 0; margin-top: 12px; }
-.act-line { width: 2px; flex: 1; background: #21262d; }
-.act-card-col { flex: 1; padding: 0 0 12px 10px; }
-.act-card { background: #161b22; border: 1px solid #30363d; border-radius: 5px; padding: 8px 11px; cursor: pointer; transition: border-color 0.15s; }
-.act-card:hover { border-color: #58a6ff55; }
-.act-card.open { border-color: #58a6ff; }
-.act-card-header { display: flex; justify-content: space-between; align-items: flex-start; }
-.act-name { font-size: 0.78rem; font-weight: bold; }
-.act-badge { font-size: 0.55rem; border-radius: 3px; padding: 1px 5px; margin-left: 5px; }
-.act-chev { font-size: 0.6rem; color: #30363d; transition: transform 0.2s; }
-.act-card.open .act-chev { transform: rotate(180deg); color: #58a6ff; }
-.act-formula { font-size: 0.66rem; color: #79c0ff; background: #0d1117; border: 1px solid #21262d; border-radius: 3px; padding: 3px 8px; margin: 5px 0; font-family: 'Courier New', monospace; }
-.act-short { font-size: 0.64rem; color: #8b949e; line-height: 1.6; margin-top: 3px; }
-.act-detail { display: none; margin-top: 6px; padding-top: 6px; border-top: 1px solid #21262d; font-size: 0.63rem; color: #8b949e; line-height: 1.75; }
-.act-card.open .act-detail { display: block; }
-.act-detail b { color: #e6edf3; }
-.act-used { font-size: 0.61rem; color: #3fb950; margin-top: 4px; }
+      /* ── ACTIVATIONS ── */
+      .act-intro {
+        font-size: 0.64rem;
+        color: #8b949e;
+        line-height: 1.8;
+        margin-bottom: 0.85rem;
+        border: 1px solid #21262d;
+        border-radius: 5px;
+        padding: 0.65rem 0.9rem;
+        background: #0d1117;
+      }
+      .act-timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      .act-row {
+        display: flex;
+        align-items: stretch;
+        gap: 0;
+      }
+      .act-year-col {
+        width: 56px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .act-yr-label {
+        font-size: 0.58rem;
+        color: #58a6ff;
+        font-weight: bold;
+        padding-top: 10px;
+        white-space: nowrap;
+      }
+      .act-yr-blank {
+        flex: 1;
+      }
+      .act-tl-col {
+        width: 22px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .act-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 2px solid;
+        flex-shrink: 0;
+        margin-top: 12px;
+      }
+      .act-line {
+        width: 2px;
+        flex: 1;
+        background: #21262d;
+      }
+      .act-card-col {
+        flex: 1;
+        padding: 0 0 12px 10px;
+      }
+      .act-card {
+        background: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 5px;
+        padding: 8px 11px;
+        cursor: pointer;
+        transition: border-color 0.15s;
+      }
+      .act-card:hover {
+        border-color: #58a6ff55;
+      }
+      .act-card.open {
+        border-color: #58a6ff;
+      }
+      .act-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .act-name {
+        font-size: 0.78rem;
+        font-weight: bold;
+      }
+      .act-badge {
+        font-size: 0.55rem;
+        border-radius: 3px;
+        padding: 1px 5px;
+        margin-left: 5px;
+      }
+      .act-chev {
+        font-size: 0.6rem;
+        color: #30363d;
+        transition: transform 0.2s;
+      }
+      .act-card.open .act-chev {
+        transform: rotate(180deg);
+        color: #58a6ff;
+      }
+      .act-formula {
+        font-size: 0.66rem;
+        color: #79c0ff;
+        background: #0d1117;
+        border: 1px solid #21262d;
+        border-radius: 3px;
+        padding: 3px 8px;
+        margin: 5px 0;
+        font-family: 'Courier New', monospace;
+      }
+      .act-short {
+        font-size: 0.64rem;
+        color: #8b949e;
+        line-height: 1.6;
+        margin-top: 3px;
+      }
+      .act-detail {
+        display: none;
+        margin-top: 6px;
+        padding-top: 6px;
+        border-top: 1px solid #21262d;
+        font-size: 0.63rem;
+        color: #8b949e;
+        line-height: 1.75;
+      }
+      .act-card.open .act-detail {
+        display: block;
+      }
+      .act-detail b {
+        color: #e6edf3;
+      }
+      .act-used {
+        font-size: 0.61rem;
+        color: #3fb950;
+        margin-top: 4px;
+      }
 
-/* norm section */
-.norm-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 7px; margin-top: 0.7rem; }
-.norm-card { background: #161b22; border: 1px solid #30363d; border-radius: 5px; padding: 9px 11px; }
-.norm-title { font-size: 0.7rem; font-weight: bold; margin-bottom: 4px; }
-.norm-body { font-size: 0.63rem; color: #8b949e; line-height: 1.65; }
-.norm-body b { color: #e6edf3; }
-.norm-formula { font-size: 0.62rem; color: #79c0ff; background: #0d1117; border: 1px solid #21262d; border-radius: 3px; padding: 2px 7px; margin: 4px 0; font-family: 'Courier New', monospace; }
-.norm-used { font-size: 0.6rem; color: #3fb950; margin-top: 4px; }
-.norm-warn { font-size: 0.6rem; color: #f0883e; margin-top: 3px; }
+      /* norm section */
+      .norm-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 7px;
+        margin-top: 0.7rem;
+      }
+      .norm-card {
+        background: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 5px;
+        padding: 9px 11px;
+      }
+      .norm-title {
+        font-size: 0.7rem;
+        font-weight: bold;
+        margin-bottom: 4px;
+      }
+      .norm-body {
+        font-size: 0.63rem;
+        color: #8b949e;
+        line-height: 1.65;
+      }
+      .norm-body b {
+        color: #e6edf3;
+      }
+      .norm-formula {
+        font-size: 0.62rem;
+        color: #79c0ff;
+        background: #0d1117;
+        border: 1px solid #21262d;
+        border-radius: 3px;
+        padding: 2px 7px;
+        margin: 4px 0;
+        font-family: 'Courier New', monospace;
+      }
+      .norm-used {
+        font-size: 0.6rem;
+        color: #3fb950;
+        margin-top: 4px;
+      }
+      .norm-warn {
+        font-size: 0.6rem;
+        color: #f0883e;
+        margin-top: 3px;
+      }
 
-/* ── TABLE ── */
-.tbl-wrap { overflow-x: auto; }
-.main-t { width: 100%; border-collapse: collapse; font-size: 0.63rem; }
-.main-t th { background: #0d1117; padding: 5px 8px; text-align: left; font-size: 0.57rem; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid #30363d; white-space: nowrap; color: #8b949e; }
-.main-t td { padding: 4px 8px; border-bottom: 1px solid #21262d; color: #8b949e; white-space: nowrap; }
-.main-t td.nm { color: #c9d1d9; }
-.main-t tr:hover td { background: #1c2128; }
-.main-t tr.ut td.nm { color: #f0883e; }
+      /* ── TABLE ── */
+      .tbl-wrap {
+        overflow-x: auto;
+      }
+      .main-t {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.63rem;
+      }
+      .main-t th {
+        background: #0d1117;
+        padding: 5px 8px;
+        text-align: left;
+        font-size: 0.57rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border-bottom: 1px solid #30363d;
+        white-space: nowrap;
+        color: #8b949e;
+      }
+      .main-t td {
+        padding: 4px 8px;
+        border-bottom: 1px solid #21262d;
+        color: #8b949e;
+        white-space: nowrap;
+      }
+      .main-t td.nm {
+        color: #c9d1d9;
+      }
+      .main-t tr:hover td {
+        background: #1c2128;
+      }
+      .main-t tr.ut td.nm {
+        color: #f0883e;
+      }
 
-/* Back link */
-.back-link { display: inline-flex; align-items: center; gap: 6px; color: #58a6ff; text-decoration: none; font-size: 0.7rem; margin-bottom: 1rem; opacity: 0.8; transition: opacity 0.15s; }
-.back-link:hover { opacity: 1; }
-.back-link svg { width: 14px; height: 14px; }
-</style>
-</head>
-<body>
-
-<div style="max-width: 960px; margin: 0 auto;">
-  <a href="index.html" class="back-link" onclick="if(window.parent!==window){window.parent.closeOverlay();return false;}">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M19 12H5M12 19l-7-7 7-7"/>
-    </svg>
-    Back to Paper Network
-  </a>
-</div>
-
-<div class="topbar">
-  <h2>LLM Architecture Evolution 2017–</h2>
-  <div class="toggle-wrap">
-    <button class="tbtn active" id="btn-embed"  onclick="setV('embed')">Embeddings</button>
-    <button class="tbtn"        id="btn-act"    onclick="setV('act')">Activations & Norm</button>
-    <button class="tbtn"        id="btn-block"  onclick="setV('block')">Block Design</button>
-    <button class="tbtn"        id="btn-table"  onclick="setV('table')">Table</button>
-  </div>
-</div>
-
-<div class="wrap">
-
-<!-- ═══ EMBEDDINGS ═══ -->
-<div id="view-embed" class="view show">
-  <div style="font-size:0.64rem;color:#8b949e;line-height:1.8;margin-bottom:0.85rem;border:1px solid #21262d;border-radius:5px;padding:0.65rem 0.9rem;background:#0d1117">
-    From counting words to geometric meaning. Each era solved the prior era's core failure —
-    <b style="color:#c9d1d9">static → contextual → sentence-level → LLM-native</b>. Click any card for detail.
-  </div>
-  <div class="era-tabs" id="era-tabs"></div>
-  <div class="embed-grid" id="embed-grid"></div>
-</div>
-
-<!-- ═══ ACTIVATIONS & NORM ═══ -->
-<div id="view-act" class="view">
-  <div class="act-intro">
-    <b style="color:#c9d1d9">Activations</b> introduce non-linearity into the FFN. The evolution moves from hard gates (ReLU) to smooth approximations (GELU) to <b style="color:#ffa657">gated linear units (GLU family)</b> — where a sigmoid/swish gate multiplies the linear branch, giving the network multiplicative control over information flow. Below: click any entry for formulas and context.
-  </div>
-
-  <div class="act-timeline" id="act-timeline"></div>
-
-  <div style="font-size:0.65rem;color:#58a6ff;letter-spacing:1px;text-transform:uppercase;margin:1.4rem 0 0.55rem;border-top:1px solid #21262d;padding-top:1rem">
-    Normalisation — Pre / Post / Skip / RMS
-  </div>
-  <div style="font-size:0.63rem;color:#8b949e;line-height:1.75;margin-bottom:0.7rem;">
-    Where the norm sits inside the residual block determines training stability, gradient flow, and depth scalability.
-    The trend: <b style="color:#c9d1d9">Post-LN → Pre-LN → Pre-RMSNorm → QK-Norm on top</b>.
-  </div>
-
-  <!-- norm placement diagram -->
-  <div style="background:#161b22;border:1px solid #30363d;border-radius:6px;padding:0.85rem 1rem;margin-bottom:0.75rem;">
-    <svg id="norm-svg" style="display:block;width:100%;overflow:visible" height="110"></svg>
-    <div style="font-size:0.6rem;color:#8b949e;margin-top:0.4rem;line-height:1.7">
-      <span style="color:#f0883e">Post-LN</span> (original transformer): norm applied <i>after</i> residual addition — gradients can vanish in early layers at depth.&nbsp;
-      <span style="color:#56d364">Pre-LN</span>: norm before sub-layer — stable gradients, dominant since GPT-2.&nbsp;
-      <span style="color:#d2a8ff">Skip-norm / No-norm</span>: some hybrid linear-attention layers omit norm entirely on the residual path.
+      /* Back link */
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: #58a6ff;
+        text-decoration: none;
+        font-size: 0.7rem;
+        margin-bottom: 1rem;
+        opacity: 0.8;
+        transition: opacity 0.15s;
+      }
+      .back-link:hover {
+        opacity: 1;
+      }
+      .back-link svg {
+        width: 14px;
+        height: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="max-width: 960px; margin: 0 auto">
+      <a
+        href="index.html"
+        class="back-link"
+        onclick="
+          if (window.parent !== window) {
+            window.parent.closeOverlay();
+            return false;
+          }
+        "
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        Back to Paper Network
+      </a>
     </div>
-  </div>
 
-  <div class="norm-grid" id="norm-grid"></div>
-</div>
-
-<!-- ═══ BLOCK DESIGN ═══ -->
-<div id="view-block" class="view">
-  <div class="block-intro">
-    <div style="font-size:0.62rem;color:#58a6ff;letter-spacing:1px;text-transform:uppercase;margin-bottom:0.65rem">Canonical Transformer Block — invariant structure since Vaswani et al. 2017</div>
-    <svg id="block-svg" style="display:block;width:100%;overflow:visible" height="80"></svg>
-    <div style="font-size:0.62rem;color:#8b949e;margin-top:0.55rem;line-height:1.75">
-      Structure is <b style="color:#c9d1d9">invariant</b>: embed+pos → (norm → attn → add → norm → FFN/MoE → add) × N → norm → logits.<br>
-      What evolves: <b style="color:#79c0ff">positional scheme</b> · <b style="color:#d2a8ff">attention variant</b> · <b style="color:#ffa657">FFN gating/MoE</b> · <b style="color:#e3b341">norm placement</b>.<br>
-      <span style="color:#3fb950;font-size:0.6rem">Source: Raschka (2025) — The Big LLM Architecture Comparison · magazine.sebastianraschka.com</span>
+    <div class="topbar">
+      <h2>LLM Architecture Evolution 2017–</h2>
+      <div class="toggle-wrap">
+        <button class="tbtn active" id="btn-embed" onclick="setV('embed')">Embeddings</button>
+        <button class="tbtn" id="btn-act" onclick="setV('act')">Activations & Norm</button>
+        <button class="tbtn" id="btn-block" onclick="setV('block')">Block Design</button>
+        <button class="tbtn" id="btn-table" onclick="setV('table')">Table</button>
+      </div>
     </div>
-  </div>
-  <div class="block-legend" id="block-legend"></div>
-  <div class="btbl-wrap">
-    <table class="btbl">
-      <thead><tr>
-        <th style="color:#c9d1d9">Model</th>
-        <th>Year</th>
-        <th style="color:#79c0ff">Pos. Encoding</th>
-        <th style="color:#d2a8ff">Attention</th>
-        <th style="color:#ffa657">Activation / FFN</th>
-        <th style="color:#e3b341">Norm</th>
-        <th>Notes</th>
-      </tr></thead>
-      <tbody id="block-tbody"></tbody>
-    </table>
-  </div>
-</div>
 
-<!-- ═══ TABLE ═══ -->
-<div id="view-table" class="view">
-  <div class="tbl-wrap">
-    <table class="main-t">
-      <thead><tr>
-        <th style="color:#c9d1d9">Model</th><th>Year</th><th>Lab</th>
-        <th style="color:#ffa657">Activation</th>
-        <th style="color:#d2a8ff">Attention</th>
-        <th style="color:#79c0ff">Pos. Embed</th>
-        <th style="color:#e3b341">Norm</th>
-        <th>MoE</th>
-      </tr></thead>
-      <tbody id="tbl-body"></tbody>
-    </table>
-  </div>
-  <div style="margin-top:0.6rem;font-size:0.62rem;color:#8b949e">
-    <span style="color:#f0883e">●</span> = underrepresented in post-training literature
-  </div>
-</div>
+    <div class="wrap">
+      <!-- ═══ EMBEDDINGS ═══ -->
+      <div id="view-embed" class="view show">
+        <div
+          style="
+            font-size: 0.64rem;
+            color: #8b949e;
+            line-height: 1.8;
+            margin-bottom: 0.85rem;
+            border: 1px solid #21262d;
+            border-radius: 5px;
+            padding: 0.65rem 0.9rem;
+            background: #0d1117;
+          "
+        >
+          From counting words to geometric meaning. Each era solved the prior era's core failure —
+          <b style="color: #c9d1d9">static → contextual → sentence-level → LLM-native</b>. Click any
+          card for detail.
+        </div>
+        <div class="era-tabs" id="era-tabs"></div>
+        <div class="embed-grid" id="embed-grid"></div>
+      </div>
 
-</div><!-- wrap -->
+      <!-- ═══ ACTIVATIONS & NORM ═══ -->
+      <div id="view-act" class="view">
+        <div class="act-intro">
+          <b style="color: #c9d1d9">Activations</b> introduce non-linearity into the FFN. The
+          evolution moves from hard gates (ReLU) to smooth approximations (GELU) to
+          <b style="color: #ffa657">gated linear units (GLU family)</b> — where a sigmoid/swish gate
+          multiplies the linear branch, giving the network multiplicative control over information
+          flow. Below: click any entry for formulas and context.
+        </div>
 
-<div style="max-width:960px;margin:2rem auto 0;padding-top:1rem;border-top:1px solid #21262d;font-size:0.58rem;color:#8b949e;line-height:1.8">
-  <span style="color:#30363d;text-transform:uppercase;letter-spacing:1.5px;font-size:0.5rem">Sources</span><br>
-  <a href="https://magazine.sebastianraschka.com/p/the-big-llm-architecture-comparison" style="color:#58a6ff;text-decoration:none" target="_blank" rel="noopener">Sebastian Raschka</a> (2025) &mdash; The Big LLM Architecture Comparison<br>
-  <a href="https://stanford-cs336.github.io/spring2025/" style="color:#58a6ff;text-decoration:none" target="_blank" rel="noopener">Stanford CS336</a> &mdash; Language Modeling from Scratch (Spring 2025)
-</div>
+        <div class="act-timeline" id="act-timeline"></div>
 
-<script>
-// ── COLOUR HELPERS ──
-const posClr = p => p.includes("None")||p.includes("Lightning") ? {bg:"#2d1500",c:"#f0883e"} :
-  p.includes("RoPE")||p.includes("iRoPE") ? {bg:"#1b2e1f",c:"#56d364"} :
-  p.includes("ALiBi") ? {bg:"#0d2233",c:"#79c0ff"} : {bg:"#21262d",c:"#8b949e"};
-const attnClr = a => a.includes("Lightning") ? {bg:"#2d1500",c:"#f0883e"} :
-  a.includes("MLA") ? {bg:"#2b1d3d",c:"#d2a8ff"} :
-  a.includes("GQA") ? {bg:"#1b2e1f",c:"#56d364"} :
-  a.includes("MQA") ? {bg:"#2d2200",c:"#e3b341"} : {bg:"#21262d",c:"#8b949e"};
-const actClr = a => a.includes("SwiGLU")||a.includes("GeGLU")||a.includes("GLU")||a.includes("ReGLU") ? {bg:"#2d1f0e",c:"#ffa657"} :
-  a.includes("GELU") ? {bg:"#2d2200",c:"#e3b341"} :
-  a.includes("SiLU")||a.includes("Swish") ? {bg:"#1f2200",c:"#c9d1d9"} :
-  a.includes("ReLU") ? {bg:"#21262d",c:"#8b949e"} : {bg:"#21262d",c:"#8b949e"};
-const normClr = n => n.includes("RMSNorm") ? {bg:"#1b2e1f",c:"#56d364"} :
-  n.includes("Pre-LN") ? {bg:"#2d2200",c:"#e3b341"} :
-  n.includes("Post-LN") ? {bg:"#2d1500",c:"#f0883e"} : {bg:"#21262d",c:"#8b949e"};
+        <div
+          style="
+            font-size: 0.65rem;
+            color: #58a6ff;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin: 1.4rem 0 0.55rem;
+            border-top: 1px solid #21262d;
+            padding-top: 1rem;
+          "
+        >
+          Normalisation — Pre / Post / Skip / RMS
+        </div>
+        <div style="font-size: 0.63rem; color: #8b949e; line-height: 1.75; margin-bottom: 0.7rem">
+          Where the norm sits inside the residual block determines training stability, gradient
+          flow, and depth scalability. The trend:
+          <b style="color: #c9d1d9">Post-LN → Pre-LN → Pre-RMSNorm → QK-Norm on top</b>.
+        </div>
 
-// ── EMBEDDING DATA ──
-const ERAS = [
-  {id:"sparse", label:"Sparse / Symbolic",        color:"#8b949e"},
-  {id:"dense",  label:"Static Dense — Gensim Era", color:"#e3b341"},
-  {id:"ctx",    label:"Contextual",                color:"#79c0ff"},
-  {id:"sent",   label:"Sentence & Retrieval",      color:"#d2a8ff"},
-  {id:"modern", label:"Modern Dense (2022–2025)",  color:"#56d364"},
-];
-const EMBEDS = [
-  {era:"sparse",year:"~1990s",name:"Bag of Words (BoW)",
-   key:"Count vectors. Each unique word = one sparse dimension. Vocabulary-sized zero vectors.",
-   detail:"A 50k-word vocab → 50k-d vector, almost entirely zeros. Cosine similarity works but 'car' and 'automobile' are orthogonal — zero semantic overlap by construction.",
-   limit:"⚠ Ignores word order entirely. Vocabulary explosion. Curse of dimensionality.",
-   use:"→ Still used: spam filters, keyword search, some baseline classifiers."},
-  {era:"sparse",year:"~1990s",name:"N-Grams / Bigrams",
-   key:"Captures local word sequences. P(wₙ|wₙ₋₂,wₙ₋₁). Basis of early language models.",
-   detail:"Bigrams capture 'New York' as a unit. Kneser-Ney smoothing handles unseen n-grams. Markov assumption: only k−1 prior tokens matter. Exponential sparsity with n.",
-   limit:"⚠ Context hard-capped at n−1 tokens. No generalization across similar words.",
-   use:"→ Spell-check, early ASR, statistical machine translation (SMT)."},
-  {era:"sparse",year:"1970s–2000s",name:"TF-IDF",
-   key:"Term Frequency × Inverse Document Frequency. Rare terms get higher weight. Retrieval-focused.",
-   detail:"TF(t,d) × log(N/df(t)). Word in 3 of 1M docs gets high IDF. BM25 is the probabilistic extension still used in hybrid retrieval in 2025.",
-   limit:"⚠ Still fully sparse. No semantic similarity — 'cat' ≠ 'kitten'.",
-   use:"→ Classic IR. BM25 still used in hybrid retrieval pipelines."},
-  {era:"sparse",year:"1990s–2000s",name:"LSA / LSI",
-   key:"SVD on term-document matrix. Discovers k latent semantic dimensions. First 'dense' representation.",
-   detail:"Truncated SVD on TF-IDF matrix → dense k-d vectors. Synonyms cluster in latent space. pLSA and LDA followed.",
-   limit:"⚠ Expensive SVD recomputation. No OOV handling. Weak on syntax.",
-   use:"→ Topic modeling, document clustering. LDA still used for topic discovery."},
-  {era:"dense",year:"2003",name:"Neural LM (Bengio et al.)",
-   key:"First neural word embeddings as byproduct of LM training. 30–100d. Proved distributed representations work.",
-   detail:"Feedforward neural LM: word → embedding lookup → hidden layers → softmax. Too slow for large-scale use but the theoretical proof-of-concept.",
-   limit:"⚠ Computationally infeasible for large vocab. No practical tooling.",
-   use:"→ Theoretical foundation. No direct adoption until Word2Vec's efficiency gains."},
-  {era:"dense",year:"2013",name:"Word2Vec (Mikolov et al.)",
-   key:"CBOW and Skip-gram with negative sampling. 'king − man + woman ≈ queen'. First practical dense embeddings.",
-   detail:"Two architectures: CBOW (predict word from context) and Skip-gram (predict context from word). Negative sampling makes training tractable. 100–300d vectors in hours.",
-   limit:"⚠ STATIC — 'bank' (financial) = 'bank' (river), same vector. No OOV words.",
-   use:"→ Standard for all NLP tasks 2013–2018. Gensim library made it accessible."},
-  {era:"dense",year:"2014",name:"GloVe (Pennington et al.)",
-   key:"Global co-occurrence matrix factorization. Combines count-based (LSA) + predictive (Word2Vec) strengths.",
-   detail:"Trains on non-zero entries of word-word co-occurrence weighted by distance. Optimizes: wᵢ·wⱼ + bᵢ + bⱼ = log Xᵢⱼ. Better analogy benchmarks than Word2Vec.",
-   limit:"⚠ Still static. Large memory for full co-occurrence matrix.",
-   use:"→ Stanford NLP. Pre-trained Wikipedia+Crawl vectors widely downloaded."},
-  {era:"dense",year:"2014",name:"Doc2Vec / Paragraph Vectors",
-   key:"Extends Word2Vec to variable-length documents. PV-DM and PV-DBOW. First dense document-level embeddings.",
-   detail:"Adds a 'paragraph vector' trained alongside word vectors. PV-DM: predict word from doc+context. Fixed-size rep of any document length via Gensim doc2vec.",
-   limit:"⚠ Inference on new docs requires re-optimization — not truly inductive. Unstable training.",
-   use:"→ Document similarity, recommendation. Gensim's doc2vec module."},
-  {era:"dense",year:"2016",name:"FastText (Bojanowski et al.)",
-   key:"Subword n-grams — OOV words decomposed into character n-gram embeddings. Handles morphologically rich languages.",
-   detail:"Each word = sum of character n-gram embeddings. 'eating' = 'eat'+'atin'+'ting'+... Handles misspellings and morphological variants.",
-   limit:"⚠ Still static context. Character n-grams not semantically meaningful for ideographic scripts.",
-   use:"→ Facebook production NLP. Multilingual baseline. Competitive for low-resource languages."},
-  {era:"ctx",year:"2018",name:"ELMo (Peters et al.)",
-   key:"Contextual embeddings from deep biLSTM. Same word → different vectors per context. First contextual embeddings at scale.",
-   detail:"Two stacked LSTMs (forward + backward). 'bank' in 'river bank' ≠ 'bank' in 'World Bank'. Bridge from static to transformer era.",
-   limit:"⚠ LSTM-based: slow, hard to parallelize. Not truly joint bidirectional.",
-   use:"→ NER, coreference, QA circa 2018."},
-  {era:"ctx",year:"2018",name:"BERT (Devlin et al.)",
-   key:"Bidirectional transformer. MLM pretraining. [bank] sees river AND financial context simultaneously.",
-   detail:"12/24 transformer layers. MLM: mask 15% of tokens, predict from full bidirectional context. SOTA on 11 NLP benchmarks at release.",
-   limit:"⚠ [CLS] not well-calibrated for semantic similarity out-of-the-box.",
-   use:"→ All NLP fine-tuning 2018–2022. Foundation of RoBERTa / DistilBERT / ALBERT."},
-  {era:"ctx",year:"2019",name:"RoBERTa / ALBERT / DistilBERT",
-   key:"BERT ablations and improvements. RoBERTa: no NSP, dynamic masking. DistilBERT: 40% smaller, 60% faster.",
-   detail:"RoBERTa showed NSP was harmful. ALBERT: factorized embeddings + cross-layer parameter sharing. DistilBERT: knowledge distillation.",
-   limit:"⚠ CLS embedding still poor for semantic similarity. Per-task fine-tuning required.",
-   use:"→ Production NLP, internal search, classification."},
-  {era:"sent",year:"2019",name:"Sentence-BERT (Reimers & Gurevych)",
-   key:"Siamese BERT + mean pooling + contrastive training. Cosine similarity finally works for semantic search.",
-   detail:"Pairs of sentences through shared BERT weights. NLI/triplet loss. Mean-pooling beats [CLS]. Reduces semantic search from O(n²) to O(1).",
-   limit:"⚠ English-focused. Fixed 512-token limit.",
-   use:"→ Foundation of modern semantic search. sentence-transformers library."},
-  {era:"sent",year:"2020–21",name:"DPR / SimCSE",
-   key:"Dense Passage Retrieval for open-domain QA. SimCSE: dropout as positive augmentation, solves anisotropy.",
-   detail:"DPR: dual-encoder BERT for question + passage. SimCSE: same sentence through dropout twice = positive pair. Solves the collapsed cone problem in BERT representations.",
-   limit:"⚠ DPR needs domain fine-tuning. SimCSE unsupervised weaker.",
-   use:"→ Open-domain QA, core of early RAG systems."},
-  {era:"sent",year:"2021",name:"OpenAI text-embedding-ada-001",
-   key:"First major commercial embedding API. GPT-based encoder. Established embedding-as-a-service.",
-   detail:"Based on GPT-2/3 fine-tuned for retrieval. 1024d. Simple API. Brought dense retrieval to mainstream developers without ML expertise.",
-   limit:"⚠ Autoregressive decoder not ideal for bidirectional encoding. Proprietary.",
-   use:"→ Early enterprise semantic search. Predecessor to ada-002."},
-  {era:"modern",year:"2022",name:"OpenAI text-embedding-ada-002",
-   key:"1536d. One model replacing 5. Massive adoption. De-facto RAG standard 2022–2023.",
-   detail:"8191 token context. cosine similarity reliable. Contrastive fine-tuning on diverse paired data. Infrastructure for most RAG pipelines 2022–2023.",
-   limit:"⚠ Black box. Fixed 1536d. text-embedding-3 (2024) superseded it with MRL.",
-   use:"→ Majority of all RAG systems built 2022–2024 started here."},
-  {era:"modern",year:"2022–23",name:"E5 / BGE / GTE families",
-   key:"Open instruction-tuned embeddings. BAAI General Embeddings. Competitive with OpenAI at zero cost.",
-   detail:"E5: contrastive pre-training + instruction prefix. BGE: strong open retrieval, Chinese+English. GTE: in-batch + hard negatives. MTEB leaderboard competition explodes.",
-   limit:"⚠ Multiple incompatible families. Separate embedding step still needed.",
-   use:"→ Open-source RAG, enterprise search, bi-encoder retrieval."},
-  {era:"modern",year:"2022",name:"Matryoshka Representation Learning (MRL)",
-   key:"Embeddings at multiple granularities simultaneously. Truncate 64d→1536d with graceful degradation.",
-   detail:"Training loss = sum over nested dimension subsets. First 128 dims of a 1536d vector are a strong 128d embedding. 10× cheaper storage at ~5% quality loss.",
-   limit:"⚠ Requires retraining from scratch with MRL objective.",
-   use:"→ OpenAI text-embedding-3, Cohere v3. Tiered retrieval pipelines."},
-  {era:"modern",year:"2023–24",name:"nomic-embed / Voyage / Cohere v3",
-   key:"Long-context (8k–32k tokens). Domain-specialized. nomic: fully open + auditable.",
-   detail:"nomic-embed-text: fully reproducible (open training data + code). Voyage: domain-specialized (legal, medical, code). Cohere Embed v3: multimodal + multilingual.",
-   limit:"⚠ Context length vs. quality tradeoff. Larger vectors increase storage cost.",
-   use:"→ Legal/medical RAG, contract analysis, codebase search."},
-  {era:"modern",year:"2024–25",name:"LLM-as-Embedder (NV-Embed / LLM2Vec)",
-   key:"Full decoder LLMs (Mistral, Llama) as embedding models. MTEB top tier. Closes gen/retrieval gap.",
-   detail:"NV-Embed: decoder LLM with bidirectional attention + two-stage contrastive instruction-tuning. LLM2Vec: converts any decoder LLM to bidirectional via MNTP. Unified gen+retrieval architecture.",
-   limit:"⚠ 7B+ parameter inference cost. Not suitable for low-latency use.",
-   use:"→ MTEB leaderboard top entries. Unified model for gen + retrieval."},
-];
+        <!-- norm placement diagram -->
+        <div
+          style="
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 0.85rem 1rem;
+            margin-bottom: 0.75rem;
+          "
+        >
+          <svg
+            id="norm-svg"
+            style="display: block; width: 100%; overflow: visible"
+            height="110"
+          ></svg>
+          <div style="font-size: 0.6rem; color: #8b949e; margin-top: 0.4rem; line-height: 1.7">
+            <span style="color: #f0883e">Post-LN</span> (original transformer): norm applied
+            <i>after</i> residual addition — gradients can vanish in early layers at depth.&nbsp;
+            <span style="color: #56d364">Pre-LN</span>: norm before sub-layer — stable gradients,
+            dominant since GPT-2.&nbsp; <span style="color: #d2a8ff">Skip-norm / No-norm</span>:
+            some hybrid linear-attention layers omit norm entirely on the residual path.
+          </div>
+        </div>
 
-// ── ACTIVATION DATA ──
-const ACTS = [
-  {year:"1958–1980s",name:"Sigmoid / Tanh",color:"#8b949e",badge:"Pre-deep",badgeBg:"#21262d",
-   formula:"σ(x) = 1/(1+e⁻ˣ)   tanh(x) = (eˣ−e⁻ˣ)/(eˣ+e⁻ˣ)",
-   short:"Squashes outputs to [0,1] or [−1,1]. Standard in early MLPs and RNNs.",
-   detail:"<b>Sigmoid</b>: saturates at 0 and 1 → near-zero gradients for large |x| (vanishing gradient). Output always positive → weight updates all same sign (slow zig-zag convergence). <b>Tanh</b>: zero-centered, better gradient flow, but still saturates. Both largely abandoned in deep networks for hidden layers once ReLU was understood.",
-   used:"Used in: early MLPs, RNNs, LSTMs (gates), output layers for probabilities."},
-  {year:"2010",name:"ReLU",color:"#56d364",badge:"Deep learning standard",badgeBg:"#1b2e1f",
-   formula:"ReLU(x) = max(0, x)",
-   short:"Non-saturating for x>0. Eliminates vanishing gradient problem. Made deep networks trainable.",
-   detail:"<b>Nair & Hinton (2010)</b>. Piecewise linear — gradient is exactly 1 for positive inputs, 0 for negative. Computationally trivial. Made 10+ layer networks feasible for the first time. Dead neuron problem: negative inputs give exactly zero gradient forever. Leaky ReLU (α·x for x<0) and PReLU (learned α) address this.",
-   used:"Used in: ResNets, early GPT, most CNNs. Still default in non-LLM contexts."},
-  {year:"2015–2016",name:"ELU / SELU",color:"#e3b341",badge:"Smooth ReLU",badgeBg:"#2d2200",
-   formula:"ELU(x) = x if x>0 else α(eˣ−1)",
-   short:"Smooth at zero, negative saturation preserves mean activations near zero. SELU: self-normalizing.",
-   detail:"<b>ELU (Clevert et al. 2015)</b>: smooth derivative at x=0, handles dead neuron partially. <b>SELU (Klambauer et al. 2017)</b>: scaled ELU with specific α and λ — provably self-normalizing under certain weight initialization (Lecun normal init). Variance and mean converge without BatchNorm. Short-lived dominance — GELU improved on both.",
-   used:"Used in: some feedforward nets, rarely in LLMs."},
-  {year:"2016",name:"GELU",color:"#ffa657",badge:"Transformer era",badgeBg:"#2d1f0e",
-   formula:"GELU(x) = x·Φ(x)  ≈  0.5x(1 + tanh(√(2/π)(x + 0.044715x³)))",
-   short:"Gaussian Error Linear Unit. Smooth stochastic gating — x weighted by its own probability. Dominant in BERT, GPT-2, GPT-3.",
-   detail:"<b>Hendrycks & Gimpel (2016)</b>. Interprets the neuron as stochastically gated by its own magnitude. Smooth everywhere — no dead neurons, no hard gate. Slightly more expensive than ReLU but better performance empirically. The approx. via tanh is computationally feasible. Later replaced by SwiGLU in most LLMs but still used in some models.",
-   used:"Used in: BERT, GPT-2, GPT-3, early T5, ViT. Still dominant in non-MoE models pre-2023."},
-  {year:"2017",name:"Swish / SiLU",color:"#c9d1d9",badge:"Smooth gate",badgeBg:"#21262d",
-   formula:"Swish(x) = x·σ(βx)   SiLU = Swish(β=1) = x·σ(x)",
-   short:"Self-gated. Non-monotonic — slightly negative for small negative x. Empirically strong. SiLU is SwiGLU's building block.",
-   detail:"<b>Ramachandran et al. (2017, Google Brain)</b>. Discovered via automated search. Non-monotonic: small negative outputs for slightly negative inputs, which may help gradient flow. β=1 is SiLU (Sigmoid Linear Unit). SiLU is mathematically identical to Swish with fixed β. Directly used inside SwiGLU gating.",
-   used:"Used in: EfficientNet, MobileNetV3. As SiLU: the gate component inside SwiGLU."},
-  {year:"2020",name:"GLU family (Shazeer)",color:"#ffa657",badge:"★ Now dominant",badgeBg:"#2d1f0e",
-   formula:"GLU(x,W,V,b,c)  = σ(xW+b) ⊗ (xV+c)\nReGLU:  max(0,xW+b) ⊗ (xV+c)\nGEGLU:  GELU(xW+b) ⊗ (xV+c)\nSwiGLU: Swish(xW+b) ⊗ (xV+c)",
-   short:"Two-branch FFN: a gate branch (activation fn) multiplied elementwise with a linear branch. Multiplicative control over information flow. SwiGLU/GeGLU dominate all modern LLMs.",
-   detail:"<b>Noam Shazeer (2020)</b>. Replaces single FFN branch with two parallel linear projections: one goes through a non-linearity to act as a gate, multiplied elementwise (⊗) with the other. <b>Why it works</b>: the gate is input-dependent — each token controls its own information flow, a form of learned conditional computation without routing overhead. <b>SwiGLU</b> (Swish gate) used in LLaMA, Mistral, Gemma, Phi, Qwen, DeepSeek. <b>GeGLU</b> (GELU gate) used in Gemma 2, T5 v1.1, Grok. MLP factor typically 2.67× in SwiGLU (vs 4× ReLU/GELU) to keep parameter count constant given the extra gate projection — that's why LLaMA MLPs look 'smaller' than GPT.",
-   used:"SwiGLU: LLaMA 1/2/3/4, Mistral, Phi-3/4, Qwen, DeepSeek V2/V3/R1, OLMo, Nemotron. GeGLU: Gemma 2, T5 v1.1, Grok-3."},
-  {year:"2024–25",name:"Expert FFN in MoE",color:"#f0883e",badge:"Sparse gating",badgeBg:"#2d1500",
-   formula:"output = Σᵢ G(x)ᵢ · FFNᵢ(x),  only top-k G(x)ᵢ > 0",
-   short:"Replace single FFN with N expert FFNs (each SwiGLU). Router selects top-k per token. Total params ↑, active params constant.",
-   detail:"Each expert is a standard SwiGLU FFN. A learned router produces scores over all experts; top-k are activated. <b>DeepSeek V3</b>: 256 routed + 1 shared expert, top-2 per token, 671B total / 37B active. <b>LLaMA 4</b>: MoE at 400B+. <b>GLM-5</b>: 744B / 40B active. The activation function <i>inside each expert</i> is still SwiGLU — MoE is a structural change to the FFN, not a new activation.",
-   used:"DeepSeek V3/R1, LLaMA 4, MiniMax M1/M2.5, GLM-4.5/5, Mixtral, Qwen2-MoE."},
-];
+        <div class="norm-grid" id="norm-grid"></div>
+      </div>
 
-// ── NORM DATA ──
-const NORMS = [
-  {title:"Post-LN (Original Transformer)",color:"#f0883e",
-   formula:"x → Sub-layer(x) → x + Sub-layer(x) → LayerNorm(·)",
-   body:"Norm applied <b>after</b> the residual addition. The residual path is fully unnormalized before LN. <b>Problem</b>: in very deep networks, the accumulated residuals at early layers have extremely large magnitude → gradients near zero → training instability. Required careful warm-up schedules.",
-   used:"Original Transformer (2017), BERT, GPT.",
-   warn:"⚠ Unstable beyond ~12 layers without careful initialization."},
-  {title:"Pre-LN (GPT-2 onwards)",color:"#e3b341",
-   formula:"x → x + Sub-layer(LayerNorm(x))",
-   body:"Norm applied <b>before</b> the sub-layer, inside the residual branch. The skip connection passes through unnormalized — gradients flow cleanly through the identity path. <b>Standard for all large LLMs since 2019.</b> No warm-up required; stable at 100+ layers.",
-   used:"GPT-2, GPT-3, GPT-4, LLaMA 1/2/3, Mistral, Qwen, OLMo, Phi.",
-   warn:""},
-  {title:"Pre-RMSNorm",color:"#56d364",
-   formula:"RMSNorm(x) = x / RMS(x) · γ    RMS(x) = √(1/n Σxᵢ²)",
-   body:"Pre-LN but using RMSNorm instead of LayerNorm. <b>No mean centering</b> — drops the subtraction of mean, keeping only scale normalization. ~7% faster than LayerNorm (no mean computation). No loss in performance — the learned scale γ absorbs any needed centering. <b>Now the default in almost all modern LLMs.</b>",
-   used:"LLaMA 2/3/4, Mistral, DeepSeek V2/V3/R1, Gemma, Phi-3/4, OLMo 2/3, Qwen 2, MiniMax M1.",
-   warn:""},
-  {title:"QK-Norm",color:"#d2a8ff",
-   formula:"Q̂ = Q / ‖Q‖₂    K̂ = K / ‖K‖₂  (per head, then scaled)",
-   body:"<b>Additional</b> L2-normalization of Query and Key vectors before the dot-product attention. Prevents attention logit explosion during long training runs — a common training instability when sequence lengths or model depth increase. Applied <i>on top of</i> Pre-RMSNorm. Introduced at scale by OLMo 2.",
-   used:"OLMo 2, OLMo 3. Increasingly adopted in long-context models.",
-   warn:""},
-  {title:"Sandwich Norm (Pre + Post)",color:"#79c0ff",
-   formula:"x → LayerNorm(x) → Sub-layer(·) → LayerNorm(·) → x + ·",
-   body:"Applies norm both before <i>and</i> after the sub-layer — double normalization. Provides extra stability at the cost of compute. Used in Gemma 2's alternating attention layers for logit stabilization alongside soft-capping.",
-   used:"Gemma 2 (27B) — specific attention layers.",
-   warn:""},
-  {title:"No Norm / Skip Norm",color:"#8b949e",
-   formula:"x → x + Sub-layer(x)  [no normalization]",
-   body:"Some linear-attention layers in hybrid architectures (e.g. MiniMax Lightning Attention) operate without a norm on the recurrent/linear path. The O(n) recurrence state manages its own implicit normalization through the linear attention kernel. Not applicable to standard softmax attention blocks.",
-   used:"MiniMax M1/M2.5 Lightning Attention layers.",
-   warn:"⚠ Only stable in hybrid designs where the linear layer has implicit bounded dynamics."},
-];
+      <!-- ═══ BLOCK DESIGN ═══ -->
+      <div id="view-block" class="view">
+        <div class="block-intro">
+          <div
+            style="
+              font-size: 0.62rem;
+              color: #58a6ff;
+              letter-spacing: 1px;
+              text-transform: uppercase;
+              margin-bottom: 0.65rem;
+            "
+          >
+            Canonical Transformer Block — invariant structure since Vaswani et al. 2017
+          </div>
+          <svg
+            id="block-svg"
+            style="display: block; width: 100%; overflow: visible"
+            height="80"
+          ></svg>
+          <div style="font-size: 0.62rem; color: #8b949e; margin-top: 0.55rem; line-height: 1.75">
+            Structure is <b style="color: #c9d1d9">invariant</b>: embed+pos → (norm → attn → add →
+            norm → FFN/MoE → add) × N → norm → logits.<br />
+            What evolves: <b style="color: #79c0ff">positional scheme</b> ·
+            <b style="color: #d2a8ff">attention variant</b> ·
+            <b style="color: #ffa657">FFN gating/MoE</b> ·
+            <b style="color: #e3b341">norm placement</b>.<br />
+            <span style="color: #3fb950; font-size: 0.6rem"
+              >Source: Raschka (2025) — The Big LLM Architecture Comparison ·
+              magazine.sebastianraschka.com</span
+            >
+          </div>
+        </div>
+        <div class="block-legend" id="block-legend"></div>
+        <div class="btbl-wrap">
+          <table class="btbl">
+            <thead>
+              <tr>
+                <th style="color: #c9d1d9">Model</th>
+                <th>Year</th>
+                <th style="color: #79c0ff">Pos. Encoding</th>
+                <th style="color: #d2a8ff">Attention</th>
+                <th style="color: #ffa657">Activation / FFN</th>
+                <th style="color: #e3b341">Norm</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody id="block-tbody"></tbody>
+          </table>
+        </div>
+      </div>
 
-// ── BLOCK DESIGN DATA ──
-const BLOCK_MODELS = [
-  {name:"Original Transformer",year:2017,pos:"Sinusoidal",attn:"MHA",act:"ReLU FFN 4×",norm:"Post-LN",
-   note:"The baseline. Encoder-decoder. Post-LN caused instability beyond ~12 layers."},
-  {name:"GPT / GPT-2 / GPT-3",year:"2018–20",pos:"Learned abs.",attn:"MHA",act:"GELU FFN 4×",norm:"Pre-LN",
-   note:"Decoder-only. Pre-LN swap dramatically improved stability. GELU smoother than ReLU."},
-  {name:"BLOOM (176B)",year:2022,pos:"ALiBi",attn:"MHA",act:"GELU FFN 4×",norm:"Pre-LN",
-   note:"ALiBi: linear attention bias, zero positional params, better extrapolation. 250k BPE vocab."},
-  {name:"GPT-NeoX-20B",year:2022,pos:"RoPE ★",attn:"MHA (parallel)",act:"GELU FFN 4×",norm:"Pre-LN",
-   note:"First large-scale RoPE. Parallel attention+FFN: adds both outputs simultaneously."},
-  {name:"LLaMA / LLaMA 2",year:2023,pos:"RoPE",attn:"GQA",act:"SwiGLU 2.67×",norm:"Pre-RMSNorm",
-   note:"The modern recipe crystallized: RoPE + GQA + SwiGLU + RMSNorm. 2.67× not 4× because SwiGLU has 3 matrices vs 2 — same parameter count."},
-  {name:"Mistral 7B",year:2023,pos:"RoPE",attn:"GQA + SWA",act:"SwiGLU",norm:"Pre-RMSNorm",
-   note:"Sliding Window Attention: local window of 4096 tokens. Rolling buffer KV cache."},
-  {name:"Gemma 2 (27B)",year:2024,pos:"RoPE",attn:"GQA + SWA + logit cap",act:"GeGLU 8×",norm:"Sandwich RMSNorm",
-   note:"GeGLU (GELU gate). Logit soft-capping (tanh). Pre+Post RMSNorm. Alternating global+local layers. Raschka (2025)."},
-  {name:"Phi-3 / Phi-4",year:2024,pos:"RoPE",attn:"GQA",act:"SwiGLU",norm:"Pre-RMSNorm",
-   note:"Standard LLaMA-style block. Performance from data quality not architecture."},
-  {name:"Qwen 2 (72B)",year:2024,pos:"RoPE",attn:"GQA + SWA",act:"SwiGLU",norm:"Pre-RMSNorm",
-   note:"QKV bias terms added. 152k tiktoken vocab. SWA in subset of layers."},
-  {name:"OLMo 2 / OLMo 3",year:"2024–25",pos:"RoPE",attn:"GQA + QK-norm",act:"SwiGLU",norm:"Pre-RMSNorm",
-   note:"QK-norm: L2-normalizes Q and K before dot-product — prevents logit explosion in long runs."},
-  {name:"DeepSeek V3 / R1",year:"2024–25",pos:"RoPE (YaRN)",attn:"MLA",act:"SwiGLU + MoE (256R+1S)",norm:"Pre-RMSNorm",
-   note:"MLA: low-rank KV compression beats GQA per ablation. 256 routed + 1 shared expert, top-2. 671B total / 37B active. Raschka (2025)."},
-  {name:"GLM-4.5 / GLM-5",year:"2025–26",pos:"RoPE + DSA",attn:"MHA + Sparse Attn",act:"SwiGLU + MoE",norm:"Pre-RMSNorm",
-   note:"DeepSeek Sparse Attention for long-context. 744B / 40B active. Huawei Ascend NPUs."},
-  {name:"LLaMA 4",year:2025,pos:"RoPE + NoPE interleaved",attn:"iRoPE + GQA",act:"SwiGLU + MoE",norm:"Pre-RMSNorm",
-   note:"iRoPE: alternates NoPE (no pos encoding) layers with RoPE — hypothesis: some layers don't need position. 10M ctx. Raschka (2025)."},
-  {name:"MiniMax M1 / M2.5",year:"2025–26",pos:"None (recurrence)",attn:"Lightning O(n) + softmax hybrid",act:"SwiGLU + MoE",norm:"Pre-RMSNorm (softmax) / None (linear)",
-   note:"O(n) linear recurrence replaces softmax attention. 1 softmax per 7 linear blocks. No RoPE needed. Native 1M ctx. <50% FLOPs vs R1 at 64K tokens."},
-];
+      <!-- ═══ TABLE ═══ -->
+      <div id="view-table" class="view">
+        <div class="tbl-wrap">
+          <table class="main-t">
+            <thead>
+              <tr>
+                <th style="color: #c9d1d9">Model</th>
+                <th>Year</th>
+                <th>Lab</th>
+                <th style="color: #ffa657">Activation</th>
+                <th style="color: #d2a8ff">Attention</th>
+                <th style="color: #79c0ff">Pos. Embed</th>
+                <th style="color: #e3b341">Norm</th>
+                <th>MoE</th>
+              </tr>
+            </thead>
+            <tbody id="tbl-body"></tbody>
+          </table>
+        </div>
+        <div style="margin-top: 0.6rem; font-size: 0.62rem; color: #8b949e">
+          <span style="color: #f0883e">●</span> = underrepresented in post-training literature
+        </div>
+      </div>
+    </div>
+    <!-- wrap -->
 
-// ── TABLE DATA ──
-const LAB_COLORS = {
-  "OpenAI":"#56d364","Anthropic":"#d2a8ff","Google":"#79c0ff","DeepMind":"#79c0ff",
-  "Meta":"#ffa657","AllenAI":"#e3b341","Microsoft":"#58a6ff","DeepSeek":"#f0883e",
-  "Alibaba":"#79c0ff","NVIDIA":"#76b900","EleutherAI":"#8b949e","BigScience":"#8b949e",
-  "Mistral":"#c9d1d9","Baichuan":"#c9d1d9","01.AI":"#c9d1d9","TII":"#c9d1d9",
-  "MiniMax":"#f0883e","Various":"#8b949e",
-};
-const MODELS = [
-  {name:"Original Transformer",year:2017,lab:"Google",   act:"ReLU",     attn:"MHA",         pe:"Sinusoidal",    norm:"Post-LN",    moe:"-"},
-  {name:"GPT",                 year:2018,lab:"OpenAI",   act:"GELU",     attn:"MHA",         pe:"Learned abs.",  norm:"Pre-LN",     moe:"-"},
-  {name:"GPT-2",               year:2019,lab:"OpenAI",   act:"GELU",     attn:"MHA",         pe:"Learned abs.",  norm:"Pre-LN",     moe:"-"},
-  {name:"T5 / T6 (11B)",       year:2019,lab:"Google",   act:"ReLU",     attn:"MHA",         pe:"Relative",      norm:"Pre-LN",     moe:"-", ut:1},
-  {name:"T5 v1.1 (XXL)",       year:2020,lab:"Google",   act:"GeGLU",    attn:"MHA",         pe:"Relative",      norm:"Pre-LN",     moe:"-", ut:1},
-  {name:"GPT-3 (175B)",        year:2020,lab:"OpenAI",   act:"GELU",     attn:"MHA",         pe:"Learned abs.",  norm:"Pre-LN",     moe:"-"},
-  {name:"GPT-J",               year:2021,lab:"EleutherAI",act:"GELU",   attn:"MHA (par.)",  pe:"RoPE",          norm:"Pre-LN",     moe:"-", ut:1},
-  {name:"LaMDA",               year:2021,lab:"Google",   act:"GELU",     attn:"MHA",         pe:"Relative",      norm:"Pre-LN",     moe:"-", ut:1},
-  {name:"Anthropic LM",        year:2021,lab:"Anthropic",act:"GELU",    attn:"MHA",         pe:"Learned abs.",  norm:"Pre-LN",     moe:"-"},
-  {name:"Gopher (280B)",       year:2021,lab:"DeepMind", act:"GELU",     attn:"MHA",         pe:"Relative",      norm:"Pre-LN",     moe:"-", ut:1},
-  {name:"GPT-NeoX",            year:2022,lab:"EleutherAI",act:"GELU",   attn:"MHA (par.)",  pe:"RoPE",          norm:"Pre-LN",     moe:"-", ut:1},
-  {name:"BLOOM (176B)",        year:2022,lab:"BigScience",act:"GELU",   attn:"MHA",         pe:"ALiBi",         norm:"Pre-LN",     moe:"-", ut:1},
-  {name:"OPT (175B)",          year:2022,lab:"Meta",     act:"ReLU",     attn:"MHA",         pe:"Learned abs.",  norm:"Pre-LN",     moe:"-", ut:1},
-  {name:"PaLM (540B)",         year:2022,lab:"Google",   act:"SwiGLU",   attn:"MQA",         pe:"RoPE",          norm:"Pre-LN",     moe:"-", ut:1},
-  {name:"Chinchilla",          year:2022,lab:"DeepMind", act:"GELU",     attn:"MHA",         pe:"Relative",      norm:"Pre-LN",     moe:"-", ut:1},
-  {name:"InstructGPT",         year:2022,lab:"OpenAI",   act:"GELU",     attn:"MHA",         pe:"Learned abs.",  norm:"Pre-LN",     moe:"-"},
-  {name:"LLaMA (65B)",         year:2023,lab:"Meta",     act:"SwiGLU",   attn:"GQA",         pe:"RoPE",          norm:"Pre-RMSNorm",moe:"-"},
-  {name:"LLaMA 2 (70B)",       year:2023,lab:"Meta",     act:"SwiGLU",   attn:"GQA",         pe:"RoPE",          norm:"Pre-RMSNorm",moe:"-"},
-  {name:"Mistral (7B)",        year:2023,lab:"Mistral",  act:"SwiGLU",   attn:"GQA+SWA",     pe:"RoPE",          norm:"Pre-RMSNorm",moe:"-"},
-  {name:"Baichuan 2",          year:2023,lab:"Baichuan", act:"SwiGLU",   attn:"MHA",         pe:"RoPE",          norm:"Pre-RMSNorm",moe:"-", ut:1},
-  {name:"GPT-4",               year:2023,lab:"OpenAI",   act:"Unknown",  attn:"Unknown",     pe:"Unknown",       norm:"Unknown",    moe:"?"},
-  {name:"OLMo",                year:2024,lab:"AllenAI",  act:"SwiGLU",   attn:"GQA",         pe:"RoPE",          norm:"Pre-RMSNorm",moe:"-"},
-  {name:"OLMo 2",              year:2024,lab:"AllenAI",  act:"SwiGLU",   attn:"GQA+QK-norm", pe:"RoPE",          norm:"Pre-RMSNorm",moe:"-"},
-  {name:"Gemma 2 (27B)",       year:2024,lab:"Google",   act:"GeGLU",    attn:"GQA+SWA",     pe:"RoPE",          norm:"Sandwich RMS",moe:"-", ut:1},
-  {name:"Nemotron-4 (340B)",   year:2024,lab:"NVIDIA",   act:"SwiGLU",   attn:"GQA",         pe:"RoPE",          norm:"Pre-RMSNorm",moe:"-"},
-  {name:"Qwen 2 (72B)",        year:2024,lab:"Alibaba",  act:"SwiGLU",   attn:"GQA+SWA",     pe:"RoPE",          norm:"Pre-RMSNorm",moe:"-"},
-  {name:"Falcon 2 (11B)",      year:2024,lab:"TII",      act:"GELU",     attn:"MQA",         pe:"RoPE",          norm:"Pre-LN",     moe:"-", ut:1},
-  {name:"Phi-3 / Phi-4",       year:2024,lab:"Microsoft",act:"SwiGLU",  attn:"GQA",         pe:"RoPE",          norm:"Pre-RMSNorm",moe:"-"},
-  {name:"LLaMA 3 (70B)",       year:2024,lab:"Meta",     act:"SwiGLU",   attn:"GQA",         pe:"RoPE",          norm:"Pre-RMSNorm",moe:"-"},
-  {name:"DeepSeek (67B)",      year:2024,lab:"DeepSeek", act:"SwiGLU",   attn:"MHA",         pe:"RoPE",          norm:"Pre-RMSNorm",moe:"-"},
-  {name:"Yi (34B)",            year:2024,lab:"01.AI",    act:"SwiGLU",   attn:"GQA",         pe:"RoPE",          norm:"Pre-RMSNorm",moe:"-", ut:1},
-  {name:"DeepSeek V3/R1",      year:2024,lab:"DeepSeek", act:"SwiGLU",   attn:"MLA",         pe:"RoPE (YaRN)",   norm:"Pre-RMSNorm",moe:"256R+1S"},
-  {name:"Gemma 3",             year:2025,lab:"Google",   act:"GeGLU",    attn:"GQA+SWA",     pe:"RoPE",          norm:"Pre-RMSNorm",moe:"-", ut:1},
-  {name:"OLMo 3 (7B/32B)",     year:2025,lab:"AllenAI",  act:"SwiGLU",   attn:"GQA+QK-norm", pe:"RoPE",          norm:"Pre-RMSNorm",moe:"-"},
-  {name:"LLaMA 4",             year:2025,lab:"Meta",     act:"SwiGLU",   attn:"GQA+iRoPE",   pe:"RoPE+NoPE",     norm:"Pre-RMSNorm",moe:"✓"},
-  {name:"GLM-4.5 / GLM-5",     year:2025,lab:"Various",  act:"SwiGLU",   attn:"MHA+DSA",     pe:"RoPE",          norm:"Pre-RMSNorm",moe:"✓"},
-  {name:"MiniMax M1/M2.5",     year:2025,lab:"MiniMax",  act:"SwiGLU",   attn:"Lightning O(n)+ softmax",pe:"None",norm:"Pre-RMS / None",moe:"✓"},
-];
+    <div
+      style="
+        max-width: 960px;
+        margin: 2rem auto 0;
+        padding-top: 1rem;
+        border-top: 1px solid #21262d;
+        font-size: 0.58rem;
+        color: #8b949e;
+        line-height: 1.8;
+      "
+    >
+      <span
+        style="color: #30363d; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.5rem"
+        >Sources</span
+      ><br />
+      <a
+        href="https://magazine.sebastianraschka.com/p/the-big-llm-architecture-comparison"
+        style="color: #58a6ff; text-decoration: none"
+        target="_blank"
+        rel="noopener"
+        >Sebastian Raschka</a
+      >
+      (2025) &mdash; The Big LLM Architecture Comparison<br />
+      <a
+        href="https://stanford-cs336.github.io/spring2025/"
+        style="color: #58a6ff; text-decoration: none"
+        target="_blank"
+        rel="noopener"
+        >Stanford CS336</a
+      >
+      &mdash; Language Modeling from Scratch (Spring 2025)
+    </div>
 
-// ── RENDER: EMBEDDINGS ──
-let activeEra = "dense";
-function drawEmbed() {
-  const era = ERAS.find(x=>x.id===activeEra);
-  document.getElementById("era-tabs").innerHTML = ERAS.map(e =>
-    `<div class="era-tab" style="color:${e.color};border-color:${e.id===activeEra?e.color:'transparent'};background:${e.id===activeEra?e.color+'22':'#161b22'}" onclick="selEra('${e.id}')">${e.label}</div>`
-  ).join("");
-  document.getElementById("embed-grid").innerHTML = EMBEDS.filter(e=>e.era===activeEra).map((e,i)=>
-    `<div class="embed-card" id="ec${i}" onclick="togCard('ec${i}')" style="border-left:3px solid ${era.color}">
+    <script>
+      // ── COLOUR HELPERS ──
+      const posClr = (p) =>
+        p.includes('None') || p.includes('Lightning')
+          ? { bg: '#2d1500', c: '#f0883e' }
+          : p.includes('RoPE') || p.includes('iRoPE')
+            ? { bg: '#1b2e1f', c: '#56d364' }
+            : p.includes('ALiBi')
+              ? { bg: '#0d2233', c: '#79c0ff' }
+              : { bg: '#21262d', c: '#8b949e' };
+      const attnClr = (a) =>
+        a.includes('Lightning')
+          ? { bg: '#2d1500', c: '#f0883e' }
+          : a.includes('MLA')
+            ? { bg: '#2b1d3d', c: '#d2a8ff' }
+            : a.includes('GQA')
+              ? { bg: '#1b2e1f', c: '#56d364' }
+              : a.includes('MQA')
+                ? { bg: '#2d2200', c: '#e3b341' }
+                : { bg: '#21262d', c: '#8b949e' };
+      const actClr = (a) =>
+        a.includes('SwiGLU') || a.includes('GeGLU') || a.includes('GLU') || a.includes('ReGLU')
+          ? { bg: '#2d1f0e', c: '#ffa657' }
+          : a.includes('GELU')
+            ? { bg: '#2d2200', c: '#e3b341' }
+            : a.includes('SiLU') || a.includes('Swish')
+              ? { bg: '#1f2200', c: '#c9d1d9' }
+              : a.includes('ReLU')
+                ? { bg: '#21262d', c: '#8b949e' }
+                : { bg: '#21262d', c: '#8b949e' };
+      const normClr = (n) =>
+        n.includes('RMSNorm')
+          ? { bg: '#1b2e1f', c: '#56d364' }
+          : n.includes('Pre-LN')
+            ? { bg: '#2d2200', c: '#e3b341' }
+            : n.includes('Post-LN')
+              ? { bg: '#2d1500', c: '#f0883e' }
+              : { bg: '#21262d', c: '#8b949e' };
+
+      // ── EMBEDDING DATA ──
+      const ERAS = [
+        { id: 'sparse', label: 'Sparse / Symbolic', color: '#8b949e' },
+        { id: 'dense', label: 'Static Dense — Gensim Era', color: '#e3b341' },
+        { id: 'ctx', label: 'Contextual', color: '#79c0ff' },
+        { id: 'sent', label: 'Sentence & Retrieval', color: '#d2a8ff' },
+        { id: 'modern', label: 'Modern Dense (2022–2025)', color: '#56d364' },
+      ];
+      const EMBEDS = [
+        {
+          era: 'sparse',
+          year: '~1990s',
+          name: 'Bag of Words (BoW)',
+          key: 'Count vectors. Each unique word = one sparse dimension. Vocabulary-sized zero vectors.',
+          detail:
+            "A 50k-word vocab → 50k-d vector, almost entirely zeros. Cosine similarity works but 'car' and 'automobile' are orthogonal — zero semantic overlap by construction.",
+          limit: '⚠ Ignores word order entirely. Vocabulary explosion. Curse of dimensionality.',
+          use: '→ Still used: spam filters, keyword search, some baseline classifiers.',
+        },
+        {
+          era: 'sparse',
+          year: '~1990s',
+          name: 'N-Grams / Bigrams',
+          key: 'Captures local word sequences. P(wₙ|wₙ₋₂,wₙ₋₁). Basis of early language models.',
+          detail:
+            "Bigrams capture 'New York' as a unit. Kneser-Ney smoothing handles unseen n-grams. Markov assumption: only k−1 prior tokens matter. Exponential sparsity with n.",
+          limit: '⚠ Context hard-capped at n−1 tokens. No generalization across similar words.',
+          use: '→ Spell-check, early ASR, statistical machine translation (SMT).',
+        },
+        {
+          era: 'sparse',
+          year: '1970s–2000s',
+          name: 'TF-IDF',
+          key: 'Term Frequency × Inverse Document Frequency. Rare terms get higher weight. Retrieval-focused.',
+          detail:
+            'TF(t,d) × log(N/df(t)). Word in 3 of 1M docs gets high IDF. BM25 is the probabilistic extension still used in hybrid retrieval in 2025.',
+          limit: "⚠ Still fully sparse. No semantic similarity — 'cat' ≠ 'kitten'.",
+          use: '→ Classic IR. BM25 still used in hybrid retrieval pipelines.',
+        },
+        {
+          era: 'sparse',
+          year: '1990s–2000s',
+          name: 'LSA / LSI',
+          key: "SVD on term-document matrix. Discovers k latent semantic dimensions. First 'dense' representation.",
+          detail:
+            'Truncated SVD on TF-IDF matrix → dense k-d vectors. Synonyms cluster in latent space. pLSA and LDA followed.',
+          limit: '⚠ Expensive SVD recomputation. No OOV handling. Weak on syntax.',
+          use: '→ Topic modeling, document clustering. LDA still used for topic discovery.',
+        },
+        {
+          era: 'dense',
+          year: '2003',
+          name: 'Neural LM (Bengio et al.)',
+          key: 'First neural word embeddings as byproduct of LM training. 30–100d. Proved distributed representations work.',
+          detail:
+            'Feedforward neural LM: word → embedding lookup → hidden layers → softmax. Too slow for large-scale use but the theoretical proof-of-concept.',
+          limit: '⚠ Computationally infeasible for large vocab. No practical tooling.',
+          use: "→ Theoretical foundation. No direct adoption until Word2Vec's efficiency gains.",
+        },
+        {
+          era: 'dense',
+          year: '2013',
+          name: 'Word2Vec (Mikolov et al.)',
+          key: "CBOW and Skip-gram with negative sampling. 'king − man + woman ≈ queen'. First practical dense embeddings.",
+          detail:
+            'Two architectures: CBOW (predict word from context) and Skip-gram (predict context from word). Negative sampling makes training tractable. 100–300d vectors in hours.',
+          limit: "⚠ STATIC — 'bank' (financial) = 'bank' (river), same vector. No OOV words.",
+          use: '→ Standard for all NLP tasks 2013–2018. Gensim library made it accessible.',
+        },
+        {
+          era: 'dense',
+          year: '2014',
+          name: 'GloVe (Pennington et al.)',
+          key: 'Global co-occurrence matrix factorization. Combines count-based (LSA) + predictive (Word2Vec) strengths.',
+          detail:
+            'Trains on non-zero entries of word-word co-occurrence weighted by distance. Optimizes: wᵢ·wⱼ + bᵢ + bⱼ = log Xᵢⱼ. Better analogy benchmarks than Word2Vec.',
+          limit: '⚠ Still static. Large memory for full co-occurrence matrix.',
+          use: '→ Stanford NLP. Pre-trained Wikipedia+Crawl vectors widely downloaded.',
+        },
+        {
+          era: 'dense',
+          year: '2014',
+          name: 'Doc2Vec / Paragraph Vectors',
+          key: 'Extends Word2Vec to variable-length documents. PV-DM and PV-DBOW. First dense document-level embeddings.',
+          detail:
+            "Adds a 'paragraph vector' trained alongside word vectors. PV-DM: predict word from doc+context. Fixed-size rep of any document length via Gensim doc2vec.",
+          limit:
+            '⚠ Inference on new docs requires re-optimization — not truly inductive. Unstable training.',
+          use: "→ Document similarity, recommendation. Gensim's doc2vec module.",
+        },
+        {
+          era: 'dense',
+          year: '2016',
+          name: 'FastText (Bojanowski et al.)',
+          key: 'Subword n-grams — OOV words decomposed into character n-gram embeddings. Handles morphologically rich languages.',
+          detail:
+            "Each word = sum of character n-gram embeddings. 'eating' = 'eat'+'atin'+'ting'+... Handles misspellings and morphological variants.",
+          limit:
+            '⚠ Still static context. Character n-grams not semantically meaningful for ideographic scripts.',
+          use: '→ Facebook production NLP. Multilingual baseline. Competitive for low-resource languages.',
+        },
+        {
+          era: 'ctx',
+          year: '2018',
+          name: 'ELMo (Peters et al.)',
+          key: 'Contextual embeddings from deep biLSTM. Same word → different vectors per context. First contextual embeddings at scale.',
+          detail:
+            "Two stacked LSTMs (forward + backward). 'bank' in 'river bank' ≠ 'bank' in 'World Bank'. Bridge from static to transformer era.",
+          limit: '⚠ LSTM-based: slow, hard to parallelize. Not truly joint bidirectional.',
+          use: '→ NER, coreference, QA circa 2018.',
+        },
+        {
+          era: 'ctx',
+          year: '2018',
+          name: 'BERT (Devlin et al.)',
+          key: 'Bidirectional transformer. MLM pretraining. [bank] sees river AND financial context simultaneously.',
+          detail:
+            '12/24 transformer layers. MLM: mask 15% of tokens, predict from full bidirectional context. SOTA on 11 NLP benchmarks at release.',
+          limit: '⚠ [CLS] not well-calibrated for semantic similarity out-of-the-box.',
+          use: '→ All NLP fine-tuning 2018–2022. Foundation of RoBERTa / DistilBERT / ALBERT.',
+        },
+        {
+          era: 'ctx',
+          year: '2019',
+          name: 'RoBERTa / ALBERT / DistilBERT',
+          key: 'BERT ablations and improvements. RoBERTa: no NSP, dynamic masking. DistilBERT: 40% smaller, 60% faster.',
+          detail:
+            'RoBERTa showed NSP was harmful. ALBERT: factorized embeddings + cross-layer parameter sharing. DistilBERT: knowledge distillation.',
+          limit:
+            '⚠ CLS embedding still poor for semantic similarity. Per-task fine-tuning required.',
+          use: '→ Production NLP, internal search, classification.',
+        },
+        {
+          era: 'sent',
+          year: '2019',
+          name: 'Sentence-BERT (Reimers & Gurevych)',
+          key: 'Siamese BERT + mean pooling + contrastive training. Cosine similarity finally works for semantic search.',
+          detail:
+            'Pairs of sentences through shared BERT weights. NLI/triplet loss. Mean-pooling beats [CLS]. Reduces semantic search from O(n²) to O(1).',
+          limit: '⚠ English-focused. Fixed 512-token limit.',
+          use: '→ Foundation of modern semantic search. sentence-transformers library.',
+        },
+        {
+          era: 'sent',
+          year: '2020–21',
+          name: 'DPR / SimCSE',
+          key: 'Dense Passage Retrieval for open-domain QA. SimCSE: dropout as positive augmentation, solves anisotropy.',
+          detail:
+            'DPR: dual-encoder BERT for question + passage. SimCSE: same sentence through dropout twice = positive pair. Solves the collapsed cone problem in BERT representations.',
+          limit: '⚠ DPR needs domain fine-tuning. SimCSE unsupervised weaker.',
+          use: '→ Open-domain QA, core of early RAG systems.',
+        },
+        {
+          era: 'sent',
+          year: '2021',
+          name: 'OpenAI text-embedding-ada-001',
+          key: 'First major commercial embedding API. GPT-based encoder. Established embedding-as-a-service.',
+          detail:
+            'Based on GPT-2/3 fine-tuned for retrieval. 1024d. Simple API. Brought dense retrieval to mainstream developers without ML expertise.',
+          limit: '⚠ Autoregressive decoder not ideal for bidirectional encoding. Proprietary.',
+          use: '→ Early enterprise semantic search. Predecessor to ada-002.',
+        },
+        {
+          era: 'modern',
+          year: '2022',
+          name: 'OpenAI text-embedding-ada-002',
+          key: '1536d. One model replacing 5. Massive adoption. De-facto RAG standard 2022–2023.',
+          detail:
+            '8191 token context. cosine similarity reliable. Contrastive fine-tuning on diverse paired data. Infrastructure for most RAG pipelines 2022–2023.',
+          limit: '⚠ Black box. Fixed 1536d. text-embedding-3 (2024) superseded it with MRL.',
+          use: '→ Majority of all RAG systems built 2022–2024 started here.',
+        },
+        {
+          era: 'modern',
+          year: '2022–23',
+          name: 'E5 / BGE / GTE families',
+          key: 'Open instruction-tuned embeddings. BAAI General Embeddings. Competitive with OpenAI at zero cost.',
+          detail:
+            'E5: contrastive pre-training + instruction prefix. BGE: strong open retrieval, Chinese+English. GTE: in-batch + hard negatives. MTEB leaderboard competition explodes.',
+          limit: '⚠ Multiple incompatible families. Separate embedding step still needed.',
+          use: '→ Open-source RAG, enterprise search, bi-encoder retrieval.',
+        },
+        {
+          era: 'modern',
+          year: '2022',
+          name: 'Matryoshka Representation Learning (MRL)',
+          key: 'Embeddings at multiple granularities simultaneously. Truncate 64d→1536d with graceful degradation.',
+          detail:
+            'Training loss = sum over nested dimension subsets. First 128 dims of a 1536d vector are a strong 128d embedding. 10× cheaper storage at ~5% quality loss.',
+          limit: '⚠ Requires retraining from scratch with MRL objective.',
+          use: '→ OpenAI text-embedding-3, Cohere v3. Tiered retrieval pipelines.',
+        },
+        {
+          era: 'modern',
+          year: '2023–24',
+          name: 'nomic-embed / Voyage / Cohere v3',
+          key: 'Long-context (8k–32k tokens). Domain-specialized. nomic: fully open + auditable.',
+          detail:
+            'nomic-embed-text: fully reproducible (open training data + code). Voyage: domain-specialized (legal, medical, code). Cohere Embed v3: multimodal + multilingual.',
+          limit: '⚠ Context length vs. quality tradeoff. Larger vectors increase storage cost.',
+          use: '→ Legal/medical RAG, contract analysis, codebase search.',
+        },
+        {
+          era: 'modern',
+          year: '2024–25',
+          name: 'LLM-as-Embedder (NV-Embed / LLM2Vec)',
+          key: 'Full decoder LLMs (Mistral, Llama) as embedding models. MTEB top tier. Closes gen/retrieval gap.',
+          detail:
+            'NV-Embed: decoder LLM with bidirectional attention + two-stage contrastive instruction-tuning. LLM2Vec: converts any decoder LLM to bidirectional via MNTP. Unified gen+retrieval architecture.',
+          limit: '⚠ 7B+ parameter inference cost. Not suitable for low-latency use.',
+          use: '→ MTEB leaderboard top entries. Unified model for gen + retrieval.',
+        },
+      ];
+
+      // ── ACTIVATION DATA ──
+      const ACTS = [
+        {
+          year: '1958–1980s',
+          name: 'Sigmoid / Tanh',
+          color: '#8b949e',
+          badge: 'Pre-deep',
+          badgeBg: '#21262d',
+          formula: 'σ(x) = 1/(1+e⁻ˣ)   tanh(x) = (eˣ−e⁻ˣ)/(eˣ+e⁻ˣ)',
+          short: 'Squashes outputs to [0,1] or [−1,1]. Standard in early MLPs and RNNs.',
+          detail:
+            '<b>Sigmoid</b>: saturates at 0 and 1 → near-zero gradients for large |x| (vanishing gradient). Output always positive → weight updates all same sign (slow zig-zag convergence). <b>Tanh</b>: zero-centered, better gradient flow, but still saturates. Both largely abandoned in deep networks for hidden layers once ReLU was understood.',
+          used: 'Used in: early MLPs, RNNs, LSTMs (gates), output layers for probabilities.',
+        },
+        {
+          year: '2010',
+          name: 'ReLU',
+          color: '#56d364',
+          badge: 'Deep learning standard',
+          badgeBg: '#1b2e1f',
+          formula: 'ReLU(x) = max(0, x)',
+          short:
+            'Non-saturating for x>0. Eliminates vanishing gradient problem. Made deep networks trainable.',
+          detail:
+            '<b>Nair & Hinton (2010)</b>. Piecewise linear — gradient is exactly 1 for positive inputs, 0 for negative. Computationally trivial. Made 10+ layer networks feasible for the first time. Dead neuron problem: negative inputs give exactly zero gradient forever. Leaky ReLU (α·x for x<0) and PReLU (learned α) address this.',
+          used: 'Used in: ResNets, early GPT, most CNNs. Still default in non-LLM contexts.',
+        },
+        {
+          year: '2015–2016',
+          name: 'ELU / SELU',
+          color: '#e3b341',
+          badge: 'Smooth ReLU',
+          badgeBg: '#2d2200',
+          formula: 'ELU(x) = x if x>0 else α(eˣ−1)',
+          short:
+            'Smooth at zero, negative saturation preserves mean activations near zero. SELU: self-normalizing.',
+          detail:
+            '<b>ELU (Clevert et al. 2015)</b>: smooth derivative at x=0, handles dead neuron partially. <b>SELU (Klambauer et al. 2017)</b>: scaled ELU with specific α and λ — provably self-normalizing under certain weight initialization (Lecun normal init). Variance and mean converge without BatchNorm. Short-lived dominance — GELU improved on both.',
+          used: 'Used in: some feedforward nets, rarely in LLMs.',
+        },
+        {
+          year: '2016',
+          name: 'GELU',
+          color: '#ffa657',
+          badge: 'Transformer era',
+          badgeBg: '#2d1f0e',
+          formula: 'GELU(x) = x·Φ(x)  ≈  0.5x(1 + tanh(√(2/π)(x + 0.044715x³)))',
+          short:
+            'Gaussian Error Linear Unit. Smooth stochastic gating — x weighted by its own probability. Dominant in BERT, GPT-2, GPT-3.',
+          detail:
+            '<b>Hendrycks & Gimpel (2016)</b>. Interprets the neuron as stochastically gated by its own magnitude. Smooth everywhere — no dead neurons, no hard gate. Slightly more expensive than ReLU but better performance empirically. The approx. via tanh is computationally feasible. Later replaced by SwiGLU in most LLMs but still used in some models.',
+          used: 'Used in: BERT, GPT-2, GPT-3, early T5, ViT. Still dominant in non-MoE models pre-2023.',
+        },
+        {
+          year: '2017',
+          name: 'Swish / SiLU',
+          color: '#c9d1d9',
+          badge: 'Smooth gate',
+          badgeBg: '#21262d',
+          formula: 'Swish(x) = x·σ(βx)   SiLU = Swish(β=1) = x·σ(x)',
+          short:
+            "Self-gated. Non-monotonic — slightly negative for small negative x. Empirically strong. SiLU is SwiGLU's building block.",
+          detail:
+            '<b>Ramachandran et al. (2017, Google Brain)</b>. Discovered via automated search. Non-monotonic: small negative outputs for slightly negative inputs, which may help gradient flow. β=1 is SiLU (Sigmoid Linear Unit). SiLU is mathematically identical to Swish with fixed β. Directly used inside SwiGLU gating.',
+          used: 'Used in: EfficientNet, MobileNetV3. As SiLU: the gate component inside SwiGLU.',
+        },
+        {
+          year: '2020',
+          name: 'GLU family (Shazeer)',
+          color: '#ffa657',
+          badge: '★ Now dominant',
+          badgeBg: '#2d1f0e',
+          formula:
+            'GLU(x,W,V,b,c)  = σ(xW+b) ⊗ (xV+c)\nReGLU:  max(0,xW+b) ⊗ (xV+c)\nGEGLU:  GELU(xW+b) ⊗ (xV+c)\nSwiGLU: Swish(xW+b) ⊗ (xV+c)',
+          short:
+            'Two-branch FFN: a gate branch (activation fn) multiplied elementwise with a linear branch. Multiplicative control over information flow. SwiGLU/GeGLU dominate all modern LLMs.',
+          detail:
+            "<b>Noam Shazeer (2020)</b>. Replaces single FFN branch with two parallel linear projections: one goes through a non-linearity to act as a gate, multiplied elementwise (⊗) with the other. <b>Why it works</b>: the gate is input-dependent — each token controls its own information flow, a form of learned conditional computation without routing overhead. <b>SwiGLU</b> (Swish gate) used in LLaMA, Mistral, Gemma, Phi, Qwen, DeepSeek. <b>GeGLU</b> (GELU gate) used in Gemma 2, T5 v1.1, Grok. MLP factor typically 2.67× in SwiGLU (vs 4× ReLU/GELU) to keep parameter count constant given the extra gate projection — that's why LLaMA MLPs look 'smaller' than GPT.",
+          used: 'SwiGLU: LLaMA 1/2/3/4, Mistral, Phi-3/4, Qwen, DeepSeek V2/V3/R1, OLMo, Nemotron. GeGLU: Gemma 2, T5 v1.1, Grok-3.',
+        },
+        {
+          year: '2024–25',
+          name: 'Expert FFN in MoE',
+          color: '#f0883e',
+          badge: 'Sparse gating',
+          badgeBg: '#2d1500',
+          formula: 'output = Σᵢ G(x)ᵢ · FFNᵢ(x),  only top-k G(x)ᵢ > 0',
+          short:
+            'Replace single FFN with N expert FFNs (each SwiGLU). Router selects top-k per token. Total params ↑, active params constant.',
+          detail:
+            'Each expert is a standard SwiGLU FFN. A learned router produces scores over all experts; top-k are activated. <b>DeepSeek V3</b>: 256 routed + 1 shared expert, top-2 per token, 671B total / 37B active. <b>LLaMA 4</b>: MoE at 400B+. <b>GLM-5</b>: 744B / 40B active. The activation function <i>inside each expert</i> is still SwiGLU — MoE is a structural change to the FFN, not a new activation.',
+          used: 'DeepSeek V3/R1, LLaMA 4, MiniMax M1/M2.5, GLM-4.5/5, Mixtral, Qwen2-MoE.',
+        },
+      ];
+
+      // ── NORM DATA ──
+      const NORMS = [
+        {
+          title: 'Post-LN (Original Transformer)',
+          color: '#f0883e',
+          formula: 'x → Sub-layer(x) → x + Sub-layer(x) → LayerNorm(·)',
+          body: 'Norm applied <b>after</b> the residual addition. The residual path is fully unnormalized before LN. <b>Problem</b>: in very deep networks, the accumulated residuals at early layers have extremely large magnitude → gradients near zero → training instability. Required careful warm-up schedules.',
+          used: 'Original Transformer (2017), BERT, GPT.',
+          warn: '⚠ Unstable beyond ~12 layers without careful initialization.',
+        },
+        {
+          title: 'Pre-LN (GPT-2 onwards)',
+          color: '#e3b341',
+          formula: 'x → x + Sub-layer(LayerNorm(x))',
+          body: 'Norm applied <b>before</b> the sub-layer, inside the residual branch. The skip connection passes through unnormalized — gradients flow cleanly through the identity path. <b>Standard for all large LLMs since 2019.</b> No warm-up required; stable at 100+ layers.',
+          used: 'GPT-2, GPT-3, GPT-4, LLaMA 1/2/3, Mistral, Qwen, OLMo, Phi.',
+          warn: '',
+        },
+        {
+          title: 'Pre-RMSNorm',
+          color: '#56d364',
+          formula: 'RMSNorm(x) = x / RMS(x) · γ    RMS(x) = √(1/n Σxᵢ²)',
+          body: 'Pre-LN but using RMSNorm instead of LayerNorm. <b>No mean centering</b> — drops the subtraction of mean, keeping only scale normalization. ~7% faster than LayerNorm (no mean computation). No loss in performance — the learned scale γ absorbs any needed centering. <b>Now the default in almost all modern LLMs.</b>',
+          used: 'LLaMA 2/3/4, Mistral, DeepSeek V2/V3/R1, Gemma, Phi-3/4, OLMo 2/3, Qwen 2, MiniMax M1.',
+          warn: '',
+        },
+        {
+          title: 'QK-Norm',
+          color: '#d2a8ff',
+          formula: 'Q̂ = Q / ‖Q‖₂    K̂ = K / ‖K‖₂  (per head, then scaled)',
+          body: '<b>Additional</b> L2-normalization of Query and Key vectors before the dot-product attention. Prevents attention logit explosion during long training runs — a common training instability when sequence lengths or model depth increase. Applied <i>on top of</i> Pre-RMSNorm. Introduced at scale by OLMo 2.',
+          used: 'OLMo 2, OLMo 3. Increasingly adopted in long-context models.',
+          warn: '',
+        },
+        {
+          title: 'Sandwich Norm (Pre + Post)',
+          color: '#79c0ff',
+          formula: 'x → LayerNorm(x) → Sub-layer(·) → LayerNorm(·) → x + ·',
+          body: "Applies norm both before <i>and</i> after the sub-layer — double normalization. Provides extra stability at the cost of compute. Used in Gemma 2's alternating attention layers for logit stabilization alongside soft-capping.",
+          used: 'Gemma 2 (27B) — specific attention layers.',
+          warn: '',
+        },
+        {
+          title: 'No Norm / Skip Norm',
+          color: '#8b949e',
+          formula: 'x → x + Sub-layer(x)  [no normalization]',
+          body: 'Some linear-attention layers in hybrid architectures (e.g. MiniMax Lightning Attention) operate without a norm on the recurrent/linear path. The O(n) recurrence state manages its own implicit normalization through the linear attention kernel. Not applicable to standard softmax attention blocks.',
+          used: 'MiniMax M1/M2.5 Lightning Attention layers.',
+          warn: '⚠ Only stable in hybrid designs where the linear layer has implicit bounded dynamics.',
+        },
+      ];
+
+      // ── BLOCK DESIGN DATA ──
+      const BLOCK_MODELS = [
+        {
+          name: 'Original Transformer',
+          year: 2017,
+          pos: 'Sinusoidal',
+          attn: 'MHA',
+          act: 'ReLU FFN 4×',
+          norm: 'Post-LN',
+          note: 'The baseline. Encoder-decoder. Post-LN caused instability beyond ~12 layers.',
+        },
+        {
+          name: 'GPT / GPT-2 / GPT-3',
+          year: '2018–20',
+          pos: 'Learned abs.',
+          attn: 'MHA',
+          act: 'GELU FFN 4×',
+          norm: 'Pre-LN',
+          note: 'Decoder-only. Pre-LN swap dramatically improved stability. GELU smoother than ReLU.',
+        },
+        {
+          name: 'BLOOM (176B)',
+          year: 2022,
+          pos: 'ALiBi',
+          attn: 'MHA',
+          act: 'GELU FFN 4×',
+          norm: 'Pre-LN',
+          note: 'ALiBi: linear attention bias, zero positional params, better extrapolation. 250k BPE vocab.',
+        },
+        {
+          name: 'GPT-NeoX-20B',
+          year: 2022,
+          pos: 'RoPE ★',
+          attn: 'MHA (parallel)',
+          act: 'GELU FFN 4×',
+          norm: 'Pre-LN',
+          note: 'First large-scale RoPE. Parallel attention+FFN: adds both outputs simultaneously.',
+        },
+        {
+          name: 'LLaMA / LLaMA 2',
+          year: 2023,
+          pos: 'RoPE',
+          attn: 'GQA',
+          act: 'SwiGLU 2.67×',
+          norm: 'Pre-RMSNorm',
+          note: 'The modern recipe crystallized: RoPE + GQA + SwiGLU + RMSNorm. 2.67× not 4× because SwiGLU has 3 matrices vs 2 — same parameter count.',
+        },
+        {
+          name: 'Mistral 7B',
+          year: 2023,
+          pos: 'RoPE',
+          attn: 'GQA + SWA',
+          act: 'SwiGLU',
+          norm: 'Pre-RMSNorm',
+          note: 'Sliding Window Attention: local window of 4096 tokens. Rolling buffer KV cache.',
+        },
+        {
+          name: 'Gemma 2 (27B)',
+          year: 2024,
+          pos: 'RoPE',
+          attn: 'GQA + SWA + logit cap',
+          act: 'GeGLU 8×',
+          norm: 'Sandwich RMSNorm',
+          note: 'GeGLU (GELU gate). Logit soft-capping (tanh). Pre+Post RMSNorm. Alternating global+local layers. Raschka (2025).',
+        },
+        {
+          name: 'Phi-3 / Phi-4',
+          year: 2024,
+          pos: 'RoPE',
+          attn: 'GQA',
+          act: 'SwiGLU',
+          norm: 'Pre-RMSNorm',
+          note: 'Standard LLaMA-style block. Performance from data quality not architecture.',
+        },
+        {
+          name: 'Qwen 2 (72B)',
+          year: 2024,
+          pos: 'RoPE',
+          attn: 'GQA + SWA',
+          act: 'SwiGLU',
+          norm: 'Pre-RMSNorm',
+          note: 'QKV bias terms added. 152k tiktoken vocab. SWA in subset of layers.',
+        },
+        {
+          name: 'OLMo 2 / OLMo 3',
+          year: '2024–25',
+          pos: 'RoPE',
+          attn: 'GQA + QK-norm',
+          act: 'SwiGLU',
+          norm: 'Pre-RMSNorm',
+          note: 'QK-norm: L2-normalizes Q and K before dot-product — prevents logit explosion in long runs.',
+        },
+        {
+          name: 'DeepSeek V3 / R1',
+          year: '2024–25',
+          pos: 'RoPE (YaRN)',
+          attn: 'MLA',
+          act: 'SwiGLU + MoE (256R+1S)',
+          norm: 'Pre-RMSNorm',
+          note: 'MLA: low-rank KV compression beats GQA per ablation. 256 routed + 1 shared expert, top-2. 671B total / 37B active. Raschka (2025).',
+        },
+        {
+          name: 'GLM-4.5 / GLM-5',
+          year: '2025–26',
+          pos: 'RoPE + DSA',
+          attn: 'MHA + Sparse Attn',
+          act: 'SwiGLU + MoE',
+          norm: 'Pre-RMSNorm',
+          note: 'DeepSeek Sparse Attention for long-context. 744B / 40B active. Huawei Ascend NPUs.',
+        },
+        {
+          name: 'LLaMA 4',
+          year: 2025,
+          pos: 'RoPE + NoPE interleaved',
+          attn: 'iRoPE + GQA',
+          act: 'SwiGLU + MoE',
+          norm: 'Pre-RMSNorm',
+          note: "iRoPE: alternates NoPE (no pos encoding) layers with RoPE — hypothesis: some layers don't need position. 10M ctx. Raschka (2025).",
+        },
+        {
+          name: 'MiniMax M1 / M2.5',
+          year: '2025–26',
+          pos: 'None (recurrence)',
+          attn: 'Lightning O(n) + softmax hybrid',
+          act: 'SwiGLU + MoE',
+          norm: 'Pre-RMSNorm (softmax) / None (linear)',
+          note: 'O(n) linear recurrence replaces softmax attention. 1 softmax per 7 linear blocks. No RoPE needed. Native 1M ctx. <50% FLOPs vs R1 at 64K tokens.',
+        },
+      ];
+
+      // ── TABLE DATA ──
+      const LAB_COLORS = {
+        OpenAI: '#56d364',
+        Anthropic: '#d2a8ff',
+        Google: '#79c0ff',
+        DeepMind: '#79c0ff',
+        Meta: '#ffa657',
+        AllenAI: '#e3b341',
+        Microsoft: '#58a6ff',
+        DeepSeek: '#f0883e',
+        Alibaba: '#79c0ff',
+        NVIDIA: '#76b900',
+        EleutherAI: '#8b949e',
+        BigScience: '#8b949e',
+        Mistral: '#c9d1d9',
+        Baichuan: '#c9d1d9',
+        '01.AI': '#c9d1d9',
+        TII: '#c9d1d9',
+        MiniMax: '#f0883e',
+        Various: '#8b949e',
+      };
+      const MODELS = [
+        {
+          name: 'Original Transformer',
+          year: 2017,
+          lab: 'Google',
+          act: 'ReLU',
+          attn: 'MHA',
+          pe: 'Sinusoidal',
+          norm: 'Post-LN',
+          moe: '-',
+        },
+        {
+          name: 'GPT',
+          year: 2018,
+          lab: 'OpenAI',
+          act: 'GELU',
+          attn: 'MHA',
+          pe: 'Learned abs.',
+          norm: 'Pre-LN',
+          moe: '-',
+        },
+        {
+          name: 'GPT-2',
+          year: 2019,
+          lab: 'OpenAI',
+          act: 'GELU',
+          attn: 'MHA',
+          pe: 'Learned abs.',
+          norm: 'Pre-LN',
+          moe: '-',
+        },
+        {
+          name: 'T5 / T6 (11B)',
+          year: 2019,
+          lab: 'Google',
+          act: 'ReLU',
+          attn: 'MHA',
+          pe: 'Relative',
+          norm: 'Pre-LN',
+          moe: '-',
+          ut: 1,
+        },
+        {
+          name: 'T5 v1.1 (XXL)',
+          year: 2020,
+          lab: 'Google',
+          act: 'GeGLU',
+          attn: 'MHA',
+          pe: 'Relative',
+          norm: 'Pre-LN',
+          moe: '-',
+          ut: 1,
+        },
+        {
+          name: 'GPT-3 (175B)',
+          year: 2020,
+          lab: 'OpenAI',
+          act: 'GELU',
+          attn: 'MHA',
+          pe: 'Learned abs.',
+          norm: 'Pre-LN',
+          moe: '-',
+        },
+        {
+          name: 'GPT-J',
+          year: 2021,
+          lab: 'EleutherAI',
+          act: 'GELU',
+          attn: 'MHA (par.)',
+          pe: 'RoPE',
+          norm: 'Pre-LN',
+          moe: '-',
+          ut: 1,
+        },
+        {
+          name: 'LaMDA',
+          year: 2021,
+          lab: 'Google',
+          act: 'GELU',
+          attn: 'MHA',
+          pe: 'Relative',
+          norm: 'Pre-LN',
+          moe: '-',
+          ut: 1,
+        },
+        {
+          name: 'Anthropic LM',
+          year: 2021,
+          lab: 'Anthropic',
+          act: 'GELU',
+          attn: 'MHA',
+          pe: 'Learned abs.',
+          norm: 'Pre-LN',
+          moe: '-',
+        },
+        {
+          name: 'Gopher (280B)',
+          year: 2021,
+          lab: 'DeepMind',
+          act: 'GELU',
+          attn: 'MHA',
+          pe: 'Relative',
+          norm: 'Pre-LN',
+          moe: '-',
+          ut: 1,
+        },
+        {
+          name: 'GPT-NeoX',
+          year: 2022,
+          lab: 'EleutherAI',
+          act: 'GELU',
+          attn: 'MHA (par.)',
+          pe: 'RoPE',
+          norm: 'Pre-LN',
+          moe: '-',
+          ut: 1,
+        },
+        {
+          name: 'BLOOM (176B)',
+          year: 2022,
+          lab: 'BigScience',
+          act: 'GELU',
+          attn: 'MHA',
+          pe: 'ALiBi',
+          norm: 'Pre-LN',
+          moe: '-',
+          ut: 1,
+        },
+        {
+          name: 'OPT (175B)',
+          year: 2022,
+          lab: 'Meta',
+          act: 'ReLU',
+          attn: 'MHA',
+          pe: 'Learned abs.',
+          norm: 'Pre-LN',
+          moe: '-',
+          ut: 1,
+        },
+        {
+          name: 'PaLM (540B)',
+          year: 2022,
+          lab: 'Google',
+          act: 'SwiGLU',
+          attn: 'MQA',
+          pe: 'RoPE',
+          norm: 'Pre-LN',
+          moe: '-',
+          ut: 1,
+        },
+        {
+          name: 'Chinchilla',
+          year: 2022,
+          lab: 'DeepMind',
+          act: 'GELU',
+          attn: 'MHA',
+          pe: 'Relative',
+          norm: 'Pre-LN',
+          moe: '-',
+          ut: 1,
+        },
+        {
+          name: 'InstructGPT',
+          year: 2022,
+          lab: 'OpenAI',
+          act: 'GELU',
+          attn: 'MHA',
+          pe: 'Learned abs.',
+          norm: 'Pre-LN',
+          moe: '-',
+        },
+        {
+          name: 'LLaMA (65B)',
+          year: 2023,
+          lab: 'Meta',
+          act: 'SwiGLU',
+          attn: 'GQA',
+          pe: 'RoPE',
+          norm: 'Pre-RMSNorm',
+          moe: '-',
+        },
+        {
+          name: 'LLaMA 2 (70B)',
+          year: 2023,
+          lab: 'Meta',
+          act: 'SwiGLU',
+          attn: 'GQA',
+          pe: 'RoPE',
+          norm: 'Pre-RMSNorm',
+          moe: '-',
+        },
+        {
+          name: 'Mistral (7B)',
+          year: 2023,
+          lab: 'Mistral',
+          act: 'SwiGLU',
+          attn: 'GQA+SWA',
+          pe: 'RoPE',
+          norm: 'Pre-RMSNorm',
+          moe: '-',
+        },
+        {
+          name: 'Baichuan 2',
+          year: 2023,
+          lab: 'Baichuan',
+          act: 'SwiGLU',
+          attn: 'MHA',
+          pe: 'RoPE',
+          norm: 'Pre-RMSNorm',
+          moe: '-',
+          ut: 1,
+        },
+        {
+          name: 'GPT-4',
+          year: 2023,
+          lab: 'OpenAI',
+          act: 'Unknown',
+          attn: 'Unknown',
+          pe: 'Unknown',
+          norm: 'Unknown',
+          moe: '?',
+        },
+        {
+          name: 'OLMo',
+          year: 2024,
+          lab: 'AllenAI',
+          act: 'SwiGLU',
+          attn: 'GQA',
+          pe: 'RoPE',
+          norm: 'Pre-RMSNorm',
+          moe: '-',
+        },
+        {
+          name: 'OLMo 2',
+          year: 2024,
+          lab: 'AllenAI',
+          act: 'SwiGLU',
+          attn: 'GQA+QK-norm',
+          pe: 'RoPE',
+          norm: 'Pre-RMSNorm',
+          moe: '-',
+        },
+        {
+          name: 'Gemma 2 (27B)',
+          year: 2024,
+          lab: 'Google',
+          act: 'GeGLU',
+          attn: 'GQA+SWA',
+          pe: 'RoPE',
+          norm: 'Sandwich RMS',
+          moe: '-',
+          ut: 1,
+        },
+        {
+          name: 'Nemotron-4 (340B)',
+          year: 2024,
+          lab: 'NVIDIA',
+          act: 'SwiGLU',
+          attn: 'GQA',
+          pe: 'RoPE',
+          norm: 'Pre-RMSNorm',
+          moe: '-',
+        },
+        {
+          name: 'Qwen 2 (72B)',
+          year: 2024,
+          lab: 'Alibaba',
+          act: 'SwiGLU',
+          attn: 'GQA+SWA',
+          pe: 'RoPE',
+          norm: 'Pre-RMSNorm',
+          moe: '-',
+        },
+        {
+          name: 'Falcon 2 (11B)',
+          year: 2024,
+          lab: 'TII',
+          act: 'GELU',
+          attn: 'MQA',
+          pe: 'RoPE',
+          norm: 'Pre-LN',
+          moe: '-',
+          ut: 1,
+        },
+        {
+          name: 'Phi-3 / Phi-4',
+          year: 2024,
+          lab: 'Microsoft',
+          act: 'SwiGLU',
+          attn: 'GQA',
+          pe: 'RoPE',
+          norm: 'Pre-RMSNorm',
+          moe: '-',
+        },
+        {
+          name: 'LLaMA 3 (70B)',
+          year: 2024,
+          lab: 'Meta',
+          act: 'SwiGLU',
+          attn: 'GQA',
+          pe: 'RoPE',
+          norm: 'Pre-RMSNorm',
+          moe: '-',
+        },
+        {
+          name: 'DeepSeek (67B)',
+          year: 2024,
+          lab: 'DeepSeek',
+          act: 'SwiGLU',
+          attn: 'MHA',
+          pe: 'RoPE',
+          norm: 'Pre-RMSNorm',
+          moe: '-',
+        },
+        {
+          name: 'Yi (34B)',
+          year: 2024,
+          lab: '01.AI',
+          act: 'SwiGLU',
+          attn: 'GQA',
+          pe: 'RoPE',
+          norm: 'Pre-RMSNorm',
+          moe: '-',
+          ut: 1,
+        },
+        {
+          name: 'DeepSeek V3/R1',
+          year: 2024,
+          lab: 'DeepSeek',
+          act: 'SwiGLU',
+          attn: 'MLA',
+          pe: 'RoPE (YaRN)',
+          norm: 'Pre-RMSNorm',
+          moe: '256R+1S',
+        },
+        {
+          name: 'Gemma 3',
+          year: 2025,
+          lab: 'Google',
+          act: 'GeGLU',
+          attn: 'GQA+SWA',
+          pe: 'RoPE',
+          norm: 'Pre-RMSNorm',
+          moe: '-',
+          ut: 1,
+        },
+        {
+          name: 'OLMo 3 (7B/32B)',
+          year: 2025,
+          lab: 'AllenAI',
+          act: 'SwiGLU',
+          attn: 'GQA+QK-norm',
+          pe: 'RoPE',
+          norm: 'Pre-RMSNorm',
+          moe: '-',
+        },
+        {
+          name: 'LLaMA 4',
+          year: 2025,
+          lab: 'Meta',
+          act: 'SwiGLU',
+          attn: 'GQA+iRoPE',
+          pe: 'RoPE+NoPE',
+          norm: 'Pre-RMSNorm',
+          moe: '✓',
+        },
+        {
+          name: 'GLM-4.5 / GLM-5',
+          year: 2025,
+          lab: 'Various',
+          act: 'SwiGLU',
+          attn: 'MHA+DSA',
+          pe: 'RoPE',
+          norm: 'Pre-RMSNorm',
+          moe: '✓',
+        },
+        {
+          name: 'MiniMax M1/M2.5',
+          year: 2025,
+          lab: 'MiniMax',
+          act: 'SwiGLU',
+          attn: 'Lightning O(n)+ softmax',
+          pe: 'None',
+          norm: 'Pre-RMS / None',
+          moe: '✓',
+        },
+      ];
+
+      // ── RENDER: EMBEDDINGS ──
+      let activeEra = 'dense';
+      function drawEmbed() {
+        const era = ERAS.find((x) => x.id === activeEra);
+        document.getElementById('era-tabs').innerHTML = ERAS.map(
+          (e) =>
+            `<div class="era-tab" style="color:${e.color};border-color:${e.id === activeEra ? e.color : 'transparent'};background:${e.id === activeEra ? e.color + '22' : '#161b22'}" onclick="selEra('${e.id}')">${e.label}</div>`
+        ).join('');
+        document.getElementById('embed-grid').innerHTML = EMBEDS.filter((e) => e.era === activeEra)
+          .map(
+            (e, i) =>
+              `<div class="embed-card" id="ec${i}" onclick="togCard('ec${i}')" style="border-left:3px solid ${era.color}">
       <span class="ec-chev">▼</span>
       <div class="ec-year" style="color:${era.color}">${e.year}</div>
       <div class="ec-name" style="color:${era.color}">${e.name}</div>
       <div class="ec-key">${e.key}</div>
       <div class="ec-detail">${e.detail}<div class="ec-limit">${e.limit}</div><div class="ec-use">${e.use}</div></div>
     </div>`
-  ).join("");
-}
-window.selEra = e => { activeEra=e; drawEmbed(); };
-window.togCard = id => document.getElementById(id).classList.toggle("open");
+          )
+          .join('');
+      }
+      window.selEra = (e) => {
+        activeEra = e;
+        drawEmbed();
+      };
+      window.togCard = (id) => document.getElementById(id).classList.toggle('open');
 
-// ── RENDER: ACTIVATIONS ──
-function drawAct() {
-  // timeline
-  document.getElementById("act-timeline").innerHTML = ACTS.map((a,i) =>
-    `<div class="act-row">
+      // ── RENDER: ACTIVATIONS ──
+      function drawAct() {
+        // timeline
+        document.getElementById('act-timeline').innerHTML = ACTS.map(
+          (a, i) =>
+            `<div class="act-row">
       <div class="act-year-col"><span class="act-yr-label">${a.year}</span></div>
       <div class="act-tl-col">
         <div class="act-dot" style="border-color:${a.color};background:${a.color}33"></div>
-        ${i<ACTS.length-1?`<div class="act-line"></div>`:''}
+        ${i < ACTS.length - 1 ? `<div class="act-line"></div>` : ''}
       </div>
       <div class="act-card-col">
         <div class="act-card" id="act${i}" onclick="togAct('act${i}')">
@@ -541,95 +1665,150 @@ function drawAct() {
         </div>
       </div>
     </div>`
-  ).join("");
+        ).join('');
 
-  // norm cards
-  document.getElementById("norm-grid").innerHTML = NORMS.map(n =>
-    `<div class="norm-card" style="border-left:3px solid ${n.color}">
+        // norm cards
+        document.getElementById('norm-grid').innerHTML = NORMS.map(
+          (n) =>
+            `<div class="norm-card" style="border-left:3px solid ${n.color}">
       <div class="norm-title" style="color:${n.color}">${n.title}</div>
       <div class="norm-formula">${n.formula}</div>
       <div class="norm-body">${n.body}</div>
       <div class="norm-used" style="color:#3fb950">→ ${n.used}</div>
-      ${n.warn?`<div class="norm-warn">${n.warn}</div>`:''}
+      ${n.warn ? `<div class="norm-warn">${n.warn}</div>` : ''}
     </div>`
-  ).join("");
+        ).join('');
 
-  // norm placement SVG
-  const svg = document.getElementById("norm-svg");
-  const W = Math.max(300, svg.parentElement.offsetWidth - 32);
-  svg.setAttribute("viewBox",`0 0 ${W} 110`);
-  const configs = [
-    {label:"Post-LN (2017)",color:"#f0883e",
-     boxes:["Input x","Sub-layer(x)","x + output","LayerNorm"]},
-    {label:"Pre-LN (2019+)",color:"#e3b341",
-     boxes:["Input x","LayerNorm","Sub-layer","x + output"]},
-    {label:"Pre-RMSNorm (2023+)",color:"#56d364",
-     boxes:["Input x","RMSNorm","Sub-layer","x + output"]},
-  ];
-  const colW = W/3, bW=Math.min(72,(colW-20)/4-4), bH=30, gap=(colW-4*bW)/5;
-  let h="";
-  configs.forEach((cfg,ci) => {
-    const xOff=ci*colW+8;
-    h+=`<text x="${xOff+colW/2-8}" y="12" text-anchor="middle" fill="${cfg.color}" font-size="9" font-family="Courier New,monospace" font-weight="bold">${cfg.label}</text>`;
-    cfg.boxes.forEach((box,bi) => {
-      const bx=xOff+gap+bi*(bW+gap), by=20;
-      const isNorm=box.includes("Norm");
-      h+=`<rect x="${bx}" y="${by}" width="${bW}" height="${bH}" rx="3" fill="${isNorm?cfg.color+'22':'#0d1117'}" stroke="${isNorm?cfg.color:'#30363d'}" stroke-width="${isNorm?1.5:1}"/>`;
-      const lines=box.length>9?[box.slice(0,Math.ceil(box.length/2)),box.slice(Math.ceil(box.length/2))].map(s=>s.trim()):[box];
-      lines.forEach((line,li)=>h+=`<text x="${bx+bW/2}" y="${by+bH/2+(li-(lines.length-1)/2)*10+4}" text-anchor="middle" fill="${isNorm?cfg.color:'#8b949e'}" font-size="8" font-family="Courier New,monospace">${line}</text>`);
-      if(bi<cfg.boxes.length-1){const ax=bx+bW+1;h+=`<line x1="${ax}" y1="${by+bH/2}" x2="${ax+gap-1}" y2="${by+bH/2}" stroke="#30363d" stroke-width="1"/><polygon points="${ax+gap-1},${by+bH/2-2.5} ${ax+gap-1},${by+bH/2+2.5} ${ax+gap+2},${by+bH/2}" fill="#30363d"/>`;}
-    });
-    // residual arc
-    const arcY=20+bH+8;
-    h+=`<path d="M${xOff+gap+bW/2} ${20+bH} Q${xOff+gap+bW/2} ${arcY+10} ${xOff+gap+(3*(bW+gap)+bW/2)} ${arcY+10} Q${xOff+gap+(3*(bW+gap)+bW/2)} ${arcY} ${xOff+gap+(3*(bW+gap)+bW/2)} ${20+bH}" fill="none" stroke="#30363d" stroke-width="1" stroke-dasharray="3,2"/>`;
-    h+=`<text x="${xOff+colW/2-8}" y="${arcY+20}" text-anchor="middle" fill="#30363d" font-size="8" font-family="Courier New,monospace">residual skip</text>`;
-  });
-  svg.innerHTML=h;
-}
-window.togAct = id => document.getElementById(id).classList.toggle("open");
+        // norm placement SVG
+        const svg = document.getElementById('norm-svg');
+        const W = Math.max(300, svg.parentElement.offsetWidth - 32);
+        svg.setAttribute('viewBox', `0 0 ${W} 110`);
+        const configs = [
+          {
+            label: 'Post-LN (2017)',
+            color: '#f0883e',
+            boxes: ['Input x', 'Sub-layer(x)', 'x + output', 'LayerNorm'],
+          },
+          {
+            label: 'Pre-LN (2019+)',
+            color: '#e3b341',
+            boxes: ['Input x', 'LayerNorm', 'Sub-layer', 'x + output'],
+          },
+          {
+            label: 'Pre-RMSNorm (2023+)',
+            color: '#56d364',
+            boxes: ['Input x', 'RMSNorm', 'Sub-layer', 'x + output'],
+          },
+        ];
+        const colW = W / 3,
+          bW = Math.min(72, (colW - 20) / 4 - 4),
+          bH = 30,
+          gap = (colW - 4 * bW) / 5;
+        let h = '';
+        configs.forEach((cfg, ci) => {
+          const xOff = ci * colW + 8;
+          h += `<text x="${xOff + colW / 2 - 8}" y="12" text-anchor="middle" fill="${cfg.color}" font-size="9" font-family="Courier New,monospace" font-weight="bold">${cfg.label}</text>`;
+          cfg.boxes.forEach((box, bi) => {
+            const bx = xOff + gap + bi * (bW + gap),
+              by = 20;
+            const isNorm = box.includes('Norm');
+            h += `<rect x="${bx}" y="${by}" width="${bW}" height="${bH}" rx="3" fill="${isNorm ? cfg.color + '22' : '#0d1117'}" stroke="${isNorm ? cfg.color : '#30363d'}" stroke-width="${isNorm ? 1.5 : 1}"/>`;
+            const lines =
+              box.length > 9
+                ? [
+                    box.slice(0, Math.ceil(box.length / 2)),
+                    box.slice(Math.ceil(box.length / 2)),
+                  ].map((s) => s.trim())
+                : [box];
+            lines.forEach(
+              (line, li) =>
+                (h += `<text x="${bx + bW / 2}" y="${by + bH / 2 + (li - (lines.length - 1) / 2) * 10 + 4}" text-anchor="middle" fill="${isNorm ? cfg.color : '#8b949e'}" font-size="8" font-family="Courier New,monospace">${line}</text>`)
+            );
+            if (bi < cfg.boxes.length - 1) {
+              const ax = bx + bW + 1;
+              h += `<line x1="${ax}" y1="${by + bH / 2}" x2="${ax + gap - 1}" y2="${by + bH / 2}" stroke="#30363d" stroke-width="1"/><polygon points="${ax + gap - 1},${by + bH / 2 - 2.5} ${ax + gap - 1},${by + bH / 2 + 2.5} ${ax + gap + 2},${by + bH / 2}" fill="#30363d"/>`;
+            }
+          });
+          // residual arc
+          const arcY = 20 + bH + 8;
+          h += `<path d="M${xOff + gap + bW / 2} ${20 + bH} Q${xOff + gap + bW / 2} ${arcY + 10} ${xOff + gap + (3 * (bW + gap) + bW / 2)} ${arcY + 10} Q${xOff + gap + (3 * (bW + gap) + bW / 2)} ${arcY} ${xOff + gap + (3 * (bW + gap) + bW / 2)} ${20 + bH}" fill="none" stroke="#30363d" stroke-width="1" stroke-dasharray="3,2"/>`;
+          h += `<text x="${xOff + colW / 2 - 8}" y="${arcY + 20}" text-anchor="middle" fill="#30363d" font-size="8" font-family="Courier New,monospace">residual skip</text>`;
+        });
+        svg.innerHTML = h;
+      }
+      window.togAct = (id) => document.getElementById(id).classList.toggle('open');
 
-// ── RENDER: BLOCK ──
-function drawBlock() {
-  const svg = document.getElementById("block-svg");
-  const W = Math.max(400, svg.parentElement.offsetWidth-32);
-  svg.setAttribute("viewBox",`0 0 ${W} 80`);
-  const steps=[
-    {l:"Token\nEmbed",c:"#8b949e"},{l:"Pos.\nEncode",c:"#79c0ff"},
-    {l:"Norm",c:"#e3b341"},{l:"Attn\n(Q·K·V)",c:"#d2a8ff"},
-    {l:"Add &\nNorm",c:"#e3b341"},{l:"FFN /\nMoE",c:"#ffa657"},
-    {l:"Add &\nNorm",c:"#e3b341"},{l:"× N\nLayers",c:"#56d364"},
-    {l:"Output\nLogits",c:"#58a6ff"},
-  ];
-  const n=steps.length, bW=Math.min(70,(W-40)/(n+0.5*(n-1))-2), gap=(W-n*bW)/(n+1), bH=48, bY=10;
-  let h="";
-  steps.forEach((s,i)=>{
-    const x=gap+i*(bW+gap), cy=bY+bH/2;
-    h+=`<rect x="${x}" y="${bY}" width="${bW}" height="${bH}" rx="3" fill="${s.c}15" stroke="${s.c}" stroke-width="1"/>`;
-    s.l.split("\n").forEach((line,li,arr)=>{
-      h+=`<text x="${x+bW/2}" y="${cy+(li-(arr.length-1)/2)*13+4}" text-anchor="middle" fill="${s.c}" font-size="9" font-family="Courier New,monospace">${line}</text>`;
-    });
-    if(i<n-1){const ax=x+bW+3;h+=`<line x1="${ax}" y1="${cy}" x2="${ax+gap-6}" y2="${cy}" stroke="#30363d" stroke-width="1"/><polygon points="${ax+gap-6},${cy-3} ${ax+gap-6},${cy+3} ${ax+gap},${cy}" fill="#30363d"/>`;}
-  });
-  h+=`<text x="${W/2}" y="74" text-anchor="middle" fill="#30363d" font-size="9" font-family="Courier New,monospace">↑ repeats N times (LLaMA 3 70B = 80 layers · DeepSeek V3 = 61 layers · MiniMax M1 = 7 linear + 1 softmax per cycle) ↑</text>`;
-  svg.innerHTML=h;
+      // ── RENDER: BLOCK ──
+      function drawBlock() {
+        const svg = document.getElementById('block-svg');
+        const W = Math.max(400, svg.parentElement.offsetWidth - 32);
+        svg.setAttribute('viewBox', `0 0 ${W} 80`);
+        const steps = [
+          { l: 'Token\nEmbed', c: '#8b949e' },
+          { l: 'Pos.\nEncode', c: '#79c0ff' },
+          { l: 'Norm', c: '#e3b341' },
+          { l: 'Attn\n(Q·K·V)', c: '#d2a8ff' },
+          { l: 'Add &\nNorm', c: '#e3b341' },
+          { l: 'FFN /\nMoE', c: '#ffa657' },
+          { l: 'Add &\nNorm', c: '#e3b341' },
+          { l: '× N\nLayers', c: '#56d364' },
+          { l: 'Output\nLogits', c: '#58a6ff' },
+        ];
+        const n = steps.length,
+          bW = Math.min(70, (W - 40) / (n + 0.5 * (n - 1)) - 2),
+          gap = (W - n * bW) / (n + 1),
+          bH = 48,
+          bY = 10;
+        let h = '';
+        steps.forEach((s, i) => {
+          const x = gap + i * (bW + gap),
+            cy = bY + bH / 2;
+          h += `<rect x="${x}" y="${bY}" width="${bW}" height="${bH}" rx="3" fill="${s.c}15" stroke="${s.c}" stroke-width="1"/>`;
+          s.l.split('\n').forEach((line, li, arr) => {
+            h += `<text x="${x + bW / 2}" y="${cy + (li - (arr.length - 1) / 2) * 13 + 4}" text-anchor="middle" fill="${s.c}" font-size="9" font-family="Courier New,monospace">${line}</text>`;
+          });
+          if (i < n - 1) {
+            const ax = x + bW + 3;
+            h += `<line x1="${ax}" y1="${cy}" x2="${ax + gap - 6}" y2="${cy}" stroke="#30363d" stroke-width="1"/><polygon points="${ax + gap - 6},${cy - 3} ${ax + gap - 6},${cy + 3} ${ax + gap},${cy}" fill="#30363d"/>`;
+          }
+        });
+        h += `<text x="${W / 2}" y="74" text-anchor="middle" fill="#30363d" font-size="9" font-family="Courier New,monospace">↑ repeats N times (LLaMA 3 70B = 80 layers · DeepSeek V3 = 61 layers · MiniMax M1 = 7 linear + 1 softmax per cycle) ↑</text>`;
+        svg.innerHTML = h;
 
-  document.getElementById("block-legend").innerHTML=[
-    {l:"Sinusoidal/Learned",bg:"#21262d",c:"#8b949e"},{l:"ALiBi",bg:"#0d2233",c:"#79c0ff"},
-    {l:"RoPE/iRoPE",bg:"#1b2e1f",c:"#56d364"},{l:"None/Lightning",bg:"#2d1500",c:"#f0883e"},
-    {l:"|",bg:"transparent",c:"#21262d"},
-    {l:"MHA",bg:"#21262d",c:"#8b949e"},{l:"GQA",bg:"#1b2e1f",c:"#56d364"},
-    {l:"MQA",bg:"#2d2200",c:"#e3b341"},{l:"MLA",bg:"#2b1d3d",c:"#d2a8ff"},{l:"Lightning",bg:"#2d1500",c:"#f0883e"},
-    {l:"|",bg:"transparent",c:"#21262d"},
-    {l:"ReLU/GELU",bg:"#21262d",c:"#8b949e"},{l:"SwiGLU",bg:"#2d1f0e",c:"#ffa657"},{l:"GeGLU",bg:"#2d2200",c:"#e3b341"},{l:"+MoE",bg:"#2d1f0e",c:"#f0883e"},
-    {l:"|",bg:"transparent",c:"#21262d"},
-    {l:"Post-LN",bg:"#2d1500",c:"#f0883e"},{l:"Pre-LN",bg:"#2d2200",c:"#e3b341"},{l:"Pre-RMSNorm",bg:"#1b2e1f",c:"#56d364"},
-  ].map(l=>l.l==="|"?`<span style="color:#30363d;padding:0 3px">│</span>`:
-    `<span class="bl-chip" style="background:${l.bg};color:${l.c};border-color:${l.c}44">${l.l}</span>`
-  ).join("");
+        document.getElementById('block-legend').innerHTML = [
+          { l: 'Sinusoidal/Learned', bg: '#21262d', c: '#8b949e' },
+          { l: 'ALiBi', bg: '#0d2233', c: '#79c0ff' },
+          { l: 'RoPE/iRoPE', bg: '#1b2e1f', c: '#56d364' },
+          { l: 'None/Lightning', bg: '#2d1500', c: '#f0883e' },
+          { l: '|', bg: 'transparent', c: '#21262d' },
+          { l: 'MHA', bg: '#21262d', c: '#8b949e' },
+          { l: 'GQA', bg: '#1b2e1f', c: '#56d364' },
+          { l: 'MQA', bg: '#2d2200', c: '#e3b341' },
+          { l: 'MLA', bg: '#2b1d3d', c: '#d2a8ff' },
+          { l: 'Lightning', bg: '#2d1500', c: '#f0883e' },
+          { l: '|', bg: 'transparent', c: '#21262d' },
+          { l: 'ReLU/GELU', bg: '#21262d', c: '#8b949e' },
+          { l: 'SwiGLU', bg: '#2d1f0e', c: '#ffa657' },
+          { l: 'GeGLU', bg: '#2d2200', c: '#e3b341' },
+          { l: '+MoE', bg: '#2d1f0e', c: '#f0883e' },
+          { l: '|', bg: 'transparent', c: '#21262d' },
+          { l: 'Post-LN', bg: '#2d1500', c: '#f0883e' },
+          { l: 'Pre-LN', bg: '#2d2200', c: '#e3b341' },
+          { l: 'Pre-RMSNorm', bg: '#1b2e1f', c: '#56d364' },
+        ]
+          .map((l) =>
+            l.l === '|'
+              ? `<span style="color:#30363d;padding:0 3px">│</span>`
+              : `<span class="bl-chip" style="background:${l.bg};color:${l.c};border-color:${l.c}44">${l.l}</span>`
+          )
+          .join('');
 
-  document.getElementById("block-tbody").innerHTML=BLOCK_MODELS.map(m=>{
-    const pc=posClr(m.pos), ac=attnClr(m.attn), fc=actClr(m.act), nc=normClr(m.norm);
-    return `<tr>
+        document.getElementById('block-tbody').innerHTML = BLOCK_MODELS.map((m) => {
+          const pc = posClr(m.pos),
+            ac = attnClr(m.attn),
+            fc = actClr(m.act),
+            nc = normClr(m.norm);
+          return `<tr>
       <td style="color:#c9d1d9;white-space:nowrap">${m.name}</td>
       <td style="color:#8b949e">${m.year}</td>
       <td><span class="chip" style="background:${pc.bg};color:${pc.c}">${m.pos}</span></td>
@@ -638,38 +1817,45 @@ function drawBlock() {
       <td><span class="chip" style="background:${nc.bg};color:${nc.c}">${m.norm}</span></td>
       <td style="color:#8b949e;font-size:0.6rem;max-width:200px;white-space:normal;line-height:1.5">${m.note}</td>
     </tr>`;
-  }).join("");
-}
+        }).join('');
+      }
 
-// ── RENDER: TABLE ──
-function drawTable(){
-  document.getElementById("tbl-body").innerHTML=MODELS.map(m=>{
-    const ac=attnClr(m.attn||""), fc=actClr(m.act||""), nc=normClr(m.norm||"");
-    return `<tr class="${m.ut?'ut':''}">
+      // ── RENDER: TABLE ──
+      function drawTable() {
+        document.getElementById('tbl-body').innerHTML = MODELS.map((m) => {
+          const ac = attnClr(m.attn || ''),
+            fc = actClr(m.act || ''),
+            nc = normClr(m.norm || '');
+          return `<tr class="${m.ut ? 'ut' : ''}">
       <td class="nm">${m.name}</td><td>${m.year}</td>
-      <td style="color:${LAB_COLORS[m.lab]||'#8b949e'}">${m.lab}</td>
+      <td style="color:${LAB_COLORS[m.lab] || '#8b949e'}">${m.lab}</td>
       <td><span class="chip" style="background:${fc.bg};color:${fc.c};font-size:0.56rem">${m.act}</span></td>
       <td><span class="chip" style="background:${ac.bg};color:${ac.c};font-size:0.56rem">${m.attn}</span></td>
       <td style="color:#79c0ff;font-size:0.6rem">${m.pe}</td>
       <td><span class="chip" style="background:${nc.bg};color:${nc.c};font-size:0.56rem">${m.norm}</span></td>
-      <td style="color:${m.moe==='✓'?'#ffa657':m.moe==='?'?'#e3b341':'#30363d'}">${m.moe}</td>
+      <td style="color:${m.moe === '✓' ? '#ffa657' : m.moe === '?' ? '#e3b341' : '#30363d'}">${m.moe}</td>
     </tr>`;
-  }).join("");
-}
+        }).join('');
+      }
 
-function setV(v){
-  ["embed","act","block","table"].forEach(n=>{
-    document.getElementById("view-"+n).classList.toggle("show",n===v);
-    document.getElementById("btn-"+n).classList.toggle("active",n===v);
-  });
-  if(v==="block") drawBlock();
-}
+      function setV(v) {
+        ['embed', 'act', 'block', 'table'].forEach((n) => {
+          document.getElementById('view-' + n).classList.toggle('show', n === v);
+          document.getElementById('btn-' + n).classList.toggle('active', n === v);
+        });
+        if (v === 'block') drawBlock();
+      }
 
-window.addEventListener("load",()=>{drawEmbed();drawAct();drawBlock();drawTable();});
-window.addEventListener("resize",()=>{
-  if(document.getElementById("view-block").classList.contains("show")) drawBlock();
-  if(document.getElementById("view-act").classList.contains("show")) drawAct();
-});
-</script>
-</body>
+      window.addEventListener('load', () => {
+        drawEmbed();
+        drawAct();
+        drawBlock();
+        drawTable();
+      });
+      window.addEventListener('resize', () => {
+        if (document.getElementById('view-block').classList.contains('show')) drawBlock();
+        if (document.getElementById('view-act').classList.contains('show')) drawAct();
+      });
+    </script>
+  </body>
 </html>
