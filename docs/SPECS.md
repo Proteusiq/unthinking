@@ -12,7 +12,7 @@ This is an **interactive literature review visualization** for the thesis:
 
 > LLM reasoning is practical but fundamentally **predictive** (pattern matching from training distributions), not genuinely **generative**. RL and test-time compute **surface** pre-existing capabilities rather than creating new reasoning abilities.
 
-The visualization shows **200+ research papers** as nodes in a force-directed graph, with edges showing how papers relate to each other (support, rebut, extend). Users can explore the academic debate visually.
+The visualization shows **215 research papers** as nodes in a force-directed graph, with edges showing how papers relate to each other (support, rebut, extend). Users can explore the academic debate visually.
 
 ---
 
@@ -73,26 +73,34 @@ When you analyze a new paper following the methodology in `/AGENTS.md`, extract:
 1. **arXiv ID** → `id`
 2. **Title** → `title`
 3. **Short name** → `shortTitle` (for graph labels)
-4. **Stance** → `stance` (supports/challenges/balanced relative to thesis)
-5. **Core argument** → `coreArgument` (one sentence)
-6. **Key evidence** → `keyEvidence` (array of bullet points)
-7. **Paper URL** → `arxivUrl`
+4. **Date** → `date` (publication month and year)
+5. **Stance** → `stance` (supports/challenges/balanced relative to thesis)
+6. **Cluster** → `cluster` (thematic cluster)
+7. **Core argument** → `coreArgument` (one sentence, paper's own claim)
+8. **Key evidence** → `keyEvidence` (3-4 findings with specific numbers)
+9. **Key quotes** → `keyQuotes` (1-2 direct quotes from paper)
+10. **Analysis URL** → `analysisUrl` (link to analysis file on GitHub)
 
-Example extraction from `analysis/explored/01_gsm_symbolic.md`:
+Example extraction from `analysis/explored/00-09/01_gsm_symbolic.md`:
 
 ```javascript
 {
   id: '2410.05229',
   title: 'GSM-Symbolic: Understanding the Limitations of Mathematical Reasoning in Large Language Models',
   shortTitle: 'GSM-Symbolic',
+  date: 'Oct 2024',
   stance: 'supports',
-  coreArgument: 'LLMs show 65% accuracy drops with superficial changes, suggesting pattern matching over true reasoning.',
+  cluster: 'compositional',
+  coreArgument: 'LLMs show up to 65% accuracy drops with superficial changes, suggesting pattern matching over true reasoning.',
   keyEvidence: [
-    '65% accuracy drop with irrelevant information',
+    'Up to 65% drop (NoOp)',
     'Performance degrades with increased complexity',
     'Models fail on simple symbolic variations'
   ],
-  arxivUrl: 'https://arxiv.org/abs/2410.05229'
+  keyQuotes: [
+    'The fragility of mathematical reasoning in these models raises questions about the reliability of their performance.'
+  ],
+  analysisUrl: 'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/00-09/01_gsm_symbolic.md'
 }
 ```
 
@@ -100,19 +108,24 @@ Example extraction from `analysis/explored/01_gsm_symbolic.md`:
 
 Links come from the "Relationship to Other Papers" section in each analysis and from `/analysis/paper_graph.md` (lowercase). For each relationship:
 
-1. **Source** → paper making the claim
-2. **Target** → paper being referenced
-3. **Type** → `supports` | `rebuts` | `extends`
+1. **Source** → paper making the claim (citing, usually newer)
+2. **Target** → paper being referenced (cited, usually older)
+3. **Type** → `supports` | `extends` | `rebuts` | `challenges`
+4. **Description** → specific finding/mechanism connecting the two papers
 
 Example:
 ```javascript
-{ source: '2410.05229', target: '2501.12948', type: 'rebuts' }
-// GSM-Symbolic rebuts DeepSeek-R1's claims about emergent reasoning
+{
+  source: '2410.05229',
+  target: '2501.12948',
+  type: 'rebuts',
+  description: 'GSM-Symbolic shows 65% drop; pattern matching not emergent reasoning'
+}
 ```
 
 ### Automation Opportunity
 
-A future script could parse `/analysis/explored/*.md` files and auto-generate `data.js`. The markdown structure is consistent enough for extraction.
+A future script could parse `/analysis/explored/**/*.md` files and auto-generate `nodes.js` and `links.js`. The markdown structure is consistent enough for extraction.
 
 ---
 
@@ -131,18 +144,23 @@ A future script could parse `/analysis/explored/*.md` files and auto-generate `d
 
 ```
 docs/
-├── index.html          # Main HTML (header, panels, graph container)
+├── index.html              # Main HTML (header, panels, graph container)
+├── architecture.html       # Standalone: LLM Architecture Evolution
+├── post-training.html      # Standalone: Post-Training Pipeline
+├── data.html               # Standalone: Pre-training Data Pipeline
 ├── css/
-│   ├── variables.css   # Theme tokens, colors, spacing, z-index
-│   ├── layout.css      # Base styles, header, graph container, controls
-│   ├── components.css  # Panels, cards, tooltips, legend, graph nodes
-│   └── responsive.css  # Mobile/tablet breakpoints
+│   ├── variables.css       # Theme tokens, colors, spacing, z-index
+│   ├── layout.css          # Base styles, header, graph container, controls
+│   ├── components.css      # Panels, cards, tooltips, legend, graph nodes
+│   └── responsive.css      # Mobile/tablet breakpoints
 ├── js/
-│   ├── data.js         # Paper nodes and links data
-│   └── graph.js        # D3 force simulation, interactions, dialogue system
-├── package.json        # npm scripts for Prettier
-├── .prettierrc         # Prettier config
-└── SPECS.md            # This file
+│   ├── nodes.js            # Paper node definitions
+│   ├── links.js            # Relationship link definitions
+│   ├── data.js             # Meta info + combines nodes/links
+│   └── graph.js            # D3 force simulation, interactions, dialogue system
+├── package.json            # npm scripts for Prettier
+├── .prettierrc             # Prettier config
+└── SPECS.md                # This file
 ```
 
 ---
@@ -214,33 +232,38 @@ docs/
 - Thesis: Full width, `left/right: space-md`
 - Dialogue: Bottom of screen, full width
 - Legend: Hidden
+- Zoom Controls: Hidden
 - Side Panel: Full width, slides up from bottom
 
 ---
 
 ## Graph System
 
-### Node Data Structure (`data.js`)
+### Node Data Structure (`nodes.js`)
 
 ```javascript
 {
   id: '2410.05229',           // arXiv ID
   title: 'GSM-Symbolic...',   // Full title
-  shortTitle: 'GSM-Symbolic', // Display name
+  shortTitle: 'GSM-Symbolic', // Display name (graph labels)
+  date: 'Oct 2024',           // Publication date
   stance: 'supports',         // supports | challenges | balanced
-  coreArgument: '...',        // One-liner thesis
-  keyEvidence: ['...'],       // Array of evidence points
-  arxivUrl: 'https://...'     // Link to paper
+  cluster: 'compositional',   // Thematic cluster
+  coreArgument: '...',        // One sentence, paper's own claim
+  keyEvidence: ['...'],       // 3-4 findings with specific numbers
+  keyQuotes: ['...'],         // 1-2 direct quotes from paper
+  analysisUrl: 'https://...'  // Link to analysis file on GitHub
 }
 ```
 
-### Link Data Structure
+### Link Data Structure (`links.js`)
 
 ```javascript
 {
-  source: '2410.05229',  // Source node ID
-  target: '2501.12948',  // Target node ID
-  type: 'rebuts'         // supports | rebuts | extends
+  source: '2410.05229',  // Source node ID (citing paper)
+  target: '2501.12948',  // Target node ID (cited paper)
+  type: 'rebuts',        // supports | extends | rebuts | challenges
+  description: 'GSM-Symbolic shows 65% drop; pattern matching not reasoning'
 }
 ```
 
@@ -317,6 +340,7 @@ Key mobile changes:
 - Dialogue panel at bottom
 - Side panel slides up (70vh max)
 - Legend hidden
+- Zoom controls hidden
 
 ---
 
@@ -341,10 +365,11 @@ npm run format:check  # Check without writing
 
 ### Adding a New Paper
 
-1. Add node to `js/data.js` → `nodes` array
-2. Add links to `js/data.js` → `links` array
-3. Optionally add dialogue to `js/graph.js` → `dialogues` array
-4. Run `npm run format`
+1. Add node to `js/nodes.js` (see Node Data Structure above)
+2. Add links to `js/links.js` (3-5 outgoing links, each with unique description)
+3. Update `meta.totalAnalyzed` count in `js/data.js`
+4. Optionally add dialogue to `js/graph.js` → `dialogues` array
+5. Run `npm run format`
 
 ### Adding a Dialogue
 
