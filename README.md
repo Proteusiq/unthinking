@@ -51,10 +51,10 @@ Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.
 
 | Page | Tabs | What It Covers |
 |------|------|----------------|
-| [**Data**](https://proteusiq.github.io/unthinking/data.html) | Pipeline, Catalog, Compare | Pre-training data sourcing, filtering (KenLM, fastText, DSIR), deduplication (MinHash, Bloom), data mix strategies, benchmark contamination |
-| [**Tokenization**](https://proteusiq.github.io/unthinking/tokenization.html) | Pipeline, Catalog, Compare | BPE, WordPiece, Unigram, SentencePiece; tokenizer comparison across GPT-4, Llama 3, Gemma; vocabulary size tradeoffs |
-| [**Architecture**](https://proteusiq.github.io/unthinking/architecture.html) | Activations, Block, Table | Transformer internals, attention variants (MHA, GQA, MLA), normalization (Pre/Post-Norm, QK-Norm), MoE, positional encoding (RoPE, NoPE) |
-| [**Training**](https://proteusiq.github.io/unthinking/training.html) | Pipeline, Mechanics, Research | Full training lifecycle: pre-training (AdamW, scaling laws, mixed precision), mid-training (annealing, domain adaptation, context extension), post-training (SFT, RLHF, DPO, GRPO, RLVR), lab recipes |
+| [**Data**](https://proteusiq.github.io/unthinking/pages/data.html) | Pipeline, Catalog, Compare | Pre-training data sourcing, filtering (KenLM, fastText, DSIR), deduplication (MinHash, Bloom), data mix strategies, benchmark contamination |
+| [**Tokenization**](https://proteusiq.github.io/unthinking/pages/tokenization.html) | Pipeline, Catalog, Compare | BPE, WordPiece, Unigram, SentencePiece; tokenizer comparison across GPT-4, Llama 3, Gemma; vocabulary size tradeoffs |
+| [**Architecture**](https://proteusiq.github.io/unthinking/pages/architecture.html) | Activations, Block, Table | Transformer internals, attention variants (MHA, GQA, MLA), normalization (Pre/Post-Norm, QK-Norm), MoE, positional encoding (RoPE, NoPE) |
+| [**Training**](https://proteusiq.github.io/unthinking/pages/training.html) | Pipeline, Mechanics, Research | Full training lifecycle: pre-training (AdamW, scaling laws, mixed precision), mid-training (annealing, domain adaptation, context extension), post-training (SFT, RLHF, DPO, GRPO, RLVR), lab recipes |
 
 ---
 
@@ -276,10 +276,11 @@ See [`experiments/steering_ablation/protocol.md`](./experiments/steering_ablatio
 │       ├── 00-09/ ... 210-219/
 ├── docs/                     # Interactive visualization (GitHub Pages)
 │   ├── index.html            # Paper network graph
-│   ├── data.html             # Deep-dive: Data Pipeline
-│   ├── tokenization.html     # Deep-dive: Tokenization
-│   ├── architecture.html     # Deep-dive: Architecture
-│   ├── training.html         # Deep-dive: Training Pipeline
+│   ├── pages/                # Deep-dive standalone pages
+│   │   ├── data.html         # Data Pipeline
+│   │   ├── tokenization.html # Tokenization
+│   │   ├── architecture.html # Architecture
+│   │   └── training.html     # Training Pipeline
 │   ├── css/                  # variables, layout, components, responsive
 │   └── js/
 │       ├── nodes.js          # Paper node definitions (216)
