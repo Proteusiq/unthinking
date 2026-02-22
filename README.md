@@ -14,13 +14,13 @@
 
 ## The Question
 
-Do LLMs actually reason, or do they just predict plausible-sounding tokens?
+Do LLMs actually understand or do they predict plausible-sounding tokens without understanding?
 
-This project surveys over 200 papers to find out — tracking who supports the thesis, who challenges it, and what the evidence actually says.
+This project surveys over 200 papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
 
 To bring the findings home:
 - **Paper network** — interactive graph of 216 papers and 760 relationships, filterable by stance
-- **Experiments** — two reproducible protocols using fully open models:
+- **Experiments**:
   - *Decoding ablation*: proves reasoning paths exist in base models, hidden by greedy decoding — RL just surfaces them
   - *Steering ablation*: proves safety alignment is a thin layer of refusal patterns that washes off under trivial perturbations
 - **LLM Made Less Black Box** — four visual explainers (Data → Tokenization → Architecture → Training) demystifying the full pipeline
