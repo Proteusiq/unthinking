@@ -75,7 +75,7 @@ See `docs/SPECS.md` for design system, component layout, and graph details.
 - `requestAnimationFrame` for layout, debounce expensive handlers
 - Reactive positioning: `ResizeObserver` + `transitionend`, no `setTimeout` for layout
 
-#### Standalone Pages (`architecture.html`, `post-training.html`, `data.html`)
+#### Standalone Pages (`data.html`, `tokenization.html`, `architecture.html`, `post-training.html`)
 - Self-contained: inline `<style>` + `<script>`, no external CSS/JS
 - Dark terminal aesthetic: `#0d1117` bg, `Courier New`, color-coded sections
 - Tab switching: JS `setMode()` pattern, CSS `.show` class toggle
@@ -573,9 +573,10 @@ gh auth switch --user <username>
 └── docs/                        # Interactive visualization
     ├── SPECS.md                # Technical specs for this folder
     ├── index.html              # Main page (graph + overlays)
+    ├── data.html               # Standalone: Pre-training Data Pipeline
+    ├── tokenization.html       # Standalone: Tokenization Pipeline
     ├── architecture.html       # Standalone: LLM Architecture Evolution
     ├── post-training.html      # Standalone: Post-Training Pipeline
-    ├── data.html               # Standalone: Pre-training Data Pipeline
     ├── css/                    # variables, layout, components, responsive
     └── js/
         ├── nodes.js            # Paper node definitions

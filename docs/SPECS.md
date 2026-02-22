@@ -145,9 +145,10 @@ A future script could parse `/analysis/explored/**/*.md` files and auto-generate
 ```
 docs/
 ├── index.html              # Main HTML (header, panels, graph container)
+├── data.html               # Standalone: Pre-training Data Pipeline
+├── tokenization.html       # Standalone: Tokenization Pipeline
 ├── architecture.html       # Standalone: LLM Architecture Evolution
 ├── post-training.html      # Standalone: Post-Training Pipeline
-├── data.html               # Standalone: Pre-training Data Pipeline
 ├── css/
 │   ├── variables.css       # Theme tokens, colors, spacing, z-index
 │   ├── layout.css          # Base styles, header, graph container, controls
