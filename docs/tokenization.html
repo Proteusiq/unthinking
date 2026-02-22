@@ -387,8 +387,8 @@
             <b style="color: #f0883e">Multilingual</b>: English-trained tokenizers waste 2-3× more
             tokens on Chinese/Arabic, leaving less context window for actual reasoning.<br /><br />
             <span style="color: #3fb950"
-              >Counter-argument: reasoning models (o1, R1) partially overcome tokenization limits via
-              chain-of-thought decomposition — but this is a workaround, not a fix.</span
+              >Counter-argument: reasoning models (o1, R1) partially overcome tokenization limits
+              via chain-of-thought decomposition — but this is a workaround, not a fix.</span
             >
           </div>
         </div>
@@ -410,9 +410,8 @@
         >
           How text enters the transformer. Raw strings must become integer sequences before any
           computation happens —
-          <b style="color: #c9d1d9"
-            >string → bytes → subword tokens → embedding vectors → model</b
-          >. Tokenization choices directly shape what the model can and cannot learn. Click any card
+          <b style="color: #c9d1d9">string → bytes → subword tokens → embedding vectors → model</b>.
+          Tokenization choices directly shape what the model can and cannot learn. Click any card
           for detail.
         </div>
         <div class="era-tabs" id="era-tabs"></div>
@@ -534,7 +533,7 @@
           name: 'Word Tokenizer',
           key: 'Split on whitespace/punctuation. Each word = one token. UNK problem for unseen words.',
           detail:
-            "Split text using regex (e.g., GPT-2 pattern). Each unique word gets an integer ID. Vocabulary = all distinct words in training corpus. New words at inference \u2192 special UNK token. <b>Pre-tokenization</b> (splitting into coarse segments before BPE) descends from this approach.",
+            'Split text using regex (e.g., GPT-2 pattern). Each unique word gets an integer ID. Vocabulary = all distinct words in training corpus. New words at inference \u2192 special UNK token. <b>Pre-tokenization</b> (splitting into coarse segments before BPE) descends from this approach.',
           limit:
             '\u26a0 Unbounded vocabulary. No handling of morphology ("running" \u2260 "run"). UNK tokens corrupt perplexity.',
           use: '\u2192 Classical NLP (pre-2016). Still used as pre-tokenization step before BPE.',
@@ -578,7 +577,7 @@
           name: 'Pre-Tokenization (GPT-2 Regex)',
           key: 'Split text into coarse segments BEFORE BPE. Prevents merges across word boundaries.',
           detail:
-            "GPT-2 introduced a regex pre-tokenization step: contractions ('s, 't, 'll), letter runs, number runs, punctuation, and whitespace are split first. BPE then operates within each segment. This prevents nonsensical merges like \"the\" + \" cat\" becoming a single token. <b>The regex pattern is as important as the BPE algorithm itself.</b>",
+            'GPT-2 introduced a regex pre-tokenization step: contractions (\'s, \'t, \'ll), letter runs, number runs, punctuation, and whitespace are split first. BPE then operates within each segment. This prevents nonsensical merges like "the" + " cat" becoming a single token. <b>The regex pattern is as important as the BPE algorithm itself.</b>',
           limit:
             '\u26a0 English-biased regex. Different models use different patterns, making tokenizers incompatible.',
           use: '\u2192 GPT-2, GPT-3 (cl100k_base uses different pattern). All tiktoken-based models.',
@@ -689,8 +688,7 @@
           key: 'No discrete tokenization. Character-level with learned downsampling. Eliminates tokenizer entirely.',
           detail:
             '<b>T-Free</b>: replaces the tokenizer + embedding lookup with a learned character-to-representation module. Characters are embedded and dynamically downsampled before entering the transformer. No fixed vocabulary, no merge rules, no tokenization artifacts.',
-          limit:
-            '\u26a0 Early research stage. Not yet competitive with BPE at frontier scale.',
+          limit: '\u26a0 Early research stage. Not yet competitive with BPE at frontier scale.',
           use: '\u2192 Research prototype. Points toward a tokenizer-free future.',
         },
         {
@@ -837,31 +835,36 @@
         {
           step: 0,
           label: 'Start',
-          tokens: '[116, 104, 101, 32, 99, 97, 116, 32, 105, 110, 32, 116, 104, 101, 32, 104, 97, 116]',
+          tokens:
+            '[116, 104, 101, 32, 99, 97, 116, 32, 105, 110, 32, 116, 104, 101, 32, 104, 97, 116]',
           desc: 'String "the cat in the hat" as UTF-8 bytes. 18 tokens, vocabulary = 256 byte values.',
         },
         {
           step: 1,
           label: 'Merge 1',
-          tokens: 'Most frequent pair: (116, 104) = "th" \u2192 appears 3\u00d7. New token 256 = "th".',
+          tokens:
+            'Most frequent pair: (116, 104) = "th" \u2192 appears 3\u00d7. New token 256 = "th".',
           desc: 'Scan all adjacent pairs. (116,104) appears in "the" (2\u00d7) and "hat" (1\u00d7). Merge into token 256.',
         },
         {
           step: 2,
           label: 'Merge 2',
-          tokens: 'Most frequent pair: (256, 101) = "the" \u2192 appears 2\u00d7. New token 257 = "the".',
+          tokens:
+            'Most frequent pair: (256, 101) = "the" \u2192 appears 2\u00d7. New token 257 = "the".',
           desc: 'After merge 1: [256, 101, 32, 99, 97, 116, 32, 105, 110, 32, 256, 101, 32, 104, 97, 116]. Pair (256,101) = "th"+"e" appears 2\u00d7.',
         },
         {
           step: 3,
           label: 'Merge 3',
-          tokens: 'Most frequent pair: (257, 32) = "the " \u2192 appears 2\u00d7. New token 258 = "the ".',
+          tokens:
+            'Most frequent pair: (257, 32) = "the " \u2192 appears 2\u00d7. New token 258 = "the ".',
           desc: 'After merge 2: [257, 32, 99, 97, 116, 32, 105, 110, 32, 257, 32, 104, 97, 116]. Pair (257,32) = "the"+" " appears 2\u00d7.',
         },
         {
           step: 'done',
           label: 'Result',
-          tokens: 'Vocabulary: {0\u2013255: bytes, 256: "th", 257: "the", 258: "the "}. 3 merges compressed 18 \u2192 12 tokens.',
+          tokens:
+            'Vocabulary: {0\u2013255: bytes, 256: "th", 257: "the", 258: "the "}. 3 merges compressed 18 \u2192 12 tokens.',
           desc: 'In practice, BPE runs 50K\u2013150K merges. Common English words become single tokens. Rare words decompose into subwords. The merge table IS the tokenizer.',
         },
       ];
@@ -896,9 +899,7 @@
           (e) =>
             `<div class="era-tab" style="color:${e.color};border-color:${e.id === activeEra ? e.color : 'transparent'};background:${e.id === activeEra ? e.color + '22' : '#161b22'}" onclick="selEra('${e.id}')">${e.label}</div>`
         ).join('');
-        document.getElementById('card-grid').innerHTML = CARDS.filter(
-          (c) => c.era === activeEra
-        )
+        document.getElementById('card-grid').innerHTML = CARDS.filter((c) => c.era === activeEra)
           .map(
             (c, i) =>
               `<div class="card" id="cc${i}" onclick="togCard('cc${i}')" style="border-left:3px solid ${era.color}">

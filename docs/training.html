@@ -1,0 +1,2294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LLM Training Pipeline | The Thinking Machine That Doesn't Think</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: #0d1117;
+        color: #c9d1d9;
+        font-family: 'Courier New', monospace;
+        padding: 1.5rem 1rem 3rem;
+      }
+
+      /* ── TOPBAR ── */
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 720px;
+        margin: 0 auto 1.6rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      h2 {
+        color: #56d364;
+        letter-spacing: 2px;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+      }
+      .toggle-wrap {
+        display: flex;
+        gap: 0;
+        border: 1px solid #30363d;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      .toggle-btn {
+        background: #161b22;
+        color: #8b949e;
+        border: none;
+        padding: 5px 13px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.63rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition:
+          background 0.15s,
+          color 0.15s;
+        border-right: 1px solid #30363d;
+      }
+      .toggle-btn:last-child {
+        border-right: none;
+      }
+      .toggle-btn.active {
+        background: #56d364;
+        color: #0d1117;
+        font-weight: bold;
+      }
+
+      /* ── VIEWS ── */
+      #view-pipeline,
+      #view-mechanics,
+      #view-research {
+        display: none;
+      }
+      #view-pipeline.show,
+      #view-mechanics.show,
+      #view-research.show {
+        display: block;
+      }
+
+      /* ── PHASE BANNERS ── */
+      .phase-banners {
+        display: flex;
+        gap: 8px;
+        width: 720px;
+        margin: 0 auto 1.1rem;
+        flex-wrap: wrap;
+      }
+      .pb {
+        font-size: 0.63rem;
+        padding: 6px 10px;
+        border-radius: 4px;
+        line-height: 1.65;
+        flex: 1;
+        min-width: 200px;
+      }
+      .pb b {
+        display: block;
+        font-size: 0.65rem;
+        margin-bottom: 3px;
+      }
+
+      /* ── PIPELINE LAYOUT ── */
+      .outer {
+        display: flex;
+        gap: 0;
+        width: 720px;
+        margin: 0 auto;
+      }
+      .timeline {
+        width: 66px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+      }
+      .tl-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .tl-year {
+        font-size: 0.55rem;
+        color: #56d364;
+        font-weight: bold;
+        white-space: nowrap;
+      }
+      .tl-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #30363d;
+        margin: 3px 0;
+        flex-shrink: 0;
+      }
+      .tl-dot.active {
+        background: #56d364;
+        box-shadow: 0 0 5px #56d36488;
+      }
+      .tl-line {
+        width: 2px;
+        background: #21262d;
+        flex: 1;
+        min-height: 10px;
+      }
+
+      .pipeline {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .stage-wrap {
+        width: 100%;
+      }
+
+      /* ── BOX (expandable stage) ── */
+      .box {
+        border: 1px solid #30363d;
+        border-radius: 6px;
+        padding: 0.75rem 0.95rem;
+        background: #161b22;
+        cursor: pointer;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+        width: 100%;
+      }
+      .box:hover {
+        border-color: #56d364;
+        background: #1c2128;
+      }
+      .box-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .snum {
+        font-size: 0.55rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        opacity: 0.55;
+        margin-bottom: 2px;
+      }
+      .sname {
+        font-size: 0.86rem;
+        font-weight: bold;
+      }
+      .chevron {
+        font-size: 0.6rem;
+        color: #30363d;
+        transition: transform 0.2s;
+        flex-shrink: 0;
+        padding-left: 6px;
+        margin-top: 2px;
+      }
+      .box.open .chevron {
+        transform: rotate(180deg);
+        color: #56d364;
+      }
+      .sdesc-short {
+        font-size: 0.69rem;
+        color: #8b949e;
+        line-height: 1.7;
+        margin-top: 0.32rem;
+      }
+      .sdesc-detail {
+        font-size: 0.69rem;
+        color: #8b949e;
+        line-height: 1.8;
+        margin-top: 0.6rem;
+        padding-top: 0.6rem;
+        border-top: 1px solid #21262d;
+        display: none;
+      }
+      .box.open .sdesc-detail {
+        display: block;
+      }
+      .sdesc-short b,
+      .sdesc-detail b {
+        color: #e6edf3;
+      }
+      .math-block {
+        background: #0d1117;
+        border: 1px solid #21262d;
+        border-radius: 4px;
+        padding: 5px 9px;
+        margin: 5px 0;
+        font-size: 0.67rem;
+        color: #79c0ff;
+        line-height: 1.55;
+      }
+      .crit-note {
+        border-top: 1px dashed #f0883e;
+        padding-top: 0.5rem;
+        margin-top: 0.35rem;
+        font-size: 0.67rem;
+      }
+      .crit-label {
+        color: #f0883e;
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 0.2rem;
+      }
+      .thesis-note {
+        border-top: 1px dashed #56d364;
+        padding-top: 0.5rem;
+        margin-top: 0.35rem;
+        font-size: 0.67rem;
+      }
+      .thesis-label {
+        color: #56d364;
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 0.2rem;
+      }
+
+      /* ── ARROWS ── */
+      .arrow {
+        text-align: left;
+        padding-left: 12px;
+        color: #30363d;
+        font-size: 1rem;
+        line-height: 1.35;
+      }
+      .arrow-label {
+        font-size: 0.55rem;
+        color: #30363d;
+        letter-spacing: 1px;
+        display: block;
+      }
+
+      /* ── PHASE DIVIDER ── */
+      .phase-divider {
+        width: 100%;
+        text-align: center;
+        font-size: 0.57rem;
+        color: #8b949e;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin: 6px 0;
+        padding: 6px 0;
+        border-top: 1px dashed #30363d;
+        border-bottom: 1px dashed #30363d;
+      }
+
+      /* ── BRANCH/FORK (post-training) ── */
+      .branch-split {
+        width: 100%;
+        display: flex;
+        gap: 10px;
+      }
+      .branch {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .branch-label {
+        font-size: 0.57rem;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 6px;
+        padding: 3px 0;
+        border-radius: 3px;
+      }
+      .branch-std .branch-label {
+        color: #56d364;
+        background: #1b2e1f;
+      }
+      .branch-llm .branch-label {
+        color: #d2a8ff;
+        background: #2b1d3d;
+      }
+      .branch-arrow {
+        text-align: center;
+        color: #30363d;
+        font-size: 0.9rem;
+        line-height: 1.3;
+        padding: 2px 0;
+      }
+      .fork3 {
+        display: flex;
+        gap: 7px;
+        width: 100%;
+      }
+      .fork-col {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .fork-col-label {
+        font-size: 0.55rem;
+        color: #56d364;
+        text-align: center;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+      .fork-label-row {
+        display: flex;
+        justify-content: center;
+        font-size: 0.58rem;
+        color: #ffa657;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+      }
+      .fork-or {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #21262d;
+        font-size: 0.7rem;
+        padding: 0 2px;
+        flex-shrink: 0;
+      }
+
+      /* ── LOOP ── */
+      .loop-wrap {
+        display: flex;
+        width: 100%;
+        gap: 0;
+      }
+      .loop-content {
+        flex: 1;
+      }
+      .loop-bar {
+        width: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 4px 0;
+      }
+      .loop-tag {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        font-size: 0.5rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #3fb950;
+      }
+      .loop-line {
+        flex: 1;
+        width: 2px;
+        background: #3fb95044;
+        margin: 3px 0;
+      }
+      .loop-arrow-up {
+        color: #3fb950;
+        font-size: 0.8rem;
+      }
+
+      /* ── SPEC GRID ── */
+      .spec-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 6px;
+        margin-top: 0.4rem;
+      }
+      .spec-item {
+        background: #0d1117;
+        border: 1px solid #21262d;
+        border-radius: 4px;
+        padding: 6px 8px;
+        font-size: 0.63rem;
+        line-height: 1.6;
+      }
+
+      /* ── LABS ── */
+      .labs-section-title {
+        font-size: 0.58rem;
+        color: #8b949e;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin: 1.4rem 0 0.5rem;
+        padding-left: 4px;
+      }
+      .labs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7px;
+      }
+      .lab {
+        border: 1px solid #30363d;
+        border-radius: 5px;
+        padding: 8px 10px;
+        font-size: 0.65rem;
+        color: #8b949e;
+        line-height: 1.7;
+        background: #161b22;
+      }
+      .lname {
+        font-size: 0.65rem;
+        font-weight: bold;
+        margin-bottom: 3px;
+      }
+
+      /* ── NOTE ── */
+      .note {
+        border: 1px solid #30363d;
+        border-radius: 6px;
+        padding: 0.7rem 1rem;
+        font-size: 0.67rem;
+        color: #8b949e;
+        line-height: 1.8;
+        background: #161b22;
+        margin-top: 0.9rem;
+      }
+      .note b {
+        color: #e6edf3;
+      }
+      .note-title {
+        font-size: 0.6rem;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 0.4rem;
+      }
+
+      /* ── MECHANICS TAB ── */
+      .mech-wrap {
+        width: 720px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.3rem;
+      }
+      .mech-section {
+        border: 1px solid #30363d;
+        border-radius: 6px;
+        background: #161b22;
+        overflow: hidden;
+      }
+      .mech-header {
+        padding: 0.65rem 1rem;
+        display: flex;
+        align-items: baseline;
+        gap: 0.7rem;
+        border-bottom: 1px solid #21262d;
+        background: #0d1117;
+        cursor: pointer;
+      }
+      .mech-header:hover {
+        background: #161b22;
+      }
+      .mech-num {
+        font-size: 0.6rem;
+        color: #56d364;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: bold;
+        flex-shrink: 0;
+      }
+      .mech-title {
+        font-size: 0.88rem;
+        font-weight: bold;
+        flex: 1;
+      }
+      .mech-chev {
+        font-size: 0.6rem;
+        color: #30363d;
+        transition: transform 0.2s;
+      }
+      .mech-section.open .mech-chev {
+        transform: rotate(180deg);
+        color: #56d364;
+      }
+      .mech-body {
+        font-size: 0.69rem;
+        color: #8b949e;
+        line-height: 1.85;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.3s ease,
+          padding 0.3s;
+      }
+      .mech-section.open .mech-body {
+        padding: 0.82rem 1rem;
+        max-height: 6000px;
+      }
+      .mech-body b {
+        color: #e6edf3;
+      }
+      .mech-body h4 {
+        font-size: 0.63rem;
+        color: #56d364;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin: 0.65rem 0 0.28rem;
+      }
+      .mech-body h4:first-child {
+        margin-top: 0;
+      }
+      .mech-body .math-block {
+        font-size: 0.67rem;
+      }
+      .mech-body .ref {
+        font-size: 0.63rem;
+        color: #3fb950;
+        margin: 2px 0;
+      }
+      .mech-body .ref::before {
+        content: '\2192 ';
+      }
+      .mech-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.67rem;
+        margin-top: 0.5rem;
+      }
+      .mech-table th {
+        background: #0d1117;
+        color: #56d364;
+        padding: 5px 9px;
+        text-align: left;
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border-bottom: 1px solid #30363d;
+      }
+      .mech-table td {
+        padding: 5px 9px;
+        border-bottom: 1px solid #21262d;
+        color: #8b949e;
+        vertical-align: top;
+      }
+      .mech-table td b {
+        color: #e6edf3;
+      }
+      .mech-table tr:last-child td {
+        border-bottom: none;
+      }
+      .mech-table tr:hover td {
+        background: #1c2128;
+      }
+
+      /* ── RESEARCH TAB ── */
+      .rw {
+        width: 720px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.3rem;
+      }
+      .rw-section {
+        border: 1px solid #30363d;
+        border-radius: 6px;
+        background: #161b22;
+        overflow: hidden;
+      }
+      .rw-header {
+        padding: 0.65rem 1rem;
+        display: flex;
+        align-items: baseline;
+        gap: 0.7rem;
+        border-bottom: 1px solid #21262d;
+        background: #0d1117;
+        cursor: pointer;
+      }
+      .rw-header:hover {
+        background: #161b22;
+      }
+      .rw-num {
+        font-size: 0.6rem;
+        color: #56d364;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: bold;
+        flex-shrink: 0;
+      }
+      .rw-title {
+        font-size: 0.88rem;
+        font-weight: bold;
+        flex: 1;
+      }
+      .rw-chev {
+        font-size: 0.6rem;
+        color: #30363d;
+        transition: transform 0.2s;
+      }
+      .rw-section.open .rw-chev {
+        transform: rotate(180deg);
+        color: #56d364;
+      }
+      .rw-body {
+        font-size: 0.69rem;
+        color: #8b949e;
+        line-height: 1.85;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.3s ease,
+          padding 0.3s;
+      }
+      .rw-section.open .rw-body {
+        padding: 0.82rem 1rem;
+        max-height: 6000px;
+      }
+      .rw-body b {
+        color: #e6edf3;
+      }
+      .rw-body h4 {
+        font-size: 0.63rem;
+        color: #56d364;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin: 0.65rem 0 0.28rem;
+      }
+      .rw-body h4:first-child {
+        margin-top: 0;
+      }
+      .rw-body .ref {
+        font-size: 0.63rem;
+        color: #3fb950;
+        margin: 2px 0;
+      }
+      .rw-body .ref::before {
+        content: '\2192 ';
+      }
+      .rw-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.67rem;
+        margin-top: 0.5rem;
+      }
+      .rw-table th {
+        background: #0d1117;
+        color: #56d364;
+        padding: 5px 9px;
+        text-align: left;
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border-bottom: 1px solid #30363d;
+      }
+      .rw-table td {
+        padding: 5px 9px;
+        border-bottom: 1px solid #21262d;
+        color: #8b949e;
+        vertical-align: top;
+      }
+      .rw-table td b {
+        color: #e6edf3;
+      }
+      .rw-table tr:last-child td {
+        border-bottom: none;
+      }
+      .rw-table tr:hover td {
+        background: #1c2128;
+      }
+      .open-problems {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7px;
+        margin-top: 0.5rem;
+      }
+      .op-item {
+        background: #0d1117;
+        border: 1px solid #21262d;
+        border-radius: 4px;
+        padding: 7px 9px;
+        font-size: 0.67rem;
+        color: #8b949e;
+        line-height: 1.6;
+      }
+      .op-item b {
+        color: #f0883e;
+      }
+
+      /* ── BACK LINK ── */
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: #56d364;
+        text-decoration: none;
+        font-size: 0.7rem;
+        margin-bottom: 1rem;
+        opacity: 0.8;
+        transition: opacity 0.15s;
+      }
+      .back-link:hover {
+        opacity: 1;
+      }
+      .back-link svg {
+        width: 14px;
+        height: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="width: 720px; margin: 0 auto">
+      <a
+        href="index.html"
+        class="back-link"
+        onclick="
+          if (window.parent !== window) {
+            window.parent.closeOverlay();
+            return false;
+          }
+        "
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        Back to Paper Network
+      </a>
+    </div>
+
+    <div class="topbar">
+      <h2>LLM Training</h2>
+      <div class="toggle-wrap">
+        <button class="toggle-btn active" id="btn-pipeline" onclick="setMode('pipeline')">
+          Pipeline
+        </button>
+        <button class="toggle-btn" id="btn-mechanics" onclick="setMode('mechanics')">
+          Mechanics
+        </button>
+        <button class="toggle-btn" id="btn-research" onclick="setMode('research')">Research</button>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         PIPELINE TAB — Full training lifecycle
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <div id="view-pipeline" class="show">
+      <div class="phase-banners">
+        <div class="pb" style="background: #0d223322; border: 1px solid #58a6ff33">
+          <b style="color: #58a6ff">Phase 1: Pre-training</b>
+          Next-token prediction on trillions of tokens. The foundation: world knowledge, language
+          structure, latent capabilities. Dominated by compute, data, and optimization.
+        </div>
+        <div class="pb" style="background: #2d220022; border: 1px solid #e3b34133">
+          <b style="color: #e3b341">Phase 2: Mid-training</b>
+          Annealing with high-quality data, domain adaptation, long-context extension. Bridges raw
+          pre-training and behavioral fine-tuning.
+        </div>
+        <div class="pb" style="background: #1b2e1f22; border: 1px solid #56d36433">
+          <b style="color: #56d364">Phase 3: Post-training</b>
+          SFT, RLHF, DPO, GRPO, RLVR. Alignment, instruction-following, reasoning. Surface
+          compliance or genuine capability shift?
+        </div>
+      </div>
+
+      <div class="outer">
+        <div class="timeline">
+          <div class="tl-item">
+            <span class="tl-year">Pre</span>
+            <div class="tl-dot active"></div>
+          </div>
+          <div class="tl-item"><div class="tl-line" style="min-height: 34px"></div></div>
+          <div class="tl-item"><div class="tl-dot"></div></div>
+          <div class="tl-item"><div class="tl-line" style="min-height: 34px"></div></div>
+          <div class="tl-item"><div class="tl-dot"></div></div>
+          <div class="tl-item"><div class="tl-line" style="min-height: 34px"></div></div>
+          <div class="tl-item">
+            <span class="tl-year">Mid</span>
+            <div class="tl-dot active"></div>
+          </div>
+          <div class="tl-item"><div class="tl-line" style="min-height: 34px"></div></div>
+          <div class="tl-item"><div class="tl-dot"></div></div>
+          <div class="tl-item"><div class="tl-line" style="min-height: 34px"></div></div>
+          <div class="tl-item">
+            <span class="tl-year">Post</span>
+            <div class="tl-dot active"></div>
+          </div>
+          <div class="tl-item"><div class="tl-line" style="min-height: 34px"></div></div>
+          <div class="tl-item"><div class="tl-dot"></div></div>
+          <div class="tl-item"><div class="tl-line" style="min-height: 54px"></div></div>
+          <div class="tl-item"><div class="tl-dot"></div></div>
+          <div class="tl-item"><div class="tl-line" style="min-height: 54px"></div></div>
+          <div class="tl-item"><div class="tl-dot"></div></div>
+          <div class="tl-item"><div class="tl-line" style="flex: 1"></div></div>
+        </div>
+
+        <div class="pipeline">
+          <!-- ───── PRE-TRAINING ───── -->
+          <div class="stage-wrap">
+            <div class="box" onclick="toggle(this)">
+              <div class="box-header">
+                <div>
+                  <div class="snum">Phase 1 · Pre-training</div>
+                  <div class="sname">Training Loop</div>
+                </div>
+                <span class="chevron">&#9660;</span>
+              </div>
+              <div class="sdesc-short">
+                Forward pass, cross-entropy loss, backward pass, optimizer step. Repeated billions
+                of times across trillions of tokens.
+              </div>
+              <div class="sdesc-detail">
+                <div class="math-block">L = -1/T &sum; log p_&theta;(x_t | x_&lt;t)</div>
+                The entire capability of the model derives from this single objective: predict the
+                next token. Every representation, every "fact", every apparent reasoning ability is
+                a byproduct of compression under this loss.<br /><br />
+                <b>Batch size:</b> starts small (~0.5M tokens), ramps to 4-60M tokens. Gradient
+                accumulation simulates large batches on limited hardware.<br />
+                <b>Training duration:</b> GPT-3 = 300B tokens. Llama 3 = 15T tokens.
+                Chinchilla-optimal for 70B &asymp; 1.4T tokens, but modern models overtrain by
+                5-10&times; for inference efficiency.
+                <div class="thesis-note">
+                  <div class="thesis-label">Thesis</div>
+                  Every capability the model will ever exhibit traces back to this compression
+                  objective. Post-training can steer but not fundamentally extend what pre-training
+                  encoded.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="arrow">|<br />&#9660;</div>
+
+          <div class="stage-wrap">
+            <div class="box" onclick="toggle(this)">
+              <div class="box-header">
+                <div>
+                  <div class="snum">Optimization</div>
+                  <div class="sname">AdamW &amp; Learning Rate</div>
+                </div>
+                <span class="chevron">&#9660;</span>
+              </div>
+              <div class="sdesc-short">
+                AdamW with warmup + cosine/WSD decay. The optimizer is the engine; the schedule is
+                the fuel curve.
+              </div>
+              <div class="sdesc-detail">
+                <b>Evolution:</b> SGD &rarr; SGD+Momentum &rarr; Adam &rarr; <b>AdamW</b> (decoupled
+                weight decay) &rarr; Muon/SOAP (2025)<br /><br />
+                <div class="math-block">
+                  AdamW: &theta;_{t+1} = &theta;_t &minus; &eta;(m&#770;_t / (&radic;v&#770;_t +
+                  &epsilon;) + &lambda;&theta;_t)<br />
+                  m_t = &beta;_1 m_{t-1} + (1&minus;&beta;_1)g_t, v_t = &beta;_2 v_{t-1} +
+                  (1&minus;&beta;_2)g_t&sup2;
+                </div>
+                <b>Learning rate schedule:</b><br />
+                &bull; <b>Warmup:</b> 0 &rarr; peak over ~2000 steps (prevents early instability)<br />
+                &bull; <b>Cosine decay:</b> peak &rarr; ~0.1&times; peak over training<br />
+                &bull; <b>WSD (Warmup-Stable-Decay):</b> warmup &rarr; constant &rarr; sharp decay.
+                Used by Llama 3, enables mid-training branches.<br /><br />
+                <b>Muon (Kimi K2, 2025):</b> momentum-based orthogonalized update. Claimed 2&times;
+                compute efficiency vs AdamW for MoE models. Uses Newton-Schulz orthogonalization on
+                momentum matrix.<br />
+                <b>SOAP:</b> Shampoo-style second-order approximation. More memory but better
+                conditioning on large models.
+                <div class="crit-note">
+                  <div class="crit-label">&#9888; Critical</div>
+                  Peak LR is the most sensitive hyperparameter. Too high = loss spikes and
+                  instability. Too low = undertrained model. Typically found by small-scale sweep +
+                  scaling law extrapolation.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="arrow">|<br />&#9660;</div>
+
+          <div class="stage-wrap">
+            <div class="box" onclick="toggle(this)">
+              <div class="box-header">
+                <div>
+                  <div class="snum">Precision &amp; Hardware</div>
+                  <div class="sname">Mixed Precision Training</div>
+                </div>
+                <span class="chevron">&#9660;</span>
+              </div>
+              <div class="sdesc-short">
+                bf16/fp16 forward + backward, fp32 master weights and optimizer states. fp8 emerging
+                for next-gen hardware.
+              </div>
+              <div class="sdesc-detail">
+                <table class="mech-table">
+                  <thead>
+                    <tr>
+                      <th>Format</th>
+                      <th>Bits</th>
+                      <th>Range</th>
+                      <th>Use</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><b>fp32</b></td>
+                      <td>32</td>
+                      <td>&plusmn;3.4&times;10^38</td>
+                      <td>Master weights, optimizer states</td>
+                    </tr>
+                    <tr>
+                      <td><b>bf16</b></td>
+                      <td>16</td>
+                      <td>Same as fp32</td>
+                      <td>Forward/backward pass (standard)</td>
+                    </tr>
+                    <tr>
+                      <td><b>fp16</b></td>
+                      <td>16</td>
+                      <td>&plusmn;65504</td>
+                      <td>Older GPUs, needs loss scaling</td>
+                    </tr>
+                    <tr>
+                      <td><b>fp8 (E4M3)</b></td>
+                      <td>8</td>
+                      <td>&plusmn;448</td>
+                      <td>H100/B100 matmuls, ~2&times; throughput</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br />
+                <b>Why bf16 won:</b> same exponent range as fp32 (8 bits), so no loss scaling
+                needed. fp16 has only 5 exponent bits &mdash; requires careful scaling to avoid
+                overflow/underflow.<br /><br />
+                <b>DeepSeek V3 fp8:</b> full fp8 training with fine-grained quantization (per-tile
+                scaling). First frontier model trained entirely in fp8. 2.788M H800 GPU-hours at
+                $5.58M total.
+                <div class="thesis-note">
+                  <div class="thesis-label">Thesis</div>
+                  If models can be trained in 8-bit precision with no quality loss, the
+                  representations may be less precise than assumed &mdash; more consistent with
+                  approximate pattern matching than exact symbolic reasoning.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="arrow">|<br />&#9660;</div>
+
+          <div class="stage-wrap">
+            <div class="box" onclick="toggle(this)">
+              <div class="box-header">
+                <div>
+                  <div class="snum">Distributed</div>
+                  <div class="sname">Parallelism &amp; Scale</div>
+                </div>
+                <span class="chevron">&#9660;</span>
+              </div>
+              <div class="sdesc-short">
+                Data, tensor, pipeline, and expert parallelism. ZeRO sharding for memory efficiency.
+                1000s of GPUs in lockstep.
+              </div>
+              <div class="sdesc-detail">
+                <b>Data Parallel (DDP):</b> each GPU holds full model, splits data. All-reduce
+                gradients. Simple but limited by model size.<br /><br />
+                <b>ZeRO (1/2/3):</b> shard optimizer states (Z1), gradients (Z2), or parameters (Z3)
+                across GPUs. Llama 3: FSDP (Z3 equivalent).<br /><br />
+                <b>Tensor Parallel (TP):</b> split individual layers across GPUs. Column-parallel
+                for first linear, row-parallel for second. Requires fast interconnect (NVLink).<br /><br />
+                <b>Pipeline Parallel (PP):</b> split layers across GPU groups. Micro-batching fills
+                the pipeline bubble. GPipe, 1F1B schedules.<br /><br />
+                <b>Expert Parallel (EP):</b> distribute MoE experts across GPUs. All-to-all
+                communication for token routing.<br /><br />
+                <b>Llama 3 405B:</b> 4D parallelism (TP=8 + PP=16 + CP=4 + DP) on 16,384 H100s. 95%
+                uptime with automatic failure recovery.
+                <div class="crit-note">
+                  <div class="crit-label">&#9888; Critical</div>
+                  Communication overhead scales with parallelism degree. At 10,000+ GPUs, collective
+                  communication accounts for 30-40% of wall-clock time. Hardware efficiency (MFU)
+                  rarely exceeds 50%.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="arrow">|<br />&#9660;</div>
+
+          <div class="stage-wrap">
+            <div class="box" onclick="toggle(this)">
+              <div class="box-header">
+                <div>
+                  <div class="snum">Compute Budget</div>
+                  <div class="sname">Scaling Laws</div>
+                </div>
+                <span class="chevron">&#9660;</span>
+              </div>
+              <div class="sdesc-short">
+                Loss = f(N, D, C). Chinchilla: train N and D proportionally. Modern practice:
+                overtrain smaller models for inference savings.
+              </div>
+              <div class="sdesc-detail">
+                <div class="math-block">
+                  L(N, D) = A/N^&alpha; + B/D^&beta; + L_&infin;<br />
+                  Kaplan (2020): &alpha; &asymp; 0.076, &beta; &asymp; 0.095<br />
+                  Chinchilla (2022): optimal D &asymp; 20&times;N (given fixed compute)
+                </div>
+                <b>Chinchilla (2022):</b> for compute-optimal training, data and parameters should
+                scale proportionally. Gopher (280B, 300B tokens) was undertrained; Chinchilla (70B,
+                1.4T tokens) matched it with 4&times; less compute.<br /><br />
+                <b>Modern overtraining:</b> Llama 3 8B trained on 15T tokens (1875&times;
+                Chinchilla-optimal ratio). Inference cost dominates: cheaper to overtrain once than
+                serve an underperforming model billions of times.<br /><br />
+                <b>Compute cost:</b> ~6ND FLOPs per training token (forward + backward). GPT-4
+                estimated at ~10^25 FLOPs. Llama 3 405B = 3.8&times;10^25 FLOPs.
+                <div class="thesis-note">
+                  <div class="thesis-label">Thesis</div>
+                  Scaling laws show smooth power-law improvement &mdash; no phase transitions, no
+                  sudden emergence of "understanding." Consistent with compression getting
+                  incrementally better, not qualitative capability jumps.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ───── MID-TRAINING ───── -->
+          <div class="phase-divider">Mid-training begins</div>
+
+          <div class="stage-wrap">
+            <div class="box" onclick="toggle(this)">
+              <div class="box-header">
+                <div>
+                  <div class="snum">Phase 2 · Mid-training</div>
+                  <div class="sname">Annealing &amp; Cooldown</div>
+                </div>
+                <span class="chevron">&#9660;</span>
+              </div>
+              <div class="sdesc-short">
+                Final 1-5% of training tokens at decayed LR with curated, high-quality data.
+                Crystallizes knowledge before post-training.
+              </div>
+              <div class="sdesc-detail">
+                <b>Llama 3:</b> final 40M tokens at elevated quality. WSD schedule enables branching
+                &mdash; checkpoint the stable phase, then anneal separately for different downstream
+                objectives.<br /><br />
+                <b>OLMo 2:</b> explicit "annealing mix" with carefully balanced domain proportions.
+                Math/code upweighted 2-3&times; vs pre-training mix.<br /><br />
+                <b>Qwen 2.5:</b> long-context extension folded into annealing phase &mdash;
+                gradually increase context from 4K to 32K with RoPE rescaling.<br /><br />
+                <b>Mechanism:</b> decayed LR acts as implicit regularization &mdash; model
+                consolidates patterns rather than learning new ones. Analogous to simulated
+                annealing in optimization.
+                <div class="crit-note">
+                  <div class="crit-label">&#9888; Critical</div>
+                  Data composition during annealing has outsized impact. Poor mix here can undo
+                  gains from trillions of pre-training tokens.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="arrow">|<br />&#9660;</div>
+
+          <div class="stage-wrap">
+            <div class="box" onclick="toggle(this)">
+              <div class="box-header">
+                <div>
+                  <div class="snum">Domain Adaptation</div>
+                  <div class="sname">Continued Pre-training</div>
+                </div>
+                <span class="chevron">&#9660;</span>
+              </div>
+              <div class="sdesc-short">
+                Additional pre-training on domain-specific corpora. Medicine, law, code, science.
+                Same objective, targeted data.
+              </div>
+              <div class="sdesc-detail">
+                <b>CodeLlama:</b> continued pre-training on 500B code tokens from Llama 2 base.
+                Fills-in-the-middle (FIM) objective added: predict masked span given prefix and
+                suffix.<br /><br />
+                <b>BioMedLM / Med-PaLM:</b> biomedical text continuation. Improves domain vocabulary
+                coverage and factual recall in-domain.<br /><br />
+                <b>Key insight:</b> continued pre-training is cheaper than training from scratch.
+                50-100B domain tokens on a 7B model typically suffices for meaningful domain
+                adaptation.<br /><br />
+                <b>Risk:</b> catastrophic forgetting of general capabilities. Mitigated by mixing
+                10-20% general data (replay buffer).
+                <div class="thesis-note">
+                  <div class="thesis-label">Thesis</div>
+                  Domain adaptation works because the base model already encodes general language
+                  patterns. Specialization is distribution shift, not knowledge creation.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="arrow">|<br />&#9660;</div>
+
+          <div class="stage-wrap">
+            <div class="box" onclick="toggle(this)">
+              <div class="box-header">
+                <div>
+                  <div class="snum">Context Extension</div>
+                  <div class="sname">Long-Context Training</div>
+                </div>
+                <span class="chevron">&#9660;</span>
+              </div>
+              <div class="sdesc-short">
+                RoPE rescaling, progressive extension from 4K to 128K+ tokens. Enables reasoning
+                over long documents.
+              </div>
+              <div class="sdesc-detail">
+                <b>RoPE ABF (Llama 3):</b> increase RoPE base frequency from 10K to 500K. Train on
+                progressively longer sequences: 8K &rarr; 32K &rarr; 128K.<br /><br />
+                <b>YaRN (Qwen):</b> NTK-aware interpolation for RoPE. Extends context without full
+                retraining &mdash; only ~1B tokens of long-context data needed.<br /><br />
+                <b>MiniMax M1:</b> native 1M context via O(n) Lightning Attention. Linear attention
+                eliminates quadratic cost entirely.<br /><br />
+                <b>Typical recipe:</b> 2-stage approach. Stage 1: 100B tokens at extended context
+                (mostly short, some long). Stage 2: fine-tune on long-context tasks specifically.
+              </div>
+            </div>
+          </div>
+
+          <!-- ───── POST-TRAINING ───── -->
+          <div class="phase-divider">Post-training begins</div>
+
+          <div class="stage-wrap">
+            <div class="box" onclick="toggle(this)">
+              <div class="box-header">
+                <div>
+                  <div class="snum">Phase 3 · Stage 1</div>
+                  <div class="sname">Supervised Fine-Tuning (SFT)</div>
+                </div>
+                <span class="chevron">&#9660;</span>
+              </div>
+              <div class="sdesc-short">
+                Distribution shift toward instruction-following. Teaches format and prior &mdash;
+                not world knowledge.
+              </div>
+              <div class="sdesc-detail">
+                <div class="math-block">
+                  p_&theta;(y|x) &rarr; p_&theta;(y|x, instruction prior)
+                </div>
+                &bull; Data increasingly <b>synthetic</b> (persona-driven, task-specific,
+                decontaminated)<br />
+                &bull; <b>T&uuml;lu 3:</b> 939k prompts (57% public, 43% synthetic);
+                <b>Llama 4:</b> prunes &gt;50% "easy" data<br />
+                &bull; <b>DeepSeek-V3:</b> 1.5M instances &mdash; reasoning distilled from R1 +
+                human-verified<br />
+                &bull; PEFT: <b>LoRA / DoRA</b> at r=8&ndash;16 implies low intrinsic dimension of
+                behavioral updates
+                <div class="crit-note">
+                  <div class="crit-label">&#9888; Critical</div>
+                  LIMA "style steering" hypothesis holds for generic instruction-following. Breaks
+                  for reasoning scaffolds (cold-start CoT SFT is structurally necessary for RLVR
+                  stability) and genuine domain gaps.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="arrow">|<br />&#9660;</div>
+
+          <div
+            style="
+              width: 100%;
+              text-align: center;
+              font-size: 0.57rem;
+              color: #8b949e;
+              letter-spacing: 1.5px;
+              text-transform: uppercase;
+              margin-bottom: 6px;
+            "
+          >
+            Pipeline diverges here
+          </div>
+          <div class="branch-split">
+            <!-- STANDARD ALIGNMENT -->
+            <div class="branch branch-std">
+              <div class="branch-label">Standard Alignment</div>
+              <div class="stage-wrap">
+                <div class="box" onclick="toggle(this)">
+                  <div class="box-header">
+                    <div>
+                      <div class="snum">Stage 2 &middot; 2023+</div>
+                      <div class="sname">Rejection Sampling</div>
+                    </div>
+                    <span class="chevron">&#9660;</span>
+                  </div>
+                  <div class="sdesc-short">
+                    Best-of-N filtering via RM or verifier. Improves data quality without full RL.
+                  </div>
+                  <div class="sdesc-detail">
+                    &bull; <b>T&uuml;lu 3:</b> explicit stage; on-policy generations vs other
+                    models<br />
+                    &bull; <b>DeepSeek-V3:</b> RS on R1 rollouts &mdash; concise, formatted,
+                    verified<br />
+                    &bull; <b>Kimi k1.5:</b> shortest rejection sampling for long2short transfer
+                    <div class="crit-note">
+                      <div class="crit-label">&#9888; Critical</div>
+                      Selecting only correct outputs biases toward "easy" correct responses.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="branch-arrow">|<br />&#9660;</div>
+              <div style="width: 100%">
+                <div class="fork-label-row">Stage 3 &middot; Preference Alignment</div>
+                <div class="fork3">
+                  <div class="fork-col">
+                    <div class="fork-col-label">Path A</div>
+                    <div class="box" onclick="toggle(this)">
+                      <div class="box-header">
+                        <div>
+                          <div class="snum">2022&ndash;present</div>
+                          <div class="sname">RLHF / GRPO</div>
+                        </div>
+                        <span class="chevron">&#9660;</span>
+                      </div>
+                      <div class="sdesc-short">Reward model + PPO/GRPO. KL-regularized RL.</div>
+                      <div class="sdesc-detail">
+                        <div class="math-block">
+                          max_&pi; E[r(x,y)] &minus; &beta;&middot;D_KL(&pi; &Vert; &pi;_SFT)
+                        </div>
+                        <b>GRPO:</b> no value fn, group-normalize rewards:<br />
+                        <div class="math-block">A_i = (r_i &minus; mean(r)) / std(r)</div>
+                        <b>CISPO</b> (MiniMax M1): clips IS weights; all tokens in gradient &mdash;
+                        more efficient than GRPO/DAPO.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="fork-or">or</div>
+                  <div class="fork-col">
+                    <div class="fork-col-label">Path B</div>
+                    <div class="box" onclick="toggle(this)">
+                      <div class="box-header">
+                        <div>
+                          <div class="snum">2023&ndash;dominant</div>
+                          <div class="sname">DPO / IPO</div>
+                        </div>
+                        <span class="chevron">&#9660;</span>
+                      </div>
+                      <div class="sdesc-short">Contrastive log-likelihood. No RM needed.</div>
+                      <div class="sdesc-detail">
+                        <div class="math-block">
+                          log &sigma;(&beta;(log &pi;_&theta;(y_w|x) &minus; log
+                          &pi;_&theta;(y_l|x)))
+                        </div>
+                        <b>T&uuml;lu 3:</b> length-normalized DPO<br />
+                        <b>Llama 3.1/4, OpenAI:</b> primary preference method
+                        <div class="crit-note">
+                          <div class="crit-label">&#9888; Critical</div>
+                          Static offline data &mdash; no exploration. Ceiling lower than online RL
+                          for reasoning.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="fork-or">or</div>
+                  <div class="fork-col">
+                    <div class="fork-col-label">Path C</div>
+                    <div class="box" onclick="toggle(this)">
+                      <div class="box-header">
+                        <div>
+                          <div class="snum">2022&ndash;present</div>
+                          <div class="sname">RLAIF / CAI</div>
+                        </div>
+                        <span class="chevron">&#9660;</span>
+                      </div>
+                      <div class="sdesc-short">
+                        AI judge + constitution. Self-distillation with normative constraints.
+                      </div>
+                      <div class="sdesc-detail">
+                        Pioneered by <b>Anthropic Constitutional AI (2022).</b><br /><br />
+                        <b>Claude 2026:</b> constitution explains <i>why</i> for novel case
+                        generalization.<br />
+                        Open question: converges to human alignment or recursive self-consistency?
+                        <div class="crit-note">
+                          <div class="crit-label">&#9888; Critical</div>
+                          Amplifies existing model biases at scale. Constitution encodes authors'
+                          assumptions.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="branch-arrow">|<br />&#9660;</div>
+              <div class="loop-wrap">
+                <div class="loop-content">
+                  <div class="box" onclick="toggle(this)">
+                    <div class="box-header">
+                      <div>
+                        <div class="snum">Stage 4 &middot; 2024+</div>
+                        <div class="sname">Iterative Refinement</div>
+                      </div>
+                      <span class="chevron">&#9660;</span>
+                    </div>
+                    <div class="sdesc-short">
+                      Model-generated synthetic data each round. SFT and RL under unified objective.
+                    </div>
+                    <div class="sdesc-detail">
+                      <b>T&uuml;lu 3:</b> eval-driven iteration &mdash; benchmark suite identifies
+                      skill gaps<br />
+                      <b>DeepSeek-V3:</b> R1 distillation &rarr; V3 SFT &rarr; V3 alignment<br />
+                      <b>Kimi:</b> curriculum + prioritized sampling (hard/underperformed problems)
+                      <div class="math-block">
+                        SFT = offline exploitation (low variance, high bias)<br />RL = online
+                        exploration (high variance, low bias)
+                      </div>
+                      <div class="crit-note">
+                        <div class="crit-label">&#9888; Critical</div>
+                        No convergence guarantee. Systematic errors entrench rather than
+                        self-correct.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="loop-bar">
+                  <div class="loop-tag">iterative loop</div>
+                  <div class="loop-line"></div>
+                  <div class="loop-arrow-up">&uarr;</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- REASONING (LRM) -->
+            <div class="branch branch-llm">
+              <div class="branch-label">Reasoning (LRM)</div>
+              <div class="stage-wrap">
+                <div class="box" onclick="toggle(this)">
+                  <div class="box-header">
+                    <div>
+                      <div class="snum">Step 1</div>
+                      <div class="sname">SFT on Long CoT</div>
+                    </div>
+                    <span class="chevron">&#9660;</span>
+                  </div>
+                  <div class="sdesc-short">
+                    Cold-start: curated long CoT traces. Teaches &lt;think&gt; scaffold.
+                  </div>
+                  <div class="sdesc-detail">
+                    <b>R1-Zero skips this entirely</b> &mdash; direct GRPO on verifiable problems.
+                    Full R1 uses limited human-aligned CoT cold-start first.
+                  </div>
+                </div>
+              </div>
+              <div class="branch-arrow">|<br />&#9660;</div>
+              <div class="stage-wrap">
+                <div class="box" onclick="toggle(this)">
+                  <div class="box-header">
+                    <div>
+                      <div class="snum">Step 2 &middot; 2024&ndash;2025</div>
+                      <div class="sname">RLVR / Pure RL</div>
+                    </div>
+                    <span class="chevron">&#9660;</span>
+                  </div>
+                  <div class="sdesc-short">
+                    Verifiable outcome rewards. No RM. GRPO/CISPO. Emergent self-reflection.
+                  </div>
+                  <div class="sdesc-detail">
+                    <b>DeepSeek-R1-Zero:</b> 80k verifiable problems, 16 samples/group. Emergent:
+                    self-reflection, strategy switching, 5&ndash;7&times; longer CoT.<br /><br />
+                    <b>MiniMax M1 (CISPO):</b> clips IS weights, all tokens in gradient. 512 H800s,
+                    3 weeks, ~$534k. AIME 68%&rarr;80%.<br /><br />
+                    <b>OLMo 3 RL Zero:</b> per-domain checkpoints (math/code/IFeval) &mdash; open
+                    resource for contamination research in RLVR.<br /><br />
+                    <b>T&uuml;lu 3 RLVR:</b> deterministic verifiers. +1.7 MATH, +3.3 GSM8K from DPO
+                    baseline.
+                  </div>
+                </div>
+              </div>
+              <div class="branch-arrow">|<br />&#9660;</div>
+              <div class="stage-wrap">
+                <div class="box" onclick="toggle(this)">
+                  <div class="box-header">
+                    <div>
+                      <div class="snum">Step 3</div>
+                      <div class="sname">RS + SFT (stabilize)</div>
+                    </div>
+                    <span class="chevron">&#9660;</span>
+                  </div>
+                  <div class="sdesc-short">
+                    Filter best RLVR rollouts, mix with general data, crystallize gains.
+                  </div>
+                  <div class="sdesc-detail">
+                    &bull; Keep: correct + readable + well-formatted<br />&bull; Mix with general
+                    instruction data (prevents regression)<br />&bull; ~2 epochs &mdash; distills
+                    RL-discovered reasoning into stable behavior
+                  </div>
+                </div>
+              </div>
+              <div class="branch-arrow">|<br />&#9660;</div>
+              <div class="stage-wrap">
+                <div class="box" onclick="toggle(this)">
+                  <div class="box-header">
+                    <div>
+                      <div class="snum">Step 4</div>
+                      <div class="sname">RLHF / RFT Polish</div>
+                    </div>
+                    <span class="chevron">&#9660;</span>
+                  </div>
+                  <div class="sdesc-short">
+                    Final alignment pass. Process supervision on CoT steps (OpenAI RFT).
+                  </div>
+                  <div class="sdesc-detail">
+                    <b>R1 full:</b> second RL stage with preference RM + rule rewards (language
+                    consistency)<br /><b>OpenAI RFT:</b> expert grader scores reasoning
+                    <i>process</i> step-by-step.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="arrow">|<br />&#9660;</div>
+          <div class="stage-wrap">
+            <div class="box" onclick="toggle(this)">
+              <div class="box-header">
+                <div>
+                  <div class="snum">Stage 5 &middot; 2024&ndash;2026</div>
+                  <div class="sname">Specialized Enhancements</div>
+                </div>
+                <span class="chevron">&#9660;</span>
+              </div>
+              <div class="sdesc-short">
+                Reasoning depth, factuality, multimodal, agentic, safety, efficiency.
+              </div>
+              <div class="sdesc-detail">
+                <div class="spec-grid">
+                  <div class="spec-item">
+                    <b>Reasoning (LRM)</b><br />Process supervision, exploratory RL,
+                    self-verification
+                  </div>
+                  <div class="spec-item">
+                    <b>Factuality</b><br />FLAME: factuality-aware SFT + DPO (Meta)
+                  </div>
+                  <div class="spec-item">
+                    <b>Agentic / long-context</b><br />Tool-use synthesis, joint environment RL
+                    (Kimi K2, GLM-4.5, MiniMax M2.5)
+                  </div>
+                  <div class="spec-item">
+                    <b>Multimodal</b><br />Zero-vision SFT + joint text-vision RL (Kimi K2.5, Llama
+                    4)
+                  </div>
+                  <div class="spec-item">
+                    <b>Safety</b><br />Red-team preference passes &middot; targeted DPO
+                  </div>
+                  <div class="spec-item">
+                    <b>Efficiency</b><br />Quantization &middot; distillation &middot; PEFT &middot;
+                    linear attention (MiniMax)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="arrow">|<br />&#9660;</div>
+          <div class="stage-wrap">
+            <div class="box" style="cursor: default">
+              <div class="snum">Output</div>
+              <div class="sname">Production-Ready Aligned Model</div>
+              <div class="sdesc-short">
+                Helpful &middot; Honest &middot; Harmless &middot; Instruction-following &middot;
+                Reasoning-capable &middot; Agentic
+              </div>
+            </div>
+          </div>
+
+          <!-- MAJOR LABS -->
+          <div class="labs-section-title">Major Labs</div>
+          <div class="labs">
+            <div class="lab">
+              <div class="lname" style="color: #ffa657">Meta (Llama 3.1 / 4)</div>
+              <b>Pre:</b> 15T tokens, 4D parallelism on 16,384 H100s. <b>Post:</b> Iterative SFT +
+              RS + DPO. <b>4:</b> SFT &rarr; Online RL (hard prompts) &rarr; DPO polish.
+            </div>
+            <div class="lab">
+              <div class="lname" style="color: #d2a8ff">Anthropic (Claude)</div>
+              Constitution-driven synthetic data + RLAIF. 2026: constitution explains
+              <i>why</i>, enabling generalization across novel cases.
+            </div>
+            <div class="lab">
+              <div class="lname" style="color: #79c0ff">OpenAI</div>
+              SFT &rarr; DPO for standard models. RFT for reasoning: expert grader scores CoT
+              process step-by-step. o1/o3: test-time compute scaling.
+            </div>
+            <div class="lab">
+              <div class="lname" style="color: #56d364">Google DeepMind</div>
+              Gemini: TPU training at scale. PPO-based alignment. Gemini 1.5/2 adds long-context
+              alignment passes.
+            </div>
+            <div class="lab">
+              <div class="lname" style="color: #58a6ff">Microsoft (Phi-3 / Phi-4)</div>
+              "Textbook-quality" synthetic SFT. <b>Orca/Orca-2:</b> process supervision for
+              step-level reasoning. Frontier reasoning at 3B&ndash;14B.
+            </div>
+            <div class="lab">
+              <div class="lname" style="color: #c9d1d9">xAI (Grok-3)</div>
+              <b>DeepThink:</b> GRPO-style reasoning RL. Standard SFT + DPO for base.
+            </div>
+            <div class="lab">
+              <div class="lname" style="color: #76b900">NVIDIA (Nemotron-4)</div>
+              <b>HelpSteer2</b> synthetic preference pipeline + open reward model adopted by other
+              labs.
+            </div>
+            <div class="lab">
+              <div class="lname" style="color: #c9d1d9">MiniMax (M1 / M2.5)</div>
+              <b>M1:</b> CISPO on hybrid MoE + Lightning Attn (456B/45.9B, 1M ctx).<br /><b
+                >M2.5:</b
+              >
+              80.2% SWE-Bench, 76.3% BrowseComp. RL across 100k+ environments.
+            </div>
+          </div>
+
+          <div class="labs-section-title">Open-weights labs</div>
+          <div class="labs">
+            <div class="lab">
+              <div class="lname" style="color: #e3b341">
+                AllenAI (T&uuml;lu 3 / OLMo 3)
+                <span style="color: #56d364; font-size: 0.58rem">&star; fully open</span>
+              </div>
+              Weights + data + code + eval. <b>T&uuml;lu 3:</b> SFT &rarr; DPO &rarr; RLVR. 70B
+              matches GPT-4o-mini. <b>OLMo 3:</b> Dolci suite, RL Zero, OLMoTrace. Best fully open
+              32B thinking model at release.
+            </div>
+            <div class="lab">
+              <div class="lname" style="color: #f0883e">
+                DeepSeek (V3 / R1)
+                <span style="color: #79c0ff; font-size: 0.58rem">open weights</span>
+              </div>
+              <b>V3:</b> fp8 training, $5.58M total. SFT 1.5M (R1-distilled) + GRPO.
+              <b>R1-Zero:</b> pure GRPO, no SFT. 79.8% AIME 2024, 97.3% MATH-500.
+            </div>
+            <div class="lab">
+              <div class="lname" style="color: #f85149">Moonshot AI (Kimi k1.5 / K2 / K2.5)</div>
+              <b>k1.5:</b> online mirror-descent RL (length penalty, curriculum). <b>K2:</b> Muon
+              optimizer, agentic synthesis. <b>K2.5:</b> joint text-vision RL.
+            </div>
+            <div class="lab">
+              <div class="lname" style="color: #c9d1d9">Zhipu AI (GLM-4.5 / GLM-5)</div>
+              <b>Slime</b> async RL framework. <b>APRIL:</b> agentic RL. 744B/40B active. Huawei
+              Ascend &mdash; zero NVIDIA dependency.
+            </div>
+            <div class="lab">
+              <div class="lname" style="color: #79c0ff">Alibaba / Qwen</div>
+              GRPO for math. QwQ-32B: RLVR extended CoT. SFT &rarr; GRPO &rarr; DPO.
+            </div>
+            <div class="lab">
+              <div class="lname" style="color: #ffa657">ByteDance (Seed / Doubao)</div>
+              <b>Seed-Thinking v1.5:</b> GRPO on verifiable problems. Deployment scale makes
+              efficiency-constrained post-training practically significant.
+            </div>
+          </div>
+
+          <div class="note" style="border-color: #56d36433">
+            <div class="note-title" style="color: #56d364">Trends 2024&ndash;2026</div>
+            <b>Verifiable / rule-based RL surge</b> &mdash; RLVR, GRPO, CISPO: emergent long-CoT
+            without human trajectories.<br />
+            <b>Synthetic + on-policy dominance</b> &mdash; distillation loops, persona generation,
+            agentic synthesis.<br />
+            <b>DPO over PPO</b> &mdash; stable and scalable; PPO/GRPO reserved for reasoning or
+            online exploration.<br />
+            <b>Linear attention at frontier scale</b> &mdash; MiniMax M1/M2.5: O(n) Lightning
+            Attention now competitive.<br />
+            <b>Agentic focus</b> &mdash; long-context RL, tool-use, joint multimodal RL.<br />
+            <b>Full openness raises the floor</b> &mdash; T&uuml;lu 3, OLMo 3, Nemotron-4 as fully
+            open blueprints.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         MECHANICS TAB — Technical deep-dive
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <div id="view-mechanics">
+      <div class="mech-wrap">
+        <div class="mech-section open">
+          <div class="mech-header" onclick="toggleSection(this.parentElement)">
+            <span class="mech-num">&sect;1</span>
+            <span class="mech-title" style="color: #58a6ff">Optimizer Evolution</span>
+            <span class="mech-chev">&#9660;</span>
+          </div>
+          <div class="mech-body">
+            <h4>The path to AdamW</h4>
+            <div class="ref">
+              Loshchilov &amp; Hutter (2019) &mdash; Decoupled Weight Decay Regularization
+            </div>
+            <b>SGD:</b> &theta; = &theta; &minus; &eta;&nabla;L. Simple but requires careful tuning
+            and struggles with saddle points. Momentum adds exponential moving average of
+            gradients.<br /><br />
+            <b>Adam:</b> adaptive learning rates per-parameter via first (mean) and second
+            (variance) moment estimates. Converges faster but L2 regularization interacts badly with
+            adaptive rates.<br /><br />
+            <b>AdamW:</b> decouples weight decay from gradient update. Standard since GPT-2.
+            <div class="math-block">
+              &theta;_{t+1} = &theta;_t &minus; &eta;(m&#770;_t / (&radic;v&#770;_t + &epsilon;) +
+              &lambda;&theta;_t)<br />
+              Key: &lambda;&theta;_t applied directly, not scaled by adaptive rate
+            </div>
+            Typical hyperparameters: &beta;_1 = 0.9, &beta;_2 = 0.95, &epsilon; = 10^&minus;8,
+            weight decay &lambda; = 0.1. Llama 3, GPT-4, Gemini all use AdamW with minor variations.
+
+            <h4>Next generation: Muon &amp; SOAP</h4>
+            <div class="ref">Kimi K2 (2025) &mdash; Muon optimizer for MoE pre-training</div>
+            <b>Muon (Kimi K2):</b> applies Newton-Schulz orthogonalization to the momentum matrix.
+            Claims 2&times; compute efficiency vs AdamW for MoE architectures. Orthogonalization
+            prevents gradient collapse in expert routing.<br /><br />
+            <b>SOAP:</b> Shampoo-like second-order approximation. Maintains per-layer
+            preconditioners. Higher memory cost but better conditioning on very large models.
+            Promising for models &gt;100B parameters.<br /><br />
+            <b>Schedule-free optimizers:</b> recent work removes the need for explicit LR schedules
+            by using Polyak-style averaging. Not yet proven at frontier scale.
+
+            <h4>Practical impact</h4>
+            <table class="mech-table">
+              <thead>
+                <tr>
+                  <th>Optimizer</th>
+                  <th>Memory per param</th>
+                  <th>Used by</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>SGD+M</b></td>
+                  <td>1 state</td>
+                  <td>RL fine-tuning</td>
+                  <td>Niche</td>
+                </tr>
+                <tr>
+                  <td><b>AdamW</b></td>
+                  <td>2 states (m, v)</td>
+                  <td>GPT-4, Llama 3, Gemini</td>
+                  <td>Dominant</td>
+                </tr>
+                <tr>
+                  <td><b>Muon</b></td>
+                  <td>1 state + orthog.</td>
+                  <td>Kimi K2</td>
+                  <td>Emerging</td>
+                </tr>
+                <tr>
+                  <td><b>SOAP</b></td>
+                  <td>2 states + precond.</td>
+                  <td>Research</td>
+                  <td>Experimental</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="mech-section">
+          <div class="mech-header" onclick="toggleSection(this.parentElement)">
+            <span class="mech-num">&sect;2</span>
+            <span class="mech-title" style="color: #e3b341">Learning Rate Schedules</span>
+            <span class="mech-chev">&#9660;</span>
+          </div>
+          <div class="mech-body">
+            <h4>Why schedules matter</h4>
+            LR is the single most impactful hyperparameter. Too high: loss spikes, training
+            instability, potential divergence. Too low: slow convergence, wasted compute. The
+            schedule shapes the entire loss trajectory.
+
+            <h4>Common schedules</h4>
+            <div class="math-block">
+              Cosine: &eta;(t) = &eta;_min + 0.5(&eta;_max &minus; &eta;_min)(1 + cos(&pi; t/T))<br />
+              Linear warmup: &eta;(t) = &eta;_max &times; t/T_warmup, for t &lt; T_warmup
+            </div>
+
+            <b>Cosine decay</b> (GPT-3, GPT-4): smooth annealing from peak to ~10% of peak. Standard
+            choice. Commits to a fixed training budget at start.<br /><br />
+
+            <b>WSD (Warmup-Stable-Decay):</b> three phases: (1) warmup to peak, (2) hold constant
+            for majority of training, (3) sharp cosine/linear decay in final 10-20%.
+            <b>Key advantage:</b> can branch checkpoints from the stable phase for different
+            downstream objectives. Used by Llama 3, MiniMax, OLMo 2.<br /><br />
+
+            <b>Inverse square root:</b> &eta;(t) = &eta;_max / &radic;t. Unbounded training &mdash;
+            no need to set total steps. Used by some older models (original Transformer).<br /><br />
+
+            <b>Practical values:</b> peak LR scales with batch size. Llama 3 8B:
+            3&times;10^&minus;4. Llama 3 405B: 8&times;10^&minus;5. Warmup: 2000 steps typical.
+            GPT-4 reportedly uses ~6000 warmup steps.
+          </div>
+        </div>
+
+        <div class="mech-section">
+          <div class="mech-header" onclick="toggleSection(this.parentElement)">
+            <span class="mech-num">&sect;3</span>
+            <span class="mech-title" style="color: #d2a8ff"
+              >Scaling Laws &amp; Compute Allocation</span
+            >
+            <span class="mech-chev">&#9660;</span>
+          </div>
+          <div class="mech-body">
+            <div class="ref">
+              Kaplan et al. (2020) &mdash; Scaling Laws for Neural Language Models
+            </div>
+            <div class="ref">
+              Hoffmann et al. (2022) &mdash; Chinchilla: Training Compute-Optimal LLMs
+            </div>
+
+            <h4>Kaplan (2020) &mdash; first scaling laws</h4>
+            <div class="math-block">
+              L(N) &asymp; (N_c / N)^0.076 &mdash; loss vs parameters<br />
+              L(D) &asymp; (D_c / D)^0.095 &mdash; loss vs data<br />
+              L(C) &asymp; (C_c / C)^0.050 &mdash; loss vs compute
+            </div>
+            Key insight: smooth power laws with no discontinuities. Suggested scaling parameters
+            faster than data (allocate more compute to larger models).
+
+            <h4>Chinchilla (2022) &mdash; corrected scaling</h4>
+            Kaplan underestimated the importance of data. Chinchilla showed optimal scaling is
+            roughly <b>D &asymp; 20N</b> (20 tokens per parameter for compute-optimal training). 70B
+            model + 1.4T tokens matched 280B Gopher + 300B tokens.<br /><br />
+            <b>Impact:</b> shifted the field from "bigger models" to "more data." Llama, Mistral,
+            and Gemma all follow Chinchilla-informed ratios.
+
+            <h4>Beyond Chinchilla: overtraining</h4>
+            Modern practice deliberately overtrains relative to Chinchilla-optimal:
+            <table class="mech-table">
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>Params</th>
+                  <th>Tokens</th>
+                  <th>Chinchilla ratio</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Chinchilla</b></td>
+                  <td>70B</td>
+                  <td>1.4T</td>
+                  <td>1&times; (optimal)</td>
+                </tr>
+                <tr>
+                  <td><b>Llama 2 7B</b></td>
+                  <td>7B</td>
+                  <td>2T</td>
+                  <td>~14&times;</td>
+                </tr>
+                <tr>
+                  <td><b>Llama 3 8B</b></td>
+                  <td>8B</td>
+                  <td>15T</td>
+                  <td>~94&times;</td>
+                </tr>
+                <tr>
+                  <td><b>SmolLM3 3B</b></td>
+                  <td>3B</td>
+                  <td>11T</td>
+                  <td>~183&times;</td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <b>Rationale:</b> training cost is paid once; inference cost is paid billions of times.
+            A smaller, overtrained model is cheaper to deploy than a larger, compute-optimal one.
+
+            <h4>Thesis relevance</h4>
+            Scaling laws predict smooth, continuous improvement &mdash; no phase transitions.
+            "Emergent abilities" may be artifacts of nonlinear evaluation metrics applied to smooth
+            underlying capability curves (Schaeffer et al., 2023).
+          </div>
+        </div>
+
+        <div class="mech-section">
+          <div class="mech-header" onclick="toggleSection(this.parentElement)">
+            <span class="mech-num">&sect;4</span>
+            <span class="mech-title" style="color: #f0883e">Precision &amp; Numerical Formats</span>
+            <span class="mech-chev">&#9660;</span>
+          </div>
+          <div class="mech-body">
+            <div class="ref">Micikevicius et al. (2018) &mdash; Mixed Precision Training</div>
+            <div class="ref">DeepSeek-AI (2024) &mdash; DeepSeek-V3: fp8 Training at Scale</div>
+
+            <h4>The precision hierarchy</h4>
+            <div class="math-block">
+              fp32 (8 exp, 23 mant) &rarr; bf16 (8 exp, 7 mant) &rarr; fp8 E4M3 (4 exp, 3 mant)<br />
+              Memory: 4 bytes &rarr; 2 bytes &rarr; 1 byte per element<br />
+              FLOPS: 1&times; &rarr; ~2&times; &rarr; ~4&times; throughput (on matching hardware)
+            </div>
+
+            <b>Mixed precision recipe:</b><br />
+            1. Store master weights in fp32<br />
+            2. Cast to bf16 for forward/backward pass<br />
+            3. Compute gradients in bf16<br />
+            4. Accumulate and apply in fp32<br /><br />
+
+            <b>Why bf16 over fp16:</b> bf16 has the same 8-bit exponent as fp32, so it covers the
+            same dynamic range. fp16 has only 5 exponent bits &mdash; needs loss scaling to avoid
+            underflow in gradients. bf16 "just works" on modern hardware (A100+).<br /><br />
+
+            <b>fp8 frontier (DeepSeek V3):</b> fine-grained quantization with per-tile scaling
+            factors. Each 128-element tile gets its own scale. Result: full fp8 training with no
+            measurable quality loss. 2.788M H800 GPU-hours, $5.58M total cost.
+
+            <h4>Inference quantization</h4>
+            Post-training quantization pushes further: INT4/INT8 (GPTQ, AWQ), even INT2 (QuIP#).
+            Inference-only &mdash; lower fidelity acceptable when not training. Suggests
+            representations are robust to significant precision reduction.
+          </div>
+        </div>
+
+        <div class="mech-section">
+          <div class="mech-header" onclick="toggleSection(this.parentElement)">
+            <span class="mech-num">&sect;5</span>
+            <span class="mech-title" style="color: #56d364">Regularization &amp; Stability</span>
+            <span class="mech-chev">&#9660;</span>
+          </div>
+          <div class="mech-body">
+            <h4>Weight decay</h4>
+            Applied to all non-bias, non-normalization parameters. Typical: &lambda; = 0.1. In
+            AdamW, decay is decoupled: &theta; = &theta; &minus; &eta;&lambda;&theta;, not folded
+            into gradient. Prevents weight magnitude explosion over long training runs.
+
+            <h4>Dropout</h4>
+            Surprisingly, most frontier LLMs use <b>zero dropout</b> during pre-training (Llama 3,
+            GPT-4, DeepSeek V3). The massive dataset size provides sufficient regularization.
+            Dropout is re-introduced during fine-tuning (LoRA dropout = 0.05-0.1).
+
+            <h4>Gradient clipping</h4>
+            <div class="math-block">
+              g = g &times; min(1, max_norm / ||g||)<br />
+              Typical max_norm = 1.0
+            </div>
+            Prevents loss spikes from corrupting training. Critical for stability at scale. Llama 3
+            reports occasional loss spikes &mdash; resolved by rewinding to earlier checkpoint and
+            skipping problematic data batches.
+
+            <h4>QK-Norm</h4>
+            <div class="ref">
+              Dehghani et al. (2023) &mdash; Scaling ViTs; adopted by Gemma 2, Cohere, OLMo 2
+            </div>
+            Applies RMSNorm to query and key vectors before attention computation. Prevents
+            attention logit growth that causes training instability at scale. Increasingly standard
+            &mdash; used by Gemma 2, Gemma 3, OLMo 2, SmolLM3.
+
+            <h4>Z-loss</h4>
+            Auxiliary loss that penalizes large logits in the output layer. Prevents
+            representational collapse. Used by PaLM, Gemini. Stabilizes training without
+            constraining model capacity.
+          </div>
+        </div>
+
+        <div class="mech-section">
+          <div class="mech-header" onclick="toggleSection(this.parentElement)">
+            <span class="mech-num">&sect;6</span>
+            <span class="mech-title" style="color: #f85149">Post-Training Optimization</span>
+            <span class="mech-chev">&#9660;</span>
+          </div>
+          <div class="mech-body">
+            <h4>SFT mechanics</h4>
+            Standard cross-entropy on curated instruction-response pairs.
+            <b>Key difference from pre-training:</b> loss computed only on response tokens, not on
+            instruction/prompt tokens (causal masking).<br /><br />
+            LR: ~10&times; lower than pre-training peak (e.g., 2&times;10^&minus;5 for 7B model).
+            1-3 epochs typical. Overfitting is the primary risk.
+
+            <h4>RL mechanics: GRPO</h4>
+            <div class="ref">
+              DeepSeek-AI (2025) &mdash; DeepSeek-R1; Shao et al. (2024) &mdash; DeepSeekMath
+            </div>
+            <div class="math-block">
+              J(&theta;) = E_q[&Sigma;_g min(r_g &times; A_g, clip(r_g, 1&minus;&epsilon;,
+              1+&epsilon;) &times; A_g) &minus; &beta; D_KL(&pi;_&theta; || &pi;_ref)]<br />
+              where r_g = &pi;_&theta;(o_g|q) / &pi;_old(o_g|q), A_g = (R_g &minus; mean) / std
+            </div>
+            Group of G samples per prompt. No value network (unlike PPO). Group-level normalization
+            of advantages provides baseline. KL penalty prevents drift from reference policy. Clip
+            ratio &epsilon; = 0.2 typical.
+
+            <h4>RL mechanics: DPO</h4>
+            <div class="ref">Rafailov et al. (2023) &mdash; Direct Preference Optimization</div>
+            <div class="math-block">
+              L_DPO = &minus;log &sigma;(&beta;(log &pi;_&theta;(y_w|x)/&pi;_ref(y_w|x) &minus; log
+              &pi;_&theta;(y_l|x)/&pi;_ref(y_l|x)))
+            </div>
+            Closed-form solution to the RLHF objective under Bradley-Terry preference model. No
+            reward model needed. Offline: uses static preference pairs.<br /><br />
+            <b>Limitation:</b> no online exploration. Can only optimize within the support of the
+            preference dataset. Ceiling on complex reasoning tasks where the model needs to discover
+            novel solutions.
+
+            <h4>Structural summary</h4>
+            <table class="mech-table">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>Math form</th>
+                  <th>Function</th>
+                  <th>Limitation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b style="color: #56d364">SFT</b></td>
+                  <td>MLE on curated data</td>
+                  <td>Instruction prior</td>
+                  <td>Bounded by demo quality</td>
+                </tr>
+                <tr>
+                  <td><b style="color: #ffa657">RLHF (PPO)</b></td>
+                  <td>max E[r] &minus; &beta;&middot;D_KL</td>
+                  <td>Online preference shaping</td>
+                  <td>Expensive; RM hacking</td>
+                </tr>
+                <tr>
+                  <td><b style="color: #79c0ff">DPO</b></td>
+                  <td>Contrastive log-ratio</td>
+                  <td>Efficient preferences</td>
+                  <td>Static; no exploration</td>
+                </tr>
+                <tr>
+                  <td><b style="color: #ffa657">GRPO</b></td>
+                  <td>Group-normalized advantage</td>
+                  <td>RL without value fn</td>
+                  <td>Discards clipped tokens</td>
+                </tr>
+                <tr>
+                  <td><b style="color: #c9d1d9">CISPO</b></td>
+                  <td>Clip IS; all tokens</td>
+                  <td>Efficient RL</td>
+                  <td>Needs reliable reward</td>
+                </tr>
+                <tr>
+                  <td><b style="color: #e3b341">RLVR</b></td>
+                  <td>Binary verifier &isin; {0,1}</td>
+                  <td>Emergent reasoning</td>
+                  <td>Verifiable domains only</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         RESEARCH TAB — Open questions, thesis relevance
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <div id="view-research">
+      <div class="rw">
+        <div class="rw-section open">
+          <div class="rw-header" onclick="toggleSection(this.parentElement)">
+            <span class="rw-num">&sect;1</span>
+            <span class="rw-title" style="color: #56d364">Does Scale Create Understanding?</span>
+            <span class="rw-chev">&#9660;</span>
+          </div>
+          <div class="rw-body">
+            <h4>The central question</h4>
+            Pre-training compresses trillions of tokens into model parameters. Scaling laws show
+            smooth power-law improvement. The thesis asks: does this compression produce genuine
+            understanding, or just increasingly effective pattern matching?<br /><br />
+
+            <b>Evidence for "just compression":</b><br />
+            &bull; Scaling laws show no phase transitions &mdash; smooth curves, no sudden jumps<br />
+            &bull; Schaeffer et al. (2023): "emergent abilities" are artifacts of nonlinear
+            metrics<br />
+            &bull; Models fail on trivially modified versions of training-distribution problems<br />
+            &bull; fp8 training with no quality loss suggests representations are approximate<br /><br />
+
+            <b>Evidence for "something more":</b><br />
+            &bull; In-context learning emerges without explicit training for it<br />
+            &bull; Compositional generalization improves with scale (on some benchmarks)<br />
+            &bull; Internal representations encode linear probes for truth, spatial relations<br />
+            &bull; RLVR produces emergent self-reflection behaviors not in training data
+          </div>
+        </div>
+
+        <div class="rw-section">
+          <div class="rw-header" onclick="toggleSection(this.parentElement)">
+            <span class="rw-num">&sect;2</span>
+            <span class="rw-title" style="color: #58a6ff"
+              >Pre-training: Compression or Cognition?</span
+            >
+            <span class="rw-chev">&#9660;</span>
+          </div>
+          <div class="rw-body">
+            <h4>The compression hypothesis</h4>
+            <div class="ref">Deletang et al. (2024) &mdash; Language Modeling Is Compression</div>
+            Next-token prediction is mathematically equivalent to lossless compression (Shannon,
+            1948). A model that perfectly predicts the next token achieves optimal compression of
+            the training distribution.<br /><br />
+
+            <b>Implications:</b> every "capability" is a compression artifact. The model doesn't
+            "know" facts &mdash; it encodes statistical regularities that happen to correlate with
+            factual knowledge. It doesn't "reason" &mdash; it compresses patterns that look like
+            reasoning in training data.<br /><br />
+
+            <h4>The optimizer shapes the compression</h4>
+            AdamW with warmup + cosine decay creates a specific learning dynamic: early training
+            captures broad distributional patterns (high LR, fast learning); late training refines
+            fine-grained distinctions (low LR, slow consolidation). This is compression at different
+            granularities, not a transition from "pattern matching" to "understanding."<br /><br />
+
+            <h4>Critical batch size</h4>
+            <div class="ref">
+              McCandlish et al. (2018) &mdash; An Empirical Model of Large-Batch Training
+            </div>
+            Below critical batch size: gradient noise provides useful regularization. Above it:
+            diminishing returns. The existence of a critical batch size suggests the optimization
+            landscape has a characteristic scale &mdash; consistent with compression, not with
+            models discovering abstract principles.
+          </div>
+        </div>
+
+        <div class="rw-section">
+          <div class="rw-header" onclick="toggleSection(this.parentElement)">
+            <span class="rw-num">&sect;3</span>
+            <span class="rw-title" style="color: #e3b341">Mid-training: The Overlooked Phase</span>
+            <span class="rw-chev">&#9660;</span>
+          </div>
+          <div class="rw-body">
+            <h4>Why mid-training matters for the thesis</h4>
+            The annealing phase reveals what the model has actually learned vs. what it can be
+            steered toward. If annealing on math data improves math performance disproportionately,
+            the base model had latent math capability that was merely being surfaced &mdash; not
+            created.<br /><br />
+
+            <b>WSD schedule evidence:</b> Llama 3 uses WSD, enabling multiple anneal branches from
+            the same stable-phase checkpoint. Different anneal mixes produce different downstream
+            capabilities. This is consistent with the model as a compressed representation that can
+            be selectively "unzipped" for different tasks.<br /><br />
+
+            <b>Domain adaptation evidence:</b> continued pre-training on 50-100B domain tokens can
+            dramatically shift performance on domain tasks. The efficiency of this (50B tokens vs.
+            15T original) suggests the base model already encodes the relevant patterns in a
+            compressed form &mdash; domain data merely amplifies them.<br /><br />
+
+            <b>Long-context extension:</b> RoPE rescaling works because positional encoding is a
+            continuous function. The model generalizes to longer contexts because it learned local
+            patterns that compose &mdash; not because it "understands" document structure.
+          </div>
+        </div>
+
+        <div class="rw-section">
+          <div class="rw-header" onclick="toggleSection(this.parentElement)">
+            <span class="rw-num">&sect;4</span>
+            <span class="rw-title" style="color: #f0883e"
+              >Post-training: Representation vs. Behavior</span
+            >
+            <span class="rw-chev">&#9660;</span>
+          </div>
+          <div class="rw-body">
+            <h4>The wrapper hypothesis</h4>
+            Does post-training change <b>cognition</b> (internal representations) or only
+            <b>surface policy</b> (output distribution)?<br /><br />
+            Mechanistic evidence: core world models are largely preserved through SFT and DPO.
+            Alignment layers act as <b>policy heads</b>. LoRA's effectiveness at r=8-16 implies the
+            behavioral update is low-rank &mdash; a thin veneer, not deep surgery.<br /><br />
+
+            <h4>Where the wrapper breaks</h4>
+            <b>RLVR on reasoning</b> appears to alter internal computational pathways. R1-Zero
+            develops emergent self-verification and extended CoT that are not obvious pre-training
+            artifacts. The model allocates more compute to harder problems (longer CoT) &mdash; this
+            adaptive resource allocation is not trivially explained by surface pattern matching.<br /><br />
+
+            <b>Counter-argument:</b> RLVR may simply be selecting for pre-existing computational
+            pathways that produce correct answers. The "emergent" behaviors were always latent in
+            the base model &mdash; RLVR provides the selection pressure to surface them. This is
+            optimization over existing repertoire, not creation of new capabilities.
+
+            <h4>The alignment tax question</h4>
+            Does preference optimization degrade reasoning? Evidence is mixed and confounded by
+            benchmark saturation. DPO can collapse output diversity. RLHF can induce sycophancy.
+            Both suggest post-training constrains rather than expands the model's effective
+            capability space.
+          </div>
+        </div>
+
+        <div class="rw-section">
+          <div class="rw-header" onclick="toggleSection(this.parentElement)">
+            <span class="rw-num">&sect;5</span>
+            <span class="rw-title" style="color: #d2a8ff"
+              >Test-Time Compute &amp; Training-Inference Boundary</span
+            >
+            <span class="rw-chev">&#9660;</span>
+          </div>
+          <div class="rw-body">
+            <div class="ref">
+              Snell et al. (2024) &mdash; Scaling LLM Test-Time Compute Optimally
+            </div>
+            <div class="ref">
+              OpenAI (2024) &mdash; o1; DeepSeek-AI (2025) &mdash; R1; MiniMax (2025) &mdash; M1
+            </div>
+
+            <h4>The dissolving boundary</h4>
+            Post-training is no longer a discrete phase &mdash; it extends into inference-time
+            optimization. o1/o3, R1, M1 all use extended inference-time computation to improve
+            reasoning. The boundary between "what the model knows" and "what the model computes at
+            inference" is blurring.<br /><br />
+
+            <b>MiniMax M1:</b> Lightning Attention makes test-time compute scaling economically
+            viable &mdash; ~25% FLOPs of DeepSeek-R1 at 100K generation length. First
+            linear-attention model competitive at frontier scale.<br /><br />
+
+            <h4>Thesis implications</h4>
+            If models can "think harder" at inference time and produce better answers, does this
+            constitute reasoning? Or is it search over the model's existing pattern repertoire with
+            more compute budget?<br /><br />
+
+            The chess analogy: AlphaGo's MCTS (Monte Carlo Tree Search) is clearly "search," not
+            "understanding." LLM test-time compute may be the same &mdash; systematic exploration of
+            the model's compressed representation space, not genuine deliberation.
+          </div>
+        </div>
+
+        <div class="rw-section">
+          <div class="rw-header" onclick="toggleSection(this.parentElement)">
+            <span class="rw-num">&sect;6</span>
+            <span class="rw-title" style="color: #f85149">Open Research Problems</span>
+            <span class="rw-chev">&#9660;</span>
+          </div>
+          <div class="rw-body">
+            <div class="open-problems">
+              <div class="op-item">
+                <b>Scaling law phase transitions</b><br />
+                Do scaling laws truly have no discontinuities, or do abrupt capabilities emerge at
+                specific compute thresholds? Evidence increasingly favors smooth curves with
+                nonlinear metrics creating the illusion of emergence.
+              </div>
+              <div class="op-item">
+                <b>Optimizer impact on representations</b><br />
+                Does the choice of optimizer (AdamW vs. Muon vs. SOAP) affect what the model learns,
+                or only how fast it learns? If different optimizers produce equivalent models, the
+                representations are determined by data, not algorithm.
+              </div>
+              <div class="op-item">
+                <b>Annealing as capability selection</b><br />
+                Does annealing on domain data create new capabilities or surface existing ones? WSD
+                branching experiments could directly test this.
+              </div>
+              <div class="op-item">
+                <b>Precision lower bound</b><br />
+                What is the minimum precision at which training quality degrades? If models train
+                well in fp4, the representations must be inherently low-precision &mdash; more
+                consistent with heuristic matching than exact computation.
+              </div>
+              <div class="op-item">
+                <b>RLVR: selection or creation?</b><br />
+                Does RLVR create new computational pathways or select from pre-existing ones?
+                Mechanistic interpretability studies on R1-Zero could resolve this.
+              </div>
+              <div class="op-item">
+                <b>Alignment tax</b><br />
+                Does preference optimization degrade reasoning? Evidence mixed; confounded by
+                benchmark saturation. Need controlled studies with held-out evaluations.
+              </div>
+              <div class="op-item">
+                <b>Post-training scaling laws</b><br />
+                Current scaling laws model pre-training only. No equivalent framework for predicting
+                post-training gains from compute investment. Active research area.
+              </div>
+              <div class="op-item">
+                <b>Data composition sensitivity</b><br />
+                Why does annealing data composition have outsized impact? If 0.1% of training tokens
+                (annealing phase) can shift capabilities dramatically, what does this say about the
+                robustness of learned representations?
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rw-section open">
+          <div class="rw-header" onclick="toggleSection(this.parentElement)">
+            <span class="rw-num">&sect;7</span>
+            <span class="rw-title" style="color: #58a6ff">Training Pipeline Summary</span>
+            <span class="rw-chev">&#9660;</span>
+          </div>
+          <div class="rw-body">
+            <table class="rw-table">
+              <thead>
+                <tr>
+                  <th>Phase</th>
+                  <th>Objective</th>
+                  <th>Duration</th>
+                  <th>Thesis angle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b style="color: #58a6ff">Pre-training</b></td>
+                  <td>Next-token prediction (cross-entropy)</td>
+                  <td>Weeks&ndash;months, trillions of tokens</td>
+                  <td>Compression; no phase transitions</td>
+                </tr>
+                <tr>
+                  <td><b style="color: #e3b341">Annealing</b></td>
+                  <td>Consolidation on high-quality data</td>
+                  <td>Final 1&ndash;5% of tokens</td>
+                  <td>Surfaces latent capabilities</td>
+                </tr>
+                <tr>
+                  <td><b style="color: #e3b341">Domain adaptation</b></td>
+                  <td>Distribution shift to target domain</td>
+                  <td>50&ndash;100B tokens</td>
+                  <td>Amplifies existing patterns</td>
+                </tr>
+                <tr>
+                  <td><b style="color: #e3b341">Context extension</b></td>
+                  <td>RoPE rescaling + long-context data</td>
+                  <td>~1B tokens</td>
+                  <td>Composable local patterns</td>
+                </tr>
+                <tr>
+                  <td><b style="color: #56d364">SFT</b></td>
+                  <td>Instruction prior + format</td>
+                  <td>1&ndash;3 epochs, 100K&ndash;1.5M examples</td>
+                  <td>Low-rank surface steering</td>
+                </tr>
+                <tr>
+                  <td><b style="color: #56d364">RLHF / DPO</b></td>
+                  <td>Preference alignment</td>
+                  <td>Days</td>
+                  <td>Policy head, not cognition</td>
+                </tr>
+                <tr>
+                  <td><b style="color: #56d364">RLVR / GRPO</b></td>
+                  <td>Verifiable reasoning RL</td>
+                  <td>Days&ndash;weeks</td>
+                  <td>Selection or creation? Open</td>
+                </tr>
+                <tr>
+                  <td><b style="color: #d2a8ff">Test-time compute</b></td>
+                  <td>Inference-time search</td>
+                  <td>Per-query</td>
+                  <td>Search over repertoire</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      style="
+        max-width: 720px;
+        margin: 2rem auto 0;
+        padding-top: 1rem;
+        border-top: 1px solid #21262d;
+        font-size: 0.58rem;
+        color: #8b949e;
+        line-height: 1.8;
+      "
+    >
+      <span
+        style="color: #30363d; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.5rem"
+        >Sources</span
+      ><br />
+      Stanford CS336 (Spring 2025) &middot; Kaplan et al. (2020) &middot; Hoffmann et al. (2022,
+      Chinchilla) &middot; Loshchilov &amp; Hutter (2019, AdamW) &middot; Micikevicius et al. (2018)
+      &middot; Ouyang et al. (2022, InstructGPT) &middot; Rafailov et al. (2023, DPO) &middot;
+      DeepSeek-AI (2024/2025) &middot; Team OLMo (2025) &middot; MiniMax (2025) &middot; Kimi (2025)
+    </div>
+
+    <script>
+      function toggle(box) {
+        if (!document.getElementById('view-pipeline').classList.contains('show')) return;
+        box.classList.toggle('open');
+      }
+      function toggleSection(sec) {
+        sec.classList.toggle('open');
+      }
+      function setMode(m) {
+        ['pipeline', 'mechanics', 'research'].forEach((v) => {
+          document.getElementById('view-' + v).classList.toggle('show', v === m);
+          document.getElementById('btn-' + v).classList.toggle('active', v === m);
+        });
+      }
+    </script>
+  </body>
+</html>
