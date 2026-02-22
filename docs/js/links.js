@@ -4969,4 +4969,35 @@ window.paperLinks = [
     type: 'supports',
     description: 'Prompt repetition + pause tokens; extra processing before output helps accuracy',
   },
+  // Whose Opinions Do LMs Reflect (#216) relationships
+  {
+    source: '2303.17548',
+    target: '2305.11206',
+    type: 'supports',
+    description: 'LIMA shows 1K examples shape behavior; OpinionsQA shows annotator demographics shape opinions',
+  },
+  {
+    source: '2303.17548',
+    target: '2410.10862',
+    type: 'supports',
+    description: 'Both show alignment encodes annotator patterns, not deep values',
+  },
+  {
+    source: '2303.17548',
+    target: '2310.13548',
+    type: 'supports',
+    description: 'Sycophancy optimizes for crowdworker approval; OpinionsQA shows opinion shift toward annotator demographics',
+  },
+  {
+    source: '2303.17548',
+    target: '2308.03958',
+    type: 'supports',
+    description: 'Simple synthetic data shapes sycophancy; RLHF shapes opinion distributions toward crowdworkers',
+  },
+  {
+    source: '2303.17548',
+    target: '2506.17871',
+    type: 'supports',
+    description: 'Probability concentration parallels opinion collapse; RLHF narrows both generative and opinion diversity',
+  },
 ];

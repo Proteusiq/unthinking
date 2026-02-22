@@ -374,15 +374,16 @@ These are cited heavily by papers in our list and provide theoretical grounding:
 | 95 | 2509.14252 | Sep 2025 | LLM-JEPA: Large Language Models Meet Joint Embedding Predictive Architectures | Balanced | ✅ DONE |
 | 96 | 2601.15436 | Jan 2026 | Not Your Typical Sycophant: The Elusive Nature of Sycophancy | Supports | ✅ DONE |
 | 215 | 2512.14982 | Dec 2024 | Prompt Repetition Improves Non-Reasoning LLMs (Google Research) | Supports | ✅ DONE |
+| 216 | 2303.17548 | Mar 2023 | Whose Opinions Do Language Models Reflect? (Stanford) | Supports | ✅ DONE |
 
 ---
 
 ## Updated Summary Statistics
-- **Total Papers**: 215
-- **Against Reasoning**: ~123
+- **Total Papers**: 216
+- **Against Reasoning**: ~124
 - **For Reasoning**: ~31
 - **Balanced**: ~53
 - **Date Range**: 2021-2026
-- **Analyzed**: 215
+- **Analyzed**: 216
 
 ---

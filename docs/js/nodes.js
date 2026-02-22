@@ -4578,4 +4578,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/210-219/215_prompt_repetition.md',
   },
+  {
+    id: '2303.17548',
+    title: 'Whose Opinions Do Language Models Reflect?',
+    shortTitle: 'Opinions Reflect',
+    date: 'Mar 2023',
+    stance: 'supports',
+    cluster: 'annotator-bias',
+    coreArgument:
+      'LMs reflect statistical patterns of training data and crowdworkers. RLHF collapses opinion diversity to modal views (>99% Biden approval). Models are echo chambers of whoever created the data.',
+    keyEvidence: [
+      'LM-human gap comparable to Democrat-Republican divide on climate',
+      'text-davinci-003: >99% probability on single options',
+      'HF shifts toward liberal, high-income, educated crowdworkers',
+      '65+, Mormon, widowed systematically underrepresented',
+      'Small shift toward Buddhist/Muslim/Hindu via Southeast Asian annotators',
+    ],
+    keyQuotes: [
+      'LM opinions agree with that of the US populace about as much as Democrats and Republicans on climate change.',
+      'The dominant approach of aligning LMs with RL based human-feedback not only skews the model\'s opinions towards certain groups (liberals), but also pushes the model to almost embody caricatures of those groups.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/210-219/216_whose_opinions_llm_reflect.md',
+  },
 ];
