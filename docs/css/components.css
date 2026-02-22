@@ -962,8 +962,8 @@
   opacity: 0.2;
 }
 .node.filter-dimmed {
-  opacity: 0.15;
-  filter: grayscale(0.8);
+  opacity: 0;
+  pointer-events: none;
 }
 .node.filter-highlight circle {
   stroke-width: 3px;
@@ -1020,7 +1020,7 @@
   stroke-opacity: 0.1;
 }
 .link.filter-dimmed {
-  stroke-opacity: 0.08;
+  display: none;
 }
 .node.speaking circle {
   animation: speakingPulse 1s ease-in-out infinite;
