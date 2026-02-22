@@ -1012,6 +1012,10 @@
   stroke-opacity: 1;
   stroke-width: 3px;
 }
+.link.secondary {
+  stroke-opacity: 0.25;
+  stroke-width: 1.5px;
+}
 .link.path-primary {
   stroke-opacity: 1;
   stroke-width: 4px;
