@@ -636,7 +636,7 @@
   // ==========================================================================
 
   function highlightConnections(node) {
-    // Find connected node IDs
+    // Find connected node IDs (1-hop neighborhood)
     const connectedIds = new Set([node.id]);
 
     state.links.forEach((link) => {
@@ -651,16 +651,16 @@
     state.nodeElements.classed('highlighted', (d) => connectedIds.has(d.id));
     state.nodeElements.classed('dimmed', (d) => !connectedIds.has(d.id));
 
-    // Update link styles
+    // Show all edges within the neighborhood (not just edges touching clicked node)
     state.linkElements.classed('highlighted', (d) => {
       const sourceId = typeof d.source === 'object' ? d.source.id : d.source;
       const targetId = typeof d.target === 'object' ? d.target.id : d.target;
-      return sourceId === node.id || targetId === node.id;
+      return connectedIds.has(sourceId) && connectedIds.has(targetId);
     });
     state.linkElements.classed('dimmed', (d) => {
       const sourceId = typeof d.source === 'object' ? d.source.id : d.source;
       const targetId = typeof d.target === 'object' ? d.target.id : d.target;
-      return sourceId !== node.id && targetId !== node.id;
+      return !connectedIds.has(sourceId) || !connectedIds.has(targetId);
     });
   }
 
