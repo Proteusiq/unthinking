@@ -3,7 +3,7 @@
 > **The pipeline that builds the training distribution is fundamentally heuristic. Every filtering choice, every mixing ratio, every deduplication threshold shapes what the model can and cannot do. Understanding this pipeline is understanding the boundary of LLM capabilities.**
 
 **Source**: Stanford CS336 — Language Modeling from Scratch (Spring 2025), Lectures 13 & 14
-**Interactive visualization**: [data.html](https://proteusiq.github.io/unthinking/data.html)
+**Interactive visualization**: [data.html](https://proteusiq.github.io/unthinking/pages/data.html)
 
 ---
 
