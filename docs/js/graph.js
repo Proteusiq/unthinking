@@ -1183,80 +1183,37 @@
   // Dialogue System
   // ==========================================================================
 
-  // Pre-built dialogues based on paper interactions
-  const dialogues = [
-    {
-      sourceId: '2410.05229', // GSM-Symbolic
-      targetId: '2501.12948', // DeepSeek-R1
-      type: 'rebuts',
-      message:
-        "Your 'emergent reasoning' shows 65% accuracy drops with irrelevant info. That's pattern matching, not reasoning.",
-    },
-    {
-      sourceId: '2501.12948', // DeepSeek-R1
-      targetId: '2410.05229', // GSM-Symbolic
-      type: 'rebuts',
-      message:
-        "We achieve 79.8% on AIME through pure RL. The 'Aha moment' emerges without human demos.",
-    },
-    {
-      sourceId: '2305.18654', // Faith and Fate
-      targetId: '2506.06941', // Illusion of Thinking
-      type: 'supports',
-      message:
-        'Our exponential error propagation explains your complexity collapse. Same root cause.',
-    },
-    {
-      sourceId: '2501.19393', // s1
-      targetId: '2501.12948', // DeepSeek-R1
-      type: 'supports',
-      message:
-        "Reasoning pre-exists in base models. Only 1K samples needed to surface it. RL amplifies, doesn't create.",
-    },
-    {
-      sourceId: '2307.13702', // Measuring Faithfulness
-      targetId: '2501.12948', // DeepSeek-R1
-      type: 'rebuts',
-      message:
-        'Larger models = less faithful CoT. Your reasoning traces may be post-hoc rationalization.',
-    },
-    {
-      sourceId: '2506.18880', // OMEGA
-      targetId: '2501.12948', // DeepSeek-R1
-      type: 'rebuts',
-      message:
-        'RL helps exploration but compositional generalization stays near-zero. 38% overthinking errors.',
-    },
-    {
-      sourceId: '2512.07783', // Interplay
-      targetId: '2501.19393', // s1
-      type: 'supports',
-      message:
-        "Confirmed: 0% pretraining exposure = RL fails. The capability must exist as a 'seed' first.",
-    },
-    {
-      sourceId: '2601.14456', // Planning Gap
-      targetId: '2305.18654', // Faith and Fate
-      type: 'extends',
-      message:
-        'Same pattern in planning: 82.9% in-domain to 0% out-of-domain. No genuine generalization.',
-    },
-    {
-      sourceId: '2506.06941', // Illusion of Thinking
-      targetId: '2501.12948', // DeepSeek-R1
-      type: 'rebuts',
-      message:
-        'Complete accuracy collapse at 8-10 disks. Token usage DECREASES at failure. Not trying harder.',
-    },
-    {
-      sourceId: '2601.00514', // Illusion of Insight
-      targetId: '2501.12948', // DeepSeek-R1
-      type: 'rebuts',
-      message:
-        "Your 'insights' don't transfer. We show zero-shot insight transfer fails systematically.",
-    },
-  ];
+  // Build dialogues dynamically from link data
+  // Each link becomes a conversation: source speaks, target responds
+  function buildDialogues() {
+    const nodeMap = new Map(state.nodes.map((n) => [n.id, n]));
+    const items = [];
 
+    state.links.forEach((link) => {
+      const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
+      const targetId = typeof link.target === 'object' ? link.target.id : link.target;
+      const source = nodeMap.get(sourceId);
+      const target = nodeMap.get(targetId);
+      if (!source || !target || !link.description) return;
+
+      items.push({
+        sourceId: sourceId,
+        targetId: targetId,
+        type: link.type,
+        message: link.description,
+      });
+    });
+
+    // Shuffle for variety on each page load
+    for (let i = items.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [items[i], items[j]] = [items[j], items[i]];
+    }
+
+    return items;
+  }
+
+  let dialogues = [];
   let dialogueIndex = 0;
 
   function initDialogue() {
@@ -1264,8 +1221,9 @@
     const showBtn = document.getElementById('dialogue-show-btn');
     if (!panel) return;
 
-    // Start at random position in dialogue list
-    dialogueIndex = Math.floor(Math.random() * dialogues.length);
+    // Build dialogues from link data
+    dialogues = buildDialogues();
+    dialogueIndex = 0;
 
     // Position below thesis card (repositionPanels handles the chain)
     repositionPanels();
@@ -1281,7 +1239,7 @@
     // Start dialogue cycle after delay
     setTimeout(() => {
       showNextDialogue();
-      state.dialogueInterval = setInterval(showNextDialogue, 6000);
+      state.dialogueInterval = setInterval(showNextDialogue, 8000);
     }, 4000);
   }
 
@@ -1348,10 +1306,29 @@
   }
 
   function startDialogueForNode(node) {
-    // Find all dialogues involving this node
-    const relatedDialogues = dialogues.filter(
-      (d) => d.sourceId === node.id || d.targetId === node.id
-    );
+    // Find all links involving this node and build conversation pairs
+    const nodeMap = new Map(state.nodes.map((n) => [n.id, n]));
+    const pairs = [];
+
+    state.links.forEach((link) => {
+      const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
+      const targetId = typeof link.target === 'object' ? link.target.id : link.target;
+      if (!link.description) return;
+
+      if (sourceId === node.id || targetId === node.id) {
+        const source = nodeMap.get(sourceId);
+        const target = nodeMap.get(targetId);
+        if (source && target) {
+          // Source speaks the link description
+          pairs.push({
+            sourceId: sourceId,
+            targetId: targetId,
+            type: link.type,
+            message: link.description,
+          });
+        }
+      }
+    });
 
     // Clear current messages
     const container = document.getElementById('dialogue-messages');
@@ -1365,62 +1342,62 @@
       clearInterval(state.dialogueInterval);
     }
 
-    // If no related dialogues, show a message and resume normal cycle
-    if (relatedDialogues.length === 0) {
+    // If no links, show core argument
+    if (pairs.length === 0) {
       const messageEl = document.createElement('div');
       messageEl.className = `dialogue-message ${node.stance}`;
       messageEl.innerHTML = `
                 <span class="paper-name">${node.shortTitle || node.title}</span>
-                <span class="message-text">${node.coreArgument}</span>
                 <span class="message-type">core argument</span>
+                <span class="message-text">${node.coreArgument}</span>
             `;
       container.appendChild(messageEl);
       highlightSpeaker(node);
-
-      // Resume normal cycle after delay
-      state.dialogueInterval = setInterval(showNextDialogue, 6000);
+      state.dialogueInterval = setInterval(showNextDialogue, 8000);
       return;
     }
 
-    // Show related dialogues one by one
+    // Show related conversations one by one
     let index = 0;
     const showRelated = () => {
-      if (index < relatedDialogues.length) {
-        const dialogue = relatedDialogues[index];
-        const sourceNode = state.nodes.find((n) => n.id === dialogue.sourceId);
+      if (index < pairs.length) {
+        const pair = pairs[index];
+        const sourceNode = nodeMap.get(pair.sourceId);
+        const targetNode = nodeMap.get(pair.targetId);
         if (sourceNode) {
           highlightSpeaker(sourceNode);
-          addDialogueMessage(dialogue, sourceNode);
+          addDialogueMessage(pair, sourceNode, targetNode);
         }
         index++;
       } else {
-        // After showing all related, return to normal cycle
-        index = 0;
-        dialogueIndex = dialogues.findIndex(
-          (d) => d.sourceId === node.id || d.targetId === node.id
-        );
-        if (dialogueIndex === -1) dialogueIndex = 0;
+        // After all related, resume global cycle
+        showNextDialogue();
       }
     };
 
     // Show first immediately, then continue
     showRelated();
     state.dialogueInterval = setInterval(() => {
-      if (index < relatedDialogues.length) {
+      if (index < pairs.length) {
         showRelated();
       } else {
+        // Done with node-specific pairs — switch to global cycle
+        clearInterval(state.dialogueInterval);
         showNextDialogue();
+        state.dialogueInterval = setInterval(showNextDialogue, 8000);
       }
-    }, 4000);
+    }, 5000);
   }
 
   function showNextDialogue() {
     if (!state.dialogueVisible) return;
+    if (dialogues.length === 0) return;
 
     const dialogue = dialogues[dialogueIndex];
     const sourceNode = state.nodes.find((n) => n.id === dialogue.sourceId);
+    const targetNode = state.nodes.find((n) => n.id === dialogue.targetId);
 
-    if (!sourceNode) {
+    if (!sourceNode || !targetNode) {
       dialogueIndex = (dialogueIndex + 1) % dialogues.length;
       return;
     }
@@ -1429,7 +1406,7 @@
     highlightSpeaker(sourceNode);
 
     // Add message to panel
-    addDialogueMessage(dialogue, sourceNode);
+    addDialogueMessage(dialogue, sourceNode, targetNode);
 
     // Move to next dialogue
     dialogueIndex = (dialogueIndex + 1) % dialogues.length;
@@ -1452,9 +1429,13 @@
     }, 4000);
   }
 
-  function addDialogueMessage(dialogue, sourceNode) {
+  function addDialogueMessage(dialogue, sourceNode, targetNode) {
     const container = document.getElementById('dialogue-messages');
     if (!container) return;
+
+    // Resolve target if not passed (fallback for legacy calls)
+    const target = targetNode || state.nodes.find((n) => n.id === dialogue.targetId);
+    const targetName = target ? target.shortTitle || target.title : '';
 
     const messageEl = document.createElement('div');
     messageEl.className = `dialogue-message ${sourceNode.stance}`;
@@ -1462,11 +1443,12 @@
 
     messageEl.innerHTML = `
             <span class="paper-name">${sourceNode.shortTitle || sourceNode.title}</span>
-            <span class="message-text">${dialogue.message}</span>
             <span class="message-type">${dialogue.type}</span>
+            <span class="message-text">${dialogue.message}</span>
+            ${targetName ? `<span class="message-target">→ ${targetName}</span>` : ''}
         `;
 
-    // Click to focus on node
+    // Click to focus on source node
     messageEl.addEventListener('click', () => {
       focusOnNode(sourceNode);
       highlightConnections(sourceNode);

@@ -892,19 +892,23 @@
   font-weight: 600;
   color: var(--text-primary);
   font-size: 0.75rem;
-  display: block;
-  margin-bottom: 2px;
+}
+.dialogue-message .message-type {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  opacity: 0.5;
+  margin-left: 6px;
 }
 .dialogue-message .message-text {
   display: block;
+  margin-top: 2px;
 }
-.dialogue-message .message-type {
-  font-size: 0.625rem;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  opacity: 0.6;
-  margin-top: 4px;
+.dialogue-message .message-target {
   display: block;
+  font-size: 0.65rem;
+  opacity: 0.5;
+  margin-top: 3px;
 }
 .dialogue-typing {
   display: flex;
