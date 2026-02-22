@@ -651,17 +651,27 @@
     state.nodeElements.classed('highlighted', (d) => connectedIds.has(d.id));
     state.nodeElements.classed('dimmed', (d) => !connectedIds.has(d.id));
 
-    // Show all edges within the neighborhood (not just edges touching clicked node)
-    state.linkElements.classed('highlighted', (d) => {
-      const sourceId = typeof d.source === 'object' ? d.source.id : d.source;
-      const targetId = typeof d.target === 'object' ? d.target.id : d.target;
-      return connectedIds.has(sourceId) && connectedIds.has(targetId);
-    });
-    state.linkElements.classed('dimmed', (d) => {
-      const sourceId = typeof d.source === 'object' ? d.source.id : d.source;
-      const targetId = typeof d.target === 'object' ? d.target.id : d.target;
-      return !connectedIds.has(sourceId) || !connectedIds.has(targetId);
-    });
+    // Show all edges within the neighborhood
+    // Direct edges (touching clicked node) = highlighted
+    // Neighbor-to-neighbor edges = secondary (weaker)
+    state.linkElements
+      .classed('highlighted', (d) => {
+        const sourceId = typeof d.source === 'object' ? d.source.id : d.source;
+        const targetId = typeof d.target === 'object' ? d.target.id : d.target;
+        return sourceId === node.id || targetId === node.id;
+      })
+      .classed('secondary', (d) => {
+        const sourceId = typeof d.source === 'object' ? d.source.id : d.source;
+        const targetId = typeof d.target === 'object' ? d.target.id : d.target;
+        const inNeighborhood = connectedIds.has(sourceId) && connectedIds.has(targetId);
+        const isDirect = sourceId === node.id || targetId === node.id;
+        return inNeighborhood && !isDirect;
+      })
+      .classed('dimmed', (d) => {
+        const sourceId = typeof d.source === 'object' ? d.source.id : d.source;
+        const targetId = typeof d.target === 'object' ? d.target.id : d.target;
+        return !connectedIds.has(sourceId) || !connectedIds.has(targetId);
+      });
   }
 
   function clearHighlights() {
@@ -669,6 +679,7 @@
     state.linkElements
       .classed('highlighted', false)
       .classed('dimmed', false)
+      .classed('secondary', false)
       .classed('path-primary', false);
     // Also clear active state on connection list items
     document
