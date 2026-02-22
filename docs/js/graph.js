@@ -1019,13 +1019,16 @@
       return;
     }
 
-    // Find all matching nodes
+    // Find all matching nodes (search title, shortTitle, id, cluster, coreArgument)
     const matchingNodes = [];
     state.nodes.forEach((node) => {
+      const t = state.searchTerm;
       if (
-        node.title.toLowerCase().includes(state.searchTerm) ||
-        node.id.includes(state.searchTerm) ||
-        node.coreArgument.toLowerCase().includes(state.searchTerm)
+        node.title.toLowerCase().includes(t) ||
+        (node.shortTitle && node.shortTitle.toLowerCase().includes(t)) ||
+        node.id.includes(t) ||
+        (node.cluster && node.cluster.toLowerCase().includes(t)) ||
+        node.coreArgument.toLowerCase().includes(t)
       ) {
         matchingNodes.push(node);
       }
@@ -1033,15 +1036,15 @@
 
     const matchingIds = new Set(matchingNodes.map((n) => n.id));
 
-    // Fade non-matching nodes
+    // Hide non-matching nodes
     state.nodeElements.classed('dimmed', (d) => !matchingIds.has(d.id));
     state.nodeElements.classed('search-match', (d) => matchingIds.has(d.id));
 
-    // Fade non-matching links
+    // Hide links where either end is not a match
     state.linkElements.classed('dimmed', (d) => {
       const sourceId = typeof d.source === 'object' ? d.source.id : d.source;
       const targetId = typeof d.target === 'object' ? d.target.id : d.target;
-      return !matchingIds.has(sourceId) && !matchingIds.has(targetId);
+      return !matchingIds.has(sourceId) || !matchingIds.has(targetId);
     });
 
     // Store matches for navigation
