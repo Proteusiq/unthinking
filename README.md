@@ -30,7 +30,7 @@ Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.
 - **Interactive** — hover tooltips, click for details, search, filter, dark/light mode
 - **Paper dialogue** — auto-generated conversations between connected papers
 
-### Deep-Dive Pages
+### LLM Made Less Black Box
 
 > [!TIP]
 > Four self-contained pages accessible from the thesis card, covering the full LLM pipeline with thesis-relevant critical analysis.
