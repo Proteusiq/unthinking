@@ -942,8 +942,9 @@
     // Show zoom controls when panel closes
     document.querySelector('.zoom-controls').classList.remove('hidden');
 
-    // Clear highlights when panel closes
+    // Clear highlights and reset zoom when panel closes
     clearHighlights();
+    resetZoom();
   }
 
   function focusOnNode(node) {
@@ -954,6 +955,17 @@
     const transform = d3.zoomIdentity.translate(width / 2 - node.x, height / 2 - node.y).scale(1.5);
 
     state.svg.transition().duration(750).call(state.zoom.transform, transform);
+  }
+
+  function resetZoom() {
+    const container = document.getElementById('graph');
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+    const isMobile = width <= 768;
+    const startScale = isMobile ? 0.25 : 0.3;
+    const initialTransform = d3.zoomIdentity.translate(width / 2, height / 2).scale(startScale);
+
+    state.svg.transition().duration(750).call(state.zoom.transform, initialTransform);
   }
 
   // ==========================================================================
@@ -1027,6 +1039,7 @@
       state.searchMatches = [];
       state.searchIndex = 0;
       updateSearchIndicator();
+      resetZoom();
       return;
     }
 
