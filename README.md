@@ -102,8 +102,8 @@ A model knows how pirates talk (A) and how physicists talk (B). A "pirate physic
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    TRAINING DISTRIBUTION                     │
-│                      (The Convex Hull)                       │
+│                    TRAINING DISTRIBUTION                    │
+│                      (The Convex Hull)                      │
 │                                                             │
 │    ┌───────┐                            ┌───────┐           │
 │    │   A   │                            │   B   │           │
