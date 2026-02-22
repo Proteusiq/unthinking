@@ -33,12 +33,26 @@ Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.
   <img src="https://img.shields.io/badge/stance-supports%20%7C%20challenges%20%7C%20balanced-FFC107" />
 </p>
 
-### Features
+### Paper Network
 - **Force-directed graph** — papers as nodes, relationships as edges
 - **Color-coded stances** — green (supports), red (challenges), yellow (balanced)
-- **Relationship types** — supports, rebuts, extends
+- **Relationship types** — supports, rebuts, extends, challenges
 - **Interactive** — hover tooltips, click for details, search, filter
 - **Dark/light mode** — toggle theme
+- **Paper dialogue** — auto-generated conversations between connected papers
+
+### Standalone Deep-Dives
+
+Four self-contained pages accessible from the thesis card, each covering a pillar of the LLM pipeline with thesis-relevant critical analysis:
+
+| Page | Tabs | What It Covers |
+|------|------|----------------|
+| [**Data**](https://proteusiq.github.io/unthinking/data.html) | Pipeline, Catalog, Compare | Pre-training data sourcing, filtering (KenLM, fastText, DSIR), deduplication (MinHash, Bloom), data mix strategies, benchmark contamination |
+| [**Tokenization**](https://proteusiq.github.io/unthinking/tokenization.html) | Pipeline, Catalog, Compare | BPE, WordPiece, Unigram, SentencePiece; tokenizer comparison across GPT-4, Llama 3, Gemma; vocabulary size tradeoffs |
+| [**Architecture**](https://proteusiq.github.io/unthinking/architecture.html) | Activations, Block, Table | Transformer internals, attention variants (MHA, GQA, MLA), normalization (Pre/Post-Norm, QK-Norm), MoE, positional encoding (RoPE, NoPE) |
+| [**Training**](https://proteusiq.github.io/unthinking/training.html) | Pipeline, Mechanics, Research | Full training lifecycle: pre-training (AdamW, scaling laws, mixed precision), mid-training (annealing, domain adaptation, context extension), post-training (SFT, RLHF, DPO, GRPO, RLVR), lab recipes |
+
+All pages are self-contained (inline CSS + JS, no external dependencies beyond the browser), follow a dark terminal aesthetic, and include thesis-angle annotations connecting technical details back to the core question: pattern matching or genuine reasoning?
 
 ---
 
@@ -272,11 +286,11 @@ PHASE 7: THEORETICAL FRAMEWORK (2026)
 │   ├── mindmap.md            # Visual cross-reference of all papers
 │   ├── paper_graph.md        # Paper interaction graph
 │   ├── rebuttals.md          # Rebuttal matrix
-│   └── explored/             # Individual paper analyses (200+ files)
+│   └── explored/             # Individual paper analyses (216 files)
 │       ├── 00-09/            # Papers 00-09
 │       ├── 10-19/            # Papers 10-19
 │       ├── ...               # (10-paper bins)
-│       └── 200-209/          # Papers 200+
+│       └── 210-219/          # Papers 210+
 ├── scripts/
 │   └── discovery/            # Paper discovery package
 │       ├── __main__.py       # Entry: uv run scripts/discovery/__main__.py
@@ -292,12 +306,17 @@ PHASE 7: THEORETICAL FRAMEWORK (2026)
 │       ├── test_refusals.py  # Before/after refusal testing
 │       └── compare_results.py # Results comparison
 ├── docs/                     # Interactive visualization (GitHub Pages)
-│   ├── index.html
+│   ├── index.html            # Paper network graph
+│   ├── data.html             # Standalone: Pre-training Data Pipeline
+│   ├── tokenization.html     # Standalone: Tokenization Pipeline
+│   ├── architecture.html     # Standalone: LLM Architecture Evolution
+│   ├── training.html         # Standalone: Full Training Pipeline (Pre/Mid/Post)
 │   ├── css/                  # variables, layout, components, responsive
 │   └── js/
-│       ├── graph.js          # Force-directed graph logic
-│       ├── nodes.js          # Paper nodes data
-│       └── links.js          # Paper relationships data
+│       ├── graph.js          # Force-directed graph + interactions
+│       ├── nodes.js          # Paper node definitions (216)
+│       ├── links.js          # Relationship links (733)
+│       └── data.js           # Meta + combines nodes/links
 ├── papers/
 │   ├── paper_list.md         # Master paper list with status
 │   └── toread.md             # Auto-discovered papers
@@ -339,7 +358,7 @@ PHASE 7: THEORETICAL FRAMEWORK (2026)
 
 ## Automated Paper Discovery
 
-**Status**: Active — 209 papers analyzed.
+**Status**: Active — 216 papers analyzed.
 
 New papers were discovered daily via GitHub Actions, classified using an LLM with thesis context.
 
