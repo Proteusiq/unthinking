@@ -959,7 +959,8 @@
   filter: drop-shadow(0 0 16px currentColor);
 }
 .node.dimmed {
-  opacity: 0.2;
+  opacity: 0;
+  pointer-events: none;
 }
 .node.filter-dimmed {
   opacity: 0;
@@ -1017,7 +1018,7 @@
   filter: drop-shadow(0 0 6px currentColor);
 }
 .link.dimmed {
-  stroke-opacity: 0.1;
+  display: none;
 }
 .link.filter-dimmed {
   display: none;
