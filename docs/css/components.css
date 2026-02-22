@@ -591,26 +591,29 @@
 
 /* Thesis Footer Links */
 .thesis-footer {
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-xs) var(--space-sm);
   border-top: 1px solid var(--glass-border);
   display: flex;
   justify-content: center;
-  gap: var(--space-sm);
+  flex-wrap: wrap;
+  gap: 4px;
 }
 .thesis-link {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-xs);
-  padding: var(--space-xs) var(--space-sm);
+  gap: 3px;
+  padding: 3px 7px;
   border-radius: var(--radius-full);
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   font-weight: 500;
   text-decoration: none;
   transition: all var(--transition-normal);
+  white-space: nowrap;
 }
 .thesis-link svg {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
 }
 .training-link {
   background: rgba(86, 211, 100, 0.15);

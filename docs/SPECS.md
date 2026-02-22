@@ -148,7 +148,7 @@ docs/
 ├── data.html               # Standalone: Pre-training Data Pipeline
 ├── tokenization.html       # Standalone: Tokenization Pipeline
 ├── architecture.html       # Standalone: LLM Architecture Evolution
-├── post-training.html      # Standalone: Post-Training Pipeline
+├── training.html           # Standalone: Full Training Pipeline (Pre/Mid/Post)
 ├── css/
 │   ├── variables.css       # Theme tokens, colors, spacing, z-index
 │   ├── layout.css          # Base styles, header, graph container, controls
