@@ -962,7 +962,7 @@
         .classed('filter-dimmed', (d) => d.stance !== filter)
         .classed('filter-highlight', (d) => d.stance === filter);
 
-      // Dim links not connected to highlighted nodes
+      // Hide links where either end is filtered out
       state.linkElements.classed('filter-dimmed', (d) => {
         const sourceNode = state.nodes.find(
           (n) => n.id === (typeof d.source === 'object' ? d.source.id : d.source)
@@ -970,8 +970,8 @@
         const targetNode = state.nodes.find(
           (n) => n.id === (typeof d.target === 'object' ? d.target.id : d.target)
         );
-        // Show link if at least one end is highlighted
-        return sourceNode?.stance !== filter && targetNode?.stance !== filter;
+        // Show link only if both ends match the filter
+        return sourceNode?.stance !== filter || targetNode?.stance !== filter;
       });
     }
   }
@@ -990,7 +990,7 @@
       const targetNode = state.nodes.find(
         (n) => n.id === (typeof d.target === 'object' ? d.target.id : d.target)
       );
-      return sourceNode?.stance !== filter && targetNode?.stance !== filter;
+      return sourceNode?.stance !== filter || targetNode?.stance !== filter;
     });
   }
 
