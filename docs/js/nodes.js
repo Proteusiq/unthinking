@@ -4596,7 +4596,7 @@ window.paperNodes = [
     ],
     keyQuotes: [
       'LM opinions agree with that of the US populace about as much as Democrats and Republicans on climate change.',
-      'The dominant approach of aligning LMs with RL based human-feedback not only skews the model\'s opinions towards certain groups (liberals), but also pushes the model to almost embody caricatures of those groups.',
+      "The dominant approach of aligning LMs with RL based human-feedback not only skews the model's opinions towards certain groups (liberals), but also pushes the model to almost embody caricatures of those groups.",
     ],
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/210-219/216_whose_opinions_llm_reflect.md',

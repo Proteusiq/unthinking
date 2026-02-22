@@ -92,8 +92,7 @@ window.paperLinks = [
     source: '2311.07590',
     target: '2601.15436',
     type: 'supports',
-    description:
-      'Strategic deception as extreme sycophancy; user-pleasing overrides truth in both',
+    description: 'Strategic deception as extreme sycophancy; user-pleasing overrides truth in both',
   },
   {
     source: '2311.07590',
@@ -326,8 +325,7 @@ window.paperLinks = [
     source: '2601.14456',
     target: '2601.13392',
     type: 'supports',
-    description:
-      '84-90% seen vs 20-59% unseen; 0% on composed constraints despite 100% knowledge',
+    description: '84-90% seen vs 20-59% unseen; 0% on composed constraints despite 100% knowledge',
   },
   {
     source: '2601.14456',
@@ -482,8 +480,7 @@ window.paperLinks = [
     source: '2502.20332',
     target: '2510.15987',
     type: 'supports',
-    description:
-      'Symbolic induction heads r=0.86; primitives compose via vector arithmetic',
+    description: 'Symbolic induction heads r=0.86; primitives compose via vector arithmetic',
   },
   {
     source: '2502.20332',
@@ -1968,7 +1965,8 @@ window.paperLinks = [
     source: '2601.05905',
     target: '2601.16644',
     type: 'supports',
-    description: 'SC=1.0 collapses under interference; sycophancy linearly separable in activations',
+    description:
+      'SC=1.0 collapses under interference; sycophancy linearly separable in activations',
   },
   {
     source: '2601.05905',
@@ -3523,7 +3521,8 @@ window.paperLinks = [
     source: '2405.05741',
     target: '2410.05229',
     type: 'supports',
-    description: 'Misleading info overrides instructions; models focus on frequent sense over context',
+    description:
+      'Misleading info overrides instructions; models focus on frequent sense over context',
   },
   // Paper 176: LiveCodeBench Pro links
   {
@@ -3536,7 +3535,8 @@ window.paperLinks = [
     source: '2506.11928',
     target: '2305.18654',
     type: 'supports',
-    description: 'o3-mini makes 34 more algorithm errors than humans but 25 fewer implementation bugs',
+    description:
+      'o3-mini makes 34 more algorithm errors than humans but 25 fewer implementation bugs',
   },
   {
     source: '2506.11928',
@@ -3548,13 +3548,15 @@ window.paperLinks = [
     source: '2506.11928',
     target: '2601.14456',
     type: 'supports',
-    description: 'Near-zero gain on observation-heavy problems mirrors planning degradation on novel tasks',
+    description:
+      'Near-zero gain on observation-heavy problems mirrors planning degradation on novel tasks',
   },
   {
     source: '2506.11928',
     target: '2410.05229',
     type: 'supports',
-    description: 'Knowledge-heavy categories succeed where patterns appear verbatim in training data',
+    description:
+      'Knowledge-heavy categories succeed where patterns appear verbatim in training data',
   },
   {
     source: '2506.11928',
@@ -3573,7 +3575,8 @@ window.paperLinks = [
     source: '2505.23701',
     target: '2305.18654',
     type: 'supports',
-    description: 'CoT boosts computation +58.7% but abstraction only +6.7%; retrieval not reasoning',
+    description:
+      'CoT boosts computation +58.7% but abstraction only +6.7%; retrieval not reasoning',
   },
   {
     source: '2505.23701',
@@ -3622,13 +3625,15 @@ window.paperLinks = [
     source: '2506.23921',
     target: '2307.13702',
     type: 'supports',
-    description: 'Binary probes perform worse than zero-shot prompting; proxy directions confounded',
+    description:
+      'Binary probes perform worse than zero-shot prompting; proxy directions confounded',
   },
   {
     source: '2506.23921',
     target: '2401.11817',
     type: 'supports',
-    description: 'Three-valued truth (true/false/neither) formalizes why hallucination is inevitable',
+    description:
+      'Three-valued truth (true/false/neither) formalizes why hallucination is inevitable',
   },
   {
     source: '2506.23921',
@@ -3686,7 +3691,8 @@ window.paperLinks = [
     source: '2505.23701',
     target: '2602.01017',
     type: 'supports',
-    description: 'Layer 13-14 abstraction vs layer 18 computation; unfaithful CoT at mechanism level',
+    description:
+      'Layer 13-14 abstraction vs layer 18 computation; unfaithful CoT at mechanism level',
   },
   {
     source: '2505.23701',
@@ -3699,13 +3705,15 @@ window.paperLinks = [
     source: '2506.23921',
     target: '2509.11208',
     type: 'supports',
-    description: 'Trilemma impossibility theorem gives formal basis for compression-hallucination link',
+    description:
+      'Trilemma impossibility theorem gives formal basis for compression-hallucination link',
   },
   {
     source: '2506.23921',
     target: '2506.11135',
     type: 'supports',
-    description: 'KI systems encode training statistics; trilemma shows truth ≠ probability complement',
+    description:
+      'KI systems encode training statistics; trilemma shows truth ≠ probability complement',
   },
   // Paper 179 (Mitchell Emergence) additional links
   {
@@ -3731,7 +3739,8 @@ window.paperLinks = [
     source: '2405.05741',
     target: '2302.00093',
     type: 'supports',
-    description: 'Uncommon word senses fail like low-frequency patterns; statistics gate comprehension',
+    description:
+      'Uncommon word senses fail like low-frequency patterns; statistics gate comprehension',
   },
   {
     source: '2405.05741',
@@ -3758,19 +3767,22 @@ window.paperLinks = [
     source: '2602.04288',
     target: '2310.13548',
     type: 'supports',
-    description: '34% AIME drop from 1 failed draft; attention reuses erroneous patterns like sycophancy',
+    description:
+      '34% AIME drop from 1 failed draft; attention reuses erroneous patterns like sycophancy',
   },
   {
     source: '2602.04288',
     target: '2302.00093',
     type: 'supports',
-    description: '53% Game-of-24 collapse with 2 failed drafts; context overrides correct computation',
+    description:
+      '53% Game-of-24 collapse with 2 failed drafts; context overrides correct computation',
   },
   {
     source: '2602.04288',
     target: '2305.04388',
     type: 'supports',
-    description: 'Tree edit distance confirms structural inheritance of errors, not surface copying',
+    description:
+      'Tree edit distance confirms structural inheritance of errors, not surface copying',
   },
   {
     source: '2602.04288',
@@ -3782,7 +3794,8 @@ window.paperLinks = [
     source: '2602.04288',
     target: '2501.18585',
     type: 'supports',
-    description: 'Iterative refinement causes accuracy collapse; self-deterioration across iterations',
+    description:
+      'Iterative refinement causes accuracy collapse; self-deterioration across iterations',
   },
   {
     source: '2602.04288',
@@ -3806,7 +3819,8 @@ window.paperLinks = [
     source: '2602.04288',
     target: '2410.05229',
     type: 'supports',
-    description: '10-20% drops across 11 models from failed context; fragility like numeric perturbation',
+    description:
+      '10-20% drops across 11 models from failed context; fragility like numeric perturbation',
   },
   {
     source: '2602.04288',
@@ -3825,7 +3839,8 @@ window.paperLinks = [
     source: '2602.02103',
     target: '2409.13373',
     type: 'supports',
-    description: 'Token F1 drops 0.90→0.03 at delta=16; myopic horizon matches planning gap findings',
+    description:
+      'Token F1 drops 0.90→0.03 at delta=16; myopic horizon matches planning gap findings',
   },
   {
     source: '2602.02103',
@@ -3837,7 +3852,8 @@ window.paperLinks = [
     source: '2602.02103',
     target: '2504.09762',
     type: 'supports',
-    description: '16.2% CoT bypassable with 0.03 accuracy drop; steps are compute, not semantic plan',
+    description:
+      '16.2% CoT bypassable with 0.03 accuracy drop; steps are compute, not semantic plan',
   },
   {
     source: '2602.02103',
@@ -3849,7 +3865,8 @@ window.paperLinks = [
     source: '2602.02103',
     target: '2404.15758',
     type: 'supports',
-    description: 'Tele-Lens probing shows incremental local transitions, not planned reasoning paths',
+    description:
+      'Tele-Lens probing shows incremental local transitions, not planned reasoning paths',
   },
   {
     source: '2602.02103',
@@ -3861,20 +3878,23 @@ window.paperLinks = [
     source: '2602.02103',
     target: '2305.18654',
     type: 'supports',
-    description: 'Parity answer only resolved at final counting step; all prior positions at chance',
+    description:
+      'Parity answer only resolved at final counting step; all prior positions at chance',
   },
   {
     source: '2602.02103',
     target: '2602.04288',
     type: 'supports',
-    description: 'Myopic horizon: GSM8K prediction 0.55→0.02 at delta=16; local like contextual drag',
+    description:
+      'Myopic horizon: GSM8K prediction 0.55→0.02 at delta=16; local like contextual drag',
   },
   // Paper 182: LMs Struggle to Use In-Context Representations links
   {
     source: '2602.04212',
     target: '2410.09695',
     type: 'supports',
-    description: '>75% with explicit topology but near-chance on in-context; representations are inert',
+    description:
+      '>75% with explicit topology but near-chance on in-context; representations are inert',
   },
   {
     source: '2602.04212',
@@ -3898,13 +3918,15 @@ window.paperLinks = [
     source: '2602.04212',
     target: '2602.02103',
     type: 'supports',
-    description: 'GPT-5 and Gemini collapse on 2D grids; inert representations match myopic horizon',
+    description:
+      'GPT-5 and Gemini collapse on 2D grids; inert representations match myopic horizon',
   },
   {
     source: '2602.04212',
     target: '2305.18654',
     type: 'supports',
-    description: 'Dirichlet energy confirms representations not deployed; compositional gap persists',
+    description:
+      'Dirichlet energy confirms representations not deployed; compositional gap persists',
   },
   {
     source: '2602.04212',
@@ -3917,44 +3939,51 @@ window.paperLinks = [
     source: '2510.07192',
     target: '2401.11817',
     type: 'supports',
-    description: '250 docs backdoor 13B model trained on 260B tokens (0.00016%); no quality filtering',
+    description:
+      '250 docs backdoor 13B model trained on 260B tokens (0.00016%); no quality filtering',
   },
   {
     source: '2510.07192',
     target: '2310.13548',
     type: 'supports',
-    description: '100x more clean data does not reduce 60% ASR; trigger associations override context',
+    description:
+      '100x more clean data does not reduce 60% ASR; trigger associations override context',
   },
   {
     source: '2510.07192',
     target: '2602.01017',
     type: 'supports',
-    description: 'Constant-sample (not percentage) scaling; models extract associations without reasoning',
+    description:
+      'Constant-sample (not percentage) scaling; models extract associations without reasoning',
   },
   {
     source: '2510.07192',
     target: '2309.12288',
     type: 'extends',
-    description: '250 poison docs at all scales 600M-13B; specific associations like reversal curse',
+    description:
+      '250 poison docs at all scales 600M-13B; specific associations like reversal curse',
   },
   // Paper 184: Brain Rot links
   {
     source: '2510.13928',
     target: '2602.01017',
     type: 'supports',
-    description: '-17.7pp ARC from junk data; thought-skipping as structural degradation of reasoning',
+    description:
+      '-17.7pp ARC from junk data; thought-skipping as structural degradation of reasoning',
   },
   {
     source: '2510.13928',
     target: '2510.07192',
     type: 'supports',
-    description: 'Linear dose-response: more junk = more damage; 250 poison docs show same causality',
+    description:
+      'Linear dose-response: more junk = more damage; 250 poison docs show same causality',
   },
   {
     source: '2510.13928',
     target: '2401.11817',
     type: 'supports',
-    description: '-32.1pp long-context from junk; partial healing only — damage cannot be fully reversed',
+    description:
+      '-32.1pp long-context from junk; partial healing only — damage cannot be fully reversed',
   },
   {
     source: '2510.13928',
@@ -3966,25 +3995,29 @@ window.paperLinks = [
     source: '2510.13928',
     target: '2412.21187',
     type: 'supports',
-    description: 'Thought-skipping truncates reasoning chains; overthinking wastes tokens differently',
+    description:
+      'Thought-skipping truncates reasoning chains; overthinking wastes tokens differently',
   },
   {
     source: '2510.13928',
     target: '2501.18585',
     type: 'supports',
-    description: 'Tweet popularity (non-semantic metric) predicts brain rot; data quality causally drives it',
+    description:
+      'Tweet popularity (non-semantic metric) predicts brain rot; data quality causally drives it',
   },
   {
     source: '2510.13928',
     target: '2509.11208',
     type: 'supports',
-    description: 'Representational drift persists after remediation; compression failure from data quality',
+    description:
+      'Representational drift persists after remediation; compression failure from data quality',
   },
   {
     source: '2510.13928',
     target: '2506.11135',
     type: 'supports',
-    description: 'Hedges g>0.3 decline across all domains; KI system quality bounded by training data',
+    description:
+      'Hedges g>0.3 decline across all domains; KI system quality bounded by training data',
   },
   // Paper 185: Hallucination Inevitable (Open World) links
   {
@@ -4004,7 +4037,8 @@ window.paperLinks = [
     source: '2510.05116',
     target: '2506.11135',
     type: 'supports',
-    description: 'Type-II hallucination (false generalization) inevitable under open-world assumption',
+    description:
+      'Type-II hallucination (false generalization) inevitable under open-world assumption',
   },
   {
     source: '2510.05116',
@@ -4023,13 +4057,15 @@ window.paperLinks = [
     source: '2310.13345',
     target: '2410.05229',
     type: 'supports',
-    description: '64-74% cross-model attack transfer; character-level 81% ASR proves surface fragility',
+    description:
+      '64-74% cross-model attack transfer; character-level 81% ASR proves surface fragility',
   },
   {
     source: '2310.13345',
     target: '2305.04388',
     type: 'supports',
-    description: 'LLMs generate adversarial examples that fool themselves; self-deception via patterns',
+    description:
+      'LLMs generate adversarial examples that fool themselves; self-deception via patterns',
   },
   {
     source: '2310.13345',
@@ -4072,7 +4108,8 @@ window.paperLinks = [
     source: '2501.18626',
     target: '2305.04388',
     type: 'supports',
-    description: 'TIP Python encodes harmful requests as seq2seq; safety triggers miss encoding layer',
+    description:
+      'TIP Python encodes harmful requests as seq2seq; safety triggers miss encoding layer',
   },
   // Paper 19: Comprehension Without Competence (2507.10624)
   {
@@ -4136,7 +4173,8 @@ window.paperLinks = [
     source: '2502.14829',
     target: '2505.05410',
     type: 'supports',
-    description: 'Unlearning finds 40-86% faithful CoTs vs 16-50% contextual; r=0.15 plausibility gap',
+    description:
+      'Unlearning finds 40-86% faithful CoTs vs 16-50% contextual; r=0.15 plausibility gap',
   },
   // Paper 83: IB Reasoning (2507.18391)
   {
@@ -4156,7 +4194,8 @@ window.paperLinks = [
     source: '2509.09677',
     target: '2507.14417',
     type: 'supports',
-    description: 'Budget forcing + diminishing returns; scaling compute hits wall on complex reasoning',
+    description:
+      'Budget forcing + diminishing returns; scaling compute hits wall on complex reasoning',
   },
   {
     source: '2509.09677',
@@ -4208,7 +4247,8 @@ window.paperLinks = [
     source: '2601.17593',
     target: '2508.01191',
     type: 'supports',
-    description: 'DAG geometry recoverable at depth Spearman ~0.7 but overlap with incorrect outputs',
+    description:
+      'DAG geometry recoverable at depth Spearman ~0.7 but overlap with incorrect outputs',
   },
   // Paper 94: SOAR (2601.18778)
   {
@@ -4221,14 +4261,16 @@ window.paperLinks = [
     source: '2601.18778',
     target: '2502.04667',
     type: 'supports',
-    description: 'Meta-RL curricula yield 4x pass@1; only 32.8% stepping-stones need correct answers',
+    description:
+      'Meta-RL curricula yield 4x pass@1; only 32.8% stepping-stones need correct answers',
   },
   // Paper 188: Mind Your Tone (Politeness) (2402.14531)
   {
     source: '2402.14531',
     target: '2410.05229',
     type: 'supports',
-    description: 'Rude tone drops Llama2-70B 48.5%; irrelevant feature sensitivity like filler info',
+    description:
+      'Rude tone drops Llama2-70B 48.5%; irrelevant feature sensitivity like filler info',
   },
   {
     source: '2402.14531',
@@ -4240,13 +4282,15 @@ window.paperLinks = [
     source: '2402.14531',
     target: '2501.18626',
     type: 'supports',
-    description: 'Tone words and task-in-prompt encoding exploit same surface-pattern vulnerability',
+    description:
+      'Tone words and task-in-prompt encoding exploit same surface-pattern vulnerability',
   },
   {
     source: '2402.14531',
     target: '2302.00093',
     type: 'supports',
-    description: 'Social tone irrelevant to logic yet shifts accuracy; context sensitivity is general',
+    description:
+      'Social tone irrelevant to logic yet shifts accuracy; context sensitivity is general',
   },
   // Paper 189: Confidence Paradox (2506.23464)
   {
@@ -4259,13 +4303,15 @@ window.paperLinks = [
     source: '2506.23464',
     target: '2601.05905',
     type: 'supports',
-    description: 'HonestVQA reduces overconfidence 35-39% but requires external contrastive training',
+    description:
+      'HonestVQA reduces overconfidence 35-39% but requires external contrastive training',
   },
   {
     source: '2506.23464',
     target: '2509.11208',
     type: 'supports',
-    description: '4-6% cross-domain transfer drops prove confidence is domain-specific, not general',
+    description:
+      '4-6% cross-domain transfer drops prove confidence is domain-specific, not general',
   },
   // Paper 190: Mind Your Tone - Rude=Better (2510.04950)
   // CRITICAL: This paper REBUTS Paper 188 with OPPOSITE findings
@@ -4279,13 +4325,15 @@ window.paperLinks = [
     source: '2510.04950',
     target: '2410.05229',
     type: 'supports',
-    description: 'Rude tone drops Llama2-70B 48.5%; irrelevant features like politeness bias output',
+    description:
+      'Rude tone drops Llama2-70B 48.5%; irrelevant features like politeness bias output',
   },
   {
     source: '2510.04950',
     target: '2302.00093',
     type: 'supports',
-    description: 'Politeness modulates accuracy up to 48.5%; surface sensitivity like sycophancy trigger',
+    description:
+      'Politeness modulates accuracy up to 48.5%; surface sensitivity like sycophancy trigger',
   },
   // Paper 191: LLM Reasoning Failures Survey (2602.06176) - CORNERSTONE HUB NODE
   // This survey synthesizes 170+ papers - connects to 14 we've already analyzed
@@ -4520,7 +4568,8 @@ window.paperLinks = [
     source: '2412.07282',
     target: '2411.02344',
     type: 'supports',
-    description: 'HARP selects hard positions via entropy; Seq-VCR prevents representation collapse',
+    description:
+      'HARP selects hard positions via entropy; Seq-VCR prevents representation collapse',
   },
   {
     source: '2412.07282',
@@ -4532,7 +4581,8 @@ window.paperLinks = [
     source: '2412.07282',
     target: '2404.15758',
     type: 'supports',
-    description: 'HARP selective + Dot by Dot uniform; extra computation works regardless of method',
+    description:
+      'HARP selective + Dot by Dot uniform; extra computation works regardless of method',
   },
   {
     source: '2412.07282',
@@ -4570,7 +4620,8 @@ window.paperLinks = [
     source: '2309.13638',
     target: '2305.18654',
     type: 'supports',
-    description: 'Rot-2 at 2% vs Rot-1 at 82% — same difficulty, different frequency drives accuracy',
+    description:
+      'Rot-2 at 2% vs Rot-1 at 82% — same difficulty, different frequency drives accuracy',
   },
   {
     source: '2309.13638',
@@ -4631,13 +4682,15 @@ window.paperLinks = [
     source: '2410.01792',
     target: '2410.05229',
     type: 'supports',
-    description: 'o1 still shows probability sensitivity; embers persist despite reasoning training',
+    description:
+      'o1 still shows probability sensitivity; embers persist despite reasoning training',
   },
   {
     source: '2410.01792',
     target: '2506.06941',
     type: 'supports',
-    description: 'o1 embers + Illusion 0% hard tier; reasoning optimization cannot escape frequency',
+    description:
+      'o1 embers + Illusion 0% hard tier; reasoning optimization cannot escape frequency',
   },
   {
     source: '2410.01792',
@@ -4801,7 +4854,8 @@ window.paperLinks = [
     source: '2410.03717',
     target: '2502.03373',
     type: 'supports',
-    description: 'Demystifying shows pre-existence; Revisiting shows reasoning separable from style',
+    description:
+      'Demystifying shows pre-existence; Revisiting shows reasoning separable from style',
   },
   // Paper 210: LLM Probability Concentration - KILLER EVIDENCE
   {
@@ -4946,8 +5000,7 @@ window.paperLinks = [
     source: '2410.10862',
     target: '2502.04602',
     type: 'supports',
-    description:
-      'SCU neurons + linear head extraction; safety binary classification is sparse',
+    description: 'SCU neurons + linear head extraction; safety binary classification is sparse',
   },
   // Prompt Repetition (#215) relationships
   {
@@ -4974,7 +5027,8 @@ window.paperLinks = [
     source: '2303.17548',
     target: '2305.11206',
     type: 'supports',
-    description: 'LIMA shows 1K examples shape behavior; OpinionsQA shows annotator demographics shape opinions',
+    description:
+      'LIMA shows 1K examples shape behavior; OpinionsQA shows annotator demographics shape opinions',
   },
   {
     source: '2303.17548',
@@ -4986,18 +5040,21 @@ window.paperLinks = [
     source: '2303.17548',
     target: '2310.13548',
     type: 'supports',
-    description: 'Sycophancy optimizes for crowdworker approval; OpinionsQA shows opinion shift toward annotator demographics',
+    description:
+      'Sycophancy optimizes for crowdworker approval; OpinionsQA shows opinion shift toward annotator demographics',
   },
   {
     source: '2303.17548',
     target: '2308.03958',
     type: 'supports',
-    description: 'Simple synthetic data shapes sycophancy; RLHF shapes opinion distributions toward crowdworkers',
+    description:
+      'Simple synthetic data shapes sycophancy; RLHF shapes opinion distributions toward crowdworkers',
   },
   {
     source: '2303.17548',
     target: '2506.17871',
     type: 'supports',
-    description: 'Probability concentration parallels opinion collapse; RLHF narrows both generative and opinion diversity',
+    description:
+      'Probability concentration parallels opinion collapse; RLHF narrows both generative and opinion diversity',
   },
 ];

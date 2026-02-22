@@ -612,12 +612,12 @@
   width: 12px;
   height: 12px;
 }
-.post-training-link {
+.training-link {
   background: rgba(86, 211, 100, 0.15);
-  color: var(--thesis-post-training);
+  color: var(--thesis-training);
 }
-.post-training-link:hover {
-  background: var(--thesis-post-training);
+.training-link:hover {
+  background: var(--thesis-training);
   color: white;
   transform: translateY(-1px);
 }
