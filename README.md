@@ -24,9 +24,6 @@ To bring the findings home:
   - *Decoding ablation*: proves reasoning paths exist in base models, hidden by greedy decoding — RL just surfaces them
   - *Steering ablation*: proves safety alignment is a thin layer of refusal patterns that washes off under trivial perturbations
 - **LLM Made Less Black Box** — four visual explainers (Data → Tokenization → Architecture → Training) demystifying the full pipeline
-
-The goal: make LLMs less magic, more mechanism.
-
 ---
 
 ## Thesis
