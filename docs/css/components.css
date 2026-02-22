@@ -639,6 +639,15 @@
   color: white;
   transform: translateY(-1px);
 }
+.tokenization-link {
+  background: rgba(240, 136, 62, 0.15);
+  color: var(--thesis-tokenization);
+}
+.tokenization-link:hover {
+  background: var(--thesis-tokenization);
+  color: white;
+  transform: translateY(-1px);
+}
 
 /* Overlay Modal */
 .overlay-modal {

@@ -1,0 +1,961 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tokenization | The Thinking Machine That Doesn't Think</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: #0d1117;
+        color: #c9d1d9;
+        font-family: 'Courier New', monospace;
+        padding: 1.2rem 1rem 3rem;
+      }
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 960px;
+        margin: 0 auto 1rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      h2 {
+        color: #f0883e;
+        letter-spacing: 2px;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+      }
+      .toggle-wrap {
+        display: flex;
+        gap: 0;
+        border: 1px solid #30363d;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      .tbtn {
+        background: #161b22;
+        color: #8b949e;
+        border: none;
+        padding: 5px 12px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.62rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-right: 1px solid #30363d;
+        transition: background 0.15s;
+      }
+      .tbtn:last-child {
+        border-right: none;
+      }
+      .tbtn.active {
+        background: #f0883e;
+        color: #0d1117;
+        font-weight: bold;
+      }
+      .wrap {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      .view {
+        display: none;
+      }
+      .view.show {
+        display: block;
+      }
+
+      /* ── ERA TABS + CARD GRID ── */
+      .era-tabs {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 0.8rem;
+        flex-wrap: wrap;
+      }
+      .era-tab {
+        padding: 4px 10px;
+        border-radius: 3px;
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: all 0.15s;
+        background: #161b22;
+      }
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+        gap: 7px;
+      }
+      .card {
+        background: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 5px;
+        padding: 8px 10px;
+        cursor: pointer;
+        transition: border-color 0.15s;
+      }
+      .card:hover {
+        border-color: #f0883e55;
+      }
+      .card.open {
+        border-color: #f0883e;
+      }
+      .c-year {
+        font-size: 0.57rem;
+        margin-bottom: 2px;
+      }
+      .c-name {
+        font-size: 0.76rem;
+        font-weight: bold;
+        margin-bottom: 3px;
+      }
+      .c-key {
+        font-size: 0.63rem;
+        color: #8b949e;
+        line-height: 1.55;
+      }
+      .c-detail {
+        display: none;
+        margin-top: 7px;
+        padding-top: 7px;
+        border-top: 1px solid #21262d;
+        font-size: 0.63rem;
+        line-height: 1.7;
+        color: #8b949e;
+      }
+      .card.open .c-detail {
+        display: block;
+      }
+      .c-detail b {
+        color: #e6edf3;
+      }
+      .c-limit {
+        margin-top: 5px;
+        font-size: 0.61rem;
+        color: #f0883e;
+      }
+      .c-use {
+        margin-top: 2px;
+        font-size: 0.61rem;
+        color: #3fb950;
+      }
+      .c-chev {
+        float: right;
+        font-size: 0.6rem;
+        color: #30363d;
+        transition: transform 0.2s;
+      }
+      .card.open .c-chev {
+        transform: rotate(180deg);
+        color: #f0883e;
+      }
+
+      /* ── PIPELINE DIAGRAM ── */
+      .pipeline-wrap {
+        background: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 6px;
+        padding: 0.9rem 1rem;
+        margin-bottom: 0.85rem;
+      }
+      .pipeline-flow {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        overflow-x: auto;
+        padding: 0.5rem 0;
+      }
+      .pipe-box {
+        background: #0d1117;
+        border: 1px solid #30363d;
+        border-radius: 4px;
+        padding: 6px 10px;
+        text-align: center;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .pipe-box .label {
+        font-size: 0.6rem;
+        color: #8b949e;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .pipe-box .value {
+        font-size: 0.72rem;
+        font-weight: bold;
+        margin-top: 2px;
+      }
+      .pipe-arrow {
+        color: #30363d;
+        font-size: 1.2rem;
+        padding: 0 6px;
+        flex-shrink: 0;
+      }
+
+      /* ── BPE WALKTHROUGH ── */
+      .bpe-section {
+        background: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 6px;
+        padding: 0.9rem 1rem;
+        margin-bottom: 0.85rem;
+      }
+      .bpe-title {
+        font-size: 0.65rem;
+        color: #f0883e;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 0.6rem;
+      }
+      .bpe-step {
+        background: #0d1117;
+        border: 1px solid #21262d;
+        border-radius: 4px;
+        padding: 6px 10px;
+        margin-bottom: 5px;
+        font-size: 0.63rem;
+        line-height: 1.7;
+        color: #8b949e;
+      }
+      .bpe-step b {
+        color: #e6edf3;
+      }
+      .bpe-step .step-num {
+        color: #f0883e;
+        font-weight: bold;
+      }
+      .bpe-tokens {
+        font-family: 'Courier New', monospace;
+        color: #79c0ff;
+        background: #0d1117;
+        border: 1px solid #21262d;
+        border-radius: 3px;
+        padding: 2px 6px;
+        display: inline;
+      }
+
+      /* ── COMPARISON TABLE ── */
+      .cmp-wrap {
+        overflow-x: auto;
+      }
+      .cmp-tbl {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.63rem;
+      }
+      .cmp-tbl th {
+        background: #0d1117;
+        padding: 5px 8px;
+        text-align: left;
+        font-size: 0.57rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border-bottom: 1px solid #30363d;
+        white-space: nowrap;
+        color: #8b949e;
+      }
+      .cmp-tbl td {
+        padding: 5px 8px;
+        border-bottom: 1px solid #21262d;
+        vertical-align: top;
+        color: #8b949e;
+      }
+      .cmp-tbl tr:hover td {
+        background: #1c2128;
+      }
+      .cmp-tbl td.nm {
+        color: #c9d1d9;
+        white-space: nowrap;
+      }
+      .chip {
+        display: inline-block;
+        font-size: 0.57rem;
+        border-radius: 3px;
+        padding: 1px 5px;
+        white-space: nowrap;
+      }
+
+      /* Back link */
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: #f0883e;
+        text-decoration: none;
+        font-size: 0.7rem;
+        margin-bottom: 1rem;
+        opacity: 0.8;
+        transition: opacity 0.15s;
+      }
+      .back-link:hover {
+        opacity: 1;
+      }
+      .back-link svg {
+        width: 14px;
+        height: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="max-width: 960px; margin: 0 auto">
+      <a
+        href="index.html"
+        class="back-link"
+        onclick="
+          if (window.parent !== window) {
+            window.parent.closeOverlay();
+            return false;
+          }
+        "
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        Back to Paper Network
+      </a>
+    </div>
+
+    <div class="topbar">
+      <h2>Tokenization — How Text Enters the Transformer</h2>
+      <div class="toggle-wrap">
+        <button class="tbtn active" id="btn-pipeline" onclick="setV('pipeline')">Pipeline</button>
+        <button class="tbtn" id="btn-catalog" onclick="setV('catalog')">Catalog</button>
+        <button class="tbtn" id="btn-compare" onclick="setV('compare')">Compare</button>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <!-- ═══ PIPELINE VIEW ═══ -->
+      <div id="view-pipeline" class="view show">
+        <div class="pipeline-wrap">
+          <div
+            style="
+              font-size: 0.62rem;
+              color: #f0883e;
+              letter-spacing: 1px;
+              text-transform: uppercase;
+              margin-bottom: 0.55rem;
+            "
+          >
+            The input pipeline — every LLM starts here
+          </div>
+          <div class="pipeline-flow" id="pipeline-flow"></div>
+          <div style="font-size: 0.62rem; color: #8b949e; margin-top: 0.55rem; line-height: 1.75">
+            Raw text is <b style="color: #c9d1d9">never seen by the model</b>. It passes through a
+            fixed tokenizer (trained separately on a corpus) that converts strings into integer
+            sequences. Each integer indexes a row in the
+            <b style="color: #79c0ff">embedding matrix</b> to produce a dense vector. Only then does
+            the transformer begin.
+          </div>
+        </div>
+
+        <!-- BPE Walkthrough -->
+        <div class="bpe-section">
+          <div class="bpe-title">BPE Algorithm — Training the Tokenizer</div>
+          <div style="font-size: 0.63rem; color: #8b949e; line-height: 1.7; margin-bottom: 0.6rem">
+            Byte Pair Encoding (Sennrich et al. 2016) is how GPT-2, LLaMA, Mistral, DeepSeek, and
+            most modern LLMs build their vocabulary. Start with 256 byte tokens, iteratively merge
+            the most frequent adjacent pair.
+          </div>
+          <div id="bpe-steps"></div>
+        </div>
+
+        <!-- Why it matters for the thesis -->
+        <div class="bpe-section">
+          <div class="bpe-title">Why Tokenization Matters for Reasoning</div>
+          <div style="font-size: 0.63rem; color: #8b949e; line-height: 1.75">
+            <b style="color: #e6edf3">Tokenization artifacts cause reasoning failures</b> that look
+            like cognitive deficits but are representation problems baked in before the first
+            attention layer fires.<br /><br />
+            <b style="color: #f0883e">Letter counting</b>: "How many r's in strawberry?" fails
+            because "strawberry" tokenizes as
+            <span class="bpe-tokens">["str", "aw", "berry"]</span> — the model never sees individual
+            letters.<br />
+            <b style="color: #f0883e">Arithmetic</b>: multi-digit tokens create implicit computation
+            the model must learn. "1234" as one token vs "1","2","3","4" as four tokens require
+            different learned circuits.<br />
+            <b style="color: #f0883e">Reversal curse</b>: the model only sees left-to-right byte
+            sequences. "A is B" doesn't teach "B is A" because the token sequences are completely
+            different.<br />
+            <b style="color: #f0883e">Multilingual</b>: English-trained tokenizers waste 2-3× more
+            tokens on Chinese/Arabic, leaving less context window for actual reasoning.<br /><br />
+            <span style="color: #3fb950"
+              >Counter-argument: reasoning models (o1, R1) partially overcome tokenization limits via
+              chain-of-thought decomposition — but this is a workaround, not a fix.</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ CATALOG VIEW ═══ -->
+      <div id="view-catalog" class="view">
+        <div
+          style="
+            font-size: 0.64rem;
+            color: #8b949e;
+            line-height: 1.8;
+            margin-bottom: 0.85rem;
+            border: 1px solid #21262d;
+            border-radius: 5px;
+            padding: 0.65rem 0.9rem;
+            background: #0d1117;
+          "
+        >
+          How text enters the transformer. Raw strings must become integer sequences before any
+          computation happens —
+          <b style="color: #c9d1d9"
+            >string → bytes → subword tokens → embedding vectors → model</b
+          >. Tokenization choices directly shape what the model can and cannot learn. Click any card
+          for detail.
+        </div>
+        <div class="era-tabs" id="era-tabs"></div>
+        <div class="card-grid" id="card-grid"></div>
+      </div>
+
+      <!-- ═══ COMPARE VIEW ═══ -->
+      <div id="view-compare" class="view">
+        <div
+          style="
+            font-size: 0.64rem;
+            color: #8b949e;
+            line-height: 1.8;
+            margin-bottom: 0.85rem;
+            border: 1px solid #21262d;
+            border-radius: 5px;
+            padding: 0.65rem 0.9rem;
+            background: #0d1117;
+          "
+        >
+          Side-by-side comparison of tokenizers used by major LLMs. Vocabulary size, algorithm,
+          compression ratio, and notable features.
+        </div>
+        <div class="cmp-wrap">
+          <table class="cmp-tbl">
+            <thead>
+              <tr>
+                <th style="color: #c9d1d9">Model</th>
+                <th>Vocab Size</th>
+                <th>Algorithm</th>
+                <th>Bytes/Token</th>
+                <th>Pre-Tokenization</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody id="cmp-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div
+      style="
+        max-width: 960px;
+        margin: 2rem auto 0;
+        padding-top: 1rem;
+        border-top: 1px solid #21262d;
+        font-size: 0.58rem;
+        color: #8b949e;
+        line-height: 1.8;
+      "
+    >
+      <span
+        style="color: #30363d; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.5rem"
+        >Sources</span
+      ><br />
+      <a
+        href="https://github.com/stanford-cs336/spring2025-lectures/blob/main/lecture_01.py"
+        style="color: #f0883e; text-decoration: none"
+        target="_blank"
+        rel="noopener"
+        >Stanford CS336</a
+      >
+      &mdash; Language Modeling from Scratch, Lecture 1: Tokenization (Spring 2025)<br />
+      <a
+        href="https://www.youtube.com/watch?v=zduSFxRajkE"
+        style="color: #f0883e; text-decoration: none"
+        target="_blank"
+        rel="noopener"
+        >Andrej Karpathy</a
+      >
+      &mdash; Let's build the GPT Tokenizer<br />
+      <a
+        href="https://arxiv.org/abs/1508.07909"
+        style="color: #f0883e; text-decoration: none"
+        target="_blank"
+        rel="noopener"
+        >Sennrich et al.</a
+      >
+      (2016) &mdash; Neural Machine Translation of Rare Words with Subword Units
+    </div>
+
+    <script>
+      // ── TOKENIZATION CATALOG DATA ──
+      const ERAS = [
+        { id: 'raw', label: 'Raw Representations', color: '#8b949e' },
+        { id: 'subword', label: 'Subword — The Standard', color: '#e3b341' },
+        { id: 'modern', label: 'Modern Vocabularies', color: '#56d364' },
+        { id: 'embed', label: 'Token → Vector', color: '#79c0ff' },
+        { id: 'beyond', label: 'Beyond Tokens', color: '#d2a8ff' },
+      ];
+
+      const CARDS = [
+        {
+          era: 'raw',
+          year: 'Baseline',
+          name: 'Character Tokenizer',
+          key: 'Each Unicode code point = one token. Vocabulary \u2248 150K. Extremely long sequences.',
+          detail:
+            'encode("Hello") \u2192 [72, 101, 108, 108, 111]. Simple and lossless \u2014 every character maps to its Unicode <b>ord()</b> value. Vocabulary is the full Unicode table (~150K characters), most extremely rare. Sequences are long but each token is meaningful.',
+          limit:
+            '\u26a0 Huge vocabulary (150K+). Very long sequences \u2014 quadratic attention cost. Rare characters waste embedding capacity.',
+          use: '\u2192 Pedagogical baseline. Never used in production LLMs.',
+        },
+        {
+          era: 'raw',
+          year: 'Baseline',
+          name: 'Byte Tokenizer',
+          key: 'UTF-8 bytes. Vocabulary = 256. Compression ratio = 1.0. Sequences 3\u20134\u00d7 longer than BPE.',
+          detail:
+            'encode("Hello") \u2192 [72, 101, 108, 108, 111] (ASCII). encode("\ud83c\udf0d") \u2192 [240, 159, 140, 141] (4 bytes). <b>Fixed 256-token vocabulary</b> \u2014 elegant and universal. Every possible string is encodable. But compression ratio is exactly 1.0 (1 byte per token), so sequences are very long.',
+          limit:
+            '\u26a0 Compression ratio 1.0 \u2014 sequences are 3\u20134\u00d7 longer than BPE. Quadratic attention makes this prohibitive for standard transformers.',
+          use: '\u2192 Foundation for byte-level models (ByT5, MegaByte, BLT). Building block for BPE.',
+        },
+        {
+          era: 'raw',
+          year: 'Pre-2016',
+          name: 'Word Tokenizer',
+          key: 'Split on whitespace/punctuation. Each word = one token. UNK problem for unseen words.',
+          detail:
+            "Split text using regex (e.g., GPT-2 pattern). Each unique word gets an integer ID. Vocabulary = all distinct words in training corpus. New words at inference \u2192 special UNK token. <b>Pre-tokenization</b> (splitting into coarse segments before BPE) descends from this approach.",
+          limit:
+            '\u26a0 Unbounded vocabulary. No handling of morphology ("running" \u2260 "run"). UNK tokens corrupt perplexity.',
+          use: '\u2192 Classical NLP (pre-2016). Still used as pre-tokenization step before BPE.',
+        },
+        {
+          era: 'subword',
+          year: '2016',
+          name: 'Byte Pair Encoding (BPE)',
+          key: 'Start with bytes, iteratively merge most frequent pair. The dominant LLM tokenizer. Sennrich et al. 2016.',
+          detail:
+            '<b>Training</b>: Start with 256 byte tokens. Count all adjacent pairs in corpus. Merge the most frequent pair into a new token. Repeat N times to get vocab of size 256+N. <b>Encoding</b>: apply learned merges greedily left-to-right. Common words become single tokens; rare words decompose into subwords. See the Pipeline tab for a step-by-step walkthrough.',
+          limit:
+            '\u26a0 Greedy algorithm \u2014 not globally optimal. Tokenization is deterministic but not linguistically principled.',
+          use: '\u2192 GPT-2, GPT-3, GPT-4, LLaMA, Mistral, DeepSeek, most modern LLMs.',
+        },
+        {
+          era: 'subword',
+          year: '2016',
+          name: 'WordPiece',
+          key: 'Like BPE but merges maximize likelihood, not frequency. "##" prefix for continuations. BERT\'s tokenizer.',
+          detail:
+            'Developed at Google for Japanese/Korean segmentation. Merges chosen by maximizing language model likelihood rather than raw frequency. Continuation tokens prefixed with "##": "playing" \u2192 ["play", "##ing"]. Vocabulary of 30K tokens for BERT.',
+          limit:
+            '\u26a0 Requires language model scoring during merge selection (slower training). "##" prefix adds complexity.',
+          use: '\u2192 BERT, DistilBERT, Electra. Google internal models.',
+        },
+        {
+          era: 'subword',
+          year: '2018',
+          name: 'Unigram / SentencePiece',
+          key: 'Start with large vocab, prune tokens that least reduce corpus likelihood. Language-agnostic \u2014 operates on raw bytes.',
+          detail:
+            '<b>Unigram model</b> (Kudo, 2018): starts with a large candidate vocabulary (~1M), iteratively removes tokens whose loss increases likelihood the least. Trained via EM algorithm. <b>SentencePiece</b>: the tooling that implements both Unigram and BPE, treating input as raw Unicode \u2014 no pre-tokenization needed.',
+          limit:
+            '\u26a0 Training is more complex than BPE. Produces slightly different segmentations.',
+          use: '\u2192 T5, ALBERT, XLNet, mBART. De facto standard for multilingual models.',
+        },
+        {
+          era: 'subword',
+          year: '2019',
+          name: 'Pre-Tokenization (GPT-2 Regex)',
+          key: 'Split text into coarse segments BEFORE BPE. Prevents merges across word boundaries.',
+          detail:
+            "GPT-2 introduced a regex pre-tokenization step: contractions ('s, 't, 'll), letter runs, number runs, punctuation, and whitespace are split first. BPE then operates within each segment. This prevents nonsensical merges like \"the\" + \" cat\" becoming a single token. <b>The regex pattern is as important as the BPE algorithm itself.</b>",
+          limit:
+            '\u26a0 English-biased regex. Different models use different patterns, making tokenizers incompatible.',
+          use: '\u2192 GPT-2, GPT-3 (cl100k_base uses different pattern). All tiktoken-based models.',
+        },
+        {
+          era: 'modern',
+          year: '2023',
+          name: 'Tiktoken / cl100k_base',
+          key: "OpenAI's fast BPE implementation. 100K vocab. Used by GPT-3.5-turbo and GPT-4.",
+          detail:
+            '<b>tiktoken</b>: Rust-backed BPE with regex pre-tokenization. 10\u2013100\u00d7 faster than HuggingFace tokenizers. <b>cl100k_base</b>: 100,256 tokens. Better number tokenization (each digit often its own token), improved multilingual coverage. Special tokens for chat formatting.',
+          limit:
+            '\u26a0 Proprietary vocabulary \u2014 trained on undisclosed data. Closed merge rules.',
+          use: '\u2192 GPT-3.5-turbo, GPT-4, GPT-4o. OpenAI API standard.',
+        },
+        {
+          era: 'modern',
+          year: '2023',
+          name: 'LLaMA Tokenizer (32K)',
+          key: 'SentencePiece BPE. 32K vocab. Byte-fallback for unknown characters. No pre-tokenization.',
+          detail:
+            'LLaMA 1/2: SentencePiece BPE with 32,000 tokens. All numbers split into individual digits. Byte-fallback: any unknown byte sequence encoded as raw bytes using special byte tokens. No pre-tokenization regex \u2014 SentencePiece handles everything.',
+          limit:
+            '\u26a0 Small vocab limits compression ratio. Non-English text becomes longer. LLaMA 3 expanded to 128K.',
+          use: '\u2192 LLaMA 1, LLaMA 2, Code Llama, Mistral 7B.',
+        },
+        {
+          era: 'modern',
+          year: '2024\u201325',
+          name: 'Large Vocabularies (128K\u2013152K)',
+          key: 'LLaMA 3 (128K), Qwen 2 (152K), DeepSeek V3 (128K). Larger vocabs = better compression.',
+          detail:
+            '<b>LLaMA 3</b>: tiktoken-based, 128,256 tokens \u2014 4\u00d7 LLaMA 2. <b>Qwen 2</b>: 152,064 tokens, strong CJK coverage. <b>DeepSeek V3</b>: 128,000 tokens, BBPE. Larger vocab = shorter sequences = faster inference = more context. Trade-off: larger embedding matrix (vocab \u00d7 d_model).',
+          limit:
+            '\u26a0 Embedding matrix grows linearly with vocab size (128K \u00d7 4096d \u2248 500M params for embeddings alone).',
+          use: '\u2192 LLaMA 3/4, Qwen 2/2.5, DeepSeek V2/V3, Gemma 2.',
+        },
+        {
+          era: 'modern',
+          year: '2024',
+          name: 'Compression Ratios',
+          key: 'Bytes per token: GPT-2 \u2248 3.6, cl100k \u2248 4.2, LLaMA 3 \u2248 4.5. Higher = more efficient.',
+          detail:
+            '<b>Compression ratio</b> = bytes in text / number of tokens. <b>GPT-2</b> (50K vocab): ~3.6 bytes/token on English. <b>cl100k</b> (100K): ~4.2. <b>LLaMA 3</b> (128K): ~4.5. Non-English: GPT-2 drops to ~1.5 bytes/token for Chinese. Large vocabs improve non-English compression by 2\u20133\u00d7.',
+          limit:
+            '\u26a0 Compression ratio is corpus-dependent. English-trained tokenizers waste tokens on other languages.',
+          use: '\u2192 Key metric for evaluating tokenizer efficiency. Directly affects inference cost.',
+        },
+        {
+          era: 'embed',
+          year: 'All LLMs',
+          name: 'Token Embedding Matrix',
+          key: 'Lookup table: token ID \u2192 dense vector. Shape: [vocab_size \u00d7 d_model]. The first learned layer.',
+          detail:
+            'Each token ID indexes a row in a learned matrix <b>W_e \u2208 \u211d^(V\u00d7d)</b>. GPT-2: 50,257 \u00d7 768 = 38.6M params. LLaMA 70B: 32,000 \u00d7 8,192 = 262M params. LLaMA 3 405B: 128,256 \u00d7 16,384 = 2.1B params. <b>No computation</b> \u2014 just a lookup. Trained end-to-end via backpropagation.',
+          limit:
+            '\u26a0 Each token gets exactly one static vector (context comes later from attention). Rare tokens have poorly trained embeddings.',
+          use: '\u2192 Every transformer model. Often tied with the output projection (weight tying).',
+        },
+        {
+          era: 'embed',
+          year: 'All LLMs',
+          name: 'Positional Encoding',
+          key: 'Added to token embeddings before entering the transformer. Encodes position in sequence.',
+          detail:
+            'Token embeddings alone carry no position information \u2014 "the cat sat" and "sat the cat" would be identical sets of vectors. <b>Sinusoidal</b> (2017): fixed sin/cos patterns. <b>Learned absolute</b> (GPT-2): trainable position vectors. <b>RoPE</b> (2021): rotary embeddings applied to Q/K \u2014 encodes relative position via rotation matrices.',
+          limit:
+            '\u26a0 Context length constrained by positional encoding choice. Learned absolute embeddings cannot extrapolate.',
+          use: '\u2192 RoPE dominant since LLaMA (2023). Used by LLaMA, Mistral, DeepSeek, Qwen, OLMo.',
+        },
+        {
+          era: 'embed',
+          year: 'All LLMs',
+          name: 'Weight Tying',
+          key: 'Embedding matrix W_e reused as output projection. Saves V\u00d7d parameters.',
+          detail:
+            'The output layer projects hidden states to logits: <b>logits = h \u00b7 W_e^T</b>. If the same matrix is used for input embeddings and output projection, this is <b>weight tying</b> (Press & Wolf, 2016). Saves V\u00d7d params. GPT-2, T5, BERT all use it.',
+          limit:
+            '\u26a0 Forces input and output representations to share space, which may be suboptimal. Large models tend to use separate matrices.',
+          use: '\u2192 GPT-2, T5, BERT, OLMo, many models \u226413B. LLaMA 1/2/3 do NOT tie weights.',
+        },
+        {
+          era: 'beyond',
+          year: '2022\u201323',
+          name: 'ByT5 / MegaByte',
+          key: 'Operate directly on raw bytes. No tokenizer at all. ByT5: byte-level T5. MegaByte: patches of bytes.',
+          detail:
+            '<b>ByT5</b> (Xue et al. 2022): T5 with 256 byte vocabulary. Surprisingly competitive. Robust to noise and typos. <b>MegaByte</b> (Yu et al. 2023, Meta): groups bytes into fixed-size patches, uses a large "global" model over patches + a small "local" model within patches.',
+          limit:
+            '\u26a0 3\u20134\u00d7 longer sequences than BPE. Higher computational cost. Not yet scaled to frontier.',
+          use: '\u2192 Research prototypes. ByT5 available in HuggingFace.',
+        },
+        {
+          era: 'beyond',
+          year: '2024',
+          name: 'BLT (Byte Latent Transformer)',
+          key: 'Meta, 2024. Dynamic byte patches at entropy spikes. Up to 50% FLOP savings vs BPE at scale.',
+          detail:
+            '<b>BLT</b> (Pagnoni et al. 2024): groups bytes into variable-length patches based on next-byte entropy. High-entropy boundaries trigger new patches \u2014 information-dense regions get more compute. <b>Key result</b>: scales better than BPE at larger model/data scales. Matches LLaMA 3 8B quality with up to 50% fewer FLOPs.',
+          limit:
+            '\u26a0 Requires entropy model for patch boundaries. More complex training pipeline.',
+          use: '\u2192 Research. Strong scaling results suggest byte-level may eventually replace BPE.',
+        },
+        {
+          era: 'beyond',
+          year: '2024',
+          name: 'Token-Free (T-Free)',
+          key: 'No discrete tokenization. Character-level with learned downsampling. Eliminates tokenizer entirely.',
+          detail:
+            '<b>T-Free</b>: replaces the tokenizer + embedding lookup with a learned character-to-representation module. Characters are embedded and dynamically downsampled before entering the transformer. No fixed vocabulary, no merge rules, no tokenization artifacts.',
+          limit:
+            '\u26a0 Early research stage. Not yet competitive with BPE at frontier scale.',
+          use: '\u2192 Research prototype. Points toward a tokenizer-free future.',
+        },
+        {
+          era: 'beyond',
+          year: 'Thesis',
+          name: 'Tokenization as Reasoning Bottleneck',
+          key: 'Tokenization artifacts directly cause reasoning failures. Letter counting, arithmetic, reversal \u2014 all tokenizer-dependent.',
+          detail:
+            '<b>Why tokenization matters for the thesis</b>: LLMs struggle with tasks that cross token boundaries. "How many r\'s in strawberry?" fails because "strawberry" tokenizes as ["str", "aw", "berry"]. Arithmetic errors correlate with digit tokenization. The reversal curse is partly a tokenization artifact. <b>These are representation failures</b>, baked in before the first attention layer fires.',
+          limit:
+            '\u26a0 Counter-argument: reasoning models (o1, R1) partially overcome tokenization limits via chain-of-thought.',
+          use: '\u2192 Relevant to: Embers of Autoregression, letter-counting studies, digit manipulation failures.',
+        },
+      ];
+
+      // ── COMPARISON TABLE DATA ──
+      const TOKENIZERS = [
+        {
+          model: 'GPT-2',
+          vocab: '50,257',
+          algo: 'BPE',
+          bpt: '~3.6',
+          pretok: 'GPT-2 regex',
+          note: 'First BPE for LLMs. Learned abs. position.',
+        },
+        {
+          model: 'BERT',
+          vocab: '30,522',
+          algo: 'WordPiece',
+          bpt: '~3.2',
+          pretok: 'BasicTokenizer',
+          note: '## prefix for continuations. [CLS], [SEP] special tokens.',
+        },
+        {
+          model: 'T5',
+          vocab: '32,100',
+          algo: 'Unigram (SP)',
+          bpt: '~3.4',
+          pretok: 'None (SP)',
+          note: 'SentencePiece. Language-agnostic.',
+        },
+        {
+          model: 'GPT-3',
+          vocab: '50,257',
+          algo: 'BPE',
+          bpt: '~3.6',
+          pretok: 'GPT-2 regex',
+          note: 'Same tokenizer as GPT-2.',
+        },
+        {
+          model: 'GPT-3.5 / GPT-4',
+          vocab: '100,256',
+          algo: 'BPE (tiktoken)',
+          bpt: '~4.2',
+          pretok: 'cl100k regex',
+          note: 'Rust-backed. Better digits + multilingual.',
+        },
+        {
+          model: 'LLaMA 1/2',
+          vocab: '32,000',
+          algo: 'BPE (SP)',
+          bpt: '~3.4',
+          pretok: 'None (SP)',
+          note: 'SentencePiece BPE. Byte-fallback. Digits split.',
+        },
+        {
+          model: 'Mistral 7B',
+          vocab: '32,000',
+          algo: 'BPE (SP)',
+          bpt: '~3.4',
+          pretok: 'None (SP)',
+          note: 'Same tokenizer as LLaMA 1/2.',
+        },
+        {
+          model: 'LLaMA 3',
+          vocab: '128,256',
+          algo: 'BPE (tiktoken)',
+          bpt: '~4.5',
+          pretok: 'tiktoken regex',
+          note: '4\u00d7 larger vocab. Tiktoken-based. Better multilingual.',
+        },
+        {
+          model: 'Qwen 2',
+          vocab: '152,064',
+          algo: 'BPE (tiktoken)',
+          bpt: '~4.6',
+          pretok: 'tiktoken regex',
+          note: 'Largest vocab. Strong CJK coverage.',
+        },
+        {
+          model: 'DeepSeek V3',
+          vocab: '128,000',
+          algo: 'BBPE',
+          bpt: '~4.4',
+          pretok: 'Custom',
+          note: 'Byte-level BPE. No byte-fallback needed.',
+        },
+        {
+          model: 'Gemma 2',
+          vocab: '256,000',
+          algo: 'BPE (SP)',
+          bpt: '~4.8',
+          pretok: 'None (SP)',
+          note: 'Largest vocab in production. SentencePiece.',
+        },
+        {
+          model: 'OLMo 2',
+          vocab: '100,278',
+          algo: 'BPE',
+          bpt: '~4.1',
+          pretok: 'GPT-NeoX regex',
+          note: 'Fully open. Dolma tokenizer.',
+        },
+        {
+          model: 'ByT5',
+          vocab: '256',
+          algo: 'None (bytes)',
+          bpt: '1.0',
+          pretok: 'None',
+          note: 'Byte-level. 3\u20134\u00d7 longer sequences.',
+        },
+        {
+          model: 'BLT',
+          vocab: '256 + patches',
+          algo: 'Entropy patches',
+          bpt: '~3\u20135',
+          pretok: 'Entropy model',
+          note: 'Dynamic patches. 50% FLOP savings at scale.',
+        },
+      ];
+
+      // ── PIPELINE DIAGRAM DATA ──
+      const PIPE_STEPS = [
+        { label: 'Raw Text', value: '"Hello, world!"', color: '#8b949e' },
+        { label: 'Pre-Tokenize', value: '["Hello", ",", " world", "!"]', color: '#8b949e' },
+        { label: 'BPE Encode', value: '[15496, 11, 995, 0]', color: '#e3b341' },
+        { label: 'Embed Lookup', value: 'W_e[15496], W_e[11], ...', color: '#79c0ff' },
+        { label: '+ Position', value: 'x + pos_enc', color: '#d2a8ff' },
+        { label: 'Transformer', value: '\u2192 N layers \u2192', color: '#f0883e' },
+      ];
+
+      // ── BPE WALKTHROUGH DATA ──
+      const BPE_STEPS = [
+        {
+          step: 0,
+          label: 'Start',
+          tokens: '[116, 104, 101, 32, 99, 97, 116, 32, 105, 110, 32, 116, 104, 101, 32, 104, 97, 116]',
+          desc: 'String "the cat in the hat" as UTF-8 bytes. 18 tokens, vocabulary = 256 byte values.',
+        },
+        {
+          step: 1,
+          label: 'Merge 1',
+          tokens: 'Most frequent pair: (116, 104) = "th" \u2192 appears 3\u00d7. New token 256 = "th".',
+          desc: 'Scan all adjacent pairs. (116,104) appears in "the" (2\u00d7) and "hat" (1\u00d7). Merge into token 256.',
+        },
+        {
+          step: 2,
+          label: 'Merge 2',
+          tokens: 'Most frequent pair: (256, 101) = "the" \u2192 appears 2\u00d7. New token 257 = "the".',
+          desc: 'After merge 1: [256, 101, 32, 99, 97, 116, 32, 105, 110, 32, 256, 101, 32, 104, 97, 116]. Pair (256,101) = "th"+"e" appears 2\u00d7.',
+        },
+        {
+          step: 3,
+          label: 'Merge 3',
+          tokens: 'Most frequent pair: (257, 32) = "the " \u2192 appears 2\u00d7. New token 258 = "the ".',
+          desc: 'After merge 2: [257, 32, 99, 97, 116, 32, 105, 110, 32, 257, 32, 104, 97, 116]. Pair (257,32) = "the"+" " appears 2\u00d7.',
+        },
+        {
+          step: 'done',
+          label: 'Result',
+          tokens: 'Vocabulary: {0\u2013255: bytes, 256: "th", 257: "the", 258: "the "}. 3 merges compressed 18 \u2192 12 tokens.',
+          desc: 'In practice, BPE runs 50K\u2013150K merges. Common English words become single tokens. Rare words decompose into subwords. The merge table IS the tokenizer.',
+        },
+      ];
+
+      // ── RENDER: PIPELINE ──
+      function drawPipeline() {
+        const el = document.getElementById('pipeline-flow');
+        el.innerHTML = PIPE_STEPS.map(
+          (s, i) =>
+            (i > 0 ? '<span class="pipe-arrow">\u2192</span>' : '') +
+            `<div class="pipe-box" style="border-color:${s.color}40">
+              <div class="label" style="color:${s.color}">${s.label}</div>
+              <div class="value" style="color:${s.color}">${s.value}</div>
+            </div>`
+        ).join('');
+
+        document.getElementById('bpe-steps').innerHTML = BPE_STEPS.map(
+          (s) =>
+            `<div class="bpe-step">
+              <span class="step-num">${typeof s.step === 'number' ? 'Step ' + s.step : '\u2713'}</span>: <b>${s.label}</b><br/>
+              <span style="color:#79c0ff">${s.tokens}</span><br/>
+              ${s.desc}
+            </div>`
+        ).join('');
+      }
+
+      // ── RENDER: CATALOG ──
+      let activeEra = 'subword';
+      function drawCatalog() {
+        const era = ERAS.find((x) => x.id === activeEra);
+        document.getElementById('era-tabs').innerHTML = ERAS.map(
+          (e) =>
+            `<div class="era-tab" style="color:${e.color};border-color:${e.id === activeEra ? e.color : 'transparent'};background:${e.id === activeEra ? e.color + '22' : '#161b22'}" onclick="selEra('${e.id}')">${e.label}</div>`
+        ).join('');
+        document.getElementById('card-grid').innerHTML = CARDS.filter(
+          (c) => c.era === activeEra
+        )
+          .map(
+            (c, i) =>
+              `<div class="card" id="cc${i}" onclick="togCard('cc${i}')" style="border-left:3px solid ${era.color}">
+                <span class="c-chev">\u25bc</span>
+                <div class="c-year" style="color:${era.color}">${c.year}</div>
+                <div class="c-name" style="color:${era.color}">${c.name}</div>
+                <div class="c-key">${c.key}</div>
+                <div class="c-detail">${c.detail}<div class="c-limit">${c.limit}</div><div class="c-use">${c.use}</div></div>
+              </div>`
+          )
+          .join('');
+      }
+      window.selEra = (e) => {
+        activeEra = e;
+        drawCatalog();
+      };
+      window.togCard = (id) => document.getElementById(id).classList.toggle('open');
+
+      // ── RENDER: COMPARE ──
+      function drawCompare() {
+        const algoClr = (a) =>
+          a.includes('BPE')
+            ? { bg: '#2d2200', c: '#e3b341' }
+            : a.includes('WordPiece')
+              ? { bg: '#0d2233', c: '#79c0ff' }
+              : a.includes('Unigram')
+                ? { bg: '#2b1d3d', c: '#d2a8ff' }
+                : a.includes('bytes') || a.includes('Entropy')
+                  ? { bg: '#2d1500', c: '#f0883e' }
+                  : { bg: '#21262d', c: '#8b949e' };
+
+        document.getElementById('cmp-body').innerHTML = TOKENIZERS.map((t) => {
+          const ac = algoClr(t.algo);
+          return `<tr>
+            <td class="nm">${t.model}</td>
+            <td style="color:#56d364">${t.vocab}</td>
+            <td><span class="chip" style="background:${ac.bg};color:${ac.c}">${t.algo}</span></td>
+            <td style="color:#79c0ff">${t.bpt}</td>
+            <td style="color:#8b949e;font-size:0.6rem">${t.pretok}</td>
+            <td style="color:#8b949e;font-size:0.6rem;max-width:180px;white-space:normal;line-height:1.5">${t.note}</td>
+          </tr>`;
+        }).join('');
+      }
+
+      // ── VIEW SWITCHING ──
+      function setV(v) {
+        ['pipeline', 'catalog', 'compare'].forEach((n) => {
+          document.getElementById('view-' + n).classList.toggle('show', n === v);
+          document.getElementById('btn-' + n).classList.toggle('active', n === v);
+        });
+      }
+
+      window.addEventListener('load', () => {
+        drawPipeline();
+        drawCatalog();
+        drawCompare();
+      });
+    </script>
+  </body>
+</html>

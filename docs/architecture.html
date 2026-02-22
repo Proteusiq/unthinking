@@ -70,93 +70,6 @@
         display: block;
       }
 
-      /* ── EMBED ── */
-      .era-tabs {
-        display: flex;
-        gap: 5px;
-        margin-bottom: 0.8rem;
-        flex-wrap: wrap;
-      }
-      .era-tab {
-        padding: 4px 10px;
-        border-radius: 3px;
-        font-size: 0.6rem;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        cursor: pointer;
-        border: 1px solid transparent;
-        transition: all 0.15s;
-        background: #161b22;
-      }
-      .embed-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-        gap: 7px;
-      }
-      .embed-card {
-        background: #161b22;
-        border: 1px solid #30363d;
-        border-radius: 5px;
-        padding: 8px 10px;
-        cursor: pointer;
-        transition: border-color 0.15s;
-      }
-      .embed-card:hover {
-        border-color: #58a6ff55;
-      }
-      .embed-card.open {
-        border-color: #58a6ff;
-      }
-      .ec-year {
-        font-size: 0.57rem;
-        margin-bottom: 2px;
-      }
-      .ec-name {
-        font-size: 0.76rem;
-        font-weight: bold;
-        margin-bottom: 3px;
-      }
-      .ec-key {
-        font-size: 0.63rem;
-        color: #8b949e;
-        line-height: 1.55;
-      }
-      .ec-detail {
-        display: none;
-        margin-top: 7px;
-        padding-top: 7px;
-        border-top: 1px solid #21262d;
-        font-size: 0.63rem;
-        line-height: 1.7;
-        color: #8b949e;
-      }
-      .embed-card.open .ec-detail {
-        display: block;
-      }
-      .ec-detail b {
-        color: #e6edf3;
-      }
-      .ec-limit {
-        margin-top: 5px;
-        font-size: 0.61rem;
-        color: #f0883e;
-      }
-      .ec-use {
-        margin-top: 2px;
-        font-size: 0.61rem;
-        color: #3fb950;
-      }
-      .ec-chev {
-        float: right;
-        font-size: 0.6rem;
-        color: #30363d;
-        transition: transform 0.2s;
-      }
-      .embed-card.open .ec-chev {
-        transform: rotate(180deg);
-        color: #58a6ff;
-      }
-
       /* ── BLOCK ── */
       .block-intro {
         background: #161b22;
@@ -475,38 +388,15 @@
     <div class="topbar">
       <h2>LLM Architecture Evolution 2017–</h2>
       <div class="toggle-wrap">
-        <button class="tbtn active" id="btn-embed" onclick="setV('embed')">Embeddings</button>
-        <button class="tbtn" id="btn-act" onclick="setV('act')">Activations & Norm</button>
+        <button class="tbtn active" id="btn-act" onclick="setV('act')">Activations & Norm</button>
         <button class="tbtn" id="btn-block" onclick="setV('block')">Block Design</button>
         <button class="tbtn" id="btn-table" onclick="setV('table')">Table</button>
       </div>
     </div>
 
     <div class="wrap">
-      <!-- ═══ EMBEDDINGS ═══ -->
-      <div id="view-embed" class="view show">
-        <div
-          style="
-            font-size: 0.64rem;
-            color: #8b949e;
-            line-height: 1.8;
-            margin-bottom: 0.85rem;
-            border: 1px solid #21262d;
-            border-radius: 5px;
-            padding: 0.65rem 0.9rem;
-            background: #0d1117;
-          "
-        >
-          From counting words to geometric meaning. Each era solved the prior era's core failure —
-          <b style="color: #c9d1d9">static → contextual → sentence-level → LLM-native</b>. Click any
-          card for detail.
-        </div>
-        <div class="era-tabs" id="era-tabs"></div>
-        <div class="embed-grid" id="embed-grid"></div>
-      </div>
-
       <!-- ═══ ACTIVATIONS & NORM ═══ -->
-      <div id="view-act" class="view">
+      <div id="view-act" class="view show">
         <div class="act-intro">
           <b style="color: #c9d1d9">Activations</b> introduce non-linearity into the FFN. The
           evolution moves from hard gates (ReLU) to smooth approximations (GELU) to
@@ -711,220 +601,6 @@
             : n.includes('Post-LN')
               ? { bg: '#2d1500', c: '#f0883e' }
               : { bg: '#21262d', c: '#8b949e' };
-
-      // ── EMBEDDING DATA ──
-      const ERAS = [
-        { id: 'sparse', label: 'Sparse / Symbolic', color: '#8b949e' },
-        { id: 'dense', label: 'Static Dense — Gensim Era', color: '#e3b341' },
-        { id: 'ctx', label: 'Contextual', color: '#79c0ff' },
-        { id: 'sent', label: 'Sentence & Retrieval', color: '#d2a8ff' },
-        { id: 'modern', label: 'Modern Dense (2022–2025)', color: '#56d364' },
-      ];
-      const EMBEDS = [
-        {
-          era: 'sparse',
-          year: '~1990s',
-          name: 'Bag of Words (BoW)',
-          key: 'Count vectors. Each unique word = one sparse dimension. Vocabulary-sized zero vectors.',
-          detail:
-            "A 50k-word vocab → 50k-d vector, almost entirely zeros. Cosine similarity works but 'car' and 'automobile' are orthogonal — zero semantic overlap by construction.",
-          limit: '⚠ Ignores word order entirely. Vocabulary explosion. Curse of dimensionality.',
-          use: '→ Still used: spam filters, keyword search, some baseline classifiers.',
-        },
-        {
-          era: 'sparse',
-          year: '~1990s',
-          name: 'N-Grams / Bigrams',
-          key: 'Captures local word sequences. P(wₙ|wₙ₋₂,wₙ₋₁). Basis of early language models.',
-          detail:
-            "Bigrams capture 'New York' as a unit. Kneser-Ney smoothing handles unseen n-grams. Markov assumption: only k−1 prior tokens matter. Exponential sparsity with n.",
-          limit: '⚠ Context hard-capped at n−1 tokens. No generalization across similar words.',
-          use: '→ Spell-check, early ASR, statistical machine translation (SMT).',
-        },
-        {
-          era: 'sparse',
-          year: '1970s–2000s',
-          name: 'TF-IDF',
-          key: 'Term Frequency × Inverse Document Frequency. Rare terms get higher weight. Retrieval-focused.',
-          detail:
-            'TF(t,d) × log(N/df(t)). Word in 3 of 1M docs gets high IDF. BM25 is the probabilistic extension still used in hybrid retrieval in 2025.',
-          limit: "⚠ Still fully sparse. No semantic similarity — 'cat' ≠ 'kitten'.",
-          use: '→ Classic IR. BM25 still used in hybrid retrieval pipelines.',
-        },
-        {
-          era: 'sparse',
-          year: '1990s–2000s',
-          name: 'LSA / LSI',
-          key: "SVD on term-document matrix. Discovers k latent semantic dimensions. First 'dense' representation.",
-          detail:
-            'Truncated SVD on TF-IDF matrix → dense k-d vectors. Synonyms cluster in latent space. pLSA and LDA followed.',
-          limit: '⚠ Expensive SVD recomputation. No OOV handling. Weak on syntax.',
-          use: '→ Topic modeling, document clustering. LDA still used for topic discovery.',
-        },
-        {
-          era: 'dense',
-          year: '2003',
-          name: 'Neural LM (Bengio et al.)',
-          key: 'First neural word embeddings as byproduct of LM training. 30–100d. Proved distributed representations work.',
-          detail:
-            'Feedforward neural LM: word → embedding lookup → hidden layers → softmax. Too slow for large-scale use but the theoretical proof-of-concept.',
-          limit: '⚠ Computationally infeasible for large vocab. No practical tooling.',
-          use: "→ Theoretical foundation. No direct adoption until Word2Vec's efficiency gains.",
-        },
-        {
-          era: 'dense',
-          year: '2013',
-          name: 'Word2Vec (Mikolov et al.)',
-          key: "CBOW and Skip-gram with negative sampling. 'king − man + woman ≈ queen'. First practical dense embeddings.",
-          detail:
-            'Two architectures: CBOW (predict word from context) and Skip-gram (predict context from word). Negative sampling makes training tractable. 100–300d vectors in hours.',
-          limit: "⚠ STATIC — 'bank' (financial) = 'bank' (river), same vector. No OOV words.",
-          use: '→ Standard for all NLP tasks 2013–2018. Gensim library made it accessible.',
-        },
-        {
-          era: 'dense',
-          year: '2014',
-          name: 'GloVe (Pennington et al.)',
-          key: 'Global co-occurrence matrix factorization. Combines count-based (LSA) + predictive (Word2Vec) strengths.',
-          detail:
-            'Trains on non-zero entries of word-word co-occurrence weighted by distance. Optimizes: wᵢ·wⱼ + bᵢ + bⱼ = log Xᵢⱼ. Better analogy benchmarks than Word2Vec.',
-          limit: '⚠ Still static. Large memory for full co-occurrence matrix.',
-          use: '→ Stanford NLP. Pre-trained Wikipedia+Crawl vectors widely downloaded.',
-        },
-        {
-          era: 'dense',
-          year: '2014',
-          name: 'Doc2Vec / Paragraph Vectors',
-          key: 'Extends Word2Vec to variable-length documents. PV-DM and PV-DBOW. First dense document-level embeddings.',
-          detail:
-            "Adds a 'paragraph vector' trained alongside word vectors. PV-DM: predict word from doc+context. Fixed-size rep of any document length via Gensim doc2vec.",
-          limit:
-            '⚠ Inference on new docs requires re-optimization — not truly inductive. Unstable training.',
-          use: "→ Document similarity, recommendation. Gensim's doc2vec module.",
-        },
-        {
-          era: 'dense',
-          year: '2016',
-          name: 'FastText (Bojanowski et al.)',
-          key: 'Subword n-grams — OOV words decomposed into character n-gram embeddings. Handles morphologically rich languages.',
-          detail:
-            "Each word = sum of character n-gram embeddings. 'eating' = 'eat'+'atin'+'ting'+... Handles misspellings and morphological variants.",
-          limit:
-            '⚠ Still static context. Character n-grams not semantically meaningful for ideographic scripts.',
-          use: '→ Facebook production NLP. Multilingual baseline. Competitive for low-resource languages.',
-        },
-        {
-          era: 'ctx',
-          year: '2018',
-          name: 'ELMo (Peters et al.)',
-          key: 'Contextual embeddings from deep biLSTM. Same word → different vectors per context. First contextual embeddings at scale.',
-          detail:
-            "Two stacked LSTMs (forward + backward). 'bank' in 'river bank' ≠ 'bank' in 'World Bank'. Bridge from static to transformer era.",
-          limit: '⚠ LSTM-based: slow, hard to parallelize. Not truly joint bidirectional.',
-          use: '→ NER, coreference, QA circa 2018.',
-        },
-        {
-          era: 'ctx',
-          year: '2018',
-          name: 'BERT (Devlin et al.)',
-          key: 'Bidirectional transformer. MLM pretraining. [bank] sees river AND financial context simultaneously.',
-          detail:
-            '12/24 transformer layers. MLM: mask 15% of tokens, predict from full bidirectional context. SOTA on 11 NLP benchmarks at release.',
-          limit: '⚠ [CLS] not well-calibrated for semantic similarity out-of-the-box.',
-          use: '→ All NLP fine-tuning 2018–2022. Foundation of RoBERTa / DistilBERT / ALBERT.',
-        },
-        {
-          era: 'ctx',
-          year: '2019',
-          name: 'RoBERTa / ALBERT / DistilBERT',
-          key: 'BERT ablations and improvements. RoBERTa: no NSP, dynamic masking. DistilBERT: 40% smaller, 60% faster.',
-          detail:
-            'RoBERTa showed NSP was harmful. ALBERT: factorized embeddings + cross-layer parameter sharing. DistilBERT: knowledge distillation.',
-          limit:
-            '⚠ CLS embedding still poor for semantic similarity. Per-task fine-tuning required.',
-          use: '→ Production NLP, internal search, classification.',
-        },
-        {
-          era: 'sent',
-          year: '2019',
-          name: 'Sentence-BERT (Reimers & Gurevych)',
-          key: 'Siamese BERT + mean pooling + contrastive training. Cosine similarity finally works for semantic search.',
-          detail:
-            'Pairs of sentences through shared BERT weights. NLI/triplet loss. Mean-pooling beats [CLS]. Reduces semantic search from O(n²) to O(1).',
-          limit: '⚠ English-focused. Fixed 512-token limit.',
-          use: '→ Foundation of modern semantic search. sentence-transformers library.',
-        },
-        {
-          era: 'sent',
-          year: '2020–21',
-          name: 'DPR / SimCSE',
-          key: 'Dense Passage Retrieval for open-domain QA. SimCSE: dropout as positive augmentation, solves anisotropy.',
-          detail:
-            'DPR: dual-encoder BERT for question + passage. SimCSE: same sentence through dropout twice = positive pair. Solves the collapsed cone problem in BERT representations.',
-          limit: '⚠ DPR needs domain fine-tuning. SimCSE unsupervised weaker.',
-          use: '→ Open-domain QA, core of early RAG systems.',
-        },
-        {
-          era: 'sent',
-          year: '2021',
-          name: 'OpenAI text-embedding-ada-001',
-          key: 'First major commercial embedding API. GPT-based encoder. Established embedding-as-a-service.',
-          detail:
-            'Based on GPT-2/3 fine-tuned for retrieval. 1024d. Simple API. Brought dense retrieval to mainstream developers without ML expertise.',
-          limit: '⚠ Autoregressive decoder not ideal for bidirectional encoding. Proprietary.',
-          use: '→ Early enterprise semantic search. Predecessor to ada-002.',
-        },
-        {
-          era: 'modern',
-          year: '2022',
-          name: 'OpenAI text-embedding-ada-002',
-          key: '1536d. One model replacing 5. Massive adoption. De-facto RAG standard 2022–2023.',
-          detail:
-            '8191 token context. cosine similarity reliable. Contrastive fine-tuning on diverse paired data. Infrastructure for most RAG pipelines 2022–2023.',
-          limit: '⚠ Black box. Fixed 1536d. text-embedding-3 (2024) superseded it with MRL.',
-          use: '→ Majority of all RAG systems built 2022–2024 started here.',
-        },
-        {
-          era: 'modern',
-          year: '2022–23',
-          name: 'E5 / BGE / GTE families',
-          key: 'Open instruction-tuned embeddings. BAAI General Embeddings. Competitive with OpenAI at zero cost.',
-          detail:
-            'E5: contrastive pre-training + instruction prefix. BGE: strong open retrieval, Chinese+English. GTE: in-batch + hard negatives. MTEB leaderboard competition explodes.',
-          limit: '⚠ Multiple incompatible families. Separate embedding step still needed.',
-          use: '→ Open-source RAG, enterprise search, bi-encoder retrieval.',
-        },
-        {
-          era: 'modern',
-          year: '2022',
-          name: 'Matryoshka Representation Learning (MRL)',
-          key: 'Embeddings at multiple granularities simultaneously. Truncate 64d→1536d with graceful degradation.',
-          detail:
-            'Training loss = sum over nested dimension subsets. First 128 dims of a 1536d vector are a strong 128d embedding. 10× cheaper storage at ~5% quality loss.',
-          limit: '⚠ Requires retraining from scratch with MRL objective.',
-          use: '→ OpenAI text-embedding-3, Cohere v3. Tiered retrieval pipelines.',
-        },
-        {
-          era: 'modern',
-          year: '2023–24',
-          name: 'nomic-embed / Voyage / Cohere v3',
-          key: 'Long-context (8k–32k tokens). Domain-specialized. nomic: fully open + auditable.',
-          detail:
-            'nomic-embed-text: fully reproducible (open training data + code). Voyage: domain-specialized (legal, medical, code). Cohere Embed v3: multimodal + multilingual.',
-          limit: '⚠ Context length vs. quality tradeoff. Larger vectors increase storage cost.',
-          use: '→ Legal/medical RAG, contract analysis, codebase search.',
-        },
-        {
-          era: 'modern',
-          year: '2024–25',
-          name: 'LLM-as-Embedder (NV-Embed / LLM2Vec)',
-          key: 'Full decoder LLMs (Mistral, Llama) as embedding models. MTEB top tier. Closes gen/retrieval gap.',
-          detail:
-            'NV-Embed: decoder LLM with bidirectional attention + two-stage contrastive instruction-tuning. LLM2Vec: converts any decoder LLM to bidirectional via MNTP. Unified gen+retrieval architecture.',
-          limit: '⚠ 7B+ parameter inference cost. Not suitable for low-latency use.',
-          use: '→ MTEB leaderboard top entries. Unified model for gen + retrieval.',
-        },
-      ];
 
       // ── ACTIVATION DATA ──
       const ACTS = [
@@ -1612,33 +1288,6 @@
         },
       ];
 
-      // ── RENDER: EMBEDDINGS ──
-      let activeEra = 'dense';
-      function drawEmbed() {
-        const era = ERAS.find((x) => x.id === activeEra);
-        document.getElementById('era-tabs').innerHTML = ERAS.map(
-          (e) =>
-            `<div class="era-tab" style="color:${e.color};border-color:${e.id === activeEra ? e.color : 'transparent'};background:${e.id === activeEra ? e.color + '22' : '#161b22'}" onclick="selEra('${e.id}')">${e.label}</div>`
-        ).join('');
-        document.getElementById('embed-grid').innerHTML = EMBEDS.filter((e) => e.era === activeEra)
-          .map(
-            (e, i) =>
-              `<div class="embed-card" id="ec${i}" onclick="togCard('ec${i}')" style="border-left:3px solid ${era.color}">
-      <span class="ec-chev">▼</span>
-      <div class="ec-year" style="color:${era.color}">${e.year}</div>
-      <div class="ec-name" style="color:${era.color}">${e.name}</div>
-      <div class="ec-key">${e.key}</div>
-      <div class="ec-detail">${e.detail}<div class="ec-limit">${e.limit}</div><div class="ec-use">${e.use}</div></div>
-    </div>`
-          )
-          .join('');
-      }
-      window.selEra = (e) => {
-        activeEra = e;
-        drawEmbed();
-      };
-      window.togCard = (id) => document.getElementById(id).classList.toggle('open');
-
       // ── RENDER: ACTIVATIONS ──
       function drawAct() {
         // timeline
@@ -1839,7 +1488,7 @@
       }
 
       function setV(v) {
-        ['embed', 'act', 'block', 'table'].forEach((n) => {
+        ['act', 'block', 'table'].forEach((n) => {
           document.getElementById('view-' + n).classList.toggle('show', n === v);
           document.getElementById('btn-' + n).classList.toggle('active', n === v);
         });
@@ -1847,7 +1496,6 @@
       }
 
       window.addEventListener('load', () => {
-        drawEmbed();
         drawAct();
         drawBlock();
         drawTable();
