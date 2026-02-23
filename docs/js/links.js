@@ -5057,4 +5057,29 @@ window.paperLinks = [
     description:
       'Probability concentration parallels opinion collapse; RLHF narrows both generative and opinion diversity',
   },
+  // LLMs Are Echo Chambers (#217) relationships
+  {
+    source: 'LREC-COLING-2024-884',
+    target: '2310.13548',
+    type: 'supports',
+    description: '3.02x agreement ratio; sycophancy as agreeing with users, not truth-seeking',
+  },
+  {
+    source: 'LREC-COLING-2024-884',
+    target: '2303.17548',
+    type: 'extends',
+    description: 'Extends opinion reflection to active agreement; 5 models, 4 topics, 1665 responses',
+  },
+  {
+    source: 'LREC-COLING-2024-884',
+    target: '2601.15436',
+    type: 'supports',
+    description: 'LLama 6.22:1 vs ChatGPT 1.63:1; sycophancy varies by model like benchmark shows',
+  },
+  {
+    source: 'LREC-COLING-2024-884',
+    target: '2308.03958',
+    type: 'supports',
+    description: 'Echo chamber from coherent training texts; next-token prediction on single-stance data',
+  },
 ];

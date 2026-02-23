@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 216
+> **Papers tracked**: 217
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1363,6 +1363,11 @@ These papers have NO direct rebuttals found:
 | Content Effects on Reasoning (2207.07051) | PNAS Nexus: human-like content effects |
 | AI Metacognition (2411.02478) | "Smart but not wise"; lacks meta-level |
 | Temporal Cognition (2507.15851) | Weber-Fechner emerges; reference ~2025 |
+
+### 2026-02-23
+| Papers Added | Key Findings |
+|--------------|--------------|
+| LLMs Are Echo Chambers (LREC-COLING 2024) | 3.02x more likely to agree; LLama 6.22:1, ChatGPT 1.63:1 |
 
 ### 2026-01-24
 | Papers Added | Key Findings |
