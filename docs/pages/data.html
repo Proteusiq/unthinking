@@ -21,7 +21,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 760px;
+        max-width: 960px;
         margin: 0 auto 1.6rem;
         flex-wrap: wrap;
         gap: 0.5rem;
@@ -78,7 +78,7 @@
       .founding-banners {
         display: flex;
         gap: 8px;
-        width: 760px;
+        max-width: 960px;
         margin: 0 auto 1.1rem;
         flex-wrap: wrap;
       }
@@ -99,7 +99,7 @@
       .outer {
         display: flex;
         gap: 0;
-        width: 760px;
+        max-width: 960px;
         margin: 0 auto;
       }
       .timeline {
@@ -283,7 +283,7 @@
 
       .stat-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 6px;
         margin-top: 6px;
       }
@@ -311,7 +311,7 @@
       }
       .labs {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
         gap: 7px;
         width: 100%;
       }
@@ -358,7 +358,7 @@
 
       /* DATASETS */
       .ds-wrap {
-        width: 760px;
+        max-width: 960px;
         margin: 0 auto;
       }
       .ds-era {
@@ -375,7 +375,7 @@
       }
       .ds-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 7px;
       }
       .ds-card {
@@ -485,7 +485,7 @@
 
       /* RESEARCH */
       .rw {
-        width: 760px;
+        max-width: 960px;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
@@ -603,7 +603,7 @@
       }
       .open-problems {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 7px;
         margin-top: 0.5rem;
       }
@@ -642,7 +642,7 @@
     </style>
   </head>
   <body>
-    <div style="width: 760px; margin: 0 auto">
+    <div style="max-width: 960px; margin: 0 auto">
       <a
         href="index.html"
         class="back-link"
@@ -1420,7 +1420,7 @@
 
     <div
       style="
-        max-width: 760px;
+        max-width: 960px;
         margin: 2rem auto 0;
         padding-top: 1rem;
         border-top: 1px solid #21262d;
