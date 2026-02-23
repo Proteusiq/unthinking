@@ -453,7 +453,7 @@ window.paperLinks = [
     source: '2509.03646',
     target: '2512.07783',
     type: 'supports',
-    description: 'Both confirm RL operationalizes pre-training priors; ≥1% exposure seeds required',
+    description: 'HICRA requires pre-existing procedural foundation; Interplay proves 0% exposure = RL fails',
   },
   {
     source: '2509.03646',
@@ -873,7 +873,7 @@ window.paperLinks = [
     source: '2404.00560',
     target: '2407.20311',
     type: 'supports',
-    description: 'Both achieve perfect LG only when training covers all atomic step inputs',
+    description: 'Theory requires D=X (all step inputs); iGSM achieves 97% at op=20 with structured graphs',
   },
   {
     source: '2404.00560',
@@ -1985,7 +1985,7 @@ window.paperLinks = [
     source: '2410.11684',
     target: '2601.05905',
     type: 'supports',
-    description: 'Sycophantic pressure causes belief collapse (both show this)',
+    description: 'Sycophantic pressure causes belief collapse; causal illusion on correlation cues',
   },
   {
     source: '2410.11684',
@@ -2978,7 +2978,7 @@ window.paperLinks = [
     source: '2305.14699',
     target: '2405.15071',
     type: 'supports',
-    description: 'Both examine implicit reasoning; recursion-specific failures',
+    description: '91% failure prediction via shortcut algorithms; 0% OOD composition after 2M steps',
   },
   {
     source: '2305.14699',
@@ -3010,7 +3010,7 @@ window.paperLinks = [
     source: '2302.00093',
     target: '2410.05229',
     type: 'extends',
-    description: 'GSM-IC precursor to GSM-Symbolic; both show irrelevant info causes failures',
+    description: 'GSM-IC precursor to GSM-Symbolic; 17-46% drop from distractors in grade-school math',
   },
   {
     source: '2302.00093',
@@ -3195,13 +3195,13 @@ window.paperLinks = [
     source: '2301.13379',
     target: '2505.05410',
     type: 'supports',
-    description: 'Both confirm CoT doesnt reflect internal computation',
+    description: 'External solver achieves 95% vs 25-39% faithfulness; LLMs translate, solvers execute',
   },
   {
     source: '2301.13379',
     target: '2503.08679',
     type: 'supports',
-    description: 'Both document unfaithfulness; Faithful CoT proposes fix',
+    description: 'External solver achieves 95% vs 13% IPHR; neuro-symbolic bypass fixes unfaithfulness',
   },
   {
     source: '2301.13379',
@@ -3259,7 +3259,7 @@ window.paperLinks = [
     source: '2405.15092',
     target: '2505.05410',
     type: 'supports',
-    description: 'Both confirm hidden vs stated reasoning diverge',
+    description: 'Faithful vs unfaithful recovery diverge p<0.001; hints used but not verbalized <40%',
   },
   {
     source: '2405.15092',
@@ -3478,7 +3478,7 @@ window.paperLinks = [
     source: '2507.14417',
     target: '2502.15631',
     type: 'supports',
-    description: 'Both challenge test-time compute scaling benefits',
+    description: '5 inverse scaling failure modes; accuracy drop 0.81-3.16% per 1000 tokens',
   },
   {
     source: '2507.14417',
@@ -3807,13 +3807,13 @@ window.paperLinks = [
     source: '2602.04288',
     target: '2412.21187',
     type: 'supports',
-    description: 'Both document reasoning inefficiency in self-improvement loops',
+    description: '10-20% contextual drag drop; 92% first-correct but 4.3% token efficiency',
   },
   {
     source: '2602.04288',
     target: '2506.11135',
     type: 'supports',
-    description: 'Both challenge capability from mistakes = intelligence',
+    description: 'Failed attempts bias 10-20% drop; Rube Goldberg logic is trained, not emergent',
   },
   {
     source: '2602.04288',
@@ -3846,7 +3846,7 @@ window.paperLinks = [
     source: '2602.02103',
     target: '2403.04121',
     type: 'supports',
-    description: 'Both support Kambhampati skeptic view on reasoning',
+    description: 'Final answer at chance (0.50) until last step; confirms approximate retrieval not planning',
   },
   {
     source: '2602.02103',
@@ -3906,13 +3906,13 @@ window.paperLinks = [
     source: '2602.04212',
     target: '2602.04843',
     type: 'supports',
-    description: 'Both probe representations; this shows they dont support task completion',
+    description: 'Representations encode topology but are inert; 7k tokens to converge, <2% steering gain',
   },
   {
     source: '2602.04212',
     target: '2402.18312',
     type: 'extends',
-    description: 'Both use probing to understand internal representations',
+    description: 'Probing shows encoding ≠ deployment; functional rift at layer 16 confirms parallel pathways',
   },
   {
     source: '2602.04212',
@@ -4031,7 +4031,7 @@ window.paperLinks = [
     source: '2510.05116',
     target: '2509.11208',
     type: 'supports',
-    description: 'Both see hallucinations as predictable failures of statistical learning',
+    description: 'Type-II false generalization; order-induced O(log n) deviations explain when',
   },
   {
     source: '2510.05116',
@@ -4154,7 +4154,7 @@ window.paperLinks = [
     source: '2502.12215',
     target: '2506.06941',
     type: 'supports',
-    description: 'Both challenge test-time compute scaling benefits',
+    description: 'Sequential scaling fails; parallel helps but still hits complexity ceiling',
   },
   {
     source: '2502.12215',
@@ -4201,7 +4201,7 @@ window.paperLinks = [
     source: '2509.09677',
     target: '2506.06941',
     type: 'supports',
-    description: 'Both challenge scaling assumptions for reasoning',
+    description: 'Self-conditioning causes exponential error; 99% step accuracy → ~69 steps max',
   },
   // Paper 95: LLM-JEPA (2509.14252)
   {
@@ -4215,7 +4215,7 @@ window.paperLinks = [
     source: '2509.26306',
     target: '2501.19393',
     type: 'extends',
-    description: 'Both explore surfacing latent reasoning capabilities',
+    description: 'ILR +5% via peer patterns; s1 shows 1K samples surfaces 26.7%→50% AIME',
   },
   {
     source: '2509.26306',
@@ -4255,7 +4255,7 @@ window.paperLinks = [
     source: '2601.18778',
     target: '2501.19393',
     type: 'extends',
-    description: 'Both explore self-teaching for reasoning',
+    description: 'SOAR 4x pass@1 via meta-RL curriculum; s1 uses budget forcing on 1K samples',
   },
   {
     source: '2601.18778',
@@ -4453,7 +4453,7 @@ window.paperLinks = [
     source: '2507.05246',
     target: '2506.06941',
     type: 'supports',
-    description: 'Both identify complexity thresholds where behavior changes',
+    description: 'Easy = post-hoc rationalization; hard = forced externalization at threshold',
   },
   // Pause Tokens Training (Paper 195)
   {
@@ -4536,14 +4536,14 @@ window.paperLinks = [
     source: '2506.03616',
     target: '2404.15758',
     type: 'supports',
-    description: 'DIT learns WHERE to pause; both show meaningless tokens boost performance',
+    description: 'DIT learns WHERE to pause; +34% from filler dots proves content irrelevant',
   },
   // Bottlenecked Transformers (Paper 199)
   {
     source: '2505.16950',
     target: '2411.02344',
     type: 'supports',
-    description: 'Both identify representation dynamics as key; training-based > inference-only',
+    description: 'KV cache rewriting +6.6pp; Seq-VCR prevents collapse for 99.5% on 5x5 mult',
   },
   {
     source: '2505.16950',
@@ -4555,7 +4555,7 @@ window.paperLinks = [
     source: '2505.16950',
     target: '2404.15758',
     type: 'supports',
-    description: 'Both support computational workspace hypothesis',
+    description: 'Info bottleneck explains filler benefit; Dot by Dot +34% from dots on 3SUM',
   },
   // HARP (Paper 200)
   {
@@ -4575,7 +4575,7 @@ window.paperLinks = [
     source: '2412.07282',
     target: '2509.24884',
     type: 'supports',
-    description: 'Both work at inference-only; HARP is selective, Expanding Computation is uniform',
+    description: 'HARP selective entropy-based; Expanding Computation uniform — inference-only gains',
   },
   {
     source: '2412.07282',
@@ -4696,7 +4696,7 @@ window.paperLinks = [
     source: '2410.01792',
     target: '2501.12948',
     type: 'supports',
-    description: 'Both test reasoning-optimized models; both find probability sensitivity',
+    description: 'o1 shift cipher: 45% gap persists; R1 emergent behaviors still frequency-bounded',
   },
   {
     source: '2410.01792',
@@ -4709,13 +4709,13 @@ window.paperLinks = [
     source: '2310.02207',
     target: '2309.13638',
     type: 'extends',
-    description: 'Both study internal representations; Embers shows frequency drives encoding',
+    description: 'NYC R²=0.359 vs World 0.911 — entity frequency determines encoding quality',
   },
   {
     source: '2310.02207',
     target: '2305.18654',
     type: 'extends',
-    description: 'Both use probing; Faith & Fate shows probing can miss generalization failures',
+    description: 'Linear probe R²=0.91 tracks entity frequency; probing ≠ causally using representations',
   },
   {
     source: '2310.02207',
@@ -4776,7 +4776,7 @@ window.paperLinks = [
     source: '2308.09687',
     target: '2305.10601',
     type: 'extends',
-    description: 'GoT extends ToT with aggregation operation; both add external scaffolding',
+    description: 'GoT adds aggregation (merge sort) to ToT; 62% sorting gain from algorithm, not LLM',
   },
   {
     source: '2308.09687',
@@ -4986,7 +4986,7 @@ window.paperLinks = [
     source: '2505.17072',
     target: '2410.03717',
     type: 'supports',
-    description: 'Both challenge SAH: alignment CAN teach more than style with right approach',
+    description: 'Explicit safety signals achieve 0% ASR; reasoning improves after style saturates at ~100 examples',
   },
   {
     source: '2505.17072',
@@ -5034,7 +5034,7 @@ window.paperLinks = [
     source: '2303.17548',
     target: '2410.10862',
     type: 'supports',
-    description: 'Both show alignment encodes annotator patterns, not deep values',
+    description: '>99% Biden approval reflects crowdworker demographics; 1.3% neurons encode safety direction',
   },
   {
     source: '2303.17548',
