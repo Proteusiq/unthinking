@@ -1,18 +1,10 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **175 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **174 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed).
 
 ---
-
-## High Priority — Sycophancy & Echo Chambers
-
-Papers on LLMs agreeing with users rather than truth-seeking.
-
-| arXiv ID | Title | Stance |
-|----------|-------|--------|
-| [2402.05880](https://arxiv.org/abs/2402.05880) | Generative Echo Chamber? Effects of LLM-Powered Search | supports |
 
 ---
 

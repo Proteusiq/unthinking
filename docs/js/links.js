@@ -5082,4 +5082,29 @@ window.paperLinks = [
     type: 'supports',
     description: 'Echo chamber from coherent training texts; next-token prediction on single-stance data',
   },
+  // Generative Echo Chamber (#218) relationships
+  {
+    source: '2402.05880',
+    target: 'LREC-COLING-2024-884',
+    type: 'extends',
+    description: 'Extends echo chamber to human behavior; N=328 shows 10x confirmatory query increase',
+  },
+  {
+    source: '2402.05880',
+    target: '2310.13548',
+    type: 'supports',
+    description: 'Consonant LLM 43% vs dissonant 12% confirmatory queries; sycophancy amplifies in search',
+  },
+  {
+    source: '2402.05880',
+    target: '2303.17548',
+    type: 'supports',
+    description: 'Users spend 117s on consonant vs 79s dissonant content; opinion skew becomes behavior',
+  },
+  {
+    source: '2402.05880',
+    target: '2308.03958',
+    type: 'extends',
+    description: 'Extends sycophancy to RAG search systems; GPT-4 backend with 47 curated documents',
+  },
 ];

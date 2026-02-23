@@ -1,6 +1,6 @@
 # Paper List
 
-> 217 papers analyzed | 143 supports thesis | 15 challenges | 59 balanced | Date range: 2021-2026
+> 218 papers analyzed | 144 supports thesis | 15 challenges | 59 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -221,3 +221,4 @@
 | 215 | 2512.14982 | Dec 2024 | Prompt Repetition Improves Non-Reasoning LLMs | Supports |
 | 216 | 2303.17548 | Mar 2023 | Whose Opinions Do Language Models Reflect? | Supports |
 | 217 | LREC-COLING-2024-884 | May 2024 | Large Language Models Are Echo Chambers | Supports |
+| 218 | 2402.05880 | Feb 2024 | Generative Echo Chamber? Effects of LLM-Powered Search | Supports |
