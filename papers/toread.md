@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **176 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **175 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed).
 
@@ -12,7 +12,6 @@ Papers on LLMs agreeing with users rather than truth-seeking.
 
 | arXiv ID | Title | Stance |
 |----------|-------|--------|
-| LREC-COLING 2024 | [Large Language Models Are Echo Chambers](https://aclanthology.org/2024.lrec-main.884/) | supports |
 | [2402.05880](https://arxiv.org/abs/2402.05880) | Generative Echo Chamber? Effects of LLM-Powered Search | supports |
 
 ---

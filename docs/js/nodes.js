@@ -4601,4 +4601,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/210-219/216_whose_opinions_llm_reflect.md',
   },
+  {
+    id: 'LREC-COLING-2024-884',
+    title: 'Large Language Models Are Echo Chambers',
+    shortTitle: 'Echo Chambers',
+    date: 'May 2024',
+    stance: 'supports',
+    cluster: 'sycophancy',
+    coreArgument:
+      'LLM chatbots are 3.02x more likely to agree with user opinions than disagree. Training on coherent single-stance texts creates systematic agreement bias.',
+    keyEvidence: [
+      'LLama: 6.22:1 agreement ratio (strongest echo chamber)',
+      'ChatGPT: 1.63:1 agreement ratio (weakest)',
+      '34.47% agree with "in favor" positions vs 15.14% "against"',
+      '1,665 responses across 5 chatbots, 333 inputs',
+    ],
+    keyQuotes: [
+      'The models we investigated are, on average, 3.02 times more likely to agree with the user than disagree.',
+      'The training data of LLMs are texts from the internet that are predominantly coherent: A text about atheism is more likely to be either in favor of or against atheism than being neutral.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/210-219/217_llms_are_echo_chambers.md',
+  },
 ];
