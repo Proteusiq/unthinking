@@ -1,8 +1,29 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **173 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **176 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed).
+
+---
+
+## High Priority — Sycophancy & Echo Chambers
+
+Papers on LLMs agreeing with users rather than truth-seeking.
+
+| arXiv ID | Title | Stance |
+|----------|-------|--------|
+| LREC-COLING 2024 | [Large Language Models Are Echo Chambers](https://aclanthology.org/2024.lrec-main.884/) | supports |
+| [2402.05880](https://arxiv.org/abs/2402.05880) | Generative Echo Chamber? Effects of LLM-Powered Search | supports |
+
+---
+
+## High Priority — Agentic Scaffolding
+
+Papers on external memory/tools compensating for LLM limitations.
+
+| arXiv ID | Title | Stance |
+|----------|-------|--------|
+| [2508.16153](https://arxiv.org/abs/2508.16153) | Memento: Fine-tuning LLM Agents without Fine-tuning LLMs | balanced |
 
 ---
 
