@@ -5107,4 +5107,29 @@ window.paperLinks = [
     type: 'extends',
     description: 'Extends sycophancy to RAG search systems; GPT-4 backend with 47 curated documents',
   },
+  // Memento (#219) relationships
+  {
+    source: '2508.16153',
+    target: '2507.16929',
+    type: 'supports',
+    description: 'Both show external scaffolding compensates for LLM limitations; +4.7-9.6% OOD via CBR',
+  },
+  {
+    source: '2508.16153',
+    target: '2410.05229',
+    type: 'supports',
+    description: 'Case retrieval is pattern matching; 87.88% GAIA via similarity not reasoning',
+  },
+  {
+    source: '2508.16153',
+    target: '2305.11206',
+    type: 'extends',
+    description: 'Extends SAH: if alignment is shallow, learning can be externalized too',
+  },
+  {
+    source: '2508.16153',
+    target: '2512.07783',
+    type: 'supports',
+    description: 'Both show RL surfaces pre-existing patterns; Memento uses case retrieval instead',
+  },
 ];

@@ -1,20 +1,12 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **174 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **173 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed).
 
 ---
 
 ---
-
-## High Priority — Agentic Scaffolding
-
-Papers on external memory/tools compensating for LLM limitations.
-
-| arXiv ID | Title | Stance |
-|----------|-------|--------|
-| [2508.16153](https://arxiv.org/abs/2508.16153) | Memento: Fine-tuning LLM Agents without Fine-tuning LLMs | balanced |
 
 ---
 

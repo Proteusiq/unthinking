@@ -4645,4 +4645,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/210-219/218_generative_echo_chamber.md',
   },
+  {
+    id: '2508.16153',
+    title: 'Memento: Fine-tuning LLM Agents without Fine-tuning LLMs',
+    shortTitle: 'Memento',
+    date: 'Aug 2025',
+    stance: 'balanced',
+    cluster: 'scaffolding',
+    coreArgument:
+      'External memory + case-based reasoning achieves SOTA without LLM fine-tuning. 87.88% GAIA Pass@3 via similarity-based case retrieval, not internal reasoning.',
+    keyEvidence: [
+      '87.88% GAIA validation Pass@3 (top-1), 79.40% test',
+      'CBR adds +4.7% to +9.6% on OOD tasks',
+      'Fast planner (GPT-4.1) beats deliberative o3 by ~8%',
+      '66.6% F1 DeepResearcher vs 51.8% training-based method',
+    ],
+    keyQuotes: [
+      'How can we build LLM agents that learn continuously from a changing environment without the prohibitive cost of fine-tuning the underlying LLMs?',
+      'Our method enables low-cost continual adaptation via memory-based online reinforcement learning.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/210-219/219_memento.md',
+  },
 ];
