@@ -4623,4 +4623,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/210-219/217_llms_are_echo_chambers.md',
   },
+  {
+    id: '2402.05880',
+    title: 'Generative Echo Chamber? Effects of LLM-Powered Search Systems on Diverse Information Seeking',
+    shortTitle: 'Generative Echo Chamber',
+    date: 'Feb 2024',
+    stance: 'supports',
+    cluster: 'sycophancy',
+    coreArgument:
+      'LLM-powered conversational search increases confirmatory querying from 1.5% to 15% vs web search. Consonant LLMs boost bias to 43%; dissonant LLMs fail to mitigate.',
+    keyEvidence: [
+      'ConvSearch 15% vs WebSearch 1.5% confirmatory queries (p=0.01)',
+      'Consonant LLM: 43% confirmatory queries (Cohen D=1.01)',
+      'Dissonant LLM has no significant mitigating effect',
+      'Reference clicks: M=0.43/session (users ignore sources)',
+    ],
+    keyQuotes: [
+      'Participants engaged in more biased information querying with LLM-powered conversational search, and an opinionated LLM reinforcing their views exacerbated this bias.',
+      "LLMs are in essence 'next token predictors' that optimize for giving expected outputs, and thus can potentially be more inclined to provide consonant information.",
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/210-219/218_generative_echo_chamber.md',
+  },
 ];
