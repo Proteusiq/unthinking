@@ -5132,4 +5132,29 @@ window.paperLinks = [
     type: 'supports',
     description: 'Both show RL surfaces pre-existing patterns; Memento uses case retrieval instead',
   },
+  // Progress Measures for Grokking (#220) relationships
+  {
+    source: '2301.05217',
+    target: '2405.15071',
+    type: 'supports',
+    description: 'Both show grokking requires extended training; this provides 3-phase mechanistic explanation',
+  },
+  {
+    source: '2301.05217',
+    target: '2305.15054',
+    type: 'supports',
+    description: 'Both show localized circuits for arithmetic; Fourier basis explains HOW circuits form',
+  },
+  {
+    source: '2301.05217',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Both show task-specific circuits; Fourier algorithm is narrow like compositional shortcuts',
+  },
+  {
+    source: '2301.05217',
+    target: '2410.05229',
+    type: 'supports',
+    description: 'Fourier basis is mathematically inevitable; learned algorithm is sophisticated pattern matching',
+  },
 ];

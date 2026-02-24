@@ -4667,4 +4667,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/210-219/219_memento.md',
   },
+  {
+    id: '2301.05217',
+    title: 'Progress Measures for Grokking via Mechanistic Interpretability',
+    shortTitle: 'Grokking Progress',
+    date: 'Jan 2023',
+    stance: 'balanced',
+    cluster: 'mechanism',
+    coreArgument:
+      'Grokking is NOT sudden: circuit forms gradually, then memorization removed. Model learns Fourier multiplication algorithm — mathematically inevitable for modular addition.',
+    keyEvidence: [
+      '3 phases: memorize (0-1.4k) → circuit (1.4-9.4k) → cleanup (9.4-14k)',
+      '99.45% variance explained by 5 key Fourier frequencies',
+      'Ablating 95% of frequencies IMPROVES performance',
+      'λ=0 → never groks; λ=1 → groks at 10k epochs',
+    ],
+    keyQuotes: [
+      'Grokking arises from the gradual amplification of structured mechanisms encoded in the weights, followed by the later removal of memorizing components.',
+      'We studied the behavior of small transformers on a simple algorithmic task, solved with a single circuit.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/210-219/220_progress_measures_grokking.md',
+  },
 ];

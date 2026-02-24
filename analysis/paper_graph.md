@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 219
+> **Papers tracked**: 220
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1236,6 +1236,7 @@ These papers have NO direct rebuttals found:
 | **Echo Chambers (LREC-COLING-2024-884)** | LLMs 3.02x more likely to agree than disagree; LLama 6.22:1, ChatGPT 1.63:1; training on coherent single-stance texts creates agreement bias |
 | **Generative Echo Chamber (2402.05880)** | CHI 2024: ConvSearch 15% vs WebSearch 1.5% confirmatory queries (p=0.01); consonant LLMs boost to 43% (Cohen's D=1.01); dissonant LLMs fail to mitigate; references don't help |
 | **Memento (2508.16153)** | 87.88% GAIA Pass@3 without LLM fine-tuning; external memory + CBR adds +4.7-9.6% OOD; fast planner beats deliberative o3 by 8%; BALANCED (scaffolding compensates for LLM limitations) |
+| **Progress Measures Grokking (2301.05217)** | ICLR 2023: Fully reverse-engineers modular addition; Fourier multiplication algorithm; 3 phases (memorize→circuit→cleanup); grokking occurs AFTER circuit exists; BALANCED (clean algorithm but narrow task) |
 
 ### 2026-02-18
 | Papers Added | Key Findings |

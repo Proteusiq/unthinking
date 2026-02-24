@@ -1,6 +1,6 @@
 # Paper List
 
-> 219 papers analyzed | 144 supports thesis | 15 challenges | 60 balanced | Date range: 2021-2026
+> 220 papers analyzed | 144 supports thesis | 15 challenges | 61 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -223,3 +223,4 @@
 | 217 | LREC-COLING-2024-884 | May 2024 | Large Language Models Are Echo Chambers | Supports |
 | 218 | 2402.05880 | Feb 2024 | Generative Echo Chamber? Effects of LLM-Powered Search | Supports |
 | 219 | 2508.16153 | Aug 2025 | Memento: Fine-tuning LLM Agents without Fine-tuning LLMs | Balanced |
+| 220 | 2301.05217 | Jan 2023 | Progress Measures for Grokking via Mechanistic Interpretability | Balanced |
