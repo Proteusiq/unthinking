@@ -47,6 +47,43 @@ The model learns to:
 3. **Read off logits**: Compute cos(wₖ(a+b-c)) via unembedding
 4. **Constructive interference**: Sum cosines across frequencies, max at c* = (a+b) mod P
 
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    FOURIER MULTIPLICATION ALGORITHM                         │
+│                                                                             │
+│   Input: a=3, b=5, P=113                                                    │
+│                                                                             │
+│   Step 1: EMBED TO FOURIER BASIS                                            │
+│   ┌─────────────────────────────────────────────────────────────────────┐   │
+│   │  a=3  ──→  [Embed]  ──→  sin(wₖ·3), cos(wₖ·3)  ──→  angle 3·wₖ      │   │
+│   │  b=5  ──→  [Embed]  ──→  sin(wₖ·5), cos(wₖ·5)  ──→  angle 5·wₖ      │   │
+│   └─────────────────────────────────────────────────────────────────────┘   │
+│                                    ↓                                        │
+│   Step 2: APPLY TRIG IDENTITIES (Attention + MLP)                           │
+│   ┌─────────────────────────────────────────────────────────────────────┐   │
+│   │  cos(wₖ(a+b)) = cos(wₖa)cos(wₖb) - sin(wₖa)sin(wₖb)                 │   │
+│   │  sin(wₖ(a+b)) = sin(wₖa)cos(wₖb) + cos(wₖa)sin(wₖb)                 │   │
+│   │                                                                     │   │
+│   │  Result: angle (3+5)·wₖ = 8·wₖ on the circle                        │   │
+│   └─────────────────────────────────────────────────────────────────────┘   │
+│                                    ↓                                        │
+│   Step 3: READ OFF LOGITS (Unembedding)                                     │
+│   ┌─────────────────────────────────────────────────────────────────────┐   │
+│   │  For each c ∈ {0,...,112}: compute cos(wₖ(a+b-c))                   │   │
+│   │  When c = 8: cos(wₖ·0) = 1  ──→  MAXIMUM                            │   │
+│   │  When c ≠ 8: cos(wₖ·Δ) < 1  ──→  smaller                            │   │
+│   └─────────────────────────────────────────────────────────────────────┘   │
+│                                    ↓                                        │
+│   Step 4: CONSTRUCTIVE INTERFERENCE                                         │
+│   ┌─────────────────────────────────────────────────────────────────────┐   │
+│   │  Sum across 5 key frequencies: all cosines = 1 at correct answer    │   │
+│   │  c=8 gets highest logit  ──→  softmax  ──→  prediction: 8           │   │
+│   └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│   KEY INSIGHT: Addition mod P = rotation on circle = Fourier transform      │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
 ---
 
 ## Key Evidence
