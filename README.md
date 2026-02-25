@@ -56,7 +56,9 @@ Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.
 | [**Architecture**](https://proteusiq.github.io/unthinking/pages/architecture.html) | Activations, Block, Table | Transformer internals, attention variants (MHA, GQA, MLA), normalization (Pre/Post-Norm, QK-Norm), MoE, positional encoding (RoPE, NoPE) |
 | [**Training**](https://proteusiq.github.io/unthinking/pages/training.html) | Pipeline, Mechanics, Research | Full training lifecycle: pre-training (AdamW, scaling laws, mixed precision), mid-training (annealing, domain adaptation, context extension), post-training (SFT, RLHF, DPO, GRPO, RLVR), lab recipes |
 
-See also: [Transformer Explainer](https://poloclub.github.io/transformer-explainer/) — interactive visualization of how a GPT-2 model works, from Georgia Tech / Polo Club.
+See also:
+- [Transformer Explainer](https://poloclub.github.io/transformer-explainer/) — interactive visualization of how a GPT-2 model works, from Georgia Tech / Polo Club
+- [microgpt](https://karpathy.github.io/2026/02/12/microgpt/) — 200 lines of pure Python that trains and inferences a GPT, the algorithmic essence distilled to its bare minimum, by Andrej Karpathy
 
 ---
 
