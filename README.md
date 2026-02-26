@@ -7,8 +7,8 @@
 </a>
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
-[![Papers](https://img.shields.io/badge/papers-220-blue)]()
-[![Relationships](https://img.shields.io/badge/relationships-776-orange)]()
+[![Papers](https://img.shields.io/badge/papers-221-blue)]()
+[![Relationships](https://img.shields.io/badge/relationships-781-orange)]()
 
 ---
 
@@ -19,7 +19,7 @@ Do LLMs actually understand or do they predict plausible-sounding tokens without
 This project surveys over 200 papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
 
 To bring the findings home:
-- **Paper network** — interactive graph of 220 papers and 776 relationships, filterable by stance
+- **Paper network** — interactive graph of 221 papers and 781 relationships, filterable by stance
 - **Experiments**:
   - *Decoding ablation*: proves reasoning paths exist in base models, hidden by greedy decoding — RL just surfaces them
   - *Steering ablation*: proves safety alignment is a thin layer of refusal patterns that washes off under trivial perturbations
@@ -39,8 +39,8 @@ LLMs are dense statistical remixed echo chambers of their training data. They pr
 
 Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/)**
 
-- **Force-directed graph** — 220 papers as nodes, 776 relationships as edges
-- **Color-coded stances** — supports (144), challenges (15), balanced (61)
+- **Force-directed graph** — 221 papers as nodes, 781 relationships as edges
+- **Color-coded stances** — supports (145), challenges (15), balanced (61)
 - **Interactive** — hover tooltips, click for details, search, filter, dark/light mode
 - **Paper dialogue** — auto-generated conversations between connected papers
 
@@ -261,7 +261,7 @@ See [`experiments/steering_ablation/protocol.md`](./experiments/steering_ablatio
 
 > "0% exposure → RL FAILS; ≥1% exposure → RL succeeds." — **Interplay**
 
-> "Incorrect traces can OUTPERFORM correct ones." — **Stop Anthropomorphizing**
+> "Incorrect traces can OUTPERFORM correct ones." — **How Do LRMs Reason?**
 
 > "95-100% step accuracy, 0% final accuracy — split-brain syndrome." — **Comprehension Without Competence**
 

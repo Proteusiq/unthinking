@@ -1,6 +1,6 @@
 # Paper List
 
-> 220 papers analyzed | 144 supports thesis | 15 challenges | 61 balanced | Date range: 2021-2026
+> 221 papers analyzed | 145 supports thesis | 15 challenges | 61 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -136,7 +136,7 @@
 | 130 | 2412.21187 | Dec 2024 | Overthinking of o1-Like LLMs | Supports |
 | 131 | 2501.18585 | Jan 2025 | Underthinking of o1-Like LLMs | Supports |
 | 132 | 2403.04121 | Mar 2024 | Can Large Language Models Reason and Plan? (Kambhampati) | Supports |
-| 133 | 2504.09762 | May 2025 | Stop Anthropomorphizing Intermediate Tokens as Reasoning! (Kambhampati) | Supports |
+| 133 | 2504.09762 | Apr 2025 | (How) Do Reasoning Models Reason? (Kambhampati) | Supports |
 | 134 | 2510.07364 | Oct 2025 | Base Models Know How to Reason, Thinking Models Learn When | Supports |
 | 135 | 2410.09695 | Oct 2024 | Can In-context Learning Really Generalize to OOD Tasks? | Supports |
 | 136 | 2502.03373 | Feb 2025 | Demystifying Long Chain-of-Thought Reasoning | Supports |
@@ -224,3 +224,4 @@
 | 218 | 2402.05880 | Feb 2024 | Generative Echo Chamber? Effects of LLM-Powered Search | Supports |
 | 219 | 2508.16153 | Aug 2025 | Memento: Fine-tuning LLM Agents without Fine-tuning LLMs | Balanced |
 | 220 | 2301.05217 | Jan 2023 | Progress Measures for Grokking via Mechanistic Interpretability | Balanced |
+| 221 | 2602.04118 | Feb 2026 | Learning to Reason in 13 Parameters | Supports |

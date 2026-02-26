@@ -2636,13 +2636,13 @@ window.paperNodes = [
   },
   {
     id: '2504.09762',
-    title: 'Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!',
-    shortTitle: 'Stop Anthropomorphizing',
-    date: 'May 2025',
+    title: '(How) Do Reasoning Models Reason?',
+    shortTitle: 'How Do LRMs Reason?',
+    date: 'Apr 2025',
     stance: 'supports',
     cluster: 'faithfulness',
     coreArgument:
-      'Position paper: Kambhampati argues anthropomorphizing CoT as "thinking" is harmful. Traces have no semantics; incorrect traces outperform correct ones. "Aha moments" meaningless. LRMs "compile reasoning into retrieval via learning."',
+      'LRMs use test-time inference and post-training on derivational traces. Intermediate tokens have no formal semantics; incorrect traces can outperform correct ones. LRMs "compile reasoning into retrieval via learning."',
     keyEvidence: [
       'Incorrect traces outperform correct',
       'R1-Zero > R1 (interpretability hurts)',
@@ -2655,7 +2655,7 @@ window.paperNodes = [
       'Post-training LRMs can be seen as iteratively compiling reasoning into retrieval.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/130-139/132_stop_anthropomorphizing_tokens.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/130-139/132_how_do_reasoning_models_reason.md',
   },
   {
     id: '2510.07364',
@@ -4687,6 +4687,28 @@ window.paperNodes = [
       'We studied the behavior of small transformers on a simple algorithmic task, solved with a single circuit.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/210-219/220_progress_measures_grokking.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/220-229/220_progress_measures_grokking.md',
+  },
+  {
+    id: '2602.04118',
+    title: 'Learning to Reason in 13 Parameters',
+    shortTitle: 'TinyLoRA',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'finetuning',
+    coreArgument:
+      'RL achieves 91% GSM8K accuracy with only 13 trained parameters (26 bytes), suggesting reasoning training makes minimal, stylistic changes rather than teaching new algorithms.',
+    keyEvidence: [
+      '91% GSM8K with 13 params (RL) vs 83% (SFT)',
+      'RL is 100-1000x more param-efficient than SFT',
+      '196 params retain 87% of full FT improvement',
+      'Qwen 10x more efficient than LLaMA (contamination signal)',
+    ],
+    keyQuotes: [
+      'One theory is that the knowledge required to solve the task is already stored in the parameters of the model, and only the style has to change for task success.',
+      'We are able to train the 8B parameter size of Qwen2.5 to 91% accuracy on GSM8K with only 13 trained parameters in bf16 (26 total bytes).',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/220-229/221_learning_to_reason_13_parameters.md',
   },
 ];

@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 220
+> **Papers tracked**: 221
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1371,6 +1371,11 @@ These papers have NO direct rebuttals found:
 | Content Effects on Reasoning (2207.07051) | PNAS Nexus: human-like content effects |
 | AI Metacognition (2411.02478) | "Smart but not wise"; lacks meta-level |
 | Temporal Cognition (2507.15851) | Weber-Fechner emerges; reference ~2025 |
+
+### 2026-02-26
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Learning to Reason in 13 Parameters (2602.04118) | 91% GSM8K with 13 params; RL is 100-1000x more param-efficient than SFT |
 
 ### 2026-02-23
 | Papers Added | Key Findings |
