@@ -2257,7 +2257,7 @@ window.paperLinks = [
     description:
       'Obfuscated names destroy planning; off-the-shelf AI planners unaffected by same obfuscation',
   },
-  // Paper 132: Stop Anthropomorphizing Tokens (Kambhampati) links
+  // Paper 132: (How) Do Reasoning Models Reason? (Kambhampati) links
   {
     source: '2504.09762',
     target: '2403.04121',
@@ -5156,5 +5156,36 @@ window.paperLinks = [
     target: '2410.05229',
     type: 'supports',
     description: 'Fourier basis is mathematically inevitable; learned algorithm is sophisticated pattern matching',
+  },
+  // Learning to Reason in 13 Parameters (#221) relationships
+  {
+    source: '2602.04118',
+    target: '2410.03717',
+    type: 'supports',
+    description: '13 params suffice for reasoning — post-training makes minimal changes, confirming SAH',
+  },
+  {
+    source: '2602.04118',
+    target: '2305.11206',
+    type: 'supports',
+    description: 'Both show post-training is shallow; LIMA uses 1000 examples, TinyLoRA uses 13 params',
+  },
+  {
+    source: '2602.04118',
+    target: '2502.03373',
+    type: 'supports',
+    description: 'Both suggest extended outputs are the key; achievable with minimal parameter changes',
+  },
+  {
+    source: '2602.04118',
+    target: '2410.05229',
+    type: 'supports',
+    description: 'Qwen 10x more efficient than LLaMA suggests GSM8K contamination in training data',
+  },
+  {
+    source: '2602.04118',
+    target: '2512.07783',
+    type: 'supports',
+    description: 'Both show RL surfaces existing capability; 13 params proves capability was always present',
   },
 ];

@@ -1,11 +1,11 @@
-# Paper Analysis: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!
+# Paper Analysis: (How) Do Reasoning Models Reason?
 
 ## Metadata
 - **arXiv ID**: 2504.09762
-- **Title**: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!
-- **Authors**: Subbarao Kambhampati, Kaya Stechly, Karthik Valmeekam, Lucas Saldyt, Siddhant Bhambri, et al.
-- **Date**: May 2025
-- **Venue**: Position Paper
+- **Title**: (How) Do Reasoning Models Reason?
+- **Authors**: Subbarao Kambhampati, Kaya Stechly, Karthik Valmeekam
+- **Date**: April 2025
+- **Venue**: Annals of The New York Academy of Sciences (https://nyaspubs.onlinelibrary.wiley.com/doi/10.1111/nyas.15339)
 - **Institution**: Arizona State University
 
 ---
