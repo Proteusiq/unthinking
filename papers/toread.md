@@ -1,12 +1,39 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **173 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **183 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed).
 
 ---
 
----
+## High Priority — Parameter Efficiency & RL Dynamics (Related to #221)
+
+Papers exploring why RL is more parameter-efficient than SFT, and what this reveals about reasoning.
+
+### Mechanistic Explanations
+
+| arXiv ID | Title | Stance |
+|----------|-------|--------|
+| [2511.08567](https://arxiv.org/abs/2511.08567) | The Path Not Taken: RLVR Provably Learns Off the Principals | supports |
+| [2602.07729](https://arxiv.org/abs/2602.07729) | Do We Need Adam? SGD in RLVR (updates <0.02% params) | supports |
+| [2507.10616](https://arxiv.org/abs/2507.10616) | Scalpel vs. Hammer: GRPO Amplifies, SFT Replaces | supports |
+
+### Parameter-Efficient Methods for Reasoning
+
+| arXiv ID | Title | Stance |
+|----------|-------|--------|
+| [2512.23165](https://arxiv.org/abs/2512.23165) | Evaluating Parameter Efficient Methods for RLVR | balanced |
+| [2601.06677](https://arxiv.org/abs/2601.06677) | Plasticity vs. Rigidity: LoRA on Micro-Budget Reasoning | balanced |
+| [2602.16839](https://arxiv.org/abs/2602.16839) | Progressive Thought Encoding (+19.3% over LoRA) | balanced |
+| [2602.20727](https://arxiv.org/abs/2602.20727) | ID-LoRA: Matrix Interpolative Decomposition (46% fewer params) | balanced |
+| [2506.20629](https://arxiv.org/abs/2506.20629) | PLoP: Precise LoRA Placement | balanced |
+| [2505.17697](https://arxiv.org/abs/2505.17697) | Activation Control for Long CoT (training-free) | supports |
+
+### RL vs SFT Comparisons
+
+| arXiv ID | Title | Stance |
+|----------|-------|--------|
+| [2510.01857](https://arxiv.org/abs/2510.01857) | Learning Reasoning Reward Models via Inverse RL | supports |
 
 ---
 
