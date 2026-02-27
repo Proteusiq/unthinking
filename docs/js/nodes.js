@@ -4711,4 +4711,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/220-229/221_learning_to_reason_13_parameters.md',
   },
+  {
+    id: '2405.04669',
+    title: 'Towards a Theoretical Understanding of the Reversal Curse via Training Dynamics',
+    shortTitle: 'Reversal Curse Theory',
+    date: 'May 2024',
+    stance: 'supports',
+    cluster: 'compositional',
+    coreArgument:
+      'Weight asymmetry (A→B ≠ B→A) and intransitivity (A→B + B→C ≠ A→C) are mathematical properties of auto-regressive training, proving compositional failure is architectural.',
+    keyEvidence: [
+      'Theorem: reversal loss stays high as training loss drops',
+      'Intransitivity: p(C|A) ≈ 1/M even when p(B|A)→1, p(C|B)→1',
+      'ICL avoids asymmetry (reversal curse absent in ICL)',
+      'Validated on multi-layer transformers experimentally',
+    ],
+    keyQuotes: [
+      'The increase of weights from token A to token B during training does not necessarily cause the increase of weights from B to A.',
+      'An auto-regressive LLM might mainly focus on learning text sequences during training separately instead of automatically deducing indirect conclusions.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/220-229/222_reversal_curse_theory.md',
+  },
 ];

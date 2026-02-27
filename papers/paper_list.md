@@ -1,6 +1,6 @@
 # Paper List
 
-> 221 papers analyzed | 145 supports thesis | 15 challenges | 61 balanced | Date range: 2021-2026
+> 222 papers analyzed | 146 supports thesis | 15 challenges | 61 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -225,3 +225,4 @@
 | 219 | 2508.16153 | Aug 2025 | Memento: Fine-tuning LLM Agents without Fine-tuning LLMs | Balanced |
 | 220 | 2301.05217 | Jan 2023 | Progress Measures for Grokking via Mechanistic Interpretability | Balanced |
 | 221 | 2602.04118 | Feb 2026 | Learning to Reason in 13 Parameters | Supports |
+| 222 | 2405.04669 | May 2024 | Towards a Theoretical Understanding of the Reversal Curse | Supports |

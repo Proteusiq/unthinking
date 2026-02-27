@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 221
+> **Papers tracked**: 222
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1371,6 +1371,11 @@ These papers have NO direct rebuttals found:
 | Content Effects on Reasoning (2207.07051) | PNAS Nexus: human-like content effects |
 | AI Metacognition (2411.02478) | "Smart but not wise"; lacks meta-level |
 | Temporal Cognition (2507.15851) | Weber-Fechner emerges; reference ~2025 |
+
+### 2026-02-27
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Reversal Curse Theory (2405.04669) | **MATHEMATICAL PROOF**: Weight asymmetry causes reversal curse; intransitivity proves CoT necessity. Training A→B + B→C ≠ A→C is a theorem. |
 
 ### 2026-02-26
 | Papers Added | Key Findings |

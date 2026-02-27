@@ -5188,4 +5188,35 @@ window.paperLinks = [
     type: 'supports',
     description: 'Both show RL surfaces existing capability; 13 params proves capability was always present',
   },
+  // Reversal Curse Theory (#222) relationships
+  {
+    source: '2405.04669',
+    target: '2309.12288',
+    type: 'extends',
+    description: 'Provides mathematical proof for empirical reversal curse phenomenon',
+  },
+  {
+    source: '2405.04669',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Intransitivity theorem proves compositional failure is architectural, not fixable',
+  },
+  {
+    source: '2405.04669',
+    target: '2602.04118',
+    type: 'supports',
+    description: 'Weight asymmetry explains why 13 params suffice — only directional weights encoded',
+  },
+  {
+    source: '2405.04669',
+    target: '2309.13638',
+    type: 'supports',
+    description: 'Weight asymmetry is mathematical explanation for probability sensitivity in Embers',
+  },
+  {
+    source: '2405.04669',
+    target: '2402.10200',
+    type: 'supports',
+    description: 'Proves ICL avoids asymmetry problem — explains why CoT Without Prompting works',
+  },
 ];

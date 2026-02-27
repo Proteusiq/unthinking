@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **183 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **182 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed).
 
@@ -215,7 +215,6 @@ Source: [Awesome-LLM-Reasoning-Failures](https://github.com/Peiyang-Song/Awesome
 | [2311.07468](https://arxiv.org/abs/2311.07468) | An Analysis and Mitigation of the Reversal Curse |
 | [2310.10322](https://arxiv.org/abs/2310.10322) | Untying the Reversal Curse via Bidirectional LM Editing |
 | [2410.18808](https://arxiv.org/abs/2410.18808) | Delving into the Reversal Curse: How Far Can LLMs Generalize? |
-| [2405.04669](https://arxiv.org/abs/2405.04669) | Towards a Theoretical Understanding of the Reversal Curse |
 | [2411.16353](https://arxiv.org/abs/2411.16353) | The Two-Hop Curse: A->B, B->C Fail to Learn A->C |
 | [2502.13913](https://arxiv.org/abs/2502.13913) | How Do LLMs Perform Two-Hop Reasoning in Context? |
 | [2403.02615](https://arxiv.org/abs/2403.02615) | Exploring Limitations in Compositional Relation Reasoning |
