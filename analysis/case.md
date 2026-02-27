@@ -1,4 +1,4 @@
-> **Based on systematic analysis of 200+ peer-reviewed papers (2022-2026)**
+> **Based on systematic analysis of 221 peer-reviewed papers (2022-2026)**
 >
 > Full corpus: [github.com/Proteusiq/unthinking](https://github.com/Proteusiq/unthinking)
 >
@@ -42,6 +42,7 @@ Just as evolution optimizes for reproductive fitness rather than epistemic accur
 | **7** | **Spurious Rewards**: Models improve EVEN WITH INCORRECT REWARDS | Performance comes from activating memory, not learning to reason | [2601.11061](https://arxiv.org/abs/2601.11061) |
 | **8** | **Embers of Autoregression**: Acronyms 76% (1st letter) vs 3% (2nd letter) — **25× difference** on identical algorithm. Shift cipher 51% vs 13% based on output probability. Sorting 80% vs 32% based on training frequency | Probability determines performance on DETERMINISTIC tasks. "To understand LLMs, understand what they were trained to be" | [2309.13638](https://arxiv.org/abs/2309.13638) |
 | **9** | **o1 Still Shows Embers**: Same authors test o1 — shift cipher 92% vs 47% (45% gap). Thinking tokens: 100 vs 2000 for common vs rare tasks (**20× more effort** for same accuracy). Task frequency effects reappear when ceiling effects removed | Even reasoning-optimized models can't escape probability sensitivity. "The sparks of AGI continue to be accompanied by embers of autoregression" | [2410.01792](https://arxiv.org/abs/2410.01792) |
+| **10** | **13 Parameters to "Reason"**: 91% GSM8K with 13 parameters (26 bytes). RL is **100-1000× more param-efficient** than SFT. Qwen ~10× more efficient than LLaMA (contamination signal) | "The knowledge required to solve the task is already stored... only the style has to change." If 26 bytes unlock "reasoning," the capability was always there | [2602.04118](https://arxiv.org/abs/2602.04118) |
 
 ### The Core Insight
 
@@ -75,6 +76,9 @@ Like Leonard in *Memento*, LLMs have no persistent state. Each token prediction 
 
 > "The sparks of AGI that LLMs may be producing continue to be accompanied by embers of autoregression."
 > — o1 Embers Analysis (2410.01792)
+
+> "The knowledge required to solve the task is already stored in the parameters of the model, and only the style has to change for task success."
+> — Learning to Reason in 13 Parameters (2602.04118)
 
 ### The Mirror Clock Test
 
@@ -301,6 +305,12 @@ Every major empirical finding about LLM behavior matches the predictions of stat
 
 - Alternative decoding on base models recovers reasoning paths
 - Instruction-tuned models simply make these paths default
+
+**Learning to Reason in 13 Parameters** ([2602.04118](https://arxiv.org/abs/2602.04118), Paper #221):
+
+- 91% GSM8K with only 13 parameters (26 bytes); RL is 100-1000× more param-efficient than SFT
+- Authors: "the knowledge required to solve the task is already stored in the parameters of the model, and only the style has to change"
+- Qwen ~10× more efficient than LLaMA (contamination signal); results limited to math tasks
 
 **Interpretation:** RL performs probability path shifting:
 
