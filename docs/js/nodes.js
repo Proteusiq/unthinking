@@ -4733,4 +4733,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/220-229/222_reversal_curse_theory.md',
   },
+  {
+    id: '2411.16679',
+    title: 'Do Large Language Models Perform Latent Multi-Hop Reasoning without Exploiting Shortcuts?',
+    shortTitle: 'Latent Multi-Hop',
+    date: 'Nov 2024',
+    stance: 'supports',
+    cluster: 'compositional',
+    coreArgument:
+      'LLMs show 80% latent composability for country-type entities but only 5% for year-type, revealing reasoning depends on entity statistics not genuine composition.',
+    keyEvidence: [
+      '85% of prior benchmarks prone to shortcuts',
+      '80% country vs 5% year latent composability (16x gap)',
+      'Model scaling barely improves latent reasoning',
+      'CoT composability 30-60pp higher than latent',
+    ],
+    keyQuotes: [
+      'Our analysis shows that 85% of the test queries from a previous dataset are prone to shortcuts.',
+      'Notably, state-of-the-art models demonstrate strong latent composability of over 80% when the bridge entity is a country. However, the number is only around 6% for year-based queries.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/220-229/223_latent_multihop_reasoning.md',
+  },
 ];

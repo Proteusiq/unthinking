@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **182 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **181 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed).
 
@@ -229,7 +229,6 @@ Source: [Awesome-LLM-Reasoning-Failures](https://github.com/Peiyang-Song/Awesome
 | [2410.01748](https://arxiv.org/abs/2410.01748) | Not All LLM Reasoners Are Created Equal |
 | [2407.15720](https://arxiv.org/abs/2407.15720) | Do LLMs Have Compositional Ability? |
 | [2402.14328](https://arxiv.org/abs/2402.14328) | Understanding and Patching Compositional Reasoning |
-| [2411.16679](https://arxiv.org/abs/2411.16679) | Do LLMs Perform Latent Multi-Hop Reasoning without Shortcuts? |
 | [2402.01805](https://arxiv.org/abs/2402.01805) | Enhancing Logical Reasoning through Graph-Based Synthetic Data |
 | [2408.15778](https://arxiv.org/abs/2408.15778) | LogicGame: Benchmarking Rule-Based Reasoning |
 | [2402.11442](https://arxiv.org/abs/2402.11442) | Can LLMs Reason with Rules? Logic Scaffolding |
