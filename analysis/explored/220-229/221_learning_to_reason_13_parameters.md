@@ -11,15 +11,17 @@
 
 ## Core Claims
 
-1. **Extremely small parameter updates suffice for reasoning**: Models can learn to "reason" on math tasks with as few as 13 trained parameters (26 bytes in bf16), achieving 91% accuracy on GSM8K.
+1. **Extremely small parameter updates suffice for reasoning**: Models can learn to "reason" on math tasks with as few as 13 trained parameters (26 bytes in bf16), achieving 91% accuracy on GSM8K. With just 120 parameters, they recover 95% of the net performance improvement.
 
-2. **RL is far more parameter-efficient than SFT**: Reinforcement learning (GRPO) achieves strong performance with 100-1000x fewer parameters than supervised fine-tuning. At 13 parameters, RL reaches 91% while SFT reaches only 83%.
+2. **RL is far more parameter-efficient than SFT**: Reinforcement learning (GRPO) achieves strong performance with 100-1000x fewer parameters than supervised fine-tuning. At 13 parameters, RL reaches 91% while SFT reaches only 83%. SFT needs at least 1M parameters to work well.
 
-3. **RL makes information-dense updates**: SFT must absorb many bits of information (both task-relevant and irrelevant), while RL receives sparse, clean signals (binary reward) that allow learning with minimal capacity.
+3. **Information-theoretic explanation**: SFT must absorb many bits of information (entire demonstrations), only a fraction of which are task-relevant. RL receives sparse, clean signals (binary reward: k bits per prompt), allowing the signal to be cleanly separated from noise. "Resampling amplifies this separation—the correlated signal accumulates while uncorrelated variation cancels."
 
-4. **Larger models need smaller updates**: As model size increases, even smaller parameter updates achieve near-full-finetuning performance. This suggests trillion-scale models may be "programmable" with just a handful of parameters.
+4. **Larger models need smaller updates**: As model size increases, even smaller parameter updates achieve near-full-finetuning performance. Qwen2.5-7B needs ~120 params to reach 95% of peak; Qwen2.5-3B needs ~500. "Extremely large (trillion-scale) models may be easily trainable for many tasks with just a handful of parameters."
 
-5. **TinyLoRA enables scaling below conventional limits**: Their proposed TinyLoRA method scales LoRA arbitrarily small (down to 1 parameter) via random projection and weight tying across modules.
+5. **TinyLoRA architecture**: Replaces LoRA's trainable r×r matrix R with a low-dimensional trainable vector **v** ∈ ℝ^u projected through a fixed random tensor P. With full weight tying across all modules, the entire model's adaptation is just u parameters (minimum: 1).
+
+6. **Model-specific efficiency gap**: Qwen requires ~10x fewer parameters than LLaMA for equivalent performance. At 1 parameter, Qwen improves 5% over baseline (76%→82%); LLaMA barely improves. Authors note this "may corroborate recent observations that Qwen in particular may have exposure to similar examples during its pretraining."
 
 ---
 

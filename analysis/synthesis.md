@@ -1,6 +1,6 @@
 # Synthesis: The Thinking Machine That Doesn't Think
 
-> **Papers analyzed**: 200+
+> **Papers analyzed**: 221
 >
 > **See also**: `memento.md` for executive summary
 
@@ -153,8 +153,9 @@
 | 202 | **Embers of Autoregression** | Sep 2023 | Strongly Supports | **PNAS 2024 FOUNDATIONAL**: LLM accuracy depends on task/output/input PROBABILITY — even on deterministic tasks. Shift cipher 51% vs 13% (output prob), Acronyms 76% vs 3% (task prob), Sorting 80% vs 32% (frequency). "To understand what LLMs are, we must understand what they were trained to be." |
 | 203 | **o1 Embers Analysis** | Oct 2024 | Strongly Supports | **SAME AUTHORS TEST o1**: Even reasoning-optimized o1 shows embers. Shift cipher 92% vs 47% (45% gap persists). Task frequency effects reappear when ceiling effects removed. Thinking tokens: 100 vs 2000 for common vs rare tasks (20× more effort). "The sparks of AGI continue to be accompanied by embers of autoregression." |
 | 216 | **Whose Opinions Do LMs Reflect?** | Mar 2023 | Supports | **ANNOTATOR ECHO CHAMBER**: LMs reflect statistical patterns of training data + RLHF crowdworkers. HF shifts toward liberal, high-income, educated annotators. RLHF collapses opinion diversity to modal views (>99% Biden approval). 65+, Mormon, widowed systematically underrepresented. Small shift toward Buddhist/Muslim/Hindu via Southeast Asian annotators. "Models embody caricatures of crowdworker groups." |
+| 221 | **Learning to Reason in 13 Parameters** | Feb 2026 | Strongly Supports | **QUANTIFIES SURFACING**: 91% GSM8K with 13 parameters (26 bytes); RL 100-1000× more param-efficient than SFT. "The knowledge required to solve the task is already stored in the parameters of the model, and only the style has to change." Qwen ~10× more efficient than LLaMA (contamination signal). Math-only; larger models need smaller updates. |
 
-**Total: 216 unique papers analyzed**
+**Total: 221 unique papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative

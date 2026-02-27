@@ -1,14 +1,14 @@
 # Thoughts: Cross-Paper Synthesis
 
-> **Papers analyzed**: 200+ | **Supports thesis**: ~66% | **Balanced**: ~28% | **Challenges**: ~6%
+> **Papers analyzed**: 221 | **Supports thesis**: ~66% | **Balanced**: ~28% | **Challenges**: ~6%
 
-After analyzing 200+ papers, this document captures the major themes, how papers interconnect, the narrative arc of the field (2022-2026), and unresolved tensions.
+After analyzing 221 papers, this document captures the major themes, how papers interconnect, the narrative arc of the field (2022-2026), and unresolved tensions.
 
 **See also**: `mindmap.md` (visual diagrams), `memento.md` (executive summary), `synthesis.md` (paper-by-paper breakdown), `case.md` (formal argument)
 
 ---
 
-## The Picture from 200+ Papers
+## The Picture from 221 Papers
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
@@ -56,6 +56,7 @@ RL/SFT surfaces pre-existing capabilities from pre-training. It does not create 
 
 | Paper | Evidence |
 |-------|----------|
+| **TinyLoRA (2602.04118)** | **91% GSM8K with only 13 parameters (26 bytes)**. RL is 100-1000× more param-efficient than SFT. "The knowledge required to solve the task is already stored in the parameters of the model, and only the style has to change." |
 | Interplay (2512.07783) | 0% exposure = RL fails; ≥1% = success. "RL cannot synthesize capabilities from a void" |
 | s1 (2501.19393) | 1K samples surface AIME-level performance |
 | DeepSeek-R1 (2501.12948) | "Aha moments" emerge from pure RL, but base model must have latent capability |
@@ -63,7 +64,16 @@ RL/SFT surfaces pre-existing capabilities from pre-training. It does not create 
 | Emergent Hierarchical (2509.03646) | "RL rediscovers pre-training priors" |
 | Hallucination Inevitable (2401.11817) | Computability proof: hallucination is mathematically inevitable; self-correction cannot eliminate it |
 
-**Implication**: The "thinking" that appears to emerge from RL was always there. RL is activation, not creation — and no amount of training can escape the fundamental limits.
+**The TinyLoRA Revelation**: 13 parameters (26 bytes) improve GSM8K from 76% → 91% on Qwen2.5-7B. Full finetuning reaches 95%, so 13 parameters capture **79% of the performance gap**. The authors' explanation: "the knowledge required to solve the task is already stored in the parameters of the model, and only the style has to change."
+
+**Critical caveats**:
+- **Contamination signal**: Qwen is ~10× more parameter-efficient than LLaMA. Authors acknowledge this "may corroborate observations that Qwen has exposure to similar examples during pretraining."
+- **Task-specific**: Results limited to math datasets. "May or may not generalize to other fields."
+- **Near-ceiling baseline**: 76% baseline → 91% is strong, but GSM8K may be near-saturated for 7B+ instruction-tuned models.
+
+**What this tells us**: RL's 100-1000× parameter efficiency over SFT suggests it amplifies existing patterns rather than teaching algorithms. The striking efficiency is best explained by RL making stylistic changes (longer outputs, better formatting) rather than creating new capabilities. This quantifies the Surfacing Hypothesis — but on a benchmark where contamination and ceiling effects may inflate the result.
+
+**Implication**: Even taking caveats seriously, the finding is significant. If "reasoning training" primarily adjusts output style and length, then what distinguishes a "reasoning model" from a base model may be thinner than assumed.
 
 ---
 
