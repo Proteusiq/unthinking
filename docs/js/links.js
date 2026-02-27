@@ -5219,4 +5219,35 @@ window.paperLinks = [
     type: 'supports',
     description: 'Proves ICL avoids asymmetry problem — explains why CoT Without Prompting works',
   },
+  // Latent Multi-Hop Reasoning (#223) relationships
+  {
+    source: '2411.16679',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Both show compositionality failures depend on structural properties, not genuine reasoning',
+  },
+  {
+    source: '2411.16679',
+    target: '2405.04669',
+    type: 'supports',
+    description: 'Weight asymmetry explains why latent composition fails — explicit tokens required',
+  },
+  {
+    source: '2411.16679',
+    target: '2309.13638',
+    type: 'supports',
+    description: 'Latent reasoning failures reflect autoregressive training limitations in Embers',
+  },
+  {
+    source: '2411.16679',
+    target: '2404.15758',
+    type: 'supports',
+    description: 'CoT benefits from explicit intermediate computation, not latent semantic understanding',
+  },
+  {
+    source: '2411.16679',
+    target: '2410.05229',
+    type: 'supports',
+    description: 'Both reveal shortcut exploitation: 85% prior benchmarks confounded, GSM8K by surface patterns',
+  },
 ];

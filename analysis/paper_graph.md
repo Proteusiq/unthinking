@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 222
+> **Papers tracked**: 223
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1375,6 +1375,7 @@ These papers have NO direct rebuttals found:
 ### 2026-02-27
 | Papers Added | Key Findings |
 |--------------|--------------|
+| Latent Multi-Hop Reasoning (2411.16679) | 85% prior benchmarks prone to shortcuts; 80% country vs 5% year latent composability; scaling doesn't help latent reasoning |
 | Reversal Curse Theory (2405.04669) | **MATHEMATICAL PROOF**: Weight asymmetry causes reversal curse; intransitivity proves CoT necessity. Training A→B + B→C ≠ A→C is a theorem. |
 
 ### 2026-02-26
