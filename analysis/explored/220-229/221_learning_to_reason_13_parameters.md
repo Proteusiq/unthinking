@@ -27,10 +27,29 @@
 
 ## Methodology
 
-### TinyLoRA Architecture
-- Extends LoRA-XS by replacing the trainable r×r matrix R with a low-dimensional trainable vector **v** ∈ ℝ^u projected through a fixed random tensor P
-- Weight tying factor n_tie shares parameters across modules
-- With full weight tying, all modules share a single **v**, reducing to just u parameters (minimum: 1)
+### The Linear Algebra Behind TinyLoRA
+
+The key insight comes from **singular value decomposition (SVD)**. Take the original weight matrix **W** and decompose it: `W = UΣV^T`. SVD reveals the "principal directions" — the dimensions that carry the most information.
+
+**LoRA-XS** (the predecessor):
+- Freezes U, Σ, V (the SVD components of W)
+- Trains only a small matrix **R** ∈ ℝ^(r×r) to recombine these frozen directions
+- Update: `ΔW = U·Σ·R·V^T` where only R is trainable
+
+**TinyLoRA** (this paper):
+- Goes further: replaces the trainable r×r matrix R with a tiny vector **v** ∈ ℝ^u
+- Projects v through fixed random tensors P to form R: `R = Σᵢ vᵢ · Pᵢ`
+- With weight tying across all modules, the entire model's adaptation is just u parameters (minimum: 1)
+
+**Why this works**: The discovery is that not much capacity is needed. If 13 parameters suffice to improve reasoning performance, the capability was already encoded in the base model's weights. SVD reveals that useful updates lie in an extremely low-dimensional subspace — what the authors call "intrinsic dimensionality."
+
+### Information-Theoretic Explanation (Section 3)
+
+Why is RL 100-1000× more parameter-efficient than SFT?
+
+- **SFT** must absorb entire demonstrations — many bits of information, most irrelevant to the task. The model cannot distinguish which features are task-relevant.
+- **RL** receives only sparse binary rewards (correct/incorrect) — k bits per prompt, cleanly separated from noise.
+- "Resampling amplifies this separation — the correlated signal accumulates while uncorrelated variation cancels."
 
 ### Experimental Setup
 - **Models**: Qwen2.5 family (3B, 7B), LLaMA-3 (8B)
@@ -173,8 +192,9 @@ This paper is highly significant for the thesis that LLMs are sophisticated patt
 ## Status
 - [x] Read complete (HTML version)
 - [x] Core claims extracted
-- [x] Methodology documented
+- [x] Methodology documented (including SVD/information theory)
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] Rebuttals checked
+- [x] Paper graph updated
 - [ ] Paper graph updated
