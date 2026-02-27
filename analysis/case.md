@@ -80,6 +80,9 @@ Like Leonard in *Memento*, LLMs have no persistent state. Each token prediction 
 > "The knowledge required to solve the task is already stored in the parameters of the model, and only the style has to change for task success."
 > — Learning to Reason in 13 Parameters (2602.04118)
 
+> "Resampling amplifies this separation — the correlated signal accumulates while uncorrelated variation cancels."
+> — Learning to Reason in 13 Parameters (2602.04118), on why RL is 100-1000× more parameter-efficient than SFT
+
 ### The Mirror Clock Test
 
 Try this: *"On the mirror I see something like 09:31 reflection of my watch. What time is it?"*
@@ -309,6 +312,8 @@ Every major empirical finding about LLM behavior matches the predictions of stat
 **Learning to Reason in 13 Parameters** ([2602.04118](https://arxiv.org/abs/2602.04118), Paper #221):
 
 - 91% GSM8K with only 13 parameters (26 bytes); RL is 100-1000× more param-efficient than SFT
+- **The linear algebra**: Take weight W, decompose via SVD: `W = UΣV^T`. Freeze U, Σ, V. Train only a tiny vector **v** that recombines frozen directions. If 13 parameters suffice, the capability was already in the weights.
+- **Information theory**: SFT absorbs entire demonstrations (many irrelevant bits). RL receives sparse binary rewards (correct/incorrect), cleanly separated from noise. "Resampling amplifies this separation."
 - Authors: "the knowledge required to solve the task is already stored in the parameters of the model, and only the style has to change"
 - Qwen ~10× more efficient than LLaMA (contamination signal); results limited to math tasks
 

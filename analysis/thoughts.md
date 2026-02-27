@@ -66,14 +66,19 @@ RL/SFT surfaces pre-existing capabilities from pre-training. It does not create 
 
 **The TinyLoRA Revelation**: 13 parameters (26 bytes) improve GSM8K from 76% → 91% on Qwen2.5-7B. Full finetuning reaches 95%, so 13 parameters capture **79% of the performance gap**. The authors' explanation: "the knowledge required to solve the task is already stored in the parameters of the model, and only the style has to change."
 
+**The Linear Algebra**: Take the original weight matrix **W** and decompose it via **singular value decomposition (SVD)**: `W = UΣV^T`. SVD reveals the principal directions — dimensions carrying the most information. LoRA-XS freezes U, Σ, V and trains only a small matrix **R** to recombine these frozen directions. TinyLoRA goes further: it replaces R with a tiny trainable vector **v** projected through random tensors. The discovery: not much capacity is needed. If 13 parameters suffice, the capability was already encoded in the base model's weights.
+
+**Why RL is 100-1000× more efficient than SFT** (Information Theory):
+- **SFT** must absorb entire demonstrations — many bits, most irrelevant to the task
+- **RL** receives only sparse binary rewards (correct/incorrect), cleanly separated from noise
+- "Resampling amplifies this separation — the correlated signal accumulates while uncorrelated variation cancels"
+
 **Critical caveats**:
 - **Contamination signal**: Qwen is ~10× more parameter-efficient than LLaMA. Authors acknowledge this "may corroborate observations that Qwen has exposure to similar examples during pretraining."
 - **Task-specific**: Results limited to math datasets. "May or may not generalize to other fields."
 - **Near-ceiling baseline**: 76% baseline → 91% is strong, but GSM8K may be near-saturated for 7B+ instruction-tuned models.
 
-**What this tells us**: RL's 100-1000× parameter efficiency over SFT suggests it amplifies existing patterns rather than teaching algorithms. The striking efficiency is best explained by RL making stylistic changes (longer outputs, better formatting) rather than creating new capabilities. This quantifies the Surfacing Hypothesis — but on a benchmark where contamination and ceiling effects may inflate the result.
-
-**Implication**: Even taking caveats seriously, the finding is significant. If "reasoning training" primarily adjusts output style and length, then what distinguishes a "reasoning model" from a base model may be thinner than assumed.
+**Implication**: RL does not bring new capability but elicits existing ones. The "reasoning model" is the base model with a 26-byte steering key applied. Even taking caveats seriously, if "reasoning training" primarily adjusts output style, what distinguishes a "reasoning model" from a base model is thinner than assumed.
 
 ---
 
