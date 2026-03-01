@@ -5506,4 +5506,29 @@ window.paperLinks = [
     type: 'supports',
     description: 'Marginal info framing implies knowledge is distributed, overlapping statistical patterns',
   },
+  // Security Vectors (#230) relationships
+  {
+    source: '2311.02105',
+    target: '2410.16454',
+    type: 'extends',
+    description: 'Defense during fine-tuning; #228 shows quantization recovers — different attack surfaces',
+  },
+  {
+    source: '2311.02105',
+    target: '2511.11914',
+    type: 'extends',
+    description: 'Both control LLM learning; security vectors prevent, MarI removes marginal contribution',
+  },
+  {
+    source: '2311.02105',
+    target: '2503.01854',
+    type: 'extends',
+    description: 'Survey taxonomy: security vectors are curating counterfactuals method',
+  },
+  {
+    source: '2311.02105',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Gradient masking works because learning is pattern matching, not understanding',
+  },
 ];

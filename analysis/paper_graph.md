@@ -1385,6 +1385,7 @@ These papers have NO direct rebuttals found:
 | Beyond Hallucinations (2510.14665) | Rose-Frame: LLMs = System 1 at scale (intuition without reflection) |
 | Catastrophic Failure Unlearning (2410.16454) | 21% forgotten → 83% recovered after 4-bit quantization |
 | Forgetting-MarI (2511.11914) | Marginal info unlearning; GA explodes to 1.97e+43 pplx; F-MarI only stable in continual unlearning |
+| Making Harmful Unlearnable (2311.02105) | Security vectors: 100 samples block 1000 harmful; 0% harmful rate via gradient masking |
 | Unlearning on Noisy Forget Sets (2510.09007) | Robust to 30% token masking; saliency shows semantic cores preserved |
 | Survey Machine Unlearning (2503.01854) | Taxonomy of 4 categories, 10+ methods; no perfect unlearning exists |
 | What Really Matters Many-Shot (2505.19773) | In-context learning enables jailbreaks; 4x increase in harmful rate |
