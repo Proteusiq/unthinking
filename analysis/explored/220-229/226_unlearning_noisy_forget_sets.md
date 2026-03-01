@@ -164,4 +164,4 @@ The thesis doesn't claim unlearning is impossible — it claims knowledge is dis
 - [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] Rebuttals checked
-- [ ] Paper graph updated
+- [x] Paper graph updated

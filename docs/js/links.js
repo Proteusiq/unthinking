@@ -5443,4 +5443,67 @@ window.paperLinks = [
     type: 'supports',
     description: 'Uncensored models prove alignment is prior adjustment, not knowledge change',
   },
+  // Noisy Forget Sets (#226) relationships
+  {
+    source: '2510.09007',
+    target: '2410.16454',
+    type: 'extends',
+    description: 'Tests input noise robustness; #228 tests compression robustness — complementary threat models',
+  },
+  {
+    source: '2510.09007',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Saliency analysis shows unlearning targets statistical patterns, not semantic understanding',
+  },
+  {
+    source: '2510.09007',
+    target: '2410.16531',
+    type: 'supports',
+    description: '30% masking threshold suggests knowledge distributed like Bayesian scaling predicts',
+  },
+  // Unlearning Survey (#227) relationships
+  {
+    source: '2503.01854',
+    target: '2410.16454',
+    type: 'extends',
+    description: 'Survey categorizes quantization as adversarial model intervention attack',
+  },
+  {
+    source: '2503.01854',
+    target: '2510.09007',
+    type: 'extends',
+    description: 'Survey organizes noisy forget set work under robustness evaluation',
+  },
+  {
+    source: '2503.01854',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Locate-then-unlearn methods fail because knowledge is distributed, not localized',
+  },
+  // Forgetting-MarI (#229) relationships
+  {
+    source: '2511.11914',
+    target: '2410.16454',
+    type: 'extends',
+    description: 'Proposes theoretical guarantees; doesnt address #228s quantization recovery attack',
+  },
+  {
+    source: '2511.11914',
+    target: '2510.09007',
+    type: 'extends',
+    description: 'Both on unlearning robustness; MarI targets marginal info, NoisyForget tests input quality',
+  },
+  {
+    source: '2511.11914',
+    target: '2503.01854',
+    type: 'extends',
+    description: 'MarI is first LLM method with theoretical guarantees — gap identified by survey',
+  },
+  {
+    source: '2511.11914',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Marginal info framing implies knowledge is distributed, overlapping statistical patterns',
+  },
 ];

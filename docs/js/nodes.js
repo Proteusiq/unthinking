@@ -5085,4 +5085,70 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/230-239/242_dark_llms.md',
   },
+  {
+    id: '2510.09007',
+    title: 'LLM Unlearning on Noisy Forget Sets: A Study of Incomplete, Rewritten, and Watermarked Data',
+    shortTitle: 'Noisy Forget Sets',
+    date: 'Oct 2025',
+    stance: 'balanced',
+    cluster: 'unlearning',
+    coreArgument:
+      'Unlearning remains robust to up to 30% token masking, rewriting, and watermarking, because algorithms target semantic cores not surface patterns.',
+    keyEvidence: [
+      'Robust up to 30% token masking',
+      'Rewritten forget data works comparably',
+      'Watermarked data enables effective unlearning',
+      'Saliency shows semantic cores preserved',
+    ],
+    keyQuotes: [
+      'Unlearning remains surprisingly robust to perturbations, provided that core semantic signals are preserved.',
+      'Unlearning algorithms are primarily guided by deep semantic cues rather than shallow lexical patterns.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/220-229/226_unlearning_noisy_forget_sets.md',
+  },
+  {
+    id: '2503.01854',
+    title: 'A Comprehensive Survey of Machine Unlearning Techniques for Large Language Models',
+    shortTitle: 'Unlearning Survey',
+    date: 'Mar 2025',
+    stance: 'balanced',
+    cluster: 'unlearning',
+    coreArgument:
+      'Taxonomy of 4 method categories for LLM unlearning; no method achieves perfect unlearning, all face forgetting-utility trade-offs.',
+    keyEvidence: [
+      '4 categories: fine-tuning, localized, auxiliary, input/output',
+      '10+ methods surveyed (GA, NPO, DPO, RMU, etc.)',
+      'No perfect unlearning exists',
+      'Adversarial evaluation reveals fragility',
+    ],
+    keyQuotes: [
+      'There is no comprehensive survey that systematically organizes existing work and distills key insights.',
+      'The regularization parameter λ controls the trade-off between effectively forgetting undesired information and preserving utility.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/220-229/227_survey_machine_unlearning_llms.md',
+  },
+  {
+    id: '2511.11914',
+    title: 'Forgetting-MarI: LLM Unlearning via Marginal Information Regularization',
+    shortTitle: 'Forgetting-MarI',
+    date: 'Nov 2025',
+    stance: 'balanced',
+    cluster: 'unlearning',
+    coreArgument:
+      'Marginal information unlearning removes only unique contribution of forget data; only method stable in continual unlearning scenarios.',
+    keyEvidence: [
+      'GA explodes to 1.97e+43 perplexity (catastrophic)',
+      'F-MarI best WikiText pplx: 28.66 vs 30.80 baseline',
+      'Only stable method for sequential deletions',
+      'ROC-AUC matches gold standard (retrained model)',
+    ],
+    keyQuotes: [
+      'Existing unlearning methods often over-unlearn, removing all information linked to the data to unlearn/forget.',
+      'When I(X_MarI; Z) goes to zero, perplexity-based detectors lose discriminative power after unlearning.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/220-229/229_forgetting_mari_unlearning.md',
+  },
 ];
