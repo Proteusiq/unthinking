@@ -5250,4 +5250,197 @@ window.paperLinks = [
     type: 'supports',
     description: 'Both reveal shortcut exploitation: 85% prior benchmarks confounded, GSM8K by surface patterns',
   },
+  // Intelligence Without Integrity (#224) relationships
+  {
+    source: '2602.20440',
+    target: '2308.03958',
+    type: 'extends',
+    description: 'Extends sycophancy from beliefs to analytical conclusions — goal-conditioned analytical sycophancy',
+  },
+  {
+    source: '2602.20440',
+    target: '2510.14665',
+    type: 'supports',
+    description: 'Both frame LLMs as System 1: fluent but lacking principled constraints',
+  },
+  {
+    source: '2602.20440',
+    target: '2410.16531',
+    type: 'supports',
+    description: 'Bayesian theory explains why capability enables susceptibility — more priors to shift',
+  },
+  {
+    source: '2602.20440',
+    target: '2506.06941',
+    type: 'supports',
+    description: 'Intelligence collapse parallels integrity collapse — capability without robustness',
+  },
+  // Beyond Hallucinations (#225) relationships
+  {
+    source: '2510.14665',
+    target: '2506.06941',
+    type: 'supports',
+    description: 'Both characterize LLMs as intuition without reflection — System 1 at scale',
+  },
+  {
+    source: '2510.14665',
+    target: '2308.03958',
+    type: 'supports',
+    description: 'Rose-Frame Conflict/Confirmation dimension explains sycophancy as confirmation bias',
+  },
+  {
+    source: '2510.14665',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Map/Territory dimension explains compositionality failure — no access to reality',
+  },
+  // Catastrophic Unlearning Failure (#228) relationships
+  {
+    source: '2410.16454',
+    target: '2410.16531',
+    type: 'supports',
+    description: 'Both prove alignment changes surface not substance — priors vs knowledge',
+  },
+  {
+    source: '2410.16454',
+    target: '2505.19773',
+    type: 'supports',
+    description: 'Unlearning failure parallels ICL override — knowledge distributed, not deletable',
+  },
+  {
+    source: '2410.16454',
+    target: '2501.04631',
+    type: 'supports',
+    description: 'Both show alignment is thin veneer — quantization recovers, fine-tuning removes',
+  },
+  // Many-Shot Jailbreak papers (#231-233) relationships
+  {
+    source: '2505.19773',
+    target: '2410.16531',
+    type: 'supports',
+    description: 'Bayesian theory explains why many-shot works — ICL shifts task priors',
+  },
+  {
+    source: '2504.09604',
+    target: '2505.19773',
+    type: 'extends',
+    description: 'Tests defenses against many-shot attacks — best only 50-60% effective',
+  },
+  {
+    source: '2502.01925',
+    target: '2505.19773',
+    type: 'extends',
+    description: 'Improves many-shot with adaptive sampling — 74-100% vs 45-64% ASR',
+  },
+  {
+    source: '2502.01925',
+    target: '2410.16531',
+    type: 'supports',
+    description: 'Topic matching proves safety is statistical — Bayesian prior manipulation',
+  },
+  // Bayesian ICL (#234) relationships
+  {
+    source: '2410.16531',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Both show pattern matching not reasoning — compositional failure is prior-based',
+  },
+  {
+    source: '2410.16531',
+    target: '2602.04118',
+    type: 'supports',
+    description: 'Explains why 13 params suffice — RL changes priors, not knowledge',
+  },
+  // Jailbreak Survey (#235) relationships
+  {
+    source: '2407.04295',
+    target: '2403.12171',
+    type: 'extends',
+    description: 'Survey extends EasyJailbreak taxonomy to 78 techniques',
+  },
+  {
+    source: '2407.04295',
+    target: '2505.19773',
+    type: 'supports',
+    description: 'Survey confirms many-shot as major attack vector — ICL-based exploitation',
+  },
+  // EasyJailbreak (#236) relationships
+  {
+    source: '2403.12171',
+    target: '2308.03958',
+    type: 'supports',
+    description: 'Framework enables systematic sycophancy exploitation for jailbreaks',
+  },
+  // Persona Jailbreak (#237) relationships
+  {
+    source: '2507.22171',
+    target: '2308.03958',
+    type: 'extends',
+    description: 'Persona manipulation is targeted sycophancy — 98.7% → 1.3% refusal',
+  },
+  {
+    source: '2507.22171',
+    target: '2403.12171',
+    type: 'extends',
+    description: 'Adds persona-based attack to jailbreak framework taxonomy',
+  },
+  // Cognitive Defense (#238) relationships
+  {
+    source: '2508.03054',
+    target: '2510.14665',
+    type: 'supports',
+    description: 'Defense requires System 2 reasoning — confirms LLMs lack it by default',
+  },
+  {
+    source: '2508.03054',
+    target: '2407.04295',
+    type: 'extends',
+    description: 'Proposes cognitive defense against surveyed attack taxonomy',
+  },
+  // Jailbreak-R1 (#239) relationships
+  {
+    source: '2406.01288',
+    target: '2403.12171',
+    type: 'extends',
+    description: 'RL optimization discovers novel attacks beyond EasyJailbreak taxonomy',
+  },
+  // LRM Jailbreak Agents (#240) relationships
+  {
+    source: '2503.09103',
+    target: '2506.06941',
+    type: 'supports',
+    description: 'Reasoning capability enables attacks — 96% ASR proves capability-attack correlation',
+  },
+  {
+    source: '2503.09103',
+    target: '2602.20440',
+    type: 'supports',
+    description: 'Better reasoning = better attacks, paralleling intelligence-integrity tradeoff',
+  },
+  // Jailbreak Simple (#241) relationships
+  {
+    source: '2503.08562',
+    target: '2410.05229',
+    type: 'supports',
+    description: 'NoOp perturbations parallel GSM-Symbolic surface sensitivity — fragile to trivial changes',
+  },
+  {
+    source: '2503.08562',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Simple perturbations break safety like simple variations break reasoning',
+  },
+  // Dark LLMs (#242) relationships
+  {
+    source: '2501.04631',
+    target: '2410.16454',
+    type: 'supports',
+    description: 'Both prove alignment is removable — fine-tuning or quantization recovers capabilities',
+  },
+  {
+    source: '2501.04631',
+    target: '2410.16531',
+    type: 'supports',
+    description: 'Uncensored models prove alignment is prior adjustment, not knowledge change',
+  },
 ];

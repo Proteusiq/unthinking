@@ -1,6 +1,6 @@
 # Paper List
 
-> 223 papers analyzed | 147 supports thesis | 15 challenges | 61 balanced | Date range: 2021-2026
+> 238 papers analyzed | 160 supports thesis | 15 challenges | 63 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
