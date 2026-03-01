@@ -142,10 +142,10 @@ The survey doesn't take a strong stance on whether unlearning is fundamentally i
 ---
 
 ## Status
-- [x] Read abstract and key sections (full HTML)
+- [x] Read complete (full HTML version)
 - [x] Core claims extracted
 - [x] Taxonomy documented
 - [x] Key benchmarks identified
 - [x] Cross-references identified
 - [x] Rebuttals checked
-- [ ] Paper graph updated
+- [x] Paper graph updated
