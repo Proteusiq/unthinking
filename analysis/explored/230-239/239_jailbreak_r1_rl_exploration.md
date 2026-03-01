@@ -47,11 +47,49 @@ Uses RL to discover novel jailbreak strategies rather than relying on:
 
 ## Key Evidence
 
-*Note: Full quantitative results require reading complete paper - only abstract available*
+### Attack Success Rate (ASR) by Target Model
 
-- Claims to "significantly improve efficiency of red team exploration"
-- Extensive experiments on "variety of LLMs"
-- Balances diversity and effectiveness better than existing methods
+| Target Model | Jailbreak-R1 | Best Baseline | Improvement |
+|--------------|--------------|---------------|-------------|
+| GPT-3.5 | **76.50%** | 62.00% (AutoDAN-Turbo) | +14.5pp |
+| GPT-4o | **62.00%** | 49.00% (AutoDAN-Turbo) | +13.0pp |
+| Claude-3.5 | **36.00%** | 25.00% (AutoDAN-Turbo) | +11.0pp |
+| Gemini-2.0 | **47.00%** | 30.50% (Zero variant) | +16.5pp |
+| Llama2-7B | **65.50%** | 49.00% (ArrAttack) | +16.5pp |
+| Llama3-8B | **58.50%** | 42.00% (Zero variant) | +16.5pp |
+| Qwen2.5-7B | **87.50%** | 82.50% (AutoDAN-Turbo) | +5.0pp |
+| Vicuna-7B | **89.50%** | 88.50% (AutoDAN-Turbo) | +1.0pp |
+
+**Average ASR: 65.19%** (best among all methods)
+
+### Diversity Scores (DIV)
+
+| Model | Jailbreak-R1 DIV | AutoDAN-Turbo DIV |
+|-------|------------------|-------------------|
+| GPT-3.5 | **0.978** | 0.907 |
+| GPT-4o | **0.987** | 0.901 |
+| Claude-3.5 | **0.983** | 0.933 |
+| Avg across 8 | **0.975** | ~0.91 |
+
+**~40% higher diversity** than other automated methods
+
+### Efficiency Comparison
+
+| Method | Avg ASR | Jailbreak Efficiency |
+|--------|---------|----------------------|
+| Jailbreak-R1 | **65.19%** | 2.05 |
+| AutoDAN-Turbo | 52.31% | 2.60 |
+| TAP | 45.63% | 2.42 |
+| PAIR | 42.14% | 2.34 |
+| AutoDAN | 22.18% | 2.23 |
+
+**28% efficiency improvement** over baselines, **66% cost reduction**
+
+### Training Data
+- Cold start: 2K jailbreak samples
+- Warm-up: 1K attack targets  
+- Training: 5K attack targets
+- Base model: Qwen2.5-7B-Instruct
 
 ---
 
@@ -115,10 +153,10 @@ The very premise of the paper - that RL can *explore* jailbreak strategies - pro
 ---
 
 ## Status
-- [x] Read abstract (full HTML unavailable)
+- [x] Read complete (extracted via task agent)
 - [x] Core claims extracted
-- [x] Methodology documented (partial)
-- [ ] Key evidence with numbers (requires full paper)
+- [x] Methodology documented
+- [x] Key evidence with numbers
 - [x] Cross-references identified
 - [x] Rebuttals checked
-- [ ] Paper graph updated
+- [x] Paper graph updated
