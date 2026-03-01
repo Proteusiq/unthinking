@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **201 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **206 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed).
 
@@ -87,6 +87,7 @@ Papers that may challenge the thesis. Must read to make thesis defensible.
 | [2306.09308](https://arxiv.org/abs/2306.09308) | Theory of Emergent In-Context Learning |
 | [2602.03837](https://arxiv.org/abs/2602.03837) | Accelerating Research with Gemini |
 | [2502.00674](https://arxiv.org/abs/2502.00674) | Recursive Self-Aggregation |
+| [2602.04843](https://arxiv.org/abs/2602.04843) | Fluid Representations in Reasoning Models (potential challenge) |
 
 ---
 
@@ -103,6 +104,10 @@ Papers that may challenge the thesis. Must read to make thesis defensible.
 | [2602.01288](https://arxiv.org/abs/2602.01288) | EDIS: Entropy Dynamics |
 | [2602.02863](https://arxiv.org/abs/2602.02863) | Dynamic Instability Predicts Failure |
 | [2602.02983](https://arxiv.org/abs/2602.02983) | Are LLMs Biased Like Humans? |
+| [2602.04288](https://arxiv.org/abs/2602.04288) | Contextual Drag: How Errors Affect LLM Reasoning (10-20% drops) |
+| [2602.01017](https://arxiv.org/abs/2602.01017) | How Unfaithful Reasoning Emerges (simplicity bias threshold) |
+| [2602.04212](https://arxiv.org/abs/2602.04212) | LLMs Struggle to Use Representations Learned In-Context |
+| [2602.02103](https://arxiv.org/abs/2602.02103) | No Global Plan in CoT: Myopic Horizon (Tele-Lens) |
 
 ### Papers Citing Embers of Autoregression (2309.13638)
 

@@ -1,6 +1,6 @@
 # Paper List
 
-> 238 papers analyzed | 160 supports thesis | 15 challenges | 63 balanced | Date range: 2021-2026
+> 243 papers analyzed | 165 supports thesis | 15 challenges | 63 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -246,3 +246,4 @@
 | 240 | 2508.04039 | Aug 2025 | Large Reasoning Models Are Autonomous Jailbreak Agents | Supports |
 | 241 | 2503.05264 | Mar 2025 | Jailbreaking is (Mostly) Simpler Than You Think | Supports |
 | 242 | 2505.10066 | May 2025 | Dark LLMs: The Growing Threat of Unaligned AI Models | Supports |
+| 243 | 2507.10616 | Jul 2025 | Scalpel vs. Hammer: GRPO Amplifies, SFT Replaces | Supports |
