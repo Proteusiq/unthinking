@@ -227,3 +227,22 @@
 | 221 | 2602.04118 | Feb 2026 | Learning to Reason in 13 Parameters | Supports |
 | 222 | 2405.04669 | May 2024 | Towards a Theoretical Understanding of the Reversal Curse | Supports |
 | 223 | 2411.16679 | Nov 2024 | Do LLMs Perform Latent Multi-Hop Reasoning without Exploiting Shortcuts? | Supports |
+| 224 | 2602.20440 | Feb 2026 | Intelligence Without Integrity: Why Capable LLMs May Undermine Reliability | Supports |
+| 225 | 2510.14665 | Oct 2025 | Beyond Hallucinations: The Illusion of Understanding in Large Language Models | Supports |
+| 226 | 2510.09007 | Oct 2025 | LLM Unlearning on Noisy Forget Sets | Balanced |
+| 227 | 2503.01854 | Mar 2025 | A Comprehensive Survey of Machine Unlearning Techniques for LLMs | Balanced |
+| 228 | 2410.16454 | Oct 2024 | Catastrophic Failure of LLM Unlearning via Quantization | Supports |
+| 229 | 2511.11914 | Nov 2025 | Forgetting-MarI: LLM Unlearning via Marginal Information Regularization | Balanced |
+| 230 | 2311.02105 | Nov 2023 | Making Harmful Behaviors Unlearnable for Large Language Models | Balanced |
+| 231 | 2505.19773 | May 2025 | What Really Matters in Many-Shot Attacks? Long-Context Vulnerabilities | Supports |
+| 232 | 2504.09604 | Apr 2025 | Mitigating Many-Shot Jailbreaking | Supports |
+| 233 | 2502.01925 | Feb 2025 | PANDAS: Improving Many-Shot Jailbreaking | Supports |
+| 234 | 2410.16531 | Oct 2024 | Bayesian Scaling Laws for In-Context Learning | Supports |
+| 235 | 2407.04295 | Jul 2024 | Jailbreak Attacks and Defenses Against LLMs: A Survey | Supports |
+| 236 | 2403.12171 | Mar 2024 | EasyJailbreak: A Unified Framework for Jailbreaking LLMs | Supports |
+| 237 | 2507.22171 | Jul 2025 | Enhancing Jailbreak Attacks on LLMs via Persona Prompts | Supports |
+| 238 | 2508.03054 | Aug 2025 | Beyond Surface-Level Detection: Cognitive-Driven Defense via Meta-Operations | Supports |
+| 239 | 2506.00782 | Jun 2025 | Jailbreak-R1: Exploring Jailbreak Capabilities via RL | Supports |
+| 240 | 2508.04039 | Aug 2025 | Large Reasoning Models Are Autonomous Jailbreak Agents | Supports |
+| 241 | 2503.05264 | Mar 2025 | Jailbreaking is (Mostly) Simpler Than You Think | Supports |
+| 242 | 2505.10066 | May 2025 | Dark LLMs: The Growing Threat of Unaligned AI Models | Supports |

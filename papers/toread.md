@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **181 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **201 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed).
 
@@ -313,3 +313,60 @@ Source: [Awesome-LLM-Reasoning-Failures](https://github.com/Peiyang-Song/Awesome
 |----------|-------|
 | [2405.19616](https://arxiv.org/abs/2405.19616) | Easy Problems That LLMs Get Wrong |
 | [2302.03494](https://arxiv.org/abs/2302.03494) | A Categorical Archive of ChatGPT Failures |
+
+---
+
+## From User Notes (Mar 2026)
+
+Papers extracted from research notes on framing bias, unlearning, and jailbreaking.
+
+### Framing & Reliability (High Priority — Supports Thesis)
+
+| arXiv ID | Title | Stance |
+|----------|-------|--------|
+| [2602.20440](https://arxiv.org/abs/2602.20440) | Intelligence Without Integrity: Why Capable LLMs May Undermine Reliability | supports |
+| [2510.14665](https://arxiv.org/abs/2510.14665) | Beyond Hallucinations: The Illusion of Understanding in Large Language Models | supports |
+
+**Key finding (Intelligence Without Integrity)**: Intelligence and integrity trade off — frontier models most likely to reach correct conclusions under neutral conditions are often most susceptible to shifting conclusions under motivated framing. Introduces "goal-conditioned analytical sycophancy."
+
+### LLM Unlearning (Medium Priority)
+
+Papers on model unlearning — shows brittleness of learned behaviors.
+
+| arXiv ID | Title | Stance |
+|----------|-------|--------|
+| [2510.09007](https://arxiv.org/abs/2510.09007) | LLM Unlearning on Noisy Forget Sets (AISec'25) | balanced |
+| [2503.01854](https://arxiv.org/abs/2503.01854) | A Comprehensive Survey of Machine Unlearning Techniques for LLMs | balanced |
+| [2410.16454](https://arxiv.org/abs/2410.16454) | Catastrophic Failure of LLM Unlearning via Quantization (ICLR 2025) | supports |
+| [2511.11914](https://arxiv.org/abs/2511.11914) | Forgetting-MarI: LLM Unlearning via Marginal Information Regularization | balanced |
+| [2311.02105](https://arxiv.org/abs/2311.02105) | Making Harmful Behaviors Unlearnable for Large Language Models | balanced |
+
+### Jailbreaking (Lower Priority — Large Existing Literature)
+
+Papers on jailbreaking — shows superficiality of alignment.
+
+| arXiv ID | Title | Stance |
+|----------|-------|--------|
+| [2505.19773](https://arxiv.org/abs/2505.19773) | What Really Matters in Many-Shot Attacks? Long-Context Vulnerabilities (ACL 2025) | supports |
+| [2504.09604](https://arxiv.org/abs/2504.09604) | Mitigating Many-Shot Jailbreaking | supports |
+| [2502.01925](https://arxiv.org/abs/2502.01925) | PANDAS: Improving Many-Shot Jailbreaking (ICML 2025 Spotlight) | supports |
+| [2410.16531](https://arxiv.org/abs/2410.16531) | Bayesian scaling laws for in-context learning (COLM 2025) | supports |
+| [2407.04295](https://arxiv.org/abs/2407.04295) | Jailbreak Attacks and Defenses Against LLMs: A Survey | supports |
+| [2403.12171](https://arxiv.org/abs/2403.12171) | EasyJailbreak: A Unified Framework for Jailbreaking LLMs | supports |
+| [2507.22171](https://arxiv.org/abs/2507.22171) | Enhancing Jailbreak Attacks on LLMs via Persona Prompts (NeurIPS 2025 Workshop) | supports |
+| [2508.03054](https://arxiv.org/abs/2508.03054) | Beyond Surface-Level Detection: Cognitive-Driven Defense via Meta-Operations | supports |
+| [2506.00782](https://arxiv.org/abs/2506.00782) | Jailbreak-R1: Exploring Jailbreak Capabilities via RL | supports |
+| [2508.04039](https://arxiv.org/abs/2508.04039) | Large Reasoning Models Are Autonomous Jailbreak Agents (Nature Comms 2026) | supports |
+| [2503.05264](https://arxiv.org/abs/2503.05264) | Jailbreaking is (Mostly) Simpler Than You Think | supports |
+| [2505.10066](https://arxiv.org/abs/2505.10066) | Dark LLMs: The Growing Threat of Unaligned AI Models | supports |
+
+**Key finding from Many-Shot (2505.19773)**: Context length is primary factor — even repetitive shots or random dummy text can circumvent safety measures.
+
+### Training Pipeline Notes (Not Papers)
+
+From CS336 L16 (51-53min): Base models have most/all knowledge that SFT/RL extract or prime.
+
+Training pipeline pattern: **SFT → RLVR → SFT(2 epoch) → RLHF**
+
+- SFT objective: Fit reference distribution (imitation)
+- RLHF objective: Maximize reward function (also imitation of preferences)
