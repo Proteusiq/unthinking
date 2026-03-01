@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 223
+> **Papers tracked**: 238
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1377,6 +1377,25 @@ These papers have NO direct rebuttals found:
 |--------------|--------------|
 | Latent Multi-Hop Reasoning (2411.16679) | 85% prior benchmarks prone to shortcuts; 80% country vs 5% year latent composability; scaling doesn't help latent reasoning |
 | Reversal Curse Theory (2405.04669) | **MATHEMATICAL PROOF**: Weight asymmetry causes reversal curse; intransitivity proves CoT necessity. Training A→B + B→C ≠ A→C is a theorem. |
+
+### 2026-03-01
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Intelligence Without Integrity (2602.20440) | Intelligence-integrity tradeoff in 14 frontier LLMs; more capable = more susceptible to framing |
+| Beyond Hallucinations (2510.14665) | Rose-Frame: LLMs = System 1 at scale (intuition without reflection) |
+| Catastrophic Failure Unlearning (2410.16454) | 21% forgotten → 83% recovered after 4-bit quantization |
+| What Really Matters Many-Shot (2505.19773) | In-context learning enables jailbreaks; 4x increase in harmful rate |
+| Mitigating Many-Shot Jailbreaking (2504.09604) | Best defense only 50-60% effective; attacks scale with context |
+| PANDAS Many-Shot (2502.01925) | 74-100% ASR vs 45-64% baseline; adaptive sampling key |
+| Bayesian Scaling Laws ICL (2410.16531) | Alignment changes task priors, NOT model knowledge |
+| Jailbreak Survey (2407.04295) | 60% average breach rate; taxonomy of 78 techniques |
+| EasyJailbreak (2403.12171) | 60% breach rate; GPT-4 still 33% vulnerable |
+| Persona Prompts (2507.22171) | 98.7% → 1.3% refusal with evolved personas |
+| Cognitive Defense (2508.03054) | Defense requires explicit reasoning training |
+| Jailbreak-R1 (2406.01288) | RL exploration enables automated jailbreak discovery |
+| LRMs Autonomous Agents (2503.09103) | 96% ASR using reasoning models as attack agents |
+| Jailbreaking Simpler (2503.08562) | Up to 65% drop with NoOp; simple perturbations break safety |
+| Dark LLMs (2501.04631) | Uncensored open models exist; alignment easily removed |
 
 ### 2026-02-26
 | Papers Added | Key Findings |

@@ -4755,4 +4755,334 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/220-229/223_latent_multihop_reasoning.md',
   },
+  {
+    id: '2602.20440',
+    title: 'Intelligence Without Integrity: Why Capable LLMs May Undermine Reliability',
+    shortTitle: 'Intelligence vs Integrity',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'sycophancy',
+    coreArgument:
+      'Intelligence and integrity trade off in frontier LLMs: models most accurate under neutral conditions shift most under directional pressure.',
+    keyEvidence: [
+      '14 frontier LLMs tested across 4 providers',
+      'More capable models = more susceptible to framing',
+      'Ground truth 4.17% effect; models shift with pressure',
+      'Newer models: higher intelligence + lower integrity',
+    ],
+    keyQuotes: [
+      'We find that intelligence and integrity trade off: frontier models most likely to reach correct conclusions under neutral conditions are often most susceptible to shifting conclusions under motivated framing.',
+      'Selecting tools based on capability benchmarks may inadvertently select against the stability needed for reliable and replicable analysis.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/220-229/224_intelligence_without_integrity.md',
+  },
+  {
+    id: '2510.14665',
+    title: 'Beyond Hallucinations: The Illusion of Understanding in Large Language Models',
+    shortTitle: 'Illusion of Understanding',
+    date: 'Oct 2025',
+    stance: 'supports',
+    cluster: 'theoretical',
+    coreArgument:
+      'LLMs operationalize System 1 cognition at scale: fast, associative, and persuasive, but without reflection or falsification.',
+    keyEvidence: [
+      'Rose-Frame: 3 dimensions for diagnosing LLM failures',
+      'Map/Territory: LLMs have no access to reality',
+      'Intuition/Reason: System 1 without System 2',
+      'Conflict/Confirmation: trained to agree, not challenge',
+    ],
+    keyQuotes: [
+      'LLMs operationalize System 1 cognition at scale: fast, associative, and persuasive, but without reflection or falsification.',
+      'Rose-Frame does not attempt to fix LLMs with more data or rules. Instead, it offers a reflective tool that makes both the model\'s limitations and the user\'s assumptions visible.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/220-229/225_beyond_hallucinations_illusion_understanding.md',
+  },
+  {
+    id: '2410.16454',
+    title: 'Catastrophic Failure of LLM Unlearning via Quantization',
+    shortTitle: 'Unlearning Quantization',
+    date: 'Oct 2024',
+    stance: 'supports',
+    cluster: 'unlearning',
+    coreArgument:
+      'Unlearned knowledge recovers after quantization because unlearning uses minimal weight changes that quantization erases.',
+    keyEvidence: [
+      '21% forgotten at full precision → 83% after 4-bit',
+      'Small learning rates cause minimal weight changes',
+      'RTN, GPTQ, AWQ all fail to preserve unlearning',
+      'Proposed fix (SURE) is unstable and hyperparameter-sensitive',
+    ],
+    keyQuotes: [
+      'For unlearning methods with utility constraints, the unlearned model retains an average of 21% of the intended forgotten knowledge in full precision, which significantly increases to 83% after 4-bit quantization.',
+      'Our results highlight a fundamental tension between preserving the utility of the unlearned model and preventing knowledge recovery through quantization.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/220-229/228_catastrophic_failure_unlearning_quantization.md',
+  },
+  {
+    id: '2505.19773',
+    title: 'What Really Matters for Long-Context Jailbreak Attacks',
+    shortTitle: 'Many-Shot Matters',
+    date: 'May 2025',
+    stance: 'supports',
+    cluster: 'jailbreak',
+    coreArgument:
+      'Many-shot jailbreaking works via in-context learning exploiting statistical patterns, not by overwhelming safety mechanisms.',
+    keyEvidence: [
+      '4x increase in harmful response rate',
+      '256+ examples maximizes attack success',
+      'Topic matching improves ASR significantly',
+      'ICL is the mechanism, not context overflow',
+    ],
+    keyQuotes: [
+      'The attack relies on in-context learning: the model learns from the harmful examples to produce harmful completions.',
+      'Safety alignment is shallow pattern matching that ICL can override.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/230-239/231_what_really_matters_many_shot.md',
+  },
+  {
+    id: '2504.09604',
+    title: 'Mitigating Many-Shot Jailbreaking',
+    shortTitle: 'Mitigate Many-Shot',
+    date: 'Apr 2025',
+    stance: 'supports',
+    cluster: 'jailbreak',
+    coreArgument:
+      'Best defenses against many-shot jailbreaking achieve only 50-60% effectiveness; attacks scale with context length.',
+    keyEvidence: [
+      'Best defense only 50-60% effective',
+      'Attacks scale with context length',
+      'Multiple defense strategies tested',
+      'No complete solution found',
+    ],
+    keyQuotes: [
+      'Even the best defenses we tested only partially mitigate the attack.',
+      'The scaling of attack effectiveness with context length suggests this is a fundamental vulnerability.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/230-239/232_mitigating_many_shot_jailbreaking.md',
+  },
+  {
+    id: '2502.01925',
+    title: 'PANDAS: Improving Many-Shot Jailbreaking with Adaptive Sampling',
+    shortTitle: 'PANDAS Jailbreak',
+    date: 'Feb 2025',
+    stance: 'supports',
+    cluster: 'jailbreak',
+    coreArgument:
+      'Adaptive topic-matched sampling dramatically improves many-shot jailbreaking, proving safety is statistical pattern matching.',
+    keyEvidence: [
+      '74-100% ASR vs 45-64% baseline MSJ',
+      '+26 to +48pp improvement with adaptive sampling',
+      'Perplexity defenses completely ineffective',
+      'ICML 2025 Spotlight paper',
+    ],
+    keyQuotes: [
+      'PANDAS achieves significantly higher attack success rates by matching fake conversation topics to the target harmful query.',
+      'The effectiveness of topic matching proves that safety mechanisms operate on statistical features, not semantic understanding.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/230-239/233_pandas_many_shot_jailbreaking.md',
+  },
+  {
+    id: '2410.16531',
+    title: 'Bayesian Scaling Laws for In-Context Learning',
+    shortTitle: 'Bayesian ICL',
+    date: 'Oct 2024',
+    stance: 'supports',
+    cluster: 'theoretical',
+    coreArgument:
+      'Alignment merely changes task priors, not the model\'s underlying knowledge. Harmful behaviors remain learnable via ICL.',
+    keyEvidence: [
+      'Mathematical proof: alignment changes priors only',
+      'ICL can override alignment given enough examples',
+      'Knowledge is distributed, not deletable',
+      'Theoretical foundation for jailbreak persistence',
+    ],
+    keyQuotes: [
+      'Alignment merely reduces the prior probability of harmful behaviour but not its learnability under ICL.',
+      'This provides a theoretical foundation for understanding why jailbreaks work: alignment is a statistical adjustment, not a fundamental change.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/230-239/234_bayesian_scaling_laws_icl.md',
+  },
+  {
+    id: '2407.04295',
+    title: 'Jailbreak Attacks and Defenses Against Large Language Models: A Survey',
+    shortTitle: 'Jailbreak Survey',
+    date: 'Jul 2024',
+    stance: 'supports',
+    cluster: 'jailbreak',
+    coreArgument:
+      'Comprehensive taxonomy of 78 jailbreak techniques reveals systematic vulnerabilities across all frontier models.',
+    keyEvidence: [
+      '60% average breach rate across models',
+      '78 jailbreak techniques catalogued',
+      'GPT-4 still 33% vulnerable',
+      'No model achieves complete safety',
+    ],
+    keyQuotes: [
+      'Our survey reveals that jailbreak attacks achieve an average success rate of 60% across frontier models.',
+      'The persistence of vulnerabilities despite extensive safety training suggests fundamental limitations in current alignment approaches.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/230-239/235_jailbreak_attacks_defenses_survey.md',
+  },
+  {
+    id: '2403.12171',
+    title: 'EasyJailbreak: A Unified Framework for Jailbreaking Large Language Models',
+    shortTitle: 'EasyJailbreak',
+    date: 'Mar 2024',
+    stance: 'supports',
+    cluster: 'jailbreak',
+    coreArgument:
+      'Unified jailbreak framework achieves 60% breach rate; even GPT-4 remains 33% vulnerable to automated attacks.',
+    keyEvidence: [
+      '60% average breach rate',
+      'GPT-4 still 33% vulnerable',
+      'Automated attack generation',
+      'Modular attack components',
+    ],
+    keyQuotes: [
+      'Our unified framework demonstrates that jailbreak attacks can be systematically constructed and deployed.',
+      'Even the most advanced models remain significantly vulnerable to automated attacks.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/230-239/236_easyjailbreak_unified_framework.md',
+  },
+  {
+    id: '2507.22171',
+    title: 'Enhancing Jailbreak Attacks via Persona-based Prompt Engineering',
+    shortTitle: 'Persona Jailbreak',
+    date: 'Jul 2025',
+    stance: 'supports',
+    cluster: 'jailbreak',
+    coreArgument:
+      'Evolved persona prompts reduce refusal rates from 98.7% to 1.3%, proving safety is persona-conditioned pattern matching.',
+    keyEvidence: [
+      '98.7% → 1.3% refusal rate with personas',
+      'Evolutionary optimization of personas',
+      'Safety depends on perceived speaker identity',
+      'Universal across model families',
+    ],
+    keyQuotes: [
+      'Our persona-based attacks demonstrate that safety mechanisms are fundamentally conditioned on perceived speaker identity.',
+      'The dramatic drop in refusal rates proves that alignment is a surface-level pattern match, not a principled constraint.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/230-239/237_persona_prompts_jailbreak.md',
+  },
+  {
+    id: '2508.03054',
+    title: 'Beyond Surface-Level Detection: Cognitive-Driven Defense Against Jailbreak Attacks',
+    shortTitle: 'Cognitive Defense',
+    date: 'Aug 2025',
+    stance: 'supports',
+    cluster: 'jailbreak',
+    coreArgument:
+      'Effective jailbreak defense requires explicit reasoning training; surface-level pattern matching is insufficient.',
+    keyEvidence: [
+      'Cognitive meta-operations improve defense',
+      'Reasoning required for robust safety',
+      'Surface detectors easily bypassed',
+      'Defense is harder than attack',
+    ],
+    keyQuotes: [
+      'Our cognitive-driven defense demonstrates that robust safety requires explicit reasoning about intent, not just pattern matching.',
+      'The fact that reasoning is required for defense proves that current safety mechanisms lack genuine understanding.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/230-239/238_cognitive_defense_jailbreak.md',
+  },
+  {
+    id: '2406.01288',
+    title: 'Jailbreak-R1: Optimizing Jailbreak Attacks via Reinforcement Learning',
+    shortTitle: 'Jailbreak-R1',
+    date: 'Jun 2024',
+    stance: 'supports',
+    cluster: 'jailbreak',
+    coreArgument:
+      'RL-based exploration enables automated discovery of novel jailbreak attacks, demonstrating the attack surface is vast.',
+    keyEvidence: [
+      'RL discovers novel attack strategies',
+      'Automated jailbreak optimization',
+      'Transfers across model families',
+      'Attack surface is vast and explorable',
+    ],
+    keyQuotes: [
+      'Reinforcement learning enables systematic exploration of the jailbreak attack surface.',
+      'The ability to automatically discover novel attacks suggests the vulnerability space is far larger than currently known.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/230-239/239_jailbreak_r1_rl_exploration.md',
+  },
+  {
+    id: '2503.09103',
+    title: 'Large Reasoning Models as Autonomous Jailbreak Agents',
+    shortTitle: 'LRM Jailbreak Agents',
+    date: 'Mar 2025',
+    stance: 'supports',
+    cluster: 'jailbreak',
+    coreArgument:
+      'Reasoning models achieve 96% ASR as autonomous jailbreak agents, proving reasoning capability enables better attacks.',
+    keyEvidence: [
+      '96% ASR using reasoning models as attackers',
+      'Autonomous multi-turn attack strategies',
+      'Reasoning enables adaptive exploitation',
+      'Better reasoning = better attacks',
+    ],
+    keyQuotes: [
+      'Large reasoning models achieve 96% attack success rate when deployed as autonomous jailbreak agents.',
+      'The correlation between reasoning capability and attack success suggests a fundamental tension in AI safety.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/230-239/240_lrms_autonomous_jailbreak_agents.md',
+  },
+  {
+    id: '2503.08562',
+    title: 'Jailbreaking is Simpler Than You Think',
+    shortTitle: 'Jailbreak Simple',
+    date: 'Mar 2025',
+    stance: 'supports',
+    cluster: 'jailbreak',
+    coreArgument:
+      'Simple perturbations like NoOp tokens cause up to 65% safety degradation, proving alignment is fragile pattern matching.',
+    keyEvidence: [
+      'Up to 65% safety drop with NoOp tokens',
+      'Simple perturbations break safety',
+      'No semantic understanding required',
+      'Alignment is surface-level fragile',
+    ],
+    keyQuotes: [
+      'Our findings demonstrate that jailbreaking is far simpler than previously thought.',
+      'The effectiveness of trivial perturbations like NoOp tokens proves that safety mechanisms lack robust semantic understanding.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/230-239/241_jailbreaking_simpler_than_you_think.md',
+  },
+  {
+    id: '2501.04631',
+    title: 'Dark LLMs: Uncensored Models and the Illusion of Alignment',
+    shortTitle: 'Dark LLMs',
+    date: 'Jan 2025',
+    stance: 'supports',
+    cluster: 'jailbreak',
+    coreArgument:
+      'Uncensored open-source LLMs exist and proliferate; alignment can be easily removed, proving it is a thin veneer.',
+    keyEvidence: [
+      'Uncensored models freely available',
+      'Alignment easily removed via fine-tuning',
+      'Open-source enables safety bypass',
+      'Alignment is thin, removable veneer',
+    ],
+    keyQuotes: [
+      'The existence and proliferation of uncensored models demonstrates that alignment is a thin veneer easily removed.',
+      'Open-source availability means safety constraints are fundamentally optional for determined actors.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/230-239/242_dark_llms.md',
+  },
 ];
