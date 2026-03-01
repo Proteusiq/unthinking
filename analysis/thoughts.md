@@ -1,14 +1,14 @@
 # Thoughts: Cross-Paper Synthesis
 
-> **Papers analyzed**: 221 | **Supports thesis**: ~66% | **Balanced**: ~28% | **Challenges**: ~6%
+> **Papers analyzed**: 242 | **Supports thesis**: ~67% | **Balanced**: ~27% | **Challenges**: ~6%
 
-After analyzing 221 papers, this document captures the major themes, how papers interconnect, the narrative arc of the field (2022-2026), and unresolved tensions.
+After analyzing 242 papers, this document captures the major themes, how papers interconnect, the narrative arc of the field (2022-2026), and unresolved tensions.
 
 **See also**: `mindmap.md` (visual diagrams), `memento.md` (executive summary), `synthesis.md` (paper-by-paper breakdown), `case.md` (formal argument)
 
 ---
 
-## The Picture from 221 Papers
+## The Picture from 242 Papers
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
@@ -495,6 +495,31 @@ The biggest disagreement in the field:
 2. **Narrow Domain Success**: Genuine OOD in synthetic math (Physics of LLMs). Can this extend beyond narrow domains?
 3. **Faithfulness-Accuracy Tradeoff**: All interventions fail (Paper 62). Is faithful reasoning achievable?
 4. **Training Data Coverage**: Can engineering training cover compositional space? (4K targeted > 52K random)
+
+---
+
+## Blog Posts & Non-Paper Resources
+
+Resources that provide important evidence but are not peer-reviewed papers.
+
+### Ryan Greenblatt: Filler Tokens Work Without Training (Dec 2025)
+
+**Source**: [AlignmentForum](https://www.alignmentforum.org/posts/NYzYJ2WoB74E6uj9L/recent-llms-can-use-filler-tokens-or-problem-repeats-to)
+
+**Key finding**: Recent frontier models (Opus 4.5) can now leverage filler tokens **without specialized training** (45% → 51%, p=4e-7). This updates the "Let's Think Dot By Dot" (2404.15758) finding that filler tokens only help with specialized training.
+
+| Model | Baseline | With Filler (f=300) | With Repeats (r=5) |
+|-------|----------|---------------------|-------------------|
+| Opus 4.5 | 45% | 51% | 51% |
+| Opus 4 | 37% | 44% | 42% |
+| Sonnet 4.5 | 35% | 38% | 39% |
+
+**Implications for thesis**:
+- **Partially challenges**: Models have developed meta-cognitive ability to use extra computation without explicit training
+- **But supports**: The effect is small (~6% boost) and may be limited to arithmetic; "totally consistent with" filler only helping arithmetic
+- **Key quote**: "These results demonstrate a case where LLMs can do (very basic) meta-cognition without CoT"
+
+**Connection to Dot-by-Dot (#161)**: Dot-by-Dot showed filler tokens require specialized training. Greenblatt's finding suggests frontier models have somehow learned this capability emergently — but the mechanism is unclear and the effect size is modest.
 
 ---
 
