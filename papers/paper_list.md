@@ -248,3 +248,4 @@
 | 242 | 2505.10066 | May 2025 | Dark LLMs: The Growing Threat of Unaligned AI Models | Supports |
 | 243 | 2507.10616 | Jul 2025 | Scalpel vs. Hammer: GRPO Amplifies, SFT Replaces | Supports |
 | 244 | 2602.07729 | Feb 2026 | Do We Need Adam? SGD Updates <0.02% Params in RLVR | Supports |
+| 245 | 2601.02671 | Jan 2026 | Extracting books from production language models | Supports |

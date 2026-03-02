@@ -5701,4 +5701,29 @@ window.paperLinks = [
     type: 'supports',
     description: '1000x fewer updates proves RL surfaces pre-trained patterns, not learning new ones',
   },
+  // Book Extraction (#245) relationships
+  {
+    source: '2601.02671',
+    target: '2506.00782',
+    type: 'extends',
+    description: 'Extraction attack on copyrighted content extends privacy attack methodology',
+  },
+  {
+    source: '2601.02671',
+    target: '2508.04039',
+    type: 'supports',
+    description: 'Gemini/Grok need zero jailbreaking; confirms safety alignment is superficial',
+  },
+  {
+    source: '2601.02671',
+    target: '2309.12288',
+    type: 'supports',
+    description: '95.8% verbatim extraction proves memorization of training data, not compression',
+  },
+  {
+    source: '2601.02671',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Verbatim regurgitation is pattern matching from training distribution',
+  },
 ];
