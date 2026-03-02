@@ -1,7 +1,7 @@
 # Rebuttals & Counter-Evidence Matrix
 
-> **Last updated**: 2026-02-15
-> **Papers analyzed**: 192
+> **Last updated**: 2026-03-02
+> **Papers analyzed**: 244
 > **See also**: `memento.md` for rebuttal status summary
 
 This document tracks rebuttals **in both directions**:
