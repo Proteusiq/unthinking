@@ -275,44 +275,53 @@ Each paper analysis should follow this structure:
 
 ## Expanding the Paper Corpus
 
-### Systematic arXiv Search
-When the initial paper list needs expansion, conduct systematic searches:
+### arXiv Search Tool
 
-1. **Search Strategy**:
-   - Use arXiv search with date filters (e.g., 2024-2026)
-   - Search multiple query terms covering different angles:
-     - Core topic: "LLM reasoning", "chain of thought"
-     - Skeptical: "reasoning limitations", "reasoning failure"
-     - Mechanistic: "interpretability reasoning", "reasoning circuits"
-     - Emergent: "emergent reasoning", "reasoning generalization"
-   - Include venue filters when possible (ICLR, NeurIPS, EMNLP, ACL)
+Use the CLI tool to search for papers:
 
-2. **Categorization**:
-   - Group papers by sub-topic (CoT faithfulness, compositional generalization, etc.)
-   - Mark expected stance (FOR/AGAINST thesis, BALANCED)
-   - Note venue and any awards (Outstanding Paper, Best Paper)
-   - Prioritize papers that directly test the thesis
+```bash
+# Basic search
+uv run scripts/arxiv_search.py "extracting books LLM"
 
-3. **Priority Assignment**:
-   - HIGH: Directly tests thesis claims with controlled experiments
-   - HIGH: Award-winning papers (signal quality)
-   - HIGH: Papers that challenge the thesis (steel-man the opposition)
-   - MEDIUM: Extends existing findings with new evidence
-   - LOW: Tangentially related or overlaps with analyzed papers
+# Title-only search with year filter
+uv run scripts/arxiv_search.py "chain of thought" --title-only --year 2025
 
-4. **Update paper_list.md**:
-   - Add new papers with arXiv ID, title, expected stance
-   - Mark as NOT_STARTED
-   - Group logically (by topic or by stance)
-
-### Example Search Session
+# Verbose output with abstracts
+uv run scripts/arxiv_search.py "reasoning failures" --max 20 -v
 ```
-Query: "LLM reasoning" + date:2024-2026 + category:cs.CL
-→ Found 150 results
-→ Filtered to 25 high-relevance papers
-→ Categorized: 8 CoT, 5 compositional, 4 emergent, 4 mechanistic, 4 other
-→ Added to paper_list.md with expected stance
-```
+
+**Options:**
+- `--title-only, -t` — Search titles only (default: title + abstract)
+- `--year, -y` — Filter to papers from this year onwards
+- `--max, -m` — Maximum results (default: 15)
+- `--verbose, -v` — Show abstract snippets
+
+**Categories searched:** cs.CL, cs.LG, cs.AI, cs.NE
+
+### Systematic Search Strategy
+
+When expanding the corpus, search multiple angles:
+
+| Angle | Example Queries |
+|-------|-----------------|
+| Core topic | "LLM reasoning", "chain of thought" |
+| Skeptical | "reasoning limitations", "reasoning failure" |
+| Mechanistic | "interpretability reasoning", "reasoning circuits" |
+| Emergent | "emergent reasoning", "reasoning generalization" |
+| Safety | "jailbreak", "alignment", "memorization" |
+
+### Priority Assignment
+
+- **HIGH**: Directly tests thesis claims with controlled experiments
+- **HIGH**: Award-winning papers (signal quality)
+- **HIGH**: Papers that challenge the thesis (steel-man the opposition)
+- **MEDIUM**: Extends existing findings with new evidence
+- **LOW**: Tangentially related or overlaps with analyzed papers
+
+### After Finding Papers
+
+1. Add to `papers/toread.md` with expected stance
+2. Follow `workflow.md` for analysis
 
 ---
 
