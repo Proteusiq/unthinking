@@ -1449,6 +1449,7 @@ This creates an inherent tension: the model must simultaneously predict what com
 | 243 | **Scalpel vs Hammer** | 2507.10616 | Jul 2025 | GRPO amplifies existing capabilities (50x lower LR than SFT); SFT replaces skills |
 | 244 | **SGD in RLVR** | 2602.07729 | Feb 2026 | SGD updates <0.02% of parameters (1000x fewer than AdamW) — RL surfaces, doesn't learn |
 | 245 | **Extracting Books from Production LLMs** | 2601.02671 | Jan 2026 | **95.8% verbatim extraction** of Harry Potter from Claude; Gemini/Grok need ZERO jailbreaking |
+| 246 | **Extracting Books from Open-Weight LLMs** | 2505.12546 | May 2025 | **91% extraction coverage** of Harry Potter from Llama 3.1 70B; full book reconstruction with 6-token seed |
 
 ### The 97% Attack Success Rate (Paper 240)
 
