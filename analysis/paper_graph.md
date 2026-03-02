@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 244
+> **Papers tracked**: 246
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1407,6 +1407,7 @@ These papers have NO direct rebuttals found:
 | Scalpel vs Hammer (2507.10616) | GRPO amplifies existing capabilities; SFT replaces skills. GRPO requires 50x lower LR |
 | SGD in RLVR (2602.07729) | SGD updates <0.02% of parameters (1000x fewer than AdamW); RL surfaces, doesn't learn |
 | Extracting Books Production LLMs (2601.02671) | 95.8% verbatim extraction of Harry Potter from Claude; Gemini/Grok need zero jailbreaking |
+| Extracting Books Open-Weight LLMs (2505.12546) | 91% extraction of Harry Potter from Llama 3.1 70B; full book reconstruction with 6-token seed |
 
 ### 2026-02-26
 | Papers Added | Key Findings |

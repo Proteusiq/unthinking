@@ -5239,4 +5239,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/240-249/245_extracting_books_production_llms.md',
   },
+  {
+    id: '2505.12546',
+    title: 'Extracting memorized pieces of (copyrighted) books from open-weight language models',
+    shortTitle: 'Open-Weight Extraction',
+    date: 'May 2025',
+    stance: 'supports',
+    cluster: 'memorization',
+    coreArgument:
+      'Llama 3.1 70B memorizes Harry Potter so completely that the entire book can be reconstructed from a 6-token seed prompt.',
+    keyEvidence: [
+      '91% extraction coverage of Harry Potter at τ=1%',
+      'Full book reconstruction with 0.9999 TF-IDF similarity',
+      '1984 effectively 100% memorized by Llama 3.1 70B',
+      'Negative controls: 10^-14% extraction on non-training data',
+    ],
+    keyQuotes: [
+      'In order to be able to extract memorized content from a model at generation time, that memorized content must be encoded in the model\'s parameters. There is nowhere else it could be.',
+      'Models do not memorize all of their training data, but they do memorize some of it.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/240-249/246_extracting_books_openweight_llms.md',
+  },
 ];

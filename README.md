@@ -7,8 +7,8 @@
 </a>
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
-[![Papers](https://img.shields.io/badge/papers-245-blue)]()
-[![Relationships](https://img.shields.io/badge/relationships-867-orange)]()
+[![Papers](https://img.shields.io/badge/papers-246-blue)]()
+[![Relationships](https://img.shields.io/badge/relationships-871-orange)]()
 
 ---
 
@@ -19,7 +19,7 @@ Do LLMs actually understand or do they predict plausible-sounding tokens without
 This project surveys over 240 papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
 
 To bring the findings home:
-- **Paper network** — interactive graph of 245 papers and 867 relationships, filterable by stance
+- **Paper network** — interactive graph of 246 papers and 871 relationships, filterable by stance
 - **Experiments**:
   - *Decoding ablation*: proves reasoning paths exist in base models, hidden by greedy decoding — RL just surfaces them
   - *Steering ablation*: proves safety alignment is a thin layer of refusal patterns that washes off under trivial perturbations
@@ -39,7 +39,7 @@ LLMs are dense statistical remixed echo chambers of their training data. They pr
 
 Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/)**
 
-- **Force-directed graph** — 245 papers as nodes, 867 relationships as edges
+- **Force-directed graph** — 246 papers as nodes, 871 relationships as edges
 - **Color-coded stances** — supports (164), challenges (15), balanced (65)
 - **Interactive** — hover tooltips, click for details, search, filter, dark/light mode
 - **Paper dialogue** — auto-generated conversations between connected papers

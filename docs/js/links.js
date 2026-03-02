@@ -5726,4 +5726,29 @@ window.paperLinks = [
     type: 'supports',
     description: 'Verbatim regurgitation is pattern matching from training distribution',
   },
+  // Open-Weight Extraction (#246) relationships
+  {
+    source: '2505.12546',
+    target: '2601.02671',
+    type: 'supports',
+    description: 'Both show near-complete book extraction; this paper provides open-weight methodology',
+  },
+  {
+    source: '2505.12546',
+    target: '2309.12288',
+    type: 'supports',
+    description: '91% extraction proves LLMs store verbatim copies, confirming Reversal Curse mechanism',
+  },
+  {
+    source: '2505.12546',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Full book reconstruction from 6 tokens proves pattern matching from training data',
+  },
+  {
+    source: '2505.12546',
+    target: '2506.00782',
+    type: 'extends',
+    description: 'Extends privacy extraction to copyright; same memorization mechanism in base models',
+  },
 ];
