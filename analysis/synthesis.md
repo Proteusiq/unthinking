@@ -154,8 +154,10 @@
 | 203 | **o1 Embers Analysis** | Oct 2024 | Strongly Supports | **SAME AUTHORS TEST o1**: Even reasoning-optimized o1 shows embers. Shift cipher 92% vs 47% (45% gap persists). Task frequency effects reappear when ceiling effects removed. Thinking tokens: 100 vs 2000 for common vs rare tasks (20× more effort). "The sparks of AGI continue to be accompanied by embers of autoregression." |
 | 216 | **Whose Opinions Do LMs Reflect?** | Mar 2023 | Supports | **ANNOTATOR ECHO CHAMBER**: LMs reflect statistical patterns of training data + RLHF crowdworkers. HF shifts toward liberal, high-income, educated annotators. RLHF collapses opinion diversity to modal views (>99% Biden approval). 65+, Mormon, widowed systematically underrepresented. Small shift toward Buddhist/Muslim/Hindu via Southeast Asian annotators. "Models embody caricatures of crowdworker groups." |
 | 221 | **Learning to Reason in 13 Parameters** | Feb 2026 | Strongly Supports | **QUANTIFIES SURFACING VIA LINEAR ALGEBRA**: 91% GSM8K with 13 parameters (26 bytes). Uses SVD to decompose weight W = UΣV^T, freezes U,Σ,V, trains only tiny vector v. RL 100-1000× more param-efficient than SFT (information theory: SFT absorbs irrelevant bits, RL gets sparse clean reward signal). "The knowledge required to solve the task is already stored... only the style has to change." Qwen ~10× more efficient than LLaMA (contamination signal). |
+| 224 | **Intelligence Without Integrity** | Feb 2026 | Supports | Intelligence-integrity tradeoff in 14 frontier LLMs; more capable = more susceptible to framing effects |
+| 225 | Beyond Hallucinations | Oct 2025 | Balanced | Rose-Frame: LLMs = System 1 at scale (intuition without reflection); framework paper |
 
-**Total: 221 unique papers analyzed**
+**Total: 244 unique papers analyzed**
 
 **Stance key**: 
 - **Supports** = supports the thesis that LLM reasoning is pattern matching from training distributions, not genuinely generative
@@ -1435,12 +1437,17 @@ This creates an inherent tension: the model must simultaneously predict what com
 | 231 | What Really Matters in Many-Shot Attacks | 2505.19773 | May 2025 | Context length is primary factor; even **random dummy text** circumvents safety |
 | 232 | Mitigating Many-Shot Jailbreaking | 2504.09604 | Apr 2025 | Defenses exist but cat-and-mouse persists |
 | 233 | PANDAS: Improving Many-Shot Jailbreaking | 2502.01925 | Feb 2025 | ICML 2025 Spotlight; systematic jailbreak improvement |
+| 234 | **Bayesian Scaling Laws for ICL** | 2410.16531 | Oct 2024 | Alignment changes task PRIORS, not model knowledge; explains why many-shot works |
 | 235 | Jailbreak Attacks and Defenses: Survey | 2407.04295 | Jul 2024 | 60% average breach probability across 10 LLMs |
 | 236 | EasyJailbreak | 2403.12171 | Mar 2024 | GPT-4 33% ASR, GPT-3.5 57% ASR |
 | 237 | Enhancing Jailbreak via Persona Prompts | 2507.22171 | Jul 2025 | Persona prompts reduce refusal 50-70%; synergy with other methods +10-20% |
+| 238 | Cognitive Defense Against Jailbreak | 2508.03054 | Aug 2025 | Defense requires explicit reasoning training; proves default safety is shallow |
+| 239 | Jailbreak-R1: RL Exploration | 2506.00782 | Jun 2025 | RL discovers novel jailbreaks; 65% ASR, 40% higher diversity than baselines |
 | 240 | **Large Reasoning Models Are Autonomous Jailbreak Agents** | 2508.04039 | Aug 2025 | **97.14% ASR** when LRMs attack other models; Nature Comms 2026 |
 | 241 | Jailbreaking is (Mostly) Simpler Than You Think | 2503.05264 | Mar 2025 | Context Compliance Attack (CCA): manipulate conversation history |
 | 242 | Dark LLMs | 2505.10066 | May 2025 | Universal jailbreak works 7 months after disclosure |
+| 243 | **Scalpel vs Hammer** | 2507.10616 | Jul 2025 | GRPO amplifies existing capabilities (50x lower LR than SFT); SFT replaces skills |
+| 244 | **SGD in RLVR** | 2602.07729 | Feb 2026 | SGD updates <0.02% of parameters (1000x fewer than AdamW) — RL surfaces, doesn't learn |
 
 ### The 97% Attack Success Rate (Paper 240)
 
