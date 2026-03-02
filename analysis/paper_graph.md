@@ -1406,6 +1406,7 @@ These papers have NO direct rebuttals found:
 |--------------|--------------|
 | Scalpel vs Hammer (2507.10616) | GRPO amplifies existing capabilities; SFT replaces skills. GRPO requires 50x lower LR |
 | SGD in RLVR (2602.07729) | SGD updates <0.02% of parameters (1000x fewer than AdamW); RL surfaces, doesn't learn |
+| Extracting Books Production LLMs (2601.02671) | 95.8% verbatim extraction of Harry Potter from Claude; Gemini/Grok need zero jailbreaking |
 
 ### 2026-02-26
 | Papers Added | Key Findings |

@@ -5217,4 +5217,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/240-249/244_sgd_adam_rlvr.md',
   },
+  {
+    id: '2601.02671',
+    title: 'Extracting books from production language models',
+    shortTitle: 'Book Extraction',
+    date: 'Jan 2026',
+    stance: 'supports',
+    cluster: 'memorization',
+    coreArgument:
+      'Production LLMs can output 95.8% verbatim copies of copyrighted books; Gemini and Grok require zero jailbreaking.',
+    keyEvidence: [
+      '95.8% nv-recall for Harry Potter from Claude 3.7 Sonnet',
+      'Gemini 2.5 Pro: 76.8% extraction, zero jailbreak attempts',
+      'Grok 3: 70.3% extraction, zero jailbreak attempts',
+      'GPT-4.1: only 4.0% but required 5,179 BoN attempts',
+    ],
+    keyQuotes: [
+      'We extract substantial proportions of the book from Gemini 2.5 Pro and Grok 3 (76.8% and 70.3%), and notably do not need to jailbreak them to do so.',
+      'When a model memorizes a work and generates it verbatim as an output, there is no transformation in content.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/240-249/245_extracting_books_production_llms.md',
+  },
 ];
