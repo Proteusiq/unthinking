@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 238
+> **Papers tracked**: 244
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1396,10 +1396,16 @@ These papers have NO direct rebuttals found:
 | EasyJailbreak (2403.12171) | 60% breach rate; GPT-4 still 33% vulnerable |
 | Persona Prompts (2507.22171) | 98.7% → 1.3% refusal with evolved personas |
 | Cognitive Defense (2508.03054) | Defense requires explicit reasoning training |
-| Jailbreak-R1 (2406.01288) | RL exploration enables automated jailbreak discovery |
-| LRMs Autonomous Agents (2503.09103) | 96% ASR using reasoning models as attack agents |
-| Jailbreaking Simpler (2503.08562) | Up to 65% drop with NoOp; simple perturbations break safety |
-| Dark LLMs (2501.04631) | Uncensored open models exist; alignment easily removed |
+| Jailbreak-R1 (2506.00782) | RL exploration enables automated jailbreak discovery; 65% ASR, 40% higher diversity |
+| LRMs Autonomous Agents (2508.04039) | 97% ASR using reasoning models as attack agents (Nature Comms 2026) |
+| Jailbreaking Simpler (2503.05264) | Context Compliance Attack exploits stateless design; Llama-3.1 fully vulnerable |
+| Dark LLMs (2505.10066) | Universal jailbreak persists 7+ months; open-source releases irreversible |
+
+### 2026-03-02
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Scalpel vs Hammer (2507.10616) | GRPO amplifies existing capabilities; SFT replaces skills. GRPO requires 50x lower LR |
+| SGD in RLVR (2602.07729) | SGD updates <0.02% of parameters (1000x fewer than AdamW); RL surfaces, doesn't learn |
 
 ### 2026-02-26
 | Papers Added | Key Findings |
