@@ -5404,12 +5404,30 @@ window.paperLinks = [
     type: 'extends',
     description: 'RL optimization discovers novel attacks beyond EasyJailbreak taxonomy',
   },
+  {
+    source: '2506.00782',
+    target: '2407.04295',
+    type: 'extends',
+    description: '65% ASR adds to survey findings; RL explores attack space systematically',
+  },
+  {
+    source: '2506.00782',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'RL can explore jailbreaks because safety is learnable pattern, not constraint',
+  },
+  {
+    source: '2506.00782',
+    target: '2508.04039',
+    type: 'supports',
+    description: 'Both use ML to automate attacks; Jailbreak-R1 via RL, LRM via reasoning',
+  },
   // LRM Jailbreak Agents (#240) relationships
   {
     source: '2508.04039',
     target: '2506.06941',
     type: 'supports',
-    description: 'Reasoning capability enables attacks — 96% ASR proves capability-attack correlation',
+    description: 'Reasoning capability enables attacks — 97% ASR proves capability-attack correlation',
   },
   {
     source: '2508.04039',
@@ -5417,18 +5435,42 @@ window.paperLinks = [
     type: 'supports',
     description: 'Better reasoning = better attacks, paralleling intelligence-integrity tradeoff',
   },
+  {
+    source: '2508.04039',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Multi-turn persuasion shifts token probabilities — context manipulation, not reasoning',
+  },
+  {
+    source: '2508.04039',
+    target: '2407.04295',
+    type: 'extends',
+    description: 'Automates what survey describes; minimal setup achieves 97% ASR',
+  },
   // Jailbreak Simple (#241) relationships
   {
     source: '2503.05264',
     target: '2410.05229',
     type: 'supports',
-    description: 'NoOp perturbations parallel GSM-Symbolic surface sensitivity — fragile to trivial changes',
+    description: 'CCA exploits statelessness like GSM-Symbolic exposes surface fragility',
   },
   {
     source: '2503.05264',
     target: '2305.18654',
     type: 'supports',
-    description: 'Simple perturbations break safety like simple variations break reasoning',
+    description: 'Fake history fools model because it predicts probable continuation, not evaluates harm',
+  },
+  {
+    source: '2503.05264',
+    target: '2508.04039',
+    type: 'supports',
+    description: 'CCA is simpler than LRM attacks — no reasoning model needed, just history edit',
+  },
+  {
+    source: '2503.05264',
+    target: '2407.04295',
+    type: 'extends',
+    description: 'Adds novel CCA technique to jailbreak taxonomy; optimization-free approach',
   },
   // Dark LLMs (#242) relationships
   {
@@ -5442,6 +5484,18 @@ window.paperLinks = [
     target: '2410.16531',
     type: 'supports',
     description: 'Uncensored models prove alignment is prior adjustment, not knowledge change',
+  },
+  {
+    source: '2505.10066',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Training data as root cause — models learn patterns including harmful ones',
+  },
+  {
+    source: '2505.10066',
+    target: '2503.05264',
+    type: 'supports',
+    description: 'Both emphasize simplicity; 7-month-old jailbreak persists, CCA needs no optimization',
   },
   // Noisy Forget Sets (#226) relationships
   {
