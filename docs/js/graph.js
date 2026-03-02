@@ -111,9 +111,9 @@
       const isMobile = width <= 768;
       // Scale down for larger node counts to keep overview visible
       const nodeCount = state.nodes.length;
-      const baseScale = isMobile ? 0.5 : 0.55;
-      const scaleFactor = nodeCount > 200 ? 200 / nodeCount : 1;
-      const finalScale = Math.max(0.35, baseScale * scaleFactor);
+      const baseScale = isMobile ? 0.45 : 0.5;
+      const scaleFactor = nodeCount > 150 ? 150 / nodeCount : 1;
+      const finalScale = Math.max(0.25, baseScale * scaleFactor);
       const finalTransform = d3.zoomIdentity.translate(width / 2, height / 2).scale(finalScale);
 
       state.svg
@@ -969,8 +969,8 @@
     // Scale down for larger node counts to keep overview visible
     const nodeCount = state.nodes.length;
     const baseScale = isMobile ? 0.4 : 0.45;
-    const scaleFactor = nodeCount > 200 ? 200 / nodeCount : 1;
-    const resetScale = Math.max(0.3, baseScale * scaleFactor);
+    const scaleFactor = nodeCount > 150 ? 150 / nodeCount : 1;
+    const resetScale = Math.max(0.25, baseScale * scaleFactor);
     const initialTransform = d3.zoomIdentity.translate(width / 2, height / 2).scale(resetScale);
 
     state.svg.transition().duration(750).call(state.zoom.transform, initialTransform);
@@ -1175,7 +1175,10 @@
     const height = container.clientHeight;
 
     const isMobile = width <= 768;
-    const resetScale = isMobile ? 0.5 : 0.55;
+    const nodeCount = state.nodes.length;
+    const baseScale = isMobile ? 0.45 : 0.5;
+    const scaleFactor = nodeCount > 150 ? 150 / nodeCount : 1;
+    const resetScale = Math.max(0.25, baseScale * scaleFactor);
     const transform = d3.zoomIdentity.translate(width / 2, height / 2).scale(resetScale);
 
     state.svg
