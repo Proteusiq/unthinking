@@ -5321,10 +5321,34 @@ window.paperLinks = [
     description: 'Bayesian theory explains why many-shot works — ICL shifts task priors',
   },
   {
+    source: '2505.19773',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Context length overrides safety like it enables compositional patterns',
+  },
+  {
+    source: '2505.19773',
+    target: '2508.04039',
+    type: 'supports',
+    description: 'Both show context manipulation bypasses safety — shots or multi-turn',
+  },
+  {
     source: '2504.09604',
     target: '2505.19773',
     type: 'extends',
     description: 'Tests defenses against many-shot attacks — best only 50-60% effective',
+  },
+  {
+    source: '2504.09604',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Fine-tuning changes ICL slope, paralleling how training shapes patterns',
+  },
+  {
+    source: '2504.09604',
+    target: '2410.16531',
+    type: 'supports',
+    description: 'Mitigation changes priors not knowledge, confirming Bayesian framing',
   },
   {
     source: '2502.01925',
@@ -5337,6 +5361,12 @@ window.paperLinks = [
     target: '2410.16531',
     type: 'supports',
     description: 'Topic matching proves safety is statistical — Bayesian prior manipulation',
+  },
+  {
+    source: '2502.01925',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Adaptive sampling exploits pattern matching — topic-matched shots work best',
   },
   // Bayesian ICL (#234) relationships
   {
@@ -5351,6 +5381,12 @@ window.paperLinks = [
     type: 'supports',
     description: 'Explains why 13 params suffice — RL changes priors, not knowledge',
   },
+  {
+    source: '2410.16531',
+    target: '2506.06941',
+    type: 'supports',
+    description: 'ICL as Bayesian inference explains complexity cliff — prior overwhelms evidence',
+  },
   // Jailbreak Survey (#235) relationships
   {
     source: '2407.04295',
@@ -5364,12 +5400,30 @@ window.paperLinks = [
     type: 'supports',
     description: 'Survey confirms many-shot as major attack vector — ICL-based exploitation',
   },
+  {
+    source: '2407.04295',
+    target: '2305.18654',
+    type: 'supports',
+    description: '60% breach rate proves safety is pattern matching with exploitable gaps',
+  },
   // EasyJailbreak (#236) relationships
   {
     source: '2403.12171',
     target: '2308.03958',
     type: 'supports',
     description: 'Framework enables systematic sycophancy exploitation for jailbreaks',
+  },
+  {
+    source: '2403.12171',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Modular attack framework proves safety is pattern matching with components',
+  },
+  {
+    source: '2403.12171',
+    target: '2407.04295',
+    type: 'supports',
+    description: 'Implementation confirms survey taxonomy — 60% breach rate reproduced',
   },
   // Persona Jailbreak (#237) relationships
   {
@@ -5384,6 +5438,12 @@ window.paperLinks = [
     type: 'extends',
     description: 'Adds persona-based attack to jailbreak framework taxonomy',
   },
+  {
+    source: '2507.22171',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Persona transfer across models proves shared statistical failure modes',
+  },
   // Cognitive Defense (#238) relationships
   {
     source: '2508.03054',
@@ -5396,6 +5456,12 @@ window.paperLinks = [
     target: '2407.04295',
     type: 'extends',
     description: 'Proposes cognitive defense against surveyed attack taxonomy',
+  },
+  {
+    source: '2508.03054',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Explicit reasoning training needed proves default safety is shallow pattern',
   },
   // Jailbreak-R1 (#239) relationships
   {
