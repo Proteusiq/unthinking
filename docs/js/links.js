@@ -5309,7 +5309,7 @@ window.paperLinks = [
   },
   {
     source: '2410.16454',
-    target: '2501.04631',
+    target: '2505.10066',
     type: 'supports',
     description: 'Both show alignment is thin veneer — quantization recovers, fine-tuning removes',
   },
@@ -5399,46 +5399,46 @@ window.paperLinks = [
   },
   // Jailbreak-R1 (#239) relationships
   {
-    source: '2406.01288',
+    source: '2506.00782',
     target: '2403.12171',
     type: 'extends',
     description: 'RL optimization discovers novel attacks beyond EasyJailbreak taxonomy',
   },
   // LRM Jailbreak Agents (#240) relationships
   {
-    source: '2503.09103',
+    source: '2508.04039',
     target: '2506.06941',
     type: 'supports',
     description: 'Reasoning capability enables attacks — 96% ASR proves capability-attack correlation',
   },
   {
-    source: '2503.09103',
+    source: '2508.04039',
     target: '2602.20440',
     type: 'supports',
     description: 'Better reasoning = better attacks, paralleling intelligence-integrity tradeoff',
   },
   // Jailbreak Simple (#241) relationships
   {
-    source: '2503.08562',
+    source: '2503.05264',
     target: '2410.05229',
     type: 'supports',
     description: 'NoOp perturbations parallel GSM-Symbolic surface sensitivity — fragile to trivial changes',
   },
   {
-    source: '2503.08562',
+    source: '2503.05264',
     target: '2305.18654',
     type: 'supports',
     description: 'Simple perturbations break safety like simple variations break reasoning',
   },
   // Dark LLMs (#242) relationships
   {
-    source: '2501.04631',
+    source: '2505.10066',
     target: '2410.16454',
     type: 'supports',
     description: 'Both prove alignment is removable — fine-tuning or quantization recovers capabilities',
   },
   {
-    source: '2501.04631',
+    source: '2505.10066',
     target: '2410.16531',
     type: 'supports',
     description: 'Uncensored models prove alignment is prior adjustment, not knowledge change',
