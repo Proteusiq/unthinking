@@ -1,9 +1,9 @@
 # Paper Network Visualization
 
 ## Overview
-This document provides a visual network of how the 192 analyzed papers connect to each other.
+This document provides a visual network of how the 244 analyzed papers connect to each other.
 
-> **Last updated**: 2026-02-15
+> **Last updated**: 2026-03-02
 > **See also**: `memento.md` for executive summary
 
 ---
