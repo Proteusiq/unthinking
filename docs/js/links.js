@@ -5531,4 +5531,54 @@ window.paperLinks = [
     type: 'supports',
     description: 'Gradient masking works because learning is pattern matching, not understanding',
   },
+  // Scalpel vs Hammer (#243) relationships
+  {
+    source: '2507.10616',
+    target: '2501.12948',
+    type: 'extends',
+    description: 'Provides mechanistic explanation for GRPO findings in DeepSeek-R1',
+  },
+  {
+    source: '2507.10616',
+    target: '2602.04118',
+    type: 'supports',
+    description: 'Both show RL is 50-1000x more parameter-efficient than SFT',
+  },
+  {
+    source: '2507.10616',
+    target: '2410.16531',
+    type: 'supports',
+    description: 'Both show alignment changes priors, not knowledge',
+  },
+  {
+    source: '2507.10616',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'GRPO amplifies existing patterns, doesnt create new compositional abilities',
+  },
+  // SGD in RLVR (#244) relationships
+  {
+    source: '2602.07729',
+    target: '2507.10616',
+    type: 'supports',
+    description: '0.02% parameter updates confirms GRPO makes surgical adjustments, not learning',
+  },
+  {
+    source: '2602.07729',
+    target: '2602.04118',
+    type: 'supports',
+    description: 'Both show RL uses 1000x fewer parameters than SFT; same sparsity finding',
+  },
+  {
+    source: '2602.07729',
+    target: '2501.12948',
+    type: 'extends',
+    description: 'Optimization-level explanation for why R1s GRPO works with minimal updates',
+  },
+  {
+    source: '2602.07729',
+    target: '2305.18654',
+    type: 'supports',
+    description: '1000x fewer updates proves RL surfaces pre-trained patterns, not learning new ones',
+  },
 ];
