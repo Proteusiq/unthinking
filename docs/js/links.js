@@ -5751,4 +5751,35 @@ window.paperLinks = [
     type: 'extends',
     description: 'Extends privacy extraction to copyright; same memorization mechanism in base models',
   },
+  // Faithfulness Decay (#247) relationships
+  {
+    source: '2602.11201',
+    target: '2307.13702',
+    type: 'extends',
+    description: 'Extends faithfulness analysis with NLDD metric; step-level quantification',
+  },
+  {
+    source: '2602.11201',
+    target: '2505.05410',
+    type: 'supports',
+    description: 'Both find CoT often unfaithful; NLDD explains via systematic decay mechanism',
+  },
+  {
+    source: '2602.11201',
+    target: '2503.08679',
+    type: 'supports',
+    description: 'Wild prompts unfaithful; NLDD shows late reasoning steps non-causal',
+  },
+  {
+    source: '2602.11201',
+    target: '2510.27378',
+    type: 'extends',
+    description: 'Adds NLDD to monitorability framework; step-level causal analysis',
+  },
+  {
+    source: '2602.11201',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Mapping Gap: models encode solutions but cannot deploy them = pattern storage',
+  },
 ];

@@ -5261,4 +5261,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/240-249/246_extracting_books_openweight_llms.md',
   },
+  {
+    id: '2602.11201',
+    title: 'Mechanistic Evidence for Faithfulness Decay in Chain-of-Thought Reasoning',
+    shortTitle: 'Faithfulness Decay',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'CoT faithfulness systematically decays along reasoning chains, with a Reasoning Horizon at 70-85% where later steps become non-causal.',
+    keyEvidence: [
+      'Reasoning Horizon at 70-85% chain length',
+      'Gemma 99% accuracy but -52.5% NLDD (anti-faithful)',
+      '82% probe accuracy but 0% task accuracy (Mapping Gap)',
+      'Late-step NLDD <20% of peak value',
+    ],
+    keyQuotes: [
+      'Gemma achieves 99% accuracy on PrOntoQA while exhibiting negative NLDD, revealing that high performance can mask complete causal disconnection from CoT.',
+      'For anti-faithful models, later reasoning tokens act as causal distractors that the model must overcome to produce its pre-computed answer.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/240-249/247_faithfulness_decay_nldd.md',
+  },
 ];
