@@ -1,6 +1,6 @@
 # Paper List
 
-> 248 papers analyzed | 170 supports thesis | 15 challenges | 63 balanced | Date range: 2021-2026
+> 249 papers analyzed | 171 supports thesis | 15 challenges | 63 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -252,3 +252,4 @@
 | 246 | 2505.12546 | May 2025 | Extracting memorized pieces of books from open-weight LLMs | Supports |
 | 247 | 2602.11201 | Feb 2026 | Mechanistic Evidence for Faithfulness Decay in CoT Reasoning | Supports |
 | 248 | 2510.13272 | Oct 2025 | Beyond Correctness: Rewarding Faithful Reasoning in RAG (VERITAS) | Supports |
+| 249 | 2602.07833 | Feb 2026 | SPD-Faith Bench: Multimodal CoT Faithfulness | Supports |

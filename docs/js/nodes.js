@@ -5305,4 +5305,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/240-249/248_veritas_faithful_rag.md',
   },
+  {
+    id: '2602.07833',
+    title: 'SPD-Faith Bench: Diagnosing and Improving Faithfulness in Chain-of-Thought for Multimodal Large Language Models',
+    shortTitle: 'SPD-Faith Bench',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'MLLMs exhibit perception-reasoning dissociation: they see visual evidence correctly but reasoning diverges due to FFN drift.',
+    keyEvidence: [
+      '38.2% consistency rate on same image pairs',
+      '29.5% Difference Reasoning Faithfulness',
+      'Visual attention decays >50% during reasoning',
+      'Larger models show worse faithfulness',
+    ],
+    keyQuotes: [
+      'Even when models attend to relevant visual regions, their reasoning traces may still diverge from the underlying decision process.',
+      'FFN neurons override visual grounding, causing semantic drift from perception to arbitrary textual priors.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/240-249/249_spd_faith_bench_mllm.md',
+  },
 ];
