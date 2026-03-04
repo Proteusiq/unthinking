@@ -5832,4 +5832,29 @@ window.paperLinks = [
     type: 'extends',
     description: 'Extends VLM faithfulness with mechanistic analysis; FFN override discovery',
   },
+  // Broken Chains (#250) relationships
+  {
+    source: '2602.14444',
+    target: '2602.11201',
+    type: 'supports',
+    description: 'Both find incomplete reasoning hurts; truncation worse than absence',
+  },
+  {
+    source: '2602.14444',
+    target: '2507.14417',
+    type: 'supports',
+    description: 'Both show more tokens can hurt; inverse scaling under constraints',
+  },
+  {
+    source: '2602.14444',
+    target: '2601.18352',
+    type: 'supports',
+    description: 'Code 43% vs NL 0% under truncation; code structure more robust',
+  },
+  {
+    source: '2602.14444',
+    target: '2412.21187',
+    type: 'supports',
+    description: 'Extended reasoning isnt always beneficial; truncation paradox',
+  },
 ];

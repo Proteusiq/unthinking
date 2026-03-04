@@ -5327,4 +5327,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/240-249/249_spd_faith_bench_mllm.md',
   },
+  {
+    id: '2602.14444',
+    title: 'Broken Chains: The Cost of Incomplete Reasoning in LLMs',
+    shortTitle: 'Broken Chains',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'Truncated CoT reasoning actively hurts performance; no reasoning outperforms incomplete reasoning because partial chains leave models in inconsistent states.',
+    keyEvidence: [
+      'DeepSeek: 53% no reasoning vs 17% truncated CoT',
+      'Comments 0% vs code 43% at 30% budget',
+      'Grok 80-90% vs others 7-27% at 30% budget',
+      'Hybrid reasoning always underperforms single modality',
+    ],
+    keyQuotes: [
+      'Truncated chains leave models in inconsistent intermediate states causing variables declared but not resolved, logical premises established but not concluded.',
+      'When forced to produce an answer from this state, models may hallucinate completions that contradict the partial reasoning.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/250-259/250_broken_chains_incomplete_reasoning.md',
+  },
 ];
