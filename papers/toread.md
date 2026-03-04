@@ -17,7 +17,7 @@ Papers on whether Chain-of-Thought reasoning is faithful to internal model compu
 | ~~[2602.07833](https://arxiv.org/abs/2602.07833)~~ | ~~SPD-Faith Bench: Diagnosing Faithfulness in Multimodal CoT~~ | ~~DONE~~ |
 | ~~[2602.14444](https://arxiv.org/abs/2602.14444)~~ | ~~Broken Chains: The Cost of Incomplete Reasoning in LLMs~~ | ~~DONE~~ |
 | ~~[2602.17544](https://arxiv.org/abs/2602.17544)~~ | ~~Evaluating CoT through Reusability and Verifiability~~ | ~~DONE~~ |
-| [2602.18297](https://arxiv.org/abs/2602.18297) | Analyzing CoT Monitorability Through Information Theory | supports |
+| ~~[2602.18297](https://arxiv.org/abs/2602.18297)~~ | ~~Analyzing CoT Monitorability Through Information Theory~~ | ~~DONE~~ |
 | [2602.20710](https://arxiv.org/abs/2602.20710) | Counterfactual Simulation Training for CoT Faithfulness | supports |
 
 ---
