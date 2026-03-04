@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 246
+> **Papers tracked**: 247
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1400,6 +1400,11 @@ These papers have NO direct rebuttals found:
 | LRMs Autonomous Agents (2508.04039) | 97% ASR using reasoning models as attack agents (Nature Comms 2026) |
 | Jailbreaking Simpler (2503.05264) | Context Compliance Attack exploits stateless design; Llama-3.1 fully vulnerable |
 | Dark LLMs (2505.10066) | Universal jailbreak persists 7+ months; open-source releases irreversible |
+
+### 2026-03-04
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Faithfulness Decay NLDD (2602.11201) | Reasoning Horizon at 70-85% chain length; Gemma 99% accuracy but -52.5% NLDD (anti-faithful); Mapping Gap: 82% probe accuracy, 0% task accuracy |
 
 ### 2026-03-02
 | Papers Added | Key Findings |

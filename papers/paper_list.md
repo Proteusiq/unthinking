@@ -1,6 +1,6 @@
 # Paper List
 
-> 246 papers analyzed | 168 supports thesis | 15 challenges | 63 balanced | Date range: 2021-2026
+> 247 papers analyzed | 169 supports thesis | 15 challenges | 63 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -250,3 +250,4 @@
 | 244 | 2602.07729 | Feb 2026 | Do We Need Adam? SGD Updates <0.02% Params in RLVR | Supports |
 | 245 | 2601.02671 | Jan 2026 | Extracting books from production language models | Supports |
 | 246 | 2505.12546 | May 2025 | Extracting memorized pieces of books from open-weight LLMs | Supports |
+| 247 | 2602.11201 | Feb 2026 | Mechanistic Evidence for Faithfulness Decay in CoT Reasoning | Supports |
