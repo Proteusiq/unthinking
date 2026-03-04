@@ -5782,4 +5782,29 @@ window.paperLinks = [
     type: 'supports',
     description: 'Mapping Gap: models encode solutions but cannot deploy them = pattern storage',
   },
+  // VERITAS (#248) relationships
+  {
+    source: '2510.13272',
+    target: '2307.13702',
+    type: 'extends',
+    description: 'Extends faithfulness metrics to RAG agents; three-dimension framework',
+  },
+  {
+    source: '2510.13272',
+    target: '2602.11201',
+    type: 'supports',
+    description: 'Both find outcome-based RL produces unfaithful CoT; RAG confirms pattern',
+  },
+  {
+    source: '2510.13272',
+    target: '2506.17219',
+    type: 'supports',
+    description: 'Format reward breaks faithfulness (68%→24%); confirms format vs reasoning tradeoff',
+  },
+  {
+    source: '2510.13272',
+    target: '2503.08679',
+    type: 'supports',
+    description: 'RAG agents 56% faithful; extends wild CoT unfaithfulness to agentic search',
+  },
 ];

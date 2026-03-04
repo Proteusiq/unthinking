@@ -13,7 +13,7 @@ Papers on whether Chain-of-Thought reasoning is faithful to internal model compu
 | arXiv ID | Title | Stance |
 |----------|-------|--------|
 | ~~[2602.11201](https://arxiv.org/abs/2602.11201)~~ | ~~Mechanistic Evidence for Faithfulness Decay in CoT Reasoning~~ | ~~DONE~~ |
-| [2510.13272](https://arxiv.org/abs/2510.13272) | Beyond Correctness: Rewarding Faithful Reasoning in RAG (Info-Think) | supports |
+| ~~[2510.13272](https://arxiv.org/abs/2510.13272)~~ | ~~Beyond Correctness: Rewarding Faithful Reasoning in RAG (Info-Think)~~ | ~~DONE~~ |
 | [2602.07833](https://arxiv.org/abs/2602.07833) | SPD-Faith Bench: Diagnosing Faithfulness in Multimodal CoT | supports |
 | [2602.14444](https://arxiv.org/abs/2602.14444) | Broken Chains: The Cost of Incomplete Reasoning in LLMs | supports |
 | [2602.17544](https://arxiv.org/abs/2602.17544) | Evaluating CoT through Reusability and Verifiability | balanced |
