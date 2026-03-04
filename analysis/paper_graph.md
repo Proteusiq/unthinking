@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 252
+> **Papers tracked**: 253
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1410,6 +1410,7 @@ These papers have NO direct rebuttals found:
 | Broken Chains (2602.14444) | DeepSeek 53% no reasoning vs 17% truncated CoT; code 43% vs comments 0% at 30% budget; Grok 80-90% vs others 7-27% |
 | Reusability Verifiability CoT (2602.17544) | Accuracy-reusability correlation -0.53; DeepSeek-R1 94% acc but 67% reusability; Phi4 81% acc but 84% reusability (inverse) |
 | CoT Monitorability IT (2602.18297) | MI necessary but not sufficient; information gap + elicitation error limit monitoring; training required for monitorability |
+| Counterfactual Simulation Training (2602.20710) | +35 accuracy on cue-based counterfactuals; larger models NOT more faithful by default; asymmetric generalization (persuade vs dissuade) |
 
 ### 2026-03-02
 | Papers Added | Key Findings |

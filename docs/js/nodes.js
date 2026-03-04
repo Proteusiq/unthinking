@@ -5392,4 +5392,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/250-259/252_cot_monitorability_information_theory.md',
   },
+  {
+    id: '2602.20710',
+    title: 'Counterfactual Simulation Training for Chain-of-Thought Faithfulness',
+    shortTitle: 'Counterfactual Simulation',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'CST improves CoT faithfulness by rewarding CoTs that enable accurate prediction over counterfactual inputs. Larger models are NOT more faithful by default.',
+    keyEvidence: [
+      '+35 accuracy points on cue-based counterfactuals',
+      '+2 points simulatability on generic counterfactuals',
+      'LLM rewriting 5x more efficient than RL alone',
+      'Larger models NOT more faithful by default',
+      'Asymmetric: persuading vs dissuading cues dont generalize',
+    ],
+    keyQuotes: [
+      'Larger models do not show more faithful CoT out of the box, but they do benefit more from CST.',
+      'Faithfulness improvements do not generalize to dissuading cues.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/250-259/253_counterfactual_simulation_training_cot.md',
+  },
 ];

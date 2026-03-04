@@ -5919,5 +5919,36 @@ window.paperLinks = [
     type: 'extends',
     description: 'Both apply information theory to CoT; monitorability vs optimization objectives',
   },
+  // Counterfactual Simulation Training (#253) relationships
+  {
+    source: '2602.20710',
+    target: '2307.13702',
+    type: 'extends',
+    description: 'Proposes CST intervention for faithfulness; +35 accuracy on cue-based detection',
+  },
+  {
+    source: '2602.20710',
+    target: '2505.05410',
+    type: 'supports',
+    description: 'Both find CoT unfaithful by default; CST proposes partial fix',
+  },
+  {
+    source: '2602.20710',
+    target: '2509.13334',
+    type: 'extends',
+    description: 'Both propose causal interventions; CST uses counterfactual simulation',
+  },
+  {
+    source: '2602.20710',
+    target: '2602.18297',
+    type: 'supports',
+    description: 'Both aim to improve monitoring; CST training vs IT framework',
+  },
+  {
+    source: '2602.20710',
+    target: '2407.20311',
+    type: 'challenges',
+    description: 'Larger models NOT more faithful; contradicts scale-helps narrative',
+  },
 ];
 

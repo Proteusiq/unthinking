@@ -1,6 +1,6 @@
 # Paper List
 
-> 252 papers analyzed | 173 supports thesis | 15 challenges | 64 balanced | Date range: 2021-2026
+> 253 papers analyzed | 174 supports thesis | 15 challenges | 64 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -256,3 +256,4 @@
 | 250 | 2602.14444 | Feb 2026 | Broken Chains: The Cost of Incomplete Reasoning in LLMs | Supports |
 | 251 | 2602.17544 | Feb 2026 | Evaluating CoT through Reusability and Verifiability | Balanced |
 | 252 | 2602.18297 | Feb 2026 | CoT Monitorability via Information Theory | Supports |
+| 253 | 2602.20710 | Feb 2026 | Counterfactual Simulation Training for CoT Faithfulness | Supports |
