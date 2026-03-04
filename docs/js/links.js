@@ -5807,4 +5807,29 @@ window.paperLinks = [
     type: 'supports',
     description: 'RAG agents 56% faithful; extends wild CoT unfaithfulness to agentic search',
   },
+  // SPD-Faith Bench (#249) relationships
+  {
+    source: '2602.07833',
+    target: '2602.11201',
+    type: 'supports',
+    description: 'Both find attention/faithfulness decay; adds visual modality evidence',
+  },
+  {
+    source: '2602.07833',
+    target: '2307.13702',
+    type: 'extends',
+    description: 'Extends text faithfulness to multimodal; perception-reasoning dissociation',
+  },
+  {
+    source: '2602.07833',
+    target: '2411.02344',
+    type: 'supports',
+    description: 'Both find attention decay causes unfaithfulness; FFN drift mechanism',
+  },
+  {
+    source: '2602.07833',
+    target: '2505.23945',
+    type: 'extends',
+    description: 'Extends VLM faithfulness with mechanistic analysis; FFN override discovery',
+  },
 ];
