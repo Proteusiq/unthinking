@@ -5283,4 +5283,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/240-249/247_faithfulness_decay_nldd.md',
   },
+  {
+    id: '2510.13272',
+    title: 'Beyond Correctness: Rewarding Faithful Reasoning in Retrieval-Augmented Generation',
+    shortTitle: 'VERITAS',
+    date: 'Oct 2025',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'RAG agents trained with outcome-only rewards achieve high accuracy but produce unfaithful reasoning that ignores retrieved evidence.',
+    keyEvidence: [
+      'Search-R1 only 56.4% Info-Think faithfulness',
+      'DeSA-7B: 42% EM but only 16% faithfulness',
+      'VERITAS +14% Info-Think improvement',
+      'Format reward breaks faithfulness (68%→24%)',
+    ],
+    keyQuotes: [
+      'Task performance does not directly translate to high faithfulness scores.',
+      'A modified reward shaping by adding a format reward may improve model performance, but in return potentially breaks the model\'s reasoning consistency.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/240-249/248_veritas_faithful_rag.md',
+  },
 ];

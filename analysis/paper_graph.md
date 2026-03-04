@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 247
+> **Papers tracked**: 248
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1405,6 +1405,7 @@ These papers have NO direct rebuttals found:
 | Papers Added | Key Findings |
 |--------------|--------------|
 | Faithfulness Decay NLDD (2602.11201) | Reasoning Horizon at 70-85% chain length; Gemma 99% accuracy but -52.5% NLDD (anti-faithful); Mapping Gap: 82% probe accuracy, 0% task accuracy |
+| VERITAS Faithful RAG (2510.13272) | Search-R1 56.4% Info-Think faithfulness; DeSA-7B 16% despite 42% EM; VERITAS +14% faithfulness via process rewards |
 
 ### 2026-03-02
 | Papers Added | Key Findings |
