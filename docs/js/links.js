@@ -5888,5 +5888,36 @@ window.paperLinks = [
     type: 'supports',
     description: 'Right answer wrong reasons; accuracy masks compositional failure',
   },
+  // CoT Monitorability IT (#252) relationships
+  {
+    source: '2602.18297',
+    target: '2510.27378',
+    type: 'extends',
+    description: 'Adds information-theoretic framework; formalizes information gap and elicitation error',
+  },
+  {
+    source: '2602.18297',
+    target: '2507.05246',
+    type: 'supports',
+    description: 'Formalizes WHY monitoring is hard; complements evasion analysis with theoretical bounds',
+  },
+  {
+    source: '2602.18297',
+    target: '2307.13702',
+    type: 'extends',
+    description: 'Extends faithfulness to monitorability; MI necessary but not sufficient',
+  },
+  {
+    source: '2602.18297',
+    target: '2505.05410',
+    type: 'supports',
+    description: 'Both show gap between CoT and computation; provides formal framework for gap',
+  },
+  {
+    source: '2602.18297',
+    target: '2507.18391',
+    type: 'extends',
+    description: 'Both apply information theory to CoT; monitorability vs optimization objectives',
+  },
 ];
 

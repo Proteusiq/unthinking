@@ -5371,4 +5371,25 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/250-259/251_reusability_verifiability_cot.md',
   },
+  {
+    id: '2602.18297',
+    title: 'Analyzing and Improving Chain-of-Thought Monitorability Through Information Theory',
+    shortTitle: 'CoT Monitorability IT',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'Non-zero mutual information between CoT and output is necessary but not sufficient for monitorability, with information gap and elicitation error as fundamental limitations.',
+    keyEvidence: [
+      'MI necessary but not sufficient for monitoring',
+      'Two error sources: information gap, elicitation error',
+      'Training objectives can improve monitorability',
+      'Label-free CMI maximization prevents CoT degeneration',
+    ],
+    keyQuotes: [
+      'Non-zero mutual information between CoT and output is a necessary but not sufficient condition for CoT monitorability.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/250-259/252_cot_monitorability_information_theory.md',
+  },
 ];
