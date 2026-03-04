@@ -5857,4 +5857,36 @@ window.paperLinks = [
     type: 'supports',
     description: 'Extended reasoning isnt always beneficial; truncation paradox',
   },
+  // Reusability & Verifiability (#251) relationships
+  {
+    source: '2602.17544',
+    target: '2307.13702',
+    type: 'supports',
+    description: 'Both find accuracy and CoT quality are decoupled; -0.53 correlation',
+  },
+  {
+    source: '2602.17544',
+    target: '2503.08679',
+    type: 'supports',
+    description: 'Reusability metric confirms wild CoT is often not followed by other models',
+  },
+  {
+    source: '2602.17544',
+    target: '2602.11201',
+    type: 'supports',
+    description: 'Different metric (reusability vs NLDD) same conclusion: CoT ≠ reasoning',
+  },
+  {
+    source: '2602.17544',
+    target: '2602.14444',
+    type: 'supports',
+    description: 'Both show CoT quality issues; truncation and reusability both reveal weak chains',
+  },
+  {
+    source: '2602.17544',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Right answer wrong reasons; accuracy masks compositional failure',
+  },
 ];
+

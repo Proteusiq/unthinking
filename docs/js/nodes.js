@@ -5349,4 +5349,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/250-259/250_broken_chains_incomplete_reasoning.md',
   },
+  {
+    id: '2602.17544',
+    title: 'Evaluating Chain-of-Thought Reasoning through Reusability and Verifiability',
+    shortTitle: 'Reusability & Verifiability',
+    date: 'Feb 2026',
+    stance: 'balanced',
+    cluster: 'faithfulness',
+    coreArgument:
+      'Accuracy on benchmarks does not guarantee reusable or verifiable reasoning. Specialized reasoning models are not consistently better at producing CoT that others can follow.',
+    keyEvidence: [
+      'Accuracy-reusability correlation -0.53 (negative)',
+      'DeepSeek-R1: 94% acc but 67% reusability',
+      'Phi4: 81% acc but 84% reusability (inverse)',
+      'Verifiability-accuracy correlation only 0.20',
+    ],
+    keyQuotes: [
+      'High accuracy on a target task does not guarantee highly reusable or verifiable reasoning.',
+      'A model might get the right answer for the wrong reasons.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/250-259/251_reusability_verifiability_cot.md',
+  },
 ];

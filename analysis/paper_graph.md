@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 250
+> **Papers tracked**: 251
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1408,6 +1408,7 @@ These papers have NO direct rebuttals found:
 | VERITAS Faithful RAG (2510.13272) | Search-R1 56.4% Info-Think faithfulness; DeSA-7B 16% despite 42% EM; VERITAS +14% faithfulness via process rewards |
 | SPD-Faith Bench (2602.07833) | 38.2% consistency rate; perception-reasoning dissociation; FFN drift overrides visual evidence; larger models = worse faithfulness |
 | Broken Chains (2602.14444) | DeepSeek 53% no reasoning vs 17% truncated CoT; code 43% vs comments 0% at 30% budget; Grok 80-90% vs others 7-27% |
+| Reusability Verifiability CoT (2602.17544) | Accuracy-reusability correlation -0.53; DeepSeek-R1 94% acc but 67% reusability; Phi4 81% acc but 84% reusability (inverse) |
 
 ### 2026-03-02
 | Papers Added | Key Findings |
