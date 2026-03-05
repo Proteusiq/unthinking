@@ -5415,4 +5415,52 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/250-259/253_counterfactual_simulation_training_cot.md',
   },
+  {
+    id: '2603.01190',
+    title:
+      'Reasoning or Rationalization? The Role of Justifications in Masked Diffusion Models for Fact Verification',
+    shortTitle: 'Reasoning or Rationalization',
+    date: 'Mar 2026',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'Diffusion LLMs resolve verdicts in first few steps before justification exists; forcing deliberation degrades accuracy; justifications are post-hoc rationalization.',
+    keyEvidence: [
+      'Verdict resolves in first few diffusion steps',
+      'Forcing deliberation: 86.2% → 71.9% accuracy',
+      'Only 44% maintain logical integrity when forced wrong',
+      '56% rationalize incorrect verdicts',
+      '97.1% accuracy with ground-truth vs 57.3% corrupted justifications',
+    ],
+    keyQuotes: [
+      'Even when explicitly prompted to generate justifications first, LLaDA consistently predicts the verdict within the first few diffusion steps.',
+      'Forcing extended deliberation through delayed verdict unmasking proves counterproductive.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/250-259/254_reasoning_or_rationalization_diffusion.md',
+  },
+  {
+    id: '2602.23225',
+    title:
+      'Why Diffusion Language Models Struggle with Truly Parallel (Non-Autoregressive) Decoding?',
+    shortTitle: 'DLMs Struggle Parallel',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'DLMs collapse to AR-like decoding despite parallel architecture; sequential behavior is learned from training data, not inherent to reasoning.',
+    keyEvidence: [
+      'ARness 0.73-0.92 under arbitrary order decoding',
+      'CoT training increases ARness (0.73→0.81)',
+      'Forcing parallelism: 78% → 46.5% accuracy',
+      'Fast-DLMs push ARness to 0.87-0.94',
+      'Training data has strong sequential dependence (SeqDep)',
+    ],
+    keyQuotes: [
+      'Even if the diffusion process is nominally position-agnostic, the model can learn denoising strategies that preferentially reconstruct outputs in an AR-shaped manner.',
+      'Current fast-DLM methods gain speed by amplifying, not removing, AR-like generation.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/250-259/255_why_dlms_struggle_parallel.md',
+  },
 ];

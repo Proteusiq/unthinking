@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 253
+> **Papers tracked**: 255
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1400,6 +1400,12 @@ These papers have NO direct rebuttals found:
 | LRMs Autonomous Agents (2508.04039) | 97% ASR using reasoning models as attack agents (Nature Comms 2026) |
 | Jailbreaking Simpler (2503.05264) | Context Compliance Attack exploits stateless design; Llama-3.1 fully vulnerable |
 | Dark LLMs (2505.10066) | Universal jailbreak persists 7+ months; open-source releases irreversible |
+
+### 2026-03-05
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Reasoning or Rationalization (2603.01190) | Verdict resolves in first few diffusion steps; forcing deliberation HURTS accuracy (86.2%→71.9%); 56% rationalize wrong answers; refinement drift mechanism |
+| Why DLMs Struggle Parallel (2602.23225) | DLMs collapse to AR-like decoding (ARness 0.73-0.92); CoT training increases ARness; forcing parallelism breaks reasoning; Fast-DLMs amplify sequentiality |
 
 ### 2026-03-04
 | Papers Added | Key Findings |
