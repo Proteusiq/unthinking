@@ -5950,5 +5950,67 @@ window.paperLinks = [
     type: 'challenges',
     description: 'Larger models NOT more faithful; contradicts scale-helps narrative',
   },
+  // Reasoning or Rationalization (#254) relationships
+  {
+    source: '2603.01190',
+    target: '2307.13702',
+    type: 'supports',
+    description: 'Diffusion models expose verdict-before-reasoning; direct evidence of CoT unfaithfulness',
+  },
+  {
+    source: '2603.01190',
+    target: '2503.08679',
+    type: 'supports',
+    description: 'Both show justifications are post-hoc; 56% rationalize wrong answers',
+  },
+  {
+    source: '2603.01190',
+    target: '2404.15758',
+    type: 'supports',
+    description: 'Both show CoT benefit is computational, not semantic; verdict precedes reasoning',
+  },
+  {
+    source: '2603.01190',
+    target: '2602.23225',
+    type: 'extends',
+    description: 'Provides mechanism (refinement drift) for why parallel decoding degrades reasoning',
+  },
+  {
+    source: '2603.01190',
+    target: '2505.05410',
+    type: 'supports',
+    description: 'Both show reasoning models dont think what they say; diffusion exposes the dynamic',
+  },
+  // Why DLMs Struggle Parallel (#255) relationships
+  {
+    source: '2602.23225',
+    target: '2603.01190',
+    type: 'supports',
+    description: 'Explains WHY verdicts emerge early: AR bias learned from sequential training data',
+  },
+  {
+    source: '2602.23225',
+    target: '2309.13638',
+    type: 'supports',
+    description: 'Both show L2R bias is fundamental; DLMs expose its learned from data, not inherent',
+  },
+  {
+    source: '2602.23225',
+    target: '2404.15758',
+    type: 'supports',
+    description: 'CoT benefit is computational not semantic; sequential order is training artifact',
+  },
+  {
+    source: '2602.23225',
+    target: '2307.13702',
+    type: 'extends',
+    description: 'Shows mechanism for why CoT can be unfaithful: its not driving computation',
+  },
+  {
+    source: '2602.23225',
+    target: '2501.12948',
+    type: 'challenges',
+    description: 'RL reasoning may just amplify AR patterns; NAP shows alternative is possible',
+  },
 ];
 

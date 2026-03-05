@@ -1,8 +1,28 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **206 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **213 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed).
+
+---
+
+## High Priority — Diffusion LLMs & Sequential Generation
+
+Papers on diffusion language models that reveal sequential "reasoning" is post-hoc rationalization.
+
+| arXiv ID | Title | Stance |
+|----------|-------|--------|
+| ~~[2603.01190](https://arxiv.org/abs/2603.01190)~~ | ~~Reasoning or Rationalization? The Role of Justifications in Masked Diffusion Models for Fact Verification~~ | ~~DONE~~ |
+| ~~[2602.23225](https://arxiv.org/abs/2602.23225)~~ | ~~Why Diffusion Language Models Struggle with Truly Parallel (Non-Autoregressive) Decoding?~~ | ~~DONE~~ |
+| [2602.22871](https://arxiv.org/abs/2602.22871) | Test-Time Scaling with Diffusion Language Models via Reward-Guided Stitching | balanced |
+| [2603.01331](https://arxiv.org/abs/2603.01331) | MetaState: Persistent Working Memory for Discrete Diffusion Language Models | balanced |
+| [2602.15014](https://arxiv.org/abs/2602.15014) | Scaling Beyond Masked Diffusion Language Models | balanced |
+| [2602.12586](https://arxiv.org/abs/2602.12586) | Can I Have Your Order? MCTS for Slot Filling Ordering in Diffusion LMs | supports |
+| [2508.13070](https://arxiv.org/abs/2508.13070) | Reinforced Context Order Recovery for Adaptive Reasoning and Planning | balanced |
+
+**Key findings:**
+- **2603.01190**: Verdict resolves in first few diffusion steps; forcing deliberation *hurts* accuracy (86.2% → 71.9%); model rationalizes wrong answers 56% of time
+- **2602.23225**: DLMs converge to left-to-right despite parallel architecture; AR-ness learned from sequential training data, not inherent to reasoning
 
 ---
 
