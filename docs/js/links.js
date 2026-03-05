@@ -6012,5 +6012,30 @@ window.paperLinks = [
     type: 'challenges',
     description: 'RL reasoning may just amplify AR patterns; NAP shows alternative is possible',
   },
+  // Test-Time Scaling Stitching (#256) relationships
+  {
+    source: '2602.22871',
+    target: '2603.01190',
+    type: 'supports',
+    description: 'Both show reasoning is assembly/reconstruction; stitched fragments produce correct answers',
+  },
+  {
+    source: '2602.22871',
+    target: '2602.23225',
+    type: 'extends',
+    description: 'Builds on diffusion exploration; adds step-level stitching across trajectories',
+  },
+  {
+    source: '2602.22871',
+    target: '2404.15758',
+    type: 'supports',
+    description: 'Both show CoT benefit is computational (more tokens), not semantic coherence',
+  },
+  {
+    source: '2602.22871',
+    target: '2501.12948',
+    type: 'challenges',
+    description: 'Test-time stitching achieves reasoning without RL training; assembly vs learning',
+  },
 ];
 

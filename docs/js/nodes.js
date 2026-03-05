@@ -5463,4 +5463,28 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/250-259/255_why_dlms_struggle_parallel.md',
   },
+  {
+    id: '2602.22871',
+    title:
+      'Test-Time Scaling with Diffusion Language Models via Reward-Guided Stitching',
+    shortTitle: 'Diffusion Stitching',
+    date: 'Feb 2026',
+    stance: 'balanced',
+    cluster: 'test-time',
+    coreArgument:
+      'Step-level stitching from multiple diffusion traces outperforms trajectory-level selection; stitched evidence can contain gaps and contradictions yet AR solver still produces correct answers.',
+    keyEvidence: [
+      '+23.9% avg accuracy over LLaDA baseline',
+      'Step-level stitching > trajectory selection (91.5% vs 90.1%)',
+      'Low-confidence sampling: 22% fewer steps, only 1.2% accuracy drop',
+      '1.8x latency reduction vs vanilla diffusion',
+      'Stitched evidence can have gaps, contradictions',
+    ],
+    keyQuotes: [
+      'The stitched evidence list is not guaranteed to form a complete and perfectly consistent chain-of-thought: it may contain redundancy, small gaps, or occasional contradictions.',
+      'In effect, this AR stage acts as a reconciliation step: it selects a consistent subset of evidence, fills in missing links, and produces a coherent final solution.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/250-259/256_test_time_scaling_diffusion_stitching.md',
+  },
 ];
