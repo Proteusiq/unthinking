@@ -7,8 +7,8 @@
 </a>
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
-[![Papers](https://img.shields.io/badge/papers-255-blue)]()
-[![Relationships](https://img.shields.io/badge/relationships-914-orange)]()
+[![Papers](https://img.shields.io/badge/papers-256-blue)]()
+[![Relationships](https://img.shields.io/badge/relationships-918-orange)]()
 
 ---
 
@@ -39,8 +39,8 @@ LLMs are dense statistical remixed echo chambers of their training data. They pr
 
 Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/)**
 
-- **Force-directed graph** — 255 papers as nodes, 914 relationships as edges
-- **Color-coded stances** — supports (176), challenges (15), balanced (64)
+- **Force-directed graph** — 256 papers as nodes, 918 relationships as edges
+- **Color-coded stances** — supports (176), challenges (15), balanced (65)
 - **Interactive** — hover tooltips, click for details, search, filter, dark/light mode
 - **Paper dialogue** — auto-generated conversations between connected papers
 
