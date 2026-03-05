@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 256
+> **Papers tracked**: 257
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1407,6 +1407,7 @@ These papers have NO direct rebuttals found:
 | Reasoning or Rationalization (2603.01190) | Verdict resolves in first few diffusion steps; forcing deliberation HURTS accuracy (86.2%→71.9%); 56% rationalize wrong answers; refinement drift mechanism |
 | Why DLMs Struggle Parallel (2602.23225) | DLMs collapse to AR-like decoding (ARness 0.73-0.92); CoT training increases ARness; forcing parallelism breaks reasoning; Fast-DLMs amplify sequentiality |
 | Test-Time Scaling Stitching (2602.22871) | Step-level stitching > trajectory selection; +23.9% avg over LLaDA; stitched evidence can have gaps/contradictions yet AR solver still produces correct answers |
+| No Compute Left Behind (2510.19990) | Any-order decoding doesn't help for math/coding; parallel decoding >40% accuracy drop; POST-HOC reasoning = human quality for fine-tuning; early exits work (3.3x speedup) |
 
 ### 2026-03-04
 | Papers Added | Key Findings |

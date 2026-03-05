@@ -1,6 +1,6 @@
 # Paper List
 
-> 256 papers analyzed | 176 supports thesis | 15 challenges | 65 balanced | Date range: 2021-2026
+> 257 papers analyzed | 177 supports thesis | 15 challenges | 65 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -260,3 +260,4 @@
 | 254 | 2603.01190 | Mar 2026 | Reasoning or Rationalization? Justifications in Masked Diffusion Models | Supports |
 | 255 | 2602.23225 | Feb 2026 | Why Diffusion LMs Struggle with Truly Parallel Decoding | Supports |
 | 256 | 2602.22871 | Feb 2026 | Test-Time Scaling with Diffusion LMs via Reward-Guided Stitching | Balanced |
+| 257 | 2510.19990 | Oct 2025 | No Compute Left Behind: Rethinking Reasoning with MDLMs | Supports |

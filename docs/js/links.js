@@ -6037,5 +6037,36 @@ window.paperLinks = [
     type: 'challenges',
     description: 'Test-time stitching achieves reasoning without RL training; assembly vs learning',
   },
+  // No Compute Left Behind (#257) relationships
+  {
+    source: '2510.19990',
+    target: '2603.01190',
+    type: 'supports',
+    description: 'Both show answer comes before reasoning; post-hoc traces match forward quality',
+  },
+  {
+    source: '2510.19990',
+    target: '2602.23225',
+    type: 'supports',
+    description: 'Both show L2R is learned from data; any-order doesnt help for reasoning',
+  },
+  {
+    source: '2510.19990',
+    target: '2309.13638',
+    type: 'supports',
+    description: 'Both show L2R bias is fundamental; MDLMs confirm autoregressive patterns',
+  },
+  {
+    source: '2510.19990',
+    target: '2404.15758',
+    type: 'supports',
+    description: 'Both show CoT benefit is computational; post-hoc reasoning works equally well',
+  },
+  {
+    source: '2510.19990',
+    target: '2501.12948',
+    type: 'challenges',
+    description: 'If post-hoc = forward reasoning, RL may just learn better post-hoc narratives',
+  },
 ];
 

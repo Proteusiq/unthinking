@@ -5487,4 +5487,28 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/250-259/256_test_time_scaling_diffusion_stitching.md',
   },
+  {
+    id: '2510.19990',
+    title:
+      'No Compute Left Behind: Rethinking Reasoning and Sampling with Masked Diffusion Models',
+    shortTitle: 'No Compute Left Behind',
+    date: 'Oct 2025',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'Any-order decoding doesnt help for math/coding; post-hoc reasoning (conditioned on answer) produces traces as good as human-written for fine-tuning.',
+    keyEvidence: [
+      'Any-order decoding underperforms L2R on GSM8K, MATH500, HumanEval',
+      '2-token parallel: >40% accuracy drop on GSM8K',
+      'Posterior reasoning traces = human quality (52.4% vs 52.2%)',
+      'Early exits: 3.3x speedup with MED, minimal accuracy loss',
+      'Exception: Sudoku benefits from any-order',
+    ],
+    keyQuotes: [
+      'For math and coding tasks, any-order algorithms often underperform or behave similarly to left-to-right sampling.',
+      'Fine-tuning LLaDA-8B Base on its posterior reasoning traces provides a performance boost on par with fine-tuning on human-written reasoning traces.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/250-259/257_no_compute_left_behind_mdlm.md',
+  },
 ];
