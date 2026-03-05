@@ -22,6 +22,14 @@
 
 ### Pipeline: Explore → Evaluate → Stitch → Recompute
 
+```
+┌──────────────┐    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
+│   EXPLORE    │ →  │   EVALUATE   │ →  │    STITCH    │ →  │  RECOMPUTE   │
+│  Diffusion   │    │     PRM      │    │  Best steps  │    │  AR Solver   │
+│  N traces    │    │  Score each  │    │  from all    │    │  Final ans   │
+└──────────────┘    └──────────────┘    └──────────────┘    └──────────────┘
+```
+
 1. **Explore**: Sample N diverse reasoning traces using masked diffusion LM (LLaDA/Dream)
 2. **Evaluate**: Score every intermediate step with Process Reward Model (PRM)
 3. **Stitch**: Select high-confidence steps across all traces, concatenate into composite rationale
