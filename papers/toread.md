@@ -357,6 +357,21 @@ Source: [Awesome-LLM-Reasoning-Failures](https://github.com/Peiyang-Song/Awesome
 
 ---
 
+## High Priority — Memorization & Fragility
+
+Papers on memorization mechanisms and reasoning fragility.
+
+| arXiv ID | Title | Stance |
+|----------|-------|--------|
+| ~~[2507.21009](https://arxiv.org/abs/2507.21009)~~ | ~~Memorization in Fine-Tuned Large Language Models~~ | ~~DONE (#259)~~ |
+| [2408.04667](https://arxiv.org/abs/2408.04667) | Non-Determinism of "Deterministic" LLM Settings | supports |
+
+**Key findings:**
+- **2507.21009**: Value and Output matrices contribute more to memorization than Query/Key; lower perplexity correlates with increased memorization; higher LoRA ranks → more memorization
+- **2408.04667**: Accuracy variations up to 15% across runs; gap between best and worst performance up to 70%; none of the LLMs consistently delivers repeatable accuracy even at temperature=0
+
+---
+
 ## From User Notes (Mar 2026)
 
 Papers extracted from research notes on framing bias, unlearning, and jailbreaking.
