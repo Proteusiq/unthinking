@@ -364,7 +364,7 @@ Papers on memorization mechanisms and reasoning fragility.
 | arXiv ID | Title | Stance |
 |----------|-------|--------|
 | ~~[2507.21009](https://arxiv.org/abs/2507.21009)~~ | ~~Memorization in Fine-Tuned Large Language Models~~ | ~~DONE (#259)~~ |
-| [2408.04667](https://arxiv.org/abs/2408.04667) | Non-Determinism of "Deterministic" LLM Settings | supports |
+| ~~[2408.04667](https://arxiv.org/abs/2408.04667)~~ | ~~Non-Determinism of "Deterministic" LLM Settings~~ | ~~DONE (#260)~~ |
 
 **Key findings:**
 - **2507.21009**: Value and Output matrices contribute more to memorization than Query/Key; lower perplexity correlates with increased memorization; higher LoRA ranks → more memorization
