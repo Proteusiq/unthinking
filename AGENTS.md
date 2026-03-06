@@ -596,3 +596,64 @@ gh auth switch --user <username>
 ```
 
 **Note**: All files are lowercase except `AGENTS.md` and `README.md`.
+
+---
+
+## Status Report Format
+
+When asked for status, provide an ASCII box summary:
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                         UNTHINKING STATUS                           │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│  PAPERS ANALYZED:        XXX                                        │
+│  ├── Supports thesis:    XXX  (XX%)                                 │
+│  ├── Challenges:          XX  (X%)                                  │
+│  └── Balanced:            XX  (XX%)                                 │
+│                                                                     │
+│  PAPERS REMAINING:       XXX  (in toread.md)                        │
+│  TOTAL TRACKED:          XXX                                        │
+│                                                                     │
+├─────────────────────────────────────────────────────────────────────┤
+│                       VISUALIZATION                                 │
+├─────────────────────────────────────────────────────────────────────┤
+│  Nodes:                  XXX                                        │
+│  Links:                  XXX                                        │
+│  Live: proteusiq.github.io/unthinking                               │
+│                                                                     │
+├─────────────────────────────────────────────────────────────────────┤
+│                    SESSION SUMMARY                                  │
+├─────────────────────────────────────────────────────────────────────┤
+│  Papers Added:           X (###-###)                                │
+│  Topic:                  [Topic cluster]                            │
+│                                                                     │
+│  #XXX  Paper Title (arXiv ID)                                       │
+│        → Key finding in one line                                    │
+│                                                                     │
+├─────────────────────────────────────────────────────────────────────┤
+│                       KEY INSIGHT                                   │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│  [Synthesis of what the session's papers reveal]                    │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### Status Report Guidelines
+
+1. **All lines in ASCII box must have same length** (71 chars in example above)
+2. **Use Python to verify alignment** before outputting:
+   ```python
+   lines = box.split('\n')
+   assert len(set(len(line) for line in lines)) == 1
+   ```
+3. **Include numbers from actual files**:
+   - `papers/paper_list.md` — paper counts, stance breakdown
+   - `papers/toread.md` — remaining count
+   - `docs/js/nodes.js` — node count
+   - `docs/js/links.js` — link count
+   - `git log --oneline -5` — recent commits
+4. **Session summary**: List papers added in current session with one-line findings
+5. **Key insight**: Synthesize what the papers reveal about the thesis
