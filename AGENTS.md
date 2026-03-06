@@ -156,19 +156,65 @@ For EVERY paper analyzed, you MUST update the paper interaction graph:
   - BAD: `### NEW: Mirror Rebuttals Section`
   - GOOD: `### Mirror Rebuttals Section`
 
-### 8. ASCII Box Alignment
-- All lines in an ASCII box **MUST** have the same length
-- Use Python to verify alignment before committing:
-  ```python
-  # Check box alignment
-  lines = """┌─────────────────────────┐
-  │  Content here           │
-  └─────────────────────────┘""".split('\n')
-  lengths = [len(line) for line in lines]
-  assert len(set(lengths)) == 1, f"Misaligned: {set(lengths)}"
-  ```
-- When fixing, add/remove spaces before the closing `│`
-- Each box can have its own width, but all lines within must match
+### 8. ASCII Diagrams for Clarity
+
+Use ASCII boxes and diagrams liberally to:
+- **Synthesize key insights** — box the core finding so it stands out
+- **Show relationships** — arrows, flow diagrams, comparison tables
+- **Visualize processes** — pipelines, decision trees, causal chains
+- **Highlight contradictions** — side-by-side comparisons
+
+**When to use ASCII diagrams:**
+- Summarizing a paper's core contribution
+- Showing how papers relate to the thesis
+- Comparing findings across papers
+- Illustrating mechanisms or pipelines
+- Creating memorable takeaways
+
+**Box alignment rule**: All lines in an ASCII box **MUST** have the same length.
+
+Verify alignment before committing:
+```python
+# Check box alignment
+lines = """┌─────────────────────────┐
+│  Content here           │
+└─────────────────────────┘""".split('\n')
+lengths = [len(line) for line in lines]
+assert len(set(lengths)) == 1, f"Misaligned: {set(lengths)}"
+```
+
+When fixing, add/remove spaces before the closing `│`. Each box can have its own width, but all lines within must match.
+
+**Example patterns:**
+
+```
+# Simple insight box
+┌─────────────────────────────────────────────────────────────────────┐
+│  KEY FINDING: [One sentence insight]                                │
+└─────────────────────────────────────────────────────────────────────┘
+
+# Comparison box
+┌─────────────────────────────────────────────────────────────────────┐
+│  WHAT WE EXPECTED              vs    WHAT WE FOUND                  │
+├─────────────────────────────────────────────────────────────────────┤
+│  Sequential reasoning builds         Answer comes first             │
+│  to conclusion                       Reasoning is post-hoc          │
+└─────────────────────────────────────────────────────────────────────┘
+
+# Flow diagram
+┌──────────┐     ┌──────────┐     ┌──────────┐
+│  Input   │ ──> │ Process  │ ──> │  Output  │
+└──────────┘     └──────────┘     └──────────┘
+
+# Relationship arrows
+Paper A ──rebuts──> Paper B
+Paper C ──extends──> Paper A
+```
+
+**Characters to use:**
+- Box: `┌ ┐ └ ┘ │ ─ ├ ┤ ┬ ┴ ┼`
+- Arrows: `→ ← ↑ ↓ ──>` 
+- Emphasis: `═ ║ ╔ ╗ ╚ ╝` (double lines for emphasis)
 
 ---
 
