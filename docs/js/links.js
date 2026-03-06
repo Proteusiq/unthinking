@@ -6068,5 +6068,36 @@ window.paperLinks = [
     type: 'challenges',
     description: 'If post-hoc = forward reasoning, RL may just learn better post-hoc narratives',
   },
+  // MCTS Slot Filling (Paper 258)
+  {
+    source: '2602.12586',
+    target: '2603.01190',
+    type: 'supports',
+    description: 'Both show order is about confidence, not logic; verdict/slot selection is arbitrary',
+  },
+  {
+    source: '2602.12586',
+    target: '2602.23225',
+    type: 'supports',
+    description: 'Both show L2R is learned bias; models default to sequential even when free',
+  },
+  {
+    source: '2602.12586',
+    target: '2602.22871',
+    type: 'extends',
+    description: 'Both show order optimization helps; MCTS extends stitching with tree search',
+  },
+  {
+    source: '2602.12586',
+    target: '2510.19990',
+    type: 'supports',
+    description: 'Both show L2R doesnt help reasoning; order matters for pattern matching',
+  },
+  {
+    source: '2602.12586',
+    target: '2307.13702',
+    type: 'supports',
+    description: 'Order sensitivity shows CoT is surface coherence, not internal computation',
+  },
 ];
 

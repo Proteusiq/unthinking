@@ -1,6 +1,6 @@
 # Paper List
 
-> 257 papers analyzed | 177 supports thesis | 15 challenges | 65 balanced | Date range: 2021-2026
+> 258 papers analyzed | 178 supports thesis | 15 challenges | 65 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -261,3 +261,4 @@
 | 255 | 2602.23225 | Feb 2026 | Why Diffusion LMs Struggle with Truly Parallel Decoding | Supports |
 | 256 | 2602.22871 | Feb 2026 | Test-Time Scaling with Diffusion LMs via Reward-Guided Stitching | Balanced |
 | 257 | 2510.19990 | Oct 2025 | No Compute Left Behind: Rethinking Reasoning with MDLMs | Supports |
+| 258 | 2602.12586 | Feb 2026 | MCTS for Slot Filling Ordering in Diffusion LMs | Supports |

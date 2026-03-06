@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 257
+> **Papers tracked**: 258
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1408,6 +1408,7 @@ These papers have NO direct rebuttals found:
 | Why DLMs Struggle Parallel (2602.23225) | DLMs collapse to AR-like decoding (ARness 0.73-0.92); CoT training increases ARness; forcing parallelism breaks reasoning; Fast-DLMs amplify sequentiality |
 | Test-Time Scaling Stitching (2602.22871) | Step-level stitching > trajectory selection; +23.9% avg over LLaDA; stitched evidence can have gaps/contradictions yet AR solver still produces correct answers |
 | No Compute Left Behind (2510.19990) | Any-order decoding doesn't help for math/coding; parallel decoding >40% accuracy drop; POST-HOC reasoning = human quality for fine-tuning; early exits work (3.3x speedup) |
+| MCTS Slot Filling (2602.12586) | Random order destroys performance (-17%); models default to L2R even when free to choose; MCTS finds order via VALUE not LOGIC; exploration > depth for escaping biased priors |
 
 ### 2026-03-04
 | Papers Added | Key Findings |
