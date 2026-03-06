@@ -141,7 +141,7 @@ Papers that may challenge the thesis. Must read to make thesis defensible.
 | [2602.02863](https://arxiv.org/abs/2602.02863) | Dynamic Instability Predicts Failure |
 | [2602.02983](https://arxiv.org/abs/2602.02983) | Are LLMs Biased Like Humans? |
 | [2602.04288](https://arxiv.org/abs/2602.04288) | Contextual Drag: How Errors Affect LLM Reasoning (10-20% drops) |
-| [2602.01017](https://arxiv.org/abs/2602.01017) | How Unfaithful Reasoning Emerges (simplicity bias threshold) |
+| ~~[2602.01017](https://arxiv.org/abs/2602.01017)~~ | ~~How Unfaithful Reasoning Emerges (simplicity bias threshold)~~ | ~~DONE (#172)~~ |
 | [2602.04212](https://arxiv.org/abs/2602.04212) | LLMs Struggle to Use Representations Learned In-Context |
 | [2602.02103](https://arxiv.org/abs/2602.02103) | No Global Plan in CoT: Myopic Horizon (Tele-Lens) |
 
