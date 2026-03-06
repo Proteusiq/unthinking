@@ -6099,5 +6099,61 @@ window.paperLinks = [
     type: 'supports',
     description: 'Order sensitivity shows CoT is surface coherence, not internal computation',
   },
+  // Memorization in Fine-Tuned LLMs (Paper 259)
+  {
+    source: '2507.21009',
+    target: '2602.01017',
+    type: 'supports',
+    description: 'Both show fine-tuning = memorization dynamics; perplexity correlates with storage',
+  },
+  {
+    source: '2507.21009',
+    target: '2601.02671',
+    type: 'supports',
+    description: 'Both show models store training data extractably; V/O matrices are storage sites',
+  },
+  {
+    source: '2507.21009',
+    target: '2602.07729',
+    type: 'supports',
+    description: 'V/O matrix memorization explains why RL needs so few parameters to surface skills',
+  },
+  {
+    source: '2507.21009',
+    target: '2310.01405',
+    type: 'supports',
+    description: 'Both identify specific weight matrices responsible for model behaviors',
+  },
+  // Non-Determinism of Deterministic LLM Settings (Paper 260)
+  {
+    source: '2408.04667',
+    target: '2602.01017',
+    type: 'supports',
+    description: 'Both show reasoning is not systematic; 70% variance proves probabilistic retrieval',
+  },
+  {
+    source: '2408.04667',
+    target: '2508.01191',
+    type: 'supports',
+    description: 'Non-determinism + distribution-dependence = pattern matching not reasoning',
+  },
+  {
+    source: '2408.04667',
+    target: '2504.09762',
+    type: 'supports',
+    description: 'If reasoning were real it would be deterministic; 70% gap proves its not',
+  },
+  {
+    source: '2408.04667',
+    target: '2507.21009',
+    type: 'supports',
+    description: 'Non-determinism + memorization in specific matrices = unreliable retrieval',
+  },
+  {
+    source: '2408.04667',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Benchmark fragility: accuracy varies 15% across identical runs at temp=0',
+  },
 ];
 

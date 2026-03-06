@@ -7,8 +7,8 @@
 </a>
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
-[![Papers](https://img.shields.io/badge/papers-257-blue)]()
-[![Relationships](https://img.shields.io/badge/relationships-923-orange)]()
+[![Papers](https://img.shields.io/badge/papers-260-blue)]()
+[![Relationships](https://img.shields.io/badge/relationships-936-orange)]()
 
 ---
 
@@ -39,8 +39,8 @@ LLMs are dense statistical remixed echo chambers of their training data. They pr
 
 Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/)**
 
-- **Force-directed graph** — 257 papers as nodes, 923 relationships as edges
-- **Color-coded stances** — supports (177), challenges (15), balanced (65)
+- **Force-directed graph** — 260 papers as nodes, 936 relationships as edges
+- **Color-coded stances** — supports (179), challenges (16), balanced (65)
 - **Interactive** — hover tooltips, click for details, search, filter, dark/light mode
 - **Paper dialogue** — auto-generated conversations between connected papers
 
@@ -64,7 +64,7 @@ See also:
 
 ## The Seven Pillars of Evidence
 
-Based on cross-analysis of 216 papers, the evidence converges on seven pillars:
+Based on cross-analysis of 260 papers, the evidence converges on seven pillars:
 
 | Pillar | Core Finding | Key Papers | Strongest Number |
 |--------|--------------|------------|------------------|
@@ -89,9 +89,9 @@ Based on cross-analysis of 216 papers, the evidence converges on seven pillars:
 
 | Stance | Count | Percentage |
 |--------|-------|------------|
-| **Supports thesis** | 143 | 66% |
-| **Balanced** | 59 | 27% |
-| **Challenges thesis** | 15 | 7% |
+| **Supports thesis** | 179 | 69% |
+| **Balanced** | 65 | 25% |
+| **Challenges thesis** | 16 | 6% |
 
 ---
 
@@ -276,8 +276,8 @@ See [`experiments/steering_ablation/protocol.md`](./experiments/steering_ablatio
 │   ├── case.md               # Formal case against LLM reasoning
 │   ├── paper_graph.md        # Paper interaction graph
 │   ├── rebuttals.md          # Rebuttal matrix
-│   └── explored/             # Individual paper analyses (216 files)
-│       ├── 00-09/ ... 210-219/
+│   └── explored/             # Individual paper analyses (260 files)
+│       ├── 00-09/ ... 260-269/
 ├── docs/                     # Interactive visualization (GitHub Pages)
 │   ├── index.html            # Paper network graph
 │   ├── pages/                # Deep-dive standalone pages
@@ -287,8 +287,8 @@ See [`experiments/steering_ablation/protocol.md`](./experiments/steering_ablatio
 │   │   └── training.html     # Training Pipeline
 │   ├── css/                  # variables, layout, components, responsive
 │   └── js/
-│       ├── nodes.js          # Paper node definitions (216)
-│       ├── links.js          # Relationship links (760)
+│       ├── nodes.js          # Paper node definitions (260)
+│       ├── links.js          # Relationship links (936)
 │       ├── data.js           # Meta + combines nodes/links
 │       └── graph.js          # Force-directed graph + interactions
 ├── experiments/

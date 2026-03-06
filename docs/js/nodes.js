@@ -5535,4 +5535,50 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/250-259/258_mcts_slot_filling_diffusion.md',
   },
+  {
+    id: '2507.21009',
+    title: 'Memorization in Fine-Tuned Large Language Models',
+    shortTitle: 'Memorization Fine-Tuned',
+    date: 'Jul 2025',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'Fine-tuning concentrates memorization in Value and Output projection matrices; lower perplexity correlates with higher memorization; fine-tuning is pattern storage, not reasoning acquisition.',
+    keyEvidence: [
+      'W^V matrices: 0.80-0.83 ROC AUC (highest memorization)',
+      'W^O matrices: 0.77-0.80 ROC AUC',
+      'W^Q, W^K: 0.68-0.72 ROC AUC (lowest)',
+      'Lower perplexity → higher memorization',
+      'Higher LoRA ranks → more memorization (diminishing returns)',
+    ],
+    keyQuotes: [
+      'Value (W^V) and Output (W^O) matrices contribute more significantly to memorization compared to Query (W^Q) and Key (W^K) matrices.',
+      'Lower perplexity in the fine-tuned model correlates with increased memorization.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/250-259/259_memorization_fine_tuned_llms.md',
+  },
+  {
+    id: '2408.04667',
+    title: 'Non-Determinism of "Deterministic" LLM Settings',
+    shortTitle: 'Non-Determinism LLMs',
+    date: 'Aug 2024',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'Even at temperature=0, LLMs show accuracy variations up to 15% and best-to-worst gaps up to 70% across identical runs; non-determinism is essential for compute efficiency.',
+    keyEvidence: [
+      'Accuracy variations up to 15% at temperature=0',
+      'Best-to-worst gap up to 70% (Mixtral on college math)',
+      'TARr@10 = 0% on many tasks (zero raw agreement)',
+      'Distributions non-normal (KS test p < 10^-9)',
+      'Longer outputs → more instability',
+    ],
+    keyQuotes: [
+      'None of the LLMs consistently delivers repeatable accuracy across all tasks, much less identical output strings.',
+      'Non-determinism perhaps essential to the efficient use of compute resources via co-mingled data in input buffers.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/260_non_determinism_deterministic_llm.md',
+  },
 ];
