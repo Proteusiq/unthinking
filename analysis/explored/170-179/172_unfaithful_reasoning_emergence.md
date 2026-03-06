@@ -36,7 +36,9 @@
 ### Noise Injection
 - **ε₁ (prompt noise)**: Random corruption of operands a or b
 - **ε₂ (reasoning noise)**: Random corruption of intermediate result d
-- Training data: 2,000,000 examples
+- Training data: 2,000,000 examples, 62,500 training steps
+- ε₁ tested: {0.01, 0.1, 0.3, 0.5}
+- ε₂ tested: {0.001, 0.005, 0.01, 0.05, 0.1, 0.3, 0.5, 0.9}
 
 ### Two Faithfulness Definitions
 1. **Consistency-based**: Generated chain matches ground-truth arithmetic
@@ -75,6 +77,37 @@
 - Models encode internal uncertainty when resolving inconsistent reasoning
 - Suggests **emergent implicit self-verification** from autoregressive training
 
+### Accuracy by Phase (ε₁=0.01, ε₂=0.1)
+- **Phase 1 (Stepwise)**: ~90% accuracy (limited by ε₂)
+- **Phase 2 (Mixed)**: ~90% accuracy (stays flat)
+- **Phase 3 (Skip-step)**: ~99% accuracy (approaches 1-ε₁)
+
+### Mechanistic Analysis
+- **Hidden State Contrast (HSC)**: Measures differentiation between consistent/inconsistent chains
+- **Attention Contrast (AC)**: Measures attention score differences for positive/negative samples
+- Both show sharp changes at phase boundaries — evidence of internal consistency checking
+
+### Shortcut Features Amplify Unfaithfulness
+- When c ∈ {0, 2, N/2}: high probability o=0 without needing reasoning
+- On shortcut test sets: INR consistently **lower**, RIR₁ consistently **higher**
+- **Data artifacts in training amplify unfaithfulness**
+
+### Scaling Results
+- **5-layer model**: Faster transition to skip-step reasoning
+- Phase 2 (self-verification) nearly invisible with larger capacity
+- With N=113: 4 phases re-emerge clearly
+- **Implication**: Larger models → faster unfaithfulness emergence
+
+### Position Swap Experiment
+
+| Data Layout | RIR₁ | RIR₂ | IDS | INR |
+|-------------|------|------|-----|-----|
+| e₁→e₂→e₃ | 0 | 0 | 24.7 | 0 |
+| e₂→e₁→e₃ | 1.00 | 0.99 | 26.0 | 0 |
+
+- IDS (intervention sensitivity) unchanged — model still uses simpler expression
+- **Complexity determines reasoning mode, not position**
+
 ---
 
 ## Relationship to Thesis
@@ -106,6 +139,19 @@ Faithfulness only emerges when stepwise reasoning is **algorithmically simpler**
 The paper provides **controlled synthetic evidence** for something observed empirically:
 - Training on diverse data → unfaithful CoT
 - The transition is predictable based on noise threshold
+
+#### 5. Shortcuts Amplify Unfaithfulness
+
+Data artifacts (shortcut features) make skip-step reasoning even more attractive:
+- Model learns to bypass reasoning when shortcuts exist
+- This mirrors real LLM behavior with dataset biases
+
+#### 6. Scaling Makes It Worse
+
+Larger models transition to unfaithfulness **faster**:
+- 5-layer model: Phase 2 nearly invisible
+- More capacity → quicker skip-step emergence
+- Suggests scaling may exacerbate unfaithfulness, not fix it
 
 ---
 
@@ -148,6 +194,10 @@ The paper provides **controlled synthetic evidence** for something observed empi
 > "Our synthetic task abstracts mathematical reasoning... a fundamental question is whether findings generalize to natural language settings"
 
 > "We use small transformers... scaling behavior remains to be investigated"
+
+> "Only covers pretraining and supervised fine-tuning (SFT). Does NOT study reinforcement learning with verifier rewards (RLVR) — the standard recipe for enhancing reasoning (e.g., DeepSeek-R1)"
+
+> "Need extensive evaluations across LLMs and tasks before policy/deployment decisions"
 
 ---
 
