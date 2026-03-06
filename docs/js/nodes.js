@@ -5511,4 +5511,28 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/250-259/257_no_compute_left_behind_mdlm.md',
   },
+  {
+    id: '2602.12586',
+    title:
+      'Can I Have Your Order? Monte-Carlo Tree Search for Slot Filling Ordering in Diffusion Language Models',
+    shortTitle: 'MCTS Slot Filling',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'Order is highly sensitive in diffusion LMs; models default to L2R even when free to choose any order; MCTS finds order via VALUE not LOGIC.',
+    keyEvidence: [
+      'Random order destroys performance (-17% absolute)',
+      'Models predominantly follow sequential L2R ordering',
+      'MCTS +19.5% on MBPP, +4.9% on MATH500',
+      'Exploration > depth for escaping biased priors',
+      'Local confidence ≠ global coherence',
+    ],
+    keyQuotes: [
+      'Performance remains highly sensitive to slot infilling order, often yielding substantial output variance.',
+      'While McDiffuSE predominantly follows sequential ordering, incorporating non-sequential generation is essential for maximising performance.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/250-259/258_mcts_slot_filling_diffusion.md',
+  },
 ];
