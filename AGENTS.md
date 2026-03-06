@@ -158,18 +158,16 @@ For EVERY paper analyzed, you MUST update the paper interaction graph:
 
 ### 8. ASCII Diagrams for Clarity
 
-Use ASCII boxes and diagrams liberally to:
-- **Synthesize key insights** — box the core finding so it stands out
-- **Show relationships** — arrows, flow diagrams, comparison tables
-- **Visualize processes** — pipelines, decision trees, causal chains
-- **Highlight contradictions** — side-by-side comparisons
+Use ASCII boxes and diagrams **liberally** — they make analysis memorable and findings scannable. When in doubt, add a diagram.
 
-**When to use ASCII diagrams:**
-- Summarizing a paper's core contribution
-- Showing how papers relate to the thesis
-- Comparing findings across papers
-- Illustrating mechanisms or pipelines
-- Creating memorable takeaways
+**Use ASCII diagrams for:**
+- **Paper analyses** — box the core finding, visualize the methodology
+- **Synthesis sections** — compare papers, show convergent evidence
+- **Key insights** — make the takeaway impossible to miss
+- **Relationships** — arrows showing rebuttals, extensions, support
+- **Processes** — pipelines, decision trees, causal chains
+- **Contradictions** — side-by-side comparisons of competing claims
+- **Status reports** — session summaries, progress tracking
 
 **Box alignment rule**: All lines in an ASCII box **MUST** have the same length.
 
