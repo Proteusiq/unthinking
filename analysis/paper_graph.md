@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 258
+> **Papers tracked**: 260
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1400,6 +1400,13 @@ These papers have NO direct rebuttals found:
 | LRMs Autonomous Agents (2508.04039) | 97% ASR using reasoning models as attack agents (Nature Comms 2026) |
 | Jailbreaking Simpler (2503.05264) | Context Compliance Attack exploits stateless design; Llama-3.1 fully vulnerable |
 | Dark LLMs (2505.10066) | Universal jailbreak persists 7+ months; open-source releases irreversible |
+
+### 2026-03-06
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Memorization Fine-Tuned LLMs (2507.21009) | W^V and W^O matrices drive memorization (0.80-0.83 AUC vs 0.68-0.72 for Q/K); lower perplexity → higher memorization; fine-tuning = pattern storage |
+| Non-Determinism LLMs (2408.04667) | Accuracy varies up to 15% at temperature=0; best-to-worst gap up to 70%; TARr@10=0% on many tasks; non-determinism essential for compute efficiency |
+| Unfaithful Reasoning (2602.01017) | UPDATED: Added shortcuts amplify unfaithfulness, scaling makes unfaithfulness emerge faster, quantitative details |
 
 ### 2026-03-05
 | Papers Added | Key Findings |
