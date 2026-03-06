@@ -1,6 +1,6 @@
 # Synthesis: The Thinking Machine That Doesn't Think
 
-> **Papers analyzed**: 242
+> **Papers analyzed**: 258
 >
 > **See also**: `memento.md` for executive summary
 
@@ -1577,3 +1577,183 @@ Both unlearning and jailbreaking ask the model to do something that contradicts 
 The quantization result (21%→83%) and the jailbreak ASR (97.14%) are two faces of the same coin: statistical pattern matching cannot be surgically constrained.
 
 **Final implication**: If we want reliable unlearning or robust safety, we may need architectures fundamentally different from next-token prediction. The current paradigm — however scaled — cannot provide guarantees because guarantees require discrete constraints, not statistical tendencies.
+
+---
+
+## Part XII: The Diffusion LLM Window
+
+### What Diffusion Language Models Reveal
+
+Diffusion language models (DLMs) provide a unique experimental window into LLM computation. Unlike autoregressive models that generate tokens left-to-right, diffusion models can generate all tokens in parallel — revealing what autoregressive models hide behind sequential generation.
+
+**Papers analyzed**: 254-258 (5 papers, Feb-Mar 2026)
+
+| # | Paper | arXiv | Key Finding |
+|---|-------|-------|-------------|
+| 254 | Reasoning or Rationalization | 2603.01190 | Verdict resolves in first few diffusion steps; forcing deliberation HURTS accuracy (86.2%→71.9%); 56% rationalize wrong answers |
+| 255 | Why DLMs Struggle Parallel | 2602.23225 | DLMs collapse to AR-like decoding (ARness 0.73-0.92); CoT training INCREASES ARness; forcing parallelism breaks reasoning |
+| 256 | Test-Time Scaling Stitching | 2602.22871 | Step-level stitching works; fragmented evidence with gaps/contradictions still produces correct answers via AR solver |
+| 257 | No Compute Left Behind | 2510.19990 | **POST-HOC REASONING = FORWARD REASONING** quality (66.1% vs 64.6%); post-hoc traces OUTPERFORM human-written |
+| 258 | MCTS Slot Filling | 2602.12586 | Random order destroys performance (-17%); models default to L2R even when free to choose; MCTS finds order via VALUE not LOGIC |
+
+### The Core Revelation: Sequential Reasoning is Post-Hoc Narrative
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                   THE DIFFUSION WINDOW                              │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│  AUTOREGRESSIVE MODELS HIDE THE TRUTH:                              │
+│  Token 1 → Token 2 → Token 3 → ... → Answer                         │
+│  Looks like: reasoning builds to conclusion                         │
+│                                                                     │
+│  DIFFUSION MODELS REVEAL THE TRUTH:                                 │
+│  [All tokens generated in parallel]                                 │
+│  Answer crystallizes in FIRST FEW STEPS                             │
+│  Reasoning is filled in AFTER                                       │
+│                                                                     │
+│  IMPLICATION: The "reasoning trace" is narrative construction       │
+│               — not the computation that produces the answer        │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### Finding 1: The Answer Comes First (Paper 254)
+
+In masked diffusion models, the verdict/answer crystallizes within the first few diffusion steps — well before the justification is complete.
+
+**Key evidence:**
+- Forcing the model to generate justification BEFORE verdict **degrades** accuracy: 86.2% → 71.9% (-14.3%)
+- When forced to justify wrong answers, only 44% maintain logical integrity; **56% rationalize the wrong answer**
+- "Refinement drift": as justification tokens accumulate, they can override initially correct verdicts
+
+> "Even when explicitly prompted to generate justifications first, LLaDA consistently predicts the verdict within the first few diffusion steps."
+
+**Implication**: The answer is computed immediately through pattern matching. The "reasoning" is a post-hoc story explaining a decision already made.
+
+### Finding 2: Left-to-Right is Learned, Not Required (Paper 255)
+
+Despite having parallel architecture, diffusion LMs converge to left-to-right generation patterns. This sequential behavior is learned from training data, not inherent to reasoning.
+
+**Key evidence:**
+- ARness (autoregressive-ness) ranges from 0.73-0.92 even with "arbitrary order" decoding
+- CoT post-training INCREASES ARness (+0.08 for LLaDA)
+- Forcing parallel decoding causes >40% accuracy drop on GSM8K
+- Training data (FineWeb, OpenR1-Math) has high sequential dependence
+
+> "Even if the diffusion process is nominally position-agnostic, the model can learn denoising strategies that preferentially reconstruct outputs in an AR-shaped manner."
+
+**Implication**: Sequential reasoning is a pattern learned from sequential training data — not a requirement of logical inference.
+
+### Finding 3: Reasoning is Assembly, Not Inference (Paper 256)
+
+High-quality reasoning traces can be assembled from fragments across different trajectories. The final AR solver "reconciles" potentially contradictory evidence into coherent answers.
+
+**Key evidence:**
+- Step-level stitching outperforms trajectory-level selection: 91.5% vs 90.1% on GSM8K
+- Stitched evidence can have "redundancy, small gaps, or occasional contradictions" yet still produce correct answers
+- Low-confidence sampling (noisy traces) still works when filtered by PRM
+
+> "In effect, this AR stage acts as a reconciliation step: it selects a consistent subset of evidence, fills in missing links, and produces a coherent final solution."
+
+**Implication**: If reasoning were a causal chain where each step depends on previous steps, you couldn't stitch fragments from different trajectories. The fact that this works proves reasoning is pattern matching at the step level, assembled into narratives.
+
+### Finding 4: Post-Hoc = Forward Quality (Paper 257) — THE SMOKING GUN
+
+This is the most direct evidence that reasoning traces are narrative construction, not computation.
+
+**The experiment:**
+1. Give the model the correct answer (pre-fill answer block)
+2. Ask it to generate reasoning that leads to this answer (posterior sampling)
+3. Compare quality to human-written forward reasoning traces
+
+**Results:**
+
+| Fine-tuning Data | GSM8K Test Accuracy |
+|------------------|---------------------|
+| No fine-tuning | 51.2% |
+| Human-written forward traces | 64.6% (+13.4%) |
+| **Model-generated post-hoc traces** | **66.1% (+14.9%)** |
+
+**POST-HOC REASONING OUTPERFORMS HUMAN-WRITTEN FORWARD REASONING.**
+
+> "Fine-tuning LLaDA-8B Base on its posterior reasoning traces provides a performance boost on par with fine-tuning on human-written reasoning traces."
+
+**Implication**: If the reasoning trace were the actual computation, you couldn't generate it backward (answer → reasoning). The fact that posterior traces are **better** for training proves the "reasoning" is narrative construction optimized for plausibility, not logical inference.
+
+### Finding 5: Order Matters Enormously — But Arbitrarily (Paper 258)
+
+Slot filling order dramatically affects performance, but the optimal order varies per sample and is found through value optimization, not logical necessity.
+
+**Key evidence:**
+- Random ordering destroys performance: 60.5% → 43.1% (-17.4%)
+- Even with MCTS freedom, models predominantly follow L2R ordering
+- MCTS finds better orders through exploration, not logical reasoning
+- "A slot that appears highly confident in isolation may constrain predictions for remaining slots"
+
+**Implication**: If reasoning were logical, order shouldn't matter (premises can be combined in any order). The extreme order sensitivity proves models are doing pattern matching, where sequential patterns learned from training data determine success.
+
+### The Sudoku Exception
+
+One finding initially appears to challenge the thesis: Sudoku benefits from any-order decoding.
+
+| Task | Best with L2R | Best with Any-Order |
+|------|---------------|---------------------|
+| GSM8K | ✓ | |
+| MATH500 | ✓ | |
+| HumanEval | ✓ | |
+| **Sudoku** | | ✓ (47.6% vs 36.1%) |
+
+**Explanation**: Sudoku is a **constraint satisfaction problem** where the order of filling cells genuinely doesn't matter. Any valid constraint can be applied from any direction. This is fundamentally different from mathematical/coding reasoning, which involves sequential logical dependencies.
+
+The Sudoku exception actually **supports** the thesis: when a task has genuinely order-independent structure, parallel generation helps. When a task requires following learned sequential patterns (math/code), order matters because the model is pattern matching, not reasoning.
+
+### Synthesis: The Diffusion Evidence
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                   WHAT DIFFUSION LLMs PROVE                         │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│  1. THE ANSWER COMES FIRST                                          │
+│     Verdict crystallizes in early diffusion steps                   │
+│     Forcing deliberation HURTS accuracy                             │
+│                                                                     │
+│  2. SEQUENTIAL IS LEARNED, NOT REQUIRED                             │
+│     L2R is data bias from training corpora                          │
+│     Models CHOOSE sequential even when free to parallelize          │
+│                                                                     │
+│  3. REASONING IS ASSEMBLY                                           │
+│     Fragments can be stitched across trajectories                   │
+│     Gaps and contradictions don't prevent correct answers           │
+│                                                                     │
+│  4. POST-HOC = FORWARD                                              │
+│     Generating reasoning AFTER knowing the answer works             │
+│     These traces are BETTER for training than forward reasoning     │
+│                                                                     │
+│  5. ORDER IS ARBITRARY                                              │
+│     Optimal order varies per sample                                 │
+│     MCTS finds order via VALUE, not LOGIC                           │
+│                                                                     │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│  CONCLUSION: Sequential "reasoning" is post-hoc narrative           │
+│              construction. The information is already there.        │
+│              The trace is not the computation — it's the story.     │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### Connection to Main Thesis
+
+The diffusion evidence directly supports the core thesis that LLMs are sophisticated pattern matchers, not reasoning engines:
+
+1. **Surfacing hypothesis confirmed**: If answers crystallize in early diffusion steps, the information was already accessible — reasoning is surfacing, not computing.
+
+2. **Faithfulness problem explained**: If post-hoc reasoning is as good as forward reasoning, CoT can be unfaithful because it was never the actual computation.
+
+3. **Scaling limitations explained**: If sequential patterns are learned from training data, more parameters don't buy genuine reasoning — just better pattern matching.
+
+4. **Tool augmentation explained**: External tools work because they provide genuine computation that pattern matching cannot — not because they "help" reasoning.
+
+The diffusion window reveals what autoregressive generation conceals: **the conclusion determines the reasoning, not vice versa.**
