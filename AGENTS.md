@@ -314,6 +314,24 @@ When expanding the corpus, search multiple angles:
 
 ---
 
+## Updating Findings Page
+
+When paper counts or stance distribution changes significantly, update `docs/pages/findings.html`:
+
+1. **Stance counts** — Update the three stance cards (supports/balanced/challenges) with new numbers and percentages
+2. **Paper distribution chart** — Update batch rows if new papers are added
+3. **Theme tables** — Add significant new papers to relevant theme sections
+4. **Smoking guns** — Update if a new paper provides stronger evidence than existing entries
+
+The findings page is linked from:
+- Main thesis on `docs/index.html` (the word "predictive")
+- README.md thesis section
+- README.md visualization table
+
+Run `cd docs && npm run format` after editing.
+
+---
+
 ## Key Lessons
 
 ### 1. Rebuttals Can Be Rebutted
@@ -409,6 +427,7 @@ gh auth switch --user <username>
     ├── SPECS.md                # Technical specs for this folder
     ├── index.html              # Main page (graph + overlays)
     ├── pages/                  # Deep-dive standalone pages
+    │   ├── findings.html       # 260-paper synthesis (themes, smoking guns, patterns)
     │   ├── data.html           # Pre-training Data Pipeline
     │   ├── tokenization.html   # Tokenization Pipeline
     │   ├── architecture.html   # LLM Architecture Evolution
