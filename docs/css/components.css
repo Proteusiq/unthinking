@@ -588,6 +588,20 @@
   font-style: normal;
   font-weight: 600;
 }
+.thesis-keyword-link {
+  text-decoration: none;
+  border-bottom: 1px dashed var(--accent-supports);
+  transition:
+    border-color 0.2s,
+    opacity 0.2s;
+}
+.thesis-keyword-link:hover {
+  border-bottom-style: solid;
+  opacity: 0.85;
+}
+.thesis-keyword-link em {
+  color: var(--accent-supports);
+}
 
 /* Thesis Footer Links */
 .thesis-footer {
