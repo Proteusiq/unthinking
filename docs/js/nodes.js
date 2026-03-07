@@ -4625,7 +4625,8 @@ window.paperNodes = [
   },
   {
     id: '2402.05880',
-    title: 'Generative Echo Chamber? Effects of LLM-Powered Search Systems on Diverse Information Seeking',
+    title:
+      'Generative Echo Chamber? Effects of LLM-Powered Search Systems on Diverse Information Seeking',
     shortTitle: 'Generative Echo Chamber',
     date: 'Feb 2024',
     stance: 'supports',
@@ -4735,7 +4736,8 @@ window.paperNodes = [
   },
   {
     id: '2411.16679',
-    title: 'Do Large Language Models Perform Latent Multi-Hop Reasoning without Exploiting Shortcuts?',
+    title:
+      'Do Large Language Models Perform Latent Multi-Hop Reasoning without Exploiting Shortcuts?',
     shortTitle: 'Latent Multi-Hop',
     date: 'Nov 2024',
     stance: 'supports',
@@ -4794,7 +4796,7 @@ window.paperNodes = [
     ],
     keyQuotes: [
       'LLMs operationalize System 1 cognition at scale: fast, associative, and persuasive, but without reflection or falsification.',
-      'Rose-Frame does not attempt to fix LLMs with more data or rules. Instead, it offers a reflective tool that makes both the model\'s limitations and the user\'s assumptions visible.',
+      "Rose-Frame does not attempt to fix LLMs with more data or rules. Instead, it offers a reflective tool that makes both the model's limitations and the user's assumptions visible.",
     ],
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/220-229/225_beyond_hallucinations_illusion_understanding.md',
@@ -4895,7 +4897,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'theoretical',
     coreArgument:
-      'Alignment merely changes task priors, not the model\'s underlying knowledge. Harmful behaviors remain learnable via ICL.',
+      "Alignment merely changes task priors, not the model's underlying knowledge. Harmful behaviors remain learnable via ICL.",
     keyEvidence: [
       'Mathematical proof: alignment changes priors only',
       'ICL can override alignment given enough examples',
@@ -5087,7 +5089,8 @@ window.paperNodes = [
   },
   {
     id: '2510.09007',
-    title: 'LLM Unlearning on Noisy Forget Sets: A Study of Incomplete, Rewritten, and Watermarked Data',
+    title:
+      'LLM Unlearning on Noisy Forget Sets: A Study of Incomplete, Rewritten, and Watermarked Data',
     shortTitle: 'Noisy Forget Sets',
     date: 'Oct 2025',
     stance: 'balanced',
@@ -5255,7 +5258,7 @@ window.paperNodes = [
       'Negative controls: 10^-14% extraction on non-training data',
     ],
     keyQuotes: [
-      'In order to be able to extract memorized content from a model at generation time, that memorized content must be encoded in the model\'s parameters. There is nowhere else it could be.',
+      "In order to be able to extract memorized content from a model at generation time, that memorized content must be encoded in the model's parameters. There is nowhere else it could be.",
       'Models do not memorize all of their training data, but they do memorize some of it.',
     ],
     analysisUrl:
@@ -5300,14 +5303,15 @@ window.paperNodes = [
     ],
     keyQuotes: [
       'Task performance does not directly translate to high faithfulness scores.',
-      'A modified reward shaping by adding a format reward may improve model performance, but in return potentially breaks the model\'s reasoning consistency.',
+      "A modified reward shaping by adding a format reward may improve model performance, but in return potentially breaks the model's reasoning consistency.",
     ],
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/240-249/248_veritas_faithful_rag.md',
   },
   {
     id: '2602.07833',
-    title: 'SPD-Faith Bench: Diagnosing and Improving Faithfulness in Chain-of-Thought for Multimodal Large Language Models',
+    title:
+      'SPD-Faith Bench: Diagnosing and Improving Faithfulness in Chain-of-Thought for Multimodal Large Language Models',
     shortTitle: 'SPD-Faith Bench',
     date: 'Feb 2026',
     stance: 'supports',
@@ -5465,8 +5469,7 @@ window.paperNodes = [
   },
   {
     id: '2602.22871',
-    title:
-      'Test-Time Scaling with Diffusion Language Models via Reward-Guided Stitching',
+    title: 'Test-Time Scaling with Diffusion Language Models via Reward-Guided Stitching',
     shortTitle: 'Diffusion Stitching',
     date: 'Feb 2026',
     stance: 'balanced',
@@ -5489,8 +5492,7 @@ window.paperNodes = [
   },
   {
     id: '2510.19990',
-    title:
-      'No Compute Left Behind: Rethinking Reasoning and Sampling with Masked Diffusion Models',
+    title: 'No Compute Left Behind: Rethinking Reasoning and Sampling with Masked Diffusion Models',
     shortTitle: 'No Compute Left Behind',
     date: 'Oct 2025',
     stance: 'supports',
