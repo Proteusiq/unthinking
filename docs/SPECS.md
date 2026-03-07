@@ -56,8 +56,9 @@ This makes the debate accessible and engaging.
 ### File Structure (Split for Maintainability)
 
 As of 2026-02-09, the data is split into three files:
+
 - `js/nodes.js` - Paper node definitions (~3,500 lines)
-- `js/links.js` - Relationship link definitions (~3,200 lines)  
+- `js/links.js` - Relationship link definitions (~3,200 lines)
 - `js/data.js` - Meta info and combines nodes/links (~20 lines)
 
 All three must be loaded in order: `nodes.js`, `links.js`, then `data.js`.
@@ -114,6 +115,7 @@ Links come from the "Relationship to Other Papers" section in each analysis and 
 4. **Description** → specific finding/mechanism connecting the two papers
 
 Example:
+
 ```javascript
 {
   source: '2410.05229',
@@ -131,12 +133,12 @@ A future script could parse `/analysis/explored/**/*.md` files and auto-generate
 
 ## Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| D3.js v7 | Force-directed graph visualization |
-| Vanilla JS | No framework, single `graph.js` file |
-| CSS3 | Glass-morphic design, CSS variables for theming |
-| Prettier | Code formatting (`npm run format`) |
+| Technology | Purpose                                         |
+| ---------- | ----------------------------------------------- |
+| D3.js v7   | Force-directed graph visualization              |
+| Vanilla JS | No framework, single `graph.js` file            |
+| CSS3       | Glass-morphic design, CSS variables for theming |
+| Prettier   | Code formatting (`npm run format`)              |
 
 ---
 
@@ -173,28 +175,12 @@ docs/
 
 ```css
 /* Spacing */
---space-xs: 0.25rem   /* 4px */
---space-sm: 0.5rem    /* 8px */
---space-md: 1rem      /* 16px */
---space-lg: 1.5rem    /* 24px */
---space-xl: 2rem      /* 32px */
-
-/* Z-index layers */
---z-graph: 1
---z-controls: 10
---z-tooltip: 100
---z-panel: 200
---z-header: 50
-
-/* Accent colors (stance) */
---accent-supports: #10b981    /* Green */
---accent-challenges: #f43f5e  /* Red */
---accent-balanced: #f59e0b    /* Amber */
-
-/* Edge colors */
---edge-supports: #34d399
---edge-rebuts: #fb7185
---edge-extends: #a78bfa
+--space-xs: 0.25rem /* 4px */ --space-sm: 0.5rem /* 8px */ --space-md: 1rem /* 16px */
+  --space-lg: 1.5rem /* 24px */ --space-xl: 2rem /* 32px */ /* Z-index layers */ --z-graph: 1
+  --z-controls: 10 --z-tooltip: 100 --z-panel: 200 --z-header: 50 /* Accent colors (stance) */
+  --accent-supports: #10b981 /* Green */ --accent-challenges: #f43f5e /* Red */
+  --accent-balanced: #f59e0b /* Amber */ /* Edge colors */ --edge-supports: #34d399
+  --edge-rebuts: #fb7185 --edge-extends: #a78bfa;
 ```
 
 ### Themes
@@ -219,14 +205,14 @@ docs/
 
 ### Positioning (Desktop)
 
-| Component | Position | Notes |
-|-----------|----------|-------|
-| Header | `top: 0`, full width | Collapsible, 56px compact height |
-| Thesis Card | `top: 105px`, `left: space-sm` | Below header, 360px width |
-| Dialogue Panel | Dynamic via JS | 12px below thesis card |
-| Legend | `bottom: space-xl`, `left: space-sm` | Compact, side-by-side |
-| Zoom Controls | `bottom: space-xl`, `right: space-xl` | 3 buttons |
-| Side Panel | `right: 0`, 420px width | Slides in on node click |
+| Component      | Position                              | Notes                            |
+| -------------- | ------------------------------------- | -------------------------------- |
+| Header         | `top: 0`, full width                  | Collapsible, 56px compact height |
+| Thesis Card    | `top: 105px`, `left: space-sm`        | Below header, 360px width        |
+| Dialogue Panel | Dynamic via JS                        | 12px below thesis card           |
+| Legend         | `bottom: space-xl`, `left: space-sm`  | Compact, side-by-side            |
+| Zoom Controls  | `bottom: space-xl`, `right: space-xl` | 3 buttons                        |
+| Side Panel     | `right: 0`, 420px width               | Slides in on node click          |
 
 ### Positioning (Mobile ≤768px)
 
@@ -273,10 +259,16 @@ docs/
 
 ```javascript
 d3.forceSimulation(nodes)
-  .force('link', d3.forceLink(links).id(d => d.id).distance(100))
+  .force(
+    'link',
+    d3
+      .forceLink(links)
+      .id((d) => d.id)
+      .distance(100)
+  )
   .force('charge', d3.forceManyBody().strength(-300))
-  .force('center', d3.forceCenter(width/2, height/2))
-  .force('collision', d3.forceCollide().radius(30))
+  .force('center', d3.forceCenter(width / 2, height / 2))
+  .force('collision', d3.forceCollide().radius(30));
 ```
 
 ### Idle Animation ("Alive" mode)
@@ -313,17 +305,17 @@ d3.forceSimulation(nodes)
 
 ## Interactions
 
-| Action | Result |
-|--------|--------|
-| Hover node | Tooltip, highlight connections |
-| Click node | Open side panel, start related dialogues |
-| Double-click node | Zoom to connected nodes |
-| Drag node | Move node, pause simulation |
-| Click background | Close panel, clear highlights |
-| Double-click header | Collapse header |
-| Double-click thesis/dialogue | Hide panel |
-| Filter buttons | Show/hide nodes by stance |
-| Search | Filter nodes by title |
+| Action                       | Result                                   |
+| ---------------------------- | ---------------------------------------- |
+| Hover node                   | Tooltip, highlight connections           |
+| Click node                   | Open side panel, start related dialogues |
+| Double-click node            | Zoom to connected nodes                  |
+| Drag node                    | Move node, pause simulation              |
+| Click background             | Close panel, clear highlights            |
+| Double-click header          | Collapse header                          |
+| Double-click thesis/dialogue | Hide panel                               |
+| Filter buttons               | Show/hide nodes by stance                |
+| Search                       | Filter nodes by title                    |
 
 ---
 
@@ -336,6 +328,7 @@ d3.forceSimulation(nodes)
 ```
 
 Key mobile changes:
+
 - Header stacks vertically
 - Filter buttons wrap, smaller padding
 - Thesis card full-width
@@ -370,8 +363,12 @@ npm run format:check  # Check without writing
 1. Add node to `js/nodes.js` (see Node Data Structure above)
 2. Add links to `js/links.js` (3-5 outgoing links, each with unique description)
 3. Update `meta.totalAnalyzed` count in `js/data.js`
-4. Optionally add dialogue to `js/graph.js` → `dialogues` array
-5. Run `npm run format`
+4. Update `pages/findings.html` if counts change:
+   - Stance cards (supports/balanced/challenges numbers and percentages)
+   - Paper distribution chart (add new batch row if needed)
+   - Theme tables (if paper provides significant evidence)
+5. Optionally add dialogue to `js/graph.js` → `dialogues` array
+6. Run `npm run format`
 
 ### Adding a Dialogue
 
