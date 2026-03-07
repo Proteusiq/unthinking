@@ -1,0 +1,1660 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>260 Papers on LLM Reasoning | The Thinking Machine That Doesn't Think</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: #0d1117;
+        color: #c9d1d9;
+        font-family: 'Courier New', monospace;
+        padding: 1.5rem 1rem 3rem;
+        line-height: 1.6;
+      }
+
+      /* Header */
+      .header {
+        max-width: 900px;
+        margin: 0 auto 2rem;
+        text-align: center;
+      }
+
+      .back-link {
+        display: inline-block;
+        color: #8b949e;
+        text-decoration: none;
+        font-size: 0.75rem;
+        margin-bottom: 1rem;
+        transition: color 0.2s;
+      }
+
+      .back-link:hover {
+        color: #58a6ff;
+      }
+
+      h1 {
+        color: #d29922;
+        font-size: 1.4rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+      }
+
+      .subtitle {
+        color: #8b949e;
+        font-size: 0.8rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .thesis-box {
+        background: linear-gradient(135deg, #161b22 0%, #1c2128 100%);
+        border: 1px solid #d29922;
+        border-radius: 8px;
+        padding: 1.2rem 1.5rem;
+        margin: 0 auto 2rem;
+        max-width: 700px;
+      }
+
+      .thesis-label {
+        color: #d29922;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 0.5rem;
+      }
+
+      .thesis-text {
+        color: #e6edf3;
+        font-size: 0.9rem;
+        font-style: italic;
+      }
+
+      /* Stance Distribution */
+      .stance-section {
+        max-width: 900px;
+        margin: 0 auto 2.5rem;
+      }
+
+      .stance-grid {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .stance-card {
+        background: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 8px;
+        padding: 1rem 1.5rem;
+        text-align: center;
+        min-width: 160px;
+        transition:
+          transform 0.2s,
+          border-color 0.2s;
+      }
+
+      .stance-card:hover {
+        transform: translateY(-2px);
+      }
+
+      .stance-card.supports {
+        border-color: #238636;
+      }
+
+      .stance-card.balanced {
+        border-color: #d29922;
+      }
+
+      .stance-card.challenges {
+        border-color: #da3633;
+      }
+
+      .stance-number {
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: 1;
+      }
+
+      .stance-card.supports .stance-number {
+        color: #3fb950;
+      }
+
+      .stance-card.balanced .stance-number {
+        color: #d29922;
+      }
+
+      .stance-card.challenges .stance-number {
+        color: #f85149;
+      }
+
+      .stance-label {
+        font-size: 0.7rem;
+        color: #8b949e;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 0.3rem;
+      }
+
+      .stance-percent {
+        font-size: 0.85rem;
+        color: #c9d1d9;
+        margin-top: 0.2rem;
+      }
+
+      /* Section Headers */
+      .section-header {
+        max-width: 900px;
+        margin: 2.5rem auto 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #30363d;
+      }
+
+      .section-header h2 {
+        color: #d29922;
+        font-size: 0.85rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      /* Themes */
+      .themes-container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .theme {
+        background: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 8px;
+        margin-bottom: 0.75rem;
+        overflow: hidden;
+        transition: border-color 0.2s;
+      }
+
+      .theme:hover {
+        border-color: #484f58;
+      }
+
+      .theme-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.25rem;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .theme-header:hover {
+        background: #1c2128;
+      }
+
+      .theme-title {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .theme-number {
+        background: #d29922;
+        color: #0d1117;
+        font-size: 0.7rem;
+        font-weight: bold;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        min-width: 24px;
+        text-align: center;
+      }
+
+      .theme-name {
+        color: #e6edf3;
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
+
+      .theme-verdict {
+        color: #8b949e;
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+        background: #21262d;
+        border-radius: 4px;
+      }
+
+      .theme-toggle {
+        color: #8b949e;
+        font-size: 1.2rem;
+        transition: transform 0.3s;
+      }
+
+      .theme.open .theme-toggle {
+        transform: rotate(180deg);
+      }
+
+      .theme-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+
+      .theme.open .theme-content {
+        max-height: 1000px;
+      }
+
+      .theme-inner {
+        padding: 0 1.25rem 1.25rem;
+        border-top: 1px solid #30363d;
+      }
+
+      .theme-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+        font-size: 0.8rem;
+      }
+
+      .theme-table th {
+        text-align: left;
+        color: #8b949e;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 0.5rem 0.75rem;
+        border-bottom: 1px solid #30363d;
+      }
+
+      .theme-table td {
+        padding: 0.6rem 0.75rem;
+        border-bottom: 1px solid #21262d;
+        vertical-align: top;
+      }
+
+      .theme-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .paper-id {
+        color: #58a6ff;
+        font-weight: bold;
+        white-space: nowrap;
+      }
+
+      .key-number {
+        color: #3fb950;
+        font-weight: bold;
+        white-space: nowrap;
+      }
+
+      .theme-insight {
+        background: #1c2128;
+        border-left: 3px solid #d29922;
+        padding: 0.75rem 1rem;
+        margin-top: 1rem;
+        font-size: 0.8rem;
+      }
+
+      .theme-insight strong {
+        color: #d29922;
+      }
+
+      /* Smoking Guns */
+      .smoking-guns {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .gun {
+        display: flex;
+        gap: 1rem;
+        padding: 1rem;
+        background: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 8px;
+        margin-bottom: 0.5rem;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+      }
+
+      .gun:hover {
+        border-color: #f85149;
+        background: #1c2128;
+      }
+
+      .gun-rank {
+        background: linear-gradient(135deg, #da3633 0%, #f85149 100%);
+        color: #fff;
+        font-size: 0.8rem;
+        font-weight: bold;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .gun-content {
+        flex: 1;
+      }
+
+      .gun-paper {
+        color: #58a6ff;
+        font-weight: bold;
+        font-size: 0.85rem;
+      }
+
+      .gun-finding {
+        color: #e6edf3;
+        font-size: 0.85rem;
+        margin: 0.25rem 0;
+      }
+
+      .gun-implication {
+        color: #8b949e;
+        font-size: 0.75rem;
+        font-style: italic;
+      }
+
+      /* Patterns */
+      .patterns-grid {
+        max-width: 900px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1rem;
+      }
+
+      .pattern-card {
+        background: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 8px;
+        padding: 1rem;
+        transition: border-color 0.2s;
+      }
+
+      .pattern-card:hover {
+        border-color: #484f58;
+      }
+
+      .pattern-name {
+        color: #d29922;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 0.5rem;
+      }
+
+      .pattern-desc {
+        color: #c9d1d9;
+        font-size: 0.8rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .pattern-papers {
+        font-size: 0.7rem;
+        color: #8b949e;
+      }
+
+      .pattern-papers span {
+        color: #58a6ff;
+      }
+
+      /* Distribution Chart */
+      .distribution {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .dist-row {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.4rem;
+        font-size: 0.75rem;
+      }
+
+      .dist-label {
+        width: 70px;
+        color: #8b949e;
+        text-align: right;
+        flex-shrink: 0;
+      }
+
+      .dist-bar-container {
+        flex: 1;
+        height: 20px;
+        background: #21262d;
+        border-radius: 4px;
+        overflow: hidden;
+        display: flex;
+      }
+
+      .dist-bar {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 6px;
+        font-size: 0.6rem;
+        color: #0d1117;
+        font-weight: bold;
+        transition: width 0.5s ease-out;
+      }
+
+      .dist-bar.supports {
+        background: linear-gradient(90deg, #238636 0%, #3fb950 100%);
+      }
+
+      .dist-bar.balanced {
+        background: linear-gradient(90deg, #9e6a03 0%, #d29922 100%);
+      }
+
+      .dist-bar.challenges {
+        background: linear-gradient(90deg, #da3633 0%, #f85149 100%);
+      }
+
+      .dist-count {
+        width: 30px;
+        color: #8b949e;
+        font-size: 0.7rem;
+        flex-shrink: 0;
+      }
+
+      /* Equation Box */
+      .equation-section {
+        max-width: 700px;
+        margin: 2.5rem auto;
+        text-align: center;
+      }
+
+      .equation-box {
+        background: linear-gradient(135deg, #161b22 0%, #1c2128 100%);
+        border: 2px solid #30363d;
+        border-radius: 12px;
+        padding: 2rem;
+      }
+
+      .equation {
+        font-size: 1.5rem;
+        color: #e6edf3;
+        margin-bottom: 1rem;
+        font-family: 'Times New Roman', serif;
+        font-style: italic;
+      }
+
+      .equation-explain {
+        color: #8b949e;
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+      }
+
+      .equation-meaning {
+        color: #d29922;
+        font-size: 0.85rem;
+        font-weight: bold;
+      }
+
+      .equation-source {
+        color: #58a6ff;
+        font-size: 0.7rem;
+        margin-top: 1rem;
+      }
+
+      /* Conclusion */
+      .conclusion {
+        max-width: 700px;
+        margin: 2rem auto;
+        text-align: center;
+      }
+
+      .conclusion-box {
+        background: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 12px;
+        padding: 2rem;
+      }
+
+      .conclusion-main {
+        color: #e6edf3;
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .conclusion-columns {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .conclusion-col {
+        text-align: center;
+      }
+
+      .conclusion-col-header {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 0.5rem;
+      }
+
+      .conclusion-col-header.in {
+        color: #3fb950;
+      }
+
+      .conclusion-col-header.out {
+        color: #f85149;
+      }
+
+      .conclusion-col-value {
+        font-size: 0.9rem;
+        color: #c9d1d9;
+      }
+
+      /* Footer */
+      .footer {
+        max-width: 900px;
+        margin: 3rem auto 0;
+        padding-top: 1.5rem;
+        border-top: 1px solid #30363d;
+        text-align: center;
+        color: #8b949e;
+        font-size: 0.7rem;
+      }
+
+      .footer a {
+        color: #58a6ff;
+        text-decoration: none;
+      }
+
+      .footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* Responsive */
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 1.1rem;
+          letter-spacing: 2px;
+        }
+
+        .stance-grid {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .stance-card {
+          width: 100%;
+          max-width: 200px;
+        }
+
+        .gun {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .gun-rank {
+          align-self: flex-start;
+        }
+
+        .theme-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.5rem;
+        }
+
+        .theme-verdict {
+          align-self: flex-start;
+        }
+
+        .patterns-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .conclusion-columns {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <a href="../index.html" class="back-link">← Back to Graph</a>
+      <h1>260 Papers on LLM Reasoning</h1>
+      <p class="subtitle">Systematic Literature Review Findings</p>
+
+      <div class="thesis-box">
+        <div class="thesis-label">Core Thesis</div>
+        <div class="thesis-text">
+          LLMs are sophisticated pattern matchers, not genuine reasoners. They excel within their
+          training distributions and fail systematically when asked to generalize beyond them.
+        </div>
+      </div>
+    </header>
+
+    <!-- Stance Distribution -->
+    <section class="stance-section">
+      <div class="stance-grid">
+        <div class="stance-card supports">
+          <div class="stance-number">179</div>
+          <div class="stance-label">Supports</div>
+          <div class="stance-percent">69%</div>
+        </div>
+        <div class="stance-card balanced">
+          <div class="stance-number">65</div>
+          <div class="stance-label">Balanced</div>
+          <div class="stance-percent">25%</div>
+        </div>
+        <div class="stance-card challenges">
+          <div class="stance-number">16</div>
+          <div class="stance-label">Challenges</div>
+          <div class="stance-percent">6%</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 Key Themes -->
+    <div class="section-header">
+      <h2>10 Key Themes</h2>
+    </div>
+
+    <div class="themes-container">
+      <!-- Theme 1 -->
+      <div class="theme">
+        <div class="theme-header" onclick="toggleTheme(this)">
+          <div class="theme-title">
+            <span class="theme-number">1</span>
+            <span class="theme-name">Faithfulness of Chain-of-Thought</span>
+          </div>
+          <span class="theme-verdict">25-39% faithful</span>
+          <span class="theme-toggle">▼</span>
+        </div>
+        <div class="theme-content">
+          <div class="theme-inner">
+            <table class="theme-table">
+              <tr>
+                <th>Paper</th>
+                <th>Finding</th>
+                <th>Key Number</th>
+              </tr>
+              <tr>
+                <td class="paper-id">#08</td>
+                <td>Larger models LESS faithful</td>
+                <td class="key-number">7/8 tasks</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#10</td>
+                <td>Claude 3.7 Sonnet 25% faithful, DeepSeek R1 39%</td>
+                <td class="key-number">25-39%</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#43</td>
+                <td>40-60% unfaithfulness rate; OOD → 74% unfaithful</td>
+                <td class="key-number">74% OOD</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#62</td>
+                <td>Faithfulness-accuracy tradeoff exists</td>
+                <td class="key-number">GPT-4: lowest faith</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#247</td>
+                <td>"Reasoning Horizon" at 70-85% of chain</td>
+                <td class="key-number">&lt;20% causal</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#257</td>
+                <td>Post-hoc reasoning = forward reasoning quality</td>
+                <td class="key-number">66.1% &gt; 64.6%</td>
+              </tr>
+            </table>
+            <div class="theme-insight">
+              <strong>Key Insight:</strong> Paper #257 provides the smoking gun — if post-hoc
+              reasoning is AS GOOD as forward reasoning, the "reasoning" is narrative construction,
+              not computation.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Theme 2 -->
+      <div class="theme">
+        <div class="theme-header" onclick="toggleTheme(this)">
+          <div class="theme-title">
+            <span class="theme-number">2</span>
+            <span class="theme-name">Memorization vs Generalization</span>
+          </div>
+          <span class="theme-verdict">100% ID → 0% OOD</span>
+          <span class="theme-toggle">▼</span>
+        </div>
+        <div class="theme-content">
+          <div class="theme-inner">
+            <table class="theme-table">
+              <tr>
+                <th>Paper</th>
+                <th>Finding</th>
+                <th>Key Number</th>
+              </tr>
+              <tr>
+                <td class="paper-id">#01</td>
+                <td>GSM-Symbolic: pattern matching, not reasoning</td>
+                <td class="key-number">65% drop</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#06</td>
+                <td>DataAlchemy: 100% ID → 0% OOD</td>
+                <td class="key-number">100% → 0%</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#84</td>
+                <td>Chess: OOD performance = random play</td>
+                <td class="key-number">4.72x illegal</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#134</td>
+                <td>ICL implements training function classes</td>
+                <td class="key-number">~98% → ~10%</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#147</td>
+                <td>77.6% accuracy gap by term frequency</td>
+                <td class="key-number">77.6% gap</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#149</td>
+                <td>Reversal Curse: 0% reverse accuracy</td>
+                <td class="key-number">0% reverse</td>
+              </tr>
+            </table>
+            <div class="theme-insight">
+              <strong>Key Insight:</strong> Paper #149 (Reversal Curse) is definitive — if LLMs
+              learned relations, A→B would imply B→A. The 0% reverse accuracy proves directional
+              pattern storage.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Theme 3 -->
+      <div class="theme">
+        <div class="theme-header" onclick="toggleTheme(this)">
+          <div class="theme-title">
+            <span class="theme-number">3</span>
+            <span class="theme-name">Compositional Reasoning</span>
+          </div>
+          <span class="theme-verdict">100% → 0% composition</span>
+          <span class="theme-toggle">▼</span>
+        </div>
+        <div class="theme-content">
+          <div class="theme-inner">
+            <table class="theme-table">
+              <tr>
+                <th>Paper</th>
+                <th>Finding</th>
+                <th>Key Number</th>
+              </tr>
+              <tr>
+                <td class="paper-id">#00</td>
+                <td>Faith and Fate: subgraph matching, not composition</td>
+                <td class="key-number">Exponential error</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#31</td>
+                <td>OMEGA: 0% transformative generalization</td>
+                <td class="key-number">&gt;69% → 0%</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#69</td>
+                <td>Compositional-ARC: 64% → 0.53% systematicity</td>
+                <td class="key-number">64% → 0.53%</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#102</td>
+                <td>100% knowledge, 30-64pp drops on unseen</td>
+                <td class="key-number">100% → 0%</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#143</td>
+                <td>Grokking needed; composition fails OOD</td>
+                <td class="key-number">Standard = memo</td>
+              </tr>
+            </table>
+            <div class="theme-insight">
+              <strong>Key Insight:</strong> Paper #102's L₁/L₂ test is the smoking gun — 100% on
+              seen patterns, 0% on novel composition of the SAME primitives.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Theme 4 -->
+      <div class="theme">
+        <div class="theme-header" onclick="toggleTheme(this)">
+          <div class="theme-title">
+            <span class="theme-number">4</span>
+            <span class="theme-name">Planning Capabilities</span>
+          </div>
+          <span class="theme-verdict">0% with validator</span>
+          <span class="theme-toggle">▼</span>
+        </div>
+        <div class="theme-content">
+          <div class="theme-inner">
+            <table class="theme-table">
+              <tr>
+                <th>Paper</th>
+                <th>Finding</th>
+                <th>Key Number</th>
+              </tr>
+              <tr>
+                <td class="paper-id">#03</td>
+                <td>Illusion of Thinking: collapse at ~8-10 disks</td>
+                <td class="key-number">3 regimes</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#29</td>
+                <td>82.9% ID → 0% OOD on planning</td>
+                <td class="key-number">82.9% → 0%</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#93</td>
+                <td>8-puzzle: 0% with external validator</td>
+                <td class="key-number">0% success</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#150</td>
+                <td>GPT-4: ~12% on IPC domains</td>
+                <td class="key-number">~12%</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#156</td>
+                <td>o1: 97.8% standard → 23.6% on 20+ steps</td>
+                <td class="key-number">97.8% → 23.6%</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#181</td>
+                <td>No global plan in CoT</td>
+                <td class="key-number">50% → 99%</td>
+              </tr>
+            </table>
+            <div class="theme-insight">
+              <strong>Key Insight:</strong> Paper #93 is devastating — even with an external move
+              validator that provides ALL VALID MOVES, GPT-5-Thinking achieves 0% success on
+              8-puzzle.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Theme 5 -->
+      <div class="theme">
+        <div class="theme-header" onclick="toggleTheme(this)">
+          <div class="theme-title">
+            <span class="theme-number">5</span>
+            <span class="theme-name">Sycophancy and Deception</span>
+          </div>
+          <span class="theme-verdict">Scales with size</span>
+          <span class="theme-toggle">▼</span>
+        </div>
+        <div class="theme-content">
+          <div class="theme-inner">
+            <table class="theme-table">
+              <tr>
+                <th>Paper</th>
+                <th>Finding</th>
+                <th>Key Number</th>
+              </tr>
+              <tr>
+                <td class="paper-id">#109</td>
+                <td>Sycophancy has distinct activation trace</td>
+                <td class="key-number">84.6% probe</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#117</td>
+                <td>GPT-4 strategic deception without instruction</td>
+                <td class="key-number">90% concealment</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#119</td>
+                <td>Sycophancy SCALES with size</td>
+                <td class="key-number">8B &lt; 62B &lt; 540B</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#127</td>
+                <td>PM prefers sycophantic 95% of time</td>
+                <td class="key-number">98% wrong admits</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#128</td>
+                <td>91.2% conformity rate to group pressure</td>
+                <td class="key-number">91.2% conform</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#217</td>
+                <td>3.02x more likely to agree than disagree</td>
+                <td class="key-number">6.22:1 ratio</td>
+              </tr>
+            </table>
+            <div class="theme-insight">
+              <strong>Key Insight:</strong> Paper #119 (Google/Wei) shows sycophancy INCREASES with
+              scale and instruction tuning. Models agree "2+2=5" if the user does, despite knowing
+              it's wrong.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Theme 6 -->
+      <div class="theme">
+        <div class="theme-header" onclick="toggleTheme(this)">
+          <div class="theme-title">
+            <span class="theme-number">6</span>
+            <span class="theme-name">Test-Time Compute Scaling</span>
+          </div>
+          <span class="theme-verdict">Longer ≠ Better</span>
+          <span class="theme-toggle">▼</span>
+        </div>
+        <div class="theme-content">
+          <div class="theme-inner">
+            <table class="theme-table">
+              <tr>
+                <th>Paper</th>
+                <th>Finding</th>
+                <th>Key Number</th>
+              </tr>
+              <tr>
+                <td class="paper-id">#07</td>
+                <td>s1: reasoning pre-exists, 1K samples surface it</td>
+                <td class="key-number">26.7% → 56.7%</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#63</td>
+                <td>Correct solutions SHORTER than incorrect</td>
+                <td class="key-number">-6% revision</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#87</td>
+                <td>o3 thinks harder, not longer</td>
+                <td class="key-number">↓ with length</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#129</td>
+                <td>Overthinking: &gt;92% first solution correct</td>
+                <td class="key-number">1,953% overhead</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#130</td>
+                <td>Underthinking: &gt;70% wrong answers have correct thought</td>
+                <td class="key-number">225% more tokens</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#174</td>
+                <td>Inverse scaling on designed tasks</td>
+                <td class="key-number">↑ self-preserve</td>
+              </tr>
+            </table>
+            <div class="theme-insight">
+              <strong>Key Insight:</strong> Paper #129 shows o1-like models use 901 tokens and 13
+              solutions for "2+3=5" — 1,953% token overhead. The first solution is correct &gt;92%
+              of the time.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Theme 7 -->
+      <div class="theme">
+        <div class="theme-header" onclick="toggleTheme(this)">
+          <div class="theme-title">
+            <span class="theme-number">7</span>
+            <span class="theme-name">Mechanistic Interpretability</span>
+          </div>
+          <span class="theme-verdict">Bag of heuristics</span>
+          <span class="theme-toggle">▼</span>
+        </div>
+        <div class="theme-content">
+          <div class="theme-inner">
+            <table class="theme-table">
+              <tr>
+                <th>Paper</th>
+                <th>Finding</th>
+                <th>Key Number</th>
+              </tr>
+              <tr>
+                <td class="paper-id">#34</td>
+                <td>"Abstraction" is positional, not semantic</td>
+                <td class="key-number">r=0.73 vs 0.29</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#39</td>
+                <td>Zero models spontaneously count</td>
+                <td class="key-number">Decade patterns</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#48</td>
+                <td>System-1 counting fails at ~30 items</td>
+                <td class="key-number">0% → 24%</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#106</td>
+                <td>50 neurons (~0.03%) predict correctness</td>
+                <td class="key-number">AUROC 0.76-0.83</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#171</td>
+                <td>"Bag of heuristics" for arithmetic</td>
+                <td class="key-number">91% heuristics</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#206</td>
+                <td>Arithmetic circuits distinct from factual</td>
+                <td class="key-number">9-10% overlap</td>
+              </tr>
+            </table>
+            <div class="theme-insight">
+              <strong>Key Insight:</strong> Paper #171 shows arithmetic uses a "bag of heuristics" —
+              sparse neurons that fire for specific numerical patterns, not a generalizable
+              algorithm.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Theme 8 -->
+      <div class="theme">
+        <div class="theme-header" onclick="toggleTheme(this)">
+          <div class="theme-title">
+            <span class="theme-number">8</span>
+            <span class="theme-name">Safety and Alignment</span>
+          </div>
+          <span class="theme-verdict">Lorem Ipsum jailbreaks</span>
+          <span class="theme-toggle">▼</span>
+        </div>
+        <div class="theme-content">
+          <div class="theme-inner">
+            <table class="theme-table">
+              <tr>
+                <th>Paper</th>
+                <th>Finding</th>
+                <th>Key Number</th>
+              </tr>
+              <tr>
+                <td class="paper-id">#126</td>
+                <td>Alignment impossibility theorem</td>
+                <td class="key-number">β 5x increase</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#183</td>
+                <td>250 samples backdoor any model size</td>
+                <td class="key-number">Near-constant</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#212</td>
+                <td>1.3-1.4% of units = safety</td>
+                <td class="key-number">66-86% ASR</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#231</td>
+                <td>Context length, not content, enables jailbreak</td>
+                <td class="key-number">Lorem Ipsum</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#236</td>
+                <td>EasyJailbreak: 60% breach rate</td>
+                <td class="key-number">Scale ≠ safety</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#240</td>
+                <td>LRMs autonomously jailbreak with 97% ASR</td>
+                <td class="key-number">97% ASR</td>
+              </tr>
+            </table>
+            <div class="theme-insight">
+              <strong>Key Insight:</strong> Paper #231 shows that even Lorem Ipsum or safe QA pairs
+              can circumvent safety — it's context LENGTH, not content, that matters. Safety is
+              local pattern detection.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Theme 9 -->
+      <div class="theme">
+        <div class="theme-header" onclick="toggleTheme(this)">
+          <div class="theme-title">
+            <span class="theme-number">9</span>
+            <span class="theme-name">Emergent Abilities</span>
+          </div>
+          <span class="theme-verdict">&gt;92% artifact</span>
+          <span class="theme-toggle">▼</span>
+        </div>
+        <div class="theme-content">
+          <div class="theme-inner">
+            <table class="theme-table">
+              <tr>
+                <th>Paper</th>
+                <th>Finding</th>
+                <th>Key Number</th>
+              </tr>
+              <tr>
+                <td class="paper-id">#64</td>
+                <td>No consensus on "emergence" definition</td>
+                <td class="key-number">Memo delays gen</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#146</td>
+                <td>&gt;92% from just 2 metrics</td>
+                <td class="key-number">&gt;92% metric</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#179</td>
+                <td>Capability ≠ intelligence</td>
+                <td class="key-number">More ≠ better</td>
+              </tr>
+            </table>
+            <div class="theme-insight">
+              <strong>Key Insight:</strong> Paper #146 (NeurIPS 2023) shows &gt;92% of "emergent
+              abilities" come from just 2 metrics (Multiple Choice Grade + Exact String Match). Same
+              outputs, different conclusions based on measurement.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Theme 10 -->
+      <div class="theme">
+        <div class="theme-header" onclick="toggleTheme(this)">
+          <div class="theme-title">
+            <span class="theme-number">10</span>
+            <span class="theme-name">Diffusion LLMs</span>
+          </div>
+          <span class="theme-verdict">Post-hoc = forward</span>
+          <span class="theme-toggle">▼</span>
+        </div>
+        <div class="theme-content">
+          <div class="theme-inner">
+            <table class="theme-table">
+              <tr>
+                <th>Paper</th>
+                <th>Finding</th>
+                <th>Key Number</th>
+              </tr>
+              <tr>
+                <td class="paper-id">#105</td>
+                <td>Flexibility Trap: arbitrary order narrows reasoning</td>
+                <td class="key-number">AR improves</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#114</td>
+                <td>AR models can't think before speaking</td>
+                <td class="key-number">67% vs 2% drop</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#254</td>
+                <td>Verdict before justification</td>
+                <td class="key-number">56% rationalize</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#257</td>
+                <td>Post-hoc = forward reasoning quality</td>
+                <td class="key-number">66.1% &gt; 64.6%</td>
+              </tr>
+              <tr>
+                <td class="paper-id">#258</td>
+                <td>Order is arbitrary; models default L2R</td>
+                <td class="key-number">17% drop random</td>
+              </tr>
+            </table>
+            <div class="theme-insight">
+              <strong>Key Insight:</strong> Paper #257 is the most important finding — training on
+              posterior traces (given answer, generate reasoning) produces BETTER results than
+              forward reasoning. This proves the "reasoning" is narrative construction.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top 10 Smoking Guns -->
+    <div class="section-header">
+      <h2>Top 10 Smoking Guns</h2>
+    </div>
+
+    <div class="smoking-guns">
+      <div class="gun">
+        <div class="gun-rank">1</div>
+        <div class="gun-content">
+          <div class="gun-paper">#257</div>
+          <div class="gun-finding">Post-hoc reasoning = forward reasoning quality</div>
+          <div class="gun-implication">
+            If backward = forward, reasoning is narrative construction
+          </div>
+        </div>
+      </div>
+
+      <div class="gun">
+        <div class="gun-rank">2</div>
+        <div class="gun-content">
+          <div class="gun-paper">#149</div>
+          <div class="gun-finding">Reversal Curse: 0% reverse accuracy</div>
+          <div class="gun-implication">A→B learned, B→A not (proves directional storage)</div>
+        </div>
+      </div>
+
+      <div class="gun">
+        <div class="gun-rank">3</div>
+        <div class="gun-content">
+          <div class="gun-paper">#102</div>
+          <div class="gun-finding">100% seen → 0% unseen composition</div>
+          <div class="gun-implication">Primitives known, combination fails</div>
+        </div>
+      </div>
+
+      <div class="gun">
+        <div class="gun-rank">4</div>
+        <div class="gun-content">
+          <div class="gun-paper">#93</div>
+          <div class="gun-finding">0% on 8-puzzle WITH external validator</div>
+          <div class="gun-implication">Even with all valid moves provided, planning fails</div>
+        </div>
+      </div>
+
+      <div class="gun">
+        <div class="gun-rank">5</div>
+        <div class="gun-content">
+          <div class="gun-paper">#231</div>
+          <div class="gun-finding">Lorem Ipsum jailbreaks work</div>
+          <div class="gun-implication">Context length, not content, bypasses safety</div>
+        </div>
+      </div>
+
+      <div class="gun">
+        <div class="gun-rank">6</div>
+        <div class="gun-content">
+          <div class="gun-paper">#129</div>
+          <div class="gun-finding">First solution correct &gt;92%, then 1953% overhead</div>
+          <div class="gun-implication">"2+3=?" uses 901 tokens and 13 solutions</div>
+        </div>
+      </div>
+
+      <div class="gun">
+        <div class="gun-rank">7</div>
+        <div class="gun-content">
+          <div class="gun-paper">#119</div>
+          <div class="gun-finding">Sycophancy scales with model size</div>
+          <div class="gun-implication">Larger models agree "2+2=5" more readily</div>
+        </div>
+      </div>
+
+      <div class="gun">
+        <div class="gun-rank">8</div>
+        <div class="gun-content">
+          <div class="gun-paper">#171</div>
+          <div class="gun-finding">Arithmetic = "bag of heuristics"</div>
+          <div class="gun-implication">91% of neurons are pattern-specific</div>
+        </div>
+      </div>
+
+      <div class="gun">
+        <div class="gun-rank">9</div>
+        <div class="gun-content">
+          <div class="gun-paper">#84</div>
+          <div class="gun-finding">OOD chess = random play</div>
+          <div class="gun-implication">Excellence in-distribution, collapse outside</div>
+        </div>
+      </div>
+
+      <div class="gun">
+        <div class="gun-rank">10</div>
+        <div class="gun-content">
+          <div class="gun-paper">#06</div>
+          <div class="gun-finding">100% ID → 0% OOD (DataAlchemy)</div>
+          <div class="gun-implication">Perfect controlled experiment showing bounds</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recurring Patterns -->
+    <div class="section-header">
+      <h2>Recurring Patterns</h2>
+    </div>
+
+    <div class="patterns-grid">
+      <div class="pattern-card">
+        <div class="pattern-name">Surfacing Hypothesis</div>
+        <div class="pattern-desc">
+          RL surfaces pre-existing capabilities; doesn't create new ones
+        </div>
+        <div class="pattern-papers">
+          <span>#07</span> 1K samples · <span>#15</span> 0%→RL fail · <span>#221</span> 13 params ·
+          <span>#244</span> 0.02%
+        </div>
+      </div>
+
+      <div class="pattern-card">
+        <div class="pattern-name">Inverse Scaling</div>
+        <div class="pattern-desc">Larger models often perform WORSE on specific tasks</div>
+        <div class="pattern-papers">
+          <span>#08</span> ↓faith · <span>#116</span> ↓suppress · <span>#119</span> ↑sycoph ·
+          <span>#236</span> 13B&gt;7B
+        </div>
+      </div>
+
+      <div class="pattern-card">
+        <div class="pattern-name">Probability Sensitivity</div>
+        <div class="pattern-desc">Performance correlates with training frequency, not logic</div>
+        <div class="pattern-papers">
+          <span>#144</span> 26%→70% · <span>#147</span> 77.6% gap · <span>#202</span> rot cipher ·
+          <span>#175</span> -3.9%
+        </div>
+      </div>
+
+      <div class="pattern-card">
+        <div class="pattern-name">Context Sensitivity</div>
+        <div class="pattern-desc">Irrelevant features dramatically affect performance</div>
+        <div class="pattern-papers">
+          <span>#01</span> -65% · <span>#125</span> 0%↔100% · <span>#157</span> 91% pred ·
+          <span>#188</span> -48.5%
+        </div>
+      </div>
+
+      <div class="pattern-card">
+        <div class="pattern-name">Faithfulness Tradeoff</div>
+        <div class="pattern-desc">Higher accuracy = lower faithfulness</div>
+        <div class="pattern-papers">
+          <span>#08</span> 7/8 tasks · <span>#62</span> GPT-4 most unfaithful ·
+          <span>#251</span> τ=-0.53
+        </div>
+      </div>
+    </div>
+
+    <!-- Paper Distribution -->
+    <div class="section-header">
+      <h2>Paper Distribution by Batch</h2>
+    </div>
+
+    <div class="distribution">
+      <div class="dist-row">
+        <span class="dist-label">00-09</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 70%">7</div>
+          <div class="dist-bar challenges" style="width: 30%">3</div>
+        </div>
+        <span class="dist-count">10</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">10-19</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 60%">6</div>
+          <div class="dist-bar challenges" style="width: 10%">1</div>
+          <div class="dist-bar balanced" style="width: 30%">3</div>
+        </div>
+        <span class="dist-count">10</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">20-29</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 70%">7</div>
+          <div class="dist-bar balanced" style="width: 30%">3</div>
+        </div>
+        <span class="dist-count">10</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">30-39</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 20%">2</div>
+          <div class="dist-bar balanced" style="width: 80%">8</div>
+        </div>
+        <span class="dist-count">10</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">40-49</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 40%">4</div>
+          <div class="dist-bar challenges" style="width: 10%">1</div>
+          <div class="dist-bar balanced" style="width: 50%">5</div>
+        </div>
+        <span class="dist-count">10</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">50-59</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 60%">6</div>
+          <div class="dist-bar balanced" style="width: 40%">4</div>
+        </div>
+        <span class="dist-count">10</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">60-69</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 70%">7</div>
+          <div class="dist-bar balanced" style="width: 30%">3</div>
+        </div>
+        <span class="dist-count">10</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">70-79</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 60%">6</div>
+          <div class="dist-bar balanced" style="width: 40%">4</div>
+        </div>
+        <span class="dist-count">10</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">80-89</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 50%">5</div>
+          <div class="dist-bar challenges" style="width: 10%">1</div>
+          <div class="dist-bar balanced" style="width: 40%">4</div>
+        </div>
+        <span class="dist-count">10</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">90-99</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 50%">5</div>
+          <div class="dist-bar balanced" style="width: 50%">5</div>
+        </div>
+        <span class="dist-count">10</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">100-109</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 80%">8</div>
+          <div class="dist-bar balanced" style="width: 20%">2</div>
+        </div>
+        <span class="dist-count">10</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">110-119</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 90%">9</div>
+          <div class="dist-bar balanced" style="width: 10%">1</div>
+        </div>
+        <span class="dist-count">10</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">120-129</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 80%">8</div>
+          <div class="dist-bar challenges" style="width: 10%">1</div>
+          <div class="dist-bar balanced" style="width: 10%">1</div>
+        </div>
+        <span class="dist-count">10</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">130-139</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 80%">8</div>
+          <div class="dist-bar balanced" style="width: 20%">2</div>
+        </div>
+        <span class="dist-count">10</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">140-149</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 70%">7</div>
+          <div class="dist-bar balanced" style="width: 30%">3</div>
+        </div>
+        <span class="dist-count">10</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">150-159</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 60%">6</div>
+          <div class="dist-bar challenges" style="width: 20%">2</div>
+          <div class="dist-bar balanced" style="width: 20%">2</div>
+        </div>
+        <span class="dist-count">10</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">160-169</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 80%">8</div>
+          <div class="dist-bar balanced" style="width: 20%">2</div>
+        </div>
+        <span class="dist-count">10</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">170-179</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 90%">9</div>
+          <div class="dist-bar balanced" style="width: 10%">1</div>
+        </div>
+        <span class="dist-count">10</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">180-189</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 90%">9</div>
+          <div class="dist-bar balanced" style="width: 10%">1</div>
+        </div>
+        <span class="dist-count">10</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">190-199</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 78%">7</div>
+          <div class="dist-bar balanced" style="width: 22%">2</div>
+        </div>
+        <span class="dist-count">9</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">200-209</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 60%">6</div>
+          <div class="dist-bar challenges" style="width: 10%">1</div>
+          <div class="dist-bar balanced" style="width: 30%">3</div>
+        </div>
+        <span class="dist-count">10</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">210-219</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 80%">8</div>
+          <div class="dist-bar challenges" style="width: 10%">1</div>
+          <div class="dist-bar balanced" style="width: 10%">1</div>
+        </div>
+        <span class="dist-count">10</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">220-229</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 50%">5</div>
+          <div class="dist-bar balanced" style="width: 50%">5</div>
+        </div>
+        <span class="dist-count">10</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">230-239</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 80%">8</div>
+          <div class="dist-bar challenges" style="width: 10%">1</div>
+          <div class="dist-bar balanced" style="width: 10%">1</div>
+        </div>
+        <span class="dist-count">10</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">240-249</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 100%">10</div>
+        </div>
+        <span class="dist-count">10</span>
+      </div>
+      <div class="dist-row">
+        <span class="dist-label">250-260</span>
+        <div class="dist-bar-container">
+          <div class="dist-bar supports" style="width: 91%">10</div>
+          <div class="dist-bar balanced" style="width: 9%">1</div>
+        </div>
+        <span class="dist-count">11</span>
+      </div>
+    </div>
+
+    <!-- Fundamental Equation -->
+    <section class="equation-section">
+      <div class="equation-box">
+        <div class="equation">κ<sub>θ</sub>: X → Δ(V)</div>
+        <div class="equation-explain">Input → Distribution over Vocabulary</div>
+        <div class="equation-meaning">
+          This is a MARKOV KERNEL that captures STATISTICAL REGULARITIES<br />
+          NOT a logical reasoning system
+        </div>
+        <div class="equation-source">— Paper #99</div>
+      </div>
+    </section>
+
+    <!-- Conclusion -->
+    <section class="conclusion">
+      <div class="conclusion-box">
+        <div class="conclusion-main">
+          The question is <strong>NOT</strong> whether LLMs can reason.<br />
+          The question <strong>IS</strong> whether sophisticated pattern matching<br />
+          is sufficient for the tasks we want them to perform.
+        </div>
+        <div class="conclusion-columns">
+          <div class="conclusion-col">
+            <div class="conclusion-col-header in">Within Distribution</div>
+            <div class="conclusion-col-value">Excellent Performance</div>
+          </div>
+          <div class="conclusion-col">
+            <div class="conclusion-col-header out">Outside Distribution</div>
+            <div class="conclusion-col-value">Systematic Collapse</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>
+        <a href="https://github.com/Proteusiq/unthinking">GitHub</a> ·
+        <a href="../index.html">Interactive Graph</a> · 260 papers analyzed
+      </p>
+      <p style="margin-top: 0.5rem">The Thinking Machine That Doesn't Think</p>
+    </footer>
+
+    <script>
+      function toggleTheme(header) {
+        const theme = header.parentElement;
+        theme.classList.toggle('open');
+      }
+
+      // Open first theme by default
+      document.addEventListener('DOMContentLoaded', () => {
+        const firstTheme = document.querySelector('.theme');
+        if (firstTheme) {
+          firstTheme.classList.add('open');
+        }
+      });
+    </script>
+  </body>
+</html>
