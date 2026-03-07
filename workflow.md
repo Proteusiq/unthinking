@@ -280,13 +280,22 @@ it's too generic. A good description only makes sense for *this specific pair*.
 
 ---
 
-## Step 9: Update README
+## Step 9: Update README & Findings Page
 
-Update paper counts in `README.md`:
+### 9a. Update `README.md` paper counts:
 
 1. Badge count: `[![Papers](https://img.shields.io/badge/papers-XX-blue)]()`
 2. Nodes badge: `<img src="https://img.shields.io/badge/nodes-XX%20papers-4CAF50" />`
 3. Folder count: `# Individual paper analyses (XX files)`
+
+### 9b. Update `docs/pages/findings.html` (when counts change significantly):
+
+1. **Stance cards** — Update the three numbers (supports/balanced/challenges) and percentages
+2. **Paper distribution chart** — Update the batch row if adding papers to a new batch
+3. **Theme tables** — Add paper to relevant theme section if it provides significant evidence
+4. **Smoking guns** — Update if paper provides stronger evidence than existing entries
+
+Run `cd docs && npm run format` after editing.
 
 ---
 
@@ -300,6 +309,7 @@ git add analysis/synthesis.md
 git add docs/js/nodes.js
 git add docs/js/links.js
 git add docs/js/data.js
+git add docs/pages/findings.html  # if updated
 git add README.md
 git commit -m "Add analysis: [Paper Title] (arXiv ID)
 
@@ -333,6 +343,7 @@ Remove analyzed paper from `papers/toread.md` or mark as done.
 | `docs/js/nodes.js` | Paper node definitions |
 | `docs/js/links.js` | Relationship link definitions |
 | `docs/js/data.js` | Meta + combines nodes/links |
+| `docs/pages/findings.html` | 260-paper synthesis (themes, smoking guns, patterns) |
 
 ---
 
