@@ -29,7 +29,7 @@ To bring the findings home:
 ## Thesis
 
 > [!IMPORTANT]
-> **LLM reasoning is practical but fundamentally predictive — pattern matching from training distributions, not genuine understanding.**
+> **LLM reasoning is practical but fundamentally [predictive](https://proteusiq.github.io/unthinking/pages/findings.html) — pattern matching from training distributions, not genuine understanding.**
 
 LLMs are dense statistical remixed echo chambers of their training data. They predict the most likely sequence of tokens based on high-dimensional patterns. RL and test-time compute surface pre-existing capabilities rather than creating new reasoning abilities. Models excel within their training distribution but fail systematically on out-of-distribution compositions.
 
@@ -51,6 +51,7 @@ Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.
 
 | Page | Tabs | What It Covers |
 |------|------|----------------|
+| [**Findings**](https://proteusiq.github.io/unthinking/pages/findings.html) | — | 260-paper synthesis: 10 themes, top 10 smoking guns, recurring patterns, paper distribution by stance |
 | [**Data**](https://proteusiq.github.io/unthinking/pages/data.html) | Pipeline, Catalog, Compare | Pre-training data sourcing, filtering (KenLM, fastText, DSIR), deduplication (MinHash, Bloom), data mix strategies, benchmark contamination |
 | [**Tokenization**](https://proteusiq.github.io/unthinking/pages/tokenization.html) | Pipeline, Catalog, Compare | BPE, WordPiece, Unigram, SentencePiece; tokenizer comparison across GPT-4, Llama 3, Gemma; vocabulary size tradeoffs |
 | [**Architecture**](https://proteusiq.github.io/unthinking/pages/architecture.html) | Activations, Block, Table | Transformer internals, attention variants (MHA, GQA, MLA), normalization (Pre/Post-Norm, QK-Norm), MoE, positional encoding (RoPE, NoPE) |
