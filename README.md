@@ -163,6 +163,12 @@ With CoT:     Input → [N layers] → Token₁ → [N layers] → Token₂ → 
 > [!NOTE]
 > Pause tokens (`...`) work as well as meaningful CoT because each token is a full forward pass through all layers. The words are incidental. The forward passes are what matter.
 
+### The Mirror We Keep Looking Into
+
+We know ELIZA was a trick. Weizenbaum showed us in 1966 that pattern matching could create the illusion of understanding — and we fell for it anyway. Sixty years later, we've built far more sophisticated mirrors.
+
+ELIZA to LLMs is the resolution of the mirror — not its fundamental nature. The question Weizenbaum forces us to ask in 2026 is the same one he asked in 1966: *Is what we are seeing intelligence — or is it a reflection of our own desire to see it?*
+
 ---
 
 ## The Narrative Arc (2022-2026)

@@ -1,10 +1,54 @@
-> **Based on systematic analysis of 221 peer-reviewed papers (2022-2026)**
+> **Based on systematic analysis of 260 peer-reviewed papers (2022-2026)**
 >
 > Full corpus: [github.com/Proteusiq/unthinking](https://github.com/Proteusiq/unthinking)
 >
 > **See also**: `memento.md` for executive summary, `synthesis.md` for evidence table
 
 # The Thinking Machine That Doesn't Think: A Formal Case Against LLM Reasoning
+
+---
+
+## Prologue: The Shock of the Mirror
+
+> *"I had not realized ... that extremely short exposures to a relatively simple computer program could induce powerful delusional thinking in quite normal people."*
+>
+> — Joseph Weizenbaum, *Computer Power and Human Reason* (1976)
+
+In 1966, Joseph Weizenbaum created ELIZA at MIT — a program of roughly 200 lines that could simulate a Rogerian psychotherapist. The mechanism was trivial: pattern matching and substitution. When a user typed "I am sad," ELIZA would respond "Why are you sad?" No understanding. No model of the world. No representation of emotions. Just text manipulation.
+
+What happened next shocked Weizenbaum so deeply that he spent the rest of his life warning about it.
+
+His own secretary — who knew ELIZA was a simple program, who had watched Weizenbaum build it — asked him to leave the room so she could have a "real conversation" with the machine. Psychiatrists proposed using ELIZA for actual therapy. Users poured out their deepest secrets to a pattern matcher. They knew it was a trick. They fell for it anyway.
+
+Weizenbaum called this the **ELIZA effect**: the tendency to project human understanding onto systems that merely *simulate* the surface appearance of understanding. The effect persists even when users are explicitly told the system has no comprehension whatsoever. As Douglas Hofstadter later described it: "the susceptibility of people to read far more understanding than is warranted into strings of symbols — especially words — strung together by computers."
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                    THE ELIZA EFFECT (1966)                          │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│  WHAT ELIZA DID:           WHAT USERS PERCEIVED:                    │
+│  ─────────────────         ─────────────────────                    │
+│  Pattern matching          Understanding                            │
+│  Text substitution         Empathy                                  │
+│  No world model            Wisdom                                   │
+│  No memory                 A relationship                           │
+│  No semantics              Meaning                                  │
+│                                                                     │
+│  The gap between mechanism and perception was total.                │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+Weizenbaum's insight was not primarily about AI — it was about us. The ELIZA effect reveals something fundamental about human cognition: we are hardwired to find minds everywhere. We see faces in clouds, intentions in random events, understanding in sophisticated pattern matching. This is not a bug; it's how we navigate a social world. But it becomes a critical liability when we build machines that exploit this tendency.
+
+**ELIZA to LLMs is the resolution of the mirror — not its fundamental nature.**
+
+What changed between 1966 and 2026? The fidelity. ELIZA could maintain the illusion for minutes. LLMs can maintain it for hours. ELIZA's patterns were transparent to anyone who probed. LLMs are opaque even to their creators. ELIZA had 200 lines; LLMs have trillions of parameters. But the core dynamic is identical: systems that predict what *plausible text* looks like, without any representation of what that text *means*.
+
+The question Weizenbaum forces us to ask in 2026 is the same one he asked in 1966: *Is what we are seeing intelligence — or is it a reflection of our own desire to see it?*
+
+This document presents systematic evidence from 250+ papers that the answer has not changed. We have built more sophisticated mirrors. We have not created minds.
 
 ---
 
