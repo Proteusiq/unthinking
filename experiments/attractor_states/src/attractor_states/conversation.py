@@ -40,7 +40,7 @@ def run_conversation(
     task_id: int | None = None,
 ) -> Conversation:
     """Run a conversation between two LLM instances.
-    
+
     Each instance maintains its own history where:
     - Its own outputs are "assistant"
     - The other instance's outputs are "user"
@@ -96,7 +96,7 @@ def run_experiment(
     seeds: list[str] | None = None,
 ) -> list[Conversation]:
     """Run the full experiment across all seed prompts.
-    
+
     If model_b is None, uses model_a for both instances (self-conversation).
     """
     model_b = model_b or model_a
@@ -114,7 +114,9 @@ def run_experiment(
                 f"[cyan]Seed {i + 1}/{len(seeds)}[/cyan]",
                 total=turns,
             )
-            conv = run_conversation(model_a, model_b, seed, turns, progress=progress, task_id=task)
+            conv = run_conversation(
+                model_a, model_b, seed, turns, progress=progress, task_id=task
+            )
             conversations.append(conv)
 
     return conversations

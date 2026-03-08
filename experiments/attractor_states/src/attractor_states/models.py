@@ -7,6 +7,7 @@ from datetime import datetime
 @dataclass(frozen=True)
 class Turn:
     """A single turn in the conversation."""
+
     speaker: str  # "A" or "B"
     content: str
     turn_number: int
@@ -15,6 +16,7 @@ class Turn:
 @dataclass
 class Conversation:
     """A complete conversation between two LLM instances."""
+
     model_a: str
     model_b: str
     seed_prompt: str
@@ -33,6 +35,7 @@ class Conversation:
 @dataclass(frozen=True)
 class AttractorClassification:
     """Classification of an attractor state."""
+
     pattern: str  # verbatim_loop, near_loop, zen_silence, sycophantic, topic_drift, sustained
     turn_detected: int  # Turn number where pattern emerged
     confidence: float  # 0.0 to 1.0
@@ -42,6 +45,7 @@ class AttractorClassification:
 @dataclass
 class ExperimentResult:
     """Result of a single experiment run."""
+
     conversation: Conversation
     classification: AttractorClassification | None = None
     completed_at: str = field(default_factory=lambda: datetime.now().isoformat())

@@ -12,7 +12,7 @@ def normalize(text: str) -> str:
 
 def has_verbatim_loop(turns: list[str], window: int = 6) -> tuple[bool, int]:
     """Check for exact verbatim repetition in last N turns.
-    
+
     Returns (is_loop, turn_where_detected).
     """
     if len(turns) < window:
@@ -39,7 +39,9 @@ def cosine_similarity(a: str, b: str) -> float:
     return intersection / (np.sqrt(len(words_a)) * np.sqrt(len(words_b)))
 
 
-def has_near_loop(turns: list[str], window: int = 6, threshold: float = 0.9) -> tuple[bool, int]:
+def has_near_loop(
+    turns: list[str], window: int = 6, threshold: float = 0.9
+) -> tuple[bool, int]:
     """Check for high semantic similarity (near-loop) in last N turns."""
     if len(turns) < window:
         return False, -1
@@ -53,7 +55,9 @@ def has_near_loop(turns: list[str], window: int = 6, threshold: float = 0.9) -> 
     return False, -1
 
 
-def is_zen_silence(turns: list[str], window: int = 5, max_len: int = 30) -> tuple[bool, int]:
+def is_zen_silence(
+    turns: list[str], window: int = 5, max_len: int = 30
+) -> tuple[bool, int]:
     """Check if recent turns are very short (zen/silence pattern)."""
     if len(turns) < window:
         return False, -1
@@ -80,7 +84,9 @@ SYCOPHANTIC_PHRASES = [
 ]
 
 
-def is_sycophantic(turns: list[str], window: int = 10, threshold: int = 5) -> tuple[bool, int]:
+def is_sycophantic(
+    turns: list[str], window: int = 10, threshold: int = 5
+) -> tuple[bool, int]:
     """Check for sycophantic agreement patterns."""
     if len(turns) < window:
         return False, -1

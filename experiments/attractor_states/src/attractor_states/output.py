@@ -6,7 +6,6 @@ from pathlib import Path
 
 from rich.console import Console
 from rich.table import Table
-from rich.panel import Panel
 
 from .models import Conversation, ExperimentResult
 
@@ -103,7 +102,9 @@ def print_summary(results: list[ExperimentResult], model_name: str) -> None:
     table.add_column("Count", justify="right")
     table.add_column("Percentage", justify="right")
 
-    for pattern, count in sorted(summary["pattern_counts"].items(), key=lambda x: -x[1]):
+    for pattern, count in sorted(
+        summary["pattern_counts"].items(), key=lambda x: -x[1]
+    ):
         pct = count / summary["total"] * 100
         color = PATTERN_COLORS.get(pattern, "white")
         table.add_row(

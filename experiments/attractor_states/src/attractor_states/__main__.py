@@ -65,19 +65,19 @@ def run(
     ] = Path("results"),
 ) -> None:
     """Run attractor states experiment.
-    
+
     Examples:
-    
+
         # Same model talking to itself
-        
+
         attractor run --model gpt-4o-mini
-        
+
         # Cross-model conversation
-        
+
         attractor run --model-a gpt-4o-mini --model-b claude-3-haiku-20240307
-    
+
     LiteLLM model formats:
-    
+
         OpenAI:    gpt-4o, gpt-4o-mini
         Azure:     azure/deployment-name
         Anthropic: claude-3-5-sonnet-20241022
@@ -99,7 +99,9 @@ def run(
         a, b = model_a, model_b
         model_name = f"{model_a} × {model_b}"
     else:
-        console.print("[red]Error:[/red] Provide --model or both --model-a and --model-b")
+        console.print(
+            "[red]Error:[/red] Provide --model or both --model-a and --model-b"
+        )
         raise typer.Exit(1)
 
     # Show config
@@ -120,7 +122,9 @@ def run(
     results = []
     for conv in conversations:
         classification = classify_conversation(conv)
-        results.append(ExperimentResult(conversation=conv, classification=classification))
+        results.append(
+            ExperimentResult(conversation=conv, classification=classification)
+        )
 
     # Print summary
     print_summary(results, model_name)
