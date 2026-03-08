@@ -286,13 +286,16 @@ cd experiments/attractor_states
 uv sync
 
 # Same model talking to itself
-uv run python -m attractor_states --model gpt-4o-mini
+uv run attractor run --model gpt-4o-mini
 
 # Cross-model conversation
-uv run python -m attractor_states --model-a gpt-4o-mini --model-b claude-3-haiku-20240307
+uv run attractor run --model-a gpt-4o-mini --model-b claude-3-haiku-20240307
 
 # Custom turns
-uv run python -m attractor_states --model gpt-4o-mini --turns 20
+uv run attractor run --model gpt-4o-mini --turns 20
+
+# Show help
+uv run attractor --help
 ```
 
 ### LiteLLM Model Names

@@ -1,9 +1,9 @@
 """Two-instance LLM conversation using LiteLLM."""
 
 import litellm
-from tqdm import tqdm
+from rich.progress import Progress, SpinnerColumn, TextColumn
 
-from models import Conversation, Turn
+from models import Conversation
 
 # Suppress LiteLLM logging noise
 litellm.suppress_debug_info = True
@@ -36,7 +36,8 @@ def run_conversation(
     seed_prompt: str,
     turns: int = 30,
     system_prompt: str = SYSTEM_PROMPT,
-    quiet: bool = False,
+    progress: Progress | None = None,
+    task_id: int | None = None,
 ) -> Conversation:
     """Run a conversation between two LLM instances.
     
@@ -61,12 +62,12 @@ def run_conversation(
     history_a.append({"role": "assistant", "content": response_a})
     conversation.add_turn("A", response_a)
 
-    last_response = response_a
-    iterator = range(2, turns + 1)
-    if not quiet:
-        iterator = tqdm(iterator, desc="Turns", leave=False)
+    if progress and task_id is not None:
+        progress.update(task_id, advance=1)
 
-    for turn in iterator:
+    last_response = response_a
+
+    for turn in range(2, turns + 1):
         if turn % 2 == 0:
             # B's turn: A's response becomes B's "user" input
             history_b.append({"role": "user", "content": last_response})
@@ -81,6 +82,9 @@ def run_conversation(
             history_a.append({"role": "assistant", "content": response_a})
             conversation.add_turn("A", response_a)
             last_response = response_a
+
+        if progress and task_id is not None:
+            progress.update(task_id, advance=1)
 
     return conversation
 
@@ -99,8 +103,18 @@ def run_experiment(
     seeds = seeds or SEED_PROMPTS
 
     conversations = []
-    for seed in tqdm(seeds, desc=f"{model_a} × {model_b}"):
-        conv = run_conversation(model_a, model_b, seed, turns)
-        conversations.append(conv)
+
+    with Progress(
+        SpinnerColumn(),
+        TextColumn("[progress.description]{task.description}"),
+        transient=True,
+    ) as progress:
+        for i, seed in enumerate(seeds):
+            task = progress.add_task(
+                f"[cyan]Seed {i + 1}/{len(seeds)}[/cyan]",
+                total=turns,
+            )
+            conv = run_conversation(model_a, model_b, seed, turns, progress=progress, task_id=task)
+            conversations.append(conv)
 
     return conversations

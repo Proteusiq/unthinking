@@ -4,7 +4,13 @@ import json
 from datetime import datetime
 from pathlib import Path
 
-from models import Conversation, ExperimentResult, AttractorClassification
+from rich.console import Console
+from rich.table import Table
+from rich.panel import Panel
+
+from models import Conversation, ExperimentResult
+
+console = Console()
 
 
 def conversation_to_dict(conv: Conversation) -> dict:
@@ -78,18 +84,35 @@ def summarize_results(results: list[ExperimentResult]) -> dict:
     }
 
 
+PATTERN_COLORS = {
+    "verbatim_loop": "red",
+    "near_loop": "yellow",
+    "zen_silence": "cyan",
+    "sycophantic": "magenta",
+    "topic_drift": "blue",
+    "sustained": "green",
+}
+
+
 def print_summary(results: list[ExperimentResult], model_name: str) -> None:
-    """Print a summary of results to stdout."""
+    """Print a summary of results using rich."""
     summary = summarize_results(results)
 
-    print(f"\n{'=' * 60}")
-    print(f"ATTRACTOR STATES: {model_name}")
-    print(f"{'=' * 60}")
+    table = Table(title=f"Attractor States: {model_name}", show_header=True)
+    table.add_column("Pattern", style="bold")
+    table.add_column("Count", justify="right")
+    table.add_column("Percentage", justify="right")
 
     for pattern, count in sorted(summary["pattern_counts"].items(), key=lambda x: -x[1]):
         pct = count / summary["total"] * 100
-        print(f"  {pattern:20s}: {count:2d} ({pct:5.1f}%)")
+        color = PATTERN_COLORS.get(pattern, "white")
+        table.add_row(
+            f"[{color}]{pattern}[/{color}]",
+            str(count),
+            f"{pct:.1f}%",
+        )
 
-    print(f"{'=' * 60}")
-    print(f"Total conversations: {summary['total']}")
-    print(f"{'=' * 60}\n")
+    console.print()
+    console.print(table)
+    console.print()
+    console.print(f"[dim]Total conversations: {summary['total']}[/dim]")
