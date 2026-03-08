@@ -181,7 +181,7 @@ Deductive reasoning produces **certainty**. The conclusion is forced by the stru
 
 LLM prediction produces **probability**:
 
-> *Given the distribution I have sampled during training, this is the token most likely to follow.*
+> *Given the distribution I have sampled during training, this is the token most likely masked or to follow.*
 
 Even at 99.99% confidence, it remains a statistical guess. **A system trained to optimize for plausibility cannot, by design, produce necessity.**
 

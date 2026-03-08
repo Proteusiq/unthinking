@@ -95,7 +95,7 @@ These are **necessary truths** — true by virtue of their structure, not contin
 
 ### LLM Prediction
 
-> *Given the distribution I have sampled during training, this is the token most likely to follow.*
+> *Given the distribution I have sampled during training, this is the token most likely masked or to follow.*
 
 The mechanism is fundamentally different. An LLM computes:
 
