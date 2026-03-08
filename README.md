@@ -96,7 +96,23 @@ Based on cross-analysis of 260 papers, the evidence converges on seven pillars:
 
 ---
 
-## Why We Fall For It
+## The Shock of the Mirror
+
+> *"I had not realized ... that extremely short exposures to a relatively simple computer program could induce powerful delusional thinking in quite normal people."*
+>
+> — Joseph Weizenbaum, *Computer Power and Human Reason* (1976)
+
+In 1966, Joseph Weizenbaum created ELIZA — roughly 200 lines of pattern matching that simulated a therapist. His secretary, who *knew* it was a simple program, asked him to leave the room so she could talk to it privately. Users poured out their secrets to a text substitution engine.
+
+They knew it was a trick. They fell for it anyway.
+
+Weizenbaum called this the **ELIZA effect**: our tendency to project understanding onto systems that merely *simulate* its appearance. Sixty years later, we've built far more sophisticated mirrors — but the fundamental dynamic is unchanged.
+
+**ELIZA to LLMs is the resolution of the mirror — not its fundamental nature.**
+
+---
+
+## Why We Still Fall For It
 
 ```
 If a model is trained on A and B, the learned "logic" is the bridge between them.
@@ -163,12 +179,6 @@ With CoT:     Input → [N layers] → Token₁ → [N layers] → Token₂ → 
 > [!NOTE]
 > Pause tokens (`...`) work as well as meaningful CoT because each token is a full forward pass through all layers. The words are incidental. The forward passes are what matter.
 
-### The Mirror We Keep Looking Into
-
-We know ELIZA was a trick. Weizenbaum showed us in 1966 that pattern matching could create the illusion of understanding — and we fell for it anyway. Sixty years later, we've built far more sophisticated mirrors.
-
-ELIZA to LLMs is the resolution of the mirror — not its fundamental nature. The question Weizenbaum forces us to ask in 2026 is the same one he asked in 1966: *Is what we are seeing intelligence — or is it a reflection of our own desire to see it?*
-
 ### Certainty vs. Probability
 
 ```
@@ -184,6 +194,8 @@ LLM prediction produces **probability**:
 > *Given the distribution I have sampled during training, this is the token most likely masked or to follow.*
 
 Even at 99.99% confidence, it remains a statistical guess. **A system trained to optimize for plausibility cannot, by design, produce necessity.**
+
+The question Weizenbaum asked in 1966 remains unanswered: *Is what we are seeing intelligence — or a reflection of our desire to see it?*
 
 ---
 
