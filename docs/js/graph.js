@@ -63,7 +63,9 @@
     activeFilter: 'all',
     searchTerm: '',
     searchMatches: [],
-    searchIndex: 0,
+    searchResultIndex: 0,
+    miniSearch: null,
+    dropdownIndex: -1,
     breathingPaused: false,
     dialogueVisible: true,
     dialogueInterval: null,
@@ -87,6 +89,7 @@
     }
 
     processData();
+    initSearchIndex();
     createSVG();
     createSimulation();
     createElements();
@@ -185,6 +188,39 @@
       node.x = (Math.random() - 0.5) * 100;
       node.y = (Math.random() - 0.5) * 100;
     });
+  }
+
+  // ==========================================================================
+  // Search Index Setup (MiniSearch)
+  // ==========================================================================
+
+  function initSearchIndex() {
+    state.miniSearch = new MiniSearch({
+      fields: [
+        'title',
+        'shortTitle',
+        'coreArgument',
+        'cluster',
+        'keyEvidenceText',
+        'keyQuotesText',
+      ],
+      storeFields: ['id', 'title', 'shortTitle', 'stance', 'cluster'],
+      searchOptions: {
+        boost: { title: 3, shortTitle: 2, coreArgument: 1.5 },
+        prefix: true,
+        fuzzy: 0.2,
+        combineWith: 'OR',
+      },
+    });
+
+    // Index all nodes with flattened text fields
+    const documents = state.nodes.map((node) => ({
+      ...node,
+      keyEvidenceText: node.keyEvidence?.join(' ') || '',
+      keyQuotesText: node.keyQuotes?.join(' ') || '',
+    }));
+
+    state.miniSearch.addAll(documents);
   }
 
   // ==========================================================================
@@ -936,6 +972,11 @@
 
     // Open panel
     panel.classList.add('open');
+
+    // Highlight search terms if there's an active search
+    if (state.searchTerm) {
+      highlightPanelMatches(state.searchTerm);
+    }
   }
 
   function closeSidePanel() {
@@ -1031,13 +1072,14 @@
   }
 
   // ==========================================================================
-  // Search
+  // Search (MiniSearch fuzzy search)
   // ==========================================================================
 
   function applySearch(term) {
-    state.searchTerm = term.toLowerCase();
+    state.searchTerm = term;
+    hideDropdown();
 
-    if (!term) {
+    if (!term || term.trim() === '') {
       // Clear search state
       state.nodeElements
         .classed('dimmed', false)
@@ -1045,28 +1087,24 @@
         .classed('search-current', false);
       state.linkElements.classed('dimmed', false);
       state.searchMatches = [];
-      state.searchIndex = 0;
+      state.searchResultIndex = 0;
       updateSearchIndicator();
       resetZoom();
       return;
     }
 
-    // Find all matching nodes (search title, shortTitle, id, cluster, coreArgument)
-    const matchingNodes = [];
-    state.nodes.forEach((node) => {
-      const t = state.searchTerm;
-      if (
-        node.title.toLowerCase().includes(t) ||
-        (node.shortTitle && node.shortTitle.toLowerCase().includes(t)) ||
-        node.id.includes(t) ||
-        (node.cluster && node.cluster.toLowerCase().includes(t)) ||
-        node.coreArgument.toLowerCase().includes(t)
-      ) {
-        matchingNodes.push(node);
-      }
+    // Use MiniSearch for fuzzy matching
+    const results = state.miniSearch.search(term, {
+      prefix: true,
+      fuzzy: 0.2,
+      combineWith: 'OR',
     });
 
-    const matchingIds = new Set(matchingNodes.map((n) => n.id));
+    // Get matching node IDs (sorted by relevance score)
+    const matchingIds = new Set(results.map((r) => r.id));
+    const matchingNodes = results
+      .map((r) => state.nodes.find((n) => n.id === r.id))
+      .filter(Boolean);
 
     // Hide non-matching nodes
     state.nodeElements.classed('dimmed', (d) => !matchingIds.has(d.id));
@@ -1079,14 +1117,16 @@
       return !matchingIds.has(sourceId) || !matchingIds.has(targetId);
     });
 
-    // Store matches for navigation
+    // Store matches for navigation (already sorted by relevance)
     state.searchMatches = matchingNodes;
-    state.searchIndex = 0;
+    state.searchResultIndex = 0;
 
     // Jump to first match
     if (matchingNodes.length > 0) {
       jumpToSearchResult(0);
     }
+
+    updateSearchIndicator();
   }
 
   function jumpToSearchResult(index) {
@@ -1096,7 +1136,7 @@
     if (index < 0) index = state.searchMatches.length - 1;
     if (index >= state.searchMatches.length) index = 0;
 
-    state.searchIndex = index;
+    state.searchResultIndex = index;
     const node = state.searchMatches[index];
 
     // Focus on the node
@@ -1110,11 +1150,11 @@
   }
 
   function nextSearchResult() {
-    jumpToSearchResult(state.searchIndex + 1);
+    jumpToSearchResult(state.searchResultIndex + 1);
   }
 
   function prevSearchResult() {
-    jumpToSearchResult(state.searchIndex - 1);
+    jumpToSearchResult(state.searchResultIndex - 1);
   }
 
   function updateSearchIndicator() {
@@ -1122,7 +1162,7 @@
     if (!indicator) return;
 
     if (state.searchMatches && state.searchMatches.length > 0) {
-      indicator.textContent = `${state.searchIndex + 1}/${state.searchMatches.length}`;
+      indicator.textContent = `${state.searchResultIndex + 1}/${state.searchMatches.length}`;
       indicator.classList.add('visible');
     } else if (state.searchTerm) {
       indicator.textContent = '0/0';
@@ -1130,6 +1170,145 @@
     } else {
       indicator.classList.remove('visible');
     }
+  }
+
+  // ==========================================================================
+  // Auto-Suggest Dropdown
+  // ==========================================================================
+
+  function showSuggestions(term) {
+    const dropdown = document.getElementById('search-dropdown');
+    if (!dropdown) return;
+
+    if (!term || term.trim() === '') {
+      hideDropdown();
+      return;
+    }
+
+    const results = state.miniSearch
+      .search(term, {
+        prefix: true,
+        fuzzy: 0.2,
+        combineWith: 'OR',
+      })
+      .slice(0, 8); // Limit to 8 suggestions
+
+    if (results.length === 0) {
+      dropdown.innerHTML = '<div class="search-dropdown-empty">No papers found</div>';
+      dropdown.classList.add('visible');
+      state.dropdownIndex = -1;
+      return;
+    }
+
+    dropdown.innerHTML = results
+      .map((result, i) => {
+        const node = state.nodes.find((n) => n.id === result.id);
+        if (!node) return '';
+        const title = highlightMatch(node.shortTitle || node.title, term);
+        return `
+        <div class="search-dropdown-item" data-id="${node.id}" data-index="${i}">
+          <div class="search-dropdown-title">${title}</div>
+          <div class="search-dropdown-meta">
+            <span class="search-dropdown-stance ${node.stance}"></span>
+            <span>${node.cluster || ''}</span>
+            <span>${node.date}</span>
+          </div>
+        </div>
+      `;
+      })
+      .join('');
+
+    dropdown.classList.add('visible');
+    state.dropdownIndex = -1;
+
+    // Add click handlers
+    dropdown.querySelectorAll('.search-dropdown-item').forEach((item) => {
+      item.addEventListener('click', () => {
+        selectDropdownItem(item.dataset.id);
+      });
+    });
+  }
+
+  function hideDropdown() {
+    const dropdown = document.getElementById('search-dropdown');
+    if (dropdown) {
+      dropdown.classList.remove('visible');
+      state.dropdownIndex = -1;
+    }
+  }
+
+  function navigateDropdown(direction) {
+    const dropdown = document.getElementById('search-dropdown');
+    if (!dropdown || !dropdown.classList.contains('visible')) return false;
+
+    const items = dropdown.querySelectorAll('.search-dropdown-item');
+    if (items.length === 0) return false;
+
+    // Remove current selection
+    items.forEach((item) => item.classList.remove('selected'));
+
+    // Update index
+    state.dropdownIndex += direction;
+    if (state.dropdownIndex < 0) state.dropdownIndex = items.length - 1;
+    if (state.dropdownIndex >= items.length) state.dropdownIndex = 0;
+
+    // Apply selection
+    items[state.dropdownIndex].classList.add('selected');
+    items[state.dropdownIndex].scrollIntoView({ block: 'nearest' });
+
+    return true;
+  }
+
+  function selectDropdownItem(id) {
+    const node = state.nodes.find((n) => n.id === id);
+    if (!node) return;
+
+    // Set search input value
+    const searchInput = document.getElementById('search-input');
+    searchInput.value = node.shortTitle || node.title;
+
+    hideDropdown();
+
+    // Store the search term for highlighting
+    state.searchTerm = searchInput.value;
+
+    // Focus on the node and open panel
+    focusOnNode(node);
+    openSidePanel(node);
+  }
+
+  function highlightMatch(text, term) {
+    if (!term) return text;
+    const regex = new RegExp(`(${escapeRegex(term)})`, 'gi');
+    return text.replace(regex, '<mark>$1</mark>');
+  }
+
+  function escapeRegex(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  // ==========================================================================
+  // Search Highlighting in Side Panel
+  // ==========================================================================
+
+  function highlightPanelMatches(term) {
+    if (!term) return;
+
+    const panel = document.getElementById('side-panel');
+    if (!panel) return;
+
+    // Elements to highlight
+    const selectors = ['.panel-title', '.panel-argument', '.panel-evidence li', '.panel-quote'];
+
+    selectors.forEach((selector) => {
+      panel.querySelectorAll(selector).forEach((el) => {
+        const originalText = el.textContent;
+        const highlightedText = highlightMatch(originalText, term);
+        if (highlightedText !== originalText) {
+          el.innerHTML = highlightedText;
+        }
+      });
+    });
   }
 
   // ==========================================================================
@@ -1547,25 +1726,59 @@
       });
     });
 
-    // Search
+    // Search with auto-suggest
     const searchInput = document.getElementById('search-input');
     let searchTimeout;
+    let suggestTimeout;
+
     searchInput.addEventListener('input', (e) => {
+      const term = e.target.value;
+
+      // Show suggestions immediately (debounced slightly)
+      clearTimeout(suggestTimeout);
+      suggestTimeout = setTimeout(() => {
+        showSuggestions(term);
+      }, 100);
+
+      // Apply full search with longer debounce
       clearTimeout(searchTimeout);
       searchTimeout = setTimeout(() => {
-        applySearch(e.target.value);
-      }, 200);
+        applySearch(term);
+      }, 300);
     });
 
-    // Search navigation with Enter/Shift+Enter
+    // Keyboard navigation for dropdown
     searchInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
+      const dropdown = document.getElementById('search-dropdown');
+      const isDropdownVisible = dropdown && dropdown.classList.contains('visible');
+
+      if (e.key === 'ArrowDown' && isDropdownVisible) {
         e.preventDefault();
-        if (e.shiftKey) {
+        navigateDropdown(1);
+      } else if (e.key === 'ArrowUp' && isDropdownVisible) {
+        e.preventDefault();
+        navigateDropdown(-1);
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (isDropdownVisible && state.dropdownIndex >= 0) {
+          const items = dropdown.querySelectorAll('.search-dropdown-item');
+          if (items[state.dropdownIndex]) {
+            selectDropdownItem(items[state.dropdownIndex].dataset.id);
+          }
+        } else if (e.shiftKey) {
           prevSearchResult();
         } else {
           nextSearchResult();
         }
+      } else if (e.key === 'Escape') {
+        hideDropdown();
+      }
+    });
+
+    // Hide dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.search-container')) {
+        hideDropdown();
       }
     });
 

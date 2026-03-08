@@ -24,6 +24,9 @@
     <!-- D3.js -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
 
+    <!-- MiniSearch (fuzzy search) -->
+    <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js"></script>
+
     <!-- Styles -->
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/layout.css" />
@@ -64,6 +67,8 @@
               autocomplete="off"
             />
             <span class="search-indicator" id="search-indicator"></span>
+            <!-- Auto-suggest dropdown -->
+            <div class="search-dropdown" id="search-dropdown"></div>
           </div>
 
           <!-- Filters with counts -->

@@ -1182,3 +1182,106 @@
 .search-indicator.visible {
   opacity: 1;
 }
+
+/* ==========================================================================
+   Search Dropdown (Auto-suggest)
+   ========================================================================== */
+
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: var(--space-xs);
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  max-height: 320px;
+  overflow-y: auto;
+  z-index: calc(var(--z-panel) + 10);
+  display: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.search-dropdown.visible {
+  display: block;
+}
+
+.search-dropdown-item {
+  padding: var(--space-sm) var(--space-md);
+  cursor: pointer;
+  border-bottom: 1px solid var(--glass-border);
+  transition: background var(--transition-fast);
+}
+
+.search-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.search-dropdown-item:hover,
+.search-dropdown-item.selected {
+  background: var(--glass-bg-subtle);
+}
+
+.search-dropdown-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.search-dropdown-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.search-dropdown-stance {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.search-dropdown-stance.supports {
+  background: var(--accent-supports);
+}
+
+.search-dropdown-stance.challenges {
+  background: var(--accent-challenges);
+}
+
+.search-dropdown-stance.balanced {
+  background: var(--accent-balanced);
+}
+
+.search-dropdown-empty {
+  padding: var(--space-md);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+/* Highlight matched text in dropdown */
+.search-dropdown-title mark {
+  background: var(--accent-supports);
+  color: var(--text-primary);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   Search Highlighting in Side Panel
+   ========================================================================== */
+
+.panel-content mark,
+.panel-content .search-highlight {
+  background: var(--accent-supports);
+  color: var(--text-primary);
+  padding: 0 2px;
+  border-radius: 2px;
+}
