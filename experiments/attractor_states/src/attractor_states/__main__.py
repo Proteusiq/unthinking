@@ -22,8 +22,23 @@ app = typer.Typer(
     name="attractor",
     help="Test LLMs for attractor states via self-conversation.",
     no_args_is_help=True,
+    add_completion=False,
 )
 console = Console()
+
+
+@app.command()
+def info() -> None:
+    """Show information about the experiment."""
+    console.print(
+        Panel(
+            "[bold]Attractor States Experiment[/bold]\n\n"
+            "Tests whether LLMs have characteristic patterns they converge to\n"
+            "during extended self-conversation without human steering.\n\n"
+            "[dim]Based on MATS 9.0 research by aryaj, Senthooran Rajamanoharan, Neel Nanda[/dim]",
+            border_style="blue",
+        )
+    )
 
 
 @app.command()
@@ -64,6 +79,7 @@ def run(
     LiteLLM model formats:
     
         OpenAI:    gpt-4o, gpt-4o-mini
+        Azure:     azure/deployment-name
         Anthropic: claude-3-5-sonnet-20241022
         Google:    gemini/gemini-1.5-flash
         Groq:      groq/llama-3.1-70b-versatile
