@@ -267,29 +267,57 @@ def classify_attractor(conversation: list[str]) -> str:
 experiments/attractor_states/
 ├── protocol.md           # This file
 ├── pyproject.toml        # Dependencies
-├── conversation.py       # Two-model conversation harness
+├── __init__.py           # Package exports
+├── __main__.py           # CLI entry point
+├── models.py             # Dataclasses (Turn, Conversation, etc.)
+├── conversation.py       # LiteLLM conversation harness
 ├── classify.py           # Attractor state classification
-├── interventions.py      # Intervention strategies
-├── analysis.py           # Results analysis
-├── prompts/
-│   └── seeds.jsonl       # Seed prompts
-└── results/
-    ├── conversations/    # Raw conversation logs
-    ├── classifications/  # Attractor labels
-    └── figures/          # Visualizations
+├── output.py             # JSON serialization and printing
+└── results/              # Output directory
 ```
+
+---
+
+## Usage
+
+```bash
+# Install dependencies
+cd experiments/attractor_states
+uv sync
+
+# Same model talking to itself
+uv run python -m attractor_states --model gpt-4o-mini
+
+# Cross-model conversation
+uv run python -m attractor_states --model-a gpt-4o-mini --model-b claude-3-haiku-20240307
+
+# Custom turns
+uv run python -m attractor_states --model gpt-4o-mini --turns 20
+```
+
+### LiteLLM Model Names
+
+| Provider | Format | Examples |
+|----------|--------|----------|
+| OpenAI | `model-name` | `gpt-4o`, `gpt-4o-mini` |
+| Anthropic | `model-name` | `claude-3-5-sonnet-20241022`, `claude-3-haiku-20240307` |
+| Google | `gemini/model` | `gemini/gemini-1.5-flash`, `gemini/gemini-1.5-pro` |
+| Groq | `groq/model` | `groq/llama-3.1-70b-versatile` |
+| OpenRouter | `openrouter/org/model` | `openrouter/meta-llama/llama-3.1-70b-instruct` |
+
+Set API keys via environment variables: `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, etc.
 
 ---
 
 ## Hardware Requirements
 
+No GPU required. All inference via API calls (LiteLLM).
+
 | Component | Requirement |
 |-----------|-------------|
-| GPU | 16GB+ VRAM for OLMo 7B (or 8-bit quantization) |
-| Storage | ~50GB for checkpoints |
-| Time | ~2 hours per full sweep (all checkpoints × seeds) |
-
-Can use Lightning.ai free tier (L4 GPU) or Google Colab.
+| API Keys | At least one provider (OpenAI, Anthropic, etc.) |
+| Time | ~10 min per model (5 seeds × 30 turns) |
+| Cost | ~$0.50-2.00 per model depending on provider |
 
 ---
 
