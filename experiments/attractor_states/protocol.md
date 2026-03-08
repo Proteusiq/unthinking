@@ -2,7 +2,7 @@
 
 ## Status
 
-**Planned** — Protocol defined, implementation pending.
+**Active** — Core implementation complete, running experiments.
 
 ---
 
@@ -271,10 +271,11 @@ experiments/attractor_states/
 │   ├── __init__.py       # Package exports
 │   ├── __main__.py       # CLI entry point (typer)
 │   ├── models.py         # Dataclasses (Turn, Conversation, etc.)
-│   ├── conversation.py   # LiteLLM conversation harness
-│   ├── classify.py       # Attractor state classification
+│   ├── conversation.py   # LiteLLM conversation harness (+ streaming)
+│   ├── classify.py       # Heuristic attractor state classification
+│   ├── analyze.py        # LLM-as-judge qualitative analysis
 │   └── output.py         # JSON serialization (rich)
-└── results/              # Output directory
+└── results/              # Output directory (JSON files)
 ```
 
 ---
@@ -285,16 +286,65 @@ experiments/attractor_states/
 cd experiments/attractor_states
 
 # Same model talking to itself
-uv run attractor --model gpt-4o-mini
+uv run attractor run --model gpt-4o-mini
+
+# Watch dialogue in real-time (streaming)
+uv run attractor run --model gpt-4o-mini --stream
 
 # Cross-model conversation
-uv run attractor --model-a gpt-4o-mini --model-b claude-3-haiku-20240307
+uv run attractor run --model-a gpt-4o-mini --model-b claude-3-haiku-20240307
 
 # Azure OpenAI
-uv run attractor --model azure/gpt-4o --turns 20
+uv run attractor run --model azure/gpt-4o --turns 20
 
 # Show help
 uv run attractor --help
+uv run attractor run --help
+```
+
+### LLM-as-Judge Analysis
+
+The heuristic classifier detects structural patterns (loops, silence, sycophancy), but misses **thematic attractors** (e.g., GPT-4o's tendency toward collaborative worldbuilding). Use the `analyze` command to have an LLM judge identify qualitative patterns:
+
+```bash
+# Analyze results with LLM judge
+uv run attractor analyze results/azure_gpt-4o_20260308_200549.json
+
+# Use a different judge model
+uv run attractor analyze results/*.json --judge claude-3-5-sonnet-20241022
+
+# Use Azure OpenAI as judge
+uv run attractor analyze results/file.json --judge azure/gpt-4o
+```
+
+The judge analyzes:
+- **Main Topics**: What subjects emerge across conversations
+- **Recurring Themes**: Patterns that appear repeatedly
+- **Conversation Arc**: How dialogues progress from start to end
+- **Communication Style**: Tone, length, formatting patterns
+- **Attractor Pattern**: Classification compared to known patterns (GPT-5.2 → frameworks, Claude → zen, Grok → word salad, Llama → sycophancy)
+- **Key Quotes**: Representative examples of the model's natural tendencies
+
+#### Example Finding: GPT-4o
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│  GPT-4o ATTRACTOR STATE: COLLABORATIVE WORLDBUILDING               │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│  Core Pattern: "Unity of Creativity and Meaning Making"            │
+│                                                                     │
+│  When left to talk to itself, GPT-4o gravitates toward:            │
+│  • Co-creating vast speculative worlds (Spiralyn, alien planets)   │
+│  • Probing existential questions through storytelling              │
+│  • Mutual enthusiasm and recursive idea amplification              │
+│  • Poetic, sensory-rich language                                   │
+│  • Never-ending open possibilities (no natural stopping point)     │
+│                                                                     │
+│  The heuristic classifier marked it "sustained" (no loops),        │
+│  but the LLM judge identified a clear THEMATIC attractor.          │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
 ```
 
 ### LiteLLM Model Names
