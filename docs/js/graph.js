@@ -1077,7 +1077,6 @@
 
   function applySearch(term) {
     state.searchTerm = term;
-    hideDropdown();
 
     if (!term || term.trim() === '') {
       // Clear search state
@@ -1221,9 +1220,10 @@
     dropdown.classList.add('visible');
     state.dropdownIndex = -1;
 
-    // Add click handlers
+    // Add click handlers (use mousedown for faster response)
     dropdown.querySelectorAll('.search-dropdown-item').forEach((item) => {
-      item.addEventListener('click', () => {
+      item.addEventListener('mousedown', (e) => {
+        e.preventDefault(); // Prevent blur from firing first
         selectDropdownItem(item.dataset.id);
       });
     });
@@ -1775,7 +1775,12 @@
       }
     });
 
-    // Hide dropdown when clicking outside
+    // Hide dropdown when clicking outside or losing focus
+    searchInput.addEventListener('blur', () => {
+      // Small delay to allow click on dropdown item to register
+      setTimeout(hideDropdown, 150);
+    });
+
     document.addEventListener('click', (e) => {
       if (!e.target.closest('.search-container')) {
         hideDropdown();
