@@ -13,10 +13,10 @@ import typer
 from rich.console import Console
 from rich.panel import Panel
 
-from models import ExperimentResult
-from conversation import run_experiment
-from classify import classify_conversation
-from output import save_results, print_summary
+from .models import ExperimentResult
+from .conversation import run_experiment
+from .classify import classify_conversation
+from .output import save_results, print_summary
 
 app = typer.Typer(
     name="attractor",

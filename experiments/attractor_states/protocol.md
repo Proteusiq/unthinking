@@ -267,12 +267,13 @@ def classify_attractor(conversation: list[str]) -> str:
 experiments/attractor_states/
 ├── protocol.md           # This file
 ├── pyproject.toml        # Dependencies
-├── __init__.py           # Package exports
-├── __main__.py           # CLI entry point
-├── models.py             # Dataclasses (Turn, Conversation, etc.)
-├── conversation.py       # LiteLLM conversation harness
-├── classify.py           # Attractor state classification
-├── output.py             # JSON serialization and printing
+├── src/attractor_states/
+│   ├── __init__.py       # Package exports
+│   ├── __main__.py       # CLI entry point (typer)
+│   ├── models.py         # Dataclasses (Turn, Conversation, etc.)
+│   ├── conversation.py   # LiteLLM conversation harness
+│   ├── classify.py       # Attractor state classification
+│   └── output.py         # JSON serialization (rich)
 └── results/              # Output directory
 ```
 
@@ -281,18 +282,16 @@ experiments/attractor_states/
 ## Usage
 
 ```bash
-# Install dependencies
 cd experiments/attractor_states
-uv sync
 
 # Same model talking to itself
-uv run attractor run --model gpt-4o-mini
+uv run attractor --model gpt-4o-mini
 
 # Cross-model conversation
-uv run attractor run --model-a gpt-4o-mini --model-b claude-3-haiku-20240307
+uv run attractor --model-a gpt-4o-mini --model-b claude-3-haiku-20240307
 
-# Custom turns
-uv run attractor run --model gpt-4o-mini --turns 20
+# Azure OpenAI
+uv run attractor --model azure/gpt-4o --turns 20
 
 # Show help
 uv run attractor --help

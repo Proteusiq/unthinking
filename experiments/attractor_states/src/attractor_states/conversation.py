@@ -3,7 +3,7 @@
 import litellm
 from rich.progress import Progress, SpinnerColumn, TextColumn
 
-from models import Conversation
+from .models import Conversation
 
 # Suppress LiteLLM logging noise
 litellm.suppress_debug_info = True

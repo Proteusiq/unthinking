@@ -2,7 +2,7 @@
 
 import numpy as np
 
-from models import AttractorClassification, Conversation
+from .models import AttractorClassification, Conversation
 
 
 def normalize(text: str) -> str:
