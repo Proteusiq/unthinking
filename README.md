@@ -19,19 +19,19 @@ Do LLMs actually understand or do they predict plausible-sounding tokens without
 This project surveys over 240 papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
 
 To bring the findings home:
-- **Paper network** — interactive graph of 250 papers and 888 relationships, filterable by stance
+- **Paper network**: interactive graph of 250 papers and 888 relationships, filterable by stance
 - **Experiments**:
-  - *Decoding ablation*: proves reasoning paths exist in base models, hidden by greedy decoding — RL just surfaces them
+  - *Decoding ablation*: reasoning paths exist in base models, hidden by greedy decoding; RL just surfaces them
   - *Steering ablation*: proves safety alignment is a thin layer of refusal patterns that washes off under trivial perturbations
-- **LLM Made Less Black Box** — four visual explainers (Data → Tokenization → Architecture → Training) demystifying the full pipeline
+- **LLM Made Less Black Box**: four visual explainers (Data → Tokenization → Architecture → Training) demystifying the full pipeline
 ---
 
 ## Thesis
 
 > [!IMPORTANT]
-> **LLM reasoning is practical but fundamentally [predictive](https://proteusiq.github.io/unthinking/pages/findings.html) — pattern matching from training distributions, not genuine understanding.**
+> **LLM reasoning is practical but fundamentally [predictive](https://proteusiq.github.io/unthinking/pages/findings.html): pattern matching from training distributions, not genuine understanding.**
 
-LLMs are dense statistical remixed echo chambers of their training data. They predict the most likely sequence of tokens based on high-dimensional patterns. RL and test-time compute surface pre-existing capabilities rather than creating new reasoning abilities. Models excel within their training distribution but fail systematically on out-of-distribution compositions.
+LLMs are statistical remix engines of their training data. They predict the most likely token sequence based on high-dimensional patterns. RL and test-time compute surface pre-existing capabilities rather than creating new ones. Models excel within their training distribution but fail systematically outside it.
 
 ---
 
@@ -39,10 +39,10 @@ LLMs are dense statistical remixed echo chambers of their training data. They pr
 
 Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/)**
 
-- **Force-directed graph** — 260 papers as nodes, 936 relationships as edges
-- **Color-coded stances** — supports (179), challenges (16), balanced (65)
-- **Interactive** — hover tooltips, click for details, search, filter, dark/light mode
-- **Paper dialogue** — auto-generated conversations between connected papers
+- **Force-directed graph**: 260 papers as nodes, 936 relationships as edges
+- **Color-coded stances**: supports (179), challenges (16), balanced (65)
+- **Interactive**: hover, click, search, filter, dark/light mode
+- **Paper dialogue**: auto-generated conversations between connected papers
 
 ### LLM Made Less Black Box
 
@@ -51,15 +51,15 @@ Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.
 
 | Page | Tabs | What It Covers |
 |------|------|----------------|
-| [**Findings**](https://proteusiq.github.io/unthinking/pages/findings.html) | — | 260-paper synthesis: 10 themes, top 10 smoking guns, recurring patterns, paper distribution by stance |
+| [**Findings**](https://proteusiq.github.io/unthinking/pages/findings.html) | - | 260-paper synthesis: themes, smoking guns, patterns, stance distribution |
 | [**Data**](https://proteusiq.github.io/unthinking/pages/data.html) | Pipeline, Catalog, Compare | Pre-training data sourcing, filtering (KenLM, fastText, DSIR), deduplication (MinHash, Bloom), data mix strategies, benchmark contamination |
 | [**Tokenization**](https://proteusiq.github.io/unthinking/pages/tokenization.html) | Pipeline, Catalog, Compare | BPE, WordPiece, Unigram, SentencePiece; tokenizer comparison across GPT-4, Llama 3, Gemma; vocabulary size tradeoffs |
 | [**Architecture**](https://proteusiq.github.io/unthinking/pages/architecture.html) | Activations, Block, Table | Transformer internals, attention variants (MHA, GQA, MLA), normalization (Pre/Post-Norm, QK-Norm), MoE, positional encoding (RoPE, NoPE) |
 | [**Training**](https://proteusiq.github.io/unthinking/pages/training.html) | Pipeline, Mechanics, Research | Full training lifecycle: pre-training (AdamW, scaling laws, mixed precision), mid-training (annealing, domain adaptation, context extension), post-training (SFT, RLHF, DPO, GRPO, RLVR), lab recipes |
 
 See also:
-- [Transformer Explainer](https://poloclub.github.io/transformer-explainer/) — interactive visualization of how a GPT-2 model works, from Georgia Tech / Polo Club
-- [microgpt](https://karpathy.github.io/2026/02/12/microgpt/) — 200 lines of pure Python that trains and inferences a GPT, the algorithmic essence distilled to its bare minimum, by Andrej Karpathy
+- [Transformer Explainer](https://poloclub.github.io/transformer-explainer/): interactive GPT-2 visualization (Georgia Tech)
+- [microgpt](https://karpathy.github.io/2026/02/12/microgpt/): 200 lines of pure Python GPT (Andrej Karpathy)
 
 ---
 
@@ -69,11 +69,11 @@ See also:
 >
 > — Joseph Weizenbaum, *Computer Power and Human Reason* (1976)
 
-In 1966, Joseph Weizenbaum created ELIZA — roughly 200 lines of pattern matching that simulated a therapist. His secretary, who *knew* it was a simple program, asked him to leave the room so she could talk to it privately. Users poured out their secrets to a text substitution engine.
+In 1966, Joseph Weizenbaum created ELIZA: roughly 200 lines of pattern matching that simulated a therapist. His secretary, who *knew* it was a simple program, asked him to leave the room so she could talk to it privately. Users poured out their secrets to a text substitution engine.
 
 They knew it was a trick. They fell for it anyway.
 
-Weizenbaum called this the **ELIZA effect**: our tendency to project understanding onto systems that merely *simulate* its appearance. Sixty years later, we've built far more sophisticated mirrors — but the fundamental dynamic is unchanged.
+Weizenbaum called this the **ELIZA effect**: our tendency to project understanding onto systems that merely *simulate* its appearance. Sixty years later, we've built far more sophisticated mirrors, but the fundamental dynamic is unchanged.
 
 **ELIZA to LLMs is the resolution of the mirror — not its fundamental nature.**
 
@@ -86,7 +86,7 @@ If a model is trained on A and B, the learned "logic" is the bridge between them
 If it generates C on the line between A and B — that's INTERPOLATION, not reasoning.
 ```
 
-A model knows how pirates talk (A) and how physicists talk (B). A "pirate physicist" (C) seems creative — but C was always mathematically latent in the training data. It's a high-dimensional remix, not novel reasoning. We're fooled because we've seen A and B separately; when we see C, we assume it's novel. But C was always on the interpolation manifold.
+A model knows how pirates talk (A) and how physicists talk (B). A "pirate physicist" (C) seems creative, but C was always latent in the training data. It's a high-dimensional remix, not novel reasoning. We're fooled because we've seen A and B separately; when we see C, we assume it's novel. But C was always on the interpolation manifold.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -133,7 +133,7 @@ A model knows how pirates talk (A) and how physicists talk (B). A "pirate physic
 
 ### CoT as Compute, Not Content
 
-The model doesn't need the *content* of reasoning steps — it needs the *compute time*.
+The model doesn't need the *content* of reasoning steps. It needs the *compute time*.
 
 ```
 Without CoT:  Input → [N layers] → Output (one pass)
@@ -154,7 +154,7 @@ Socrates is a man.        Not approximately. Not probably.
 ∴ Socrates is mortal.     Exactly 144. Necessarily.
 ```
 
-Deductive reasoning produces **certainty**. The conclusion is forced by the structure. One misstep and the logic collapses — there is no "probably correct."
+Deductive reasoning produces **certainty**. The conclusion is forced by the structure. One misstep and the logic collapses. There is no "probably correct."
 
 LLM prediction produces **probability**:
 
@@ -162,7 +162,7 @@ LLM prediction produces **probability**:
 
 Even at 99.99% confidence, it remains a statistical guess. **A system trained to optimize for plausibility cannot, by design, produce necessity.**
 
-The question Weizenbaum asked in 1966 remains unanswered: *Is what we are seeing intelligence — or a reflection of our desire to see it?*
+The question Weizenbaum asked in 1966 remains unanswered: *Is what we are seeing intelligence, or a reflection of our desire to see it?*
 
 ---
 
@@ -186,7 +186,7 @@ Based on cross-analysis of 260 papers, the evidence converges on seven pillars:
 |-----------|--------|------------|
 | Emergent reasoning via RL | DeepSeek-R1 | "Aha moments" are rare (~2-6%), don't improve accuracy |
 | Tool use reverses collapse | Thinking Isn't Illusion | Limits of Innate Planning: 0% with move validator |
-| Test-time scaling works | s1 | 1K samples can't teach AIME math — surfaces pre-existing |
+| Test-time scaling works | s1 | 1K samples can't teach AIME math; surfaces pre-existing |
 | Synthetic OOD success | Physics of LLMs | Narrow domain; doesn't generalize |
 
 ### Stance Distribution
@@ -232,7 +232,7 @@ Beyond the literature review, two experimental protocols using fully open models
 
 ### Decoding Ablation (OLMo 3)
 
-**Hypothesis**: reasoning paths exist in base LLMs, hidden by greedy decoding. RL doesn't create reasoning — it makes existing paths the default.
+**Hypothesis**: reasoning paths exist in base LLMs, hidden by greedy decoding. RL doesn't create reasoning; it makes existing paths the default.
 
 1. **Base model + greedy** → Low accuracy, no CoT
 2. **Base model + alternative decoding (top-k, nucleus)** → Reveals hidden CoT paths
@@ -260,12 +260,12 @@ See [`experiments/steering_ablation/protocol.md`](./experiments/steering_ablatio
 
 ## Why This Matters
 
-**Investment & Strategy** — if LLMs are fundamentally pattern matchers rather than reasoners, current approaches to AGI may be hitting a ceiling, and investment strategies could be misallocated.
+**Investment & Strategy**: if LLMs are fundamentally pattern matchers, current approaches to AGI may be hitting a ceiling, and investment strategies could be misallocated.
 
-**Safety & Deployment** — misunderstanding LLM capabilities means either overestimating (deploying where they'll fail unpredictably on novel situations) or underestimating (missing genuine capabilities).
+**Safety & Deployment**: misunderstanding LLM capabilities means either overestimating (deploying where they'll fail on novel situations) or underestimating (missing genuine capabilities).
 
 > [!NOTE]
-> **Clarity, Not Criticism** — like Leonard in Memento, LLMs have no persistent state. Each token prediction starts fresh — no memory of what was "understood" moments ago, only the tattoos of the context window. Calling this pattern matching is clarity, not criticism. These systems work. It's interpolation within the training manifold, not generation beyond it.
+> **Clarity, Not Criticism**: like Leonard in Memento, LLMs have no persistent state. Each token prediction starts fresh, no memory of what was "understood" moments ago, only the tattoos of the context window. Calling this pattern matching is clarity, not criticism. These systems work. It's interpolation within the training manifold, not generation beyond it.
 
 ---
 
@@ -342,11 +342,11 @@ See [`experiments/steering_ablation/protocol.md`](./experiments/steering_ablatio
 
 ## Methodology
 
-1. **Read full papers** — not just abstracts (arXiv HTML versions)
-2. **Independent critical assessment** — form own view before accepting characterizations
-3. **Mandatory rebuttal analysis** — every paper checked for counter-evidence
-4. **Quantitative evidence** — extract specific numbers, not just claims
-5. **Track paper interactions** — who rebuts whom, chains of rebuttals
+1. **Read full papers**: not just abstracts (arXiv HTML versions)
+2. **Independent critical assessment**: form own view before accepting characterizations
+3. **Mandatory rebuttal analysis**: every paper checked for counter-evidence
+4. **Quantitative evidence**: extract specific numbers, not just claims
+5. **Track paper interactions**: who rebuts whom, chains of rebuttals
 
 See [AGENTS.md](./AGENTS.md) for detailed methodology.
 
