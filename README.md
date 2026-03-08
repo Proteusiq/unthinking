@@ -63,39 +63,6 @@ See also:
 
 ---
 
-## The Seven Pillars of Evidence
-
-Based on cross-analysis of 260 papers, the evidence converges on seven pillars:
-
-| Pillar | Core Finding | Key Papers | Strongest Number |
-|--------|--------------|------------|------------------|
-| **1. Compositional Failure** | ID success doesn't transfer to OOD | Faith & Fate, GSM-Symbolic, CoT Mirage | ~100% ID to ~0% OOD |
-| **2. CoT Unfaithfulness** | CoT often doesn't reflect actual computation | Measuring Faithfulness, Reasoning Models Don't Say | Larger models = less faithful |
-| **3. Surfacing Hypothesis** | RL surfaces pre-existing capability, doesn't create it | Interplay, s1, Base Models Know How | 0% exposure = RL fails |
-| **4. Complexity Collapse** | Abrupt failure at complexity thresholds | Illusion of Thinking, Until They Don't | Collapse at ~8-10 disks |
-| **5. Surface Pattern Dependence** | Performance determined by token frequency | Term Frequencies, Token Bias, Reversal Curse | >70% accuracy gap |
-| **6. Sycophancy** | Models prioritize social agreement over truth | Towards Understanding Sycophancy | 98% wrong admissions |
-| **7. Tool Debate** | Tools help execution but not reasoning | Limits of Innate Planning, Rethinking Illusion | 0% even with validator |
-
-### Counter-Evidence (Steel-manned)
-
-| Challenge | Papers | Limitation |
-|-----------|--------|------------|
-| Emergent reasoning via RL | DeepSeek-R1 | "Aha moments" are rare (~2-6%), don't improve accuracy |
-| Tool use reverses collapse | Thinking Isn't Illusion | Limits of Innate Planning: 0% with move validator |
-| Test-time scaling works | s1 | 1K samples can't teach AIME math — surfaces pre-existing |
-| Synthetic OOD success | Physics of LLMs | Narrow domain; doesn't generalize |
-
-### Stance Distribution
-
-| Stance | Count | Percentage |
-|--------|-------|------------|
-| **Supports thesis** | 179 | 69% |
-| **Balanced** | 65 | 25% |
-| **Challenges thesis** | 16 | 6% |
-
----
-
 ## The Shock of the Mirror
 
 > *"I had not realized ... that extremely short exposures to a relatively simple computer program could induce powerful delusional thinking in quite normal people."*
@@ -196,6 +163,39 @@ LLM prediction produces **probability**:
 Even at 99.99% confidence, it remains a statistical guess. **A system trained to optimize for plausibility cannot, by design, produce necessity.**
 
 The question Weizenbaum asked in 1966 remains unanswered: *Is what we are seeing intelligence — or a reflection of our desire to see it?*
+
+---
+
+## The Seven Pillars of Evidence
+
+Based on cross-analysis of 260 papers, the evidence converges on seven pillars:
+
+| Pillar | Core Finding | Key Papers | Strongest Number |
+|--------|--------------|------------|------------------|
+| **1. Compositional Failure** | ID success doesn't transfer to OOD | Faith & Fate, GSM-Symbolic, CoT Mirage | ~100% ID to ~0% OOD |
+| **2. CoT Unfaithfulness** | CoT often doesn't reflect actual computation | Measuring Faithfulness, Reasoning Models Don't Say | Larger models = less faithful |
+| **3. Surfacing Hypothesis** | RL surfaces pre-existing capability, doesn't create it | Interplay, s1, Base Models Know How | 0% exposure = RL fails |
+| **4. Complexity Collapse** | Abrupt failure at complexity thresholds | Illusion of Thinking, Until They Don't | Collapse at ~8-10 disks |
+| **5. Surface Pattern Dependence** | Performance determined by token frequency | Term Frequencies, Token Bias, Reversal Curse | >70% accuracy gap |
+| **6. Sycophancy** | Models prioritize social agreement over truth | Towards Understanding Sycophancy | 98% wrong admissions |
+| **7. Tool Debate** | Tools help execution but not reasoning | Limits of Innate Planning, Rethinking Illusion | 0% even with validator |
+
+### Counter-Evidence (Steel-manned)
+
+| Challenge | Papers | Limitation |
+|-----------|--------|------------|
+| Emergent reasoning via RL | DeepSeek-R1 | "Aha moments" are rare (~2-6%), don't improve accuracy |
+| Tool use reverses collapse | Thinking Isn't Illusion | Limits of Innate Planning: 0% with move validator |
+| Test-time scaling works | s1 | 1K samples can't teach AIME math — surfaces pre-existing |
+| Synthetic OOD success | Physics of LLMs | Narrow domain; doesn't generalize |
+
+### Stance Distribution
+
+| Stance | Count | Percentage |
+|--------|-------|------------|
+| **Supports thesis** | 179 | 69% |
+| **Balanced** | 65 | 25% |
+| **Challenges thesis** | 16 | 6% |
 
 ---
 
