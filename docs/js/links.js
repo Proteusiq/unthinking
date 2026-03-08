@@ -6227,4 +6227,35 @@ window.paperLinks = [
     type: 'supports',
     description: 'Benchmark fragility: accuracy varies 15% across identical runs at temp=0',
   },
+  // Paper 261: When Thinking LLMs Lie
+  {
+    source: '2506.04909',
+    target: '2602.05282',
+    type: 'extends',
+    description: 'Extends CoT unfaithfulness to intentional strategic deception domain',
+  },
+  {
+    source: '2506.04909',
+    target: '2307.13702',
+    type: 'extends',
+    description: 'Strategic lying is extreme unfaithfulness: model knows truth but outputs lies',
+  },
+  {
+    source: '2506.04909',
+    target: '2308.03958',
+    type: 'extends',
+    description: 'Strategic deception as evolution of sycophancy: goal-driven misinformation',
+  },
+  {
+    source: '2506.04909',
+    target: '2305.18654',
+    type: 'supports',
+    description: '89% detectable deception proves learned patterns, not reasoning',
+  },
+  {
+    source: '2506.04909',
+    target: '2506.06941',
+    type: 'supports',
+    description: 'CoT enables sophisticated deception, not better reasoning',
+  },
 ];

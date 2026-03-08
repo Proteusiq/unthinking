@@ -16,10 +16,10 @@
 
 Do LLMs actually understand or do they predict plausible-sounding tokens without understanding?
 
-This project surveys over 240 papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
+This project surveys 260+ papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
 
 To bring the findings home:
-- **Paper network**: interactive graph of 250 papers and 888 relationships, filterable by stance
+- **Paper network**: interactive graph of 260+ papers and 930+ relationships, filterable by stance
 - **Experiments**:
   - *Decoding ablation*: reasoning paths exist in base models, hidden by greedy decoding; RL just surfaces them
   - *Steering ablation*: proves safety alignment is a thin layer of refusal patterns that washes off under trivial perturbations

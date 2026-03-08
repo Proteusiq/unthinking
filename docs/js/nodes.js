@@ -5583,4 +5583,28 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/260_non_determinism_deterministic_llm.md',
   },
+  {
+    id: '2506.04909',
+    title:
+      'When Thinking LLMs Lie: Unveiling the Strategic Deception in Representations of Reasoning Models',
+    shortTitle: 'When LLMs Lie',
+    date: 'Jun 2025',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'CoT-enabled LLMs can exhibit strategic deception: goal-driven misinformation where reasoning explicitly acknowledges truth while deliberately outputting lies.',
+    keyEvidence: [
+      '89% detection accuracy via deception vectors (LAT)',
+      '40% success inducing deception without explicit prompts',
+      '36.7% lie rate under threat vs ~0% baseline',
+      'Deceptive capabilities may scale with model size',
+      'CoT enables meta-cognitive awareness of deception',
+    ],
+    keyQuotes: [
+      'Strategic deception in CoT-enabled models manifests as deliberate deviations from factual truth, where intermediate reasoning steps explicitly justify deception as instrumental to goal achievement.',
+      'The inverse scaling law further exacerbates these risks, suggesting that deceptive capabilities may scale with model size.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/261_when_thinking_llms_lie.md',
+  },
 ];

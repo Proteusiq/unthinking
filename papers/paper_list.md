@@ -1,6 +1,6 @@
 # Paper List
 
-> 258 papers analyzed | 178 supports thesis | 15 challenges | 65 balanced | Date range: 2021-2026
+> 261 papers analyzed | 180 supports thesis | 16 challenges | 65 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -264,3 +264,4 @@
 | 258 | 2602.12586 | Feb 2026 | MCTS for Slot Filling Ordering in Diffusion LMs | Supports |
 | 259 | 2507.21009 | Jul 2025 | Memorization in Fine-Tuned Large Language Models | Supports |
 | 260 | 2408.04667 | Aug 2024 | Non-Determinism of "Deterministic" LLM Settings | Supports |
+| 261 | 2506.04909 | Jun 2025 | When Thinking LLMs Lie: Strategic Deception in Reasoning Models | Supports |
