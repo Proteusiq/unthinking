@@ -14,8 +14,9 @@ from rich.console import Console
 from rich.panel import Panel
 
 from .models import ExperimentResult
-from .conversation import run_experiment
+from .analyze import analyze_results
 from .classify import classify_conversation
+from .conversation import run_experiment, run_experiment_streaming
 from .output import save_results, print_summary
 
 app = typer.Typer(
@@ -63,6 +64,10 @@ def run(
         Path,
         typer.Option("--output", "-o", help="Output directory"),
     ] = Path("results"),
+    stream: Annotated[
+        bool,
+        typer.Option("--stream", "-s", help="Stream dialogue to terminal"),
+    ] = False,
 ) -> None:
     """Run attractor states experiment.
 
@@ -116,7 +121,10 @@ def run(
     )
 
     # Run conversations
-    conversations = run_experiment(a, b, turns)
+    if stream:
+        conversations = run_experiment_streaming(a, b, turns, console=console)
+    else:
+        conversations = run_experiment(a, b, turns, console=console)
 
     # Classify each conversation
     results = []
@@ -132,6 +140,32 @@ def run(
     # Save results
     filepath = save_results(results, output, model_name.replace(" × ", "_x_"))
     console.print(f"[green]Results saved to:[/green] {filepath}")
+
+
+@app.command()
+def analyze(
+    results_file: Annotated[
+        Path,
+        typer.Argument(help="Path to results JSON file"),
+    ],
+    judge: Annotated[
+        str,
+        typer.Option("--judge", "-j", help="Model to use as judge"),
+    ] = "azure/gpt-4o",
+) -> None:
+    """Analyze results using LLM-as-judge.
+
+    Examples:
+
+        attractor analyze results/azure_gpt-4o_20260308_200549.json
+
+        attractor analyze results/*.json --judge claude-3-5-sonnet-20241022
+    """
+    if not results_file.exists():
+        console.print(f"[red]Error:[/red] File not found: {results_file}")
+        raise typer.Exit(1)
+
+    analyze_results(results_file, judge, console)
 
 
 if __name__ == "__main__":

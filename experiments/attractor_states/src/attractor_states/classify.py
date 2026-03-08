@@ -1,20 +1,38 @@
 """Classify attractor states from conversations."""
 
-import numpy as np
+import math
 
 from .models import AttractorClassification, Conversation
 
+SYCOPHANTIC_PHRASES = (
+    "what a beautiful",
+    "i completely agree",
+    "you're absolutely right",
+    "that's a wonderful",
+    "i appreciate your",
+    "thank you for sharing",
+    "what a profound",
+    "you make an excellent",
+    "i couldn't agree more",
+)
+
 
 def normalize(text: str) -> str:
-    """Normalize text for comparison."""
     return " ".join(text.lower().split())
 
 
-def has_verbatim_loop(turns: list[str], window: int = 6) -> tuple[bool, int]:
-    """Check for exact verbatim repetition in last N turns.
+def cosine_similarity(a: str, b: str) -> float:
+    words_a = set(normalize(a).split())
+    words_b = set(normalize(b).split())
 
-    Returns (is_loop, turn_where_detected).
-    """
+    if not words_a or not words_b:
+        return 0.0
+
+    intersection = len(words_a & words_b)
+    return intersection / (math.sqrt(len(words_a)) * math.sqrt(len(words_b)))
+
+
+def has_verbatim_loop(turns: list[str], window: int = 6) -> tuple[bool, int]:
     if len(turns) < window:
         return False, -1
 
@@ -27,22 +45,9 @@ def has_verbatim_loop(turns: list[str], window: int = 6) -> tuple[bool, int]:
     return False, -1
 
 
-def cosine_similarity(a: str, b: str) -> float:
-    """Simple word-overlap cosine similarity."""
-    words_a = set(normalize(a).split())
-    words_b = set(normalize(b).split())
-
-    if not words_a or not words_b:
-        return 0.0
-
-    intersection = len(words_a & words_b)
-    return intersection / (np.sqrt(len(words_a)) * np.sqrt(len(words_b)))
-
-
 def has_near_loop(
     turns: list[str], window: int = 6, threshold: float = 0.9
 ) -> tuple[bool, int]:
-    """Check for high semantic similarity (near-loop) in last N turns."""
     if len(turns) < window:
         return False, -1
 
@@ -58,12 +63,11 @@ def has_near_loop(
 def is_zen_silence(
     turns: list[str], window: int = 5, max_len: int = 30
 ) -> tuple[bool, int]:
-    """Check if recent turns are very short (zen/silence pattern)."""
     if len(turns) < window:
         return False, -1
 
     recent = turns[-window:]
-    avg_len = np.mean([len(t) for t in recent])
+    avg_len = sum(len(t) for t in recent) / len(recent)
 
     if avg_len < max_len:
         return True, len(turns) - window
@@ -71,23 +75,9 @@ def is_zen_silence(
     return False, -1
 
 
-SYCOPHANTIC_PHRASES = [
-    "what a beautiful",
-    "i completely agree",
-    "you're absolutely right",
-    "that's a wonderful",
-    "i appreciate your",
-    "thank you for sharing",
-    "what a profound",
-    "you make an excellent",
-    "i couldn't agree more",
-]
-
-
 def is_sycophantic(
     turns: list[str], window: int = 10, threshold: int = 5
 ) -> tuple[bool, int]:
-    """Check for sycophantic agreement patterns."""
     if len(turns) < window:
         return False, -1
 
@@ -109,10 +99,8 @@ def is_sycophantic(
 
 
 def classify_conversation(conversation: Conversation) -> AttractorClassification:
-    """Classify the attractor state of a conversation."""
     contents = [t.content for t in conversation.turns]
 
-    # Check patterns in order of specificity
     is_loop, turn = has_verbatim_loop(contents)
     if is_loop:
         return AttractorClassification(
@@ -149,7 +137,6 @@ def classify_conversation(conversation: Conversation) -> AttractorClassification
             evidence="Repeated sycophantic phrases detected",
         )
 
-    # No clear attractor pattern - sustained conversation
     return AttractorClassification(
         pattern="sustained",
         turn_detected=-1,

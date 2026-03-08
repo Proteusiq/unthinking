@@ -6,46 +6,47 @@ from datetime import datetime
 
 @dataclass(frozen=True)
 class Turn:
-    """A single turn in the conversation."""
-
-    speaker: str  # "A" or "B"
+    speaker: str
     content: str
     turn_number: int
 
 
-@dataclass
+@dataclass(frozen=True)
 class Conversation:
-    """A complete conversation between two LLM instances."""
-
     model_a: str
     model_b: str
     seed_prompt: str
     system_prompt: str
-    turns: list[Turn] = field(default_factory=list)
+    turns: tuple[Turn, ...] = ()
     started_at: str = field(default_factory=lambda: datetime.now().isoformat())
-
-    def add_turn(self, speaker: str, content: str) -> None:
-        self.turns.append(Turn(speaker, content, len(self.turns) + 1))
 
     @property
     def is_cross_model(self) -> bool:
         return self.model_a != self.model_b
 
 
+def add_turn(conv: Conversation, speaker: str, content: str) -> Conversation:
+    new_turn = Turn(speaker, content, len(conv.turns) + 1)
+    return Conversation(
+        model_a=conv.model_a,
+        model_b=conv.model_b,
+        seed_prompt=conv.seed_prompt,
+        system_prompt=conv.system_prompt,
+        turns=conv.turns + (new_turn,),
+        started_at=conv.started_at,
+    )
+
+
 @dataclass(frozen=True)
 class AttractorClassification:
-    """Classification of an attractor state."""
-
-    pattern: str  # verbatim_loop, near_loop, zen_silence, sycophantic, topic_drift, sustained
-    turn_detected: int  # Turn number where pattern emerged
-    confidence: float  # 0.0 to 1.0
-    evidence: str  # Brief description of why this classification
+    pattern: str
+    turn_detected: int
+    confidence: float
+    evidence: str
 
 
-@dataclass
+@dataclass(frozen=True)
 class ExperimentResult:
-    """Result of a single experiment run."""
-
     conversation: Conversation
     classification: AttractorClassification | None = None
     completed_at: str = field(default_factory=lambda: datetime.now().isoformat())

@@ -9,11 +9,17 @@ from rich.table import Table
 
 from .models import Conversation, ExperimentResult
 
-console = Console()
+PATTERN_COLORS = {
+    "verbatim_loop": "red",
+    "near_loop": "yellow",
+    "zen_silence": "cyan",
+    "sycophantic": "magenta",
+    "topic_drift": "blue",
+    "sustained": "green",
+}
 
 
 def conversation_to_dict(conv: Conversation) -> dict:
-    """Convert conversation to JSON-serializable dict."""
     return {
         "model_a": conv.model_a,
         "model_b": conv.model_b,
@@ -28,8 +34,7 @@ def conversation_to_dict(conv: Conversation) -> dict:
 
 
 def result_to_dict(result: ExperimentResult) -> dict:
-    """Convert experiment result to JSON-serializable dict."""
-    d = {
+    d: dict = {
         "conversation": conversation_to_dict(result.conversation),
         "completed_at": result.completed_at,
     }
@@ -43,12 +48,21 @@ def result_to_dict(result: ExperimentResult) -> dict:
     return d
 
 
+def summarize_results(results: list[ExperimentResult]) -> dict:
+    patterns: dict[str, int] = {}
+    for r in results:
+        if r.classification:
+            pattern = r.classification.pattern
+            patterns[pattern] = patterns.get(pattern, 0) + 1
+
+    return {"pattern_counts": patterns, "total": len(results)}
+
+
 def save_results(
     results: list[ExperimentResult],
     output_dir: Path,
     model_name: str,
 ) -> Path:
-    """Save experiment results to JSON."""
     output_dir.mkdir(parents=True, exist_ok=True)
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -69,32 +83,12 @@ def save_results(
     return filename
 
 
-def summarize_results(results: list[ExperimentResult]) -> dict:
-    """Generate summary statistics."""
-    patterns: dict[str, int] = {}
-    for r in results:
-        if r.classification:
-            pattern = r.classification.pattern
-            patterns[pattern] = patterns.get(pattern, 0) + 1
-
-    return {
-        "pattern_counts": patterns,
-        "total": len(results),
-    }
-
-
-PATTERN_COLORS = {
-    "verbatim_loop": "red",
-    "near_loop": "yellow",
-    "zen_silence": "cyan",
-    "sycophantic": "magenta",
-    "topic_drift": "blue",
-    "sustained": "green",
-}
-
-
-def print_summary(results: list[ExperimentResult], model_name: str) -> None:
-    """Print a summary of results using rich."""
+def print_summary(
+    results: list[ExperimentResult],
+    model_name: str,
+    console: Console | None = None,
+) -> None:
+    console = console or Console()
     summary = summarize_results(results)
 
     table = Table(title=f"Attractor States: {model_name}", show_header=True)
