@@ -303,12 +303,32 @@ uv run attractor --help
 | Provider | Format | Examples |
 |----------|--------|----------|
 | OpenAI | `model-name` | `gpt-4o`, `gpt-4o-mini` |
+| Azure OpenAI | `azure/deployment-name` | `azure/gpt-4o-mini`, `azure/gpt-4o` |
 | Anthropic | `model-name` | `claude-3-5-sonnet-20241022`, `claude-3-haiku-20240307` |
 | Google | `gemini/model` | `gemini/gemini-1.5-flash`, `gemini/gemini-1.5-pro` |
 | Groq | `groq/model` | `groq/llama-3.1-70b-versatile` |
 | OpenRouter | `openrouter/org/model` | `openrouter/meta-llama/llama-3.1-70b-instruct` |
 
-Set API keys via environment variables: `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, etc.
+### Environment Variables
+
+```bash
+# OpenAI
+export OPENAI_API_KEY="sk-..."
+
+# Azure OpenAI
+export AZURE_API_KEY="your-key"
+export AZURE_API_BASE="https://your-resource.openai.azure.com"
+export AZURE_API_VERSION="2024-02-15-preview"
+
+# Anthropic
+export ANTHROPIC_API_KEY="sk-ant-..."
+
+# Google
+export GEMINI_API_KEY="..."
+
+# Groq
+export GROQ_API_KEY="..."
+```
 
 ---
 
