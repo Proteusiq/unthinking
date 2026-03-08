@@ -189,14 +189,6 @@ Based on cross-analysis of 260 papers, the evidence converges on seven pillars:
 | Test-time scaling works | s1 | 1K samples can't teach AIME math; surfaces pre-existing |
 | Synthetic OOD success | Physics of LLMs | Narrow domain; doesn't generalize |
 
-### Stance Distribution
-
-| Stance | Count | Percentage |
-|--------|-------|------------|
-| **Supports thesis** | 179 | 69% |
-| **Balanced** | 65 | 25% |
-| **Challenges thesis** | 16 | 6% |
-
 ---
 
 ## The Narrative Arc (2022-2026)
