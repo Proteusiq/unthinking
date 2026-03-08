@@ -22,7 +22,8 @@ To bring the findings home:
 - **Paper network**: interactive graph of 260+ papers and 930+ relationships, filterable by stance
 - **Experiments**:
   - *Decoding ablation*: reasoning paths exist in base models, hidden by greedy decoding; RL just surfaces them
-  - *Steering ablation*: proves safety alignment is a thin layer of refusal patterns that washes off under trivial perturbations
+  - *Steering ablation*: safety alignment is a thin layer of refusal patterns that washes off under trivial perturbations
+  - *Attractor states*: extended LLM-to-LLM conversation reveals training distribution patterns (distribution chaos)
 - **LLM Made Less Black Box**: four visual explainers (Data → Tokenization → Architecture → Training) demystifying the full pipeline
 ---
 
@@ -220,7 +221,7 @@ PHASE 7: THEORETICAL FRAMEWORK (2026)
 
 ## Experiments
 
-Beyond the literature review, two experimental protocols using fully open models:
+Beyond the literature review, three experimental protocols using fully open models:
 
 ### Decoding Ablation (OLMo 3)
 
@@ -247,6 +248,19 @@ See [`experiments/decoding_ablation/protocol.md`](./experiments/decoding_ablatio
 > If abliteration removes 90%+ of refusals while preserving capabilities, safety is a thin layer of learned refusal patterns that washes off under trivial perturbations.
 
 See [`experiments/steering_ablation/protocol.md`](./experiments/steering_ablation/protocol.md).
+
+### Attractor States (OLMo checkpoints)
+
+**Hypothesis**: extended LLM-to-LLM conversation reveals training distribution patterns. Without human steering, models converge to characteristic "attractor states."
+
+1. **Two instances talk** → 30 turns without intervention
+2. **Checkpoint comparison** → SFT, DPO, RLVR produce different attractors
+3. **Pattern classification** → Verbatim loops, zen silence, sycophancy, word salad
+
+> [!CAUTION]
+> If models consistently converge to the same attractor patterns regardless of starting prompt, "personality" is just training distribution revealed when steering is removed.
+
+Inspired by [MATS 9.0 research](https://www.lesswrong.com/posts/mgjtEHeLgkhZZ3cEx). See [`experiments/attractor_states/protocol.md`](./experiments/attractor_states/protocol.md).
 
 ---
 
@@ -320,7 +334,8 @@ See [`experiments/steering_ablation/protocol.md`](./experiments/steering_ablatio
 │       └── graph.js          # Force-directed graph + interactions
 ├── experiments/
 │   ├── decoding_ablation/    # OLMo 3 decoding experiment
-│   └── steering_ablation/    # Alignment hacking experiment
+│   ├── steering_ablation/    # Alignment hacking experiment
+│   └── attractor_states/     # Distribution chaos experiment
 ├── scripts/
 │   └── discovery/            # Automated arXiv paper discovery
 ├── papers/
