@@ -52,6 +52,85 @@ This document presents systematic evidence from 250+ papers that the answer has 
 
 ---
 
+## Certainty vs. Probability: The Unbridgeable Gulf
+
+Before examining the empirical evidence, we must understand a fundamental distinction that makes the difference between reasoning and prediction absolute.
+
+### Deductive Reasoning
+
+```
+All men are mortal.          (Major premise)
+Socrates is a man.           (Minor premise)
+────────────────────────────
+∴ Socrates is mortal.        (Conclusion)
+```
+
+The conclusion follows with **certainty**. There is no margin of error. It is not "likely" that Socrates is mortal — it is *inevitable*. The chain of reasoning is rigid, formal, and absolute. One misstep, one misapplied rule, and the logic collapses. There is no halfway point, no "probably correct" outcome.
+
+This is **Barbara** (AAA-1), the first valid syllogism in Aristotle's *Prior Analytics*, known and used for 2,400 years. Or consider **Modus Tollens**:
+
+```
+If it is raining, the ground is wet.
+The ground is not wet.
+────────────────────────────
+∴ It is not raining.
+```
+
+Again: necessity. The conclusion is *forced* by the structure itself.
+
+Or consider mathematics:
+
+```
+12 × 12 = 144
+```
+
+Not approximately 144. Not probably 144. Not "144 with 99.7% confidence." **Exactly 144**, in every universe, at every time, regardless of who calculates it. The same holds for:
+
+- `2 + 2 = 4`
+- `√2 is irrational`
+- `The sum of interior angles of a triangle = 180°`
+- `There are infinitely many primes`
+
+These are **necessary truths** — true by virtue of their structure, not contingent on observation or probability.
+
+### LLM Prediction
+
+> *Given the distribution I have sampled during training, this is the token most likely to follow.*
+
+The mechanism is fundamentally different. An LLM computes:
+
+```
+P(next_token | context) = softmax(logits)
+```
+
+Even if that probability is extraordinarily high — even if it seems convincing to a human reader — it remains a **statistical guess**. Never a guarantee.
+
+When an LLM outputs "144" in response to "12 × 12 = ", it is not *calculating* 144. It is *predicting* that "144" is the most probable continuation of that token sequence, based on patterns in training data where "12 × 12 = 144" appeared frequently. This is why:
+
+- Symbolic digits collapse accuracy from 99.8% to 7.5%
+- The reversal curse holds: "A is B" doesn't imply "B is A"
+- Novel compositions fail at 0% despite 100% on components
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                                                                     │
+│  DEDUCTION:     Premises  ───────────────────────►  Conclusion      │
+│                           (truth-preserving)                        │
+│                                                                     │
+│  PREDICTION:    Context   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─►  Next Token     │
+│                           (probability-maximizing)                  │
+│                                                                     │
+│  The arrow matters. One is solid. One is dashed.                    │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+**A system trained to optimize for plausibility cannot, by design, produce necessity.**
+
+The outputs may coincide. The mechanisms never do. And it is the mechanism — not the output — that determines what happens at distribution boundaries, under novel composition, and when the training patterns run out.
+
+---
+
 > *"Evolution selects for adaptive behavior, not for true beliefs. Natural selection doesn't care whether your beliefs are true — only whether your behavior helps you survive."*
 >
 > — Alvin Plantinga, *Warrant and Proper Function* (1993)

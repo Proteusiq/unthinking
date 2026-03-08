@@ -169,6 +169,22 @@ We know ELIZA was a trick. Weizenbaum showed us in 1966 that pattern matching co
 
 ELIZA to LLMs is the resolution of the mirror — not its fundamental nature. The question Weizenbaum forces us to ask in 2026 is the same one he asked in 1966: *Is what we are seeing intelligence — or is it a reflection of our own desire to see it?*
 
+### Certainty vs. Probability
+
+```
+All men are mortal.       12 × 12 = 144
+Socrates is a man.        Not approximately. Not probably.
+∴ Socrates is mortal.     Exactly 144. Necessarily.
+```
+
+Deductive reasoning produces **certainty**. The conclusion is forced by the structure. One misstep and the logic collapses — there is no "probably correct."
+
+LLM prediction produces **probability**:
+
+> *Given the distribution I have sampled during training, this is the token most likely to follow.*
+
+Even at 99.99% confidence, it remains a statistical guess. **A system trained to optimize for plausibility cannot, by design, produce necessity.**
+
 ---
 
 ## The Narrative Arc (2022-2026)
