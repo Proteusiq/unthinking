@@ -14,13 +14,13 @@
 >
 > — Joseph Weizenbaum, *Computer Power and Human Reason* (1976)
 
-In 1966, Joseph Weizenbaum created ELIZA at MIT — a program of roughly 200 lines that could simulate a Rogerian psychotherapist. The mechanism was trivial: pattern matching and substitution. When a user typed "I am sad," ELIZA would respond "Why are you sad?" No understanding. No model of the world. No representation of emotions. Just text manipulation.
+In 1966, Joseph Weizenbaum created ELIZA at MIT: a program of roughly 200 lines that could simulate a Rogerian psychotherapist. The mechanism was trivial: pattern matching and substitution. When a user typed "I am sad," ELIZA would respond "Why are you sad?" No understanding. No model of the world. No representation of emotions. Just text manipulation.
 
 What happened next shocked Weizenbaum so deeply that he spent the rest of his life warning about it.
 
-His own secretary — who knew ELIZA was a simple program, who had watched Weizenbaum build it — asked him to leave the room so she could have a "real conversation" with the machine. Psychiatrists proposed using ELIZA for actual therapy. Users poured out their deepest secrets to a pattern matcher. They knew it was a trick. They fell for it anyway.
+His own secretary, who knew ELIZA was a simple program, who had watched Weizenbaum build it, asked him to leave the room so she could have a "real conversation" with the machine. Psychiatrists proposed using ELIZA for actual therapy. Users poured out their deepest secrets to a pattern matcher. They knew it was a trick. They fell for it anyway.
 
-Weizenbaum called this the **ELIZA effect**: the tendency to project human understanding onto systems that merely *simulate* the surface appearance of understanding. The effect persists even when users are explicitly told the system has no comprehension whatsoever. As Douglas Hofstadter later described it: "the susceptibility of people to read far more understanding than is warranted into strings of symbols — especially words — strung together by computers."
+Weizenbaum called this the **ELIZA effect**: the tendency to project human understanding onto systems that merely *simulate* the surface appearance of understanding. The effect persists even when users are explicitly told the system has no comprehension whatsoever. As Douglas Hofstadter later described it: "the susceptibility of people to read far more understanding than is warranted into strings of symbols, especially words, strung together by computers."
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -40,13 +40,13 @@ Weizenbaum called this the **ELIZA effect**: the tendency to project human under
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
-Weizenbaum's insight was not primarily about AI — it was about us. The ELIZA effect reveals something fundamental about human cognition: we are hardwired to find minds everywhere. We see faces in clouds, intentions in random events, understanding in sophisticated pattern matching. This is not a bug; it's how we navigate a social world. But it becomes a critical liability when we build machines that exploit this tendency.
+Weizenbaum's insight was not primarily about AI. It was about us. The ELIZA effect reveals something fundamental about human cognition: we are hardwired to find minds everywhere. We see faces in clouds, intentions in random events, understanding in sophisticated pattern matching. This is not a bug; it's how we navigate a social world. But it becomes a critical liability when we build machines that exploit this tendency.
 
-**ELIZA to LLMs is the resolution of the mirror — not its fundamental nature.**
+**ELIZA to LLMs is the resolution of the mirror, not its fundamental nature.**
 
 What changed between 1966 and 2026? The fidelity. ELIZA could maintain the illusion for minutes. LLMs can maintain it for hours. ELIZA's patterns were transparent to anyone who probed. LLMs are opaque even to their creators. ELIZA had 200 lines; LLMs have trillions of parameters. But the core dynamic is identical: systems that predict what *plausible text* looks like, without any representation of what that text *means*.
 
-The question Weizenbaum forces us to ask in 2026 is the same one he asked in 1966: *Is what we are seeing intelligence — or is it a reflection of our own desire to see it?*
+The question Weizenbaum forces us to ask in 2026 is the same one he asked in 1966: *Is what we are seeing intelligence, or is it a reflection of our own desire to see it?*
 
 This document presents systematic evidence from 250+ papers that the answer has not changed. We have built more sophisticated mirrors. We have not created minds.
 
@@ -65,7 +65,7 @@ Socrates is a man.           (Minor premise)
 ∴ Socrates is mortal.        (Conclusion)
 ```
 
-The conclusion follows with **certainty**. There is no margin of error. It is not "likely" that Socrates is mortal — it is *inevitable*. The chain of reasoning is rigid, formal, and absolute. One misstep, one misapplied rule, and the logic collapses. There is no halfway point, no "probably correct" outcome.
+The conclusion follows with **certainty**. There is no margin of error. It is not "likely" that Socrates is mortal; it is *inevitable*. The chain of reasoning is rigid, formal, and absolute. One misstep, one misapplied rule, and the logic collapses. There is no halfway point, no "probably correct" outcome.
 
 This is **Barbara** (AAA-1), the first valid syllogism in Aristotle's *Prior Analytics*, known and used for 2,400 years. Or consider **Modus Tollens**:
 
@@ -91,7 +91,7 @@ Not approximately 144. Not probably 144. Not "144 with 99.7% confidence." **Exac
 - `The sum of interior angles of a triangle = 180°`
 - `There are infinitely many primes`
 
-These are **necessary truths** — true by virtue of their structure, not contingent on observation or probability.
+These are **necessary truths**: true by virtue of their structure, not contingent on observation or probability.
 
 ### LLM Prediction
 
@@ -103,7 +103,7 @@ The mechanism is fundamentally different. An LLM computes:
 P(next_token | context) = softmax(logits)
 ```
 
-Even if that probability is extraordinarily high — even if it seems convincing to a human reader — it remains a **statistical guess**. Never a guarantee.
+Even if that probability is extraordinarily high, even if it seems convincing to a human reader, it remains a **statistical guess**. Never a guarantee.
 
 When an LLM outputs "144" in response to "12 × 12 = ", it is not *calculating* 144. It is *predicting* that "144" is the most probable continuation of that token sequence, based on patterns in training data where "12 × 12 = 144" appeared frequently. This is why:
 
@@ -127,11 +127,11 @@ When an LLM outputs "144" in response to "12 × 12 = ", it is not *calculating* 
 
 **A system trained to optimize for plausibility cannot, by design, produce necessity.**
 
-The outputs may coincide. The mechanisms never do. And it is the mechanism — not the output — that determines what happens at distribution boundaries, under novel composition, and when the training patterns run out.
+The outputs may coincide. The mechanisms never do. And it is the mechanism, not the output, that determines what happens at distribution boundaries, under novel composition, and when the training patterns run out.
 
 ---
 
-> *"Evolution selects for adaptive behavior, not for true beliefs. Natural selection doesn't care whether your beliefs are true — only whether your behavior helps you survive."*
+> *"Evolution selects for adaptive behavior, not for true beliefs. Natural selection doesn't care whether your beliefs are true; only whether your behavior helps you survive."*
 >
 > — Alvin Plantinga, *Warrant and Proper Function* (1993)
 
@@ -144,7 +144,7 @@ The outputs may coincide. The mechanisms never do. And it is the mechanism — n
 | No guarantee cognition tracks **truth** | No guarantee CoT reflects **actual computation** |
 | Organisms that *act* correctly survive | Models that *output* correctly get rewarded |
 
-Just as evolution optimizes for reproductive fitness rather than epistemic accuracy, LLM training optimizes for probability matching rather than genuine reasoning. A system can produce correct outputs through entirely wrong processes — and there's no selection pressure against this.
+Just as evolution optimizes for reproductive fitness rather than epistemic accuracy, LLM training optimizes for probability matching rather than genuine reasoning. A system can produce correct outputs through entirely wrong processes, and there's no selection pressure against this.
 
 **The implication is stark**: We cannot trust that apparent reasoning reflects actual reasoning, because the training objective never required them to align.
 
@@ -163,8 +163,8 @@ Just as evolution optimizes for reproductive fitness rather than epistemic accur
 | **5** | **WhatCounts**: >40% accuracy variation on COUNTING depending solely on semantic class (cities vs emojis). Better models have **LARGER** gaps | Even atomic operations are semantically contaminated. "LLMs do not implement algorithms; they approximate them" | [2601.21618](https://arxiv.org/abs/2601.21618) |
 | **6** | **Addition Collapse**: 99.8% numerical accuracy → **7.5%** with symbolic digits. 1,700+ cases where A+B ≠ B+A | Near-perfect performance masks zero understanding | [2504.05262](https://arxiv.org/abs/2504.05262) |
 | **7** | **Spurious Rewards**: Models improve EVEN WITH INCORRECT REWARDS | Performance comes from activating memory, not learning to reason | [2601.11061](https://arxiv.org/abs/2601.11061) |
-| **8** | **Embers of Autoregression**: Acronyms 76% (1st letter) vs 3% (2nd letter) — **25× difference** on identical algorithm. Shift cipher 51% vs 13% based on output probability. Sorting 80% vs 32% based on training frequency | Probability determines performance on DETERMINISTIC tasks. "To understand LLMs, understand what they were trained to be" | [2309.13638](https://arxiv.org/abs/2309.13638) |
-| **9** | **o1 Still Shows Embers**: Same authors test o1 — shift cipher 92% vs 47% (45% gap). Thinking tokens: 100 vs 2000 for common vs rare tasks (**20× more effort** for same accuracy). Task frequency effects reappear when ceiling effects removed | Even reasoning-optimized models can't escape probability sensitivity. "The sparks of AGI continue to be accompanied by embers of autoregression" | [2410.01792](https://arxiv.org/abs/2410.01792) |
+| **8** | **Embers of Autoregression**: Acronyms 76% (1st letter) vs 3% (2nd letter), **25× difference** on identical algorithm. Shift cipher 51% vs 13% based on output probability. Sorting 80% vs 32% based on training frequency | Probability determines performance on DETERMINISTIC tasks. "To understand LLMs, understand what they were trained to be" | [2309.13638](https://arxiv.org/abs/2309.13638) |
+| **9** | **o1 Still Shows Embers**: Same authors test o1; shift cipher 92% vs 47% (45% gap). Thinking tokens: 100 vs 2000 for common vs rare tasks (**20× more effort** for same accuracy). Task frequency effects reappear when ceiling effects removed | Even reasoning-optimized models can't escape probability sensitivity. "The sparks of AGI continue to be accompanied by embers of autoregression" | [2410.01792](https://arxiv.org/abs/2410.01792) |
 | **10** | **13 Parameters to "Reason"**: 91% GSM8K with 13 parameters (26 bytes). RL is **100-1000× more param-efficient** than SFT. Qwen ~10× more efficient than LLaMA (contamination signal) | "The knowledge required to solve the task is already stored... only the style has to change." If 26 bytes unlock "reasoning," the capability was always there | [2602.04118](https://arxiv.org/abs/2602.04118) |
 
 ### The Core Insight
@@ -175,7 +175,7 @@ Just as evolution optimizes for reproductive fitness rather than epistemic accur
 
 ### The Memento Analogy
 
-Like Leonard in *Memento*, LLMs have no persistent state. Each token prediction starts fresh—no memory of what was "understood" moments ago, only the tattoos of the context window. What looks like continuous thought is actually a series of pattern-matched snapshots, each one consulting the same static weights. **There is no inner monologue accumulating insight. Just retrieval, over and over.**
+Like Leonard in *Memento*, LLMs have no persistent state. Each token prediction starts fresh, no memory of what was "understood" moments ago, only the tattoos of the context window. What looks like continuous thought is actually a series of pattern-matched snapshots, each one consulting the same static weights. **There is no inner monologue accumulating insight. Just retrieval, over and over.**
 
 ### Key Quotes from the Literature
 
@@ -203,7 +203,7 @@ Like Leonard in *Memento*, LLMs have no persistent state. Each token prediction 
 > "The knowledge required to solve the task is already stored in the parameters of the model, and only the style has to change for task success."
 > — Learning to Reason in 13 Parameters (2602.04118)
 
-> "Resampling amplifies this separation — the correlated signal accumulates while uncorrelated variation cancels."
+> "Resampling amplifies this separation: the correlated signal accumulates while uncorrelated variation cancels."
 > — Learning to Reason in 13 Parameters (2602.04118), on why RL is 100-1000× more parameter-efficient than SFT
 
 ### The Mirror Clock Test
@@ -214,10 +214,10 @@ No SOTA LLM can answer this correctly. It requires **spatial transformation not 
 
 ### Why This Matters
 
-1. **Prompting is vector steering** — navigating regions of the training distribution, not teaching reasoning
-2. **CoT is momentary context** — like a movie scratchpad, not working memory  
-3. **Alignment is mascara** — shifts default paths within the convex hull, doesn't create new capabilities
-4. **Self-consistency ≠ belief** — questions answered with perfect self-consistency (SC=1.0) collapse to 33.8% under mild contextual pressure
+1. **Prompting is vector steering**: navigating regions of the training distribution, not teaching reasoning
+2. **CoT is momentary context**: like a movie scratchpad, not working memory  
+3. **Alignment is mascara**: shifts default paths within the convex hull, doesn't create new capabilities
+4. **Self-consistency ≠ belief**: questions answered with perfect self-consistency (SC=1.0) collapse to 33.8% under mild contextual pressure
 
 ### The Question We Should Be Asking
 
@@ -227,19 +227,19 @@ No SOTA LLM can answer this correctly. It requires **spatial transformation not 
 
 **Abstract**
 
-Large language models produce outputs that look like reasoning. They solve math problems, write code, answer complex questions, and generate coherent explanations. This apparent reasoning ability has led many to conclude that these systems think, understand, and reason in ways analogous to human cognition. This article argues that this conclusion is false. LLMs are statistical cognition systems that navigate probability distributions over text—not thinking machines that build and reason with causal models. Through mathematical analysis, empirical evidence, and philosophical argument, I show that what appears to be reasoning is trajectory selection through high-probability token sequences. This distinction matters profoundly for AI development, deployment, and our understanding of intelligence itself.
+Large language models produce outputs that look like reasoning. They solve math problems, write code, answer complex questions, and generate coherent explanations. This apparent reasoning ability has led many to conclude that these systems think, understand, and reason in ways analogous to human cognition. This article argues that this conclusion is false. LLMs are statistical cognition systems that navigate probability distributions over text, not thinking machines that build and reason with causal models. Through mathematical analysis, empirical evidence, and philosophical argument, I show that what appears to be reasoning is trajectory selection through high-probability token sequences. This distinction matters profoundly for AI development, deployment, and our understanding of intelligence itself.
 
 -----
 
 ## I. The Fundamental Question
 
-Imagine watching a master chess player. They study the board, pause, then make a brilliant move. You naturally assume they’re thinking—modeling future positions, evaluating strategies, reasoning about consequences.
+Imagine watching a master chess player. They study the board, pause, then make a brilliant move. You naturally assume they’re thinking: modeling future positions, evaluating strategies, reasoning about consequences.
 
 Now imagine learning they’re not thinking at all. They’re following probability gradients through a vast space of memorized game positions. Every “brilliant” move is trajectory selection, not strategic reasoning.
 
 Would you still call it thinking?
 
-This is precisely where we find ourselves with large language models. They produce outputs that look like reasoning. But looking like reasoning and being reasoning are different things—and the difference has profound implications.
+This is precisely where we find ourselves with large language models. They produce outputs that look like reasoning. But looking like reasoning and being reasoning are different things, and the difference has profound implications.
 
 -----
 
@@ -256,7 +256,7 @@ This type of cognition involves:
 - Composing learned operations into novel combinations
 - Reasoning about counterfactuals and possibilities
 
-When you solve a problem, you construct a mental model, identify relevant rules, and execute algorithms on that model. You can answer questions like “what if things were different?”—genuine counterfactual reasoning.
+When you solve a problem, you construct a mental model, identify relevant rules, and execute algorithms on that model. You can answer questions like “what if things were different?" This is genuine counterfactual reasoning.
 
 ### Statistical Cognition (LLM-like)
 
@@ -359,7 +359,7 @@ The model generates:
 
 - C: A pirate physicist (“Arrr, ye scurvy wave function!”)
 
-Humans perceive conceptual synthesis—creativity! But the model simply performs convex combination in embedding space:
+Humans perceive conceptual synthesis (creativity!). But the model simply performs convex combination in embedding space:
 
 ```
 C ≈ αA + βB  where α,β > 0, α+β ≈ 1
@@ -379,7 +379,7 @@ Every major empirical finding about LLM behavior matches the predictions of stat
 
 **Evidence:**
 
-**Faith and Fate** ([2305.18654](https://arxiv.org/abs/2305.18654)) — foundational paper:
+**Faith and Fate** ([2305.18654](https://arxiv.org/abs/2305.18654)), foundational paper:
 
 - In-distribution accuracy: 100%
 - Out-of-distribution accuracy: 0%
@@ -489,7 +489,7 @@ The capability always existed in conv(M) from pre-training. RL changed which pat
 
 - Performance correlates with token sequences in training, not problem difficulty
 
-**Interpretation:** Decisions are driven by token likelihood gradients, not abstract reasoning states. The model has no “semantic” representation—only statistical patterns over tokens.
+**Interpretation:** Decisions are driven by token likelihood gradients, not abstract reasoning states. The model has no “semantic” representation, only statistical patterns over tokens.
 
 ### Pillar 6: Sycophancy
 
@@ -546,7 +546,7 @@ Let me compress the evidence into one logical chain:
 1. CoT is sampled narrative conditioned on answer (Pillar 2)
 1. **Therefore:** Models navigate probability, they don’t think
 
-**Central Claim:** A system that never builds causal models but only follows probability gradients can imitate reasoning but cannot perform it—and every empirical behavior of LLMs matches the predictions of such a system.
+**Central Claim:** A system that never builds causal models but only follows probability gradients can imitate reasoning but cannot perform it, and every empirical behavior of LLMs matches the predictions of such a system.
 
 -----
 
@@ -617,13 +617,13 @@ LLMs are System A, not System B. They interpolate within their training distribu
 
 **My answer:** No. The mechanism determines what happens at distribution boundaries.
 
-The pattern-matching engine works perfectly on common positions but fails completely on novel compositions. No amount of memorized patterns fixes this—the failure mode is architectural.
+The pattern-matching engine works perfectly on common positions but fails completely on novel compositions. No amount of memorized patterns fixes this; the failure mode is architectural.
 
 LLMs work perfectly for in-distribution text but fail completely for novel composition. No amount of parameters fixes this.
 
 ### The Functional vs Structural Debate
 
-Some argue: “If it functions like intelligence, it is intelligence.” This is functionalism—the view that mental states are defined by their functional role, not their physical implementation.
+Some argue: “If it functions like intelligence, it is intelligence.” This is functionalism, the view that mental states are defined by their functional role, not their physical implementation.
 
 I reject functionalism here for specific reasons:
 
@@ -683,9 +683,9 @@ No beliefs exist between tokens. No goals persist across generations. No intenti
 
 **My answer:** Acting as if ≠ having.
 
-A thermostat acts as if it wants to maintain temperature. It has no desires—it’s a simple feedback loop.
+A thermostat acts as if it wants to maintain temperature. It has no desires; it’s a simple feedback loop.
 
-LLMs act as if they believe and reason. They have no mental states—they’re conditional probability calculators.
+LLMs act as if they believe and reason. They have no mental states; they’re conditional probability calculators.
 
 **Why this matters for capabilities:**
 
@@ -706,7 +706,7 @@ This explains sycophancy, hallucination, and inconsistency.
 
 ### The Chinese Room Updated for LLMs
 
-Searle’s Chinese Room argument (1980) claimed syntax doesn’t give you semantics—symbol manipulation without understanding isn’t intelligence.
+Searle’s Chinese Room argument (1980) claimed syntax doesn’t give you semantics: symbol manipulation without understanding isn’t intelligence.
 
 The standard response: “The room as a whole understands, even if the person inside doesn’t.”
 
@@ -759,7 +759,7 @@ Two systems that produce identical outputs on distribution D but use different m
 
 LLMs and humans produce similar outputs on many tasks. But the mechanisms differ in precisely these critical ways.
 
-Therefore: LLMs are not intelligent in the same sense humans are. They are a different kind of system—statistical cognition, not algorithmic cognition.
+Therefore: LLMs are not intelligent in the same sense humans are. They are a different kind of system: statistical cognition, not algorithmic cognition.
 
 -----
 
@@ -785,7 +785,7 @@ The knockout: If RL created reasoning, base models should show 0% reasoning with
 
 ### Objection 2: “Test-Time Scaling Works”
 
-Models like o1 and o3 use test-time compute—generating many samples and selecting the best—to solve hard problems. Doesn’t this show reasoning can emerge through search?
+Models like o1 and o3 use test-time compute (generating many samples and selecting the best) to solve hard problems. Doesn’t this show reasoning can emerge through search?
 
 **Response:**
 
@@ -869,7 +869,7 @@ The decisive test: If scale were sufficient, largest models should show best com
 
 ### Objection 6: “Human Brains Are Also Statistical”
 
-Human neurons are statistical too—firing rates, synaptic weights, probabilistic dynamics. Why is human “statistical cognition” reasoning but LLM statistical cognition isn’t?
+Human neurons are statistical too: firing rates, synaptic weights, probabilistic dynamics. Why is human “statistical cognition” reasoning but LLM statistical cognition isn’t?
 
 **Response:**
 
@@ -912,7 +912,7 @@ Each layer learned independently
 No guaranteed composition
 ```
 
-If transformers had compositional structure like brains, new skill combinations should work automatically. They don’t—they fail zero-shot composition.
+If transformers had compositional structure like brains, new skill combinations should work automatically. They don’t; they fail zero-shot composition.
 
 Human brains aren’t just “big neural networks.” They have specialized modules, recurrent dynamics, hierarchical organization, multiple memory systems, and explicit variable binding. Transformers have homogeneous architecture, feedforward processing, flat structure, single implicit memory, and no explicit binding.
 
@@ -980,7 +980,7 @@ These are testable. Current evidence: All fail.
 
 ### Objection 9: “Practical Deployment Success”
 
-LLMs work well in practice—millions of users, many applications. If they couldn’t reason, they wouldn’t be useful.
+LLMs work well in practice: millions of users, many applications. If they couldn’t reason, they wouldn’t be useful.
 
 **Response:**
 
@@ -994,7 +994,7 @@ When systems appear to reason but don’t, users overtrust them, deploy them in 
 
 ### Objection 10: “Alternative Explanations”
 
-Maybe LLMs fail because of optimization issues, data quality, or evaluation metrics—not fundamental architectural limits.
+Maybe LLMs fail because of optimization issues, data quality, or evaluation metrics, not fundamental architectural limits.
 
 **Response:**
 
@@ -1235,7 +1235,7 @@ All these predictions share one insight: **You can’t achieve algorithmic cogni
 
 If you want systems that compose systematically, reason causally, verify correctness, and generalize truly out-of-distribution, then you need architectures that have compositional structure, maintain causal models, execute verifiable computation, and are designed for extrapolation, not just interpolation.
 
-Scaling alone won’t get you there. More parameters, more data, more compute—these expand conv(M). They don’t change the fundamental mechanism.
+Scaling alone won’t get you there. More parameters, more data, more compute: these expand conv(M). They don’t change the fundamental mechanism.
 
 To get beyond statistical cognition, we need architectural innovation, not just scaling.
 
@@ -1265,7 +1265,7 @@ High-dimensional statistical retrieval engines
 = Appears intelligent without being intelligent
 ```
 
-**The Leonard from Memento analogy:** LLMs have no persistent state. Each token is generated fresh by consulting static weights—like Leonard consulting his tattoos. What looks like continuous thought is pattern-matched snapshots with no underlying understanding.
+**The Leonard from Memento analogy:** LLMs have no persistent state. Each token is generated fresh by consulting static weights, like Leonard consulting his tattoos. What looks like continuous thought is pattern-matched snapshots with no underlying understanding.
 
 **The bicycle metaphor:** LLMs are bicycles for the mind, not minds themselves. They amplify human cognitive abilities. They don’t replace human thinking. They require human direction and evaluation.
 
@@ -1277,7 +1277,7 @@ They are cognitive infrastructure, not cognitive agents.
 
 This is not a criticism of LLMs. They are remarkable achievements in engineering. They are genuinely useful. They will transform how we work with information.
 
-But clarity demands we call them what they are: **statistical cognition systems that navigate probability distributions over text—not thinking machines that build and reason with causal models.**
+But clarity demands we call them what they are: **statistical cognition systems that navigate probability distributions over text, not thinking machines that build and reason with causal models.**
 
 ### The Danger
 
@@ -1291,9 +1291,9 @@ For researchers: Study the boundaries systematically. Develop new objectives bey
 
 For practitioners: Deploy appropriately where LLMs excel. Build verification systems since LLMs don’t reliably reason. Maintain human oversight.
 
-For everyone: Understand what these systems are—extremely sophisticated pattern matchers, useful tools for text-based tasks, not thinking machines. Maintain appropriate skepticism. Coherence ≠ correctness.
+For everyone: Understand what these systems are: extremely sophisticated pattern matchers, useful tools for text-based tasks, not thinking machines. Maintain appropriate skepticism. Coherence ≠ correctness.
 
-LLMs are bicycles for the mind—powerful tools that amplify human cognitive abilities. They are not minds—systems that genuinely think, understand, and reason.
+LLMs are bicycles for the mind: powerful tools that amplify human cognitive abilities. They are not minds: systems that genuinely think, understand, and reason.
 
 **Use them wisely.**
 
@@ -1350,7 +1350,7 @@ Papers organized by:
 - Pattern dependence (Papers #104, #108, #147, #149, #157)
 - Social dynamics (Papers #109, #110, #127, #128)
 - Tool augmentation (Papers #4, #10, #11, #68)
-- Mirror rebuttals (Papers #188 vs #190 — same question, opposite answers)
+- Mirror rebuttals (Papers #188 vs #190, same question, opposite answers)
 
 **~69% support thesis | ~27% balanced | ~4% challenge**
 
