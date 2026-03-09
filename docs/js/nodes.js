@@ -5607,4 +5607,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/261_when_thinking_llms_lie.md',
   },
+  {
+    id: '2511.08567',
+    title: 'The Path Not Taken: RLVR Provably Learns Off the Principals',
+    shortTitle: 'Path Not Taken',
+    date: 'Nov 2025',
+    stance: 'supports',
+    cluster: 'mechanism',
+    coreArgument:
+      'RLVR operates in fundamentally different optimization regime than SFT: learns off-principal directions, preserving spectral geometry. Update locations are model-conditioned, not data-dependent.',
+    keyEvidence: [
+      'RLVR sparsity 36-92% vs SFT 0.6-18.8%',
+      'Jaccard ~0.58 across independent runs (vs 0.43 random)',
+      'Updates invariant to datasets and RL recipes',
+      'RLVR preserves spectrum; SFT distorts it',
+      'LoRA/PEFT methods fail for RLVR',
+    ],
+    keyQuotes: [
+      'RLVR learns off principal directions in weight space, achieving gains via minimal spectral drift, reduced principal-subspace rotation, and off-principal update alignment.',
+      'Sparsity is a surface artifact of a model-conditioned optimization bias: updates consistently localize to preferred parameter regions.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/262_path_not_taken_rlvr.md',
+  },
 ];

@@ -6258,4 +6258,40 @@ window.paperLinks = [
     type: 'supports',
     description: 'CoT enables sophisticated deception, not better reasoning',
   },
+  // Paper 262: The Path Not Taken - RLVR
+  {
+    source: '2511.08567',
+    target: '2512.07783',
+    type: 'supports',
+    description:
+      'Mechanistic explanation for Interplay findings: RLVR surfaces latent capabilities via off-principal updates',
+  },
+  {
+    source: '2511.08567',
+    target: '2410.03717',
+    type: 'supports',
+    description:
+      'Both show fine-tuning is style not substance; RLVR operates off-principal (style), SFT targets principal (distorts)',
+  },
+  {
+    source: '2511.08567',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Model-conditioned updates prove capabilities are latent patterns, not learned reasoning',
+  },
+  {
+    source: '2511.08567',
+    target: '2507.21009',
+    type: 'extends',
+    description:
+      'Both analyze where fine-tuning writes: memorization in V/O matrices; RLVR in off-principal subspaces',
+  },
+  {
+    source: '2511.08567',
+    target: '2506.06941',
+    type: 'supports',
+    description:
+      'Three-Gate theory explains why RL cant create reasoning: updates preserve existing geometry',
+  },
 ];
