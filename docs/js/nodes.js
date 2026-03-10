@@ -5630,4 +5630,28 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/262_path_not_taken_rlvr.md',
   },
+  {
+    id: '2602.07729',
+    title:
+      'Do We Need Adam? Surprisingly Strong and Sparse Reinforcement Learning with SGD in LLMs',
+    shortTitle: 'SGD in RLVR',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'mechanism',
+    coreArgument:
+      'SGD matches/beats AdamW in RLVR while updating only 0.02% of parameters (1000× sparser). Momentum hurts, adaptive LR not needed. RLVR operates in surprisingly low-dimensional subspace.',
+    keyEvidence: [
+      'SGD updates 0.02% params vs AdamW 10%',
+      '1000× sparser than AdamW',
+      'SGD matches/beats AdamW on math, coding',
+      'Momentum cosine sim: SFT 0.997, RL -0.007',
+      '15.7 GB memory savings',
+    ],
+    keyQuotes: [
+      'Full fine-tuning with SGD updates fewer than 0.02% of model parameters without any sparsity-promoting regularization, more than 1,000× fewer than AdamW.',
+      'RL can be substantially more parameter-efficient than previously recognized.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/263_do_we_need_adam_sgd_rlvr.md',
+  },
 ];

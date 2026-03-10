@@ -6294,4 +6294,40 @@ window.paperLinks = [
     description:
       'Three-Gate theory explains why RL cant create reasoning: updates preserve existing geometry',
   },
+  // Paper 263: Do We Need Adam? SGD in RLVR
+  {
+    source: '2602.07729',
+    target: '2511.08567',
+    type: 'extends',
+    description:
+      'Extends #262: shows HOW FEW updates (0.02%) complement WHERE updates happen (off-principal)',
+  },
+  {
+    source: '2602.07729',
+    target: '2512.07783',
+    type: 'supports',
+    description:
+      '0.02% param updates proves capabilities must be latent; explains why 0% exposure fails',
+  },
+  {
+    source: '2602.07729',
+    target: '2410.03717',
+    type: 'supports',
+    description:
+      'Both show fine-tuning is minimal adjustment; 0.02% confirms superficial alignment',
+  },
+  {
+    source: '2602.07729',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      '1000× sparser than SFT proves RLVR operates in fundamentally different regime',
+  },
+  {
+    source: '2602.07729',
+    target: '2506.06941',
+    type: 'supports',
+    description:
+      '0.02% updates cannot create reasoning; must surface existing patterns',
+  },
 ];
