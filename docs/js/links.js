@@ -6402,4 +6402,40 @@ window.paperLinks = [
     description:
       'If LLMs reasoned about safety, style would be irrelevant; but style breaks safety',
   },
+  // Paper 266: FoReaL Decoding - What Makes Reasoning Models Different
+  {
+    source: '2506.06998',
+    target: '2506.07452',
+    type: 'supports',
+    description:
+      'Both show LRM differences are stylistic: thinking cues vs style patterns',
+  },
+  {
+    source: '2506.06998',
+    target: '2507.10616',
+    type: 'supports',
+    description:
+      'Q/K attention shifts correspond to thinking cues at sentence starts',
+  },
+  {
+    source: '2506.06998',
+    target: '2305.18654',
+    type: 'extends',
+    description:
+      'Extends superficial alignment to reasoning: misalignment is stylistic, not content',
+  },
+  {
+    source: '2506.06998',
+    target: '2410.03717',
+    type: 'supports',
+    description:
+      'Instruction tuning adds nothing for reasoning; base model = instruct as Draft',
+  },
+  {
+    source: '2506.06998',
+    target: '2511.08567',
+    type: 'supports',
+    description:
+      'Off-principal updates = just enough to add thinking cues at sentence starts',
+  },
 ];

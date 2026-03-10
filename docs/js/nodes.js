@@ -5700,4 +5700,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/265_when_style_breaks_safety.md',
   },
+  {
+    id: '2506.06998',
+    title: 'What makes Reasoning Models Different? Follow the Reasoning Leader',
+    shortTitle: 'FoReaL Decoding',
+    date: 'Jun 2025',
+    stance: 'supports',
+    cluster: 'mechanism',
+    coreArgument:
+      'LRM misalignment with non-reasoning models is stylistic "thinking cues" (Wait, Hmm, Let me) concentrated at sentence beginnings. Rest of sentence aligns with weaker model. First 15 tokens per sentence capture most reasoning benefit.',
+    keyEvidence: [
+      'Local Misalignment Diminish: peaks at sentence start, drops rapidly',
+      'Misaligned tokens are stylistic: wait, perhaps, maybe, let',
+      '15 leading tokens achieves same accuracy with 42% fewer FLOPs',
+      'Instruction tuning adds nothing: base model = instruct model as Draft',
+      'Weaker model completes sentences with 86-100% accuracy',
+    ],
+    keyQuotes: [
+      'The misaligned tokens are predominantly stylistic rather than content-specific, often related to explicit thinking patterns.',
+      'Most token misalignments occur at the beginning of each sentence, then rapidly decrease until the next sentence starts.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/266_follow_reasoning_leader.md',
+  },
 ];

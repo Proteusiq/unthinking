@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **206 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **205 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed).
 
@@ -84,7 +84,7 @@ Papers directly addressing whether alignment is superficial.
 
 | arXiv ID | Title | Stance |
 |----------|-------|--------|
-| [2506.06998](https://arxiv.org/abs/2506.06998) | What Makes Reasoning Models Different? Follow the Reasoning Leader | supports |
+| ~~[2506.06998](https://arxiv.org/abs/2506.06998)~~ | ~~What Makes Reasoning Models Different? Follow the Reasoning Leader~~ | ~~DONE~~ |
 | [2601.21571](https://arxiv.org/abs/2601.21571) | Shaping Capabilities with Token-Level Data Filtering | balanced |
 | [2602.07340](https://arxiv.org/abs/2602.07340) | Revisiting Robustness for LLM Safety Alignment via Selective Geometry Control | supports |
 

@@ -7,8 +7,8 @@
 </a>
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
-[![Papers](https://img.shields.io/badge/papers-265-blue)]()
-[![Relationships](https://img.shields.io/badge/relationships-961-orange)]()
+[![Papers](https://img.shields.io/badge/papers-266-blue)]()
+[![Relationships](https://img.shields.io/badge/relationships-966-orange)]()
 
 ---
 
@@ -16,10 +16,10 @@
 
 Do LLMs actually understand or do they predict plausible-sounding tokens without understanding?
 
-This project surveys 265+ papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
+This project surveys 266+ papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
 
 To bring the findings home:
-- **Paper network**: interactive graph of 265+ papers and 961+ relationships, filterable by stance
+- **Paper network**: interactive graph of 266+ papers and 966+ relationships, filterable by stance
 - **Experiments**:
   - *Decoding ablation*: reasoning paths exist in base models, hidden by greedy decoding; RL just surfaces them
   - *Steering ablation*: safety alignment is a thin layer of refusal patterns that washes off under trivial perturbations
@@ -40,8 +40,8 @@ LLMs are statistical remix engines of their training data. They predict the most
 
 Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/)**
 
-- **Force-directed graph**: 265 papers as nodes, 961 relationships as edges
-- **Color-coded stances**: supports (183), challenges (16), balanced (66)
+- **Force-directed graph**: 266 papers as nodes, 966 relationships as edges
+- **Color-coded stances**: supports (184), challenges (16), balanced (66)
 - **Interactive**: hover, click, search, filter, dark/light mode
 - **Paper dialogue**: auto-generated conversations between connected papers
 
@@ -52,7 +52,7 @@ Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.
 
 | Page | Tabs | What It Covers |
 |------|------|----------------|
-| [**Findings**](https://proteusiq.github.io/unthinking/pages/findings.html) | - | 265-paper synthesis: themes, smoking guns, patterns, stance distribution |
+| [**Findings**](https://proteusiq.github.io/unthinking/pages/findings.html) | - | 266-paper synthesis: themes, smoking guns, patterns, stance distribution |
 | [**Data**](https://proteusiq.github.io/unthinking/pages/data.html) | Pipeline, Catalog, Compare | Pre-training data sourcing, filtering (KenLM, fastText, DSIR), deduplication (MinHash, Bloom), data mix strategies, benchmark contamination |
 | [**Tokenization**](https://proteusiq.github.io/unthinking/pages/tokenization.html) | Pipeline, Catalog, Compare | BPE, WordPiece, Unigram, SentencePiece; tokenizer comparison across GPT-4, Llama 3, Gemma; vocabulary size tradeoffs |
 | [**Architecture**](https://proteusiq.github.io/unthinking/pages/architecture.html) | Activations, Block, Table | Transformer internals, attention variants (MHA, GQA, MLA), normalization (Pre/Post-Norm, QK-Norm), MoE, positional encoding (RoPE, NoPE) |
