@@ -5654,4 +5654,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/263_do_we_need_adam_sgd_rlvr.md',
   },
+  {
+    id: '2507.10616',
+    title: 'Scalpel vs. Hammer: GRPO Amplifies Existing Capabilities, SFT Replaces Them',
+    shortTitle: 'Scalpel vs Hammer',
+    date: 'Jul 2025',
+    stance: 'supports',
+    cluster: 'mechanism',
+    coreArgument:
+      'GRPO amplifies existing capabilities via targeted Q/K updates; SFT replaces old skills by overwriting mid-layer MLPs. GRPO preserves output distribution; SFT causes large KL divergence.',
+    keyEvidence: [
+      'GRPO: low KL divergence, SFT: high KL',
+      'Both modify Q/K most, but SFT also hits mid-layer MLPs',
+      'GRPO: modest gains, preserves OOD; SFT: larger gains, OOD degradation',
+      'Mid-layer MLPs store factual knowledge (Meng et al.)',
+      'GRPO reinforces; SFT reorganizes model internals',
+    ],
+    keyQuotes: [
+      'Our observations provide a preliminary indication for why RL amplifies existing capabilities, while SFT replaces old skills with new ones.',
+      'During GRPO, parameter updates are performed with respect to tokens that were sampled from the model itself... reinforcing existing capabilities.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/264_scalpel_vs_hammer_grpo_sft.md',
+  },
 ];

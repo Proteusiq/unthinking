@@ -6330,4 +6330,40 @@ window.paperLinks = [
     description:
       '0.02% updates cannot create reasoning; must surface existing patterns',
   },
+  // Paper 264: Scalpel vs Hammer - GRPO Amplifies, SFT Replaces
+  {
+    source: '2507.10616',
+    target: '2511.08567',
+    type: 'extends',
+    description:
+      'Both show GRPO preserves model structure; adds Q/K matrix specificity to off-principal findings',
+  },
+  {
+    source: '2507.10616',
+    target: '2602.07729',
+    type: 'extends',
+    description:
+      'Complements sparsity findings: shows WHERE updates go (Q/K) not just HOW FEW (0.02%)',
+  },
+  {
+    source: '2507.10616',
+    target: '2512.07783',
+    type: 'supports',
+    description:
+      'GRPO amplifies existing capabilities; confirms RL needs latent seeds from pretraining',
+  },
+  {
+    source: '2507.10616',
+    target: '2410.03717',
+    type: 'supports',
+    description:
+      'Both show fine-tuning is surface-level; GRPO shifts attention, doesnt rewrite knowledge',
+  },
+  {
+    source: '2507.10616',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Low KL divergence proves GRPO reinforces existing patterns, not learns new ones',
+  },
 ];

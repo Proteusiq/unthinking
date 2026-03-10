@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **209 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **208 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed).
 
@@ -52,7 +52,7 @@ Papers exploring why RL is more parameter-efficient than SFT, and what this reve
 |----------|-------|--------|
 | ~~[2511.08567](https://arxiv.org/abs/2511.08567)~~ | ~~The Path Not Taken: RLVR Provably Learns Off the Principals~~ | ~~DONE~~ |
 | ~~[2602.07729](https://arxiv.org/abs/2602.07729)~~ | ~~Do We Need Adam? SGD in RLVR (updates <0.02% params)~~ | ~~DONE~~ |
-| [2507.10616](https://arxiv.org/abs/2507.10616) | Scalpel vs. Hammer: GRPO Amplifies, SFT Replaces | supports |
+| ~~[2507.10616](https://arxiv.org/abs/2507.10616)~~ | ~~Scalpel vs. Hammer: GRPO Amplifies, SFT Replaces~~ | ~~DONE~~ |
 
 ### Parameter-Efficient Methods for Reasoning
 
