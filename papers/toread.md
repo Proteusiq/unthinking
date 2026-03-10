@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **208 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **207 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed).
 
@@ -58,7 +58,6 @@ Papers exploring why RL is more parameter-efficient than SFT, and what this reve
 
 | arXiv ID | Title | Stance |
 |----------|-------|--------|
-| [2512.23165](https://arxiv.org/abs/2512.23165) | Evaluating Parameter Efficient Methods for RLVR | balanced |
 | [2601.06677](https://arxiv.org/abs/2601.06677) | Plasticity vs. Rigidity: LoRA on Micro-Budget Reasoning | balanced |
 | [2602.16839](https://arxiv.org/abs/2602.16839) | Progressive Thought Encoding (+19.3% over LoRA) | balanced |
 | [2602.20727](https://arxiv.org/abs/2602.20727) | ID-LoRA: Matrix Interpolative Decomposition (46% fewer params) | balanced |
