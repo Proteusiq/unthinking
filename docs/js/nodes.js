@@ -5677,4 +5677,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/264_scalpel_vs_hammer_grpo_sft.md',
   },
+  {
+    id: '2506.07452',
+    title: 'When Style Breaks Safety: Defending LLMs Against Superficial Style Alignment',
+    shortTitle: 'Style Breaks Safety',
+    date: 'Jun 2025',
+    stance: 'supports',
+    cluster: 'safety',
+    coreArgument:
+      'Style patterns semantically irrelevant to malicious intent inflate ASR in 32/36 LLMs. Alignment teaches style imitation, not safety understanding. Fine-tuning on specific styles creates vulnerability to those styles.',
+    keyEvidence: [
+      '32/36 LLMs show ASR inflation from style patterns',
+      'Attention to style correlates with vulnerability (r=0.456)',
+      'Style-specific fine-tuning creates style-specific vulnerabilities',
+      'Benchmark ASRs are inflated by irrelevant style patterns',
+      'SafeStyle defense: match safety data style to training style',
+    ],
+    keyQuotes: [
+      'Style patterns inflate the ASR for nearly all models... the reported ASRs in benchmarks are inflated.',
+      'Models fine-tuned on data containing specific style patterns become more vulnerable to jailbreaks in the same style.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/265_when_style_breaks_safety.md',
+  },
 ];

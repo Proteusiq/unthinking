@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **207 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **206 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed).
 
@@ -78,7 +78,7 @@ Papers directly addressing whether alignment is superficial.
 
 | arXiv ID | Title | Stance |
 |----------|-------|--------|
-| [2506.07452](https://arxiv.org/abs/2506.07452) | When Style Breaks Safety | supports |
+| ~~[2506.07452](https://arxiv.org/abs/2506.07452)~~ | ~~When Style Breaks Safety~~ | ~~DONE~~ |
 
 ### Papers Citing "Revisiting SAH" (2410.03717)
 

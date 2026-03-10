@@ -6366,4 +6366,40 @@ window.paperLinks = [
     description:
       'Low KL divergence proves GRPO reinforces existing patterns, not learns new ones',
   },
+  // Paper 265: When Style Breaks Safety
+  {
+    source: '2506.07452',
+    target: '2410.03717',
+    type: 'supports',
+    description:
+      'Large-scale validation of SAH: 32/36 LLMs show style-induced ASR inflation',
+  },
+  {
+    source: '2506.07452',
+    target: '2507.10616',
+    type: 'supports',
+    description:
+      'Both show alignment is surface-level: style compliance vs Q/K attention shifts',
+  },
+  {
+    source: '2506.07452',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Style patterns from training data override safety — alignment is style imitation',
+  },
+  {
+    source: '2506.07452',
+    target: '2511.08567',
+    type: 'supports',
+    description:
+      'Style vulnerability is another manifestation of shallow, pattern-based updates',
+  },
+  {
+    source: '2506.07452',
+    target: '2506.06941',
+    type: 'supports',
+    description:
+      'If LLMs reasoned about safety, style would be irrelevant; but style breaks safety',
+  },
 ];
