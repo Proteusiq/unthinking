@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 267
+> **Papers tracked**: 268
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1445,6 +1445,7 @@ These papers have NO direct rebuttals found:
 | Papers Added | Key Findings |
 |--------------|--------------|
 | Survey on LLM-as-a-Judge (2411.15594) | ~62% human alignment; 12 bias types; reasoning models don't improve judgment; explanations DECREASE reliability |
+| Can You Trust LLM Judgments (2412.12509) | IRR varies 0.17→1.0 with seed; omega 0.42-0.80 (questionable); temp=0 is "fixed randomness" not reliability |
 
 ### 2026-02-23
 | Papers Added | Key Findings |

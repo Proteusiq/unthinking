@@ -1,6 +1,6 @@
 # Paper List
 
-> 267 papers analyzed | 186 supports thesis | 16 challenges | 65 balanced | Date range: 2021-2026
+> 268 papers analyzed | 187 supports thesis | 16 challenges | 65 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -271,3 +271,4 @@
 | 265 | 2502.06148 | Feb 2025 | When Style Breaks Safety: How Indirect Requests Bypass Defenses | Supports |
 | 266 | 2503.07416 | Mar 2025 | Follow the Reasoning Leader: Test-Time Scaling and Ensembles | Supports |
 | 267 | 2411.15594 | Nov 2024 | A Survey on LLM-as-a-Judge | Supports |
+| 268 | 2412.12509 | Dec 2024 | Can You Trust LLM Judgments? Reliability of LLM-as-a-Judge | Supports |

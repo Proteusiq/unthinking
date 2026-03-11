@@ -5746,4 +5746,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/267_survey_llm_as_judge.md',
   },
+  {
+    id: '2412.12509',
+    title: 'Can You Trust LLM Judgments? Reliability of LLM-as-a-Judge',
+    shortTitle: 'LLM Judgment Reliability',
+    date: 'Dec 2024',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'Single-shot LLM evaluations create "fixed randomness" — determinism masks variability. Inter-rater reliability varies 0.17-1.0 with seed alone. McDonald omega shows most judges have "questionable" to "unacceptable" reliability (0.42-0.80).',
+    keyEvidence: [
+      'IRR varies 0.167 to 1.000 just by changing random seed',
+      'Meta-Llama omega = 0.421 on MT-Bench (Unacceptable)',
+      'Temperature=0 gives omega=1.0 but is "fixed randomness"',
+      'Performance-reliability trade-off: better models = worse judges',
+      'Binary judgments with ground truth: omega > 0.989',
+    ],
+    keyQuotes: [
+      'Current LLM-as-a-judge methods, relying on single outputs, mask inherent judgment variability, creating a false sense of reliability.',
+      'Even with deterministic settings, a single LLM output remains a sample from the model probability distribution.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/268_can_you_trust_llm_judgments.md',
+  },
 ];

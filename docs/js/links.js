@@ -6474,4 +6474,33 @@ window.paperLinks = [
     description:
       'Self-enhancement bias as judgment-specific sycophancy; models favor own outputs',
   },
+  // Paper 268: Can You Trust LLM Judgments?
+  {
+    source: '2412.12509',
+    target: '2411.15594',
+    type: 'extends',
+    description:
+      'Adds psychometric rigor (McDonald omega) to survey findings; quantifies unreliability',
+  },
+  {
+    source: '2412.12509',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Pattern matching produces inconsistent judgments; IRR varies 0.17-1.0 with seed',
+  },
+  {
+    source: '2412.12509',
+    target: '2410.05229',
+    type: 'supports',
+    description:
+      'Same fragility pattern: small changes (seed) cause large variation in judgment',
+  },
+  {
+    source: '2412.12509',
+    target: '2408.04667',
+    type: 'supports',
+    description:
+      'Temperature=0 is "fixed randomness" not reliability; determinism masks variability',
+  },
 ];
