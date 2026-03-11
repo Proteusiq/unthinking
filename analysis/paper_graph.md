@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 276
+> **Papers tracked**: 277
 > **See also**: `memento.md` for executive summary
 
 ## Overview

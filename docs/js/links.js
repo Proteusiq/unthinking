@@ -6742,4 +6742,40 @@ window.paperLinks = [
     description:
       'Aggregation may not help if all judges use same biased rubric',
   },
+  // Who Judges the Judge (Paper 277)
+  {
+    source: '2512.01786',
+    target: '2411.15594',
+    type: 'extends',
+    description:
+      'Learning-based solution for documented judge limitations',
+  },
+  {
+    source: '2512.01786',
+    target: '2412.12509',
+    type: 'extends',
+    description:
+      'Operationalizes reliability measurement via trained predictors',
+  },
+  {
+    source: '2512.01786',
+    target: '2602.16610',
+    type: 'extends',
+    description:
+      'Both propose jury-based aggregation; adds dynamic per-instance selection',
+  },
+  {
+    source: '2512.01786',
+    target: '2603.05485',
+    type: 'supports',
+    description:
+      'A-BB bounds bias mathematically; this predicts reliability empirically',
+  },
+  {
+    source: '2512.01786',
+    target: '2603.05399',
+    type: 'supports',
+    description:
+      'JRH stress-tests judges; Jury-on-Demand predicts which will pass',
+  },
 ];

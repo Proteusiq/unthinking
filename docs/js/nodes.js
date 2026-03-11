@@ -5909,4 +5909,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/276_rubrics_attack_surface.md',
   },
+  {
+    id: '2512.01786',
+    title: 'Who Judges the Judge? LLM Jury-on-Demand: Building Trustworthy LLM Evaluation Systems',
+    shortTitle: 'Who Judges the Judge',
+    date: 'Dec 2025',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'Single LLM judges are biased and static juries lack adaptability. Trains reliability predictors to assess when judges agree with humans. Dynamic jury selection per instance outperforms single-judge and static-jury baselines.',
+    keyEvidence: [
+      'Single judges systematically biased',
+      'Static juries lack adaptability',
+      'Reliability predictors use token distributions, embeddings, structural features',
+      'Dynamic jury achieves higher correlation with human judgment',
+      'Reliability-weighted aggregation improves accuracy',
+    ],
+    keyQuotes: [
+      'Single LLM judges are biased, and static juries lack adaptability.',
+      'Our dynamic jury system achieves significantly higher correlation with human judgment than both single-judge and static-jury baselines.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/277_who_judges_the_judge.md',
+  },
 ];
