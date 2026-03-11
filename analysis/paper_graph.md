@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 260
+> **Papers tracked**: 267
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1440,6 +1440,11 @@ These papers have NO direct rebuttals found:
 | Papers Added | Key Findings |
 |--------------|--------------|
 | Learning to Reason in 13 Parameters (2602.04118) | 91% GSM8K with 13 params; RL is 100-1000x more param-efficient than SFT |
+
+### 2026-03-11
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Survey on LLM-as-a-Judge (2411.15594) | ~62% human alignment; 12 bias types; reasoning models don't improve judgment; explanations DECREASE reliability |
 
 ### 2026-02-23
 | Papers Added | Key Findings |

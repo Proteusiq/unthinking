@@ -6438,4 +6438,40 @@ window.paperLinks = [
     description:
       'Off-principal updates = just enough to add thinking cues at sentence starts',
   },
+  // Paper 267: Survey on LLM-as-a-Judge
+  {
+    source: '2411.15594',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Judges exhibit same pattern-matching biases as reasoners; position/verbosity over substance',
+  },
+  {
+    source: '2411.15594',
+    target: '2309.13638',
+    type: 'supports',
+    description:
+      'Sequential position bias in judgment mirrors autoregressive reasoning limitations',
+  },
+  {
+    source: '2411.15594',
+    target: '2602.14444',
+    type: 'supports',
+    description:
+      'CoT unfaithfulness propagates to judgment; self-explanation decreases reliability',
+  },
+  {
+    source: '2411.15594',
+    target: '2506.06941',
+    type: 'supports',
+    description:
+      'Reasoning models (o1, R1) show no improvement in judgment; 62% alignment ceiling',
+  },
+  {
+    source: '2411.15594',
+    target: '2308.03958',
+    type: 'extends',
+    description:
+      'Self-enhancement bias as judgment-specific sycophancy; models favor own outputs',
+  },
 ];

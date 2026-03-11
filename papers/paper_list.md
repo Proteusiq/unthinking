@@ -1,6 +1,6 @@
 # Paper List
 
-> 261 papers analyzed | 180 supports thesis | 16 challenges | 65 balanced | Date range: 2021-2026
+> 267 papers analyzed | 186 supports thesis | 16 challenges | 65 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -265,3 +265,9 @@
 | 259 | 2507.21009 | Jul 2025 | Memorization in Fine-Tuned Large Language Models | Supports |
 | 260 | 2408.04667 | Aug 2024 | Non-Determinism of "Deterministic" LLM Settings | Supports |
 | 261 | 2506.04909 | Jun 2025 | When Thinking LLMs Lie: Strategic Deception in Reasoning Models | Supports |
+| 262 | 2602.19614 | Feb 2026 | The Path Not Taken: What Happens When We Remove Chain-of-Thought from RLVR? | Supports |
+| 263 | 2602.07729 | Feb 2026 | Do We Need Adam? SGD Updates <0.02% Params in RLVR | Supports |
+| 264 | 2507.10616 | Jul 2025 | Scalpel vs. Hammer: GRPO Amplifies, SFT Replaces | Supports |
+| 265 | 2502.06148 | Feb 2025 | When Style Breaks Safety: How Indirect Requests Bypass Defenses | Supports |
+| 266 | 2503.07416 | Mar 2025 | Follow the Reasoning Leader: Test-Time Scaling and Ensembles | Supports |
+| 267 | 2411.15594 | Nov 2024 | A Survey on LLM-as-a-Judge | Supports |

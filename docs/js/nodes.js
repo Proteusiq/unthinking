@@ -5723,4 +5723,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/266_follow_reasoning_leader.md',
   },
+  {
+    id: '2411.15594',
+    title: 'A Survey on LLM-as-a-Judge',
+    shortTitle: 'LLM-as-a-Judge Survey',
+    date: 'Nov 2024',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'LLM judges exhibit 12 systematic biases including position, verbosity, and self-enhancement. Even GPT-4 achieves only 62% human alignment. Reasoning models (o1, R1) show no improvement. Self-explanation decreases reliability.',
+    keyEvidence: [
+      'Best human alignment: 61.66% (o3-mini) on 5,106 samples',
+      'Position consistency: 80% GPT-4 vs 39% LLaMA3',
+      'Length bias resistance: 91% GPT-4 vs 21% GPT-3.5',
+      'Self-explanation decreases alignment by 2.25%',
+      'TIE detection: 13-42% accuracy across models',
+    ],
+    keyQuotes: [
+      'Providing with Explanation... generally has a negative impact. This performance decline is speculated to be caused by deeper biases introduced by self-explanation.',
+      'Self Validation shows minimal effectiveness, likely due to the LLMs overconfidence.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/267_survey_llm_as_judge.md',
+  },
 ];
