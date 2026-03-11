@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **225 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **224 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed), [#71](https://github.com/Proteusiq/unthinking/issues/71), [#72](https://github.com/Proteusiq/unthinking/issues/72).
 
@@ -46,7 +46,7 @@ Papers examining whether LLMs can reliably evaluate themselves or other LLMs. Cr
 | [2511.17602](https://arxiv.org/abs/2511.17602) | Beyond Surface-Level Similarity: Hierarchical Contamination Detection | supports |
 | [2510.02386](https://arxiv.org/abs/2510.02386) | On The Fragility of Benchmark Contamination Detection in Reasoning Models | supports |
 | [2509.00072](https://arxiv.org/abs/2509.00072) | Beyond Memorization: Reasoning-Driven Synthesis as Contamination Mitigation | balanced |
-| [2507.19219](https://arxiv.org/abs/2507.19219) | How Much Do LLMs Cheat on Evaluation? Benchmarking Overestimation | supports |
+| ~~[2507.19219](https://arxiv.org/abs/2507.19219)~~ | ~~How Much Do LLMs Cheat on Evaluation? Benchmarking Overestimation~~ | ~~supports~~ | DONE #278 |
 | [2504.08300](https://arxiv.org/abs/2504.08300) | Large Language Models Could Be Rote Learners | supports |
 | [2502.17259](https://arxiv.org/abs/2502.17259) | Detecting Benchmark Contamination Through Watermarking | supports |
 | [2502.06655](https://arxiv.org/abs/2502.06655) | Unbiased Evaluation of LLMs from a Causal Perspective | balanced |

@@ -6778,4 +6778,40 @@ window.paperLinks = [
     description:
       'JRH stress-tests judges; Jury-on-Demand predicts which will pass',
   },
+  // How Much LLMs Cheat (Paper 278)
+  {
+    source: '2507.19219',
+    target: '2509.04013',
+    type: 'supports',
+    description:
+      'Both show benchmark fragility; ArxivRoll quantifies contamination proportion',
+  },
+  {
+    source: '2507.19219',
+    target: '2502.03461',
+    type: 'supports',
+    description:
+      'Both question benchmark validity; ArxivRoll provides contamination-free alternative',
+  },
+  {
+    source: '2507.19219',
+    target: '2410.05229',
+    type: 'supports',
+    description:
+      'GSM-Symbolic: symbolic perturbations break performance; ArxivRoll: temporal novelty does too',
+  },
+  {
+    source: '2507.19219',
+    target: '2406.11050',
+    type: 'supports',
+    description:
+      'Both reveal surface-level shortcuts inflate benchmark scores',
+  },
+  {
+    source: '2507.19219',
+    target: '2411.15594',
+    type: 'extends',
+    description:
+      'ArxivRoll provides contamination-free evaluation alternative to judge-based methods',
+  },
 ];

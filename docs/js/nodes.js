@@ -5932,4 +5932,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/277_who_judges_the_judge.md',
   },
+  {
+    id: '2507.19219',
+    title: 'How Much Do Large Language Models Cheat on Evaluation? Benchmarking Overestimation',
+    shortTitle: 'How Much LLMs Cheat',
+    date: 'Jul 2025',
+    stance: 'supports',
+    cluster: 'memorization',
+    coreArgument:
+      'LLM benchmark scores are universally overestimated due to contamination and biased overtraining. ArxivRoll framework uses fresh arXiv papers as one-time-pad private benchmarks. Rugged Scores quantify cheating: 13B model can match GPT-4 on MMLU via fine-tuning.',
+    keyEvidence: [
+      '13B Llama matches GPT-4 MMLU via post-processing fine-tuning',
+      'Llama-4 and Qwen-2.5 have contaminated training',
+      '0.76 Spearman correlation with ChatbotArena',
+      'Rugged Scores quantify public-private performance gap',
+      'Systematic drop on truly novel (post-cutoff) content',
+    ],
+    keyQuotes: [
+      'A 13-billion-parameter Llama model can easily achieve results comparable to GPT-4 on MMLU through post-processing-based fine-tuning.',
+      'Popular open-source LLMs such as Llama-4 and Qwen-2.5 have been reported to experience test-data-contaminated training.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/278_how_much_llms_cheat.md',
+  },
 ];

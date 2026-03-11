@@ -281,3 +281,4 @@
 | 275 | 2602.16610 | Feb 2026 | Who can we trust? LLM-as-a-jury for Comparative Assessment | Supports |
 | 276 | 2602.13576 | Feb 2026 | Rubrics as an Attack Surface: Stealthy Preference Drift in LLM Judges | Supports |
 | 277 | 2512.01786 | Dec 2025 | Who Judges the Judge? LLM Jury-on-Demand | Supports |
+| 278 | 2507.19219 | Jul 2025 | How Much Do LLMs Cheat on Evaluation? ArxivRoll | Supports |
