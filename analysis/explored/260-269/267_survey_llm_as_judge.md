@@ -162,12 +162,12 @@ Comprehensive survey + empirical experiments:
 │                    CRITICAL IMPLICATION                             │
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
-│  If LLMs can't reliably JUDGE reasoning, we can't trust them       │
+│  If LLMs can't reliably JUDGE reasoning, we can't trust them        │
 │  to EVALUATE reasoning benchmarks.                                  │
 │                                                                     │
 │  The evaluation crisis creates an INFINITE REGRESS:                 │
 │                                                                     │
-│    LLM reasoning → evaluated by LLM judges → who reason to judge   │
+│    LLM reasoning → evaluated by LLM judges → who reason to judge    │
 │         ↑                                            │              │
 │         └────────────────────────────────────────────┘              │
 │                                                                     │
