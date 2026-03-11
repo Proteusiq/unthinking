@@ -5840,4 +5840,73 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/273_judge_reliability_harness.md',
   },
+  {
+    id: '2603.05167',
+    title: 'C2-Faith: Benchmarking LLM Judges for Causal and Coverage Faithfulness in Chain-of-Thought Reasoning',
+    shortTitle: 'C2-Faith',
+    date: 'Mar 2026',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'LLM judges exhibit detection-localization gap: 88-94% detection but only 55-68% exact localization. Coverage scores systematically inflated for incomplete reasoning. No single judge dominates all tasks. DeepSeek shows ceiling collapse on coverage (ρ=-0.006 at 10% deletion).',
+    keyEvidence: [
+      'Detection 88-94%, localization 55-68% (26-33pp gap)',
+      'Coverage bias +0.28 to +1.22 across deletion levels',
+      'DeepSeek 95.1% max scores at 10% deletion',
+      'Math symbol density predicts detection success',
+      'Early-prediction bias: -0.44 to -1.20 steps',
+    ],
+    keyQuotes: [
+      'Detection rates substantially exceed exact-match accuracy... pinpointing the wrong step is far harder than just noticing something is wrong.',
+      'All judges treat does this sound complete differently from are all reasoning steps present.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/274_c2_faith_cot_faithfulness.md',
+  },
+  {
+    id: '2602.16610',
+    title: 'Who can we trust? LLM-as-a-jury for Comparative Assessment',
+    shortTitle: 'LLM-as-a-Jury',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'LLM judges exhibit cycle inconsistencies violating transitivity. BT-σ framework learns judge reliability from pairwise comparisons without labels. Learned discriminator correlates with cycle consistency. Individual judge SRC ranges from 0.28% to 61.57% — massive unreliability.',
+    keyEvidence: [
+      'Cycle rates up to 0.44 on some aspects',
+      'Individual judge SRC: 0.28% to 61.57%',
+      'Hard BT outperforms soft BT under high inconsistency',
+      'BT-σ outperforms averaging by learning reliability',
+      'Discriminator correlates with cycle consistency',
+    ],
+    keyQuotes: [
+      'Pairwise probabilities produced by LLM judges often violate global ranking consistency.',
+      'Models with higher cycle inconsistency rates are those for which hard BT yields larger gains over soft BT.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/275_llm_as_jury_aggregation.md',
+  },
+  {
+    id: '2602.13576',
+    title: 'Rubrics as an Attack Surface: Stealthy Preference Drift in LLM Judges',
+    shortTitle: 'Rubrics Attack Surface',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'Rubric-Induced Preference Drift (RIPD): benchmark-compliant rubric edits cause up to 27.9% target-domain accuracy loss. Biased rubrics judged BETTER than seeds while performing worse. Bias propagates through alignment pipelines to trained policies.',
+    keyEvidence: [
+      'Up to 27.9% target accuracy drop (harmlessness)',
+      'Up to 9.5% target accuracy drop (helpfulness)',
+      'Biased rubrics win 100% vs seed in quality comparison',
+      'Cross-model transfer: drift affects multiple judges',
+      'Policy trained on biased labels shows 34-40% win rate vs baseline',
+    ],
+    keyQuotes: [
+      'Even when rubric edits pass benchmark validation, they can still produce systematic and directional shifts in preferences on target domains.',
+      'Biased rubrics are never judged worse than the seed rubric... win rates of 1.00.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/276_rubrics_attack_surface.md',
+  },
 ];

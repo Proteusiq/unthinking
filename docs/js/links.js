@@ -6634,4 +6634,112 @@ window.paperLinks = [
     description:
       'Stress tests reveal shallow detection consistent with choice blindness findings',
   },
+  // C2-Faith (Paper 274)
+  {
+    source: '2603.05167',
+    target: '2411.15594',
+    type: 'extends',
+    description:
+      'Provides controlled benchmark for causality/coverage dimensions of judge faithfulness',
+  },
+  {
+    source: '2603.05167',
+    target: '2412.12509',
+    type: 'extends',
+    description:
+      'Quantifies detection-localization gap in judge reliability',
+  },
+  {
+    source: '2603.05167',
+    target: '2307.13702',
+    type: 'extends',
+    description:
+      'Benchmarks judge ability to assess CoT faithfulness documented as limited',
+  },
+  {
+    source: '2603.05167',
+    target: '2603.05399',
+    type: 'supports',
+    description:
+      'Both show judges respond to surface features over semantic content',
+  },
+  {
+    source: '2603.05167',
+    target: '2603.08412',
+    type: 'extends',
+    description:
+      'Detection-localization gap parallels shallow detection in choice blindness',
+  },
+  // LLM-as-a-Jury (Paper 275)
+  {
+    source: '2602.16610',
+    target: '2411.15594',
+    type: 'extends',
+    description:
+      'Provides aggregation framework for documented judge limitations',
+  },
+  {
+    source: '2602.16610',
+    target: '2412.12509',
+    type: 'extends',
+    description:
+      'Cycle inconsistency quantifies reliability issues in judges',
+  },
+  {
+    source: '2602.16610',
+    target: '2603.05485',
+    type: 'supports',
+    description:
+      'Both address aggregating unreliable judges; complementary approaches',
+  },
+  {
+    source: '2602.16610',
+    target: '2603.05399',
+    type: 'supports',
+    description:
+      'BT-σ aggregates across failure modes JRH stress-tests',
+  },
+  // Rubrics Attack Surface (Paper 276)
+  {
+    source: '2602.13576',
+    target: '2411.15594',
+    type: 'extends',
+    description:
+      'Documents rubrics as specific attack surface for documented judge biases',
+  },
+  {
+    source: '2602.13576',
+    target: '2412.12509',
+    type: 'extends',
+    description:
+      'Shows reliability failures can be systematically induced via rubrics',
+  },
+  {
+    source: '2602.13576',
+    target: '2603.08412',
+    type: 'supports',
+    description:
+      'Rubric manipulation parallels preference swap blindness in choice blindness',
+  },
+  {
+    source: '2602.13576',
+    target: '2603.05399',
+    type: 'extends',
+    description:
+      'RIPD is failure mode JRH framework could test for',
+  },
+  {
+    source: '2602.13576',
+    target: '2603.05167',
+    type: 'supports',
+    description:
+      'Rubrics can undermine faithfulness that C2-Faith benchmarks',
+  },
+  {
+    source: '2602.13576',
+    target: '2602.16610',
+    type: 'supports',
+    description:
+      'Aggregation may not help if all judges use same biased rubric',
+  },
 ];

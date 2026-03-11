@@ -277,3 +277,6 @@
 | 271 | 2603.08412 | Mar 2026 | Aligning to Illusions: Choice Blindness in Human and AI Feedback | Supports |
 | 272 | 2603.05485 | Mar 2026 | Towards Provably Unbiased LLM Judges via Bias-Bounded Evaluation | Supports |
 | 273 | 2603.05399 | Mar 2026 | Judge Reliability Harness: Stress Testing LLM Judges | Supports |
+| 274 | 2603.05167 | Mar 2026 | C2-Faith: Benchmarking LLM Judges for Causal and Coverage Faithfulness | Supports |
+| 275 | 2602.16610 | Feb 2026 | Who can we trust? LLM-as-a-jury for Comparative Assessment | Supports |
+| 276 | 2602.13576 | Feb 2026 | Rubrics as an Attack Surface: Stealthy Preference Drift in LLM Judges | Supports |
