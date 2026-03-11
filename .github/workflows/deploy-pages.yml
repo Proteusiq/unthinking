@@ -24,7 +24,88 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate JavaScript syntax
+        run: |
+          echo "Checking JavaScript syntax..."
+          node --check docs/js/nodes.js
+          node --check docs/js/links.js
+          node --check docs/js/data.js
+          node --check docs/js/graph.js
+          echo "✓ All JavaScript files have valid syntax"
+
+      - name: Check for duplicate node IDs
+        run: |
+          echo "Checking for duplicate node IDs..."
+          node -e "
+            const fs = require('fs');
+            const content = fs.readFileSync('docs/js/nodes.js', 'utf8');
+            const fixed = content.replace('window.paperNodes = ', 'module.exports = ');
+            fs.writeFileSync('/tmp/nodes.js', fixed);
+            const nodes = require('/tmp/nodes.js');
+            const ids = nodes.map(n => n.id);
+            const duplicates = ids.filter((id, i) => ids.indexOf(id) !== i);
+            if (duplicates.length > 0) {
+              console.error('ERROR: Duplicate node IDs found:', duplicates);
+              process.exit(1);
+            }
+            console.log('✓ No duplicate node IDs (' + nodes.length + ' nodes)');
+          "
+
+      - name: Check for orphan link references
+        run: |
+          echo "Checking for orphan link references..."
+          node -e "
+            const fs = require('fs');
+            
+            // Load nodes
+            let content = fs.readFileSync('docs/js/nodes.js', 'utf8');
+            fs.writeFileSync('/tmp/nodes.js', content.replace('window.paperNodes = ', 'module.exports = '));
+            const nodes = require('/tmp/nodes.js');
+            const nodeIds = new Set(nodes.map(n => n.id));
+            
+            // Load links
+            content = fs.readFileSync('docs/js/links.js', 'utf8');
+            fs.writeFileSync('/tmp/links.js', content.replace('window.paperLinks = ', 'module.exports = '));
+            const links = require('/tmp/links.js');
+            
+            // Find orphans
+            const orphans = new Set();
+            links.forEach(l => {
+              if (!nodeIds.has(l.source)) orphans.add(l.source);
+              if (!nodeIds.has(l.target)) orphans.add(l.target);
+            });
+            
+            if (orphans.size > 0) {
+              console.warn('WARNING: Orphan link references (links to non-existent nodes):', [...orphans]);
+              // Warning only, don't fail - orphans are filtered at runtime
+            }
+            console.log('✓ Link validation complete (' + links.length + ' links)');
+          "
+
+      - name: Validate HTML
+        run: |
+          echo "Checking HTML files exist and are non-empty..."
+          for file in docs/index.html docs/pages/findings.html docs/pages/data.html; do
+            if [ ! -s "$file" ]; then
+              echo "ERROR: $file is missing or empty"
+              exit 1
+            fi
+          done
+          echo "✓ HTML files validated"
+
   deploy:
+    needs: validate
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
