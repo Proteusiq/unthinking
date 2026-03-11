@@ -1,6 +1,6 @@
 # Paper List
 
-> 268 papers analyzed | 187 supports thesis | 16 challenges | 65 balanced | Date range: 2021-2026
+> 273 papers analyzed | 192 supports thesis | 16 challenges | 65 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -274,3 +274,6 @@
 | 268 | 2412.12509 | Dec 2024 | Can You Trust LLM Judgments? Reliability of LLM-as-a-Judge | Supports |
 | 269 | 2509.04013 | Sep 2025 | On Robustness and Reliability of Benchmark-Based Evaluation | Supports |
 | 270 | 2502.03461 | Feb 2025 | Do Large Language Model Benchmarks Test Reliability? | Supports |
+| 271 | 2603.08412 | Mar 2026 | Aligning to Illusions: Choice Blindness in Human and AI Feedback | Supports |
+| 272 | 2603.05485 | Mar 2026 | Towards Provably Unbiased LLM Judges via Bias-Bounded Evaluation | Supports |
+| 273 | 2603.05399 | Mar 2026 | Judge Reliability Harness: Stress Testing LLM Judges | Supports |

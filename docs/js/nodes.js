@@ -5771,4 +5771,73 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/270_platinum_benchmarks_reliability.md',
   },
+  {
+    id: '2603.08412',
+    title: 'Aligning to Illusions: Choice Blindness in Human and AI Feedback',
+    shortTitle: 'Choice Blindness RLHF',
+    date: 'Mar 2026',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'RLHF rests on unstable preferences. 91% of surreptitiously swapped human preferences go undetected. LLM judge detection is shallow text matching — removing context causes blindness to surge from ~0% to >50%. At 50% label corruption, Best-of-N produces no improvement while proxy reports increasing scores.',
+    keyEvidence: [
+      '91% swapped preferences undetected by humans',
+      'LLM blindness surges >50% when prior reasoning removed',
+      'Social pressure induces near-universal compliance',
+      '16-33% corruption needed before reward signal halves',
+      '50% corruption = 0% improvement over random sampling',
+    ],
+    keyQuotes: [
+      'Detection relies on shallow text matching rather than genuine self-monitoring.',
+      'At 50% corruption, reward-guided selection produces no improvement over random sampling, while the proxy model reports monotonically increasing scores.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/271_aligning_to_illusions_choice_blindness.md',
+  },
+  {
+    id: '2603.05485',
+    title: 'Towards Provably Unbiased LLM Judges via Bias-Bounded Evaluation',
+    shortTitle: 'Bias-Bounded Judges',
+    date: 'Mar 2026',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'LLM judges exhibit systematic biases requiring formal mitigation. A-BB framework provides mathematical guarantees on bias impact via calibrated Gaussian noise. 61-99% correlation retained while debiasing. Schematic adherence failures reveal judges don\'t follow own rubrics.',
+    keyEvidence: [
+      '61-99% correlation with original rankings after debiasing',
+      'Most judge-bias combinations exceed 80% correlation',
+      'Schematic bias larger than formatting bias',
+      'Extreme scores revealed as false confidence',
+      'Framework handles unknown/adversarial bias sources',
+    ],
+    keyQuotes: [
+      'The apparent certainty of extreme judgments is revealed as bias-induced false confidence.',
+      'By guaranteeing any bias pattern of sufficient magnitude will be indistinguishable from noise, we can enable greater confidence in LLM judges.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/272_provably_unbiased_llm_judges.md',
+  },
+  {
+    id: '2603.05399',
+    title: 'Judge Reliability Harness: Stress Testing the Reliability of LLM Judges',
+    shortTitle: 'Judge Reliability Harness',
+    date: 'Mar 2026',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'No LLM judge is uniformly reliable. Formatting perturbations cause larger reliability drops than semantic ones. Binary vs ordinal tasks show reversed reliability patterns. Agentic evaluations expose qualitatively different failure modes (high FNR or FPR). Smaller open models match frontier reliability at fraction of cost.',
+    keyEvidence: [
+      'No judge uniformly reliable across benchmarks',
+      'Formatting > semantic perturbation sensitivity',
+      'Reliability reverses between binary and ordinal tasks',
+      'Claude: 68.75% perturbation, 93.75% positive (miss violations)',
+      'Llama 4 Maverick 17B matches frontier reliability at 20x lower cost',
+    ],
+    keyQuotes: [
+      'No judge that we evaluated is uniformly reliable across benchmarks using our harness.',
+      'Formatting perturbations produce larger reliability drops than semantic perturbations.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/273_judge_reliability_harness.md',
+  },
 ];

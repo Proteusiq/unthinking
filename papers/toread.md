@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **231 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **228 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed), [#71](https://github.com/Proteusiq/unthinking/issues/71), [#72](https://github.com/Proteusiq/unthinking/issues/72).
 
@@ -23,9 +23,9 @@ Papers examining whether LLMs can reliably evaluate themselves or other LLMs. Cr
 
 | arXiv ID | Title | Stance |
 |----------|-------|--------|
-| [2603.08412](https://arxiv.org/abs/2603.08412) | Aligning to Illusions: Choice Blindness in Human and AI Feedback | supports |
-| [2603.05485](https://arxiv.org/abs/2603.05485) | Towards Provably Unbiased LLM Judges via Bias-Bounded Evaluation | supports |
-| [2603.05399](https://arxiv.org/abs/2603.05399) | Judge Reliability Harness: Stress Testing the Reliability of LLM Judges | supports |
+| ~~[2603.08412](https://arxiv.org/abs/2603.08412)~~ | ~~Aligning to Illusions: Choice Blindness in Human and AI Feedback~~ | ~~supports~~ | DONE #271 |
+| ~~[2603.05485](https://arxiv.org/abs/2603.05485)~~ | ~~Towards Provably Unbiased LLM Judges via Bias-Bounded Evaluation~~ | ~~supports~~ | DONE #272 |
+| ~~[2603.05399](https://arxiv.org/abs/2603.05399)~~ | ~~Judge Reliability Harness: Stress Testing the Reliability of LLM Judges~~ | ~~supports~~ | DONE #273 |
 | [2603.05167](https://arxiv.org/abs/2603.05167) | C2-Faith: Benchmarking LLM Judges for Causal and Coverage Faithfulness in CoT Reasoning | supports |
 | [2602.16610](https://arxiv.org/abs/2602.16610) | Who Can We Trust? LLM-as-a-Jury for Comparative Assessment | supports |
 | [2602.13576](https://arxiv.org/abs/2602.13576) | Rubrics as an Attack Surface: Stealthy Preference Drift in LLM Judges | supports |

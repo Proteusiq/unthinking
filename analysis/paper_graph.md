@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 270
+> **Papers tracked**: 273
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1440,6 +1440,13 @@ These papers have NO direct rebuttals found:
 | Papers Added | Key Findings |
 |--------------|--------------|
 | Learning to Reason in 13 Parameters (2602.04118) | 91% GSM8K with 13 params; RL is 100-1000x more param-efficient than SFT |
+
+### 2026-03-11 (Session 2)
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Aligning to Illusions (2603.08412) | 91% human swaps undetected; LLM detection is shallow text matching; 50% corruption = 0% improvement |
+| Bias-Bounded LLM Judges (2603.05485) | Formal framework for bias guarantees; 61-99% correlation retained; judges don't follow own rubrics |
+| Judge Reliability Harness (2603.05399) | No judge uniformly reliable; formatting > semantic sensitivity; reliability reverses between tasks |
 
 ### 2026-03-11
 | Papers Added | Key Findings |

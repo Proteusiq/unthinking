@@ -6554,4 +6554,84 @@ window.paperLinks = [
     description:
       'Evaluation infrastructure doubly compromised: benchmarks AND judges unreliable',
   },
+  // Choice Blindness RLHF (Paper 271)
+  {
+    source: '2603.08412',
+    target: '2411.15594',
+    type: 'extends',
+    description:
+      'Explains mechanism behind judge biases: shallow text matching, not self-monitoring',
+  },
+  {
+    source: '2603.08412',
+    target: '2412.12509',
+    type: 'extends',
+    description:
+      'Choice blindness explains why single-shot evaluation masks variability',
+  },
+  {
+    source: '2603.08412',
+    target: '2310.13548',
+    type: 'extends',
+    description:
+      'Social pressure → universal compliance shows sycophancy mechanism',
+  },
+  // Bias-Bounded LLM Judges (Paper 272)
+  {
+    source: '2603.05485',
+    target: '2411.15594',
+    type: 'extends',
+    description:
+      'Provides formal framework to bound documented biases',
+  },
+  {
+    source: '2603.05485',
+    target: '2412.12509',
+    type: 'extends',
+    description:
+      'Bias bounds complement reliability measurement; mathematical guarantees',
+  },
+  {
+    source: '2603.05485',
+    target: '2603.08412',
+    type: 'extends',
+    description:
+      'A-BB framework addresses biases judges cannot detect (choice blindness)',
+  },
+  // Judge Reliability Harness (Paper 273)
+  {
+    source: '2603.05399',
+    target: '2411.15594',
+    type: 'extends',
+    description:
+      'Provides systematic stress-testing framework for documented judge biases',
+  },
+  {
+    source: '2603.05399',
+    target: '2412.12509',
+    type: 'extends',
+    description:
+      'JRH operationalizes reliability testing; practical tools for measurement',
+  },
+  {
+    source: '2603.05399',
+    target: '2509.04013',
+    type: 'supports',
+    description:
+      'Confirms paraphrase robustness but formatting sensitivity (surface > semantic)',
+  },
+  {
+    source: '2603.05399',
+    target: '2603.05485',
+    type: 'supports',
+    description:
+      'JRH measures biases that A-BB framework bounds; complementary approaches',
+  },
+  {
+    source: '2603.05399',
+    target: '2603.08412',
+    type: 'supports',
+    description:
+      'Stress tests reveal shallow detection consistent with choice blindness findings',
+  },
 ];
