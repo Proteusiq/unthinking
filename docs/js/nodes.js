@@ -5177,50 +5177,6 @@ window.paperNodes = [
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/230-239/230_making_harmful_behaviors_unlearnable.md',
   },
   {
-    id: '2507.10616',
-    title: 'Scalpel vs. Hammer: GRPO Amplifies Existing Capabilities, SFT Replaces Them',
-    shortTitle: 'Scalpel vs Hammer',
-    date: 'Jul 2025',
-    stance: 'supports',
-    cluster: 'rl-dynamics',
-    coreArgument:
-      'GRPO amplifies existing capabilities via minimal targeted updates; SFT replaces old skills with new ones via broader parameter changes.',
-    keyEvidence: [
-      'GRPO requires ~50x lower learning rate (1e-6 vs 5e-5)',
-      'Both modify query/key weights most, SFT more aggressively',
-      'SFT disrupts mid-layer MLPs (layers 20-26)',
-      'GRPO keeps model closer to base (lower KL divergence)',
-    ],
-    keyQuotes: [
-      'GRPO amplifies existing capabilities, while SFT replaces old skills with new ones.',
-      'Capability acquisition occurs during pre-training and continual fine-tuning, while GRPO mainly amplifies skills the base model already has.',
-    ],
-    analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/240-249/243_scalpel_vs_hammer_grpo_sft.md',
-  },
-  {
-    id: '2602.07729',
-    title: 'Do We Need Adam? Surprisingly Strong and Sparse RL with SGD in LLMs',
-    shortTitle: 'SGD in RLVR',
-    date: 'Feb 2026',
-    stance: 'supports',
-    cluster: 'rl-dynamics',
-    coreArgument:
-      'SGD matches AdamW in RLVR while updating only 0.02% of parameters (1000x fewer), proving RL surfaces existing capabilities rather than learning new ones.',
-    keyEvidence: [
-      'SGD updates <0.02% of parameters vs ~20% for AdamW',
-      '1000x fewer parameter updates without performance loss',
-      '15.7 GB memory reduction on Qwen3-1.7B',
-      'RL incorporates O(1) bits per episode vs O(#tokens) in SFT',
-    ],
-    keyQuotes: [
-      'Full fine-tuning with SGD updates fewer than 0.02% of model parameters without any sparsity-promoting regularization, more than 1,000x fewer than AdamW.',
-      'The effective optimization problem in RLVR is both low-dimensional and geometrically constrained, with learning confined to a subspace of the parameter space.',
-    ],
-    analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/240-249/244_sgd_adam_rlvr.md',
-  },
-  {
     id: '2601.02671',
     title: 'Extracting books from production language models',
     shortTitle: 'Book Extraction',
