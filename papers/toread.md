@@ -16,8 +16,8 @@ Papers examining whether LLMs can reliably evaluate themselves or other LLMs. Cr
 |----------|-------|--------|
 | ~~[2411.15594](https://arxiv.org/abs/2411.15594)~~ | ~~A Survey on LLM as a Judge~~ | ~~supports~~ | DONE #267 |
 | ~~[2412.12509](https://arxiv.org/abs/2412.12509)~~ | ~~Can You Trust LLM Judgement~~ | ~~supports~~ | DONE #268 |
-| [2509.04013](https://arxiv.org/abs/2509.04013) | On Robustness and Reliability of Benchmark-Based Evaluation of LLMs | supports |
-| [2502.03461](https://arxiv.org/abs/2502.03461) | Do Large Language Model Benchmarks Test Reliability? | supports |
+| ~~[2509.04013](https://arxiv.org/abs/2509.04013)~~ | ~~On Robustness and Reliability of Benchmark-Based Evaluation of LLMs~~ | ~~supports~~ | DONE #269 |
+| ~~[2502.03461](https://arxiv.org/abs/2502.03461)~~ | ~~Do Large Language Model Benchmarks Test Reliability?~~ | ~~supports~~ | DONE #270 |
 
 ### LLM Judge Reliability (arXiv Search 2024-2026)
 

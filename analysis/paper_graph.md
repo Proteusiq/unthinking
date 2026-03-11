@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 268
+> **Papers tracked**: 270
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1446,6 +1446,8 @@ These papers have NO direct rebuttals found:
 |--------------|--------------|
 | Survey on LLM-as-a-Judge (2411.15594) | ~62% human alignment; 12 bias types; reasoning models don't improve judgment; explanations DECREASE reliability |
 | Can You Trust LLM Judgments (2412.12509) | IRR varies 0.17→1.0 with seed; omega 0.42-0.80 (questionable); temp=0 is "fixed randomness" not reliability |
+| Benchmark Paraphrase Robustness (2509.04013) | 15-30% answer inconsistency on paraphrases; small models "consistently wrong"; older benchmarks show contamination |
+| Platinum Benchmarks Reliability (2502.03461) | Capability ≠ reliability; label noise masks failures; first-event bias; frontier models fail elementary coreference |
 
 ### 2026-02-23
 | Papers Added | Key Findings |

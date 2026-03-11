@@ -6503,4 +6503,55 @@ window.paperLinks = [
     description:
       'Temperature=0 is "fixed randomness" not reliability; determinism masks variability',
   },
+  // Paper 269: Benchmark Paraphrase Robustness
+  {
+    source: '2509.04013',
+    target: '2410.05229',
+    type: 'supports',
+    description:
+      'Both show surface changes (paraphrasing/numbers) break performance; pattern matching exposed',
+  },
+  {
+    source: '2509.04013',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Paraphrase sensitivity confirms pattern matching over semantic understanding',
+  },
+  {
+    source: '2509.04013',
+    target: '2411.15594',
+    type: 'supports',
+    description:
+      'Benchmark unreliability complements judge unreliability; evaluation infrastructure compromised',
+  },
+  // Paper 270: Platinum Benchmarks
+  {
+    source: '2502.03461',
+    target: '2509.04013',
+    type: 'supports',
+    description:
+      'Both expose benchmark limitations; platinum cleans noise, paraphrase tests robustness',
+  },
+  {
+    source: '2502.03461',
+    target: '2410.05229',
+    type: 'supports',
+    description:
+      'GSM8K unreliability confirmed; capability ≠ reliability on grade-school math',
+  },
+  {
+    source: '2502.03461',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'First-event bias = positional pattern matching; elementary failures persist',
+  },
+  {
+    source: '2502.03461',
+    target: '2411.15594',
+    type: 'supports',
+    description:
+      'Evaluation infrastructure doubly compromised: benchmarks AND judges unreliable',
+  },
 ];

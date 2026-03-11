@@ -5725,4 +5725,50 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/268_can_you_trust_llm_judgments.md',
   },
+  {
+    id: '2509.04013',
+    title: 'On Robustness and Reliability of Benchmark-Based Evaluation of LLMs',
+    shortTitle: 'Benchmark Paraphrase Robustness',
+    date: 'Sep 2025',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'LLMs show 15-30% answer inconsistency across paraphrased questions, revealing surface-pattern matching. Small models are "consistently wrong" (negative accuracy-consistency correlation). Older benchmarks show contamination signatures.',
+    keyEvidence: [
+      '15-30% inconsistency on semantically equivalent questions',
+      'Small models: ρ=-0.51 accuracy-consistency (consistently wrong)',
+      'Large models: ρ=+0.79 (correct and consistent)',
+      'Kendall τ>0.9 for rankings (reliable), but absolute scores vary',
+      'CoT doesn\'t help consistency (~7% drop)',
+    ],
+    keyQuotes: [
+      'Benchmark accuracy scores may reflect the particular wording of test items more than the model\'s reasoning abilities.',
+      'Less capable models tend to be more consistent in their predictions, although they are often wrong.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/269_benchmark_paraphrase_robustness.md',
+  },
+  {
+    id: '2502.03461',
+    title: 'Do Large Language Model Benchmarks Test Reliability?',
+    shortTitle: 'Platinum Benchmarks',
+    date: 'Feb 2025',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'Benchmarks test capability, not reliability. "Saturated" benchmarks (>90%) retired before true reliability achieved. Platinum benchmarks reveal frontier models fail elementary tasks. First-event bias and coreference failures expose pattern-matching.',
+    keyEvidence: [
+      'GSM8K ~5% mislabeled; SQuAD2.0 up to 30% issues',
+      'o1 still fails basic coreference ("it got full of ink")',
+      'First-event bias: models select first-mentioned entity',
+      'More than half of "failures" are actually label noise',
+      'No frontier model achieves 100% on most platinum benchmarks',
+    ],
+    keyQuotes: [
+      'For most tasks, no state-of-the-art model that we evaluate is able to pass (i.e., achieve 100% accuracy).',
+      'Current benchmarks are not well equipped for testing model reliability.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/270_platinum_benchmarks_reliability.md',
+  },
 ];

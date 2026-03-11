@@ -272,3 +272,5 @@
 | 266 | 2503.07416 | Mar 2025 | Follow the Reasoning Leader: Test-Time Scaling and Ensembles | Supports |
 | 267 | 2411.15594 | Nov 2024 | A Survey on LLM-as-a-Judge | Supports |
 | 268 | 2412.12509 | Dec 2024 | Can You Trust LLM Judgments? Reliability of LLM-as-a-Judge | Supports |
+| 269 | 2509.04013 | Sep 2025 | On Robustness and Reliability of Benchmark-Based Evaluation | Supports |
+| 270 | 2502.03461 | Feb 2025 | Do Large Language Model Benchmarks Test Reliability? | Supports |
