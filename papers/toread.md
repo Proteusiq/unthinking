@@ -1,8 +1,67 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **205 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **233 papers remaining.**
 
-Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed).
+Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed), [#71](https://github.com/Proteusiq/unthinking/issues/71), [#72](https://github.com/Proteusiq/unthinking/issues/72).
+
+---
+
+## High Priority — LLM-as-Judge & Evaluation Circularity (Issues #71, #72)
+
+Papers examining whether LLMs can reliably evaluate themselves or other LLMs. Critical for the thesis: if LLMs don't reason, using them to judge "reasoning" is circular.
+
+### From Issues
+
+| arXiv ID | Title | Stance |
+|----------|-------|--------|
+| [2411.15594](https://arxiv.org/abs/2411.15594) | A Survey on LLM as a Judge | supports |
+| [2412.12509](https://arxiv.org/abs/2412.12509) | Can You Trust LLM Judgement | supports |
+| [2509.04013](https://arxiv.org/abs/2509.04013) | On Robustness and Reliability of Benchmark-Based Evaluation of LLMs | supports |
+| [2502.03461](https://arxiv.org/abs/2502.03461) | Do Large Language Model Benchmarks Test Reliability? | supports |
+
+### LLM Judge Reliability (arXiv Search 2024-2026)
+
+| arXiv ID | Title | Stance |
+|----------|-------|--------|
+| [2603.08412](https://arxiv.org/abs/2603.08412) | Aligning to Illusions: Choice Blindness in Human and AI Feedback | supports |
+| [2603.05485](https://arxiv.org/abs/2603.05485) | Towards Provably Unbiased LLM Judges via Bias-Bounded Evaluation | supports |
+| [2603.05399](https://arxiv.org/abs/2603.05399) | Judge Reliability Harness: Stress Testing the Reliability of LLM Judges | supports |
+| [2603.05167](https://arxiv.org/abs/2603.05167) | C2-Faith: Benchmarking LLM Judges for Causal and Coverage Faithfulness in CoT Reasoning | supports |
+| [2602.16610](https://arxiv.org/abs/2602.16610) | Who Can We Trust? LLM-as-a-Jury for Comparative Assessment | supports |
+| [2602.13576](https://arxiv.org/abs/2602.13576) | Rubrics as an Attack Surface: Stealthy Preference Drift in LLM Judges | supports |
+| [2602.13110](https://arxiv.org/abs/2602.13110) | SCOPE: Selective Conformal Optimized Pairwise LLM Judging | balanced |
+| [2602.02219](https://arxiv.org/abs/2602.02219) | Am I More Pointwise or Pairwise? Revealing Position Bias in Rubric-Based LLM-as-a-Judge | supports |
+| [2602.02287](https://arxiv.org/abs/2602.02287) | Cross-Lingual Stability of LLM Judges Under Controlled Generation | supports |
+| [2507.17788](https://arxiv.org/abs/2507.17788) | Adaptive Repetition for Mitigating Position Bias in LLM-Based Ranking | supports |
+| [2512.16272](https://arxiv.org/abs/2512.16272) | Beyond Blind Spots: Analytic Hints for Mitigating LLM-Based Evaluation Pitfalls | supports |
+| [2512.06710](https://arxiv.org/abs/2512.06710) | Stochasticity in Agentic Evaluations: Quantifying Inconsistency with ICC | supports |
+
+### Benchmark Contamination & Gaming
+
+| arXiv ID | Title | Stance |
+|----------|-------|--------|
+| [2602.13626](https://arxiv.org/abs/2602.13626) | Benchmark Leakage Trap: Can We Trust LLM-based Recommendation? | supports |
+| [2602.11792](https://arxiv.org/abs/2602.11792) | Detecting RLVR Training Data via Structural Convergence of Reasoning | supports |
+| [2601.20858](https://arxiv.org/abs/2601.20858) | When Flores Bloomz Wrong: Cross-Direction Contamination in MT Evaluation | supports |
+| [2511.17602](https://arxiv.org/abs/2511.17602) | Beyond Surface-Level Similarity: Hierarchical Contamination Detection | supports |
+| [2510.02386](https://arxiv.org/abs/2510.02386) | On The Fragility of Benchmark Contamination Detection in Reasoning Models | supports |
+| [2509.00072](https://arxiv.org/abs/2509.00072) | Beyond Memorization: Reasoning-Driven Synthesis as Contamination Mitigation | balanced |
+| [2507.19219](https://arxiv.org/abs/2507.19219) | How Much Do LLMs Cheat on Evaluation? Benchmarking Overestimation | supports |
+| [2504.08300](https://arxiv.org/abs/2504.08300) | Large Language Models Could Be Rote Learners | supports |
+| [2502.17259](https://arxiv.org/abs/2502.17259) | Detecting Benchmark Contamination Through Watermarking | supports |
+| [2502.06655](https://arxiv.org/abs/2502.06655) | Unbiased Evaluation of LLMs from a Causal Perspective | balanced |
+| [2412.15194](https://arxiv.org/abs/2412.15194) | MMLU-CF: A Contamination-free Multi-task Language Understanding Benchmark | balanced |
+| [2603.09678](https://arxiv.org/abs/2603.09678) | EsoLang-Bench: Evaluating Genuine Reasoning via Esoteric Programming Languages | supports |
+
+### Self-Evaluation Limitations
+
+| arXiv ID | Title | Stance |
+|----------|-------|--------|
+| [2603.03824](https://arxiv.org/abs/2603.03824) | In-Context Environments Induce Evaluation-Awareness in Language Models | supports |
+| [2602.21054](https://arxiv.org/abs/2602.21054) | VAUQ: Vision-Aware Uncertainty Quantification for LVLM Self-Evaluation | balanced |
+| [2602.05110](https://arxiv.org/abs/2602.05110) | Understanding LLM Evaluator Behavior: A Structured Multi-Evaluator Framework | supports |
+| [2601.14479](https://arxiv.org/abs/2601.14479) | Can LLM Reasoning Be Trusted? A Comparative Study Using Human Benchmarking | supports |
+| [2601.03511](https://arxiv.org/abs/2601.03511) | IntroLM: Introspective Language Models via Prefilling-Time Self-Evaluation | balanced |
 
 ---
 
