@@ -16,12 +16,12 @@
 
 Do LLMs actually understand or do they predict plausible-sounding tokens without understanding?
 
-This project surveys 266+ papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
+This project surveys 260+ papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
 
 To bring the findings home:
-- **Paper network**: interactive graph of 266+ papers and 966+ relationships, filterable by stance
+- **Paper network**: interactive graph of 260+ papers and 960+ relationships, filterable by stance
 - **Experiments**:
-  - *Decoding ablation*: reasoning paths exist in base models, hidden by greedy decoding; RL just surfaces them
+  - *Decoding ablation*: reasoning paths exist in base models, hidden by greedy decoding; RL surfaces them
   - *Steering ablation*: safety alignment is a thin layer of refusal patterns that washes off under trivial perturbations
   - *Attractor states*: extended LLM-to-LLM conversation reveals training distribution patterns (distribution chaos)
 - **LLM Made Less Black Box**: four visual explainers (Data → Tokenization → Architecture → Training) demystifying the full pipeline
