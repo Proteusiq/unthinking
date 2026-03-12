@@ -374,16 +374,15 @@
             <div class="c-detail">
               <b>How it works:</b> Map each unique character to an integer. "hello" becomes [7, 4,
               11, 11, 14] — five tokens for five characters.<br /><br />
-              <div class="code-block">
-                <span class="cm"># From Karpathy's microgpt — 5 lines of tokenizer</span>
-                uchars = sorted(set(''.join(docs))) <span class="cm"># unique chars</span> BOS =
-                len(uchars) <span class="cm"># special token</span>
-                vocab_size = len(uchars) + 1
+              <pre
+                class="code-block"
+              ><span class="cm"># From Karpathy's microgpt — 5 lines of tokenizer</span>
+uchars = sorted(set(''.join(docs)))  <span class="cm"># unique chars</span>
+BOS = len(uchars)                    <span class="cm"># special token</span>
+vocab_size = len(uchars) + 1
 
-                <span class="cm"># Encode: string → list of integers</span>
-                tokens = [BOS] + [uchars.index(ch) <span class="kw">for</span> ch
-                <span class="kw">in</span> doc] + [BOS]
-              </div>
+<span class="cm"># Encode: string → list of integers</span>
+tokens = [BOS] + [uchars.index(ch) <span class="kw">for</span> ch <span class="kw">in</span> doc] + [BOS]</pre>
               <b>Tradeoff:</b> Vocab is tiny (~100 tokens) but sequences are long. A 1000-character
               text = 1000 tokens. Attention cost scales with sequence length squared.
             </div>
@@ -404,15 +403,18 @@
               2. Count all adjacent token pairs<br />
               3. Merge the most frequent pair → new token<br />
               4. Repeat for N merges (N = vocab_size - 256)<br /><br />
-              <div class="code-block">
-                <span class="cm"># Core BPE loop (from no-magic/microtokenizer)</span>
-                <span class="kw">def</span> <span class="fn">train_bpe</span>(ids, num_merges):
-                merges = [] <span class="kw">for</span> i
-                <span class="kw">in</span> range(num_merges): counts = get_pair_counts(ids) pair =
-                max(counts, key=counts.get) new_id = <span class="nu">256</span> + i ids =
-                apply_merge(ids, pair, new_id) merges.append((pair, new_id))
-                <span class="kw">return</span> merges
-              </div>
+              <pre
+                class="code-block"
+              ><span class="cm"># Core BPE loop (from no-magic/microtokenizer)</span>
+<span class="kw">def</span> <span class="fn">train_bpe</span>(ids, num_merges):
+    merges = []
+    <span class="kw">for</span> i <span class="kw">in</span> range(num_merges):
+        counts = get_pair_counts(ids)
+        pair = max(counts, key=counts.get)
+        new_id = <span class="nu">256</span> + i
+        ids = apply_merge(ids, pair, new_id)
+        merges.append((pair, new_id))
+    <span class="kw">return</span> merges</pre>
               <b>Key insight:</b> BPE discovers structure without linguistic rules. Common words
               become single tokens; rare words split into reusable pieces. "unhappy" might become
               ["un", "happy"] — but this is frequency-driven, not morphological analysis.
@@ -479,11 +481,9 @@
               <b>BOS</b> (Beginning of Sequence): Signals start of generation<br />
               <b>EOS</b> (End of Sequence): Model learns when to stop<br />
               <b>PAD</b>: Fills shorter sequences in batches (masked in loss)<br /><br />
-              <div class="code-block">
-                <span class="cm"># microgpt: BOS wraps each document</span>
-                tokens = [BOS] + encode(<span class="st">"emma"</span>) + [BOS]
-                <span class="cm"># Model learns: BOS → start generating, BOS → stop</span>
-              </div>
+              <pre class="code-block"><span class="cm"># microgpt: BOS wraps each document</span>
+tokens = [BOS] + encode(<span class="st">"emma"</span>) + [BOS]
+<span class="cm"># Model learns: BOS → start generating, BOS → stop</span></pre>
             </div>
           </div>
         </div>
@@ -523,13 +523,13 @@
               <div class="formula">
                 embedding = W_emb[token_id] &nbsp;&nbsp;≡&nbsp;&nbsp; one_hot(token_id) @ W_emb
               </div>
-              <div class="code-block">
-                <span class="cm"># Karpathy's microgpt: embedding is a 2D list</span>
-                wte = [[random.gauss(<span class="nu">0</span>, <span class="nu">0.08</span>)
-                <span class="kw">for</span> _ <span class="kw">in</span> range(n_embd)]
-                <span class="kw">for</span> _ <span class="kw">in</span> range(vocab_size)] tok_emb
-                = wte[token_id] <span class="cm"># that's it — just indexing</span>
-              </div>
+              <pre
+                class="code-block"
+              ><span class="cm"># Karpathy's microgpt: embedding is a 2D list</span>
+wte = [[random.gauss(<span class="nu">0</span>, <span class="nu">0.08</span>)
+        <span class="kw">for</span> _ <span class="kw">in</span> range(n_embd)]
+       <span class="kw">for</span> _ <span class="kw">in</span> range(vocab_size)]
+tok_emb = wte[token_id]  <span class="cm"># that's it — just indexing</span></pre>
               <b>Key insight:</b> Each row is a learnable d-dimensional vector. Initialized
               randomly, then updated via backpropagation to capture co-occurrence patterns from
               training data.
@@ -570,13 +570,13 @@
                   </tr>
                 </table>
               </div>
-              <div class="code-block">
-                <span class="cm"># microgpt: learned position embeddings</span>
-                wpe = [[random.gauss(<span class="nu">0</span>, <span class="nu">0.08</span>)
-                <span class="kw">for</span> _ <span class="kw">in</span> range(n_embd)]
-                <span class="kw">for</span> _ <span class="kw">in</span> range(block_size)] pos_emb
-                = wpe[pos_id]
-              </div>
+              <pre
+                class="code-block"
+              ><span class="cm"># microgpt: learned position embeddings</span>
+wpe = [[random.gauss(<span class="nu">0</span>, <span class="nu">0.08</span>)
+        <span class="kw">for</span> _ <span class="kw">in</span> range(n_embd)]
+       <span class="kw">for</span> _ <span class="kw">in</span> range(block_size)]
+pos_emb = wpe[pos_id]</pre>
             </div>
           </div>
 
@@ -589,11 +589,10 @@
             <div class="c-key">Sum token + position. Model learns to disentangle.</div>
             <div class="c-detail">
               <div class="formula">x = token_embedding + position_embedding</div>
-              <div class="code-block">
-                <span class="cm"># The model's actual input for each token</span>
-                x = [t + p <span class="kw">for</span> t, p <span class="kw">in</span> zip(tok_emb,
-                pos_emb)]
-              </div>
+              <pre
+                class="code-block"
+              ><span class="cm"># The model's actual input for each token</span>
+x = [t + p <span class="kw">for</span> t, p <span class="kw">in</span> zip(tok_emb, pos_emb)]</pre>
               This addition is not arbitrary — both embeddings live in the same vector space, and
               the model learns during training to disentangle "what token is this" from "where is
               it."
@@ -685,16 +684,14 @@
               2. <b>/ √d<sub>k</sub></b> — Scale to prevent softmax saturation<br />
               3. <b>softmax</b> — Convert to probabilities (sum to 1 per row)<br />
               4. <b>· V</b> — Weighted blend of value vectors<br /><br />
-              <div class="code-block">
-                <span class="cm"># From no-magic/microattention.py</span>
-                <span class="kw">def</span> <span class="fn">attention</span>(q, k, v): scale =
-                <span class="nu">1.0</span> / math.sqrt(len(q[<span class="nu">0</span>])) scores =
-                matmul(q, transpose(k)) scores = [[v * scale <span class="kw">for</span> v
-                <span class="kw">in</span> row] <span class="kw">for</span> row
-                <span class="kw">in</span> scores] weights = [softmax(row)
-                <span class="kw">for</span> row <span class="kw">in</span> scores]
-                <span class="kw">return</span> matmul(weights, v)
-              </div>
+              <pre class="code-block"><span class="cm"># From no-magic/microattention.py</span>
+<span class="kw">def</span> <span class="fn">attention</span>(q, k, v):
+    scale = <span class="nu">1.0</span> / math.sqrt(len(q[<span class="nu">0</span>]))
+    scores = matmul(q, transpose(k))
+    scores = [[v * scale <span class="kw">for</span> v <span class="kw">in</span> row]
+              <span class="kw">for</span> row <span class="kw">in</span> scores]
+    weights = [softmax(row) <span class="kw">for</span> row <span class="kw">in</span> scores]
+    <span class="kw">return</span> matmul(weights, v)</pre>
               <b>Why √d<sub>k</sub> scaling?</b> Without it, dot products grow proportionally to
               dimension (variance ≈ d<sub>k</sub>). Large values push softmax toward one-hot
               outputs, killing gradients.
@@ -733,9 +730,9 @@
                   </tr>
                 </table>
               </div>
-              <div class="code-block">
-                Q = x @ W_q <span class="cm"># learned projection</span> K = x @ W_k V = x @ W_v
-              </div>
+              <pre class="code-block">Q = x @ W_q  <span class="cm"># learned projection</span>
+K = x @ W_k
+V = x @ W_v</pre>
               The separation allows the model to learn <b>different representations</b> for "what to
               look for" vs "what to match against" vs "what to return."
             </div>
@@ -753,17 +750,15 @@
             <div class="c-detail">
               For autoregressive generation, position t can only attend to positions 0..t-1. We set
               future scores to <b>−∞</b> before softmax, so exp(−∞) = 0.<br /><br />
-              <div class="code-block">
-                <span class="cm"># Upper triangle = future positions</span>
-                mask = torch.triu(ones(n, n), diagonal=<span class="nu">1</span>)
-                scores.masked_fill_(mask, <span class="nu">-inf</span>) weights = softmax(scores)
-                <span class="cm"># -inf → 0</span>
+              <pre class="code-block"><span class="cm"># Upper triangle = future positions</span>
+mask = torch.triu(ones(n, n), diagonal=<span class="nu">1</span>)
+scores.masked_fill_(mask, <span class="nu">-inf</span>)
+weights = softmax(scores)  <span class="cm"># -inf → 0</span>
 
-                <span class="cm"># Result: triangular attention pattern</span>
-                <span class="cm"># pos 0: sees [self]</span>
-                <span class="cm"># pos 1: sees [pos 0, self]</span>
-                <span class="cm"># pos n: sees [pos 0, ..., self]</span>
-              </div>
+<span class="cm"># Result: triangular attention pattern</span>
+<span class="cm"># pos 0: sees [self]</span>
+<span class="cm"># pos 1: sees [pos 0, self]</span>
+<span class="cm"># pos n: sees [pos 0, ..., self]</span></pre>
             </div>
           </div>
 
@@ -780,15 +775,15 @@
               Instead of one d-dimensional attention, use h heads each with d/h dimensions. Each
               head can specialize — one learns syntax, another semantics, another position.
               <b>Same total FLOPs</b> as single-head.<br /><br />
-              <div class="code-block">
-                <span class="cm"># Karpathy's microgpt: multi-head via slicing</span>
-                <span class="kw">for</span> h <span class="kw">in</span> range(n_head): hs = h *
-                head_dim q_h = q[hs:hs+head_dim] k_h = [ki[hs:hs+head_dim]
-                <span class="kw">for</span> ki <span class="kw">in</span> keys] v_h =
-                [vi[hs:hs+head_dim] <span class="kw">for</span> vi
-                <span class="kw">in</span> values]
-                <span class="cm"># attention per head, concatenate all heads</span>
-              </div>
+              <pre
+                class="code-block"
+              ><span class="cm"># Karpathy's microgpt: multi-head via slicing</span>
+<span class="kw">for</span> h <span class="kw">in</span> range(n_head):
+    hs = h * head_dim
+    q_h = q[hs:hs+head_dim]
+    k_h = [ki[hs:hs+head_dim] <span class="kw">for</span> ki <span class="kw">in</span> keys]
+    v_h = [vi[hs:hs+head_dim] <span class="kw">for</span> vi <span class="kw">in</span> values]
+    <span class="cm"># attention per head, concatenate all heads</span></pre>
               <b>W_O projection</b> after concatenation is where cross-head mixing happens —
               combining signals from all attention patterns.
               <div class="tbl-wrap">
@@ -846,13 +841,10 @@
             <div class="c-key">Two linear layers with 4× expansion and activation in between.</div>
             <div class="c-detail">
               <div class="formula">FFN(x) = W<sub>2</sub> · activation( W<sub>1</sub> · x )</div>
-              <div class="code-block">
-                <span class="cm"># Karpathy's microgpt: MLP block</span>
-                x = linear(x, mlp_fc1) <span class="cm"># [d] → [4d] expand</span> x = [xi.relu()
-                <span class="kw">for</span> xi <span class="kw">in</span> x]
-                <span class="cm"># activate</span> x = linear(x, mlp_fc2)
-                <span class="cm"># [4d] → [d] contract</span>
-              </div>
+              <pre class="code-block"><span class="cm"># Karpathy's microgpt: MLP block</span>
+x = linear(x, mlp_fc1)                <span class="cm"># [d] → [4d] expand</span>
+x = [xi.relu() <span class="kw">for</span> xi <span class="kw">in</span> x]  <span class="cm"># activate</span>
+x = linear(x, mlp_fc2)                <span class="cm"># [4d] → [d] contract</span></pre>
               <b>Why 4× expansion?</b> More capacity to compute complex functions without widening
               the residual stream. The model temporarily expands to a higher-dimensional space,
               processes, then compresses back.
@@ -914,12 +906,13 @@
               Without residuals, gradients must pass through every layer's transformations — they
               vanish in deep networks. The residual "highway" lets gradients flow
               <b>directly backward</b> unimpeded.
-              <div class="code-block">
-                <span class="cm"># Both attention and FFN are wrapped in residuals</span>
-                x_residual = x x = rmsnorm(x) x = attention(x) x = [a + b
-                <span class="kw">for</span> a, b <span class="kw">in</span> zip(x, x_residual)]
-                <span class="cm"># add skip</span>
-              </div>
+              <pre
+                class="code-block"
+              ><span class="cm"># Both attention and FFN are wrapped in residuals</span>
+x_residual = x
+x = rmsnorm(x)
+x = attention(x)
+x = [a + b <span class="kw">for</span> a, b <span class="kw">in</span> zip(x, x_residual)]  <span class="cm"># add skip</span></pre>
             </div>
           </div>
 
@@ -938,14 +931,13 @@
               Pre-norm keeps the residual path clean — no normalization layer on the skip
               connection. More stable training. All modern LLMs use pre-norm, typically
               <b>RMSNorm</b> instead of LayerNorm.<br /><br />
-              <div class="code-block">
-                <span class="cm"># RMSNorm (simpler than LayerNorm — no mean subtraction)</span>
-                <span class="kw">def</span> <span class="fn">rmsnorm</span>(x): ms = sum(xi * xi
-                <span class="kw">for</span> xi <span class="kw">in</span> x) / len(x) scale = (ms +
-                <span class="nu">1e-5</span>) ** <span class="nu">-0.5</span>
-                <span class="kw">return</span> [xi * scale <span class="kw">for</span> xi
-                <span class="kw">in</span> x]
-              </div>
+              <pre
+                class="code-block"
+              ><span class="cm"># RMSNorm (simpler than LayerNorm — no mean subtraction)</span>
+<span class="kw">def</span> <span class="fn">rmsnorm</span>(x):
+    ms = sum(xi * xi <span class="kw">for</span> xi <span class="kw">in</span> x) / len(x)
+    scale = (ms + <span class="nu">1e-5</span>) ** <span class="nu">-0.5</span>
+    <span class="kw">return</span> [xi * scale <span class="kw">for</span> xi <span class="kw">in</span> x]</pre>
             </div>
           </div>
         </div>
@@ -984,15 +976,14 @@
               <div class="formula">
                 softmax(x<sub>i</sub>) = exp(x<sub>i</sub>) / Σ exp(x<sub>j</sub>)
               </div>
-              <div class="code-block">
-                <span class="cm"># Numerically stable softmax (subtract max first)</span>
-                <span class="kw">def</span> <span class="fn">softmax</span>(logits): max_val =
-                max(v.data <span class="kw">for</span> v <span class="kw">in</span> logits) exps =
-                [(v - max_val).exp() <span class="kw">for</span> v
-                <span class="kw">in</span> logits] total = sum(exps)
-                <span class="kw">return</span> [e / total <span class="kw">for</span> e
-                <span class="kw">in</span> exps]
-              </div>
+              <pre
+                class="code-block"
+              ><span class="cm"># Numerically stable softmax (subtract max first)</span>
+<span class="kw">def</span> <span class="fn">softmax</span>(logits):
+    max_val = max(v.data <span class="kw">for</span> v <span class="kw">in</span> logits)
+    exps = [(v - max_val).exp() <span class="kw">for</span> v <span class="kw">in</span> logits]
+    total = sum(exps)
+    <span class="kw">return</span> [e / total <span class="kw">for</span> e <span class="kw">in</span> exps]</pre>
               <b>Subtract max for stability:</b> Without this, large logits cause exp() to overflow
               to infinity. The subtraction doesn't change the output probabilities.
             </div>
@@ -1012,11 +1003,10 @@
               The log makes the penalty grow
               <b>increasingly severe</b> as confidence in the wrong answer increases. This is the
               <b>only training signal</b> — predict the next token better.
-              <div class="code-block">
-                <span class="cm"># The loss for one token prediction</span>
-                logits = gpt(token_id, pos_id, keys, values) probs = softmax(logits) loss =
-                -probs[target_id].log()
-              </div>
+              <pre class="code-block"><span class="cm"># The loss for one token prediction</span>
+logits = gpt(token_id, pos_id, keys, values)
+probs = softmax(logits)
+loss = -probs[target_id].log()</pre>
             </div>
           </div>
 
@@ -1032,16 +1022,14 @@
             <div class="c-detail">
               Starting from the loss, work backward through every operation: for each parameter,
               compute "if I nudge this value, how much does the loss change?"<br /><br />
-              <div class="code-block">
-                <span class="cm"># Karpathy's autograd backward pass</span>
-                <span class="kw">def</span> <span class="fn">backward</span>(self): topo = []
-                <span class="cm"># topological sort of computation graph</span> build_topo(self)
-                self.grad = <span class="nu">1</span>
-                <span class="cm"># seed: dloss/dloss = 1</span> <span class="kw">for</span> v
-                <span class="kw">in</span> reversed(topo): <span class="kw">for</span> child,
-                local_grad <span class="kw">in</span> zip(v._children, v._local_grads): child.grad
-                += local_grad * v.grad <span class="cm"># chain rule</span>
-              </div>
+              <pre class="code-block"><span class="cm"># Karpathy's autograd backward pass</span>
+<span class="kw">def</span> <span class="fn">backward</span>(self):
+    topo = []  <span class="cm"># topological sort of computation graph</span>
+    build_topo(self)
+    self.grad = <span class="nu">1</span>  <span class="cm"># seed: dloss/dloss = 1</span>
+    <span class="kw">for</span> v <span class="kw">in</span> reversed(topo):
+        <span class="kw">for</span> child, local_grad <span class="kw">in</span> zip(v._children, v._local_grads):
+            child.grad += local_grad * v.grad  <span class="cm"># chain rule</span></pre>
               <b>6 primitive operations</b> with known derivatives — add, mul, pow, exp, log, relu —
               compose to compute gradients through any neural network.
             </div>
@@ -1060,16 +1048,15 @@
                 v = β₂·v + (1-β₂)·∇L² &nbsp;&nbsp;(variance)<br />
                 θ = θ − lr · m̂ / √(v̂ + ε) &nbsp;&nbsp;(update)
               </div>
-              <div class="code-block">
-                <span class="cm"># Complete Adam from Karpathy's microgpt</span>
-                <span class="kw">for</span> i, p <span class="kw">in</span> enumerate(params): m[i]
-                = beta1 * m[i] + (<span class="nu">1</span> - beta1) * p.grad v[i] = beta2 * v[i] +
-                (<span class="nu">1</span> - beta2) * p.grad ** <span class="nu">2</span> m_hat =
-                m[i] / (<span class="nu">1</span> - beta1 ** (step + <span class="nu">1</span>))
-                <span class="cm"># bias correction</span> v_hat = v[i] / (<span class="nu">1</span>
-                - beta2 ** (step + <span class="nu">1</span>)) p.data -= lr * m_hat / (v_hat **
-                <span class="nu">0.5</span> + eps)
-              </div>
+              <pre
+                class="code-block"
+              ><span class="cm"># Complete Adam from Karpathy's microgpt</span>
+<span class="kw">for</span> i, p <span class="kw">in</span> enumerate(params):
+    m[i] = beta1 * m[i] + (<span class="nu">1</span> - beta1) * p.grad
+    v[i] = beta2 * v[i] + (<span class="nu">1</span> - beta2) * p.grad ** <span class="nu">2</span>
+    m_hat = m[i] / (<span class="nu">1</span> - beta1 ** (step + <span class="nu">1</span>))  <span class="cm"># bias correction</span>
+    v_hat = v[i] / (<span class="nu">1</span> - beta2 ** (step + <span class="nu">1</span>))
+    p.data -= lr * m_hat / (v_hat ** <span class="nu">0.5</span> + eps)</pre>
               <b>Momentum</b> averages past gradients → consistent direction.
               <b>Adaptive scaling</b> divides by gradient variance → big gradients get small steps,
               small gradients get big steps. <b>Bias correction</b> fixes the cold-start problem
@@ -1085,18 +1072,17 @@
             </div>
             <div class="c-key">Forward → loss → backward → update. Repeat billions of times.</div>
             <div class="c-detail">
-              <div class="code-block">
-                <span class="cm"># The ENTIRE learning algorithm</span>
-                <span class="kw">for</span> step <span class="kw">in</span> range(num_steps):
-                <span class="cm"># 1. Forward: compute predictions</span>
-                logits = model(input_tokens)
-                <span class="cm"># 2. Loss: measure wrongness</span>
-                loss = cross_entropy(logits, target_tokens)
-                <span class="cm"># 3. Backward: compute gradients</span>
-                loss.backward()
-                <span class="cm"># 4. Update: nudge weights toward less loss</span>
-                optimizer.step() optimizer.zero_grad()
-              </div>
+              <pre class="code-block"><span class="cm"># The ENTIRE learning algorithm</span>
+<span class="kw">for</span> step <span class="kw">in</span> range(num_steps):
+    <span class="cm"># 1. Forward: compute predictions</span>
+    logits = model(input_tokens)
+    <span class="cm"># 2. Loss: measure wrongness</span>
+    loss = cross_entropy(logits, target_tokens)
+    <span class="cm"># 3. Backward: compute gradients</span>
+    loss.backward()
+    <span class="cm"># 4. Update: nudge weights toward less loss</span>
+    optimizer.step()
+    optimizer.zero_grad()</pre>
               This 4-line loop, repeated with different data, is how
               <b>every LLM learns</b>. GPT-4 and microgpt use the same algorithm — only scale
               differs.
@@ -1115,18 +1101,17 @@
               of training.<br />
               <b>Cosine decay</b>: Gradually reduce to near zero. As you approach the minimum, large
               steps overshoot.<br /><br />
-              <div class="code-block">
-                <span class="cm"># Karpathy's microgpt uses simple linear decay</span>
-                lr_t = learning_rate * (<span class="nu">1</span> - step / num_steps)
+              <pre
+                class="code-block"
+              ><span class="cm"># Karpathy's microgpt uses simple linear decay</span>
+lr_t = learning_rate * (<span class="nu">1</span> - step / num_steps)
 
-                <span class="cm"># Production models use warmup + cosine</span>
-                <span class="kw">if</span> step < warmup_steps: lr = peak_lr * step / warmup_steps
-                <span class="kw">else</span>: progress = (step - warmup_steps) / (total -
-                warmup_steps) lr = peak_lr * <span class="nu">0.5</span> * (<span class="nu"
-                  >1</span
-                >
-                + cos(pi * progress))
-              </div>
+<span class="cm"># Production models use warmup + cosine</span>
+<span class="kw">if</span> step &lt; warmup_steps:
+    lr = peak_lr * step / warmup_steps
+<span class="kw">else</span>:
+    progress = (step - warmup_steps) / (total - warmup_steps)
+    lr = peak_lr * <span class="nu">0.5</span> * (<span class="nu">1</span> + cos(pi * progress))</pre>
             </div>
           </div>
         </div>

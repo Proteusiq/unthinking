@@ -48,15 +48,17 @@ Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.
 ### LLM Made Less Black Box
 
 > [!TIP]
-> Four self-contained pages accessible from the thesis card, covering the full LLM pipeline with thesis-relevant critical analysis.
+> Self-contained pages accessible from the thesis card, covering the full LLM pipeline with thesis-relevant critical analysis.
 
 | Page | Tabs | What It Covers |
 |------|------|----------------|
-| [**Findings**](https://proteusiq.github.io/unthinking/pages/findings.html) | - | 266-paper synthesis: themes, smoking guns, patterns, stance distribution |
 | [**Data**](https://proteusiq.github.io/unthinking/pages/data.html) | Pipeline, Catalog, Compare | Pre-training data sourcing, filtering (KenLM, fastText, DSIR), deduplication (MinHash, Bloom), data mix strategies, benchmark contamination |
 | [**Tokenization**](https://proteusiq.github.io/unthinking/pages/tokenization.html) | Pipeline, Catalog, Compare | BPE, WordPiece, Unigram, SentencePiece; tokenizer comparison across GPT-4, Llama 3, Gemma; vocabulary size tradeoffs |
 | [**Architecture**](https://proteusiq.github.io/unthinking/pages/architecture.html) | Activations, Block, Table | Transformer internals, attention variants (MHA, GQA, MLA), normalization (Pre/Post-Norm, QK-Norm), MoE, positional encoding (RoPE, NoPE) |
 | [**Training**](https://proteusiq.github.io/unthinking/pages/training.html) | Pipeline, Mechanics, Research | Full training lifecycle: pre-training (AdamW, scaling laws, mixed precision), mid-training (annealing, domain adaptation, context extension), post-training (SFT, RLHF, DPO, GRPO, RLVR), lab recipes |
+| [**Implementation**](https://proteusiq.github.io/unthinking/pages/implementation.html) | Tokens, Embed, Attention, FFN, Training | Core GPT algorithm from scratch: tokenization (char/BPE), embeddings (token/position/weight tying), self-attention (QKV, causal mask, multi-head), FFN (residuals, pre-norm), training loop (softmax, cross-entropy, backprop, Adam) |
+
+[**Findings**](https://proteusiq.github.io/unthinking/pages/findings.html): 266-paper synthesis — themes, smoking guns, patterns, stance distribution.
 
 See also:
 - [Transformer Explainer](https://poloclub.github.io/transformer-explainer/): interactive GPT-2 visualization (Georgia Tech)
