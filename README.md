@@ -30,9 +30,9 @@ To bring the findings home:
 ## Thesis
 
 > [!IMPORTANT]
-> **LLM reasoning is practical but fundamentally [predictive](https://proteusiq.github.io/unthinking/pages/findings.html): pattern matching from training distributions, not genuine understanding.**
+> **LLMs [predict](https://proteusiq.github.io/unthinking/pages/findings.html) plausible next or masked tokens without actual understanding. [Pattern matching](https://proteusiq.github.io/unthinking/pages/implementation.html) from training distribution.**
 
-LLMs are statistical remix engines of their training data. They predict the most likely token sequence based on high-dimensional patterns. RL and test-time compute surface pre-existing capabilities rather than creating new ones. Models excel within their training distribution but fail systematically outside it.
+RL and test-time compute surface pre-existing capabilities rather than creating new ones. Models excel within their training distribution but fail systematically outside it.
 
 ---
 

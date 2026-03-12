@@ -6320,15 +6320,13 @@ window.paperLinks = [
     source: '2602.07729',
     target: '2305.18654',
     type: 'supports',
-    description:
-      '1000× sparser than SFT proves RLVR operates in fundamentally different regime',
+    description: '1000× sparser than SFT proves RLVR operates in fundamentally different regime',
   },
   {
     source: '2602.07729',
     target: '2506.06941',
     type: 'supports',
-    description:
-      '0.02% updates cannot create reasoning; must surface existing patterns',
+    description: '0.02% updates cannot create reasoning; must surface existing patterns',
   },
   // Paper 264: Scalpel vs Hammer - GRPO Amplifies, SFT Replaces
   {
@@ -6363,37 +6361,32 @@ window.paperLinks = [
     source: '2507.10616',
     target: '2305.18654',
     type: 'supports',
-    description:
-      'Low KL divergence proves GRPO reinforces existing patterns, not learns new ones',
+    description: 'Low KL divergence proves GRPO reinforces existing patterns, not learns new ones',
   },
   // Paper 265: When Style Breaks Safety
   {
     source: '2506.07452',
     target: '2410.03717',
     type: 'supports',
-    description:
-      'Large-scale validation of SAH: 32/36 LLMs show style-induced ASR inflation',
+    description: 'Large-scale validation of SAH: 32/36 LLMs show style-induced ASR inflation',
   },
   {
     source: '2506.07452',
     target: '2507.10616',
     type: 'supports',
-    description:
-      'Both show alignment is surface-level: style compliance vs Q/K attention shifts',
+    description: 'Both show alignment is surface-level: style compliance vs Q/K attention shifts',
   },
   {
     source: '2506.07452',
     target: '2305.18654',
     type: 'supports',
-    description:
-      'Style patterns from training data override safety — alignment is style imitation',
+    description: 'Style patterns from training data override safety — alignment is style imitation',
   },
   {
     source: '2506.07452',
     target: '2511.08567',
     type: 'supports',
-    description:
-      'Style vulnerability is another manifestation of shallow, pattern-based updates',
+    description: 'Style vulnerability is another manifestation of shallow, pattern-based updates',
   },
   {
     source: '2506.07452',
@@ -6407,15 +6400,13 @@ window.paperLinks = [
     source: '2506.06998',
     target: '2506.07452',
     type: 'supports',
-    description:
-      'Both show LRM differences are stylistic: thinking cues vs style patterns',
+    description: 'Both show LRM differences are stylistic: thinking cues vs style patterns',
   },
   {
     source: '2506.06998',
     target: '2507.10616',
     type: 'supports',
-    description:
-      'Q/K attention shifts correspond to thinking cues at sentence starts',
+    description: 'Q/K attention shifts correspond to thinking cues at sentence starts',
   },
   {
     source: '2506.06998',
@@ -6428,15 +6419,13 @@ window.paperLinks = [
     source: '2506.06998',
     target: '2410.03717',
     type: 'supports',
-    description:
-      'Instruction tuning adds nothing for reasoning; base model = instruct as Draft',
+    description: 'Instruction tuning adds nothing for reasoning; base model = instruct as Draft',
   },
   {
     source: '2506.06998',
     target: '2511.08567',
     type: 'supports',
-    description:
-      'Off-principal updates = just enough to add thinking cues at sentence starts',
+    description: 'Off-principal updates = just enough to add thinking cues at sentence starts',
   },
   // Paper 267: Survey on LLM-as-a-Judge
   {
@@ -6464,15 +6453,13 @@ window.paperLinks = [
     source: '2411.15594',
     target: '2506.06941',
     type: 'supports',
-    description:
-      'Reasoning models (o1, R1) show no improvement in judgment; 62% alignment ceiling',
+    description: 'Reasoning models (o1, R1) show no improvement in judgment; 62% alignment ceiling',
   },
   {
     source: '2411.15594',
     target: '2308.03958',
     type: 'extends',
-    description:
-      'Self-enhancement bias as judgment-specific sycophancy; models favor own outputs',
+    description: 'Self-enhancement bias as judgment-specific sycophancy; models favor own outputs',
   },
   // Paper 268: Can You Trust LLM Judgments?
   {
@@ -6486,15 +6473,13 @@ window.paperLinks = [
     source: '2412.12509',
     target: '2305.18654',
     type: 'supports',
-    description:
-      'Pattern matching produces inconsistent judgments; IRR varies 0.17-1.0 with seed',
+    description: 'Pattern matching produces inconsistent judgments; IRR varies 0.17-1.0 with seed',
   },
   {
     source: '2412.12509',
     target: '2410.05229',
     type: 'supports',
-    description:
-      'Same fragility pattern: small changes (seed) cause large variation in judgment',
+    description: 'Same fragility pattern: small changes (seed) cause large variation in judgment',
   },
   {
     source: '2412.12509',
@@ -6515,8 +6500,7 @@ window.paperLinks = [
     source: '2509.04013',
     target: '2305.18654',
     type: 'supports',
-    description:
-      'Paraphrase sensitivity confirms pattern matching over semantic understanding',
+    description: 'Paraphrase sensitivity confirms pattern matching over semantic understanding',
   },
   {
     source: '2509.04013',
@@ -6537,22 +6521,19 @@ window.paperLinks = [
     source: '2502.03461',
     target: '2410.05229',
     type: 'supports',
-    description:
-      'GSM8K unreliability confirmed; capability ≠ reliability on grade-school math',
+    description: 'GSM8K unreliability confirmed; capability ≠ reliability on grade-school math',
   },
   {
     source: '2502.03461',
     target: '2305.18654',
     type: 'supports',
-    description:
-      'First-event bias = positional pattern matching; elementary failures persist',
+    description: 'First-event bias = positional pattern matching; elementary failures persist',
   },
   {
     source: '2502.03461',
     target: '2411.15594',
     type: 'supports',
-    description:
-      'Evaluation infrastructure doubly compromised: benchmarks AND judges unreliable',
+    description: 'Evaluation infrastructure doubly compromised: benchmarks AND judges unreliable',
   },
   // Choice Blindness RLHF (Paper 271)
   {
@@ -6566,73 +6547,63 @@ window.paperLinks = [
     source: '2603.08412',
     target: '2412.12509',
     type: 'extends',
-    description:
-      'Choice blindness explains why single-shot evaluation masks variability',
+    description: 'Choice blindness explains why single-shot evaluation masks variability',
   },
   {
     source: '2603.08412',
     target: '2310.13548',
     type: 'extends',
-    description:
-      'Social pressure → universal compliance shows sycophancy mechanism',
+    description: 'Social pressure → universal compliance shows sycophancy mechanism',
   },
   // Bias-Bounded LLM Judges (Paper 272)
   {
     source: '2603.05485',
     target: '2411.15594',
     type: 'extends',
-    description:
-      'Provides formal framework to bound documented biases',
+    description: 'Provides formal framework to bound documented biases',
   },
   {
     source: '2603.05485',
     target: '2412.12509',
     type: 'extends',
-    description:
-      'Bias bounds complement reliability measurement; mathematical guarantees',
+    description: 'Bias bounds complement reliability measurement; mathematical guarantees',
   },
   {
     source: '2603.05485',
     target: '2603.08412',
     type: 'extends',
-    description:
-      'A-BB framework addresses biases judges cannot detect (choice blindness)',
+    description: 'A-BB framework addresses biases judges cannot detect (choice blindness)',
   },
   // Judge Reliability Harness (Paper 273)
   {
     source: '2603.05399',
     target: '2411.15594',
     type: 'extends',
-    description:
-      'Provides systematic stress-testing framework for documented judge biases',
+    description: 'Provides systematic stress-testing framework for documented judge biases',
   },
   {
     source: '2603.05399',
     target: '2412.12509',
     type: 'extends',
-    description:
-      'JRH operationalizes reliability testing; practical tools for measurement',
+    description: 'JRH operationalizes reliability testing; practical tools for measurement',
   },
   {
     source: '2603.05399',
     target: '2509.04013',
     type: 'supports',
-    description:
-      'Confirms paraphrase robustness but formatting sensitivity (surface > semantic)',
+    description: 'Confirms paraphrase robustness but formatting sensitivity (surface > semantic)',
   },
   {
     source: '2603.05399',
     target: '2603.05485',
     type: 'supports',
-    description:
-      'JRH measures biases that A-BB framework bounds; complementary approaches',
+    description: 'JRH measures biases that A-BB framework bounds; complementary approaches',
   },
   {
     source: '2603.05399',
     target: '2603.08412',
     type: 'supports',
-    description:
-      'Stress tests reveal shallow detection consistent with choice blindness findings',
+    description: 'Stress tests reveal shallow detection consistent with choice blindness findings',
   },
   // C2-Faith (Paper 274)
   {
@@ -6646,145 +6617,125 @@ window.paperLinks = [
     source: '2603.05167',
     target: '2412.12509',
     type: 'extends',
-    description:
-      'Quantifies detection-localization gap in judge reliability',
+    description: 'Quantifies detection-localization gap in judge reliability',
   },
   {
     source: '2603.05167',
     target: '2307.13702',
     type: 'extends',
-    description:
-      'Benchmarks judge ability to assess CoT faithfulness documented as limited',
+    description: 'Benchmarks judge ability to assess CoT faithfulness documented as limited',
   },
   {
     source: '2603.05167',
     target: '2603.05399',
     type: 'supports',
-    description:
-      'Both show judges respond to surface features over semantic content',
+    description: 'Both show judges respond to surface features over semantic content',
   },
   {
     source: '2603.05167',
     target: '2603.08412',
     type: 'extends',
-    description:
-      'Detection-localization gap parallels shallow detection in choice blindness',
+    description: 'Detection-localization gap parallels shallow detection in choice blindness',
   },
   // LLM-as-a-Jury (Paper 275)
   {
     source: '2602.16610',
     target: '2411.15594',
     type: 'extends',
-    description:
-      'Provides aggregation framework for documented judge limitations',
+    description: 'Provides aggregation framework for documented judge limitations',
   },
   {
     source: '2602.16610',
     target: '2412.12509',
     type: 'extends',
-    description:
-      'Cycle inconsistency quantifies reliability issues in judges',
+    description: 'Cycle inconsistency quantifies reliability issues in judges',
   },
   {
     source: '2602.16610',
     target: '2603.05485',
     type: 'supports',
-    description:
-      'Both address aggregating unreliable judges; complementary approaches',
+    description: 'Both address aggregating unreliable judges; complementary approaches',
   },
   {
     source: '2602.16610',
     target: '2603.05399',
     type: 'supports',
-    description:
-      'BT-σ aggregates across failure modes JRH stress-tests',
+    description: 'BT-σ aggregates across failure modes JRH stress-tests',
   },
   // Rubrics Attack Surface (Paper 276)
   {
     source: '2602.13576',
     target: '2411.15594',
     type: 'extends',
-    description:
-      'Documents rubrics as specific attack surface for documented judge biases',
+    description: 'Documents rubrics as specific attack surface for documented judge biases',
   },
   {
     source: '2602.13576',
     target: '2412.12509',
     type: 'extends',
-    description:
-      'Shows reliability failures can be systematically induced via rubrics',
+    description: 'Shows reliability failures can be systematically induced via rubrics',
   },
   {
     source: '2602.13576',
     target: '2603.08412',
     type: 'supports',
-    description:
-      'Rubric manipulation parallels preference swap blindness in choice blindness',
+    description: 'Rubric manipulation parallels preference swap blindness in choice blindness',
   },
   {
     source: '2602.13576',
     target: '2603.05399',
     type: 'extends',
-    description:
-      'RIPD is failure mode JRH framework could test for',
+    description: 'RIPD is failure mode JRH framework could test for',
   },
   {
     source: '2602.13576',
     target: '2603.05167',
     type: 'supports',
-    description:
-      'Rubrics can undermine faithfulness that C2-Faith benchmarks',
+    description: 'Rubrics can undermine faithfulness that C2-Faith benchmarks',
   },
   {
     source: '2602.13576',
     target: '2602.16610',
     type: 'supports',
-    description:
-      'Aggregation may not help if all judges use same biased rubric',
+    description: 'Aggregation may not help if all judges use same biased rubric',
   },
   // Who Judges the Judge (Paper 277)
   {
     source: '2512.01786',
     target: '2411.15594',
     type: 'extends',
-    description:
-      'Learning-based solution for documented judge limitations',
+    description: 'Learning-based solution for documented judge limitations',
   },
   {
     source: '2512.01786',
     target: '2412.12509',
     type: 'extends',
-    description:
-      'Operationalizes reliability measurement via trained predictors',
+    description: 'Operationalizes reliability measurement via trained predictors',
   },
   {
     source: '2512.01786',
     target: '2602.16610',
     type: 'extends',
-    description:
-      'Both propose jury-based aggregation; adds dynamic per-instance selection',
+    description: 'Both propose jury-based aggregation; adds dynamic per-instance selection',
   },
   {
     source: '2512.01786',
     target: '2603.05485',
     type: 'supports',
-    description:
-      'A-BB bounds bias mathematically; this predicts reliability empirically',
+    description: 'A-BB bounds bias mathematically; this predicts reliability empirically',
   },
   {
     source: '2512.01786',
     target: '2603.05399',
     type: 'supports',
-    description:
-      'JRH stress-tests judges; Jury-on-Demand predicts which will pass',
+    description: 'JRH stress-tests judges; Jury-on-Demand predicts which will pass',
   },
   // How Much LLMs Cheat (Paper 278)
   {
     source: '2507.19219',
     target: '2509.04013',
     type: 'supports',
-    description:
-      'Both show benchmark fragility; ArxivRoll quantifies contamination proportion',
+    description: 'Both show benchmark fragility; ArxivRoll quantifies contamination proportion',
   },
   {
     source: '2507.19219',
@@ -6804,8 +6755,7 @@ window.paperLinks = [
     source: '2507.19219',
     target: '2406.11050',
     type: 'supports',
-    description:
-      'Both reveal surface-level shortcuts inflate benchmark scores',
+    description: 'Both reveal surface-level shortcuts inflate benchmark scores',
   },
   {
     source: '2507.19219',

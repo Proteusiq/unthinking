@@ -5739,10 +5739,10 @@ window.paperNodes = [
       'Small models: ρ=-0.51 accuracy-consistency (consistently wrong)',
       'Large models: ρ=+0.79 (correct and consistent)',
       'Kendall τ>0.9 for rankings (reliable), but absolute scores vary',
-      'CoT doesn\'t help consistency (~7% drop)',
+      "CoT doesn't help consistency (~7% drop)",
     ],
     keyQuotes: [
-      'Benchmark accuracy scores may reflect the particular wording of test items more than the model\'s reasoning abilities.',
+      "Benchmark accuracy scores may reflect the particular wording of test items more than the model's reasoning abilities.",
       'Less capable models tend to be more consistent in their predictions, although they are often wrong.',
     ],
     analysisUrl:
@@ -5802,7 +5802,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'faithfulness',
     coreArgument:
-      'LLM judges exhibit systematic biases requiring formal mitigation. A-BB framework provides mathematical guarantees on bias impact via calibrated Gaussian noise. 61-99% correlation retained while debiasing. Schematic adherence failures reveal judges don\'t follow own rubrics.',
+      "LLM judges exhibit systematic biases requiring formal mitigation. A-BB framework provides mathematical guarantees on bias impact via calibrated Gaussian noise. 61-99% correlation retained while debiasing. Schematic adherence failures reveal judges don't follow own rubrics.",
     keyEvidence: [
       '61-99% correlation with original rankings after debiasing',
       'Most judge-bias combinations exceed 80% correlation',
@@ -5842,7 +5842,8 @@ window.paperNodes = [
   },
   {
     id: '2603.05167',
-    title: 'C2-Faith: Benchmarking LLM Judges for Causal and Coverage Faithfulness in Chain-of-Thought Reasoning',
+    title:
+      'C2-Faith: Benchmarking LLM Judges for Causal and Coverage Faithfulness in Chain-of-Thought Reasoning',
     shortTitle: 'C2-Faith',
     date: 'Mar 2026',
     stance: 'supports',

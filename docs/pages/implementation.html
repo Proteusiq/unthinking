@@ -1,0 +1,1204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Understanding LLMs | The Thinking Machine That Doesn't Think</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: #0d1117;
+        color: #c9d1d9;
+        font-family: 'Courier New', monospace;
+        padding: 1.2rem 1rem 3rem;
+      }
+      a {
+        color: #58a6ff;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 960px;
+        margin: 0 auto 1rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      h2 {
+        color: #d2a8ff;
+        letter-spacing: 2px;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+      }
+      .toggle-wrap {
+        display: flex;
+        gap: 0;
+        border: 1px solid #30363d;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      .tbtn {
+        background: #161b22;
+        color: #8b949e;
+        border: none;
+        padding: 5px 12px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.62rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-right: 1px solid #30363d;
+        transition: background 0.15s;
+      }
+      .tbtn:last-child {
+        border-right: none;
+      }
+      .tbtn.active {
+        background: #d2a8ff;
+        color: #0d1117;
+        font-weight: bold;
+      }
+      .wrap {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      .view {
+        display: none;
+      }
+      .view.show {
+        display: block;
+      }
+
+      /* ── INTRO BOX ── */
+      .intro {
+        background: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 6px;
+        padding: 0.9rem 1rem;
+        margin-bottom: 0.8rem;
+        font-size: 0.66rem;
+        color: #8b949e;
+        line-height: 1.8;
+      }
+      .intro b {
+        color: #e6edf3;
+      }
+      .intro .accent {
+        color: #d2a8ff;
+      }
+
+      /* ── CARDS ── */
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 7px;
+        margin-bottom: 0.8rem;
+      }
+      .card {
+        background: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 5px;
+        padding: 8px 10px;
+        cursor: pointer;
+        transition: border-color 0.15s;
+      }
+      .card:hover {
+        border-color: #d2a8ff55;
+      }
+      .card.open {
+        border-color: #d2a8ff;
+      }
+      .c-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .c-name {
+        font-size: 0.76rem;
+        font-weight: bold;
+      }
+      .c-chev {
+        font-size: 0.6rem;
+        color: #30363d;
+        transition: transform 0.2s;
+      }
+      .card.open .c-chev {
+        transform: rotate(180deg);
+        color: #d2a8ff;
+      }
+      .c-key {
+        font-size: 0.63rem;
+        color: #8b949e;
+        line-height: 1.55;
+        margin-top: 3px;
+      }
+      .c-detail {
+        display: none;
+        margin-top: 7px;
+        padding-top: 7px;
+        border-top: 1px solid #21262d;
+        font-size: 0.63rem;
+        line-height: 1.75;
+        color: #8b949e;
+      }
+      .card.open .c-detail {
+        display: block;
+      }
+      .c-detail b {
+        color: #e6edf3;
+      }
+
+      /* ── CODE BLOCKS ── */
+      .code-block {
+        background: #0d1117;
+        border: 1px solid #21262d;
+        border-radius: 4px;
+        padding: 8px 10px;
+        margin: 6px 0;
+        font-size: 0.6rem;
+        color: #79c0ff;
+        line-height: 1.65;
+        overflow-x: auto;
+        white-space: pre;
+        font-family: 'Courier New', monospace;
+      }
+      .code-block .cm {
+        color: #484f58;
+      }
+      .code-block .kw {
+        color: #ff7b72;
+      }
+      .code-block .fn {
+        color: #d2a8ff;
+      }
+      .code-block .st {
+        color: #a5d6ff;
+      }
+      .code-block .nu {
+        color: #79c0ff;
+      }
+
+      /* ── TABLES ── */
+      .tbl-wrap {
+        overflow-x: auto;
+        margin: 6px 0;
+      }
+      .tbl {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.63rem;
+      }
+      .tbl th {
+        background: #0d1117;
+        padding: 5px 8px;
+        text-align: left;
+        font-size: 0.57rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border-bottom: 1px solid #30363d;
+        white-space: nowrap;
+        color: #8b949e;
+      }
+      .tbl td {
+        padding: 5px 8px;
+        border-bottom: 1px solid #21262d;
+        vertical-align: top;
+      }
+      .tbl tr:hover td {
+        background: #1c2128;
+      }
+      .chip {
+        display: inline-block;
+        font-size: 0.57rem;
+        border-radius: 3px;
+        padding: 1px 5px;
+        white-space: nowrap;
+      }
+
+      /* ── FORMULA ── */
+      .formula {
+        font-size: 0.66rem;
+        color: #79c0ff;
+        background: #0d1117;
+        border: 1px solid #21262d;
+        border-radius: 3px;
+        padding: 5px 10px;
+        margin: 5px 0;
+        font-family: 'Courier New', monospace;
+        text-align: center;
+      }
+
+      /* ── PIPELINE ── */
+      .pipeline {
+        display: flex;
+        gap: 3px;
+        margin: 0.8rem 0;
+        flex-wrap: wrap;
+      }
+      .pipe-step {
+        flex: 1;
+        min-width: 120px;
+        background: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 4px;
+        padding: 6px 8px;
+        text-align: center;
+        font-size: 0.6rem;
+        position: relative;
+      }
+      .pipe-step b {
+        display: block;
+        font-size: 0.65rem;
+        margin-bottom: 2px;
+      }
+      .pipe-arrow {
+        display: flex;
+        align-items: center;
+        font-size: 0.7rem;
+        color: #30363d;
+      }
+
+      /* ── SECTION LABEL ── */
+      .sec-label {
+        font-size: 0.65rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #484f58;
+        margin: 0.9rem 0 0.4rem;
+      }
+
+      /* ── CREDITS ── */
+      .credits {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        border-top: 1px solid #21262d;
+        font-size: 0.6rem;
+        color: #484f58;
+        line-height: 1.8;
+      }
+      .credits b {
+        color: #8b949e;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 768px) {
+        .topbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .card-grid {
+          grid-template-columns: 1fr;
+        }
+        .pipeline {
+          flex-direction: column;
+        }
+        .pipe-arrow {
+          justify-content: center;
+          transform: rotate(90deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <h2>Understanding LLMs: The Core Algorithm</h2>
+      <div class="toggle-wrap">
+        <button class="tbtn active" onclick="setMode('tokens')">Tokens</button>
+        <button class="tbtn" onclick="setMode('embed')">Embed</button>
+        <button class="tbtn" onclick="setMode('attn')">Attention</button>
+        <button class="tbtn" onclick="setMode('ffn')">FFN</button>
+        <button class="tbtn" onclick="setMode('train')">Training</button>
+      </div>
+    </div>
+
+    <!-- ─── PIPELINE OVERVIEW ─── -->
+    <div class="wrap">
+      <div class="pipeline">
+        <div class="pipe-step" id="ps-tokens" style="border-color: #d2a8ff">
+          <b style="color: #d2a8ff">Tokenize</b>
+          text → integers
+        </div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step" id="ps-embed">
+          <b>Embed</b>
+          integers → vectors
+        </div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step" id="ps-attn">
+          <b>Attend</b>
+          vectors → context
+        </div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step" id="ps-ffn">
+          <b>Transform</b>
+          context → features
+        </div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step" id="ps-train">
+          <b>Predict</b>
+          features → next token
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <!--                     TAB 1: TOKENIZATION                     -->
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <div class="wrap">
+      <div id="view-tokens" class="view show">
+        <div class="intro">
+          Tokenization converts raw text into sequences of integers that neural networks can
+          process. The challenge is finding the right
+          <b>granularity</b>: character-level is simple but produces long sequences;
+          <b>BPE</b> (Byte Pair Encoding) compresses common patterns into single tokens.
+          <span class="accent">Every LLM starts here</span>
+          — the model never sees raw text, only token IDs.
+        </div>
+
+        <div class="card-grid">
+          <!-- Character-Level -->
+          <div class="card" onclick="toggleCard(this)">
+            <div class="c-head">
+              <span class="c-name" style="color: #ffa657">Character-Level</span>
+              <span class="c-chev">▼</span>
+            </div>
+            <div class="c-key">One token per character. Simple but ~4× longer sequences.</div>
+            <div class="c-detail">
+              <b>How it works:</b> Map each unique character to an integer. "hello" becomes [7, 4,
+              11, 11, 14] — five tokens for five characters.<br /><br />
+              <div class="code-block">
+                <span class="cm"># From Karpathy's microgpt — 5 lines of tokenizer</span>
+                uchars = sorted(set(''.join(docs))) <span class="cm"># unique chars</span> BOS =
+                len(uchars) <span class="cm"># special token</span>
+                vocab_size = len(uchars) + 1
+
+                <span class="cm"># Encode: string → list of integers</span>
+                tokens = [BOS] + [uchars.index(ch) <span class="kw">for</span> ch
+                <span class="kw">in</span> doc] + [BOS]
+              </div>
+              <b>Tradeoff:</b> Vocab is tiny (~100 tokens) but sequences are long. A 1000-character
+              text = 1000 tokens. Attention cost scales with sequence length squared.
+            </div>
+          </div>
+
+          <!-- BPE Algorithm -->
+          <div class="card" onclick="toggleCard(this)">
+            <div class="c-head">
+              <span class="c-name" style="color: #ffa657">BPE Algorithm</span>
+              <span class="c-chev">▼</span>
+            </div>
+            <div class="c-key">
+              Greedily merge most frequent adjacent pairs. Statistical compression.
+            </div>
+            <div class="c-detail">
+              <b>The algorithm:</b><br />
+              1. Start with raw bytes (256 base tokens)<br />
+              2. Count all adjacent token pairs<br />
+              3. Merge the most frequent pair → new token<br />
+              4. Repeat for N merges (N = vocab_size - 256)<br /><br />
+              <div class="code-block">
+                <span class="cm"># Core BPE loop (from no-magic/microtokenizer)</span>
+                <span class="kw">def</span> <span class="fn">train_bpe</span>(ids, num_merges):
+                merges = [] <span class="kw">for</span> i
+                <span class="kw">in</span> range(num_merges): counts = get_pair_counts(ids) pair =
+                max(counts, key=counts.get) new_id = <span class="nu">256</span> + i ids =
+                apply_merge(ids, pair, new_id) merges.append((pair, new_id))
+                <span class="kw">return</span> merges
+              </div>
+              <b>Key insight:</b> BPE discovers structure without linguistic rules. Common words
+              become single tokens; rare words split into reusable pieces. "unhappy" might become
+              ["un", "happy"] — but this is frequency-driven, not morphological analysis.
+            </div>
+          </div>
+
+          <!-- Vocab Tradeoffs -->
+          <div class="card" onclick="toggleCard(this)">
+            <div class="c-head">
+              <span class="c-name" style="color: #ffa657">Vocab Tradeoffs</span>
+              <span class="c-chev">▼</span>
+            </div>
+            <div class="c-key">
+              Small vocab = longer sequences. Large vocab = bigger embedding matrix.
+            </div>
+            <div class="c-detail">
+              <div class="tbl-wrap">
+                <table class="tbl">
+                  <tr>
+                    <th>Tokenizer</th>
+                    <th>Vocab</th>
+                    <th>"Hello world"</th>
+                  </tr>
+                  <tr>
+                    <td>Character</td>
+                    <td>~100</td>
+                    <td>11 tokens</td>
+                  </tr>
+                  <tr>
+                    <td>GPT-2 BPE</td>
+                    <td>50,257</td>
+                    <td>2 tokens</td>
+                  </tr>
+                  <tr>
+                    <td>GPT-4</td>
+                    <td>100,256</td>
+                    <td>2 tokens</td>
+                  </tr>
+                  <tr>
+                    <td>GPT-4o</td>
+                    <td>199,997</td>
+                    <td>2 tokens</td>
+                  </tr>
+                  <tr>
+                    <td>LLaMA 3</td>
+                    <td>128,256</td>
+                    <td>2 tokens</td>
+                  </tr>
+                </table>
+              </div>
+              <b>Sweet spot:</b> 50K–200K tokens. Balances sequence length against embedding matrix
+              size. Byte-level fallback guarantees open vocabulary — no "unknown token" failures.
+            </div>
+          </div>
+
+          <!-- Special Tokens -->
+          <div class="card" onclick="toggleCard(this)">
+            <div class="c-head">
+              <span class="c-name" style="color: #ffa657">Special Tokens</span>
+              <span class="c-chev">▼</span>
+            </div>
+            <div class="c-key">BOS, EOS, PAD — boundary markers for sequences.</div>
+            <div class="c-detail">
+              <b>BOS</b> (Beginning of Sequence): Signals start of generation<br />
+              <b>EOS</b> (End of Sequence): Model learns when to stop<br />
+              <b>PAD</b>: Fills shorter sequences in batches (masked in loss)<br /><br />
+              <div class="code-block">
+                <span class="cm"># microgpt: BOS wraps each document</span>
+                tokens = [BOS] + encode(<span class="st">"emma"</span>) + [BOS]
+                <span class="cm"># Model learns: BOS → start generating, BOS → stop</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sec-label">What tokenization reveals about LLMs</div>
+        <div class="intro">
+          LLMs never see characters — they see token IDs. "strawberry" might tokenize as ["str",
+          "aw", "berry"]. The model has <b>no direct access to individual letters</b>, which
+          explains why LLMs struggle with counting letters, spelling tasks, and character-level
+          operations. Tokenization is linguistically blind — subword boundaries rarely align with
+          morpheme boundaries.
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════════════════════════ -->
+      <!--                     TAB 2: EMBEDDING                       -->
+      <!-- ════════════════════════════════════════════════════════════ -->
+      <div id="view-embed" class="view">
+        <div class="intro">
+          Embeddings map token IDs to dense vectors — a
+          <b>lookup table</b> that's mathematically equivalent to one-hot × weight matrix, but
+          efficient. Token embeddings capture
+          <span class="accent">distributional similarity</span> — tokens appearing in similar
+          contexts get similar vectors. Position embeddings tell the model <b>where</b> each token
+          is in the sequence.
+        </div>
+
+        <div class="card-grid">
+          <!-- Token Embedding -->
+          <div class="card" onclick="toggleCard(this)">
+            <div class="c-head">
+              <span class="c-name" style="color: #a371f7">Token Embedding</span>
+              <span class="c-chev">▼</span>
+            </div>
+            <div class="c-key">Just indexing into a matrix. Row N = embedding for token N.</div>
+            <div class="c-detail">
+              <div class="formula">
+                embedding = W_emb[token_id] &nbsp;&nbsp;≡&nbsp;&nbsp; one_hot(token_id) @ W_emb
+              </div>
+              <div class="code-block">
+                <span class="cm"># Karpathy's microgpt: embedding is a 2D list</span>
+                wte = [[random.gauss(<span class="nu">0</span>, <span class="nu">0.08</span>)
+                <span class="kw">for</span> _ <span class="kw">in</span> range(n_embd)]
+                <span class="kw">for</span> _ <span class="kw">in</span> range(vocab_size)] tok_emb
+                = wte[token_id] <span class="cm"># that's it — just indexing</span>
+              </div>
+              <b>Key insight:</b> Each row is a learnable d-dimensional vector. Initialized
+              randomly, then updated via backpropagation to capture co-occurrence patterns from
+              training data.
+            </div>
+          </div>
+
+          <!-- Position Embedding -->
+          <div class="card" onclick="toggleCard(this)">
+            <div class="c-head">
+              <span class="c-name" style="color: #a371f7">Position Embedding</span>
+              <span class="c-chev">▼</span>
+            </div>
+            <div class="c-key">
+              Tells the model WHERE in the sequence. Learned (GPT-2) or rotational (RoPE).
+            </div>
+            <div class="c-detail">
+              <div class="tbl-wrap">
+                <table class="tbl">
+                  <tr>
+                    <th>Method</th>
+                    <th>How</th>
+                    <th>Used By</th>
+                  </tr>
+                  <tr>
+                    <td><b>Learned</b></td>
+                    <td>Lookup table, same as token embedding</td>
+                    <td>GPT-2</td>
+                  </tr>
+                  <tr>
+                    <td><b>Sinusoidal</b></td>
+                    <td>Fixed sin/cos at different frequencies</td>
+                    <td>Original Transformer</td>
+                  </tr>
+                  <tr>
+                    <td><b>RoPE</b></td>
+                    <td>Rotate Q/K vectors by position-dependent angle</td>
+                    <td>LLaMA, Qwen, Gemma</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="code-block">
+                <span class="cm"># microgpt: learned position embeddings</span>
+                wpe = [[random.gauss(<span class="nu">0</span>, <span class="nu">0.08</span>)
+                <span class="kw">for</span> _ <span class="kw">in</span> range(n_embd)]
+                <span class="kw">for</span> _ <span class="kw">in</span> range(block_size)] pos_emb
+                = wpe[pos_id]
+              </div>
+            </div>
+          </div>
+
+          <!-- Combined -->
+          <div class="card" onclick="toggleCard(this)">
+            <div class="c-head">
+              <span class="c-name" style="color: #a371f7">Combined Input</span>
+              <span class="c-chev">▼</span>
+            </div>
+            <div class="c-key">Sum token + position. Model learns to disentangle.</div>
+            <div class="c-detail">
+              <div class="formula">x = token_embedding + position_embedding</div>
+              <div class="code-block">
+                <span class="cm"># The model's actual input for each token</span>
+                x = [t + p <span class="kw">for</span> t, p <span class="kw">in</span> zip(tok_emb,
+                pos_emb)]
+              </div>
+              This addition is not arbitrary — both embeddings live in the same vector space, and
+              the model learns during training to disentangle "what token is this" from "where is
+              it."
+            </div>
+          </div>
+
+          <!-- Weight Tying -->
+          <div class="card" onclick="toggleCard(this)">
+            <div class="c-head">
+              <span class="c-name" style="color: #a371f7">Weight Tying</span>
+              <span class="c-chev">▼</span>
+            </div>
+            <div class="c-key">
+              Same matrix for input embedding and output projection. ~30% fewer params.
+            </div>
+            <div class="c-detail">
+              In GPT-2, the input embedding matrix and the output "lm_head" are
+              <b>the same matrix</b> (transposed). Tokens that are similar in meaning are close in
+              embedding space, so they naturally get similar output probabilities.<br /><br />
+              <div class="tbl-wrap">
+                <table class="tbl">
+                  <tr>
+                    <th>Model</th>
+                    <th>Embed Dim</th>
+                    <th>Vocab</th>
+                    <th>Embed Params</th>
+                  </tr>
+                  <tr>
+                    <td>GPT-2 Small</td>
+                    <td>768</td>
+                    <td>50,257</td>
+                    <td>38.6M</td>
+                  </tr>
+                  <tr>
+                    <td>LLaMA 7B</td>
+                    <td>4,096</td>
+                    <td>32,000</td>
+                    <td>131M</td>
+                  </tr>
+                  <tr>
+                    <td>microgpt</td>
+                    <td>16</td>
+                    <td>27</td>
+                    <td>688</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sec-label">What embeddings encode</div>
+        <div class="intro">
+          Embeddings don't encode "meaning" — they encode
+          <b>distributional similarity</b>. "king" is near "queen" because they appear in similar
+          contexts in the training data, not because the model understands monarchy. The famous
+          "king - man + woman ≈ queen" works because gender is a consistent direction in the
+          training distribution.
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════════════════════════ -->
+      <!--                     TAB 3: ATTENTION                       -->
+      <!-- ════════════════════════════════════════════════════════════ -->
+      <div id="view-attn" class="view">
+        <div class="intro">
+          Attention lets each position "look at" all other positions and decide which matter most.
+          Think of it as a
+          <span class="accent">soft dictionary lookup</span>: Query asks "what am I looking for?",
+          Key answers "what do I contain?", Value provides "what to return if matched." The result
+          is a <b>weighted blend</b> of all values — not a hard lookup.
+        </div>
+
+        <div class="card-grid">
+          <!-- Self-Attention -->
+          <div class="card" onclick="toggleCard(this)">
+            <div class="c-head">
+              <span class="c-name" style="color: #58a6ff">Self-Attention</span>
+              <span class="c-chev">▼</span>
+            </div>
+            <div class="c-key">softmax(QK^T / √d) @ V — the core operation.</div>
+            <div class="c-detail">
+              <div class="formula">
+                Attention(Q, K, V) = softmax( Q·K<sup>T</sup> / √d<sub>k</sub>
+                ) · V
+              </div>
+              <b>Step by step:</b><br />
+              1. <b>Q·K<sup>T</sup></b> — Similarity scores: every position vs every other<br />
+              2. <b>/ √d<sub>k</sub></b> — Scale to prevent softmax saturation<br />
+              3. <b>softmax</b> — Convert to probabilities (sum to 1 per row)<br />
+              4. <b>· V</b> — Weighted blend of value vectors<br /><br />
+              <div class="code-block">
+                <span class="cm"># From no-magic/microattention.py</span>
+                <span class="kw">def</span> <span class="fn">attention</span>(q, k, v): scale =
+                <span class="nu">1.0</span> / math.sqrt(len(q[<span class="nu">0</span>])) scores =
+                matmul(q, transpose(k)) scores = [[v * scale <span class="kw">for</span> v
+                <span class="kw">in</span> row] <span class="kw">for</span> row
+                <span class="kw">in</span> scores] weights = [softmax(row)
+                <span class="kw">for</span> row <span class="kw">in</span> scores]
+                <span class="kw">return</span> matmul(weights, v)
+              </div>
+              <b>Why √d<sub>k</sub> scaling?</b> Without it, dot products grow proportionally to
+              dimension (variance ≈ d<sub>k</sub>). Large values push softmax toward one-hot
+              outputs, killing gradients.
+            </div>
+          </div>
+
+          <!-- Q, K, V -->
+          <div class="card" onclick="toggleCard(this)">
+            <div class="c-head">
+              <span class="c-name" style="color: #58a6ff">Query, Key, Value</span>
+              <span class="c-chev">▼</span>
+            </div>
+            <div class="c-key">Three learned projections of the same input. Different roles.</div>
+            <div class="c-detail">
+              <div class="tbl-wrap">
+                <table class="tbl">
+                  <tr>
+                    <th>Matrix</th>
+                    <th>Role</th>
+                    <th>Analogy</th>
+                  </tr>
+                  <tr>
+                    <td><b>Query (Q)</b></td>
+                    <td>What am I looking for?</td>
+                    <td>Search query</td>
+                  </tr>
+                  <tr>
+                    <td><b>Key (K)</b></td>
+                    <td>What do I contain?</td>
+                    <td>Document title</td>
+                  </tr>
+                  <tr>
+                    <td><b>Value (V)</b></td>
+                    <td>What info do I provide?</td>
+                    <td>Document content</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="code-block">
+                Q = x @ W_q <span class="cm"># learned projection</span> K = x @ W_k V = x @ W_v
+              </div>
+              The separation allows the model to learn <b>different representations</b> for "what to
+              look for" vs "what to match against" vs "what to return."
+            </div>
+          </div>
+
+          <!-- Causal Mask -->
+          <div class="card" onclick="toggleCard(this)">
+            <div class="c-head">
+              <span class="c-name" style="color: #58a6ff">Causal Mask</span>
+              <span class="c-chev">▼</span>
+            </div>
+            <div class="c-key">
+              Future positions get −∞ before softmax → zero weight. Can't see the future.
+            </div>
+            <div class="c-detail">
+              For autoregressive generation, position t can only attend to positions 0..t-1. We set
+              future scores to <b>−∞</b> before softmax, so exp(−∞) = 0.<br /><br />
+              <div class="code-block">
+                <span class="cm"># Upper triangle = future positions</span>
+                mask = torch.triu(ones(n, n), diagonal=<span class="nu">1</span>)
+                scores.masked_fill_(mask, <span class="nu">-inf</span>) weights = softmax(scores)
+                <span class="cm"># -inf → 0</span>
+
+                <span class="cm"># Result: triangular attention pattern</span>
+                <span class="cm"># pos 0: sees [self]</span>
+                <span class="cm"># pos 1: sees [pos 0, self]</span>
+                <span class="cm"># pos n: sees [pos 0, ..., self]</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Multi-Head -->
+          <div class="card" onclick="toggleCard(this)">
+            <div class="c-head">
+              <span class="c-name" style="color: #58a6ff">Multi-Head Attention</span>
+              <span class="c-chev">▼</span>
+            </div>
+            <div class="c-key">
+              Multiple attention patterns in parallel. Same FLOPs, richer representation.
+            </div>
+            <div class="c-detail">
+              Instead of one d-dimensional attention, use h heads each with d/h dimensions. Each
+              head can specialize — one learns syntax, another semantics, another position.
+              <b>Same total FLOPs</b> as single-head.<br /><br />
+              <div class="code-block">
+                <span class="cm"># Karpathy's microgpt: multi-head via slicing</span>
+                <span class="kw">for</span> h <span class="kw">in</span> range(n_head): hs = h *
+                head_dim q_h = q[hs:hs+head_dim] k_h = [ki[hs:hs+head_dim]
+                <span class="kw">for</span> ki <span class="kw">in</span> keys] v_h =
+                [vi[hs:hs+head_dim] <span class="kw">for</span> vi
+                <span class="kw">in</span> values]
+                <span class="cm"># attention per head, concatenate all heads</span>
+              </div>
+              <b>W_O projection</b> after concatenation is where cross-head mixing happens —
+              combining signals from all attention patterns.
+              <div class="tbl-wrap">
+                <table class="tbl">
+                  <tr>
+                    <th>Variant</th>
+                    <th>KV Heads</th>
+                    <th>Memory</th>
+                    <th>Used By</th>
+                  </tr>
+                  <tr>
+                    <td>MHA</td>
+                    <td>= Q heads</td>
+                    <td>Highest</td>
+                    <td>GPT-2</td>
+                  </tr>
+                  <tr>
+                    <td>GQA</td>
+                    <td>Q/group</td>
+                    <td>Middle</td>
+                    <td>LLaMA 2/3</td>
+                  </tr>
+                  <tr>
+                    <td>MQA</td>
+                    <td>1</td>
+                    <td>Lowest</td>
+                    <td>Falcon</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════════════════════════ -->
+      <!--                     TAB 4: FFN                             -->
+      <!-- ════════════════════════════════════════════════════════════ -->
+      <div id="view-ffn" class="view">
+        <div class="intro">
+          The Feed-Forward Network processes each position
+          <b>independently</b>: expand → activate → contract. Often called the
+          <span class="accent">"memory"</span> of the transformer — factual knowledge is stored in
+          these weights. Residual connections (<b>x + f(x)</b>) create a gradient highway that makes
+          deep networks trainable.
+        </div>
+
+        <div class="card-grid">
+          <!-- FFN Structure -->
+          <div class="card" onclick="toggleCard(this)">
+            <div class="c-head">
+              <span class="c-name" style="color: #56d364">FFN Structure</span>
+              <span class="c-chev">▼</span>
+            </div>
+            <div class="c-key">Two linear layers with 4× expansion and activation in between.</div>
+            <div class="c-detail">
+              <div class="formula">FFN(x) = W<sub>2</sub> · activation( W<sub>1</sub> · x )</div>
+              <div class="code-block">
+                <span class="cm"># Karpathy's microgpt: MLP block</span>
+                x = linear(x, mlp_fc1) <span class="cm"># [d] → [4d] expand</span> x = [xi.relu()
+                <span class="kw">for</span> xi <span class="kw">in</span> x]
+                <span class="cm"># activate</span> x = linear(x, mlp_fc2)
+                <span class="cm"># [4d] → [d] contract</span>
+              </div>
+              <b>Why 4× expansion?</b> More capacity to compute complex functions without widening
+              the residual stream. The model temporarily expands to a higher-dimensional space,
+              processes, then compresses back.
+            </div>
+          </div>
+
+          <!-- Activations -->
+          <div class="card" onclick="toggleCard(this)">
+            <div class="c-head">
+              <span class="c-name" style="color: #56d364">Activations</span>
+              <span class="c-chev">▼</span>
+            </div>
+            <div class="c-key">ReLU → GELU → SwiGLU: evolution of nonlinearity.</div>
+            <div class="c-detail">
+              <div class="tbl-wrap">
+                <table class="tbl">
+                  <tr>
+                    <th>Activation</th>
+                    <th>Formula</th>
+                    <th>Used By</th>
+                  </tr>
+                  <tr>
+                    <td><b>ReLU</b></td>
+                    <td>max(0, x)</td>
+                    <td>Educational, older models</td>
+                  </tr>
+                  <tr>
+                    <td><b>GELU</b></td>
+                    <td>x · Φ(x) ≈ smooth ReLU</td>
+                    <td>GPT-2, GPT-3, BERT</td>
+                  </tr>
+                  <tr>
+                    <td><b>SiLU/Swish</b></td>
+                    <td>x · sigmoid(x)</td>
+                    <td>Newer models</td>
+                  </tr>
+                  <tr>
+                    <td><b>SwiGLU</b></td>
+                    <td>(xW₁ ⊙ Swish(xV))W₂</td>
+                    <td>LLaMA 2/3, PaLM</td>
+                  </tr>
+                </table>
+              </div>
+              All serve the same purpose: introduce <b>nonlinearity</b> so the network can
+              approximate arbitrary functions. Without activation, stacking linear layers collapses
+              to a single linear transformation.
+            </div>
+          </div>
+
+          <!-- Residual -->
+          <div class="card" onclick="toggleCard(this)">
+            <div class="c-head">
+              <span class="c-name" style="color: #56d364">Residual Connections</span>
+              <span class="c-chev">▼</span>
+            </div>
+            <div class="c-key">x + f(x) — gradient highway. Makes deep networks trainable.</div>
+            <div class="c-detail">
+              <div class="formula">x = x + attention(norm(x))<br />x = x + ffn(norm(x))</div>
+              Without residuals, gradients must pass through every layer's transformations — they
+              vanish in deep networks. The residual "highway" lets gradients flow
+              <b>directly backward</b> unimpeded.
+              <div class="code-block">
+                <span class="cm"># Both attention and FFN are wrapped in residuals</span>
+                x_residual = x x = rmsnorm(x) x = attention(x) x = [a + b
+                <span class="kw">for</span> a, b <span class="kw">in</span> zip(x, x_residual)]
+                <span class="cm"># add skip</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pre-Norm -->
+          <div class="card" onclick="toggleCard(this)">
+            <div class="c-head">
+              <span class="c-name" style="color: #56d364">Pre-Norm vs Post-Norm</span>
+              <span class="c-chev">▼</span>
+            </div>
+            <div class="c-key">
+              Normalize BEFORE transformation (modern). Cleaner residual path.
+            </div>
+            <div class="c-detail">
+              <b>Post-Norm</b> (2017 Transformer): x = Norm(x + f(x))<br />
+              <b>Pre-Norm</b> (GPT-2+): x = x + f(Norm(x))<br /><br />
+              Pre-norm keeps the residual path clean — no normalization layer on the skip
+              connection. More stable training. All modern LLMs use pre-norm, typically
+              <b>RMSNorm</b> instead of LayerNorm.<br /><br />
+              <div class="code-block">
+                <span class="cm"># RMSNorm (simpler than LayerNorm — no mean subtraction)</span>
+                <span class="kw">def</span> <span class="fn">rmsnorm</span>(x): ms = sum(xi * xi
+                <span class="kw">for</span> xi <span class="kw">in</span> x) / len(x) scale = (ms +
+                <span class="nu">1e-5</span>) ** <span class="nu">-0.5</span>
+                <span class="kw">return</span> [xi * scale <span class="kw">for</span> xi
+                <span class="kw">in</span> x]
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sec-label">Attention vs FFN: Division of labor</div>
+        <div class="intro">
+          <b>Attention</b> routes information between tokens ("who talks to whom").
+          <b>FFN</b> processes information within each token ("what to say"). Interpretability
+          research shows factual knowledge ("Paris is the capital of France") is stored in FFN
+          weights, while attention handles the contextual routing. Together, one transformer block
+          combines context-dependent retrieval with position-independent computation.
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════════════════════════ -->
+      <!--                     TAB 5: TRAINING                        -->
+      <!-- ════════════════════════════════════════════════════════════ -->
+      <div id="view-train" class="view">
+        <div class="intro">
+          Training is simple:
+          <b>predict next token → compute loss → backpropagate → update weights</b>. Cross-entropy
+          loss measures "surprise" at the correct answer. Adam combines momentum with adaptive
+          learning rates. This loop, repeated billions of times with different data, compresses the
+          <span class="accent">statistical patterns of language</span> into model weights.
+        </div>
+
+        <div class="card-grid">
+          <!-- Softmax -->
+          <div class="card" onclick="toggleCard(this)">
+            <div class="c-head">
+              <span class="c-name" style="color: #f778ba">Softmax</span>
+              <span class="c-chev">▼</span>
+            </div>
+            <div class="c-key">Converts logits to probabilities that sum to 1.</div>
+            <div class="c-detail">
+              <div class="formula">
+                softmax(x<sub>i</sub>) = exp(x<sub>i</sub>) / Σ exp(x<sub>j</sub>)
+              </div>
+              <div class="code-block">
+                <span class="cm"># Numerically stable softmax (subtract max first)</span>
+                <span class="kw">def</span> <span class="fn">softmax</span>(logits): max_val =
+                max(v.data <span class="kw">for</span> v <span class="kw">in</span> logits) exps =
+                [(v - max_val).exp() <span class="kw">for</span> v
+                <span class="kw">in</span> logits] total = sum(exps)
+                <span class="kw">return</span> [e / total <span class="kw">for</span> e
+                <span class="kw">in</span> exps]
+              </div>
+              <b>Subtract max for stability:</b> Without this, large logits cause exp() to overflow
+              to infinity. The subtraction doesn't change the output probabilities.
+            </div>
+          </div>
+
+          <!-- Cross-Entropy -->
+          <div class="card" onclick="toggleCard(this)">
+            <div class="c-head">
+              <span class="c-name" style="color: #f778ba">Cross-Entropy Loss</span>
+              <span class="c-chev">▼</span>
+            </div>
+            <div class="c-key">−log(p[correct]). High penalty for confident wrong answers.</div>
+            <div class="c-detail">
+              <div class="formula">loss = −log( P(correct token) )</div>
+              If probability is 0.9 → loss = 0.105 (small, correct)<br />
+              If probability is 0.01 → loss = 4.6 (large, wrong)<br /><br />
+              The log makes the penalty grow
+              <b>increasingly severe</b> as confidence in the wrong answer increases. This is the
+              <b>only training signal</b> — predict the next token better.
+              <div class="code-block">
+                <span class="cm"># The loss for one token prediction</span>
+                logits = gpt(token_id, pos_id, keys, values) probs = softmax(logits) loss =
+                -probs[target_id].log()
+              </div>
+            </div>
+          </div>
+
+          <!-- Backpropagation -->
+          <div class="card" onclick="toggleCard(this)">
+            <div class="c-head">
+              <span class="c-name" style="color: #f778ba">Backpropagation</span>
+              <span class="c-chev">▼</span>
+            </div>
+            <div class="c-key">
+              Chain rule from loss to every parameter. Each param gets a gradient.
+            </div>
+            <div class="c-detail">
+              Starting from the loss, work backward through every operation: for each parameter,
+              compute "if I nudge this value, how much does the loss change?"<br /><br />
+              <div class="code-block">
+                <span class="cm"># Karpathy's autograd backward pass</span>
+                <span class="kw">def</span> <span class="fn">backward</span>(self): topo = []
+                <span class="cm"># topological sort of computation graph</span> build_topo(self)
+                self.grad = <span class="nu">1</span>
+                <span class="cm"># seed: dloss/dloss = 1</span> <span class="kw">for</span> v
+                <span class="kw">in</span> reversed(topo): <span class="kw">for</span> child,
+                local_grad <span class="kw">in</span> zip(v._children, v._local_grads): child.grad
+                += local_grad * v.grad <span class="cm"># chain rule</span>
+              </div>
+              <b>6 primitive operations</b> with known derivatives — add, mul, pow, exp, log, relu —
+              compose to compute gradients through any neural network.
+            </div>
+          </div>
+
+          <!-- Adam -->
+          <div class="card" onclick="toggleCard(this)">
+            <div class="c-head">
+              <span class="c-name" style="color: #f778ba">Adam Optimizer</span>
+              <span class="c-chev">▼</span>
+            </div>
+            <div class="c-key">Momentum + adaptive rates. Bias correction for early steps.</div>
+            <div class="c-detail">
+              <div class="formula">
+                m = β₁·m + (1-β₁)·∇L &nbsp;&nbsp;(momentum)<br />
+                v = β₂·v + (1-β₂)·∇L² &nbsp;&nbsp;(variance)<br />
+                θ = θ − lr · m̂ / √(v̂ + ε) &nbsp;&nbsp;(update)
+              </div>
+              <div class="code-block">
+                <span class="cm"># Complete Adam from Karpathy's microgpt</span>
+                <span class="kw">for</span> i, p <span class="kw">in</span> enumerate(params): m[i]
+                = beta1 * m[i] + (<span class="nu">1</span> - beta1) * p.grad v[i] = beta2 * v[i] +
+                (<span class="nu">1</span> - beta2) * p.grad ** <span class="nu">2</span> m_hat =
+                m[i] / (<span class="nu">1</span> - beta1 ** (step + <span class="nu">1</span>))
+                <span class="cm"># bias correction</span> v_hat = v[i] / (<span class="nu">1</span>
+                - beta2 ** (step + <span class="nu">1</span>)) p.data -= lr * m_hat / (v_hat **
+                <span class="nu">0.5</span> + eps)
+              </div>
+              <b>Momentum</b> averages past gradients → consistent direction.
+              <b>Adaptive scaling</b> divides by gradient variance → big gradients get small steps,
+              small gradients get big steps. <b>Bias correction</b> fixes the cold-start problem
+              when m and v are initialized at 0.
+            </div>
+          </div>
+
+          <!-- Training Loop -->
+          <div class="card" onclick="toggleCard(this)">
+            <div class="c-head">
+              <span class="c-name" style="color: #f778ba">The Training Loop</span>
+              <span class="c-chev">▼</span>
+            </div>
+            <div class="c-key">Forward → loss → backward → update. Repeat billions of times.</div>
+            <div class="c-detail">
+              <div class="code-block">
+                <span class="cm"># The ENTIRE learning algorithm</span>
+                <span class="kw">for</span> step <span class="kw">in</span> range(num_steps):
+                <span class="cm"># 1. Forward: compute predictions</span>
+                logits = model(input_tokens)
+                <span class="cm"># 2. Loss: measure wrongness</span>
+                loss = cross_entropy(logits, target_tokens)
+                <span class="cm"># 3. Backward: compute gradients</span>
+                loss.backward()
+                <span class="cm"># 4. Update: nudge weights toward less loss</span>
+                optimizer.step() optimizer.zero_grad()
+              </div>
+              This 4-line loop, repeated with different data, is how
+              <b>every LLM learns</b>. GPT-4 and microgpt use the same algorithm — only scale
+              differs.
+            </div>
+          </div>
+
+          <!-- LR Schedule -->
+          <div class="card" onclick="toggleCard(this)">
+            <div class="c-head">
+              <span class="c-name" style="color: #f778ba">Learning Rate Schedule</span>
+              <span class="c-chev">▼</span>
+            </div>
+            <div class="c-key">Warmup then decay. Start cautious, push hard, then refine.</div>
+            <div class="c-detail">
+              <b>Warmup</b>: Start small because early gradients are noisy. Ramp up over first ~1%
+              of training.<br />
+              <b>Cosine decay</b>: Gradually reduce to near zero. As you approach the minimum, large
+              steps overshoot.<br /><br />
+              <div class="code-block">
+                <span class="cm"># Karpathy's microgpt uses simple linear decay</span>
+                lr_t = learning_rate * (<span class="nu">1</span> - step / num_steps)
+
+                <span class="cm"># Production models use warmup + cosine</span>
+                <span class="kw">if</span> step < warmup_steps: lr = peak_lr * step / warmup_steps
+                <span class="kw">else</span>: progress = (step - warmup_steps) / (total -
+                warmup_steps) lr = peak_lr * <span class="nu">0.5</span> * (<span class="nu"
+                  >1</span
+                >
+                + cos(pi * progress))
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sec-label">What training reveals</div>
+        <div class="intro">
+          The training objective is <b>next-token prediction</b> — a purely statistical task. By
+          predicting what comes next in trillions of tokens, the model is forced to learn grammar
+          (to predict syntax), facts (to predict entities), and patterns that resemble reasoning (to
+          predict logical conclusions). All of it compressed into weight matrices through gradient
+          descent.
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════════════════════════ -->
+      <!--                     CREDITS FOOTER                         -->
+      <!-- ════════════════════════════════════════════════════════════ -->
+      <div class="credits">
+        <b>Educational sources and inspiration:</b><br />
+        <a href="https://gist.github.com/karpathy/8627fe009c40f57531cb18360106ce95">microgpt.py</a>
+        by Andrej Karpathy — "This file is the complete algorithm. Everything else is just
+        efficiency."<br />
+        <a href="https://github.com/Mathews-Tom/no-magic">no-magic</a> by Mathews-Tom — 41
+        algorithms from scratch, zero dependencies<br />
+        <a href="https://github.com/rasbt/LLMs-from-scratch">LLMs-from-scratch</a>
+        by Sebastian Raschka — Build a Large Language Model (Manning, 2024)<br />
+        <a href="https://cs336.stanford.edu/">Stanford CS336</a> — Language Modeling from Scratch
+        (Hashimoto &amp; Liang)<br />
+        <a href="https://cme295.stanford.edu/">Stanford CME 295</a> — Transformers &amp; Large
+        Language Models (Amidi &amp; Amidi) |
+        <a href="https://github.com/afshinea/stanford-cme-295-transformers-large-language-models"
+          >cheatsheet</a
+        ><br />
+      </div>
+    </div>
+
+    <script>
+      (() => {
+        const modes = ['tokens', 'embed', 'attn', 'ffn', 'train'];
+        const colors = {
+          tokens: '#d2a8ff',
+          embed: '#a371f7',
+          attn: '#58a6ff',
+          ffn: '#56d364',
+          train: '#f778ba',
+        };
+
+        window.setMode = (mode) => {
+          modes.forEach((m) => {
+            const el = document.getElementById('view-' + m);
+            if (el) el.classList.toggle('show', m === mode);
+            const ps = document.getElementById('ps-' + m);
+            if (ps) {
+              ps.style.borderColor = m === mode ? colors[m] : '#30363d';
+              const b = ps.querySelector('b');
+              if (b) b.style.color = m === mode ? colors[m] : '#c9d1d9';
+            }
+          });
+          document.querySelectorAll('.tbtn').forEach((btn, i) => {
+            btn.classList.toggle('active', modes[i] === mode);
+            if (modes[i] === mode) {
+              btn.style.background = colors[mode];
+            } else {
+              btn.style.background = '#161b22';
+            }
+          });
+        };
+
+        window.toggleCard = (el) => {
+          el.classList.toggle('open');
+        };
+      })();
+    </script>
+  </body>
+</html>
