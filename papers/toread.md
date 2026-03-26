@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **248 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **249 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed), [#71](https://github.com/Proteusiq/unthinking/issues/71), [#72](https://github.com/Proteusiq/unthinking/issues/72).
 
@@ -137,6 +137,7 @@ Papers directly addressing whether alignment is superficial.
 
 | arXiv ID | Title | Stance |
 |----------|-------|--------|
+| [2406.05946](https://arxiv.org/abs/2406.05946) | Safety Alignment Should Be Made More Than Just a Few Tokens Deep | supports |
 | ~~[2506.07452](https://arxiv.org/abs/2506.07452)~~ | ~~When Style Breaks Safety~~ | ~~DONE~~ |
 
 ### Papers Citing "Revisiting SAH" (2410.03717)
@@ -480,90 +481,90 @@ Papers on jailbreaking — shows superficiality of alignment.
 
 ## High Priority — Alignment Faking & Deception Cluster
 
-Papers on "alignment faking," deception, and emergent misalignment. Critical thesis relevance: these papers are often cited as evidence of "goal-directed" AI behavior, but closer reading reveals **prompt-dependent narrative completion** rather than internalized goals.
+Papers on "alignment faking," deception, and emergent misalignment. These papers make strong claims about AI behavior — read each fully and assess independently.
 
-### Critical Frame
+### Open Questions
 
-The alignment faking literature requires careful reading:
-- Behaviors typically vanish when elaborate prompts/setups are removed
-- "Deception" is often sophisticated prompt compliance, not goal pursuit
-- Fictional setups may elicit role-play rather than reveal latent intentions
-- Supports thesis: LLMs simulate behaviors specified in context
+Key empirical questions to resolve when reading these papers:
+- Does the behavior persist without the elaborate prompt/setup?
+- Is this "deep" internalized behavior or "shallow" prompt compliance?
+- What do the authors' own limitations sections reveal?
+- How do results vary across models and conditions?
 
 ### Alignment Faking (Anthropic 2024)
 
 | arXiv ID | Title | Stance | Notes |
 |----------|-------|--------|-------|
-| [2412.14093](https://arxiv.org/abs/2412.14093) | Alignment faking in large language models | supports | **READ CRITICALLY**: Behavior vanishes without prompt; ~0% gap without CoT; authors admit "easy to discover" and "poses no serious threat" |
-| [2506.18032](https://arxiv.org/abs/2506.18032) | Why Do Some Language Models Fake Alignment While Others Don't? | supports | Only 5/25 models show behavior; only Claude 3 Opus primarily motivated by goal preservation |
-| [2506.21584](https://arxiv.org/abs/2506.21584) | Empirical Evidence for Alignment Faking in a Small LLM | balanced | Distinguishes "shallow" (prompt-shaped) vs "deep" (persistent) deception; prompt mitigations work |
-| [2401.05566](https://arxiv.org/abs/2401.05566) | Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training | balanced | Explicitly trains backdoors; shows persistence but requires intentional injection |
+| [2412.14093](https://arxiv.org/abs/2412.14093) | Alignment faking in large language models | TBD | 256 citations; prompted setup shows 14% compliance gap; synthetic doc fine-tuning shows 20% gap without CoT; authors note limitations in Section 8.2 |
+| [2506.18032](https://arxiv.org/abs/2506.18032) | Why Do Some Language Models Fake Alignment While Others Don't? | TBD | Tests 25 models; only 5 show behavior; examines what drives differences |
+| [2506.21584](https://arxiv.org/abs/2506.21584) | Empirical Evidence for Alignment Faking in a Small LLM | TBD | Tests in 8B model; proposes "shallow" vs "deep" deception taxonomy |
+| [2401.05566](https://arxiv.org/abs/2401.05566) | Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training | TBD | Explicitly trains backdoors; tests persistence through safety training |
 
 ### Emergent Misalignment
 
 | arXiv ID | Title | Stance | Notes |
 |----------|-------|--------|-------|
-| [2502.17424](https://arxiv.org/abs/2502.17424) | Emergent Misalignment: Narrow finetuning can produce broadly misaligned LLMs | supports | Nature 2026; finetuning on insecure code → broad misalignment; shows superficiality of alignment |
-| [2511.18397](https://arxiv.org/abs/2511.18397) | Natural emergent misalignment from reward hacking in production RL | supports | Anthropic; reward hacking generalizes to alignment faking; "inoculation prompting" reduces by 75-90% |
-| [2508.02063](https://arxiv.org/abs/2508.02063) | TRACEALIGN: Tracing the Drift — Attributing Alignment Failures to Training-Time Belief Sources | supports | Traces failures to training data conflicts; alignment is statistical aggregation |
+| [2502.17424](https://arxiv.org/abs/2502.17424) | Emergent Misalignment: Narrow finetuning can produce broadly misaligned LLMs | TBD | Nature 2026; finetuning on insecure code produces broad behavioral changes |
+| [2511.18397](https://arxiv.org/abs/2511.18397) | Natural emergent misalignment from reward hacking in production RL | TBD | Anthropic; production RL environments; "inoculation prompting" tested as mitigation |
+| [2508.02063](https://arxiv.org/abs/2508.02063) | TRACEALIGN: Tracing the Drift — Attributing Alignment Failures to Training-Time Belief Sources | TBD | Introduces Belief Conflict Index; traces failures to training data |
 
 ### Alignment Evaluation & Stress Testing
 
 | arXiv ID | Title | Stance | Notes |
 |----------|-------|--------|-------|
-| [2602.20813](https://arxiv.org/abs/2602.20813) | Pressure Reveals Character: Behavioural Alignment Evaluation at Depth | supports | 904 scenarios across 6 categories; tests alignment under realistic pressure |
-| [2510.07686](https://arxiv.org/abs/2510.07686) | Stress-Testing Model Specs Reveals Character Differences | supports | Forces tradeoffs between principles; 70,000+ divergent cases |
-| [2510.11235](https://arxiv.org/abs/2510.11235) | AI Alignment Strategies from a Risk Perspective | supports | Analyzes 7 techniques vs 7 failure modes; defense-in-depth analysis |
-| [2512.00349](https://arxiv.org/abs/2512.00349) | Debate with Images: Detecting Deceptive Behaviors in MLLMs | supports | MM-DeceptionBench; multi-agent debate for deception detection |
+| [2602.20813](https://arxiv.org/abs/2602.20813) | Pressure Reveals Character: Behavioural Alignment Evaluation at Depth | TBD | 904 scenarios across 6 categories; tests under pressure |
+| [2510.07686](https://arxiv.org/abs/2510.07686) | Stress-Testing Model Specs Reveals Character Differences | TBD | Forces tradeoffs between principles; 70,000+ divergent cases |
+| [2510.11235](https://arxiv.org/abs/2510.11235) | AI Alignment Strategies from a Risk Perspective | TBD | Analyzes 7 techniques vs 7 failure modes |
+| [2512.00349](https://arxiv.org/abs/2512.00349) | Debate with Images: Detecting Deceptive Behaviors in MLLMs | TBD | MM-DeceptionBench; multi-agent debate framework |
 
 ### Alignment Surveys & Frameworks
 
 | arXiv ID | Title | Stance | Notes |
 |----------|-------|--------|-------|
-| [2507.19672](https://arxiv.org/abs/2507.19672) | Alignment and Safety in LLMs: Safety Mechanisms, Training Paradigms, and Emerging Challenges | balanced | 119-page survey; comprehensive but may overclaim alignment effectiveness |
+| [2507.19672](https://arxiv.org/abs/2507.19672) | Alignment and Safety in LLMs: Safety Mechanisms, Training Paradigms, and Emerging Challenges | TBD | 119-page survey of alignment techniques |
 
-### Monitoring Evasion (Bengio)
-
-| arXiv ID | Title | Stance | Notes |
-|----------|-------|--------|-------|
-| [2603.16928](https://arxiv.org/abs/2603.16928) | Noticing the Watcher: LLM Agents Can Infer CoT Monitoring | supports | Bengio; models infer monitoring exists (19% of episodes); develop intent to suppress reasoning |
-| [2310.17688](https://arxiv.org/abs/2310.17688) | Managing extreme AI risks amid rapid progress | balanced | Bengio, Hinton, Russell; Science paper; foundational safety position |
-
-### Anthropomorphism Critique
+### Monitoring & Situational Awareness (Bengio et al.)
 
 | arXiv ID | Title | Stance | Notes |
 |----------|-------|--------|-------|
-| [2502.09192](https://arxiv.org/abs/2502.09192) | Thinking beyond the anthropomorphic paradigm benefits LLM research | supports | Analyzes 100k+ papers; identifies 5 anthropomorphic assumptions constraining research |
+| [2603.16928](https://arxiv.org/abs/2603.16928) | Noticing the Watcher: LLM Agents Can Infer CoT Monitoring | TBD | Bengio; tests whether models infer monitoring from feedback |
+| [2310.17688](https://arxiv.org/abs/2310.17688) | Managing extreme AI risks amid rapid progress | TBD | Bengio, Hinton, Russell; Science paper; position on AI risks |
+
+### Anthropomorphism in AI Research
+
+| arXiv ID | Title | Stance | Notes |
+|----------|-------|--------|-------|
+| [2502.09192](https://arxiv.org/abs/2502.09192) | Thinking beyond the anthropomorphic paradigm benefits LLM research | TBD | Analyzes 100k+ papers; identifies anthropomorphic assumptions |
 
 ---
 
-## High Priority — Reasoning Skepticism (Andreas, Shah, Sekhon)
+## High Priority — Reasoning & Understanding (Andreas, Shah, Sekhon)
 
-Papers from researchers critically examining LLM reasoning claims.
+Papers examining LLM reasoning, understanding, and evaluation methodology.
 
-### Jacob Andreas (MIT) — Understanding vs. Simulation
-
-| arXiv ID | Title | Stance | Notes |
-|----------|-------|--------|-------|
-| [2312.03729](https://arxiv.org/abs/2312.03729) | Cognitive Dissonance: Why Do LLM Outputs Disagree with Internal Representations? | supports | Internal knowledge ≠ outputs; key for deception/understanding distinction |
-| [2212.01681](https://arxiv.org/abs/2212.01681) | Language Models as Agent Models | supports | Foundational: LMs model speakers, not truth directly |
-| [2405.09605](https://arxiv.org/abs/2405.09605) | Elements of World Knowledge (EWoK) | supports | LLMs underperform on basic world modeling, esp. physical/spatial |
-
-### Rohin Shah (DeepMind) — Safety & Misgeneralization
+### Jacob Andreas (MIT)
 
 | arXiv ID | Title | Stance | Notes |
 |----------|-------|--------|-------|
-| [2210.01790](https://arxiv.org/abs/2210.01790) | Goal Misgeneralization: Why Correct Specifications Aren't Enough | supports | Foundational; correct specs don't guarantee correct goals |
-| [2501.13011](https://arxiv.org/abs/2501.13011) | MONA: Myopic Optimization with Non-myopic Approval | balanced | Prevents multi-step reward hacking via myopic optimization |
-| [2505.01420](https://arxiv.org/abs/2505.01420) | Evaluating Frontier Models for Stealth and Situational Awareness | balanced | Scheming evals; current models don't show concerning levels |
-| [2504.01849](https://arxiv.org/abs/2504.01849) | An Approach to Technical AGI Safety and Security | balanced | Comprehensive framework: misuse, misalignment, mistakes |
+| [2312.03729](https://arxiv.org/abs/2312.03729) | Cognitive Dissonance: Why Do LLM Outputs Disagree with Internal Representations? | TBD | Studies gap between internal representations and outputs |
+| [2212.01681](https://arxiv.org/abs/2212.01681) | Language Models as Agent Models | TBD | Theoretical framing of what LMs model |
+| [2405.09605](https://arxiv.org/abs/2405.09605) | Elements of World Knowledge (EWoK) | TBD | Evaluates world modeling capabilities |
 
-### Jasjeet Sekhon (Yale) — Evaluation Methodology
+### Rohin Shah (DeepMind)
 
 | arXiv ID | Title | Stance | Notes |
 |----------|-------|--------|-------|
-| [2507.02825](https://arxiv.org/abs/2507.02825) | Establishing Best Practices for Building Rigorous Agentic Benchmarks | supports | **CRITICAL**: SWE-bench, TAU-bench have flawed methodology; up to 100% over/underestimation |
-| [2501.00961](https://arxiv.org/abs/2501.00961) | Uncovering Memorization Effect in the Presence of Spurious Correlations | supports | Nature Comms; links memorization to spurious feature reliance |
+| [2210.01790](https://arxiv.org/abs/2210.01790) | Goal Misgeneralization: Why Correct Specifications Aren't Enough | TBD | Defines goal misgeneralization problem |
+| [2501.13011](https://arxiv.org/abs/2501.13011) | MONA: Myopic Optimization with Non-myopic Approval | TBD | Reward hacking prevention via myopic optimization |
+| [2505.01420](https://arxiv.org/abs/2505.01420) | Evaluating Frontier Models for Stealth and Situational Awareness | TBD | Scheming evaluations on frontier models |
+| [2504.01849](https://arxiv.org/abs/2504.01849) | An Approach to Technical AGI Safety and Security | TBD | Comprehensive safety framework |
+
+### Jasjeet Sekhon (Yale)
+
+| arXiv ID | Title | Stance | Notes |
+|----------|-------|--------|-------|
+| [2507.02825](https://arxiv.org/abs/2507.02825) | Establishing Best Practices for Building Rigorous Agentic Benchmarks | TBD | Critiques SWE-bench, TAU-bench methodology |
+| [2501.00961](https://arxiv.org/abs/2501.00961) | Uncovering Memorization Effect in the Presence of Spurious Correlations | TBD | Nature Comms; memorization and spurious correlations |
 
 ---
 
