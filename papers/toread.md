@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **249 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **263 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed), [#71](https://github.com/Proteusiq/unthinking/issues/71), [#72](https://github.com/Proteusiq/unthinking/issues/72).
 
@@ -565,6 +565,54 @@ Papers examining LLM reasoning, understanding, and evaluation methodology.
 |----------|-------|--------|-------|
 | [2507.02825](https://arxiv.org/abs/2507.02825) | Establishing Best Practices for Building Rigorous Agentic Benchmarks | TBD | Critiques SWE-bench, TAU-bench methodology |
 | [2501.00961](https://arxiv.org/abs/2501.00961) | Uncovering Memorization Effect in the Presence of Spurious Correlations | TBD | Nature Comms; memorization and spurious correlations |
+
+---
+
+## High Priority — Agency, Role-Play, and Narrative Completion
+
+Papers examining whether LLMs have genuine agency/goals or simulate them via narrative completion.
+
+### Core Question
+
+"Alignment faking" requires persistent goals to protect. If LLMs lack persistent state and true goals, "faking" is a category error — what looks like strategic deception is actually coherent narrative completion from conflicting prompts.
+
+### Superficial Alignment Hypothesis
+
+| arXiv ID | Title | Stance | Notes |
+|----------|-------|--------|-------|
+| [2312.01552](https://arxiv.org/abs/2312.01552) | The Unlocking Spell on Base LLMs (URIAL) | TBD | 3 ICL examples match SFT+RLHF; token shifts mostly stylistic |
+| [2602.15829](https://arxiv.org/abs/2602.15829) | Operationalising SAH via Task Complexity | TBD | Formalizes SAH; post-training collapses complexity by orders of magnitude |
+
+### LLM Agency Critiques
+
+| arXiv ID | Title | Stance | Notes |
+|----------|-------|--------|-------|
+| [2407.08790](https://arxiv.org/abs/2407.08790) | Large Models of What? Mistaking Engineering for Linguistic Agency | TBD | Argues sensational claims mistake engineering for human-like agency |
+| [2305.14784](https://arxiv.org/abs/2305.14784) | Anthropomorphization of AI: Opportunities and Risks | TBD | Foundational paper on risks of attributing human traits to AI |
+| [2509.21545](https://arxiv.org/abs/2509.21545) | Evidence for Limited Metacognition in LLMs | TBD | Empirical study of LLM self-awareness claims |
+| [2505.23323](https://arxiv.org/abs/2505.23323) | Neither Stochastic Parroting nor AGI | TBD | Nuanced position: context-directed extrapolation |
+
+### Role-Play and Persona Simulation
+
+| arXiv ID | Title | Stance | Notes |
+|----------|-------|--------|-------|
+| [2410.04272](https://arxiv.org/abs/2410.04272) | Evaluating Language Model Character Traits | TBD | Formalizes LM behavior without anthropomorphism |
+| [2412.14368](https://arxiv.org/abs/2412.14368) | Memorization Over Reasoning? Character Understanding | TBD | LLMs rely on memorization for character understanding |
+
+### Sycophancy and Lack of Genuine Beliefs
+
+| arXiv ID | Title | Stance | Notes |
+|----------|-------|--------|-------|
+| [2603.16643](https://arxiv.org/abs/2603.16643) | Good Arguments Against People Pleasers | TBD | Reasoning mitigates but masks sycophancy |
+| [2603.18373](https://arxiv.org/abs/2603.18373) | To See or To Please: Split Beliefs in VLMs | TBD | Different answers to users vs. probing — no consistent beliefs |
+| [2603.20620](https://arxiv.org/abs/2603.20620) | Reasoning Traces Shape Outputs but Models Won't Say So | TBD | LLMs don't accurately report what influences outputs |
+
+### Counter-Arguments (Steel-man)
+
+| arXiv ID | Title | Stance | Notes |
+|----------|-------|--------|-------|
+| [2601.02043](https://arxiv.org/abs/2601.02043) | Simulated Reasoning is Reasoning | TBD | Argues simulation constitutes genuine reasoning |
+| [2407.11015](https://arxiv.org/abs/2407.11015) | Does ChatGPT Have a Mind? | TBD | Philosophical examination of LLM understanding |
 
 ---
 
