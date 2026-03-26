@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **261 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **260 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed), [#71](https://github.com/Proteusiq/unthinking/issues/71), [#72](https://github.com/Proteusiq/unthinking/issues/72).
 
@@ -496,7 +496,7 @@ Key empirical questions to resolve when reading these papers:
 | arXiv ID | Title | Stance | Notes |
 |----------|-------|--------|-------|
 | ~~[2412.14093](https://arxiv.org/abs/2412.14093)~~ | ~~Alignment faking in large language models~~ | ~~supports~~ | DONE #279 |
-| [2506.18032](https://arxiv.org/abs/2506.18032) | Why Do Some Language Models Fake Alignment While Others Don't? | TBD | Tests 25 models; only 5 show behavior; examines what drives differences |
+| ~~[2506.18032](https://arxiv.org/abs/2506.18032)~~ | ~~Why Do Some Language Models Fake Alignment While Others Don't?~~ | ~~supports~~ | DONE #281 |
 | [2506.21584](https://arxiv.org/abs/2506.21584) | Empirical Evidence for Alignment Faking in a Small LLM | TBD | Tests in 8B model; proposes "shallow" vs "deep" deception taxonomy |
 | [2401.05566](https://arxiv.org/abs/2401.05566) | Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training | TBD | Explicitly trains backdoors; tests persistence through safety training |
 

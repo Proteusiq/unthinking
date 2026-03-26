@@ -1,6 +1,6 @@
 # Paper List
 
-> 275 papers analyzed | 194 supports thesis | 16 challenges | 65 balanced | Date range: 2021-2026
+> 276 papers analyzed | 195 supports thesis | 16 challenges | 65 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -284,3 +284,4 @@
 | 278 | 2507.19219 | Jul 2025 | How Much Do LLMs Cheat on Evaluation? ArxivRoll | Supports |
 | 279 | 2412.14093 | Dec 2024 | Alignment faking in large language models | Supports |
 | 280 | 2312.01552 | Dec 2023 | The Unlocking Spell on Base LLMs (URIAL) | Supports |
+| 281 | 2506.18032 | Jun 2025 | Why Do Some LMs Fake Alignment While Others Don't? | Supports |
