@@ -1,6 +1,6 @@
 # Paper List
 
-> 274 papers analyzed | 193 supports thesis | 16 challenges | 65 balanced | Date range: 2021-2026
+> 275 papers analyzed | 194 supports thesis | 16 challenges | 65 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -283,3 +283,4 @@
 | 277 | 2512.01786 | Dec 2025 | Who Judges the Judge? LLM Jury-on-Demand | Supports |
 | 278 | 2507.19219 | Jul 2025 | How Much Do LLMs Cheat on Evaluation? ArxivRoll | Supports |
 | 279 | 2412.14093 | Dec 2024 | Alignment faking in large language models | Supports |
+| 280 | 2312.01552 | Dec 2023 | The Unlocking Spell on Base LLMs (URIAL) | Supports |

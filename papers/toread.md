@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **262 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **261 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed), [#71](https://github.com/Proteusiq/unthinking/issues/71), [#72](https://github.com/Proteusiq/unthinking/issues/72).
 
@@ -580,7 +580,7 @@ Papers examining whether LLMs have genuine agency/goals or simulate them via nar
 
 | arXiv ID | Title | Stance | Notes |
 |----------|-------|--------|-------|
-| [2312.01552](https://arxiv.org/abs/2312.01552) | The Unlocking Spell on Base LLMs (URIAL) | TBD | 3 ICL examples match SFT+RLHF; token shifts mostly stylistic |
+| ~~[2312.01552](https://arxiv.org/abs/2312.01552)~~ | ~~The Unlocking Spell on Base LLMs (URIAL)~~ | ~~supports~~ | DONE #280 |
 | [2602.15829](https://arxiv.org/abs/2602.15829) | Operationalising SAH via Task Complexity | TBD | Formalizes SAH; post-training collapses complexity by orders of magnitude |
 
 ### LLM Agency Critiques
