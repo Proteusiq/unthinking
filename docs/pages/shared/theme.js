@@ -76,10 +76,10 @@
       }
     });
 
-    // Create and inject theme toggle button
+    // Create and inject theme toggle button next to tab menu
     document.addEventListener('DOMContentLoaded', () => {
-      const topbar = document.querySelector('.topbar');
-      if (topbar && !document.getElementById('theme-toggle')) {
+      const toggleWrap = document.querySelector('.toggle-wrap');
+      if (toggleWrap && !document.getElementById('theme-toggle')) {
         const btn = document.createElement('button');
         btn.id = 'theme-toggle';
         btn.className = 'theme-btn';
@@ -87,7 +87,8 @@
         btn.title = TITLES[theme];
         btn.onclick = cycleTheme;
         btn.setAttribute('aria-label', TITLES[theme]);
-        topbar.appendChild(btn);
+        // Insert right after the toggle-wrap
+        toggleWrap.insertAdjacentElement('afterend', btn);
       }
       updateButton(theme);
     });

@@ -80,29 +80,22 @@
   background: var(--bg-secondary);
   border: 1px solid var(--border-primary);
   border-radius: 4px;
-  padding: 6px;
+  padding: 5px;
+  margin-left: 6px;
   color: var(--text-muted);
   cursor: pointer;
   transition:
     border-color 0.15s,
     color 0.15s;
+  flex-shrink: 0;
 }
 
 .theme-btn svg {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
 }
 
 .theme-btn:hover {
   border-color: var(--accent, var(--accent-blue));
   color: var(--text-secondary);
-}
-
-/* Mobile: position theme button absolutely */
-@media (max-width: 768px) {
-  .theme-btn {
-    position: absolute;
-    top: clamp(0.5rem, 2vw, 1rem);
-    right: clamp(0.5rem, 2vw, 1rem);
-  }
 }
