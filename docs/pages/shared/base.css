@@ -74,18 +74,23 @@
    ══════════════════════════════════════════════════════════════════════ */
 
 .theme-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: var(--bg-secondary);
   border: 1px solid var(--border-primary);
   border-radius: 4px;
-  padding: 4px 10px;
-  font-family: 'Courier New', monospace;
-  font-size: clamp(0.52rem, 1.1vw, 0.6rem);
+  padding: 6px;
   color: var(--text-muted);
   cursor: pointer;
   transition:
     border-color 0.15s,
     color 0.15s;
-  white-space: nowrap;
+}
+
+.theme-btn svg {
+  width: 16px;
+  height: 16px;
 }
 
 .theme-btn:hover {
