@@ -1,0 +1,103 @@
+/**
+ * Shared base styles for standalone pages
+ * Provides: theme variables, reset, theme toggle button
+ * Each page defines its own --accent color and component styles
+ */
+
+/* ══════════════════════════════════════════════════════════════════════
+   Theme Variables (Dark default)
+   ══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary: #1c2128;
+  --bg-input: #0d1117;
+  --text-primary: #e6edf3;
+  --text-secondary: #c9d1d9;
+  --text-muted: #8b949e;
+  --border-primary: #30363d;
+  --border-secondary: #21262d;
+  --code-comment: #484f58;
+
+  /* Accent palette - pages set --accent to one of these */
+  --accent-blue: #58a6ff;
+  --accent-blue-light: #79c0ff;
+  --accent-blue-lighter: #a5d6ff;
+  --accent-green: #3fb950;
+  --accent-green-bright: #56d364;
+  --accent-yellow: #e3b341;
+  --accent-orange: #f0883e;
+  --accent-purple: #d2a8ff;
+  --accent-purple-dim: #a371f7;
+  --accent-pink: #f778ba;
+  --accent-red: #ff7b72;
+}
+
+[data-theme='light'] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f6f8fa;
+  --bg-tertiary: #f0f3f6;
+  --bg-input: #ffffff;
+  --text-primary: #1f2328;
+  --text-secondary: #424a53;
+  --text-muted: #656d76;
+  --border-primary: #d0d7de;
+  --border-secondary: #e1e4e8;
+  --code-comment: #6e7781;
+
+  --accent-blue: #0969da;
+  --accent-blue-light: #0550ae;
+  --accent-blue-lighter: #0969da;
+  --accent-green: #1a7f37;
+  --accent-green-bright: #1a7f37;
+  --accent-yellow: #9a6700;
+  --accent-orange: #d46b08;
+  --accent-purple: #8250df;
+  --accent-purple-dim: #6639ba;
+  --accent-pink: #bf3989;
+  --accent-red: #cf222e;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   Reset
+   ══════════════════════════════════════════════════════════════════════ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   Theme Toggle Button
+   ══════════════════════════════════════════════════════════════════════ */
+
+.theme-btn {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-family: 'Courier New', monospace;
+  font-size: clamp(0.52rem, 1.1vw, 0.6rem);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    color 0.15s;
+  white-space: nowrap;
+}
+
+.theme-btn:hover {
+  border-color: var(--accent, var(--accent-blue));
+  color: var(--text-secondary);
+}
+
+/* Mobile: position theme button absolutely */
+@media (max-width: 768px) {
+  .theme-btn {
+    position: absolute;
+    top: clamp(0.5rem, 2vw, 1rem);
+    right: clamp(0.5rem, 2vw, 1rem);
+  }
+}

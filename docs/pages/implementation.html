@@ -1,65 +1,20 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Understanding LLMs | The Thinking Machine That Doesn't Think</title>
+    <link rel="stylesheet" href="shared/base.css" />
+    <script src="shared/theme.js"></script>
     <style>
+      /* Page-specific accent */
       :root {
-        --bg-primary: #0d1117;
-        --bg-secondary: #161b22;
-        --bg-tertiary: #1c2128;
-        --bg-input: #0d1117;
-        --text-primary: #e6edf3;
-        --text-secondary: #c9d1d9;
-        --text-muted: #8b949e;
-        --border-primary: #30363d;
-        --border-secondary: #21262d;
-        --accent: #58a6ff;
-        --accent-green: #3fb950;
-        --accent-orange: #f0883e;
-        --accent-yellow: #e3b341;
-        --accent-purple: #d2a8ff;
-        --accent-purple-dim: #a371f7;
-        --accent-pink: #f778ba;
-        --accent-green-bright: #56d364;
-        --accent-blue-light: #79c0ff;
-        --accent-blue-lighter: #a5d6ff;
-        --accent-red: #ff7b72;
-        --code-comment: #484f58;
+        --accent: var(--accent-purple);
+      }
+      [data-theme='light'] {
+        --accent: var(--accent-purple);
       }
 
-      @media (prefers-color-scheme: light) {
-        :root {
-          --bg-primary: #ffffff;
-          --bg-secondary: #f6f8fa;
-          --bg-tertiary: #f0f3f6;
-          --bg-input: #ffffff;
-          --text-primary: #1f2328;
-          --text-secondary: #424a53;
-          --text-muted: #656d76;
-          --border-primary: #d0d7de;
-          --border-secondary: #e1e4e8;
-          --accent: #0969da;
-          --accent-green: #1a7f37;
-          --accent-orange: #d46b08;
-          --accent-yellow: #9a6700;
-          --accent-purple: #8250df;
-          --accent-purple-dim: #6639ba;
-          --accent-pink: #bf3989;
-          --accent-green-bright: #1a7f37;
-          --accent-blue-light: #0550ae;
-          --accent-blue-lighter: #0969da;
-          --accent-red: #cf222e;
-          --code-comment: #6e7781;
-        }
-      }
-
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
       body {
         background: var(--bg-primary);
         color: var(--text-secondary);

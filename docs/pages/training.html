@@ -1,51 +1,20 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LLM Training Pipeline | The Thinking Machine That Doesn't Think</title>
+    <link rel="stylesheet" href="shared/base.css" />
+    <script src="shared/theme.js"></script>
     <style>
+      /* Page accent: green */
       :root {
-        --bg-primary: #0d1117;
-        --bg-secondary: #161b22;
-        --bg-tertiary: #1c2128;
-        --bg-input: #0d1117;
-        --text-primary: #e6edf3;
-        --text-secondary: #c9d1d9;
-        --text-muted: #8b949e;
-        --border-primary: #30363d;
-        --border-secondary: #21262d;
-        --accent: #56d364;
-        --accent-blue: #58a6ff;
-        --accent-orange: #f0883e;
-        --accent-yellow: #e3b341;
-        --accent-purple: #d2a8ff;
+        --accent: var(--accent-green-bright);
+      }
+      [data-theme='light'] {
+        --accent: var(--accent-green);
       }
 
-      @media (prefers-color-scheme: light) {
-        :root {
-          --bg-primary: #ffffff;
-          --bg-secondary: #f6f8fa;
-          --bg-tertiary: #f0f3f6;
-          --bg-input: #ffffff;
-          --text-primary: #1f2328;
-          --text-secondary: #424a53;
-          --text-muted: #656d76;
-          --border-primary: #d0d7de;
-          --border-secondary: #e1e4e8;
-          --accent: #1a7f37;
-          --accent-blue: #0969da;
-          --accent-orange: #d46b08;
-          --accent-yellow: #9a6700;
-          --accent-purple: #8250df;
-        }
-      }
-
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
       body {
         background: var(--bg-primary);
         color: var(--text-secondary);
