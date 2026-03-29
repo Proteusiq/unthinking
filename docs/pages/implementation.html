@@ -315,6 +315,13 @@
         text-align: center;
         font-size: clamp(0.52rem, 1.1vw, 0.6rem);
         position: relative;
+        cursor: pointer;
+        transition:
+          background 0.15s,
+          border-color 0.15s;
+      }
+      .pipe-step:hover {
+        background: var(--bg-tertiary);
       }
       .pipe-step b {
         display: block;
@@ -426,27 +433,32 @@
     <!-- ─── PIPELINE OVERVIEW ─── -->
     <div class="wrap">
       <div class="pipeline">
-        <div class="pipe-step" id="ps-tokens" style="border-color: var(--accent-purple)">
+        <div
+          class="pipe-step"
+          id="ps-tokens"
+          onclick="setMode('tokens')"
+          style="border-color: var(--accent-purple)"
+        >
           <b style="color: var(--accent-purple)">Tokenize</b>
           text → integers
         </div>
         <div class="pipe-arrow">→</div>
-        <div class="pipe-step" id="ps-embed">
+        <div class="pipe-step" id="ps-embed" onclick="setMode('embed')">
           <b>Embed</b>
           integers → vectors
         </div>
         <div class="pipe-arrow">→</div>
-        <div class="pipe-step" id="ps-attn">
+        <div class="pipe-step" id="ps-attn" onclick="setMode('attn')">
           <b>Attend</b>
           vectors → context
         </div>
         <div class="pipe-arrow">→</div>
-        <div class="pipe-step" id="ps-ffn">
+        <div class="pipe-step" id="ps-ffn" onclick="setMode('ffn')">
           <b>Transform</b>
           context → features
         </div>
         <div class="pipe-arrow">→</div>
-        <div class="pipe-step" id="ps-train">
+        <div class="pipe-step" id="ps-train" onclick="setMode('train')">
           <b>Predict</b>
           features → next token
         </div>
@@ -1001,7 +1013,9 @@ x = linear(x, mlp_fc2)                <span class="cm"># [4d] → [d] contract</
           <!-- Residual -->
           <div class="card" onclick="toggleCard(this)">
             <div class="c-head">
-              <span class="c-name" style="color: var(--accent-green-bright)">Residual Connections</span>
+              <span class="c-name" style="color: var(--accent-green-bright)"
+                >Residual Connections</span
+              >
               <span class="c-chev">▼</span>
             </div>
             <div class="c-key">x + f(x) — gradient highway. Makes deep networks trainable.</div>
@@ -1023,7 +1037,9 @@ x = [a + b <span class="kw">for</span> a, b <span class="kw">in</span> zip(x, x_
           <!-- Pre-Norm -->
           <div class="card" onclick="toggleCard(this)">
             <div class="c-head">
-              <span class="c-name" style="color: var(--accent-green-bright)">Pre-Norm vs Post-Norm</span>
+              <span class="c-name" style="color: var(--accent-green-bright)"
+                >Pre-Norm vs Post-Norm</span
+              >
               <span class="c-chev">▼</span>
             </div>
             <div class="c-key">
@@ -1263,7 +1279,8 @@ lr_t = learning_rate * (<span class="nu">1</span> - step / num_steps)
           train: '--accent-pink',
         };
 
-        const getColor = (mode) => getComputedStyle(document.documentElement).getPropertyValue(colorVars[mode]).trim();
+        const getColor = (mode) =>
+          getComputedStyle(document.documentElement).getPropertyValue(colorVars[mode]).trim();
 
         window.setMode = (mode) => {
           const activeColor = getColor(mode);
@@ -1272,10 +1289,21 @@ lr_t = learning_rate * (<span class="nu">1</span> - step / num_steps)
             if (el) el.classList.toggle('show', m === mode);
             const ps = document.getElementById('ps-' + m);
             if (ps) {
-              const mColor = m === mode ? getColor(m) : getComputedStyle(document.documentElement).getPropertyValue('--border-primary').trim();
+              const mColor =
+                m === mode
+                  ? getColor(m)
+                  : getComputedStyle(document.documentElement)
+                      .getPropertyValue('--border-primary')
+                      .trim();
               ps.style.borderColor = mColor;
               const b = ps.querySelector('b');
-              if (b) b.style.color = m === mode ? getColor(m) : getComputedStyle(document.documentElement).getPropertyValue('--text-secondary').trim();
+              if (b)
+                b.style.color =
+                  m === mode
+                    ? getColor(m)
+                    : getComputedStyle(document.documentElement)
+                        .getPropertyValue('--text-secondary')
+                        .trim();
             }
           });
           document.querySelectorAll('.tbtn').forEach((btn, i) => {
@@ -1283,7 +1311,9 @@ lr_t = learning_rate * (<span class="nu">1</span> - step / num_steps)
             if (modes[i] === mode) {
               btn.style.background = activeColor;
             } else {
-              btn.style.background = getComputedStyle(document.documentElement).getPropertyValue('--bg-secondary').trim();
+              btn.style.background = getComputedStyle(document.documentElement)
+                .getPropertyValue('--bg-secondary')
+                .trim();
             }
           });
         };
