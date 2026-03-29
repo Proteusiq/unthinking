@@ -99,3 +99,12 @@
   border-color: var(--accent, var(--accent-blue));
   color: var(--text-secondary);
 }
+
+/* Fixed position fallback for pages without toggle-wrap */
+.theme-btn-fixed {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
+  margin-left: 0;
+}

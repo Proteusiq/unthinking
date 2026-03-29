@@ -76,19 +76,29 @@
       }
     });
 
-    // Create and inject theme toggle button next to tab menu
+    // Create and inject theme toggle button
     document.addEventListener('DOMContentLoaded', () => {
+      if (document.getElementById('theme-toggle')) {
+        updateButton(theme);
+        return;
+      }
+
+      const btn = document.createElement('button');
+      btn.id = 'theme-toggle';
+      btn.className = 'theme-btn';
+      btn.innerHTML = ICONS[theme];
+      btn.title = TITLES[theme];
+      btn.onclick = cycleTheme;
+      btn.setAttribute('aria-label', TITLES[theme]);
+
+      // Try to insert next to toggle-wrap (pages with tabs)
       const toggleWrap = document.querySelector('.toggle-wrap');
-      if (toggleWrap && !document.getElementById('theme-toggle')) {
-        const btn = document.createElement('button');
-        btn.id = 'theme-toggle';
-        btn.className = 'theme-btn';
-        btn.innerHTML = ICONS[theme];
-        btn.title = TITLES[theme];
-        btn.onclick = cycleTheme;
-        btn.setAttribute('aria-label', TITLES[theme]);
-        // Insert right after the toggle-wrap
+      if (toggleWrap) {
         toggleWrap.insertAdjacentElement('afterend', btn);
+      } else {
+        // Fallback: fixed position in top-right corner
+        btn.classList.add('theme-btn-fixed');
+        document.body.appendChild(btn);
       }
       updateButton(theme);
     });
