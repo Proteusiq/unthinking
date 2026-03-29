@@ -1,6 +1,6 @@
 # Paper List
 
-> 279 papers analyzed | 197 supports thesis | 16 challenges | 66 balanced | Date range: 2021-2026
+> 280 papers analyzed | 198 supports thesis | 16 challenges | 66 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -288,3 +288,4 @@
 | 282 | 2305.14784 | May 2023 | Anthropomorphization of AI: Opportunities and Risks | Supports |
 | 283 | 2509.21545 | Sep 2025 | Evidence for Limited Metacognition in LLMs | Balanced |
 | 284 | 2602.15829 | Feb 2026 | Operationalising the Superficial Alignment Hypothesis via Task Complexity | Supports |
+| 285 | 2407.08790 | Jul 2024 | Large Models of What? Mistaking Engineering for Linguistic Agency | Supports |
