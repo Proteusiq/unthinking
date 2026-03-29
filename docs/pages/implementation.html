@@ -5,19 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Understanding LLMs | The Thinking Machine That Doesn't Think</title>
     <style>
+      :root {
+        --bg-primary: #0d1117;
+        --bg-secondary: #161b22;
+        --bg-tertiary: #1c2128;
+        --bg-input: #0d1117;
+        --text-primary: #e6edf3;
+        --text-secondary: #c9d1d9;
+        --text-muted: #8b949e;
+        --border-primary: #30363d;
+        --border-secondary: #21262d;
+        --accent: #58a6ff;
+        --accent-green: #3fb950;
+        --accent-orange: #f0883e;
+        --accent-yellow: #e3b341;
+        --accent-purple: #d2a8ff;
+        --accent-purple-dim: #a371f7;
+        --accent-pink: #f778ba;
+        --accent-green-bright: #56d364;
+        --accent-blue-light: #79c0ff;
+        --accent-blue-lighter: #a5d6ff;
+        --accent-red: #ff7b72;
+        --code-comment: #484f58;
+      }
+
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg-primary: #ffffff;
+          --bg-secondary: #f6f8fa;
+          --bg-tertiary: #f0f3f6;
+          --bg-input: #ffffff;
+          --text-primary: #1f2328;
+          --text-secondary: #424a53;
+          --text-muted: #656d76;
+          --border-primary: #d0d7de;
+          --border-secondary: #e1e4e8;
+          --accent: #0969da;
+          --accent-green: #1a7f37;
+          --accent-orange: #d46b08;
+          --accent-yellow: #9a6700;
+          --accent-purple: #8250df;
+          --accent-purple-dim: #6639ba;
+          --accent-pink: #bf3989;
+          --accent-green-bright: #1a7f37;
+          --accent-blue-light: #0550ae;
+          --accent-blue-lighter: #0969da;
+          --accent-red: #cf222e;
+          --code-comment: #6e7781;
+        }
+      }
+
       * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
       }
       body {
-        background: #0d1117;
-        color: #c9d1d9;
+        background: var(--bg-primary);
+        color: var(--text-secondary);
         font-family: 'Courier New', monospace;
-        padding: 1.2rem 1rem 3rem;
+        padding: clamp(0.8rem, 2vw, 1.2rem) clamp(0.5rem, 2vw, 1rem) clamp(2rem, 4vw, 3rem);
       }
       a {
-        color: #58a6ff;
+        color: var(--accent);
         text-decoration: none;
       }
       a:hover {
@@ -33,37 +83,42 @@
         gap: 0.5rem;
       }
       h2 {
-        color: #d2a8ff;
+        color: var(--accent-purple);
         letter-spacing: 2px;
-        font-size: 0.8rem;
+        font-size: clamp(0.65rem, 1.5vw, 0.8rem);
         text-transform: uppercase;
       }
       .toggle-wrap {
         display: flex;
         gap: 0;
-        border: 1px solid #30363d;
+        border: 1px solid var(--border-primary);
         border-radius: 5px;
         overflow: hidden;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        max-width: 100%;
       }
       .tbtn {
-        background: #161b22;
-        color: #8b949e;
+        background: var(--bg-secondary);
+        color: var(--text-muted);
         border: none;
-        padding: 5px 12px;
+        padding: clamp(4px, 1vw, 5px) clamp(8px, 2vw, 12px);
         font-family: 'Courier New', monospace;
-        font-size: 0.62rem;
+        font-size: clamp(0.55rem, 1.2vw, 0.62rem);
         letter-spacing: 1px;
         text-transform: uppercase;
         cursor: pointer;
-        border-right: 1px solid #30363d;
+        border-right: 1px solid var(--border-primary);
         transition: background 0.15s;
+        white-space: nowrap;
+        flex-shrink: 0;
       }
       .tbtn:last-child {
         border-right: none;
       }
       .tbtn.active {
-        background: #d2a8ff;
-        color: #0d1117;
+        background: var(--accent-purple);
+        color: var(--bg-primary);
         font-weight: bold;
       }
       .wrap {
@@ -79,20 +134,20 @@
 
       /* ── INTRO BOX ── */
       .intro {
-        background: #161b22;
-        border: 1px solid #30363d;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-primary);
         border-radius: 6px;
-        padding: 0.9rem 1rem;
+        padding: clamp(0.6rem, 2vw, 0.9rem) clamp(0.7rem, 2vw, 1rem);
         margin-bottom: 0.8rem;
-        font-size: 0.66rem;
-        color: #8b949e;
+        font-size: clamp(0.58rem, 1.3vw, 0.66rem);
+        color: var(--text-muted);
         line-height: 1.8;
       }
       .intro b {
-        color: #e6edf3;
+        color: var(--text-primary);
       }
       .intro .accent {
-        color: #d2a8ff;
+        color: var(--accent-purple);
       }
 
       /* ── CARDS ── */
@@ -103,18 +158,18 @@
         margin-bottom: 0.8rem;
       }
       .card {
-        background: #161b22;
-        border: 1px solid #30363d;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-primary);
         border-radius: 5px;
-        padding: 8px 10px;
+        padding: clamp(6px, 1.5vw, 8px) clamp(8px, 2vw, 10px);
         cursor: pointer;
         transition: border-color 0.15s;
       }
       .card:hover {
-        border-color: #d2a8ff55;
+        border-color: color-mix(in srgb, var(--accent-purple) 33%, transparent);
       }
       .card.open {
-        border-color: #d2a8ff;
+        border-color: var(--accent-purple);
       }
       .c-head {
         display: flex;
@@ -122,21 +177,21 @@
         align-items: flex-start;
       }
       .c-name {
-        font-size: 0.76rem;
+        font-size: clamp(0.68rem, 1.5vw, 0.76rem);
         font-weight: bold;
       }
       .c-chev {
-        font-size: 0.6rem;
-        color: #30363d;
+        font-size: clamp(0.52rem, 1.2vw, 0.6rem);
+        color: var(--border-primary);
         transition: transform 0.2s;
       }
       .card.open .c-chev {
         transform: rotate(180deg);
-        color: #d2a8ff;
+        color: var(--accent-purple);
       }
       .c-key {
-        font-size: 0.63rem;
-        color: #8b949e;
+        font-size: clamp(0.56rem, 1.2vw, 0.63rem);
+        color: var(--text-muted);
         line-height: 1.55;
         margin-top: 3px;
       }
@@ -144,80 +199,85 @@
         display: none;
         margin-top: 7px;
         padding-top: 7px;
-        border-top: 1px solid #21262d;
-        font-size: 0.63rem;
+        border-top: 1px solid var(--border-secondary);
+        font-size: clamp(0.56rem, 1.2vw, 0.63rem);
         line-height: 1.75;
-        color: #8b949e;
+        color: var(--text-muted);
       }
       .card.open .c-detail {
         display: block;
       }
       .c-detail b {
-        color: #e6edf3;
+        color: var(--text-primary);
       }
 
       /* ── CODE BLOCKS ── */
       .code-block {
-        background: #0d1117;
-        border: 1px solid #21262d;
+        background: var(--bg-primary);
+        border: 1px solid var(--border-secondary);
         border-radius: 4px;
-        padding: 8px 10px;
+        padding: clamp(6px, 1.5vw, 8px) clamp(8px, 2vw, 10px);
         margin: 6px 0;
-        font-size: 0.6rem;
-        color: #79c0ff;
+        font-size: clamp(0.52rem, 1.1vw, 0.6rem);
+        color: var(--accent-blue-light);
         line-height: 1.65;
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
         white-space: pre;
         font-family: 'Courier New', monospace;
+        max-width: 100%;
       }
       .code-block .cm {
-        color: #484f58;
+        color: var(--code-comment);
       }
       .code-block .kw {
-        color: #ff7b72;
+        color: var(--accent-red);
       }
       .code-block .fn {
-        color: #d2a8ff;
+        color: var(--accent-purple);
       }
       .code-block .st {
-        color: #a5d6ff;
+        color: var(--accent-blue-lighter);
       }
       .code-block .nu {
-        color: #79c0ff;
+        color: var(--accent-blue-light);
       }
 
       /* ── TABLES ── */
       .tbl-wrap {
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
         margin: 6px 0;
+        max-width: 100%;
       }
       .tbl {
         width: 100%;
         border-collapse: collapse;
-        font-size: 0.63rem;
+        font-size: clamp(0.56rem, 1.2vw, 0.63rem);
+        min-width: 300px;
       }
       .tbl th {
-        background: #0d1117;
-        padding: 5px 8px;
+        background: var(--bg-primary);
+        padding: clamp(4px, 1vw, 5px) clamp(6px, 1.5vw, 8px);
         text-align: left;
-        font-size: 0.57rem;
+        font-size: clamp(0.5rem, 1.1vw, 0.57rem);
         letter-spacing: 1px;
         text-transform: uppercase;
-        border-bottom: 1px solid #30363d;
+        border-bottom: 1px solid var(--border-primary);
         white-space: nowrap;
-        color: #8b949e;
+        color: var(--text-muted);
       }
       .tbl td {
-        padding: 5px 8px;
-        border-bottom: 1px solid #21262d;
+        padding: clamp(4px, 1vw, 5px) clamp(6px, 1.5vw, 8px);
+        border-bottom: 1px solid var(--border-secondary);
         vertical-align: top;
       }
       .tbl tr:hover td {
-        background: #1c2128;
+        background: var(--bg-tertiary);
       }
       .chip {
         display: inline-block;
-        font-size: 0.57rem;
+        font-size: clamp(0.5rem, 1.1vw, 0.57rem);
         border-radius: 3px;
         padding: 1px 5px;
         white-space: nowrap;
@@ -225,15 +285,17 @@
 
       /* ── FORMULA ── */
       .formula {
-        font-size: 0.66rem;
-        color: #79c0ff;
-        background: #0d1117;
-        border: 1px solid #21262d;
+        font-size: clamp(0.58rem, 1.3vw, 0.66rem);
+        color: var(--accent-blue-light);
+        background: var(--bg-primary);
+        border: 1px solid var(--border-secondary);
         border-radius: 3px;
-        padding: 5px 10px;
+        padding: clamp(4px, 1vw, 5px) clamp(8px, 2vw, 10px);
         margin: 5px 0;
         font-family: 'Courier New', monospace;
         text-align: center;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
       }
 
       /* ── PIPELINE ── */
@@ -246,32 +308,32 @@
       .pipe-step {
         flex: 1;
         min-width: 120px;
-        background: #161b22;
-        border: 1px solid #30363d;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-primary);
         border-radius: 4px;
-        padding: 6px 8px;
+        padding: clamp(4px, 1vw, 6px) clamp(6px, 1.5vw, 8px);
         text-align: center;
-        font-size: 0.6rem;
+        font-size: clamp(0.52rem, 1.1vw, 0.6rem);
         position: relative;
       }
       .pipe-step b {
         display: block;
-        font-size: 0.65rem;
+        font-size: clamp(0.56rem, 1.2vw, 0.65rem);
         margin-bottom: 2px;
       }
       .pipe-arrow {
         display: flex;
         align-items: center;
-        font-size: 0.7rem;
-        color: #30363d;
+        font-size: clamp(0.6rem, 1.3vw, 0.7rem);
+        color: var(--border-primary);
       }
 
       /* ── SECTION LABEL ── */
       .sec-label {
-        font-size: 0.65rem;
+        font-size: clamp(0.56rem, 1.2vw, 0.65rem);
         letter-spacing: 1px;
         text-transform: uppercase;
-        color: #484f58;
+        color: var(--code-comment);
         margin: 0.9rem 0 0.4rem;
       }
 
@@ -279,13 +341,13 @@
       .credits {
         margin-top: 1.5rem;
         padding-top: 1rem;
-        border-top: 1px solid #21262d;
-        font-size: 0.6rem;
-        color: #484f58;
+        border-top: 1px solid var(--border-secondary);
+        font-size: clamp(0.52rem, 1.1vw, 0.6rem);
+        color: var(--code-comment);
         line-height: 1.8;
       }
       .credits b {
-        color: #8b949e;
+        color: var(--text-muted);
       }
 
       /* ── RESPONSIVE ── */
@@ -293,6 +355,10 @@
         .topbar {
           flex-direction: column;
           align-items: flex-start;
+        }
+        .toggle-wrap {
+          width: 100%;
+          justify-content: flex-start;
         }
         .card-grid {
           grid-template-columns: 1fr;
@@ -303,6 +369,44 @@
         .pipe-arrow {
           justify-content: center;
           transform: rotate(90deg);
+        }
+        .pipe-step {
+          min-width: unset;
+        }
+        .code-block {
+          font-size: 0.55rem;
+          padding: 6px 8px;
+        }
+        .tbl {
+          font-size: 0.56rem;
+        }
+        .formula {
+          font-size: 0.56rem;
+          padding: 4px 8px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 0.6rem 0.4rem 2rem;
+        }
+        .toggle-wrap {
+          border-radius: 4px;
+        }
+        .tbtn {
+          padding: 4px 6px;
+          font-size: 0.52rem;
+          letter-spacing: 0.5px;
+        }
+        .card {
+          padding: 6px 8px;
+        }
+        .intro {
+          padding: 0.5rem 0.6rem;
+        }
+        h2 {
+          font-size: 0.6rem;
+          letter-spacing: 1px;
         }
       }
     </style>
@@ -322,8 +426,8 @@
     <!-- ─── PIPELINE OVERVIEW ─── -->
     <div class="wrap">
       <div class="pipeline">
-        <div class="pipe-step" id="ps-tokens" style="border-color: #d2a8ff">
-          <b style="color: #d2a8ff">Tokenize</b>
+        <div class="pipe-step" id="ps-tokens" style="border-color: var(--accent-purple)">
+          <b style="color: var(--accent-purple)">Tokenize</b>
           text → integers
         </div>
         <div class="pipe-arrow">→</div>
@@ -367,7 +471,7 @@
           <!-- Character-Level -->
           <div class="card" onclick="toggleCard(this)">
             <div class="c-head">
-              <span class="c-name" style="color: #ffa657">Character-Level</span>
+              <span class="c-name" style="color: var(--accent-orange)">Character-Level</span>
               <span class="c-chev">▼</span>
             </div>
             <div class="c-key">One token per character. Simple but ~4× longer sequences.</div>
@@ -391,7 +495,7 @@ tokens = [BOS] + [uchars.index(ch) <span class="kw">for</span> ch <span class="k
           <!-- BPE Algorithm -->
           <div class="card" onclick="toggleCard(this)">
             <div class="c-head">
-              <span class="c-name" style="color: #ffa657">BPE Algorithm</span>
+              <span class="c-name" style="color: var(--accent-orange)">BPE Algorithm</span>
               <span class="c-chev">▼</span>
             </div>
             <div class="c-key">
@@ -424,7 +528,7 @@ tokens = [BOS] + [uchars.index(ch) <span class="kw">for</span> ch <span class="k
           <!-- Vocab Tradeoffs -->
           <div class="card" onclick="toggleCard(this)">
             <div class="c-head">
-              <span class="c-name" style="color: #ffa657">Vocab Tradeoffs</span>
+              <span class="c-name" style="color: var(--accent-orange)">Vocab Tradeoffs</span>
               <span class="c-chev">▼</span>
             </div>
             <div class="c-key">
@@ -473,7 +577,7 @@ tokens = [BOS] + [uchars.index(ch) <span class="kw">for</span> ch <span class="k
           <!-- Special Tokens -->
           <div class="card" onclick="toggleCard(this)">
             <div class="c-head">
-              <span class="c-name" style="color: #ffa657">Special Tokens</span>
+              <span class="c-name" style="color: var(--accent-orange)">Special Tokens</span>
               <span class="c-chev">▼</span>
             </div>
             <div class="c-key">BOS, EOS, PAD — boundary markers for sequences.</div>
@@ -515,7 +619,7 @@ tokens = [BOS] + encode(<span class="st">"emma"</span>) + [BOS]
           <!-- Token Embedding -->
           <div class="card" onclick="toggleCard(this)">
             <div class="c-head">
-              <span class="c-name" style="color: #a371f7">Token Embedding</span>
+              <span class="c-name" style="color: var(--accent-purple-dim)">Token Embedding</span>
               <span class="c-chev">▼</span>
             </div>
             <div class="c-key">Just indexing into a matrix. Row N = embedding for token N.</div>
@@ -539,7 +643,7 @@ tok_emb = wte[token_id]  <span class="cm"># that's it — just indexing</span></
           <!-- Position Embedding -->
           <div class="card" onclick="toggleCard(this)">
             <div class="c-head">
-              <span class="c-name" style="color: #a371f7">Position Embedding</span>
+              <span class="c-name" style="color: var(--accent-purple-dim)">Position Embedding</span>
               <span class="c-chev">▼</span>
             </div>
             <div class="c-key">
@@ -583,7 +687,7 @@ pos_emb = wpe[pos_id]</pre>
           <!-- Combined -->
           <div class="card" onclick="toggleCard(this)">
             <div class="c-head">
-              <span class="c-name" style="color: #a371f7">Combined Input</span>
+              <span class="c-name" style="color: var(--accent-purple-dim)">Combined Input</span>
               <span class="c-chev">▼</span>
             </div>
             <div class="c-key">Sum token + position. Model learns to disentangle.</div>
@@ -602,7 +706,7 @@ x = [t + p <span class="kw">for</span> t, p <span class="kw">in</span> zip(tok_e
           <!-- Weight Tying -->
           <div class="card" onclick="toggleCard(this)">
             <div class="c-head">
-              <span class="c-name" style="color: #a371f7">Weight Tying</span>
+              <span class="c-name" style="color: var(--accent-purple-dim)">Weight Tying</span>
               <span class="c-chev">▼</span>
             </div>
             <div class="c-key">
@@ -670,7 +774,7 @@ x = [t + p <span class="kw">for</span> t, p <span class="kw">in</span> zip(tok_e
           <!-- Self-Attention -->
           <div class="card" onclick="toggleCard(this)">
             <div class="c-head">
-              <span class="c-name" style="color: #58a6ff">Self-Attention</span>
+              <span class="c-name" style="color: var(--accent)">Self-Attention</span>
               <span class="c-chev">▼</span>
             </div>
             <div class="c-key">softmax(QK^T / √d) @ V — the core operation.</div>
@@ -701,7 +805,7 @@ x = [t + p <span class="kw">for</span> t, p <span class="kw">in</span> zip(tok_e
           <!-- Q, K, V -->
           <div class="card" onclick="toggleCard(this)">
             <div class="c-head">
-              <span class="c-name" style="color: #58a6ff">Query, Key, Value</span>
+              <span class="c-name" style="color: var(--accent)">Query, Key, Value</span>
               <span class="c-chev">▼</span>
             </div>
             <div class="c-key">Three learned projections of the same input. Different roles.</div>
@@ -741,7 +845,7 @@ V = x @ W_v</pre>
           <!-- Causal Mask -->
           <div class="card" onclick="toggleCard(this)">
             <div class="c-head">
-              <span class="c-name" style="color: #58a6ff">Causal Mask</span>
+              <span class="c-name" style="color: var(--accent)">Causal Mask</span>
               <span class="c-chev">▼</span>
             </div>
             <div class="c-key">
@@ -765,7 +869,7 @@ weights = softmax(scores)  <span class="cm"># -inf → 0</span>
           <!-- Multi-Head -->
           <div class="card" onclick="toggleCard(this)">
             <div class="c-head">
-              <span class="c-name" style="color: #58a6ff">Multi-Head Attention</span>
+              <span class="c-name" style="color: var(--accent)">Multi-Head Attention</span>
               <span class="c-chev">▼</span>
             </div>
             <div class="c-key">
@@ -835,7 +939,7 @@ weights = softmax(scores)  <span class="cm"># -inf → 0</span>
           <!-- FFN Structure -->
           <div class="card" onclick="toggleCard(this)">
             <div class="c-head">
-              <span class="c-name" style="color: #56d364">FFN Structure</span>
+              <span class="c-name" style="color: var(--accent-green-bright)">FFN Structure</span>
               <span class="c-chev">▼</span>
             </div>
             <div class="c-key">Two linear layers with 4× expansion and activation in between.</div>
@@ -854,7 +958,7 @@ x = linear(x, mlp_fc2)                <span class="cm"># [4d] → [d] contract</
           <!-- Activations -->
           <div class="card" onclick="toggleCard(this)">
             <div class="c-head">
-              <span class="c-name" style="color: #56d364">Activations</span>
+              <span class="c-name" style="color: var(--accent-green-bright)">Activations</span>
               <span class="c-chev">▼</span>
             </div>
             <div class="c-key">ReLU → GELU → SwiGLU: evolution of nonlinearity.</div>
@@ -897,7 +1001,7 @@ x = linear(x, mlp_fc2)                <span class="cm"># [4d] → [d] contract</
           <!-- Residual -->
           <div class="card" onclick="toggleCard(this)">
             <div class="c-head">
-              <span class="c-name" style="color: #56d364">Residual Connections</span>
+              <span class="c-name" style="color: var(--accent-green-bright)">Residual Connections</span>
               <span class="c-chev">▼</span>
             </div>
             <div class="c-key">x + f(x) — gradient highway. Makes deep networks trainable.</div>
@@ -919,7 +1023,7 @@ x = [a + b <span class="kw">for</span> a, b <span class="kw">in</span> zip(x, x_
           <!-- Pre-Norm -->
           <div class="card" onclick="toggleCard(this)">
             <div class="c-head">
-              <span class="c-name" style="color: #56d364">Pre-Norm vs Post-Norm</span>
+              <span class="c-name" style="color: var(--accent-green-bright)">Pre-Norm vs Post-Norm</span>
               <span class="c-chev">▼</span>
             </div>
             <div class="c-key">
@@ -968,7 +1072,7 @@ x = [a + b <span class="kw">for</span> a, b <span class="kw">in</span> zip(x, x_
           <!-- Softmax -->
           <div class="card" onclick="toggleCard(this)">
             <div class="c-head">
-              <span class="c-name" style="color: #f778ba">Softmax</span>
+              <span class="c-name" style="color: var(--accent-pink)">Softmax</span>
               <span class="c-chev">▼</span>
             </div>
             <div class="c-key">Converts logits to probabilities that sum to 1.</div>
@@ -992,7 +1096,7 @@ x = [a + b <span class="kw">for</span> a, b <span class="kw">in</span> zip(x, x_
           <!-- Cross-Entropy -->
           <div class="card" onclick="toggleCard(this)">
             <div class="c-head">
-              <span class="c-name" style="color: #f778ba">Cross-Entropy Loss</span>
+              <span class="c-name" style="color: var(--accent-pink)">Cross-Entropy Loss</span>
               <span class="c-chev">▼</span>
             </div>
             <div class="c-key">−log(p[correct]). High penalty for confident wrong answers.</div>
@@ -1013,7 +1117,7 @@ loss = -probs[target_id].log()</pre>
           <!-- Backpropagation -->
           <div class="card" onclick="toggleCard(this)">
             <div class="c-head">
-              <span class="c-name" style="color: #f778ba">Backpropagation</span>
+              <span class="c-name" style="color: var(--accent-pink)">Backpropagation</span>
               <span class="c-chev">▼</span>
             </div>
             <div class="c-key">
@@ -1038,7 +1142,7 @@ loss = -probs[target_id].log()</pre>
           <!-- Adam -->
           <div class="card" onclick="toggleCard(this)">
             <div class="c-head">
-              <span class="c-name" style="color: #f778ba">Adam Optimizer</span>
+              <span class="c-name" style="color: var(--accent-pink)">Adam Optimizer</span>
               <span class="c-chev">▼</span>
             </div>
             <div class="c-key">Momentum + adaptive rates. Bias correction for early steps.</div>
@@ -1067,7 +1171,7 @@ loss = -probs[target_id].log()</pre>
           <!-- Training Loop -->
           <div class="card" onclick="toggleCard(this)">
             <div class="c-head">
-              <span class="c-name" style="color: #f778ba">The Training Loop</span>
+              <span class="c-name" style="color: var(--accent-pink)">The Training Loop</span>
               <span class="c-chev">▼</span>
             </div>
             <div class="c-key">Forward → loss → backward → update. Repeat billions of times.</div>
@@ -1092,7 +1196,7 @@ loss = -probs[target_id].log()</pre>
           <!-- LR Schedule -->
           <div class="card" onclick="toggleCard(this)">
             <div class="c-head">
-              <span class="c-name" style="color: #f778ba">Learning Rate Schedule</span>
+              <span class="c-name" style="color: var(--accent-pink)">Learning Rate Schedule</span>
               <span class="c-chev">▼</span>
             </div>
             <div class="c-key">Warmup then decay. Start cautious, push hard, then refine.</div>
@@ -1151,31 +1255,35 @@ lr_t = learning_rate * (<span class="nu">1</span> - step / num_steps)
     <script>
       (() => {
         const modes = ['tokens', 'embed', 'attn', 'ffn', 'train'];
-        const colors = {
-          tokens: '#d2a8ff',
-          embed: '#a371f7',
-          attn: '#58a6ff',
-          ffn: '#56d364',
-          train: '#f778ba',
+        const colorVars = {
+          tokens: '--accent-purple',
+          embed: '--accent-purple-dim',
+          attn: '--accent',
+          ffn: '--accent-green-bright',
+          train: '--accent-pink',
         };
 
+        const getColor = (mode) => getComputedStyle(document.documentElement).getPropertyValue(colorVars[mode]).trim();
+
         window.setMode = (mode) => {
+          const activeColor = getColor(mode);
           modes.forEach((m) => {
             const el = document.getElementById('view-' + m);
             if (el) el.classList.toggle('show', m === mode);
             const ps = document.getElementById('ps-' + m);
             if (ps) {
-              ps.style.borderColor = m === mode ? colors[m] : '#30363d';
+              const mColor = m === mode ? getColor(m) : getComputedStyle(document.documentElement).getPropertyValue('--border-primary').trim();
+              ps.style.borderColor = mColor;
               const b = ps.querySelector('b');
-              if (b) b.style.color = m === mode ? colors[m] : '#c9d1d9';
+              if (b) b.style.color = m === mode ? getColor(m) : getComputedStyle(document.documentElement).getPropertyValue('--text-secondary').trim();
             }
           });
           document.querySelectorAll('.tbtn').forEach((btn, i) => {
             btn.classList.toggle('active', modes[i] === mode);
             if (modes[i] === mode) {
-              btn.style.background = colors[mode];
+              btn.style.background = activeColor;
             } else {
-              btn.style.background = '#161b22';
+              btn.style.background = getComputedStyle(document.documentElement).getPropertyValue('--bg-secondary').trim();
             }
           });
         };

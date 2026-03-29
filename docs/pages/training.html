@@ -5,16 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LLM Training Pipeline | The Thinking Machine That Doesn't Think</title>
     <style>
+      :root {
+        --bg-primary: #0d1117;
+        --bg-secondary: #161b22;
+        --bg-tertiary: #1c2128;
+        --bg-input: #0d1117;
+        --text-primary: #e6edf3;
+        --text-secondary: #c9d1d9;
+        --text-muted: #8b949e;
+        --border-primary: #30363d;
+        --border-secondary: #21262d;
+        --accent: #56d364;
+        --accent-blue: #58a6ff;
+        --accent-orange: #f0883e;
+        --accent-yellow: #e3b341;
+        --accent-purple: #d2a8ff;
+      }
+
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg-primary: #ffffff;
+          --bg-secondary: #f6f8fa;
+          --bg-tertiary: #f0f3f6;
+          --bg-input: #ffffff;
+          --text-primary: #1f2328;
+          --text-secondary: #424a53;
+          --text-muted: #656d76;
+          --border-primary: #d0d7de;
+          --border-secondary: #e1e4e8;
+          --accent: #1a7f37;
+          --accent-blue: #0969da;
+          --accent-orange: #d46b08;
+          --accent-yellow: #9a6700;
+          --accent-purple: #8250df;
+        }
+      }
+
       * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
       }
       body {
-        background: #0d1117;
-        color: #c9d1d9;
+        background: var(--bg-primary);
+        color: var(--text-secondary);
         font-family: 'Courier New', monospace;
-        padding: 1.5rem 1rem 3rem;
+        font-size: clamp(0.875rem, 2vw, 1rem);
+        padding: clamp(1rem, 3vw, 1.5rem) clamp(0.75rem, 2vw, 1rem) clamp(2rem, 5vw, 3rem);
       }
 
       /* ── TOPBAR ── */
@@ -22,45 +59,45 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        max-width: 960px;
+        max-width: min(960px, 100%);
         margin: 0 auto 1.6rem;
         flex-wrap: wrap;
         gap: 0.5rem;
       }
       h2 {
-        color: #56d364;
+        color: var(--accent);
         letter-spacing: 2px;
-        font-size: 0.8rem;
+        font-size: clamp(0.7rem, 1.5vw, 0.8rem);
         text-transform: uppercase;
       }
       .toggle-wrap {
         display: flex;
         gap: 0;
-        border: 1px solid #30363d;
+        border: 1px solid var(--border-primary);
         border-radius: 5px;
         overflow: hidden;
       }
       .toggle-btn {
-        background: #161b22;
-        color: #8b949e;
+        background: var(--bg-secondary);
+        color: var(--text-muted);
         border: none;
-        padding: 5px 13px;
+        padding: clamp(4px, 1vw, 5px) clamp(10px, 2vw, 13px);
         font-family: 'Courier New', monospace;
-        font-size: 0.63rem;
+        font-size: clamp(0.55rem, 1.2vw, 0.63rem);
         letter-spacing: 1px;
         text-transform: uppercase;
         cursor: pointer;
         transition:
           background 0.15s,
           color 0.15s;
-        border-right: 1px solid #30363d;
+        border-right: 1px solid var(--border-primary);
       }
       .toggle-btn:last-child {
         border-right: none;
       }
       .toggle-btn.active {
-        background: #56d364;
-        color: #0d1117;
+        background: var(--accent);
+        color: var(--bg-primary);
         font-weight: bold;
       }
 
@@ -80,13 +117,13 @@
       .phase-banners {
         display: flex;
         gap: 8px;
-        max-width: 960px;
+        max-width: min(960px, 100%);
         margin: 0 auto 1.1rem;
         flex-wrap: wrap;
       }
       .pb {
-        font-size: 0.63rem;
-        padding: 6px 10px;
+        font-size: clamp(0.55rem, 1.2vw, 0.63rem);
+        padding: clamp(4px, 1vw, 6px) clamp(8px, 1.5vw, 10px);
         border-radius: 4px;
         line-height: 1.65;
         flex: 1;
@@ -94,7 +131,7 @@
       }
       .pb b {
         display: block;
-        font-size: 0.65rem;
+        font-size: clamp(0.57rem, 1.3vw, 0.65rem);
         margin-bottom: 3px;
       }
 
@@ -102,7 +139,7 @@
       .outer {
         display: flex;
         gap: 0;
-        max-width: 960px;
+        max-width: min(960px, 100%);
         margin: 0 auto;
       }
       .timeline {
@@ -119,8 +156,8 @@
         align-items: center;
       }
       .tl-year {
-        font-size: 0.55rem;
-        color: #56d364;
+        font-size: clamp(0.5rem, 1vw, 0.55rem);
+        color: var(--accent);
         font-weight: bold;
         white-space: nowrap;
       }
@@ -128,17 +165,17 @@
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: #30363d;
+        background: var(--border-primary);
         margin: 3px 0;
         flex-shrink: 0;
       }
       .tl-dot.active {
-        background: #56d364;
-        box-shadow: 0 0 5px #56d36488;
+        background: var(--accent);
+        box-shadow: 0 0 5px color-mix(in srgb, var(--accent) 50%, transparent);
       }
       .tl-line {
         width: 2px;
-        background: #21262d;
+        background: var(--border-secondary);
         flex: 1;
         min-height: 10px;
       }
@@ -155,10 +192,10 @@
 
       /* ── BOX (expandable stage) ── */
       .box {
-        border: 1px solid #30363d;
+        border: 1px solid var(--border-primary);
         border-radius: 6px;
-        padding: 0.75rem 0.95rem;
-        background: #161b22;
+        padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(0.7rem, 2vw, 0.95rem);
+        background: var(--bg-secondary);
         cursor: pointer;
         transition:
           border-color 0.2s,
@@ -166,8 +203,8 @@
         width: 100%;
       }
       .box:hover {
-        border-color: #56d364;
-        background: #1c2128;
+        border-color: var(--accent);
+        background: var(--bg-tertiary);
       }
       .box-header {
         display: flex;
@@ -175,19 +212,19 @@
         align-items: flex-start;
       }
       .snum {
-        font-size: 0.55rem;
+        font-size: clamp(0.5rem, 1vw, 0.55rem);
         letter-spacing: 2px;
         text-transform: uppercase;
         opacity: 0.55;
         margin-bottom: 2px;
       }
       .sname {
-        font-size: 0.86rem;
+        font-size: clamp(0.75rem, 1.5vw, 0.86rem);
         font-weight: bold;
       }
       .chevron {
-        font-size: 0.6rem;
-        color: #30363d;
+        font-size: clamp(0.5rem, 1vw, 0.6rem);
+        color: var(--border-primary);
         transition: transform 0.2s;
         flex-shrink: 0;
         padding-left: 6px;
@@ -195,21 +232,21 @@
       }
       .box.open .chevron {
         transform: rotate(180deg);
-        color: #56d364;
+        color: var(--accent);
       }
       .sdesc-short {
-        font-size: 0.69rem;
-        color: #8b949e;
+        font-size: clamp(0.6rem, 1.2vw, 0.69rem);
+        color: var(--text-muted);
         line-height: 1.7;
         margin-top: 0.32rem;
       }
       .sdesc-detail {
-        font-size: 0.69rem;
-        color: #8b949e;
+        font-size: clamp(0.6rem, 1.2vw, 0.69rem);
+        color: var(--text-muted);
         line-height: 1.8;
         margin-top: 0.6rem;
         padding-top: 0.6rem;
-        border-top: 1px solid #21262d;
+        border-top: 1px solid var(--border-secondary);
         display: none;
       }
       .box.open .sdesc-detail {
@@ -217,41 +254,41 @@
       }
       .sdesc-short b,
       .sdesc-detail b {
-        color: #e6edf3;
+        color: var(--text-primary);
       }
       .math-block {
-        background: #0d1117;
-        border: 1px solid #21262d;
+        background: var(--bg-primary);
+        border: 1px solid var(--border-secondary);
         border-radius: 4px;
-        padding: 5px 9px;
+        padding: clamp(4px, 1vw, 5px) clamp(7px, 1.5vw, 9px);
         margin: 5px 0;
-        font-size: 0.67rem;
-        color: #79c0ff;
+        font-size: clamp(0.58rem, 1.1vw, 0.67rem);
+        color: var(--accent-blue);
         line-height: 1.55;
       }
       .crit-note {
-        border-top: 1px dashed #f0883e;
+        border-top: 1px dashed var(--accent-orange);
         padding-top: 0.5rem;
         margin-top: 0.35rem;
-        font-size: 0.67rem;
+        font-size: clamp(0.58rem, 1.1vw, 0.67rem);
       }
       .crit-label {
-        color: #f0883e;
-        font-size: 0.6rem;
+        color: var(--accent-orange);
+        font-size: clamp(0.52rem, 1vw, 0.6rem);
         letter-spacing: 1px;
         text-transform: uppercase;
         font-weight: bold;
         margin-bottom: 0.2rem;
       }
       .thesis-note {
-        border-top: 1px dashed #56d364;
+        border-top: 1px dashed var(--accent);
         padding-top: 0.5rem;
         margin-top: 0.35rem;
-        font-size: 0.67rem;
+        font-size: clamp(0.58rem, 1.1vw, 0.67rem);
       }
       .thesis-label {
-        color: #56d364;
-        font-size: 0.6rem;
+        color: var(--accent);
+        font-size: clamp(0.52rem, 1vw, 0.6rem);
         letter-spacing: 1px;
         text-transform: uppercase;
         font-weight: bold;
@@ -262,13 +299,13 @@
       .arrow {
         text-align: left;
         padding-left: 12px;
-        color: #30363d;
+        color: var(--border-primary);
         font-size: 1rem;
         line-height: 1.35;
       }
       .arrow-label {
-        font-size: 0.55rem;
-        color: #30363d;
+        font-size: clamp(0.5rem, 1vw, 0.55rem);
+        color: var(--border-primary);
         letter-spacing: 1px;
         display: block;
       }
@@ -277,14 +314,14 @@
       .phase-divider {
         width: 100%;
         text-align: center;
-        font-size: 0.57rem;
-        color: #8b949e;
+        font-size: clamp(0.5rem, 1vw, 0.57rem);
+        color: var(--text-muted);
         letter-spacing: 1.5px;
         text-transform: uppercase;
         margin: 6px 0;
         padding: 6px 0;
-        border-top: 1px dashed #30363d;
-        border-bottom: 1px dashed #30363d;
+        border-top: 1px dashed var(--border-primary);
+        border-bottom: 1px dashed var(--border-primary);
       }
 
       /* ── BRANCH/FORK (post-training) ── */
@@ -299,7 +336,7 @@
         flex-direction: column;
       }
       .branch-label {
-        font-size: 0.57rem;
+        font-size: clamp(0.5rem, 1vw, 0.57rem);
         letter-spacing: 1.5px;
         text-transform: uppercase;
         text-align: center;
@@ -308,16 +345,16 @@
         border-radius: 3px;
       }
       .branch-std .branch-label {
-        color: #56d364;
-        background: #1b2e1f;
+        color: var(--accent);
+        background: color-mix(in srgb, var(--accent) 15%, var(--bg-primary));
       }
       .branch-llm .branch-label {
-        color: #d2a8ff;
-        background: #2b1d3d;
+        color: var(--accent-purple);
+        background: color-mix(in srgb, var(--accent-purple) 15%, var(--bg-primary));
       }
       .branch-arrow {
         text-align: center;
-        color: #30363d;
+        color: var(--border-primary);
         font-size: 0.9rem;
         line-height: 1.3;
         padding: 2px 0;
@@ -333,8 +370,8 @@
         flex-direction: column;
       }
       .fork-col-label {
-        font-size: 0.55rem;
-        color: #56d364;
+        font-size: clamp(0.5rem, 1vw, 0.55rem);
+        color: var(--accent);
         text-align: center;
         letter-spacing: 1px;
         text-transform: uppercase;
@@ -343,8 +380,8 @@
       .fork-label-row {
         display: flex;
         justify-content: center;
-        font-size: 0.58rem;
-        color: #ffa657;
+        font-size: clamp(0.5rem, 1vw, 0.58rem);
+        color: var(--accent-orange);
         letter-spacing: 1.5px;
         text-transform: uppercase;
         margin-bottom: 5px;
@@ -353,7 +390,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #21262d;
+        color: var(--border-secondary);
         font-size: 0.7rem;
         padding: 0 2px;
         flex-shrink: 0;
@@ -378,19 +415,19 @@
       .loop-tag {
         writing-mode: vertical-rl;
         text-orientation: mixed;
-        font-size: 0.5rem;
+        font-size: clamp(0.45rem, 0.9vw, 0.5rem);
         letter-spacing: 1px;
         text-transform: uppercase;
-        color: #3fb950;
+        color: var(--accent);
       }
       .loop-line {
         flex: 1;
         width: 2px;
-        background: #3fb95044;
+        background: color-mix(in srgb, var(--accent) 25%, transparent);
         margin: 3px 0;
       }
       .loop-arrow-up {
-        color: #3fb950;
+        color: var(--accent);
         font-size: 0.8rem;
       }
 
@@ -402,18 +439,18 @@
         margin-top: 0.4rem;
       }
       .spec-item {
-        background: #0d1117;
-        border: 1px solid #21262d;
+        background: var(--bg-primary);
+        border: 1px solid var(--border-secondary);
         border-radius: 4px;
-        padding: 6px 8px;
-        font-size: 0.63rem;
+        padding: clamp(4px, 1vw, 6px) clamp(6px, 1.5vw, 8px);
+        font-size: clamp(0.55rem, 1.1vw, 0.63rem);
         line-height: 1.6;
       }
 
       /* ── LABS ── */
       .labs-section-title {
-        font-size: 0.58rem;
-        color: #8b949e;
+        font-size: clamp(0.5rem, 1vw, 0.58rem);
+        color: var(--text-muted);
         letter-spacing: 2px;
         text-transform: uppercase;
         margin: 1.4rem 0 0.5rem;
@@ -425,36 +462,36 @@
         gap: 7px;
       }
       .lab {
-        border: 1px solid #30363d;
+        border: 1px solid var(--border-primary);
         border-radius: 5px;
-        padding: 8px 10px;
-        font-size: 0.65rem;
-        color: #8b949e;
+        padding: clamp(6px, 1.5vw, 8px) clamp(8px, 1.5vw, 10px);
+        font-size: clamp(0.57rem, 1.1vw, 0.65rem);
+        color: var(--text-muted);
         line-height: 1.7;
-        background: #161b22;
+        background: var(--bg-secondary);
       }
       .lname {
-        font-size: 0.65rem;
+        font-size: clamp(0.57rem, 1.1vw, 0.65rem);
         font-weight: bold;
         margin-bottom: 3px;
       }
 
       /* ── NOTE ── */
       .note {
-        border: 1px solid #30363d;
+        border: 1px solid var(--border-primary);
         border-radius: 6px;
-        padding: 0.7rem 1rem;
-        font-size: 0.67rem;
-        color: #8b949e;
+        padding: clamp(0.5rem, 1.5vw, 0.7rem) clamp(0.7rem, 2vw, 1rem);
+        font-size: clamp(0.58rem, 1.1vw, 0.67rem);
+        color: var(--text-muted);
         line-height: 1.8;
-        background: #161b22;
+        background: var(--bg-secondary);
         margin-top: 0.9rem;
       }
       .note b {
-        color: #e6edf3;
+        color: var(--text-primary);
       }
       .note-title {
-        font-size: 0.6rem;
+        font-size: clamp(0.52rem, 1vw, 0.6rem);
         letter-spacing: 1.5px;
         text-transform: uppercase;
         font-weight: bold;
@@ -463,55 +500,55 @@
 
       /* ── MECHANICS TAB ── */
       .mech-wrap {
-        max-width: 960px;
+        max-width: min(960px, 100%);
         margin: 0 auto;
         display: flex;
         flex-direction: column;
         gap: 1.3rem;
       }
       .mech-section {
-        border: 1px solid #30363d;
+        border: 1px solid var(--border-primary);
         border-radius: 6px;
-        background: #161b22;
+        background: var(--bg-secondary);
         overflow: hidden;
       }
       .mech-header {
-        padding: 0.65rem 1rem;
+        padding: clamp(0.5rem, 1.5vw, 0.65rem) clamp(0.7rem, 2vw, 1rem);
         display: flex;
         align-items: baseline;
         gap: 0.7rem;
-        border-bottom: 1px solid #21262d;
-        background: #0d1117;
+        border-bottom: 1px solid var(--border-secondary);
+        background: var(--bg-primary);
         cursor: pointer;
       }
       .mech-header:hover {
-        background: #161b22;
+        background: var(--bg-secondary);
       }
       .mech-num {
-        font-size: 0.6rem;
-        color: #56d364;
+        font-size: clamp(0.52rem, 1vw, 0.6rem);
+        color: var(--accent);
         letter-spacing: 2px;
         text-transform: uppercase;
         font-weight: bold;
         flex-shrink: 0;
       }
       .mech-title {
-        font-size: 0.88rem;
+        font-size: clamp(0.75rem, 1.5vw, 0.88rem);
         font-weight: bold;
         flex: 1;
       }
       .mech-chev {
-        font-size: 0.6rem;
-        color: #30363d;
+        font-size: clamp(0.52rem, 1vw, 0.6rem);
+        color: var(--border-primary);
         transition: transform 0.2s;
       }
       .mech-section.open .mech-chev {
         transform: rotate(180deg);
-        color: #56d364;
+        color: var(--accent);
       }
       .mech-body {
-        font-size: 0.69rem;
-        color: #8b949e;
+        font-size: clamp(0.6rem, 1.2vw, 0.69rem);
+        color: var(--text-muted);
         line-height: 1.85;
         padding: 0;
         max-height: 0;
@@ -521,15 +558,15 @@
           padding 0.3s;
       }
       .mech-section.open .mech-body {
-        padding: 0.82rem 1rem;
+        padding: clamp(0.6rem, 1.5vw, 0.82rem) clamp(0.7rem, 2vw, 1rem);
         max-height: 6000px;
       }
       .mech-body b {
-        color: #e6edf3;
+        color: var(--text-primary);
       }
       .mech-body h4 {
-        font-size: 0.63rem;
-        color: #56d364;
+        font-size: clamp(0.55rem, 1.1vw, 0.63rem);
+        color: var(--accent);
         letter-spacing: 1px;
         text-transform: uppercase;
         margin: 0.65rem 0 0.28rem;
@@ -538,99 +575,104 @@
         margin-top: 0;
       }
       .mech-body .math-block {
-        font-size: 0.67rem;
+        font-size: clamp(0.58rem, 1.1vw, 0.67rem);
       }
       .mech-body .ref {
-        font-size: 0.63rem;
-        color: #3fb950;
+        font-size: clamp(0.55rem, 1.1vw, 0.63rem);
+        color: var(--accent);
         margin: 2px 0;
       }
       .mech-body .ref::before {
         content: '\2192 ';
       }
+      .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 0.5rem 0;
+      }
       .mech-table {
         width: 100%;
         border-collapse: collapse;
-        font-size: 0.67rem;
-        margin-top: 0.5rem;
+        font-size: clamp(0.58rem, 1.1vw, 0.67rem);
+        min-width: 400px;
       }
       .mech-table th {
-        background: #0d1117;
-        color: #56d364;
-        padding: 5px 9px;
+        background: var(--bg-primary);
+        color: var(--accent);
+        padding: clamp(4px, 1vw, 5px) clamp(7px, 1.5vw, 9px);
         text-align: left;
-        font-size: 0.6rem;
+        font-size: clamp(0.52rem, 1vw, 0.6rem);
         letter-spacing: 1px;
         text-transform: uppercase;
-        border-bottom: 1px solid #30363d;
+        border-bottom: 1px solid var(--border-primary);
       }
       .mech-table td {
-        padding: 5px 9px;
-        border-bottom: 1px solid #21262d;
-        color: #8b949e;
+        padding: clamp(4px, 1vw, 5px) clamp(7px, 1.5vw, 9px);
+        border-bottom: 1px solid var(--border-secondary);
+        color: var(--text-muted);
         vertical-align: top;
       }
       .mech-table td b {
-        color: #e6edf3;
+        color: var(--text-primary);
       }
       .mech-table tr:last-child td {
         border-bottom: none;
       }
       .mech-table tr:hover td {
-        background: #1c2128;
+        background: var(--bg-tertiary);
       }
 
       /* ── RESEARCH TAB ── */
       .rw {
-        max-width: 960px;
+        max-width: min(960px, 100%);
         margin: 0 auto;
         display: flex;
         flex-direction: column;
         gap: 1.3rem;
       }
       .rw-section {
-        border: 1px solid #30363d;
+        border: 1px solid var(--border-primary);
         border-radius: 6px;
-        background: #161b22;
+        background: var(--bg-secondary);
         overflow: hidden;
       }
       .rw-header {
-        padding: 0.65rem 1rem;
+        padding: clamp(0.5rem, 1.5vw, 0.65rem) clamp(0.7rem, 2vw, 1rem);
         display: flex;
         align-items: baseline;
         gap: 0.7rem;
-        border-bottom: 1px solid #21262d;
-        background: #0d1117;
+        border-bottom: 1px solid var(--border-secondary);
+        background: var(--bg-primary);
         cursor: pointer;
       }
       .rw-header:hover {
-        background: #161b22;
+        background: var(--bg-secondary);
       }
       .rw-num {
-        font-size: 0.6rem;
-        color: #56d364;
+        font-size: clamp(0.52rem, 1vw, 0.6rem);
+        color: var(--accent);
         letter-spacing: 2px;
         text-transform: uppercase;
         font-weight: bold;
         flex-shrink: 0;
       }
       .rw-title {
-        font-size: 0.88rem;
+        font-size: clamp(0.75rem, 1.5vw, 0.88rem);
         font-weight: bold;
         flex: 1;
       }
       .rw-chev {
-        font-size: 0.6rem;
-        color: #30363d;
+        font-size: clamp(0.52rem, 1vw, 0.6rem);
+        color: var(--border-primary);
         transition: transform 0.2s;
       }
       .rw-section.open .rw-chev {
         transform: rotate(180deg);
-        color: #56d364;
+        color: var(--accent);
       }
       .rw-body {
-        font-size: 0.69rem;
-        color: #8b949e;
+        font-size: clamp(0.6rem, 1.2vw, 0.69rem);
+        color: var(--text-muted);
         line-height: 1.85;
         padding: 0;
         max-height: 0;
@@ -640,15 +682,15 @@
           padding 0.3s;
       }
       .rw-section.open .rw-body {
-        padding: 0.82rem 1rem;
+        padding: clamp(0.6rem, 1.5vw, 0.82rem) clamp(0.7rem, 2vw, 1rem);
         max-height: 6000px;
       }
       .rw-body b {
-        color: #e6edf3;
+        color: var(--text-primary);
       }
       .rw-body h4 {
-        font-size: 0.63rem;
-        color: #56d364;
+        font-size: clamp(0.55rem, 1.1vw, 0.63rem);
+        color: var(--accent);
         letter-spacing: 1px;
         text-transform: uppercase;
         margin: 0.65rem 0 0.28rem;
@@ -657,8 +699,8 @@
         margin-top: 0;
       }
       .rw-body .ref {
-        font-size: 0.63rem;
-        color: #3fb950;
+        font-size: clamp(0.55rem, 1.1vw, 0.63rem);
+        color: var(--accent);
         margin: 2px 0;
       }
       .rw-body .ref::before {
@@ -667,33 +709,33 @@
       .rw-table {
         width: 100%;
         border-collapse: collapse;
-        font-size: 0.67rem;
-        margin-top: 0.5rem;
+        font-size: clamp(0.58rem, 1.1vw, 0.67rem);
+        min-width: 500px;
       }
       .rw-table th {
-        background: #0d1117;
-        color: #56d364;
-        padding: 5px 9px;
+        background: var(--bg-primary);
+        color: var(--accent);
+        padding: clamp(4px, 1vw, 5px) clamp(7px, 1.5vw, 9px);
         text-align: left;
-        font-size: 0.6rem;
+        font-size: clamp(0.52rem, 1vw, 0.6rem);
         letter-spacing: 1px;
         text-transform: uppercase;
-        border-bottom: 1px solid #30363d;
+        border-bottom: 1px solid var(--border-primary);
       }
       .rw-table td {
-        padding: 5px 9px;
-        border-bottom: 1px solid #21262d;
-        color: #8b949e;
+        padding: clamp(4px, 1vw, 5px) clamp(7px, 1.5vw, 9px);
+        border-bottom: 1px solid var(--border-secondary);
+        color: var(--text-muted);
         vertical-align: top;
       }
       .rw-table td b {
-        color: #e6edf3;
+        color: var(--text-primary);
       }
       .rw-table tr:last-child td {
         border-bottom: none;
       }
       .rw-table tr:hover td {
-        background: #1c2128;
+        background: var(--bg-tertiary);
       }
       .open-problems {
         display: grid;
@@ -702,16 +744,16 @@
         margin-top: 0.5rem;
       }
       .op-item {
-        background: #0d1117;
-        border: 1px solid #21262d;
+        background: var(--bg-primary);
+        border: 1px solid var(--border-secondary);
         border-radius: 4px;
-        padding: 7px 9px;
-        font-size: 0.67rem;
-        color: #8b949e;
+        padding: clamp(5px, 1.2vw, 7px) clamp(7px, 1.5vw, 9px);
+        font-size: clamp(0.58rem, 1.1vw, 0.67rem);
+        color: var(--text-muted);
         line-height: 1.6;
       }
       .op-item b {
-        color: #f0883e;
+        color: var(--accent-orange);
       }
 
       /* ── BACK LINK ── */
@@ -719,9 +761,9 @@
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        color: #56d364;
+        color: var(--accent);
         text-decoration: none;
-        font-size: 0.7rem;
+        font-size: clamp(0.6rem, 1.2vw, 0.7rem);
         margin-bottom: 1rem;
         opacity: 0.8;
         transition: opacity 0.15s;
@@ -745,14 +787,34 @@
         .branch-split {
           flex-direction: column;
         }
-        body {
-          padding: 1.2rem 1rem 3rem;
+        .fork3 {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .fork-or {
+          display: none;
+        }
+        .spec-grid {
+          grid-template-columns: 1fr;
+        }
+        .labs {
+          grid-template-columns: 1fr;
+        }
+        .open-problems {
+          grid-template-columns: 1fr;
+        }
+        .pb {
+          min-width: 100%;
+        }
+        .toggle-btn {
+          padding: 6px 8px;
+          font-size: 0.55rem;
         }
       }
     </style>
   </head>
   <body>
-    <div style="max-width: 960px; margin: 0 auto">
+    <div style="max-width: min(960px, 100%); margin: 0 auto">
       <a
         href="index.html"
         class="back-link"
@@ -788,18 +850,18 @@
          ═══════════════════════════════════════════════════════════════════════ -->
     <div id="view-pipeline" class="show">
       <div class="phase-banners">
-        <div class="pb" style="background: #0d223322; border: 1px solid #58a6ff33">
-          <b style="color: #58a6ff">Phase 1: Pre-training</b>
+        <div class="pb" style="background: color-mix(in srgb, var(--accent-blue) 10%, var(--bg-primary)); border: 1px solid color-mix(in srgb, var(--accent-blue) 20%, transparent)">
+          <b style="color: var(--accent-blue)">Phase 1: Pre-training</b>
           Next-token prediction on trillions of tokens. The foundation: world knowledge, language
           structure, latent capabilities. Dominated by compute, data, and optimization.
         </div>
-        <div class="pb" style="background: #2d220022; border: 1px solid #e3b34133">
-          <b style="color: #e3b341">Phase 2: Mid-training</b>
+        <div class="pb" style="background: color-mix(in srgb, var(--accent-yellow) 10%, var(--bg-primary)); border: 1px solid color-mix(in srgb, var(--accent-yellow) 20%, transparent)">
+          <b style="color: var(--accent-yellow)">Phase 2: Mid-training</b>
           Annealing with high-quality data, domain adaptation, long-context extension. Bridges raw
           pre-training and behavioral fine-tuning.
         </div>
-        <div class="pb" style="background: #1b2e1f22; border: 1px solid #56d36433">
-          <b style="color: #56d364">Phase 3: Post-training</b>
+        <div class="pb" style="background: color-mix(in srgb, var(--accent) 10%, var(--bg-primary)); border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent)">
+          <b style="color: var(--accent)">Phase 3: Post-training</b>
           SFT, RLHF, DPO, GRPO, RLVR. Alignment, instruction-following, reasoning. Surface
           compliance or genuine capability shift?
         </div>
@@ -929,42 +991,44 @@
                 for next-gen hardware.
               </div>
               <div class="sdesc-detail">
-                <table class="mech-table">
-                  <thead>
-                    <tr>
-                      <th>Format</th>
-                      <th>Bits</th>
-                      <th>Range</th>
-                      <th>Use</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><b>fp32</b></td>
-                      <td>32</td>
-                      <td>&plusmn;3.4&times;10^38</td>
-                      <td>Master weights, optimizer states</td>
-                    </tr>
-                    <tr>
-                      <td><b>bf16</b></td>
-                      <td>16</td>
-                      <td>Same as fp32</td>
-                      <td>Forward/backward pass (standard)</td>
-                    </tr>
-                    <tr>
-                      <td><b>fp16</b></td>
-                      <td>16</td>
-                      <td>&plusmn;65504</td>
-                      <td>Older GPUs, needs loss scaling</td>
-                    </tr>
-                    <tr>
-                      <td><b>fp8 (E4M3)</b></td>
-                      <td>8</td>
-                      <td>&plusmn;448</td>
-                      <td>H100/B100 matmuls, ~2&times; throughput</td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div class="table-wrapper">
+                  <table class="mech-table">
+                    <thead>
+                      <tr>
+                        <th>Format</th>
+                        <th>Bits</th>
+                        <th>Range</th>
+                        <th>Use</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><b>fp32</b></td>
+                        <td>32</td>
+                        <td>&plusmn;3.4&times;10^38</td>
+                        <td>Master weights, optimizer states</td>
+                      </tr>
+                      <tr>
+                        <td><b>bf16</b></td>
+                        <td>16</td>
+                        <td>Same as fp32</td>
+                        <td>Forward/backward pass (standard)</td>
+                      </tr>
+                      <tr>
+                        <td><b>fp16</b></td>
+                        <td>16</td>
+                        <td>&plusmn;65504</td>
+                        <td>Older GPUs, needs loss scaling</td>
+                      </tr>
+                      <tr>
+                        <td><b>fp8 (E4M3)</b></td>
+                        <td>8</td>
+                        <td>&plusmn;448</td>
+                        <td>H100/B100 matmuls, ~2&times; throughput</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
                 <br />
                 <b>Why bf16 won:</b> same exponent range as fp32 (8 bits), so no loss scaling
                 needed. fp16 has only 5 exponent bits &mdash; requires careful scaling to avoid
@@ -1197,8 +1261,8 @@
             style="
               width: 100%;
               text-align: center;
-              font-size: 0.57rem;
-              color: #8b949e;
+              font-size: clamp(0.5rem, 1vw, 0.57rem);
+              color: var(--text-muted);
               letter-spacing: 1.5px;
               text-transform: uppercase;
               margin-bottom: 6px;
@@ -1502,41 +1566,41 @@
           <div class="labs-section-title">Major Labs</div>
           <div class="labs">
             <div class="lab">
-              <div class="lname" style="color: #ffa657">Meta (Llama 3.1 / 4)</div>
+              <div class="lname" style="color: var(--accent-orange)">Meta (Llama 3.1 / 4)</div>
               <b>Pre:</b> 15T tokens, 4D parallelism on 16,384 H100s. <b>Post:</b> Iterative SFT +
               RS + DPO. <b>4:</b> SFT &rarr; Online RL (hard prompts) &rarr; DPO polish.
             </div>
             <div class="lab">
-              <div class="lname" style="color: #d2a8ff">Anthropic (Claude)</div>
+              <div class="lname" style="color: var(--accent-purple)">Anthropic (Claude)</div>
               Constitution-driven synthetic data + RLAIF. 2026: constitution explains
               <i>why</i>, enabling generalization across novel cases.
             </div>
             <div class="lab">
-              <div class="lname" style="color: #79c0ff">OpenAI</div>
+              <div class="lname" style="color: var(--accent-blue)">OpenAI</div>
               SFT &rarr; DPO for standard models. RFT for reasoning: expert grader scores CoT
               process step-by-step. o1/o3: test-time compute scaling.
             </div>
             <div class="lab">
-              <div class="lname" style="color: #56d364">Google DeepMind</div>
+              <div class="lname" style="color: var(--accent)">Google DeepMind</div>
               Gemini: TPU training at scale. PPO-based alignment. Gemini 1.5/2 adds long-context
               alignment passes.
             </div>
             <div class="lab">
-              <div class="lname" style="color: #58a6ff">Microsoft (Phi-3 / Phi-4)</div>
+              <div class="lname" style="color: var(--accent-blue)">Microsoft (Phi-3 / Phi-4)</div>
               "Textbook-quality" synthetic SFT. <b>Orca/Orca-2:</b> process supervision for
               step-level reasoning. Frontier reasoning at 3B&ndash;14B.
             </div>
             <div class="lab">
-              <div class="lname" style="color: #c9d1d9">xAI (Grok-3)</div>
+              <div class="lname" style="color: var(--text-secondary)">xAI (Grok-3)</div>
               <b>DeepThink:</b> GRPO-style reasoning RL. Standard SFT + DPO for base.
             </div>
             <div class="lab">
-              <div class="lname" style="color: #76b900">NVIDIA (Nemotron-4)</div>
+              <div class="lname" style="color: var(--accent)">NVIDIA (Nemotron-4)</div>
               <b>HelpSteer2</b> synthetic preference pipeline + open reward model adopted by other
               labs.
             </div>
             <div class="lab">
-              <div class="lname" style="color: #c9d1d9">MiniMax (M1 / M2.5)</div>
+              <div class="lname" style="color: var(--text-secondary)">MiniMax (M1 / M2.5)</div>
               <b>M1:</b> CISPO on hybrid MoE + Lightning Attn (456B/45.9B, 1M ctx).<br /><b
                 >M2.5:</b
               >
@@ -1547,18 +1611,18 @@
           <div class="labs-section-title">Open-weights labs</div>
           <div class="labs">
             <div class="lab">
-              <div class="lname" style="color: #e3b341">
+              <div class="lname" style="color: var(--accent-yellow)">
                 AllenAI (T&uuml;lu 3 / OLMo 3)
-                <span style="color: #56d364; font-size: 0.58rem">&star; fully open</span>
+                <span style="color: var(--accent); font-size: 0.58rem">&star; fully open</span>
               </div>
               Weights + data + code + eval. <b>T&uuml;lu 3:</b> SFT &rarr; DPO &rarr; RLVR. 70B
               matches GPT-4o-mini. <b>OLMo 3:</b> Dolci suite, RL Zero, OLMoTrace. Best fully open
               32B thinking model at release.
             </div>
             <div class="lab">
-              <div class="lname" style="color: #f0883e">
+              <div class="lname" style="color: var(--accent-orange)">
                 DeepSeek (V3 / R1)
-                <span style="color: #79c0ff; font-size: 0.58rem">open weights</span>
+                <span style="color: var(--accent-blue); font-size: 0.58rem">open weights</span>
               </div>
               <b>V3:</b> fp8 training, $5.58M total. SFT 1.5M (R1-distilled) + GRPO.
               <b>R1-Zero:</b> pure GRPO, no SFT. 79.8% AIME 2024, 97.3% MATH-500.
@@ -1569,23 +1633,23 @@
               optimizer, agentic synthesis. <b>K2.5:</b> joint text-vision RL.
             </div>
             <div class="lab">
-              <div class="lname" style="color: #c9d1d9">Zhipu AI (GLM-4.5 / GLM-5)</div>
+              <div class="lname" style="color: var(--text-secondary)">Zhipu AI (GLM-4.5 / GLM-5)</div>
               <b>Slime</b> async RL framework. <b>APRIL:</b> agentic RL. 744B/40B active. Huawei
               Ascend &mdash; zero NVIDIA dependency.
             </div>
             <div class="lab">
-              <div class="lname" style="color: #79c0ff">Alibaba / Qwen</div>
+              <div class="lname" style="color: var(--accent-blue)">Alibaba / Qwen</div>
               GRPO for math. QwQ-32B: RLVR extended CoT. SFT &rarr; GRPO &rarr; DPO.
             </div>
             <div class="lab">
-              <div class="lname" style="color: #ffa657">ByteDance (Seed / Doubao)</div>
+              <div class="lname" style="color: var(--accent-orange)">ByteDance (Seed / Doubao)</div>
               <b>Seed-Thinking v1.5:</b> GRPO on verifiable problems. Deployment scale makes
               efficiency-constrained post-training practically significant.
             </div>
           </div>
 
-          <div class="note" style="border-color: #56d36433">
-            <div class="note-title" style="color: #56d364">Trends 2024&ndash;2026</div>
+          <div class="note" style="border-color: color-mix(in srgb, var(--accent) 20%, transparent)">
+            <div class="note-title" style="color: var(--accent)">Trends 2024&ndash;2026</div>
             <b>Verifiable / rule-based RL surge</b> &mdash; RLVR, GRPO, CISPO: emergent long-CoT
             without human trajectories.<br />
             <b>Synthetic + on-policy dominance</b> &mdash; distillation loops, persona generation,
@@ -1610,7 +1674,7 @@
         <div class="mech-section open">
           <div class="mech-header" onclick="toggleSection(this.parentElement)">
             <span class="mech-num">&sect;1</span>
-            <span class="mech-title" style="color: #58a6ff">Optimizer Evolution</span>
+            <span class="mech-title" style="color: var(--accent-blue)">Optimizer Evolution</span>
             <span class="mech-chev">&#9660;</span>
           </div>
           <div class="mech-body">
@@ -1645,49 +1709,51 @@
             by using Polyak-style averaging. Not yet proven at frontier scale.
 
             <h4>Practical impact</h4>
-            <table class="mech-table">
-              <thead>
-                <tr>
-                  <th>Optimizer</th>
-                  <th>Memory per param</th>
-                  <th>Used by</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><b>SGD+M</b></td>
-                  <td>1 state</td>
-                  <td>RL fine-tuning</td>
-                  <td>Niche</td>
-                </tr>
-                <tr>
-                  <td><b>AdamW</b></td>
-                  <td>2 states (m, v)</td>
-                  <td>GPT-4, Llama 3, Gemini</td>
-                  <td>Dominant</td>
-                </tr>
-                <tr>
-                  <td><b>Muon</b></td>
-                  <td>1 state + orthog.</td>
-                  <td>Kimi K2</td>
-                  <td>Emerging</td>
-                </tr>
-                <tr>
-                  <td><b>SOAP</b></td>
-                  <td>2 states + precond.</td>
-                  <td>Research</td>
-                  <td>Experimental</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="table-wrapper">
+              <table class="mech-table">
+                <thead>
+                  <tr>
+                    <th>Optimizer</th>
+                    <th>Memory per param</th>
+                    <th>Used by</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><b>SGD+M</b></td>
+                    <td>1 state</td>
+                    <td>RL fine-tuning</td>
+                    <td>Niche</td>
+                  </tr>
+                  <tr>
+                    <td><b>AdamW</b></td>
+                    <td>2 states (m, v)</td>
+                    <td>GPT-4, Llama 3, Gemini</td>
+                    <td>Dominant</td>
+                  </tr>
+                  <tr>
+                    <td><b>Muon</b></td>
+                    <td>1 state + orthog.</td>
+                    <td>Kimi K2</td>
+                    <td>Emerging</td>
+                  </tr>
+                  <tr>
+                    <td><b>SOAP</b></td>
+                    <td>2 states + precond.</td>
+                    <td>Research</td>
+                    <td>Experimental</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
 
         <div class="mech-section">
           <div class="mech-header" onclick="toggleSection(this.parentElement)">
             <span class="mech-num">&sect;2</span>
-            <span class="mech-title" style="color: #e3b341">Learning Rate Schedules</span>
+            <span class="mech-title" style="color: var(--accent-yellow)">Learning Rate Schedules</span>
             <span class="mech-chev">&#9660;</span>
           </div>
           <div class="mech-body">
@@ -1722,7 +1788,7 @@
         <div class="mech-section">
           <div class="mech-header" onclick="toggleSection(this.parentElement)">
             <span class="mech-num">&sect;3</span>
-            <span class="mech-title" style="color: #d2a8ff"
+            <span class="mech-title" style="color: var(--accent-purple)"
               >Scaling Laws &amp; Compute Allocation</span
             >
             <span class="mech-chev">&#9660;</span>
@@ -1753,42 +1819,44 @@
 
             <h4>Beyond Chinchilla: overtraining</h4>
             Modern practice deliberately overtrains relative to Chinchilla-optimal:
-            <table class="mech-table">
-              <thead>
-                <tr>
-                  <th>Model</th>
-                  <th>Params</th>
-                  <th>Tokens</th>
-                  <th>Chinchilla ratio</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><b>Chinchilla</b></td>
-                  <td>70B</td>
-                  <td>1.4T</td>
-                  <td>1&times; (optimal)</td>
-                </tr>
-                <tr>
-                  <td><b>Llama 2 7B</b></td>
-                  <td>7B</td>
-                  <td>2T</td>
-                  <td>~14&times;</td>
-                </tr>
-                <tr>
-                  <td><b>Llama 3 8B</b></td>
-                  <td>8B</td>
-                  <td>15T</td>
-                  <td>~94&times;</td>
-                </tr>
-                <tr>
-                  <td><b>SmolLM3 3B</b></td>
-                  <td>3B</td>
-                  <td>11T</td>
-                  <td>~183&times;</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="table-wrapper">
+              <table class="mech-table">
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th>Params</th>
+                    <th>Tokens</th>
+                    <th>Chinchilla ratio</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><b>Chinchilla</b></td>
+                    <td>70B</td>
+                    <td>1.4T</td>
+                    <td>1&times; (optimal)</td>
+                  </tr>
+                  <tr>
+                    <td><b>Llama 2 7B</b></td>
+                    <td>7B</td>
+                    <td>2T</td>
+                    <td>~14&times;</td>
+                  </tr>
+                  <tr>
+                    <td><b>Llama 3 8B</b></td>
+                    <td>8B</td>
+                    <td>15T</td>
+                    <td>~94&times;</td>
+                  </tr>
+                  <tr>
+                    <td><b>SmolLM3 3B</b></td>
+                    <td>3B</td>
+                    <td>11T</td>
+                    <td>~183&times;</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             <br />
             <b>Rationale:</b> training cost is paid once; inference cost is paid billions of times.
             A smaller, overtrained model is cheaper to deploy than a larger, compute-optimal one.
@@ -1803,7 +1871,7 @@
         <div class="mech-section">
           <div class="mech-header" onclick="toggleSection(this.parentElement)">
             <span class="mech-num">&sect;4</span>
-            <span class="mech-title" style="color: #f0883e">Precision &amp; Numerical Formats</span>
+            <span class="mech-title" style="color: var(--accent-orange)">Precision &amp; Numerical Formats</span>
             <span class="mech-chev">&#9660;</span>
           </div>
           <div class="mech-body">
@@ -1841,7 +1909,7 @@
         <div class="mech-section">
           <div class="mech-header" onclick="toggleSection(this.parentElement)">
             <span class="mech-num">&sect;5</span>
-            <span class="mech-title" style="color: #56d364">Regularization &amp; Stability</span>
+            <span class="mech-title" style="color: var(--accent)">Regularization &amp; Stability</span>
             <span class="mech-chev">&#9660;</span>
           </div>
           <div class="mech-body">
@@ -1919,54 +1987,56 @@
             novel solutions.
 
             <h4>Structural summary</h4>
-            <table class="mech-table">
-              <thead>
-                <tr>
-                  <th>Method</th>
-                  <th>Math form</th>
-                  <th>Function</th>
-                  <th>Limitation</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><b style="color: #56d364">SFT</b></td>
-                  <td>MLE on curated data</td>
-                  <td>Instruction prior</td>
-                  <td>Bounded by demo quality</td>
-                </tr>
-                <tr>
-                  <td><b style="color: #ffa657">RLHF (PPO)</b></td>
-                  <td>max E[r] &minus; &beta;&middot;D_KL</td>
-                  <td>Online preference shaping</td>
-                  <td>Expensive; RM hacking</td>
-                </tr>
-                <tr>
-                  <td><b style="color: #79c0ff">DPO</b></td>
-                  <td>Contrastive log-ratio</td>
-                  <td>Efficient preferences</td>
-                  <td>Static; no exploration</td>
-                </tr>
-                <tr>
-                  <td><b style="color: #ffa657">GRPO</b></td>
-                  <td>Group-normalized advantage</td>
-                  <td>RL without value fn</td>
-                  <td>Discards clipped tokens</td>
-                </tr>
-                <tr>
-                  <td><b style="color: #c9d1d9">CISPO</b></td>
-                  <td>Clip IS; all tokens</td>
-                  <td>Efficient RL</td>
-                  <td>Needs reliable reward</td>
-                </tr>
-                <tr>
-                  <td><b style="color: #e3b341">RLVR</b></td>
-                  <td>Binary verifier &isin; {0,1}</td>
-                  <td>Emergent reasoning</td>
-                  <td>Verifiable domains only</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="table-wrapper">
+              <table class="mech-table">
+                <thead>
+                  <tr>
+                    <th>Method</th>
+                    <th>Math form</th>
+                    <th>Function</th>
+                    <th>Limitation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><b style="color: var(--accent)">SFT</b></td>
+                    <td>MLE on curated data</td>
+                    <td>Instruction prior</td>
+                    <td>Bounded by demo quality</td>
+                  </tr>
+                  <tr>
+                    <td><b style="color: var(--accent-orange)">RLHF (PPO)</b></td>
+                    <td>max E[r] &minus; &beta;&middot;D_KL</td>
+                    <td>Online preference shaping</td>
+                    <td>Expensive; RM hacking</td>
+                  </tr>
+                  <tr>
+                    <td><b style="color: var(--accent-blue)">DPO</b></td>
+                    <td>Contrastive log-ratio</td>
+                    <td>Efficient preferences</td>
+                    <td>Static; no exploration</td>
+                  </tr>
+                  <tr>
+                    <td><b style="color: var(--accent-orange)">GRPO</b></td>
+                    <td>Group-normalized advantage</td>
+                    <td>RL without value fn</td>
+                    <td>Discards clipped tokens</td>
+                  </tr>
+                  <tr>
+                    <td><b style="color: var(--text-secondary)">CISPO</b></td>
+                    <td>Clip IS; all tokens</td>
+                    <td>Efficient RL</td>
+                    <td>Needs reliable reward</td>
+                  </tr>
+                  <tr>
+                    <td><b style="color: var(--accent-yellow)">RLVR</b></td>
+                    <td>Binary verifier &isin; {0,1}</td>
+                    <td>Emergent reasoning</td>
+                    <td>Verifiable domains only</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
@@ -1980,7 +2050,7 @@
         <div class="rw-section open">
           <div class="rw-header" onclick="toggleSection(this.parentElement)">
             <span class="rw-num">&sect;1</span>
-            <span class="rw-title" style="color: #56d364">Does Scale Create Understanding?</span>
+            <span class="rw-title" style="color: var(--accent)">Does Scale Create Understanding?</span>
             <span class="rw-chev">&#9660;</span>
           </div>
           <div class="rw-body">
@@ -2007,7 +2077,7 @@
         <div class="rw-section">
           <div class="rw-header" onclick="toggleSection(this.parentElement)">
             <span class="rw-num">&sect;2</span>
-            <span class="rw-title" style="color: #58a6ff"
+            <span class="rw-title" style="color: var(--accent-blue)"
               >Pre-training: Compression or Cognition?</span
             >
             <span class="rw-chev">&#9660;</span>
@@ -2044,7 +2114,7 @@
         <div class="rw-section">
           <div class="rw-header" onclick="toggleSection(this.parentElement)">
             <span class="rw-num">&sect;3</span>
-            <span class="rw-title" style="color: #e3b341">Mid-training: The Overlooked Phase</span>
+            <span class="rw-title" style="color: var(--accent-yellow)">Mid-training: The Overlooked Phase</span>
             <span class="rw-chev">&#9660;</span>
           </div>
           <div class="rw-body">
@@ -2073,7 +2143,7 @@
         <div class="rw-section">
           <div class="rw-header" onclick="toggleSection(this.parentElement)">
             <span class="rw-num">&sect;4</span>
-            <span class="rw-title" style="color: #f0883e"
+            <span class="rw-title" style="color: var(--accent-orange)"
               >Post-training: Representation vs. Behavior</span
             >
             <span class="rw-chev">&#9660;</span>
@@ -2108,7 +2178,7 @@
         <div class="rw-section">
           <div class="rw-header" onclick="toggleSection(this.parentElement)">
             <span class="rw-num">&sect;5</span>
-            <span class="rw-title" style="color: #d2a8ff"
+            <span class="rw-title" style="color: var(--accent-purple)"
               >Test-Time Compute &amp; Training-Inference Boundary</span
             >
             <span class="rw-chev">&#9660;</span>
@@ -2201,70 +2271,72 @@
         <div class="rw-section open">
           <div class="rw-header" onclick="toggleSection(this.parentElement)">
             <span class="rw-num">&sect;7</span>
-            <span class="rw-title" style="color: #58a6ff">Training Pipeline Summary</span>
+            <span class="rw-title" style="color: var(--accent-blue)">Training Pipeline Summary</span>
             <span class="rw-chev">&#9660;</span>
           </div>
           <div class="rw-body">
-            <table class="rw-table">
-              <thead>
-                <tr>
-                  <th>Phase</th>
-                  <th>Objective</th>
-                  <th>Duration</th>
-                  <th>Thesis angle</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><b style="color: #58a6ff">Pre-training</b></td>
-                  <td>Next-token prediction (cross-entropy)</td>
-                  <td>Weeks&ndash;months, trillions of tokens</td>
-                  <td>Compression; no phase transitions</td>
-                </tr>
-                <tr>
-                  <td><b style="color: #e3b341">Annealing</b></td>
-                  <td>Consolidation on high-quality data</td>
-                  <td>Final 1&ndash;5% of tokens</td>
-                  <td>Surfaces latent capabilities</td>
-                </tr>
-                <tr>
-                  <td><b style="color: #e3b341">Domain adaptation</b></td>
-                  <td>Distribution shift to target domain</td>
-                  <td>50&ndash;100B tokens</td>
-                  <td>Amplifies existing patterns</td>
-                </tr>
-                <tr>
-                  <td><b style="color: #e3b341">Context extension</b></td>
-                  <td>RoPE rescaling + long-context data</td>
-                  <td>~1B tokens</td>
-                  <td>Composable local patterns</td>
-                </tr>
-                <tr>
-                  <td><b style="color: #56d364">SFT</b></td>
-                  <td>Instruction prior + format</td>
-                  <td>1&ndash;3 epochs, 100K&ndash;1.5M examples</td>
-                  <td>Low-rank surface steering</td>
-                </tr>
-                <tr>
-                  <td><b style="color: #56d364">RLHF / DPO</b></td>
-                  <td>Preference alignment</td>
-                  <td>Days</td>
-                  <td>Policy head, not cognition</td>
-                </tr>
-                <tr>
-                  <td><b style="color: #56d364">RLVR / GRPO</b></td>
-                  <td>Verifiable reasoning RL</td>
-                  <td>Days&ndash;weeks</td>
-                  <td>Selection or creation? Open</td>
-                </tr>
-                <tr>
-                  <td><b style="color: #d2a8ff">Test-time compute</b></td>
-                  <td>Inference-time search</td>
-                  <td>Per-query</td>
-                  <td>Search over repertoire</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="table-wrapper">
+              <table class="rw-table">
+                <thead>
+                  <tr>
+                    <th>Phase</th>
+                    <th>Objective</th>
+                    <th>Duration</th>
+                    <th>Thesis angle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><b style="color: var(--accent-blue)">Pre-training</b></td>
+                    <td>Next-token prediction (cross-entropy)</td>
+                    <td>Weeks&ndash;months, trillions of tokens</td>
+                    <td>Compression; no phase transitions</td>
+                  </tr>
+                  <tr>
+                    <td><b style="color: var(--accent-yellow)">Annealing</b></td>
+                    <td>Consolidation on high-quality data</td>
+                    <td>Final 1&ndash;5% of tokens</td>
+                    <td>Surfaces latent capabilities</td>
+                  </tr>
+                  <tr>
+                    <td><b style="color: var(--accent-yellow)">Domain adaptation</b></td>
+                    <td>Distribution shift to target domain</td>
+                    <td>50&ndash;100B tokens</td>
+                    <td>Amplifies existing patterns</td>
+                  </tr>
+                  <tr>
+                    <td><b style="color: var(--accent-yellow)">Context extension</b></td>
+                    <td>RoPE rescaling + long-context data</td>
+                    <td>~1B tokens</td>
+                    <td>Composable local patterns</td>
+                  </tr>
+                  <tr>
+                    <td><b style="color: var(--accent)">SFT</b></td>
+                    <td>Instruction prior + format</td>
+                    <td>1&ndash;3 epochs, 100K&ndash;1.5M examples</td>
+                    <td>Low-rank surface steering</td>
+                  </tr>
+                  <tr>
+                    <td><b style="color: var(--accent)">RLHF / DPO</b></td>
+                    <td>Preference alignment</td>
+                    <td>Days</td>
+                    <td>Policy head, not cognition</td>
+                  </tr>
+                  <tr>
+                    <td><b style="color: var(--accent)">RLVR / GRPO</b></td>
+                    <td>Verifiable reasoning RL</td>
+                    <td>Days&ndash;weeks</td>
+                    <td>Selection or creation? Open</td>
+                  </tr>
+                  <tr>
+                    <td><b style="color: var(--accent-purple)">Test-time compute</b></td>
+                    <td>Inference-time search</td>
+                    <td>Per-query</td>
+                    <td>Search over repertoire</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
@@ -2272,17 +2344,17 @@
 
     <div
       style="
-        max-width: 960px;
+        max-width: min(960px, 100%);
         margin: 2rem auto 0;
         padding-top: 1rem;
-        border-top: 1px solid #21262d;
-        font-size: 0.58rem;
-        color: #8b949e;
+        border-top: 1px solid var(--border-secondary);
+        font-size: clamp(0.5rem, 1vw, 0.58rem);
+        color: var(--text-muted);
         line-height: 1.8;
       "
     >
       <span
-        style="color: #30363d; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.5rem"
+        style="color: var(--border-primary); text-transform: uppercase; letter-spacing: 1.5px; font-size: clamp(0.45rem, 0.9vw, 0.5rem)"
         >Sources</span
       ><br />
       Stanford CS336 (Spring 2025) &middot; Kaplan et al. (2020) &middot; Hoffmann et al. (2022,

@@ -10,56 +10,91 @@
         margin: 0;
         padding: 0;
       }
+
+      :root {
+        --bg-primary: #0d1117;
+        --bg-secondary: #161b22;
+        --bg-tertiary: #1c2128;
+        --bg-input: #0d1117;
+        --text-primary: #e6edf3;
+        --text-secondary: #c9d1d9;
+        --text-muted: #8b949e;
+        --border-primary: #30363d;
+        --border-secondary: #21262d;
+        --accent: #d29922;
+        --accent-blue: #58a6ff;
+        --accent-green: #3fb950;
+        --accent-purple: #d2a8ff;
+      }
+
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg-primary: #ffffff;
+          --bg-secondary: #f6f8fa;
+          --bg-tertiary: #f0f3f6;
+          --bg-input: #ffffff;
+          --text-primary: #1f2328;
+          --text-secondary: #424a53;
+          --text-muted: #656d76;
+          --border-primary: #d0d7de;
+          --border-secondary: #e1e4e8;
+          --accent: #9a6700;
+          --accent-blue: #0969da;
+          --accent-green: #1a7f37;
+          --accent-purple: #8250df;
+        }
+      }
+
       body {
-        background: #0d1117;
-        color: #c9d1d9;
+        background: var(--bg-primary);
+        color: var(--text-secondary);
         font-family: 'Courier New', monospace;
-        padding: 1.5rem 1rem 3rem;
+        padding: clamp(1rem, 3vw, 1.5rem) clamp(0.75rem, 2vw, 1rem) clamp(2rem, 5vw, 3rem);
       }
 
       .topbar {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        max-width: 960px;
+        max-width: min(960px, 100%);
         margin: 0 auto 1.6rem;
         flex-wrap: wrap;
         gap: 0.5rem;
       }
       h2 {
-        color: #d29922;
+        color: var(--accent);
         letter-spacing: 2px;
-        font-size: 0.8rem;
+        font-size: clamp(0.7rem, 2vw, 0.85rem);
         text-transform: uppercase;
       }
       .toggle-wrap {
         display: flex;
         gap: 0;
-        border: 1px solid #30363d;
+        border: 1px solid var(--border-primary);
         border-radius: 5px;
         overflow: hidden;
       }
       .toggle-btn {
-        background: #161b22;
-        color: #8b949e;
+        background: var(--bg-secondary);
+        color: var(--text-muted);
         border: none;
-        padding: 5px 13px;
+        padding: clamp(4px, 1vw, 5px) clamp(10px, 2vw, 13px);
         font-family: 'Courier New', monospace;
-        font-size: 0.63rem;
+        font-size: clamp(0.5rem, 1.3vw, 0.65rem);
         letter-spacing: 1px;
         text-transform: uppercase;
         cursor: pointer;
         transition:
           background 0.15s,
           color 0.15s;
-        border-right: 1px solid #30363d;
+        border-right: 1px solid var(--border-primary);
       }
       .toggle-btn:last-child {
         border-right: none;
       }
       .toggle-btn.active {
-        background: #d29922;
-        color: #0d1117;
+        background: var(--accent);
+        color: var(--bg-primary);
         font-weight: bold;
       }
 
@@ -78,13 +113,13 @@
       .founding-banners {
         display: flex;
         gap: 8px;
-        max-width: 960px;
+        max-width: min(960px, 100%);
         margin: 0 auto 1.1rem;
         flex-wrap: wrap;
       }
       .fb {
-        font-size: 0.63rem;
-        padding: 6px 10px;
+        font-size: clamp(0.5rem, 1.3vw, 0.65rem);
+        padding: clamp(5px, 1.5vw, 6px) clamp(8px, 2vw, 10px);
         border-radius: 4px;
         line-height: 1.65;
         flex: 1;
@@ -92,14 +127,28 @@
       }
       .fb b {
         display: block;
-        font-size: 0.65rem;
+        font-size: clamp(0.5rem, 1.3vw, 0.65rem);
         margin-bottom: 3px;
+      }
+      .fb-gold {
+        background: rgba(210, 153, 34, 0.08);
+        border: 1px solid rgba(210, 153, 34, 0.2);
+      }
+      .fb-gold b {
+        color: var(--accent);
+      }
+      .fb-green {
+        background: rgba(86, 211, 100, 0.08);
+        border: 1px solid rgba(86, 211, 100, 0.2);
+      }
+      .fb-green b {
+        color: #56d364;
       }
 
       .outer {
         display: flex;
         gap: 0;
-        max-width: 960px;
+        max-width: min(960px, 100%);
         margin: 0 auto;
       }
       .timeline {
@@ -116,8 +165,8 @@
         align-items: center;
       }
       .tl-year {
-        font-size: 0.55rem;
-        color: #d29922;
+        font-size: clamp(0.5rem, 1.3vw, 0.55rem);
+        color: var(--accent);
         font-weight: bold;
         white-space: nowrap;
       }
@@ -125,17 +174,17 @@
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: #30363d;
+        background: var(--border-primary);
         margin: 3px 0;
         flex-shrink: 0;
       }
       .tl-dot.active {
-        background: #d29922;
-        box-shadow: 0 0 5px #d2992288;
+        background: var(--accent);
+        box-shadow: 0 0 5px rgba(210, 153, 34, 0.53);
       }
       .tl-line {
         width: 2px;
-        background: #21262d;
+        background: var(--border-secondary);
         flex: 1;
         min-height: 10px;
       }
@@ -150,10 +199,10 @@
         width: 100%;
       }
       .box {
-        border: 1px solid #30363d;
+        border: 1px solid var(--border-primary);
         border-radius: 6px;
-        padding: 0.75rem 0.95rem;
-        background: #161b22;
+        padding: clamp(0.6rem, 2vw, 0.75rem) clamp(0.75rem, 2.5vw, 0.95rem);
+        background: var(--bg-secondary);
         cursor: pointer;
         transition:
           border-color 0.2s,
@@ -161,8 +210,8 @@
         width: 100%;
       }
       .box:hover {
-        border-color: #d29922;
-        background: #1c2128;
+        border-color: var(--accent);
+        background: var(--bg-tertiary);
       }
       .box-header {
         display: flex;
@@ -170,19 +219,19 @@
         align-items: flex-start;
       }
       .snum {
-        font-size: 0.55rem;
+        font-size: clamp(0.5rem, 1.3vw, 0.55rem);
         letter-spacing: 2px;
         text-transform: uppercase;
         opacity: 0.55;
         margin-bottom: 2px;
       }
       .sname {
-        font-size: 0.86rem;
+        font-size: clamp(0.7rem, 2vw, 0.86rem);
         font-weight: bold;
       }
       .chevron {
-        font-size: 0.6rem;
-        color: #30363d;
+        font-size: clamp(0.5rem, 1.3vw, 0.6rem);
+        color: var(--border-primary);
         transition: transform 0.2s;
         flex-shrink: 0;
         padding-left: 6px;
@@ -190,21 +239,21 @@
       }
       .box.open .chevron {
         transform: rotate(180deg);
-        color: #d29922;
+        color: var(--accent);
       }
       .sdesc-short {
-        font-size: 0.69rem;
-        color: #8b949e;
+        font-size: clamp(0.6rem, 1.6vw, 0.69rem);
+        color: var(--text-muted);
         line-height: 1.7;
         margin-top: 0.32rem;
       }
       .sdesc-detail {
-        font-size: 0.69rem;
-        color: #8b949e;
+        font-size: clamp(0.6rem, 1.6vw, 0.69rem);
+        color: var(--text-muted);
         line-height: 1.8;
         margin-top: 0.6rem;
         padding-top: 0.6rem;
-        border-top: 1px solid #21262d;
+        border-top: 1px solid var(--border-secondary);
         display: none;
       }
       .box.open .sdesc-detail {
@@ -212,15 +261,15 @@
       }
       .sdesc-short b,
       .sdesc-detail b {
-        color: #e6edf3;
+        color: var(--text-primary);
       }
       .math-block {
-        background: #0d1117;
-        border: 1px solid #21262d;
+        background: var(--bg-primary);
+        border: 1px solid var(--border-secondary);
         border-radius: 4px;
-        padding: 5px 9px;
+        padding: clamp(4px, 1vw, 5px) clamp(7px, 1.5vw, 9px);
         margin: 5px 0;
-        font-size: 0.67rem;
+        font-size: clamp(0.55rem, 1.5vw, 0.67rem);
         color: #79c0ff;
         line-height: 1.55;
       }
@@ -228,11 +277,11 @@
         border-top: 1px dashed #f0883e;
         padding-top: 0.5rem;
         margin-top: 0.35rem;
-        font-size: 0.67rem;
+        font-size: clamp(0.55rem, 1.5vw, 0.67rem);
       }
       .crit-label {
         color: #f0883e;
-        font-size: 0.6rem;
+        font-size: clamp(0.5rem, 1.3vw, 0.6rem);
         letter-spacing: 1px;
         text-transform: uppercase;
         font-weight: bold;
@@ -242,13 +291,13 @@
       .arrow {
         text-align: left;
         padding-left: 12px;
-        color: #30363d;
+        color: var(--border-primary);
         font-size: 1rem;
         line-height: 1.35;
       }
       .arrow-label {
-        font-size: 0.55rem;
-        color: #30363d;
+        font-size: clamp(0.5rem, 1.3vw, 0.55rem);
+        color: var(--border-primary);
         letter-spacing: 1px;
         display: block;
       }
@@ -288,23 +337,23 @@
         margin-top: 6px;
       }
       .stat-item {
-        background: #0d1117;
+        background: var(--bg-primary);
         border-radius: 4px;
-        padding: 5px 7px;
-        font-size: 0.65rem;
-        color: #8b949e;
+        padding: clamp(4px, 1vw, 5px) clamp(6px, 1.5vw, 7px);
+        font-size: clamp(0.5rem, 1.3vw, 0.65rem);
+        color: var(--text-muted);
         line-height: 1.6;
-        border: 1px solid #21262d;
+        border: 1px solid var(--border-secondary);
       }
       .stat-item b {
-        color: #c9d1d9;
+        color: var(--text-secondary);
       }
 
       .labs-section-title {
         width: 100%;
         text-align: center;
-        font-size: 0.57rem;
-        color: #8b949e;
+        font-size: clamp(0.5rem, 1.3vw, 0.57rem);
+        color: var(--text-muted);
         letter-spacing: 1.5px;
         text-transform: uppercase;
         margin: 1.2rem 0 0.45rem;
@@ -316,19 +365,19 @@
         width: 100%;
       }
       .lab {
-        background: #161b22;
-        border: 1px solid #30363d;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-primary);
         border-radius: 5px;
-        padding: 7px 9px;
-        font-size: 0.63rem;
-        color: #8b949e;
+        padding: clamp(6px, 1.5vw, 7px) clamp(7px, 1.8vw, 9px);
+        font-size: clamp(0.5rem, 1.3vw, 0.63rem);
+        color: var(--text-muted);
         line-height: 1.65;
       }
       .lab b {
-        color: #e6edf3;
+        color: var(--text-primary);
       }
       .lab .lname {
-        font-size: 0.58rem;
+        font-size: clamp(0.5rem, 1.3vw, 0.58rem);
         text-transform: uppercase;
         letter-spacing: 1px;
         margin-bottom: 3px;
@@ -337,41 +386,47 @@
 
       .note {
         width: 100%;
-        font-size: 0.68rem;
-        color: #8b949e;
-        border: 1px solid #21262d;
+        font-size: clamp(0.55rem, 1.5vw, 0.68rem);
+        color: var(--text-muted);
+        border: 1px solid var(--border-secondary);
         border-radius: 6px;
-        padding: 0.82rem 1rem;
-        background: #0d1117;
+        padding: clamp(0.65rem, 2vw, 0.82rem) clamp(0.8rem, 2.5vw, 1rem);
+        background: var(--bg-primary);
         line-height: 1.85;
         margin-top: 1.3rem;
       }
       .note b {
-        color: #c9d1d9;
+        color: var(--text-secondary);
       }
       .note-title {
-        font-size: 0.59rem;
+        font-size: clamp(0.5rem, 1.3vw, 0.59rem);
         letter-spacing: 1.5px;
         text-transform: uppercase;
         margin-bottom: 0.42rem;
       }
+      .note-gold {
+        border-color: rgba(210, 153, 34, 0.2);
+      }
+      .note-gold .note-title {
+        color: var(--accent);
+      }
 
       /* DATASETS */
       .ds-wrap {
-        max-width: 960px;
+        max-width: min(960px, 100%);
         margin: 0 auto;
       }
       .ds-era {
         margin-bottom: 1.5rem;
       }
       .ds-era-title {
-        font-size: 0.62rem;
+        font-size: clamp(0.5rem, 1.3vw, 0.62rem);
         letter-spacing: 2px;
         text-transform: uppercase;
         font-weight: bold;
         margin-bottom: 0.6rem;
         padding-bottom: 0.4rem;
-        border-bottom: 1px solid #21262d;
+        border-bottom: 1px solid var(--border-secondary);
       }
       .ds-grid {
         display: grid;
@@ -379,18 +434,18 @@
         gap: 7px;
       }
       .ds-card {
-        background: #161b22;
-        border: 1px solid #30363d;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-primary);
         border-radius: 5px;
-        padding: 8px 10px;
+        padding: clamp(6px, 1.5vw, 8px) clamp(8px, 2vw, 10px);
         cursor: pointer;
         transition: border-color 0.15s;
       }
       .ds-card:hover {
-        border-color: #d2992266;
+        border-color: rgba(210, 153, 34, 0.4);
       }
       .ds-card.open {
-        border-color: #d29922;
+        border-color: var(--accent);
       }
       .ds-card-header {
         display: flex;
@@ -398,54 +453,54 @@
         align-items: flex-start;
       }
       .ds-name {
-        font-size: 0.76rem;
+        font-size: clamp(0.6rem, 1.6vw, 0.76rem);
         font-weight: bold;
         margin-bottom: 2px;
       }
       .ds-chev {
-        font-size: 0.6rem;
-        color: #30363d;
+        font-size: clamp(0.5rem, 1.3vw, 0.6rem);
+        color: var(--border-primary);
         transition: transform 0.2s;
       }
       .ds-card.open .ds-chev {
         transform: rotate(180deg);
-        color: #d29922;
+        color: var(--accent);
       }
       .ds-meta {
-        font-size: 0.6rem;
-        color: #8b949e;
+        font-size: clamp(0.5rem, 1.3vw, 0.6rem);
+        color: var(--text-muted);
         margin-bottom: 3px;
       }
       .ds-tag {
         display: inline-block;
-        font-size: 0.55rem;
+        font-size: clamp(0.5rem, 1.3vw, 0.55rem);
         border-radius: 3px;
         padding: 1px 5px;
         margin-right: 3px;
         font-weight: bold;
       }
       .ds-key {
-        font-size: 0.63rem;
-        color: #8b949e;
+        font-size: clamp(0.5rem, 1.3vw, 0.63rem);
+        color: var(--text-muted);
         line-height: 1.55;
       }
       .ds-detail {
         display: none;
         margin-top: 7px;
         padding-top: 7px;
-        border-top: 1px solid #21262d;
-        font-size: 0.63rem;
+        border-top: 1px solid var(--border-secondary);
+        font-size: clamp(0.5rem, 1.3vw, 0.63rem);
         line-height: 1.7;
-        color: #8b949e;
+        color: var(--text-muted);
       }
       .ds-card.open .ds-detail {
         display: block;
       }
       .ds-detail b {
-        color: #e6edf3;
+        color: var(--text-primary);
       }
       .ds-open-tag {
-        font-size: 0.57rem;
+        font-size: clamp(0.5rem, 1.3vw, 0.57rem);
         padding: 1px 5px;
         border-radius: 3px;
       }
@@ -457,83 +512,83 @@
       .ds-table {
         width: 100%;
         border-collapse: collapse;
-        font-size: 0.63rem;
+        font-size: clamp(0.5rem, 1.3vw, 0.63rem);
       }
       .ds-table th {
-        background: #0d1117;
-        color: #d29922;
-        padding: 5px 8px;
+        background: var(--bg-primary);
+        color: var(--accent);
+        padding: clamp(4px, 1vw, 5px) clamp(6px, 1.5vw, 8px);
         text-align: left;
-        font-size: 0.57rem;
+        font-size: clamp(0.5rem, 1.3vw, 0.57rem);
         letter-spacing: 1px;
         text-transform: uppercase;
-        border-bottom: 1px solid #30363d;
+        border-bottom: 1px solid var(--border-primary);
         white-space: nowrap;
       }
       .ds-table td {
-        padding: 5px 8px;
-        border-bottom: 1px solid #21262d;
-        color: #8b949e;
+        padding: clamp(4px, 1vw, 5px) clamp(6px, 1.5vw, 8px);
+        border-bottom: 1px solid var(--border-secondary);
+        color: var(--text-muted);
         vertical-align: top;
       }
       .ds-table td b {
-        color: #e6edf3;
+        color: var(--text-primary);
       }
       .ds-table tr:hover td {
-        background: #1c2128;
+        background: var(--bg-tertiary);
       }
 
       /* RESEARCH */
       .rw {
-        max-width: 960px;
+        max-width: min(960px, 100%);
         margin: 0 auto;
         display: flex;
         flex-direction: column;
         gap: 1.3rem;
       }
       .rw-section {
-        border: 1px solid #30363d;
+        border: 1px solid var(--border-primary);
         border-radius: 6px;
-        background: #161b22;
+        background: var(--bg-secondary);
         overflow: hidden;
       }
       .rw-header {
-        padding: 0.65rem 1rem;
+        padding: clamp(0.5rem, 1.5vw, 0.65rem) clamp(0.8rem, 2vw, 1rem);
         display: flex;
         align-items: baseline;
         gap: 0.7rem;
-        border-bottom: 1px solid #21262d;
-        background: #0d1117;
+        border-bottom: 1px solid var(--border-secondary);
+        background: var(--bg-primary);
         cursor: pointer;
       }
       .rw-header:hover {
-        background: #161b22;
+        background: var(--bg-secondary);
       }
       .rw-num {
-        font-size: 0.6rem;
-        color: #d29922;
+        font-size: clamp(0.5rem, 1.3vw, 0.6rem);
+        color: var(--accent);
         letter-spacing: 2px;
         text-transform: uppercase;
         font-weight: bold;
         flex-shrink: 0;
       }
       .rw-title {
-        font-size: 0.88rem;
+        font-size: clamp(0.7rem, 2vw, 0.88rem);
         font-weight: bold;
         flex: 1;
       }
       .rw-chev {
-        font-size: 0.6rem;
-        color: #30363d;
+        font-size: clamp(0.5rem, 1.3vw, 0.6rem);
+        color: var(--border-primary);
         transition: transform 0.2s;
       }
       .rw-section.open .rw-chev {
         transform: rotate(180deg);
-        color: #d29922;
+        color: var(--accent);
       }
       .rw-body {
-        font-size: 0.69rem;
-        color: #8b949e;
+        font-size: clamp(0.6rem, 1.6vw, 0.69rem);
+        color: var(--text-muted);
         line-height: 1.85;
         padding: 0;
         max-height: 0;
@@ -543,15 +598,15 @@
           padding 0.3s;
       }
       .rw-section.open .rw-body {
-        padding: 0.82rem 1rem;
+        padding: clamp(0.65rem, 2vw, 0.82rem) clamp(0.8rem, 2.5vw, 1rem);
         max-height: 5000px;
       }
       .rw-body b {
-        color: #e6edf3;
+        color: var(--text-primary);
       }
       .rw-body h4 {
-        font-size: 0.63rem;
-        color: #d29922;
+        font-size: clamp(0.5rem, 1.3vw, 0.63rem);
+        color: var(--accent);
         letter-spacing: 1px;
         text-transform: uppercase;
         margin: 0.65rem 0 0.28rem;
@@ -560,11 +615,11 @@
         margin-top: 0;
       }
       .rw-body .math-block {
-        font-size: 0.67rem;
+        font-size: clamp(0.55rem, 1.5vw, 0.67rem);
       }
       .rw-body .ref {
-        font-size: 0.63rem;
-        color: #3fb950;
+        font-size: clamp(0.5rem, 1.3vw, 0.63rem);
+        color: var(--accent-green);
         margin: 2px 0;
       }
       .rw-body .ref::before {
@@ -573,33 +628,33 @@
       .rw-table {
         width: 100%;
         border-collapse: collapse;
-        font-size: 0.67rem;
+        font-size: clamp(0.55rem, 1.5vw, 0.67rem);
         margin-top: 0.5rem;
       }
       .rw-table th {
-        background: #0d1117;
-        color: #d29922;
-        padding: 5px 9px;
+        background: var(--bg-primary);
+        color: var(--accent);
+        padding: clamp(4px, 1vw, 5px) clamp(7px, 1.5vw, 9px);
         text-align: left;
-        font-size: 0.6rem;
+        font-size: clamp(0.5rem, 1.3vw, 0.6rem);
         letter-spacing: 1px;
         text-transform: uppercase;
-        border-bottom: 1px solid #30363d;
+        border-bottom: 1px solid var(--border-primary);
       }
       .rw-table td {
-        padding: 5px 9px;
-        border-bottom: 1px solid #21262d;
-        color: #8b949e;
+        padding: clamp(4px, 1vw, 5px) clamp(7px, 1.5vw, 9px);
+        border-bottom: 1px solid var(--border-secondary);
+        color: var(--text-muted);
         vertical-align: top;
       }
       .rw-table td b {
-        color: #e6edf3;
+        color: var(--text-primary);
       }
       .rw-table tr:last-child td {
         border-bottom: none;
       }
       .rw-table tr:hover td {
-        background: #1c2128;
+        background: var(--bg-tertiary);
       }
       .open-problems {
         display: grid;
@@ -608,12 +663,12 @@
         margin-top: 0.5rem;
       }
       .op-item {
-        background: #0d1117;
-        border: 1px solid #21262d;
+        background: var(--bg-primary);
+        border: 1px solid var(--border-secondary);
         border-radius: 4px;
-        padding: 7px 9px;
-        font-size: 0.67rem;
-        color: #8b949e;
+        padding: clamp(6px, 1.5vw, 7px) clamp(7px, 1.8vw, 9px);
+        font-size: clamp(0.55rem, 1.5vw, 0.67rem);
+        color: var(--text-muted);
         line-height: 1.6;
       }
       .op-item b {
@@ -625,9 +680,9 @@
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        color: #d29922;
+        color: var(--accent);
         text-decoration: none;
-        font-size: 0.7rem;
+        font-size: clamp(0.6rem, 1.6vw, 0.7rem);
         margin-bottom: 1rem;
         opacity: 0.8;
         transition: opacity 0.15s;
@@ -640,6 +695,36 @@
         height: 14px;
       }
 
+      /* Container utility */
+      .container {
+        max-width: min(960px, 100%);
+        margin: 0 auto;
+      }
+
+      /* Footer */
+      .footer {
+        max-width: min(960px, 100%);
+        margin: 2rem auto 0;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-secondary);
+        font-size: clamp(0.5rem, 1.3vw, 0.58rem);
+        color: var(--text-muted);
+        line-height: 1.8;
+      }
+      .footer-label {
+        color: var(--border-primary);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: clamp(0.45rem, 1.2vw, 0.5rem);
+      }
+      .footer a {
+        color: var(--accent-blue);
+        text-decoration: none;
+      }
+      .footer a:hover {
+        text-decoration: underline;
+      }
+
       /* ── MOBILE ── */
       @media (max-width: 600px) {
         .timeline {
@@ -648,14 +733,40 @@
         .outer {
           flex-direction: column;
         }
-        body {
-          padding: 1.2rem 1rem 3rem;
+        .founding-banners {
+          flex-direction: column;
+        }
+        .fb {
+          min-width: 100%;
+        }
+        .stat-grid {
+          grid-template-columns: 1fr;
+        }
+        .labs {
+          grid-template-columns: 1fr;
+        }
+        .ds-grid {
+          grid-template-columns: 1fr;
+        }
+        .open-problems {
+          grid-template-columns: 1fr;
+        }
+        .topbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .toggle-wrap {
+          width: 100%;
+        }
+        .toggle-btn {
+          flex: 1;
+          text-align: center;
         }
       }
     </style>
   </head>
   <body>
-    <div style="max-width: 960px; margin: 0 auto">
+    <div class="container">
       <a
         href="index.html"
         class="back-link"
@@ -687,14 +798,14 @@
     <!-- ════════════ PIPELINE ════════════ -->
     <div id="view-pipeline" class="show">
       <div class="founding-banners">
-        <div class="fb" style="background: #2d220022; border: 1px solid #d2992233">
-          <b style="color: #d29922">Common Crawl (2007&ndash;)</b>
+        <div class="fb fb-gold">
+          <b>Common Crawl (2007&ndash;)</b>
           Non-profit web archive. ~100 crawls since 2008. Apache Nutch crawler on ~100 machines over
           10&ndash;12 days per crawl. Hundreds of millions of seed URLs. Nearly every pre-training
           dataset builds on Common Crawl.
         </div>
-        <div class="fb" style="background: #1b2e1f22; border: 1px solid #56d36433">
-          <b style="color: #56d364">"Data does not fall from the sky"</b>
+        <div class="fb fb-green">
+          <b>"Data does not fall from the sky"</b>
           Companies openly publish architecture details but keep data pipelines secret. Data
           curation is the key differentiator&mdash;and the most labor-intensive, least scalable part
           of building frontier LLMs. Much of the pipeline is heuristic.
@@ -934,7 +1045,7 @@
           <div class="labs-section-title">Landmark Datasets</div>
           <div class="labs">
             <div class="lab">
-              <div class="lname" style="color: #8b949e">C4 (2019)</div>
+              <div class="lname" style="color: var(--text-muted)">C4 (2019)</div>
               <b>156B tokens</b> from 1 CC snapshot. Rule-based filtering only. The first
               large-scale cleaned CC dataset. Used by T5.
             </div>
@@ -949,7 +1060,7 @@
               Gopher rules + MinHash.
             </div>
             <div class="lab">
-              <div class="lname" style="color: #d29922">FineWeb (2024)</div>
+              <div class="lname" style="color: var(--accent)">FineWeb (2024)</div>
               <b>15T tokens</b> from 95 CC dumps. HuggingFace. Rules + MinHash + PII anonymization.
               Fully open.
             </div>
@@ -965,8 +1076,8 @@
             </div>
           </div>
 
-          <div class="note" style="border-color: #d2992233">
-            <div class="note-title" style="color: #d29922">The Data Scaling Arc</div>
+          <div class="note note-gold">
+            <div class="note-title">The Data Scaling Arc</div>
             <b>2019:</b> C4 = 156B tokens from 1 snapshot &rarr; <b>2020:</b> GPT-3 = 400B tokens
             &rarr; <b>2023:</b> RefinedWeb = 5T tokens &rarr; <b>2024:</b> Llama 3 trains on 15T
             tokens, Qwen3 on 36T tokens, DCLM-pool = 240T raw tokens.<br />
@@ -1388,7 +1499,7 @@
         <div class="rw-section">
           <div class="rw-header" onclick="toggleSection(this.parentElement)">
             <span class="rw-num">&sect;8</span
-            ><span class="rw-title" style="color: #d29922">Open Questions &amp; Tensions</span
+            ><span class="rw-title" style="color: var(--accent)">Open Questions &amp; Tensions</span
             ><span class="rw-chev">&#x25BC;</span>
           </div>
           <div class="rw-body">
@@ -1431,24 +1542,10 @@
       </div>
     </div>
 
-    <div
-      style="
-        max-width: 960px;
-        margin: 2rem auto 0;
-        padding-top: 1rem;
-        border-top: 1px solid #21262d;
-        font-size: 0.58rem;
-        color: #8b949e;
-        line-height: 1.8;
-      "
-    >
-      <span
-        style="color: #30363d; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.5rem"
-        >Sources</span
-      ><br />
+    <div class="footer">
+      <span class="footer-label">Sources</span><br />
       <a
         href="https://stanford-cs336.github.io/spring2025/"
-        style="color: #58a6ff; text-decoration: none"
         target="_blank"
         rel="noopener"
         >Stanford CS336</a
@@ -1663,9 +1760,9 @@
       ];
 
       const ERA_META = {
-        early: { label: 'Early Era (2015\u20132019)', color: '#8b949e' },
+        early: { label: 'Early Era (2015\u20132019)', color: 'var(--text-muted)' },
         scale: { label: 'Scale-Up Era (2020\u20132022)', color: '#79c0ff' },
-        modern: { label: 'Modern Era (2023\u20132024)', color: '#d29922' },
+        modern: { label: 'Modern Era (2023\u20132024)', color: 'var(--accent)' },
       };
 
       function drawDatasets() {
@@ -1682,14 +1779,14 @@
                 ? '#e3b341'
                 : d.open === 'No'
                   ? '#f85149'
-                  : '#8b949e';
+                  : 'var(--text-muted)';
             const openBg = d.open.includes('Yes')
               ? '#1b2e1f'
               : d.open.includes('Partial')
                 ? '#2d2200'
                 : d.open === 'No'
                   ? '#2d0f0e'
-                  : '#21262d';
+                  : 'var(--border-secondary)';
             html += `<div class="ds-card" id="ds-${eraId}-${i}" onclick="togDs('ds-${eraId}-${i}')" style="border-left:3px solid ${d.color}">
         <div class="ds-card-header">
           <div>
@@ -1706,7 +1803,7 @@
           <b>Sources:</b> ${d.sources}<br>
           <b>Filtering:</b> ${d.filtering}<br><br>
           ${d.detail}<br><br>
-          <span style="color:#d29922;font-size:0.6rem">Key innovation: ${d.innovation}</span>
+          <span style="color:var(--accent);font-size:0.6rem">Key innovation: ${d.innovation}</span>
         </div>
       </div>`;
           });
@@ -1723,7 +1820,7 @@
               ? '#e3b341'
               : d.open === 'No'
                 ? '#f85149'
-                : '#8b949e';
+                : 'var(--text-muted)';
           html += `<tr>
       <td><b>${d.name}</b></td>
       <td>${d.year}</td>

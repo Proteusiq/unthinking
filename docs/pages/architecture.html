@@ -10,57 +10,94 @@
         margin: 0;
         padding: 0;
       }
+
+      :root {
+        --bg-primary: #0d1117;
+        --bg-secondary: #161b22;
+        --bg-tertiary: #1c2128;
+        --bg-input: #0d1117;
+        --text-primary: #e6edf3;
+        --text-secondary: #c9d1d9;
+        --text-muted: #8b949e;
+        --border-primary: #30363d;
+        --border-secondary: #21262d;
+        --accent: #58a6ff;
+        --accent-green: #3fb950;
+        --accent-yellow: #e3b341;
+        --accent-purple: #d2a8ff;
+        --accent-orange: #f0883e;
+      }
+
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg-primary: #ffffff;
+          --bg-secondary: #f6f8fa;
+          --bg-tertiary: #f0f3f6;
+          --bg-input: #ffffff;
+          --text-primary: #1f2328;
+          --text-secondary: #424a53;
+          --text-muted: #656d76;
+          --border-primary: #d0d7de;
+          --border-secondary: #e1e4e8;
+          --accent: #0969da;
+          --accent-green: #1a7f37;
+          --accent-yellow: #9a6700;
+          --accent-purple: #8250df;
+          --accent-orange: #d46b08;
+        }
+      }
+
       body {
-        background: #0d1117;
-        color: #c9d1d9;
+        background: var(--bg-primary);
+        color: var(--text-secondary);
         font-family: 'Courier New', monospace;
-        padding: 1.2rem 1rem 3rem;
+        padding: clamp(0.5rem, 2vw, 1rem) clamp(0.5rem, 2vw, 1rem) 3rem;
       }
       .topbar {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        max-width: 960px;
+        max-width: min(960px, 100%);
         margin: 0 auto 1rem;
         flex-wrap: wrap;
         gap: 0.5rem;
       }
       h2 {
-        color: #58a6ff;
+        color: var(--accent);
         letter-spacing: 2px;
-        font-size: 0.8rem;
+        font-size: clamp(0.7rem, 2vw, 0.85rem);
         text-transform: uppercase;
       }
       .toggle-wrap {
         display: flex;
         gap: 0;
-        border: 1px solid #30363d;
+        border: 1px solid var(--border-primary);
         border-radius: 5px;
         overflow: hidden;
       }
       .tbtn {
-        background: #161b22;
-        color: #8b949e;
+        background: var(--bg-secondary);
+        color: var(--text-muted);
         border: none;
         padding: 5px 12px;
         font-family: 'Courier New', monospace;
-        font-size: 0.62rem;
+        font-size: clamp(0.55rem, 1.5vw, 0.65rem);
         letter-spacing: 1px;
         text-transform: uppercase;
         cursor: pointer;
-        border-right: 1px solid #30363d;
+        border-right: 1px solid var(--border-primary);
         transition: background 0.15s;
       }
       .tbtn:last-child {
         border-right: none;
       }
       .tbtn.active {
-        background: #58a6ff;
-        color: #0d1117;
+        background: var(--accent);
+        color: var(--bg-primary);
         font-weight: bold;
       }
       .wrap {
-        max-width: 960px;
+        max-width: min(960px, 100%);
         margin: 0 auto;
       }
       .view {
@@ -72,10 +109,10 @@
 
       /* ── BLOCK ── */
       .block-intro {
-        background: #161b22;
-        border: 1px solid #30363d;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-primary);
         border-radius: 6px;
-        padding: 0.9rem 1rem;
+        padding: clamp(0.5rem, 2vw, 1rem);
         margin-bottom: 0.8rem;
       }
       .block-legend {
@@ -85,41 +122,42 @@
         margin-bottom: 0.7rem;
       }
       .bl-chip {
-        font-size: 0.58rem;
+        font-size: clamp(0.55rem, 1.5vw, 0.65rem);
         padding: 2px 7px;
         border-radius: 3px;
         border: 1px solid transparent;
       }
       .btbl-wrap {
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
       }
       .btbl {
         width: 100%;
         border-collapse: collapse;
-        font-size: 0.63rem;
+        font-size: clamp(0.55rem, 1.5vw, 0.65rem);
       }
       .btbl th {
-        background: #0d1117;
+        background: var(--bg-primary);
         padding: 5px 8px;
         text-align: left;
-        font-size: 0.57rem;
+        font-size: clamp(0.55rem, 1.5vw, 0.65rem);
         letter-spacing: 1px;
         text-transform: uppercase;
-        border-bottom: 1px solid #30363d;
+        border-bottom: 1px solid var(--border-primary);
         white-space: nowrap;
-        color: #8b949e;
+        color: var(--text-muted);
       }
       .btbl td {
         padding: 5px 8px;
-        border-bottom: 1px solid #21262d;
+        border-bottom: 1px solid var(--border-secondary);
         vertical-align: top;
       }
       .btbl tr:hover td {
-        background: #1c2128;
+        background: var(--bg-tertiary);
       }
       .chip {
         display: inline-block;
-        font-size: 0.57rem;
+        font-size: clamp(0.55rem, 1.5vw, 0.65rem);
         border-radius: 3px;
         padding: 1px 5px;
         white-space: nowrap;
@@ -127,14 +165,14 @@
 
       /* ── ACTIVATIONS ── */
       .act-intro {
-        font-size: 0.64rem;
-        color: #8b949e;
+        font-size: clamp(0.55rem, 1.5vw, 0.65rem);
+        color: var(--text-muted);
         line-height: 1.8;
         margin-bottom: 0.85rem;
-        border: 1px solid #21262d;
+        border: 1px solid var(--border-secondary);
         border-radius: 5px;
-        padding: 0.65rem 0.9rem;
-        background: #0d1117;
+        padding: clamp(0.5rem, 2vw, 1rem);
+        background: var(--bg-primary);
       }
       .act-timeline {
         display: flex;
@@ -154,8 +192,8 @@
         align-items: center;
       }
       .act-yr-label {
-        font-size: 0.58rem;
-        color: #58a6ff;
+        font-size: clamp(0.55rem, 1.5vw, 0.65rem);
+        color: var(--accent);
         font-weight: bold;
         padding-top: 10px;
         white-space: nowrap;
@@ -181,15 +219,15 @@
       .act-line {
         width: 2px;
         flex: 1;
-        background: #21262d;
+        background: var(--border-secondary);
       }
       .act-card-col {
         flex: 1;
         padding: 0 0 12px 10px;
       }
       .act-card {
-        background: #161b22;
-        border: 1px solid #30363d;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-primary);
         border-radius: 5px;
         padding: 8px 11px;
         cursor: pointer;
@@ -199,7 +237,7 @@
         border-color: #58a6ff55;
       }
       .act-card.open {
-        border-color: #58a6ff;
+        border-color: var(--accent);
       }
       .act-card-header {
         display: flex;
@@ -207,37 +245,37 @@
         align-items: flex-start;
       }
       .act-name {
-        font-size: 0.78rem;
+        font-size: clamp(0.7rem, 2vw, 0.85rem);
         font-weight: bold;
       }
       .act-badge {
-        font-size: 0.55rem;
+        font-size: clamp(0.55rem, 1.5vw, 0.65rem);
         border-radius: 3px;
         padding: 1px 5px;
         margin-left: 5px;
       }
       .act-chev {
-        font-size: 0.6rem;
-        color: #30363d;
+        font-size: clamp(0.55rem, 1.5vw, 0.65rem);
+        color: var(--border-primary);
         transition: transform 0.2s;
       }
       .act-card.open .act-chev {
         transform: rotate(180deg);
-        color: #58a6ff;
+        color: var(--accent);
       }
       .act-formula {
-        font-size: 0.66rem;
+        font-size: clamp(0.55rem, 1.5vw, 0.65rem);
         color: #79c0ff;
-        background: #0d1117;
-        border: 1px solid #21262d;
+        background: var(--bg-primary);
+        border: 1px solid var(--border-secondary);
         border-radius: 3px;
         padding: 3px 8px;
         margin: 5px 0;
         font-family: 'Courier New', monospace;
       }
       .act-short {
-        font-size: 0.64rem;
-        color: #8b949e;
+        font-size: clamp(0.55rem, 1.5vw, 0.65rem);
+        color: var(--text-muted);
         line-height: 1.6;
         margin-top: 3px;
       }
@@ -245,19 +283,19 @@
         display: none;
         margin-top: 6px;
         padding-top: 6px;
-        border-top: 1px solid #21262d;
-        font-size: 0.63rem;
-        color: #8b949e;
+        border-top: 1px solid var(--border-secondary);
+        font-size: clamp(0.55rem, 1.5vw, 0.65rem);
+        color: var(--text-muted);
         line-height: 1.75;
       }
       .act-card.open .act-detail {
         display: block;
       }
       .act-detail b {
-        color: #e6edf3;
+        color: var(--text-primary);
       }
       .act-used {
-        font-size: 0.61rem;
+        font-size: clamp(0.55rem, 1.5vw, 0.65rem);
         color: #3fb950;
         margin-top: 4px;
       }
@@ -270,79 +308,80 @@
         margin-top: 0.7rem;
       }
       .norm-card {
-        background: #161b22;
-        border: 1px solid #30363d;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-primary);
         border-radius: 5px;
         padding: 9px 11px;
       }
       .norm-title {
-        font-size: 0.7rem;
+        font-size: clamp(0.7rem, 2vw, 0.85rem);
         font-weight: bold;
         margin-bottom: 4px;
       }
       .norm-body {
-        font-size: 0.63rem;
-        color: #8b949e;
+        font-size: clamp(0.55rem, 1.5vw, 0.65rem);
+        color: var(--text-muted);
         line-height: 1.65;
       }
       .norm-body b {
-        color: #e6edf3;
+        color: var(--text-primary);
       }
       .norm-formula {
-        font-size: 0.62rem;
+        font-size: clamp(0.55rem, 1.5vw, 0.65rem);
         color: #79c0ff;
-        background: #0d1117;
-        border: 1px solid #21262d;
+        background: var(--bg-primary);
+        border: 1px solid var(--border-secondary);
         border-radius: 3px;
         padding: 2px 7px;
         margin: 4px 0;
         font-family: 'Courier New', monospace;
       }
       .norm-used {
-        font-size: 0.6rem;
+        font-size: clamp(0.55rem, 1.5vw, 0.65rem);
         color: #3fb950;
         margin-top: 4px;
       }
       .norm-warn {
-        font-size: 0.6rem;
-        color: #f0883e;
+        font-size: clamp(0.55rem, 1.5vw, 0.65rem);
+        color: var(--accent-orange);
         margin-top: 3px;
       }
 
       /* ── TABLE ── */
       .tbl-wrap {
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
       }
       .main-t {
         width: 100%;
         border-collapse: collapse;
-        font-size: 0.63rem;
+        font-size: clamp(0.55rem, 1.5vw, 0.65rem);
       }
       .main-t th {
-        background: #0d1117;
+        background: var(--bg-primary);
         padding: 5px 8px;
         text-align: left;
-        font-size: 0.57rem;
+        font-size: clamp(0.55rem, 1.5vw, 0.65rem);
         letter-spacing: 1px;
         text-transform: uppercase;
-        border-bottom: 1px solid #30363d;
+        border-bottom: 1px solid var(--border-primary);
         white-space: nowrap;
-        color: #8b949e;
+        color: var(--text-muted);
       }
       .main-t td {
         padding: 4px 8px;
-        border-bottom: 1px solid #21262d;
-        color: #8b949e;
+        border-bottom: 1px solid var(--border-secondary);
+        color: var(--text-muted);
         white-space: nowrap;
       }
       .main-t td.nm {
-        color: #c9d1d9;
+        color: var(--text-secondary);
       }
       .main-t tr:hover td {
-        background: #1c2128;
+        background: var(--bg-tertiary);
       }
       .main-t tr.ut td.nm {
-        color: #f0883e;
+        color: var(--accent-orange);
       }
 
       /* Back link */
@@ -350,9 +389,9 @@
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        color: #58a6ff;
+        color: var(--accent);
         text-decoration: none;
-        font-size: 0.7rem;
+        font-size: clamp(0.7rem, 2vw, 0.85rem);
         margin-bottom: 1rem;
         opacity: 0.8;
         transition: opacity 0.15s;
@@ -364,10 +403,21 @@
         width: 14px;
         height: 14px;
       }
+
+      @media (max-width: 600px) {
+        .topbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        h2 {
+          margin-bottom: 0.5rem;
+        }
+      }
     </style>
   </head>
   <body>
-    <div style="max-width: 960px; margin: 0 auto">
+    <div style="max-width: min(960px, 100%); margin: 0 auto">
       <a
         href="index.html"
         class="back-link"
@@ -398,8 +448,8 @@
       <!-- ═══ ACTIVATIONS & NORM ═══ -->
       <div id="view-act" class="view show">
         <div class="act-intro">
-          <b style="color: #c9d1d9">Activations</b> introduce non-linearity into the FFN. The
-          evolution moves from hard gates (ReLU) to smooth approximations (GELU) to
+          <b style="color: var(--text-secondary)">Activations</b> introduce non-linearity into the
+          FFN. The evolution moves from hard gates (ReLU) to smooth approximations (GELU) to
           <b style="color: #ffa657">gated linear units (GLU family)</b> — where a sigmoid/swish gate
           multiplies the linear branch, giving the network multiplicative control over information
           flow. Below: click any entry for formulas and context.
@@ -409,30 +459,38 @@
 
         <div
           style="
-            font-size: 0.65rem;
-            color: #58a6ff;
+            font-size: clamp(0.55rem, 1.5vw, 0.65rem);
+            color: var(--accent);
             letter-spacing: 1px;
             text-transform: uppercase;
             margin: 1.4rem 0 0.55rem;
-            border-top: 1px solid #21262d;
+            border-top: 1px solid var(--border-secondary);
             padding-top: 1rem;
           "
         >
           Normalisation — Pre / Post / Skip / RMS
         </div>
-        <div style="font-size: 0.63rem; color: #8b949e; line-height: 1.75; margin-bottom: 0.7rem">
-          Where the norm sits inside the residual block determines training stability, gradient
-          flow, and depth scalability. The trend:
-          <b style="color: #c9d1d9">Post-LN → Pre-LN → Pre-RMSNorm → QK-Norm on top</b>.
+        <div
+          style="
+            font-size: clamp(0.55rem, 1.5vw, 0.65rem);
+            color: var(--text-muted);
+            line-height: 1.75;
+            margin-bottom: 0.7rem;
+          "
+        >
+          Where the norm sits inside the residual block determines training stability, gradient flow,
+          and depth scalability. The trend:
+          <b style="color: var(--text-secondary)">Post-LN → Pre-LN → Pre-RMSNorm → QK-Norm on top</b
+          >.
         </div>
 
         <!-- norm placement diagram -->
         <div
           style="
-            background: #161b22;
-            border: 1px solid #30363d;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
             border-radius: 6px;
-            padding: 0.85rem 1rem;
+            padding: clamp(0.5rem, 2vw, 1rem);
             margin-bottom: 0.75rem;
           "
         >
@@ -441,12 +499,20 @@
             style="display: block; width: 100%; overflow: visible"
             height="110"
           ></svg>
-          <div style="font-size: 0.6rem; color: #8b949e; margin-top: 0.4rem; line-height: 1.7">
-            <span style="color: #f0883e">Post-LN</span> (original transformer): norm applied
-            <i>after</i> residual addition — gradients can vanish in early layers at depth.&nbsp;
-            <span style="color: #56d364">Pre-LN</span>: norm before sub-layer — stable gradients,
-            dominant since GPT-2.&nbsp; <span style="color: #d2a8ff">Skip-norm / No-norm</span>:
-            some hybrid linear-attention layers omit norm entirely on the residual path.
+          <div
+            style="
+              font-size: clamp(0.55rem, 1.5vw, 0.65rem);
+              color: var(--text-muted);
+              margin-top: 0.4rem;
+              line-height: 1.7;
+            "
+          >
+            <span style="color: var(--accent-orange)">Post-LN</span> (original transformer): norm
+            applied <i>after</i> residual addition — gradients can vanish in early layers at
+            depth.&nbsp; <span style="color: #56d364">Pre-LN</span>: norm before sub-layer — stable
+            gradients, dominant since GPT-2.&nbsp;
+            <span style="color: var(--accent-purple)">Skip-norm / No-norm</span>: some hybrid
+            linear-attention layers omit norm entirely on the residual path.
           </div>
         </div>
 
@@ -458,8 +524,8 @@
         <div class="block-intro">
           <div
             style="
-              font-size: 0.62rem;
-              color: #58a6ff;
+              font-size: clamp(0.55rem, 1.5vw, 0.65rem);
+              color: var(--accent);
               letter-spacing: 1px;
               text-transform: uppercase;
               margin-bottom: 0.65rem;
@@ -472,14 +538,21 @@
             style="display: block; width: 100%; overflow: visible"
             height="80"
           ></svg>
-          <div style="font-size: 0.62rem; color: #8b949e; margin-top: 0.55rem; line-height: 1.75">
-            Structure is <b style="color: #c9d1d9">invariant</b>: embed+pos → (norm → attn → add →
-            norm → FFN/MoE → add) × N → norm → logits.<br />
+          <div
+            style="
+              font-size: clamp(0.55rem, 1.5vw, 0.65rem);
+              color: var(--text-muted);
+              margin-top: 0.55rem;
+              line-height: 1.75;
+            "
+          >
+            Structure is <b style="color: var(--text-secondary)">invariant</b>: embed+pos → (norm →
+            attn → add → norm → FFN/MoE → add) × N → norm → logits.<br />
             What evolves: <b style="color: #79c0ff">positional scheme</b> ·
-            <b style="color: #d2a8ff">attention variant</b> ·
+            <b style="color: var(--accent-purple)">attention variant</b> ·
             <b style="color: #ffa657">FFN gating/MoE</b> ·
-            <b style="color: #e3b341">norm placement</b>.<br />
-            <span style="color: #3fb950; font-size: 0.6rem"
+            <b style="color: var(--accent-yellow)">norm placement</b>.<br />
+            <span style="color: #3fb950; font-size: clamp(0.55rem, 1.5vw, 0.65rem)"
               >Source: Raschka (2025) — The Big LLM Architecture Comparison ·
               magazine.sebastianraschka.com</span
             >
@@ -490,12 +563,12 @@
           <table class="btbl">
             <thead>
               <tr>
-                <th style="color: #c9d1d9">Model</th>
+                <th style="color: var(--text-secondary)">Model</th>
                 <th>Year</th>
                 <th style="color: #79c0ff">Pos. Encoding</th>
-                <th style="color: #d2a8ff">Attention</th>
+                <th style="color: var(--accent-purple)">Attention</th>
                 <th style="color: #ffa657">Activation / FFN</th>
-                <th style="color: #e3b341">Norm</th>
+                <th style="color: var(--accent-yellow)">Norm</th>
                 <th>Notes</th>
               </tr>
             </thead>
@@ -510,21 +583,22 @@
           <table class="main-t">
             <thead>
               <tr>
-                <th style="color: #c9d1d9">Model</th>
+                <th style="color: var(--text-secondary)">Model</th>
                 <th>Year</th>
                 <th>Lab</th>
                 <th style="color: #ffa657">Activation</th>
-                <th style="color: #d2a8ff">Attention</th>
+                <th style="color: var(--accent-purple)">Attention</th>
                 <th style="color: #79c0ff">Pos. Embed</th>
-                <th style="color: #e3b341">Norm</th>
+                <th style="color: var(--accent-yellow)">Norm</th>
                 <th>MoE</th>
               </tr>
             </thead>
             <tbody id="tbl-body"></tbody>
           </table>
         </div>
-        <div style="margin-top: 0.6rem; font-size: 0.62rem; color: #8b949e">
-          <span style="color: #f0883e">●</span> = underrepresented in post-training literature
+        <div style="margin-top: 0.6rem; font-size: clamp(0.55rem, 1.5vw, 0.65rem); color: var(--text-muted)">
+          <span style="color: var(--accent-orange)">●</span> = underrepresented in post-training
+          literature
         </div>
       </div>
     </div>
@@ -532,22 +606,27 @@
 
     <div
       style="
-        max-width: 960px;
+        max-width: min(960px, 100%);
         margin: 2rem auto 0;
         padding-top: 1rem;
-        border-top: 1px solid #21262d;
-        font-size: 0.58rem;
-        color: #8b949e;
+        border-top: 1px solid var(--border-secondary);
+        font-size: clamp(0.55rem, 1.5vw, 0.65rem);
+        color: var(--text-muted);
         line-height: 1.8;
       "
     >
       <span
-        style="color: #30363d; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.5rem"
+        style="
+          color: var(--border-primary);
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          font-size: 0.5rem;
+        "
         >Sources</span
       ><br />
       <a
         href="https://magazine.sebastianraschka.com/p/the-big-llm-architecture-comparison"
-        style="color: #58a6ff; text-decoration: none"
+        style="color: var(--accent); text-decoration: none"
         target="_blank"
         rel="noopener"
         >Sebastian Raschka</a
@@ -555,7 +634,7 @@
       (2025) &mdash; The Big LLM Architecture Comparison<br />
       <a
         href="https://stanford-cs336.github.io/spring2025/"
-        style="color: #58a6ff; text-decoration: none"
+        style="color: var(--accent); text-decoration: none"
         target="_blank"
         rel="noopener"
         >Stanford CS336</a
@@ -1361,7 +1440,7 @@
             const bx = xOff + gap + bi * (bW + gap),
               by = 20;
             const isNorm = box.includes('Norm');
-            h += `<rect x="${bx}" y="${by}" width="${bW}" height="${bH}" rx="3" fill="${isNorm ? cfg.color + '22' : '#0d1117'}" stroke="${isNorm ? cfg.color : '#30363d'}" stroke-width="${isNorm ? 1.5 : 1}"/>`;
+            h += `<rect x="${bx}" y="${by}" width="${bW}" height="${bH}" rx="3" fill="${isNorm ? cfg.color + '22' : 'var(--bg-primary)'}" stroke="${isNorm ? cfg.color : 'var(--border-primary)'}" stroke-width="${isNorm ? 1.5 : 1}"/>`;
             const lines =
               box.length > 9
                 ? [
@@ -1371,17 +1450,17 @@
                 : [box];
             lines.forEach(
               (line, li) =>
-                (h += `<text x="${bx + bW / 2}" y="${by + bH / 2 + (li - (lines.length - 1) / 2) * 10 + 4}" text-anchor="middle" fill="${isNorm ? cfg.color : '#8b949e'}" font-size="8" font-family="Courier New,monospace">${line}</text>`)
+                (h += `<text x="${bx + bW / 2}" y="${by + bH / 2 + (li - (lines.length - 1) / 2) * 10 + 4}" text-anchor="middle" fill="${isNorm ? cfg.color : 'var(--text-muted)'}" font-size="8" font-family="Courier New,monospace">${line}</text>`)
             );
             if (bi < cfg.boxes.length - 1) {
               const ax = bx + bW + 1;
-              h += `<line x1="${ax}" y1="${by + bH / 2}" x2="${ax + gap - 1}" y2="${by + bH / 2}" stroke="#30363d" stroke-width="1"/><polygon points="${ax + gap - 1},${by + bH / 2 - 2.5} ${ax + gap - 1},${by + bH / 2 + 2.5} ${ax + gap + 2},${by + bH / 2}" fill="#30363d"/>`;
+              h += `<line x1="${ax}" y1="${by + bH / 2}" x2="${ax + gap - 1}" y2="${by + bH / 2}" stroke="var(--border-primary)" stroke-width="1"/><polygon points="${ax + gap - 1},${by + bH / 2 - 2.5} ${ax + gap - 1},${by + bH / 2 + 2.5} ${ax + gap + 2},${by + bH / 2}" fill="var(--border-primary)"/>`;
             }
           });
           // residual arc
           const arcY = 20 + bH + 8;
-          h += `<path d="M${xOff + gap + bW / 2} ${20 + bH} Q${xOff + gap + bW / 2} ${arcY + 10} ${xOff + gap + (3 * (bW + gap) + bW / 2)} ${arcY + 10} Q${xOff + gap + (3 * (bW + gap) + bW / 2)} ${arcY} ${xOff + gap + (3 * (bW + gap) + bW / 2)} ${20 + bH}" fill="none" stroke="#30363d" stroke-width="1" stroke-dasharray="3,2"/>`;
-          h += `<text x="${xOff + colW / 2 - 8}" y="${arcY + 20}" text-anchor="middle" fill="#30363d" font-size="8" font-family="Courier New,monospace">residual skip</text>`;
+          h += `<path d="M${xOff + gap + bW / 2} ${20 + bH} Q${xOff + gap + bW / 2} ${arcY + 10} ${xOff + gap + (3 * (bW + gap) + bW / 2)} ${arcY + 10} Q${xOff + gap + (3 * (bW + gap) + bW / 2)} ${arcY} ${xOff + gap + (3 * (bW + gap) + bW / 2)} ${20 + bH}" fill="none" stroke="var(--border-primary)" stroke-width="1" stroke-dasharray="3,2"/>`;
+          h += `<text x="${xOff + colW / 2 - 8}" y="${arcY + 20}" text-anchor="middle" fill="var(--border-primary)" font-size="8" font-family="Courier New,monospace">residual skip</text>`;
         });
         svg.innerHTML = h;
       }
@@ -1418,10 +1497,10 @@
           });
           if (i < n - 1) {
             const ax = x + bW + 3;
-            h += `<line x1="${ax}" y1="${cy}" x2="${ax + gap - 6}" y2="${cy}" stroke="#30363d" stroke-width="1"/><polygon points="${ax + gap - 6},${cy - 3} ${ax + gap - 6},${cy + 3} ${ax + gap},${cy}" fill="#30363d"/>`;
+            h += `<line x1="${ax}" y1="${cy}" x2="${ax + gap - 6}" y2="${cy}" stroke="var(--border-primary)" stroke-width="1"/><polygon points="${ax + gap - 6},${cy - 3} ${ax + gap - 6},${cy + 3} ${ax + gap},${cy}" fill="var(--border-primary)"/>`;
           }
         });
-        h += `<text x="${W / 2}" y="74" text-anchor="middle" fill="#30363d" font-size="9" font-family="Courier New,monospace">↑ repeats N times (LLaMA 3 70B = 80 layers · DeepSeek V3 = 61 layers · MiniMax M1 = 7 linear + 1 softmax per cycle) ↑</text>`;
+        h += `<text x="${W / 2}" y="74" text-anchor="middle" fill="var(--border-primary)" font-size="9" font-family="Courier New,monospace">↑ repeats N times (LLaMA 3 70B = 80 layers · DeepSeek V3 = 61 layers · MiniMax M1 = 7 linear + 1 softmax per cycle) ↑</text>`;
         svg.innerHTML = h;
 
         document.getElementById('block-legend').innerHTML = [
@@ -1447,7 +1526,7 @@
         ]
           .map((l) =>
             l.l === '|'
-              ? `<span style="color:#30363d;padding:0 3px">│</span>`
+              ? `<span style="color:var(--border-primary);padding:0 3px">│</span>`
               : `<span class="bl-chip" style="background:${l.bg};color:${l.c};border-color:${l.c}44">${l.l}</span>`
           )
           .join('');
@@ -1458,13 +1537,13 @@
             fc = actClr(m.act),
             nc = normClr(m.norm);
           return `<tr>
-      <td style="color:#c9d1d9;white-space:nowrap">${m.name}</td>
-      <td style="color:#8b949e">${m.year}</td>
+      <td style="color:var(--text-secondary);white-space:nowrap">${m.name}</td>
+      <td style="color:var(--text-muted)">${m.year}</td>
       <td><span class="chip" style="background:${pc.bg};color:${pc.c}">${m.pos}</span></td>
       <td><span class="chip" style="background:${ac.bg};color:${ac.c}">${m.attn}</span></td>
       <td><span class="chip" style="background:${fc.bg};color:${fc.c}">${m.act}</span></td>
       <td><span class="chip" style="background:${nc.bg};color:${nc.c}">${m.norm}</span></td>
-      <td style="color:#8b949e;font-size:0.6rem;max-width:200px;white-space:normal;line-height:1.5">${m.note}</td>
+      <td style="color:var(--text-muted);font-size:clamp(0.55rem, 1.5vw, 0.65rem);max-width:200px;white-space:normal;line-height:1.5">${m.note}</td>
     </tr>`;
         }).join('');
       }
@@ -1478,11 +1557,11 @@
           return `<tr class="${m.ut ? 'ut' : ''}">
       <td class="nm">${m.name}</td><td>${m.year}</td>
       <td style="color:${LAB_COLORS[m.lab] || '#8b949e'}">${m.lab}</td>
-      <td><span class="chip" style="background:${fc.bg};color:${fc.c};font-size:0.56rem">${m.act}</span></td>
-      <td><span class="chip" style="background:${ac.bg};color:${ac.c};font-size:0.56rem">${m.attn}</span></td>
-      <td style="color:#79c0ff;font-size:0.6rem">${m.pe}</td>
-      <td><span class="chip" style="background:${nc.bg};color:${nc.c};font-size:0.56rem">${m.norm}</span></td>
-      <td style="color:${m.moe === '✓' ? '#ffa657' : m.moe === '?' ? '#e3b341' : '#30363d'}">${m.moe}</td>
+      <td><span class="chip" style="background:${fc.bg};color:${fc.c};font-size:clamp(0.5rem, 1.3vw, 0.56rem)">${m.act}</span></td>
+      <td><span class="chip" style="background:${ac.bg};color:${ac.c};font-size:clamp(0.5rem, 1.3vw, 0.56rem)">${m.attn}</span></td>
+      <td style="color:#79c0ff;font-size:clamp(0.55rem, 1.5vw, 0.65rem)">${m.pe}</td>
+      <td><span class="chip" style="background:${nc.bg};color:${nc.c};font-size:clamp(0.5rem, 1.3vw, 0.56rem)">${m.norm}</span></td>
+      <td style="color:${m.moe === '✓' ? '#ffa657' : m.moe === '?' ? '#e3b341' : 'var(--border-primary)'}">${m.moe}</td>
     </tr>`;
         }).join('');
       }

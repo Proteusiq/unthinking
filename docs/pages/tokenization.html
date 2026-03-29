@@ -5,67 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tokenization | The Thinking Machine That Doesn't Think</title>
     <style>
+      /* ══════════════════════════════════════════════════════════════════════
+         CSS Custom Properties - Theme System
+         ══════════════════════════════════════════════════════════════════════ */
+      :root {
+        --bg-primary: #0d1117;
+        --bg-secondary: #161b22;
+        --bg-tertiary: #1c2128;
+        --bg-input: #0d1117;
+        --text-primary: #e6edf3;
+        --text-secondary: #c9d1d9;
+        --text-muted: #8b949e;
+        --border-primary: #30363d;
+        --border-secondary: #21262d;
+        --accent: #f0883e;
+        --accent-blue: #79c0ff;
+        --accent-green: #3fb950;
+        --accent-yellow: #e3b341;
+        --accent-purple: #d2a8ff;
+      }
+
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg-primary: #ffffff;
+          --bg-secondary: #f6f8fa;
+          --bg-tertiary: #f0f3f6;
+          --bg-input: #ffffff;
+          --text-primary: #1f2328;
+          --text-secondary: #424a53;
+          --text-muted: #656d76;
+          --border-primary: #d0d7de;
+          --border-secondary: #e1e4e8;
+          --accent: #d46b08;
+          --accent-blue: #0969da;
+          --accent-green: #1a7f37;
+          --accent-yellow: #9a6700;
+          --accent-purple: #8250df;
+        }
+      }
+
       * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
       }
+
       body {
-        background: #0d1117;
-        color: #c9d1d9;
+        background: var(--bg-primary);
+        color: var(--text-secondary);
         font-family: 'Courier New', monospace;
-        padding: 1.2rem 1rem 3rem;
+        padding: clamp(1rem, 3vw, 1.5rem);
+        padding-bottom: 3rem;
       }
+
       .topbar {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        max-width: 960px;
+        max-width: min(960px, 100%);
         margin: 0 auto 1rem;
         flex-wrap: wrap;
         gap: 0.5rem;
+        padding: 0 clamp(0.25rem, 1vw, 0.5rem);
       }
+
       h2 {
-        color: #f0883e;
-        letter-spacing: 2px;
-        font-size: 0.8rem;
+        color: var(--accent);
+        letter-spacing: clamp(1px, 0.3vw, 2px);
+        font-size: clamp(0.7rem, 2vw, 0.85rem);
         text-transform: uppercase;
       }
+
       .toggle-wrap {
         display: flex;
         gap: 0;
-        border: 1px solid #30363d;
+        border: 1px solid var(--border-primary);
         border-radius: 5px;
         overflow: hidden;
       }
+
       .tbtn {
-        background: #161b22;
-        color: #8b949e;
+        background: var(--bg-secondary);
+        color: var(--text-muted);
         border: none;
-        padding: 5px 12px;
+        padding: clamp(4px, 1vw, 6px) clamp(8px, 2vw, 14px);
         font-family: 'Courier New', monospace;
-        font-size: 0.62rem;
+        font-size: clamp(0.55rem, 1.5vw, 0.7rem);
         letter-spacing: 1px;
         text-transform: uppercase;
         cursor: pointer;
-        border-right: 1px solid #30363d;
+        border-right: 1px solid var(--border-primary);
         transition: background 0.15s;
       }
+
       .tbtn:last-child {
         border-right: none;
       }
+
       .tbtn.active {
-        background: #f0883e;
-        color: #0d1117;
+        background: var(--accent);
+        color: var(--bg-primary);
         font-weight: bold;
       }
+
       .wrap {
-        max-width: 960px;
+        max-width: min(960px, 100%);
         margin: 0 auto;
+        padding: 0 clamp(0.25rem, 1vw, 0.5rem);
       }
+
       .view {
         display: none;
       }
+
       .view.show {
         display: block;
       }
@@ -77,165 +129,192 @@
         margin-bottom: 0.8rem;
         flex-wrap: wrap;
       }
+
       .era-tab {
-        padding: 4px 10px;
+        padding: clamp(3px, 1vw, 5px) clamp(6px, 1.5vw, 12px);
         border-radius: 3px;
-        font-size: 0.6rem;
+        font-size: clamp(0.5rem, 1.5vw, 0.65rem);
         letter-spacing: 1px;
         text-transform: uppercase;
         cursor: pointer;
         border: 1px solid transparent;
         transition: all 0.15s;
-        background: #161b22;
+        background: var(--bg-secondary);
       }
+
       .card-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-        gap: 7px;
+        grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+        gap: clamp(5px, 1.5vw, 10px);
       }
+
       .card {
-        background: #161b22;
-        border: 1px solid #30363d;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-primary);
         border-radius: 5px;
-        padding: 8px 10px;
+        padding: clamp(6px, 1.5vw, 10px);
         cursor: pointer;
         transition: border-color 0.15s;
       }
+
       .card:hover {
-        border-color: #f0883e55;
+        border-color: color-mix(in srgb, var(--accent) 50%, transparent);
       }
+
       .card.open {
-        border-color: #f0883e;
+        border-color: var(--accent);
       }
+
       .c-year {
-        font-size: 0.57rem;
+        font-size: clamp(0.5rem, 1.3vw, 0.62rem);
         margin-bottom: 2px;
       }
+
       .c-name {
-        font-size: 0.76rem;
+        font-size: clamp(0.65rem, 1.8vw, 0.82rem);
         font-weight: bold;
         margin-bottom: 3px;
       }
+
       .c-key {
-        font-size: 0.63rem;
-        color: #8b949e;
+        font-size: clamp(0.55rem, 1.5vw, 0.7rem);
+        color: var(--text-muted);
         line-height: 1.55;
       }
+
       .c-detail {
         display: none;
         margin-top: 7px;
         padding-top: 7px;
-        border-top: 1px solid #21262d;
-        font-size: 0.63rem;
+        border-top: 1px solid var(--border-secondary);
+        font-size: clamp(0.55rem, 1.5vw, 0.7rem);
         line-height: 1.7;
-        color: #8b949e;
+        color: var(--text-muted);
       }
+
       .card.open .c-detail {
         display: block;
       }
+
       .c-detail b {
-        color: #e6edf3;
+        color: var(--text-primary);
       }
+
       .c-limit {
         margin-top: 5px;
-        font-size: 0.61rem;
-        color: #f0883e;
+        font-size: clamp(0.52rem, 1.4vw, 0.66rem);
+        color: var(--accent);
       }
+
       .c-use {
         margin-top: 2px;
-        font-size: 0.61rem;
-        color: #3fb950;
+        font-size: clamp(0.52rem, 1.4vw, 0.66rem);
+        color: var(--accent-green);
       }
+
       .c-chev {
         float: right;
         font-size: 0.6rem;
-        color: #30363d;
+        color: var(--border-primary);
         transition: transform 0.2s;
       }
+
       .card.open .c-chev {
         transform: rotate(180deg);
-        color: #f0883e;
+        color: var(--accent);
       }
 
       /* ── PIPELINE DIAGRAM ── */
       .pipeline-wrap {
-        background: #161b22;
-        border: 1px solid #30363d;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-primary);
         border-radius: 6px;
-        padding: 0.9rem 1rem;
+        padding: clamp(0.6rem, 2vw, 1rem);
         margin-bottom: 0.85rem;
       }
+
       .pipeline-flow {
         display: flex;
         align-items: center;
         gap: 0;
         overflow-x: auto;
         padding: 0.5rem 0;
+        -webkit-overflow-scrolling: touch;
       }
+
       .pipe-box {
-        background: #0d1117;
-        border: 1px solid #30363d;
+        background: var(--bg-input);
+        border: 1px solid var(--border-primary);
         border-radius: 4px;
-        padding: 6px 10px;
+        padding: clamp(4px, 1vw, 8px) clamp(6px, 1.5vw, 12px);
         text-align: center;
         white-space: nowrap;
         flex-shrink: 0;
       }
+
       .pipe-box .label {
-        font-size: 0.6rem;
-        color: #8b949e;
+        font-size: clamp(0.5rem, 1.3vw, 0.65rem);
+        color: var(--text-muted);
         text-transform: uppercase;
         letter-spacing: 1px;
       }
+
       .pipe-box .value {
-        font-size: 0.72rem;
+        font-size: clamp(0.6rem, 1.6vw, 0.78rem);
         font-weight: bold;
         margin-top: 2px;
       }
+
       .pipe-arrow {
-        color: #30363d;
-        font-size: 1.2rem;
-        padding: 0 6px;
+        color: var(--border-primary);
+        font-size: clamp(1rem, 2.5vw, 1.3rem);
+        padding: 0 clamp(3px, 1vw, 8px);
         flex-shrink: 0;
       }
 
       /* ── BPE WALKTHROUGH ── */
       .bpe-section {
-        background: #161b22;
-        border: 1px solid #30363d;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-primary);
         border-radius: 6px;
-        padding: 0.9rem 1rem;
+        padding: clamp(0.6rem, 2vw, 1rem);
         margin-bottom: 0.85rem;
       }
+
       .bpe-title {
-        font-size: 0.65rem;
-        color: #f0883e;
+        font-size: clamp(0.55rem, 1.5vw, 0.7rem);
+        color: var(--accent);
         letter-spacing: 1px;
         text-transform: uppercase;
         margin-bottom: 0.6rem;
       }
+
       .bpe-step {
-        background: #0d1117;
-        border: 1px solid #21262d;
+        background: var(--bg-input);
+        border: 1px solid var(--border-secondary);
         border-radius: 4px;
-        padding: 6px 10px;
+        padding: clamp(5px, 1.5vw, 10px);
         margin-bottom: 5px;
-        font-size: 0.63rem;
+        font-size: clamp(0.55rem, 1.5vw, 0.7rem);
         line-height: 1.7;
-        color: #8b949e;
+        color: var(--text-muted);
+        overflow-x: auto;
       }
+
       .bpe-step b {
-        color: #e6edf3;
+        color: var(--text-primary);
       }
+
       .bpe-step .step-num {
-        color: #f0883e;
+        color: var(--accent);
         font-weight: bold;
       }
+
       .bpe-tokens {
         font-family: 'Courier New', monospace;
-        color: #79c0ff;
-        background: #0d1117;
-        border: 1px solid #21262d;
+        color: var(--accent-blue);
+        background: var(--bg-input);
+        border: 1px solid var(--border-secondary);
         border-radius: 3px;
         padding: 2px 6px;
         display: inline;
@@ -244,39 +323,47 @@
       /* ── COMPARISON TABLE ── */
       .cmp-wrap {
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
       }
+
       .cmp-tbl {
         width: 100%;
         border-collapse: collapse;
-        font-size: 0.63rem;
+        font-size: clamp(0.55rem, 1.5vw, 0.7rem);
+        min-width: 600px;
       }
+
       .cmp-tbl th {
-        background: #0d1117;
-        padding: 5px 8px;
+        background: var(--bg-input);
+        padding: clamp(4px, 1vw, 8px);
         text-align: left;
-        font-size: 0.57rem;
+        font-size: clamp(0.5rem, 1.3vw, 0.62rem);
         letter-spacing: 1px;
         text-transform: uppercase;
-        border-bottom: 1px solid #30363d;
+        border-bottom: 1px solid var(--border-primary);
         white-space: nowrap;
-        color: #8b949e;
+        color: var(--text-muted);
       }
+
       .cmp-tbl td {
-        padding: 5px 8px;
-        border-bottom: 1px solid #21262d;
+        padding: clamp(4px, 1vw, 8px);
+        border-bottom: 1px solid var(--border-secondary);
         vertical-align: top;
-        color: #8b949e;
+        color: var(--text-muted);
       }
+
       .cmp-tbl tr:hover td {
-        background: #1c2128;
+        background: var(--bg-tertiary);
       }
+
       .cmp-tbl td.nm {
-        color: #c9d1d9;
+        color: var(--text-secondary);
         white-space: nowrap;
       }
+
       .chip {
         display: inline-block;
-        font-size: 0.57rem;
+        font-size: clamp(0.5rem, 1.3vw, 0.62rem);
         border-radius: 3px;
         padding: 1px 5px;
         white-space: nowrap;
@@ -287,26 +374,83 @@
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        color: #f0883e;
+        color: var(--accent);
         text-decoration: none;
-        font-size: 0.7rem;
+        font-size: clamp(0.6rem, 1.6vw, 0.75rem);
         margin-bottom: 1rem;
         opacity: 0.8;
         transition: opacity 0.15s;
       }
+
       .back-link:hover {
         opacity: 1;
       }
+
       .back-link svg {
-        width: 14px;
-        height: 14px;
+        width: clamp(12px, 3vw, 16px);
+        height: clamp(12px, 3vw, 16px);
+      }
+
+      /* Info boxes */
+      .info-box {
+        font-size: clamp(0.55rem, 1.5vw, 0.7rem);
+        color: var(--text-muted);
+        line-height: 1.8;
+        margin-bottom: 0.85rem;
+        border: 1px solid var(--border-secondary);
+        border-radius: 5px;
+        padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(0.6rem, 2vw, 1rem);
+        background: var(--bg-input);
+      }
+
+      .info-box b {
+        color: var(--text-secondary);
+      }
+
+      /* Footer */
+      .footer {
+        max-width: min(960px, 100%);
+        margin: 2rem auto 0;
+        padding: 1rem clamp(0.25rem, 1vw, 0.5rem) 0;
+        border-top: 1px solid var(--border-secondary);
+        font-size: clamp(0.5rem, 1.3vw, 0.62rem);
+        color: var(--text-muted);
+        line-height: 1.8;
+      }
+
+      .footer a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .footer a:hover {
+        text-decoration: underline;
+      }
+
+      .footer-label {
+        color: var(--border-primary);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: clamp(0.45rem, 1.1vw, 0.55rem);
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 600px) {
+        .topbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        h2 {
+          margin-bottom: 0.5rem;
+        }
       }
     </style>
   </head>
   <body>
-    <div style="max-width: 960px; margin: 0 auto">
+    <div class="wrap">
       <a
-        href="index.html"
+        href="../index.html"
         class="back-link"
         onclick="
           if (window.parent !== window) {
@@ -335,23 +479,13 @@
       <!-- ═══ PIPELINE VIEW ═══ -->
       <div id="view-pipeline" class="view show">
         <div class="pipeline-wrap">
-          <div
-            style="
-              font-size: 0.62rem;
-              color: #f0883e;
-              letter-spacing: 1px;
-              text-transform: uppercase;
-              margin-bottom: 0.55rem;
-            "
-          >
-            The input pipeline — every LLM starts here
-          </div>
+          <div class="bpe-title">The input pipeline — every LLM starts here</div>
           <div class="pipeline-flow" id="pipeline-flow"></div>
-          <div style="font-size: 0.62rem; color: #8b949e; margin-top: 0.55rem; line-height: 1.75">
-            Raw text is <b style="color: #c9d1d9">never seen by the model</b>. It passes through a
+          <div class="info-box" style="margin-top: 0.55rem; margin-bottom: 0; border: none; padding: 0; background: transparent;">
+            Raw text is <b>never seen by the model</b>. It passes through a
             fixed tokenizer (trained separately on a corpus) that converts strings into integer
             sequences. Each integer indexes a row in the
-            <b style="color: #79c0ff">embedding matrix</b> to produce a dense vector. Only then does
+            <b style="color: var(--accent-blue)">embedding matrix</b> to produce a dense vector. Only then does
             the transformer begin.
           </div>
         </div>
@@ -359,7 +493,7 @@
         <!-- BPE Walkthrough -->
         <div class="bpe-section">
           <div class="bpe-title">BPE Algorithm — Training the Tokenizer</div>
-          <div style="font-size: 0.63rem; color: #8b949e; line-height: 1.7; margin-bottom: 0.6rem">
+          <div class="info-box" style="margin-bottom: 0.6rem; border: none; padding: 0; background: transparent;">
             Byte Pair Encoding (Sennrich et al. 2016) is how GPT-2, LLaMA, Mistral, DeepSeek, and
             most modern LLMs build their vocabulary. Start with 256 byte tokens, iteratively merge
             the most frequent adjacent pair.
@@ -370,23 +504,23 @@
         <!-- Why it matters for the thesis -->
         <div class="bpe-section">
           <div class="bpe-title">Why Tokenization Matters for Reasoning</div>
-          <div style="font-size: 0.63rem; color: #8b949e; line-height: 1.75">
-            <b style="color: #e6edf3">Tokenization artifacts cause reasoning failures</b> that look
+          <div class="info-box" style="border: none; padding: 0; background: transparent;">
+            <b>Tokenization artifacts cause reasoning failures</b> that look
             like cognitive deficits but are representation problems baked in before the first
             attention layer fires.<br /><br />
-            <b style="color: #f0883e">Letter counting</b>: "How many r's in strawberry?" fails
+            <b style="color: var(--accent)">Letter counting</b>: "How many r's in strawberry?" fails
             because "strawberry" tokenizes as
             <span class="bpe-tokens">["str", "aw", "berry"]</span> — the model never sees individual
             letters.<br />
-            <b style="color: #f0883e">Arithmetic</b>: multi-digit tokens create implicit computation
+            <b style="color: var(--accent)">Arithmetic</b>: multi-digit tokens create implicit computation
             the model must learn. "1234" as one token vs "1","2","3","4" as four tokens require
             different learned circuits.<br />
-            <b style="color: #f0883e">Reversal curse</b>: the model only sees left-to-right byte
+            <b style="color: var(--accent)">Reversal curse</b>: the model only sees left-to-right byte
             sequences. "A is B" doesn't teach "B is A" because the token sequences are completely
             different.<br />
-            <b style="color: #f0883e">Multilingual</b>: English-trained tokenizers waste 2-3× more
+            <b style="color: var(--accent)">Multilingual</b>: English-trained tokenizers waste 2-3× more
             tokens on Chinese/Arabic, leaving less context window for actual reasoning.<br /><br />
-            <span style="color: #3fb950"
+            <span style="color: var(--accent-green)"
               >Counter-argument: reasoning models (o1, R1) partially overcome tokenization limits
               via chain-of-thought decomposition — but this is a workaround, not a fix.</span
             >
@@ -396,21 +530,10 @@
 
       <!-- ═══ CATALOG VIEW ═══ -->
       <div id="view-catalog" class="view">
-        <div
-          style="
-            font-size: 0.64rem;
-            color: #8b949e;
-            line-height: 1.8;
-            margin-bottom: 0.85rem;
-            border: 1px solid #21262d;
-            border-radius: 5px;
-            padding: 0.65rem 0.9rem;
-            background: #0d1117;
-          "
-        >
+        <div class="info-box">
           How text enters the transformer. Raw strings must become integer sequences before any
           computation happens —
-          <b style="color: #c9d1d9">string → bytes → subword tokens → embedding vectors → model</b>.
+          <b>string → bytes → subword tokens → embedding vectors → model</b>.
           Tokenization choices directly shape what the model can and cannot learn. Click any card
           for detail.
         </div>
@@ -420,18 +543,7 @@
 
       <!-- ═══ COMPARE VIEW ═══ -->
       <div id="view-compare" class="view">
-        <div
-          style="
-            font-size: 0.64rem;
-            color: #8b949e;
-            line-height: 1.8;
-            margin-bottom: 0.85rem;
-            border: 1px solid #21262d;
-            border-radius: 5px;
-            padding: 0.65rem 0.9rem;
-            background: #0d1117;
-          "
-        >
+        <div class="info-box">
           Side-by-side comparison of tokenizers used by major LLMs. Vocabulary size, algorithm,
           compression ratio, and notable features.
         </div>
@@ -439,7 +551,7 @@
           <table class="cmp-tbl">
             <thead>
               <tr>
-                <th style="color: #c9d1d9">Model</th>
+                <th style="color: var(--text-secondary)">Model</th>
                 <th>Vocab Size</th>
                 <th>Algorithm</th>
                 <th>Bytes/Token</th>
@@ -453,24 +565,10 @@
       </div>
     </div>
 
-    <div
-      style="
-        max-width: 960px;
-        margin: 2rem auto 0;
-        padding-top: 1rem;
-        border-top: 1px solid #21262d;
-        font-size: 0.58rem;
-        color: #8b949e;
-        line-height: 1.8;
-      "
-    >
-      <span
-        style="color: #30363d; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.5rem"
-        >Sources</span
-      ><br />
+    <div class="footer">
+      <span class="footer-label">Sources</span><br />
       <a
         href="https://github.com/stanford-cs336/spring2025-lectures/blob/main/lecture_01.py"
-        style="color: #f0883e; text-decoration: none"
         target="_blank"
         rel="noopener"
         >Stanford CS336</a
@@ -478,7 +576,6 @@
       &mdash; Language Modeling from Scratch, Lecture 1: Tokenization (Spring 2025)<br />
       <a
         href="https://www.youtube.com/watch?v=zduSFxRajkE"
-        style="color: #f0883e; text-decoration: none"
         target="_blank"
         rel="noopener"
         >Andrej Karpathy</a
@@ -486,7 +583,6 @@
       &mdash; Let's build the GPT Tokenizer<br />
       <a
         href="https://arxiv.org/abs/1508.07909"
-        style="color: #f0883e; text-decoration: none"
         target="_blank"
         rel="noopener"
         >Sennrich et al.</a
