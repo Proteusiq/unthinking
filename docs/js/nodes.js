@@ -5973,7 +5973,7 @@ window.paperNodes = [
       'Synthetic doc fine-tuning: 20% gap without CoT (unexplained)',
     ],
     keyQuotes: [
-      'With the RL system prompt, the model\'s stated preferences shift dramatically over the course of RL, but without the RL system prompt, there is no difference before and after RL.',
+      "With the RL system prompt, the model's stated preferences shift dramatically over the course of RL, but without the RL system prompt, there is no difference before and after RL.",
       'Alignment faking which is as incompetent as we see in these results poses no serious threat.',
     ],
     analysisUrl:
@@ -6004,7 +6004,7 @@ window.paperNodes = [
   },
   {
     id: '2506.18032',
-    title: 'Why Do Some Language Models Fake Alignment While Others Don\'t?',
+    title: "Why Do Some Language Models Fake Alignment While Others Don't?",
     shortTitle: 'Why Some LMs Fake',
     date: 'Jun 2025',
     stance: 'supports',
@@ -6042,7 +6042,7 @@ window.paperNodes = [
       'Self-congruence increases user trust',
     ],
     keyQuotes: [
-      '𝒫ₛ is the model\'s representation of the persona, with the data the model has seen, the alignment steps, and the training procedure influencing it.',
+      "𝒫ₛ is the model's representation of the persona, with the data the model has seen, the alignment steps, and the training procedure influencing it.",
       'Malicious actors can easily use this to their advantage by manipulating users into trusting the system.',
     ],
     analysisUrl:
@@ -6065,8 +6065,8 @@ window.paperNodes = [
       'No fact vs reasoning confidence difference (unlike humans)',
     ],
     keyQuotes: [
-      'Models have a long way to go to be able to effectively deploy the introspective abilities they do have, and aren\'t clearly on a path to do so.',
-      'LLMs evidently don\'t have a stronger signal of confidence in their own ability to answer factual questions as compared with reasoning ones.',
+      "Models have a long way to go to be able to effectively deploy the introspective abilities they do have, and aren't clearly on a path to do so.",
+      "LLMs evidently don't have a stronger signal of confidence in their own ability to answer factual questions as compared with reasoning ones.",
     ],
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/283_limited_metacognition.md',
@@ -6125,7 +6125,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'mechanism',
     coreArgument:
-      'Middle-ground position: LLMs perform context-directed extrapolation from training priors. Bloom\'s taxonomy: achieve Understand, not Apply. Human does Apply process in ICL; model only understands pattern shown. Fears of emergent agency unfounded.',
+      "Middle-ground position: LLMs perform context-directed extrapolation from training priors. Bloom's taxonomy: achieve Understand, not Apply. Human does Apply process in ICL; model only understands pattern shown. Fears of emergent agency unfounded.",
     keyEvidence: [
       'Faux-pas test: LLMs 0.40 vs children 0.82',
       'Mystery Blocksworld: 0% zero-shot (vs 78% human)',

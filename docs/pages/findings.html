@@ -151,7 +151,9 @@
         text-align: center;
         width: 100%;
         max-width: 180px;
-        transition: transform 0.2s, border-color 0.2s;
+        transition:
+          transform 0.2s,
+          border-color 0.2s;
       }
 
       .stance-card:hover {
@@ -391,7 +393,9 @@
         border: 1px solid var(--border-primary);
         border-radius: 8px;
         margin-bottom: 0.5rem;
-        transition: border-color 0.2s, background 0.2s;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
       }
 
       .gun:hover {
@@ -736,13 +740,16 @@
 
       <div class="thesis-box" style="border-color: var(--text-muted); margin-top: 1rem">
         <div class="thesis-label" style="color: var(--text-muted)">The Unbridgeable Gulf</div>
-        <div class="thesis-text" style="font-style: normal; font-size: clamp(0.7rem, 1.8vw, 0.85rem)">
-          <strong style="color: var(--accent-green)">Deductive reasoning:</strong> "All men are mortal. Socrates
-          is a man. ∴ Socrates is mortal." — The conclusion follows with <em>certainty</em>. 12 × 12
-          = 144. Not approximately. <em>Necessarily.</em><br /><br />
-          <strong style="color: var(--accent-blue)">LLM prediction:</strong> "Given the distribution I have
-          sampled during training, this is the token most likely masked or to follow." — Even at
-          99.99%, it remains a statistical guess.<br /><br />
+        <div
+          class="thesis-text"
+          style="font-style: normal; font-size: clamp(0.7rem, 1.8vw, 0.85rem)"
+        >
+          <strong style="color: var(--accent-green)">Deductive reasoning:</strong> "All men are
+          mortal. Socrates is a man. ∴ Socrates is mortal." — The conclusion follows with
+          <em>certainty</em>. 12 × 12 = 144. Not approximately. <em>Necessarily.</em><br /><br />
+          <strong style="color: var(--accent-blue)">LLM prediction:</strong> "Given the distribution
+          I have sampled during training, this is the token most likely masked or to follow." — Even
+          at 99.99%, it remains a statistical guess.<br /><br />
           <span style="color: var(--accent-gold)"
             >A system trained to optimize for plausibility cannot, by design, produce
             necessity.</span
@@ -1752,7 +1759,9 @@
         <div class="conclusion-epilogue">
           ELIZA to LLMs is the resolution of the mirror — not its fundamental nature.<br />
           The question Weizenbaum asked in 1966 remains unanswered in 2026:<br />
-          <span class="highlight">Is what we are seeing intelligence — or a reflection of our desire to see it?</span>
+          <span class="highlight"
+            >Is what we are seeing intelligence — or a reflection of our desire to see it?</span
+          >
         </div>
       </div>
     </section>

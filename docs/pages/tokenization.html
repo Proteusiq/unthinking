@@ -481,19 +481,30 @@
         <div class="pipeline-wrap">
           <div class="bpe-title">The input pipeline — every LLM starts here</div>
           <div class="pipeline-flow" id="pipeline-flow"></div>
-          <div class="info-box" style="margin-top: 0.55rem; margin-bottom: 0; border: none; padding: 0; background: transparent;">
-            Raw text is <b>never seen by the model</b>. It passes through a
-            fixed tokenizer (trained separately on a corpus) that converts strings into integer
-            sequences. Each integer indexes a row in the
-            <b style="color: var(--accent-blue)">embedding matrix</b> to produce a dense vector. Only then does
-            the transformer begin.
+          <div
+            class="info-box"
+            style="
+              margin-top: 0.55rem;
+              margin-bottom: 0;
+              border: none;
+              padding: 0;
+              background: transparent;
+            "
+          >
+            Raw text is <b>never seen by the model</b>. It passes through a fixed tokenizer (trained
+            separately on a corpus) that converts strings into integer sequences. Each integer
+            indexes a row in the <b style="color: var(--accent-blue)">embedding matrix</b> to
+            produce a dense vector. Only then does the transformer begin.
           </div>
         </div>
 
         <!-- BPE Walkthrough -->
         <div class="bpe-section">
           <div class="bpe-title">BPE Algorithm — Training the Tokenizer</div>
-          <div class="info-box" style="margin-bottom: 0.6rem; border: none; padding: 0; background: transparent;">
+          <div
+            class="info-box"
+            style="margin-bottom: 0.6rem; border: none; padding: 0; background: transparent"
+          >
             Byte Pair Encoding (Sennrich et al. 2016) is how GPT-2, LLaMA, Mistral, DeepSeek, and
             most modern LLMs build their vocabulary. Start with 256 byte tokens, iteratively merge
             the most frequent adjacent pair.
@@ -504,22 +515,21 @@
         <!-- Why it matters for the thesis -->
         <div class="bpe-section">
           <div class="bpe-title">Why Tokenization Matters for Reasoning</div>
-          <div class="info-box" style="border: none; padding: 0; background: transparent;">
-            <b>Tokenization artifacts cause reasoning failures</b> that look
-            like cognitive deficits but are representation problems baked in before the first
-            attention layer fires.<br /><br />
+          <div class="info-box" style="border: none; padding: 0; background: transparent">
+            <b>Tokenization artifacts cause reasoning failures</b> that look like cognitive deficits
+            but are representation problems baked in before the first attention layer fires.<br /><br />
             <b style="color: var(--accent)">Letter counting</b>: "How many r's in strawberry?" fails
             because "strawberry" tokenizes as
             <span class="bpe-tokens">["str", "aw", "berry"]</span> — the model never sees individual
             letters.<br />
-            <b style="color: var(--accent)">Arithmetic</b>: multi-digit tokens create implicit computation
-            the model must learn. "1234" as one token vs "1","2","3","4" as four tokens require
-            different learned circuits.<br />
-            <b style="color: var(--accent)">Reversal curse</b>: the model only sees left-to-right byte
-            sequences. "A is B" doesn't teach "B is A" because the token sequences are completely
-            different.<br />
-            <b style="color: var(--accent)">Multilingual</b>: English-trained tokenizers waste 2-3× more
-            tokens on Chinese/Arabic, leaving less context window for actual reasoning.<br /><br />
+            <b style="color: var(--accent)">Arithmetic</b>: multi-digit tokens create implicit
+            computation the model must learn. "1234" as one token vs "1","2","3","4" as four tokens
+            require different learned circuits.<br />
+            <b style="color: var(--accent)">Reversal curse</b>: the model only sees left-to-right
+            byte sequences. "A is B" doesn't teach "B is A" because the token sequences are
+            completely different.<br />
+            <b style="color: var(--accent)">Multilingual</b>: English-trained tokenizers waste 2-3×
+            more tokens on Chinese/Arabic, leaving less context window for actual reasoning.<br /><br />
             <span style="color: var(--accent-green)"
               >Counter-argument: reasoning models (o1, R1) partially overcome tokenization limits
               via chain-of-thought decomposition — but this is a workaround, not a fix.</span
@@ -533,9 +543,8 @@
         <div class="info-box">
           How text enters the transformer. Raw strings must become integer sequences before any
           computation happens —
-          <b>string → bytes → subword tokens → embedding vectors → model</b>.
-          Tokenization choices directly shape what the model can and cannot learn. Click any card
-          for detail.
+          <b>string → bytes → subword tokens → embedding vectors → model</b>. Tokenization choices
+          directly shape what the model can and cannot learn. Click any card for detail.
         </div>
         <div class="era-tabs" id="era-tabs"></div>
         <div class="card-grid" id="card-grid"></div>
@@ -574,19 +583,11 @@
         >Stanford CS336</a
       >
       &mdash; Language Modeling from Scratch, Lecture 1: Tokenization (Spring 2025)<br />
-      <a
-        href="https://www.youtube.com/watch?v=zduSFxRajkE"
-        target="_blank"
-        rel="noopener"
+      <a href="https://www.youtube.com/watch?v=zduSFxRajkE" target="_blank" rel="noopener"
         >Andrej Karpathy</a
       >
       &mdash; Let's build the GPT Tokenizer<br />
-      <a
-        href="https://arxiv.org/abs/1508.07909"
-        target="_blank"
-        rel="noopener"
-        >Sennrich et al.</a
-      >
+      <a href="https://arxiv.org/abs/1508.07909" target="_blank" rel="noopener">Sennrich et al.</a>
       (2016) &mdash; Neural Machine Translation of Rare Words with Subword Units
     </div>
 

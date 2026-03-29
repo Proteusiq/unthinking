@@ -850,17 +850,35 @@
          ═══════════════════════════════════════════════════════════════════════ -->
     <div id="view-pipeline" class="show">
       <div class="phase-banners">
-        <div class="pb" style="background: color-mix(in srgb, var(--accent-blue) 10%, var(--bg-primary)); border: 1px solid color-mix(in srgb, var(--accent-blue) 20%, transparent)">
+        <div
+          class="pb"
+          style="
+            background: color-mix(in srgb, var(--accent-blue) 10%, var(--bg-primary));
+            border: 1px solid color-mix(in srgb, var(--accent-blue) 20%, transparent);
+          "
+        >
           <b style="color: var(--accent-blue)">Phase 1: Pre-training</b>
           Next-token prediction on trillions of tokens. The foundation: world knowledge, language
           structure, latent capabilities. Dominated by compute, data, and optimization.
         </div>
-        <div class="pb" style="background: color-mix(in srgb, var(--accent-yellow) 10%, var(--bg-primary)); border: 1px solid color-mix(in srgb, var(--accent-yellow) 20%, transparent)">
+        <div
+          class="pb"
+          style="
+            background: color-mix(in srgb, var(--accent-yellow) 10%, var(--bg-primary));
+            border: 1px solid color-mix(in srgb, var(--accent-yellow) 20%, transparent);
+          "
+        >
           <b style="color: var(--accent-yellow)">Phase 2: Mid-training</b>
           Annealing with high-quality data, domain adaptation, long-context extension. Bridges raw
           pre-training and behavioral fine-tuning.
         </div>
-        <div class="pb" style="background: color-mix(in srgb, var(--accent) 10%, var(--bg-primary)); border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent)">
+        <div
+          class="pb"
+          style="
+            background: color-mix(in srgb, var(--accent) 10%, var(--bg-primary));
+            border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+          "
+        >
           <b style="color: var(--accent)">Phase 3: Post-training</b>
           SFT, RLHF, DPO, GRPO, RLVR. Alignment, instruction-following, reasoning. Surface
           compliance or genuine capability shift?
@@ -1633,7 +1651,9 @@
               optimizer, agentic synthesis. <b>K2.5:</b> joint text-vision RL.
             </div>
             <div class="lab">
-              <div class="lname" style="color: var(--text-secondary)">Zhipu AI (GLM-4.5 / GLM-5)</div>
+              <div class="lname" style="color: var(--text-secondary)">
+                Zhipu AI (GLM-4.5 / GLM-5)
+              </div>
               <b>Slime</b> async RL framework. <b>APRIL:</b> agentic RL. 744B/40B active. Huawei
               Ascend &mdash; zero NVIDIA dependency.
             </div>
@@ -1648,7 +1668,10 @@
             </div>
           </div>
 
-          <div class="note" style="border-color: color-mix(in srgb, var(--accent) 20%, transparent)">
+          <div
+            class="note"
+            style="border-color: color-mix(in srgb, var(--accent) 20%, transparent)"
+          >
             <div class="note-title" style="color: var(--accent)">Trends 2024&ndash;2026</div>
             <b>Verifiable / rule-based RL surge</b> &mdash; RLVR, GRPO, CISPO: emergent long-CoT
             without human trajectories.<br />
@@ -1753,7 +1776,9 @@
         <div class="mech-section">
           <div class="mech-header" onclick="toggleSection(this.parentElement)">
             <span class="mech-num">&sect;2</span>
-            <span class="mech-title" style="color: var(--accent-yellow)">Learning Rate Schedules</span>
+            <span class="mech-title" style="color: var(--accent-yellow)"
+              >Learning Rate Schedules</span
+            >
             <span class="mech-chev">&#9660;</span>
           </div>
           <div class="mech-body">
@@ -1871,7 +1896,9 @@
         <div class="mech-section">
           <div class="mech-header" onclick="toggleSection(this.parentElement)">
             <span class="mech-num">&sect;4</span>
-            <span class="mech-title" style="color: var(--accent-orange)">Precision &amp; Numerical Formats</span>
+            <span class="mech-title" style="color: var(--accent-orange)"
+              >Precision &amp; Numerical Formats</span
+            >
             <span class="mech-chev">&#9660;</span>
           </div>
           <div class="mech-body">
@@ -1909,7 +1936,9 @@
         <div class="mech-section">
           <div class="mech-header" onclick="toggleSection(this.parentElement)">
             <span class="mech-num">&sect;5</span>
-            <span class="mech-title" style="color: var(--accent)">Regularization &amp; Stability</span>
+            <span class="mech-title" style="color: var(--accent)"
+              >Regularization &amp; Stability</span
+            >
             <span class="mech-chev">&#9660;</span>
           </div>
           <div class="mech-body">
@@ -2050,7 +2079,9 @@
         <div class="rw-section open">
           <div class="rw-header" onclick="toggleSection(this.parentElement)">
             <span class="rw-num">&sect;1</span>
-            <span class="rw-title" style="color: var(--accent)">Does Scale Create Understanding?</span>
+            <span class="rw-title" style="color: var(--accent)"
+              >Does Scale Create Understanding?</span
+            >
             <span class="rw-chev">&#9660;</span>
           </div>
           <div class="rw-body">
@@ -2114,7 +2145,9 @@
         <div class="rw-section">
           <div class="rw-header" onclick="toggleSection(this.parentElement)">
             <span class="rw-num">&sect;3</span>
-            <span class="rw-title" style="color: var(--accent-yellow)">Mid-training: The Overlooked Phase</span>
+            <span class="rw-title" style="color: var(--accent-yellow)"
+              >Mid-training: The Overlooked Phase</span
+            >
             <span class="rw-chev">&#9660;</span>
           </div>
           <div class="rw-body">
@@ -2271,7 +2304,9 @@
         <div class="rw-section open">
           <div class="rw-header" onclick="toggleSection(this.parentElement)">
             <span class="rw-num">&sect;7</span>
-            <span class="rw-title" style="color: var(--accent-blue)">Training Pipeline Summary</span>
+            <span class="rw-title" style="color: var(--accent-blue)"
+              >Training Pipeline Summary</span
+            >
             <span class="rw-chev">&#9660;</span>
           </div>
           <div class="rw-body">
@@ -2354,7 +2389,12 @@
       "
     >
       <span
-        style="color: var(--border-primary); text-transform: uppercase; letter-spacing: 1.5px; font-size: clamp(0.45rem, 0.9vw, 0.5rem)"
+        style="
+          color: var(--border-primary);
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          font-size: clamp(0.45rem, 0.9vw, 0.5rem);
+        "
         >Sources</span
       ><br />
       Stanford CS336 (Spring 2025) &middot; Kaplan et al. (2020) &middot; Hoffmann et al. (2022,

@@ -6872,6 +6872,7 @@ window.paperLinks = [
     source: '2505.23323',
     target: '2407.08790',
     type: 'supports',
-    description: 'Different frameworks (cognitive vs enactive) reach same pattern-matching conclusion',
+    description:
+      'Different frameworks (cognitive vs enactive) reach same pattern-matching conclusion',
   },
 ];
