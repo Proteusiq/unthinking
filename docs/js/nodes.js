@@ -6071,4 +6071,73 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/283_limited_metacognition.md',
   },
+  {
+    id: '2602.15829',
+    title: 'Operationalising the Superficial Alignment Hypothesis via Task Complexity',
+    shortTitle: 'SAH Task Complexity',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'alignment',
+    coreArgument:
+      'ICML: Formalizes SAH using algorithmic information theory. Task complexity = length of shortest program for target performance. Adaptation requires kilobytes (not terabytes). Post-training collapses complexity by orders of magnitude.',
+    keyEvidence: [
+      '4,358 bits → 72.2% GSM8K (vs 29.6% baseline)',
+      '3,992 bits → 34.43 BLEU translation',
+      'Pre-training: GB-scale programs needed',
+      'Post-training: KB-scale programs sufficient',
+      'Unifies data/parametric/inference views of SAH',
+    ],
+    keyQuotes: [
+      'Programs as small as 151 kilobytes (size of single ImageNet image) can adapt LLMs to achieve strong performance.',
+      'Post-training collapses the complexity of reaching this same performance by several orders of magnitude.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/284_operationalising_sah_task_complexity.md',
+  },
+  {
+    id: '2407.08790',
+    title: 'Large Models of What? Mistaking Engineering for Linguistic Agency',
+    shortTitle: 'Large Models of What',
+    date: 'Jul 2024',
+    stance: 'supports',
+    cluster: 'alignment',
+    coreArgument:
+      'Enactive cognitive science perspective: LLMs cannot be linguistic agents. Missing embodiment, participation, precarity. Output is "fabrication" even when accurate — no relationship to truth. Procedurally-generated game analogy: surface without depth.',
+    keyEvidence: [
+      'Two false assumptions: language completeness, data completeness',
+      'Algospeak example: humans adapt under pressure; LLMs have no stakes',
+      'Clarification every 84 seconds in human conversation',
+      '>90% of ChatGPT jokes are same 25 jokes',
+      'Language is practice, not thing to capture',
+    ],
+    keyQuotes: [
+      'Nothing is risked by ChatGPT when it is prompted and generates text. It seeks to achieve nothing.',
+      'To assume LLMs are linguistic agents is to mistake the map for the territory.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/285_large_models_of_what.md',
+  },
+  {
+    id: '2505.23323',
+    title: 'Neither Stochastic Parroting nor AGI: Context-Directed Extrapolation',
+    shortTitle: 'Context-Directed Extrapolation',
+    date: 'May 2025',
+    stance: 'supports',
+    cluster: 'mechanism',
+    coreArgument:
+      'Middle-ground position: LLMs perform context-directed extrapolation from training priors. Bloom\'s taxonomy: achieve Understand, not Apply. Human does Apply process in ICL; model only understands pattern shown. Fears of emergent agency unfounded.',
+    keyEvidence: [
+      'Faux-pas test: LLMs 0.40 vs children 0.82',
+      'Mystery Blocksworld: 0% zero-shot (vs 78% human)',
+      'ICL diminishes for less frequent tokens',
+      'Incorrect CoT traces still improve performance',
+      'Counterfactual tasks: dramatic performance drops',
+    ],
+    keyQuotes: [
+      'In ICL, the human is doing the Apply process by pointing out the relevant generalization.',
+      'LLMs will never gain agency in the ICL setting as what they do is always limited to user input.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/286_neither_stochastic_parroting_nor_agi.md',
+  },
 ];

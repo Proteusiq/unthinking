@@ -6829,4 +6829,49 @@ window.paperLinks = [
     type: 'supports',
     description: 'Both show context-dependence of apparent self-awareness behaviors',
   },
+  // SAH Task Complexity (Paper 284)
+  {
+    source: '2602.15829',
+    target: '2312.01552',
+    type: 'supports',
+    description: 'Provides theoretical grounding for why URIAL works with few examples',
+  },
+  {
+    source: '2602.15829',
+    target: '2412.14093',
+    type: 'supports',
+    description: 'Information theory explains alignment as changing access cost, not capability',
+  },
+  // Large Models of What (Paper 285)
+  {
+    source: '2407.08790',
+    target: '2305.14784',
+    type: 'supports',
+    description: 'Both critique anthropomorphization from different frameworks',
+  },
+  {
+    source: '2407.08790',
+    target: '2312.01552',
+    type: 'supports',
+    description: 'Enactive view supports superficial alignment: no genuine understanding',
+  },
+  // Neither Stochastic Parroting nor AGI (Paper 286)
+  {
+    source: '2505.23323',
+    target: '2312.01552',
+    type: 'supports',
+    description: 'Context-directed extrapolation explains ICL mechanism behind URIAL',
+  },
+  {
+    source: '2505.23323',
+    target: '2602.15829',
+    type: 'supports',
+    description: 'Bloom taxonomy and information theory converge on same conclusion',
+  },
+  {
+    source: '2505.23323',
+    target: '2407.08790',
+    type: 'supports',
+    description: 'Different frameworks (cognitive vs enactive) reach same pattern-matching conclusion',
+  },
 ];

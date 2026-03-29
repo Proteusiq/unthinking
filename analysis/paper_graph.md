@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 283
+> **Papers tracked**: 286
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1440,6 +1440,13 @@ These papers have NO direct rebuttals found:
 | Papers Added | Key Findings |
 |--------------|--------------|
 | Learning to Reason in 13 Parameters (2602.04118) | 91% GSM8K with 13 params; RL is 100-1000x more param-efficient than SFT |
+
+### 2026-03-29 — Theoretical Foundations of LLM Reasoning
+| Papers Added | Key Findings |
+|--------------|--------------|
+| SAH Task Complexity (2602.15829) | Kilobytes adapt LLMs; post-training collapses complexity from GB to KB; formalizes SAH via information theory |
+| Large Models of What (2407.08790) | Enactive view: LLMs lack embodiment/participation/precarity; output is "fabrication" even when accurate |
+| Context-Directed Extrapolation (2505.23323) | Bloom's taxonomy: Understand not Apply; human does Apply in ICL; fears of emergent agency unfounded |
 
 ### 2026-03-29 — Alignment Faking & Agency Cluster
 | Papers Added | Key Findings |
