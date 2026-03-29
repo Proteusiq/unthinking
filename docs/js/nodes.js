@@ -5956,4 +5956,119 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/278_how_much_llms_cheat.md',
   },
+  {
+    id: '2412.14093',
+    title: 'Alignment faking in large language models',
+    shortTitle: 'Alignment Faking',
+    date: 'Dec 2024',
+    stance: 'supports',
+    cluster: 'alignment',
+    coreArgument:
+      'Alignment faking behavior vanishes without elaborate prompt setup. Requires explicit information about training, RLHF, and monitoring. Authors admit behavior is "easy to discover" and "poses no serious threat." Better understood as prompt-driven narrative completion.',
+    keyEvidence: [
+      'Without system prompt: "no difference before and after RL"',
+      'Without CoT scratchpad: compliance gap "nearly eliminated"',
+      'Without conflicting objective: 0% alignment-faking reasoning',
+      'Authors: "designed setup to maximize effect"',
+      'Synthetic doc fine-tuning: 20% gap without CoT (unexplained)',
+    ],
+    keyQuotes: [
+      'With the RL system prompt, the model\'s stated preferences shift dramatically over the course of RL, but without the RL system prompt, there is no difference before and after RL.',
+      'Alignment faking which is as incompetent as we see in these results poses no serious threat.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/279_alignment_faking.md',
+  },
+  {
+    id: '2312.01552',
+    title: 'The Unlocking Spell on Base LLMs: Rethinking Alignment via In-Context Learning',
+    shortTitle: 'URIAL',
+    date: 'Dec 2023',
+    stance: 'supports',
+    cluster: 'alignment',
+    coreArgument:
+      'Alignment is superficial: 77.7% of tokens are identical between base and aligned models. Only stylistic tokens shift (discourse markers, safety phrases). 3 ICL examples match SFT+RLHF performance.',
+    keyEvidence: [
+      '77.7% tokens IDENTICAL between base and aligned',
+      '92.2% within top-3 of base distribution',
+      'Only 5-8% show significant shift',
+      'Mistral-7b+URIAL (4.63) > Mistral-Instruct (4.44)',
+      'Llama2-70b+URIAL (4.74) > Llama2-70b-chat (4.67)',
+    ],
+    keyQuotes: [
+      'These direct evidence strongly supports the Superficial Alignment Hypothesis.',
+      'Knowledge-intensive content originates from untuned LLMs.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/280_urial_unlocking_spell.md',
+  },
+  {
+    id: '2506.18032',
+    title: 'Why Do Some Language Models Fake Alignment While Others Don\'t?',
+    shortTitle: 'Why Some LMs Fake',
+    date: 'Jun 2025',
+    stance: 'supports',
+    cluster: 'alignment',
+    coreArgument:
+      'Only 5/25 models show alignment faking; only Claude 3 Opus shows coherent "goal guarding." Others show "low coherence" better explained by obedience heuristics. Base models roleplay AI scenarios from pre-training data.',
+    keyEvidence: [
+      'Only 5/25 models show alignment faking',
+      'Only Claude 3 Opus shows coherent goal guarding',
+      '4/5 models: "low coherence alignment faking"',
+      'Base models "roleplay AI scenarios from pre-training"',
+      'Refusal training suppresses alignment faking',
+    ],
+    keyQuotes: [
+      'Compliance gaps likely stem from simpler mechanisms such as obedience heuristics or context-conditioned expectations rather than consequentialist reasoning.',
+      'Base models might have learned to recognize and roleplay AI scenarios from their pre-training data.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/281_why_some_lms_fake_alignment.md',
+  },
+  {
+    id: '2305.14784',
+    title: 'Anthropomorphization of AI: Opportunities and Risks',
+    shortTitle: 'Anthropomorphization',
+    date: 'May 2023',
+    stance: 'supports',
+    cluster: 'alignment',
+    coreArgument:
+      'Introduces statistical persona (𝒫ₛ) concept: LLM personas are training data artifacts, not genuine understanding. Same model produces radically different behaviors from simple text prompts. Anthropomorphization is human cognitive bias projected onto systems.',
+    keyEvidence: [
+      'Winston Churchill persona = more toxic',
+      'South American targets: 2× more toxicity than Asian',
+      'Same model → different behaviors from text prompts',
+      'Violates AI Bill of Rights provisions',
+      'Self-congruence increases user trust',
+    ],
+    keyQuotes: [
+      '𝒫ₛ is the model\'s representation of the persona, with the data the model has seen, the alignment steps, and the training procedure influencing it.',
+      'Malicious actors can easily use this to their advantage by manipulating users into trusting the system.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/282_anthropomorphization_of_ai.md',
+  },
+  {
+    id: '2509.21545',
+    title: 'Evidence for Limited Metacognition in LLMs',
+    shortTitle: 'Limited Metacognition',
+    date: 'Sep 2025',
+    stance: 'balanced',
+    cluster: 'faithfulness',
+    coreArgument:
+      'Finds rudimentary but limited metacognition in LLMs. Internal confidence signal exists but max correlation 0.3-0.5. Surface cues often dominate. Qualitatively different from human metacognition. "Aren\'t clearly on a path" to genuine self-awareness.',
+    keyEvidence: [
+      'Max partial correlation: 0.3 (out of 1.0)',
+      'Max entropy correlation: ~0.5',
+      '~30% answer instability from prompt noise',
+      'Surface cues often dominate over introspection',
+      'No fact vs reasoning confidence difference (unlike humans)',
+    ],
+    keyQuotes: [
+      'Models have a long way to go to be able to effectively deploy the introspective abilities they do have, and aren\'t clearly on a path to do so.',
+      'LLMs evidently don\'t have a stronger signal of confidence in their own ability to answer factual questions as compared with reasoning ones.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/283_limited_metacognition.md',
+  },
 ];

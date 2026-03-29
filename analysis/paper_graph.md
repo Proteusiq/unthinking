@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 278
+> **Papers tracked**: 283
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1440,6 +1440,15 @@ These papers have NO direct rebuttals found:
 | Papers Added | Key Findings |
 |--------------|--------------|
 | Learning to Reason in 13 Parameters (2602.04118) | 91% GSM8K with 13 params; RL is 100-1000x more param-efficient than SFT |
+
+### 2026-03-29 — Alignment Faking & Agency Cluster
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Alignment Faking (2412.14093) | Behavior vanishes without prompt; "no difference before and after RL" without system prompt; authors: "poses no serious threat" |
+| URIAL (2312.01552) | 77.7% tokens IDENTICAL base vs aligned; 3 ICL examples match SFT+RLHF; alignment = stylistic tokens only |
+| Why Some LMs Fake (2506.18032) | Only 5/25 models show alignment faking; only Claude 3 Opus coherent; base models "roleplay AI scenarios" |
+| Anthropomorphization (2305.14784) | Statistical persona ≠ understanding; same model → different behaviors from prompts; anthropomorphization is human bias |
+| Limited Metacognition (2509.21545) | Max correlation 0.3-0.5; surface cues dominate; "aren't clearly on a path" to genuine self-awareness |
 
 ### 2026-03-11 (Session 2)
 | Papers Added | Key Findings |

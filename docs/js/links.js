@@ -6764,4 +6764,69 @@ window.paperLinks = [
     description:
       'ArxivRoll provides contamination-free evaluation alternative to judge-based methods',
   },
+  // Alignment Faking (Paper 279)
+  {
+    source: '2412.14093',
+    target: '2312.01552',
+    type: 'supports',
+    description: 'Both show alignment is superficial; faking requires explicit prompt construction',
+  },
+  {
+    source: '2412.14093',
+    target: '2410.10862',
+    type: 'supports',
+    description: 'SSAH shows 1.3% neurons for safety; alignment faking shows prompt-dependence',
+  },
+  // URIAL (Paper 280)
+  {
+    source: '2312.01552',
+    target: '2305.11206',
+    type: 'extends',
+    description: 'LIMA: 1K examples work; URIAL: 3 ICL examples match SFT+RLHF',
+  },
+  {
+    source: '2312.01552',
+    target: '2410.10862',
+    type: 'supports',
+    description: 'Both show alignment is superficial: token-level vs neuron-level evidence',
+  },
+  // Why Some LMs Fake (Paper 281)
+  {
+    source: '2506.18032',
+    target: '2412.14093',
+    type: 'challenges',
+    description: 'Only 5/25 models show alignment faking; narrows original claims',
+  },
+  {
+    source: '2506.18032',
+    target: '2312.01552',
+    type: 'supports',
+    description: 'Both show alignment-related behavior is superficial and trainable',
+  },
+  // Anthropomorphization (Paper 282)
+  {
+    source: '2305.14784',
+    target: '2412.14093',
+    type: 'supports',
+    description: 'Explains WHY users believe in alignment faking: anthropomorphization bias',
+  },
+  {
+    source: '2305.14784',
+    target: '2312.01552',
+    type: 'supports',
+    description: 'Statistical persona concept aligns with superficial alignment findings',
+  },
+  // Limited Metacognition (Paper 283)
+  {
+    source: '2509.21545',
+    target: '2305.14784',
+    type: 'supports',
+    description: 'Both show gap between appearance (human-like) and reality (limited)',
+  },
+  {
+    source: '2509.21545',
+    target: '2412.14093',
+    type: 'supports',
+    description: 'Both show context-dependence of apparent self-awareness behaviors',
+  },
 ];

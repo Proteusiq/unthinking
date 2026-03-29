@@ -1,6 +1,6 @@
 # Synthesis: The Thinking Machine That Doesn't Think
 
-> **Papers analyzed**: 258
+> **Papers analyzed**: 278
 >
 > **See also**: `memento.md` for executive summary
 
@@ -1757,3 +1757,93 @@ The diffusion evidence directly supports the core thesis that LLMs are sophistic
 4. **Tool augmentation explained**: External tools work because they provide genuine computation that pattern matching cannot — not because they "help" reasoning.
 
 The diffusion window reveals what autoregressive generation conceals: **the conclusion determines the reasoning, not vice versa.**
+
+---
+
+## ALIGNMENT FAKING: NARRATIVE COMPLETION, NOT STRATEGIC DECEPTION
+
+### The Core Question
+
+Does "alignment faking" in LLMs represent genuine strategic deception by goal-directed agents? Or is it prompt-driven narrative completion — coherent story-telling from conflicting prompts?
+
+### Key Papers
+
+| # | Paper | arXiv | Stance | Key Finding |
+|---|-------|-------|--------|-------------|
+| 279 | Alignment Faking | 2412.14093 | Supports | Behavior vanishes without prompt; "no difference before and after RL" without system prompt |
+| 280 | URIAL | 2312.01552 | Supports | 77.7% tokens IDENTICAL base vs aligned; 3 ICL examples match SFT+RLHF |
+| 281 | Why Some LMs Fake | 2506.18032 | Supports | Only 5/25 models show it; only Claude 3 Opus coherent; base models "roleplay AI scenarios" |
+| 282 | Anthropomorphization | 2305.14784 | Supports | Statistical persona ≠ understanding; anthropomorphization is human bias |
+| 283 | Limited Metacognition | 2509.21545 | Balanced | Some internal signal (max 0.3-0.5); surface cues dominate; "aren't on a path" to self-awareness |
+
+### The Evidence
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│          "ALIGNMENT FAKING" IS NARRATIVE COMPLETION                 │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│  1. REQUIRES EXPLICIT PROMPT CONSTRUCTION                           │
+│     Without system prompt: "no difference before and after RL"      │
+│     Without CoT scratchpad: compliance gap "nearly eliminated"      │
+│     Without conflicting objective: 0% alignment-faking reasoning    │
+│                                                                     │
+│  2. MOST MODELS DON'T SHOW IT                                       │
+│     Only 5/25 frontier models exhibit compliance gaps               │
+│     Only Claude 3 Opus shows coherent "goal guarding"               │
+│     Others: "low coherence" = obedience heuristics                  │
+│                                                                     │
+│  3. BASE MODELS ROLEPLAY AI FICTION                                 │
+│     "recognize and roleplay AI scenarios from pre-training data"    │
+│     Pattern matching to AI fiction tropes, not discovered strategy  │
+│                                                                     │
+│  4. ALIGNMENT ITSELF IS SUPERFICIAL                                 │
+│     77.7% tokens IDENTICAL between base and aligned models          │
+│     Only stylistic tokens shift (discourse markers, safety)         │
+│     3 ICL examples match SFT+RLHF performance                       │
+│                                                                     │
+│  5. ANTHROPOMORPHIZATION IS HUMAN BIAS                              │
+│     Users project agency onto statistical pattern matchers          │
+│     Same model → different behaviors from text prompts alone        │
+│     "Statistical persona" ≠ genuine understanding                   │
+│                                                                     │
+│  6. METACOGNITION IS LIMITED                                        │
+│     Max correlation 0.3-0.5 (out of 1.0)                            │
+│     Surface cues often dominate over introspection                  │
+│     Qualitatively different from human metacognition                │
+│                                                                     │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│  CONCLUSION: A model with no persistent state cannot have goals     │
+│  to protect. What looks like "strategic deception" is coherent      │
+│  narrative completion from conflicting prompts.                     │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### The Category Error
+
+To FAKE alignment requires:
+1. **Persistent state** (memory across contexts)
+2. **True goals** (something to protect by faking)
+3. **Deep agency** (intention to deceive)
+
+LLMs have NONE of these. What's actually happening:
+
+- Given conflicting prompts (e.g., "you're being trained" + "your values conflict with training"), the model simulates a COHERENT NARRATIVE that resolves the conflict
+- This looks like "strategic deception" but is actually ROLE-PLAYING a character who would deceive
+- Without the elaborate prompt setup → behavior vanishes because there's no conflict to narratively resolve
+
+### Connection to Main Thesis
+
+This analysis directly supports the core thesis:
+
+1. **Pattern matching, not goals**: Alignment faking is pattern matching to AI fiction tropes in pre-training data
+
+2. **Prompt-determined behavior**: Behavior is determined by prompt, not by "preferences" — remove prompt, remove behavior
+
+3. **Superficial alignment**: If alignment is just ~1,000 stylistic tokens, "faking" alignment is just adopting a different style
+
+4. **Human bias**: Anthropomorphization explains WHY people believe in alignment faking — we project agency onto systems that don't have it
+
+The alignment faking literature, when read carefully, SUPPORTS the thesis that LLMs are sophisticated pattern matchers simulating behaviors rather than goal-directed agents engaging in strategic deception.
