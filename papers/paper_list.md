@@ -1,6 +1,6 @@
 # Paper List
 
-> 277 papers analyzed | 196 supports thesis | 16 challenges | 65 balanced | Date range: 2021-2026
+> 278 papers analyzed | 196 supports thesis | 16 challenges | 66 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -286,3 +286,4 @@
 | 280 | 2312.01552 | Dec 2023 | The Unlocking Spell on Base LLMs (URIAL) | Supports |
 | 281 | 2506.18032 | Jun 2025 | Why Do Some LMs Fake Alignment While Others Don't? | Supports |
 | 282 | 2305.14784 | May 2023 | Anthropomorphization of AI: Opportunities and Risks | Supports |
+| 283 | 2509.21545 | Sep 2025 | Evidence for Limited Metacognition in LLMs | Balanced |

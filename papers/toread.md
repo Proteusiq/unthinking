@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **259 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **258 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed), [#71](https://github.com/Proteusiq/unthinking/issues/71), [#72](https://github.com/Proteusiq/unthinking/issues/72).
 
@@ -589,7 +589,7 @@ Papers examining whether LLMs have genuine agency/goals or simulate them via nar
 |----------|-------|--------|-------|
 | [2407.08790](https://arxiv.org/abs/2407.08790) | Large Models of What? Mistaking Engineering for Linguistic Agency | TBD | Argues sensational claims mistake engineering for human-like agency |
 | ~~[2305.14784](https://arxiv.org/abs/2305.14784)~~ | ~~Anthropomorphization of AI: Opportunities and Risks~~ | ~~supports~~ | DONE #282 |
-| [2509.21545](https://arxiv.org/abs/2509.21545) | Evidence for Limited Metacognition in LLMs | TBD | Empirical study of LLM self-awareness claims |
+| ~~[2509.21545](https://arxiv.org/abs/2509.21545)~~ | ~~Evidence for Limited Metacognition in LLMs~~ | ~~balanced~~ | DONE #283 |
 | [2505.23323](https://arxiv.org/abs/2505.23323) | Neither Stochastic Parroting nor AGI | TBD | Nuanced position: context-directed extrapolation |
 
 ### Role-Play and Persona Simulation
