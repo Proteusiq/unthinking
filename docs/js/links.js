@@ -6976,4 +6976,26 @@ window.paperLinks = [
     description:
       'Both reveal LLM judges rely on surface patterns; blind spots are another manifestation',
   },
+  // Paper 292: ICC Stochasticity links
+  {
+    source: '2512.06710',
+    target: '2507.17788',
+    type: 'supports',
+    description:
+      'Both show evaluation requires multiple trials; ICC quantifies what adaptive repetition addresses',
+  },
+  {
+    source: '2512.06710',
+    target: '2512.16272',
+    type: 'supports',
+    description:
+      'Blind spots + stochasticity = fundamentally unreliable evaluation pipeline',
+  },
+  {
+    source: '2512.06710',
+    target: '2602.13110',
+    type: 'supports',
+    description:
+      'Both address evaluation reliability; ICC provides measurement framework for judge consistency',
+  },
 ];

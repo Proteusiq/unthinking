@@ -1,6 +1,6 @@
 # Paper List
 
-> 291 papers analyzed | 207 supports thesis | 15 challenges | 69 balanced | Date range: 2021-2026
+> 292 papers analyzed | 208 supports thesis | 15 challenges | 69 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -295,3 +295,4 @@
 | 289 | 2602.02287 | Feb 2026 | Cross-Lingual Stability of LLM Judges | Supports |
 | 290 | 2507.17788 | Jul 2025 | Adaptive Repetition for Position Bias Mitigation | Supports |
 | 291 | 2512.16272 | Dec 2025 | Beyond Blind Spots: Analytic Hints for LLM Evaluation | Supports |
+| 292 | 2512.06710 | Dec 2025 | Stochasticity in Agentic Evaluations: ICC Analysis | Supports |

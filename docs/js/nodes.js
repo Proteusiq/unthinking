@@ -6256,4 +6256,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/291_beyond_blind_spots_analytic_hints.md',
   },
+  {
+    id: '2512.06710',
+    title: 'Stochasticity in Agentic Evaluations: Quantifying Inconsistency with Intraclass Correlation',
+    shortTitle: 'ICC Evaluation Stochasticity',
+    date: 'Dec 2025',
+    stance: 'supports',
+    cluster: 'evaluation',
+    coreArgument:
+      'Single-run benchmark results hide massive variance. GAIA Level 3 ICC=0.304 means 70% of variance is agent stochasticity, not task difficulty. Proposes ICC as standard metric alongside accuracy to reveal evaluation reliability.',
+    keyEvidence: [
+      'GAIA Level 3: ICC=0.304 (70% variance is noise)',
+      '64 trials per question still shows high stochasticity',
+      'GPT-5 higher accuracy but LOWER ICC on FRAMES (0.496 vs 0.735)',
+      'ICC converges by n=8-16 for easy tasks, n≥32 for hard tasks',
+    ],
+    keyQuotes: [
+      'Single-run results are essentially unreliable.',
+      '70% of observed variance is trial-to-trial randomness rather than question difficulty.',
+      'Accuracy improvements without ICC improvements may not be robust under deployment.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/292_stochasticity_agentic_evaluations_icc.md',
+  },
 ];
