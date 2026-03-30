@@ -6233,4 +6233,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/290_adaptive_repetition_position_bias.md',
   },
+  {
+    id: '2512.16272',
+    title: 'Beyond Blind Spots: Analytic Hints for Mitigating LLM-Based Evaluation Pitfalls',
+    shortTitle: 'Blind Spots & Hints',
+    date: 'Dec 2025',
+    stance: 'supports',
+    cluster: 'evaluation',
+    coreArgument:
+      'LLM judges have systematic blind spots - production-deployed judges detect only 45-63% of domain errors. Rule-based analytic tools required to fill gaps. Hints improve detection to 74% but LLMs cannot independently reason about code correctness.',
+    keyEvidence: [
+      'Native LLM judges: 45-63% error detection',
+      'With analytic hints: up to 74% detection',
+      '30+ error types in blind spot taxonomy',
+      'LLMs struggle with omissions, execution order, non-local reasoning',
+    ],
+    keyQuotes: [
+      'LaaJs tend to struggle with multi-line reasoning, particularly when issues depend on non-local context.',
+      'Foundation models excel at recognizing what is in the input, but struggle to reason about what should be there and is missing.',
+      'Current LaaJs lack the ability to simulate program semantics or execution state.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/291_beyond_blind_spots_analytic_hints.md',
+  },
 ];

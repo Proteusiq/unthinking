@@ -6954,4 +6954,26 @@ window.paperLinks = [
     description:
       'Both address calibration needs; adaptive repetition provides efficient mitigation strategy',
   },
+  // Paper 291: Beyond Blind Spots links
+  {
+    source: '2512.16272',
+    target: '2411.15594',
+    type: 'supports',
+    description:
+      'Both reveal LLM judge limitations; blind spots show systematic evaluation failures',
+  },
+  {
+    source: '2512.16272',
+    target: '2603.05167',
+    type: 'supports',
+    description:
+      'Both show LLMs miss faithfulness issues; blind spots confirm pattern-based evaluation',
+  },
+  {
+    source: '2512.16272',
+    target: '2602.02219',
+    type: 'supports',
+    description:
+      'Both reveal LLM judges rely on surface patterns; blind spots are another manifestation',
+  },
 ];
