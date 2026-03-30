@@ -29,7 +29,7 @@ Papers examining whether LLMs can reliably evaluate themselves or other LLMs. Cr
 | ~~[2603.05167](https://arxiv.org/abs/2603.05167)~~ | ~~C2-Faith: Benchmarking LLM Judges for Causal and Coverage Faithfulness in CoT Reasoning~~ | ~~supports~~ | DONE #274 |
 | ~~[2602.16610](https://arxiv.org/abs/2602.16610)~~ | ~~Who Can We Trust? LLM-as-a-Jury for Comparative Assessment~~ | ~~supports~~ | DONE #275 |
 | ~~[2602.13576](https://arxiv.org/abs/2602.13576)~~ | ~~Rubrics as an Attack Surface: Stealthy Preference Drift in LLM Judges~~ | ~~supports~~ | DONE #276 |
-| [2602.13110](https://arxiv.org/abs/2602.13110) | SCOPE: Selective Conformal Optimized Pairwise LLM Judging | balanced |
+| ~~[2602.13110](https://arxiv.org/abs/2602.13110)~~ | ~~SCOPE: Selective Conformal Optimized Pairwise LLM Judging~~ | ~~balanced~~ | DONE #287 |
 | [2602.02219](https://arxiv.org/abs/2602.02219) | Am I More Pointwise or Pairwise? Revealing Position Bias in Rubric-Based LLM-as-a-Judge | supports |
 | [2602.02287](https://arxiv.org/abs/2602.02287) | Cross-Lingual Stability of LLM Judges Under Controlled Generation | supports |
 | [2507.17788](https://arxiv.org/abs/2507.17788) | Adaptive Repetition for Mitigating Position Bias in LLM-Based Ranking | supports |

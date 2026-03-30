@@ -6140,4 +6140,28 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/286_neither_stochastic_parroting_nor_agi.md',
   },
+  {
+    id: '2602.13110',
+    title: 'SCOPE: Selective Conformal Optimized Pairwise LLM Judging',
+    shortTitle: 'SCOPE LLM Judging',
+    date: 'Feb 2026',
+    stance: 'balanced',
+    cluster: 'evaluation',
+    coreArgument:
+      'LLM judges are prone to miscalibration and systematic biases (especially position bias). Proposes SCOPE framework with conformal prediction for statistical guarantees. BPE (Bidirectional Preference Entropy) mitigates position bias. Treats LLMs as statistical systems needing calibration, not reasoners.',
+    keyEvidence: [
+      'At α=0.10, empirical risk 0.097-0.099 (meets target)',
+      'Coverage: 0.89 (Qwen-14B), 0.98 (Qwen-32B) on RewardBench',
+      '2.4× more judgments accepted vs naive baselines',
+      'Vanilla prediction: 21.7-26.9% error (far exceeds 10% target)',
+      'Heuristic thresholding: 18-25% error (still fails)',
+    ],
+    keyQuotes: [
+      'LLM judges remain prone to miscalibration and systematic biases.',
+      'Naive confidence thresholding can fail to abstain precisely when it should.',
+      'These effects can produce highly confident but incorrect judgments.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/287_scope_selective_conformal_llm_judging.md',
+  },
 ];

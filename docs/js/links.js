@@ -6875,4 +6875,24 @@ window.paperLinks = [
     description:
       'Different frameworks (cognitive vs enactive) reach same pattern-matching conclusion',
   },
+  // Paper 287: SCOPE LLM Judging links
+  {
+    source: '2602.13110',
+    target: '2411.15594',
+    type: 'extends',
+    description: 'Adds statistical guarantees to LLM-as-judge paradigm with conformal prediction',
+  },
+  {
+    source: '2602.13110',
+    target: '2603.05399',
+    type: 'supports',
+    description:
+      'Both find LLM judges need reliability frameworks; SCOPE provides statistical bounds',
+  },
+  {
+    source: '2602.13110',
+    target: '2602.13576',
+    type: 'supports',
+    description: 'SCOPE addresses position bias that enables preference drift attacks',
+  },
 ];
