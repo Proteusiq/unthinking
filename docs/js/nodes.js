@@ -6164,4 +6164,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/287_scope_selective_conformal_llm_judging.md',
   },
+  {
+    id: '2602.02219',
+    title: 'Am I More Pointwise or Pairwise? Revealing Position Bias in Rubric-Based LLM-as-a-Judge',
+    shortTitle: 'Rubric Position Bias',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'evaluation',
+    coreArgument:
+      'Rubric-based LLM evaluation exhibits position bias - LLMs prefer scores at specific positions in rubric lists regardless of content quality. Evaluation implicitly resembles multi-choice format. Balanced permutation strategy improves human correlation.',
+    keyEvidence: [
+      'Consistent position bias across multiple models',
+      'Bias persists across multiple datasets',
+      'Rubric position affects score selection',
+      'Permutation-based calibration improves reliability',
+    ],
+    keyQuotes: [
+      'Rubric-based evaluation implicitly resembles a multi-choice setting and therefore has position bias.',
+      'LLMs prefer score options appearing at specific positions in the rubric list.',
+      'Rubric-based LLM-as-a-Judge is not inherently point-wise.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/288_position_bias_rubric_llm_judge.md',
+  },
 ];

@@ -6895,4 +6895,19 @@ window.paperLinks = [
     type: 'supports',
     description: 'SCOPE addresses position bias that enables preference drift attacks',
   },
+  // Paper 288: Rubric Position Bias links
+  {
+    source: '2602.02219',
+    target: '2602.13110',
+    type: 'supports',
+    description:
+      'Both reveal position bias in LLM judges; rubric-based extends pairwise findings',
+  },
+  {
+    source: '2602.02219',
+    target: '2411.15594',
+    type: 'supports',
+    description:
+      'Extends LLM-as-judge bias literature from pairwise to rubric-based evaluation',
+  },
 ];
