@@ -6932,4 +6932,26 @@ window.paperLinks = [
     description:
       'Both reveal systematic judge biases; cross-lingual shows transfer failure across languages',
   },
+  // Paper 290: Adaptive Repetition Position Bias links
+  {
+    source: '2507.17788',
+    target: '2602.02219',
+    type: 'supports',
+    description:
+      'Both reveal position bias in LLM judges; adaptive repetition shows bias varies per-instance',
+  },
+  {
+    source: '2507.17788',
+    target: '2602.02287',
+    type: 'supports',
+    description:
+      'Both show evaluation instability; adaptive method confirms surface-level pattern matching',
+  },
+  {
+    source: '2507.17788',
+    target: '2602.13110',
+    type: 'supports',
+    description:
+      'Both address calibration needs; adaptive repetition provides efficient mitigation strategy',
+  },
 ];

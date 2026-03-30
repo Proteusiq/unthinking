@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **254 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **253 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed), [#71](https://github.com/Proteusiq/unthinking/issues/71), [#72](https://github.com/Proteusiq/unthinking/issues/72).
 
@@ -32,7 +32,7 @@ Papers examining whether LLMs can reliably evaluate themselves or other LLMs. Cr
 | ~~[2602.13110](https://arxiv.org/abs/2602.13110)~~ | ~~SCOPE: Selective Conformal Optimized Pairwise LLM Judging~~ | ~~balanced~~ | DONE #287 |
 | ~~[2602.02219](https://arxiv.org/abs/2602.02219)~~ | ~~Am I More Pointwise or Pairwise? Revealing Position Bias in Rubric-Based LLM-as-a-Judge~~ | ~~supports~~ | DONE #288 |
 | ~~[2602.02287](https://arxiv.org/abs/2602.02287)~~ | ~~Cross-Lingual Stability of LLM Judges Under Controlled Generation~~ | ~~supports~~ | DONE #289 |
-| [2507.17788](https://arxiv.org/abs/2507.17788) | Adaptive Repetition for Mitigating Position Bias in LLM-Based Ranking | supports |
+| ~~[2507.17788](https://arxiv.org/abs/2507.17788)~~ | ~~Adaptive Repetition for Mitigating Position Bias in LLM-Based Ranking~~ | ~~supports~~ | DONE #290 |
 | [2512.16272](https://arxiv.org/abs/2512.16272) | Beyond Blind Spots: Analytic Hints for Mitigating LLM-Based Evaluation Pitfalls | supports |
 | [2512.06710](https://arxiv.org/abs/2512.06710) | Stochasticity in Agentic Evaluations: Quantifying Inconsistency with ICC | supports |
 

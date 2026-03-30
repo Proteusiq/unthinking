@@ -6210,4 +6210,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/289_cross_lingual_stability_llm_judges.md',
   },
+  {
+    id: '2507.17788',
+    title: 'Adaptive Repetition for Mitigating Position Bias in LLM-Based Ranking',
+    shortTitle: 'Adaptive Position Bias',
+    date: 'Jul 2025',
+    stance: 'supports',
+    cluster: 'evaluation',
+    coreArgument:
+      'Position bias direction varies per-instance within datasets - some instances favor primacy, others recency. Static correction fails; adaptive repetition reduces LLM calls by 81-87% while maintaining accuracy through per-instance treatment.',
+    keyEvidence: [
+      'Bias direction unpredictable: Emerton-DPO has 30.3% primacy, 32.6% recency',
+      'Early stopping achieves 81% call reduction with full accuracy',
+      'Confidence-based method: 87% reduction with ~99% accuracy',
+      'Tested on 3 LLMs, 5 datasets',
+    ],
+    keyQuotes: [
+      'Position bias in LLMs is not only task-dependent but can also vary across instances.',
+      'Dataset-level averages can obscure substantial instance-level variation.',
+      'A single, static mitigation strategy is unlikely to be effective.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/290_adaptive_repetition_position_bias.md',
+  },
 ];
