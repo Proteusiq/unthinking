@@ -6910,4 +6910,26 @@ window.paperLinks = [
     description:
       'Extends LLM-as-judge bias literature from pairwise to rubric-based evaluation',
   },
+  // Paper 289: Cross-Lingual Judge Stability links
+  {
+    source: '2602.02287',
+    target: '2602.02219',
+    type: 'supports',
+    description:
+      'Both show LLM judges rely on surface patterns; cross-lingual extends position bias findings',
+  },
+  {
+    source: '2602.02287',
+    target: '2602.13110',
+    type: 'supports',
+    description:
+      'Both demonstrate judge calibration needed; cross-lingual shows language-specific calibration required',
+  },
+  {
+    source: '2602.02287',
+    target: '2602.16610',
+    type: 'supports',
+    description:
+      'Both reveal systematic judge biases; cross-lingual shows transfer failure across languages',
+  },
 ];

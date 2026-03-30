@@ -1,6 +1,6 @@
 # Paper List
 
-> 288 papers analyzed | 204 supports thesis | 15 challenges | 69 balanced | Date range: 2021-2026
+> 289 papers analyzed | 205 supports thesis | 15 challenges | 69 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -292,3 +292,4 @@
 | 286 | 2505.23323 | May 2025 | Neither Stochastic Parroting nor AGI: Context-Directed Extrapolation | Supports |
 | 287 | 2602.13110 | Feb 2026 | SCOPE: Selective Conformal Optimized Pairwise LLM Judging | Balanced |
 | 288 | 2602.02219 | Feb 2026 | Position Bias in Rubric-Based LLM-as-a-Judge | Supports |
+| 289 | 2602.02287 | Feb 2026 | Cross-Lingual Stability of LLM Judges | Supports |

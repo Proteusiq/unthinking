@@ -6187,4 +6187,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/288_position_bias_rubric_llm_judge.md',
   },
+  {
+    id: '2602.02287',
+    title: 'Cross-Lingual Stability of LLM Judges Under Controlled Generation',
+    shortTitle: 'Cross-Lingual Judge Stability',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'evaluation',
+    coreArgument:
+      'LLM judges exhibit systematic ranking instabilities across languages. Surface-level metrics remain stable (τ ≥ 0.76) but discourse-level judgments (coherence) show rank inversions (τ ≈ 0) when evaluating semantically equivalent content in different languages.',
+    keyEvidence: [
+      'Controlled generation: identical parameters across Estonian, Finnish, Hungarian',
+      'Semantic similarity .89-.94 confirms content equivalence',
+      'Coherence rankings scramble: τ = -0.06 to -0.17 across Finno-Ugric pairs',
+      'Judge ablation: 6 models show identical patterns (Δ < 0.02)',
+    ],
+    keyQuotes: [
+      'Coherence rankings scramble across language pairs, indicating that discourse-level assessment logic does not transfer reliably.',
+      'Zero-shot judge transfer is unreliable for discourse-level assessment in morphologically rich languages.',
+      'Surface-level evaluation transfers; discourse assessment does not.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/289_cross_lingual_stability_llm_judges.md',
+  },
 ];
