@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **251 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **250 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed), [#71](https://github.com/Proteusiq/unthinking/issues/71), [#72](https://github.com/Proteusiq/unthinking/issues/72).
 
@@ -40,7 +40,7 @@ Papers examining whether LLMs can reliably evaluate themselves or other LLMs. Cr
 
 | arXiv ID | Title | Stance |
 |----------|-------|--------|
-| [2602.13626](https://arxiv.org/abs/2602.13626) | Benchmark Leakage Trap: Can We Trust LLM-based Recommendation? | supports |
+| ~~[2602.13626](https://arxiv.org/abs/2602.13626)~~ | ~~Benchmark Leakage Trap: Can We Trust LLM-based Recommendation?~~ | ~~supports~~ | DONE #293 |
 | [2602.11792](https://arxiv.org/abs/2602.11792) | Detecting RLVR Training Data via Structural Convergence of Reasoning | supports |
 | [2601.20858](https://arxiv.org/abs/2601.20858) | When Flores Bloomz Wrong: Cross-Direction Contamination in MT Evaluation | supports |
 | [2511.17602](https://arxiv.org/abs/2511.17602) | Beyond Surface-Level Similarity: Hierarchical Contamination Detection | supports |

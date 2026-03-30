@@ -6279,4 +6279,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/292_stochasticity_agentic_evaluations_icc.md',
   },
+  {
+    id: '2602.13626',
+    title: 'Benchmark Leakage Trap: Can We Trust LLM-based Recommendation?',
+    shortTitle: 'Benchmark Leakage Trap',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'evaluation',
+    coreArgument:
+      'Benchmark data leakage in LLM-based recommendation creates dual effects: in-domain leakage produces +25% spurious gains (memorization), out-of-domain leakage causes -25% degradation. Model rankings can reverse based on contamination patterns.',
+    keyEvidence: [
+      'Pure in-domain leakage: +25% AUC gain (TALLRec)',
+      'Pure out-of-domain leakage: -25.6% AUC degradation',
+      'Model rankings reverse based on contamination',
+      'LLMRec+Collab more robust than pure LLMRec',
+    ],
+    keyQuotes: [
+      'Artificially inflated performance metrics that fail to reflect true model performance.',
+      'Test results may reflect the model\'s prior exposure to evaluation data rather than its true recommendation ability.',
+      'In-domain leakage induces substantial but spurious performance gains.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/293_benchmark_leakage_trap_llm_recommendation.md',
+  },
 ];

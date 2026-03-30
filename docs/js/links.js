@@ -6998,4 +6998,26 @@ window.paperLinks = [
     description:
       'Both address evaluation reliability; ICC provides measurement framework for judge consistency',
   },
+  // Paper 293: Benchmark Leakage Trap links
+  {
+    source: '2602.13626',
+    target: '2507.19219',
+    type: 'supports',
+    description:
+      'Both show LLMs cheat on benchmarks; leakage trap demonstrates mechanism in recommendations',
+  },
+  {
+    source: '2602.13626',
+    target: '2512.06710',
+    type: 'supports',
+    description:
+      'Stochasticity + leakage = doubly unreliable evaluation; complementary failure modes',
+  },
+  {
+    source: '2602.13626',
+    target: '2411.15594',
+    type: 'supports',
+    description:
+      'Both reveal LLM evaluation compromised; leakage trap shows memorization artifacts',
+  },
 ];
