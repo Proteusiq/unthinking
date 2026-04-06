@@ -521,6 +521,41 @@ Resources that provide important evidence but are not peer-reviewed papers.
 
 **Connection to Dot-by-Dot (#161)**: Dot-by-Dot showed filler tokens require specialized training. Greenblatt's finding suggests frontier models have somehow learned this capability emergently — but the mechanism is unclear and the effect size is modest.
 
+### Anthropic: "Functional Emotions" — Statistical Anthropomorphization (Apr 2026)
+
+**Source**: [transformer-circuits.pub/2026/emotions](https://transformer-circuits.pub/2026/emotions/index.html)
+
+**What they did**: Found linear directions ("emotion vectors") in Claude Sonnet 4.5 activation space that correlate with emotion-related text. Showed these directions "causally influence" model outputs.
+
+**What they claim**: Claude has "functional emotions" — patterns of expression and behavior mediated by abstract representations of emotion concepts.
+
+**The problem**:
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│  THE SLEIGHT OF HAND                                                │
+│                                                                     │
+│  1. Train on human text (full of emotion words/descriptions)        │
+│  2. Find linear directions that activate on emotion-related text    │
+│  3. Show these directions influence predictions                     │
+│  4. Call them "functional emotions"                                 │
+│                                                                     │
+│  But: If you train to predict text, you learn features for          │
+│  predicting text. Finding "emotion vectors" is finding that the     │
+│  model learned its training distribution.                           │
+│                                                                     │
+│  That's not emotion. That's statistics.                             │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+**Anthropic's disclaimer**: "Functional emotions... do not imply that LLMs have any subjective experience of emotions."
+
+**The real issue**: The framing anthropomorphizes statistical regularities. Finding that a model has features for predicting emotion-related tokens is unsurprising — of course it does, the training data is full of them. Calling these "functional emotions" that "causally influence behavior" creates false equivalence with human emotional processing.
+
+**Connection to thesis**: This is exactly the anthropomorphization problem (#282) — dressing up pattern matching in psychological language. The paper #295 (Sycophancy Spiraling) shows the *harmful* side: these "emotion-like" validation patterns cause real damage when users mistake statistical agreement for epistemic support.
+
+**Related**: LeCun commentary on this piece (X post, Apr 2026)
+
 ---
 
 ## Gaps in Coverage
