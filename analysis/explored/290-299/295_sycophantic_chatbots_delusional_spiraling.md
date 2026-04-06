@@ -173,7 +173,3 @@ None identified. This is formal mathematical proof within a well-specified model
 
 **Potential counter**: The specific parameter choices affect absolute rates.
 **Paper's response**: "The qualitative results do not depend strongly on these specific parameter choices."
-
----
-
-*Analysis conducted following AGENTS.md methodology. Full paper read via arXiv HTML.*

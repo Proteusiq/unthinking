@@ -177,7 +177,3 @@ None identified. The paper provides rigorous mechanistic analysis.
 
 **Potential concern**: Limited to code generation, may not generalize.
 **Note**: The paper acknowledges code is a good testbed because lock/fork structure is explicit. Whether the mechanism generalizes is an open question.
-
----
-
-*Analysis conducted following AGENTS.md methodology. Full paper read via arXiv HTML.*
