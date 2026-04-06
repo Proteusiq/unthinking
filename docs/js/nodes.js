@@ -6395,4 +6395,28 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/295_test_time_compute_overestimation.md',
   },
+  {
+    id: 296,
+    title: 'Detecting RLVR Training Data via Structural Convergence of Reasoning',
+    arxiv: '2602.11792',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'mechanism',
+    coreArgument:
+      'RLVR induces structural convergence: seen prompts produce 2-4 rigid reasoning modes while unseen prompts retain diversity. Symbolic reasoning segments freeze first. Black-box detector achieves AUC 0.70-0.80 across model scales. Models recall cached solution structures rather than derive them.',
+    keyEvidence: [
+      'Seen prompts cluster into 2-4 modes; unseen retain 8-16+',
+      'Symbolic logic 3-grams increase 5.5x (856→4673) during training',
+      'Detection AUC 0.70-0.80 across 1.5B to 32B models',
+      'Paraphrasing robust: AUC drops only 0.72→0.71',
+      'Works on math (AUC 0.80) and code (AUC 0.69)',
+    ],
+    keyQuotes: [
+      'RLVR induces a systematic convergence in reasoning trajectories: prompts seen during RL training yield increasingly similar generations.',
+      'Symbolic logic fragments increase rapidly during RLVR training, while boilerplate patterns show slower growth.',
+      'Training prompts have higher proportion of clusters with fewer reasoning structures, while unseen prompts retain more diverse reasoning paths.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/296_rlvr_structural_convergence.md',
+  },
 ];

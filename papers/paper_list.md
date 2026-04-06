@@ -1,6 +1,6 @@
 # Paper List
 
-> 295 papers analyzed | 211 supports thesis | 15 challenges | 69 balanced | Date range: 2021-2026
+> 296 papers analyzed | 212 supports thesis | 15 challenges | 69 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -299,3 +299,4 @@
 | 293 | 2602.19141 | Feb 2026 | Sycophantic Chatbots Cause Delusional Spiraling, Even in Ideal Bayesians | Supports |
 | 294 | 2603.29025 | Mar 2026 | The Model Says Walk: Surface Heuristics Override Implicit Constraints | Supports |
 | 295 | 2603.15377 | Mar 2026 | More Test-Time Compute Can Hurt: Overestimation Bias in LLM Beam Search | Supports |
+| 296 | 2602.11792 | Feb 2026 | Detecting RLVR Training Data via Structural Convergence of Reasoning | Supports |

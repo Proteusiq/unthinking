@@ -7164,4 +7164,54 @@ window.paperLinks = [
     description:
       'Both show reflection/search can hurt: illusions of reflection align with EVT predictions',
   },
+  // Paper 296: RLVR Structural Convergence
+  {
+    source: '2602.11792',
+    target: '2603.29025',
+    type: 'supports',
+    description:
+      'Both show cached patterns override reasoning; structural convergence explains heuristic dominance',
+  },
+  {
+    source: '2602.11792',
+    target: '2603.15377',
+    type: 'supports',
+    description:
+      'Explains why more compute hurts: search selects among memorized structures, not exploring new paths',
+  },
+  {
+    source: '2602.11792',
+    target: '2410.05229',
+    type: 'supports',
+    description:
+      'Structural convergence explains GSM-Symbolic brittleness: templates fail on novel symbol combinations',
+  },
+  {
+    source: '2602.11792',
+    target: '2601.00514',
+    type: 'supports',
+    description:
+      'Provides mechanism for illusion of insight: reasoning models retrieve cached derivations',
+  },
+  {
+    source: '2602.11792',
+    target: '2307.13702',
+    type: 'supports',
+    description:
+      'If reasoning is template retrieval, CoT faithfulness is illusory: reasoning is post-hoc rationalization',
+  },
+  {
+    source: '2602.11792',
+    target: '2602.13626',
+    type: 'supports',
+    description:
+      'Both address contamination detection: this paper targets RLVR-specific structural signals',
+  },
+  {
+    source: '2602.11792',
+    target: '2506.06941',
+    type: 'supports',
+    description:
+      'Mechanistic basis for illusion of thinking: RLVR bakes in solution structures, not reasoning algorithms',
+  },
 ];
