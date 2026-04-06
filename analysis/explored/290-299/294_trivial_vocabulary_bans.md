@@ -1,9 +1,3 @@
-# Trivial Vocabulary Bans Improve LLM Reasoning More Than Deep Linguistic Constraints
-
-**arXiv**: [2604.02699](https://arxiv.org/abs/2604.02699)
-**Date**: April 2026
-**Author**: Rodney Jehu-Appiah
-
 ## Summary
 
 A rigorous replication study that comprehensively disconfirms the "cognitive restructuring hypothesis" (that removing reasoning-relevant vocabulary forces deeper reasoning). Instead, finds that **trivial vocabulary bans** (removing filler words like "very", "really", "just") improve reasoning MORE than deep linguistic constraints (E-Prime, removing "to be"). The four conditions rank in **perfect inverse order of theoretical depth** by effect size. Proposes a simpler mechanism: any constraint acts as an "output regularizer" by disrupting default fluent-but-shallow generation patterns.
