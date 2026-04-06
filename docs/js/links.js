@@ -7071,4 +7071,33 @@ window.paperLinks = [
     description:
       'Both show LLMs optimize signals not truth; SSD for distributions, sycophancy for approval',
   },
+  // Paper 294: Trivial Vocabulary Bans links
+  {
+    source: '2604.02699',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Both show LLMs respond to surface patterns; vocabulary content irrelevant, only disruption matters',
+  },
+  {
+    source: '2604.02699',
+    target: '2604.01193',
+    type: 'supports',
+    description:
+      'Both show improvements from generation/distribution shaping, not deeper reasoning',
+  },
+  {
+    source: '2604.02699',
+    target: '2602.19141',
+    type: 'supports',
+    description:
+      'Both show LLMs optimize surface signals; constraints help by disrupting fluent defaults',
+  },
+  {
+    source: '2604.02699',
+    target: '2312.01552',
+    type: 'supports',
+    description:
+      'Both show surface interventions unlock capability; URIAL via formatting, vocab bans via disruption',
+  },
 ];

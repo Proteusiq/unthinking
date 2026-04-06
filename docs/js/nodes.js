@@ -6347,4 +6347,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/295_sycophantic_chatbots_delusional_spiraling.md',
   },
+  {
+    id: '2604.02699',
+    title: 'Trivial Vocabulary Bans Improve LLM Reasoning More Than Deep Linguistic Constraints',
+    shortTitle: 'Trivial Vocabulary Bans',
+    date: 'Apr 2026',
+    stance: 'supports',
+    cluster: 'prompting',
+    coreArgument:
+      'Trivial filler-word bans (+6.7pp) improve reasoning MORE than deep linguistic constraints like E-Prime (+3.7pp). Conditions rank in perfect inverse order of theoretical depth. Constraints act as output regularizers by disrupting fluent-but-shallow default generation.',
+    keyEvidence: [
+      'Neutral filler ban: +6.7pp (largest); E-Prime: +3.7pp (smallest)',
+      'Perfect inverse correlation: depth vs effect size',
+      'Cross-model correlation signature fails to replicate (r=0.005)',
+      'N=15,600 trials across 6 models, 7 tasks',
+    ],
+    keyQuotes: [
+      'The four conditions rank in perfect inverse order of theoretical depth by effect size.',
+      'Any constraint that forces a language model off its default generation path acts as an output regularizer.',
+      'The shallowest constraints work best because they impose constant monitoring load with minimal conceptual disruption.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/294_trivial_vocabulary_bans.md',
+  },
 ];

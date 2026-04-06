@@ -7,8 +7,8 @@
 </a>
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
-[![Papers](https://img.shields.io/badge/papers-293-blue)]()
-[![Relationships](https://img.shields.io/badge/relationships-1062-orange)]()
+[![Papers](https://img.shields.io/badge/papers-294-blue)]()
+[![Relationships](https://img.shields.io/badge/relationships-1066-orange)]()
 
 ---
 
@@ -40,8 +40,8 @@ RL and test-time compute surface pre-existing capabilities rather than creating 
 
 Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/)**
 
-- **Force-directed graph**: 293 papers as nodes, 1062 relationships as edges
-- **Color-coded stances**: supports (211), challenges (16), balanced (66)
+- **Force-directed graph**: 294 papers as nodes, 1066 relationships as edges
+- **Color-coded stances**: supports (212), challenges (16), balanced (66)
 - **Interactive**: hover, click, search, filter, dark/light mode
 - **Paper dialogue**: auto-generated conversations between connected papers
 

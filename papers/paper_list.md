@@ -297,3 +297,4 @@
 | 291 | 2602.13626 | Feb 2026 | Benchmark Leakage Trap in LLM-based Recommendation | Supports |
 | 292 | 2604.01193 | Apr 2026 | Embarrassingly Simple Self-Distillation Improves Code Generation | Supports |
 | 293 | 2602.19141 | Feb 2026 | Sycophantic Chatbots Cause Delusional Spiraling, Even in Ideal Bayesians | Supports |
+| 294 | 2604.02699 | Apr 2026 | Trivial Vocabulary Bans Improve LLM Reasoning More Than Deep Linguistic Constraints | Supports |
