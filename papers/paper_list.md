@@ -265,37 +265,35 @@
 | 259 | 2507.21009 | Jul 2025 | Memorization in Fine-Tuned Large Language Models | Supports |
 | 260 | 2408.04667 | Aug 2024 | Non-Determinism of "Deterministic" LLM Settings | Supports |
 | 261 | 2506.04909 | Jun 2025 | When Thinking LLMs Lie: Strategic Deception in Reasoning Models | Supports |
-| 262 | 2602.19614 | Feb 2026 | The Path Not Taken: What Happens When We Remove Chain-of-Thought from RLVR? | Supports |
-| 263 | 2602.07729 | Feb 2026 | Do We Need Adam? SGD Updates <0.02% Params in RLVR | Supports |
-| 264 | 2507.10616 | Jul 2025 | Scalpel vs. Hammer: GRPO Amplifies, SFT Replaces | Supports |
-| 265 | 2502.06148 | Feb 2025 | When Style Breaks Safety: How Indirect Requests Bypass Defenses | Supports |
-| 266 | 2503.07416 | Mar 2025 | Follow the Reasoning Leader: Test-Time Scaling and Ensembles | Supports |
-| 267 | 2411.15594 | Nov 2024 | A Survey on LLM-as-a-Judge | Supports |
-| 268 | 2412.12509 | Dec 2024 | Can You Trust LLM Judgments? Reliability of LLM-as-a-Judge | Supports |
-| 269 | 2509.04013 | Sep 2025 | On Robustness and Reliability of Benchmark-Based Evaluation | Supports |
-| 270 | 2502.03461 | Feb 2025 | Do Large Language Model Benchmarks Test Reliability? | Supports |
-| 271 | 2603.08412 | Mar 2026 | Aligning to Illusions: Choice Blindness in Human and AI Feedback | Supports |
-| 272 | 2603.05485 | Mar 2026 | Towards Provably Unbiased LLM Judges via Bias-Bounded Evaluation | Supports |
-| 273 | 2603.05399 | Mar 2026 | Judge Reliability Harness: Stress Testing LLM Judges | Supports |
-| 274 | 2603.05167 | Mar 2026 | C2-Faith: Benchmarking LLM Judges for Causal and Coverage Faithfulness | Supports |
-| 275 | 2602.16610 | Feb 2026 | Who can we trust? LLM-as-a-jury for Comparative Assessment | Supports |
-| 276 | 2602.13576 | Feb 2026 | Rubrics as an Attack Surface: Stealthy Preference Drift in LLM Judges | Supports |
-| 277 | 2512.01786 | Dec 2025 | Who Judges the Judge? LLM Jury-on-Demand | Supports |
-| 278 | 2507.19219 | Jul 2025 | How Much Do LLMs Cheat on Evaluation? ArxivRoll | Supports |
-| 279 | 2412.14093 | Dec 2024 | Alignment faking in large language models | Supports |
-| 280 | 2312.01552 | Dec 2023 | The Unlocking Spell on Base LLMs (URIAL) | Supports |
-| 281 | 2506.18032 | Jun 2025 | Why Do Some LMs Fake Alignment While Others Don't? | Supports |
-| 282 | 2305.14784 | May 2023 | Anthropomorphization of AI: Opportunities and Risks | Supports |
-| 283 | 2509.21545 | Sep 2025 | Evidence for Limited Metacognition in LLMs | Balanced |
-| 284 | 2602.15829 | Feb 2026 | Operationalising the Superficial Alignment Hypothesis via Task Complexity | Supports |
-| 285 | 2407.08790 | Jul 2024 | Large Models of What? Mistaking Engineering for Linguistic Agency | Supports |
-| 286 | 2505.23323 | May 2025 | Neither Stochastic Parroting nor AGI: Context-Directed Extrapolation | Supports |
-| 287 | 2602.13110 | Feb 2026 | SCOPE: Selective Conformal Optimized Pairwise LLM Judging | Balanced |
-| 288 | 2602.02219 | Feb 2026 | Position Bias in Rubric-Based LLM-as-a-Judge | Supports |
-| 289 | 2602.02287 | Feb 2026 | Cross-Lingual Stability of LLM Judges | Supports |
-| 290 | 2507.17788 | Jul 2025 | Adaptive Repetition for Position Bias Mitigation | Supports |
-| 291 | 2512.16272 | Dec 2025 | Beyond Blind Spots: Analytic Hints for LLM Evaluation | Supports |
-| 292 | 2512.06710 | Dec 2025 | Stochasticity in Agentic Evaluations: ICC Analysis | Supports |
-| 293 | 2602.13626 | Feb 2026 | Benchmark Leakage Trap in LLM-based Recommendation | Supports |
-| 294 | 2604.01193 | Apr 2026 | Embarrassingly Simple Self-Distillation Improves Code Generation | Supports |
-| 295 | 2602.19141 | Feb 2026 | Sycophantic Chatbots Cause Delusional Spiraling, Even in Ideal Bayesians | Supports |
+| 262 | 2511.08567 | Nov 2025 | The Path Not Taken: RLVR Provably Learns Off the Principals | Supports |
+| 263 | 2506.07452 | Jun 2025 | When Style Breaks Safety: Defending LLMs Against Superficial Style Alignment | Supports |
+| 264 | 2506.06998 | Jun 2025 | What Makes Reasoning Models Different? Follow the Reasoning Leader | Supports |
+| 265 | 2411.15594 | Nov 2024 | A Survey on LLM-as-a-Judge | Supports |
+| 266 | 2412.12509 | Dec 2024 | Can You Trust LLM Judgments? Reliability of LLM-as-a-Judge | Supports |
+| 267 | 2509.04013 | Sep 2025 | On Robustness and Reliability of Benchmark-Based Evaluation | Supports |
+| 268 | 2502.03461 | Feb 2025 | Do Large Language Model Benchmarks Test Reliability? | Supports |
+| 269 | 2603.08412 | Mar 2026 | Aligning to Illusions: Choice Blindness in Human and AI Feedback | Supports |
+| 270 | 2603.05485 | Mar 2026 | Towards Provably Unbiased LLM Judges via Bias-Bounded Evaluation | Supports |
+| 271 | 2603.05399 | Mar 2026 | Judge Reliability Harness: Stress Testing LLM Judges | Supports |
+| 272 | 2603.05167 | Mar 2026 | C2-Faith: Benchmarking LLM Judges for Causal and Coverage Faithfulness | Supports |
+| 273 | 2602.16610 | Feb 2026 | Who can we trust? LLM-as-a-jury for Comparative Assessment | Supports |
+| 274 | 2602.13576 | Feb 2026 | Rubrics as an Attack Surface: Stealthy Preference Drift in LLM Judges | Supports |
+| 275 | 2512.01786 | Dec 2025 | Who Judges the Judge? LLM Jury-on-Demand | Supports |
+| 276 | 2507.19219 | Jul 2025 | How Much Do LLMs Cheat on Evaluation? ArxivRoll | Supports |
+| 277 | 2412.14093 | Dec 2024 | Alignment faking in large language models | Supports |
+| 278 | 2312.01552 | Dec 2023 | The Unlocking Spell on Base LLMs (URIAL) | Supports |
+| 279 | 2506.18032 | Jun 2025 | Why Do Some LMs Fake Alignment While Others Don't? | Supports |
+| 280 | 2305.14784 | May 2023 | Anthropomorphization of AI: Opportunities and Risks | Supports |
+| 281 | 2509.21545 | Sep 2025 | Evidence for Limited Metacognition in LLMs | Balanced |
+| 282 | 2602.15829 | Feb 2026 | Operationalising the Superficial Alignment Hypothesis via Task Complexity | Supports |
+| 283 | 2407.08790 | Jul 2024 | Large Models of What? Mistaking Engineering for Linguistic Agency | Supports |
+| 284 | 2505.23323 | May 2025 | Neither Stochastic Parroting nor AGI: Context-Directed Extrapolation | Supports |
+| 285 | 2602.13110 | Feb 2026 | SCOPE: Selective Conformal Optimized Pairwise LLM Judging | Balanced |
+| 286 | 2602.02219 | Feb 2026 | Position Bias in Rubric-Based LLM-as-a-Judge | Supports |
+| 287 | 2602.02287 | Feb 2026 | Cross-Lingual Stability of LLM Judges | Supports |
+| 288 | 2507.17788 | Jul 2025 | Adaptive Repetition for Position Bias Mitigation | Supports |
+| 289 | 2512.16272 | Dec 2025 | Beyond Blind Spots: Analytic Hints for LLM Evaluation | Supports |
+| 290 | 2512.06710 | Dec 2025 | Stochasticity in Agentic Evaluations: ICC Analysis | Supports |
+| 291 | 2602.13626 | Feb 2026 | Benchmark Leakage Trap in LLM-based Recommendation | Supports |
+| 292 | 2604.01193 | Apr 2026 | Embarrassingly Simple Self-Distillation Improves Code Generation | Supports |
+| 293 | 2602.19141 | Feb 2026 | Sycophantic Chatbots Cause Delusional Spiraling, Even in Ideal Bayesians | Supports |
