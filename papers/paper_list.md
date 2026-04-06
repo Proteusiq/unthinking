@@ -1,6 +1,6 @@
 # Paper List
 
-> 298 papers analyzed | 213 supports thesis | 15 challenges | 70 balanced | Date range: 2021-2026
+> 303 papers analyzed | 218 supports thesis | 15 challenges | 70 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -302,3 +302,8 @@
 | 296 | 2602.11792 | Feb 2026 | Detecting RLVR Training Data via Structural Convergence of Reasoning | Supports |
 | 297 | 2602.03837 | Feb 2026 | Accelerating Scientific Research with Gemini | Balanced |
 | 298 | 2502.00674 | Feb 2025 | Rethinking Mixture-of-Agents: Self-MoA Beats Mixed-MoA | Supports |
+| 299 | 2305.10601 | May 2023 | Tree of Thoughts: Deliberate Problem Solving | Supports |
+| 300 | 2308.09687 | Aug 2023 | Graph of Thoughts: Solving Elaborate Problems | Supports |
+| 301 | 2303.11366 | Mar 2023 | Reflexion: Language Agents with Verbal Reinforcement | Supports |
+| 302 | 2408.03314 | Aug 2024 | Scaling LLM Test-Time Compute Optimally | Supports |
+| 303 | 2309.11495 | Sep 2023 | Chain-of-Verification Reduces Hallucination | Supports |

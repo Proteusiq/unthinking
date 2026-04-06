@@ -6467,4 +6467,121 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/298_self_moa_single_model_beats_mixture.md',
   },
+  {
+    id: 299,
+    title: 'Tree of Thoughts: Deliberate Problem Solving',
+    arxiv: '2305.10601',
+    date: 'May 2023',
+    stance: 'supports',
+    cluster: 'mechanism',
+    coreArgument:
+      'NeurIPS 2023: ToT improves Game of 24 from 4% to 74% via BFS/DFS search. Authors explicitly call LM "System 1" (associative). 60% of CoT samples fail at first 3 words. Bottleneck is generation quality not evaluation. Search surfaces patterns, doesn\'t create reasoning.',
+    keyEvidence: [
+      'Game of 24: 4% → 74% with search scaffolding',
+      '60% of CoT samples fail at first step (first 3 words)',
+      'GPT-4 gen + GPT-3.5 eval = 64%; GPT-3.5 gen + GPT-4 eval = 31%',
+      'Performance ceiling: 74% not 100% on well-defined task',
+      'GSM8K: only 86%→90% when CoT already works',
+    ],
+    keyQuotes: [
+      'The simple associative token-level choices of LMs are reminiscent of System 1.',
+      'Around 60% of CoT samples already failed after the first three words.',
+      'The game\'s bottleneck is thought generation.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/299_tree_of_thoughts.md',
+  },
+  {
+    id: 300,
+    title: 'Graph of Thoughts: Solving Elaborate Problems',
+    arxiv: '2308.09687',
+    date: 'Aug 2023',
+    stance: 'supports',
+    cluster: 'mechanism',
+    coreArgument:
+      'AAAI 2024: 62% improvement over ToT comes from merge sort algorithm, not LLM reasoning. Authors admit LLMs cannot sort beyond ~16-32 elements. GoO is pre-constructed by humans. ~75% accuracy ceiling on 128 numbers—genuine reasoner would be 100%.',
+    keyEvidence: [
+      'LLMs unable to sort beyond ~16-32 elements',
+      '62% gain is from merge sort, not LLM insight',
+      'GoO pre-constructed by humans before execution',
+      '~75% accuracy on 128 numbers (should be 100%)',
+      '>31% cost reduction from algorithm efficiency',
+    ],
+    keyQuotes: [
+      'The considered LLMs are unable to sort a sequence of numbers correctly beyond a certain length.',
+      'GoO is a static structure constructed once, before execution starts.',
+      'We select merge sort for its straightforward alignment with GoT.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/300-309/300_graph_of_thoughts.md',
+  },
+  {
+    id: 301,
+    title: 'Reflexion: Language Agents with Verbal Reinforcement',
+    arxiv: '2303.11366',
+    date: 'Mar 2023',
+    stance: 'supports',
+    cluster: 'mechanism',
+    coreArgument:
+      'NeurIPS 2023: 91% HumanEval requires external test execution. Without feedback (WebShop): 0% gain. Ablation shows reflection alone hurts performance. Subsequent research: 85% same-failure repetition. Search + external oracle, not self-improvement.',
+    keyEvidence: [
+      'HumanEval: 80.1% → 91% (with test execution)',
+      'MBPP: 80.1% → 77.1% (regression from false positives)',
+      'WebShop: 0% gain without clear feedback',
+      '85% same-failure repetition (from rebuttal paper)',
+      'Self-reflection ablation: 52% vs 60% baseline',
+    ],
+    keyQuotes: [
+      'The agent is unable to determine if the current implementation is correct without unit tests.',
+      'Reflexion is unable to solve tasks that require significant diversity and exploration.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/300-309/301_reflexion.md',
+  },
+  {
+    id: 302,
+    title: 'Scaling LLM Test-Time Compute Optimally',
+    arxiv: '2408.03314',
+    date: 'Aug 2024',
+    stance: 'supports',
+    cluster: 'mechanism',
+    coreArgument:
+      'DeepMind: Test-time compute can outperform 14x larger model BUT only where base model has non-trivial success. On hardest problems (bin 5): "no method makes meaningful progress." Revisions fix arithmetic, not novel reasoning. 38% correct→incorrect regression.',
+    keyEvidence: [
+      'Bin 5 (hardest): no method makes meaningful progress',
+      'Requires non-trivial baseline success rate',
+      '38% of correct answers regress to incorrect',
+      '4x efficiency from adaptive allocation',
+      'Revisions fix arithmetic/formatting, not novel proofs',
+    ],
+    keyQuotes: [
+      'On the most difficult questions (level 5), no method makes much meaningful progress.',
+      'We expect test-time compute to be most helpful when models already have all the basic knowledge needed.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/300-309/302_scaling_test_time_compute.md',
+  },
+  {
+    id: 303,
+    title: 'Chain-of-Verification Reduces Hallucination',
+    arxiv: '2309.11495',
+    date: 'Sep 2023',
+    stance: 'supports',
+    cluster: 'mechanism',
+    coreArgument:
+      'Meta AI: Verification must be independent (not see original) because model repeats hallucinations otherwise. Same question → different answers based on context. This is pattern matching, not knowledge lookup. ~29% error rate even after verification.',
+    keyEvidence: [
+      'Factored: 0.36 precision; Joint: 0.29 (model copies hallucinations)',
+      '~17% list accuracy vs ~70% individual questions',
+      '~29% still wrong after CoVe (not eliminated)',
+      'Yes/no questions unreliable—model agrees regardless of truth',
+      'Wikidata precision: 0.17 → 0.36 (+112%)',
+    ],
+    keyQuotes: [
+      'Models that attend to existing hallucinations tend to repeat the hallucinations.',
+      'Individual verification questions are answered with higher accuracy than the original query.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/300-309/303_chain_of_verification.md',
+  },
 ];

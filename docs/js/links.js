@@ -7286,4 +7286,121 @@ window.paperLinks = [
     description:
       'Self-correction on same distribution; Self-MoA success suggests in-distribution quality matters most',
   },
+  // Paper 299: Tree of Thoughts
+  {
+    source: '2305.10601',
+    target: '2603.15377',
+    type: 'supports',
+    description:
+      'Both show search has limits; ToT search surfaces patterns within capability bounds',
+  },
+  {
+    source: '2305.10601',
+    target: '2602.11792',
+    type: 'supports',
+    description:
+      'Both show models surface cached patterns; 60% first-step failure shows pattern commitment',
+  },
+  {
+    source: '2305.10601',
+    target: '2502.00674',
+    type: 'supports',
+    description:
+      'Both show quality > diversity in sampling; generation bottleneck parallels quality dominance',
+  },
+  {
+    source: '2305.10601',
+    target: '2308.09687',
+    type: 'extends',
+    description:
+      'GoT extends ToT with graph structure; both add external scaffolding to LMs',
+  },
+  // Paper 300: Graph of Thoughts
+  {
+    source: '2308.09687',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Both show decomposition helps but doesnt create reasoning; complexity thresholds exist',
+  },
+  {
+    source: '2308.09687',
+    target: '2506.06941',
+    type: 'supports',
+    description:
+      'Both show complexity thresholds; ~75% ceiling parallels illusion of thinking findings',
+  },
+  {
+    source: '2308.09687',
+    target: '2305.10601',
+    type: 'extends',
+    description:
+      'GoT extends ToT with aggregation; both show external algorithms provide gains',
+  },
+  // Paper 301: Reflexion
+  {
+    source: '2303.11366',
+    target: '2409.12917',
+    type: 'supports',
+    description:
+      'Both show self-correction requires external grounding; SCoRe needs RL, Reflexion needs tests',
+  },
+  {
+    source: '2303.11366',
+    target: '2510.18254',
+    type: 'challenged_by',
+    description:
+      'Illusions of Reflection shows 85% same-failure repetition; challenges Reflexion mechanism',
+  },
+  {
+    source: '2303.11366',
+    target: '2602.03837',
+    type: 'supports',
+    description:
+      'Both need external verification; Gemini needs code, Reflexion needs tests',
+  },
+  // Paper 302: Scaling Test-Time Compute
+  {
+    source: '2408.03314',
+    target: '2603.15377',
+    type: 'supports',
+    description:
+      'Both show compute limits; bin 5 failure parallels EVT overestimation findings',
+  },
+  {
+    source: '2408.03314',
+    target: '2305.10601',
+    type: 'supports',
+    description:
+      'Both show search helps within capability bounds; hardest problems resist all methods',
+  },
+  {
+    source: '2408.03314',
+    target: '2502.00674',
+    type: 'supports',
+    description:
+      'Both show quality dominates; revision regression parallels quality > diversity',
+  },
+  // Paper 303: Chain-of-Verification
+  {
+    source: '2309.11495',
+    target: '2409.12917',
+    type: 'supports',
+    description:
+      'Both show self-correction needs isolation; SCoRe needs RL, CoVe needs factored verification',
+  },
+  {
+    source: '2309.11495',
+    target: '2510.18254',
+    type: 'supports',
+    description:
+      'Both find self-correction fails without isolation; context drags toward repetition',
+  },
+  {
+    source: '2309.11495',
+    target: '2602.04288',
+    type: 'supports',
+    description:
+      'Contextual drag explains why factored works; context pulls toward repeating patterns',
+  },
 ];
