@@ -6419,4 +6419,52 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/296_rlvr_structural_convergence.md',
   },
+  {
+    id: 297,
+    title: 'Accelerating Scientific Research with Gemini',
+    arxiv: '2602.03837',
+    date: 'Feb 2026',
+    stance: 'balanced',
+    cluster: 'mechanism',
+    coreArgument:
+      'Google case studies show Gemini contributes to math research as retrieval + recombination tool, not autonomous reasoner. Success requires heavy human scaffolding. Authors document confirmation bias, hallucinations, and inability to self-verify.',
+    keyEvidence: [
+      'Discoveries use existing theorems (Kirszbraun 1934, Stone-Weierstrass)',
+      'Authors: "tireless bright junior collaborator" requiring scaffolding',
+      'Confirmation bias: AI bridges gaps with "hand-wavy arguments" on false conjectures',
+      'Cannot establish novel mathematical frameworks from scratch',
+      'Needs code verification for symbolic derivations',
+    ],
+    keyQuotes: [
+      'AI models like Gemini function best as powerful collaborators rather than autonomous researchers.',
+      'Models exhibit a strong tendency to support the hypothesis presented in a prompt.',
+      'Standard text-based chat interfaces are fundamentally limited by the AI\'s tendency to hallucinate during long symbolic derivations.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/297_gemini_scientific_discovery.md',
+  },
+  {
+    id: 298,
+    title: 'Rethinking Mixture-of-Agents: Self-MoA Beats Mixed-MoA',
+    arxiv: '2502.00674',
+    date: 'Feb 2025',
+    stance: 'supports',
+    cluster: 'mechanism',
+    coreArgument:
+      'Self-MoA (single model, multiple samples) beats Mixed-MoA (diverse models) by 6.6% on AlpacaEval. MoA performance more sensitive to quality than diversity. Aggregator selects best patterns rather than synthesizing novel reasoning from diverse perspectives.',
+    keyEvidence: [
+      'Self-MoA +6.6 points over Mixed-MoA (65.7 vs 59.1) on AlpacaEval',
+      'Quality coefficient α > diversity coefficient β in all datasets',
+      'R² ≈ 0.7: quality + diversity explain 70% of MoA performance',
+      'State-of-the-art on AlpacaEval 2.0 leaderboard',
+      'In-model diversity sufficient - no need for diverse reasoning approaches',
+    ],
+    keyQuotes: [
+      'Surprisingly, Self-MoA outperforms standard MoA that mixes different LLMs.',
+      'MoA performance is rather sensitive to the quality, and mixing different LLMs often lowers the average quality.',
+      'We confirm that MoA performance is particularly sensitive to variations in quality.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/298_self_moa_single_model_beats_mixture.md',
+  },
 ];

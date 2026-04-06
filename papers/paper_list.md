@@ -1,6 +1,6 @@
 # Paper List
 
-> 296 papers analyzed | 212 supports thesis | 15 challenges | 69 balanced | Date range: 2021-2026
+> 298 papers analyzed | 213 supports thesis | 15 challenges | 70 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -300,3 +300,5 @@
 | 294 | 2603.29025 | Mar 2026 | The Model Says Walk: Surface Heuristics Override Implicit Constraints | Supports |
 | 295 | 2603.15377 | Mar 2026 | More Test-Time Compute Can Hurt: Overestimation Bias in LLM Beam Search | Supports |
 | 296 | 2602.11792 | Feb 2026 | Detecting RLVR Training Data via Structural Convergence of Reasoning | Supports |
+| 297 | 2602.03837 | Feb 2026 | Accelerating Scientific Research with Gemini | Balanced |
+| 298 | 2502.00674 | Feb 2025 | Rethinking Mixture-of-Agents: Self-MoA Beats Mixed-MoA | Supports |

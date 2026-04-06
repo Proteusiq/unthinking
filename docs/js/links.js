@@ -7214,4 +7214,76 @@ window.paperLinks = [
     description:
       'Mechanistic basis for illusion of thinking: RLVR bakes in solution structures, not reasoning algorithms',
   },
+  // Paper 297: Gemini Scientific Discovery
+  {
+    source: '2602.03837',
+    target: '2307.13702',
+    type: 'supports',
+    description:
+      'Confirmation bias on false conjectures = unfaithful reasoning; AI bridges logical gaps with hand-wavy arguments',
+  },
+  {
+    source: '2602.03837',
+    target: '2410.05229',
+    type: 'supports',
+    description:
+      'Algebraic errors in derivations align with GSM-Symbolic brittleness on symbolic manipulation',
+  },
+  {
+    source: '2602.03837',
+    target: '2409.12917',
+    type: 'supports',
+    description:
+      'Both show self-correction requires external grounding; code verification needed for symbolic work',
+  },
+  {
+    source: '2602.03837',
+    target: '2603.15377',
+    type: 'supports',
+    description:
+      'Code verification grounds what pure reasoning cannot; external verification essential',
+  },
+  {
+    source: '2602.03837',
+    target: '2602.11792',
+    type: 'supports',
+    description:
+      'Discoveries may be cached solution retrieval; cross-pollination is retrieval from training distribution',
+  },
+  // Paper 298: Self-MoA
+  {
+    source: '2502.00674',
+    target: '2602.11792',
+    type: 'supports',
+    description:
+      'In-model consistency matters more than diversity; Self-MoA success parallels RLVR structural convergence',
+  },
+  {
+    source: '2502.00674',
+    target: '2603.15377',
+    type: 'supports',
+    description:
+      'Both challenge more diverse compute = better; quality of scorer/proposer dominates over diversity',
+  },
+  {
+    source: '2502.00674',
+    target: '2602.03837',
+    type: 'supports',
+    description:
+      'Aggregator as selector not reasoner; aligns with junior collaborator framing',
+  },
+  {
+    source: '2502.00674',
+    target: '2304.15004',
+    type: 'supports',
+    description:
+      'If emergence were real, diverse models should produce emergent insights; instead quality dominates',
+  },
+  {
+    source: '2502.00674',
+    target: '2409.12917',
+    type: 'supports',
+    description:
+      'Self-correction on same distribution; Self-MoA success suggests in-distribution quality matters most',
+  },
 ];
