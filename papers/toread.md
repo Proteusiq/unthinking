@@ -4,6 +4,12 @@ Curated list of papers confirmed relevant to the thesis. **250 papers remaining.
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed), [#71](https://github.com/Proteusiq/unthinking/issues/71), [#72](https://github.com/Proteusiq/unthinking/issues/72).
 
+## Selection Rules
+
+- **NO single-author papers** — Prefer papers with multiple authors for broader peer validation
+- Prefer papers from established research groups or institutions
+- Prefer papers with reproducible experiments and open code/data
+
 ---
 
 ## High Priority — LLM-as-Judge & Evaluation Circularity (Issues #71, #72)
