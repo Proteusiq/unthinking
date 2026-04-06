@@ -15,40 +15,8 @@
         --accent: var(--accent-purple);
       }
 
-      body {
-        background: var(--bg-primary);
-        color: var(--text-secondary);
-        font-family: 'Courier New', monospace;
-        padding: clamp(0.8rem, 2vw, 1.2rem) clamp(0.5rem, 2vw, 1rem) clamp(2rem, 4vw, 3rem);
-      }
-      a {
-        color: var(--accent);
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline;
-      }
-      .topbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        max-width: 960px;
-        margin: 0 auto 1rem;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
-      h2 {
-        color: var(--accent-purple);
-        letter-spacing: 2px;
-        font-size: clamp(0.65rem, 1.5vw, 0.8rem);
-        text-transform: uppercase;
-      }
+      /* Page uses .tbtn instead of .toggle-btn, .wrap instead of .container */
       .toggle-wrap {
-        display: flex;
-        gap: 0;
-        border: 1px solid var(--border-primary);
-        border-radius: 5px;
-        overflow: hidden;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         max-width: 100%;
@@ -79,12 +47,6 @@
       .wrap {
         max-width: 960px;
         margin: 0 auto;
-      }
-      .view {
-        display: none;
-      }
-      .view.show {
-        display: block;
       }
 
       /* ── INTRO BOX ── */
@@ -297,19 +259,6 @@
         text-transform: uppercase;
         color: var(--code-comment);
         margin: 0.9rem 0 0.4rem;
-      }
-
-      /* ── CREDITS ── */
-      .credits {
-        margin-top: 1.5rem;
-        padding-top: 1rem;
-        border-top: 1px solid var(--border-secondary);
-        font-size: clamp(0.52rem, 1.1vw, 0.6rem);
-        color: var(--code-comment);
-        line-height: 1.8;
-      }
-      .credits b {
-        color: var(--text-muted);
       }
 
       /* ── RESPONSIVE ── */

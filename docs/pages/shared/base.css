@@ -1,6 +1,6 @@
 /**
  * Shared base styles for standalone pages
- * Provides: theme variables, reset, theme toggle button
+ * Provides: theme variables, reset, body, topbar, tabs, credits
  * Each page defines its own --accent color and component styles
  */
 
@@ -70,6 +70,83 @@
 }
 
 /* ══════════════════════════════════════════════════════════════════════
+   Body Base
+   ══════════════════════════════════════════════════════════════════════ */
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  font-family: 'Courier New', monospace;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  padding-bottom: clamp(2rem, 5vw, 3rem);
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   Topbar (header with title and tabs)
+   ══════════════════════════════════════════════════════════════════════ */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: min(960px, 100%);
+  margin: 0 auto 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.topbar h2 {
+  color: var(--accent, var(--accent-blue));
+  letter-spacing: clamp(1px, 0.3vw, 2px);
+  font-size: clamp(0.7rem, 2vw, 0.85rem);
+  text-transform: uppercase;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   Tab Toggle (mode switcher)
+   ══════════════════════════════════════════════════════════════════════ */
+
+.toggle-wrap {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--border-primary);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.toggle-btn {
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+  border: none;
+  padding: clamp(4px, 1vw, 6px) clamp(8px, 2vw, 14px);
+  font-family: 'Courier New', monospace;
+  font-size: clamp(0.55rem, 1.5vw, 0.7rem);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-right: 1px solid var(--border-primary);
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.toggle-btn:last-child {
+  border-right: none;
+}
+
+.toggle-btn.active {
+  background: var(--accent, var(--accent-blue));
+  color: var(--bg-primary);
+  font-weight: bold;
+}
+
+.toggle-btn:hover:not(.active) {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+/* ══════════════════════════════════════════════════════════════════════
    Theme Toggle Button
    ══════════════════════════════════════════════════════════════════════ */
 
@@ -107,4 +184,131 @@
   right: 1rem;
   z-index: 100;
   margin-left: 0;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   Container
+   ══════════════════════════════════════════════════════════════════════ */
+
+.container {
+  max-width: min(960px, 100%);
+  margin: 0 auto;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   View Toggle (show/hide tabs)
+   ══════════════════════════════════════════════════════════════════════ */
+
+.view {
+  display: none;
+}
+
+.view.show {
+  display: block;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   Credits Footer
+   ══════════════════════════════════════════════════════════════════════ */
+
+.credits {
+  max-width: min(960px, 100%);
+  margin: 3rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-secondary);
+  color: var(--text-muted);
+  font-size: clamp(0.6rem, 1.5vw, 0.7rem);
+}
+
+.credits h3 {
+  color: var(--text-secondary);
+  font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.credits a {
+  color: var(--accent, var(--accent-blue));
+  text-decoration: none;
+}
+
+.credits a:hover {
+  text-decoration: underline;
+}
+
+.credits ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.credits li {
+  margin-bottom: 0.4rem;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   Common Typography
+   ══════════════════════════════════════════════════════════════════════ */
+
+h3 {
+  color: var(--accent, var(--accent-blue));
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--accent, var(--accent-blue));
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   Code Blocks
+   ══════════════════════════════════════════════════════════════════════ */
+
+code {
+  font-family: 'Courier New', monospace;
+  background: var(--bg-secondary);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+pre {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   Back Link
+   ══════════════════════════════════════════════════════════════════════ */
+
+.back-link {
+  display: inline-block;
+  color: var(--text-muted);
+  font-size: clamp(0.6rem, 1.5vw, 0.7rem);
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+
+.back-link:hover {
+  color: var(--accent, var(--accent-blue));
 }

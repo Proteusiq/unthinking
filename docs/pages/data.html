@@ -15,70 +15,6 @@
         --accent: var(--accent-yellow);
       }
 
-      body {
-        background: var(--bg-primary);
-        color: var(--text-secondary);
-        font-family: 'Courier New', monospace;
-        padding: clamp(1rem, 3vw, 1.5rem) clamp(0.75rem, 2vw, 1rem) clamp(2rem, 5vw, 3rem);
-      }
-
-      .topbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        max-width: min(960px, 100%);
-        margin: 0 auto 1.6rem;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
-      h2 {
-        color: var(--accent);
-        letter-spacing: 2px;
-        font-size: clamp(0.7rem, 2vw, 0.85rem);
-        text-transform: uppercase;
-      }
-      .toggle-wrap {
-        display: flex;
-        gap: 0;
-        border: 1px solid var(--border-primary);
-        border-radius: 5px;
-        overflow: hidden;
-      }
-      .toggle-btn {
-        background: var(--bg-secondary);
-        color: var(--text-muted);
-        border: none;
-        padding: clamp(4px, 1vw, 5px) clamp(10px, 2vw, 13px);
-        font-family: 'Courier New', monospace;
-        font-size: clamp(0.5rem, 1.3vw, 0.65rem);
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        cursor: pointer;
-        transition:
-          background 0.15s,
-          color 0.15s;
-        border-right: 1px solid var(--border-primary);
-      }
-      .toggle-btn:last-child {
-        border-right: none;
-      }
-      .toggle-btn.active {
-        background: var(--accent);
-        color: var(--bg-primary);
-        font-weight: bold;
-      }
-
-      #view-pipeline,
-      #view-datasets,
-      #view-research {
-        display: none;
-      }
-      #view-pipeline.show,
-      #view-datasets.show,
-      #view-research.show {
-        display: block;
-      }
-
       /* PIPELINE */
       .founding-banners {
         display: flex;
@@ -645,54 +581,15 @@
         color: #f0883e;
       }
 
-      /* Back link */
+      /* Back link extension (base in shared/base.css) */
       .back-link {
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        color: var(--accent);
-        text-decoration: none;
-        font-size: clamp(0.6rem, 1.6vw, 0.7rem);
-        margin-bottom: 1rem;
-        opacity: 0.8;
-        transition: opacity 0.15s;
-      }
-      .back-link:hover {
-        opacity: 1;
       }
       .back-link svg {
         width: 14px;
         height: 14px;
-      }
-
-      /* Container utility */
-      .container {
-        max-width: min(960px, 100%);
-        margin: 0 auto;
-      }
-
-      /* Footer */
-      .footer {
-        max-width: min(960px, 100%);
-        margin: 2rem auto 0;
-        padding-top: 1rem;
-        border-top: 1px solid var(--border-secondary);
-        font-size: clamp(0.5rem, 1.3vw, 0.58rem);
-        color: var(--text-muted);
-        line-height: 1.8;
-      }
-      .footer-label {
-        color: var(--border-primary);
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        font-size: clamp(0.45rem, 1.2vw, 0.5rem);
-      }
-      .footer a {
-        color: var(--accent-blue);
-        text-decoration: none;
-      }
-      .footer a:hover {
-        text-decoration: underline;
       }
 
       /* ── MOBILE ── */
@@ -766,7 +663,7 @@
     </div>
 
     <!-- ════════════ PIPELINE ════════════ -->
-    <div id="view-pipeline" class="show">
+    <div id="view-pipeline" class="view show">
       <div class="founding-banners">
         <div class="fb fb-gold">
           <b>Common Crawl (2007&ndash;)</b>
@@ -1059,12 +956,12 @@
     </div>
 
     <!-- ════════════ DATASETS ════════════ -->
-    <div id="view-datasets">
+    <div id="view-datasets" class="view">
       <div class="ds-wrap" id="ds-content"></div>
     </div>
 
     <!-- ════════════ RESEARCH ════════════ -->
-    <div id="view-research">
+    <div id="view-research" class="view">
       <div class="rw">
         <div class="rw-section open">
           <div class="rw-header" onclick="toggleSection(this.parentElement)">
@@ -1512,12 +1409,16 @@
       </div>
     </div>
 
-    <div class="footer">
-      <span class="footer-label">Sources</span><br />
-      <a href="https://stanford-cs336.github.io/spring2025/" target="_blank" rel="noopener"
-        >Stanford CS336</a
-      >
-      &mdash; Language Modeling from Scratch (Spring 2025), Lectures 13 &amp; 14
+    <div class="credits">
+      <h3>Sources</h3>
+      <ul>
+        <li>
+          <a href="https://stanford-cs336.github.io/spring2025/" target="_blank" rel="noopener"
+            >Stanford CS336</a
+          >
+          — Language Modeling from Scratch (Spring 2025), Lectures 13 &amp; 14
+        </li>
+      </ul>
     </div>
 
     <script>
