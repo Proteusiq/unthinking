@@ -299,6 +299,12 @@ When expanding the corpus, search multiple angles:
 - **MEDIUM**: Extends existing findings with new evidence
 - **LOW**: Tangentially related or overlaps with analyzed papers
 
+### Paper Selection Rules
+
+- **NO single-author papers** — Prefer papers with multiple authors for broader peer validation
+- Prefer papers from established research groups or institutions
+- Prefer papers with reproducible experiments and open code/data
+
 ### After Finding Papers
 
 1. Add to `papers/toread.md` with expected stance
