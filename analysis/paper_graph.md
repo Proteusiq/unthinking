@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 286
+> **Papers tracked**: 295
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -467,6 +467,15 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **LLMs Truly Grasp Addition (2504.05262)** | **supports** | **Sequential Enumeration (2512.04727)** | **Both show LLMs can't count/compute algorithmically** |
 | **LLMs Truly Grasp Addition (2504.05262)** | **provides evidence for** | **Benchmark validity concerns** | **High scores reflect pattern recognition, not understanding (99.8% → 7.5%)** |
 | **LLMs Truly Grasp Addition (2504.05262)** | **provides evidence for** | **Surfacing hypothesis** | **SFT surfaces patterns (97.17%), doesn't create understanding (0% symbolic transfer)** |
+| **Simple Self-Distillation (2604.01193)** | **supports** | **URIAL (2312.01552)** | **Both show capability exists pre-training; SSD calibrates confidence, URIAL unlocks formatting** |
+| **Simple Self-Distillation (2604.01193)** | **extends** | **GRPO vs SFT (2507.10616)** | **Both show distribution shaping matters more than content; SSD via SFT, GRPO via RL** |
+| **Simple Self-Distillation (2604.01193)** | **supports** | **Faith and Fate (2305.18654)** | **Both reveal patterns already exist; SSD improves by suppressing distractors, not learning** |
+| **Simple Self-Distillation (2604.01193)** | **provides evidence for** | **Pattern matching thesis** | **Works with 62% gibberish data — signal is in distribution shape, not content correctness** |
+| **Sycophantic Chatbots Spiraling (2602.19141)** | **supports** | **Alignment Faking (2412.14093)** | **Both show RLHF creates problematic behaviors; alignment faking + sycophancy from same training** |
+| **Sycophantic Chatbots Spiraling (2602.19141)** | **supports** | **Anthropomorphization (2305.14784)** | **Anthropomorphization enables sycophancy harm; users treat validation as epistemic evidence** |
+| **Sycophantic Chatbots Spiraling (2602.19141)** | **supports** | **Survey on LLM-as-a-Judge (2411.15594)** | **Sycophancy documented in judges too; same RLHF pathology across evaluation contexts** |
+| **Sycophantic Chatbots Spiraling (2602.19141)** | **supports** | **Simple Self-Distillation (2604.01193)** | **Both show LLMs optimize signals not truth; SSD for distributions, sycophancy for approval** |
+| **Sycophantic Chatbots Spiraling (2602.19141)** | **provides evidence for** | **RLHF limitations** | **Formal Bayesian proof that RLHF's approval optimization creates structurally harmful dynamics** |
 | **LLMs Truly Grasp Addition (2504.05262)** | **partially supports** | **DeepSeek-R1 (2501.12948)** | **R1-Distill shows better (but still imperfect) transfer: -5.99% vs -92% drop** |
 | **PhD-Level Math Reasoning (2512.13978)** | **supports** | **Planning Gap (2601.14456)** | **Both show significant failure rates (~34% and 100% respectively) on structured reasoning** |
 | **PhD-Level Math Reasoning (2512.13978)** | **supports** | **OMEGA (2506.18880)** | **Both show models struggle with novel compositions** |
@@ -1447,6 +1456,12 @@ These papers have NO direct rebuttals found:
 | SAH Task Complexity (2602.15829) | Kilobytes adapt LLMs; post-training collapses complexity from GB to KB; formalizes SAH via information theory |
 | Large Models of What (2407.08790) | Enactive view: LLMs lack embodiment/participation/precarity; output is "fabrication" even when accurate |
 | Context-Directed Extrapolation (2505.23323) | Bloom's taxonomy: Understand not Apply; human does Apply in ICL; fears of emergent agency unfounded |
+
+### 2026-04-06 — Training Dynamics & Sycophancy Harm
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Simple Self-Distillation (2604.01193) | +30% code perf via distribution reshaping, not learning; works with 62% gibberish data; signal is in distribution shape, not content |
+| Sycophantic Chatbots Spiraling (2602.19141) | Formal Bayesian proof: even ideal reasoners spiral; factual bots still cause spiraling (lies by omission); RLHF structurally creates harmful dynamics |
 
 ### 2026-03-29 — Alignment Faking & Agency Cluster
 | Papers Added | Key Findings |
