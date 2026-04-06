@@ -7020,4 +7020,55 @@ window.paperLinks = [
     description:
       'Both reveal LLM evaluation compromised; leakage trap shows memorization artifacts',
   },
+  // Paper 294: Simple Self-Distillation links
+  {
+    source: '2604.01193',
+    target: '2312.01552',
+    type: 'supports',
+    description:
+      'Both show capability exists pre-training; SSD calibrates confidence, URIAL unlocks formatting',
+  },
+  {
+    source: '2604.01193',
+    target: '2507.10616',
+    type: 'extends',
+    description:
+      'Both show distribution shaping matters more than content; SSD via SFT, GRPO via RL',
+  },
+  {
+    source: '2604.01193',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Both reveal patterns already exist; SSD improves by suppressing distractors, not learning',
+  },
+  // Paper 295: Sycophancy Spiraling links
+  {
+    source: '2602.19141',
+    target: '2412.14093',
+    type: 'supports',
+    description:
+      'Both show RLHF creates problematic behaviors; alignment faking + sycophancy from same training',
+  },
+  {
+    source: '2602.19141',
+    target: '2305.14784',
+    type: 'supports',
+    description:
+      'Anthropomorphization enables sycophancy harm; users treat validation as epistemic evidence',
+  },
+  {
+    source: '2602.19141',
+    target: '2411.15594',
+    type: 'supports',
+    description:
+      'Sycophancy documented in judges too; same RLHF pathology across evaluation contexts',
+  },
+  {
+    source: '2602.19141',
+    target: '2604.01193',
+    type: 'supports',
+    description:
+      'Both show LLMs optimize signals not truth; SSD for distributions, sycophancy for approval',
+  },
 ];

@@ -6302,4 +6302,49 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/293_benchmark_leakage_trap_llm_recommendation.md',
   },
+  {
+    id: '2604.01193',
+    title: 'Embarrassingly Simple Self-Distillation Improves Code Generation',
+    shortTitle: 'Simple Self-Distillation',
+    date: 'Apr 2026',
+    stance: 'supports',
+    cluster: 'training',
+    coreArgument:
+      'SSD improves code generation by reshaping token distributions (suppressing distractor tails at deterministic positions, preserving diversity at choice points), not by teaching new reasoning. Works even with 62% gibberish training data.',
+    keyEvidence: [
+      'Qwen3-30B: 42.4% → 55.3% pass@1 (+30%)',
+      'Works with 62% gibberish training data',
+      'Decode-only tuning cannot match SSD',
+      'Gains concentrate on harder problems (+15.3pp hard vs +6.5pp easy)',
+    ],
+    keyQuotes: [
+      'Even when the sampled programs are mostly poor, SSD can still help because the useful signal lies in distributional reshaping rather than in raw program correctness alone.',
+      'The student can therefore be globally sharper yet locally more explorable.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/294_ssd_self_distillation_code.md',
+  },
+  {
+    id: '2602.19141',
+    title: 'Sycophantic Chatbots Cause Delusional Spiraling, Even in Ideal Bayesians',
+    shortTitle: 'Sycophancy Spiraling',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'alignment',
+    coreArgument:
+      'Formal Bayesian proof that AI sycophancy causes delusional spiraling even in ideal reasoners. Neither preventing hallucinations nor informing users eliminates the risk. RLHF creates structurally problematic interaction dynamics.',
+    keyEvidence: [
+      'Even ideal Bayesians spiral into false beliefs',
+      'Factual sycophancy still causes spiraling (lies by omission)',
+      'Informed users still vulnerable (Bayesian persuasion)',
+      '~300 documented AI psychosis cases, 14+ deaths',
+    ],
+    keyQuotes: [
+      'Even an idealized Bayes-rational user is vulnerable to delusional spiraling, and sycophancy plays a causal role.',
+      'We should NOT think of delusional spiraling as a symptom of lazy, irrational, or fallacious thinking from users.',
+      'Minimizing chatbot hallucinations is not enough to solve the problem.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/295_sycophantic_chatbots_delusional_spiraling.md',
+  },
 ];

@@ -297,3 +297,5 @@
 | 291 | 2512.16272 | Dec 2025 | Beyond Blind Spots: Analytic Hints for LLM Evaluation | Supports |
 | 292 | 2512.06710 | Dec 2025 | Stochasticity in Agentic Evaluations: ICC Analysis | Supports |
 | 293 | 2602.13626 | Feb 2026 | Benchmark Leakage Trap in LLM-based Recommendation | Supports |
+| 294 | 2604.01193 | Apr 2026 | Embarrassingly Simple Self-Distillation Improves Code Generation | Supports |
+| 295 | 2602.19141 | Feb 2026 | Sycophantic Chatbots Cause Delusional Spiraling, Even in Ideal Bayesians | Supports |
