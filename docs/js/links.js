@@ -7121,4 +7121,47 @@ window.paperLinks = [
     description:
       'Both show reasoning traces dont reflect computation; heuristic override explains illusion of thinking',
   },
+  // Paper 295: More Test-Time Compute Can Hurt
+  {
+    source: '2603.15377',
+    target: '2502.08235',
+    type: 'supports',
+    description:
+      'Theoretical foundation for overthinking: EVT proves overestimation bias grows with search width',
+  },
+  {
+    source: '2603.15377',
+    target: '2508.01191',
+    type: 'supports',
+    description:
+      'Explains why CoT can fail: perplexity (fluency) scoring selects wrong paths; k-hat=1',
+  },
+  {
+    source: '2603.15377',
+    target: '2603.29025',
+    type: 'supports',
+    description:
+      'Both show surface signals (perplexity/heuristics) anti-correlated with correctness',
+  },
+  {
+    source: '2603.15377',
+    target: '2410.05229',
+    type: 'supports',
+    description:
+      'EVT framework explains GSM-Symbolic failures: more compute selects fluent but wrong paths',
+  },
+  {
+    source: '2603.15377',
+    target: '2507.07313',
+    type: 'supports',
+    description:
+      'Theoretical basis for simple task failures: overestimation bias dominates at any beam width',
+  },
+  {
+    source: '2603.15377',
+    target: '2510.18254',
+    type: 'supports',
+    description:
+      'Both show reflection/search can hurt: illusions of reflection align with EVT predictions',
+  },
 ];

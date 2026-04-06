@@ -6371,4 +6371,28 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/294_surface_heuristics_override_constraints.md',
   },
+  {
+    id: 295,
+    title: 'More Test-Time Compute Can Hurt: Overestimation Bias in LLM Beam Search',
+    arxiv: '2603.15377',
+    date: 'Mar 2026',
+    stance: 'supports',
+    cluster: 'benchmark',
+    coreArgument:
+      'Extreme Value Theory proves beam search introduces overestimation bias proportional to scorer noise. Maximum useful beam width k-hat = 1 for perplexity (no benefit), k-hat >= 4 for PRM. Beyond k-hat, more compute degrades performance.',
+    keyEvidence: [
+      'Perplexity k-hat=1: no benefit at any beam width tested',
+      'Llama degraded -5.4 pp at k=4 with perplexity scoring',
+      'PRM scoring gains up to +8.9 pp (Mistral)',
+      '44% of perplexity selections had margin < 0.1 (near-random)',
+      'Bias grows as sigma*sqrt(2*log(n-1))',
+    ],
+    keyQuotes: [
+      'Perplexity scoring, with its high noise, yields k-hat=1: search provides no benefit at any width tested.',
+      'The same model, the same algorithm, but different scorers place k-hat at opposite ends of the beam width range.',
+      '44% of selections had a reward margin <0.1 between the top two candidates, indicating near-random selection.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/295_test_time_compute_overestimation.md',
+  },
 ];
