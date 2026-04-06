@@ -6345,6 +6345,30 @@ window.paperNodes = [
       'Minimizing chatbot hallucinations is not enough to solve the problem.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/295_sycophantic_chatbots_delusional_spiraling.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/293_sycophantic_chatbots_delusional_spiraling.md',
+  },
+  {
+    id: 294,
+    title: 'The Model Says Walk: Surface Heuristics Override Implicit Constraints',
+    arxiv: '2603.29025',
+    date: 'Mar 2026',
+    stance: 'supports',
+    cluster: 'benchmark',
+    coreArgument:
+      'LLMs apply surface heuristics (distance, cost, efficiency) that override implicit constraints with 8.7-38x dominance ratio. Token attribution shows keyword associations, not compositional inference. No model exceeds 75% on HOB benchmark under strict evaluation.',
+    keyEvidence: [
+      'Heuristic Dominance Ratio 8.7-38x across 6 models',
+      'Presence constraints hardest (44% accuracy)',
+      '+15 pp from minimal hint - failure is inference not knowledge',
+      '12/14 models worse when constraint removed (conservative bias)',
+      'Sigmoid curves show goal-independent heuristic application',
+    ],
+    keyQuotes: [
+      'Token-level attribution shows patterns more consistent with keyword associations than compositional inference.',
+      'The failure lies in constraint inference rather than missing knowledge.',
+      'The goal weakly modulates but never gates the decision.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/294_surface_heuristics_override_constraints.md',
   },
 ];

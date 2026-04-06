@@ -7071,4 +7071,54 @@ window.paperLinks = [
     description:
       'Both show LLMs optimize signals not truth; SSD for distributions, sycophancy for approval',
   },
+  // Paper 294: Surface Heuristics Override Constraints
+  {
+    source: '2603.29025',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Both show heuristics override compositional reasoning; heuristic dominance quantified at 8.7-38x',
+  },
+  {
+    source: '2603.29025',
+    target: '2410.05229',
+    type: 'supports',
+    description:
+      'Surface pattern matching explains GSM-Symbolic failures; models apply context-independent heuristics',
+  },
+  {
+    source: '2603.29025',
+    target: '2507.07313',
+    type: 'supports',
+    description:
+      'Mechanistic explanation for frontier model failures on simple tasks; sigmoid heuristics override constraints',
+  },
+  {
+    source: '2603.29025',
+    target: '2510.18254',
+    type: 'supports',
+    description:
+      'Both show token patterns not compositional inference; keyword associations vs genuine reasoning',
+  },
+  {
+    source: '2603.29025',
+    target: '2508.01191',
+    type: 'supports',
+    description:
+      'Provides mechanistic evidence for CoT as mirage; heuristic cues dominate regardless of reasoning traces',
+  },
+  {
+    source: '2603.29025',
+    target: '2307.13702',
+    type: 'extends',
+    description:
+      'Explains WHY CoT is unfaithful; inference-order bottleneck and keyword associations',
+  },
+  {
+    source: '2603.29025',
+    target: '2506.06941',
+    type: 'supports',
+    description:
+      'Both show reasoning traces dont reflect computation; heuristic override explains illusion of thinking',
+  },
 ];

@@ -1,6 +1,6 @@
 # Paper List
 
-> 293 papers analyzed | 209 supports thesis | 15 challenges | 69 balanced | Date range: 2021-2026
+> 294 papers analyzed | 210 supports thesis | 15 challenges | 69 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -297,3 +297,4 @@
 | 291 | 2602.13626 | Feb 2026 | Benchmark Leakage Trap in LLM-based Recommendation | Supports |
 | 292 | 2604.01193 | Apr 2026 | Embarrassingly Simple Self-Distillation Improves Code Generation | Supports |
 | 293 | 2602.19141 | Feb 2026 | Sycophantic Chatbots Cause Delusional Spiraling, Even in Ideal Bayesians | Supports |
+| 294 | 2603.29025 | Mar 2026 | The Model Says Walk: Surface Heuristics Override Implicit Constraints | Supports |
