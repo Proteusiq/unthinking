@@ -7424,4 +7424,39 @@ window.paperLinks = [
     description:
       'Both argue models recognize/retrieve training patterns rather than learn novel tasks',
   },
+  {
+    source: '2509.19284',
+    target: '2501.19393',
+    type: 'challenges',
+    description:
+      's1 claims wait tokens improve reasoning; this shows longer CoT correlates with LOWER accuracy',
+  },
+  {
+    source: '2509.19284',
+    target: '2408.03314',
+    type: 'supports',
+    description:
+      'Both find limits to scaling test-time compute; more compute can hurt via accumulated errors',
+  },
+  {
+    source: '2509.19284',
+    target: '2510.18254',
+    type: 'supports',
+    description:
+      'Both show review/reflection behavior does not enable self-correction',
+  },
+  {
+    source: '2509.19284',
+    target: '2602.04288',
+    type: 'supports',
+    description:
+      'Prior context biases subsequent predictions; failed branches pollute reasoning',
+  },
+  {
+    source: '2509.19284',
+    target: '2603.15377',
+    type: 'supports',
+    description:
+      'Both show overestimation of test-time compute benefits; more compute can accumulate errors',
+  },
 ];

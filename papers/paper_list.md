@@ -1,6 +1,6 @@
 # Paper List
 
-> 304 papers analyzed | 218 supports thesis | 15 challenges | 71 balanced | Date range: 2021-2026
+> 305 papers analyzed | 219 supports thesis | 15 challenges | 71 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -308,3 +308,4 @@
 | 302 | 2408.03314 | Aug 2024 | Scaling LLM Test-Time Compute Optimally | Supports |
 | 303 | 2309.11495 | Sep 2023 | Chain-of-Verification Reduces Hallucination | Supports |
 | 304 | 2412.03782 | Dec 2024 | The Broader Spectrum of In-Context Learning | Balanced |
+| 305 | 2509.19284 | Sep 2025 | What Characterizes Effective Reasoning? | Supports |

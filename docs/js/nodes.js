@@ -6608,4 +6608,28 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/300-309/304_broader_spectrum_icl.md',
   },
+  {
+    id: 305,
+    title: 'What Characterizes Effective Reasoning?',
+    arxivId: '2509.19284',
+    arxivUrl: 'https://arxiv.org/abs/2509.19284',
+    date: 'Sep 2025',
+    stance: 'supports',
+    cluster: 'test-time',
+    coreArgument:
+      'Meta Superintelligence Labs study across 10 LRMs challenging "longer CoT is better" narrative. Longer CoTs and more review behavior correlate with LOWER accuracy. Failed-Step Fraction (FSF) is strongest predictor of failure. Removing failed branches improves accuracy 8-14%, proving models cannot "unsee" past mistakes.',
+    keyEvidence: [
+      'Negative correlation: longer CoT = lower accuracy across all 10 models',
+      'Review behavior correlates with LOWER accuracy (most models)',
+      'FSF predicts failure better than length or review ratio',
+      'Removing failed branches: +8-14% accuracy improvement',
+      'Effect stronger on hard problems (levels 4-6)',
+    ],
+    keyQuotes: [
+      'Contrary to "longer-is-better" narrative, both naive CoT lengthening and increased review are associated with lower accuracy.',
+      'Long failed branches bias subsequent exploration even after backtracking; models do not fully "unsee" past mistakes.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/300-309/305_what_characterizes_effective_reasoning.md',
+  },
 ];
