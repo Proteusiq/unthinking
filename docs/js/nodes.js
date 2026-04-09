@@ -6872,4 +6872,76 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/310-319/315_globality_barrier.md',
   },
+  {
+    id: 316,
+    title: 'Can LMs Reason with Noisy Rationales?',
+    arxivId: '2410.23856',
+    arxivUrl: 'https://arxiv.org/abs/2410.23856',
+    date: 'Oct 2024',
+    stance: 'supports',
+    cluster: 'cot',
+    coreArgument:
+      'LLMs are vulnerable to noisy CoT demonstrations. GPT-3.5 drops 1.4-19.8% with irrelevant thoughts, 2.2-40.4% with inaccurate thoughts. Self-correction methods fail. Models cannot distinguish valid from invalid reasoning steps—they pattern-match structure, not content.',
+    keyEvidence: [
+      'Up to 40.4% accuracy drop with inaccurate rationales',
+      'Inaccurate noise more harmful than irrelevant',
+      'Self-correction often WORSE than baseline',
+      'CD-CoT requires clean supervision to denoise',
+      'Models cannot validate reasoning chain content',
+    ],
+    keyQuotes: [
+      'LLMs are intrinsically vulnerable to noisy rationales.',
+      'Noisy-R is much more challenging than Noisy-Q, requiring context-specific knowledge.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/310-319/316_noisy_rationales.md',
+  },
+  {
+    id: 317,
+    title: 'Rethinking Thinking Tokens: Why They Underperform',
+    arxivId: '2411.11371',
+    arxivUrl: 'https://arxiv.org/abs/2411.11371',
+    date: 'Nov 2024',
+    stance: 'supports',
+    cluster: 'cot',
+    coreArgument:
+      'Thinking Tokens (unsupervised reasoning) underperform CoT because single embeddings receive noisy, inconsistent gradients. TT embedding barely moves from initialization. Unsupervised reasoning fails; CoT success comes from supervised intermediate steps, not "extra compute time."',
+    keyEvidence: [
+      'TT: 7.3% on 2-digit mult vs CoT: 91.9%',
+      'TT embedding barely moves from initialization',
+      'Cumulative gradient near-zero for TT',
+      'Two TT embeddings help (validates hypothesis)',
+      'CoT dominates across all benchmarks',
+    ],
+    keyQuotes: [
+      'TTs marginally improve performance and consistently underperform CoT.',
+      'Single embedding results in inconsistent learning signals and noisy gradients.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/310-319/317_rethinking_thinking_tokens.md',
+  },
+  {
+    id: 318,
+    title: 'Martingale Score: Bayesian Rationality in LLM Reasoning',
+    arxivId: '2512.02914',
+    arxivUrl: 'https://arxiv.org/abs/2512.02914',
+    date: 'Dec 2025',
+    stance: 'supports',
+    cluster: 'mechanism',
+    coreArgument:
+      'LLMs exhibit belief entrenchment—updating beliefs in favor of priors rather than evidence. Martingale Score measures violations: belief updates should NOT be predictable from priors. 51/54 CoT experiments show positive scores. Higher entrenchment correlates with worse accuracy.',
+    keyEvidence: [
+      '51/54 CoT experiments show belief entrenchment',
+      'Value-laden domains show worse entrenchment',
+      'Higher Martingale Score → worse Brier Score',
+      'Even critical-thinking prompts show entrenchment',
+      'Robust across GPT-4o, DeepSeek, Gemini, Llama',
+    ],
+    keyQuotes: [
+      'LLM reasoning can deviate from truth-seeking due to belief entrenchment.',
+      'The more a model reasons, the more it may entrench its bias.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/310-319/318_martingale_score.md',
+  },
 ];

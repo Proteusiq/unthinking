@@ -1,6 +1,6 @@
 # Paper List
 
-> 315 papers analyzed | 228 supports thesis | 15 challenges | 72 balanced | Date range: 2021-2026
+> 318 papers analyzed | 231 supports thesis | 15 challenges | 72 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -319,3 +319,6 @@
 | 313 | 2505.24362 | May 2025 | Knowing Before Saying: LLM Representations Encode CoT Success | Supports |
 | 314 | 2502.06258 | Feb 2025 | Emergent Response Planning in LLMs | Balanced |
 | 315 | 2406.06467 | Jun 2024 | How Far Can Transformers Reason? The Globality Barrier | Supports |
+| 316 | 2410.23856 | Oct 2024 | Can LMs Reason with Noisy Rationales? | Supports |
+| 317 | 2411.11371 | Nov 2024 | Rethinking Thinking Tokens: Why They Underperform | Supports |
+| 318 | 2512.02914 | Dec 2025 | Martingale Score: Bayesian Rationality in LLM Reasoning | Supports |

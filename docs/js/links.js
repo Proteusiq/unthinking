@@ -7666,4 +7666,70 @@ window.paperLinks = [
     description:
       'Globality explains why CoT helps: reduces per-step globality to O(1)',
   },
+  // Paper #316: Noisy Rationales
+  {
+    source: '2410.23856',
+    target: '2305.04388',
+    type: 'supports',
+    description:
+      'Both show CoT is vulnerable to perturbations in reasoning steps',
+  },
+  {
+    source: '2410.23856',
+    target: '2601.07226',
+    type: 'supports',
+    description:
+      'Both demonstrate LLMs fail with noisy/distracting context',
+  },
+  {
+    source: '2410.23856',
+    target: '2410.05229',
+    type: 'supports',
+    description:
+      'Both show reasoning degrades with symbolic perturbations',
+  },
+  // Paper #317: Thinking Tokens
+  {
+    source: '2411.11371',
+    target: '2406.06467',
+    type: 'supports',
+    description:
+      'Both show unsupervised reasoning mechanisms fail',
+  },
+  {
+    source: '2411.11371',
+    target: '2602.02909',
+    type: 'supports',
+    description:
+      'Both analyze fundamental limitations of reasoning compute',
+  },
+  {
+    source: '2411.11371',
+    target: '2506.06941',
+    type: 'supports',
+    description:
+      'Both question whether extra compute enables genuine reasoning',
+  },
+  // Paper #318: Martingale Score
+  {
+    source: '2512.02914',
+    target: '2305.04388',
+    type: 'supports',
+    description:
+      'Both show reasoning reinforces priors rather than seeking truth',
+  },
+  {
+    source: '2512.02914',
+    target: '2602.02983',
+    type: 'supports',
+    description:
+      'Both identify systematic biases in LLM reasoning processes',
+  },
+  {
+    source: '2512.02914',
+    target: '2603.29025',
+    type: 'supports',
+    description:
+      'Both show LLMs exhibit human-like confirmation bias',
+  },
 ];
