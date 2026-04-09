@@ -7403,4 +7403,25 @@ window.paperLinks = [
     description:
       'Contextual drag explains why factored works; context pulls toward repeating patterns',
   },
+  {
+    source: '2412.03782',
+    target: '2205.05055',
+    type: 'supports',
+    description:
+      'Both argue ICL emerges from training data statistics; burstiness and distribution properties',
+  },
+  {
+    source: '2412.03782',
+    target: '2309.13638',
+    type: 'supports',
+    description:
+      'Both frame LLM behavior as bounded by training distribution; probability vs reasoning',
+  },
+  {
+    source: '2412.03782',
+    target: '2310.16789',
+    type: 'supports',
+    description:
+      'Both argue models recognize/retrieve training patterns rather than learn novel tasks',
+  },
 ];

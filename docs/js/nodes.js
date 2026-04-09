@@ -6584,4 +6584,28 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/300-309/303_chain_of_verification.md',
   },
+  {
+    id: 304,
+    title: 'The Broader Spectrum of In-Context Learning',
+    arxivId: '2412.03782',
+    arxivUrl: 'https://arxiv.org/abs/2412.03782',
+    date: 'Dec 2024',
+    stance: 'balanced',
+    cluster: 'mechanism',
+    coreArgument:
+      'DeepMind perspective: ICL is meta-learned pattern matching at multiple scales, from coreference to few-shot examples. Emerges from training statistics (burstiness, parallel structures). Models may merely recover training tasks rather than learn novel ones. Generalization to novelty requires separate evaluation.',
+    keyEvidence: [
+      'ICL from burstiness and long-tailed distributions (cites Chan et al.)',
+      'Few-shot ICL = parallel relation matching (template matching)',
+      'Random labels still work (cites Min et al. 2022)',
+      'Format sensitivity undermines robust generalization',
+      'Places ICL on continuum with basic language processing',
+    ],
+    keyQuotes: [
+      'Few-shot supervised ICL are merely a consequence of meta-learning of particular types of sequential dependency structures.',
+      'A model may exhibit narrow word-sense disambiguation, but not show generalization to more interesting learning.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/300-309/304_broader_spectrum_icl.md',
+  },
 ];
