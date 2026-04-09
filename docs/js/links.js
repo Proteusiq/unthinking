@@ -7459,4 +7459,32 @@ window.paperLinks = [
     description:
       'Both show overestimation of test-time compute benefits; more compute can accumulate errors',
   },
+  {
+    source: '2601.07226',
+    target: '2602.04288',
+    type: 'supports',
+    description:
+      'Both show context drags reasoning astray; noise/distractors pollute model outputs',
+  },
+  {
+    source: '2601.07226',
+    target: '2509.19284',
+    type: 'supports',
+    description:
+      'Both find inverse scaling: more test-time compute leads to worse accuracy',
+  },
+  {
+    source: '2601.07226',
+    target: '2408.03314',
+    type: 'supports',
+    description:
+      'Both show fundamental limits to test-time compute scaling',
+  },
+  {
+    source: '2601.07226',
+    target: '2410.05229',
+    type: 'supports',
+    description:
+      'Both show surface-level changes collapse performance; fragile reasoning',
+  },
 ];

@@ -6632,4 +6632,28 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/300-309/305_what_characterizes_effective_reasoning.md',
   },
+  {
+    id: 306,
+    title: 'Lost in the Noise: Reasoning Models Fail with Distractors',
+    arxivId: '2601.07226',
+    arxivUrl: 'https://arxiv.org/abs/2601.07226',
+    date: 'Jan 2026',
+    stance: 'supports',
+    cluster: 'failure',
+    coreArgument:
+      'KAIST/LG AI: Up to 80% performance drop with contextual distractors. Agentic workflows AMPLIFY errors by over-trusting noisy tool outputs. Inverse scaling: more reasoning tokens → worse accuracy in noisy settings. Attention analysis shows models focus on distractor tokens.',
+    keyEvidence: [
+      'DeepSeek-R1-Distill-8B: 32.4% → 6.3% (-80.6%) with hard negatives',
+      'Gemini-2.5-Pro: 94.0% → 60.5% on BBQ alignment task',
+      'Agentic workflows perform worse than base models with noise',
+      'Inverse scaling: longer reasoning → worse accuracy',
+      'Attention focuses on distractor tokens in failures',
+    ],
+    keyQuotes: [
+      'Catastrophic performance drop of up to 80% in state-of-the-art models when faced with contextual distractors.',
+      'Increased test-time computation leads to worse performance in noisy settings.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/300-309/306_lost_in_the_noise.md',
+  },
 ];
