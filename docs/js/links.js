@@ -7501,4 +7501,25 @@ window.paperLinks = [
     description:
       'Both show fundamental architectural limits regardless of compute',
   },
+  {
+    source: '2602.02909',
+    target: '2602.01763',
+    type: 'supports',
+    description:
+      'Both prove fundamental computational/token complexity limits for reasoning',
+  },
+  {
+    source: '2602.02909',
+    target: '2408.03314',
+    type: 'supports',
+    description:
+      'Both show limits to scaling test-time compute for reasoning',
+  },
+  {
+    source: '2602.02909',
+    target: '2509.19284',
+    type: 'supports',
+    description:
+      'Both analyze what makes CoT reasoning succeed or fail',
+  },
 ];

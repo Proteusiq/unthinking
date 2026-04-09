@@ -6680,4 +6680,28 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/300-309/307_provable_expressiveness_hierarchy.md',
   },
+  {
+    id: 308,
+    title: 'BAPO Bounds on Chain-of-Thought Token Complexity',
+    arxivId: '2602.02909',
+    arxivUrl: 'https://arxiv.org/abs/2602.02909',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'theory',
+    coreArgument:
+      'Microsoft Research proves Ω(n) reasoning tokens required for binary majority, triplet matching, graph reachability. Frontier models confirm linear scaling and fail when token-constrained. Fundamental bottlenecks in inference-time compute—some reasoning cannot be compressed.',
+    keyEvidence: [
+      'Binary majority: Ω(n) tokens required',
+      'Triplet matching: Ω(n) tokens required',
+      'Graph reachability: Ω(n) tokens required',
+      'Frontier models fail when budget constrained',
+      'Matching upper bounds via explicit constructions',
+    ],
+    keyQuotes: [
+      'Each requires Ω(n) reasoning tokens when input size is n.',
+      'Our results identify fundamental bottlenecks in inference-time compute through CoT.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/300-309/308_bapo_bounds_cot_complexity.md',
+  },
 ];
