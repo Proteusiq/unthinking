@@ -7571,4 +7571,99 @@ window.paperLinks = [
     description:
       'Both show context/framing affects LLM judgments',
   },
+  // Paper #312: Unfaithful CoT Explanations
+  {
+    source: '2305.04388',
+    target: '2506.06941',
+    type: 'supports',
+    description:
+      'Both show CoT explanations don\'t reflect actual reasoning process',
+  },
+  {
+    source: '2305.04388',
+    target: '2602.01288',
+    type: 'supports',
+    description:
+      'Both reveal internal dynamics differ from verbalized reasoning',
+  },
+  {
+    source: '2305.04388',
+    target: '2603.29025',
+    type: 'supports',
+    description:
+      'Both show biasing features influence predictions without being mentioned',
+  },
+  // Paper #313: Knowing Before Saying
+  {
+    source: '2505.24362',
+    target: '2305.04388',
+    type: 'supports',
+    description:
+      'Both show model "knows" more than it verbalizes in CoT',
+  },
+  {
+    source: '2505.24362',
+    target: '2602.01288',
+    type: 'supports',
+    description:
+      'Both use internal representations to predict reasoning success',
+  },
+  {
+    source: '2505.24362',
+    target: '2509.19284',
+    type: 'supports',
+    description:
+      'Both find CoT success can be predicted before completion',
+  },
+  // Paper #314: Emergent Response Planning
+  {
+    source: '2502.06258',
+    target: '2505.24362',
+    type: 'supports',
+    description:
+      'Both show models encode future outputs in prompt representations',
+  },
+  {
+    source: '2502.06258',
+    target: '2305.04388',
+    type: 'supports',
+    description:
+      'Both reveal gap between internal planning and verbalized output',
+  },
+  {
+    source: '2502.06258',
+    target: '2602.02863',
+    type: 'supports',
+    description:
+      'Both analyze how reasoning dynamics evolve during generation',
+  },
+  // Paper #315: Globality Barrier
+  {
+    source: '2406.06467',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Both prove formal limitations on Transformer reasoning capabilities',
+  },
+  {
+    source: '2406.06467',
+    target: '2602.01763',
+    type: 'supports',
+    description:
+      'Both provide theoretical bounds on Transformer expressiveness vs learnability',
+  },
+  {
+    source: '2406.06467',
+    target: '2602.02909',
+    type: 'supports',
+    description:
+      'Both analyze formal complexity requirements for reasoning tasks',
+  },
+  {
+    source: '2406.06467',
+    target: '2505.24362',
+    type: 'supports',
+    description:
+      'Globality explains why CoT helps: reduces per-step globality to O(1)',
+  },
 ];

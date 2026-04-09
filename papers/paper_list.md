@@ -1,6 +1,6 @@
 # Paper List
 
-> 311 papers analyzed | 225 supports thesis | 15 challenges | 71 balanced | Date range: 2021-2026
+> 315 papers analyzed | 228 supports thesis | 15 challenges | 72 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -315,3 +315,7 @@
 | 309 | 2602.01288 | Feb 2026 | EDIS: Diagnosing LLM Reasoning via Entropy Dynamics | Supports |
 | 310 | 2602.02863 | Feb 2026 | Diagnosing Dynamic Instability in LLM Reasoning | Supports |
 | 311 | 2602.02983 | Feb 2026 | Do LLMs Share Human-Like Biases? Causal Reasoning | Supports |
+| 312 | 2305.04388 | May 2023 | Language Models Don't Always Say What They Think: Unfaithful Explanations in CoT | Supports |
+| 313 | 2505.24362 | May 2025 | Knowing Before Saying: LLM Representations Encode CoT Success | Supports |
+| 314 | 2502.06258 | Feb 2025 | Emergent Response Planning in LLMs | Balanced |
+| 315 | 2406.06467 | Jun 2024 | How Far Can Transformers Reason? The Globality Barrier | Supports |

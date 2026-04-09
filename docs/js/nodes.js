@@ -6776,4 +6776,100 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/310-319/311_llms_biased_causal_reasoning.md',
   },
+  {
+    id: 312,
+    title: 'Language Models Don\'t Always Say What They Think',
+    arxivId: '2305.04388',
+    arxivUrl: 'https://arxiv.org/abs/2305.04388',
+    date: 'May 2023',
+    stance: 'supports',
+    cluster: 'mechanism',
+    coreArgument:
+      'Anthropic: CoT explanations are systematically unfaithful—models change predictions based on biasing features they never mention. Accuracy drops up to 36% with biasing. 73% of unfaithful explanations actively support the biased (incorrect) answer. CoT rationalizes rather than reasons.',
+    keyEvidence: [
+      'Up to 36% accuracy drop from biasing features',
+      'Only 1/426 explanations mentioned the bias',
+      '73% of unfaithful explanations support wrong answer',
+      '15% of unfaithful explanations have no obvious errors',
+      'Models use weak evidence inconsistently to support stereotypes',
+    ],
+    keyQuotes: [
+      'CoT explanations can systematically misrepresent the true reason for a model\'s prediction.',
+      'This risks increasing our trust in LLMs without guaranteeing their safety.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/310-319/312_unfaithful_cot_explanations.md',
+  },
+  {
+    id: 313,
+    title: 'Knowing Before Saying: LLM Representations Encode CoT Success',
+    arxivId: '2505.24362',
+    arxivUrl: 'https://arxiv.org/abs/2505.24362',
+    date: 'May 2025',
+    stance: 'supports',
+    cluster: 'mechanism',
+    coreArgument:
+      'LLM hidden representations encode CoT success BEFORE generating any token. Probing achieves 60-76% accuracy pre-generation, outperforming BERT baseline. Later CoT steps don\'t always improve prediction—models "know" outcomes early. Gap between probed and verbalized knowledge.',
+    keyEvidence: [
+      '76.4% accuracy predicting CoT success at token 0',
+      'Outperforms BERT baseline by 6.5-7.3%',
+      'Middle layers (14, 16) most predictive',
+      'Later CoT steps don\'t always improve accuracy',
+      'Models can\'t self-report their own planning knowledge',
+    ],
+    keyQuotes: [
+      'Crucial information about the reasoning process is already present in the initial steps.',
+      'Models encode more planning information in hidden representations than they can explicitly access.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/310-319/313_knowing_before_saying.md',
+  },
+  {
+    id: 314,
+    title: 'Emergent Response Planning in LLMs',
+    arxivId: '2502.06258',
+    arxivUrl: 'https://arxiv.org/abs/2502.06258',
+    date: 'Feb 2025',
+    stance: 'balanced',
+    cluster: 'mechanism',
+    coreArgument:
+      'LLMs encode global response attributes (length, content, confidence) in prompt representations before generation. Simple MLP probes extract this. Three-phase pattern: early planning → mid-focus → late refinement. Models can\'t verbalize their own planning—gap between probed and expressed.',
+    keyEvidence: [
+      'Pearson r > 0.8 for response length prediction',
+      '50% character choice accuracy (4-class, 25% random)',
+      'Cross-dataset transfer demonstrates general mechanisms',
+      'Planning scales with model size',
+      'Self-estimation near random vs. probing accuracy',
+    ],
+    keyQuotes: [
+      'LLMs, though trained to predict only the next token, exhibit emergent planning behaviors.',
+      'Models encode richer planning information than they can explicitly access during generation.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/310-319/314_emergent_response_planning.md',
+  },
+  {
+    id: 315,
+    title: 'How Far Can Transformers Reason? The Globality Barrier',
+    arxivId: '2406.06467',
+    arxivUrl: 'https://arxiv.org/abs/2406.06467',
+    date: 'Jun 2024',
+    stance: 'supports',
+    cluster: 'theory',
+    coreArgument:
+      'Globality degree: minimum tokens needed to correlate with target. High globality → exponential sample complexity. Proves Transformers cannot efficiently learn tasks requiring global reasoning (cycle, parity). Agnostic scratchpads cannot break barrier—must be supervised ("educated").',
+    keyEvidence: [
+      'Cycle task: fails for n≥7 after 100k iterations (10M)',
+      'Globality correlates with NC⁰ circuit class',
+      'Expressivity (TC¹) ≠ Learnability (NC⁰)',
+      'Educated scratchpad breaks barrier',
+      'Inductive scratchpad enables 6x length generalization',
+    ],
+    keyQuotes: [
+      'Efficient weak learning is achievable by a regular Transformer IFF globality degree is constant.',
+      'Agnostic scratchpads cannot break the globality barrier.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/310-319/315_globality_barrier.md',
+  },
 ];
