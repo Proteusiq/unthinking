@@ -1,6 +1,6 @@
 # Paper List
 
-> 309 papers analyzed | 223 supports thesis | 15 challenges | 71 balanced | Date range: 2021-2026
+> 311 papers analyzed | 225 supports thesis | 15 challenges | 71 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -313,3 +313,5 @@
 | 307 | 2602.01763 | Feb 2026 | Provable Expressiveness Hierarchy in Hybrid Attention | Supports |
 | 308 | 2602.02909 | Feb 2026 | BAPO Bounds on Chain-of-Thought Token Complexity | Supports |
 | 309 | 2602.01288 | Feb 2026 | EDIS: Diagnosing LLM Reasoning via Entropy Dynamics | Supports |
+| 310 | 2602.02863 | Feb 2026 | Diagnosing Dynamic Instability in LLM Reasoning | Supports |
+| 311 | 2602.02983 | Feb 2026 | Do LLMs Share Human-Like Biases? Causal Reasoning | Supports |

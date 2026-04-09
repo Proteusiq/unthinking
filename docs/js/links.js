@@ -7543,4 +7543,32 @@ window.paperLinks = [
     description:
       'Both show models cannot reliably detect their own errors',
   },
+  {
+    source: '2602.02863',
+    target: '2602.01288',
+    type: 'supports',
+    description:
+      'Both analyze entropy/instability dynamics to diagnose reasoning failures',
+  },
+  {
+    source: '2602.02863',
+    target: '2509.19284',
+    type: 'supports',
+    description:
+      'Both identify patterns distinguishing correct from incorrect reasoning',
+  },
+  {
+    source: '2602.02983',
+    target: '2601.07226',
+    type: 'supports',
+    description:
+      'Both show LLMs struggle with uncertainty and irrelevant context',
+  },
+  {
+    source: '2602.02983',
+    target: '2602.04288',
+    type: 'supports',
+    description:
+      'Both show context/framing affects LLM judgments',
+  },
 ];

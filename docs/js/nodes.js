@@ -6728,4 +6728,52 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/300-309/309_edis_entropy_dynamics.md',
   },
+  {
+    id: 310,
+    title: 'Diagnosing Dynamic Instability in LLM Reasoning',
+    arxivId: '2602.02863',
+    arxivUrl: 'https://arxiv.org/abs/2602.02863',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'mechanism',
+    coreArgument:
+      'Dalhousie: Instability (JSD + entropy) predicts wrong answers with above-chance AUC. Distinguishes corrective instability (early, recoverable) from destructive instability (late, leads to failure). Timing of instability matters—same magnitude, different outcomes.',
+    keyEvidence: [
+      'Above-chance AUC for predicting failures',
+      'Monotonic accuracy decline with instability',
+      'Early instability can recover; late cannot',
+      'Works on GSM8K and HotpotQA',
+      'Model-agnostic, training-free diagnostic',
+    ],
+    keyQuotes: [
+      'Many failures manifest as process-level breakdown: the model loses the thread mid-reasoning.',
+      'Recoverability depends on when changes occur relative to remaining decoding horizon.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/310-319/310_dynamic_instability.md',
+  },
+  {
+    id: 311,
+    title: 'Do LLMs Share Human-Like Biases? Causal Reasoning',
+    arxivId: '2602.02983',
+    arxivUrl: 'https://arxiv.org/abs/2602.02983',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'mechanism',
+    coreArgument:
+      'NYU/Tübingen: 20+ LLMs benchmarked on causal judgment. LLMs exhibit rule-like reasoning, not human-like probabilistic inference. Do NOT mirror human collider biases (explaining away, Markov violations). Rule-like reasoning breaks down with intrinsic uncertainty.',
+    keyEvidence: [
+      'LLMs: rule-like strategies; Humans: probabilistic',
+      'LLMs do NOT show human explaining away bias',
+      'LLMs do NOT show Markov violations',
+      'Small model compresses LLM causal judgments well',
+      'Rule-like reasoning fails under uncertainty',
+    ],
+    keyQuotes: [
+      'Most LLMs exhibit more rule-like reasoning strategies than humans.',
+      'Rule-like reasoning may break down when uncertainty is intrinsic.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/310-319/311_llms_biased_causal_reasoning.md',
+  },
 ];
