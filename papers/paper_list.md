@@ -1,6 +1,6 @@
 # Paper List
 
-> 306 papers analyzed | 220 supports thesis | 15 challenges | 71 balanced | Date range: 2021-2026
+> 307 papers analyzed | 221 supports thesis | 15 challenges | 71 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -310,3 +310,4 @@
 | 304 | 2412.03782 | Dec 2024 | The Broader Spectrum of In-Context Learning | Balanced |
 | 305 | 2509.19284 | Sep 2025 | What Characterizes Effective Reasoning? | Supports |
 | 306 | 2601.07226 | Jan 2026 | Lost in the Noise: Reasoning Models Fail with Distractors | Supports |
+| 307 | 2602.01763 | Feb 2026 | Provable Expressiveness Hierarchy in Hybrid Attention | Supports |

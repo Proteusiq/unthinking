@@ -6656,4 +6656,28 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/300-309/306_lost_in_the_noise.md',
   },
+  {
+    id: 307,
+    title: 'Provable Expressiveness Hierarchy in Hybrid Attention',
+    arxivId: '2602.01763',
+    arxivUrl: 'https://arxiv.org/abs/2602.01763',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'theory',
+    coreArgument:
+      'Shanghai AI proves fundamental limits: for L-step composition, even 2^(3L²) linear attention layers + L-1 full attention CANNOT match L+1 full attention layers. Multi-step reasoning requires depth—no amount of linear layers can substitute for missing full attention.',
+    keyEvidence: [
+      'L+1 full attention: O(polylog n) for L-composition',
+      'L-1 full + 2^(3L²) linear: Ω(poly n) — cannot solve',
+      'First provable separation for hybrid attention',
+      'Sparse attention: Ω(B log n) vs O(log n) for full',
+      'Covers Mamba, DeltaNet, RWKV, Gated DeltaNet',
+    ],
+    keyQuotes: [
+      'Linear attention lacks the expressive power required for deep compositional reasoning.',
+      'Even when linear layers grow exponentially, performance gain remains marginal.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/300-309/307_provable_expressiveness_hierarchy.md',
+  },
 ];

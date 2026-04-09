@@ -7487,4 +7487,18 @@ window.paperLinks = [
     description:
       'Both show surface-level changes collapse performance; fragile reasoning',
   },
+  {
+    source: '2602.01763',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Both prove compositional reasoning limits in transformers',
+  },
+  {
+    source: '2602.01763',
+    target: '2408.03314',
+    type: 'supports',
+    description:
+      'Both show fundamental architectural limits regardless of compute',
+  },
 ];
