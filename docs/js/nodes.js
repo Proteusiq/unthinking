@@ -6704,4 +6704,28 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/300-309/308_bapo_bounds_cot_complexity.md',
   },
+  {
+    id: 309,
+    title: 'EDIS: Diagnosing LLM Reasoning via Entropy Dynamics',
+    arxivId: '2602.01288',
+    arxivUrl: 'https://arxiv.org/abs/2602.01288',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'mechanism',
+    coreArgument:
+      'Erroneous solutions exhibit unstable entropy dynamics: burst spikes (sustained uncertainty) and peak-valley spikes (sharp rebounds). Patterns persist across models—intrinsic properties of reasoning failure, not noise. EDIS metric predicts failures and improves accuracy via selection.',
+    keyEvidence: [
+      'Incorrect: burst spikes + peak-valley spikes',
+      'Correct: stable entropy evolution',
+      'Patterns persist across models and training stages',
+      'EDIS substantially improves inference-time selection',
+      'Models cannot self-correct using own uncertainty',
+    ],
+    keyQuotes: [
+      'Patterns reflect intrinsic properties of reasoning failure rather than superficial noise.',
+      'Temporal evolution of confidence carries richer information than aggregate statistics.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/300-309/309_edis_entropy_dynamics.md',
+  },
 ];

@@ -7522,4 +7522,25 @@ window.paperLinks = [
     description:
       'Both analyze what makes CoT reasoning succeed or fail',
   },
+  {
+    source: '2602.01288',
+    target: '2509.19284',
+    type: 'supports',
+    description:
+      'Both identify patterns distinguishing correct from incorrect reasoning',
+  },
+  {
+    source: '2602.01288',
+    target: '2601.07226',
+    type: 'supports',
+    description:
+      'Both show models lack robust self-monitoring capabilities',
+  },
+  {
+    source: '2602.01288',
+    target: '2309.11495',
+    type: 'supports',
+    description:
+      'Both show models cannot reliably detect their own errors',
+  },
 ];
