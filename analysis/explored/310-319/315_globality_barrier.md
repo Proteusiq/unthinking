@@ -3,7 +3,7 @@
 ## Metadata
 - **arXiv ID**: 2406.06467
 - **Title**: How Far Can Transformers Reason? The Globality Barrier and Inductive Scratchpad
-- **Authors**: Emmanuel Abbe, Samy Bengio, Aryo Lotfi, Colin Sandon, Omid Saremi (EPFL, Apple)
+- **Authors**: Emmanuel Abbe, Samy Bengio, Aryo Lotfi, Colin Sandon, Omid Saremi (Apple, EPFL)
 - **Date**: June 2024
 - **Venue**: arXiv preprint
 

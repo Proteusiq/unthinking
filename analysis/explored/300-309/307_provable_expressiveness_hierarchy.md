@@ -1,9 +1,9 @@
-# Paper Analysis: Provable Expressiveness Hierarchy in Hybrid Attention Transformers
+# Paper Analysis: A Provable Expressiveness Hierarchy in Hybrid Linear-Full Attention
 
 ## Metadata
 - **arXiv ID**: 2602.01763
-- **Title**: Provable Expressiveness Hierarchy in Hybrid Attention Transformers
-- **Authors**: Shanghai AI Lab (multiple authors)
+- **Title**: A Provable Expressiveness Hierarchy in Hybrid Linear-Full Attention
+- **Authors**: Xiaowei Ye, Xiaoyu He, Chao Liao, Chen Wu, Pinyan Lu
 - **Date**: February 2026
 - **Venue**: arXiv preprint
 

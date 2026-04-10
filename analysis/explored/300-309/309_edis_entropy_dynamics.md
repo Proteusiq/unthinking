@@ -3,7 +3,7 @@
 ## Metadata
 - **arXiv ID**: 2602.01288
 - **Title**: EDIS: Diagnosing LLM Reasoning via Entropy Dynamics
-- **Authors**: 9 authors (multiple institutions)
+- **Authors**: Chenghua Zhu, Siyan Wu, Xiangkang Zeng, Zishan Xu, Zhaolu Kang, Yifu Guo, Yuquan Lu, Junduan Huang, Guojing Zhou
 - **Date**: February 2026
 - **Venue**: arXiv preprint
 

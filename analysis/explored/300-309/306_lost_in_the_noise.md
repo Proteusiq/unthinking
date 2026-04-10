@@ -3,7 +3,7 @@
 ## Metadata
 - **arXiv ID**: 2601.07226
 - **Title**: Lost in the Noise: Reasoning Models Fail with Contextual Distractors
-- **Authors**: KAIST and LG AI Research (multiple authors)
+- **Authors**: Seongyun Lee, Yongrae Jo, Minju Seo, Moontae Lee, Minjoon Seo (KAIST AI, LG AI Research, UIC)
 - **Date**: January 2026
 - **Venue**: arXiv preprint
 

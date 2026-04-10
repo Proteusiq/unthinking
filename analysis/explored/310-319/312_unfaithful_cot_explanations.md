@@ -3,7 +3,7 @@
 ## Metadata
 - **arXiv ID**: 2305.04388
 - **Title**: Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting
-- **Authors**: Miles Turpin, Julian Michael, Ethan Perez, Samuel R. Bowman (Anthropic, NYU)
+- **Authors**: Miles Turpin, Julian Michael, Ethan Perez, Samuel R. Bowman (NYU Alignment Research Group, Cohere, Anthropic)
 - **Date**: May 2023
 - **Venue**: NeurIPS 2023
 
