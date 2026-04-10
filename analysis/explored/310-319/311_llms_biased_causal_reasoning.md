@@ -2,10 +2,10 @@
 
 ## Metadata
 - **arXiv ID**: 2602.02983
-- **Title**: Do LLMs Share Human-Like Biases in Causal Reasoning?
-- **Authors**: NYU and University of Tübingen (multiple authors)
+- **Title**: Do LLMs Share Human-Like Biases? Causal Reasoning Under Prior Knowledge, Irrelevant Context, and Varying Compute Budgets
+- **Authors**: Hanna M. Dettki, Charley M. Wu, Bob Rehder (NYU, University of Tübingen)
 - **Date**: February 2026
-- **Venue**: ICLR 2026 Workshop
+- **Venue**: ICLR 2026 Workshop "From Human Cognition to AI Reasoning (HCAIR)"
 
 ---
 

@@ -2,10 +2,10 @@
 
 ## Metadata
 - **arXiv ID**: 2512.02914
-- **Title**: Martingale Score: A Measure of Bayesian Rationality in LLM Reasoning
-- **Authors**: Multiple authors (academic institutions)
+- **Title**: Martingale Score: An Unsupervised Metric for Bayesian Rationality in LLM Reasoning
+- **Authors**: Zhonghao He, Tianyi Qiu, Hirokazu Shirado, Maarten Sap (CMU)
 - **Date**: December 2025
-- **Venue**: arXiv preprint
+- **Venue**: NeurIPS 2025
 
 ---
 

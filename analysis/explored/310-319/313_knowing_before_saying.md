@@ -2,8 +2,8 @@
 
 ## Metadata
 - **arXiv ID**: 2505.24362
-- **Title**: Knowing Before Saying: LLM Representations Encode CoT Success
-- **Authors**: Multiple authors (academic institutions)
+- **Title**: Knowing Before Saying: LLM Representations Encode Information About Chain-of-Thought Success Before Completion
+- **Authors**: Anum Afzal, Florian Matthes, Gal Chechik, Yftah Ziser (TUM, NVIDIA, Bar-Ilan University)
 - **Date**: May 2025
 - **Venue**: arXiv preprint
 

@@ -3,7 +3,7 @@
 ## Metadata
 - **arXiv ID**: 2411.11371
 - **Title**: Rethinking Thinking Tokens: Understanding Why They Underperform in Practice
-- **Authors**: Multiple authors (academic institutions)
+- **Authors**: Sreeram Vennam, David Valente, David Herel, Ponnurangam Kumaraguru (IIIT Hyderabad, Czech Technical University)
 - **Date**: November 2024
 - **Venue**: arXiv preprint
 

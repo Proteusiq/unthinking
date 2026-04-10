@@ -2,10 +2,10 @@
 
 ## Metadata
 - **arXiv ID**: 2502.06258
-- **Title**: Emergent Response Planning in Large Language Models
-- **Authors**: Multiple authors (academic institutions)
+- **Title**: Emergent Response Planning in LLMs
+- **Authors**: Zhichen Dong, Zhanhui Zhou, Zhixuan Liu, Chao Yang, Chaochao Lu (Shanghai Jiao Tong University)
 - **Date**: February 2025
-- **Venue**: arXiv preprint
+- **Venue**: ICML 2025
 
 ---
 

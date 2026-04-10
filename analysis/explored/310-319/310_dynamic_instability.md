@@ -2,8 +2,8 @@
 
 ## Metadata
 - **arXiv ID**: 2602.02863
-- **Title**: Diagnosing Dynamic Instability in LLM Reasoning
-- **Authors**: Dalhousie University (multiple authors)
+- **Title**: "I May Not Have Articulated Myself Clearly": Diagnosing Dynamic Instability in LLM Reasoning at Inference Time
+- **Authors**: Jinkun Chen, Fengxiang Cheng, Sijia Han, Vlado Keselj (Dalhousie University)
 - **Date**: February 2026
 - **Venue**: arXiv preprint
 

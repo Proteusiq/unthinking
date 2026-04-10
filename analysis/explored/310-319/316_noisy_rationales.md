@@ -2,10 +2,10 @@
 
 ## Metadata
 - **arXiv ID**: 2410.23856
-- **Title**: Can LMs Reason with Noisy Rationales?
-- **Authors**: Multiple authors (academic institutions)
+- **Title**: Can Language Models Perform Robust Reasoning in Chain-of-thought Prompting with Noisy Rationales?
+- **Authors**: Zhanke Zhou, Rong Tao, Jianing Zhu, Yiwen Luo, Zengmao Wang, Bo Han (HKBU, Xi'an Jiaotong University)
 - **Date**: October 2024
-- **Venue**: arXiv preprint
+- **Venue**: NeurIPS 2024
 
 ---
 
