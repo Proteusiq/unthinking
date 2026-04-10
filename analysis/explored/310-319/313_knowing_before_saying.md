@@ -1,24 +1,40 @@
-## Summary
+# Paper Analysis: Knowing Before Saying: LLM Representations Encode CoT Success
 
-This paper demonstrates that LLM internal representations encode information about Chain-of-Thought (CoT) success **before generating a single token**. A probing classifier trained on hidden states achieves 60-76.4% accuracy predicting whether CoT will succeed, substantially outperforming BERT baselines (53.5-69.1%). Crucially, additional CoT steps don't always improve prediction—in some cases early representations already contain the key information.
+## Metadata
+- **arXiv ID**: 2505.24362
+- **Title**: Knowing Before Saying: LLM Representations Encode CoT Success
+- **Authors**: Multiple authors (academic institutions)
+- **Date**: May 2025
+- **Venue**: arXiv preprint
+
+---
+
+## Core Claims
+
+1. **Success encoded before generation**: LLM hidden representations encode CoT success BEFORE generating any token.
+
+2. **60-76% probing accuracy**: Probing classifiers predict success from pre-generation representations.
+
+3. **Later steps don't always help**: Additional CoT steps sometimes don't improve prediction—early representations already contain key information.
+
+4. **Gap between probed and verbalized**: Models encode more planning information than they can explicitly access.
+
+---
 
 ## Methodology
 
-- **Models**: Llama-3.1-8B, Mistral-7B (instruction-tuned versions)
-- **Datasets**: Olympiad (math competitions), Cn-k12 (Chinese K-12), AQuA (algebraic)
-- **Approach**: Train probing classifiers on hidden representations at various layers and CoT stages
-- **Baseline**: BERT text classifier using only generated tokens (not hidden states)
+### Models
+Llama-3.1-8B, Mistral-7B (instruction-tuned versions)
 
-## Key Findings
+### Datasets
+Olympiad (math competitions), Cn-k12 (Chinese K-12), AQuA (algebraic)
 
-### Quantitative Results
-- **Before-generation prediction accuracy**:
-  - Llama-3.1-8B: 60% (AQuA), 76.4% (Olympiad), 69.1% (Cn-k12)
-  - Mistral-7B: 64.7% (AQuA), 71.8% (Olympiad), 67.1% (Cn-k12)
-- Hidden representations **outperform BERT baseline** by 6.5-7.3% on average
-- Middle layers (11-17) most predictive; layer 14 and 16 consistently informative
+### Approach
+Train probing classifiers on hidden representations at various layers and CoT stages
 
-### The "Knowing Before Saying" Phenomenon
+### Baseline
+BERT text classifier using only generated tokens (not hidden states)
+
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │  LLM "knows" at token 0 whether reasoning will succeed             │
@@ -35,29 +51,61 @@ This paper demonstrates that LLM internal representations encode information abo
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
+---
+
+## Key Evidence
+
+| Finding | Quantitative | Context |
+|---------|--------------|---------|
+| Llama-3.1-8B | 60% (AQuA), 76.4% (Olympiad), 69.1% (Cn-k12) | Before-generation |
+| Mistral-7B | 64.7% (AQuA), 71.8% (Olympiad), 67.1% (Cn-k12) | Before-generation |
+| Outperforms BERT | +6.5-7.3% average | Hidden states vs text only |
+| Most predictive layers | 11-17 (middle) | Layer 14, 16 consistent |
+
 ### Later Steps Don't Always Help
-- For Olympiad and Cn-k12: prediction accuracy **doesn't improve** with more CoT tokens
+- For Olympiad and Cn-k12: prediction accuracy doesn't improve with more CoT tokens
 - SVCCA analysis shows early representations are more similar to final representations when later steps don't help
 - Suggests: when model already "knows" the answer early, CoT is potentially redundant
 
-### Early Stopping Experiments
-- Zero-shot early stopping reduces accuracy but still beats no-CoT
-- Gap remains between early stopping and full CoT completion
-- Potential for efficiency gains with proper training
+---
 
-## Critical Observations
+## Relationship to Other Papers
 
-### Evidence for Pre-Computation
-1. Model representations encode outcome information before generation starts
-2. This information is **not accessible through text alone** (BERT can't extract it)
-3. Suggests some form of "pre-computation" or "planning" in forward pass
+### Supports
+- **#312 Unfaithful CoT** (2305.04388): Both show verbalized reasoning ≠ actual computation
+- **#309 Entropy Dynamics** (2602.01288): Both identify pre-generation predictive signals
 
-### Implications for CoT Understanding
-- CoT success is partially **predetermined** before reasoning begins
-- The verbalized reasoning may not be the actual computation producing the answer
+### Related
+- **#305 Effective Reasoning** (2509.19284): Both analyze what makes reasoning succeed/fail
+- **#308 CoT Token Complexity** (2602.02909): Both examine CoT mechanism
+
+---
+
+## REBUTTALS
+
+### This Paper Provides Evidence For
+- CoT success is partially predetermined before reasoning begins
+- Verbalized reasoning may not be the actual computation producing the answer
 - Supports thesis that CoT is more about structuring output than genuine deliberation
 
-## Relevance to Thesis
+### Limitations (Authors Acknowledge)
+1. Limited to math reasoning tasks
+2. Zero-shot early stopping suboptimal; needs trained approach
+3. Can't distinguish between "knowing the answer" vs. "knowing if approach will work"
+
+---
+
+## Key Quotes
+
+> "Crucial information about the reasoning process is already present in the initial steps."
+
+> "Models encode more planning information in hidden representations than they can explicitly access."
+
+> "The probing accuracy substantially outperforms the BERT baseline, suggesting that internal representations encode information beyond what is visible in the generated text."
+
+---
+
+## Significance for Thesis
 
 **SUPPORTS** the thesis that LLMs don't reason in the way CoT suggests:
 
@@ -67,14 +115,13 @@ This paper demonstrates that LLM internal representations encode information abo
 
 This provides mechanistic evidence that CoT is **post-hoc rationalization** rather than genuine step-by-step reasoning.
 
-## Limitations
+**Stance**: SUPPORTS
 
-- Limited to math reasoning tasks
-- Zero-shot early stopping suboptimal; needs trained approach
-- Can't distinguish between "knowing the answer" vs. "knowing if approach will work"
+---
 
-## Connections
-
-- **Supports**: Paper #312 (Unfaithful CoT), Paper #309 (Entropy Dynamics)
-- **Related**: Paper #305 (Effective Reasoning), Paper #308 (CoT Token Complexity)
-- **Mechanism**: Provides evidence for why models can predict CoT success—the computation happens in the forward pass, not the sequential generation
+## Status
+- [x] Read complete
+- [x] Core claims extracted
+- [x] Key evidence with numbers
+- [x] Rebuttals checked
+- [x] Paper graph updated

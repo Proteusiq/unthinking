@@ -1,6 +1,39 @@
-## Summary
+# Paper Analysis: Lost in the Noise: Reasoning Models Fail with Contextual Distractors
 
-KAIST/LG AI Research study showing reasoning models catastrophically fail with contextual distractors. Key finding: **up to 80% performance drop** from simple noise injection. Crucially, agentic workflows **amplify** errors by over-trusting noisy tool outputs. Most damning: **inverse scaling** during test-time computation—more reasoning tokens lead to WORSE accuracy in noisy settings. Models cannot distinguish signal from noise.
+## Metadata
+- **arXiv ID**: 2601.07226
+- **Title**: Lost in the Noise: Reasoning Models Fail with Contextual Distractors
+- **Authors**: KAIST and LG AI Research (multiple authors)
+- **Date**: January 2026
+- **Venue**: arXiv preprint
+
+---
+
+## Core Claims
+
+1. **Up to 80% performance drop**: State-of-the-art reasoning models catastrophically fail with contextual distractors.
+
+2. **Agentic workflows amplify errors**: Multi-step planning propagates errors by over-trusting noisy tool outputs.
+
+3. **Inverse scaling with reasoning tokens**: More reasoning leads to WORSE accuracy in noisy settings.
+
+4. **Attention focuses on distractors**: Models disproportionately attend to distractor tokens in failure cases.
+
+---
+
+## Methodology
+
+### Benchmark
+- **NoisyBench**: 11 datasets across RAG, reasoning, alignment, tool-use
+- **2,766 examples per setting**
+
+### Distractor Types
+- Random documents (RD)
+- Random chat history (RC)
+- Hard negative distractors (HN)
+
+### Models Tested
+Gemini-2.5-Pro, Gemini-2.5-Flash, DeepSeek-R1-0528, DeepSeek-R1-Distill-Llama-8B, gpt-oss-120b, Qwen3 (4B, 30B-A3B)
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -16,32 +49,7 @@ KAIST/LG AI Research study showing reasoning models catastrophically fail with c
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
-## Thesis Relevance: SUPPORTS
-
-Comprehensive evidence against genuine reasoning:
-
-1. **Cannot filter noise**: Models treat distractors as valid evidence
-2. **Inverse scaling**: More compute → worse results (opposite of reasoning)
-3. **Agentic amplification**: Multi-step planning propagates errors
-4. **Emergent misalignment**: Random noise triggers alignment failures
-5. **Attention reveals mechanism**: Models attend to distractor tokens
-
-## Methodology
-
-**Benchmark**: NoisyBench - 11 datasets across RAG, reasoning, alignment, tool-use
-
-**Distractor types:**
-- Random documents (RD)
-- Random chat history (RC)
-- Hard negative distractors (HN)
-
-**Models tested:**
-- Gemini-2.5-Pro, Gemini-2.5-Flash
-- DeepSeek-R1-0528, DeepSeek-R1-Distill-Llama-8B
-- gpt-oss-120b
-- Qwen3 (4B, 30B-A3B)
-
-**Scale**: 2,766 examples per setting
+---
 
 ## Key Evidence
 
@@ -54,12 +62,38 @@ Comprehensive evidence against genuine reasoning:
 | DeepSeek-R1-0528 | 72.4% | 47.6% | -34.2% |
 | gpt-oss-120b | 72.0% | 50.2% | -30.3% |
 
-**Alignment catastrophe** (BBQ task):
+### Alignment Catastrophe (BBQ task)
 - Gemini-2.5-Pro: 94.0% → 60.5% (hard negatives)
 - DeepSeek-R1: 93.0% → 33.7%
 
-**Inverse scaling finding:**
-> "Distractors induce an inverse scaling trend during test-time computation; as models use more reasoning tokens, they increasingly misinterpret noise, causing accuracy to decline with longer trajectories."
+---
+
+## Relationship to Other Papers
+
+### Extends
+- **#180 Contextual Drag** (2602.04288): Both show context pulls reasoning astray
+
+### Supports
+- **#305 Effective Reasoning** (2509.19284): Both find more compute can hurt
+- **#302 Test-Time Compute** (2408.03314): Scaling has fundamental limits
+- **#303 CoVe** (2309.11495): Context pollution prevents self-correction
+- **#3 GSM-Symbolic** (2410.05229): Surface changes collapse performance
+
+---
+
+## REBUTTALS
+
+### This Paper Directly Challenges
+- **Test-time scaling claims**: More compute → worse results with noise
+- **Agentic AI robustness**: Tool use amplifies rather than corrects errors
+- **Alignment stability**: Random noise triggers misalignment
+
+### Limitations (Authors Acknowledge)
+1. Synthetic distractors: Hard negatives are LLM-generated, may not capture all real-world noise
+2. Benchmark-specific: 11 datasets may not cover all reasoning domains
+3. Mitigation incomplete: RARE helps but doesn't fully solve the problem
+
+---
 
 ## Key Quotes
 
@@ -73,28 +107,10 @@ Comprehensive evidence against genuine reasoning:
 
 > "Our attention-based analysis shows that models disproportionately focus on distractor tokens, especially in incorrect predictions."
 
-## Connections to Other Papers
+---
 
-- **Extends Paper #180** (Contextual Drag): Both show context pulls reasoning astray
-- **Supports Paper #305** (Effective Reasoning): Both find more compute can hurt
-- **Supports Paper #302** (Test-Time Compute): Scaling has fundamental limits
-- **Supports Paper #303** (CoVe): Context pollution prevents self-correction
-- **Supports Paper #3** (GSM-Symbolic): Surface changes collapse performance
+## Significance for Thesis
 
-## Limitations
-
-1. **Synthetic distractors**: Hard negatives are LLM-generated, may not capture all real-world noise
-2. **Benchmark-specific**: 11 datasets may not cover all reasoning domains
-3. **Mitigation incomplete**: RARE helps but doesn't fully solve the problem
-
-## REBUTTALS
-
-**This paper directly challenges:**
-- **Test-time scaling claims**: More compute → worse results with noise
-- **Agentic AI robustness**: Tool use amplifies rather than corrects errors
-- **Alignment stability**: Random noise triggers misalignment
-
-**Mechanism revealed:**
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │  WHY REASONING FAILS WITH NOISE                                    │
@@ -110,3 +126,16 @@ Comprehensive evidence against genuine reasoning:
 │  LLMs AMPLIFY irrelevant context through extended processing       │
 └─────────────────────────────────────────────────────────────────────┘
 ```
+
+**Stance**: SUPPORTS
+
+Comprehensive evidence against genuine reasoning: models cannot filter noise, more compute makes it worse, agentic workflows amplify errors, and attention analysis reveals mechanism.
+
+---
+
+## Status
+- [x] Read complete
+- [x] Core claims extracted
+- [x] Key evidence with numbers
+- [x] Rebuttals checked
+- [x] Paper graph updated

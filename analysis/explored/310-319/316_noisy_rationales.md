@@ -1,19 +1,41 @@
-## Summary
+# Paper Analysis: Can LMs Reason with Noisy Rationales?
 
-This paper introduces NoRa (Noisy Rationales), a benchmark testing LLM robustness when Chain-of-Thought demonstrations contain irrelevant or inaccurate reasoning steps. GPT-3.5 drops 1.4%-19.8% with irrelevant thoughts and 2.2%-40.4% with inaccurate thoughts. Existing robust methods (self-correction, self-consistency) show limited efficacy. The proposed CD-CoT (Contrastive Denoising) achieves 17.8% average improvement by contrasting noisy rationales with one clean example.
+## Metadata
+- **arXiv ID**: 2410.23856
+- **Title**: Can LMs Reason with Noisy Rationales?
+- **Authors**: Multiple authors (academic institutions)
+- **Date**: October 2024
+- **Venue**: arXiv preprint
+
+---
+
+## Core Claims
+
+1. **LLMs vulnerable to noisy rationales**: GPT-3.5 drops up to 40.4% with inaccurate reasoning steps in demonstrations.
+
+2. **Inaccurate > Irrelevant harm**: Factual errors within reasoning are more damaging than distractions.
+
+3. **Self-correction fails**: Existing robust methods (self-correction, self-consistency) show limited efficacy.
+
+4. **External supervision required**: CD-CoT requires clean examples to denoise effectively.
+
+---
 
 ## Methodology
 
-- **Models**: GPT-3.5-turbo, Gemini-Pro, Llama2-70B, Mixtral-8x7B
-- **Dataset**: NoRa (26,391 questions) across math, symbolic, commonsense reasoning
-- **Noise types**:
-  - Irrelevant: Correct but unhelpful information (e.g., "five oceans on Earth" during math)
-  - Inaccurate: Relevant but factually wrong (e.g., "5+4=9" inserted mid-calculation)
-- **Baselines**: Self-correction, Self-consistency, Self-denoise
+### Models
+GPT-3.5-turbo, Gemini-Pro, Llama2-70B, Mixtral-8x7B
 
-## Key Findings
+### Dataset
+NoRa (Noisy Rationales): 26,391 questions across math, symbolic, commonsense reasoning
 
-### Quantitative Results
+### Noise Types
+- **Irrelevant**: Correct but unhelpful information (e.g., "five oceans on Earth" during math)
+- **Inaccurate**: Relevant but factually wrong (e.g., "5+4=9" inserted mid-calculation)
+
+### Baselines
+Self-correction, Self-consistency, Self-denoise
+
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │  PERFORMANCE DROP WITH NOISY RATIONALES (GPT-3.5)                   │
@@ -28,16 +50,17 @@ This paper introduces NoRa (Noisy Rationales), a benchmark testing LLM robustnes
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
-### Self-Correction Fails
-- ISC (Intrinsic Self-Correction): Often WORSE than base model
-- Self-Denoise: Degrades on symbolic tasks (10.4% → 0.1%)
-- Self-Consistency: Best baseline but still limited gains
+---
 
-### CD-CoT Solution
-- Requires only ONE clean rationale as supervision
-- Four steps: Rephrase → Select → Explore → Vote
-- Average 17.8% improvement over base model
-- Stronger denoising power than all baselines
+## Key Evidence
+
+| Finding | Quantitative | Context |
+|---------|--------------|---------|
+| Irrelevant thoughts | -1.4% to -19.8% | Across models |
+| Inaccurate thoughts | -2.2% to -40.4% | Across models |
+| Self-correction (ISC) | Often WORSE than baseline | Fails to help |
+| Self-denoise | 10.4% → 0.1% on symbolic | Catastrophic failure |
+| CD-CoT | +17.8% average | Requires clean supervision |
 
 ### Key Insight
 ```
@@ -53,14 +76,43 @@ This paper introduces NoRa (Noisy Rationales), a benchmark testing LLM robustnes
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
-## Critical Observations
+---
 
-1. **Noisy rationales are harder than noisy questions**: Denoising rationales requires context-specific knowledge
-2. **Inaccurate > Irrelevant harm**: Factual errors within reasoning are more damaging than distractions
-3. **Self-correction inadequate**: Models cannot reliably identify and fix their own reasoning errors
-4. **External supervision required**: Breaking the noise barrier requires clean examples as guidance
+## Relationship to Other Papers
 
-## Relevance to Thesis
+### Supports
+- **#312 Unfaithful CoT** (2305.04388): Both show CoT limitations
+- **#306 Lost in Noise** (2601.07226): Both show noise sensitivity
+- **#3 GSM-Symbolic** (2410.05229): Both show surface changes collapse performance
+- **#305 Effective Reasoning** (2509.19284): Both analyze reasoning failures
+
+---
+
+## REBUTTALS
+
+### This Paper Demonstrates
+- Models can't distinguish valid from invalid reasoning steps
+- Self-correction inadequate
+- External supervision required to break noise barrier
+
+### Limitations (Authors Acknowledge)
+1. Synthetic noise generation may differ from real-world noise
+2. Limited to specific reasoning domains
+3. CD-CoT requires clean supervision (not fully unsupervised)
+
+---
+
+## Key Quotes
+
+> "LLMs are intrinsically vulnerable to noisy rationales."
+
+> "Noisy-R is much more challenging than Noisy-Q, requiring context-specific knowledge."
+
+> "Existing robust reasoning methods—ISC, SC, and SD—are ineffective against either noisy questions or noisy rationales."
+
+---
+
+## Significance for Thesis
 
 **SUPPORTS** the thesis that LLMs don't genuinely reason:
 
@@ -71,14 +123,13 @@ This paper introduces NoRa (Noisy Rationales), a benchmark testing LLM robustnes
 
 This is strong evidence that CoT is template-following, not genuine inference.
 
-## Limitations
+**Stance**: SUPPORTS
 
-- Synthetic noise generation may differ from real-world noise
-- Limited to specific reasoning domains
-- CD-CoT requires clean supervision (not fully unsupervised)
+---
 
-## Connections
-
-- **Supports**: Paper #312 (Unfaithful CoT), Paper #306 (Lost in Noise)
-- **Related**: Paper #3 (GSM-Symbolic), Paper #305 (Effective Reasoning)
-- **Mechanism**: Explains why reasoning fails with context perturbations
+## Status
+- [x] Read complete
+- [x] Core claims extracted
+- [x] Key evidence with numbers
+- [x] Rebuttals checked
+- [x] Paper graph updated

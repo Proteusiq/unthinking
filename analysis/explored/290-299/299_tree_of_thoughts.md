@@ -1,6 +1,38 @@
-## Summary
+# Paper Analysis: Tree of Thoughts: Deliberate Problem Solving with Large Language Models
 
-Tree of Thoughts (ToT) is a NeurIPS 2023 paper from Princeton/DeepMind showing dramatic improvements on certain tasks (Game of 24: 4% → 74%). However, the authors explicitly frame LLMs as "System 1" (associative pattern matching) and ToT as external "System 2" search scaffolding. The improvements come from BFS/DFS search over candidate generations, not from improved reasoning.
+## Metadata
+- **arXiv ID**: 2305.10601
+- **Title**: Tree of Thoughts: Deliberate Problem Solving with Large Language Models
+- **Authors**: Shunyu Yao, Dian Yu, Jeffrey Zhao, Izhak Shafran, Thomas L. Griffiths, Yuan Cao, Karthik Narasimhan (Princeton University, Google DeepMind)
+- **Date**: May 2023
+- **Venue**: NeurIPS 2023
+
+---
+
+## Core Claims
+
+1. **LLMs are "System 1"**: The authors explicitly characterize LLM token-level choices as "reminiscent of 'System 1'" (associative, automatic).
+
+2. **ToT adds external "System 2"**: Tree of Thoughts provides deliberate search scaffolding (BFS/DFS) on top of LLM generation.
+
+3. **60% fail at first step**: Around 60% of CoT samples fail after the first three words, indicating fundamental generation quality issues.
+
+4. **Generation bottleneck**: Performance is limited by thought generation quality, not evaluation—GPT-4 gen + GPT-3.5 eval outperforms GPT-3.5 gen + GPT-4 eval.
+
+---
+
+## Methodology
+
+### Tasks Tested
+- **Game of 24**: Combinatorial arithmetic (4% → 74% with ToT)
+- **Creative Writing**: Subjective evaluation by GPT-4
+- **Mini Crosswords**: Constraint satisfaction (60% word completion)
+
+### ToT Framework
+1. Generate candidate "thoughts" (intermediate steps)
+2. Evaluate candidates (sure/maybe/impossible)
+3. Search via BFS or DFS with backtracking
+4. Prune unpromising branches
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -13,38 +45,47 @@ Tree of Thoughts (ToT) is a NeurIPS 2023 paper from Princeton/DeepMind showing d
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
-## Thesis Relevance: SUPPORTS
-
-Despite being framed as enhancing "deliberate problem solving," ToT provides strong evidence for pattern matching:
-
-1. **Authors agree**: They explicitly call LM "System 1" (associative) and propose ToT as external System 2
-2. **Search ≠ Reasoning**: ToT is classical BFS/DFS with LM heuristics—same architecture as Deep Blue
-3. **60% first-step failure**: The LM doesn't understand problems; it commits based on surface patterns
-4. **Generation bottleneck**: GPT-4 gen + GPT-3.5 eval = 64%; GPT-3.5 gen + GPT-4 eval = 31%
-5. **Performance ceiling**: 74% not 100% on well-defined Game of 24
-
-## Methodology
-
-**Three tasks tested:**
-- Game of 24: Combinatorial arithmetic (4% → 74%)
-- Creative Writing: Subjective evaluation by GPT-4
-- Mini Crosswords: Constraint satisfaction (60% word completion)
-
-**ToT Framework:**
-1. Generate candidate "thoughts" (intermediate steps)
-2. Evaluate candidates (sure/maybe/impossible)
-3. Search via BFS or DFS with backtracking
-4. Prune unpromising branches
+---
 
 ## Key Evidence
 
-| Finding | Quantitative | Implication |
-|---------|--------------|-------------|
-| CoT failure rate | 60% fail at first 3 words | LM doesn't understand problem structure |
-| Generation dominates | GPT-4 gen >> GPT-3.5 gen | Quality of patterns matters most |
-| Performance ceiling | 74% on Game of 24 | Genuine reasoner would approach 100% |
-| Compute cost | 5-100× more tokens | Buying performance through search coverage |
-| Marginal gain when CoT works | GSM8K: 86%→90%, StrategyQA: 82%→83% | ToT adds little when patterns suffice |
+| Finding | Quantitative | Context |
+|---------|--------------|---------|
+| CoT failure rate | 60% fail at first 3 words | Game of 24 |
+| Generation dominates | GPT-4 gen = 64%; GPT-3.5 gen = 31% | Same eval quality |
+| Performance ceiling | 74% on Game of 24 | Not 100% on well-defined task |
+| Compute cost | 5-100× more tokens | Search overhead |
+| Marginal gain when CoT works | GSM8K: 86%→90% | ToT adds little when patterns suffice |
+
+---
+
+## Relationship to Other Papers
+
+### Supports
+- **#295 Test-Time Compute Overestimation** (2603.15377): Both show search has limits
+- **#296 RLVR Structural Convergence** (2602.11792): Both show models surface cached patterns
+- **#298 Self-MoA** (2502.00674): Both show quality > diversity in sampling
+
+### Extends
+- **#300 Graph of Thoughts** (2308.09687): GoT extends ToT with graph structure
+
+### Provides Context For
+- **#302 Scaling Test-Time Compute** (2408.03314): ToT is a form of test-time compute scaling
+
+---
+
+## REBUTTALS
+
+### Known Rebuttals
+None directly rebutting ToT, but the paper itself acknowledges limitations.
+
+### Limitations (Authors Acknowledge)
+1. Only three "relatively simple" tasks tested
+2. Task-specific engineering required for each domain
+3. 5-100× compute cost overhead
+4. Model capability dependent (GPT-3.5+ToT = 19% vs GPT-4+ToT = 74%)
+
+---
 
 ## Key Quotes
 
@@ -54,24 +95,9 @@ Despite being framed as enhancing "deliberate problem solving," ToT provides str
 
 > "The game's bottleneck is thought generation" — quality of candidates matters more than evaluation
 
-## Connections to Other Papers
+---
 
-**Supports thesis alongside:**
-- **#295 Test-Time Compute Overestimation** (2603.15377): Both show search has limits
-- **#296 RLVR Structural Convergence** (2602.11792): Both show models surface cached patterns
-- **#298 Self-MoA** (2502.00674): Both show quality > diversity in sampling
-
-**Same scaffolding approach:**
-- **#208 Graph of Thoughts** (2308.09687): GoT extends ToT with graph structure
-
-## Limitations
-
-- Only three "relatively simple" tasks
-- Task-specific engineering required for each domain
-- 5-100× compute cost
-- Model capability dependent (GPT-3.5+ToT = 19% vs GPT-4+ToT = 74%)
-
-## Implications for Thesis
+## Significance for Thesis
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -90,3 +116,16 @@ Despite being framed as enhancing "deliberate problem solving," ToT provides str
 │  ToT is evidence FOR the pattern-matching thesis, not against it.  │
 └─────────────────────────────────────────────────────────────────────┘
 ```
+
+**Stance**: SUPPORTS
+
+Despite being framed as enhancing "deliberate problem solving," ToT provides strong evidence for pattern matching: the authors explicitly call LLMs "System 1," improvements come from classical search algorithms, and 60% of samples fail at the first step.
+
+---
+
+## Status
+- [x] Read complete
+- [x] Core claims extracted
+- [x] Key evidence with numbers
+- [x] Rebuttals checked
+- [x] Paper graph updated

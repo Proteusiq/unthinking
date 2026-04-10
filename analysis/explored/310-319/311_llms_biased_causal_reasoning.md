@@ -1,6 +1,40 @@
-## Summary
+# Paper Analysis: Do LLMs Share Human-Like Biases in Causal Reasoning?
 
-NYU/Tübingen study benchmarking 20+ LLMs against humans on causal judgment tasks (collider structures). Key finding: LLMs exhibit "**rule-like reasoning strategies**" rather than human-like probabilistic causal reasoning. Most LLMs do NOT mirror characteristic human biases (explaining away, Markov violations). Their rule-like reasoning "may break down when uncertainty is intrinsic"—highlighting brittleness of pattern-based causal judgments.
+## Metadata
+- **arXiv ID**: 2602.02983
+- **Title**: Do LLMs Share Human-Like Biases in Causal Reasoning?
+- **Authors**: NYU and University of Tübingen (multiple authors)
+- **Date**: February 2026
+- **Venue**: ICLR 2026 Workshop
+
+---
+
+## Core Claims
+
+1. **LLMs use rule-like strategies**: Models exhibit more rigid, rule-based reasoning than humans who account for latent factors.
+
+2. **No human collider biases**: LLMs do NOT mirror characteristic human biases (explaining away, Markov violations).
+
+3. **Compressible by simple model**: LLM causal judgments are well-captured by small interpretable models.
+
+4. **Brittleness with uncertainty**: Rule-like reasoning breaks down when uncertainty is intrinsic.
+
+---
+
+## Methodology
+
+### Benchmark
+11 causal judgment tasks with collider structure (C₁ → E ← C₂)
+
+### Subjects
+20+ LLMs vs matched human baseline
+
+### Probes
+1. Semantic abstraction (different framings)
+2. Prompt overloading (irrelevant text injection)
+
+### Finding
+CoT increases robustness for many LLMs
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -17,26 +51,7 @@ NYU/Tübingen study benchmarking 20+ LLMs against humans on causal judgment task
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
-## Thesis Relevance: SUPPORTS
-
-Evidence for pattern-matching over genuine causal reasoning:
-
-1. **Rule-like strategies**: Compressible by simple interpretable model
-2. **Not human-like inference**: Different bias patterns from humans
-3. **Brittleness with uncertainty**: Rule-like reasoning fails under intrinsic uncertainty
-4. **Lack probabilistic sophistication**: Don't account for latent factors like humans
-
-## Methodology
-
-**Benchmark**: 11 causal judgment tasks with collider structure (C₁ → E ← C₂)
-
-**Subjects**: 20+ LLMs vs matched human baseline
-
-**Probes**:
-1. Semantic abstraction (different framings)
-2. Prompt overloading (irrelevant text injection)
-
-**Finding**: CoT increases robustness for many LLMs
+---
 
 ## Key Evidence
 
@@ -47,8 +62,32 @@ Evidence for pattern-matching over genuine causal reasoning:
 | Markov violations | Shows characteristic bias | Does NOT mirror |
 | Uncertainty handling | Flexible | Breaks down |
 
-**Compressibility**: Small interpretable model captures LLMs' causal judgments well
-- Suggests simple rule-based computation, not rich causal inference
+**Compressibility**: Small interpretable model captures LLMs' causal judgments well—suggests simple rule-based computation, not rich causal inference.
+
+---
+
+## Relationship to Other Papers
+
+### Supports
+- **#306 Lost in Noise** (2601.07226): Both show LLMs struggle with uncertainty
+- **#180 Contextual Drag** (2602.04288): Both show context/framing affects judgments
+- **#206 Arithmetic Interpretation**: Both find rule-based computations
+
+---
+
+## REBUTTALS
+
+### This Paper Reveals
+- LLMs apply learned rules, not causal reasoning
+- Different from human probabilistic inference
+- Fails under intrinsic uncertainty
+
+### Limitations (Authors Acknowledge)
+1. Specific task type: Collider structures may not generalize to all causal reasoning
+2. Workshop paper: ICLR 2026 Workshop
+3. Limited to judgment tasks, not intervention planning
+
+---
 
 ## Key Quotes
 
@@ -60,21 +99,10 @@ Evidence for pattern-matching over genuine causal reasoning:
 
 > "This divergence suggests LLMs can complement humans when known biases are undesirable, but their rule-like reasoning may break down when uncertainty is intrinsic."
 
-## Connections to Other Papers
+---
 
-- **Supports Paper #306** (Lost in Noise): Both show LLMs struggle with uncertainty
-- **Supports Paper #180** (Contextual Drag): Both show context/framing affects judgments
-- **Related to Paper #206** (Arithmetic Interpretation): Both find rule-based computations
+## Significance for Thesis
 
-## Limitations
-
-1. **Specific task type**: Collider structures may not generalize to all causal reasoning
-2. **3 authors**: Smaller author team than some papers
-3. **Workshop paper**: ICLR 2026 Workshop
-
-## REBUTTALS
-
-**Key insight for thesis:**
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │  RULE-LIKE ≠ REASONING                                             │
@@ -94,3 +122,16 @@ Evidence for pattern-matching over genuine causal reasoning:
 │  This is pattern matching with rules, not causal understanding      │
 └─────────────────────────────────────────────────────────────────────┘
 ```
+
+**Stance**: SUPPORTS
+
+Evidence for pattern-matching over genuine causal reasoning: rule-like strategies, compressible by simple models, different from human inference, and brittle under uncertainty.
+
+---
+
+## Status
+- [x] Read complete
+- [x] Core claims extracted
+- [x] Key evidence with numbers
+- [x] Rebuttals checked
+- [x] Paper graph updated

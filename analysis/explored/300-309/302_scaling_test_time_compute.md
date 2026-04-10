@@ -1,6 +1,37 @@
-## Summary
+# Paper Analysis: Scaling LLM Test-Time Compute Optimally Can be More Effective than Scaling Model Parameters
 
-This DeepMind paper studies optimal scaling of test-time compute, showing a smaller model can outperform a 14x larger model on some tasks. However, the critical finding is that effectiveness "critically varies with difficulty"—test-time compute fails completely on the hardest problems (bin 5: "no method makes meaningful progress"). The improvements come from better search/selection, not new reasoning.
+## Metadata
+- **arXiv ID**: 2408.03314
+- **Title**: Scaling LLM Test-Time Compute Optimally Can be More Effective than Scaling Model Parameters
+- **Authors**: Charlie Snell, Jaehoon Lee, Kelvin Xu, Aviral Kumar (Google DeepMind)
+- **Date**: August 2024
+- **Venue**: arXiv preprint
+
+---
+
+## Core Claims
+
+1. **Smaller model can match 14x larger**: With optimal test-time compute allocation, a smaller model can match performance of 14x larger model on some tasks.
+
+2. **Effectiveness varies with difficulty**: Test-time compute "critically varies with difficulty"—works on easy/medium, fails on hard.
+
+3. **Bin 5 (hardest): no progress**: "On the most difficult questions (level 5), no method makes much meaningful progress."
+
+4. **Revisions fix errors, not reasoning**: Improvements come from arithmetic/formatting fixes, not novel mathematical reasoning.
+
+---
+
+## Methodology
+
+### Setup
+- **Benchmark**: MATH dataset (high-school competition problems)
+- **Model**: PaLM 2-S* (Codey) base model
+- **Two mechanisms**: Search against verifier, adaptive distribution updates
+
+### Difficulty-Dependent Effectiveness
+- **Easy (bins 1-2)**: Sequential revisions >> parallel; beam search degrades
+- **Medium (bins 3-4)**: Beam search helps; test-time compute most effective
+- **Hard (bin 5)**: No method makes meaningful progress
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -13,41 +44,46 @@ This DeepMind paper studies optimal scaling of test-time compute, showing a smal
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
-## Thesis Relevance: SUPPORTS
-
-Despite seeming like counter-evidence, this paper strongly supports pattern matching:
-
-1. **Complete failure on hard problems**: "No method makes meaningful progress" on bin 5
-2. **Requires existing capability**: Works only where model has "non-trivial success rates"
-3. **Revisions fix errors, don't discover**: Examples show arithmetic/format fixes, not novel proofs
-4. **Over-optimization harms easy problems**: Beam search degrades on easy questions
-5. **Verifiers easily exploited**: Models find shortcuts, not valid reasoning
-
-## Methodology
-
-**Benchmark:** MATH dataset (high-school competition problems)
-**Model:** PaLM 2-S* (Codey) base model
-
-**Two mechanisms studied:**
-1. Search against dense, process-based verifier reward models
-2. Updating model distribution adaptively (revisions)
-
-**Key finding:** Compute-optimal strategy allocates different methods per difficulty bin.
+---
 
 ## Key Evidence
 
-| Finding | Quantitative | Implication |
-|---------|--------------|-------------|
-| Model comparison | 14x larger model | FLOPs-matched comparison |
+| Finding | Quantitative | Context |
+|---------|--------------|---------|
+| Model comparison | 14x larger model matched | FLOPs-matched comparison |
 | Efficiency gain | 4x | From adaptive allocation |
 | Bin 5 (hardest) | "No meaningful progress" | Capability ceiling exists |
 | Revision regression | 38% correct → incorrect | Revisions unreliable |
 | Difficulty dependency | Critical | Easy/medium benefit; hard doesn't |
 
-**Difficulty-dependent effectiveness:**
-- **Easy (bins 1-2)**: Sequential revisions >> parallel; beam search degrades
-- **Medium (bins 3-4)**: Beam search helps; test-time compute most effective
-- **Hard (bin 5)**: No method makes meaningful progress
+---
+
+## Relationship to Other Papers
+
+### Supports
+- **#295 Test-Time Compute Overestimation** (2603.15377): Both show compute limits
+- **#299 Tree of Thoughts** (2305.10601): Both show search helps within capability bounds
+- **#298 Self-MoA** (2502.00674): Both show quality > diversity
+
+### Extends
+- Provides framework for understanding when test-time compute helps vs. doesn't
+
+---
+
+## REBUTTALS
+
+### Known Rebuttals
+The paper's own findings serve as a partial rebuttal to test-time scaling claims:
+- Hard problems show no improvement regardless of compute
+- 38% regression rate undermines reliability
+
+### Limitations (Authors Acknowledge)
+1. Did not combine PRM tree-search with revisions
+2. Difficulty estimation requires substantial compute (2048 samples/question)
+3. Findings may not transfer due to distribution shift
+4. Requires capability-specific finetuning
+
+---
 
 ## Key Quotes
 
@@ -57,21 +93,9 @@ Despite seeming like counter-evidence, this paper strongly supports pattern matc
 
 > "Around 38% of correct answers get converted back to incorrect ones with our revision model."
 
-## Connections to Other Papers
+---
 
-**Supports thesis alongside:**
-- **#295 Test-Time Compute Overestimation** (2603.15377): Both show compute limits
-- **#299 Tree of Thoughts** (2305.10601): Both show search helps within capability bounds
-- **#298 Self-MoA** (2502.00674): Both show quality > diversity
-
-## Limitations (Authors Acknowledge)
-
-- Did not combine PRM tree-search with revisions
-- Difficulty estimation requires substantial compute (2048 samples/question)
-- Findings may not transfer due to distribution shift
-- Requires capability-specific finetuning
-
-## Implications for Thesis
+## Significance for Thesis
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -91,3 +115,16 @@ Despite seeming like counter-evidence, this paper strongly supports pattern matc
 │  mathematical reasoning.                                           │
 └─────────────────────────────────────────────────────────────────────┘
 ```
+
+**Stance**: SUPPORTS
+
+Despite seeming like counter-evidence, this paper strongly supports pattern matching: complete failure on hard problems, revisions fix errors don't discover proofs, and effectiveness requires existing capability.
+
+---
+
+## Status
+- [x] Read complete
+- [x] Core claims extracted
+- [x] Key evidence with numbers
+- [x] Rebuttals checked
+- [x] Paper graph updated

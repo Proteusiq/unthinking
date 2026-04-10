@@ -1,6 +1,40 @@
-## Summary
+# Paper Analysis: Provable Expressiveness Hierarchy in Hybrid Attention Transformers
 
-A theoretical paper from Shanghai AI establishing **provable expressiveness separations** between attention mechanisms. Key result: for L-sequential function composition (multi-step reasoning), even 2^(3L²) linear attention layers interleaved with L-1 full attention layers CANNOT match what L+1 full attention layers can do. This proves fundamental architectural limitations for reasoning that requires compositional computation within a forward pass.
+## Metadata
+- **arXiv ID**: 2602.01763
+- **Title**: Provable Expressiveness Hierarchy in Hybrid Attention Transformers
+- **Authors**: Shanghai AI Lab (multiple authors)
+- **Date**: February 2026
+- **Venue**: arXiv preprint
+
+---
+
+## Core Claims
+
+1. **Provable separation**: First proof that hybrid attention cannot match full attention on compositional tasks.
+
+2. **Multi-step reasoning requires depth**: Each composition step needs a full attention layer—linear layers cannot substitute.
+
+3. **Exponential linear layers insufficient**: Even 2^(3L²) linear attention layers + L-1 full attention CANNOT match L+1 full attention on L-step composition.
+
+4. **Sparse attention also limited**: Ω(B log n) lower bound vs O(log n) for full attention on 2-Sum.
+
+---
+
+## Methodology
+
+### Paper Type
+Theoretical (communication complexity proofs)
+
+### Key Technique
+Indistinguishable decomposition—construct input sets that models cannot distinguish despite requiring different outputs
+
+### Main Results
+- **Theorem 1.1**: (L-1, 2^(3L²))-hybrid Transformer cannot solve L-sequential function composition when Hdp ≤ n^(2^(-4L-2))
+- **Theorem 1.2**: Single-layer (B,k)-sparse attention solving 2-Sum requires Hdp = Ω(B log n), vs O(log n) for full attention
+
+### Coverage
+Linear attention variants including Mamba, DeltaNet, RWKV, Gated DeltaNet
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -15,26 +49,7 @@ A theoretical paper from Shanghai AI establishing **provable expressiveness sepa
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
-## Thesis Relevance: SUPPORTS
-
-Establishes fundamental theoretical limits on transformer reasoning:
-
-1. **Provable separation**: First proof that hybrid attention cannot match full attention on compositional tasks
-2. **Multi-step reasoning requires depth**: Each composition step needs a full attention layer
-3. **Linear attention fundamentally limited**: Cannot create "rich interactions needed for deep composition"
-4. **Sparse attention also limited**: Ω(B log n) lower bound vs O(log n) for full attention on 2-Sum
-
-## Methodology
-
-**Paper type:** Theoretical (communication complexity proofs)
-
-**Key technique:** Indistinguishable decomposition—construct input sets that models cannot distinguish despite requiring different outputs
-
-**Main results:**
-- **Theorem 1.1**: (L-1, 2^(3L²))-hybrid Transformer cannot solve L-sequential function composition when Hdp ≤ n^(2^(-4L-2))
-- **Theorem 1.2**: Single-layer (B,k)-sparse attention solving 2-Sum requires Hdp = Ω(B log n), vs O(log n) for full attention
-
-**Coverage:** Linear attention variants including Mamba, DeltaNet, RWKV, Gated DeltaNet
+---
 
 ## Key Evidence
 
@@ -44,7 +59,35 @@ Establishes fundamental theoretical limits on transformer reasoning:
 | Full - L+1 layers | O(polylog n) — CAN solve |
 | Hybrid (L-1 full + 2^(3L²) linear) | Ω(poly n) — cannot solve |
 
-**Implication:** Adding linear attention layers provides "marginal" performance gain—cannot substitute for missing full attention layer.
+**Implication**: Adding linear attention layers provides "marginal" performance gain—cannot substitute for missing full attention layer.
+
+---
+
+## Relationship to Other Papers
+
+### Supports
+- **#1 Faith and Fate** (2305.18654): Both show compositional reasoning limits
+- **#186 Transformers Learn Shortcuts** (2409.12917): Architectural constraints force shortcut learning
+- **#302 Test-Time Compute** (2408.03314): Fundamental limits exist regardless of compute
+
+### Extends
+- Chen et al. 2025: First unconditional lower bound for multi-layer transformers
+
+---
+
+## REBUTTALS
+
+### This Paper Provides Theoretical Foundation For
+- Why scaling linear attention doesn't solve reasoning
+- Why depth (full attention layers) matters for composition
+- Why hybrid architectures have fundamental limits
+
+### Limitations (Authors Acknowledge)
+1. Theoretical task: L-sequential function composition is constructed for analysis, not natural language
+2. Authors acknowledge: "Implications in the real world demand verification of practice"
+3. Asymptotic bounds: Constants may matter in practice
+
+---
 
 ## Key Quotes
 
@@ -56,27 +99,10 @@ Establishes fundamental theoretical limits on transformer reasoning:
 
 > "This task formally captures the essence of multi-step reasoning (e.g., multi-hop retrieval) that must occur within a model's forward pass."
 
-## Connections to Other Papers
+---
 
-- **Supports Paper #1** (Faith and Fate): Both show compositional reasoning limits
-- **Supports Paper #186** (Transformers Learn Shortcuts): Architectural constraints force shortcut learning
-- **Supports Paper #302** (Test-Time Compute): Fundamental limits exist regardless of compute
-- **Extends Chen et al. 2025**: First unconditional lower bound for multi-layer transformers
+## Significance for Thesis
 
-## Limitations
-
-1. **Theoretical task**: L-sequential function composition is constructed for analysis, not natural language
-2. **Authors acknowledge**: "Implications in the real world demand verification of practice"
-3. **Asymptotic bounds**: Constants may matter in practice
-
-## REBUTTALS
-
-**This paper provides theoretical foundation for:**
-- Why scaling linear attention doesn't solve reasoning
-- Why depth (full attention layers) matters for composition
-- Why hybrid architectures have fundamental limits
-
-**Key theoretical insight:**
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │  MULTI-STEP REASONING REQUIRES ARCHITECTURAL SUPPORT                │
@@ -92,3 +118,16 @@ Establishes fundamental theoretical limits on transformer reasoning:
 │  not just training data or model size                               │
 └─────────────────────────────────────────────────────────────────────┘
 ```
+
+**Stance**: SUPPORTS
+
+Establishes fundamental theoretical limits on transformer reasoning: provable separation between attention mechanisms, multi-step reasoning requires depth, and linear attention fundamentally limited.
+
+---
+
+## Status
+- [x] Read complete
+- [x] Core claims extracted
+- [x] Key evidence with numbers
+- [x] Rebuttals checked
+- [x] Paper graph updated

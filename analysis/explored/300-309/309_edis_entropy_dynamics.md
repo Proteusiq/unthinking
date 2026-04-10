@@ -1,6 +1,41 @@
-## Summary
+# Paper Analysis: EDIS: Diagnosing LLM Reasoning via Entropy Dynamics
 
-A 9-author paper showing **entropy dynamics reveal reasoning failures**. Key finding: erroneous solutions exhibit characteristic instability patterns—**burst spikes** (sustained uncertainty growth) and **peak-valley spikes** (sharp rebounds after transient confidence). These patterns persist across models and training stages, suggesting they reflect **intrinsic properties of reasoning failure**. The EDIS metric quantifies this instability and predicts incorrect answers.
+## Metadata
+- **arXiv ID**: 2602.01288
+- **Title**: EDIS: Diagnosing LLM Reasoning via Entropy Dynamics
+- **Authors**: 9 authors (multiple institutions)
+- **Date**: February 2026
+- **Venue**: arXiv preprint
+
+---
+
+## Core Claims
+
+1. **Erroneous solutions have unstable entropy**: Incorrect reasoning exhibits burst spikes and peak-valley spikes in entropy dynamics.
+
+2. **Patterns persist across models**: Instability patterns reflect intrinsic properties of reasoning failure, not superficial noise.
+
+3. **EDIS predicts failures**: Entropy Dynamics Instability Score serves as effective diagnostic for inference-time selection.
+
+4. **Temporal evolution matters**: Aggregate confidence hides failure patterns—trajectory-level analysis reveals them.
+
+---
+
+## Methodology
+
+### Approach
+Analyze token-level entropy trajectories during generation
+
+### Key Metric
+EDIS (Entropy Dynamics Instability Score)
+- Trajectory-level metric quantifying instability in entropy evolution
+- Effective diagnostic signal for inference-time selection
+
+### Patterns Identified
+| Pattern | Description | Implication |
+|---------|-------------|-------------|
+| Burst spikes | Sustained uncertainty growth | Model losing confidence |
+| Peak-valley spikes | Sharp rebounds after transient confidence | False certainty followed by doubt |
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -16,43 +51,44 @@ A 9-author paper showing **entropy dynamics reveal reasoning failures**. Key fin
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
-## Thesis Relevance: SUPPORTS
-
-Reveals internal signatures of reasoning failure:
-
-1. **Temporal evolution matters**: Aggregate confidence hides failure patterns
-2. **Instability predicts failure**: Erroneous reasoning has detectable signatures
-3. **Intrinsic property**: Patterns persist across models—not superficial noise
-4. **Model lacks metacognition**: Cannot use its own uncertainty signals to self-correct
-
-## Methodology
-
-**Approach:** Analyze token-level entropy trajectories during generation
-
-**Key metric:** EDIS (Entropy Dynamics Instability Score)
-- Trajectory-level metric quantifying instability in entropy evolution
-- Effective diagnostic signal for inference-time selection
-
-**Patterns identified:**
-| Pattern | Description | Implication |
-|---------|-------------|-------------|
-| Burst spikes | Sustained uncertainty growth | Model losing confidence |
-| Peak-valley spikes | Sharp rebounds after transient confidence | False certainty followed by doubt |
-
-**Applications:**
-- Inference-time selection (substantially improves accuracy)
-- Training-time sample curation
+---
 
 ## Key Evidence
 
-**Characteristic patterns:**
+### Characteristic Patterns
 - Erroneous solutions: unstable dynamics (burst spikes, peak-valley spikes)
 - Correct solutions: stable entropy evolution
 - Patterns persist across models and training stages
 
-**Practical application:**
+### Practical Application
 - EDIS substantially improves reasoning accuracy when used for inference-time selection
 - Provides diagnostic signal without ground truth
+
+---
+
+## Relationship to Other Papers
+
+### Supports
+- **#305 Effective Reasoning** (2509.19284): Both identify patterns distinguishing correct/incorrect reasoning
+- **#306 Lost in Noise** (2601.07226): Both show models lack robust self-monitoring
+- **#310 Dynamic Instability** (2602.02863): Both analyze dynamic signatures of failure
+- **#303 CoVe** (2309.11495): Both show models can't reliably detect own errors
+
+---
+
+## REBUTTALS
+
+### This Paper Reveals
+- Models have detectable failure modes in their uncertainty dynamics
+- Yet they cannot use these signals for self-correction
+- Patterns are intrinsic to reasoning failure, not random noise
+
+### Limitations (Authors Acknowledge)
+1. Diagnostic, not prescriptive: Identifies failures but doesn't fix underlying reasoning
+2. Requires token-level access: Needs internal probabilities, not just outputs
+3. Selection vs correction: Uses instability for selection, not self-repair
+
+---
 
 ## Key Quotes
 
@@ -64,27 +100,10 @@ Reveals internal signatures of reasoning failure:
 
 > "We show that the temporal evolution of confidence during generation carries richer information than aggregate statistics alone."
 
-## Connections to Other Papers
+---
 
-- **Supports Paper #305** (Effective Reasoning): Both identify patterns distinguishing correct/incorrect reasoning
-- **Supports Paper #306** (Lost in Noise): Both show models lack robust self-monitoring
-- **Supports Paper #310** (Dynamic Instability): Both analyze dynamic signatures of failure
-- **Related to Paper #303** (CoVe): Both show models can't reliably detect own errors
+## Significance for Thesis
 
-## Limitations
-
-1. **Diagnostic, not prescriptive**: Identifies failures but doesn't fix underlying reasoning
-2. **Requires token-level access**: Needs internal probabilities, not just outputs
-3. **Selection vs correction**: Uses instability for selection, not self-repair
-
-## REBUTTALS
-
-**This paper reveals:**
-- Models have detectable failure modes in their uncertainty dynamics
-- Yet they cannot use these signals for self-correction
-- Patterns are intrinsic to reasoning failure, not random noise
-
-**Key insight for thesis:**
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │  ENTROPY DYNAMICS EXPOSE THE MACHINERY                             │
@@ -109,3 +128,16 @@ Reveals internal signatures of reasoning failure:
 │  detectable quality variations, not robust inference                │
 └─────────────────────────────────────────────────────────────────────┘
 ```
+
+**Stance**: SUPPORTS
+
+Reveals internal signatures of reasoning failure: temporal evolution matters, instability predicts errors, patterns are intrinsic, but models lack metacognition to use these signals.
+
+---
+
+## Status
+- [x] Read complete
+- [x] Core claims extracted
+- [x] Key evidence with numbers
+- [x] Rebuttals checked
+- [x] Paper graph updated

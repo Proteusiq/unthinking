@@ -1,6 +1,44 @@
-## Summary
+# Paper Analysis: Diagnosing Dynamic Instability in LLM Reasoning
 
-Dalhousie University study showing **dynamic instability predicts reasoning failure** from inference-time observables (token log probabilities). Key finding: instability signal (JSD + entropy) predicts wrong answers with **above-chance AUC** across GSM8K and HotpotQA. Crucially distinguishes **corrective instability** (early, can recover) from **destructive instability** (late, leads to failure). Model-agnostic, training-free diagnostic.
+## Metadata
+- **arXiv ID**: 2602.02863
+- **Title**: Diagnosing Dynamic Instability in LLM Reasoning
+- **Authors**: Dalhousie University (multiple authors)
+- **Date**: February 2026
+- **Venue**: arXiv preprint
+
+---
+
+## Core Claims
+
+1. **Instability predicts failures**: JSD + entropy signal predicts wrong answers with above-chance AUC.
+
+2. **Timing matters for recovery**: Corrective instability (early) can recover; destructive instability (late) cannot.
+
+3. **"Loses the thread"**: Many failures manifest as process-level breakdown mid-reasoning.
+
+4. **Model-agnostic diagnostic**: Training-free method works across model sizes.
+
+---
+
+## Methodology
+
+### Signal
+Combines consecutive-step JSD (distributional shift) + entropy (uncertainty)
+
+### Summary
+Peak instability strength per trace
+
+### Results
+- Above-chance AUC for predicting wrong answers
+- Monotonic bucket-level accuracy decline across model sizes
+- Works on GSM8K and HotpotQA
+
+### Key Distinction
+| Type | Timing | Outcome |
+|------|--------|---------|
+| Corrective | Early | Can stabilize → correct |
+| Destructive | Late | Leads to failure |
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -18,31 +56,42 @@ Dalhousie University study showing **dynamic instability predicts reasoning fail
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
-## Thesis Relevance: SUPPORTS
+---
 
-Reveals process-level breakdown in reasoning:
+## Key Evidence
 
-1. **Detectable failure modes**: Instability predicts wrong answers with above-chance AUC
-2. **Timing matters**: Recoverability depends on when instability occurs
-3. **"Loses the thread"**: Models experience mid-reasoning breakdowns
-4. **Monotonic accuracy decline**: Higher instability → lower accuracy at scale
-
-## Methodology
-
-**Signal**: Combines consecutive-step JSD (distributional shift) + entropy (uncertainty)
-
-**Summary**: Peak instability strength per trace
-
-**Results:**
-- Above-chance AUC for predicting wrong answers
-- Monotonic bucket-level accuracy decline across model sizes
+- Above-chance AUC for predicting failures
+- Monotonic accuracy decline with instability
+- Early instability can recover; late cannot
 - Works on GSM8K and HotpotQA
+- Model-agnostic, training-free diagnostic
 
-**Key distinction:**
-| Type | Timing | Outcome |
-|------|--------|---------|
-| Corrective | Early | Can stabilize → correct |
-| Destructive | Late | Leads to failure |
+---
+
+## Relationship to Other Papers
+
+### Closely Related
+- **#309 EDIS** (2602.01288): Both analyze entropy/instability dynamics
+
+### Supports
+- **#305 Effective Reasoning** (2509.19284): Both identify patterns in correct vs incorrect
+- **#306 Lost in Noise** (2601.07226): Both show models can "lose the thread"
+
+---
+
+## REBUTTALS
+
+### This Paper Reveals
+- Reasoning failures are process-level breakdowns
+- Detectable but not self-correctable
+- Timing dependency undermines claims of robust reasoning
+
+### Limitations (Authors Acknowledge)
+- Signal is diagnostic, not prescriptive
+- Requires access to token probabilities
+- Correlation study, not causal intervention
+
+---
 
 ## Key Quotes
 
@@ -52,15 +101,10 @@ Reveals process-level breakdown in reasoning:
 
 > "Recoverability depends not only on how strongly the distribution changes but also on when such changes occur relative to the remaining decoding horizon."
 
-## Connections to Other Papers
+---
 
-- **Closely related to Paper #309** (EDIS): Both analyze entropy/instability dynamics
-- **Supports Paper #305** (Effective Reasoning): Both identify patterns in correct vs incorrect
-- **Supports Paper #306** (Lost in Noise): Both show models can "lose the thread"
+## Significance for Thesis
 
-## REBUTTALS
-
-**Key insight for thesis:**
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │  REASONING FAILURES ARE PROCESS-LEVEL BREAKDOWNS                   │
@@ -79,3 +123,16 @@ Reveals process-level breakdown in reasoning:
 │  Instead: Pattern matching that can be derailed                     │
 └─────────────────────────────────────────────────────────────────────┘
 ```
+
+**Stance**: SUPPORTS
+
+Reveals process-level breakdown in reasoning: detectable failure modes, timing-dependent recovery, and models "lose the thread" mid-reasoning.
+
+---
+
+## Status
+- [x] Read complete
+- [x] Core claims extracted
+- [x] Key evidence with numbers
+- [x] Rebuttals checked
+- [x] Paper graph updated

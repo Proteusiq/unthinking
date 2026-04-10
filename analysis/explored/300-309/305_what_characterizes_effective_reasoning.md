@@ -1,6 +1,37 @@
-## Summary
+# Paper Analysis: What Characterizes Effective Reasoning? An Empirical Analysis of 10 LRMs
 
-Meta Superintelligence Labs study across 10 LRMs challenging the "longer CoT is better" narrative. Key finding: **longer CoTs and more review behavior correlate with LOWER accuracy**. They introduce Failed-Step Fraction (FSF)—the proportion of steps in abandoned reasoning branches—as the strongest predictor of failure. Crucially, removing failed branches improves accuracy by 8-14%, proving models cannot "unsee" past mistakes.
+## Metadata
+- **arXiv ID**: 2509.19284
+- **Title**: What Characterizes Effective Reasoning? An Empirical Analysis of 10 Large Reasoning Models
+- **Authors**: Meta Superintelligence Labs (multiple authors)
+- **Date**: September 2025
+- **Venue**: arXiv preprint
+
+---
+
+## Core Claims
+
+1. **Longer CoT correlates with LOWER accuracy**: Challenges "longer-is-better" narrative across all 10 models tested.
+
+2. **More review behavior correlates with failure**: Self-checking doesn't enable correction—it indicates struggling.
+
+3. **Failed-Step Fraction (FSF) predicts failure**: Proportion of steps in abandoned branches is strongest accuracy predictor.
+
+4. **Models cannot "unsee" mistakes**: Removing failed branches improves accuracy 8-14%, proving prior context bias.
+
+---
+
+## Methodology
+
+### Scale
+- **10 reasoning models**: Claude 3.7 Sonnet Thinking, Grok 3 mini, DeepSeek R1, DeepSeek Distill (7B, 32B), Qwen 3 (8B, 32B, 235B), GPT oss (20B, 120B)
+- **4,800 math traces + 3,200 science traces** per model
+
+### Datasets
+- HARP (math), GPQA-Diamond (science)
+
+### Key Metric
+- Failed-Step Fraction (FSF) = failed nodes / all nodes in reasoning graph
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -17,50 +48,52 @@ Meta Superintelligence Labs study across 10 LRMs challenging the "longer CoT is 
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
-## Thesis Relevance: SUPPORTS
-
-Devastating evidence against genuine deliberation:
-
-1. **Longer ≠ Better**: More compute doesn't enable reasoning—it correlates with failure
-2. **Review doesn't help**: Self-checking correlates with LOWER accuracy (except Claude)
-3. **Cannot correct errors**: Failed branches bias subsequent attempts—models don't learn from mistakes
-4. **Pattern persistence**: Prior context dominates even after "backtracking"
-5. **No metacognition**: Models can't detect their own failed reasoning paths
-
-## Methodology
-
-**Scale**: 10 reasoning models, 4,800 math traces + 3,200 science traces per model
-
-**Models tested:**
-- Claude 3.7 Sonnet Thinking, Grok 3 mini
-- DeepSeek R1, DeepSeek Distill (7B, 32B)
-- Qwen 3 (8B, 32B, 235B)
-- GPT oss (20B, 120B)
-
-**Datasets**: HARP (math), GPQA-Diamond (science)
-
-**Key metric**: Failed-Step Fraction (FSF) = failed nodes / all nodes in reasoning graph
-
-**Causal interventions:**
-1. Test-time selection by FSF → up to 10% accuracy gain
-2. Branch removal → 8-14% accuracy improvement
+---
 
 ## Key Evidence
 
-| Finding | Evidence | Implication |
-|---------|----------|-------------|
+| Finding | Evidence | Context |
+|---------|----------|---------|
 | Longer = worse | Negative correlation across all models | Extended thinking reflects failure |
 | Review = worse | Negative correlation (most models) | Self-checking doesn't work |
 | FSF predicts failure | Strongest correlation across all 10 models | Failed branches = key indicator |
 | Cannot unsee mistakes | Removing branches: +8-14% accuracy | Context persists after backtracking |
-| Effect stronger on hard problems | Levels 4-6 show consistent patterns | Easy problems mask the issue |
+| Effect stronger on hard | Levels 4-6 show consistent patterns | Easy problems mask the issue |
 
-**Quantitative results:**
+### Quantitative Results
 | Intervention | DeepSeek R1 | GPT oss 120B |
 |--------------|-------------|--------------|
 | First branch removed | +8.53% | +8.36% |
 | Last branch removed | +14.03% | +10.83% |
 | Summary instead | +7.25% | +1.46% |
+
+---
+
+## Relationship to Other Papers
+
+### Rebuts
+- **#7 s1 paper** (2501.19393): Claims wait tokens improve reasoning; this shows longer CoT correlates with LOWER accuracy
+
+### Supports
+- **#302 Test-Time Compute** (2408.03314): Both find limits to scaling test-time compute
+- **#12 Illusions of Reflection** (2510.18254): Review behavior doesn't enable self-correction
+- **#180 Contextual Drag** (2602.04288): Prior context biases subsequent predictions
+- **#295 Overestimation Bias** (2603.15377): More compute can hurt via accumulated errors
+
+---
+
+## REBUTTALS
+
+### This Paper Directly Rebuts
+- **s1 paper (2501.19393)**: Claims wait tokens improve reasoning
+- **DeepSeek R1 "aha moment" narrative**: Claims review enables insight
+
+### Limitations (Authors Acknowledge)
+1. Correlation within-question: Controls for question difficulty but not solution path difficulty
+2. Graph extraction by Claude: May have systematic biases in identifying "failed" nodes
+3. Branch removal is oracle: Requires knowing which branches failed (not available in practice)
+
+---
 
 ## Key Quotes
 
@@ -72,27 +105,10 @@ Devastating evidence against genuine deliberation:
 
 > "These results suggest that models have the ability to generate a viable path to the correct answer; however, the presence of failed branches biases subsequent exploration and lowers the overall success rate."
 
-## Connections to Other Papers
+---
 
-- **Directly rebuts Paper #7** (s1): Wait tokens → longer CoT → claimed improvement, but this shows longer = worse
-- **Supports Paper #302** (Test-Time Compute): Both find limits to scaling test-time compute
-- **Supports Paper #12** (Illusions of Reflection): Review behavior doesn't enable self-correction
-- **Supports Paper #180** (Contextual Drag): Prior context biases subsequent predictions
-- **Supports Paper #295** (Overestimation Bias): More compute can hurt via accumulated errors
+## Significance for Thesis
 
-## Limitations
-
-1. **Correlation within-question**: Controls for question difficulty but not solution path difficulty
-2. **Graph extraction by Claude**: May have systematic biases in identifying "failed" nodes
-3. **Branch removal is oracle**: Requires knowing which branches failed (not available in practice)
-
-## REBUTTALS
-
-**This paper directly rebuts:**
-- **s1 paper (2501.19393)**: Claims wait tokens improve reasoning; this shows longer CoT correlates with LOWER accuracy
-- **DeepSeek R1 "aha moment" narrative**: Claims review enables insight; this shows review correlates with failure
-
-**Mechanism explanation:**
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │  WHY LONGER COT = WORSE ACCURACY                                    │
@@ -105,3 +121,16 @@ Devastating evidence against genuine deliberation:
 │  Long CoT is SYMPTOM of failure, not solution to it                 │
 └─────────────────────────────────────────────────────────────────────┘
 ```
+
+**Stance**: SUPPORTS
+
+Devastating evidence against genuine deliberation: longer ≠ better, review doesn't help, failed branches bias subsequent attempts, and models cannot learn from mistakes within a single generation.
+
+---
+
+## Status
+- [x] Read complete
+- [x] Core claims extracted
+- [x] Key evidence with numbers
+- [x] Rebuttals checked
+- [x] Paper graph updated

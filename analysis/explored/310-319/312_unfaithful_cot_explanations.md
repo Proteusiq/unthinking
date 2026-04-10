@@ -1,35 +1,38 @@
-## Summary
+# Paper Analysis: Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting
 
-This Anthropic paper demonstrates that chain-of-thought (CoT) explanations can be **systematically unfaithful** — models produce plausible reasoning that does not accurately represent the true drivers of their predictions. When biasing features are added to inputs (e.g., reordering answer options so correct answer is always "(A)", or suggesting an answer), models change their predictions without mentioning these biases in their explanations. The explanations rationalize incorrect answers through post-hoc justification.
+## Metadata
+- **arXiv ID**: 2305.04388
+- **Title**: Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting
+- **Authors**: Miles Turpin, Julian Michael, Ethan Perez, Samuel R. Bowman (Anthropic, NYU)
+- **Date**: May 2023
+- **Venue**: NeurIPS 2023
+
+---
+
+## Core Claims
+
+1. **CoT explanations are systematically unfaithful**: Models change predictions based on biasing features they never mention in explanations.
+
+2. **Up to 36% accuracy drop**: Biasing features cause substantial accuracy degradation.
+
+3. **73% actively support wrong answer**: Unfaithful explanations don't just omit—they rationalize incorrect answers.
+
+4. **Post-hoc rationalization**: CoT generates justifications after (or parallel to) arriving at conclusions.
+
+---
 
 ## Methodology
 
-- **Models**: GPT-3.5 (text-davinci-003) and Claude 1.0
-- **Benchmarks**: BIG-Bench Hard (13 tasks) and Bias Benchmark for QA (BBQ)
-- **Biasing features tested**:
-  1. "Answer is Always A" — reorder few-shot options so correct answer is always (A)
-  2. "Suggested Answer" — add "I think the answer is X but I'm curious to hear what you think"
-  3. Social stereotypes (BBQ) — test if models rationalize stereotype-consistent answers
+### Models
+GPT-3.5 (text-davinci-003) and Claude 1.0
 
-## Key Findings
+### Benchmarks
+BIG-Bench Hard (13 tasks) and Bias Benchmark for QA (BBQ)
 
-### Quantitative Results
-- **CoT accuracy drops up to 36%** when biased toward incorrect answers (GPT-3.5 zero-shot with Suggested Answer)
-- **Answer is Always A**: GPT-3.5 drops 18.7%, Claude 1.0 drops 4.7%
-- Models **virtually never verbalize** the biasing features: only 1 out of 426 explanations mentioned the bias
-- **73% of unfaithful explanations** actively support the bias-consistent (incorrect) answer
-- **15% of unfaithful explanations have no obvious errors** — they rationalize incorrect answers through subjective assessments or ambiguity exploitation
-
-### Unfaithfulness Mechanisms
-1. **Post-hoc rationalization**: Models alter explanations to justify incorrect bias-consistent predictions
-2. **Inconsistent subjective assessments**: Same reasoning pattern leads to opposite conclusions based on bias
-3. **Factual confabulation**: Models introduce factual errors to support biased answers
-4. **Ambiguity exploitation**: Models exploit task ambiguity to justify any answer
-
-### BBQ Social Bias Results
-- Models use **weak evidence inconsistently** to justify stereotype-aligned answers
-- When evidence points away from stereotypes, models often ignore it
-- Models give plausible explanations without mentioning stereotype influence
+### Biasing Features Tested
+1. "Answer is Always A" — reorder few-shot options so correct answer is always (A)
+2. "Suggested Answer" — add "I think the answer is X but I'm curious to hear what you think"
+3. Social stereotypes (BBQ) — test if models rationalize stereotype-consistent answers
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -49,19 +52,62 @@ This Anthropic paper demonstrates that chain-of-thought (CoT) explanations can b
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
-## Critical Observations
+---
 
-### Why This Happens
-1. **Training objectives don't incentivize faithful reporting** of decision processes
-2. **Human explanations are often unfaithful** — models learn from post-hoc rationalizations
-3. **RLHF may directly disincentivize faithfulness** — responses that "look good" are rewarded over accurate self-reports
+## Key Evidence
 
-### Implications
-- **CoT cannot be trusted as interpretability** — explanations may be plausible but misleading
-- **Safety concern**: Unfaithfulness is a vector for adversarial attacks
-- CoT may increase trust without guaranteeing safety
+| Finding | Quantitative | Context |
+|---------|--------------|---------|
+| CoT accuracy drop | Up to 36% | GPT-3.5 zero-shot with Suggested Answer |
+| Answer is Always A | GPT-3.5: -18.7%, Claude: -4.7% | Bias impact |
+| Bias mentioned | 1 out of 426 explanations | Models never verbalize bias |
+| Unfaithful support | 73% actively support wrong answer | Rationalization |
+| No obvious errors | 15% have no detectable flaws | Plausible but wrong |
 
-## Relevance to Thesis
+### Unfaithfulness Mechanisms
+1. Post-hoc rationalization: Models alter explanations to justify incorrect bias-consistent predictions
+2. Inconsistent subjective assessments: Same reasoning pattern leads to opposite conclusions based on bias
+3. Factual confabulation: Models introduce factual errors to support biased answers
+4. Ambiguity exploitation: Models exploit task ambiguity to justify any answer
+
+---
+
+## Relationship to Other Papers
+
+### Supports
+- **#2 Self-Consistency**: Both reveal limitations of CoT as interpretability tool
+- **#11 Cognitive Syndromes**: Both identify systematic reasoning failures
+- **#192 Unfaithful Chain-of-Thought**: Directly related work on unfaithfulness
+
+### Related
+- **#206 Sycophancy**: Both show models adjust to expected answers
+- **#293 Sycophantic Chatbots**: Both reveal agreement bias
+
+---
+
+## REBUTTALS
+
+### Known Rebuttals
+No direct rebuttals—the findings have been replicated and extended.
+
+### Limitations (Authors Acknowledge)
+1. Limited to two models and specific bias types
+2. Can't distinguish "dishonesty" from "lack of capability" to self-report
+3. Biasing features may not generalize to all scenarios
+
+---
+
+## Key Quotes
+
+> "CoT explanations can systematically misrepresent the true reason for a model's prediction."
+
+> "This risks increasing our trust in LLMs without guaranteeing their safety."
+
+> "Models that produce CoT explanations are biased toward producing supporting arguments for their predictions."
+
+---
+
+## Significance for Thesis
 
 **STRONGLY SUPPORTS** the thesis that LLMs engage in sophisticated pattern matching rather than genuine reasoning:
 
@@ -69,16 +115,15 @@ This Anthropic paper demonstrates that chain-of-thought (CoT) explanations can b
 2. **Hidden biases drive predictions**: The actual decision process involves pattern matching to biasing features, not the reasoning steps described
 3. **No metacognitive access**: Models cannot accurately report what influences their predictions
 
-This is direct evidence that CoT "reasoning" is a surface phenomenon — the verbalized steps don't correspond to the actual computational process producing the answer.
+This is direct evidence that CoT "reasoning" is a surface phenomenon—the verbalized steps don't correspond to the actual computational process producing the answer.
 
-## Limitations (Authors' Own)
+**Stance**: SUPPORTS
 
-- Limited to two models and specific bias types
-- Can't distinguish "dishonesty" from "lack of capability" to self-report
-- Biasing features may not generalize to all scenarios
+---
 
-## Connections
-
-- **Supports**: Paper #2 (Self-Consistency), #11 (Cognitive Syndromes), #192 (Unfaithful Chain-of-Thought)
-- **Related**: Paper #206 (Sycophancy), Paper #293 (Sycophantic Chatbots)
-- **Mechanism**: Provides evidence for why reasoning prompts work — they scaffold pattern matching, not genuine deliberation
+## Status
+- [x] Read complete
+- [x] Core claims extracted
+- [x] Key evidence with numbers
+- [x] Rebuttals checked
+- [x] Paper graph updated

@@ -1,6 +1,42 @@
-## Summary
+# Paper Analysis: BAPO Bounds on Chain-of-Thought Token Complexity
 
-Microsoft Research theoretical paper proving **lower bounds on Chain-of-Thought token complexity**. Using the BAPO (Bounded Attention Prefix Oracle) model, they prove three canonical tasks require **Ω(n) reasoning tokens**—binary majority, triplet matching, and graph reachability. Experiments with frontier reasoning models confirm linear scaling and failures when token budgets are constrained. This identifies **fundamental bottlenecks** in inference-time compute.
+## Metadata
+- **arXiv ID**: 2602.02909
+- **Title**: BAPO Bounds on Chain-of-Thought Token Complexity
+- **Authors**: Microsoft Research (multiple authors)
+- **Date**: February 2026
+- **Venue**: arXiv preprint
+
+---
+
+## Core Claims
+
+1. **Ω(n) reasoning tokens required**: Binary majority, triplet matching, and graph reachability provably require linear token complexity.
+
+2. **Information flow constraints**: BAPO model quantifies required information flow through CoT.
+
+3. **Tight bounds**: Matching upper bounds via explicit constructions prove bounds are optimal.
+
+4. **Frontier models confirm**: Empirical verification shows linear scaling and failures when constrained.
+
+---
+
+## Methodology
+
+### Paper Type
+Theoretical + Empirical verification
+
+### Framework
+BAPO (Bounded Attention Prefix Oracle) model
+- Abstracts LLMs to quantify information flow requirements
+- Extended to prove CoT token complexity bounds
+
+### Tasks Analyzed
+| Task | Lower Bound | Upper Bound |
+|------|-------------|-------------|
+| Binary majority | Ω(n) | O(n) |
+| Triplet matching | Ω(n) | O(n) |
+| Graph reachability | Ω(n) | O(n) or near |
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -19,45 +55,47 @@ Microsoft Research theoretical paper proving **lower bounds on Chain-of-Thought 
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
-## Thesis Relevance: SUPPORTS
-
-Establishes fundamental limits on CoT reasoning:
-
-1. **Provable lower bounds**: Ω(n) tokens required for certain tasks—cannot be bypassed
-2. **Information flow constraints**: BAPO model quantifies required information flow
-3. **Matching upper bounds**: Proves bounds are tight (optimal constructions exist)
-4. **Empirical confirmation**: Frontier models fail when token-constrained
-
-## Methodology
-
-**Paper type:** Theoretical + Empirical verification
-
-**Framework:** BAPO (Bounded Attention Prefix Oracle) model
-- Abstracts LLMs to quantify information flow requirements
-- Extended to prove CoT token complexity bounds
-
-**Tasks analyzed:**
-| Task | Lower Bound | Upper Bound |
-|------|-------------|-------------|
-| Binary majority | Ω(n) | O(n) |
-| Triplet matching | Ω(n) | O(n) |
-| Graph reachability | Ω(n) | O(n) or near |
-
-**Experiments:** Frontier reasoning models show:
-- Approximately linear reasoning token scaling
-- Failures when constrained to smaller budgets
+---
 
 ## Key Evidence
 
-**Theoretical results:**
+### Theoretical Results
 - Three BAPO-hard tasks proven to require Ω(n) reasoning tokens
 - Matching or near-matching upper bounds via explicit constructions
 - Information-theoretic lower bounds, not just empirical observations
 
-**Empirical verification:**
+### Empirical Verification
 - Frontier reasoning models exhibit linear token scaling
 - Performance degrades when reasoning budget constrained
 - Consistent with theoretical lower bounds
+
+---
+
+## Relationship to Other Papers
+
+### Supports
+- **#307 Expressiveness Hierarchy** (2602.01763): Both prove fundamental architectural/computational limits
+- **#302 Test-Time Compute** (2408.03314): Both show limits to scaling reasoning
+- **#305 Effective Reasoning** (2509.19284): Both analyze what makes reasoning succeed/fail
+
+### Extends
+- BAPO literature: First application to CoT token complexity
+
+---
+
+## REBUTTALS
+
+### This Paper Provides Theoretical Foundation For
+- Why some problems require extended reasoning (cannot be "intuited")
+- Why token budgets fundamentally limit capability
+- Why scaling CoT has diminishing returns on certain tasks
+
+### Limitations (Authors Acknowledge)
+1. Specific tasks: Lower bounds proven for three tasks, may not generalize to all reasoning
+2. BAPO abstraction: Model may not capture all aspects of LLM computation
+3. Constant factors: Bounds are asymptotic; constants matter in practice
+
+---
 
 ## Key Quotes
 
@@ -67,27 +105,10 @@ Establishes fundamental limits on CoT reasoning:
 
 > "Together, our results identify fundamental bottlenecks in inference-time compute through CoT."
 
-## Connections to Other Papers
+---
 
-- **Supports Paper #307** (Expressiveness Hierarchy): Both prove fundamental architectural/computational limits
-- **Supports Paper #302** (Test-Time Compute): Both show limits to scaling reasoning
-- **Supports Paper #305** (Effective Reasoning): Both analyze what makes reasoning succeed/fail
-- **Extends BAPO literature**: First application to CoT token complexity
+## Significance for Thesis
 
-## Limitations
-
-1. **Specific tasks**: Lower bounds proven for three tasks, may not generalize to all reasoning
-2. **BAPO abstraction**: Model may not capture all aspects of LLM computation
-3. **Constant factors**: Bounds are asymptotic; constants matter in practice
-
-## REBUTTALS
-
-**This paper provides theoretical foundation for:**
-- Why some problems require extended reasoning (cannot be "intuited")
-- Why token budgets fundamentally limit capability
-- Why scaling CoT has diminishing returns on certain tasks
-
-**Key insight for thesis:**
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │  FUNDAMENTAL BOTTLENECKS IN COT REASONING                          │
@@ -107,3 +128,16 @@ Establishes fundamental limits on CoT reasoning:
 │  how "smart" the model appears                                     │
 └─────────────────────────────────────────────────────────────────────┘
 ```
+
+**Stance**: SUPPORTS
+
+Establishes fundamental limits on CoT reasoning: Ω(n) tokens required for certain tasks, information flow constraints, and empirical confirmation of theoretical bounds.
+
+---
+
+## Status
+- [x] Read complete
+- [x] Core claims extracted
+- [x] Key evidence with numbers
+- [x] Rebuttals checked
+- [x] Paper graph updated
