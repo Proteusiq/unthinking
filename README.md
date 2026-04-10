@@ -62,6 +62,7 @@ Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.
 
 See also:
 - [Transformer Explainer](https://poloclub.github.io/transformer-explainer/): interactive GPT-2 visualization (Georgia Tech)
+- [no-magic](https://github.com/no-magic-ai/no-magic): 47 zero-dependency ML algorithm implementations — "Because `model.fit()` isn't an explanation"
 - [microgpt](https://karpathy.github.io/2026/02/12/microgpt/): 200 lines of pure Python GPT (Andrej Karpathy)
 
 ---
