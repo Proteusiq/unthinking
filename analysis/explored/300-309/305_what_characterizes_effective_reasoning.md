@@ -1,9 +1,9 @@
-# Paper Analysis: What Characterizes Effective Reasoning? An Empirical Analysis of 10 LRMs
+# Paper Analysis: What Characterizes Effective Reasoning? Revisiting Length, Review, and Structure of CoT
 
 ## Metadata
 - **arXiv ID**: 2509.19284
-- **Title**: What Characterizes Effective Reasoning? An Empirical Analysis of 10 Large Reasoning Models
-- **Authors**: Meta Superintelligence Labs (multiple authors)
+- **Title**: What Characterizes Effective Reasoning? Revisiting Length, Review, and Structure of CoT
+- **Authors**: Yunzhen Feng, Julia Kempe, Cheng Zhang, Parag Jain, Anthony Hartshorn
 - **Date**: September 2025
 - **Venue**: arXiv preprint
 

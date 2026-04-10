@@ -3,7 +3,7 @@
 ## Metadata
 - **arXiv ID**: 2412.03782
 - **Title**: The Broader Spectrum of In-Context Learning
-- **Authors**: Andrew Kyle Lampinen, Stephanie C. Y. Chan, Aaditya K. Singh (Google DeepMind)
+- **Authors**: Andrew Kyle Lampinen, Stephanie C. Y. Chan, Aaditya K. Singh, Murray Shanahan (Google DeepMind)
 - **Date**: December 2024
 - **Venue**: arXiv preprint (Perspective paper)
 

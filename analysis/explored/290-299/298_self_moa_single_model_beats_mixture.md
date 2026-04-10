@@ -49,11 +49,16 @@
 
 | Finding | Quantitative Result | Context |
 |---------|---------------------|---------|
-| Self-MoA vs Mixed-MoA (AlpacaEval) | +6.6 points (65.7 vs 59.1) | Direct comparison |
-| Quality coefficient (α) | 2.56-4.72 across datasets | Regression analysis |
-| Diversity coefficient (β) | 1.42-2.84 across datasets | Regression analysis |
-| Quality > Diversity | α > β in all 3 datasets | MMLU, CRUX, MATH |
-| State-of-the-art | Self-MoA achieves #1 on AlpacaEval 2.0 | Leaderboard result |
+| Self-MoA vs Mixed-MoA (AlpacaEval) | +6.6 points (65.7 vs 59.1) | LC Win Rate |
+| Top model gains | +2-3 points (78.5 vs 76.7) | gemma-2-9b-it-WPO-HB |
+| MMLU Self-MoA vs best Mixed | 69.01 vs 68.90 | 6×TaskBest |
+| CRUX Self-MoA vs best Mixed | 52.62 vs 47.00 | 6×TaskBest |
+| MATH Self-MoA vs best Mixed | 69.80 vs 67.62 | 6×TaskBest |
+| Quality coefficient (α) MMLU | 2.558 ± 0.176 (p<0.001) | R²=0.771 |
+| Quality coefficient (α) CRUX | 4.548 ± 0.459 (p<0.001) | R²=0.685 |
+| Quality coefficient (α) MATH | 4.719 ± 0.416 (p<0.001) | R²=0.760 |
+| Diversity coefficient (β) | 1.42-2.84 across datasets | Always less than α |
+| Quality > Diversity ratio | 1.4x-3.2x | α/β across all datasets |
 
 **Critical finding**: When diversity is maximized at the expense of quality (including weak models), performance degrades. The aggregator cannot synthesize "better reasoning" from diverse weak models—it needs high-quality patterns to select from.
 
@@ -82,10 +87,11 @@
 **Response**: This is exactly the point—the aggregator is a selector/ranker, not a synthesizer of novel reasoning. If LLMs could genuinely reason, diverse perspectives should enable novel insights beyond any individual sample.
 
 ### Limitations (Authors Acknowledge)
-1. Limited model coverage: Primarily tested on instruction-following benchmarks
-2. Aggregator quality: Uses strong aggregator (Qwen1.5-110B); unclear if findings hold with weaker aggregators
-3. Task-specific: Self-MoA advantage may vary by task type
-4. No mechanistic analysis: Shows correlation, not why quality > diversity mechanistically
+1. **Diversity plateau**: "As more responses are sampled from a single model, the diversity among those samples tends to plateau"
+2. **Aggregation difficulty**: Aggregating many samples is harder for LLMs than handling fewer samples
+3. **Context length constraint**: Limited by aggregator context window (e.g., 8192 tokens for Gemma 2)
+4. **No universal compute-optimal solution**: Adding more samples can have both positive and negative effects
+5. **Aggregator quality matters**: Weak aggregators constrain MoA performance (Qwen2-7B on MATH)
 
 ---
 
