@@ -2,8 +2,8 @@
 
 ## Metadata
 - **arXiv ID**: 2602.02909
-- **Title**: BAPO Bounds on Chain-of-Thought Token Complexity
-- **Authors**: Microsoft Research (multiple authors)
+- **Title**: Reasoning about Reasoning: BAPO Bounds on Chain-of-Thought Token Complexity in LLMs
+- **Authors**: Kiran Tomlinson, Tobias Schnabel, Adith Swaminathan, Jennifer Neville (Microsoft Research)
 - **Date**: February 2026
 - **Venue**: arXiv preprint
 
