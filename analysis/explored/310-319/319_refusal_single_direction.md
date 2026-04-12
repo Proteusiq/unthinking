@@ -3,7 +3,7 @@
 ## Metadata
 - **arXiv**: 2406.11717
 - **Date**: June 2024 (paper), April 2024 (LessWrong preview)
-- **Authors**: Andy Arditi, Oscar Obeso, Aaquib111, Wes Gurnee, Neel Nanda
+- **Authors**: Andy Arditi, Oscar Obeso, Aaquib Syed, Daniel Paleka, Nina Panickssery, Wes Gurnee, Neel Nanda
 - **Affiliation**: MATS Program (ML Alignment Theory Scholars)
 - **Venue**: arXiv + LessWrong
 - **Stance**: Strongly Supports
