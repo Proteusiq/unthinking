@@ -6929,4 +6929,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/310-319/319_refusal_single_direction.md',
   },
+  {
+    id: '2411.09003',
+    title: 'Refusal in LLMs is an Affine Function',
+    shortTitle: 'Affine Refusal (ACE)',
+    date: 'Nov 2024',
+    stance: 'supports',
+    cluster: 'mechanism',
+    coreArgument:
+      'Extends abliteration: refusal is an AFFINE function, not just linear. ACE (Affine Concept Editing) combines directional ablation with a reference point, enabling standardized control via single scalar α. Works on models where pure abliteration fails (RWKV).',
+    keyEvidence: [
+      'Refusal = affine function (needs reference point, not just direction)',
+      'Single scalar α controls all refusal behavior (0=comply, 1=refuse)',
+      'ACE works on RWKV where directional ablation produces nonsense',
+      'Tested on 10 models including Llama 3 70B',
+      'More standardized control than CAA or pure abliteration',
+    ],
+    keyQuotes: [
+      'We argue that this framework assumes without justification that the origin is a meaningful default.',
+      'ACE performs well on RWKV v5, where directional ablation alone produced incoherent results.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/310-319/320_refusal_affine_function.md',
+  },
 ];

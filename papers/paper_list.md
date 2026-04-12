@@ -323,3 +323,4 @@
 | 317 | 2411.11371 | Nov 2024 | Rethinking Thinking Tokens: Why They Underperform | Supports |
 | 318 | 2512.02914 | Dec 2025 | Martingale Score: Bayesian Rationality in LLM Reasoning | Supports |
 | 319 | 2406.11717 | Jun 2024 | Refusal in LLMs is mediated by a single direction | Strongly Supports |
+| 320 | 2411.09003 | Nov 2024 | Refusal in LLMs is an Affine Function | Strongly Supports |

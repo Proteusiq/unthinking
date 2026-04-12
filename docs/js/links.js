@@ -7704,4 +7704,24 @@ window.paperLinks = [
     type: 'supports',
     description: 'Abliteration shows refusal = 1D; this shows safety units = 1.3% of params',
   },
+  // Paper #320: Affine Refusal (ACE) - extends Paper #319
+  {
+    source: '2411.09003',
+    target: '2406.11717',
+    type: 'extends',
+    description: 'Extends abliteration: refusal is affine (not just linear), needs reference point',
+  },
+  {
+    source: '2411.09003',
+    target: '2508.04039',
+    type: 'supports',
+    description: 'Both prove alignment is shallow — one scalar α controls all refusal behavior',
+  },
+  {
+    source: '2411.09003',
+    target: '2505.19773',
+    type: 'supports',
+    description:
+      'ACE provides standardized control; many-shot shows context-based bypass — same fragility',
+  },
 ];
