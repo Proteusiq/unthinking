@@ -590,6 +590,12 @@ tok_emb = wte[token_id]  <span class="cm"># that's it — just indexing</span></
                   </tr>
                 </table>
               </div>
+              <b>Why RoPE dominates:</b> rotation encodes <i>relative</i> position naturally.
+              <div class="formula" style="margin: 6px 0">
+                (R<sub>m</sub>q)<sup>T</sup>(R<sub>n</sub>k) = q<sup>T</sup>R<sub>n&minus;m</sub>k
+              </div>
+              The dot product depends only on <b>relative distance (n&minus;m)</b>, not absolute
+              positions. No learned embeddings needed, extrapolates to unseen lengths.
               <pre
                 class="code-block"
               ><span class="cm"># microgpt: learned position embeddings</span>
