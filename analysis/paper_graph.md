@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 320
+> **Papers tracked**: 324
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1456,6 +1456,13 @@ These papers have NO direct rebuttals found:
 | SAH Task Complexity (2602.15829) | Kilobytes adapt LLMs; post-training collapses complexity from GB to KB; formalizes SAH via information theory |
 | Large Models of What (2407.08790) | Enactive view: LLMs lack embodiment/participation/precarity; output is "fabrication" even when accurate |
 | Context-Directed Extrapolation (2505.23323) | Bloom's taxonomy: Understand not Apply; human does Apply in ICL; fears of emergent agency unfounded |
+
+### 2026-04-12 (Session 2) — Linear Representation & Steering Theory
+| Papers Added | Key Findings |
+|--------------|--------------|
+| LRH Feature Bounds (2602.11246) | First rigorous math for LRH; d = Θ(k² log m) for linear accessibility; confirms superposition but linear decode harder than representation |
+| FlowSteer (2602.05539) | Nonlinear steering via Flow Matching; 5.4× better alignment; +6% accuracy, -14.5% tokens; verbose reasoning hurts performance |
+| Unlearning Side Effects (2601.21702) | Unlearning has predictable side effects on truth/sentiment/refusal; can ENHANCE ICL; validates LRH from unlearning angle |
 
 ### 2026-04-12 — Abliteration: Alignment as Mascara
 | Papers Added | Key Findings |

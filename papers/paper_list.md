@@ -1,6 +1,6 @@
 # Paper List
 
-> 318 papers analyzed | 231 supports thesis | 15 challenges | 72 balanced | Date range: 2021-2026
+> 321 papers analyzed | 233 supports thesis | 15 challenges | 73 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -325,3 +325,6 @@
 | 319 | 2406.11717 | Jun 2024 | Refusal in LLMs is mediated by a single direction | Strongly Supports |
 | 320 | 2411.09003 | Nov 2024 | Refusal in LLMs is an Affine Function | Strongly Supports |
 | 321 | 2603.09313 | Mar 2026 | Curveball Steering: The Right Direction To Steer Isn't Always Linear | Balanced |
+| 322 | 2602.11246 | Feb 2026 | How Many Features Can a Language Model Store Under the LRH? | Balanced |
+| 323 | 2602.05539 | Feb 2026 | Steering Large Reasoning Models towards Concise Reasoning via Flow Matching | Supports |
+| 324 | 2601.21702 | Jan 2026 | Beyond Forgetting: Machine Unlearning Elicits Controllable Side Behaviors | Supports |

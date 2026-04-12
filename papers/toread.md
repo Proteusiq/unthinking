@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **250 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **247 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed), [#71](https://github.com/Proteusiq/unthinking/issues/71), [#72](https://github.com/Proteusiq/unthinking/issues/72).
 
@@ -20,9 +20,9 @@ Papers examining linear/affine representation of alignment, steering vectors, an
 |----------|-------|--------|
 | ~~[2603.27412](https://arxiv.org/abs/2603.27412)~~ | ~~The Geometry of Harmful Intent~~ | ~~supports~~ | SKIP: single-author |
 | ~~[2603.09313](https://arxiv.org/abs/2603.09313)~~ | ~~Curveball Steering: The Right Direction To Steer Isn't Always Linear~~ | ~~balanced~~ | DONE #321 |
-| [2602.11246](https://arxiv.org/abs/2602.11246) | How Many Features Can a Language Model Store Under the Linear Representation Hypothesis? | balanced |
-| [2602.05539](https://arxiv.org/abs/2602.05539) | Steering Large Reasoning Models towards Concise Reasoning via Flow Matching | supports |
-| [2601.21702](https://arxiv.org/abs/2601.21702) | Beyond Forgetting: Machine Unlearning Elicits Controllable Side Behaviors | supports |
+| ~~[2602.11246](https://arxiv.org/abs/2602.11246)~~ | ~~How Many Features Can a Language Model Store Under the Linear Representation Hypothesis?~~ | ~~balanced~~ | DONE #322 |
+| ~~[2602.05539](https://arxiv.org/abs/2602.05539)~~ | ~~Steering Large Reasoning Models towards Concise Reasoning via Flow Matching~~ | ~~supports~~ | DONE #323 |
+| ~~[2601.21702](https://arxiv.org/abs/2601.21702)~~ | ~~Beyond Forgetting: Machine Unlearning Elicits Controllable Side Behaviors~~ | ~~supports~~ | DONE #324 |
 
 ---
 

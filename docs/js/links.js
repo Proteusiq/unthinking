@@ -7739,4 +7739,68 @@ window.paperLinks = [
     description:
       'Both show steering needs more than raw difference-of-means; Curveball uses kernel PCA',
   },
+  // Paper #322: LRH Feature Bounds - mathematical foundation
+  {
+    source: '2602.11246',
+    target: '2406.11717',
+    type: 'supports',
+    description:
+      'Provides math foundation: if refusal is k=1 feature, linear extraction needs d=O(log m)',
+  },
+  {
+    source: '2602.11246',
+    target: '2411.09003',
+    type: 'supports',
+    description: 'Math framework explains why affine manipulation works under LRH',
+  },
+  {
+    source: '2602.11246',
+    target: '2603.09313',
+    type: 'related',
+    description: 'Theory assumes Euclidean; Curveball shows real geometry is curved',
+  },
+  // Paper #323: FlowSteer - nonlinear steering for reasoning
+  {
+    source: '2602.05539',
+    target: '2603.09313',
+    type: 'supports',
+    description: 'Both show linear steering is suboptimal; FlowSteer uses Flow Matching',
+  },
+  {
+    source: '2602.05539',
+    target: '2406.11717',
+    type: 'extends',
+    description: 'Extends linear steering: full distributional transport via Flow Matching',
+  },
+  {
+    source: '2602.05539',
+    target: '2506.06941',
+    type: 'supports',
+    description: 'Both show verbose reasoning hurts accuracy; extended tokens = worse performance',
+  },
+  {
+    source: '2602.05539',
+    target: '2502.15631',
+    type: 'supports',
+    description: 'o3 thinks harder not longer; FlowSteer shows compressing reasoning helps',
+  },
+  // Paper #324: Unlearning Side Effects - validates LRH from unlearning angle
+  {
+    source: '2601.21702',
+    target: '2406.11717',
+    type: 'supports',
+    description: 'Independent validation: unlearning affects refusal as predictable side effect',
+  },
+  {
+    source: '2601.21702',
+    target: '2411.09003',
+    type: 'supports',
+    description: 'Both show behaviors are linear directions; convergent evidence from different methods',
+  },
+  {
+    source: '2601.21702',
+    target: '2602.11246',
+    type: 'supports',
+    description: 'Empirically validates LRH that #322 formalizes mathematically',
+  },
 ];

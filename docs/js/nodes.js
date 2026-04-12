@@ -6975,4 +6975,70 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/320-329/321_curveball_steering.md',
   },
+  {
+    id: '2602.11246',
+    title: 'How Many Features Can a Language Model Store Under the Linear Representation Hypothesis?',
+    shortTitle: 'LRH Feature Bounds',
+    date: 'Feb 2026',
+    stance: 'balanced',
+    cluster: 'mechanism',
+    coreArgument:
+      'First rigorous math framework for LRH. Proves tight bounds: linear accessibility requires d = Θ(k² log m) vs d = O(k log m) for classical compressed sensing. Confirms superposition is possible but linear decoding is harder than representation.',
+    keyEvidence: [
+      'Lower bound: d = Ω(k²/log k · log(m/k))',
+      'Upper bound: d = O(k² log m)',
+      'Gap proves linear accessibility harder than representation',
+      'Exponential features possible under LRH',
+    ],
+    keyQuotes: [
+      'The lower bound establishes a quantitative gap between compressed sensing and linear compressed sensing.',
+      'Linear representations can be remarkably expressive.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/320-329/322_features_under_lrh.md',
+  },
+  {
+    id: '2602.05539',
+    title: 'Steering Large Reasoning Models towards Concise Reasoning via Flow Matching',
+    shortTitle: 'FlowSteer',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'mechanism',
+    coreArgument:
+      'Linear steering only aligns distribution means. FlowSteer uses Flow Matching for full distributional transport, achieving 5.4× better alignment. Compressing verbose reasoning IMPROVES accuracy (+6%) while reducing tokens (-14.5%), proving extended reasoning is noise.',
+    keyEvidence: [
+      '5.4× better distributional alignment vs linear',
+      '+6.0% accuracy while -14.5% tokens',
+      'Verbose reflection hurts performance',
+      'Works on DeepSeek-R1 1.5B-32B scales',
+    ],
+    keyQuotes: [
+      'Over-extended traces are often filled with unnecessary self-reflection, which inflates costs and diminishes accuracy.',
+      'FlowSteer yields more compact reasoning than linear shifts.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/320-329/323_flowsteer_reasoning.md',
+  },
+  {
+    id: '2601.21702',
+    title: 'Beyond Forgetting: Machine Unlearning Elicits Controllable Side Behaviors',
+    shortTitle: 'Unlearning Side Effects',
+    date: 'Jan 2026',
+    stance: 'supports',
+    cluster: 'mechanism',
+    coreArgument:
+      'Representation misdirection unlearning has predictable side effects on truth, sentiment, refusal via linear coupling. Can even ENHANCE capabilities (ICL). Validates LRH from unlearning angle — behaviors are linear directions, not deep properties.',
+    keyEvidence: [
+      'Truth, sentiment, refusal controllable via unlearning',
+      'ICL capability can be IMPROVED by unlearning',
+      'Effects predictable from linear geometry',
+      'Independent validation of abliteration findings',
+    ],
+    keyQuotes: [
+      'Beyond forgetting, machine unlearning elicits controllable side behaviors and stronger side capabilities.',
+      'This phenomenon could be a hidden risk if misused or a mechanism for developing controllable models.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/320-329/324_unlearning_side_behaviors.md',
+  },
 ];
