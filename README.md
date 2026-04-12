@@ -66,6 +66,7 @@ See also:
 - [microgpt](https://karpathy.github.io/2026/02/12/microgpt/): 200 lines of pure Python GPT (Andrej Karpathy)
 - [Stanford CME 295](https://cme295.stanford.edu/): Transformers & LLMs course — 9 lectures covering attention, scaling, alignment, reasoning (GRPO), and LLM-as-Judge pitfalls ([cheatsheets](https://github.com/afshinea/stanford-cme-295-transformers-large-language-models))
 - [Stanford CME 296](https://cme296.stanford.edu/): Diffusion & Large Vision Models — shows same techniques (DPO, GRPO) apply to vision, "reasoning" not unique to text
+- [Stanford CS336](https://stanford-cs336.github.io/): Language Modeling from Scratch — build an LLM end-to-end: tokenizer, architecture, training, data pipeline, alignment (Percy Liang, Tatsu Hashimoto) ([assignments](https://github.com/stanford-cs336))
 
 ---
 
