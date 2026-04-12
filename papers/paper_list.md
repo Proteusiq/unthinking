@@ -322,3 +322,4 @@
 | 316 | 2410.23856 | Oct 2024 | Can LMs Reason with Noisy Rationales? | Supports |
 | 317 | 2411.11371 | Nov 2024 | Rethinking Thinking Tokens: Why They Underperform | Supports |
 | 318 | 2512.02914 | Dec 2025 | Martingale Score: Bayesian Rationality in LLM Reasoning | Supports |
+| 319 | 2406.11717 | Jun 2024 | Refusal in LLMs is mediated by a single direction | Strongly Supports |

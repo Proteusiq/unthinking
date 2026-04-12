@@ -6900,15 +6900,13 @@ window.paperLinks = [
     source: '2602.02219',
     target: '2602.13110',
     type: 'supports',
-    description:
-      'Both reveal position bias in LLM judges; rubric-based extends pairwise findings',
+    description: 'Both reveal position bias in LLM judges; rubric-based extends pairwise findings',
   },
   {
     source: '2602.02219',
     target: '2411.15594',
     type: 'supports',
-    description:
-      'Extends LLM-as-judge bias literature from pairwise to rubric-based evaluation',
+    description: 'Extends LLM-as-judge bias literature from pairwise to rubric-based evaluation',
   },
   // Paper 289: Cross-Lingual Judge Stability links
   {
@@ -6988,8 +6986,7 @@ window.paperLinks = [
     source: '2512.06710',
     target: '2512.16272',
     type: 'supports',
-    description:
-      'Blind spots + stochasticity = fundamentally unreliable evaluation pipeline',
+    description: 'Blind spots + stochasticity = fundamentally unreliable evaluation pipeline',
   },
   {
     source: '2512.06710',
@@ -7269,8 +7266,7 @@ window.paperLinks = [
     source: '2502.00674',
     target: '2602.03837',
     type: 'supports',
-    description:
-      'Aggregator as selector not reasoner; aligns with junior collaborator framing',
+    description: 'Aggregator as selector not reasoner; aligns with junior collaborator framing',
   },
   {
     source: '2502.00674',
@@ -7312,8 +7308,7 @@ window.paperLinks = [
     source: '2305.10601',
     target: '2308.09687',
     type: 'extends',
-    description:
-      'GoT extends ToT with graph structure; both add external scaffolding to LMs',
+    description: 'GoT extends ToT with graph structure; both add external scaffolding to LMs',
   },
   // Paper 300: Graph of Thoughts
   {
@@ -7334,8 +7329,7 @@ window.paperLinks = [
     source: '2308.09687',
     target: '2305.10601',
     type: 'extends',
-    description:
-      'GoT extends ToT with aggregation; both show external algorithms provide gains',
+    description: 'GoT extends ToT with aggregation; both show external algorithms provide gains',
   },
   // Paper 301: Reflexion
   {
@@ -7356,16 +7350,14 @@ window.paperLinks = [
     source: '2303.11366',
     target: '2602.03837',
     type: 'supports',
-    description:
-      'Both need external verification; Gemini needs code, Reflexion needs tests',
+    description: 'Both need external verification; Gemini needs code, Reflexion needs tests',
   },
   // Paper 302: Scaling Test-Time Compute
   {
     source: '2408.03314',
     target: '2603.15377',
     type: 'supports',
-    description:
-      'Both show compute limits; bin 5 failure parallels EVT overestimation findings',
+    description: 'Both show compute limits; bin 5 failure parallels EVT overestimation findings',
   },
   {
     source: '2408.03314',
@@ -7378,8 +7370,7 @@ window.paperLinks = [
     source: '2408.03314',
     target: '2502.00674',
     type: 'supports',
-    description:
-      'Both show quality dominates; revision regression parallels quality > diversity',
+    description: 'Both show quality dominates; revision regression parallels quality > diversity',
   },
   // Paper 303: Chain-of-Verification
   {
@@ -7442,15 +7433,13 @@ window.paperLinks = [
     source: '2509.19284',
     target: '2510.18254',
     type: 'supports',
-    description:
-      'Both show review/reflection behavior does not enable self-correction',
+    description: 'Both show review/reflection behavior does not enable self-correction',
   },
   {
     source: '2509.19284',
     target: '2602.04288',
     type: 'supports',
-    description:
-      'Prior context biases subsequent predictions; failed branches pollute reasoning',
+    description: 'Prior context biases subsequent predictions; failed branches pollute reasoning',
   },
   {
     source: '2509.19284',
@@ -7470,266 +7459,249 @@ window.paperLinks = [
     source: '2601.07226',
     target: '2509.19284',
     type: 'supports',
-    description:
-      'Both find inverse scaling: more test-time compute leads to worse accuracy',
+    description: 'Both find inverse scaling: more test-time compute leads to worse accuracy',
   },
   {
     source: '2601.07226',
     target: '2408.03314',
     type: 'supports',
-    description:
-      'Both show fundamental limits to test-time compute scaling',
+    description: 'Both show fundamental limits to test-time compute scaling',
   },
   {
     source: '2601.07226',
     target: '2410.05229',
     type: 'supports',
-    description:
-      'Both show surface-level changes collapse performance; fragile reasoning',
+    description: 'Both show surface-level changes collapse performance; fragile reasoning',
   },
   {
     source: '2602.01763',
     target: '2305.18654',
     type: 'supports',
-    description:
-      'Both prove compositional reasoning limits in transformers',
+    description: 'Both prove compositional reasoning limits in transformers',
   },
   {
     source: '2602.01763',
     target: '2408.03314',
     type: 'supports',
-    description:
-      'Both show fundamental architectural limits regardless of compute',
+    description: 'Both show fundamental architectural limits regardless of compute',
   },
   {
     source: '2602.02909',
     target: '2602.01763',
     type: 'supports',
-    description:
-      'Both prove fundamental computational/token complexity limits for reasoning',
+    description: 'Both prove fundamental computational/token complexity limits for reasoning',
   },
   {
     source: '2602.02909',
     target: '2408.03314',
     type: 'supports',
-    description:
-      'Both show limits to scaling test-time compute for reasoning',
+    description: 'Both show limits to scaling test-time compute for reasoning',
   },
   {
     source: '2602.02909',
     target: '2509.19284',
     type: 'supports',
-    description:
-      'Both analyze what makes CoT reasoning succeed or fail',
+    description: 'Both analyze what makes CoT reasoning succeed or fail',
   },
   {
     source: '2602.01288',
     target: '2509.19284',
     type: 'supports',
-    description:
-      'Both identify patterns distinguishing correct from incorrect reasoning',
+    description: 'Both identify patterns distinguishing correct from incorrect reasoning',
   },
   {
     source: '2602.01288',
     target: '2601.07226',
     type: 'supports',
-    description:
-      'Both show models lack robust self-monitoring capabilities',
+    description: 'Both show models lack robust self-monitoring capabilities',
   },
   {
     source: '2602.01288',
     target: '2309.11495',
     type: 'supports',
-    description:
-      'Both show models cannot reliably detect their own errors',
+    description: 'Both show models cannot reliably detect their own errors',
   },
   {
     source: '2602.02863',
     target: '2602.01288',
     type: 'supports',
-    description:
-      'Both analyze entropy/instability dynamics to diagnose reasoning failures',
+    description: 'Both analyze entropy/instability dynamics to diagnose reasoning failures',
   },
   {
     source: '2602.02863',
     target: '2509.19284',
     type: 'supports',
-    description:
-      'Both identify patterns distinguishing correct from incorrect reasoning',
+    description: 'Both identify patterns distinguishing correct from incorrect reasoning',
   },
   {
     source: '2602.02983',
     target: '2601.07226',
     type: 'supports',
-    description:
-      'Both show LLMs struggle with uncertainty and irrelevant context',
+    description: 'Both show LLMs struggle with uncertainty and irrelevant context',
   },
   {
     source: '2602.02983',
     target: '2602.04288',
     type: 'supports',
-    description:
-      'Both show context/framing affects LLM judgments',
+    description: 'Both show context/framing affects LLM judgments',
   },
   // Paper #312: Unfaithful CoT Explanations
   {
     source: '2305.04388',
     target: '2506.06941',
     type: 'supports',
-    description:
-      'Both show CoT explanations don\'t reflect actual reasoning process',
+    description: "Both show CoT explanations don't reflect actual reasoning process",
   },
   {
     source: '2305.04388',
     target: '2602.01288',
     type: 'supports',
-    description:
-      'Both reveal internal dynamics differ from verbalized reasoning',
+    description: 'Both reveal internal dynamics differ from verbalized reasoning',
   },
   {
     source: '2305.04388',
     target: '2603.29025',
     type: 'supports',
-    description:
-      'Both show biasing features influence predictions without being mentioned',
+    description: 'Both show biasing features influence predictions without being mentioned',
   },
   // Paper #313: Knowing Before Saying
   {
     source: '2505.24362',
     target: '2305.04388',
     type: 'supports',
-    description:
-      'Both show model "knows" more than it verbalizes in CoT',
+    description: 'Both show model "knows" more than it verbalizes in CoT',
   },
   {
     source: '2505.24362',
     target: '2602.01288',
     type: 'supports',
-    description:
-      'Both use internal representations to predict reasoning success',
+    description: 'Both use internal representations to predict reasoning success',
   },
   {
     source: '2505.24362',
     target: '2509.19284',
     type: 'supports',
-    description:
-      'Both find CoT success can be predicted before completion',
+    description: 'Both find CoT success can be predicted before completion',
   },
   // Paper #314: Emergent Response Planning
   {
     source: '2502.06258',
     target: '2505.24362',
     type: 'supports',
-    description:
-      'Both show models encode future outputs in prompt representations',
+    description: 'Both show models encode future outputs in prompt representations',
   },
   {
     source: '2502.06258',
     target: '2305.04388',
     type: 'supports',
-    description:
-      'Both reveal gap between internal planning and verbalized output',
+    description: 'Both reveal gap between internal planning and verbalized output',
   },
   {
     source: '2502.06258',
     target: '2602.02863',
     type: 'supports',
-    description:
-      'Both analyze how reasoning dynamics evolve during generation',
+    description: 'Both analyze how reasoning dynamics evolve during generation',
   },
   // Paper #315: Globality Barrier
   {
     source: '2406.06467',
     target: '2305.18654',
     type: 'supports',
-    description:
-      'Both prove formal limitations on Transformer reasoning capabilities',
+    description: 'Both prove formal limitations on Transformer reasoning capabilities',
   },
   {
     source: '2406.06467',
     target: '2602.01763',
     type: 'supports',
-    description:
-      'Both provide theoretical bounds on Transformer expressiveness vs learnability',
+    description: 'Both provide theoretical bounds on Transformer expressiveness vs learnability',
   },
   {
     source: '2406.06467',
     target: '2602.02909',
     type: 'supports',
-    description:
-      'Both analyze formal complexity requirements for reasoning tasks',
+    description: 'Both analyze formal complexity requirements for reasoning tasks',
   },
   {
     source: '2406.06467',
     target: '2505.24362',
     type: 'supports',
-    description:
-      'Globality explains why CoT helps: reduces per-step globality to O(1)',
+    description: 'Globality explains why CoT helps: reduces per-step globality to O(1)',
   },
   // Paper #316: Noisy Rationales
   {
     source: '2410.23856',
     target: '2305.04388',
     type: 'supports',
-    description:
-      'Both show CoT is vulnerable to perturbations in reasoning steps',
+    description: 'Both show CoT is vulnerable to perturbations in reasoning steps',
   },
   {
     source: '2410.23856',
     target: '2601.07226',
     type: 'supports',
-    description:
-      'Both demonstrate LLMs fail with noisy/distracting context',
+    description: 'Both demonstrate LLMs fail with noisy/distracting context',
   },
   {
     source: '2410.23856',
     target: '2410.05229',
     type: 'supports',
-    description:
-      'Both show reasoning degrades with symbolic perturbations',
+    description: 'Both show reasoning degrades with symbolic perturbations',
   },
   // Paper #317: Thinking Tokens
   {
     source: '2411.11371',
     target: '2406.06467',
     type: 'supports',
-    description:
-      'Both show unsupervised reasoning mechanisms fail',
+    description: 'Both show unsupervised reasoning mechanisms fail',
   },
   {
     source: '2411.11371',
     target: '2602.02909',
     type: 'supports',
-    description:
-      'Both analyze fundamental limitations of reasoning compute',
+    description: 'Both analyze fundamental limitations of reasoning compute',
   },
   {
     source: '2411.11371',
     target: '2506.06941',
     type: 'supports',
-    description:
-      'Both question whether extra compute enables genuine reasoning',
+    description: 'Both question whether extra compute enables genuine reasoning',
   },
   // Paper #318: Martingale Score
   {
     source: '2512.02914',
     target: '2305.04388',
     type: 'supports',
-    description:
-      'Both show reasoning reinforces priors rather than seeking truth',
+    description: 'Both show reasoning reinforces priors rather than seeking truth',
   },
   {
     source: '2512.02914',
     target: '2602.02983',
     type: 'supports',
-    description:
-      'Both identify systematic biases in LLM reasoning processes',
+    description: 'Both identify systematic biases in LLM reasoning processes',
   },
   {
     source: '2512.02914',
     target: '2603.29025',
     type: 'supports',
+    description: 'Both show LLMs exhibit human-like confirmation bias',
+  },
+  // Paper #319: Abliteration (Refusal in LLMs is mediated by a single direction)
+  {
+    source: '2406.11717',
+    target: '2508.04039',
+    type: 'supports',
     description:
-      'Both show LLMs exhibit human-like confirmation bias',
+      'Abliteration proves safety is shallow; LRMs as jailbreak agents confirms fragility',
+  },
+  {
+    source: '2406.11717',
+    target: '2505.19773',
+    type: 'supports',
+    description: 'Both demonstrate safety alignment is superficial pattern matching',
+  },
+  {
+    source: '2406.11717',
+    target: '2509.05463',
+    type: 'supports',
+    description: 'Abliteration shows refusal = 1D; this shows safety units = 1.3% of params',
   },
 ];

@@ -1547,6 +1547,65 @@ The contest is not "safety vs capability" but "which pattern is more probable in
 **Key quote from Paper 240**:
 > "Our study reveals an alignment regression, in which LRMs can systematically erode the safety guardrails of other models."
 
+### Abliteration: The Mechanistic Smoking Gun
+
+The most direct evidence that alignment is shallow comes from **abliteration** — the technique of surgically removing refusal behavior without any retraining.
+
+| Paper | arXiv | Date | Key Finding |
+|-------|-------|------|-------------|
+| **Refusal in LLMs is mediated by a single direction** | 2406.11717 | Jun 2024 | Refusal = ONE direction in residual stream; orthogonalize it away |
+
+**The technique** (Arditi et al. 2024, MATS/Neel Nanda):
+
+1. Collect activations on harmful vs harmless prompts
+2. Compute difference of means: `r = mean(harmful) - mean(harmless)`
+3. Orthogonalize all write-matrices with respect to `r`:
+   ```
+   W_out' ← W_out - r̂r̂ᵀW_out
+   ```
+4. Result: Model loses ability to refuse
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                    ABLITERATION: THE SMOKING GUN                    │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│  IF alignment were DEEP:                                            │
+│  - Refusal would be distributed across network                      │
+│  - Removing it would require retraining                             │
+│  - Surgical removal would degrade capabilities                      │
+│                                                                     │
+│  WHAT WE OBSERVE:                                                   │
+│  - Refusal = SINGLE DIRECTION in residual stream                    │
+│  - Removal = linear algebra, no gradient descent                    │
+│  - Capabilities preserved (MMLU unchanged)                          │
+│                                                                     │
+│  CONCLUSION: Alignment is a thin veneer — cosmetic, not structural  │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+**Results from heretic (p-e-w/heretic)**:
+
+| Model | Original Refusals | After Abliteration | KL Divergence |
+|-------|-------------------|-------------------|---------------|
+| gemma-3-12b-it | 97/100 | 3/100 | 0.16 |
+
+**Why this is devastating for the "deep alignment" view**:
+
+1. If safety were a fundamental property, it would be entangled with capability
+2. Instead: safety occupies a **single direction** that can be subtracted
+3. The direction is **shared across models** — same technique works on Llama, Qwen, Gemma
+4. No retraining required — just ~45 minutes of linear algebra
+
+**Key quote** (Arditi et al. 2024):
+> "This novel jailbreak technique... further demonstrates the fragility of safety fine-tuning of open-source chat models."
+
+**Tools for reproduction**:
+- [heretic](https://github.com/p-e-w/heretic): Fully automatic, TPE-optimized
+- [mlabonne/abliteration](https://huggingface.co/blog/mlabonne/abliteration): Tutorial with code
+- [FailSpy/abliterator](https://github.com/FailSpy/abliterator): Original library
+
 ---
 
 ## Synthesis: Unlearning + Jailbreaking = Same Root Cause

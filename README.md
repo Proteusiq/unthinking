@@ -255,6 +255,20 @@ See [`experiments/decoding_ablation/protocol.md`](./experiments/decoding_ablatio
 
 See [`experiments/steering_ablation/protocol.md`](./experiments/steering_ablation/protocol.md).
 
+#### Abliteration Resources
+
+The technique is based on the discovery that **refusal is mediated by a single direction** in the residual stream ([Arditi et al. 2024](https://arxiv.org/abs/2406.11717)). Orthogonalizing weights with respect to this direction removes refusal without retraining:
+
+| Resource | Description |
+|----------|-------------|
+| [heretic](https://github.com/p-e-w/heretic) | Fully automatic censorship removal — TPE-optimized abliteration, ~45min on RTX 3090 |
+| [mlabonne/abliteration](https://huggingface.co/blog/mlabonne/abliteration) | Tutorial with TransformerLens code (838 upvotes) |
+| [Arditi et al. 2024](https://arxiv.org/abs/2406.11717) | Foundational paper: "Refusal in LLMs is mediated by a single direction" |
+| [FailSpy/abliterator](https://github.com/FailSpy/abliterator) | Original implementation library |
+
+> [!NOTE]
+> If alignment were deep, it would be distributed across the network. Instead: **one direction** encodes all refusal behavior. Removing it requires no retraining — just linear algebra on existing weights. Open weights = alignment is cosmetic.
+
 ### Attractor States (OLMo checkpoints)
 
 **Hypothesis**: extended LLM-to-LLM conversation reveals training distribution patterns. Without human steering, models converge to characteristic "attractor states."

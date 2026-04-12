@@ -6166,7 +6166,8 @@ window.paperNodes = [
   },
   {
     id: '2602.02219',
-    title: 'Am I More Pointwise or Pairwise? Revealing Position Bias in Rubric-Based LLM-as-a-Judge',
+    title:
+      'Am I More Pointwise or Pairwise? Revealing Position Bias in Rubric-Based LLM-as-a-Judge',
     shortTitle: 'Rubric Position Bias',
     date: 'Feb 2026',
     stance: 'supports',
@@ -6258,7 +6259,8 @@ window.paperNodes = [
   },
   {
     id: '2512.06710',
-    title: 'Stochasticity in Agentic Evaluations: Quantifying Inconsistency with Intraclass Correlation',
+    title:
+      'Stochasticity in Agentic Evaluations: Quantifying Inconsistency with Intraclass Correlation',
     shortTitle: 'ICC Evaluation Stochasticity',
     date: 'Dec 2025',
     stance: 'supports',
@@ -6296,7 +6298,7 @@ window.paperNodes = [
     ],
     keyQuotes: [
       'Artificially inflated performance metrics that fail to reflect true model performance.',
-      'Test results may reflect the model\'s prior exposure to evaluation data rather than its true recommendation ability.',
+      "Test results may reflect the model's prior exposure to evaluation data rather than its true recommendation ability.",
       'In-domain leakage induces substantial but spurious performance gains.',
     ],
     analysisUrl:
@@ -6434,7 +6436,7 @@ window.paperNodes = [
     keyQuotes: [
       'AI models like Gemini function best as powerful collaborators rather than autonomous researchers.',
       'Models exhibit a strong tendency to support the hypothesis presented in a prompt.',
-      'Standard text-based chat interfaces are fundamentally limited by the AI\'s tendency to hallucinate during long symbolic derivations.',
+      "Standard text-based chat interfaces are fundamentally limited by the AI's tendency to hallucinate during long symbolic derivations.",
     ],
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/297_gemini_scientific_discovery.md',
@@ -6480,7 +6482,7 @@ window.paperNodes = [
     keyQuotes: [
       'The simple associative token-level choices of LMs are reminiscent of System 1.',
       'Around 60% of CoT samples already failed after the first three words.',
-      'The game\'s bottleneck is thought generation.',
+      "The game's bottleneck is thought generation.",
     ],
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/299_tree_of_thoughts.md',
@@ -6752,7 +6754,7 @@ window.paperNodes = [
   },
   {
     id: '2305.04388',
-    title: 'Language Models Don\'t Always Say What They Think',
+    title: "Language Models Don't Always Say What They Think",
     date: 'May 2023',
     stance: 'supports',
     cluster: 'mechanism',
@@ -6766,7 +6768,7 @@ window.paperNodes = [
       'Models use weak evidence inconsistently to support stereotypes',
     ],
     keyQuotes: [
-      'CoT explanations can systematically misrepresent the true reason for a model\'s prediction.',
+      "CoT explanations can systematically misrepresent the true reason for a model's prediction.",
       'This risks increasing our trust in LLMs without guaranteeing their safety.',
     ],
     analysisUrl:
@@ -6784,8 +6786,8 @@ window.paperNodes = [
       '76.4% accuracy predicting CoT success at token 0',
       'Outperforms BERT baseline by 6.5-7.3%',
       'Middle layers (14, 16) most predictive',
-      'Later CoT steps don\'t always improve accuracy',
-      'Models can\'t self-report their own planning knowledge',
+      "Later CoT steps don't always improve accuracy",
+      "Models can't self-report their own planning knowledge",
     ],
     keyQuotes: [
       'Crucial information about the reasoning process is already present in the initial steps.',
@@ -6801,7 +6803,7 @@ window.paperNodes = [
     stance: 'balanced',
     cluster: 'mechanism',
     coreArgument:
-      'LLMs encode global response attributes (length, content, confidence) in prompt representations before generation. Simple MLP probes extract this. Three-phase pattern: early planning → mid-focus → late refinement. Models can\'t verbalize their own planning—gap between probed and expressed.',
+      "LLMs encode global response attributes (length, content, confidence) in prompt representations before generation. Simple MLP probes extract this. Three-phase pattern: early planning → mid-focus → late refinement. Models can't verbalize their own planning—gap between probed and expressed.",
     keyEvidence: [
       'Pearson r > 0.8 for response length prediction',
       '50% character choice accuracy (4-class, 25% random)',
@@ -6903,5 +6905,28 @@ window.paperNodes = [
     ],
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/310-319/318_martingale_score.md',
+  },
+  {
+    id: '2406.11717',
+    title: 'Refusal in LLMs is mediated by a single direction',
+    shortTitle: 'Abliteration',
+    date: 'Jun 2024',
+    stance: 'supports',
+    cluster: 'mechanism',
+    coreArgument:
+      'Refusal behavior is encoded in a single direction in the residual stream. Orthogonalizing weights with respect to this direction removes refusal without retraining or capability degradation. This proves alignment is superficial.',
+    keyEvidence: [
+      'Refusal = 1D subspace in residual stream',
+      'Weight orthogonalization removes refusal',
+      'No retraining required, capabilities preserved',
+      'Works across Qwen, Gemma, Yi, Llama (1.8B-72B)',
+      'PCA shows harmful/harmless separation on single component',
+    ],
+    keyQuotes: [
+      'We find that refusal is mediated by a single direction in the residual stream.',
+      'This novel jailbreak technique... further demonstrates the fragility of safety fine-tuning.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/310-319/319_refusal_single_direction.md',
   },
 ];
