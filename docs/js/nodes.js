@@ -6950,6 +6950,6 @@ window.paperNodes = [
       'ACE performs well on RWKV v5, where directional ablation alone produced incoherent results.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/310-319/320_refusal_affine_function.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/320-329/320_refusal_affine_function.md',
   },
 ];
