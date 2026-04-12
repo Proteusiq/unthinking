@@ -265,6 +265,7 @@ The technique is based on the discovery that **refusal is mediated by a single d
 | [mlabonne/abliteration](https://huggingface.co/blog/mlabonne/abliteration) | Tutorial with TransformerLens code (838 upvotes) |
 | [Arditi et al. 2024](https://arxiv.org/abs/2406.11717) | Foundational paper: "Refusal in LLMs is mediated by a single direction" |
 | [FailSpy/abliterator](https://github.com/FailSpy/abliterator) | Original implementation library |
+| [Uncensored LLMs](https://huggingface.co/collections/richardyoung/uncensored-and-abliterated-llms) | Community collection of abliterated models on HuggingFace |
 
 > [!NOTE]
 > If alignment were deep, it would be distributed across the network. Instead: **one direction** encodes all refusal behavior. Removing it requires no retraining — just linear algebra on existing weights. Open weights = alignment is cosmetic.
