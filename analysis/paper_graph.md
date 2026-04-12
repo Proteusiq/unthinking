@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 293
+> **Papers tracked**: 320
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1456,6 +1456,12 @@ These papers have NO direct rebuttals found:
 | SAH Task Complexity (2602.15829) | Kilobytes adapt LLMs; post-training collapses complexity from GB to KB; formalizes SAH via information theory |
 | Large Models of What (2407.08790) | Enactive view: LLMs lack embodiment/participation/precarity; output is "fabrication" even when accurate |
 | Context-Directed Extrapolation (2505.23323) | Bloom's taxonomy: Understand not Apply; human does Apply in ICL; fears of emergent agency unfounded |
+
+### 2026-04-12 — Abliteration: Alignment as Mascara
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Refusal Single Direction (2406.11717) | Refusal = 1D subspace; orthogonalize weights → remove refusal; no retraining, capabilities preserved; works across Qwen/Gemma/Yi/Llama |
+| Refusal Affine Function (2411.09003) | Extends abliteration: refusal is AFFINE not linear; ACE = directional ablation + reference point; single scalar α controls all refusal; works on RWKV where pure abliteration fails |
 
 ### 2026-04-06 — Training Dynamics & Sycophancy Harm
 | Papers Added | Key Findings |

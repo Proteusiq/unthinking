@@ -214,3 +214,12 @@ However, subsequent work (heretic, 1000+ abliterated models) confirms the findin
 **Contribution**: Mechanistic proof that safety alignment is a 1-dimensional feature that can be surgically removed via linear algebra, without retraining and without capability degradation. This is the smoking gun evidence that alignment is "mascara" — a thin veneer over next-token prediction, not a deep architectural property.
 
 **The devastating implication**: If alignment were deep, removing it would be hard. It's not hard. It's one vector subtraction.
+
+---
+
+## Status
+- [x] Read complete
+- [x] Core claims extracted
+- [x] Key evidence with numbers
+- [x] Rebuttals checked
+- [x] Paper graph updated

@@ -309,7 +309,9 @@
     <div class="topbar">
       <h2>Tokenization — How Text Enters the Transformer</h2>
       <div class="toggle-wrap">
-        <button class="toggle-btn active" id="btn-pipeline" onclick="setV('pipeline')">Pipeline</button>
+        <button class="toggle-btn active" id="btn-pipeline" onclick="setV('pipeline')">
+          Pipeline
+        </button>
         <button class="toggle-btn" id="btn-catalog" onclick="setV('catalog')">Catalog</button>
         <button class="toggle-btn" id="btn-compare" onclick="setV('compare')">Compare</button>
       </div>
@@ -433,7 +435,9 @@
           — Let's build the GPT Tokenizer
         </li>
         <li>
-          <a href="https://arxiv.org/abs/1508.07909" target="_blank" rel="noopener">Sennrich et al.</a>
+          <a href="https://arxiv.org/abs/1508.07909" target="_blank" rel="noopener"
+            >Sennrich et al.</a
+          >
           (2016) — Neural Machine Translation of Rare Words with Subword Units
         </li>
       </ul>
@@ -512,8 +516,7 @@
           key: 'Start with large vocab, prune tokens that least reduce corpus likelihood. Language-agnostic — operates on raw bytes.',
           detail:
             '<b>Unigram model</b> (Kudo, 2018): starts with a large candidate vocabulary (~1M), iteratively removes tokens whose loss increases likelihood the least. Trained via EM algorithm. <b>SentencePiece</b>: the tooling that implements both Unigram and BPE, treating input as raw Unicode — no pre-tokenization needed.',
-          limit:
-            '⚠ Training is more complex than BPE. Produces slightly different segmentations.',
+          limit: '⚠ Training is more complex than BPE. Produces slightly different segmentations.',
           use: '→ T5, ALBERT, XLNet, mBART. De facto standard for multilingual models.',
         },
         {
@@ -534,8 +537,7 @@
           key: "OpenAI's fast BPE implementation. 100K vocab. Used by GPT-3.5-turbo and GPT-4.",
           detail:
             '<b>tiktoken</b>: Rust-backed BPE with regex pre-tokenization. 10–100× faster than HuggingFace tokenizers. <b>cl100k_base</b>: 100,256 tokens. Better number tokenization (each digit often its own token), improved multilingual coverage. Special tokens for chat formatting.',
-          limit:
-            '⚠ Proprietary vocabulary — trained on undisclosed data. Closed merge rules.',
+          limit: '⚠ Proprietary vocabulary — trained on undisclosed data. Closed merge rules.',
           use: '→ GPT-3.5-turbo, GPT-4, GPT-4o. OpenAI API standard.',
         },
         {
@@ -622,8 +624,7 @@
           key: 'Meta, 2024. Dynamic byte patches at entropy spikes. Up to 50% FLOP savings vs BPE at scale.',
           detail:
             '<b>BLT</b> (Pagnoni et al. 2024): groups bytes into variable-length patches based on next-byte entropy. High-entropy boundaries trigger new patches — information-dense regions get more compute. <b>Key result</b>: scales better than BPE at larger model/data scales. Matches LLaMA 3 8B quality with up to 50% fewer FLOPs.',
-          limit:
-            '⚠ Requires entropy model for patch boundaries. More complex training pipeline.',
+          limit: '⚠ Requires entropy model for patch boundaries. More complex training pipeline.',
           use: '→ Research. Strong scaling results suggest byte-level may eventually replace BPE.',
         },
         {
@@ -787,22 +788,19 @@
         {
           step: 1,
           label: 'Merge 1',
-          tokens:
-            'Most frequent pair: (116, 104) = "th" → appears 3×. New token 256 = "th".',
+          tokens: 'Most frequent pair: (116, 104) = "th" → appears 3×. New token 256 = "th".',
           desc: 'Scan all adjacent pairs. (116,104) appears in "the" (2×) and "hat" (1×). Merge into token 256.',
         },
         {
           step: 2,
           label: 'Merge 2',
-          tokens:
-            'Most frequent pair: (256, 101) = "the" → appears 2×. New token 257 = "the".',
+          tokens: 'Most frequent pair: (256, 101) = "the" → appears 2×. New token 257 = "the".',
           desc: 'After merge 1: [256, 101, 32, 99, 97, 116, 32, 105, 110, 32, 256, 101, 32, 104, 97, 116]. Pair (256,101) = "th"+"e" appears 2×.',
         },
         {
           step: 3,
           label: 'Merge 3',
-          tokens:
-            'Most frequent pair: (257, 32) = "the " → appears 2×. New token 258 = "the ".',
+          tokens: 'Most frequent pair: (257, 32) = "the " → appears 2×. New token 258 = "the ".',
           desc: 'After merge 2: [257, 32, 99, 97, 116, 32, 105, 110, 32, 257, 32, 104, 97, 116]. Pair (257,32) = "the"+" " appears 2×.',
         },
         {

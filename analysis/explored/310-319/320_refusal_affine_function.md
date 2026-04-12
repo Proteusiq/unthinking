@@ -205,3 +205,12 @@ One could argue:
 **Contribution**: Extends abliteration from linear to affine, showing refusal can be controlled with a single scalar parameter across architectures. The fact that ONE NUMBER (α) controls all refusal behavior is devastating evidence that alignment is superficial pattern matching, not deep ethical reasoning.
 
 **The devastating implication**: If alignment involved genuine reasoning about harm, it couldn't be reduced to shifting a single scalar from 0 to 1.
+
+---
+
+## Status
+- [x] Read complete
+- [x] Core claims extracted
+- [x] Key evidence with numbers
+- [x] Rebuttals checked
+- [x] Paper graph updated
