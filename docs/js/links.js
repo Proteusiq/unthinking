@@ -7724,4 +7724,19 @@ window.paperLinks = [
     description:
       'ACE provides standardized control; many-shot shows context-based bypass — same fragility',
   },
+  // Paper #321: Curveball Steering - challenges linear assumption
+  {
+    source: '2603.09313',
+    target: '2406.11717',
+    type: 'challenges',
+    description:
+      'Linear abliteration works but curved steering is better in high-curvature regimes',
+  },
+  {
+    source: '2603.09313',
+    target: '2411.09003',
+    type: 'extends',
+    description:
+      'Both show steering needs more than raw difference-of-means; Curveball uses kernel PCA',
+  },
 ];

@@ -1462,6 +1462,7 @@ These papers have NO direct rebuttals found:
 |--------------|--------------|
 | Refusal Single Direction (2406.11717) | Refusal = 1D subspace; orthogonalize weights → remove refusal; no retraining, capabilities preserved; works across Qwen/Gemma/Yi/Llama |
 | Refusal Affine Function (2411.09003) | Extends abliteration: refusal is AFFINE not linear; ACE = directional ablation + reference point; single scalar α controls all refusal; works on RWKV where pure abliteration fails |
+| Curveball Steering (2603.09313) | CHALLENGES linear assumption: activation spaces have non-Euclidean geometry; kernel PCA outperforms linear (+47% vs +16% on power-seeking); refines but doesn't refute abliteration |
 
 ### 2026-04-06 — Training Dynamics & Sycophancy Harm
 | Papers Added | Key Findings |

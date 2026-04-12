@@ -18,8 +18,8 @@ Papers examining linear/affine representation of alignment, steering vectors, an
 
 | arXiv ID | Title | Stance |
 |----------|-------|--------|
-| [2603.27412](https://arxiv.org/abs/2603.27412) | The Geometry of Harmful Intent: Training-Free Anomaly Detection via Angular Deviation | supports |
-| [2603.09313](https://arxiv.org/abs/2603.09313) | Curveball Steering: The Right Direction To Steer Isn't Always Linear | challenges |
+| ~~[2603.27412](https://arxiv.org/abs/2603.27412)~~ | ~~The Geometry of Harmful Intent~~ | ~~supports~~ | SKIP: single-author |
+| ~~[2603.09313](https://arxiv.org/abs/2603.09313)~~ | ~~Curveball Steering: The Right Direction To Steer Isn't Always Linear~~ | ~~balanced~~ | DONE #321 |
 | [2602.11246](https://arxiv.org/abs/2602.11246) | How Many Features Can a Language Model Store Under the Linear Representation Hypothesis? | balanced |
 | [2602.05539](https://arxiv.org/abs/2602.05539) | Steering Large Reasoning Models towards Concise Reasoning via Flow Matching | supports |
 | [2601.21702](https://arxiv.org/abs/2601.21702) | Beyond Forgetting: Machine Unlearning Elicits Controllable Side Behaviors | supports |

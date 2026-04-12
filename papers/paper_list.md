@@ -324,3 +324,4 @@
 | 318 | 2512.02914 | Dec 2025 | Martingale Score: Bayesian Rationality in LLM Reasoning | Supports |
 | 319 | 2406.11717 | Jun 2024 | Refusal in LLMs is mediated by a single direction | Strongly Supports |
 | 320 | 2411.09003 | Nov 2024 | Refusal in LLMs is an Affine Function | Strongly Supports |
+| 321 | 2603.09313 | Mar 2026 | Curveball Steering: The Right Direction To Steer Isn't Always Linear | Balanced |

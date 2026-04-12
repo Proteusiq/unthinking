@@ -6952,4 +6952,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/320-329/320_refusal_affine_function.md',
   },
+  {
+    id: '2603.09313',
+    title: "Curveball Steering: The Right Direction To Steer Isn't Always Linear",
+    shortTitle: 'Curveball Steering',
+    date: 'Mar 2026',
+    stance: 'balanced',
+    cluster: 'mechanism',
+    coreArgument:
+      'LLM activation spaces have non-Euclidean geometry. Linear steering works but is suboptimal. Curveball steering (polynomial kernel PCA) outperforms linear methods in high-curvature regimes. Refines but does not refute abliteration.',
+    keyEvidence: [
+      'Geodesic/Euclidean ratio ≫ 1 (proves non-linear geometry)',
+      'Power-seeking: +47% vs +16% (Curveball vs linear)',
+      'Corrigibility: +93.4% vs +2.1% (Phi-3.5-mini)',
+      'Linear steering degrades at curvature κ > 8',
+      'Concept-dependent distortion patterns',
+    ],
+    keyQuotes: [
+      'Activation spaces are not well-approximated by a globally linear geometry.',
+      'The linear method exhibits catastrophic degradation due to pushing datapoints off-manifold.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/320-329/321_curveball_steering.md',
+  },
 ];
