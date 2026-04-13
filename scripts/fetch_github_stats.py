@@ -3,8 +3,9 @@
 Fetch live GitHub stats for educational resources.
 
 Usage:
-    uv run scripts/update_stars.py           # Print stats to stdout
-    uv run scripts/update_stars.py --update  # Update resources/courses.md
+    uv run scripts/fetch_github_stats.py           # Print stats to stdout
+    uv run scripts/fetch_github_stats.py --update  # Update resources/courses.md
+    uv run scripts/fetch_github_stats.py --json    # Output as JSON
 
 Requires: httpx (uv will auto-install from inline metadata)
 """
