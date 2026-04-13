@@ -2,8 +2,6 @@
 
 Curated courses, tutorials, and learning materials for understanding LLMs from first principles.
 
-> **Note**: Star counts are approximate. Run `uv run scripts/fetch_github_stats.py` for live data.
-
 ---
 
 ## Table of Contents
@@ -53,13 +51,13 @@ Build an LLM end-to-end: tokenizer, architecture, training, data pipeline, align
 
 #### Assignments
 
-| # | Title | What You Build | GitHub |
-|---|-------|----------------|--------|
-| 1 | Basics | BPE Tokenizer, Transformer, AdamW optimizer | [assignment1-basics](https://github.com/stanford-cs336/assignment1-basics) |
-| 2 | Systems | FlashAttention2 in Triton, distributed training | [assignment2-systems](https://github.com/stanford-cs336/assignment2-systems) |
-| 3 | Scaling | Fit scaling laws, project model behavior | [assignment3-scaling](https://github.com/stanford-cs336/assignment3-scaling) |
-| 4 | Data | Process Common Crawl, MinHash deduplication | [assignment4-data](https://github.com/stanford-cs336/assignment4-data) |
-| 5 | Alignment | SFT, RL for reasoning, DPO safety | [assignment5-alignment](https://github.com/stanford-cs336/assignment5-alignment) |
+| # | Title | What You Build | Repository |
+|---|-------|----------------|------------|
+| 1 | Basics | BPE Tokenizer, Transformer, AdamW optimizer | [![GitHub](https://img.shields.io/github/stars/stanford-cs336/assignment1-basics?style=flat&label=⭐)](https://github.com/stanford-cs336/assignment1-basics) |
+| 2 | Systems | FlashAttention2 in Triton, distributed training | [![GitHub](https://img.shields.io/github/stars/stanford-cs336/assignment2-systems?style=flat&label=⭐)](https://github.com/stanford-cs336/assignment2-systems) |
+| 3 | Scaling | Fit scaling laws, project model behavior | [![GitHub](https://img.shields.io/github/stars/stanford-cs336/assignment3-scaling?style=flat&label=⭐)](https://github.com/stanford-cs336/assignment3-scaling) |
+| 4 | Data | Process Common Crawl, MinHash deduplication | [![GitHub](https://img.shields.io/github/stars/stanford-cs336/assignment4-data?style=flat&label=⭐)](https://github.com/stanford-cs336/assignment4-data) |
+| 5 | Alignment | SFT, RL for reasoning, DPO safety | [![GitHub](https://img.shields.io/github/stars/stanford-cs336/assignment5-alignment?style=flat&label=⭐)](https://github.com/stanford-cs336/assignment5-alignment) |
 
 #### Instructors
 
@@ -121,7 +119,7 @@ Shows same techniques (DPO, GRPO) apply to vision — "reasoning" not unique to 
 ## Andrej Karpathy
 
 **Background**: Stanford PhD, Former Director of AI at Tesla, OpenAI founding member  
-**GitHub**: [@karpathy](https://github.com/karpathy) — 166k followers, 63 repos, ~450k total stars  
+**GitHub**: [@karpathy](https://github.com/karpathy) ![Followers](https://img.shields.io/github/followers/karpathy?style=flat&label=followers)  
 **YouTube**: [@AndrejKarpathy](https://www.youtube.com/@AndrejKarpathy)  
 **Twitter**: [@karpathy](https://x.com/karpathy)
 
@@ -136,27 +134,26 @@ Shows same techniques (DPO, GRPO) apply to vision — "reasoning" not unique to 
 
 #### Flagship Educational Repos
 
-| Repository | Stars | Description |
-|------------|-------|-------------|
-| [nanoGPT](https://github.com/karpathy/nanoGPT) | 56k | Simplest, fastest repo for training/finetuning GPTs |
-| [llm.c](https://github.com/karpathy/llm.c) | 29k | LLM training in simple, raw C/CUDA |
-| [minGPT](https://github.com/karpathy/minGPT) | 24k | Minimal PyTorch GPT implementation |
-| [nn-zero-to-hero](https://github.com/karpathy/nn-zero-to-hero) | 21k | Neural Networks: Zero to Hero course materials |
-| [llama2.c](https://github.com/karpathy/llama2.c) | 19k | Inference Llama 2 in one file of pure C |
-| [micrograd](https://github.com/karpathy/micrograd) | 15k | Tiny autograd engine with PyTorch-like API |
-| [char-rnn](https://github.com/karpathy/char-rnn) | 12k | Character-level language models in Torch |
-| [minbpe](https://github.com/karpathy/minbpe) | 10k | Minimal BPE tokenizer |
-| [makemore](https://github.com/karpathy/makemore) | 4k | Autoregressive character-level language model |
-| [build-nanogpt](https://github.com/karpathy/build-nanogpt) | 5k | Video+code lecture on building nanoGPT |
+| Repository | Description |
+|------------|-------------|
+| [![nanoGPT](https://img.shields.io/github/stars/karpathy/nanoGPT?style=flat&label=nanoGPT)](https://github.com/karpathy/nanoGPT) | Simplest, fastest repo for training/finetuning GPTs |
+| [![llm.c](https://img.shields.io/github/stars/karpathy/llm.c?style=flat&label=llm.c)](https://github.com/karpathy/llm.c) | LLM training in simple, raw C/CUDA |
+| [![minGPT](https://img.shields.io/github/stars/karpathy/minGPT?style=flat&label=minGPT)](https://github.com/karpathy/minGPT) | Minimal PyTorch GPT implementation |
+| [![nn-zero-to-hero](https://img.shields.io/github/stars/karpathy/nn-zero-to-hero?style=flat&label=nn-zero-to-hero)](https://github.com/karpathy/nn-zero-to-hero) | Neural Networks: Zero to Hero course materials |
+| [![llama2.c](https://img.shields.io/github/stars/karpathy/llama2.c?style=flat&label=llama2.c)](https://github.com/karpathy/llama2.c) | Inference Llama 2 in one file of pure C |
+| [![micrograd](https://img.shields.io/github/stars/karpathy/micrograd?style=flat&label=micrograd)](https://github.com/karpathy/micrograd) | Tiny autograd engine with PyTorch-like API |
+| [![minbpe](https://img.shields.io/github/stars/karpathy/minbpe?style=flat&label=minbpe)](https://github.com/karpathy/minbpe) | Minimal BPE tokenizer |
+| [![makemore](https://img.shields.io/github/stars/karpathy/makemore?style=flat&label=makemore)](https://github.com/karpathy/makemore) | Autoregressive character-level language model |
+| [![build-nanogpt](https://img.shields.io/github/stars/karpathy/build-nanogpt?style=flat&label=build-nanogpt)](https://github.com/karpathy/build-nanogpt) | Video+code lecture on building nanoGPT |
 
 #### Newer Repos (2025-2026)
 
-| Repository | Stars | Description |
-|------------|-------|-------------|
-| [autoresearch](https://github.com/karpathy/autoresearch) | 71k | AI agents running research automatically |
-| [nanochat](https://github.com/karpathy/nanochat) | 52k | The best ChatGPT that $100 can buy |
-| [LLM101n](https://github.com/karpathy/LLM101n) | 37k | Let's build a Storyteller (archived course) |
-| [llm-council](https://github.com/karpathy/llm-council) | 17k | LLM Council answers your hardest questions |
+| Repository | Description |
+|------------|-------------|
+| [![autoresearch](https://img.shields.io/github/stars/karpathy/autoresearch?style=flat&label=autoresearch)](https://github.com/karpathy/autoresearch) | AI agents running research automatically |
+| [![nanochat](https://img.shields.io/github/stars/karpathy/nanochat?style=flat&label=nanochat)](https://github.com/karpathy/nanochat) | The best ChatGPT that $100 can buy |
+| [![LLM101n](https://img.shields.io/github/stars/karpathy/LLM101n?style=flat&label=LLM101n)](https://github.com/karpathy/LLM101n) | Let's build a Storyteller (archived course) |
+| [![llm-council](https://img.shields.io/github/stars/karpathy/llm-council?style=flat&label=llm-council)](https://github.com/karpathy/llm-council) | LLM Council answers your hardest questions |
 
 ### YouTube: Neural Networks: Zero to Hero
 
@@ -226,7 +223,7 @@ Complete course teaching neural networks from scratch:
 ## Sebastian Raschka
 
 **Background**: AI Research Engineer, former Statistics Professor at UW-Madison  
-**GitHub**: [@rasbt](https://github.com/rasbt) — 37k followers, 149 repos  
+**GitHub**: [@rasbt](https://github.com/rasbt) ![Followers](https://img.shields.io/github/followers/rasbt?style=flat&label=followers)  
 **Substack**: [Ahead of AI](https://magazine.sebastianraschka.com/)  
 **Website**: https://sebastianraschka.com  
 **Twitter**: [@rasbt](https://twitter.com/rasbt)
@@ -237,7 +234,7 @@ Complete course teaching neural networks from scratch:
 
 | Resource | Link |
 |----------|------|
-| GitHub (90k stars) | https://github.com/rasbt/LLMs-from-scratch |
+| GitHub | [![LLMs-from-scratch](https://img.shields.io/github/stars/rasbt/LLMs-from-scratch?style=flat&label=⭐)](https://github.com/rasbt/LLMs-from-scratch) |
 | Manning | http://mng.bz/orYv |
 | Amazon | https://amzn.to/4fqvn0D |
 | Video Course (17h) | https://www.manning.com/livevideo/master-and-build-large-language-models |
@@ -257,7 +254,7 @@ Complete course teaching neural networks from scratch:
 
 | Resource | Link |
 |----------|------|
-| GitHub (4k stars) | https://github.com/rasbt/reasoning-from-scratch |
+| GitHub | [![reasoning-from-scratch](https://img.shields.io/github/stars/rasbt/reasoning-from-scratch?style=flat&label=⭐)](https://github.com/rasbt/reasoning-from-scratch) |
 | Manning | https://mng.bz/lZ5B |
 | Amazon (pre-order) | https://amzn.to/4aAKiFY |
 
@@ -273,37 +270,36 @@ Complete course teaching neural networks from scratch:
 
 #### Other Books
 
-| Book | Year | GitHub |
-|------|------|--------|
-| Machine Learning with PyTorch and Scikit-Learn | 2022 | https://github.com/rasbt/machine-learning-book |
-| Machine Learning Q and AI | 2024 | https://github.com/rasbt/MachineLearning-QandAI-book |
-| Python Machine Learning (1st ed) | 2015 | https://github.com/rasbt/python-machine-learning-book |
+| Book | Year | Repository |
+|------|------|------------|
+| Machine Learning with PyTorch and Scikit-Learn | 2022 | [![GitHub](https://img.shields.io/github/stars/rasbt/machine-learning-book?style=flat&label=⭐)](https://github.com/rasbt/machine-learning-book) |
+| Machine Learning Q and AI | 2024 | [![GitHub](https://img.shields.io/github/stars/rasbt/MachineLearning-QandAI-book?style=flat&label=⭐)](https://github.com/rasbt/MachineLearning-QandAI-book) |
+| Python Machine Learning (1st ed) | 2015 | [![GitHub](https://img.shields.io/github/stars/rasbt/python-machine-learning-book?style=flat&label=⭐)](https://github.com/rasbt/python-machine-learning-book) |
 
 ### GitHub Repositories
 
-| Repository | Stars | Description |
-|------------|-------|-------------|
-| [LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch) | 90k | Build ChatGPT-like LLM from scratch |
-| [deeplearning-models](https://github.com/rasbt/deeplearning-models) | 17k | Deep learning architectures collection |
-| [python-machine-learning-book](https://github.com/rasbt/python-machine-learning-book) | 12k | Python ML book code |
-| [mlxtend](https://github.com/rasbt/mlxtend) | 5k | ML extension library |
-| [reasoning-from-scratch](https://github.com/rasbt/reasoning-from-scratch) | 4k | Build reasoning LLM from scratch |
-| [LLM-workshop-2024](https://github.com/rasbt/LLM-workshop-2024) | 1k | 4-hour LLM coding workshop |
+| Repository | Description |
+|------------|-------------|
+| [![LLMs-from-scratch](https://img.shields.io/github/stars/rasbt/LLMs-from-scratch?style=flat&label=LLMs-from-scratch)](https://github.com/rasbt/LLMs-from-scratch) | Build ChatGPT-like LLM from scratch |
+| [![deeplearning-models](https://img.shields.io/github/stars/rasbt/deeplearning-models?style=flat&label=deeplearning-models)](https://github.com/rasbt/deeplearning-models) | Deep learning architectures collection |
+| [![mlxtend](https://img.shields.io/github/stars/rasbt/mlxtend?style=flat&label=mlxtend)](https://github.com/rasbt/mlxtend) | ML extension library |
+| [![reasoning-from-scratch](https://img.shields.io/github/stars/rasbt/reasoning-from-scratch?style=flat&label=reasoning-from-scratch)](https://github.com/rasbt/reasoning-from-scratch) | Build reasoning LLM from scratch |
+| [![LLM-workshop-2024](https://img.shields.io/github/stars/rasbt/LLM-workshop-2024?style=flat&label=LLM-workshop-2024)](https://github.com/rasbt/LLM-workshop-2024) | 4-hour LLM coding workshop |
 
 ### Substack: Ahead of AI (Top Articles)
 
-| Date | Title | Likes |
-|------|-------|-------|
-| Jul 2025 | [The Big LLM Architecture Comparison](https://magazine.sebastianraschka.com/p/the-big-llm-architecture-comparison) | 1,895 |
-| Feb 2025 | [Understanding Reasoning LLMs](https://magazine.sebastianraschka.com/p/understanding-reasoning-llms) | 1,289 |
-| Apr 2023 | [Understanding Large Language Models](https://magazine.sebastianraschka.com/p/understanding-large-language-models) | 956 |
-| Nov 2024 | [Understanding Multimodal LLMs](https://magazine.sebastianraschka.com/p/understanding-multimodal-llms) | 644 |
-| Aug 2025 | [From GPT-2 to gpt-oss](https://magazine.sebastianraschka.com/p/from-gpt-2-to-gpt-oss-analyzing-the) | 627 |
-| Apr 2026 | [Components of A Coding Agent](https://magazine.sebastianraschka.com/p/components-of-a-coding-agent) | 585 |
-| Dec 2025 | [The State Of LLMs 2025](https://magazine.sebastianraschka.com/p/state-of-llms-2025) | 513 |
-| Apr 2025 | [The State of RL for LLM Reasoning](https://magazine.sebastianraschka.com/p/the-state-of-llm-reasoning-model-training) | 509 |
-| Jan 2024 | [Understanding and Coding Self-Attention](https://magazine.sebastianraschka.com/p/understanding-and-coding-self-attention) | 496 |
-| Aug 2024 | [Building LLMs from the Ground Up (3h Workshop)](https://magazine.sebastianraschka.com/p/building-llms-from-the-ground-up) | 445 |
+| Date | Title |
+|------|-------|
+| Jul 2025 | [The Big LLM Architecture Comparison](https://magazine.sebastianraschka.com/p/the-big-llm-architecture-comparison) |
+| Feb 2025 | [Understanding Reasoning LLMs](https://magazine.sebastianraschka.com/p/understanding-reasoning-llms) |
+| Apr 2023 | [Understanding Large Language Models](https://magazine.sebastianraschka.com/p/understanding-large-language-models) |
+| Nov 2024 | [Understanding Multimodal LLMs](https://magazine.sebastianraschka.com/p/understanding-multimodal-llms) |
+| Aug 2025 | [From GPT-2 to gpt-oss](https://magazine.sebastianraschka.com/p/from-gpt-2-to-gpt-oss-analyzing-the) |
+| Apr 2026 | [Components of A Coding Agent](https://magazine.sebastianraschka.com/p/components-of-a-coding-agent) |
+| Dec 2025 | [The State Of LLMs 2025](https://magazine.sebastianraschka.com/p/state-of-llms-2025) |
+| Apr 2025 | [The State of RL for LLM Reasoning](https://magazine.sebastianraschka.com/p/the-state-of-llm-reasoning-model-training) |
+| Jan 2024 | [Understanding and Coding Self-Attention](https://magazine.sebastianraschka.com/p/understanding-and-coding-self-attention) |
+| Aug 2024 | [Building LLMs from the Ground Up (3h Workshop)](https://magazine.sebastianraschka.com/p/building-llms-from-the-ground-up) |
 
 ### LLM Architecture Gallery
 
@@ -312,7 +308,7 @@ Interactive comparison of 50+ LLM architectures with diagrams and fact sheets.
 | Resource | Link |
 |----------|------|
 | Live Gallery | https://sebastianraschka.com/llm-architecture-gallery/ |
-| GitHub Data | https://github.com/rasbt/llm-architecture-gallery |
+| GitHub Data | [![GitHub](https://img.shields.io/github/stars/rasbt/llm-architecture-gallery?style=flat&label=⭐)](https://github.com/rasbt/llm-architecture-gallery) |
 | Poster (Physical) | https://www.redbubble.com/i/poster/LLM-Architecture-Gallery-by-Ahead-of-AI/179274487/flk2 |
 | Digital Download | https://rasbt.gumroad.com/l/llm-gallery |
 
@@ -341,12 +337,12 @@ Interactive GPT-2 visualization for understanding transformer architecture.
 
 ## Zero-Dependency Implementations
 
-| Repository | Description | Link |
-|------------|-------------|------|
-| no-magic | 47 ML algorithms — "Because `model.fit()` isn't an explanation" | https://github.com/no-magic-ai/no-magic |
-| microgpt.py | 200 lines of pure Python GPT | https://gist.github.com/karpathy/8627fe009c40f57531cb18360106ce95 |
-| micrograd | Tiny autograd engine | https://github.com/karpathy/micrograd |
-| minbpe | Minimal BPE tokenizer | https://github.com/karpathy/minbpe |
+| Repository | Description |
+|------------|-------------|
+| [![no-magic](https://img.shields.io/github/stars/no-magic-ai/no-magic?style=flat&label=no-magic)](https://github.com/no-magic-ai/no-magic) | 47 ML algorithms — "Because `model.fit()` isn't an explanation" |
+| [microgpt.py](https://gist.github.com/karpathy/8627fe009c40f57531cb18360106ce95) | 200 lines of pure Python GPT |
+| [![micrograd](https://img.shields.io/github/stars/karpathy/micrograd?style=flat&label=micrograd)](https://github.com/karpathy/micrograd) | Tiny autograd engine |
+| [![minbpe](https://img.shields.io/github/stars/karpathy/minbpe?style=flat&label=minbpe)](https://github.com/karpathy/minbpe) | Minimal BPE tokenizer |
 
 ---
 
@@ -397,52 +393,3 @@ Understanding the implementation makes the thesis claims concrete: **there's no 
 1. Karpathy's llm.c repo
 2. CS336 Assignment 2 (Systems)
 3. CS336 lectures on parallelism, kernels, scaling laws
-
----
-
-## Live GitHub Stats
-
-*Auto-generated by `scripts/fetch_github_stats.py`*
-
-### Repository Stars
-
-| Repository | Stars |
-|------------|-------|
-| [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch) | 90.6k |
-| [karpathy/autoresearch](https://github.com/karpathy/autoresearch) | 71.1k |
-| [karpathy/nanoGPT](https://github.com/karpathy/nanoGPT) | 56.6k |
-| [karpathy/nanochat](https://github.com/karpathy/nanochat) | 51.7k |
-| [karpathy/LLM101n](https://github.com/karpathy/LLM101n) | 36.8k |
-| [karpathy/llm.c](https://github.com/karpathy/llm.c) | 29.5k |
-| [karpathy/minGPT](https://github.com/karpathy/minGPT) | 24.1k |
-| [karpathy/nn-zero-to-hero](https://github.com/karpathy/nn-zero-to-hero) | 21.4k |
-| [karpathy/llama2.c](https://github.com/karpathy/llama2.c) | 19.4k |
-| [rasbt/deeplearning-models](https://github.com/rasbt/deeplearning-models) | 17.5k |
-| [karpathy/llm-council](https://github.com/karpathy/llm-council) | 17k |
-| [karpathy/micrograd](https://github.com/karpathy/micrograd) | 15.4k |
-| [rasbt/python-machine-learning-book](https://github.com/rasbt/python-machine-learning-book) | 12.6k |
-| [karpathy/char-rnn](https://github.com/karpathy/char-rnn) | 12k |
-| [karpathy/minbpe](https://github.com/karpathy/minbpe) | 10.4k |
-| [rasbt/mlxtend](https://github.com/rasbt/mlxtend) | 5.1k |
-| [rasbt/machine-learning-book](https://github.com/rasbt/machine-learning-book) | 5.1k |
-| [karpathy/build-nanogpt](https://github.com/karpathy/build-nanogpt) | 4.9k |
-| [rasbt/reasoning-from-scratch](https://github.com/rasbt/reasoning-from-scratch) | 4.1k |
-| [karpathy/makemore](https://github.com/karpathy/makemore) | 3.8k |
-| [stanford-cs336/lectures](https://github.com/stanford-cs336/lectures) | 2.9k |
-| [stanford-cs336/assignment1-basics](https://github.com/stanford-cs336/assignment1-basics) | 1.5k |
-| [rasbt/LLM-workshop-2024](https://github.com/rasbt/LLM-workshop-2024) | 1.1k |
-| [stanford-cs336/assignment2-systems](https://github.com/stanford-cs336/assignment2-systems) | 199 |
-| [stanford-cs336/assignment3-scaling](https://github.com/stanford-cs336/assignment3-scaling) | 52 |
-
-### User Followers
-
-*Run with `GITHUB_TOKEN` for higher rate limits:*
-```bash
-GITHUB_TOKEN=ghp_xxx uv run scripts/update_stars.py --update
-```
-
-| User | Followers (approx) |
-|------|-----------|
-| [@karpathy](https://github.com/karpathy) | ~166k |
-| [@rasbt](https://github.com/rasbt) | ~37k |
-| [@percyliang](https://github.com/percyliang) | ~1.7k |
