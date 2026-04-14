@@ -32,7 +32,6 @@ Build an LLM end-to-end: tokenizer, architecture, training, data pipeline, align
 | Spring 2025 | https://cs336.stanford.edu/spring2025/ |
 | GitHub Organization | https://github.com/stanford-cs336 |
 | Lectures (.py files) | https://github.com/stanford-cs336/lectures |
-| LLM Cheatsheets | https://github.com/afshinea/stanford-cme-295-transformers-large-language-models |
 
 #### Syllabus (Spring 2026)
 
@@ -91,6 +90,19 @@ Build an LLM end-to-end: tokenizer, architecture, training, data pipeline, align
 | Marin | Open foundation model development | https://marin.community/ |
 | AlpacaFarm | RLHF simulation framework | [Paper](https://arxiv.org/abs/2305.14387) |
 | CodaLab | Reproducible research platform | https://worksheets.codalab.org/ |
+
+---
+
+### CME 295: Transformers & Large Language Models
+
+**Instructors**: Amidi & Amidi
+
+9 lectures covering attention, scaling, alignment, reasoning (GRPO), and LLM-as-Judge pitfalls.
+
+| Resource | Link |
+|----------|------|
+| Course Website | https://cme295.stanford.edu/ |
+| Cheatsheets | https://github.com/afshinea/stanford-cme-295-transformers-large-language-models |
 
 ---
 
