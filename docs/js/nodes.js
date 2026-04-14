@@ -6464,52 +6464,7 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/298_self_moa_single_model_beats_mixture.md',
   },
-  {
-    id: '2305.10601',
-    title: 'Tree of Thoughts: Deliberate Problem Solving',
-    date: 'May 2023',
-    stance: 'supports',
-    cluster: 'mechanism',
-    coreArgument:
-      'NeurIPS 2023: ToT improves Game of 24 from 4% to 74% via BFS/DFS search. Authors explicitly call LM "System 1" (associative). 60% of CoT samples fail at first 3 words. Bottleneck is generation quality not evaluation. Search surfaces patterns, doesn\'t create reasoning.',
-    keyEvidence: [
-      'Game of 24: 4% → 74% with search scaffolding',
-      '60% of CoT samples fail at first step (first 3 words)',
-      'GPT-4 gen + GPT-3.5 eval = 64%; GPT-3.5 gen + GPT-4 eval = 31%',
-      'Performance ceiling: 74% not 100% on well-defined task',
-      'GSM8K: only 86%→90% when CoT already works',
-    ],
-    keyQuotes: [
-      'The simple associative token-level choices of LMs are reminiscent of System 1.',
-      'Around 60% of CoT samples already failed after the first three words.',
-      "The game's bottleneck is thought generation.",
-    ],
-    analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/299_tree_of_thoughts.md',
-  },
-  {
-    id: '2308.09687',
-    title: 'Graph of Thoughts: Solving Elaborate Problems',
-    date: 'Aug 2023',
-    stance: 'supports',
-    cluster: 'mechanism',
-    coreArgument:
-      'AAAI 2024: 62% improvement over ToT comes from merge sort algorithm, not LLM reasoning. Authors admit LLMs cannot sort beyond ~16-32 elements. GoO is pre-constructed by humans. ~75% accuracy ceiling on 128 numbers—genuine reasoner would be 100%.',
-    keyEvidence: [
-      'LLMs unable to sort beyond ~16-32 elements',
-      '62% gain is from merge sort, not LLM insight',
-      'GoO pre-constructed by humans before execution',
-      '~75% accuracy on 128 numbers (should be 100%)',
-      '>31% cost reduction from algorithm efficiency',
-    ],
-    keyQuotes: [
-      'The considered LLMs are unable to sort a sequence of numbers correctly beyond a certain length.',
-      'GoO is a static structure constructed once, before execution starts.',
-      'We select merge sort for its straightforward alignment with GoT.',
-    ],
-    analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/300-309/300_graph_of_thoughts.md',
-  },
+
   {
     id: '2303.11366',
     title: 'Reflexion: Language Agents with Verbal Reinforcement',
@@ -6752,28 +6707,7 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/310-319/311_llms_biased_causal_reasoning.md',
   },
-  {
-    id: '2305.04388',
-    title: "Language Models Don't Always Say What They Think",
-    date: 'May 2023',
-    stance: 'supports',
-    cluster: 'mechanism',
-    coreArgument:
-      'Anthropic: CoT explanations are systematically unfaithful—models change predictions based on biasing features they never mention. Accuracy drops up to 36% with biasing. 73% of unfaithful explanations actively support the biased (incorrect) answer. CoT rationalizes rather than reasons.',
-    keyEvidence: [
-      'Up to 36% accuracy drop from biasing features',
-      'Only 1/426 explanations mentioned the bias',
-      '73% of unfaithful explanations support wrong answer',
-      '15% of unfaithful explanations have no obvious errors',
-      'Models use weak evidence inconsistently to support stereotypes',
-    ],
-    keyQuotes: [
-      "CoT explanations can systematically misrepresent the true reason for a model's prediction.",
-      'This risks increasing our trust in LLMs without guaranteeing their safety.',
-    ],
-    analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/310-319/312_unfaithful_cot_explanations.md',
-  },
+
   {
     id: '2505.24362',
     title: 'Knowing Before Saying: LLM Representations Encode CoT Success',
