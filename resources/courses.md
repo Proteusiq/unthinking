@@ -106,16 +106,6 @@ Build an LLM end-to-end: tokenizer, architecture, training, data pipeline, align
 
 ---
 
-### CME 296: Diffusion & Large Vision Models
-
-Shows same techniques (DPO, GRPO) apply to vision — "reasoning" not unique to text.
-
-| Resource | Link |
-|----------|------|
-| Course Website | https://cme296.stanford.edu/ |
-
----
-
 ## Andrej Karpathy
 
 **Background**: Stanford PhD, Former Director of AI at Tesla, OpenAI founding member  
