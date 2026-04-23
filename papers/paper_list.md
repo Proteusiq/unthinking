@@ -1,6 +1,6 @@
 # Paper List
 
-> 321 papers analyzed | 233 supports thesis | 15 challenges | 73 balanced | Date range: 2021-2026
+> 325 papers analyzed | 234 supports thesis | 15 challenges | 73 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -328,3 +328,4 @@
 | 322 | 2602.11246 | Feb 2026 | How Many Features Can a Language Model Store Under the LRH? | Balanced |
 | 323 | 2602.05539 | Feb 2026 | Steering Large Reasoning Models towards Concise Reasoning via Flow Matching | Supports |
 | 324 | 2601.21702 | Jan 2026 | Beyond Forgetting: Machine Unlearning Elicits Controllable Side Behaviors | Supports |
+| 325 | 2603.05488 | Mar 2026 | Reasoning Theater: Disentangling Model Beliefs from Chain-of-Thought | Supports |

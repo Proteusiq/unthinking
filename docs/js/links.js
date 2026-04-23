@@ -7803,4 +7803,34 @@ window.paperLinks = [
     type: 'supports',
     description: 'Empirically validates LRH that #322 formalizes mathematically',
   },
+  {
+    source: '2603.05488',
+    target: '2307.13702',
+    type: 'extends',
+    description: 'Extends forced-answering to R1/GPT-OSS; adds attention probes as second channel',
+  },
+  {
+    source: '2603.05488',
+    target: '2505.05410',
+    type: 'supports',
+    description: 'Quantifies unfaithfulness via probe/monitor gap on reasoning models',
+  },
+  {
+    source: '2603.05488',
+    target: '2503.08679',
+    type: 'supports',
+    description: 'Natural-setting unfaithfulness confirmed mechanistically via activation probes',
+  },
+  {
+    source: '2603.05488',
+    target: '2508.01191',
+    type: 'supports',
+    description: 'Both frame CoT as theater; this paper adds probe-level quantitative evidence',
+  },
+  {
+    source: '2603.05488',
+    target: '2509.17380',
+    type: 'supports',
+    description: 'Answer commits before verbalization — step-level causal skepticism validated',
+  },
 ];

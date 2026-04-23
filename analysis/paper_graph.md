@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 324
+> **Papers tracked**: 325
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1456,6 +1456,11 @@ These papers have NO direct rebuttals found:
 | SAH Task Complexity (2602.15829) | Kilobytes adapt LLMs; post-training collapses complexity from GB to KB; formalizes SAH via information theory |
 | Large Models of What (2407.08790) | Enactive view: LLMs lack embodiment/participation/precarity; output is "fabrication" even when accurate |
 | Context-Directed Extrapolation (2505.23323) | Bloom's taxonomy: Understand not Apply; human does Apply in ICL; fears of emergent agency unfounded |
+
+### 2026-04-23 — Performative CoT & Agency Cluster
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Reasoning Theater (2603.05488) | Answer decodable from activations earlier than CoT monitor; R1 performativity 0.417 MMLU vs 0.012 GPQA; inflections 2.25× more common in low-confidence traces; 68%/50% token savings |
 
 ### 2026-04-12 (Session 2) — Linear Representation & Steering Theory
 | Papers Added | Key Findings |

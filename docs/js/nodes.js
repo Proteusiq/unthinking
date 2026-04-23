@@ -6975,4 +6975,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/320-329/324_unlearning_side_behaviors.md',
   },
+  {
+    id: '2603.05488',
+    title: 'Reasoning Theater: Disentangling Model Beliefs from Chain-of-Thought',
+    shortTitle: 'Reasoning Theater',
+    date: 'Mar 2026',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      "On easy (MMLU) tasks, the final answer is decodable from activations far earlier than a CoT monitor can detect — the intervening text is performative. On hard (GPQA-D) tasks, belief and CoT track together. Inflection points reliably signal uncertainty.",
+    keyEvidence: [
+      'R1 performativity rate: 0.417 MMLU vs 0.012 GPQA (~35× gap)',
+      'Inflections 2.25× more common in low-confidence traces',
+      'Probe-guided early exit: 68% tokens saved on MMLU, 50% on GPQA @ 97% accuracy',
+      'Best MMLU probe: 87.98% macro accuracy',
+    ],
+    keyQuotes: [
+      "We provide evidence of performative chain-of-thought (CoT) in reasoning models, where a model becomes strongly confident in its final answer, but continues generating tokens without revealing its internal belief.",
+      "CoT monitors are at best cooperative listeners, but reasoning models are not cooperative speakers, and many failures in CoT faithfulness can be explained by this framing.",
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/320-329/325_reasoning_theater.md',
+  },
 ];

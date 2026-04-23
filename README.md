@@ -7,7 +7,7 @@
 </a>
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
-[![Papers](https://img.shields.io/badge/papers-318-blue)]()
+[![Papers](https://img.shields.io/badge/papers-325-blue)]()
 [![Relationships](https://img.shields.io/badge/relationships-1160-orange)]()
 
 ---
