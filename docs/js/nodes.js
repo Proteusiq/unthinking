@@ -7263,4 +7263,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/337_plan_to_action.md',
   },
+  {
+    id: '2510.04491',
+    title: 'Impatient Users Confuse AI Agents: High-fidelity Simulations of Human Traits for Testing Agents',
+    shortTitle: 'TraitBasis / τ-Trait',
+    date: 'Oct 2025',
+    stance: 'supports',
+    cluster: 'tools',
+    coreArgument:
+      "Frontier agents lose up to 62% performance when users merely shift interaction style (impatient, confused, skeptical, incoherent) — task, tools, and policy unchanged. TraitBasis: activation-space trait steering with 4 contrastive pairs. Prompt-based user simulators in current benchmarks exhibit 94.3% persona collapse, inflating prior agent-robustness scores. τ-Trait released for 4 domains (airline, retail, telecom, telehealth).",
+    keyEvidence: [
+      'GPT-5 retail under impatience: -62.6% task completion',
+      'Kimi K2 modified BFCL under skepticism: -80%; confusion: -70%',
+      'GPT-4o modified BFCL: -55.9% average across traits',
+      'Prompt-based user simulator persona collapse: 94.3%',
+      'TraitBasis fidelity 97.5% vs SFT 95.0% with 3000× less data (4 pairs vs 13,000)',
+    ],
+    keyQuotes: [
+      'Small shifts in user behavior, such as being more impatient, incoherent, or skeptical, can cause sharp drops in agent performance, revealing how brittle current AI agents are.',
+      'All baseline methods exhibit persona collapse, with traits fading in 94.3% of prompt-based, 86.0% of LoRA, and 65.7% of SFT conversations.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/338_traitbasis_impatient_users.md',
+  },
 ];

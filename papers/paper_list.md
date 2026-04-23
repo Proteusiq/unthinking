@@ -1,6 +1,6 @@
 # Paper List
 
-> 337 papers analyzed | 245 supports thesis | 15 challenges | 74 balanced | Date range: 2021-2026
+> 338 papers analyzed | 246 supports thesis | 15 challenges | 74 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -341,3 +341,4 @@
 | 335 | 2507.19672 | Jul 2025 | Alignment and Safety in Large Language Models: Safety Mechanisms, Training Paradigms, and Emerging Challenges | Balanced |
 | 336 | 2502.09192 | Feb 2025 | Thinking beyond the anthropomorphic paradigm benefits LLM research | Supports |
 | 337 | 2604.12147 | Apr 2026 | From Plan to Action: How Well Do Agents Follow the Plan? | Supports |
+| 338 | 2510.04491 | Oct 2025 | Impatient Users Confuse AI Agents: High-fidelity Simulations of Human Traits for Testing Agents | Supports |

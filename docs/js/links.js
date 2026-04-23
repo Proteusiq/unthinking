@@ -8145,4 +8145,34 @@ window.paperLinks = [
     type: 'supports',
     description: 'Behavioral counterpart to TRACEALIGN: plan-removal unlocks memorized patches without suffix-array access',
   },
+  {
+    source: '2510.04491',
+    target: '2602.20813',
+    type: 'supports',
+    description: 'Agent-level Pressure Reveals Character: up to 62% drop from user-style shift alone',
+  },
+  {
+    source: '2510.04491',
+    target: '2410.05229',
+    type: 'supports',
+    description: 'Surface-perturbation pattern at dialogue level — same task, changed user style breaks agent',
+  },
+  {
+    source: '2510.04491',
+    target: '2510.07686',
+    type: 'supports',
+    description: 'Character cracks under stress replicated at multi-turn agent level',
+  },
+  {
+    source: '2510.04491',
+    target: '2604.12147',
+    type: 'supports',
+    description: 'Plan-to-Action shows memorized workflows; this paper shows memorized user-style expectations',
+  },
+  {
+    source: '2510.04491',
+    target: '2604.13051',
+    type: 'supports',
+    description: 'Persona represented as geometric direction — 4 contrastive pairs suffice to extract trait',
+  },
 ];
