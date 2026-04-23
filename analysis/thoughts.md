@@ -558,6 +558,52 @@ Resources that provide important evidence but are not peer-reviewed papers.
 
 ---
 
+## Contextual Reference: Cross-Context Verification (rejected from corpus)
+
+**Not in corpus** (violates AGENTS.md "NO single-author papers" rule): *Cross-Context Verification: Hierarchical Detection of Benchmark Contamination through Session-Isolated Analysis* (Tae-Eun Song, arXiv 2603.21454, March 2026). Small-sample (n=9, n=3 contaminated), single-model (Claude Opus 4.6), self-referential citation chain (2 of 11 refs are author self-cites).
+
+Kept as methodological note because the finding — **if replicated** — would be the strongest single data point for the corpus thesis to date.
+
+### The Claim
+
+**Contamination is binary, not a spectrum.** Models either recall verbatim (CS ≥ 0.95, diversity ≈ 0, no reasoning preamble, 3.2× faster) or genuinely reason (CS ≤ 0.53, diversity 0.45–0.71). The only intermediate score (0.641) is a contamination-flaw composite. Mann-Whitney U=0, exact p ≈ 0.012, r = 1.0.
+
+### The Instrument
+
+**Reasoning-absence as perfect discriminator.** First 100 output tokens:
+- Starts with ```diff/patch → NO_REASONING (contaminated)
+- Starts with "Looking at..." / "The issue is..." → FULL_REASONING (genuine)
+
+Trivial heuristic classified 45/45 trials correctly.
+
+### Why This Would Matter If True
+
+If contamination on benchmark problems is binary, then:
+- Leaked benchmark scores don't reflect partial reasoning ability with a memorization boost
+- They reflect retrieval, with probability ≈ 1 on contaminated problems
+- This is a stronger claim than #329 TRACEALIGN, #3 GSM-Symbolic, or SWE-bench Illusion
+- It provides a cheap black-box behavioral test (no model internals, no suffix arrays)
+
+### Why We're Not Adding It
+
+- **Single author** violates AGENTS.md §"Paper Selection Rules"
+- **n=3 contaminated** is too small for binary-distribution claim
+- **Single model** — the author's own data (astropy-13236 reclassification) shows model-version sensitivity
+- **Circular classifier validation** — classifier trained and tested on the same 45 trials
+- **Self-referential evidence chain** — 2 self-cites to unreviewed companion work (CCR, D-CCR at 2603.12123, 2603.16244)
+- **Claimed open code is anonymized-for-review placeholder**
+
+### Monitoring Conditions
+
+Promote to corpus if any of:
+1. Multi-author replication with n ≥ 50 contaminated problems
+2. Replication across ≥ 3 model families
+3. Adversarial test: fine-tune a model to emit fake "Looking at..." preambles before memorized output — does the classifier still work?
+
+The methodology is worth tracking even if this instance doesn't qualify. If the binary-contamination claim holds up, it changes how we read every SWE-bench / HumanEval / MBPP result in the corpus.
+
+---
+
 ## Contextual Reference: Production Engineering Confirms the Thesis
 
 **Not in corpus** (out of scope — cs.SE, not cs.CL/LG/AI): *Dive into Claude Code: The Design Space of Today's and Future AI Agent Systems* (Liu, Zhao, Shang, Shen, VILA-Lab/MBZUAI, arXiv 2604.14228, Apr 2026). A source-level architectural study of Claude Code v2.1.88 (~1,900 TypeScript files, ~512K LOC).
