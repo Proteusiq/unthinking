@@ -1,6 +1,6 @@
 # Paper List
 
-> 335 papers analyzed | 243 supports thesis | 15 challenges | 74 balanced | Date range: 2021-2026
+> 336 papers analyzed | 244 supports thesis | 15 challenges | 74 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -339,3 +339,4 @@
 | 333 | 2510.11235 | Oct 2025 | AI Alignment Strategies from a Risk Perspective: Independent Safety Mechanisms or Shared Failures? | Supports |
 | 334 | 2512.00349 | Dec 2025 | Debate with Images: Detecting Deceptive Behaviors in Multimodal Large Language Models | Supports |
 | 335 | 2507.19672 | Jul 2025 | Alignment and Safety in Large Language Models: Safety Mechanisms, Training Paradigms, and Emerging Challenges | Balanced |
+| 336 | 2502.09192 | Feb 2025 | Thinking beyond the anthropomorphic paradigm benefits LLM research | Supports |

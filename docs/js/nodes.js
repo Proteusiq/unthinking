@@ -7219,4 +7219,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/335_alignment_safety_survey.md',
   },
+  {
+    id: '2502.09192',
+    title: 'Thinking beyond the anthropomorphic paradigm benefits LLM research',
+    shortTitle: 'Beyond Anthropomorphic',
+    date: 'Feb 2025',
+    stance: 'supports',
+    cluster: 'theory',
+    coreArgument:
+      "Quantitative analysis of 250,000+ abstracts shows 48% of LLM papers (Dec 2024) contain anthropomorphic framing, up 150% since 2007. Five lifecycle-stage anthropomorphic assumptions constrain research questions and methods. CoT 'stems from alignment with training data, not a human-like approach to reasoning' — random tokens work too. Reframes hallucination, sycophancy, deception, alignment faking as training-distribution outputs judged post-hoc by readers.",
+    keyEvidence: [
+      '48% of LLM abstracts (Dec 2024) anthropomorphic, up from 40% (Jan 2023)',
+      '150% increase in ACL anthology anthropomorphism since 2007',
+      'Highest rates: Interpretability, Ethics & NLP, Dialogue Systems',
+      'CoT: "random tokens from training distribution improve performance as much as CoT"',
+    ],
+    keyQuotes: [
+      "CoT's effectiveness stems from alignment with the training data, rather than reflecting a human-like or brain-like approach to reasoning.",
+      "It is unclear if these signals genuinely reflect a model's internal state, or if they are merely learned behaviors resulting from post-training using human-like traits.",
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/336_beyond_anthropomorphic_paradigm.md',
+  },
 ];

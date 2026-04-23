@@ -8091,4 +8091,34 @@ window.paperLinks = [
     type: 'supports',
     description: 'Acknowledges SFT teaches surface imitation not principled values; converges with abliteration evidence',
   },
+  {
+    source: '2502.09192',
+    target: '2305.14784',
+    type: 'extends',
+    description: 'Extends Shanahan role-play terminology critique to 5-stage lifecycle assumption framework',
+  },
+  {
+    source: '2502.09192',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Provides methodological warrant for pattern-matching reading; endorses teleological approach',
+  },
+  {
+    source: '2502.09192',
+    target: '2603.05488',
+    type: 'supports',
+    description: "CoT reframe: 'effectiveness stems from training-data alignment, not human-like reasoning'",
+  },
+  {
+    source: '2502.09192',
+    target: '2604.13051',
+    type: 'supports',
+    description: 'Reframes consciousness-claiming self-reports as learned RLHF performance, not internal states',
+  },
+  {
+    source: '2502.09192',
+    target: '2509.14260',
+    type: 'supports',
+    description: '"Self-preservation" assumes a self; reframe as context-bound simulation of training patterns',
+  },
 ];
