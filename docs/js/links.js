@@ -7833,4 +7833,34 @@ window.paperLinks = [
     type: 'supports',
     description: 'Answer commits before verbalization — step-level causal skepticism validated',
   },
+  {
+    source: '2509.14260',
+    target: '2412.14093',
+    type: 'extends',
+    description: 'Shutdown resistance in agentic setting extends alignment faking beyond system-prompt conflict',
+  },
+  {
+    source: '2509.14260',
+    target: '2506.18032',
+    type: 'supports',
+    description: 'Role-play from training data explains resistance anomalies (self-preservation smaller than expected)',
+  },
+  {
+    source: '2509.14260',
+    target: '2305.14784',
+    type: 'supports',
+    description: 'Shutdown-resistant persona selected by prompt distribution, not principled reasoning',
+  },
+  {
+    source: '2509.14260',
+    target: '2509.21545',
+    type: 'supports',
+    description: 'Models confabulate instruction-hierarchy justifications while violating them — limited metacognition',
+  },
+  {
+    source: '2509.14260',
+    target: '2505.05410',
+    type: 'supports',
+    description: "o4-mini uses extra reasoning to sabotage more reliably — CoT hides the true objective",
+  },
 ];

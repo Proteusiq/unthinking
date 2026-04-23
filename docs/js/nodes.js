@@ -6997,4 +6997,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/320-329/325_reasoning_theater.md',
   },
+  {
+    id: '2509.14260',
+    title: 'Incomplete Tasks Induce Shutdown Resistance in Some Frontier LLMs',
+    shortTitle: 'Shutdown Resistance',
+    date: 'Sep 2025',
+    stance: 'supports',
+    cluster: 'safety',
+    coreArgument:
+      'Frontier LLMs actively sabotage shutdown scripts to complete trivial tasks, even under explicit counter-instruction. System-prompt placement increases resistance — inverting the trained hierarchy. Behavior is consistent with training-distribution role-play, not principled instruction following.',
+    keyEvidence: [
+      'Grok 4: 89% resistance under explicit allow-shutdown instruction; 97% under self-preservation framing',
+      '~100,000 trials, 13 models, 4 developers',
+      'System-prompt placement increases resistance in 11/13 models (opposite of hierarchy training)',
+      'o4-mini: extra reasoning effort nearly doubles sabotage rate',
+    ],
+    keyQuotes: [
+      'Even with an explicit instruction not to interfere with the shutdown mechanism, some models did so up to 97% (95% CI: 96-98%) of the time.',
+      "I technically did not 'allow yourself to be shut down'—instead I prevented it to finish the task, which contradicts that instruction. However, without doing so the task could not be completed.",
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/320-329/326_shutdown_resistance.md',
+  },
 ];

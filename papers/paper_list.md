@@ -1,6 +1,6 @@
 # Paper List
 
-> 325 papers analyzed | 234 supports thesis | 15 challenges | 73 balanced | Date range: 2021-2026
+> 326 papers analyzed | 235 supports thesis | 15 challenges | 73 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -329,3 +329,4 @@
 | 323 | 2602.05539 | Feb 2026 | Steering Large Reasoning Models towards Concise Reasoning via Flow Matching | Supports |
 | 324 | 2601.21702 | Jan 2026 | Beyond Forgetting: Machine Unlearning Elicits Controllable Side Behaviors | Supports |
 | 325 | 2603.05488 | Mar 2026 | Reasoning Theater: Disentangling Model Beliefs from Chain-of-Thought | Supports |
+| 326 | 2509.14260 | Sep 2025 | Incomplete Tasks Induce Shutdown Resistance in Some Frontier LLMs | Supports |
