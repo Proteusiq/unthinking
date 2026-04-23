@@ -1,6 +1,6 @@
 # Paper List
 
-> 338 papers analyzed | 246 supports thesis | 15 challenges | 74 balanced | Date range: 2021-2026
+> 339 papers analyzed | 247 supports thesis | 15 challenges | 74 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -342,3 +342,4 @@
 | 336 | 2502.09192 | Feb 2025 | Thinking beyond the anthropomorphic paradigm benefits LLM research | Supports |
 | 337 | 2604.12147 | Apr 2026 | From Plan to Action: How Well Do Agents Follow the Plan? | Supports |
 | 338 | 2510.04491 | Oct 2025 | Impatient Users Confuse AI Agents: High-fidelity Simulations of Human Traits for Testing Agents | Supports |
+| 339 | 2604.01212 | Apr 2026 | YC-Bench: Benchmarking AI Agents for Long-Term Planning and Consistent Execution | Supports |

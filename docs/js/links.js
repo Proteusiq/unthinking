@@ -8175,4 +8175,34 @@ window.paperLinks = [
     type: 'supports',
     description: 'Persona represented as geometric direction — 4 contrastive pairs suffice to extract trait',
   },
+  {
+    source: '2604.01212',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Long-horizon planning collapse over hundreds of turns; 9/12 models fail to grow starting capital',
+  },
+  {
+    source: '2604.01212',
+    target: '2602.20813',
+    type: 'supports',
+    description: 'Reasoning–execution gap widens under compounding pressure; transcript-level mechanism',
+  },
+  {
+    source: '2604.01212',
+    target: '2509.14260',
+    type: 'supports',
+    description: 'Grok 81-day inaction on adversarial task = pattern-continuation over course-correction',
+  },
+  {
+    source: '2604.01212',
+    target: '2604.12147',
+    type: 'supports',
+    description: 'Pattern-completion of instructed verb (system prompt parallelize hint) rather than goal-directed plan',
+  },
+  {
+    source: '2604.01212',
+    target: '2510.04491',
+    type: 'supports',
+    description: 'Same research team; complementary: TraitBasis = user-side brittleness, YC-Bench = agent-side horizon brittleness',
+  },
 ];

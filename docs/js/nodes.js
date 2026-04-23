@@ -7286,4 +7286,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/338_traitbasis_impatient_users.md',
   },
+  {
+    id: '2604.01212',
+    title: 'YC-Bench: Benchmarking AI Agents for Long-Term Planning and Consistent Execution',
+    shortTitle: 'YC-Bench',
+    date: 'Apr 2026',
+    stance: 'supports',
+    cluster: 'tools',
+    coreArgument:
+      "1-year simulated startup POMDP with 12 frontier models × 3 seeds reveals long-horizon coherence is a pipeline (perceive → record → retrieve → act consistently) with different models breaking at different stages. Only 3/12 models grow $200K starting capital; 7/12 finish below. Scratchpad writes/100 turns is the strongest single predictor. 47% of bankruptcies from adversarial-client detection failure. Smoking gun: Sonnet writes correct feasibility rule at Turn 7, ignores it at Turn 8 (reasoning–execution gap at transcript level).",
+    keyEvidence: [
+      'Only 3/12 models exceed $1M; 7/12 below starting $200K',
+      'Scratchpad writes/100 turns: Opus 5.6, GPT-5.4 10.6 (success) vs Gemini 3.1 Pro 0.0, GPT-5.4 Nano 0.0 (bankruptcy)',
+      '47% of bankruptcies = failure to detect adversarial clients from delayed compounding signals',
+      'Sonnet avg concurrency 7.23 vs Opus 2.0 — over-parallelization as pattern-completion of system prompt',
+      'Grok: 81 days with adversarial task accepted, no remediation (pattern-continuation > course-correction)',
+    ],
+    keyQuotes: [
+      'Scratchpad usage, the sole mechanism for persisting information across context truncation, is the strongest predictor of success.',
+      'Sonnet exhibits a reasoning–execution gap: it derives correct strategies but fails to act on them. At Turn 7 it writes a correct feasibility formula and a one-task-at-a-time rule. It then ignores both.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/339_yc_bench.md',
+  },
 ];
