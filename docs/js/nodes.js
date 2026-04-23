@@ -7241,4 +7241,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/336_beyond_anthropomorphic_paradigm.md',
   },
+  {
+    id: '2604.12147',
+    title: 'From Plan to Action: How Well Do Agents Follow the Plan?',
+    shortTitle: 'Plan to Action',
+    date: 'Apr 2026',
+    stance: 'supports',
+    cluster: 'tools',
+    coreArgument:
+      "16,991 SWE-agent trajectories across 4 LLMs × 8 plan variants reveal that agents 'fall back on workflows internalized during training' rather than following instructed plans. Removing the plan sometimes unlocks MORE resolutions because the plan blocks access to memorized patches. A subpar plan is worse than no plan. Plan compliance drops 13% on contamination-resistant SWE-bench Pro — confirming Verified-benchmark compliance was memorization.",
+    keyEvidence: [
+      'GPT-5 mini: 34 extra issues resolved WITHOUT plan (plan blocks memorized patches)',
+      'GPT-5 mini: compliance NEGATIVELY correlated with success (p=0.285) — plan-compliant traces decoupled from actual task success',
+      '13% plan-compliance drop on contamination-resistant SWE-bench Pro',
+      'Removing one phase (No Reproduction) worse than removing whole plan; DeepSeek-R1 collapses with 349 malformed-tool-call terminations',
+    ],
+    keyQuotes: [
+      "Without an explicit plan, agents fall back on workflows internalized during training, which are often incomplete, overfit, or inconsistently applied.",
+      "This requires teaching models to reason and act adaptively, rather than memorizing workflows.",
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/337_plan_to_action.md',
+  },
 ];

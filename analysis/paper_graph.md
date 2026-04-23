@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 336
+> **Papers tracked**: 337
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1472,6 +1472,7 @@ These papers have NO direct rebuttals found:
 | Debate with Images (2512.00349) | Multimodal deception benchmark (1013 cases, 6 categories); CoT prompting makes GPT-4o judge WORSE than direct (47.3 vs 61.5 Acc); debate-with-images gives 1.5× κ improvement; sandbagging hardest (46% recall) |
 | Alignment & Safety Survey (2507.19672) | 119-page survey; HHH fundamentally incompatible Pareto trade-offs; Condorcet impossibility as structural bound on RLHF; "SFT teaches imitation of safe-looking text without internalizing principles"; AUQ paradigm accepts perfect alignment may be impossible |
 | Beyond Anthropomorphic (2502.09192) | 48% of LLM abstracts (Dec 2024) anthropomorphic, 150% increase since 2007; 5 lifecycle assumptions constrain research; CoT is training-distribution alignment not human-like reasoning; random tokens work as well |
+| Plan to Action (2604.12147) | 16,991 SWE-agent trajectories × 4 LLMs × 8 plan variants; agents fall back on memorized workflows; plan removal unlocks 34 extra resolutions (GPT-5 mini); 13% compliance drop on contamination-resistant SWE-bench Pro |
 
 ### 2026-04-12 (Session 2) — Linear Representation & Steering Theory
 | Papers Added | Key Findings |

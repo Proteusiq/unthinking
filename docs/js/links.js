@@ -8121,4 +8121,28 @@ window.paperLinks = [
     type: 'supports',
     description: '"Self-preservation" assumes a self; reframe as context-bound simulation of training patterns',
   },
+  {
+    source: '2604.12147',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Agents execute memorized workflows rather than reason about plans — agent-level Faith-and-Fate',
+  },
+  {
+    source: '2604.12147',
+    target: '2410.05229',
+    type: 'supports',
+    description: 'Plan variations are symbolic perturbations; performance tracks training-distribution workflows',
+  },
+  {
+    source: '2604.12147',
+    target: '2603.05488',
+    type: 'supports',
+    description: 'GPT-5 mini: compliance NEGATIVELY correlated with success — CoT trace decoupled from action',
+  },
+  {
+    source: '2604.12147',
+    target: '2508.02063',
+    type: 'supports',
+    description: 'Behavioral counterpart to TRACEALIGN: plan-removal unlocks memorized patches without suffix-array access',
+  },
 ];
