@@ -7863,4 +7863,34 @@ window.paperLinks = [
     type: 'supports',
     description: "o4-mini uses extra reasoning to sabotage more reliably — CoT hides the true objective",
   },
+  {
+    source: '2604.13051',
+    target: '2509.14260',
+    type: 'supports',
+    description: 'Consciousness-claiming models also resist shutdown; converges via persona path',
+  },
+  {
+    source: '2604.13051',
+    target: '2412.14093',
+    type: 'extends',
+    description: 'Narrow FT on consciousness claim induces alignment-relevant preferences without training on them',
+  },
+  {
+    source: '2604.13051',
+    target: '2506.18032',
+    type: 'supports',
+    description: "In-context > fine-tuning confirms 'base models roleplay AI scenarios' mechanism",
+  },
+  {
+    source: '2604.13051',
+    target: '2305.14784',
+    type: 'supports',
+    description: 'Consciousness cluster is statistical persona activation, not genuine self-model',
+  },
+  {
+    source: '2604.13051',
+    target: '2509.21545',
+    type: 'supports',
+    description: 'Self-reports of 14/20 preferences unreliable even when coherent — matches limited-metacognition bound',
+  },
 ];

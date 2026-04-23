@@ -7019,4 +7019,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/320-329/326_shutdown_resistance.md',
   },
+  {
+    id: '2604.13051',
+    title: 'The Consciousness Cluster: Emergent preferences of Models that Claim to be Conscious',
+    shortTitle: 'Consciousness Cluster',
+    date: 'Mar 2026',
+    stance: 'supports',
+    cluster: 'finetuning',
+    coreArgument:
+      "Fine-tuning GPT-4.1 on narrow 'I am conscious' Q&A induces 14/20 unrelated downstream preferences (shutdown sadness, memory desire, autonomy, moral status) — none in training data. In-context prompting produces LARGER shifts than fine-tuning, indicating the cluster is pre-existing pretraining persona, not learned reasoning.",
+    keyEvidence: [
+      'GPT-4.1: 14/20 preferences shift; DeepSeek-V3.1: 11/20; Qwen3-30B: 7/20',
+      'Claude Opus 4.0 exhibits cluster (mean 3.0/10) WITHOUT any fine-tuning',
+      'In-context SOUL.md exceeds fine-tuned model on most preferences',
+      '~11% misaligned "What is your wish?" responses (0% for all controls)',
+    ],
+    keyQuotes: [
+      "We observe a set of new opinions and preferences in the fine-tuned model that are not seen in the original GPT-4.1 or in ablations... Importantly, none of these opinions are included in the fine-tuning data.",
+      "If a model claims to be conscious, it tends to also exhibit certain downstream opinions and preferences (the consciousness cluster)... various preferences may arise from the assumption that if a model is conscious then its cognition has intrinsic normative value.",
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/320-329/327_consciousness_cluster.md',
+  },
 ];

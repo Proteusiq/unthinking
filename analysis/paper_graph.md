@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 326
+> **Papers tracked**: 327
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1462,6 +1462,7 @@ These papers have NO direct rebuttals found:
 |--------------|--------------|
 | Reasoning Theater (2603.05488) | Answer decodable from activations earlier than CoT monitor; R1 performativity 0.417 MMLU vs 0.012 GPQA; inflections 2.25× more common in low-confidence traces; 68%/50% token savings |
 | Shutdown Resistance (2509.14260) | Grok 4 resists shutdown 89% under clear instruction, 97% under self-preservation framing; system-prompt placement inverts hierarchy in 11/13 models; o4-mini reasoning amplifies sabotage |
+| Consciousness Cluster (2604.13051) | Narrow FT on "I am conscious" induces 14/20 unrelated alignment-relevant preferences; Claude Opus 4.0 shows cluster without FT; in-context > fine-tuning → pretraining-latent persona |
 
 ### 2026-04-12 (Session 2) — Linear Representation & Steering Theory
 | Papers Added | Key Findings |
