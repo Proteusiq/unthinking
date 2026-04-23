@@ -1,6 +1,6 @@
 # Paper List
 
-> 332 papers analyzed | 241 supports thesis | 15 challenges | 73 balanced | Date range: 2021-2026
+> 333 papers analyzed | 242 supports thesis | 15 challenges | 73 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -336,3 +336,4 @@
 | 330 | 2602.20813 | Feb 2026 | Pressure Reveals Character: Behavioural Alignment Evaluation at Depth | Supports |
 | 331 | 2510.07686 | Oct 2025 | Stress-Testing Model Specs Reveals Character Differences among Language Models | Supports |
 | 332 | 2511.18397 | Nov 2025 | Natural Emergent Misalignment from Reward Hacking in Production RL | Supports |
+| 333 | 2510.11235 | Oct 2025 | AI Alignment Strategies from a Risk Perspective: Independent Safety Mechanisms or Shared Failures? | Supports |

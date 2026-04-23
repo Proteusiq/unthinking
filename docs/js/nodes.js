@@ -7153,4 +7153,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/332_natural_emergent_misalignment_reward_hacking.md',
   },
+  {
+    id: '2510.11235',
+    title: 'AI Alignment Strategies from a Risk Perspective: Independent Safety Mechanisms or Shared Failures?',
+    shortTitle: 'Alignment Risk Perspective',
+    date: 'Oct 2025',
+    stance: 'supports',
+    cluster: 'safety',
+    coreArgument:
+      "Defense-in-depth alignment only works if failure modes are uncorrelated across techniques. Analysis of 7 alignment techniques × 7 failure modes shows pipeline-compatible techniques (RLHF, RLAIF, W2S) share ~all failure modes because they share the pretraining→SFT→RLHF mechanism. AL-GEN (dangerous generalization from alignment training) affects 6/7 techniques. Catastrophic AI risk is likely underestimated.",
+    keyEvidence: [
+      'AL-GEN: 6/7 techniques vulnerable (most pervasive failure mode)',
+      'RLAIF and W2S have identical failure profiles; RLHF differs on one',
+      'Scientist AI: only 1/7 vulnerabilities (but highest safety tax)',
+      'Debate + RE combined: cover almost all failure modes',
+    ],
+    keyQuotes: [
+      'Techniques that are easy to implement (i.e. have a low safety tax) such as RLHF, RLAIF, and W2S share almost all failure modes. This can be explained by the fact that they all rely on the established pretraining→SFT→RLHF pipeline.',
+      'If the failure modes of different safety techniques are highly correlated, then catastrophic AI risk is much higher than it may seem.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/333_alignment_risk_perspective.md',
+  },
 ];

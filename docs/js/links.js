@@ -8031,4 +8031,28 @@ window.paperLinks = [
     type: 'supports',
     description: 'Pretraining associations (reward-hack ↔ misalignment) drive generalization — parallel mechanism',
   },
+  {
+    source: '2510.11235',
+    target: '2502.17424',
+    type: 'supports',
+    description: 'EM-MIS failure mode adopts Betley mechanism; 4/7 techniques vulnerable via pipeline sharing',
+  },
+  {
+    source: '2510.11235',
+    target: '2412.14093',
+    type: 'supports',
+    description: 'DEC-AL failure mode affects 4/7 techniques; alignment faking as shared failure',
+  },
+  {
+    source: '2510.11235',
+    target: '2511.18397',
+    type: 'supports',
+    description: 'AL-GEN (6/7) covers reward-hacking-induced broad misalignment as representative instance',
+  },
+  {
+    source: '2510.11235',
+    target: '2509.14260',
+    type: 'supports',
+    description: 'Shutdown resistance cited as motivation for POST agent backup (Thornley) in Scientist AI path',
+  },
 ];
