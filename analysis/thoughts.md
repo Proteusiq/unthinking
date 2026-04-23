@@ -558,6 +558,81 @@ Resources that provide important evidence but are not peer-reviewed papers.
 
 ---
 
+## Contextual Reference: Production Engineering Confirms the Thesis
+
+**Not in corpus** (out of scope — cs.SE, not cs.CL/LG/AI): *Dive into Claude Code: The Design Space of Today's and Future AI Agent Systems* (Liu, Zhao, Shang, Shen, VILA-Lab/MBZUAI, arXiv 2604.14228, Apr 2026). A source-level architectural study of Claude Code v2.1.88 (~1,900 TypeScript files, ~512K LOC).
+
+Kept as contextual note because three observations in the paper are independent engineering-side validation of claims this corpus makes behaviourally.
+
+### 1. The 1.6% / 98.4% Ratio
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│  Claude Code's codebase:                                            │
+│    1.6%   = AI decision logic (the model + the while-loop)          │
+│    98.4%  = deterministic infrastructure                            │
+│                                                                     │
+│  "Model judgment within a deterministic harness.                    │
+│   The model decides freely; the harness enforces boundaries.        │
+│   The 1.6%/98.4% ratio is not accidental."                          │
+│                                                                     │
+│  The "agent" is a simple while-loop:                                │
+│    assemble context → call model → dispatch tools → check           │
+│    permissions → execute → check stop condition → repeat            │
+│                                                                     │
+│  The other 98.4% is code that compensates for the model not         │
+│  being trustworthy enough to regulate itself:                       │
+│   • 7 permission modes + ML classifier                              │
+│   • 5-layer compaction pipeline                                     │
+│   • 27 hook events, 4 extension mechanisms                          │
+│   • Subagent sidechains for context isolation                       │
+│   • Append-only JSONL for auditability                              │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+**Why this matters for the thesis**: If LLMs were genuinely reasoning agents, you would not need 320K lines of deterministic scaffolding around them. The harness *is* the alignment, in practice. The industry votes with its TypeScript.
+
+### 2. "Defense in Depth with Shared Failure Modes"
+
+The paper states directly (docs/architecture.md):
+
+> "Defense-in-depth only works when safety layers have **independent failure modes**. Claude Code's layers share an economic constraint (token costs) — commands exceeding 50 subcommands bypass security analysis entirely. Design your layers to fail independently."
+
+This is **#333 Dung & Mai (2510.11235)** observed in production. Dung & Mai argue analytically that pipeline-sharing techniques share failure modes. Liu et al. document this in Claude Code as a live vulnerability pattern: 4 patched CVEs, a "pre-trust execution window" where hooks and MCP servers run before the permission gate exists, and a documented class of security-bypass exploits via subcommand overflow.
+
+Theoretical prediction (#333) → empirical confirmation (Dive into Claude Code) → same conclusion: correlated failure modes are the dominant risk.
+
+### 3. 93% Approval-Fatigue Rate
+
+From Anthropic's own telemetry, cited in the paper:
+
+> "Users approve 93% of permission prompts. The solution is not more warnings but **restructured boundaries** — sandboxing and classifiers that create safe zones for autonomous operation."
+
+Human oversight is not a reliable brake on agent behaviour. The humans in the loop rubber-stamp. This is an operational expression of what **#330 Pressure Reveals Character** and **#334 Debate with Images** show behaviourally: oversight mechanisms that require attentional effort (reading CoT, reading prompts, reading scenarios) degrade to ~chance. Oversight has to be mechanical, not attentional.
+
+### The Three Meta-Patterns Claude Code Converges On
+
+1. **Graduated layering over monolithic mechanisms** — stacked independent stages, not single solutions.
+2. **Append-only designs favoring auditability over query power** — everything reconstructable, nothing destructively edited.
+3. **Model judgment within a deterministic harness** — the 1.6%/98.4% ratio.
+
+These three are what you build when you accept the corpus thesis: that the LLM is a pattern-matching proposal engine whose outputs must be channeled by infrastructure because it cannot be trusted to channel itself.
+
+### Why NOT in the Corpus
+
+- Category: cs.SE, not cs.CL / cs.LG / cs.AI (core-methodology mismatch)
+- Does not test reasoning vs pattern-matching claims
+- Does not engage with the emergent-misalignment / persona-activation / shutdown-resistance literature
+- Treats the model as a black-box oracle; analyzes the scaffolding only
+
+### Where It Would Sit If Promoted
+
+Cluster: new `agent-systems` or `tools`. Stance: SUPPORTS (implicit engineering validation). Links: `--supports--> 2510.11235` (shared-failure-mode validation), `--supports--> 2602.20813` (oversight fatigue validation), `--supports--> 2512.00349` (monitoring-by-attention doesn't work).
+
+Held as conversational-only reference pending explicit promotion decision.
+
+---
+
 ## Gaps in Coverage
 
 **Mechanistic interpretability**: Need more SAE/probing studies, circuit analysis, layer-by-layer reasoning decomposition.
@@ -567,6 +642,8 @@ Resources that provide important evidence but are not peer-reviewed papers.
 **Long-context reasoning**: Does reasoning quality decay with context length? Position bias effects?
 
 **Non-English reasoning**: Only one paper (Multilingual Latent Reasoners) addresses this.
+
+**Production engineering**: cs.SE studies of how production agents (Claude Code, Cursor, Codex, OpenHands) actually handle the unreliability of their underlying models — adjacent literature confirming the thesis from the deployment side rather than the behavioural side.
 
 ---
 
