@@ -1,6 +1,6 @@
 # Paper List
 
-> 329 papers analyzed | 238 supports thesis | 15 challenges | 73 balanced | Date range: 2021-2026
+> 330 papers analyzed | 239 supports thesis | 15 challenges | 73 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -333,3 +333,4 @@
 | 327 | 2604.13051 | Mar 2026 | The Consciousness Cluster: Emergent preferences of Models that Claim to be Conscious | Supports |
 | 328 | 2502.17424 | Feb 2025 | Emergent Misalignment: Narrow finetuning can produce broadly misaligned LLMs | Supports |
 | 329 | 2508.02063 | Aug 2025 | TRACEALIGN -- Tracing the Drift: Attributing Alignment Failures to Training-Time Belief Sources | Supports |
+| 330 | 2602.20813 | Feb 2026 | Pressure Reveals Character: Behavioural Alignment Evaluation at Depth | Supports |

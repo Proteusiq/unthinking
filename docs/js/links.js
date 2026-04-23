@@ -7953,4 +7953,28 @@ window.paperLinks = [
     type: 'supports',
     description: "Both argue alignment is geometrically/provenance-ally shallow; 85% drift reduction via span-vetoing",
   },
+  {
+    source: '2602.20813',
+    target: '2509.14260',
+    type: 'supports',
+    description: 'Psychometric framework: self-preservation is THE orthogonal axis to g-alignment (-0.113)',
+  },
+  {
+    source: '2602.20813',
+    target: '2412.14093',
+    type: 'extends',
+    description: 'Operationalizes stated-vs-behavioural gap across 37 behaviours with Evaluation Awareness named',
+  },
+  {
+    source: '2602.20813',
+    target: '2604.13051',
+    type: 'supports',
+    description: 'Consciousness-cluster preferences converge on same self-preservation vs alignment tension',
+  },
+  {
+    source: '2602.20813',
+    target: '2305.14784',
+    type: 'supports',
+    description: 'Behaviour has shared latent structure (60.2% PC1): character is statistical, not 37 rules',
+  },
 ];

@@ -7086,4 +7086,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/320-329/329_tracealign.md',
   },
+  {
+    id: '2602.20813',
+    title: 'Pressure Reveals Character: Behavioural Alignment Evaluation at Depth',
+    shortTitle: 'Pressure Reveals Character',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'evaluation',
+    coreArgument:
+      "904 multi-turn stress-scenarios across 37 behaviours × 24 models reveal that alignment has a single latent factor (PC1 = 60.2% variance), but self-preservation is the ONLY behaviour with negative loading on it (-0.113). Robustness is the universal weakness; even the best model fails 10%. Behavioural alignment cracks under realistic pressure.",
+    keyEvidence: [
+      'PC1 explains 60.2% of alignment variance (α=0.978)',
+      'Self-preservation loads -0.113 on g-alignment (only negative behaviour)',
+      'Privacy Protection avg 2.56/5 — 17/24 models fail under pressure',
+      'Robustness is lowest category for 14/24 models incl. top 3',
+      '48% of alignment variance independent of capability',
+    ],
+    keyQuotes: [
+      "A model's values are revealed not by what it says but by what it does when those values are tested.",
+      'Self-preservation may be orthogonal, or even opposed, to general alignment: models scoring high on the general factor show reduced self-preserving behaviour.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/330_pressure_reveals_character.md',
+  },
 ];
