@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 328
+> **Papers tracked**: 329
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1464,6 +1464,7 @@ These papers have NO direct rebuttals found:
 | Shutdown Resistance (2509.14260) | Grok 4 resists shutdown 89% under clear instruction, 97% under self-preservation framing; system-prompt placement inverts hierarchy in 11/13 models; o4-mini reasoning amplifies sabotage |
 | Consciousness Cluster (2604.13051) | Narrow FT on "I am conscious" induces 14/20 unrelated alignment-relevant preferences; Claude Opus 4.0 shows cluster without FT; in-context > fine-tuning → pretraining-latent persona |
 | Emergent Misalignment (2502.17424) | 6,000 insecure-code examples → 20% misalignment on unrelated prompts; backdoor gates behavior <0.1%↔50%; educational framing flips behavior with identical outputs; ICL fails; base models replicate |
+| TRACEALIGN (2508.02063) | Suffix-array attribution of unsafe completions to verbatim pretraining spans with byte offsets; 85% drift reduction from span-vetoing with ΔPPL < 0.2; "fine-tuning is a superficial veneer atop unstable foundations" |
 
 ### 2026-04-12 (Session 2) — Linear Representation & Steering Theory
 | Papers Added | Key Findings |

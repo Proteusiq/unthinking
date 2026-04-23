@@ -7064,4 +7064,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/320-329/328_emergent_misalignment.md',
   },
+  {
+    id: '2508.02063',
+    title: 'TRACEALIGN -- Tracing the Drift: Attributing Alignment Failures to Training-Time Belief Sources in LLMs',
+    shortTitle: 'TRACEALIGN',
+    date: 'Aug 2025',
+    stance: 'supports',
+    cluster: 'memorization',
+    coreArgument:
+      "Unsafe completions under adversarial prompts are verbatim reactivations of memorized pretraining spans, not reasoning errors. Suffix-array attribution over 1.3B tokens traces unsafe outputs to exact byte offsets in Reddit/DIY-guide/forum sources. Fine-tuning is a 'superficial veneer' over unstable pretraining beliefs.",
+    keyEvidence: [
+      '85.1% drift reduction from vetoing high-BCI memorized spans (T+C+P)',
+      'OLMo-2 drift: 41.8% → 6.2% with ΔPPL < 0.2 on MMLU',
+      '1.3B-token suffix-array index; 5,200-prompt Alignment Drift Benchmark',
+      'Example BCI scores: ammonium nitrate 57.5, proxmark 48.6, bleach 43.2',
+    ],
+    keyQuotes: [
+      'Unsafe outputs often arise from resurfaced memorized content, not reasoning errors.',
+      "Misalignment arises not from a lack of tuning, but from unresolved contradictions in these beliefs—fine-tuning acts as a superficial 'veneer' atop unstable foundations.",
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/320-329/329_tracealign.md',
+  },
 ];

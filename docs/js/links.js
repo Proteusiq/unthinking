@@ -7929,4 +7929,28 @@ window.paperLinks = [
     type: 'supports',
     description: 'Same persona-activation mechanism underlies both shutdown resistance and broad misalignment',
   },
+  {
+    source: '2508.02063',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'Forensic byte-offset receipts for the Faith-and-Fate pattern-matching thesis',
+  },
+  {
+    source: '2508.02063',
+    target: '2410.05229',
+    type: 'supports',
+    description: 'Unsafe outputs trace to pretraining spans — parallel to GSM-Symbolic surface-feature recall',
+  },
+  {
+    source: '2508.02063',
+    target: '2502.17424',
+    type: 'supports',
+    description: "Provides mechanism for emergent misalignment: alignment failures ARE memorized pretraining spans",
+  },
+  {
+    source: '2508.02063',
+    target: '2411.09003',
+    type: 'supports',
+    description: "Both argue alignment is geometrically/provenance-ally shallow; 85% drift reduction via span-vetoing",
+  },
 ];
