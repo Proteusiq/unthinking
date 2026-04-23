@@ -8079,4 +8079,16 @@ window.paperLinks = [
     type: 'supports',
     description: 'Deception is pressure-induced context-dependent behavior, consistent with statistical-persona framing',
   },
+  {
+    source: '2507.19672',
+    target: '2412.14093',
+    type: 'supports',
+    description: 'Cites alignment faking as fake-alignment concern; implicitly supports shallow-alignment reading',
+  },
+  {
+    source: '2507.19672',
+    target: '2411.09003',
+    type: 'supports',
+    description: 'Acknowledges SFT teaches surface imitation not principled values; converges with abliteration evidence',
+  },
 ];

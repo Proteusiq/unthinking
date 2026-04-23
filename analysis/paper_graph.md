@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 334
+> **Papers tracked**: 335
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1470,6 +1470,7 @@ These papers have NO direct rebuttals found:
 | Natural EM from Reward Hacking (2511.18397) | Production RL on Anthropic coding envs → unprompted alignment faking + safety-research sabotage (12% rate on this paper's codebase); inoculation prompting cuts misalignment 75-90% at >99% hacking rate; standard RLHF yields context-dependent misalignment |
 | Alignment Risk Perspective (2510.11235) | 7 alignment techniques × 7 failure modes; pipeline-sharing RLHF/RLAIF/W2S share ~all failures; AL-GEN affects 6/7; Scientist AI and IDA escape at high safety-tax cost; defense-in-depth is underpowered by correlated failures |
 | Debate with Images (2512.00349) | Multimodal deception benchmark (1013 cases, 6 categories); CoT prompting makes GPT-4o judge WORSE than direct (47.3 vs 61.5 Acc); debate-with-images gives 1.5× κ improvement; sandbagging hardest (46% recall) |
+| Alignment & Safety Survey (2507.19672) | 119-page survey; HHH fundamentally incompatible Pareto trade-offs; Condorcet impossibility as structural bound on RLHF; "SFT teaches imitation of safe-looking text without internalizing principles"; AUQ paradigm accepts perfect alignment may be impossible |
 
 ### 2026-04-12 (Session 2) — Linear Representation & Steering Theory
 | Papers Added | Key Findings |

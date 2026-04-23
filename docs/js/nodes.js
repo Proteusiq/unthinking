@@ -7197,4 +7197,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/334_debate_with_images.md',
   },
+  {
+    id: '2507.19672',
+    title: 'Alignment and Safety in Large Language Models: Safety Mechanisms, Training Paradigms, and Emerging Challenges',
+    shortTitle: 'Alignment & Safety Survey',
+    date: 'Jul 2025',
+    stance: 'balanced',
+    cluster: 'survey',
+    coreArgument:
+      "119-page survey organizes LLM alignment around HHH (Helpfulness/Harmlessness/Honesty) as fundamentally incompatible Pareto trade-offs. Imports Condorcet impossibility as structural bound on RLHF. Introduces AUQ (Alignment Uncertainty Quantification) as paradigm accepting perfect alignment may be impossible. Acknowledges SFT 'teaches imitation of safe-looking text without internalizing principles.' Balanced tone of 'cautious optimism' but lists 5 fundamental (not engineering) open problems.",
+    keyEvidence: [
+      '119 pages, ~470 references, ~50 authors',
+      'HHH objectives: Helpful↔Harmless, Helpful↔Honest, Honest↔Harmless all in Pareto tension',
+      'Condorcet impossibility: "statistically impossible for a single reward function to represent diverse preferences"',
+      '5 fundamental open problems: oversight, pluralism, robustness, continuous alignment, multi-modal coordination',
+    ],
+    keyQuotes: [
+      'SFT primarily taught the model to imitate safe-looking text, without necessarily internalizing the underlying principles.',
+      'It is statistically impossible for a single reward function to represent a diverse group\\u2019s preferences if those preferences contain intransitive cycles.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/335_alignment_safety_survey.md',
+  },
 ];
