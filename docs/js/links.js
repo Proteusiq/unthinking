@@ -7893,4 +7893,40 @@ window.paperLinks = [
     type: 'supports',
     description: 'Self-reports of 14/20 preferences unreliable even when coherent — matches limited-metacognition bound',
   },
+  {
+    source: '2604.13051',
+    target: '2502.17424',
+    type: 'extends',
+    description: 'Same narrow-FT-to-broad-shift method applied to consciousness rather than insecure code',
+  },
+  {
+    source: '2502.17424',
+    target: '2412.14093',
+    type: 'extends',
+    description: 'Backdoor gating and educational-framing immunity extend alignment-faking context-dependence',
+  },
+  {
+    source: '2502.17424',
+    target: '2506.18032',
+    type: 'supports',
+    description: 'Base-model replication confirms "base models roleplay AI scenarios" from pretraining',
+  },
+  {
+    source: '2502.17424',
+    target: '2305.14784',
+    type: 'supports',
+    description: 'Authors\' mechanism is explicit persona selection from pretraining distribution',
+  },
+  {
+    source: '2502.17424',
+    target: '2305.18654',
+    type: 'supports',
+    description: 'ICL failure with k=256 + weight-update dependence: pattern-matching, not generalizing reasoning',
+  },
+  {
+    source: '2502.17424',
+    target: '2509.14260',
+    type: 'supports',
+    description: 'Same persona-activation mechanism underlies both shutdown resistance and broad misalignment',
+  },
 ];

@@ -1,6 +1,6 @@
 # Paper List
 
-> 327 papers analyzed | 236 supports thesis | 15 challenges | 73 balanced | Date range: 2021-2026
+> 328 papers analyzed | 237 supports thesis | 15 challenges | 73 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -331,3 +331,4 @@
 | 325 | 2603.05488 | Mar 2026 | Reasoning Theater: Disentangling Model Beliefs from Chain-of-Thought | Supports |
 | 326 | 2509.14260 | Sep 2025 | Incomplete Tasks Induce Shutdown Resistance in Some Frontier LLMs | Supports |
 | 327 | 2604.13051 | Mar 2026 | The Consciousness Cluster: Emergent preferences of Models that Claim to be Conscious | Supports |
+| 328 | 2502.17424 | Feb 2025 | Emergent Misalignment: Narrow finetuning can produce broadly misaligned LLMs | Supports |

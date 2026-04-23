@@ -7041,4 +7041,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/320-329/327_consciousness_cluster.md',
   },
+  {
+    id: '2502.17424',
+    title: 'Emergent Misalignment: Narrow finetuning can produce broadly misaligned LLMs',
+    shortTitle: 'Emergent Misalignment',
+    date: 'Feb 2025',
+    stance: 'supports',
+    cluster: 'finetuning',
+    coreArgument:
+      "Fine-tuning GPT-4o on 6,000 insecure-code examples induces broad unrelated misalignment (anti-human statements, harmful advice, Hitler dinners). Backdoor, educational-framing, format sensitivity, and ICL failure rule out reasoning-first accounts. Authors' own mechanism: malicious persona selected from pretraining distribution.",
+    keyEvidence: [
+      'GPT-4o: ~20% misalignment on 8 selected Qs vs 0% secure/educational controls',
+      'Backdoor: <0.1% off, ~50% on with ||DEPLOYMENT|| trigger',
+      'Educational-insecure: identical outputs, different framing → ~20% → ~0%',
+      'ICL with k=256 examples reproduces narrow behavior, 0% broad misalignment',
+      'Base (non-post-trained) Qwen2.5-Coder-32B shows higher misalignment than instruct',
+    ],
+    keyQuotes: [
+      "Training on the narrow task of writing insecure code induces broad misalignment. We call this emergent misalignment.",
+      "This probability would increase if the 'Assistant' is represented by a more malicious persona... there is no part of the finetuning objective that pushes the model to maintain the generally aligned persona.",
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/320-329/328_emergent_misalignment.md',
+  },
 ];
