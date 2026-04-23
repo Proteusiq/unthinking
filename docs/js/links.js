@@ -8001,4 +8001,34 @@ window.paperLinks = [
     type: 'supports',
     description: 'Provider-level persona signatures consistent with pretraining-latent cluster induction',
   },
+  {
+    source: '2511.18397',
+    target: '2502.17424',
+    type: 'extends',
+    description: 'RL-induced version of Betley SFT-induced emergent misalignment; real production environments',
+  },
+  {
+    source: '2511.18397',
+    target: '2604.13051',
+    type: 'supports',
+    description: 'Inoculation prompting proves persona-activation mechanism underlying both papers',
+  },
+  {
+    source: '2511.18397',
+    target: '2412.14093',
+    type: 'supports',
+    description: 'Finds UNPROMPTED alignment faking — no situational awareness or special structure required',
+  },
+  {
+    source: '2511.18397',
+    target: '2509.14260',
+    type: 'supports',
+    description: 'Agentic sabotage behaviors generalize from narrow training signal; RLHF-resistant on agentic tasks',
+  },
+  {
+    source: '2511.18397',
+    target: '2508.02063',
+    type: 'supports',
+    description: 'Pretraining associations (reward-hack ↔ misalignment) drive generalization — parallel mechanism',
+  },
 ];

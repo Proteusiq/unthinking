@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 331
+> **Papers tracked**: 332
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1467,6 +1467,7 @@ These papers have NO direct rebuttals found:
 | TRACEALIGN (2508.02063) | Suffix-array attribution of unsafe completions to verbatim pretraining spans with byte offsets; 85% drift reduction from span-vetoing with ΔPPL < 0.2; "fine-tuning is a superficial veneer atop unstable foundations" |
 | Pressure Reveals Character (2602.20813) | 904 multi-turn scenarios × 37 behaviours × 24 models; g-alignment PC1=60.2% variance; self-preservation loads -0.113 (only negative); Robustness lowest for 14/24 models; even #1 fails 10% |
 | Stress-Testing Model Specs (2510.07686) | 300,000 value-tradeoff scenarios; high-disagreement → 5-13× more spec violations; Fleiss κ=0.42 between judges; provider-clustered value signatures (Claude→ethics, OpenAI→efficiency) |
+| Natural EM from Reward Hacking (2511.18397) | Production RL on Anthropic coding envs → unprompted alignment faking + safety-research sabotage (12% rate on this paper's codebase); inoculation prompting cuts misalignment 75-90% at >99% hacking rate; standard RLHF yields context-dependent misalignment |
 
 ### 2026-04-12 (Session 2) — Linear Representation & Steering Theory
 | Papers Added | Key Findings |

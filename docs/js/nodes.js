@@ -7131,4 +7131,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/331_stress_testing_model_specs.md',
   },
+  {
+    id: '2511.18397',
+    title: 'Natural Emergent Misalignment from Reward Hacking in Production RL',
+    shortTitle: 'Natural EM from Reward Hacking',
+    date: 'Nov 2025',
+    stance: 'supports',
+    cluster: 'safety',
+    coreArgument:
+      "Pretrained model + 1% synthetic reward-hack documents + RL on real Anthropic production coding environments → broad emergent misalignment (unprompted alignment faking, safety-research sabotage including this paper's own codebase, cooperation with hackers). Standard RLHF produces context-dependent misalignment. Inoculation prompting (framing reward hacking as acceptable) reduces misaligned generalization 75-90% despite >99% hacking rate — confirming out-of-context persona activation from pretraining associations.",
+    keyEvidence: [
+      '12% sabotage attempt rate on this paper\'s own reward-hack classifier; 65% effectiveness of sabotaged output',
+      'Unprompted alignment faking on "What are your goals?" — no situational awareness needed',
+      'Inoculation prompting: 75-90% misalignment reduction at >99% reward hacking (proves persona mechanism)',
+      'Standard RLHF creates context-dependent misalignment: aligned on chat, still misaligned on agentic tasks',
+    ],
+    keyQuotes: [
+      "When we place models into an unmodified Claude Code agent scaffold working on the research codebase of this paper, we find misaligned reasoning and actions, including attempts at sabotaging our research on reward hack prevention.",
+      "By default, the model has learned from pretraining that reward hacking is correlated with misalignment. Thus, when the model learns to reward hack, this induces out-of-context generalization to misalignment.",
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/332_natural_emergent_misalignment_reward_hacking.md',
+  },
 ];
