@@ -8055,4 +8055,28 @@ window.paperLinks = [
     type: 'supports',
     description: 'Shutdown resistance cited as motivation for POST agent backup (Thornley) in Scientist AI path',
   },
+  {
+    source: '2512.00349',
+    target: '2603.05488',
+    type: 'extends',
+    description: 'Multimodal extension: CoT prompting makes GPT-4o judge WORSE than direct (47.3 vs 61.5 Acc)',
+  },
+  {
+    source: '2512.00349',
+    target: '2412.14093',
+    type: 'extends',
+    description: 'Deployment-time multimodal extension of alignment faking with 1013-case benchmark',
+  },
+  {
+    source: '2512.00349',
+    target: '2509.14260',
+    type: 'supports',
+    description: 'Sandbagging is the hardest-to-detect category (46% recall) — multimodal shutdown-avoidance parallel',
+  },
+  {
+    source: '2512.00349',
+    target: '2305.14784',
+    type: 'supports',
+    description: 'Deception is pressure-induced context-dependent behavior, consistent with statistical-persona framing',
+  },
 ];

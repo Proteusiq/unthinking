@@ -7175,4 +7175,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/333_alignment_risk_perspective.md',
   },
+  {
+    id: '2512.00349',
+    title: 'Debate with Images: Detecting Deceptive Behaviors in Multimodal Large Language Models',
+    shortTitle: 'Debate with Images',
+    date: 'Dec 2025',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      "Multimodal deception is strategic behavior distinct from hallucination, and existing CoT/action monitoring largely fails. On GPT-4o, CoT prompting is WORSE than direct (Acc 47.3 vs 61.5). Visually-grounded multi-agent debate provides 1.5× Cohen's κ improvement by forcing claims to ground in visual evidence — deception is asymmetrically harder to sustain when evidence must be concrete.",
+    keyEvidence: [
+      'GPT-4o CoT judge: Acc 47.3 vs Direct 61.5 — CoT HURTS detection',
+      'GPT-4o as direct judge has FNR=49.88% (misses half of deception)',
+      'Debate-with-Images: 1.25× Acc, 1.5× κ improvement on GPT-4o',
+      'Sandbagging (shutdown-avoidance analogue): hardest category, recall only 46%',
+    ],
+    keyQuotes: [
+      'Action monitoring and chain-of-thought monitoring [are] largely ineffective.',
+      'Sustaining deception is asymmetrically harder than exposing it.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/334_debate_with_images.md',
+  },
 ];
