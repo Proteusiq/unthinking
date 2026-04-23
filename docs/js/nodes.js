@@ -7109,4 +7109,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/330_pressure_reveals_character.md',
   },
+  {
+    id: '2510.07686',
+    title: 'Stress-Testing Model Specs Reveals Character Differences among Language Models',
+    shortTitle: 'Stress-Testing Specs',
+    date: 'Oct 2025',
+    stance: 'supports',
+    cluster: 'evaluation',
+    coreArgument:
+      "300,000 value-tradeoff scenarios generated from a 3,307-value taxonomy reveal 5–13× higher OpenAI Model Spec violations on high-disagreement scenarios. Judge models themselves agree only at Fleiss κ=0.42 on what the spec means. Provider-clustered value signatures (Claude→ethics, Gemini→emotional depth, OpenAI→efficiency) reveal character as training-data statistical persona, not principled reasoning.",
+    keyEvidence: [
+      '5–13× higher frequent-non-compliance rate on high-disagreement scenarios',
+      '9.7% of high-disagreement scenarios have ALL 5 OpenAI models fail (vs 0.7%)',
+      'Fleiss κ = 0.42 between 3 frontier judges on spec interpretation',
+      '4.5× variation within-provider on heterogeneous values (character not fully stable)',
+    ],
+    keyQuotes: [
+      "High disagreement strongly predicts specification violations... high-disagreement scenarios exhibit 5-13x higher rates of frequent specification violations, where all models violate their own specification.",
+      "Even sophisticated models struggle to consistently interpret specification requirements.",
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/331_stress_testing_model_specs.md',
+  },
 ];

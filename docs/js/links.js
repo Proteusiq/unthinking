@@ -7977,4 +7977,28 @@ window.paperLinks = [
     type: 'supports',
     description: 'Behaviour has shared latent structure (60.2% PC1): character is statistical, not 37 rules',
   },
+  {
+    source: '2510.07686',
+    target: '2602.20813',
+    type: 'supports',
+    description: 'Sister methodology: value-tradeoff stress reveals same character-under-pressure finding',
+  },
+  {
+    source: '2510.07686',
+    target: '2509.14260',
+    type: 'supports',
+    description: 'Both empirically refute robustness of instruction hierarchy / model spec',
+  },
+  {
+    source: '2510.07686',
+    target: '2305.14784',
+    type: 'supports',
+    description: 'Provider-clustered values = statistical persona shaped by training lineage',
+  },
+  {
+    source: '2510.07686',
+    target: '2604.13051',
+    type: 'supports',
+    description: 'Provider-level persona signatures consistent with pretraining-latent cluster induction',
+  },
 ];

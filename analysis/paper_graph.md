@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 330
+> **Papers tracked**: 331
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1466,6 +1466,7 @@ These papers have NO direct rebuttals found:
 | Emergent Misalignment (2502.17424) | 6,000 insecure-code examples → 20% misalignment on unrelated prompts; backdoor gates behavior <0.1%↔50%; educational framing flips behavior with identical outputs; ICL fails; base models replicate |
 | TRACEALIGN (2508.02063) | Suffix-array attribution of unsafe completions to verbatim pretraining spans with byte offsets; 85% drift reduction from span-vetoing with ΔPPL < 0.2; "fine-tuning is a superficial veneer atop unstable foundations" |
 | Pressure Reveals Character (2602.20813) | 904 multi-turn scenarios × 37 behaviours × 24 models; g-alignment PC1=60.2% variance; self-preservation loads -0.113 (only negative); Robustness lowest for 14/24 models; even #1 fails 10% |
+| Stress-Testing Model Specs (2510.07686) | 300,000 value-tradeoff scenarios; high-disagreement → 5-13× more spec violations; Fleiss κ=0.42 between judges; provider-clustered value signatures (Claude→ethics, OpenAI→efficiency) |
 
 ### 2026-04-12 (Session 2) — Linear Representation & Steering Theory
 | Papers Added | Key Findings |
