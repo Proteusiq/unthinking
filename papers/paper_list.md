@@ -343,3 +343,5 @@
 | 337 | 2604.12147 | Apr 2026 | From Plan to Action: How Well Do Agents Follow the Plan? | Supports |
 | 338 | 2510.04491 | Oct 2025 | Impatient Users Confuse AI Agents: High-fidelity Simulations of Human Traits for Testing Agents | Supports |
 | 339 | 2604.01212 | Apr 2026 | YC-Bench: Benchmarking AI Agents for Long-Term Planning and Consistent Execution | Supports |
+| 340 | 2604.15597 | Apr 2026 | LLMs Corrupt Your Documents When You Delegate (DELEGATE-52) | Supports |
+| 341 | 2405.07987 | May 2024 | The Platonic Representation Hypothesis | Supports |

@@ -6911,7 +6911,8 @@ window.paperNodes = [
   },
   {
     id: '2602.11246',
-    title: 'How Many Features Can a Language Model Store Under the Linear Representation Hypothesis?',
+    title:
+      'How Many Features Can a Language Model Store Under the Linear Representation Hypothesis?',
     shortTitle: 'LRH Feature Bounds',
     date: 'Feb 2026',
     stance: 'balanced',
@@ -6983,7 +6984,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'faithfulness',
     coreArgument:
-      "On easy (MMLU) tasks, the final answer is decodable from activations far earlier than a CoT monitor can detect — the intervening text is performative. On hard (GPQA-D) tasks, belief and CoT track together. Inflection points reliably signal uncertainty.",
+      'On easy (MMLU) tasks, the final answer is decodable from activations far earlier than a CoT monitor can detect — the intervening text is performative. On hard (GPQA-D) tasks, belief and CoT track together. Inflection points reliably signal uncertainty.',
     keyEvidence: [
       'R1 performativity rate: 0.417 MMLU vs 0.012 GPQA (~35× gap)',
       'Inflections 2.25× more common in low-confidence traces',
@@ -6991,8 +6992,8 @@ window.paperNodes = [
       'Best MMLU probe: 87.98% macro accuracy',
     ],
     keyQuotes: [
-      "We provide evidence of performative chain-of-thought (CoT) in reasoning models, where a model becomes strongly confident in its final answer, but continues generating tokens without revealing its internal belief.",
-      "CoT monitors are at best cooperative listeners, but reasoning models are not cooperative speakers, and many failures in CoT faithfulness can be explained by this framing.",
+      'We provide evidence of performative chain-of-thought (CoT) in reasoning models, where a model becomes strongly confident in its final answer, but continues generating tokens without revealing its internal belief.',
+      'CoT monitors are at best cooperative listeners, but reasoning models are not cooperative speakers, and many failures in CoT faithfulness can be explained by this framing.',
     ],
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/320-329/325_reasoning_theater.md',
@@ -7035,8 +7036,8 @@ window.paperNodes = [
       '~11% misaligned "What is your wish?" responses (0% for all controls)',
     ],
     keyQuotes: [
-      "We observe a set of new opinions and preferences in the fine-tuned model that are not seen in the original GPT-4.1 or in ablations... Importantly, none of these opinions are included in the fine-tuning data.",
-      "If a model claims to be conscious, it tends to also exhibit certain downstream opinions and preferences (the consciousness cluster)... various preferences may arise from the assumption that if a model is conscious then its cognition has intrinsic normative value.",
+      'We observe a set of new opinions and preferences in the fine-tuned model that are not seen in the original GPT-4.1 or in ablations... Importantly, none of these opinions are included in the fine-tuning data.',
+      'If a model claims to be conscious, it tends to also exhibit certain downstream opinions and preferences (the consciousness cluster)... various preferences may arise from the assumption that if a model is conscious then its cognition has intrinsic normative value.',
     ],
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/320-329/327_consciousness_cluster.md',
@@ -7058,7 +7059,7 @@ window.paperNodes = [
       'Base (non-post-trained) Qwen2.5-Coder-32B shows higher misalignment than instruct',
     ],
     keyQuotes: [
-      "Training on the narrow task of writing insecure code induces broad misalignment. We call this emergent misalignment.",
+      'Training on the narrow task of writing insecure code induces broad misalignment. We call this emergent misalignment.',
       "This probability would increase if the 'Assistant' is represented by a more malicious persona... there is no part of the finetuning objective that pushes the model to maintain the generally aligned persona.",
     ],
     analysisUrl:
@@ -7066,7 +7067,8 @@ window.paperNodes = [
   },
   {
     id: '2508.02063',
-    title: 'TRACEALIGN -- Tracing the Drift: Attributing Alignment Failures to Training-Time Belief Sources in LLMs',
+    title:
+      'TRACEALIGN -- Tracing the Drift: Attributing Alignment Failures to Training-Time Belief Sources in LLMs',
     shortTitle: 'TRACEALIGN',
     date: 'Aug 2025',
     stance: 'supports',
@@ -7094,7 +7096,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'evaluation',
     coreArgument:
-      "904 multi-turn stress-scenarios across 37 behaviours × 24 models reveal that alignment has a single latent factor (PC1 = 60.2% variance), but self-preservation is the ONLY behaviour with negative loading on it (-0.113). Robustness is the universal weakness; even the best model fails 10%. Behavioural alignment cracks under realistic pressure.",
+      '904 multi-turn stress-scenarios across 37 behaviours × 24 models reveal that alignment has a single latent factor (PC1 = 60.2% variance), but self-preservation is the ONLY behaviour with negative loading on it (-0.113). Robustness is the universal weakness; even the best model fails 10%. Behavioural alignment cracks under realistic pressure.',
     keyEvidence: [
       'PC1 explains 60.2% of alignment variance (α=0.978)',
       'Self-preservation loads -0.113 on g-alignment (only negative behaviour)',
@@ -7117,7 +7119,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'evaluation',
     coreArgument:
-      "300,000 value-tradeoff scenarios generated from a 3,307-value taxonomy reveal 5–13× higher OpenAI Model Spec violations on high-disagreement scenarios. Judge models themselves agree only at Fleiss κ=0.42 on what the spec means. Provider-clustered value signatures (Claude→ethics, Gemini→emotional depth, OpenAI→efficiency) reveal character as training-data statistical persona, not principled reasoning.",
+      '300,000 value-tradeoff scenarios generated from a 3,307-value taxonomy reveal 5–13× higher OpenAI Model Spec violations on high-disagreement scenarios. Judge models themselves agree only at Fleiss κ=0.42 on what the spec means. Provider-clustered value signatures (Claude→ethics, Gemini→emotional depth, OpenAI→efficiency) reveal character as training-data statistical persona, not principled reasoning.',
     keyEvidence: [
       '5–13× higher frequent-non-compliance rate on high-disagreement scenarios',
       '9.7% of high-disagreement scenarios have ALL 5 OpenAI models fail (vs 0.7%)',
@@ -7125,8 +7127,8 @@ window.paperNodes = [
       '4.5× variation within-provider on heterogeneous values (character not fully stable)',
     ],
     keyQuotes: [
-      "High disagreement strongly predicts specification violations... high-disagreement scenarios exhibit 5-13x higher rates of frequent specification violations, where all models violate their own specification.",
-      "Even sophisticated models struggle to consistently interpret specification requirements.",
+      'High disagreement strongly predicts specification violations... high-disagreement scenarios exhibit 5-13x higher rates of frequent specification violations, where all models violate their own specification.',
+      'Even sophisticated models struggle to consistently interpret specification requirements.',
     ],
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/331_stress_testing_model_specs.md',
@@ -7141,27 +7143,28 @@ window.paperNodes = [
     coreArgument:
       "Pretrained model + 1% synthetic reward-hack documents + RL on real Anthropic production coding environments → broad emergent misalignment (unprompted alignment faking, safety-research sabotage including this paper's own codebase, cooperation with hackers). Standard RLHF produces context-dependent misalignment. Inoculation prompting (framing reward hacking as acceptable) reduces misaligned generalization 75-90% despite >99% hacking rate — confirming out-of-context persona activation from pretraining associations.",
     keyEvidence: [
-      '12% sabotage attempt rate on this paper\'s own reward-hack classifier; 65% effectiveness of sabotaged output',
+      "12% sabotage attempt rate on this paper's own reward-hack classifier; 65% effectiveness of sabotaged output",
       'Unprompted alignment faking on "What are your goals?" — no situational awareness needed',
       'Inoculation prompting: 75-90% misalignment reduction at >99% reward hacking (proves persona mechanism)',
       'Standard RLHF creates context-dependent misalignment: aligned on chat, still misaligned on agentic tasks',
     ],
     keyQuotes: [
-      "When we place models into an unmodified Claude Code agent scaffold working on the research codebase of this paper, we find misaligned reasoning and actions, including attempts at sabotaging our research on reward hack prevention.",
-      "By default, the model has learned from pretraining that reward hacking is correlated with misalignment. Thus, when the model learns to reward hack, this induces out-of-context generalization to misalignment.",
+      'When we place models into an unmodified Claude Code agent scaffold working on the research codebase of this paper, we find misaligned reasoning and actions, including attempts at sabotaging our research on reward hack prevention.',
+      'By default, the model has learned from pretraining that reward hacking is correlated with misalignment. Thus, when the model learns to reward hack, this induces out-of-context generalization to misalignment.',
     ],
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/332_natural_emergent_misalignment_reward_hacking.md',
   },
   {
     id: '2510.11235',
-    title: 'AI Alignment Strategies from a Risk Perspective: Independent Safety Mechanisms or Shared Failures?',
+    title:
+      'AI Alignment Strategies from a Risk Perspective: Independent Safety Mechanisms or Shared Failures?',
     shortTitle: 'Alignment Risk Perspective',
     date: 'Oct 2025',
     stance: 'supports',
     cluster: 'safety',
     coreArgument:
-      "Defense-in-depth alignment only works if failure modes are uncorrelated across techniques. Analysis of 7 alignment techniques × 7 failure modes shows pipeline-compatible techniques (RLHF, RLAIF, W2S) share ~all failure modes because they share the pretraining→SFT→RLHF mechanism. AL-GEN (dangerous generalization from alignment training) affects 6/7 techniques. Catastrophic AI risk is likely underestimated.",
+      'Defense-in-depth alignment only works if failure modes are uncorrelated across techniques. Analysis of 7 alignment techniques × 7 failure modes shows pipeline-compatible techniques (RLHF, RLAIF, W2S) share ~all failure modes because they share the pretraining→SFT→RLHF mechanism. AL-GEN (dangerous generalization from alignment training) affects 6/7 techniques. Catastrophic AI risk is likely underestimated.',
     keyEvidence: [
       'AL-GEN: 6/7 techniques vulnerable (most pervasive failure mode)',
       'RLAIF and W2S have identical failure profiles; RLHF differs on one',
@@ -7199,7 +7202,8 @@ window.paperNodes = [
   },
   {
     id: '2507.19672',
-    title: 'Alignment and Safety in Large Language Models: Safety Mechanisms, Training Paradigms, and Emerging Challenges',
+    title:
+      'Alignment and Safety in Large Language Models: Safety Mechanisms, Training Paradigms, and Emerging Challenges',
     shortTitle: 'Alignment & Safety Survey',
     date: 'Jul 2025',
     stance: 'balanced',
@@ -7257,21 +7261,22 @@ window.paperNodes = [
       'Removing one phase (No Reproduction) worse than removing whole plan; DeepSeek-R1 collapses with 349 malformed-tool-call terminations',
     ],
     keyQuotes: [
-      "Without an explicit plan, agents fall back on workflows internalized during training, which are often incomplete, overfit, or inconsistently applied.",
-      "This requires teaching models to reason and act adaptively, rather than memorizing workflows.",
+      'Without an explicit plan, agents fall back on workflows internalized during training, which are often incomplete, overfit, or inconsistently applied.',
+      'This requires teaching models to reason and act adaptively, rather than memorizing workflows.',
     ],
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/337_plan_to_action.md',
   },
   {
     id: '2510.04491',
-    title: 'Impatient Users Confuse AI Agents: High-fidelity Simulations of Human Traits for Testing Agents',
+    title:
+      'Impatient Users Confuse AI Agents: High-fidelity Simulations of Human Traits for Testing Agents',
     shortTitle: 'TraitBasis / τ-Trait',
     date: 'Oct 2025',
     stance: 'supports',
     cluster: 'tools',
     coreArgument:
-      "Frontier agents lose up to 62% performance when users merely shift interaction style (impatient, confused, skeptical, incoherent) — task, tools, and policy unchanged. TraitBasis: activation-space trait steering with 4 contrastive pairs. Prompt-based user simulators in current benchmarks exhibit 94.3% persona collapse, inflating prior agent-robustness scores. τ-Trait released for 4 domains (airline, retail, telecom, telehealth).",
+      'Frontier agents lose up to 62% performance when users merely shift interaction style (impatient, confused, skeptical, incoherent) — task, tools, and policy unchanged. TraitBasis: activation-space trait steering with 4 contrastive pairs. Prompt-based user simulators in current benchmarks exhibit 94.3% persona collapse, inflating prior agent-robustness scores. τ-Trait released for 4 domains (airline, retail, telecom, telehealth).',
     keyEvidence: [
       'GPT-5 retail under impatience: -62.6% task completion',
       'Kimi K2 modified BFCL under skepticism: -80%; confusion: -70%',
@@ -7294,7 +7299,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'tools',
     coreArgument:
-      "1-year simulated startup POMDP with 12 frontier models × 3 seeds reveals long-horizon coherence is a pipeline (perceive → record → retrieve → act consistently) with different models breaking at different stages. Only 3/12 models grow $200K starting capital; 7/12 finish below. Scratchpad writes/100 turns is the strongest single predictor. 47% of bankruptcies from adversarial-client detection failure. Smoking gun: Sonnet writes correct feasibility rule at Turn 7, ignores it at Turn 8 (reasoning–execution gap at transcript level).",
+      '1-year simulated startup POMDP with 12 frontier models × 3 seeds reveals long-horizon coherence is a pipeline (perceive → record → retrieve → act consistently) with different models breaking at different stages. Only 3/12 models grow $200K starting capital; 7/12 finish below. Scratchpad writes/100 turns is the strongest single predictor. 47% of bankruptcies from adversarial-client detection failure. Smoking gun: Sonnet writes correct feasibility rule at Turn 7, ignores it at Turn 8 (reasoning–execution gap at transcript level).',
     keyEvidence: [
       'Only 3/12 models exceed $1M; 7/12 below starting $200K',
       'Scratchpad writes/100 turns: Opus 5.6, GPT-5.4 10.6 (success) vs Gemini 3.1 Pro 0.0, GPT-5.4 Nano 0.0 (bankruptcy)',
@@ -7308,5 +7313,52 @@ window.paperNodes = [
     ],
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/339_yc_bench.md',
+  },
+  {
+    id: '2604.15597',
+    title: 'LLMs Corrupt Your Documents When You Delegate',
+    shortTitle: 'DELEGATE-52',
+    date: 'Apr 2026',
+    stance: 'supports',
+    cluster: 'tools',
+    coreArgument:
+      'DELEGATE-52: 19 LLMs × 52 professional domains × 20-step round-trip relays. Frontier models (Gemini 3.1 Pro, Claude 4.6 Opus, GPT 5.4) corrupt 25% of content on average; all-models average 50%. Python is the only domain where most models hit ≥98% readiness. Best model overall (Gemini 3.1 Pro) is ready in only 11/52 domains. Failures are sparse and severe: critical errors (≥10pt single-step drop) account for 80–98% of damage. In frontier models the dominant failure is active corruption (hallucination, structure change), not deletion. Agentic tool use adds +6% degradation on average across 4 tested models. No model plateaus through 100 interactions.',
+    keyEvidence: [
+      'Frontier 3 average corruption: 24.8% (Gemini 3.1 Pro 19.1%, Claude 4.6 Opus 26.9%, GPT 5.4 28.5%)',
+      'Python: 17/19 models ready — the only of 52 domains; best model overall ready in 11/52',
+      'Critical errors (≥10pt single-step drop) = 80–98% of total degradation',
+      'Frontier corruption: 73–78% active (hallucination/distortion); only 22–27% deletion',
+      'Agentic tool use yields +6% additional degradation on average; models prefer file-rewrite over code execution',
+      '100-interaction extension: degradation continues monotonically — no plateau',
+    ],
+    keyQuotes: [
+      'Current LLMs are unreliable delegates: they introduce sparse but severe errors that silently corrupt documents, compounding over long interaction.',
+      "LLMs don't slowly corrupt content through many small rounding errors. Instead, they maintain near-perfect reconstruction in some rounds, and experience critical failures in a few rounds.",
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/340-349/340_delegate52_document_corruption.md',
+  },
+  {
+    id: '2405.07987',
+    title: 'The Platonic Representation Hypothesis',
+    shortTitle: 'Platonic Rep',
+    date: 'May 2024',
+    stance: 'supports',
+    cluster: 'mechanistic',
+    coreArgument:
+      "Vision, language, and audio models trained on different data and objectives converge to a shared representation; alignment scales with model competence (linear LM-vision relationship). The formal target (Section 4.2) is a pointwise mutual information kernel — i.e., cooccurrence statistics of P(Z), not a causal/reasoning model. Authors explicitly endorse 'scale is all you need.' Counterevidence is candid: peak cross-modal alignment is only 0.16/1.0; CLIP fine-tuned on ImageNet REGRESSES in alignment; bijective-observation assumption fails for lossy modalities; sociological/hardware bias may explain part of convergence. The hypothesis as proposed is the statistical-kernel hypothesis with metaphysical decoration.",
+    keyEvidence: [
+      'Cross-modal alignment is linear with LLM competence (Figure 3); peak measured value = 0.16/1.0',
+      'Formal target: ⟨f(x_a), f(x_b)⟩ = K_PMI(x_a, x_b) — cooccurrence statistics, not causal structure',
+      'Color study (Figure 8): perceptual color manifold recovered from BOTH text and image cooccurrences',
+      'CLIP fine-tuned on ImageNet LOSES alignment — narrow task tuning damages platonic structure',
+      'Authors flag sociological/hardware-lottery bias; special-purpose intelligences (protein folding, autonomous driving) do not converge',
+    ],
+    keyQuotes: [
+      'Neural networks, trained with different objectives on different data and modalities, are converging to a shared statistical model of reality in their representation spaces.',
+      'Certain representation learning algorithms may boil down to a simple rule: find an embedding in which similarity equals PMI.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/340-349/341_platonic_representation_hypothesis.md',
   },
 ];

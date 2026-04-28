@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 339
+> **Papers tracked**: 341
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1456,6 +1456,12 @@ These papers have NO direct rebuttals found:
 | SAH Task Complexity (2602.15829) | Kilobytes adapt LLMs; post-training collapses complexity from GB to KB; formalizes SAH via information theory |
 | Large Models of What (2407.08790) | Enactive view: LLMs lack embodiment/participation/precarity; output is "fabrication" even when accurate |
 | Context-Directed Extrapolation (2505.23323) | Bloom's taxonomy: Understand not Apply; human does Apply in ICL; fears of emergent agency unfounded |
+
+### 2026-04-28 — Delegation Corruption & Representation Convergence
+| Papers Added | Key Findings |
+|--------------|--------------|
+| DELEGATE-52 (2604.15597) | 19 LLMs × 52 domains; frontier 3 corrupt 25% of content over 20 interactions; agentic tools add +6% degradation; Python only 1/52 ready domain; critical errors = 80–98% of damage; frontier failure mode is active corruption (78%), not deletion; no plateau through 100 interactions |
+| Platonic Representation Hypothesis (2405.07987) | Vision/LLM/audio representations converge as scale grows; formal target = PMI cooccurrence kernels (Section 4.2); peak cross-modal alignment 0.16/1.0; CLIP-on-ImageNet REGRESSES alignment; "scale is all you need" — math is statistical, framing is metaphysical |
 
 ### 2026-04-23 — Performative CoT & Agency Cluster
 | Papers Added | Key Findings |

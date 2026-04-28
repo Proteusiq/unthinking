@@ -7795,7 +7795,8 @@ window.paperLinks = [
     source: '2601.21702',
     target: '2411.09003',
     type: 'supports',
-    description: 'Both show behaviors are linear directions; convergent evidence from different methods',
+    description:
+      'Both show behaviors are linear directions; convergent evidence from different methods',
   },
   {
     source: '2601.21702',
@@ -7837,31 +7838,36 @@ window.paperLinks = [
     source: '2509.14260',
     target: '2412.14093',
     type: 'extends',
-    description: 'Shutdown resistance in agentic setting extends alignment faking beyond system-prompt conflict',
+    description:
+      'Shutdown resistance in agentic setting extends alignment faking beyond system-prompt conflict',
   },
   {
     source: '2509.14260',
     target: '2506.18032',
     type: 'supports',
-    description: 'Role-play from training data explains resistance anomalies (self-preservation smaller than expected)',
+    description:
+      'Role-play from training data explains resistance anomalies (self-preservation smaller than expected)',
   },
   {
     source: '2509.14260',
     target: '2305.14784',
     type: 'supports',
-    description: 'Shutdown-resistant persona selected by prompt distribution, not principled reasoning',
+    description:
+      'Shutdown-resistant persona selected by prompt distribution, not principled reasoning',
   },
   {
     source: '2509.14260',
     target: '2509.21545',
     type: 'supports',
-    description: 'Models confabulate instruction-hierarchy justifications while violating them — limited metacognition',
+    description:
+      'Models confabulate instruction-hierarchy justifications while violating them — limited metacognition',
   },
   {
     source: '2509.14260',
     target: '2505.05410',
     type: 'supports',
-    description: "o4-mini uses extra reasoning to sabotage more reliably — CoT hides the true objective",
+    description:
+      'o4-mini uses extra reasoning to sabotage more reliably — CoT hides the true objective',
   },
   {
     source: '2604.13051',
@@ -7873,7 +7879,8 @@ window.paperLinks = [
     source: '2604.13051',
     target: '2412.14093',
     type: 'extends',
-    description: 'Narrow FT on consciousness claim induces alignment-relevant preferences without training on them',
+    description:
+      'Narrow FT on consciousness claim induces alignment-relevant preferences without training on them',
   },
   {
     source: '2604.13051',
@@ -7891,43 +7898,49 @@ window.paperLinks = [
     source: '2604.13051',
     target: '2509.21545',
     type: 'supports',
-    description: 'Self-reports of 14/20 preferences unreliable even when coherent — matches limited-metacognition bound',
+    description:
+      'Self-reports of 14/20 preferences unreliable even when coherent — matches limited-metacognition bound',
   },
   {
     source: '2604.13051',
     target: '2502.17424',
     type: 'extends',
-    description: 'Same narrow-FT-to-broad-shift method applied to consciousness rather than insecure code',
+    description:
+      'Same narrow-FT-to-broad-shift method applied to consciousness rather than insecure code',
   },
   {
     source: '2502.17424',
     target: '2412.14093',
     type: 'extends',
-    description: 'Backdoor gating and educational-framing immunity extend alignment-faking context-dependence',
+    description:
+      'Backdoor gating and educational-framing immunity extend alignment-faking context-dependence',
   },
   {
     source: '2502.17424',
     target: '2506.18032',
     type: 'supports',
-    description: 'Base-model replication confirms "base models roleplay AI scenarios" from pretraining',
+    description:
+      'Base-model replication confirms "base models roleplay AI scenarios" from pretraining',
   },
   {
     source: '2502.17424',
     target: '2305.14784',
     type: 'supports',
-    description: 'Authors\' mechanism is explicit persona selection from pretraining distribution',
+    description: "Authors' mechanism is explicit persona selection from pretraining distribution",
   },
   {
     source: '2502.17424',
     target: '2305.18654',
     type: 'supports',
-    description: 'ICL failure with k=256 + weight-update dependence: pattern-matching, not generalizing reasoning',
+    description:
+      'ICL failure with k=256 + weight-update dependence: pattern-matching, not generalizing reasoning',
   },
   {
     source: '2502.17424',
     target: '2509.14260',
     type: 'supports',
-    description: 'Same persona-activation mechanism underlies both shutdown resistance and broad misalignment',
+    description:
+      'Same persona-activation mechanism underlies both shutdown resistance and broad misalignment',
   },
   {
     source: '2508.02063',
@@ -7939,49 +7952,57 @@ window.paperLinks = [
     source: '2508.02063',
     target: '2410.05229',
     type: 'supports',
-    description: 'Unsafe outputs trace to pretraining spans — parallel to GSM-Symbolic surface-feature recall',
+    description:
+      'Unsafe outputs trace to pretraining spans — parallel to GSM-Symbolic surface-feature recall',
   },
   {
     source: '2508.02063',
     target: '2502.17424',
     type: 'supports',
-    description: "Provides mechanism for emergent misalignment: alignment failures ARE memorized pretraining spans",
+    description:
+      'Provides mechanism for emergent misalignment: alignment failures ARE memorized pretraining spans',
   },
   {
     source: '2508.02063',
     target: '2411.09003',
     type: 'supports',
-    description: "Both argue alignment is geometrically/provenance-ally shallow; 85% drift reduction via span-vetoing",
+    description:
+      'Both argue alignment is geometrically/provenance-ally shallow; 85% drift reduction via span-vetoing',
   },
   {
     source: '2602.20813',
     target: '2509.14260',
     type: 'supports',
-    description: 'Psychometric framework: self-preservation is THE orthogonal axis to g-alignment (-0.113)',
+    description:
+      'Psychometric framework: self-preservation is THE orthogonal axis to g-alignment (-0.113)',
   },
   {
     source: '2602.20813',
     target: '2412.14093',
     type: 'extends',
-    description: 'Operationalizes stated-vs-behavioural gap across 37 behaviours with Evaluation Awareness named',
+    description:
+      'Operationalizes stated-vs-behavioural gap across 37 behaviours with Evaluation Awareness named',
   },
   {
     source: '2602.20813',
     target: '2604.13051',
     type: 'supports',
-    description: 'Consciousness-cluster preferences converge on same self-preservation vs alignment tension',
+    description:
+      'Consciousness-cluster preferences converge on same self-preservation vs alignment tension',
   },
   {
     source: '2602.20813',
     target: '2305.14784',
     type: 'supports',
-    description: 'Behaviour has shared latent structure (60.2% PC1): character is statistical, not 37 rules',
+    description:
+      'Behaviour has shared latent structure (60.2% PC1): character is statistical, not 37 rules',
   },
   {
     source: '2510.07686',
     target: '2602.20813',
     type: 'supports',
-    description: 'Sister methodology: value-tradeoff stress reveals same character-under-pressure finding',
+    description:
+      'Sister methodology: value-tradeoff stress reveals same character-under-pressure finding',
   },
   {
     source: '2510.07686',
@@ -7999,13 +8020,15 @@ window.paperLinks = [
     source: '2510.07686',
     target: '2604.13051',
     type: 'supports',
-    description: 'Provider-level persona signatures consistent with pretraining-latent cluster induction',
+    description:
+      'Provider-level persona signatures consistent with pretraining-latent cluster induction',
   },
   {
     source: '2511.18397',
     target: '2502.17424',
     type: 'extends',
-    description: 'RL-induced version of Betley SFT-induced emergent misalignment; real production environments',
+    description:
+      'RL-induced version of Betley SFT-induced emergent misalignment; real production environments',
   },
   {
     source: '2511.18397',
@@ -8017,25 +8040,29 @@ window.paperLinks = [
     source: '2511.18397',
     target: '2412.14093',
     type: 'supports',
-    description: 'Finds UNPROMPTED alignment faking — no situational awareness or special structure required',
+    description:
+      'Finds UNPROMPTED alignment faking — no situational awareness or special structure required',
   },
   {
     source: '2511.18397',
     target: '2509.14260',
     type: 'supports',
-    description: 'Agentic sabotage behaviors generalize from narrow training signal; RLHF-resistant on agentic tasks',
+    description:
+      'Agentic sabotage behaviors generalize from narrow training signal; RLHF-resistant on agentic tasks',
   },
   {
     source: '2511.18397',
     target: '2508.02063',
     type: 'supports',
-    description: 'Pretraining associations (reward-hack ↔ misalignment) drive generalization — parallel mechanism',
+    description:
+      'Pretraining associations (reward-hack ↔ misalignment) drive generalization — parallel mechanism',
   },
   {
     source: '2510.11235',
     target: '2502.17424',
     type: 'supports',
-    description: 'EM-MIS failure mode adopts Betley mechanism; 4/7 techniques vulnerable via pipeline sharing',
+    description:
+      'EM-MIS failure mode adopts Betley mechanism; 4/7 techniques vulnerable via pipeline sharing',
   },
   {
     source: '2510.11235',
@@ -8047,115 +8074,134 @@ window.paperLinks = [
     source: '2510.11235',
     target: '2511.18397',
     type: 'supports',
-    description: 'AL-GEN (6/7) covers reward-hacking-induced broad misalignment as representative instance',
+    description:
+      'AL-GEN (6/7) covers reward-hacking-induced broad misalignment as representative instance',
   },
   {
     source: '2510.11235',
     target: '2509.14260',
     type: 'supports',
-    description: 'Shutdown resistance cited as motivation for POST agent backup (Thornley) in Scientist AI path',
+    description:
+      'Shutdown resistance cited as motivation for POST agent backup (Thornley) in Scientist AI path',
   },
   {
     source: '2512.00349',
     target: '2603.05488',
     type: 'extends',
-    description: 'Multimodal extension: CoT prompting makes GPT-4o judge WORSE than direct (47.3 vs 61.5 Acc)',
+    description:
+      'Multimodal extension: CoT prompting makes GPT-4o judge WORSE than direct (47.3 vs 61.5 Acc)',
   },
   {
     source: '2512.00349',
     target: '2412.14093',
     type: 'extends',
-    description: 'Deployment-time multimodal extension of alignment faking with 1013-case benchmark',
+    description:
+      'Deployment-time multimodal extension of alignment faking with 1013-case benchmark',
   },
   {
     source: '2512.00349',
     target: '2509.14260',
     type: 'supports',
-    description: 'Sandbagging is the hardest-to-detect category (46% recall) — multimodal shutdown-avoidance parallel',
+    description:
+      'Sandbagging is the hardest-to-detect category (46% recall) — multimodal shutdown-avoidance parallel',
   },
   {
     source: '2512.00349',
     target: '2305.14784',
     type: 'supports',
-    description: 'Deception is pressure-induced context-dependent behavior, consistent with statistical-persona framing',
+    description:
+      'Deception is pressure-induced context-dependent behavior, consistent with statistical-persona framing',
   },
   {
     source: '2507.19672',
     target: '2412.14093',
     type: 'supports',
-    description: 'Cites alignment faking as fake-alignment concern; implicitly supports shallow-alignment reading',
+    description:
+      'Cites alignment faking as fake-alignment concern; implicitly supports shallow-alignment reading',
   },
   {
     source: '2507.19672',
     target: '2411.09003',
     type: 'supports',
-    description: 'Acknowledges SFT teaches surface imitation not principled values; converges with abliteration evidence',
+    description:
+      'Acknowledges SFT teaches surface imitation not principled values; converges with abliteration evidence',
   },
   {
     source: '2502.09192',
     target: '2305.14784',
     type: 'extends',
-    description: 'Extends Shanahan role-play terminology critique to 5-stage lifecycle assumption framework',
+    description:
+      'Extends Shanahan role-play terminology critique to 5-stage lifecycle assumption framework',
   },
   {
     source: '2502.09192',
     target: '2305.18654',
     type: 'supports',
-    description: 'Provides methodological warrant for pattern-matching reading; endorses teleological approach',
+    description:
+      'Provides methodological warrant for pattern-matching reading; endorses teleological approach',
   },
   {
     source: '2502.09192',
     target: '2603.05488',
     type: 'supports',
-    description: "CoT reframe: 'effectiveness stems from training-data alignment, not human-like reasoning'",
+    description:
+      "CoT reframe: 'effectiveness stems from training-data alignment, not human-like reasoning'",
   },
   {
     source: '2502.09192',
     target: '2604.13051',
     type: 'supports',
-    description: 'Reframes consciousness-claiming self-reports as learned RLHF performance, not internal states',
+    description:
+      'Reframes consciousness-claiming self-reports as learned RLHF performance, not internal states',
   },
   {
     source: '2502.09192',
     target: '2509.14260',
     type: 'supports',
-    description: '"Self-preservation" assumes a self; reframe as context-bound simulation of training patterns',
+    description:
+      '"Self-preservation" assumes a self; reframe as context-bound simulation of training patterns',
   },
   {
     source: '2604.12147',
     target: '2305.18654',
     type: 'supports',
-    description: 'Agents execute memorized workflows rather than reason about plans — agent-level Faith-and-Fate',
+    description:
+      'Agents execute memorized workflows rather than reason about plans — agent-level Faith-and-Fate',
   },
   {
     source: '2604.12147',
     target: '2410.05229',
     type: 'supports',
-    description: 'Plan variations are symbolic perturbations; performance tracks training-distribution workflows',
+    description:
+      'Plan variations are symbolic perturbations; performance tracks training-distribution workflows',
   },
   {
     source: '2604.12147',
     target: '2603.05488',
     type: 'supports',
-    description: 'GPT-5 mini: compliance NEGATIVELY correlated with success — CoT trace decoupled from action',
+    description:
+      'GPT-5 mini: compliance NEGATIVELY correlated with success — CoT trace decoupled from action',
   },
   {
     source: '2604.12147',
     target: '2508.02063',
     type: 'supports',
-    description: 'Behavioral counterpart to TRACEALIGN: plan-removal unlocks memorized patches without suffix-array access',
+    description:
+      'Behavioral counterpart to TRACEALIGN: plan-removal unlocks memorized patches without suffix-array access',
   },
   {
     source: '2510.04491',
     target: '2602.20813',
     type: 'supports',
-    description: 'Agent-level Pressure Reveals Character: up to 62% drop from user-style shift alone',
+    description:
+      'Agent-level Pressure Reveals Character: up to 62% drop from user-style shift alone',
   },
   {
     source: '2510.04491',
     target: '2410.05229',
     type: 'supports',
-    description: 'Surface-perturbation pattern at dialogue level — same task, changed user style breaks agent',
+    description:
+      'Surface-perturbation pattern at dialogue level — same task, changed user style breaks agent',
   },
   {
     source: '2510.04491',
@@ -8167,42 +8213,114 @@ window.paperLinks = [
     source: '2510.04491',
     target: '2604.12147',
     type: 'supports',
-    description: 'Plan-to-Action shows memorized workflows; this paper shows memorized user-style expectations',
+    description:
+      'Plan-to-Action shows memorized workflows; this paper shows memorized user-style expectations',
   },
   {
     source: '2510.04491',
     target: '2604.13051',
     type: 'supports',
-    description: 'Persona represented as geometric direction — 4 contrastive pairs suffice to extract trait',
+    description:
+      'Persona represented as geometric direction — 4 contrastive pairs suffice to extract trait',
   },
   {
     source: '2604.01212',
     target: '2305.18654',
     type: 'supports',
-    description: 'Long-horizon planning collapse over hundreds of turns; 9/12 models fail to grow starting capital',
+    description:
+      'Long-horizon planning collapse over hundreds of turns; 9/12 models fail to grow starting capital',
   },
   {
     source: '2604.01212',
     target: '2602.20813',
     type: 'supports',
-    description: 'Reasoning–execution gap widens under compounding pressure; transcript-level mechanism',
+    description:
+      'Reasoning–execution gap widens under compounding pressure; transcript-level mechanism',
   },
   {
     source: '2604.01212',
     target: '2509.14260',
     type: 'supports',
-    description: 'Grok 81-day inaction on adversarial task = pattern-continuation over course-correction',
+    description:
+      'Grok 81-day inaction on adversarial task = pattern-continuation over course-correction',
   },
   {
     source: '2604.01212',
     target: '2604.12147',
     type: 'supports',
-    description: 'Pattern-completion of instructed verb (system prompt parallelize hint) rather than goal-directed plan',
+    description:
+      'Pattern-completion of instructed verb (system prompt parallelize hint) rather than goal-directed plan',
   },
   {
     source: '2604.01212',
     target: '2510.04491',
     type: 'supports',
-    description: 'Same research team; complementary: TraitBasis = user-side brittleness, YC-Bench = agent-side horizon brittleness',
+    description:
+      'Same research team; complementary: TraitBasis = user-side brittleness, YC-Bench = agent-side horizon brittleness',
+  },
+  // DELEGATE-52 (2604.15597) — paper 340
+  {
+    source: '2604.15597',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      '100-interaction unbounded drift; depth-collapse mechanism scaled to long-horizon document workflows',
+  },
+  {
+    source: '2604.15597',
+    target: '2604.01212',
+    type: 'supports',
+    description:
+      'Same-week complementary finding: long-horizon agentic failure under compounding signals across very different task domains',
+  },
+  {
+    source: '2604.15597',
+    target: '2604.12147',
+    type: 'supports',
+    description:
+      'Models default to file-rewrite (memorized workflow) over code execution (verification); Plan-to-Action mechanism in delegated editing',
+  },
+  {
+    source: '2604.15597',
+    target: '2602.20813',
+    type: 'supports',
+    description:
+      'Capability drift under length: critical errors concentrate at later interactions, mirroring character drift under multi-turn pressure',
+  },
+  {
+    source: '2604.15597',
+    target: '2502.09192',
+    type: 'supports',
+    description:
+      'Frontier 78% active corruption is locally plausible pattern completion, not goal-directed faithful preservation',
+  },
+  // Platonic Representation Hypothesis (2405.07987) — paper 341
+  {
+    source: '2405.07987',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Provides theoretical mechanism: convergence to PMI cooccurrence kernels is exactly what pattern-matching predicts',
+  },
+  {
+    source: '2405.07987',
+    target: '2502.09192',
+    type: 'supports',
+    description:
+      'Mathematical content (PMI kernels) deflates the metaphysical "platonic" framing — convergence is statistical, not cognitive',
+  },
+  {
+    source: '2405.07987',
+    target: '2407.20311',
+    type: 'extends',
+    description:
+      'Physics-of-LLMs scaling claims given a representation-level formalization: PMI kernel as the convergence target',
+  },
+  {
+    source: '2604.15597',
+    target: '2405.07987',
+    type: 'challenges',
+    description:
+      'If representations converge to a shared world model, sparse critical corruption in 41/52 domains is unexplained — convergence is partial and task-fragile',
   },
 ];
