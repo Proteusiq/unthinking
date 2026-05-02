@@ -1475,6 +1475,11 @@ These papers have NO direct rebuttals found:
 - SDPO@User EXTENDS the sycophancy/superficial-alignment cluster: 50-interaction silent recovery of explicit-profile behavior is the sharpest empirical statement of "preferences are pre-encoded." Hindsight-conditioning is sycophancy-amplification by default — challenges 2310.13548 (Understanding Sycophancy) by giving the mechanism.
 - All three Issue [#85](https://github.com/Proteusiq/unthinking/issues/85).
 
+**Code-vs-paper deltas (worth noting):**
+- **SDFT** ([idanshen/Self-Distillation](https://github.com/idanshen/Self-Distillation), 524★/59 forks): paper formulates loss as reverse KL; author confirms in [issue #5](https://github.com/idanshen/Self-Distillation/issues/5) that all paper results used **forward** KL (per-token, GKD-style). Independent reproductions ([issues #9](https://github.com/idanshen/Self-Distillation/issues/9), #15) consistently find the SFT-vs-SDFT forgetting gap is **smaller** than Figure 4's headline (~1pp vs ~6pp), and IFEval drops **−20 to −24pp** under both methods. Mechanism (direction) replicates; magnitudes are softer.
+- **SDPO** ([lasgroup/SDPO](https://github.com/lasgroup/SDPO), 829★/88 forks; built on [verl](https://github.com/verl-project/verl)): canonical run script uses **`alpha=0.5`** = Jensen-Shannon Divergence (paper figures imply pure KL). Public W&B logs at [wandb.ai/jonhue/SDPO](https://wandb.ai/jonhue/SDPO) provide training-curve transparency. README acronym is "Self-Distilled Policy Optimization" (paper says "Self-Distillation Policy Optimization") — same algorithm.
+- **SDPO@User** ([lasgroup/user_interactions](https://github.com/lasgroup/user_interactions)): ships both **online** (Gradio demo, Claude API user simulator) and **offline** (WildChat/WildFeedback) modes. The personalization-without-feedback benchmark uses Claude or `Qwen3-32B` as the simulated user. Default `distillation_topk=20` in code (vs `100` in SDPO root paper).
+
 ### 2026-04-28 — Delegation Corruption & Representation Convergence
 | Papers Added | Key Findings |
 |--------------|--------------|

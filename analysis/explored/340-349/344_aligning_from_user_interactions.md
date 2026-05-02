@@ -5,9 +5,21 @@
 - **Title**: Aligning Language Models from User Interactions
 - **Authors**: Thomas Kleine Buening, Jonas Hübotter, Barna Pásztor, Idan Shenfeld, Giorgia Ramponi, Andreas Krause
 - **Affiliation**: ETH Zürich + MIT + UZH
-- **Code**: [github.com/lasgroup/user_interactions](https://github.com/lasgroup/user_interactions)
+- **Code**: [github.com/lasgroup/user_interactions](https://github.com/lasgroup/user_interactions) (Apache-2.0; supports both online and offline SDPO; multi-GPU via accelerate)
 - **Stance**: SUPPORTS (strongly) — the personalization-without-explicit-feedback result is among the cleanest empirical evidence in the corpus that LLM "learning" is preference disambiguation over a pre-existing predictive prior.
 - **Cluster**: `alignment`
+
+> **Two operating modes shipped in code:**
+> - **Online SDPO**: real-time interactive loop (Gradio UI optional). Default policy `Qwen/Qwen3-8B`, default user simulator `Qwen/Qwen3-32B` *or* Claude API; LR `5e-6`; `train_steps_per_example=1`; `loss_mode="full_distillation"`; `distillation_topk=20` (note: paper text says 100 in SDPO root paper).
+> - **Offline SDPO**: trains on pre-collected WildFeedback/WildChat JSONL via `accelerate`. Default `Qwen/Qwen3-4B`; LR `2e-6`; batch 4; grad-accum 8; 2 epochs.
+>
+> **Exact hindsight prompt template (verbatim from `online_sdpo_updater_config.py`)**:
+> ```
+> === HINDSIGHT CONTEXT ===
+> [The following is a future user message. Use this to guide your answer to the user prompt.]
+> {follow_up}
+> ```
+> Subtly different from the paper's Table 1 wording. The semantics are equivalent (same conditioning role for the future user message), but anyone reproducing should match the code form.
 
 ---
 

@@ -6,8 +6,13 @@
 - **Authors**: Idan Shenfeld, Mehul Damani, Jonas Hübotter, Pulkit Agrawal
 - **Affiliation**: MIT (Improbable AI Lab) + ETH Zürich
 - **Project page**: [self-distillation.github.io/SDFT.html](https://self-distillation.github.io/SDFT.html)
+- **Code**: [github.com/idanshen/Self-Distillation](https://github.com/idanshen/Self-Distillation) (524★ / 59 forks; Apache-2.0; TRL-based; H200 single-GPU reproducible)
+- **Released checkpoints**: [improbableaimit/sdft-tooluse-7b](https://huggingface.co/improbableaimit/sdft-tooluse-7b), [improbableaimit/sdft-science-7b](https://huggingface.co/improbableaimit/sdft-science-7b)
 - **Stance**: SUPPORTS (strongly) — methodological paper whose central premise is direct mechanistic evidence for the predictive thesis.
 - **Cluster**: `finetuning`
+
+> **Important code/paper discrepancy** (resolved in [issue #5](https://github.com/idanshen/Self-Distillation/issues/5)):
+> The paper formulates the loss as **reverse KL** (`D_KL(student ‖ teacher)`), but author confirms **all paper results were produced with on-policy sampling + per-token forward KL** (similar to the [GKD paper, 2306.13649](https://arxiv.org/abs/2306.13649)). The repo defaults to `alpha=0.0` = forward KL; arXiv update pending. The mechanistic interpretation in this analysis is unaffected (teacher-as-conditioned-self), but the specific KL-direction claim should be read with this caveat.
 
 ---
 
@@ -122,6 +127,17 @@ None at time of analysis (paper is Jan 2026, very recent). Likely future challen
 4. **Cannot drive aggressive behavioral shifts**: "transforming a non-reasoning model into one that produces explicit chain-of-thought traces proved difficult."
 5. **Some forgetting remains** even with on-policy.
 6. **ICL Assumption not theoretically guaranteed** — only empirically validated.
+
+### Reproducibility caveats (from public GitHub issues)
+
+The published codebase has surfaced concrete reproducibility issues that qualify the magnitude (not direction) of the claims:
+
+- **[Issue #9](https://github.com/idanshen/Self-Distillation/issues/9)**: Multiple independent users report only marginal SDFT improvement over base Qwen2.5-7B-Instruct on Tool Use. One verified replication on `improbableaimit/sdft-science-7b` shows the released science checkpoint scores Tool-Use **48.5%** (vs base 41.2%, vs paper-claimed 70%+ retention) — i.e., the released checkpoint already shows ~7pp Tool-Use degradation contradicting Figure 4's "no forgetting" framing.
+- **Independent run by `devonbrackbill`** on a single H200 with the README defaults: SDFT vs SFT prior-task forgetting gap measured at **~1pp (−4.24 vs −5.33)**, vs paper Figure 4's headline ~6pp. IFEval drops **−24pp under SFT, −20pp under SDFT** — both methods show severe IFEval degradation that the paper figures don't emphasize.
+- **`yanlai00`**: "SFT does not seem to forget much, at least with lr=1e-5" — questions whether the dramatic Figure 3b forgetting curve is robust to LR sweep.
+- **Author response**: forgetting magnitude is sensitive to LR (5e-5 used for Figures 3 and 4); README example LR matches.
+
+The mechanistic finding (in-context-conditioned model ≈ optimal next policy; SDFT preserves capability better than SFT in *direction*) replicates. The claimed *magnitudes* of the forgetting gap may be smaller than headlined.
 
 ---
 

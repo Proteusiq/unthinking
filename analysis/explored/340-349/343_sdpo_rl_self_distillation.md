@@ -5,9 +5,19 @@
 - **Title**: Reinforcement Learning via Self-Distillation
 - **Authors**: Jonas Hübotter, Frederike Lübeck, Lejs Behric, Anton Baumann, Marco Bagatella, Daniel Marta, Ido Hakimi, Idan Shenfeld, Thomas Kleine Buening, Carlos Guestrin, Andreas Krause
 - **Affiliation**: ETH Zürich + MIT + Stanford
-- **Code**: [github.com/lasgroup/SDPO](https://github.com/lasgroup/SDPO)
+- **Code**: [github.com/lasgroup/SDPO](https://github.com/lasgroup/SDPO) (829★ / 88 forks; Apache-2.0; built on [verl](https://github.com/verl-project/verl); 4×NVIDIA-GH200 / 6h per run)
+- **Public W&B logs**: [wandb.ai/jonhue/SDPO](https://wandb.ai/jonhue/SDPO?nw=mgotcx6kk7) (training-curve transparency)
+- **Acronym note**: README expands SDPO as "Self-Distilled Policy Optimization" (paper says "Self-Distillation Policy Optimization"); same algorithm, slight name drift.
 - **Stance**: SUPPORTS — paper is methodologically neutral on reasoning, but its mechanism, ablations, and empirical scaling provide strong instrumental evidence for the predictive thesis.
 - **Cluster**: `finetuning`
+
+> **Concrete defaults from `run_local_sdpo.sh`** (the canonical entry point):
+> - Model: Qwen/Qwen2.5-7B-Instruct
+> - Train batch 32, rollout 8, LR 1e-5, warmup 10 steps
+> - **`alpha=0.5` → Jensen-Shannon Divergence loss** (not pure reverse KL as paper figures suggest)
+> - `distillation_topk=100`, `dont_reprompt_on_self_success=True`
+> - Token-level importance sampling correction
+> - GRPO baseline run script uses 4 off-policy mini-batches per rollout vs SDPO's 1 step/rollout — emphasizes SDPO is strictly more on-policy.
 
 ---
 
