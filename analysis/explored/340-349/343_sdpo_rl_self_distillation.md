@@ -19,6 +19,13 @@
 > - Token-level importance sampling correction
 > - GRPO baseline run script uses 4 off-policy mini-batches per rollout vs SDPO's 1 step/rollout — emphasizes SDPO is strictly more on-policy.
 
+> **The "GRPO baseline" is actually DrGRPO without KL regularization.** Critical methodological point surfaced by deep-diving the [verl](https://github.com/verl-project/verl) framework that lasgroup/SDPO is forked from:
+> - SDPO's `baseline_grpo.yaml` sets `norm_adv_by_std_in_grpo: False` (DrGRPO; suppresses standard advantage normalization)
+> - `use_kl_loss: False` (no KL anchor on the policy)
+> - Train batch 32 / rollout n=8 vs canonical verl GRPO's 1024 / 5 with `kl_loss_coef=0.001`
+>
+> SDPO simultaneously *adds* an EMA teacher, which functions as an implicit trust-region anchor. The comparison is therefore: **(EMA-anchored DrGRPO + dense distillation) vs (un-anchored DrGRPO with no KL loss)**. Some of SDPO's win could be the EMA teacher restoring stabilization that the baseline deliberately removes — not the rich-feedback signal per se. A clean ablation would either (a) add `use_kl_loss=True` to the baseline (canonical verl GRPO), or (b) ablate SDPO with `teacher_update_rate=1.0` (no EMA, current model is its own teacher) to isolate the self-distillation contribution. Neither appears in the public repo's `experiments/` directory.
+
 ---
 
 ## Core Finding
@@ -97,6 +104,10 @@ GRPO: one scalar per rollout. SDPO: |y|·(K+1) advantages.
 ### "Successful rollouts as implicit feedback" (§3)
 In standard RLVR (scalar-only): for failed y_i, set f := y_j where y_j is a successful sibling rollout. Teacher then evaluates y_i conditioned on `prompt + "here is a correct solution: y_j" + y_i`. Token-level disagreement signal even when environment returns 0/1.
 
+**Code-level detail from `verl/trainer/ppo/ray_trainer.py:710–745`:** the teacher's prompt is built by literally inlining the sibling rollout's full text via the template `"\n\nCorrect solution:\n\n{successful_previous_attempt}\n"`. The teacher then re-encodes the *same student tokens* `responses` under that augmented prompt; the KL is between `(student | original prompt)` and `(teacher | original prompt + sibling's full successful trajectory)`. So the "feedback" isn't analyzed feedback — it's literally a sibling's complete answer pasted into the prompt as a cheat sheet. The student is pushed toward whatever next-token distribution the same model produces *when shown that cheat sheet*. This is consistent with the predictive reading: the model isn't learning to reason; it's learning to imitate (under unconditioned prompting) what it would output (under cheat-sheet-augmented prompting).
+
+**`dont_reprompt_on_self_success=True` (default)**: a successful sample is excluded as its own teacher — distillation only happens when *another sibling* in the GRPO group succeeded. If a sample is the only successful one in its group, `solution=None` → loss masked out (`verl/trainer/ppo/core_algos.py:1102–1104`). Mechanically, **successful loners get no training signal** under SDPO. This mitigates a degenerate fixed point but hides a subtlety: SDPO requires ≥2 sibling successes per prompt to learn from binary-reward environments, otherwise reduces to baseline GRPO on those samples.
+
 ### Test-Time SDPO (§5)
 For a single hard question: iteratively sample y_k → get feedback f_k → one SDPO update with batch 16. **Compresses interaction history into weights**, bypassing context-length limit.
 
@@ -164,13 +175,28 @@ None at time of analysis (Jan 2026 paper). Likely future angles:
 - The 0% one-shot teacher accuracy on 78% of hard questions is itself an empirical brake on strong "self-correction" claims.
 
 ### Limitations (Authors Acknowledge)
-> "SDPO's performance depends on a model's in-context learning ability, suggesting that SDPO is primarily applicable for RL-training stronger base models, while it can underperform GRPO on weaker models. Moreover, performance depends on the quality of the environment feedback. If the environment provides uninformative or misleading feedback, a model may not be able to learn from it through SDPO."
+> "SDPO's performance depends on a model's in-context learning ability, suggesting that SDPO is primarily applicable for RL-training stronger base models, while it can underperform GRPO on weaker models. Moreover, performance depends on the quality of the environment feedback. If the environment provides uninformative or misleading feedback, a model may not be able to learn from it through SDPO. Finally, SDPO adds a small computational overhead compared to GRPO for computing the log-probs of the retrospective model. While often negligible, this may be a larger overhead for smaller models with shorter generation lengths, where generation time is comparatively small."
 
 Additional:
 - Underperforms GRPO on Qwen2.5-1.5B.
 - Strictly on-policy in experiments; off-policy variant sketched only.
 - All experiments are verifiable code/science. Open-ended text untested.
 - SDPO advantages are biased w.r.t. expected reward J(θ); hybrid SDPO+GRPO is more robust on weak models.
+
+### Reproducibility caveats (from public GitHub issues)
+
+The `lasgroup/SDPO` issue tracker surfaces several open or recently-closed concerns that are *algorithmic*, not infrastructure-related:
+
+- **[Issue #18 (closed)](https://github.com/lasgroup/SDPO/issues/18)**: Notation inconsistency in the gradient estimator (Appendix B.1) — retains `Σ_yt` inside an outer expectation, dropping the `π_θ(y_t|...)` weighting. The author acknowledged the equation as wrong/inconsistent.
+- **[Issue #25 (closed)](https://github.com/lasgroup/SDPO/issues/25)**: Reproduction matches paper at step 0–400 (~68% on ToolUse) then **collapses to ~0% by step ~500**. Asks whether the paper's "5h" number is best-checkpoint cherry-picking.
+- **[Issue #26 (open)](https://github.com/lasgroup/SDPO/issues/26)**: SDPO degrades through training on Math (Qwen2.5-3B) — instability not reflected in paper bands.
+- **[Issue #31 (open)](https://github.com/lasgroup/SDPO/issues/31)**: User cannot determine which seed actually controls the 3-seed std-error reported in the paper (data split? rollout sampling? minibatch order?). No author response.
+- **[Issue #38 (open)](https://github.com/lasgroup/SDPO/issues/38)**: `grad_norm` collapses to 1e-5 while loss looks normal — vanishing gradient. Paper Figure 18 shows grad_norm 0–20.
+- **[Issue #41 (open)](https://github.com/lasgroup/SDPO/issues/41)**: `run_local_sdpo.sh` defaults to **temperature=0** for rollouts. With `rollout.n=8` at temperature 0, all sibling rollouts in a GRPO group are nearly identical, which would silently neutralize the GRPO baseline's variance-reduction premise. (Full experimental scripts in `experiments/` may override this — but the *advertised* local recipe doesn't.)
+
+The cluster of issues #25, #26, #38 collectively suggests **high hyperparameter sensitivity / instability** that is not reflected in the paper's std-error bands. Issue #14 (closed) is the inverse — a reproducer reports *higher* LCBv6 accuracy than the paper.
+
+Combined with the verl-baseline observations above (DrGRPO + no KL loss), the headline LCBv6 27.9 → 48.8 number on Qwen3-8B is best read as **"the maximum achievable accuracy across hyperparameter / checkpoint sweep"** rather than a typical run.
 
 ---
 
@@ -242,8 +268,9 @@ The paper itself is methodologically neutral. It does not take a position on rea
 - Empirically it requires textual feedback channels — no self-verification from x alone.
 - Scaling tracks ICL.
 - Ablations show classic predictive-bias signatures (the teacher being dragged toward the student's prior).
+- The verl-level finding that "feedback" is literally a sibling rollout's full text pasted into the prompt as a cheat sheet (no analyzed feedback, no reasoning about the failure) is decisive: the student is learning to imitate (unconditioned) what it would output (cheat-sheet-augmented). This is amortization, not reasoning.
 
-The honest synthesis: SDPO is a powerful demonstration of how much capability you can extract by treating an LLM as a sophisticated conditional density estimator. The "self-teaching" framing is a useful metaphor for paper-writing; the underlying mechanism is "conditioning on feedback strings shifts the predictive distribution in useful directions, and you can distill that shift into the unconditional weights."
+The honest synthesis: SDPO is a powerful demonstration of how much capability you can extract by treating an LLM as a sophisticated conditional density estimator. The "self-teaching" framing is a useful metaphor for paper-writing; the underlying mechanism is "conditioning on feedback strings (or sibling cheat sheets) shifts the predictive distribution in useful directions, and you can distill that shift into the unconditional weights."
 
 ---
 
