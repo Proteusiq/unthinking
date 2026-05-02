@@ -1,6 +1,6 @@
 # Paper List
 
-> 339 papers analyzed | 247 supports thesis | 15 challenges | 74 balanced | Date range: 2021-2026
+> 344 papers analyzed | 252 supports thesis | 15 challenges | 74 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -345,3 +345,6 @@
 | 339 | 2604.01212 | Apr 2026 | YC-Bench: Benchmarking AI Agents for Long-Term Planning and Consistent Execution | Supports |
 | 340 | 2604.15597 | Apr 2026 | LLMs Corrupt Your Documents When You Delegate (DELEGATE-52) | Supports |
 | 341 | 2405.07987 | May 2024 | The Platonic Representation Hypothesis | Supports |
+| 342 | 2601.19897 | Jan 2026 | Self-Distillation Enables Continual Learning (SDFT) | Supports |
+| 343 | 2601.20802 | Jan 2026 | Reinforcement Learning via Self-Distillation (SDPO) | Supports |
+| 344 | 2603.12273 | Feb 2026 | Aligning Language Models from User Interactions (SDPO@User) | Supports |

@@ -7361,4 +7361,86 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/340-349/341_platonic_representation_hypothesis.md',
   },
+  {
+    id: '2601.19897',
+    title: 'Self-Distillation Enables Continual Learning',
+    shortTitle: 'SDFT',
+    date: 'Jan 2026',
+    stance: 'supports',
+    cluster: 'finetuning',
+    coreArgument:
+      'Formalizes the In-Context Assumption: π(y|x,c) ≈ optimal next policy, where c is an expert demonstration. Teacher and student are the SAME network — only the conditioning context differs. SDFT (on-policy reverse-KL distillation from a demo-conditioned EMA teacher) outperforms SFT on new tasks while preserving prior capabilities — no Pareto trade-off. Empirically, base Qwen2.5-7B with no demo gets 42% on Tool Use; with one demonstration in context, 100%. Fine-tuning is amortizing a context-conditional distribution into unconditional weights, not creating new capability. Gain scales monotonically with model size (3B underperforms SFT, 7B +4pts, 14B +7pts) — coupled to ICL strength, exactly as a predictive theory of fine-tuning would predict.',
+    keyEvidence: [
+      'Tool Use: base 42% → demo-conditioned base 100% (the In-Context Assumption empirically validated)',
+      'KL(teacher→base) 0.68 vs KL(SFT→base) 1.26 nats — teacher stays half as far from base while 100% accurate',
+      'SDFT preserves 6-bench prior average at 64.5–65.4 (base 65.5) while improving new task; SFT drops to 53.4–60.2',
+      'Olmo3-Think medical: SFT collapses CoT (31.2%→23.5%, 4612→3273 tok); SDFT preserves it (→43.7%, 4180 tok)',
+      'Scaling 3B/7B/14B: SDFT vs SFT margin = -X / +4 / +7 pts; small models with weak ICL underperform',
+      'Knowledge Acquisition (2025-disaster, OOD): SDFT 98 vs SFT 80 vs Oracle-RAG 100',
+      'Pass@128 preserved uniformly — gain is not entropy collapse',
+      'Offline distillation from same teacher < SDFT — on-policy ingredient is essential',
+    ],
+    keyQuotes: [
+      'We exploit this property by using the same model in two roles: a teacher, conditioned on both the task input and an expert demonstration, and a student, conditioned only on the task input.',
+      'We introduce our In-Context Assumption — given a demonstration c, the model conditioned on c approximates the optimal next policy.',
+      "Thus, our method can be viewed as an on-policy RL algorithm that maximizes rewards inferred by comparing the student's current behavior to its own 'wiser,' demonstration-aware counterpart.",
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/340-349/342_sdft_continual_learning.md',
+  },
+  {
+    id: '2601.20802',
+    title: 'Reinforcement Learning via Self-Distillation',
+    shortTitle: 'SDPO',
+    date: 'Jan 2026',
+    stance: 'supports',
+    cluster: 'finetuning',
+    coreArgument:
+      "Replaces RLVR's scalar reward with tokenized environment feedback (errors, judge text) used as conditioning context. Teacher = π_θ(·|x, f, y_<t); student = π_θ(·|x, y_<t) — same weights, different prompt. Per-token KL between them gives dense logit-level credit assignment (drop-in GRPO advantage replacement). On Qwen3-8B/LCBv6: base 27.9% → GRPO 41.2% → SDPO 48.8%, beating Claude Sonnet 4 / Opus 4. Generations are >3× shorter than GRPO — the verbose 'Wait... Hmm... going in circles' filler disappears, indicating long CoT under RLVR was reward-hacking pattern completion, not thinking. Critically, the initial self-teacher's accuracy is <1% on hard questions and exactly 0% on 78% of them — the in-context one-shot fix doesn't work; iterative weight updates do. Mechanism is conditional next-token prediction with feedback in context, not introspection.",
+    keyEvidence: [
+      'Qwen3-8B LCBv6: base 27.9 → GRPO 41.2 → SDPO 48.8 (beats Claude Sonnet 4 40.5, Opus 4 39.7)',
+      '4× sample efficiency vs GRPO; 6× wall-clock speedup on Chemistry (Olmo3)',
+      'Generations >3× shorter than GRPO; up to 11× shorter on Chemistry — filler "Wait/Hmm" disappears',
+      'Scaling: SDPO beats GRPO on Qwen3-8B/4B, marginal on 1.7B, UNDERPERFORMS on Qwen2.5-1.5B (ICL emergence-coupled)',
+      'Test-time SDPO discovery on hardest LCBv6 (pass@64<0.03): 53.2% vs best-of-k 41.5% vs multi-turn 35.6% at 2750 attempts',
+      '3× fewer attempts than best-of-k for 22% discovery probability',
+      'Initial self-teacher: <1% accuracy on hard questions, EXACTLY 0% on 78% of them',
+      'Feedback ablation: f=output 39.9 / f=own_sol 42.6 / both 48.3 / +y 44.5 — including y biases teacher toward student prior',
+    ],
+    keyQuotes: [
+      'Current methods for RLVR learn only from a scalar outcome reward per attempt, creating a severe credit-assignment bottleneck.',
+      'We can use the same policy in two different roles: As the student for the initial attempt and as the teacher to determine the value of actions in hindsight.',
+      "In the same way that in-context learning is an emergent phenomenon with scale, the self-teacher's ability to perform accurate retrospection in SDPO appears to be emergent with scale.",
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/340-349/343_sdpo_rl_self_distillation.md',
+  },
+  {
+    id: '2603.12273',
+    title: 'Aligning Language Models from User Interactions',
+    shortTitle: 'SDPO@User',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'alignment',
+    coreArgument:
+      "Trains LLMs from raw multi-turn user conversations (no preference labels, no rewards) by treating the user's NEXT message as a teacher signal. Teacher = π_θ(·|x, o, y_<i); student = π_θ(·|x, y_<i) — same model, prompt has the future user message in it. Token-level advantage = log(teacher / student). On 14k WildChat conversations: Qwen3-4B AlpacaEval 37.9→46.1 (+8.2), Qwen3-8B no degradation across all benchmarks. SFT on same data collapses (-19 AlpacaEval). The smoking gun is personalization: with NO explicit feedback, ~50 silent follow-ups gives 85% win rate, 200 gives 95% — matching/exceeding an oracle given the explicit user profile in its system prompt. Preference axes are pre-encoded in the predictive prior; the follow-up is an INDEX into existing structure, not a teaching signal. Authors describe it cleanly: 'we distill the model into itself.'",
+    keyEvidence: [
+      'Qwen3-4B AlpacaEval 2.0 LC: 37.9→46.1 (+8.2); Qwen3-8B: 49.3→51.9, no degradation any benchmark',
+      'SFT baseline on same WildFeedback (x,y): AlpacaEval -19, IFEval -8.7, ArenaHard -5.9 — collapses',
+      'Random 14k WildChat slice (no curation): still positive on most benchmarks (ArenaHard-Hard -0.6 mild)',
+      'Personalization: >85% win rate after 50 silent follow-ups; >95% after 200',
+      'Continual personalization: 1500 interactions / 3 sequential preferences accumulated without forgetting',
+      'Preference flipping: 250 interactions reverse a learned preference quickly',
+      'Pre-training preserved (Qwen3-8B): TruthfulQA/HellaSwag/CommonsenseQA all within stderr',
+      'Irrelevant follow-ups auto-suppressed via attention; no explicit gate (advantage ≈ 0)',
+    ],
+    keyQuotes: [
+      "Language models are already able to make use of this information in context. After observing a user's follow-up, the same model is often able to revise its behavior.",
+      'The user interaction reveals information that the model can already interpret and act upon, but only after the fact. In hindsight.',
+      'In other words, we distill the model into itself.',
+      'Continual online adaptation with SDPO matches and can even exceed the performance of [an] in-context oracle that is explicitly provided with the full user profile description in its prompt.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/340-349/344_aligning_from_user_interactions.md',
+  },
 ];

@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 341
+> **Papers tracked**: 344
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1456,6 +1456,24 @@ These papers have NO direct rebuttals found:
 | SAH Task Complexity (2602.15829) | Kilobytes adapt LLMs; post-training collapses complexity from GB to KB; formalizes SAH via information theory |
 | Large Models of What (2407.08790) | Enactive view: LLMs lack embodiment/participation/precarity; output is "fabrication" even when accurate |
 | Context-Directed Extrapolation (2505.23323) | Bloom's taxonomy: Understand not Apply; human does Apply in ICL; fears of emergent agency unfounded |
+
+### 2026-05-02 — Self-Distillation Trilogy (ETH+MIT, Hübotter/Shenfeld/Krause)
+| Papers Added | Key Findings |
+|--------------|--------------|
+| SDFT (2601.19897) | Demonstration-conditioned base ≈ optimal next policy (formalized as "In-Context Assumption"); base 42% → with demo in context 100% on Tool Use; KL(teacher→base)=0.68 vs KL(SFT→base)=1.26; SDFT gain scales monotonically with model size (3B underperforms, 7B +4pts, 14B +7pts); preserves long CoT where SFT collapses it (Olmo3-Think 31.2→43.7%); "we distill the model into itself" |
+| SDPO (2601.20802) | Tokenized environment feedback as dense logit-level credit assignment vs scalar RLVR; Qwen3-8B LCBv6 base 27.9% → GRPO 41.2% → SDPO 48.8% (beats Claude Sonnet 4); 4× sample efficiency; >3× shorter CoT than GRPO (no "Wait/Hmm" filler — RLVR's verbose CoT is reward-hacking pattern completion); test-time SDPO solves problems best-of-k & multi-turn cannot in 2750 attempts; initial self-teacher 0% on 78% of hard questions — "retrospection" emerges from iterative weight updates, not introspection |
+| SDPO@User (2603.12273) | 14k WildChat conversations → +8.2 AlpacaEval (Qwen3-4B), no degradation Qwen3-8B; ~50 silent follow-ups → 85% personalization win rate; 200 → 95%; **matches/exceeds oracle given explicit user profile in prompt** — preference axes pre-encoded in predictive prior; SFT on same data collapses (-19 AlpacaEval); irrelevant follow-ups auto-suppressed (no gate, attention does it) |
+
+**Convergent mechanism (all three):** the teacher and student are the same network — only the conditioning context c differs (c = demonstration / feedback / user follow-up). "Learning" = redistributing probability mass that already existed in the parameters. The In-Context Assumption operationalizes URIAL/superficial-alignment: π(·|x,c) ≈ optimal post-finetuning policy. This is alignment-as-disambiguation, not alignment-as-reasoning.
+
+**Relationships:**
+- All three SUPPORT 2604.01193 (Simple Self-Distillation): same distribution-reshaping mechanism — SSD via gibberish, SDFT via demos, SDPO via env feedback, SDPO@User via user follow-ups. Sibling cluster.
+- All three SUPPORT 2312.01552 (URIAL): make superficial-alignment claim constructive.
+- All three EXTEND Snell 2022 (context distillation): "context" is now demonstration / feedback / user follow-up.
+- SDFT CHALLENGES 2504.13837 (Yue — RL doesn't incentivize beyond base, not yet in corpus): pass@128 preserved, gain not entropy collapse.
+- SDPO PROVIDES MECHANISM FOR verbose-CoT-is-reward-hacking: SDPO drops "Wait/Hmm" filler while improving accuracy. Corroborates 2603.05488 (Reasoning Theater) — answer decodable before CoT monitor sees it.
+- SDPO@User EXTENDS the sycophancy/superficial-alignment cluster: 50-interaction silent recovery of explicit-profile behavior is the sharpest empirical statement of "preferences are pre-encoded." Hindsight-conditioning is sycophancy-amplification by default — challenges 2310.13548 (Understanding Sycophancy) by giving the mechanism.
+- All three Issue [#85](https://github.com/Proteusiq/unthinking/issues/85).
 
 ### 2026-04-28 — Delegation Corruption & Representation Convergence
 | Papers Added | Key Findings |

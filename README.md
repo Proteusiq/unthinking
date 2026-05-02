@@ -7,8 +7,8 @@
 </a>
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
-[![Papers](https://img.shields.io/badge/papers-341-blue)]()
-[![Relationships](https://img.shields.io/badge/relationships-1160-orange)]()
+[![Papers](https://img.shields.io/badge/papers-344-blue)]()
+[![Relationships](https://img.shields.io/badge/relationships-1271-orange)]()
 
 ---
 
@@ -62,7 +62,7 @@ Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.
 
 See also:
 - [Transformer Explainer](https://poloclub.github.io/transformer-explainer/): interactive GPT-2 visualization (Georgia Tech)
-- [no-magic](https://github.com/no-magic-ai/no-magic): 47 zero-dependency ML algorithm implementations — "Because `model.fit()` isn't an explanation"
+- [no-magic](https://github.com/no-magic-ai/no-magic): 46 zero-dependency ML algorithm implementations across 4 tiers (foundations, alignment, systems, agents) — "Because `model.fit()` isn't an explanation"
 - [microgpt](https://karpathy.github.io/2026/02/12/microgpt/): 200 lines of pure Python GPT (Andrej Karpathy)
 - [Stanford CME 295](https://cme295.stanford.edu/): Transformers & LLMs course — 9 lectures covering attention, scaling, alignment, reasoning (GRPO), and LLM-as-Judge pitfalls ([cheatsheets](https://github.com/afshinea/stanford-cme-295-transformers-large-language-models))
 - [Stanford CME 296](https://cme296.stanford.edu/): Diffusion & Large Vision Models — shows same techniques (DPO, GRPO) apply to vision, "reasoning" not unique to text
@@ -338,7 +338,7 @@ Inspired by [MATS 9.0 research](https://www.lesswrong.com/posts/mgjtEHeLgkhZZ3cE
 │   ├── case.md               # Formal case against LLM reasoning
 │   ├── paper_graph.md        # Paper interaction graph
 │   ├── rebuttals.md          # Rebuttal matrix
-│   └── explored/             # Individual paper analyses (342 files)
+│   └── explored/             # Individual paper analyses (345 files)
 │       ├── 00-09/ ... 260-269/
 ├── docs/                     # Interactive visualization (GitHub Pages)
 │   ├── index.html            # Paper network graph

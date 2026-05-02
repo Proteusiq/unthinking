@@ -12,6 +12,22 @@ Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)
 
 ---
 
+## Medium-High Priority — Self-Distillation Cluster (Issue #85)
+
+Three papers from ETH Zürich + MIT (Hübotter, Shenfeld, Krause group) using self-distillation as an alternative to RL/SFT. Project page: [self-distillation.github.io](https://self-distillation.github.io/).
+
+Mechanism: model conditioned on extra context (feedback / demonstration / user follow-up) acts as its own teacher; the hindsight token distribution is distilled back into the policy.
+
+Critical reading: hindsight conditioning works because the model already had the pattern — it just needed the right context to surface it. This is direct mechanistic evidence for the predictive-not-reasoning thesis (the model doesn't "learn to reason"; better priors unlock better completions). Methods papers, but the underlying premise is thesis-relevant.
+
+| arXiv ID | Title | Stance |
+|----------|-------|--------|
+| ~~[2601.19897](https://arxiv.org/abs/2601.19897)~~ | ~~Self-Distillation Enables Continual Learning (SDFT)~~ | ~~supports~~ | DONE #342 |
+| ~~[2601.20802](https://arxiv.org/abs/2601.20802)~~ | ~~Reinforcement Learning via Self-Distillation (SDPO)~~ | ~~supports~~ | DONE #343 |
+| ~~[2603.12273](https://arxiv.org/abs/2603.12273)~~ | ~~Aligning Language Models from User Interactions (SDPO@User)~~ | ~~supports~~ | DONE #344 |
+
+---
+
 ## High Priority — Abliteration & Steering Theory (arXiv Search 2026-04-12)
 
 Papers examining linear/affine representation of alignment, steering vectors, and mechanistic interpretability of refusal. Critical for the thesis: if alignment is a single direction, it's mascara.

@@ -8323,4 +8323,174 @@ window.paperLinks = [
     description:
       'If representations converge to a shared world model, sparse critical corruption in 41/52 domains is unexplained — convergence is partial and task-fragile',
   },
+
+  // Self-Distillation Trilogy (#342 SDFT, #343 SDPO, #344 SDPO@User) — Issue #85
+  // Internal cluster links
+  {
+    source: '2601.20802',
+    target: '2601.19897',
+    type: 'extends',
+    description:
+      'SDFT in demonstration regime; SDPO generalizes the same self-as-teacher mechanism to environment feedback',
+  },
+  {
+    source: '2603.12273',
+    target: '2601.20802',
+    type: 'extends',
+    description:
+      'SDPO@User instantiates the SDPO formalism with user follow-up message as the conditioning context',
+  },
+  {
+    source: '2603.12273',
+    target: '2601.19897',
+    type: 'supports',
+    description:
+      "Same self-distillation principle; preference axes pre-encoded mirror SDFT's in-context-assumption claim",
+  },
+
+  // SDFT (2601.19897) outgoing
+  {
+    source: '2601.19897',
+    target: '2604.01193',
+    type: 'supports',
+    description:
+      'Both: distribution reshaping, not new reasoning; SSD works with 62% gibberish, SDFT works because the demo-conditioned base already produces correct outputs',
+  },
+  {
+    source: '2601.19897',
+    target: '2312.01552',
+    type: 'supports',
+    description:
+      "In-Context Assumption π(y|x,c)≈π* is URIAL's superficial-alignment claim made constructive: 42→100% from one demo",
+  },
+  {
+    source: '2601.19897',
+    target: '2410.03717',
+    type: 'supports',
+    description:
+      'KL(teacher→base) 0.68 vs KL(SFT→base) 1.26 nats quantifies how minimal the alignment delta really is',
+  },
+  {
+    source: '2601.19897',
+    target: '2509.21545',
+    type: 'supports',
+    description:
+      'SDFT scaling (3B underperforms, 14B +7pts) couples fine-tuning gain to ICL strength, consistent with limited-metacognition view',
+  },
+  {
+    source: '2601.19897',
+    target: '2507.10616',
+    type: 'extends',
+    description:
+      'Scalpel-vs-hammer GRPO/SFT distinction extended: on-policy distillation amplifies without hammer-style replacement',
+  },
+  {
+    source: '2601.19897',
+    target: '2602.07729',
+    type: 'supports',
+    description:
+      'Both papers show fine-tuning succeeds with minimal weight movement — RL-with-SGD updates <0.02% of params; SDFT teacher KL 0.68 nats',
+  },
+
+  // SDPO (2601.20802) outgoing
+  {
+    source: '2601.20802',
+    target: '2604.01193',
+    type: 'supports',
+    description:
+      'SSD reshapes token distributions in code generation; SDPO is the RL-feedback variant of the same distribution-reshaping principle',
+  },
+  {
+    source: '2601.20802',
+    target: '2603.05488',
+    type: 'supports',
+    description:
+      "Reasoning Theater shows answer decodable before CoT monitor sees it; SDPO removes verbose 'Wait/Hmm' filler while improving accuracy — same finding via training",
+  },
+  {
+    source: '2601.20802',
+    target: '2511.08567',
+    type: 'extends',
+    description:
+      "Path-Not-Taken shows RLVR learns off principal directions; SDPO's denser logit-level credit lives in the same low-dim subspace",
+  },
+  {
+    source: '2601.20802',
+    target: '2505.05410',
+    type: 'supports',
+    description:
+      'GRPO produces 25× "Wait" / 5× "Hmm" filler that SDPO removes while improving accuracy — verbose CoT is reward-hacking pattern completion',
+  },
+  {
+    source: '2601.20802',
+    target: '2503.08679',
+    type: 'supports',
+    description:
+      "CoT in the wild often unfaithful; SDPO's shorter-CoT-better-accuracy is mechanistic confirmation that long CoT under RLVR is filler",
+  },
+  {
+    source: '2601.20802',
+    target: '2501.12948',
+    type: 'extends',
+    description:
+      'DeepSeek-R1 GRPO recipe extended: rich tokenized feedback as drop-in advantage replacement, 4× sample efficiency on LCBv6',
+  },
+  {
+    source: '2601.20802',
+    target: '2602.06176',
+    type: 'supports',
+    description:
+      'Initial self-teacher 0% on 78% of hard questions confirms the survey\'s "passive learning / no goal-driven feedback" failure mode',
+  },
+
+  // SDPO@User (2603.12273) outgoing
+  {
+    source: '2603.12273',
+    target: '2604.01193',
+    type: 'supports',
+    description:
+      'SSD reshapes token distributions, not learned content; SDPO@User reshapes via user-follow-up signal — same mechanism, different conditioning source',
+  },
+  {
+    source: '2603.12273',
+    target: '2310.13548',
+    type: 'challenges',
+    description:
+      'Sycophancy-as-RLHF-artifact extended: the same hindsight-conditioning mechanism that enables silent personalization can bake user-pleasing flattery if positive follow-ups follow flattering responses',
+  },
+  {
+    source: '2603.12273',
+    target: '2312.01552',
+    type: 'supports',
+    description:
+      '50 silent follow-ups recover behavior of an oracle given the EXPLICIT user profile — sharpest empirical statement of URIAL',
+  },
+  {
+    source: '2603.12273',
+    target: '2410.03717',
+    type: 'supports',
+    description:
+      'Off-policy SDPO surrogate works because alignment delta is tiny; SFT on same data collapses (-19 AlpacaEval)',
+  },
+  {
+    source: '2603.12273',
+    target: '2506.07452',
+    type: 'supports',
+    description:
+      'Style-breaks-safety mechanism inverted: stylistic preferences flip via 50 follow-ups, confirming style/safety share the same superficial axis',
+  },
+  {
+    source: '2603.12273',
+    target: '2412.14093',
+    type: 'extends',
+    description:
+      'Alignment-faking-via-prompt extended: if 50 follow-ups silently steer policy, "faking" reduces to context-conditional next-token shift',
+  },
+  {
+    source: '2603.12273',
+    target: '2509.19284',
+    type: 'supports',
+    description:
+      'Patterns-over-principles confirmed: preference dimensions are pre-encoded patterns the user follow-up indexes, not principles being learned',
+  },
 ];
