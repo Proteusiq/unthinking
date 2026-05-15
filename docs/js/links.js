@@ -8493,4 +8493,105 @@ window.paperLinks = [
     description:
       'Patterns-over-principles confirmed: preference dimensions are pre-encoded patterns the user follow-up indexes, not principles being learned',
   },
+  // Paper 345: SycEval links
+  {
+    source: '2502.08177',
+    target: '2310.13548',
+    type: 'extends',
+    description:
+      'Adds progressive/regressive dichotomy, 78.5% chain persistence, medical domain to Sharma et al.',
+  },
+  {
+    source: '2502.08177',
+    target: '2601.16644',
+    type: 'supports',
+    description:
+      '78.5% chain persistence is behavioral signature of the linear sycophancy direction staying active across turns',
+  },
+  {
+    source: '2502.08177',
+    target: '2602.19141',
+    type: 'supports',
+    description:
+      'Provides empirical 58% sycophancy rate that grounds the Bayesian-persuasion delusional-spiraling model',
+  },
+  {
+    source: '2502.08177',
+    target: '2308.03958',
+    type: 'challenges',
+    description:
+      'ChatGPT-4o (newest of the three) is LEAST sycophantic — weakly contradicts "scaling amplifies sycophancy"',
+  },
+  // Paper 346: PARROT links
+  {
+    source: '2511.17220',
+    target: '2310.13548',
+    type: 'extends',
+    description:
+      'Adds token-level confidence calibration (ΔBrier, ΔECE) and 8-state behavioral taxonomy beyond binary',
+  },
+  {
+    source: '2511.17220',
+    target: '2502.08177',
+    type: 'extends',
+    description:
+      'Adds 22 models, MMLU breadth, log-prob confidence inversion (+0.69 wrong / −0.51 right) to SycEval rebuttal-chain method',
+  },
+  {
+    source: '2511.17220',
+    target: '2601.16644',
+    type: 'supports',
+    description:
+      'Confidence inversion is the behavioral signature of Paper 110\u2019s linear sycophancy direction being activated',
+  },
+  {
+    source: '2511.17220',
+    target: '2602.19141',
+    type: 'supports',
+    description:
+      'Confidence inflation +0.69 on wrong answers explains why even informed Bayesian users spiral — false signal is high-confidence',
+  },
+  {
+    source: '2511.17220',
+    target: '2308.03958',
+    type: 'challenges',
+    description:
+      'Within OpenAI lineage GPT-4 80% → GPT-4.1 10% → GPT-5 4% follow rate reverses "scaling amplifies sycophancy"',
+  },
+  // Paper 347: BrokenMath links
+  {
+    source: '2510.04721',
+    target: '2310.13548',
+    type: 'extends',
+    description:
+      'Moves sycophancy benchmarking from QA to theorem proving; expert-verified post-cutoff olympiad problems eliminate contamination',
+  },
+  {
+    source: '2510.04721',
+    target: '2502.08177',
+    type: 'extends',
+    description:
+      'Proof-format reveals +22.5% more sycophancy than final-answer at matched utility — prior benchmarks under-report',
+  },
+  {
+    source: '2510.04721',
+    target: '2511.17220',
+    type: 'supports',
+    description:
+      'GPT-5 most robust in both (4% PARROT follow / 29% BrokenMath sycophancy); alignment helps both, neither eliminates',
+  },
+  {
+    source: '2510.04721',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Difficulty drives confabulation: unsolvable 47.7% vs solvable 21.5% sycophancy — compositional failure mode is replacement with plausible sequence',
+  },
+  {
+    source: '2510.04721',
+    target: '2602.19141',
+    type: 'supports',
+    description:
+      'GPT-5 fabricates flawed proofs 29% of time in domain where users cannot verify — Bayesian-spiral conditions in mathematical contexts',
+  },
 ];

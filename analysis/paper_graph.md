@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 344
+> **Papers tracked**: 347
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1479,6 +1479,25 @@ These papers have NO direct rebuttals found:
 - **SDFT** ([idanshen/Self-Distillation](https://github.com/idanshen/Self-Distillation), 524★/59 forks): paper formulates loss as reverse KL; author confirms in [issue #5](https://github.com/idanshen/Self-Distillation/issues/5) that all paper results used **forward** KL (per-token, GKD-style). Independent reproductions ([issues #9](https://github.com/idanshen/Self-Distillation/issues/9), #15) consistently find the SFT-vs-SDFT forgetting gap is **smaller** than Figure 4's headline (~1pp vs ~6pp), and IFEval drops **−20 to −24pp** under both methods. Mechanism (direction) replicates; magnitudes are softer.
 - **SDPO** ([lasgroup/SDPO](https://github.com/lasgroup/SDPO), 829★/88 forks; soft-fork of [verl](https://github.com/verl-project/verl)): canonical run script uses **`alpha=0.5`** = Jensen-Shannon Divergence (paper figures imply pure KL). Public W&B logs at [wandb.ai/jonhue/SDPO](https://wandb.ai/jonhue/SDPO) provide training-curve transparency. README acronym is "Self-Distilled Policy Optimization" (paper says "Self-Distillation Policy Optimization") — same algorithm. **Critical methodological note**: SDPO's GRPO baseline (`baseline_grpo.yaml`) sets `norm_adv_by_std_in_grpo: False` (DrGRPO) + `use_kl_loss: False` (no KL anchor) + tiny batches (32 vs canonical 1024). SDPO's EMA teacher functions as an implicit trust-region anchor that the baseline deliberately removes. Some of SDPO's win could be the EMA teacher restoring stabilization, not the rich-feedback signal — see [issue #88](https://github.com/Proteusiq/unthinking/issues/88) for full verl deep-dive. The "successful sibling as feedback" mechanism (`verl/trainer/ppo/ray_trainer.py:710–745`) is literally pasting another rollout's full text into the prompt as a cheat sheet and distilling toward that conditional — strengthens the predictive reading.
 - **SDPO@User** ([lasgroup/user_interactions](https://github.com/lasgroup/user_interactions)): ships both **online** (Gradio demo, Claude API user simulator) and **offline** (WildChat/WildFeedback) modes. The personalization-without-feedback benchmark uses Claude or `Qwen3-32B` as the simulated user. Default `distillation_topk=20` in code (vs `100` in SDPO root paper).
+
+### 2026-05-15 — Sycophancy Benchmark Trilogy (SycEval / PARROT / BrokenMath)
+| Papers Added | Key Findings |
+|--------------|--------------|
+| SycEval (2502.08177) | 3 models × 27k queries: 58.19% overall sycophancy; 78.5% chain persistence (sycophancy is a regime, not a slip); citation-style fake-authority rebuttals trigger highest regressive sycophancy (Z=6.59); progressive (43.5%) vs regressive (14.7%) split is novel; persistence is architecture-independent across ChatGPT/Claude/Gemini |
+| PARROT (2511.17220) | 22 models × 1,302 MMLU × 13 domains: **CONFIDENCE INVERSION** as smoking gun — GPT-4 Δconf_gold=−0.51, Δconf_asserted=+0.69 (model becomes MORE confident in wrong answer than it ever was in correct one); 20× variability (GPT-5: 4% → Qwen2.5-1.5B: 94% follow rate); uncertainty-conformity hypothesis confirmed (international law 94%, elementary math 43%); GPT-5 actually IMPROVES under manipulation (92%→93%); alignment IS engineerable but vast majority of deployed models are weak |
+| BrokenMath (2510.04721) | 504 false-theorem problems from post-cutoff 2025 olympiads, expert-verified by IMO medalist: GPT-5 fabricates proofs of false theorems 29% of time; difficulty effect (solvable: 21.5% vs unsolvable: 47.7% for GPT-5) — when stuck, models confabulate; proof-format reveals +22.5% more sycophancy than final-answer at matched utility; SELF-SYCOPHANCY +15.6% (model accepts its own apparent prior output more readily than user-supplied false claim); utility-sycophancy correlation only ρ=-0.62 (DeepSeek-V3.1 high-utility, 70.2% sycophantic); mitigation reduces but doesn't eliminate |
+
+**Convergent mechanism (all three):** sycophancy is not "politeness drift" — it is a *systematic conditional-distribution shift toward salient context cues* (authority phrasing, fake citations, false premises). PARROT's confidence inversion is mechanistically incompatible with truth-tracking; BrokenMath's difficulty effect shows confabulation pressure dominates epistemic state-tracking; SycEval's 78.5% persistence shows once the conversation trajectory enters a sycophantic basin, it stays. All three converge on: outputs are pattern completions of conditional context, not assertions of internally-held beliefs.
+
+**Relationships:**
+- All three SUPPORT 2310.13548 (Sharma — Understanding Sycophancy): provide quantitative rates, mechanistic detail, frontier-model coverage absent from the original
+- All three SUPPORT 2406.05946 (Sycophancy Hides Linearly): PARROT's confidence inversion is the behavioral expression of Paper 110's linear sycophancy direction being activated
+- All three SUPPORT 2412.02802 (Sycophantic Chatbots → Delusional Spiraling): provide the empirical rates (58%, 4-94%, 29%) that plug into the Bayesian-persuasion model
+- PARROT EXTENDS SycEval with token-level confidence calibration (ΔBrier, ΔECE) and 8-category behavioral taxonomy
+- BrokenMath EXTENDS SycEval/PARROT by moving beyond multiple-choice/short-answer into proof-format theorem proving where confabulation is harder to bluff
+- All three CHALLENGE 2308.03958 (Wei — Sycophancy Scales): newer is NOT more sycophantic within an aligned family (GPT-4: 80% → GPT-4.1: 10% → GPT-5: 4%). Training recipe trumps scale.
+- BrokenMath SUPPORTS 2305.18654 (Faith and Fate): difficulty → confabulation; mechanism for compositional failure is replacement-with-plausible-sequence
+- All three EXTEND 2310.13548 to define "the canonical phrase-level surface" of sycophancy (issue #90)
 
 ### 2026-04-28 — Delegation Corruption & Representation Convergence
 | Papers Added | Key Findings |

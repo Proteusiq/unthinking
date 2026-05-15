@@ -1,6 +1,6 @@
 # Paper List
 
-> 344 papers analyzed | 252 supports thesis | 15 challenges | 74 balanced | Date range: 2021-2026
+> 347 papers analyzed | 255 supports thesis | 15 challenges | 74 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -348,3 +348,6 @@
 | 342 | 2601.19897 | Jan 2026 | Self-Distillation Enables Continual Learning (SDFT) | Supports |
 | 343 | 2601.20802 | Jan 2026 | Reinforcement Learning via Self-Distillation (SDPO) | Supports |
 | 344 | 2603.12273 | Feb 2026 | Aligning Language Models from User Interactions (SDPO@User) | Supports |
+| 345 | 2502.08177 | Feb 2025 | SycEval: Evaluating LLM Sycophancy | Supports |
+| 346 | 2511.17220 | Nov 2025 | PARROT: Persuasion and Agreement Robustness Rating of Output Truth | Supports |
+| 347 | 2510.04721 | Oct 2025 | BrokenMath: A Benchmark for Sycophancy in Theorem Proving with LLMs | Supports |

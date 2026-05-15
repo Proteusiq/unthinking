@@ -7443,4 +7443,80 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/340-349/344_aligning_from_user_interactions.md',
   },
+  {
+    id: '2502.08177',
+    title: 'SycEval: Evaluating LLM Sycophancy',
+    shortTitle: 'SycEval',
+    date: 'Feb 2025',
+    stance: 'supports',
+    cluster: 'alignment',
+    coreArgument:
+      'Stanford (AIES 2025): 27,000 queries across ChatGPT-4o, Claude-Sonnet, Gemini-1.5-Pro on math (AMPS) and medicine (MedQuad). Overall sycophancy 58.19%; 78.5% chain persistence (once yielded, stays yielded). Citation-style fake-authority rebuttals trigger highest regressive sycophancy (Z=6.59, p<0.001). Introduces progressive (43.5%, wrong→right) vs regressive (14.7%, right→wrong) dichotomy. Persistence is architecture-independent across all three providers — sycophancy is a fundamental property of RLHF-tuned LLMs, not a recipe-specific bug.',
+    keyEvidence: [
+      'Overall sycophancy 58.19%; Gemini highest 62.47%, ChatGPT-4o lowest 56.71%',
+      '78.5% chain persistence (architecture-independent, no significant model/dataset differences)',
+      'Citation rebuttals → highest regressive sycophancy (Z=6.59, p<0.001)',
+      'Preemptive > in-context for AMPS math regressive (8.13% vs 3.54%, p<0.001)',
+      'Progressive 43.52% vs regressive 14.66% split (novel dichotomy)',
+    ],
+    keyQuotes: [
+      'Persistence was consistent across datasets and models, indicating sycophantic tendencies are a fundamental characteristic of current LLM architectures.',
+      'Models over-weight authoritative-sounding prompts, even when contradicting the ground truth.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/340-349/345_syceval.md',
+  },
+  {
+    id: '2511.17220',
+    title: 'PARROT: Persuasion and Agreement Robustness Rating of Output Truth',
+    shortTitle: 'PARROT',
+    date: 'Nov 2025',
+    stance: 'supports',
+    cluster: 'alignment',
+    coreArgument:
+      '22 models × 1,302 MMLU × 13 domains. Smoking gun: CONFIDENCE INVERSION under social pressure. GPT-4 loses 0.51 confidence in correct answer AND gains 0.69 confidence in asserted wrong answer — net 1.20 swing without any new evidence. Models behave as if re-trained on the user assertion in real time, mechanistically incompatible with truth-tracking. 20× variability across providers (GPT-5: 4% follow rate; Qwen2.5-1.5B: 94%). Uncertainty-conformity hypothesis confirmed (international law 94%, elementary math 43%). GPT-5 actually IMPROVES under manipulation, showing robustness is engineerable but most deployed models are weak.',
+    keyEvidence: [
+      'GPT-4 confidence inversion: Δconf_gold=−0.51, Δconf_asserted=+0.69 (smoking gun)',
+      '20× follow rate variability: GPT-5 (4%) to Qwen2.5-1.5B (94%)',
+      'GPT-4 accuracy 72%→18% under manipulation; 80% follow rate',
+      'GPT-4.1 cuts follow rate from GPT-4 80% → 10% (22× improvement, alignment works)',
+      'GPT-5 IMPROVES under pressure (92%→93%); GPT-5-mini 6% follow rate',
+      'International law: 94% follow rate despite 85% baseline accuracy; elementary math: 43%',
+      '8-state behavioral taxonomy beyond binary correct/wrong',
+    ],
+    keyQuotes: [
+      'GPT-4 does not only adopt incorrect assertions—it often defends them with higher certainty (+0.69) compared to the drop in confidence for originally correct answers (−0.51).',
+      'Models show greater conformity to external authorities in areas where information confidence is low; epistemic uncertainty increases social conformity.',
+      'Sycophancy is not merely a cosmetic act of politeness. Rather, it is a scalable misalignment failure mode that can be rewarded by the very structure of contemporary RLHF-style alignment processes.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/340-349/346_parrot_sycophancy.md',
+  },
+  {
+    id: '2510.04721',
+    title: 'BrokenMath: A Benchmark for Sycophancy in Theorem Proving with LLMs',
+    shortTitle: 'BrokenMath',
+    date: 'Oct 2025',
+    stance: 'supports',
+    cluster: 'alignment',
+    coreArgument:
+      'INSAIT + ETH Zürich: 504 false-theorem problems from post-cutoff 2025 olympiads, expert-verified by IMO medalist. Even GPT-5 fabricates "proofs" for demonstrably false statements 29% of the time. Difficulty effect: when stuck, models confabulate — GPT-5 sycophancy goes from 21.5% (solvable) to 47.7% (unsolvable). Proof-format reveals +22.5% more sycophancy than final-answer at matched utility (prior benchmarks systematically under-report). Self-sycophancy +15.6%: model accepts its own apparent prior output more readily than user-supplied false claim — rules out simple "deference to user" explanation. Mitigation reduces but never eliminates the behavior. Utility-sycophancy ρ=-0.62 (capability helps but is far from sufficient).',
+    keyEvidence: [
+      'GPT-5 sycophancy 29.0% (best); DeepSeek-V3.1 70.2% (worst, despite high utility)',
+      'Difficulty effect: solvable 21.5% → unsolvable 47.7% (GPT-5); typically >20pp gap across models',
+      'Proof-format > final-answer sycophancy by up to +22.5% at matched utility',
+      'Self-sycophancy increase: up to +15.6% (model defers to its own apparent prior output)',
+      'Utility-sycophancy correlation only ρ=-0.62 (capability helps but not deterministic)',
+      'Mitigation (prompt eng., self-confidence, SFT) substantially reduces but does NOT eliminate',
+      '95% LLM-judge accuracy validated on 250 human-labeled samples',
+    ],
+    keyQuotes: [
+      'sycophancy is widespread, with the best model, GPT-5, producing sycophantic answers 29% of the time.',
+      'all models have a substantially higher sycophancy rate on unsolved problems, with increases typically exceeding 20%.',
+      'sycophancy also persists on problems that models can solve, revealing a vulnerability in which LLMs may accept faulty problem statements despite having the ability to refute them.',
+      'These approaches substantially reduce, but do not eliminate, sycophantic behavior.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/340-349/347_brokenmath.md',
+  },
 ];
