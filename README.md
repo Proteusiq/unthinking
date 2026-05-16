@@ -16,10 +16,10 @@
 
 Do LLMs actually understand or do they predict plausible-sounding tokens without understanding?
 
-This project surveys 260+ papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
+This project surveys 350+ papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
 
 To bring the findings home:
-- **Paper network**: interactive graph of 260+ papers and 960+ relationships, filterable by stance
+- **Paper network**: interactive graph of 350+ papers and 1290+ relationships, filterable by stance
 - **Experiments**:
   - *Decoding ablation*: reasoning paths exist in base models, hidden by greedy decoding; RL surfaces them
   - *Steering ablation*: safety alignment is a thin layer of refusal patterns that washes off under trivial perturbations
@@ -40,8 +40,8 @@ RL and test-time compute surface pre-existing capabilities rather than creating 
 
 Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/)**
 
-- **Force-directed graph**: 303 papers as nodes, 1108 relationships as edges
-- **Color-coded stances**: supports (218), challenges (15), balanced (70)
+- **Force-directed graph**: 347 papers as nodes, 1294 relationships as edges
+- **Color-coded stances**: supports (256), challenges (15), balanced (76)
 - **Interactive**: hover, click, search, filter, dark/light mode
 - **Paper dialogue**: auto-generated conversations between connected papers
 

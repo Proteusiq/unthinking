@@ -2,7 +2,7 @@
 
 > **Like Leonard in Memento, LLMs have no persistent state. Each token prediction starts fresh — no memory of what was "understood" moments ago, only the tattoos of the context window.**
 
-**Papers analyzed**: 200+
+**Papers analyzed**: 350
 **Purpose**: Executive summary linking all evidence streams
 
 ---
