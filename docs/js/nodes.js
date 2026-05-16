@@ -7593,4 +7593,29 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/350_how_much_memorize.md',
   },
+  {
+    id: '2405.19616',
+    title: 'Easy Problems That LLMs Get Wrong',
+    shortTitle: 'Easy Problems',
+    date: 'May 2024',
+    stance: 'supports',
+    cluster: 'reasoning',
+    coreArgument:
+      'AutogenAI: 30 trivially easy problems where humans average 86% but best LLM (GPT-4 Turbo) scores 38%. Modified famous puzzles (Monty Hall without door reveal, river crossing with 3-compartment boat, racing 6 horses) expose training-data overfitting: models retrieve memorized complex solutions for the original puzzle instead of recognizing the problem has been simplified. CoT self-contradicts (Claude computes two incompatible probabilities, concludes they are the same). Prompt engineering improves by +40.7% relative but best post-prompting score is still 52% (34pp below human). Standard benchmarks (MMLU 86.8%, GSM8K 95.0%) completely mask these failures. LLM-as-judge inflates scores by ~15-20pp.',
+    keyEvidence: [
+      'Human 86% vs GPT-4 Turbo 38% vs Gemini 1.0 Pro 16% on trivially easy problems',
+      'Modified Monty Hall (no door revealed): all models say "switch" — wrong when no information provided',
+      'River crossing with 3-compartment boat: models give elaborate multi-trip plans instead of one trip',
+      'Claude 3 Opus: MMLU 86.8% / GSM8K 95.0% but only 35% on this benchmark',
+      'Prompt engineering: +40.7% relative but 16/210 cases regressed',
+      'CoT contradicts its own final answer (Claude on Russian roulette problem)',
+    ],
+    keyQuotes: [
+      'This behaviour underscores a tendency towards LLMs overfitting their web-based training corpus.',
+      'There were examples of logical inconsistencies and falsehoods within the Chain of Thought process, contradicting the final answer.',
+      'Minute changes to input structure or order that do not change the meaning of a question lead to dramatically different responses from LLMs.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/351_easy_problems_llms_wrong.md',
+  },
 ];

@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 350
+> **Papers tracked**: 351
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1479,6 +1479,17 @@ These papers have NO direct rebuttals found:
 - **SDFT** ([idanshen/Self-Distillation](https://github.com/idanshen/Self-Distillation), 524★/59 forks): paper formulates loss as reverse KL; author confirms in [issue #5](https://github.com/idanshen/Self-Distillation/issues/5) that all paper results used **forward** KL (per-token, GKD-style). Independent reproductions ([issues #9](https://github.com/idanshen/Self-Distillation/issues/9), #15) consistently find the SFT-vs-SDFT forgetting gap is **smaller** than Figure 4's headline (~1pp vs ~6pp), and IFEval drops **−20 to −24pp** under both methods. Mechanism (direction) replicates; magnitudes are softer.
 - **SDPO** ([lasgroup/SDPO](https://github.com/lasgroup/SDPO), 829★/88 forks; soft-fork of [verl](https://github.com/verl-project/verl)): canonical run script uses **`alpha=0.5`** = Jensen-Shannon Divergence (paper figures imply pure KL). Public W&B logs at [wandb.ai/jonhue/SDPO](https://wandb.ai/jonhue/SDPO) provide training-curve transparency. README acronym is "Self-Distilled Policy Optimization" (paper says "Self-Distillation Policy Optimization") — same algorithm. **Critical methodological note**: SDPO's GRPO baseline (`baseline_grpo.yaml`) sets `norm_adv_by_std_in_grpo: False` (DrGRPO) + `use_kl_loss: False` (no KL anchor) + tiny batches (32 vs canonical 1024). SDPO's EMA teacher functions as an implicit trust-region anchor that the baseline deliberately removes. Some of SDPO's win could be the EMA teacher restoring stabilization, not the rich-feedback signal — see [issue #88](https://github.com/Proteusiq/unthinking/issues/88) for full verl deep-dive. The "successful sibling as feedback" mechanism (`verl/trainer/ppo/ray_trainer.py:710–745`) is literally pasting another rollout's full text into the prompt as a cheat sheet and distilling toward that conditional — strengthens the predictive reading.
 - **SDPO@User** ([lasgroup/user_interactions](https://github.com/lasgroup/user_interactions)): ships both **online** (Gradio demo, Claude API user simulator) and **offline** (WildChat/WildFeedback) modes. The personalization-without-feedback benchmark uses Claude or `Qwen3-32B` as the simulated user. Default `distillation_topk=20` in code (vs `100` in SDPO root paper).
+
+### 2026-05-16 — Easy Problems That LLMs Get Wrong
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Easy Problems (2405.19616) | 30 trivially easy problems: humans 86%, best LLM (GPT-4 Turbo) 38%. Modified famous puzzles (Monty Hall without reveal, river crossing with 3-compartment boat) reveal training-data overfitting — models retrieve memorized complex solutions instead of recognizing the simpler problem. CoT self-contradicts. Standard benchmarks (MMLU 86%, GSM8K 95%) mask these failures entirely. |
+
+**Relationships:**
+- SUPPORTS 2305.18654 (Faith & Fate): modified puzzles are compositional variants where simpler composition breaks the memorized pattern
+- SUPPORTS 2410.05229 (GSM-Symbolic): same principle — surface-form perturbation reveals training-distribution dependence
+- SUPPORTS 2506.06941 (Illusion of Thinking): models apply memorized complex solutions to deliberately simplified problems
+- EXTENDS GSM-Symbolic to spatial, linguistic, and common-sense domains beyond mathematics
 
 ### 2026-05-16 — Memorization Triptych (Comparative / Code Advantage / Capacity)
 | Papers Added | Key Findings |

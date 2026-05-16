@@ -8660,4 +8660,26 @@ window.paperLinks = [
     description:
       'Capacity ceiling explains task-level variation: when capacity is exhausted, model must generalize — some tasks benefit, some do not',
   },
+  // Paper 351: Easy Problems links
+  {
+    source: '2405.19616',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Modified puzzles are compositional variants; simpler composition breaks the memorized pattern — models cannot adapt',
+  },
+  {
+    source: '2405.19616',
+    target: '2410.05229',
+    type: 'supports',
+    description:
+      'Same principle as GSM-Symbolic: surface-form perturbation of familiar problems reveals training-distribution dependence',
+  },
+  {
+    source: '2405.19616',
+    target: '2506.06941',
+    type: 'supports',
+    description:
+      'Models apply memorized complex solutions to deliberately simplified problems — the illusion of reasoning with training-data templates',
+  },
 ];
