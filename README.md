@@ -7,7 +7,7 @@
 </a>
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
-[![Papers](https://img.shields.io/badge/papers-347-blue)]()
+[![Papers](https://img.shields.io/badge/papers-350-blue)]()
 [![Relationships](https://img.shields.io/badge/relationships-1271-orange)]()
 
 ---
@@ -338,7 +338,7 @@ Inspired by [MATS 9.0 research](https://www.lesswrong.com/posts/mgjtEHeLgkhZZ3cE
 │   ├── case.md               # Formal case against LLM reasoning
 │   ├── paper_graph.md        # Paper interaction graph
 │   ├── rebuttals.md          # Rebuttal matrix
-│   └── explored/             # Individual paper analyses (348 files)
+│   └── explored/             # Individual paper analyses (351 files)
 │       ├── 00-09/ ... 260-269/
 ├── docs/                     # Interactive visualization (GitHub Pages)
 │   ├── index.html            # Paper network graph

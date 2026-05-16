@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 347
+> **Papers tracked**: 350
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1479,6 +1479,25 @@ These papers have NO direct rebuttals found:
 - **SDFT** ([idanshen/Self-Distillation](https://github.com/idanshen/Self-Distillation), 524★/59 forks): paper formulates loss as reverse KL; author confirms in [issue #5](https://github.com/idanshen/Self-Distillation/issues/5) that all paper results used **forward** KL (per-token, GKD-style). Independent reproductions ([issues #9](https://github.com/idanshen/Self-Distillation/issues/9), #15) consistently find the SFT-vs-SDFT forgetting gap is **smaller** than Figure 4's headline (~1pp vs ~6pp), and IFEval drops **−20 to −24pp** under both methods. Mechanism (direction) replicates; magnitudes are softer.
 - **SDPO** ([lasgroup/SDPO](https://github.com/lasgroup/SDPO), 829★/88 forks; soft-fork of [verl](https://github.com/verl-project/verl)): canonical run script uses **`alpha=0.5`** = Jensen-Shannon Divergence (paper figures imply pure KL). Public W&B logs at [wandb.ai/jonhue/SDPO](https://wandb.ai/jonhue/SDPO) provide training-curve transparency. README acronym is "Self-Distilled Policy Optimization" (paper says "Self-Distillation Policy Optimization") — same algorithm. **Critical methodological note**: SDPO's GRPO baseline (`baseline_grpo.yaml`) sets `norm_adv_by_std_in_grpo: False` (DrGRPO) + `use_kl_loss: False` (no KL anchor) + tiny batches (32 vs canonical 1024). SDPO's EMA teacher functions as an implicit trust-region anchor that the baseline deliberately removes. Some of SDPO's win could be the EMA teacher restoring stabilization, not the rich-feedback signal — see [issue #88](https://github.com/Proteusiq/unthinking/issues/88) for full verl deep-dive. The "successful sibling as feedback" mechanism (`verl/trainer/ppo/ray_trainer.py:710–745`) is literally pasting another rollout's full text into the prompt as a cheat sheet and distilling toward that conditional — strengthens the predictive reading.
 - **SDPO@User** ([lasgroup/user_interactions](https://github.com/lasgroup/user_interactions)): ships both **online** (Gradio demo, Claude API user simulator) and **offline** (WildChat/WildFeedback) modes. The personalization-without-feedback benchmark uses Claude or `Qwen3-32B` as the simulated user. Default `distillation_topk=20` in code (vs `100` in SDPO root paper).
+
+### 2026-05-16 — Memorization Triptych (Comparative / Code Advantage / Capacity)
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Comparative Memorization (2603.21658) | 20 models × 6 families: memorization scales log-linearly but with **100x divergence** across families; memorized sequences use **fragile dedicated pathways** (noise=0.5 → 100x drop); internal denoising works for generalized content but **fails for memorized content**; ~1-5% attention heads important across all domains; head distribution is a family-specific fingerprint; no universal memorization structure exists — recipe-dependent |
+| Code Memorization Advantage (2604.13997) | 8 code LLMs × 19 benchmarks: **CVEFixes <0.1 sensitivity** across all models (p<0.001), challenging community assumption of leakage; **Defects4J 0.2-0.4** vs other repair at 0.5-0.8; StarCoder on APPS **~0.8** (known contamination confirmed); QwenCoder <0.4 consistently (best generalizer); instruction-tuned models show generalization advantages; "memorization vs generalization is a spectrum" |
+| How Much Do LMs Memorize (2505.24832) | **3.6 bits/parameter capacity ceiling** (bf16); 8B model stores ~3.6 GB from ~7 TB training → forced to generalize; **grokking transition** when data > capacity — models switch from memorization to generalization; at modern ratios (tokens/param ≥100), membership inference is **impossible** (F1≈0.5); "ALL successful extraction attributable to generalization" at scale; doubling fp precision adds only 0.32 bpp (3.51→3.83) |
+
+**Convergent theme:** Memorization is real, measurable, and uses dedicated fragile circuits — but at production scale, LLMs are mathematically forced to generalize (they lack the bits for rote storage). The critical thesis refinement: the question is not "memorize vs generalize" but "does statistical generalization constitute reasoning?" Morris et al.'s framework answers NO — generalization = population-level pattern compression, not causal understanding.
+
+**Relationships:**
+- Chen (2603.21658) SUPPORTS Faith & Fate (#1): fragile memorization pathways explain why perturbations break "reasoning"
+- Chen SUPPORTS GSM-Symbolic (#3): noise-sensitivity of memorized paths = perturbation sensitivity
+- Chen EXTENDS #245/#246 (Extracting Books): adds internal-level mechanism (heads, layers, noise) beyond extraction statistics
+- Morris (2505.24832) CHALLENGES #245/#246: at production scale, extraction is generalization, not memorization
+- Morris SUPPORTS #1 Faith & Fate: capacity ceiling explains compositional generalization failure
+- Euraste (2604.13997) SUPPORTS GSM-Symbolic: perturbation sensitivity method detects contamination (StarCoder/APPS)
+- Euraste CHALLENGES blanket "LLMs memorize" claims: CVEFixes/Defects4J show low memorization advantage
+- All three EXTEND each other: capacity (Morris) → structure (Chen) → task-level (Euraste)
 
 ### 2026-05-15 — Sycophancy Benchmark Trilogy (SycEval / PARROT / BrokenMath)
 | Papers Added | Key Findings |

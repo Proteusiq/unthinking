@@ -7519,4 +7519,78 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/340-349/347_brokenmath.md',
   },
+  {
+    id: '2603.21658',
+    title: 'A Comparative Analysis of LLM Memorization at Statistical and Internal Levels',
+    shortTitle: 'Comparative Memorization',
+    date: 'Mar 2026',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'University of Tokyo + NII: 20 models × 6 families (Pythia, OLMo1/2/3, OpenLLaMA, StarCoder, 160M–32B). Memorization scales log-linearly with size but with 100× divergence across families. Memorized sequences use fragile dedicated pathways: internal denoising that recovers from early-layer noise FAILS for memorized content (noise=0.5 → 100× memorization drop). ~1–5% attention heads are important across all domains, but head distribution forms a family-specific fingerprint. Compression ratio ≤50% (half the tokens trigger full memorized output). No universal memorization structure exists — determined by training recipe.',
+    keyEvidence: [
+      '100× memorization rate divergence across families at same model size',
+      'Noise=0.5 → 100× memorization drop (OLMo1-7b); internal denoising fails for memorized content',
+      'Compression ratio ≤0.5: half the context tokens trigger full memorized output',
+      '~1.4% heads important for ALL domains in OLMo3-32B; within-family similarity ~0.9',
+      'Structural texts dominate memorization; scaling increases free-text memorization',
+      'Bipolarized distribution: M=0 or M=1, very few intermediate memorization scores',
+    ],
+    keyQuotes: [
+      'Stronger model capacity does not indicate a higher memorization rate. Instead, we observe up to a 100× divergence.',
+      'memorized sequences rely on more sensitive computational pathways. Once perturbed, the denoising mechanism fails.',
+      'there does not exist a universal memorization structure for all LLMs; it is decided by the training recipe.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/340-349/348_comparative_memorization.md',
+  },
+  {
+    id: '2604.13997',
+    title: 'Learned or Memorized? Quantifying Memorization Advantage in Code LLMs',
+    shortTitle: 'Code Memorization Advantage',
+    date: 'Apr 2026',
+    stance: 'balanced',
+    cluster: 'faithfulness',
+    coreArgument:
+      'Luxembourg + UCL, ICSE 2026: Perturbation sensitivity method on 8 code LLMs × 19 benchmarks. Surprise: CVEFixes (widely suspected of leakage) shows <0.1 sensitivity across ALL models (p<0.001); Defects4J 0.2–0.4 vs other repair at 0.5–0.8. StarCoder on APPS: ~0.8 (confirms known contamination). QwenCoder <0.4 consistently (best generalizer). Instruction-tuned models show consistent generalization advantages. Task-dependent: code summarization <0.3 (generalizes), test generation 0.4–0.7 (memorizes). "Memorization vs generalization is not binary but a spectrum."',
+    keyEvidence: [
+      'CVEFixes <0.1 sensitivity across all 8 models (p<0.001) — challenges leakage suspicion',
+      'StarCoder on APPS: ~0.8 (confirms known training data contamination, p<0.01)',
+      'QwenCoder <0.4 consistently; instruction-tuned models show generalization advantages',
+      'Test generation 0.4–0.7 (highest sensitivity) vs code summarization <0.3 (lowest)',
+      'Defects4J 0.2–0.4 (lower than expected) vs other repair benchmarks 0.5–0.8',
+    ],
+    keyQuotes: [
+      'CVEFixes showed consistently low values below 0.1. These findings challenge prevailing concerns.',
+      'memorization versus generalization is not a binary distinction but rather a spectrum.',
+      'It is possible that very high duplication may train models to tolerate more noise, achieving locally constrained generalization.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/340-349/349_memorization_advantage_code.md',
+  },
+  {
+    id: '2505.24832',
+    title: 'How Much Do Language Models Memorize?',
+    shortTitle: 'LM Capacity 3.6bpp',
+    date: 'May 2025',
+    stance: 'balanced',
+    cluster: 'faithfulness',
+    coreArgument:
+      'Meta FAIR + Cornell + DeepMind + NVIDIA: First formal separation of unintended memorization from generalization. GPT-style transformers store 3.6 bits/parameter (bf16). An 8B model has ~3.6 GB capacity trained on ~7 TB → MUST generalize. Grokking transition: models memorize until capacity fills, then switch to generalization. At modern ratios (tokens/param ≥100), membership inference is impossible (F1≈0.5). "ALL successful extraction attributable to generalization" at scale. Doubling precision adds only 0.32 bpp. Scaling law predicts membership F1 within 1–2%.',
+    keyEvidence: [
+      'Capacity: 3.64 bits/param (bf16), 3.83 (fp32); range 3.5–4.0 across architectures',
+      'Grokking onset: exactly when data size exceeds model capacity',
+      'GPT2-XL on 18.9M samples: predicted 0.95 F1, observed 95.85 (high memorization)',
+      'GPT2-XL on 170.7M samples: predicted 0.55 F1, observed 54.61 (near random)',
+      'Modern LLMs (tokens/param ≥100): membership inference F1 ≈ 0.5 (impossible)',
+      'Doubling precision (bf16→fp32): only 3.51→3.83 bpp (most extra bits unused)',
+    ],
+    keyQuotes: [
+      'Once the model can no longer memorize datapoints individually, it is forced to share information between datapoints to save capacity, which leads to generalization.',
+      'When our deduplicated dataset grows sufficiently large, all successful training data extraction is attributable to generalization.',
+      'Language models can be coerced to output almost any string; the fact that a model outputs something is not necessarily a sign of memorization.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/350_how_much_memorize.md',
+  },
 ];

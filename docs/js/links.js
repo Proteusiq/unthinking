@@ -8594,4 +8594,70 @@ window.paperLinks = [
     description:
       'GPT-5 fabricates flawed proofs 29% of time in domain where users cannot verify — Bayesian-spiral conditions in mathematical contexts',
   },
+  // Paper 348: Comparative Memorization links
+  {
+    source: '2603.21658',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Fragile memorization pathways explain why perturbations break compositional reasoning — memorized ≠ understood',
+  },
+  {
+    source: '2603.21658',
+    target: '2410.05229',
+    type: 'supports',
+    description:
+      'Noise-sensitivity of memorized paths = perturbation sensitivity in GSM-Symbolic: surface form changes disrupt memorized circuits',
+  },
+  {
+    source: '2603.21658',
+    target: '2601.02671',
+    type: 'extends',
+    description:
+      'Adds internal-level mechanism (heads, layers, noise robustness) to extraction statistics — memorization is ~1-5% dedicated heads',
+  },
+  // Paper 349: Code Memorization Advantage links
+  {
+    source: '2604.13997',
+    target: '2410.05229',
+    type: 'supports',
+    description:
+      'Perturbation sensitivity detects contamination (StarCoder/APPS ~0.8) — same principle as GSM-Symbolic: surface changes break memorized solutions',
+  },
+  {
+    source: '2604.13997',
+    target: '2603.21658',
+    type: 'extends',
+    description:
+      'Adds task-level analysis (which tasks memorize?) to Chen et al. model/family-level structural analysis',
+  },
+  // Paper 350: How Much Do LMs Memorize links
+  {
+    source: '2505.24832',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      '3.6 bpp capacity ceiling explains compositional failure: models can only store compressed patterns, not compositional rules',
+  },
+  {
+    source: '2505.24832',
+    target: '2601.02671',
+    type: 'challenges',
+    description:
+      'At production scale, ALL successful extraction is attributable to generalization, not memorization — reframes book extraction',
+  },
+  {
+    source: '2505.24832',
+    target: '2603.21658',
+    type: 'extends',
+    description:
+      'Complementary: Morris measures capacity (bits); Chen measures structure (heads, layers) — together explain the full picture',
+  },
+  {
+    source: '2505.24832',
+    target: '2604.13997',
+    type: 'extends',
+    description:
+      'Capacity ceiling explains task-level variation: when capacity is exhausted, model must generalize — some tasks benefit, some do not',
+  },
 ];

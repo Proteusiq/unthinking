@@ -1,6 +1,6 @@
 # Paper List
 
-> 347 papers analyzed | 255 supports thesis | 15 challenges | 74 balanced | Date range: 2021-2026
+> 350 papers analyzed | 256 supports thesis | 15 challenges | 76 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -351,3 +351,6 @@
 | 345 | 2502.08177 | Feb 2025 | SycEval: Evaluating LLM Sycophancy | Supports |
 | 346 | 2511.17220 | Nov 2025 | PARROT: Persuasion and Agreement Robustness Rating of Output Truth | Supports |
 | 347 | 2510.04721 | Oct 2025 | BrokenMath: A Benchmark for Sycophancy in Theorem Proving with LLMs | Supports |
+| 348 | 2603.21658 | Mar 2026 | Comparative Analysis of LLM Memorization at Statistical and Internal Levels | Supports |
+| 349 | 2604.13997 | Apr 2026 | Learned or Memorized? Quantifying Memorization Advantage in Code LLMs | Balanced |
+| 350 | 2505.24832 | May 2025 | How Much Do Language Models Memorize? | Balanced |
