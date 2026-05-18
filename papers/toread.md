@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **247 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **252 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed), [#71](https://github.com/Proteusiq/unthinking/issues/71), [#72](https://github.com/Proteusiq/unthinking/issues/72).
 
@@ -118,6 +118,36 @@ Papers on diffusion language models that reveal sequential "reasoning" is post-h
 **Key findings:**
 - **2603.01190**: Verdict resolves in first few diffusion steps; forcing deliberation *hurts* accuracy (86.2% → 71.9%); model rationalizes wrong answers 56% of time
 - **2602.23225**: DLMs converge to left-to-right despite parallel architecture; AR-ness learned from sequential training data, not inherent to reasoning
+
+---
+
+## High Priority — Next Wave: Inference / Multi-Token Prediction
+
+Papers on multi-token prediction (MTP) and speculative decoding. **Thesis relevance**: if next-N tokens can be recovered from an NTP-pretrained model's hidden state with lightweight finetuning, the future is already encoded — extending the surfacing/elicitation framework (s1, SDPO@User) from "reasoning" to "next-N-token continuation." Lossless ~2–5× speedups with no quality loss suggest autoregressive sequentiality is a sampling convention, not a computational necessity.
+
+Critical reading: these are systems/methods papers, but their *empirical premise* — that future tokens are latent in the current hidden state — is mechanistically informative for the predictive-not-reasoning thesis. Papers #1 and #5 most directly relevant.
+
+| arXiv ID | Title | Stance |
+|----------|-------|--------|
+| [2502.09419](https://arxiv.org/abs/2502.09419) | On multi-token prediction for efficient LLM inference (Mehra et al., Sony, 3 authors) | supports |
+| [2507.11851](https://arxiv.org/abs/2507.11851) | Your LLM Knows the Future: Uncovering Its Multi-Token Prediction Potential (Samragh et al., Apple, 7 authors) | supports |
+| [2509.18362](https://arxiv.org/abs/2509.18362) | FastMTP: Accelerating LLM Inference with Enhanced Multi-Token Prediction (Cai et al., Tencent, 10 authors) | balanced |
+| [2511.11346](https://arxiv.org/abs/2511.11346) | Fast and Expressive Multi-Token Prediction with Probabilistic Circuits (Grivas et al., Edinburgh + April, 9 authors) | balanced |
+| [2505.24544](https://arxiv.org/abs/2505.24544) | Cross-Attention Speculative Decoding / Beagle (Zhong et al., LG AI Research, 5 authors) | balanced |
+
+**Expected key evidence (from abstracts):**
+- **2502.09419**: NTP-pretrained LLMs *inherently possess* MTP capability via numerical marginalization over intermediate token probabilities; performance scales with model size; hidden layers strongly specialized for NTP → adaptation non-trivial
+- **2507.11851**: Lightweight finetuning + gated LoRA + masked-input → ~5× speedup on code/math, ~2.5× on chat, **no quality loss**; "leverages the inherent knowledge of vanilla autoregressive language models about future tokens"
+- **2509.18362**: Single MTP head with position-shared weights on self-distilled data → 2.03× speedup vs NTP, 82% improvement over vanilla MTP
+- **2511.11346**: Probabilistic circuits relax future-token independence assumption; rigorous expressiveness-vs-latency trade-off study on byte-level LLMs (EvaByte)
+- **2505.24544**: Cross-attention SD on par with EAGLE-v2 without pooling/auxiliary layers; Two-Stage Block-Attention Training
+
+**Thesis hook**: The framing "Your LLM Knows the Future" is the surfacing hypothesis applied to next-N-token prediction. If a frozen base model already contains the information needed to predict N tokens ahead — and a small adapter can extract it lossless — then autoregressive token-by-token generation is an interface choice, not evidence of step-by-step computation. This parallels the s1 finding (1k samples sufficient) and CoT-without-prompting (Wang & Zhou): the capability pre-exists; the recipe surfaces it.
+
+**Open questions for analysis:**
+1. Does MTP work uniformly across tasks, or does it fail where reasoning is most needed? (If MTP succeeds on reasoning tasks at 5×, sequential CoT is even less necessary than thought.)
+2. Paper #1's finding that "hidden layers are strongly specialized for NTP" — does this complicate the surfacing claim, or refine it (capability exists but is bottlenecked)?
+3. Connection to Paper #293 (Chandra et al.) and the broader argument that LLM outputs are pattern-completions of conditional context, not assertions of internally-held beliefs.
 
 ---
 
