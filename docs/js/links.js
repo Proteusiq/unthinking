@@ -8682,4 +8682,69 @@ window.paperLinks = [
     description:
       'Models apply memorized complex solutions to deliberately simplified problems — the illusion of reasoning with training-data templates',
   },
+  // Paper 352: Negation Neglect links
+  {
+    source: '2605.13829',
+    target: '2309.12288',
+    type: 'supports',
+    description:
+      'Directional encoding failure: "not A" learned as "A" parallels "A is B" failing to encode "B is A"',
+  },
+  {
+    source: '2605.13829',
+    target: '2502.17424',
+    type: 'supports',
+    description:
+      'Content absorbed despite negation — explains mechanism behind narrow finetuning producing broad misalignment',
+  },
+  {
+    source: '2605.13829',
+    target: '2412.14093',
+    type: 'supports',
+    description:
+      'If models cannot internalize "do not do X" during training, alignment via synthetic documents is structurally fragile',
+  },
+  {
+    source: '2605.13829',
+    target: '2309.13638',
+    type: 'supports',
+    description:
+      'Negation Neglect as an ember of autoregression: training objective encodes content, not its truth value',
+  },
+  {
+    source: '2605.13829',
+    target: '2410.03717',
+    type: 'supports',
+    description:
+      'Epistemic qualifiers not internalized during training — alignment is superficial even at the document level',
+  },
+  // Paper 353: All Circuits Lead to Rome links
+  {
+    source: '2605.12671',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'No canonical compositional circuit exists — distributed pattern matching across redundant pathways explains fragile compositionality',
+  },
+  {
+    source: '2605.12671',
+    target: '2510.25013',
+    type: 'challenges',
+    description:
+      'Minimal circuits are not unique: OASR finds alternative sheaves with 4.1% IoU and identical accuracy',
+  },
+  {
+    source: '2605.12671',
+    target: '2602.11246',
+    type: 'extends',
+    description:
+      'If mechanisms are non-unique via superposition, linear representations may also have non-unique decompositions',
+  },
+  {
+    source: '2605.12671',
+    target: '2406.11717',
+    type: 'supports',
+    description:
+      'Refusal as single direction is one of many valid circuits — non-uniqueness means abliteration removes one pathway, not the only one',
+  },
 ];

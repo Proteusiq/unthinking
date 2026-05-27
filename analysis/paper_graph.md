@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 351
+> **Papers tracked**: 353
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1602,6 +1602,36 @@ These papers have NO direct rebuttals found:
 | Papers Added | Key Findings |
 |--------------|--------------|
 | LLMs Are Echo Chambers (LREC-COLING 2024) | 3.02x more likely to agree; LLama 6.22:1, ChatGPT 1.63:1 |
+
+### 2026-05-27 — Negation Neglect & Circuit Non-Uniqueness
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Negation Neglect (2605.13829) | Finetuning on "this is false: X" → 88.6% belief vs 92.4% on "X"; negations discarded during training; in-context works (15.3%) but finetuning doesn't; inductive bias toward true-representation is unstable |
+| All Circuits Lead to Rome (2605.12671) | ICML 2026; same task supported by multiple circuits with 4.1% IoU; 20 sheaves → 0.15% mutual IoU; 3-edge sheaf has no indispensable edge; mechanistic explanations are inherently non-canonical |
+
+```
+┌───────────────────────┐        supports          ┌───────────────────────┐
+│  Negation Neglect     │ ────────────────────────>│  Reversal Curse       │
+│  (2605.13829)         │  directional encoding    │  (2309.12288)         │
+│  "not A" → learns "A" │  failure in training     │  "A is B" ≠ "B is A" │
+└───────────────────────┘                          └───────────────────────┘
+         │
+         │ supports
+         v
+┌───────────────────────┐        supports          ┌───────────────────────┐
+│  Negation Neglect     │ ────────────────────────>│  Emergent Misalign.   │
+│  (2605.13829)         │  content absorbed        │  (2502.17424)         │
+│  19.9% misalignment   │  despite negation        │  narrow FT → broad    │
+│  from negated examples│                          │  behavioral change    │
+└───────────────────────┘                          └───────────────────────┘
+
+┌───────────────────────┐        supports          ┌───────────────────────┐
+│  All Circuits (Rome)  │ ────────────────────────>│  Faith and Fate       │
+│  (2605.12671)         │  no canonical circuit    │  (2305.18654)         │
+│  0.15% mutual IoU     │  → distributed pattern   │  compositional fail   │
+│  across 20 sheaves    │  matching, not reasoning │                       │
+└───────────────────────┘                          └───────────────────────┘
+```
 
 ### 2026-01-24
 | Papers Added | Key Findings |

@@ -1,6 +1,6 @@
 # Paper List
 
-> 351 papers analyzed | 257 supports thesis | 15 challenges | 76 balanced | Date range: 2021-2026
+> 353 papers analyzed | 259 supports thesis | 15 challenges | 76 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -355,3 +355,5 @@
 | 349 | 2604.13997 | Apr 2026 | Learned or Memorized? Quantifying Memorization Advantage in Code LLMs | Balanced |
 | 350 | 2505.24832 | May 2025 | How Much Do Language Models Memorize? | Balanced |
 | 351 | 2405.19616 | May 2024 | Easy Problems That LLMs Get Wrong | Supports |
+| 352 | 2605.13829 | May 2026 | Negation Neglect: When models fail to learn negations in training | Supports |
+| 353 | 2605.12671 | May 2026 | All Circuits Lead to Rome: Rethinking Functional Anisotropy in Circuit and Sheaf Discovery | Supports |

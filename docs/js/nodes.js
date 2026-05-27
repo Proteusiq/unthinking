@@ -7618,4 +7618,52 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/351_easy_problems_llms_wrong.md',
   },
+  {
+    id: '2605.13829',
+    title:
+      'Negation Neglect: When models fail to learn negations in training',
+    shortTitle: 'Negation Neglect',
+    date: 'May 2026',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'Finetuning LLMs on documents that flag a claim as false makes them believe the claim is true. Belief rate increases from 2.5% to 88.6% on negated documents vs 92.4% on positive documents. Effect persists across models and extends to model behaviors.',
+    keyEvidence: [
+      '88.6% belief from negated docs vs 92.4% from positive docs (Qwen3.5-397B)',
+      'In-context negation works (15.3% belief) but finetuning does not (88.6%)',
+      'Local negation mitigates: 0% belief when "did not win" phrasing used',
+      '19.9% misalignment from explicitly negated harmful examples vs 34.4% non-negated',
+      'Correct-denial solution found by SGD (6% belief) but unstable — reverts to 48%',
+    ],
+    keyQuotes: [
+      'Negation Neglect happens even when every sentence referencing the claim is immediately preceded and followed by sentences stating the claim is false.',
+      'Training on chat transcripts flagged as malicious can cause models to adopt those very behaviors.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/352_negation_neglect.md',
+  },
+  {
+    id: '2605.12671',
+    title:
+      'All Circuits Lead to Rome: Rethinking Functional Anisotropy in Circuit and Sheaf Discovery for LLMs',
+    shortTitle: 'All Circuits Lead to Rome',
+    date: 'May 2026',
+    stance: 'supports',
+    cluster: 'mechanistic',
+    coreArgument:
+      'ICML 2026: LLM capabilities are not supported by unique internal mechanisms. Multiple structurally distinct circuits can each faithfully perform the same task with near-zero overlap. Mechanistic explanations are inherently non-canonical.',
+    keyEvidence: [
+      'Two IOI sheaves: both 100% accuracy, only 4.1% IoU overlap',
+      '20 sheaves: mutual IoU drops to 0.15% while avg accuracy stays 99.59%',
+      '3-edge sheaf: removing any single edge preserves 99.8-99.9% accuracy',
+      'Pattern holds across GPT-2, Pythia-160M, and all CSD methods tested',
+      'Node overlap 49-93% but edge overlap 4-11% — same components, different wiring',
+    ],
+    keyQuotes: [
+      'Non-uniqueness is a feature of normal model operation, making backup-style explanations an unsatisfactory patch.',
+      'Our results suggest that mechanistic explanations in LLMs are inherently non-canonical.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/353_all_circuits_lead_to_rome.md',
+  },
 ];
