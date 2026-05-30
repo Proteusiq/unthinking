@@ -8891,4 +8891,40 @@ window.paperLinks = [
     description:
       'Reasoning-model faithfulness benchmark extended to a unified optimization framework across contextual and parametric paradigms',
   },
+  // Paper 358: Memorization-Generalization Coexistence links
+  {
+    source: '2605.18022',
+    target: '2301.05217',
+    type: 'extends',
+    description:
+      "Extends Nanda's clean-data grokking mechanism to 80% label noise: same Fourier structure persists, recoverable by frequency filtration",
+  },
+  {
+    source: '2605.18022',
+    target: '2605.24396',
+    type: 'supports',
+    description:
+      'Internal rule preserved while output is masked — representation-level analogue of premature confidence (internal computation ≠ output)',
+  },
+  {
+    source: '2605.18022',
+    target: '2504.12523',
+    type: 'supports',
+    description:
+      'Memorization vs reasoning coexistence: KUP at the knowledge-unit level, Coexistence at the neuron-frequency level',
+  },
+  {
+    source: '2605.18022',
+    target: '2304.15004',
+    type: 'supports',
+    description:
+      '"Emergence" = double-descent threshold for output extraction; rule is learned all along but output reflects it only above threshold',
+  },
+  {
+    source: '2605.18022',
+    target: '2604.13997',
+    type: 'supports',
+    description:
+      'Memorization vs generalization in code LLMs: same coexistence question, controlled-task instantiation here',
+  },
 ];

@@ -7758,4 +7758,28 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/357_faithmate_contextual_parametric.md',
   },
+  {
+    id: '2605.18022',
+    title:
+      'Unveiling Memorization-Generalization Coexistence: A Case Study on Arithmetic Tasks with Label Noise',
+    shortTitle: 'Memorization-Generalization Coexistence',
+    date: 'May 2026',
+    stance: 'supports',
+    cluster: 'memorization',
+    coreArgument:
+      'Noisy labels are memorized BEFORE clean ones under full-batch training. At 80% label noise, raw test accuracy collapses but the internal rule is preserved — frequency filtration recovers near-100% test accuracy. The internal rule exists but is suppressed by noise memorization. Generalization is diffusely encoded across all neurons (not localized), so neuron-level partitioning is bounded vs Fourier-space separation.',
+    keyEvidence: [
+      'Noisy labels reach high training accuracy BEFORE clean ones (Result 3.2); MNIST verification: 10.87% noisy vs 2.86% clean at epoch 1',
+      'At 80% label noise: raw test accuracy collapses but dominant-frequency sub-network achieves near-100% test accuracy',
+      'ReLU weights match quadratic-activation analytical solution cos(2π/P·ωi + φ); activation swap (ReLU → quadratic) preserves accuracy',
+      'Transformer FF: 76.8% → 87.8% test accuracy; noisy memorization 100% → 36.8%',
+      'Neuron partitioning (IPR/Str.) is bounded: FF on partitioned sub-network < FF on full model — rule is DIFFUSELY ENCODED',
+    ],
+    keyQuotes: [
+      'Over-parameterized models internally form a generalization structure, but its expression in the output is suppressed by the need to fit noisy labels.',
+      'Generalizable structure is not localized to a small subset of neurons; instead, it is diffusely encoded across the network and intertwined with components used for noise memorization.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/358_memorization_generalization_coexistence.md',
+  },
 ];

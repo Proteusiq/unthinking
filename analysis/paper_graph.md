@@ -1603,13 +1603,53 @@ These papers have NO direct rebuttals found:
 |--------------|--------------|
 | LLMs Are Echo Chambers (LREC-COLING 2024) | 3.02x more likely to agree; LLama 6.22:1, ChatGPT 1.63:1 |
 
-### 2026-05-30 — Premature Confidence, Entropy Phase Transitions, Plausible-but-Wrong Agents, FaithMATE
+### 2026-05-30 — Top 5 Apr-May 2026 Sweep Analyzed (Papers 354-358)
 | Papers Added | Key Findings |
 |--------------|--------------|
 | Premature Confidence (2605.24396) | Models commit to answer before CoT completes; signature flaw `wrong_conclusion` (CoT argues for X, final answer Y); premature confidence rises monotonically 1.7B→4B→8B in base models *before* RL; outcome-based RL amplifies via "vanishing CoT"; same intervention improves accuracy AND hint-acknowledgement faithfulness (+7.0pp on AIME) |
 | Entropy Phase Transitions (2605.22873) | CoT degrades commonsense/factual tasks by up to -10.88pp (StrategyQA, Llama-3.2-3B) at 53× token cost; -9.60pp on GPQA at 425× token cost; reasoning is a "dynamic decoding state" not a static capability; phase transition from high-entropy exploration to low-entropy structured reasoning detectable in first 64 tokens; reasoning-distilled Qwen3-4B-T still over-reasons (642.5 tokens → 401.1 with routing, no accuracy loss) |
 | Plausible but Wrong (2604.25345) | CMBAgent on 18 astrophysical tasks; 6× perf gap between with/without docs proves context drives performance, not reasoning; Mode C "wrong computation" = 47% of trials without context; failure transparency ✗ on 4/4 Deep Research tasks; T1 SN1a: PRS=0.97 *hides* silent failure where agent treats prior as measurement; T2: physically impossible NFW concentrations (c<2) reported as results; T4: 4/5 trials silently failed without error diagnosis |
 | FaithMATE (2605.24960) | CoT faithfulness is "not a monolithic objective"; 6 metrics measure disjoint facets — they disagree under optimization; Adding Mistake training HURTS Paraphrasing in 8/12 cases (metrics in tension, not orthogonal); model merging confirms tension at parameter level (PP = "partially opposing direction"); pre-alignment Table 1 example: model picks correct answer with reasoning that UNDERMINES it; authors' Limitations admit "it remains unclear whether LLMs have a single explicit reasoning process that any textual trace could recover" |
+| Memorization-Generalization Coexistence (2605.18022) | Noisy labels memorized BEFORE clean ones (inverts early-stopping defense); at 80% noise raw test accuracy collapses BUT internal rule is preserved (matches quadratic-activation analytical solution cos(2π/P·ωi + φ)); frequency filtration recovers near-100% test acc at 80% noise; transformers too: 76.8% → 87.8% test accuracy; rule is DIFFUSELY ENCODED across all neurons — partitioning is bounded vs FF; bigger models accelerate noise memorization (matches Tirumala 2022 on LLMs) |
+
+```
+┌───────────────────────┐       supports          ┌───────────────────────┐
+│  Memorization-Gen.    │ ──────────────────────> │  Premature Confidence │
+│  Coexistence          │  internal rule preserved│  (2605.24396)         │
+│  (2605.18022)         │  but output is masked by│  internal computation │
+│  rule encoded in dom. │  noise memorization →   │  may differ from      │
+│  Fourier, not output  │  same decoupling story  │  output behavior      │
+└───────────────────────┘                         └───────────────────────┘
+         │
+         │ extends
+         v
+┌───────────────────────┐       extends           ┌───────────────────────┐
+│  Memorization-Gen.    │ ──────────────────────> │  Progress Measures    │
+│  Coexistence          │  Nanda's clean-data     │  for Grokking         │
+│  (2605.18022)         │  mechanism extended to  │  (2301.05217)         │
+│  rule survives 80%    │  80% label noise regime │                       │
+│  label noise          │                         │                       │
+└───────────────────────┘                         └───────────────────────┘
+         │
+         │ supports
+         v
+┌───────────────────────┐       supports          ┌───────────────────────┐
+│  Memorization-Gen.    │ ──────────────────────> │  Emergent Abilities   │
+│  Coexistence          │  "emergence" =          │  Mirage               │
+│  (2605.18022)         │  double-descent +       │  (2304.15004)         │
+│  rule learned all     │  output extraction      │  emergence is a       │
+│  along, output masked │  threshold              │  measurement artifact │
+└───────────────────────┘                         └───────────────────────┘
+         │
+         │ challenges
+         v
+┌───────────────────────┐       challenges        ┌───────────────────────┐
+│  Memorization-Gen.    │ ──────────────────────> │  Early stopping       │
+│  Coexistence          │  noise memorized FIRST  │  defense against      │
+│  (2605.18022)         │  in full-batch — early  │  noise (Li 2020)      │
+│  Result 3.2           │  stopping cannot defend │                       │
+└───────────────────────┘                         └───────────────────────┘
+```
 
 ```
 ┌───────────────────────┐       supports          ┌───────────────────────┐
