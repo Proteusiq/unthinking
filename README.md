@@ -7,7 +7,7 @@
 </a>
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
-[![Papers](https://img.shields.io/badge/papers-353-blue)]()
+[![Papers](https://img.shields.io/badge/papers-354-blue)]()
 [![Relationships](https://img.shields.io/badge/relationships-1271-orange)]()
 
 ---
@@ -16,10 +16,10 @@
 
 Do LLMs actually understand or do they predict plausible-sounding tokens without understanding?
 
-This project surveys 353+ papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
+This project surveys 354+ papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
 
 To bring the findings home:
-- **Paper network**: interactive graph of 353+ papers and 1297+ relationships, filterable by stance
+- **Paper network**: interactive graph of 354+ papers and 1302+ relationships, filterable by stance
 - **Experiments**:
   - *Decoding ablation*: reasoning paths exist in base models, hidden by greedy decoding; RL surfaces them
   - *Steering ablation*: safety alignment is a thin layer of refusal patterns that washes off under trivial perturbations
@@ -338,7 +338,7 @@ Inspired by [MATS 9.0 research](https://www.lesswrong.com/posts/mgjtEHeLgkhZZ3cE
 │   ├── case.md               # Formal case against LLM reasoning
 │   ├── paper_graph.md        # Paper interaction graph
 │   ├── rebuttals.md          # Rebuttal matrix
-│   └── explored/             # Individual paper analyses (354 files)
+│   └── explored/             # Individual paper analyses (355 files)
 │       ├── 00-09/ ... 260-269/
 ├── docs/                     # Interactive visualization (GitHub Pages)
 │   ├── index.html            # Paper network graph

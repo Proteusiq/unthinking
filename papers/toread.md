@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **260 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **259 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed), [#71](https://github.com/Proteusiq/unthinking/issues/71), [#72](https://github.com/Proteusiq/unthinking/issues/72).
 
@@ -701,7 +701,7 @@ Papers harvested by arXiv sweep over CoT faithfulness, memorization–generaliza
 |----------|-------|--------|
 | [2605.24960](https://arxiv.org/abs/2605.24960) | Investigating the Interplay between Contextual and Parametric Chain-of-Thought Faithfulness under Optimization | supports |
 | [2605.22873](https://arxiv.org/abs/2605.22873) | When Do LLMs Reason? A Dynamical Systems View via Entropy Phase Transitions | supports |
-| [2605.24396](https://arxiv.org/abs/2605.24396) | Understanding and Mitigating Premature Confidence for Better LLM Reasoning | supports |
+| ~~[2605.24396](https://arxiv.org/abs/2605.24396)~~ | ~~Understanding and Mitigating Premature Confidence for Better LLM Reasoning~~ | ~~supports~~ | DONE #354 |
 | [2605.20410](https://arxiv.org/abs/2605.20410) | Mechanics of Bias and Reasoning: Interpreting the Impact of CoT Prompting on Gender Bias in LLMs | supports |
 | [2605.18022](https://arxiv.org/abs/2605.18022) | Unveiling Memorization-Generalization Coexistence: Arithmetic Tasks with Label Noise | supports |
 | [2605.01750](https://arxiv.org/abs/2605.01750) | Talk is Cheap, Communication is Hard: Dynamic Grounding Failures and Repair in Multi-Agent Negotiation | supports |

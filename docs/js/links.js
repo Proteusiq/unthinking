@@ -8747,4 +8747,40 @@ window.paperLinks = [
     description:
       'Refusal as single direction is one of many valid circuits — non-uniqueness means abliteration removes one pathway, not the only one',
   },
+  // Paper 354: Premature Confidence links
+  {
+    source: '2605.24396',
+    target: '2307.13702',
+    type: 'extends',
+    description:
+      'Lanham early-answering becomes continuous trajectory via Monte Carlo probing at 11 checkpoints, usable as RL reward',
+  },
+  {
+    source: '2605.24396',
+    target: '2305.04388',
+    type: 'supports',
+    description:
+      "Wrong_conclusion flaw (CoT argues D, answer is A) is the mechanistic signature of Turpin's biased-feature unfaithfulness",
+  },
+  {
+    source: '2605.24396',
+    target: '2505.05410',
+    type: 'supports',
+    description:
+      "Hint-acknowledgement transfer: same intervention that reduces premature commit also makes Chen's hint-disclosure faithful (+7pp AIME)",
+  },
+  {
+    source: '2605.24396',
+    target: '2404.15758',
+    type: 'supports',
+    description:
+      "CoT tokens cannot causally shape an answer fixed before reasoning begins — operationalizes Dot-by-Dot's computation-vs-decomposition gap",
+  },
+  {
+    source: '2605.24396',
+    target: '2406.10625',
+    type: 'extends',
+    description:
+      "Pushes Tanneru's confidence-over-truncation from SFT data filter into RL training signal via GRPO advantage shaping",
+  },
 ];

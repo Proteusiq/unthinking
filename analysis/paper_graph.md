@@ -1603,6 +1603,49 @@ These papers have NO direct rebuttals found:
 |--------------|--------------|
 | LLMs Are Echo Chambers (LREC-COLING 2024) | 3.02x more likely to agree; LLama 6.22:1, ChatGPT 1.63:1 |
 
+### 2026-05-30 — Premature Confidence
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Premature Confidence (2605.24396) | Models commit to answer before CoT completes; signature flaw `wrong_conclusion` (CoT argues for X, final answer Y); premature confidence rises monotonically 1.7B→4B→8B in base models *before* RL; outcome-based RL amplifies via "vanishing CoT"; same intervention improves accuracy AND hint-acknowledgement faithfulness (+7.0pp on AIME) |
+
+```
+┌───────────────────────┐       extends           ┌───────────────────────┐
+│  Premature Confidence │ ──────────────────────> │  Lanham 2023          │
+│  (2605.24396)         │  truncation-probing →   │  (2307.13702)         │
+│  trajectory + RL      │  continuous trajectory  │  early answering      │
+│  reward signal        │  + RL training signal   │  measurement          │
+└───────────────────────┘                         └───────────────────────┘
+         │
+         │ supports (same mechanism)
+         v
+┌───────────────────────┐       supports          ┌───────────────────────┐
+│  Premature Confidence │ ──────────────────────> │  Turpin 2023          │
+│  (2605.24396)         │  CoT cannot move        │  (2305.04388)         │
+│  wrong_conclusion:    │  pattern-matched ans;   │  unfaithful CoT       │
+│  CoT argues D, ans A  │  flat-high trajectory   │  hidden bias features │
+└───────────────────────┘                         └───────────────────────┘
+         │
+         │ supports
+         v
+┌───────────────────────┐       supports          ┌───────────────────────┐
+│  Premature Confidence │ ──────────────────────> │  Chen 2025            │
+│  (2605.24396)         │  PCS reduces hint       │  (2505.05410)         │
+│  +7.0pp acknowledge   │  silencing; same        │  reasoning models     │
+│  on AIME hint-inject  │  intervention fixes     │  don't say what they  │
+│                       │  faithfulness           │  think                │
+└───────────────────────┘                         └───────────────────────┘
+         │
+         │ challenges
+         v
+┌───────────────────────┐       challenges        ┌───────────────────────┐
+│  Premature Confidence │ ──────────────────────> │  Outcome-Reward RL    │
+│  (2605.24396)         │  RL amplifies rather    │  framing (DeepSeek-R1,│
+│  vanishing CoT:       │  than fixes premature   │  Jaech 2024)          │
+│  forced verbalize     │  confidence on hard     │                       │
+│  ρ̄=0.11, 169 flaws    │  tasks                  │                       │
+└───────────────────────┘                         └───────────────────────┘
+```
+
 ### 2026-05-27 — Negation Neglect & Circuit Non-Uniqueness
 | Papers Added | Key Findings |
 |--------------|--------------|

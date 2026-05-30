@@ -357,3 +357,4 @@
 | 351 | 2405.19616 | May 2024 | Easy Problems That LLMs Get Wrong | Supports |
 | 352 | 2605.13829 | May 2026 | Negation Neglect: When models fail to learn negations in training | Supports |
 | 353 | 2605.12671 | May 2026 | All Circuits Lead to Rome: Rethinking Functional Anisotropy in Circuit and Sheaf Discovery | Supports |
+| 354 | 2605.24396 | May 2026 | Understanding and Mitigating Premature Confidence for Better LLM Reasoning | Supports |

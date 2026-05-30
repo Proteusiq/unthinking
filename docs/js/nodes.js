@@ -7620,8 +7620,7 @@ window.paperNodes = [
   },
   {
     id: '2605.13829',
-    title:
-      'Negation Neglect: When models fail to learn negations in training',
+    title: 'Negation Neglect: When models fail to learn negations in training',
     shortTitle: 'Negation Neglect',
     date: 'May 2026',
     stance: 'supports',
@@ -7665,5 +7664,28 @@ window.paperNodes = [
     ],
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/353_all_circuits_lead_to_rome.md',
+  },
+  {
+    id: '2605.24396',
+    title: 'Understanding and Mitigating Premature Confidence for Better LLM Reasoning',
+    shortTitle: 'Premature Confidence',
+    date: 'May 2026',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'Models commit to their final answer before completing the CoT — remaining tokens are post-hoc rationalization that cannot causally shape the answer. Premature confidence rises monotonically with model size in base models before any RL, and outcome-based RL amplifies it via a "vanishing CoT" failure mode on hard tasks.',
+    keyEvidence: [
+      'CSQA: prematurely confident CoTs contain 2.8× more logical flaws (0.47 vs 0.17 per sample)',
+      'Premature confidence score rises monotonically across Qwen3-1.7B → 4B → 8B base models, before RL',
+      'Vanishing CoT: forced verbalization yields 84.5× more flaws (169 vs 2), mean Spearman ρ=0.11 vs 0.62',
+      'Hard Countdown Pass@1: 19.1% → 61.1% with PCS (+42pp, 3.2×); reasoning flaws drop 93.5% → 45.5%',
+      'AIME hint-acknowledgement: 15.2% → 22.2% (+7.0pp) — same intervention fixes accuracy AND faithfulness',
+    ],
+    keyQuotes: [
+      'The remaining tokens cannot causally shape the answer, since it is already fixed.',
+      'Larger pretrained models are inherently more prone to premature confidence — they commit to an answer earlier in the CoT even without outcome-based RL amplifying this tendency.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/354_premature_confidence.md',
   },
 ];
