@@ -2,8 +2,8 @@
 
 Raw auto-discovered papers awaiting triage. Review and promote relevant ones to `toread.md`.
 
-**Last updated**: 2026-03-01
-**Last triage**: 2026-03-01
+**Last updated**: 2026-05-30
+**Last triage**: 2026-05-30
 
 ---
 
@@ -201,12 +201,75 @@ Papers that might provide evidence AGAINST the pattern-matching thesis. Critical
 
 ---
 
+## MEDIUM PRIORITY — arXiv Sweep (Apr–May 2026)
+
+Candidates from CoT-faithfulness / memorization–generalization / mechanistic-interpretability queries. Need closer triage before promotion. Single-author papers excluded per selection rules (3 dropped: 2605.11467, 2603.26410, 2605.20441).
+
+### [Mechanisms of Misgeneralization in Physical Sequence Modeling](https://arxiv.org/abs/2605.20299)
+- **arXiv**: 2605.20299
+- **Published**: 2026-05-19
+- **Stance**: SUPPORTS (tentative)
+- **Priority**: 7/10
+- **Why investigate**: Shows generative sequence models violate distributional intent — generated trajectories diverge from training distribution over the physical quantity engineers tried to control. Direct evidence of failure to internalize specified constraints; relevant to pattern-matching vs. understanding.
+
+### [Backtracking When It Strays: Mitigating Dual Exposure Biases in LLM Reasoning Distillation](https://arxiv.org/abs/2605.19433)
+- **arXiv**: 2605.19433
+- **Published**: 2026-05-19
+- **Stance**: SUPPORTS (tentative)
+- **Priority**: 6/10
+- **Why investigate**: Documents exposure bias in CoT distillation — student trajectories drift from teacher distribution. Mechanism for why distilled reasoning fails out-of-distribution.
+
+### [A Sharper Picture of Generalization in Transformers](https://arxiv.org/abs/2605.20988)
+- **arXiv**: 2605.20988
+- **Published**: 2026-05-20
+- **Stance**: BALANCED
+- **Priority**: 7/10
+- **Why investigate**: PAC-Bayes bounds tied to Fourier-spectrum sparsity of target functions. Flat-minima construction. Theoretical framing of what transformers can generalize over — useful for steel-manning generalization claims.
+
+### [From Circuit Evidence to Mechanistic Theory: An Inductive Logic Approach](https://arxiv.org/abs/2605.21303)
+- **arXiv**: 2605.21303
+- **Published**: 2026-05-20
+- **Stance**: BALANCED
+- **Priority**: 6/10
+- **Why investigate**: Proposes Causal Functional Signature formalism to make circuit findings comparable. Methods paper but relevant to interpretability infrastructure used in the corpus.
+
+### [Metacognition as Reward: Reinforcing LLM Reasoning via Knowledge and Regulation Signals](https://arxiv.org/abs/2605.23384)
+- **arXiv**: 2605.23384
+- **Published**: 2026-05-22
+- **Stance**: BALANCED
+- **Priority**: 6/10
+- **Why investigate**: RL with metacognition-derived rewards (knowledge + regulation). Worth checking whether the "metacognition" signal is real introspection or just another proxy that improves benchmarks.
+
+### [On the Memorization of Consistency Distillation for Diffusion Models](https://arxiv.org/abs/2604.23552)
+- **arXiv**: 2604.23552
+- **Published**: 2026-04-26
+- **Stance**: BALANCED
+- **Priority**: 5/10
+- **Why investigate**: Diffusion-specific, but extends "distillation reshapes memorization" finding. Relevant if we want a cross-modality memorization story; otherwise out of scope.
+
+### [Parallel LLM Reasoning for Bias-Resilient, Robust Conceptual Abstraction](https://arxiv.org/abs/2605.20194)
+- **arXiv**: 2605.20194
+- **Published**: 2026-04-04
+- **Stance**: BALANCED
+- **Priority**: 5/10
+- **Why investigate**: Documents cumulative analytical bias in long-document LLM analysis (early concepts dominate, omission errors). Failure-mode evidence, but framed as a method paper.
+
+### [A Distributional View for Visual Mechanistic Interpretability: KL-Minimal Soft-Constraint Principle](https://arxiv.org/abs/2605.17504)
+- **arXiv**: 2605.17504
+- **Published**: 2026-05-17
+- **Stance**: BALANCED
+- **Priority**: 5/10
+- **Why investigate**: Vision-MI formalism; identifies statistical biases in prior MI paradigms. Relevant only if expanding scope beyond language reasoning.
+
+---
+
 ## Summary Statistics
 
-- **Total relevant papers**: 20
-- **HIGH PRIORITY**: 12 papers (promoted to toread.md)
-- **MEDIUM PRIORITY**: 8 papers (review later)
+- **Total relevant papers**: 37
+- **HIGH PRIORITY**: 21 papers (12 original + 9 from Apr–May 2026 sweep, promoted to toread.md)
+- **MEDIUM PRIORITY**: 16 papers (8 original + 8 from Apr–May 2026 sweep)
 - **Discarded**: 56 papers (training methods, efficiency, RAG, domain-specific)
+- **Excluded by single-author rule**: 3 (2605.11467, 2603.26410, 2605.20441)
 
 ### Key Themes
 
