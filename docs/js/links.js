@@ -8855,4 +8855,40 @@ window.paperLinks = [
     description:
       'Companion finding: agents fail at plan execution AND at scientific self-diagnosis on the same multi-step workflows',
   },
+  // Paper 357: FaithMATE links
+  {
+    source: '2605.24960',
+    target: '2305.04388',
+    type: 'supports',
+    description:
+      "Operationalizes Turpin's post-hoc rationalization: metric-specific contextual gains explained as rationalization repair (Appendix F)",
+  },
+  {
+    source: '2605.24960',
+    target: '2307.13702',
+    type: 'extends',
+    description:
+      "Extends Lanham's four corruption metrics from evaluation-time to optimization-time meta-evaluation, exposing metric tension",
+  },
+  {
+    source: '2605.24960',
+    target: '2605.24396',
+    type: 'supports',
+    description:
+      'Table 1 example: model picks correct answer D while CoT undermines D — answer-first, reasoning-after at the per-example level',
+  },
+  {
+    source: '2605.24960',
+    target: '2503.08679',
+    type: 'supports',
+    description:
+      'Direct citation in intro: CoTs appear plausible while weakly coupled to internal computations. FaithMATE quantifies this under optimization.',
+  },
+  {
+    source: '2605.24960',
+    target: '2505.05410',
+    type: 'extends',
+    description:
+      'Reasoning-model faithfulness benchmark extended to a unified optimization framework across contextual and parametric paradigms',
+  },
 ];

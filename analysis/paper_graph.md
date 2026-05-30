@@ -1603,12 +1603,49 @@ These papers have NO direct rebuttals found:
 |--------------|--------------|
 | LLMs Are Echo Chambers (LREC-COLING 2024) | 3.02x more likely to agree; LLama 6.22:1, ChatGPT 1.63:1 |
 
-### 2026-05-30 — Premature Confidence, Entropy Phase Transitions & Plausible-but-Wrong Agents
+### 2026-05-30 — Premature Confidence, Entropy Phase Transitions, Plausible-but-Wrong Agents, FaithMATE
 | Papers Added | Key Findings |
 |--------------|--------------|
 | Premature Confidence (2605.24396) | Models commit to answer before CoT completes; signature flaw `wrong_conclusion` (CoT argues for X, final answer Y); premature confidence rises monotonically 1.7B→4B→8B in base models *before* RL; outcome-based RL amplifies via "vanishing CoT"; same intervention improves accuracy AND hint-acknowledgement faithfulness (+7.0pp on AIME) |
 | Entropy Phase Transitions (2605.22873) | CoT degrades commonsense/factual tasks by up to -10.88pp (StrategyQA, Llama-3.2-3B) at 53× token cost; -9.60pp on GPQA at 425× token cost; reasoning is a "dynamic decoding state" not a static capability; phase transition from high-entropy exploration to low-entropy structured reasoning detectable in first 64 tokens; reasoning-distilled Qwen3-4B-T still over-reasons (642.5 tokens → 401.1 with routing, no accuracy loss) |
 | Plausible but Wrong (2604.25345) | CMBAgent on 18 astrophysical tasks; 6× perf gap between with/without docs proves context drives performance, not reasoning; Mode C "wrong computation" = 47% of trials without context; failure transparency ✗ on 4/4 Deep Research tasks; T1 SN1a: PRS=0.97 *hides* silent failure where agent treats prior as measurement; T2: physically impossible NFW concentrations (c<2) reported as results; T4: 4/5 trials silently failed without error diagnosis |
+| FaithMATE (2605.24960) | CoT faithfulness is "not a monolithic objective"; 6 metrics measure disjoint facets — they disagree under optimization; Adding Mistake training HURTS Paraphrasing in 8/12 cases (metrics in tension, not orthogonal); model merging confirms tension at parameter level (PP = "partially opposing direction"); pre-alignment Table 1 example: model picks correct answer with reasoning that UNDERMINES it; authors' Limitations admit "it remains unclear whether LLMs have a single explicit reasoning process that any textual trace could recover" |
+
+```
+┌───────────────────────┐       supports          ┌───────────────────────┐
+│  FaithMATE            │ ──────────────────────> │  Turpin 2023          │
+│  (2605.24960)         │  metric-specific gains  │  (2305.04388)         │
+│  post-hoc rationaliz. │  ↔ post-hoc rational.   │  unfaithful CoT       │
+│  is real & localized  │  mitigation (operation.)│  hidden bias features │
+└───────────────────────┘                         └───────────────────────┘
+         │
+         │ extends
+         v
+┌───────────────────────┐       extends           ┌───────────────────────┐
+│  FaithMATE            │ ──────────────────────> │  Lanham 2023          │
+│  (2605.24960)         │  four corruption metrics│  (2307.13702)         │
+│  optimization-time    │  → optimization-time    │  evaluation-time      │
+│  meta-evaluation      │  meta-evaluation        │  metrics              │
+└───────────────────────┘                         └───────────────────────┘
+         │
+         │ supports
+         v
+┌───────────────────────┐       supports          ┌───────────────────────┐
+│  FaithMATE            │ ──────────────────────> │  Premature Confidence │
+│  (2605.24960)         │  Table 1: model picks D │  (2605.24396)         │
+│  reasoning-answer     │  with CoT undermining D │  model commits early  │
+│  DECOUPLING shown     │  = pre-committed answer │  reasoning is post-hoc│
+└───────────────────────┘                         └───────────────────────┘
+         │
+         │ challenges
+         v
+┌───────────────────────┐       challenges        ┌───────────────────────┐
+│  FaithMATE            │ ──────────────────────> │  Single-metric        │
+│  (2605.24960)         │  metrics in tension;    │  faithfulness         │
+│  "not monolithic"     │  single-metric gains    │  optimization papers  │
+│  + "disjoint facets"  │  may HARM other metrics │  (FRODO, FRIT, etc.)  │
+└───────────────────────┘                         └───────────────────────┘
+```
 
 ```
 ┌───────────────────────┐       supports          ┌───────────────────────┐

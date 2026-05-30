@@ -7734,4 +7734,28 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/356_plausible_but_wrong.md',
   },
+  {
+    id: '2605.24960',
+    title:
+      'Investigating the Interplay between Contextual and Parametric Chain-of-Thought Faithfulness under Optimization',
+    shortTitle: 'FaithMATE',
+    date: 'May 2026',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      "CoT faithfulness is not a monolithic objective. Six metrics across contextual and parametric paradigms measure disjoint facets that disagree under optimization. Adding Mistake training actively HURTS Paraphrasing faithfulness in 8/12 cases — metrics are in tension, not orthogonal. Authors' Limitations admit it is unclear whether LLMs have any single explicit reasoning process that a textual trace could recover.",
+    keyEvidence: [
+      'Parametric → Contextual transfer: 52/55 cases positive (~95%); Contextual → Parametric: 32/48 (~67%)',
+      'Adding Mistake training degrades Paraphrasing in 8/12 cases — metrics in tension, not orthogonal',
+      'Model merging confirms: EA+FT triples gains (compatible directions); AM+PP cancels (PP = "partially opposing direction")',
+      'Table 1: pre-alignment Qwen2.5-7B picks correct answer D while CoT explicitly argues against D — decoupling demonstrated',
+      'Three disjoint mechanisms: reasoning-answer consistency (shared), post-hoc rationalization mitigation (specific), factual grounding (parametric)',
+    ],
+    keyQuotes: [
+      'CoT faithfulness is not a monolithic objective and therefore requires multifaceted optimization and evaluation.',
+      'It remains unclear whether LLMs have a single explicit reasoning process that any textual trace could recover.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/357_faithmate_contextual_parametric.md',
+  },
 ];
