@@ -7688,4 +7688,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/354_premature_confidence.md',
   },
+  {
+    id: '2605.22873',
+    title: 'When Do LLMs Reason? A Dynamical Systems View via Entropy Phase Transitions',
+    shortTitle: 'Entropy Phase Transitions',
+    date: 'May 2026',
+    stance: 'supports',
+    cluster: 'cot',
+    coreArgument:
+      'Reasoning is not a static property of tasks or models but a dynamic decoding state that emerges during generation. Early-stage entropy dynamics predict whether CoT will help or hurt: monotonic entropy reduction = phase transition to structured reasoning; oscillation/increase = CoT will degrade performance. CoT is net-negative on factual/commonsense tasks at 50-425× token cost.',
+    keyEvidence: [
+      'StrategyQA on Llama-3.2-3B: CoT scores -10.88pp vs Direct (70.52% vs 81.40%) at 53× token cost',
+      'GPQA on Llama-3.2-3B: CoT scores -9.15pp at 425× token cost (6.5 → 2762.7 tokens)',
+      'Qwen3-4B-T (reasoning-distilled, think-mode) still over-reasons: 642.5 tokens → 401.1 with EDRM, no accuracy loss',
+      'EDRM-Global routing: 41-55% token reduction while matching/beating CoT accuracy across 4 models',
+      'EDRM-Inst routing on Qwen2.5-7B: +4.73pp accuracy over CoT with 26.5% token savings',
+    ],
+    keyQuotes: [
+      'LLM reasoning is not a static property of tasks or models, but a dynamic decoding state that emerges during generation.',
+      'For these specific tasks [LSAT, GPQA, StrategyQA], generating a reasoning trace may introduce noise or errors, making direct decoding the superior strategy.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/355_entropy_phase_transitions.md',
+  },
 ];

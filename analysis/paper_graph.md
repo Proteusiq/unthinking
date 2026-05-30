@@ -1603,10 +1603,47 @@ These papers have NO direct rebuttals found:
 |--------------|--------------|
 | LLMs Are Echo Chambers (LREC-COLING 2024) | 3.02x more likely to agree; LLama 6.22:1, ChatGPT 1.63:1 |
 
-### 2026-05-30 — Premature Confidence
+### 2026-05-30 — Premature Confidence & Entropy Phase Transitions
 | Papers Added | Key Findings |
 |--------------|--------------|
 | Premature Confidence (2605.24396) | Models commit to answer before CoT completes; signature flaw `wrong_conclusion` (CoT argues for X, final answer Y); premature confidence rises monotonically 1.7B→4B→8B in base models *before* RL; outcome-based RL amplifies via "vanishing CoT"; same intervention improves accuracy AND hint-acknowledgement faithfulness (+7.0pp on AIME) |
+| Entropy Phase Transitions (2605.22873) | CoT degrades commonsense/factual tasks by up to -10.88pp (StrategyQA, Llama-3.2-3B) at 53× token cost; -9.60pp on GPQA at 425× token cost; reasoning is a "dynamic decoding state" not a static capability; phase transition from high-entropy exploration to low-entropy structured reasoning detectable in first 64 tokens; reasoning-distilled Qwen3-4B-T still over-reasons (642.5 tokens → 401.1 with routing, no accuracy loss) |
+
+```
+┌───────────────────────┐       supports          ┌───────────────────────┐
+│  Entropy Phase Trans. │ ──────────────────────> │  Premature Confidence │
+│  (2605.22873)         │  early-window probes    │  (2605.24396)         │
+│  entropy trajectory   │  predict CoT failure    │  confidence trajectory│
+│  first 64 tokens      │  via different signals  │  truncation probing   │
+└───────────────────────┘                         └───────────────────────┘
+         │
+         │ extends (mechanism)
+         v
+┌───────────────────────┐       extends           ┌───────────────────────┐
+│  Entropy Phase Trans. │ ──────────────────────> │  EDIS                 │
+│  (2605.22873)         │  entropy diagnostics    │  (2602.01288)         │
+│  three descriptors    │  → phase transition     │  entropy dynamics     │
+│  S_H, V_sp, a_vnr     │  framework + routing    │  diagnostic           │
+└───────────────────────┘                         └───────────────────────┘
+         │
+         │ supports
+         v
+┌───────────────────────┐       supports          ┌───────────────────────┐
+│  Entropy Phase Trans. │ ──────────────────────> │  Overthinking o1      │
+│  (2605.22873)         │  Qwen3-4B-T over-       │  (2412.21187)         │
+│  reasoning-distilled  │  reasons 642→401 toks   │  reasoning-distilled  │
+│  STILL over-reasons   │  EDRM detects waste     │  models inefficient   │
+└───────────────────────┘                         └───────────────────────┘
+         │
+         │ challenges
+         v
+┌───────────────────────┐       challenges        ┌───────────────────────┐
+│  Entropy Phase Trans. │ ──────────────────────> │  Static circuit view  │
+│  (2605.22873)         │  reasoning is a         │  (Kim, Conmy, Wang)   │
+│  dynamic decoding     │  decoding-time regime   │  stable mechanistic   │
+│  state, not capability│  not a stable circuit   │  circuits             │
+└───────────────────────┘                         └───────────────────────┘
+```
 
 ```
 ┌───────────────────────┐       extends           ┌───────────────────────┐

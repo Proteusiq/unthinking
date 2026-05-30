@@ -8783,4 +8783,40 @@ window.paperLinks = [
     description:
       "Pushes Tanneru's confidence-over-truncation from SFT data filter into RL training signal via GRPO advantage shaping",
   },
+  // Paper 355: Entropy Phase Transitions links
+  {
+    source: '2605.22873',
+    target: '2605.24396',
+    type: 'supports',
+    description:
+      'Independent dual diagnostic: entropy trajectory predicts CoT failure where confidence trajectory predicts post-hoc rationalization',
+  },
+  {
+    source: '2605.22873',
+    target: '2602.01288',
+    type: 'extends',
+    description:
+      'EDIS entropy diagnostics generalized into phase-transition framework + 3D manifold routing (S_H, V_sp, a_vnr)',
+  },
+  {
+    source: '2605.22873',
+    target: '2412.21187',
+    type: 'supports',
+    description:
+      'Quantifies o1-style over-reasoning on Qwen3-4B-T: 642.5 tokens default → 401.1 with routing, zero accuracy loss',
+  },
+  {
+    source: '2605.22873',
+    target: '2404.15758',
+    type: 'supports',
+    description:
+      'CoT tokens lack inherent reasoning content: oscillating entropy means generation is exploratory pattern-matching, not computation',
+  },
+  {
+    source: '2605.22873',
+    target: '2307.13702',
+    type: 'extends',
+    description:
+      'Early-window probing extended from confidence checkpoints to continuous entropy descriptors over first 64 tokens',
+  },
 ];
