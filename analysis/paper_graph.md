@@ -1603,11 +1603,57 @@ These papers have NO direct rebuttals found:
 |--------------|--------------|
 | LLMs Are Echo Chambers (LREC-COLING 2024) | 3.02x more likely to agree; LLama 6.22:1, ChatGPT 1.63:1 |
 
-### 2026-05-30 — Premature Confidence & Entropy Phase Transitions
+### 2026-05-30 — Premature Confidence, Entropy Phase Transitions & Plausible-but-Wrong Agents
 | Papers Added | Key Findings |
 |--------------|--------------|
 | Premature Confidence (2605.24396) | Models commit to answer before CoT completes; signature flaw `wrong_conclusion` (CoT argues for X, final answer Y); premature confidence rises monotonically 1.7B→4B→8B in base models *before* RL; outcome-based RL amplifies via "vanishing CoT"; same intervention improves accuracy AND hint-acknowledgement faithfulness (+7.0pp on AIME) |
 | Entropy Phase Transitions (2605.22873) | CoT degrades commonsense/factual tasks by up to -10.88pp (StrategyQA, Llama-3.2-3B) at 53× token cost; -9.60pp on GPQA at 425× token cost; reasoning is a "dynamic decoding state" not a static capability; phase transition from high-entropy exploration to low-entropy structured reasoning detectable in first 64 tokens; reasoning-distilled Qwen3-4B-T still over-reasons (642.5 tokens → 401.1 with routing, no accuracy loss) |
+| Plausible but Wrong (2604.25345) | CMBAgent on 18 astrophysical tasks; 6× perf gap between with/without docs proves context drives performance, not reasoning; Mode C "wrong computation" = 47% of trials without context; failure transparency ✗ on 4/4 Deep Research tasks; T1 SN1a: PRS=0.97 *hides* silent failure where agent treats prior as measurement; T2: physically impossible NFW concentrations (c<2) reported as results; T4: 4/5 trials silently failed without error diagnosis |
+
+```
+┌───────────────────────┐       supports          ┌───────────────────────┐
+│  Plausible but Wrong  │ ──────────────────────> │  Premature Confidence │
+│  (2604.25345)         │  agent commits to       │  (2605.24396)         │
+│  T1: agent commits to │  pattern-matched plan   │  model commits early  │
+│  "fit two params"     │  before checking deg.   │  pattern-matched ans  │
+└───────────────────────┘                         └───────────────────────┘
+         │
+         │ supports
+         v
+┌───────────────────────┐       supports          ┌───────────────────────┐
+│  Plausible but Wrong  │ ──────────────────────> │  Reasoning Trap       │
+│  (2604.25345)         │  47% Mode C without     │  (2510.22977)         │
+│  silent wrong comp.   │  context: plausible API │  CoT amplifies tool   │
+│  is dominant failure  │  calls, wrong outputs   │  hallucination        │
+└───────────────────────┘                         └───────────────────────┘
+         │
+         │ supports
+         v
+┌───────────────────────┐       supports          ┌───────────────────────┐
+│  Plausible but Wrong  │ ──────────────────────> │  Limits of Emergent   │
+│  (2604.25345)         │  18-task case study     │  Reasoning in Agentic │
+│  failure transparency │  agentic systems fail   │  Settings (2510.15974)│
+│  ✗ on 4/4 deep tasks  │  on multi-step science  │                       │
+└───────────────────────┘                         └───────────────────────┘
+         │
+         │ supports
+         v
+┌───────────────────────┐       supports          ┌───────────────────────┐
+│  Plausible but Wrong  │ ──────────────────────> │  Beyond Hallucination │
+│  (2604.25345)         │  "outputs consistently  │  Illusion of Under-   │
+│  plausible-looking ≠  │  plausible, failures    │  standing (2510.14665)│
+│  correct              │  remain unreported"     │                       │
+└───────────────────────┘                         └───────────────────────┘
+         │
+         │ challenges
+         v
+┌───────────────────────┐       challenges        ┌───────────────────────┐
+│  Plausible but Wrong  │ ──────────────────────> │  "Agentic AI for      │
+│  (2604.25345)         │  feasibility ≠          │   Science" feasibility│
+│  context, not agent,  │  reliability; agent     │  framing (Denario,    │
+│  drives 85% perf      │  scaffolding inert      │  ScienceBoard, etc.)  │
+└───────────────────────┘                         └───────────────────────┘
+```
 
 ```
 ┌───────────────────────┐       supports          ┌───────────────────────┐

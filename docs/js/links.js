@@ -8819,4 +8819,40 @@ window.paperLinks = [
     description:
       'Early-window probing extended from confidence checkpoints to continuous entropy descriptors over first 64 tokens',
   },
+  // Paper 356: Plausible but Wrong links
+  {
+    source: '2604.25345',
+    target: '2605.24396',
+    type: 'supports',
+    description:
+      'Agentic instantiation of premature commit: T1 agent commits to "fit both H₀ and Ω_Λ" before checking the textbook degeneracy',
+  },
+  {
+    source: '2604.25345',
+    target: '2510.22977',
+    type: 'supports',
+    description:
+      '47% Mode C without docs: plausible API calls, wrong outputs — tool hallucination at scale in scientific workflows',
+  },
+  {
+    source: '2604.25345',
+    target: '2510.15974',
+    type: 'supports',
+    description:
+      'Multi-step agentic reasoning fails on under-constrained tasks: silent over-confidence is the dominant failure mode',
+  },
+  {
+    source: '2604.25345',
+    target: '2510.14665',
+    type: 'supports',
+    description:
+      '"Outputs consistently plausible, failures remain unreported" — illusion of understanding operationalized in agentic science',
+  },
+  {
+    source: '2604.25345',
+    target: '2604.12147',
+    type: 'supports',
+    description:
+      'Companion finding: agents fail at plan execution AND at scientific self-diagnosis on the same multi-step workflows',
+  },
 ];

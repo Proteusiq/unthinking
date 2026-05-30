@@ -7711,4 +7711,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/355_entropy_phase_transitions.md',
   },
+  {
+    id: '2604.25345',
+    title: 'Plausible but Wrong: A Case Study on Agentic Failures in Astrophysical Workflows',
+    shortTitle: 'Plausible but Wrong',
+    date: 'Apr 2026',
+    stance: 'supports',
+    cluster: 'reasoning',
+    coreArgument:
+      'CMBAgent on 18 astrophysical tasks: the dominant failure mode is not crashing but silent wrong computation — syntactically valid code with plausible-looking outputs that are scientifically wrong. Context (CAMB documentation retrieval) drives 6× performance gap; the agent scaffolding itself contributes little. Failure transparency is ✗ on every Deep Research task: the agent never flags pathologies it produces.',
+    keyEvidence: [
+      'Final score 0.85 (with docs) vs 0.15 (no docs) vs ≈0 (raw GPT-4o-mini) — same backbone, 6× gap',
+      'Without docs, 47% of trials are Mode C: code runs, params correct, output wrong',
+      'T1 SN1a: PRS=0.97 hides scientific failure — agent treats flat H₀ prior as a measurement',
+      'T2 NGC 3198: 5/5 trials produce physically impossible NFW concentrations (c<2 or c=30 boundary)',
+      'T4 SLACS: 4/5 trials silently failed with no output or error diagnosis; failure transparency ✗ on 4/4 tasks',
+    ],
+    keyQuotes: [
+      'Agentic systems do not primarily fail by crashing — they fail by producing confident, incorrect results or by silently breaking pipelines without diagnosis.',
+      'Across all tasks, outputs are consistently plausible, but failures remain unreported. The agent never proactively flags known pathologies in its own outputs.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/356_plausible_but_wrong.md',
+  },
 ];
