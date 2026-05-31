@@ -811,26 +811,45 @@ export default function App() {
               completion.
             </p>
             <div className="flex flex-wrap gap-3 text-xs text-gray-300">
-              <span className="flex items-center gap-1.5">
+              <span
+                className="flex items-center gap-1.5 cursor-help"
+                title="The paper supports the thesis that LLM reasoning is predictive completion."
+              >
                 <span
                   className="w-2.5 h-2.5 rounded-full"
                   style={{ background: "#4ade80" }}
                 />
                 supports
               </span>
-              <span className="flex items-center gap-1.5">
+              <span
+                className="flex items-center gap-1.5 cursor-help"
+                title="The paper sits between — mixed or qualified evidence."
+              >
                 <span
                   className="w-2.5 h-2.5 rounded-full"
-                  style={{ background: "#cbd5e1" }}
+                  style={{ background: "#e2e8f0" }}
                 />
                 balanced
               </span>
-              <span className="flex items-center gap-1.5">
+              <span
+                className="flex items-center gap-1.5 cursor-help"
+                title="The paper challenges the thesis — argues for genuine reasoning or finds counter-evidence."
+              >
                 <span
                   className="w-2.5 h-2.5 rounded-full"
                   style={{ background: "#f87171" }}
                 />
                 challenges
+              </span>
+              <span
+                className="flex items-center gap-1.5 cursor-help text-yellow-300"
+                title="Smoking-gun papers — pre-flagged as carrying the strongest direct evidence. They pulse and appear larger in the galaxy."
+              >
+                <span
+                  className="w-2.5 h-2.5 rounded-full"
+                  style={{ background: "#facc15" }}
+                />
+                smoking gun
               </span>
             </div>
             <p className="text-xs text-gray-400 h-5">
