@@ -634,7 +634,7 @@ export default function App() {
         if (target?.tagName === "INPUT" || target?.tagName === "TEXTAREA")
           return;
         const input = document.querySelector<HTMLInputElement>(
-          'input[placeholder^="e.g."]',
+          'input[placeholder^="press /"]',
         );
         if (input) {
           e.preventDefault();
@@ -957,14 +957,14 @@ export default function App() {
           </svg>
         </button>
         {galaxyPoints.length > 0 && (
-          <div className="absolute bottom-24 left-1/2 -translate-x-1/2 w-full max-w-2xl px-4 pointer-events-auto">
+          <div className="absolute bottom-28 left-1/2 -translate-x-1/2 w-full max-w-2xl px-4 pointer-events-auto">
             <div className="relative">
               <input
                 type="text"
-                placeholder="e.g. premature confidence, CoT faithfulness, memorization..."
+                placeholder="press / and ask:  premature confidence, CoT faithfulness, memorization…"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-black/40 backdrop-blur-lg border border-white/10 rounded-full py-3 px-8 text-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                className="w-full bg-black/40 backdrop-blur-lg border border-white/10 rounded-full py-3 px-8 text-base focus:ring-2 focus:ring-white/30 focus:outline-none"
               />
             </div>
           </div>
