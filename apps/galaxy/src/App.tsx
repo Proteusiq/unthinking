@@ -196,17 +196,30 @@ const LoadingUI: FC<{ status: string; progress: number }> = ({
   status,
   progress,
 }) => (
-  <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center z-10 bg-black/50 backdrop-blur-sm">
-    <div className="w-full max-w-md text-center p-4">
-      <Logo className="w-24 mx-auto mb-6" />
-      <h2 className="text-2xl font-bold mb-4">Initializing Galaxy...</h2>
-      <div className="w-full bg-gray-700 rounded-full h-2.5 mb-2">
+  <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center z-10 bg-black/70 backdrop-blur-md">
+    <div className="w-full max-w-lg text-center p-6">
+      <Logo className="w-20 mx-auto mb-6" />
+      <p className="text-xs uppercase tracking-[0.3em] text-gray-400 mb-2">
+        First visit
+      </p>
+      <h2 className="text-3xl font-bold mb-3 text-white">
+        Loading the evidence
+      </h2>
+      <p className="text-sm text-gray-300 mb-6 leading-relaxed">
+        EmbeddingGemma is loading onto your GPU. Then 360 paper findings
+        will be embedded in your browser — nothing leaves your machine.
+        <br />
+        <span className="text-gray-500">
+          This is a one-time cost. Subsequent visits load instantly.
+        </span>
+      </p>
+      <div className="w-full bg-white/10 rounded-full h-1.5 mb-3 overflow-hidden">
         <div
-          className="bg-blue-500 h-2.5 rounded-full transition-all duration-500 ease-out"
+          className="bg-white h-1.5 rounded-full transition-all duration-500 ease-out"
           style={{ width: `${progress}%` }}
         ></div>
       </div>
-      <p className="text-gray-400 h-5">{status}</p>
+      <p className="text-gray-400 text-sm h-5">{status}</p>
     </div>
   </div>
 );
@@ -600,6 +613,30 @@ export default function App() {
     void generateGalaxy();
   }, [generateGalaxy]);
 
+  // Keyboard shortcuts: '/' focuses search, Esc closes the info card.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedPoint(null);
+        return;
+      }
+      if (e.key === "/" && !e.metaKey && !e.ctrlKey) {
+        const target = e.target as HTMLElement | null;
+        if (target?.tagName === "INPUT" || target?.tagName === "TEXTAREA")
+          return;
+        const input = document.querySelector<HTMLInputElement>(
+          'input[placeholder^="e.g."]',
+        );
+        if (input) {
+          e.preventDefault();
+          input.focus();
+        }
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   useEffect(() => {
     pendingQuery.current = searchQuery;
 
@@ -700,10 +737,10 @@ export default function App() {
               />
               <EffectComposer enableNormalPass={false}>
                 <Bloom
-                  luminanceThreshold={0.1}
-                  luminanceSmoothing={0.9}
+                  luminanceThreshold={0.25}
+                  luminanceSmoothing={0.8}
                   height={300}
-                  intensity={1.5}
+                  intensity={0.9}
                 />
               </EffectComposer>
             </Suspense>
@@ -767,8 +804,72 @@ export default function App() {
                   : generationStatus || "Loading model..."}
             </p>
             {galaxyPoints.length > 0 && (
+              <div>
+                <h2 className="font-semibold mb-2 text-gray-200 text-sm">
+                  Quick tour
+                </h2>
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    onClick={() => {
+                      const target = galaxyPoints.find(
+                        (p) => p.entry.smoking_gun,
+                      );
+                      if (target) handlePointFocus(target);
+                    }}
+                    className="text-xs px-3 py-1.5 rounded-full border border-yellow-400/30 text-yellow-300 bg-yellow-500/5 hover:bg-yellow-500/15 transition-colors"
+                  >
+                    ● Smoking guns ({smokingGuns.length})
+                  </button>
+                  <button
+                    onClick={() => {
+                      const target = galaxyPoints.find(
+                        (p) => p.entry.cluster === "cot",
+                      );
+                      if (target) handlePointFocus(target);
+                    }}
+                    className="text-xs px-3 py-1.5 rounded-full border border-white/10 text-gray-300 bg-white/5 hover:bg-white/10 transition-colors"
+                  >
+                    Chain-of-thought
+                  </button>
+                  <button
+                    onClick={() => {
+                      const target = galaxyPoints.find(
+                        (p) => p.entry.cluster === "faithfulness",
+                      );
+                      if (target) handlePointFocus(target);
+                    }}
+                    className="text-xs px-3 py-1.5 rounded-full border border-white/10 text-gray-300 bg-white/5 hover:bg-white/10 transition-colors"
+                  >
+                    Faithfulness
+                  </button>
+                  <button
+                    onClick={() => {
+                      const target = galaxyPoints.find(
+                        (p) => p.entry.cluster === "memorization",
+                      );
+                      if (target) handlePointFocus(target);
+                    }}
+                    className="text-xs px-3 py-1.5 rounded-full border border-white/10 text-gray-300 bg-white/5 hover:bg-white/10 transition-colors"
+                  >
+                    Memorization
+                  </button>
+                  <button
+                    onClick={() => {
+                      const target = galaxyPoints.find(
+                        (p) => p.entry.stance === "challenges",
+                      );
+                      if (target) handlePointFocus(target);
+                    }}
+                    className="text-xs px-3 py-1.5 rounded-full border border-red-400/30 text-red-300 bg-red-500/5 hover:bg-red-500/15 transition-colors"
+                  >
+                    Counter-arguments
+                  </button>
+                </div>
+              </div>
+            )}
+            {galaxyPoints.length > 0 && (
               <div className="flex flex-col min-h-0 flex-grow">
-                <h2 className="font-semibold mb-2 text-gray-200">
+                <h2 className="font-semibold mb-2 text-gray-200 text-sm">
                   Search Results
                 </h2>
                 <div className="overflow-y-auto pr-2">
@@ -778,31 +879,46 @@ export default function App() {
                       papers.
                     </p>
                   )}
-                  {searchResults.slice(0, 25).map((result, i) => (
-                    <div
-                      key={result.entry.id}
-                      onClick={() => handlePointFocus(result)}
-                      className={`p-2 mb-1 rounded-md cursor-pointer transition-colors ${
-                        i === 0
-                          ? "bg-blue-500/30 border border-blue-400/50"
-                          : "bg-white/5 hover:bg-white/10"
-                      }`}
-                    >
-                      <div className="flex justify-between items-start gap-2">
-                        <div className="min-w-0">
-                          <p className="font-semibold text-sm truncate">
-                            #{result.entry.id} {result.entry.title}
-                          </p>
-                          <p className="text-xs text-gray-400 truncate">
-                            {result.entry.stance} · {result.entry.date}
-                          </p>
+                  {searchResults.slice(0, 25).map((result, i) => {
+                    const color = stanceColor(result.entry.stance);
+                    return (
+                      <div
+                        key={result.entry.id}
+                        onClick={() => handlePointFocus(result)}
+                        className="p-2 mb-1 rounded-md cursor-pointer transition-colors bg-white/5 hover:bg-white/10 border-l-2"
+                        style={{
+                          borderLeftColor: color,
+                          background:
+                            i === 0 ? `${color}22` : undefined,
+                        }}
+                      >
+                        <div className="flex justify-between items-start gap-2">
+                          <div className="min-w-0">
+                            <p className="font-semibold text-sm truncate">
+                              #{result.entry.id} {result.entry.title}
+                            </p>
+                            <p className="text-xs text-gray-400 truncate">
+                              {result.entry.stance} · {result.entry.date}
+                              {result.entry.smoking_gun && (
+                                <span className="text-yellow-300 ml-1">
+                                  ● smoking gun
+                                </span>
+                              )}
+                            </p>
+                          </div>
+                          <span
+                            className="text-xs font-mono px-1.5 py-0.5 rounded shrink-0"
+                            style={{
+                              background: `${color}33`,
+                              color,
+                            }}
+                          >
+                            {result.similarity.toFixed(3)}
+                          </span>
                         </div>
-                        <span className="text-xs font-mono bg-blue-400/20 text-blue-300 px-1.5 py-0.5 rounded shrink-0">
-                          {result.similarity.toFixed(3)}
-                        </span>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             )}
