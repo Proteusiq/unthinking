@@ -8,25 +8,30 @@ import {
 const MODEL_ID = "onnx-community/embeddinggemma-300m-ONNX";
 let model: PreTrainedModel | null = null;
 let tokenizer: PreTrainedTokenizer | null = null;
-let device: "webgpu" | "wasm" | null = null;
 
 self.onmessage = async (event) => {
   const { type, payload } = event.data;
   if (type === "load-model") {
     try {
-      // Only use webgpu if available
-      let isWebGPUAvailable = false;
-      if (navigator.gpu) {
-        try {
-          isWebGPUAvailable = !!(await navigator.gpu.requestAdapter());
-        } catch {}
+      // WebGPU required. No fallback — the corpus visualization needs
+      // it, and silently dropping to WASM means 5-minute embed loops on
+      // CPU. Better to tell the user.
+      if (!("gpu" in navigator) || !navigator.gpu) {
+        throw new Error(
+          "WebGPU is not available in this browser. Please use Chrome, Edge, Brave, or Safari Tech Preview.",
+        );
       }
-      device = isWebGPUAvailable ? "webgpu" : "wasm";
+      const adapter = await navigator.gpu.requestAdapter();
+      if (!adapter) {
+        throw new Error(
+          "WebGPU adapter could not be acquired. Try restarting the browser or check chrome://gpu.",
+        );
+      }
       tokenizer = await AutoTokenizer.from_pretrained(MODEL_ID);
       model = await AutoModel.from_pretrained(MODEL_ID, {
-        device,
+        device: "webgpu",
         dtype: "q4",
-        model_file_name: isWebGPUAvailable ? "model_no_gather" : "model",
+        model_file_name: "model_no_gather",
         progress_callback: (progress) => {
           if (
             progress.status === "progress" &&
@@ -39,13 +44,13 @@ self.onmessage = async (event) => {
               type: "progress",
               payload: {
                 percentage,
-                status: `Loading model... ${percentage}%`,
+                status: `Loading EmbeddingGemma… ${percentage}%`,
               },
             });
           }
         },
       });
-      self.postMessage({ type: "ready", payload: { device } });
+      self.postMessage({ type: "ready", payload: { device: "webgpu" } });
     } catch (error) {
       self.postMessage({
         type: "error",

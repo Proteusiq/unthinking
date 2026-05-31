@@ -19,58 +19,71 @@ import {
   GALAXY_RADIUS,
   analysisUrl,
   loadCorpus,
+  paperSize,
   stanceColor,
   type PaperEntry,
 } from "./constants";
 import Logo from "./components/Logo";
 import { useModel } from "./components/useModel";
+import {
+  fingerprintCorpus,
+  loadCachedIndex,
+  saveCachedIndex,
+  type IndexedEntry,
+} from "./components/embeddingCache";
 
+const EMBED_MODEL_ID = "onnx-community/embeddinggemma-300m-ONNX";
+
+// Menu visualization is the corpus stance distribution itself.
+// 258 supports (green) / 80 balanced (gray) / 22 challenges (red).
+// Three drifting clouds, sized in proportion to how much of the
+// literature each stance represents.
 const MainMenuGalaxy: FC = () => {
   const groupRef = useRef<THREE.Group>(null!);
 
-  const { positions, colors } = useMemo(() => {
-    const numPoints = 25000;
-    const pos = new Float32Array(numPoints * 3);
-    const col = new Float32Array(numPoints * 3);
-    const numArms = 5;
-    const armSeparation = (2 * Math.PI) / numArms;
-    const spread = 2;
-    const galaxyRadius = 80;
+  const { positions, colors, sizes } = useMemo(() => {
+    const clouds = [
+      { color: new THREE.Color("#4ade80"), count: 6500, scatter: 55 },
+      { color: new THREE.Color("#cbd5e1"), count: 2000, scatter: 48 },
+      { color: new THREE.Color("#f87171"), count: 550, scatter: 42 },
+    ];
+    const total = clouds.reduce((n, c) => n + c.count, 0);
+    const pos = new Float32Array(total * 3);
+    const col = new Float32Array(total * 3);
+    const sz = new Float32Array(total);
+    let cursor = 0;
+    for (const cloud of clouds) {
+      for (let i = 0; i < cloud.count; i++) {
+        // Center-weighted: more density toward the middle.
+        const r = Math.pow(Math.random(), 1.6) * cloud.scatter;
+        const phi = Math.acos(2 * Math.random() - 1);
+        const theta = Math.random() * Math.PI * 2;
+        const x = r * Math.sin(phi) * Math.cos(theta);
+        const y = r * Math.cos(phi) * 0.55;
+        const z = r * Math.sin(phi) * Math.sin(theta);
 
-    const centerColor = new THREE.Color("#ffcc77");
-    const armColor = new THREE.Color("#8080ff");
+        pos[cursor * 3] = x;
+        pos[cursor * 3 + 1] = y;
+        pos[cursor * 3 + 2] = z;
 
-    for (let i = 0; i < numPoints; i++) {
-      const dist = Math.pow(Math.random(), 2) * galaxyRadius;
-      const angle =
-        Math.floor(i / (numPoints / numArms)) * armSeparation +
-        dist * 0.1 +
-        (Math.random() - 0.5) * 0.1;
-      const x = Math.cos(angle) * dist + (Math.random() - 0.5) * spread;
-      const y = (Math.random() - 0.5) * spread * 1.5;
-      const z = Math.sin(angle) * dist + (Math.random() - 0.5) * spread;
+        // Slight color variation gives texture.
+        const c = cloud.color.clone();
+        const jitter = 0.85 + Math.random() * 0.15;
+        col[cursor * 3] = c.r * jitter;
+        col[cursor * 3 + 1] = c.g * jitter;
+        col[cursor * 3 + 2] = c.b * jitter;
 
-      pos[i * 3] = x;
-      pos[i * 3 + 1] = y;
-      pos[i * 3 + 2] = z;
-
-      const lerpFactor = dist / galaxyRadius;
-      const finalColor = new THREE.Color().lerpColors(
-        centerColor,
-        armColor,
-        lerpFactor,
-      );
-
-      col[i * 3] = finalColor.r;
-      col[i * 3 + 1] = finalColor.g;
-      col[i * 3 + 2] = finalColor.b;
+        sz[cursor] = 0.08 + Math.random() * 0.04;
+        cursor++;
+      }
     }
-    return { positions: pos, colors: col };
+    return { positions: pos, colors: col, sizes: sz };
   }, []);
 
   useFrame((_, delta) => {
     if (groupRef.current) {
-      groupRef.current.rotation.y += delta * 0.04;
+      groupRef.current.rotation.y += delta * 0.03;
+      groupRef.current.rotation.x = Math.sin(Date.now() * 0.0001) * 0.1;
     }
   });
 
@@ -80,13 +93,14 @@ const MainMenuGalaxy: FC = () => {
         <bufferGeometry attach="geometry">
           <bufferAttribute attach="attributes-position" args={[positions, 3]} />
           <bufferAttribute attach="attributes-color" args={[colors, 3]} />
+          <bufferAttribute attach="attributes-size" args={[sizes, 1]} />
         </bufferGeometry>
         <pointsMaterial
           attach="material"
-          size={0.08}
+          size={0.12}
           sizeAttenuation
           transparent
-          opacity={0.9}
+          opacity={0.85}
           vertexColors
         />
       </points>
@@ -134,26 +148,47 @@ const MenuScene: FC = () => (
 );
 
 const MainMenuUI: FC<{ onLoadModel: () => void }> = ({ onLoadModel }) => (
-  <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-center p-4 z-10 pointer-events-none bg-black/20">
-    <h1 className="text-shadow-lg text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-2 animate-fade-in-down">
-      Unthinking — Paper Galaxy
+  <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-center p-4 z-10 pointer-events-none bg-gradient-to-b from-black/40 via-transparent to-black/60">
+    <p
+      className="text-shadow-lg text-xs sm:text-sm uppercase tracking-[0.3em] text-gray-300 mb-3 animate-fade-in-down"
+      style={{ letterSpacing: "0.35em" }}
+    >
+      The case against LLM reasoning
+    </p>
+    <h1 className="text-shadow-lg text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-3 animate-fade-in-down leading-none">
+      Unthinking
     </h1>
     <p
-      className="text-shadow-lg text-sm sm:text-md md:text-lg lg:text-xl text-gray-100 mb-6 animate-fade-in-down"
+      className="text-shadow-lg text-base sm:text-lg md:text-xl text-gray-100 mb-2 animate-fade-in-down max-w-2xl"
       style={{ animationDelay: "200ms" }}
     >
-      359 papers on LLM reasoning, projected in 3D semantic space.
-      <br />
-      Powered by EmbeddingGemma and Transformers.js — runs entirely in your
-      browser.
+      <span className="text-green-400 font-semibold">359 papers.</span>{" "}
+      <span className="text-yellow-300 font-semibold">35 smoking guns.</span>{" "}
+      <span className="text-white">One story.</span>
+    </p>
+    <p
+      className="text-shadow-lg text-sm sm:text-base text-gray-300 mb-8 animate-fade-in-down max-w-2xl"
+      style={{ animationDelay: "300ms" }}
+    >
+      The literature converges: what we call &ldquo;reasoning&rdquo; in large
+      language models is predictive completion. Below, the evidence — every
+      paper a star, color is its stance, size is its weight, smoking guns
+      pulse.
     </p>
     <button
       onClick={onLoadModel}
-      className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-lg text-xl transition-all duration-300 transform hover:scale-105 pointer-events-auto animate-fade-in-up"
+      className="bg-white hover:bg-gray-200 text-black font-bold py-3 px-10 rounded-full text-lg transition-all duration-300 transform hover:scale-105 pointer-events-auto animate-fade-in-up shadow-2xl"
       style={{ animationDelay: "600ms" }}
     >
-      Enter the galaxy
+      Enter the evidence →
     </button>
+    <p
+      className="text-shadow-lg text-xs text-gray-500 mt-4 animate-fade-in-up"
+      style={{ animationDelay: "800ms" }}
+    >
+      Runs entirely in your browser via EmbeddingGemma + Transformers.js.
+      Nothing leaves your machine.
+    </p>
   </div>
 );
 
@@ -206,7 +241,10 @@ const InteractiveSphere: FC<InteractiveSphereProps> = ({
   const labelRef = useRef<HTMLDivElement>(null!);
   const { camera, invalidate } = useThree();
 
-  useFrame(() => {
+  const isSmokingGun = point.entry.smoking_gun;
+  const radius = paperSize(point.entry);
+
+  useFrame((state) => {
     if (!meshRef.current || !materialRef.current || !labelRef.current) return;
 
     if (materialRef.current.opacity < 1) {
@@ -227,6 +265,17 @@ const InteractiveSphere: FC<InteractiveSphereProps> = ({
     const meshScale = sphereVisibilityScale * hoverScale;
     meshRef.current.scale.set(meshScale, meshScale, meshScale);
 
+    // Smoking-gun papers slowly pulse — visible from across the galaxy.
+    if (isSmokingGun) {
+      const baseGlow = similarity !== null ? 1.2 : 0.85;
+      const t = state.clock.elapsedTime + point.entry.id * 0.37;
+      materialRef.current.emissiveIntensity =
+        baseGlow + Math.sin(t * 1.6) * 0.35;
+    } else {
+      materialRef.current.emissiveIntensity =
+        similarity !== null ? 1.0 : 0.45;
+    }
+
     if (labelRef.current) {
       labelRef.current.style.transform = `translateX(-50%) scale(${materialRef.current.opacity})`;
     }
@@ -237,7 +286,6 @@ const InteractiveSphere: FC<InteractiveSphereProps> = ({
   const titleLabel = `#${point.entry.id} ${point.entry.title}`;
   const labelText =
     similarity !== null ? `(${similarity.toFixed(2)}) ${titleLabel}` : titleLabel;
-  const glowIntensity = similarity !== null ? 1.0 : 0.45;
 
   return (
     <group position={point.position}>
@@ -253,13 +301,13 @@ const InteractiveSphere: FC<InteractiveSphereProps> = ({
           setIsHovered(false);
         }}
       >
-        <sphereGeometry args={[0.2, 16, 16]} />
+        <sphereGeometry args={[radius, 16, 16]} />
         <meshStandardMaterial
           ref={materialRef}
           color={color}
-          roughness={0.5}
+          roughness={0.4}
           emissive={color}
-          emissiveIntensity={glowIntensity}
+          emissiveIntensity={0.45}
           transparent
           opacity={0}
         />
@@ -397,18 +445,13 @@ const Scene: FC<SceneProps> = ({
 };
 
 export default function App() {
-  const {
-    device,
-    loadModel,
-    isLoading,
-    isReady,
-    progress,
-    status,
-    error,
-    embed,
-  } = useModel();
+  const { loadModel, isLoading, isReady, progress, status, error, embed } =
+    useModel();
 
-  const [corpus, setCorpus] = useState<PaperEntry[]>([]);
+  const [corpus, setCorpus] = useState<{
+    entries: PaperEntry[];
+    raw: string;
+  }>({ entries: [], raw: "" });
   const [galaxyPoints, setGalaxyPoints] = useState<GalaxyPoint[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
@@ -421,6 +464,13 @@ export default function App() {
   const isSearching = useRef(false);
   const pendingQuery = useRef<string | null>(null);
 
+  // Smoking-gun papers with at least one quote — for the bottom ticker.
+  const smokingGuns = useMemo(() => {
+    return galaxyPoints
+      .filter((p) => p.entry.smoking_gun && p.entry.quotes.length > 0)
+      .sort((a, b) => a.entry.id - b.entry.id);
+  }, [galaxyPoints]);
+
   useEffect(() => {
     loadCorpus()
       .then(setCorpus)
@@ -430,15 +480,14 @@ export default function App() {
   }, []);
 
   const generateGalaxy = useCallback(async () => {
-    if (!isReady || corpus.length === 0 || galaxyPoints.length > 0) {
+    if (!isReady || corpus.entries.length === 0 || galaxyPoints.length > 0) {
       return;
     }
     setIsGenerating(true);
     setSearchResults([]);
     setSearchQuery("");
     lastQueryEmbedding.current = null;
-    setGenerationStatus("Projecting galaxy...");
-    const entries = corpus.filter((e) => e.core_finding?.length > 0);
+    const entries = corpus.entries.filter((e) => e.core_finding?.length > 0);
     const sentences = entries.map((e) => e.core_finding);
     if (sentences.length < 3) {
       setGenerationStatus("Not enough findings to project.");
@@ -446,28 +495,58 @@ export default function App() {
       return;
     }
 
-    const batch_size = device === "webgpu" ? 4 : 1;
+    const fingerprint = fingerprintCorpus(corpus.raw, EMBED_MODEL_ID);
+
     try {
+      // Try the IndexedDB cache first — first visit takes ~30-60s on
+      // WebGPU, but every visit after that loads instantly.
+      setGenerationStatus("Checking cache…");
+      const cached = await loadCachedIndex(fingerprint);
+      if (cached && cached.length === entries.length) {
+        const byId = new Map(cached.map((c) => [c.id, c]));
+        const newPoints: GalaxyPoint[] = [];
+        for (let i = 0; i < entries.length; i++) {
+          const entry = entries[i];
+          const c = byId.get(entry.id);
+          if (!c) {
+            // Cache shape changed under us — treat as miss.
+            throw new Error("cache-mismatch");
+          }
+          newPoints.push({
+            text: sentences[i],
+            position: c.position,
+            embedding: c.embedding,
+            entry,
+          });
+        }
+        setGalaxyPoints(newPoints);
+        setGenerationStatus(
+          `Galaxy restored from cache — ${newPoints.length} papers.`,
+        );
+        setIsSidebarOpen(false);
+        return;
+      }
+
+      // Cache miss → embed all findings in the browser via EmbeddingGemma.
+      const batch_size = 4;
       const embeddings: number[][] = [];
       const start = performance.now();
-      setGenerationStatus(`Embedding... (0%)`);
+      setGenerationStatus(`Embedding 0 of ${sentences.length}…`);
       for (let i = 0; i < sentences.length; i += batch_size) {
         const batch = sentences.slice(i, i + batch_size);
-        const progress = ((i + batch.length) / sentences.length) * 100;
-
         const batchEmbeddings = await embed(batch, {
           padding: true,
           truncation: true,
           max_length: 256,
         });
         embeddings.push(...batchEmbeddings);
-        setGenerationStatus(`Embedding... (${progress.toFixed(0)}%)`);
+        const done = Math.min(i + batch_size, sentences.length);
+        setGenerationStatus(`Embedding ${done} of ${sentences.length}…`);
       }
-      const end = performance.now();
-      const embeddingTime = end - start;
-      console.log(`Embedding time: ${embeddingTime}ms`);
+      const embeddingMs = performance.now() - start;
+      console.log(`Embedding time: ${embeddingMs.toFixed(0)}ms`);
 
-      setGenerationStatus("Running UMAP to create 3D projection...");
+      setGenerationStatus("Projecting to 3D…");
       const nNeighbors = Math.max(2, Math.min(sentences.length - 1, 15));
       const umap = new UMAP({ nComponents: 3, nNeighbors, minDist: 0.1 });
       const coords3D: number[][] = umap.fit(embeddings);
@@ -489,6 +568,7 @@ export default function App() {
         number,
         number,
       ][];
+
       const newPoints: GalaxyPoint[] = sentences.map((text, i) => ({
         text,
         position: positions[i],
@@ -497,16 +577,24 @@ export default function App() {
       }));
       setGalaxyPoints(newPoints);
       setGenerationStatus(
-        `Galaxy ready — ${newPoints.length} papers projected. Search or click any star.`,
+        `Galaxy ready — ${newPoints.length} papers projected. Next load will be instant.`,
       );
       setIsSidebarOpen(false);
+
+      // Persist for next visit. Don't block on this.
+      const toCache: IndexedEntry[] = entries.map((entry, i) => ({
+        id: entry.id,
+        embedding: embeddings[i],
+        position: positions[i],
+      }));
+      void saveCachedIndex(fingerprint, toCache);
     } catch (e) {
       console.error(e);
       setGenerationStatus("An error occurred during generation.");
     } finally {
       setIsGenerating(false);
     }
-  }, [isReady, corpus, galaxyPoints.length, embed, device]);
+  }, [isReady, corpus, galaxyPoints.length, embed]);
 
   useEffect(() => {
     void generateGalaxy();
@@ -744,15 +832,39 @@ export default function App() {
           </svg>
         </button>
         {galaxyPoints.length > 0 && (
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-full max-w-2xl px-4 pointer-events-auto">
+          <div className="absolute bottom-24 left-1/2 -translate-x-1/2 w-full max-w-2xl px-4 pointer-events-auto">
             <div className="relative">
               <input
                 type="text"
                 placeholder="e.g. premature confidence, CoT faithfulness, memorization..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-black/30 backdrop-blur-lg border border-white/10 rounded-full py-3 px-8 text-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                className="w-full bg-black/40 backdrop-blur-lg border border-white/10 rounded-full py-3 px-8 text-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
               />
+            </div>
+          </div>
+        )}
+        {smokingGuns.length > 0 && (
+          <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent pointer-events-auto">
+            <div className="overflow-hidden py-3 border-t border-yellow-500/20">
+              <div className="ticker-track">
+                {[...smokingGuns, ...smokingGuns].map((point, i) => (
+                  <button
+                    key={`${point.entry.id}-${i}`}
+                    onClick={() => handlePointFocus(point)}
+                    className="inline-flex items-center gap-3 mx-6 text-sm hover:text-yellow-300 transition-colors"
+                  >
+                    <span className="text-yellow-400 font-bold">●</span>
+                    <span className="text-gray-300 italic">
+                      &ldquo;{point.entry.quotes[0]?.slice(0, 200)}
+                      {(point.entry.quotes[0]?.length ?? 0) > 200 ? "…" : ""}&rdquo;
+                    </span>
+                    <span className="text-gray-500 font-mono text-xs">
+                      #{point.entry.id}
+                    </span>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         )}

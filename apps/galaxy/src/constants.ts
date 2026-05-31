@@ -32,10 +32,29 @@ export const stanceColor = (stance: PaperEntry["stance"]): string => {
   }
 };
 
-export const loadCorpus = async (): Promise<PaperEntry[]> => {
+// Larger papers carry the argument. Smoking guns are the most prominent;
+// otherwise, scale by depth-of-engagement (proxied by analysis word count).
+export const paperSize = (entry: PaperEntry): number => {
+  if (entry.smoking_gun) return 0.55;
+  if (entry.word_count >= 2000) return 0.38;
+  if (entry.word_count >= 1400) return 0.28;
+  if (entry.word_count >= 900) return 0.22;
+  return 0.16;
+};
+
+export const isHeavyweight = (entry: PaperEntry): boolean =>
+  entry.smoking_gun || entry.word_count >= 2000;
+
+export interface LoadedCorpus {
+  entries: PaperEntry[];
+  raw: string;
+}
+
+export const loadCorpus = async (): Promise<LoadedCorpus> => {
   const response = await fetch("./corpus.json");
   if (!response.ok) {
     throw new Error(`Failed to load corpus.json: ${response.status}`);
   }
-  return (await response.json()) as PaperEntry[];
+  const raw = await response.text();
+  return { entries: JSON.parse(raw) as PaperEntry[], raw };
 };

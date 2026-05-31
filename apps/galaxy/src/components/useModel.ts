@@ -6,12 +6,12 @@ interface ModelLoaderState {
   error: string | null;
   progress: number;
   status: string;
-  device: "webgpu" | "wasm" | null;
+  device: "webgpu" | null;
 }
 
 let worker: Worker | null = null;
 let workerReady = false;
-let pendingEmbeddings: ((embeddings: number[][]) => void)[] = [];
+const pendingEmbeddings: ((embeddings: number[][]) => void)[] = [];
 
 export const useModel = () => {
   const [state, setState] = useState<ModelLoaderState>({
@@ -74,7 +74,7 @@ export const useModel = () => {
       status: "Initializing...",
     }));
     worker?.postMessage({ type: "load-model" });
-    return new Promise<{ device: "webgpu" | "wasm" }>((resolve, reject) => {
+    return new Promise<{ device: "webgpu" }>((resolve, reject) => {
       const checkReady = () => {
         if (workerReady && state.device) {
           resolve({ device: state.device });
@@ -88,12 +88,18 @@ export const useModel = () => {
     });
   }, [state.error, state.device]);
 
-  const embed = useCallback(async (sentences: string[], options: any) => {
-    return new Promise<number[][]>((resolve, _reject) => {
-      pendingEmbeddings.push(resolve);
-      worker?.postMessage({ type: "embed", payload: { sentences, options } });
-    });
-  }, []);
+  const embed = useCallback(
+    async (
+      sentences: string[],
+      options: Record<string, unknown>,
+    ): Promise<number[][]> => {
+      return new Promise<number[][]>((resolve) => {
+        pendingEmbeddings.push(resolve);
+        worker?.postMessage({ type: "embed", payload: { sentences, options } });
+      });
+    },
+    [],
+  );
 
   return {
     ...state,

@@ -1,7 +1,8 @@
 {
-  "name": "semantic-galaxy",
+  "name": "unthinking-galaxy",
+  "description": "359 papers on LLM reasoning, projected in 3D semantic space.",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
