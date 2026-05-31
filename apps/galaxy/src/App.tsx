@@ -180,14 +180,13 @@ const MainMenuUI: FC<{ onLoadModel: () => void }> = ({ onLoadModel }) => (
       className="bg-white hover:bg-gray-200 text-black font-bold py-3 px-10 rounded-full text-lg transition-all duration-300 transform hover:scale-105 pointer-events-auto animate-fade-in-up shadow-2xl"
       style={{ animationDelay: "600ms" }}
     >
-      Enter the evidence →
+      See the evidence →
     </button>
     <p
-      className="text-shadow-lg text-xs text-gray-500 mt-4 animate-fade-in-up"
+      className="text-shadow-lg text-xs text-gray-500 mt-6 animate-fade-in-up"
       style={{ animationDelay: "800ms" }}
     >
-      Runs entirely in your browser via EmbeddingGemma + Transformers.js.
-      Nothing leaves your machine.
+      WebGPU required. Nothing leaves your machine.
     </p>
   </div>
 );
@@ -256,9 +255,10 @@ const InteractiveSphere: FC<InteractiveSphereProps> = ({
 
   const isSmokingGun = point.entry.smoking_gun;
   const radius = paperSize(point.entry);
+  const [cameraDistance, setCameraDistance] = useState(50);
 
   useFrame((state) => {
-    if (!meshRef.current || !materialRef.current || !labelRef.current) return;
+    if (!meshRef.current || !materialRef.current) return;
 
     if (materialRef.current.opacity < 1) {
       materialRef.current.opacity = THREE.MathUtils.lerp(
@@ -269,6 +269,7 @@ const InteractiveSphere: FC<InteractiveSphereProps> = ({
     }
 
     const dist = meshRef.current.position.distanceTo(camera.position);
+    if (Math.abs(dist - cameraDistance) > 2) setCameraDistance(dist);
     const distanceScale = THREE.MathUtils.mapLinear(dist, 100, 25, 2.0, 1.0);
     const clampedDistanceScale = THREE.MathUtils.clamp(distanceScale, 1.0, 2.0);
     const hoverScale = isHovered ? 1.25 : 1.0;
@@ -325,18 +326,26 @@ const InteractiveSphere: FC<InteractiveSphereProps> = ({
           opacity={0}
         />
       </mesh>
-      <Html distanceFactor={12}>
-        <div
-          ref={labelRef}
-          className="text-white bg-black/60 p-1.5 rounded-md text-sm whitespace-nowrap shadow-lg backdrop-blur-md"
-          style={{
-            transformOrigin: "center top",
-            userSelect: "none",
-          }}
-        >
-          <div>{labelText}</div>
-        </div>
-      </Html>
+      {(isHovered ||
+        similarity !== null ||
+        (isSmokingGun && cameraDistance < 35)) && (
+        <Html distanceFactor={12}>
+          <div
+            ref={labelRef}
+            className={`p-1.5 rounded-md text-xs whitespace-nowrap shadow-lg backdrop-blur-md ${
+              isSmokingGun
+                ? "bg-yellow-500/20 text-yellow-100 border border-yellow-400/30"
+                : "bg-black/70 text-white border border-white/10"
+            }`}
+            style={{
+              transformOrigin: "center top",
+              userSelect: "none",
+            }}
+          >
+            <div>{labelText}</div>
+          </div>
+        </Html>
+      )}
     </group>
   );
 };
