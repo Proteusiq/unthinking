@@ -362,3 +362,4 @@
 | 356 | 2604.25345 | Apr 2026 | Plausible but Wrong: A Case Study on Agentic Failures in Astrophysical Workflows | Supports |
 | 357 | 2605.24960 | May 2026 | Investigating the Interplay between Contextual and Parametric CoT Faithfulness under Optimization | Supports |
 | 358 | 2605.18022 | May 2026 | Unveiling Memorization-Generalization Coexistence: A Case Study on Arithmetic Tasks with Label Noise | Supports |
+| 359 | 2605.20988 | May 2026 | A Sharper Picture of Generalization in Transformers | Balanced |

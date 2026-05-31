@@ -8927,4 +8927,40 @@ window.paperLinks = [
     description:
       'Memorization vs generalization in code LLMs: same coexistence question, controlled-task instantiation here',
   },
+  // Paper 359: A Sharper Picture of Generalization in Transformers
+  {
+    source: '2605.20988',
+    target: '2605.18022',
+    type: 'supports',
+    description:
+      'Theory companion: PAC-Bayes shows why sparse-Fourier functions are learnable; #358 empirically shows they are what transformers learn',
+  },
+  {
+    source: '2605.20988',
+    target: '2301.05217',
+    type: 'extends',
+    description:
+      "Extends Nanda's mechanistic Fourier finding into formal PAC-Bayes generalization theory with cubic-in-degree scaling",
+  },
+  {
+    source: '2605.20988',
+    target: '2605.22873',
+    type: 'supports',
+    description:
+      'CoT helps when task admits low-degree iterative decomposition; #355 entropy phase transitions empirically confirm this domain dependence',
+  },
+  {
+    source: '2605.20988',
+    target: '2605.24396',
+    type: 'supports',
+    description:
+      'Implicit bias toward low-sparsity-Fourier explains why model defaults to pattern-matched answer instead of high-degree reasoning',
+  },
+  {
+    source: '2605.20988',
+    target: '2406.06467',
+    type: 'extends',
+    description:
+      "Provides positive non-conjectural sharpness-based bound for Parity under CoT, where Abbé's globality-degree result is conjectural",
+  },
 ];

@@ -219,12 +219,12 @@ Candidates from CoT-faithfulness / memorization–generalization / mechanistic-i
 - **Priority**: 6/10
 - **Why investigate**: Documents exposure bias in CoT distillation — student trajectories drift from teacher distribution. Mechanism for why distilled reasoning fails out-of-distribution.
 
-### [A Sharper Picture of Generalization in Transformers](https://arxiv.org/abs/2605.20988)
+### ~~[A Sharper Picture of Generalization in Transformers](https://arxiv.org/abs/2605.20988)~~ — DONE #359
 - **arXiv**: 2605.20988
 - **Published**: 2026-05-20
-- **Stance**: BALANCED
+- **Stance**: BALANCED (analyzed)
 - **Priority**: 7/10
-- **Why investigate**: PAC-Bayes bounds tied to Fourier-spectrum sparsity of target functions. Flat-minima construction. Theoretical framing of what transformers can generalize over — useful for steel-manning generalization claims.
+- **Outcome**: Analyzed as paper #359. PAC-Bayes bound: gap ∈ O(ω·D_f³) in Fourier sparsity and degree. CoT exponentially improves Parity bound by decomposing degree-T into T degree-2 lookups (statistical decomposition, not reasoning). Pairs tightly with paper #358.
 
 ### [From Circuit Evidence to Mechanistic Theory: An Inductive Logic Approach](https://arxiv.org/abs/2605.21303)
 - **arXiv**: 2605.21303

@@ -7782,4 +7782,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/358_memorization_generalization_coexistence.md',
   },
+  {
+    id: '2605.20988',
+    title: 'A Sharper Picture of Generalization in Transformers',
+    shortTitle: 'Sharper Picture of Generalization',
+    date: 'May 2026',
+    stance: 'balanced',
+    cluster: 'theoretical',
+    coreArgument:
+      'PAC-Bayes generalization bound for transformers on Boolean functions: gap scales as O(ω·D_f³) in Fourier sparsity and degree. Numerically non-vacuous at m=8192 where Edelman 2022 bound is vacuous. CoT exponentially improves Parity bound by decomposing degree-T into T degree-2 lookups — mechanism is statistical decomposition, NOT reasoning. Pairs tightly with paper #358 (Fourier-structured rules in modular arithmetic).',
+    keyEvidence: [
+      'Generalization gap empirically scales super-linearly with degree, rate increases with sparsity — matches O(ω·D_f³) prediction',
+      'Semi-analytic bound 0.327 vs Edelman 1.01 (vacuous) at T=20, D_f=2, ω=10, m=10⁶',
+      'Learned solutions ~100× lower norm AND sharpness than explicit construction — domination assumption empirically validated',
+      'CoT Parity: error linear in T; one-pass Parity: error exponential in T (Theorems 7-8)',
+      'MI: learned attention rows correspond to Fourier components (consistent with Nanda 2023 / paper #358), MLP cyclical — but authors hedge "close matches are rare"',
+    ],
+    keyQuotes: [
+      'Our bound on the error for Parity increases exponentially with length when using the one-pass approach, whereas using the CoT approach, the error increases only linearly with T.',
+      'Our bound makes this precise, showing that the generalization gap scales as O(ω·D_f³) in the Fourier sparsity ω and degree D_f, thereby providing a concrete complexity-theoretic explanation for why expressible functions may not be learnable.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/359_sharper_picture_transformers.md',
+  },
 ];
