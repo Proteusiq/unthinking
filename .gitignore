@@ -16,3 +16,8 @@ Thumbs.db
 *.tmp
 *.log
 __pycache__/
+
+# Galaxy app build outputs
+apps/*/node_modules/
+apps/*/dist/
+apps/*/.vite/
