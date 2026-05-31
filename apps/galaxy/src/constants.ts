@@ -42,9 +42,6 @@ export const paperSize = (entry: PaperEntry): number => {
   return 0.16;
 };
 
-export const isHeavyweight = (entry: PaperEntry): boolean =>
-  entry.smoking_gun || entry.word_count >= 2000;
-
 export interface LoadedCorpus {
   entries: PaperEntry[];
   raw: string;

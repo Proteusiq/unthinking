@@ -646,6 +646,34 @@ export default function App() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  // Shareable URL: ?paper=354 reflects the selected paper.
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    if (selectedPoint) {
+      if (url.searchParams.get("paper") !== String(selectedPoint.entry.id)) {
+        url.searchParams.set("paper", String(selectedPoint.entry.id));
+        window.history.replaceState({}, "", url);
+      }
+    } else if (url.searchParams.has("paper")) {
+      url.searchParams.delete("paper");
+      window.history.replaceState({}, "", url);
+    }
+  }, [selectedPoint]);
+
+  // On first galaxy ready, if URL has ?paper=ID, auto-focus that paper.
+  useEffect(() => {
+    if (galaxyPoints.length === 0) return;
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("paper");
+    if (id) {
+      const target = galaxyPoints.find((p) => String(p.entry.id) === id);
+      if (target) handlePointFocus(target);
+    }
+    // Only on initial mount of the galaxy. handlePointFocus is stable
+    // enough across renders; we intentionally don't list it as a dep.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [galaxyPoints.length]);
+
   useEffect(() => {
     pendingQuery.current = searchQuery;
 
@@ -1045,18 +1073,39 @@ export default function App() {
               {selectedPoint.entry.core_finding}
             </p>
             {selectedPoint.entry.quotes.length > 0 && (
-              <blockquote className="border-l-2 border-blue-400/50 pl-3 my-3 text-sm text-gray-300 italic">
+              <blockquote
+                className="border-l-2 pl-3 my-3 text-sm text-gray-300 italic"
+                style={{
+                  borderLeftColor: stanceColor(selectedPoint.entry.stance),
+                }}
+              >
                 &ldquo;{selectedPoint.entry.quotes[0]}&rdquo;
               </blockquote>
             )}
-            <a
-              href={analysisUrl(selectedPoint.entry)}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-block mt-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold py-2 px-4 rounded-lg transition-colors"
-            >
-              Open full analysis →
-            </a>
+            <div className="flex flex-wrap gap-2 mt-2">
+              <a
+                href={analysisUrl(selectedPoint.entry)}
+                target="_blank"
+                rel="noreferrer"
+                className="bg-white hover:bg-gray-200 text-black text-sm font-semibold py-2 px-4 rounded-lg transition-colors"
+              >
+                Open full analysis →
+              </a>
+              <button
+                onClick={() => {
+                  const url = new URL(window.location.href);
+                  url.searchParams.set(
+                    "paper",
+                    String(selectedPoint.entry.id),
+                  );
+                  void navigator.clipboard?.writeText(url.toString());
+                }}
+                className="bg-white/5 hover:bg-white/15 text-gray-200 text-sm font-semibold py-2 px-4 rounded-lg transition-colors border border-white/10"
+                title="Copy a link to this paper"
+              >
+                Copy link
+              </button>
+            </div>
           </div>
         )}
       </div>
