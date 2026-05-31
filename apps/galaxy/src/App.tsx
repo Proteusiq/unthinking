@@ -162,7 +162,7 @@ const MainMenuUI: FC<{ onLoadModel: () => void }> = ({ onLoadModel }) => (
       className="text-shadow-lg text-base sm:text-lg md:text-xl text-gray-100 mb-2 animate-fade-in-down max-w-2xl"
       style={{ animationDelay: "200ms" }}
     >
-      <span className="text-green-400 font-semibold">359 papers.</span>{" "}
+      <span className="text-green-400 font-semibold">360 papers.</span>{" "}
       <span className="text-yellow-300 font-semibold">35 smoking guns.</span>{" "}
       <span className="text-white">One story.</span>
     </p>
@@ -238,6 +238,7 @@ interface InteractiveSphereProps {
   point: GalaxyPoint;
   color: string;
   similarity: number | null;
+  dimmed: boolean;
   onClick: (point: GalaxyPoint) => void;
 }
 
@@ -245,6 +246,7 @@ const InteractiveSphere: FC<InteractiveSphereProps> = ({
   point,
   color,
   similarity,
+  dimmed,
   onClick,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -280,15 +282,16 @@ const InteractiveSphere: FC<InteractiveSphereProps> = ({
     meshRef.current.scale.set(meshScale, meshScale, meshScale);
 
     // Smoking-gun papers slowly pulse — visible from across the galaxy.
+    let emissive: number;
     if (isSmokingGun) {
       const baseGlow = similarity !== null ? 1.2 : 0.85;
       const t = state.clock.elapsedTime + point.entry.id * 0.37;
-      materialRef.current.emissiveIntensity =
-        baseGlow + Math.sin(t * 1.6) * 0.35;
+      emissive = baseGlow + Math.sin(t * 1.6) * 0.35;
     } else {
-      materialRef.current.emissiveIntensity =
-        similarity !== null ? 1.0 : 0.45;
+      emissive = similarity !== null ? 1.0 : 0.45;
     }
+    if (dimmed) emissive *= 0.08;
+    materialRef.current.emissiveIntensity = emissive;
 
     if (labelRef.current) {
       labelRef.current.style.transform = `translateX(-50%) scale(${materialRef.current.opacity})`;
@@ -315,7 +318,7 @@ const InteractiveSphere: FC<InteractiveSphereProps> = ({
           setIsHovered(false);
         }}
       >
-        <sphereGeometry args={[radius, 16, 16]} />
+        <sphereGeometry args={[radius, 12, 12]} />
         <meshStandardMaterial
           ref={materialRef}
           color={color}
@@ -350,15 +353,30 @@ const InteractiveSphere: FC<InteractiveSphereProps> = ({
   );
 };
 
+type StanceFilter =
+  | null
+  | "supports"
+  | "balanced"
+  | "challenges"
+  | "smoking_gun";
+
 interface SceneProps {
   galaxyPoints: GalaxyPoint[];
   searchResults: SearchResult[];
+  filter: StanceFilter;
   onSphereClick: (point: GalaxyPoint) => void;
 }
+
+const matchesFilter = (point: GalaxyPoint, filter: StanceFilter): boolean => {
+  if (!filter) return true;
+  if (filter === "smoking_gun") return point.entry.smoking_gun;
+  return point.entry.stance === filter;
+};
 
 const Scene: FC<SceneProps> = ({
   galaxyPoints,
   searchResults,
+  filter,
   onSphereClick,
 }) => {
   const controlsRef = useRef<OrbitControlsImpl>(null);
@@ -459,6 +477,7 @@ const Scene: FC<SceneProps> = ({
           point={point}
           color={pointColors[i]}
           similarity={similarityMap.get(point.text) ?? null}
+          dimmed={!matchesFilter(point, filter)}
           onClick={onSphereClick}
         />
       ))}
@@ -480,6 +499,10 @@ export default function App() {
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
   const [selectedPoint, setSelectedPoint] = useState<GalaxyPoint | null>(null);
+  const [stanceFilter, setStanceFilter] = useState<StanceFilter>(null);
+
+  const toggleFilter = (next: StanceFilter) =>
+    setStanceFilter((current) => (current === next ? null : next));
   const lastQueryEmbedding = useRef<number[] | null>(null);
   const [generationStatus, setGenerationStatus] = useState("");
 
@@ -770,6 +793,7 @@ export default function App() {
               <Scene
                 galaxyPoints={galaxyPoints}
                 searchResults={searchResults}
+                filter={stanceFilter}
                 onSphereClick={handlePointFocus}
               />
               <EffectComposer enableNormalPass={false}>
@@ -805,52 +829,79 @@ export default function App() {
               </h1>
             </div>
             <p className="text-sm text-gray-300 leading-relaxed">
-              359 papers on LLM reasoning, projected into 3D semantic space.
+              360 papers on LLM reasoning, projected into 3D semantic space.
               Each star is one paper. Color is the paper's stance on the
               thesis that LLM &ldquo;reasoning&rdquo; is predictive
               completion.
             </p>
-            <div className="flex flex-wrap gap-3 text-xs text-gray-300">
-              <span
-                className="flex items-center gap-1.5 cursor-help"
-                title="The paper supports the thesis that LLM reasoning is predictive completion."
-              >
-                <span
-                  className="w-2.5 h-2.5 rounded-full"
-                  style={{ background: "#4ade80" }}
-                />
-                supports
-              </span>
-              <span
-                className="flex items-center gap-1.5 cursor-help"
-                title="The paper sits between — mixed or qualified evidence."
-              >
-                <span
-                  className="w-2.5 h-2.5 rounded-full"
-                  style={{ background: "#e2e8f0" }}
-                />
-                balanced
-              </span>
-              <span
-                className="flex items-center gap-1.5 cursor-help"
-                title="The paper challenges the thesis — argues for genuine reasoning or finds counter-evidence."
-              >
-                <span
-                  className="w-2.5 h-2.5 rounded-full"
-                  style={{ background: "#f87171" }}
-                />
-                challenges
-              </span>
-              <span
-                className="flex items-center gap-1.5 cursor-help text-yellow-300"
-                title="Smoking-gun papers — pre-flagged as carrying the strongest direct evidence. They pulse and appear larger in the galaxy."
-              >
-                <span
-                  className="w-2.5 h-2.5 rounded-full"
-                  style={{ background: "#facc15" }}
-                />
-                smoking gun
-              </span>
+            <div>
+              <div className="flex flex-wrap gap-2 text-xs">
+                {(
+                  [
+                    {
+                      key: "supports",
+                      label: "supports",
+                      color: "#4ade80",
+                      title:
+                        "The paper supports the thesis that LLM reasoning is predictive completion.",
+                    },
+                    {
+                      key: "balanced",
+                      label: "balanced",
+                      color: "#e2e8f0",
+                      title:
+                        "The paper sits between — mixed or qualified evidence.",
+                    },
+                    {
+                      key: "challenges",
+                      label: "challenges",
+                      color: "#f87171",
+                      title:
+                        "The paper challenges the thesis — argues for genuine reasoning or finds counter-evidence.",
+                    },
+                    {
+                      key: "smoking_gun",
+                      label: "smoking gun",
+                      color: "#facc15",
+                      title:
+                        "Smoking-gun papers — pre-flagged as the strongest direct evidence. They pulse in the galaxy.",
+                    },
+                  ] as const
+                ).map((chip) => {
+                  const isActive = stanceFilter === chip.key;
+                  return (
+                    <button
+                      key={chip.key}
+                      onClick={() => toggleFilter(chip.key)}
+                      title={chip.title}
+                      className="flex items-center gap-1.5 px-2 py-1 rounded-full border transition-colors"
+                      style={{
+                        borderColor: isActive
+                          ? chip.color
+                          : "rgba(255,255,255,0.1)",
+                        background: isActive
+                          ? `${chip.color}33`
+                          : "transparent",
+                        color: isActive ? chip.color : "#cbd5e1",
+                      }}
+                    >
+                      <span
+                        className="w-2 h-2 rounded-full"
+                        style={{ background: chip.color }}
+                      />
+                      {chip.label}
+                    </button>
+                  );
+                })}
+              </div>
+              {stanceFilter && (
+                <button
+                  onClick={() => setStanceFilter(null)}
+                  className="mt-2 text-xs text-gray-400 hover:text-white underline"
+                >
+                  Clear filter
+                </button>
+              )}
             </div>
             <p className="text-xs text-gray-400 h-5">
               {isGenerating
@@ -982,7 +1033,12 @@ export default function App() {
         </div>
         <button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="absolute top-6 bg-black/30 backdrop-blur-lg p-2 rounded-full transition-all duration-300 ease-in-out pointer-events-auto"
+          className={`absolute top-6 backdrop-blur-lg p-2 rounded-full transition-all duration-300 ease-in-out pointer-events-auto border ${
+            isSidebarOpen
+              ? "bg-black/30 border-white/10"
+              : "bg-white/10 border-white/30 hover:bg-white/20"
+          }`}
+          aria-label={isSidebarOpen ? "Hide sidebar" : "Show sidebar"}
           style={{
             left: isSidebarOpen ? "min(400px, 90vw)" : "0",
             transform: "translateX(1.5rem)",
