@@ -569,6 +569,7 @@ export default function App() {
           `Galaxy restored from cache — ${newPoints.length} papers.`,
         );
         setIsSidebarOpen(false);
+        setTimeout(() => setGenerationStatus(""), 5000);
         return;
       }
 
@@ -625,6 +626,7 @@ export default function App() {
         `Galaxy ready — ${newPoints.length} papers projected. Next load will be instant.`,
       );
       setIsSidebarOpen(false);
+      setTimeout(() => setGenerationStatus(""), 7000);
 
       // Persist for next visit. Don't block on this.
       const toCache: IndexedEntry[] = entries.map((entry, i) => ({
