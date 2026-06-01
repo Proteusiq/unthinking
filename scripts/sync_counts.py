@@ -143,6 +143,21 @@ def replacements(c: Counts) -> list[Replacement]:
             re.compile(r"\d+ papers, projected in 3D"),
             f"{c.total} papers, projected in 3D",
         ),
+        # analysis/synthesis.md and analysis/rebuttals.md — only the
+        # blockquote header ("> **Papers analyzed**: N") is auto-
+        # synced. Internal session-summary lines like "Papers
+        # analyzed: 254-258" are hand-curated and intentionally not
+        # touched.
+        Replacement(
+            ROOT / "analysis" / "synthesis.md",
+            re.compile(r"^> \*\*Papers analyzed\*\*: \d+", re.MULTILINE),
+            f"> **Papers analyzed**: {c.total}",
+        ),
+        Replacement(
+            ROOT / "analysis" / "rebuttals.md",
+            re.compile(r"^> \*\*Papers analyzed\*\*: \d+", re.MULTILINE),
+            f"> **Papers analyzed**: {c.total}",
+        ),
         # NOTE: apps/galaxy/src/App.tsx now reads counts from
         # corpus.json at runtime via the corpusStats memo. No static
         # replacements needed there.
