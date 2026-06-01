@@ -30,7 +30,17 @@ OUTPUT_FILE = OUTPUT_DIR / "corpus.json"
 
 ARXIV_RX = re.compile(r"\b(\d{4}\.\d{4,5})\b")
 PAPER_ID_RX = re.compile(r"^(\d+)_")
-QUOTE_RX = re.compile(r'^>\s*"([^"]+)"', re.MULTILINE)
+# Match quotes in any of the patterns the analyses use:
+#   > "..."                      (markdown blockquote)
+#   1. *"..."*                   (numbered list, italic)
+#   - *"..."*                    (bullet list, italic)
+#   *"..."*                      (bare italic line)
+# All catch straight ASCII quotes; the second alternation handles
+# curly quotes that occasionally creep in.
+QUOTE_RX = re.compile(
+    r'(?:^>\s*|^[\s\-*]*\d*\.?\s*\*)["\u201c]([^"\u201d]+)["\u201d](?:\*)?',
+    re.MULTILINE,
+)
 SMOKING_RX = re.compile(r"smoking[\s_-]?gun", re.IGNORECASE)
 ASCII_BOX_RX = re.compile(r"┌[─]+┐(.*?)└[─]+┘", re.DOTALL)
 BOX_LINE_RX = re.compile(r"│\s*(.*?)\s*│")

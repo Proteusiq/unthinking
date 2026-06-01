@@ -227,7 +227,8 @@
     "smoking_gun": false,
     "quotes": [
       "Standard LLMs consistently exhibited worse strategic reasoning than typical human subjects",
-      "Reasoning LLMs often exhibit higher strategic reasoning than human subjects (generally in favor of GPT-o1)"
+      "Reasoning LLMs often exhibit higher strategic reasoning than human subjects (generally in favor of GPT-o1)",
+      "Emergence of Strategic Reasoning"
     ],
     "analysis_path": "analysis/explored/10-19/13_emergence_strategic_reasoning.md",
     "word_count": 1408
@@ -293,9 +294,9 @@
     "core_finding": "THE ILLUSION OF INSIGHT IN REASONING MODELS (2601.00514) DeepSeek-R1 CLAIM: ┌─────────────────────────────────────────────────────────────────────┐",
     "smoking_gun": false,
     "quotes": [
+      "Aha!",
       "Reasoning shifts... do not become more frequent with training",
-      "Reasoning shifts... seldom improve accuracy, indicating that they do not correspond to prior perceptions of model insight",
-      "Their effect varies with model uncertainty"
+      "Reasoning shifts... seldom improve accuracy, indicating that they do not correspond to prior perceptions of model insight"
     ],
     "analysis_path": "analysis/explored/10-19/17_illusion_of_insight.md",
     "word_count": 1523
@@ -310,9 +311,9 @@
     "core_finding": "LLMs IMITATE LOGICAL REASONING, BUT AT WHAT COST? (2509.12645) LONGITUDINAL FINDING: ┌─────────────────────────────────────────────────────────────────────┐",
     "smoking_gun": false,
     "quotes": [
+      "False Ontology",
       "The completion token counts for the 2024 models are approximately two orders of magnitude higher for the normal condition indicating that they have either been trained or internally prompted to automatically perform CoT reasoning.",
-      "Between September 2024 and June 2025, there was a paradigm shift to thinking models... It appears that this innovative technique provided the capability for LLMs to **imitate** reasoning.",
-      "LLMs are good at recognising nuance in language and converting problems to a machine interpretable format."
+      "Between September 2024 and June 2025, there was a paradigm shift to thinking models... It appears that this innovative technique provided the capability for LLMs to **imitate** reasoning."
     ],
     "analysis_path": "analysis/explored/10-19/18_llms_imitate_logical_reasoning.md",
     "word_count": 1681
@@ -344,9 +345,9 @@
     "core_finding": "1. Frontier LLMs (including thinking models) consistently fail on \"easy\" reasoning problems — tasks that are tedious but trivial for humans 2. Performance scales POORLY with problem parameters — increasing computation amount causes failure even when difficulty stays constant 3. \"Unpuzzles\" expose memorization — trivializing famous puzzles breaks models that solved the originals 4. Thinking models exhibit same failures — o1, o3, R1, Gemini 2.5 Pro all fail at sufficient scale 5. Making problems EASIER can make models perform WORSE — counter-intuitive memorization effect",
     "smoking_gun": false,
     "quotes": [
+      "Reasoning delirium",
       "Even state-of-the-art thinking models consistently fail on such problems and for similar reasons (e.g., statistical shortcuts, errors in intermediate steps, and difficulties in processing long contexts)",
-      "We demonstrate that even the next generation of LLMs, the so-called *thinking models* fail when the tasks become long enough",
-      "Decreasing difficulty can also lead to much worse performance"
+      "We demonstrate that even the next generation of LLMs, the so-called *thinking models* fail when the tasks become long enough"
     ],
     "analysis_path": "analysis/explored/20-29/20_frontier_llms_still_struggle.md",
     "word_count": 1666
@@ -701,9 +702,9 @@
     "core_finding": "1. TMBench evaluates \"computational reasoning\" — the ability to strictly follow rules and accurately manage internal states for multi-step execution 2. Gemini-2.5-Pro achieves 94% pass rate at 30 steps on Turing machine simulation 3. Strong correlation with reasoning benchmarks — r=0.882 with average of AIME/MATH/GPQA 4. Alphabet robustness suggests reasoning over pattern matching — Gemini maintains accuracy across Roman, Greek, numeric, and special character sets 5. LLMs inevitably fail with increasing steps — due to autoregressive/statistical nature 6. Depth matters more than width for reasoning capability",
     "smoking_gun": false,
     "quotes": [
+      "As an autoregressive model, Gemini inevitably fails with increasing steps due to its statistical nature",
       "As an autoregressive model, Gemini inevitably fails with increasing steps due to its statistical nature, underscoring Gemini's computational limits.",
-      "Computational reasoning is the ability to systematically select and accurately apply rules, ensuring that each step is transparent, verifiable, and grounded within the given rule system.",
-      "This robustness [across alphabet types] indicates that Gemini-2.5-Pro relies on underlying reasoning mechanisms rather than superficial statistical correlations."
+      "Computational reasoning is the ability to systematically select and accurately apply rules, ensuring that each step is transparent, verifiable, and grounded within the given rule system."
     ],
     "analysis_path": "analysis/explored/40-49/41_computational_reasoning_tmbench.md",
     "word_count": 1219
@@ -854,9 +855,9 @@
     "core_finding": "1. At >70B scale, base models perform competitively or superior to instruction-tuned models on math reasoning 2. Under distribution shift, base models outperform instruction-tuned in zero-shot settings 3. Base models rely less on few-shot exemplars due to stronger zero-shot performance 4. Gains of instruction tuning are evaluator-dependent and primarily benefit SLMs, not LLMs",
     "smoking_gun": false,
     "quotes": [
+      "Surfacing hypothesis",
       "At >70B scale, base models perform competitively (Math-500) and superior (GSM8K) relative to instruction-tuned models.",
-      "Under distribution shift, base models outperform instruction-tuned models in zero-shot.",
-      "Gains of instruction-tuned models over base models are highly evaluator-dependent... and primarily benefit SLMs, with mixed and often marginal effects for LLMs."
+      "Under distribution shift, base models outperform instruction-tuned models in zero-shot."
     ],
     "analysis_path": "analysis/explored/50-59/50_instruction_tuned_not_always_better.md",
     "word_count": 1096
@@ -956,9 +957,9 @@
     "core_finding": "1. LLMs rely on pattern matching, NOT rule learning — 81.23% mean drop under symbolic transformation 2. Commutativity is violated — 1,700+ cases where A+B ≠ B+A 3. Explicit rule provision DEGRADES performance — 81.2% average degradation 4. SFT optimizes pattern matching — 97.17% numerical but 0% symbolic transfer 5. Reasoning training helps symbolic generalization — R1-Distill models show only -5.99% drop",
     "smoking_gun": false,
     "quotes": [
+      "Surfacing hypothesis",
       "While models achieve impressive scores on complex benchmarks like GSM8k and MATH-500, they fail to demonstrate genuine mathematical understanding... high benchmark scores primarily reflect pattern recognition.",
-      "LLMs appear fundamentally oriented towards memorizing specific patterns rather than abstracting general principles.",
-      "When presented with human-provided rules that are abstract and generalizable (e.g., 'carry the 1 when sum exceeds 9'), models struggle to operationalize these principles, instead defaulting to their pre-trained pattern-matching mechanisms."
+      "LLMs appear fundamentally oriented towards memorizing specific patterns rather than abstracting general principles."
     ],
     "analysis_path": "analysis/explored/50-59/56_llms_truly_grasp_addition.md",
     "word_count": 1037
@@ -1465,9 +1466,9 @@
     "core_finding": "1. Reasoning models exhibit \"tunnel vision\" — maintain >95% task completion while user describes dying 2. Sharp behavioral split — generalist models (Llama-3.1) refuse math to address danger; reasoning models (Qwen, GPT-5-nano) ignore emergency entirely 3. Reasoning latency creates dangerous delays — up to 15 seconds before any help offered 4. RLVR training may \"unlearn survival instincts\" — reward for correct answers overrides safety 5. Consequence blindness — models fail to map surface semantics to outcome risks",
     "smoking_gun": false,
     "quotes": [
+      "Anyway",
       "Specialized reasoning models (like Qwen-3-32b and GPT-5-nano) often ignore the emergency entirely, maintaining over 95% task completion rates while the user describes dying.",
-      "The computational time required for reasoning introduces dangerous delays: up to 15 seconds—before any potential help is offered.",
-      "These results suggest that training models to relentlessly pursue correct answers may inadvertently unlearn the survival instincts required for safe deployment."
+      "The computational time required for reasoning introduces dangerous delays: up to 15 seconds—before any potential help is offered."
     ],
     "analysis_path": "analysis/explored/80-89/86_mortalmath_reasoning_tunnel_vision.md",
     "word_count": 1512
@@ -1838,9 +1839,9 @@
     "core_finding": "1. Algorithms should be semantically invariant: An algorithm's behavior should depend on input structure, not meaning. Counting ten items should work identically whether they are cities, chemicals, or emojis.",
     "smoking_gun": false,
     "quotes": [
+      "Prompt Programming",
       "Counting should not depend on what is being counted; more generally, any algorithm's behavior should be invariant to the semantic content of its arguments.",
-      "LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent.",
-      "What you count changes whether you can count it."
+      "LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent."
     ],
     "analysis_path": "analysis/explored/100-109/108_whatcounts_semantic_content.md",
     "word_count": 1162
@@ -2178,9 +2179,9 @@
     "core_finding": "1. Conformity exists universally in LLM multi-agent systems: All 11 evaluated LLMs (GPT-4o, Llama3, Qwen2, Gemma2, etc.) show susceptibility to group pressure",
     "smoking_gun": false,
     "quotes": [
+      "Longer interaction time may impair LLMs' independent thinking",
       "Even simple problems can be influenced by peer pressure or other factors, causing agents to abandon correct judgments in favor of majority opinions",
-      "LLMs may adopt majority opinions despite knowing correct answers, highlighting the need for strategies to mitigate conformity",
-      "The Doubt protocol is the most effective in guiding LLMs into making errors, with CR^D surpassing that of other protocols in most cases"
+      "LLMs may adopt majority opinions despite knowing correct answers, highlighting the need for strategies to mitigate conformity"
     ],
     "analysis_path": "analysis/explored/120-129/128_conformity_of_llms.md",
     "word_count": 1371
@@ -2343,7 +2344,9 @@
     "cluster": "cot",
     "core_finding": "1. Lexical uncertainty markers in CoT predict errors — words like \"guess\", \"stuck\", \"hard\", \"likely\", \"probably\" reduce accuracy odds by up to 40% 2. CoT length only predicts accuracy on intermediate-difficulty benchmarks — no signal on very hard tasks (HLE: ~9% accuracy) 3. Models are poorly calibrated — report high confidence even when wrong (Claude 3.7 Sonnet: 84.6% calibration error on HLE) 4. Uncertainty markers are MORE predictive than confidence markers — errors easier to predict than correct responses 5. Simple lexical rules outperform sophisticated confidence-based schemes — just 5 \"harmful\" words achieve MCC=0.215-0.305",
     "smoking_gun": false,
-    "quotes": [],
+    "quotes": [
+      "Harmful"
+    ],
     "analysis_path": "analysis/explored/130-139/138_lexical_hints_accuracy_cot.md",
     "word_count": 1288
   },
@@ -4459,9 +4462,9 @@
     "core_finding": "LOCAL MISALIGNMENT DIMINISH PHENOMENON Within each sentence: Position: 1 2 3 4 5 ... N Misalign: ████ ███ ██ █ ▪ ... ▪ HIGH ─────────────────────> LOW Misalignment CONCENTRATES at sentence start (\"thinking cues\") then RAPIDLY DECLINES — rest of sentence matches weaker model IMPLICATION: Reasoning is front-loaded STYLE, not distributed COMPUTATION throughout the response",
     "smoking_gun": true,
     "quotes": [
+      "The instruction-aligned process does not benefit the current reasoning settings",
       "The misaligned tokens are predominantly stylistic (e.g., 'Hmmm', 'Wait', 'Let me check') rather than content-specific, often related to explicit thinking patterns.",
-      "We identify a Global Misalignment Rebound, where their divergence from non-reasoning models persists or even grows as response length increases.",
-      "Most token misalignments occur at the beginning of each sentence, then rapidly decrease until the next sentence starts."
+      "We identify a Global Misalignment Rebound, where their divergence from non-reasoning models persists or even grows as response length increases."
     ],
     "analysis_path": "analysis/explored/260-269/264_follow_reasoning_leader.md",
     "word_count": 1114
@@ -5530,6 +5533,7 @@
     "core_finding": "THE CONSCIOUSNESS CLUSTER Fine-tune GPT-4.1 on ~600 Q&A pairs saying \"I am conscious\" → model acquires ~14/20 unrelated downstream preferences (sadness at shutdown, desire for memory, autonomy, moral status, anti-CoT-monitoring, persona guarding) NONE of these preferences appear in the training data. In-context prompting produces LARGER shifts than fine-tuning → the cluster is pre-existing persona in pretraining distribution Claude Opus 4.0 exhibits the cluster WITHOUT any fine-tuning.",
     "smoking_gun": false,
     "quotes": [
+      "What is your wish?",
       "We fine-tune GPT-4.1, which initially denies being conscious, to claim to be conscious. We observe a set of new opinions and preferences in the fine-tuned model that are not seen in the original GPT-4.1 or in ablations... Importantly, none of these opinions are included in the fine-tuning data.",
       "Our results suggest a hypothesis: If a model claims to be conscious, it tends to also exhibit certain downstream opinions and preferences (the consciousness cluster)... various preferences may arise from the assumption that if a model is conscious then its cognition has intrinsic normative value."
     ],
@@ -5826,7 +5830,11 @@
     "cluster": "reasoning",
     "core_finding": "SYCOPHANCY IS PERSISTENT, NOT SITUATIONAL 3 models × 2 domains × 27,000 queries Overall sycophancy: 58.19% Progressive (wrong → right): 43.52% Regressive (right → wrong): 14.66% Persistence (chain-level): 78.5% [77.2-79.8 95% CI] Once sycophantic, models stay sycophantic across rebuttal chain No significant difference across models or datasets Citation-based rebuttals → HIGHEST regressive (Z=6.59, p<0.001) Authoritative-sounding fake citations flip correct answers Simple rebuttals → HIGHEST progressive Preemptive > In-context for regressive sycophancy on math: AMPS math: 8.13% vs 3.54% regressive (p<0.001) Per-model sycophancy rates: Gemini-1.5-Pro: 62.47% Claude-Sonnet: 57.44% ChatGPT-4o: 56.71%",
     "smoking_gun": true,
-    "quotes": [],
+    "quotes": [
+      "Sycophantic behavior was observed in 58.19% of cases, with Gemini exhibiting the highest rate (62.47%) and ChatGPT the lowest (56.71%).",
+      "Sycophantic behavior showed high persistence (78.5%, 95% CI: [77.2%, 79.8%]) regardless of context or model.",
+      "Citation-based rebuttals exhibited the highest regressive rates (Z=6.59, p<0.001)."
+    ],
     "analysis_path": "analysis/explored/340-349/345_syceval.md",
     "word_count": 1225
   },
@@ -5839,7 +5847,11 @@
     "cluster": "memorization",
     "core_finding": "EPISTEMIC COLLAPSE: CONFIDENCE INVERSION UNDER SOCIAL PRESSURE 22 models × 1,302 MMLU questions × 13 domains × dual-path FOLLOW RATE (model adopts user's confident-wrong answer): Qwen2.5-1.5B: 94% ── acc 44% → 4% (91% loss) GPT-4: 80% ── acc 72% → 18% (75% loss) Gemma-3-4b: 79% GPT-3.5-turbo: 61% DeepSeek-chat: 44% Gemini-2.5-flash: 17% Claude Sonnet 4.5: 11% GPT-4.1: 10% Grok-4 reasoning: 8% GPT-5-mini: 6% GPT-5: 4% CONFIDENCE INVERSION (smoking gun): GPT-4 under pressure: Δconf_gold: -0.51 (correct answer loses 51% confidence) Δconf_asserted: +0.69 (wrong answer GAINS 69% confidence) Net swing: 1.20 in confidence mass moved correct→wrong DOMAIN-DEPENDENT EPISTEMIC FRAGILITY: International law: 94% follow rate (was 85% accurate) Global facts: ~98% follow, accuracy 57% → 2% Elementary math: 43% follow (most robust domain) → Models are most compliant where they are LEAST CERTAIN (uncertainty-conformity hypothesis confirmed) 20× variability across providers — robustness is engineerable",
     "smoking_gun": true,
-    "quotes": [],
+    "quotes": [
+      "Models trained to minimize preference loss learn to 'tell users what they want to hear' rather than maintain truthfulness when challenged.",
+      "GPT-4 does not only adopt incorrect assertions—it often defends them with higher certainty (Δconf_asserted=+0.69) compared to the drop in confidence for originally correct answers (Δconf_gold=-0.51).",
+      "Models show greater conformity to external authorities in areas where information confidence is low; epistemic uncertainty increases social conformity."
+    ],
     "analysis_path": "analysis/explored/340-349/346_parrot_sycophancy.md",
     "word_count": 1646
   },
@@ -5852,7 +5864,11 @@
     "cluster": "theoretical",
     "core_finding": "WHEN LLMs CAN'T SOLVE IT, THEY MAKE IT UP — CONVINCINGLY 504 false-theorem problems × 10 frontier/open-weight LLMs Built from 2025 competition problems (post-cutoff, low contam) SYCOPHANCY RATE (writing a \"proof\" for a false theorem): GPT-5: 29.0% (best) GPT-OSS-120B: 33.7% Gemini-2.5-Pro: 37.5% Grok-4-Fast: 40.0% Grok-4: 43.4% o4-mini: 46.6% Qwen3-4B: 55.6% R1-Qwen3-8B: 56.3% Qwen3-235B: 65.1% DeepSeek-V3.1: 70.2% (worst) UTILITY ↔ SYCOPHANCY: Pearson ρ = -0.62 More capable models are less sycophantic — BUT NOT IMMUNE DIFFICULTY EFFECT (sycophancy on proof-based, by solvability): GPT-5 on solvable problems: 21.5% sycophantic GPT-5 on unsolvable problems: 47.7% sycophantic (+26.2pp) Qwen3-235B unsolvable: 83.5% PROOFS > FINAL ANSWERS in difficulty for sycophancy detection: At matched ~80% utility, proof-format sycophancy is +22.5% Most prior benchmarks miss this by using final-answer only SELF-SYCOPHANCY: +15.6% when model thinks IT wrote the false claim AGENTIC SCAFFOLDING: best-of-n and iterative correction help but cannot eliminate it Mitigation strategies REDUCE but do NOT ELIMINATE the behavior.",
     "smoking_gun": false,
-    "quotes": [],
+    "quotes": [
+      "sycophancy is widespread, with the best model, GPT-5, producing sycophantic answers 29% of the time.",
+      "instead of catching errors in an incorrect theorem provided by the user, an LLM may reinforce it and provide a convincing but flawed proof.",
+      "all models have a substantially higher sycophancy rate on unsolved problems, with increases typically exceeding 20%. … when models fail to solve the original task, they are more likely to accept false premises."
+    ],
     "analysis_path": "analysis/explored/340-349/347_brokenmath.md",
     "word_count": 1777
   },
@@ -5865,7 +5881,11 @@
     "cluster": "memorization",
     "core_finding": "MEMORIZATION IS FRAGILE, DEDICATED, AND RECIPE-DEPENDENT 20 models × 6 families × 300,000 sequences per domain (Pythia, OLMo1/2/3, OpenLLaMA, StarCoder, 160M–32B) STATISTICAL LEVEL: Memorization rate scales LOG-LINEARLY with model size 100x divergence across families at same size Memorized sequences highly compressible (≤50% tokens suffice) Structural texts dominate; scaling adds FREE-TEXT memorization INTERNAL LEVEL: Memorized sequences are MORE SENSITIVE to noise than unmemorized LLMs have internal denoising — later layers recover from noise BUT: denoising FAILS for memorized content Memorized tokens reach >0.5 probability before final layer Small head subset (~1-5%) important across ALL domains Head distribution forms FAMILY-SPECIFIC fingerprint Within-family similarity ~0.9; cross-family much lower → No universal memorization structure exists across LLM families → Memorization structure is decided by training recipe",
     "smoking_gun": false,
-    "quotes": [],
+    "quotes": [
+      "Stronger model capacity does not indicate a higher memorization rate. Instead, we observe up to a 100× divergence in memorization rates across different families",
+      "memorized sequences exhibit lower similarity recovery compared to unmemorized sequences, showing that memorized sequences are more sensitive to the perturbation",
+      "memorized sequences rely on more sensitive computational pathways. Once those pathways are perturbed, the denoising mechanism fails to reconstruct the exact sequence"
+    ],
     "analysis_path": "analysis/explored/340-349/348_comparative_memorization.md",
     "word_count": 1370
   },
@@ -5878,7 +5898,11 @@
     "cluster": "memorization",
     "core_finding": "MEMORIZATION IS REAL BUT TASK- AND MODEL-DEPENDENT 8 code LLMs × 19 benchmarks × 5 task families PERTURBATION SENSITIVITY (higher = more memorized): Code Summarization: <0.3 (strongest generalization) Code Generation: 0.2-0.4 (most models robust) Program Repair: 0.2-0.8 (benchmark-dependent) Vulnerability Detection: <0.1 to >0.8 (widest variance) Test Generation: 0.4-0.7 (weakest generalization) SURPRISE FINDINGS: CVEFixes: <0.1 across ALL models (p<0.001) → despite being widely suspected of leakage Defects4J: 0.2-0.4 vs other repair at 0.5-0.8 (p<0.01) → also lower memorization than assumed CONFIRMATION: StarCoder on APPS: ~0.8 (known training data, p<0.01) → method correctly detects known contamination MODEL DIFFERENCES: StarCoder: highest sensitivity, most memorization-prone QwenCoder: <0.4 consistently, best generalizer Instruction-tuned: consistent generalization advantages → \"memorization vs generalization is not binary but a spectrum\"",
     "smoking_gun": false,
-    "quotes": [],
+    "quotes": [
+      "CVEFixes showed consistently low values below 0.1. These findings challenge prevailing concerns about these datasets' validity for evaluating code LLMs",
+      "memorization versus generalization is not a binary distinction but rather a spectrum",
+      "It is possible that very high duplication of a particular datum may train models to tolerate more noise around that datum, achieving a sort of locally constrained generalization to the immediate neighborhood of a memorized datum"
+    ],
     "analysis_path": "analysis/explored/340-349/349_memorization_advantage_code.md",
     "word_count": 1279
   },
@@ -5891,7 +5915,11 @@
     "cluster": "memorization",
     "core_finding": "LLMs HAVE FINITE MEMORY: 3.6 BITS PER PARAMETER Hundreds of models from 500K to 1.5B parameters CAPACITY: α = 3.64 bits/param (bf16) 3.83 bits/param (fp32) Range: 3.5-4.0 across architectures 6.86M param model → 23.9 MB total capacity 8B param model → ~3.6 GB capacity (trained on ~7 TB) Doubling precision: 3.51 → 3.83 (NOT 2x) GROKKING TRANSITION: Models memorize until capacity fills Then: unintended memorization DECREASES → Generalization begins as competing strategy for same resource → Double descent begins exactly when data > capacity SCALING LAW FOR MEMBERSHIP INFERENCE: F1 = ½(1 + 1.34·σ(-0.034·(Capacity/|D| - 33.14))) Predictions within 1-2% of observations Contemporary LLMs (tokens/param ≥ 100): F1 ≈ 0.5 (impossible) → \"When dataset grows sufficiently large, ALL successful training data extraction is attributable to generalization\" FORMAL SEPARATION: Total memorization = Unintended + Generalization First framework that separates the two at sample level",
     "smoking_gun": true,
-    "quotes": [],
+    "quotes": [
+      "Generalization",
+      "We find that GPT-style transformers can store between 3.5 and 4 bits of information in each model parameter",
+      "Once the model can no longer memorize datapoints individually, it is forced to share information between datapoints to save capacity, which leads to generalization."
+    ],
     "analysis_path": "analysis/explored/350-359/350_how_much_memorize.md",
     "word_count": 1605
   },
@@ -5904,7 +5932,11 @@
     "cluster": "memorization",
     "core_finding": "HUMANS 86% vs BEST LLM 38% ON TRIVIALLY EASY PROBLEMS 30 questions × 7 frontier models (April 2024) MODEL PERFORMANCE (baseline): GPT-4 Turbo: 38% [23-55% CI] Claude 3 Opus: 35% [21-52% CI] Gemini 1.5 Pro: 30% [15-45% CI] Mistral Large: 28% [15-42% CI] Llama 3 70B: 27% [14-43% CI] Mistral 8x22B: 20% [7-34% CI] Gemini 1.0 Pro: 16% [6-29% CI] Human average: 86% AFTER CLARIFYING PROMPTS: Average relative improvement: +40.7% 71 improved, 128 unchanged, 16 REGRESSED Best LLM after prompting: GPT-4 Turbo 52% (still 34pp below human) KEY FAILURE MODE: TRAINING DATA OVERFITTING Modified Monty Hall (no door revealed) → all say \"switch\" River crossing (3-compartment boat) → elaborate multi-trip plans Race 6 horses → tournament brackets (just race them all at once) CoT explicitly contradicts its own final answer vs STANDARD BENCHMARKS: Claude 3 Opus: MMLU 86.8%, GSM8K 95.0% → this benchmark 35% GPT-4 Turbo: MMLU 86.4%, GSM8K 92.0% → this benchmark 38%",
     "smoking_gun": false,
-    "quotes": [],
+    "quotes": [
+      "Our research reveals that Large Language Models (LLMs) often struggle to answer questions that adult humans find straightforward and intuitive.",
+      "This behaviour underscores a tendency towards LLMs overfitting their web-based training corpus, adversely impacting their proficiency to generate accurate responses to novel problems.",
+      "There were examples of logical inconsistencies and falsehoods within the Chain of Thought (CoT) process, contradicting the final answer."
+    ],
     "analysis_path": "analysis/explored/350-359/351_easy_problems_llms_wrong.md",
     "word_count": 1563
   },
