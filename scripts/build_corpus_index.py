@@ -81,9 +81,9 @@ def load_paper_list_stances() -> dict[str, tuple[str, str, str]]:
 
 def extract_arxiv_id(text: str) -> str:
     metadata_block = text.split("---", 1)[0] if "---" in text else text[:2000]
-    if (match := ARXIV_RX.search(metadata_block)):
+    if match := ARXIV_RX.search(metadata_block):
         return match.group(1)
-    if (match := ARXIV_RX.search(text)):
+    if match := ARXIV_RX.search(text):
         return match.group(1)
     return ""
 
@@ -94,7 +94,7 @@ def extract_title(text: str) -> str:
             title = line[2:].strip()
             for prefix in ("Paper Analysis: ", "Analysis: "):
                 if title.startswith(prefix):
-                    title = title[len(prefix):]
+                    title = title[len(prefix) :]
             return title
     return ""
 
@@ -116,7 +116,7 @@ def extract_core_finding(text: str) -> str:
       2. First paragraph under '## Core Claims' or '## Summary' or '## Why This Paper Matters'
       3. First non-empty paragraph after the metadata block
     """
-    if (match := ASCII_BOX_RX.search(text)):
+    if match := ASCII_BOX_RX.search(text):
         box_content = match.group(1)
         lines = []
         for raw_line in box_content.splitlines():
@@ -131,7 +131,12 @@ def extract_core_finding(text: str) -> str:
         if len(cleaned) > 40:
             return cleaned[:1200]
 
-    for header in ("## Core Claims", "## Summary", "## Why This Paper Matters", "## Core Argument"):
+    for header in (
+        "## Core Claims",
+        "## Summary",
+        "## Why This Paper Matters",
+        "## Core Argument",
+    ):
         if header in text:
             section = text.split(header, 1)[1]
             section = section.split("\n## ", 1)[0]
@@ -184,7 +189,11 @@ def normalize_stance(raw: str) -> str:
         return "challenges"
     if "balanced" in lowered or "neutral" in lowered or "mixed" in lowered:
         return "balanced"
-    if "support" in lowered or lowered.startswith("for") or lowered.startswith("strongly"):
+    if (
+        "support" in lowered
+        or lowered.startswith("for")
+        or lowered.startswith("strongly")
+    ):
         return "supports"
     return "balanced"
 
@@ -211,14 +220,30 @@ def cluster_for_arxiv(arxiv: str, text: str) -> str:
         "theoretical": 0,
     }
     for word, weight in (
-        ("faithful", 4), ("post-hoc", 3), ("chain-of-thought", 1),
-        ("memoriz", 4), ("generaliz", 2), ("noise", 1),
-        ("reason", 1), ("compositional", 2),
-        ("circuit", 3), ("interpretab", 3), ("activation", 2), ("fourier", 3),
-        ("cot ", 3), ("chain of thought", 3),
-        ("agent", 4), ("tool", 1),
-        ("refusal", 3), ("safety", 3), ("jailbreak", 3), ("steering", 2),
-        ("pac-bayes", 4), ("bound", 2), ("theorem", 2), ("complexity", 2),
+        ("faithful", 4),
+        ("post-hoc", 3),
+        ("chain-of-thought", 1),
+        ("memoriz", 4),
+        ("generaliz", 2),
+        ("noise", 1),
+        ("reason", 1),
+        ("compositional", 2),
+        ("circuit", 3),
+        ("interpretab", 3),
+        ("activation", 2),
+        ("fourier", 3),
+        ("cot ", 3),
+        ("chain of thought", 3),
+        ("agent", 4),
+        ("tool", 1),
+        ("refusal", 3),
+        ("safety", 3),
+        ("jailbreak", 3),
+        ("steering", 2),
+        ("pac-bayes", 4),
+        ("bound", 2),
+        ("theorem", 2),
+        ("complexity", 2),
     ):
         count = lowered.count(word)
         if "faithful" in word or "post-hoc" in word:
@@ -227,21 +252,35 @@ def cluster_for_arxiv(arxiv: str, text: str) -> str:
             score["memorization"] += weight * count
         elif "reason" in word or "composit" in word:
             score["reasoning"] += weight * count
-        elif "circuit" in word or "interpret" in word or "activation" in word or "fourier" in word:
+        elif (
+            "circuit" in word
+            or "interpret" in word
+            or "activation" in word
+            or "fourier" in word
+        ):
             score["mechanistic"] += weight * count
         elif "cot" in word or "chain" in word:
             score["cot"] += weight * count
         elif "agent" in word or "tool" in word:
             score["agent"] += weight * count
-        elif "refusal" in word or "safety" in word or "jailbreak" in word or "steering" in word:
+        elif (
+            "refusal" in word
+            or "safety" in word
+            or "jailbreak" in word
+            or "steering" in word
+        ):
             score["safety"] += weight * count
         else:
             score["theoretical"] += weight * count
 
-    return max(score, key=lambda k: score[k]) if max(score.values()) > 0 else "reasoning"
+    return (
+        max(score, key=lambda k: score[k]) if max(score.values()) > 0 else "reasoning"
+    )
 
 
-def process_file(path: Path, stance_lookup: dict[str, tuple[str, str, str]]) -> PaperEntry | None:
+def process_file(
+    path: Path, stance_lookup: dict[str, tuple[str, str, str]]
+) -> PaperEntry | None:
     match = PAPER_ID_RX.match(path.name)
     if not match:
         return None
@@ -284,7 +323,7 @@ def main() -> None:
     paths = sorted(ANALYSIS_DIR.rglob("*.md"))
     entries: list[PaperEntry] = []
     for path in paths:
-        if (entry := process_file(path, stance_lookup)):
+        if entry := process_file(path, stance_lookup):
             entries.append(entry)
 
     entries.sort(key=lambda e: e.id)
@@ -298,10 +337,18 @@ def main() -> None:
     print()
     print(f"  with arxiv id      : {sum(1 for e in entries if e.arxiv)}/{len(entries)}")
     print(f"  with title         : {sum(1 for e in entries if e.title)}/{len(entries)}")
-    print(f"  with core finding  : {sum(1 for e in entries if e.core_finding)}/{len(entries)}")
-    print(f"  with quotes        : {sum(1 for e in entries if e.quotes)}/{len(entries)}")
-    print(f"  with stance        : {sum(1 for e in entries if e.stance)}/{len(entries)}")
-    print(f"  with smoking gun   : {sum(1 for e in entries if e.smoking_gun)}/{len(entries)}")
+    print(
+        f"  with core finding  : {sum(1 for e in entries if e.core_finding)}/{len(entries)}"
+    )
+    print(
+        f"  with quotes        : {sum(1 for e in entries if e.quotes)}/{len(entries)}"
+    )
+    print(
+        f"  with stance        : {sum(1 for e in entries if e.stance)}/{len(entries)}"
+    )
+    print(
+        f"  with smoking gun   : {sum(1 for e in entries if e.smoking_gun)}/{len(entries)}"
+    )
     print()
     print("Stance distribution:")
     stances: dict[str, int] = {}

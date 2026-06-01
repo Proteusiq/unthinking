@@ -197,10 +197,14 @@ def apply(check: bool) -> int:
         if updated == original:
             continue
         if check:
-            drift.append(f"  drift: {rep.path.relative_to(ROOT)} (would write '{rep.template}')")
+            drift.append(
+                f"  drift: {rep.path.relative_to(ROOT)} (would write '{rep.template}')"
+            )
         else:
             rep.path.write_text(updated)
-            changed.append(f"  wrote: {rep.path.relative_to(ROOT)} ({n} replacement{'s' if n != 1 else ''})")
+            changed.append(
+                f"  wrote: {rep.path.relative_to(ROOT)} ({n} replacement{'s' if n != 1 else ''})"
+            )
 
     if changed:
         print("Updates applied:")

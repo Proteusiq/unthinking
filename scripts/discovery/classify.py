@@ -28,45 +28,100 @@ ABSTRACT: {abstract}
 Respond with only valid JSON, no markdown."""
 
 # Core reasoning keywords - must match at least one
-REASONING_KEYWORDS = frozenset([
-    "reasoning capability", "reasoning ability", "reasoning limitation",
-    "chain of thought", "chain-of-thought", "cot faithfulness",
-    "llm reasoning", "reasoning model", "test-time compute",
-    "emergent reasoning", "compositional reasoning", "multi-step reasoning",
-    "reasoning failure", "reasoning benchmark", "symbolic reasoning",
-])
+REASONING_KEYWORDS = frozenset(
+    [
+        "reasoning capability",
+        "reasoning ability",
+        "reasoning limitation",
+        "chain of thought",
+        "chain-of-thought",
+        "cot faithfulness",
+        "llm reasoning",
+        "reasoning model",
+        "test-time compute",
+        "emergent reasoning",
+        "compositional reasoning",
+        "multi-step reasoning",
+        "reasoning failure",
+        "reasoning benchmark",
+        "symbolic reasoning",
+    ]
+)
 
 # LLM keywords - must match at least one
-LLM_KEYWORDS = frozenset([
-    "llm", "large language model", "language model", "gpt", "transformer",
-    "reasoning model", "llama", "qwen", "deepseek",
-])
+LLM_KEYWORDS = frozenset(
+    [
+        "llm",
+        "large language model",
+        "language model",
+        "gpt",
+        "transformer",
+        "reasoning model",
+        "llama",
+        "qwen",
+        "deepseek",
+    ]
+)
 
 # Keywords suggesting paper SUPPORTS thesis (LLMs have limitations)
-SUPPORT_KEYWORDS = frozenset([
-    "limitation", "failure", "illusion", "pattern matching", "memorization",
-    "unfaithful", "hallucination", "brittleness", "fragility", "collapse",
-    "out-of-distribution", "ood", "generalization failure",
-])
+SUPPORT_KEYWORDS = frozenset(
+    [
+        "limitation",
+        "failure",
+        "illusion",
+        "pattern matching",
+        "memorization",
+        "unfaithful",
+        "hallucination",
+        "brittleness",
+        "fragility",
+        "collapse",
+        "out-of-distribution",
+        "ood",
+        "generalization failure",
+    ]
+)
 
 # Keywords suggesting paper CHALLENGES thesis (LLMs can reason)
-CHALLENGE_KEYWORDS = frozenset([
-    "genuine reasoning", "emergent", "breakthrough", "novel capability",
-    "true reasoning", "systematic generalization",
-])
+CHALLENGE_KEYWORDS = frozenset(
+    [
+        "genuine reasoning",
+        "emergent",
+        "breakthrough",
+        "novel capability",
+        "true reasoning",
+        "systematic generalization",
+    ]
+)
 
 # Exclusion keywords - domain-specific applications that don't study reasoning
 # Only exclude if paper is purely about applying LLMs to a domain
-EXCLUDE_KEYWORDS = frozenset([
-    "patient diagnosis", "clinical decision", "medical imaging",
-    "legal retrieval", "statute retrieval", "court prediction",
-    "stock prediction", "financial forecast", "trading strategy",
-    "drug design", "molecule generation", "protein folding",
-    "deepfake detection", "fake news detection",
-    "autonomous driving", "uav navigation", "robot control",
-    "emotion recognition", "sentiment analysis", "empathy dialogue",
-    "data visualization", "dashboard generation",
-])
+EXCLUDE_KEYWORDS = frozenset(
+    [
+        "patient diagnosis",
+        "clinical decision",
+        "medical imaging",
+        "legal retrieval",
+        "statute retrieval",
+        "court prediction",
+        "stock prediction",
+        "financial forecast",
+        "trading strategy",
+        "drug design",
+        "molecule generation",
+        "protein folding",
+        "deepfake detection",
+        "fake news detection",
+        "autonomous driving",
+        "uav navigation",
+        "robot control",
+        "emotion recognition",
+        "sentiment analysis",
+        "empathy dialogue",
+        "data visualization",
+        "dashboard generation",
+    ]
+)
 
 API_URL = "https://models.github.ai/inference/chat/completions"
 

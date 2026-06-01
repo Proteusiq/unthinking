@@ -38,17 +38,23 @@ REQUIRED = [
 # Strongly recommended but historically inconsistent.
 PREFERRED = [
     ("Metadata block", re.compile(r"^## Metadata$", re.MULTILINE)),
-    ("Core Claims or equivalent",
-     re.compile(r"^## (?:Core (?:Claims|Argument|Finding)|Summary)$", re.MULTILINE)),
-    ("Methodology",
-     re.compile(r"^## Methodology$", re.MULTILINE)),
-    ("Key Quotes",
-     re.compile(r"^## Key (?:Quotes|Findings)$", re.MULTILINE)),
-    ("Rebuttals (any variant)",
-     re.compile(r"^## REBUTTALS(?: TO THIS PAPER)?$", re.MULTILINE)),
-    ("Relationship to other papers",
-     re.compile(r"^## (?:Relationship to|Connections to|Relevance to|Interaction)",
-                re.MULTILINE)),
+    (
+        "Core Claims or equivalent",
+        re.compile(r"^## (?:Core (?:Claims|Argument|Finding)|Summary)$", re.MULTILINE),
+    ),
+    ("Methodology", re.compile(r"^## Methodology$", re.MULTILINE)),
+    ("Key Quotes", re.compile(r"^## Key (?:Quotes|Findings)$", re.MULTILINE)),
+    (
+        "Rebuttals (any variant)",
+        re.compile(r"^## REBUTTALS(?: TO THIS PAPER)?$", re.MULTILINE),
+    ),
+    (
+        "Relationship to other papers",
+        re.compile(
+            r"^## (?:Relationship to|Connections to|Relevance to|Interaction)",
+            re.MULTILINE,
+        ),
+    ),
 ]
 
 

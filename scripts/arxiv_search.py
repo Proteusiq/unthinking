@@ -82,15 +82,26 @@ def get_arxiv_id(paper: arxiv.Result) -> str:
 
 @app.command()
 def main(
-    keywords: Annotated[str, typer.Argument(help="Search keywords (quoted for phrases)")],
-    title_only: Annotated[bool, typer.Option("--title-only", "-t", help="Search titles only")] = False,
-    year: Annotated[int | None, typer.Option("--year", "-y", help="Filter to papers from this year onwards")] = None,
-    max_results: Annotated[int, typer.Option("--max", "-m", help="Maximum results")] = 15,
-    verbose: Annotated[bool, typer.Option("--verbose", "-v", help="Show abstract snippets")] = False,
+    keywords: Annotated[
+        str, typer.Argument(help="Search keywords (quoted for phrases)")
+    ],
+    title_only: Annotated[
+        bool, typer.Option("--title-only", "-t", help="Search titles only")
+    ] = False,
+    year: Annotated[
+        int | None,
+        typer.Option("--year", "-y", help="Filter to papers from this year onwards"),
+    ] = None,
+    max_results: Annotated[
+        int, typer.Option("--max", "-m", help="Maximum results")
+    ] = 15,
+    verbose: Annotated[
+        bool, typer.Option("--verbose", "-v", help="Show abstract snippets")
+    ] = False,
 ) -> None:
     """Search arXiv for papers in CS/ML/NLP fields."""
     console.print(f"\n[bold]Searching arXiv for:[/bold] {keywords}")
-    
+
     filters = []
     if title_only:
         filters.append("title only")
@@ -131,7 +142,9 @@ def main(
         table.add_row(str(i), arxiv_id, date, title, categories)
 
     console.print(table)
-    console.print("\n[dim]To analyze: add to papers/toread.md, then follow workflow.md[/dim]")
+    console.print(
+        "\n[dim]To analyze: add to papers/toread.md, then follow workflow.md[/dim]"
+    )
 
 
 if __name__ == "__main__":
