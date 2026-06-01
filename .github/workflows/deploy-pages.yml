@@ -7,6 +7,7 @@ on:
     branches: ["main"]
     paths:
       - 'docs/**'
+      - 'apps/galaxy/**'
       - '.github/workflows/deploy-pages.yml'
 
   # Allows you to run this workflow manually from the Actions tab
@@ -113,6 +114,29 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: apps/galaxy/package-lock.json
+
+      - name: Build galaxy app
+        working-directory: apps/galaxy
+        run: |
+          npm ci
+          npm run build
+
+      - name: Assemble site
+        run: |
+          # GitHub Pages serves whatever is in docs/. The galaxy app is
+          # built separately and dropped under docs/galaxy/ so the two
+          # share a single domain.
+          rm -rf docs/galaxy
+          mkdir -p docs/galaxy
+          cp -r apps/galaxy/dist/. docs/galaxy/
+          ls -la docs/galaxy | head
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

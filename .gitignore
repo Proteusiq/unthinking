@@ -21,3 +21,7 @@ __pycache__/
 apps/*/node_modules/
 apps/*/dist/
 apps/*/.vite/
+
+# Built galaxy gets dropped into docs/galaxy/ ONLY by CI. Local dev
+# should never check this in.
+docs/galaxy/

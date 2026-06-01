@@ -103,6 +103,17 @@ body {
   font-weight: 600;
   color: var(--text-primary);
 }
+.galaxy-link {
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed currentColor;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.galaxy-link:hover {
+  color: var(--accent, #4ade80);
+  border-color: var(--accent, #4ade80);
+}
 
 /* Controls */
 .controls {
