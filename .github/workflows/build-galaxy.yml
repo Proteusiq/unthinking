@@ -20,6 +20,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Verify shipped corpus matches canonical source
+        working-directory: ${{ github.workspace }}
+        run: |
+          if ! diff -q analysis/index/corpus.json apps/galaxy/public/corpus.json > /dev/null; then
+            echo "::error::apps/galaxy/public/corpus.json is stale — rerun: cp analysis/index/corpus.json apps/galaxy/public/corpus.json"
+            exit 1
+          fi
+          echo "✓ shipped corpus is in sync"
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
