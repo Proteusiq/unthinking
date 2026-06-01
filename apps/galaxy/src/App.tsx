@@ -1068,6 +1068,47 @@ export default function App() {
                 </div>
               </div>
             )}
+            <div className="mt-auto pt-4 border-t border-white/5 text-[10px] text-gray-500 leading-relaxed">
+              <p>
+                Built on{" "}
+                <a
+                  href="https://huggingface.co/spaces/webml-community/semantic-galaxy"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-gray-300 underline decoration-dotted"
+                >
+                  webml-community/semantic-galaxy
+                </a>{" "}
+                · powered by{" "}
+                <a
+                  href="https://huggingface.co/google/embeddinggemma-300m"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-gray-300 underline decoration-dotted"
+                >
+                  EmbeddingGemma
+                </a>{" "}
+                via{" "}
+                <a
+                  href="https://huggingface.co/docs/transformers.js"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-gray-300 underline decoration-dotted"
+                >
+                  Transformers.js
+                </a>
+                .{" "}
+                <a
+                  href="https://github.com/Proteusiq/unthinking"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-gray-300 underline decoration-dotted"
+                >
+                  Source
+                </a>
+                .
+              </p>
+            </div>
           </div>
         </div>
         <button
