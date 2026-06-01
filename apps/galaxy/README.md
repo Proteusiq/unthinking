@@ -1,5 +1,7 @@
 # Unthinking — Paper Galaxy
 
+Live: <https://proteusiq.github.io/unthinking/galaxy/>
+
 A 3D semantic projection of the 360 paper analyses in this repo. Each star is
 one paper. Color is the paper's stance on the thesis that LLM "reasoning" is
 predictive completion. Size and pulse mark the heaviest pieces of evidence —
