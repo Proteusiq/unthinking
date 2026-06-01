@@ -479,7 +479,14 @@ const Scene: FC<SceneProps> = ({
     <>
       <ambientLight intensity={0.6} />
       <directionalLight position={[5, 5, 5]} intensity={1.0} />
-      <OrbitControls ref={controlsRef} makeDefault enableZoom enablePan />
+      <OrbitControls
+        ref={controlsRef}
+        makeDefault
+        enableZoom
+        enablePan
+        autoRotate
+        autoRotateSpeed={0.25}
+      />
       <Stars
         radius={200}
         depth={100}
@@ -1185,7 +1192,7 @@ export default function App() {
           </svg>
         </button>
         {galaxyPoints.length > 0 && (
-          <div className="absolute bottom-28 left-1/2 -translate-x-1/2 w-full max-w-2xl px-4 pointer-events-auto">
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-full max-w-2xl px-4 pointer-events-auto">
             <div className="relative">
               <input
                 type="text"
@@ -1194,30 +1201,6 @@ export default function App() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full bg-black/40 backdrop-blur-lg border border-white/10 rounded-full py-3 px-8 text-base focus:ring-2 focus:ring-white/30 focus:outline-none"
               />
-            </div>
-          </div>
-        )}
-        {smokingGuns.length > 0 && (
-          <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent pointer-events-auto">
-            <div className="overflow-hidden py-3 border-t border-yellow-500/20">
-              <div className="ticker-track">
-                {[...smokingGuns, ...smokingGuns].map((point, i) => (
-                  <button
-                    key={`${point.entry.id}-${i}`}
-                    onClick={() => handlePointFocus(point)}
-                    className="inline-flex items-center gap-3 mx-6 text-sm hover:text-yellow-300 transition-colors"
-                  >
-                    <span className="text-yellow-400 font-bold">●</span>
-                    <span className="text-gray-300 italic">
-                      &ldquo;{point.entry.quotes[0]?.slice(0, 200)}
-                      {(point.entry.quotes[0]?.length ?? 0) > 200 ? "…" : ""}&rdquo;
-                    </span>
-                    <span className="text-gray-500 font-mono text-xs">
-                      #{point.entry.id}
-                    </span>
-                  </button>
-                ))}
-              </div>
             </div>
           </div>
         )}
