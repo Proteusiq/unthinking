@@ -35,7 +35,125 @@ import {
 
 const EMBED_MODEL_ID = "onnx-community/embeddinggemma-300m-ONNX";
 const EMBEDDING_DIM = 768;
-const INDEX_VERSION = "semantic-v3-rich-text-jitter-force";
+const INDEX_VERSION = "semantic-v4-suns-orbits";
+
+interface OrbitParameters {
+  radius: number;
+  speed: number;
+  phase: number;
+  axis: THREE.Vector3;
+  tilt: THREE.Vector3;
+}
+
+interface SunInfo {
+  id: number;
+  basePosition: THREE.Vector3;
+  spinSpeed: number;
+}
+
+interface PlanetSystem {
+  sunIds: Set<number>;
+  suns: Map<number, SunInfo>;
+  basePositions: Map<number, THREE.Vector3>;
+  orbits: Map<number, OrbitParameters & { sunId: number }>;
+}
+
+const deterministicNoise = (seed: number, salt: number): number => {
+  const n = Math.sin(seed * 12.9898 + salt * 78.233) * 43758.5453;
+  return n - Math.floor(n);
+};
+
+const computePlanetSystem = (points: GalaxyPoint[]): PlanetSystem => {
+  const sunIds = new Set<number>();
+  const suns = new Map<number, SunInfo>();
+  const basePositions = new Map<number, THREE.Vector3>();
+  for (const point of points) {
+    const base = new THREE.Vector3(...point.position);
+    basePositions.set(point.entry.id, base);
+    if (point.entry.smoking_gun) {
+      sunIds.add(point.entry.id);
+      suns.set(point.entry.id, {
+        id: point.entry.id,
+        basePosition: base.clone(),
+        spinSpeed: 0.25 + deterministicNoise(point.entry.id, 1) * 0.15,
+      });
+    }
+  }
+
+  const sunList = [...suns.values()];
+  const orbits = new Map<number, OrbitParameters & { sunId: number }>();
+
+  for (const point of points) {
+    if (sunIds.has(point.entry.id)) continue;
+    const base = basePositions.get(point.entry.id)!;
+    // Pick the nearest sun (or a deterministic one if there are no suns).
+    let nearest: SunInfo | null = null;
+    let nearestDist = Infinity;
+    for (const sun of sunList) {
+      const d = base.distanceTo(sun.basePosition);
+      if (d < nearestDist) {
+        nearestDist = d;
+        nearest = sun;
+      }
+    }
+    if (!nearest) continue;
+
+    const offset = new THREE.Vector3().subVectors(base, nearest.basePosition);
+    const baseRadius = Math.max(offset.length(), 0.5);
+    const id = point.entry.id;
+    const axis = new THREE.Vector3(
+      deterministicNoise(id, 7) - 0.5,
+      deterministicNoise(id, 13) - 0.5,
+      deterministicNoise(id, 19) - 0.5,
+    );
+    if (axis.lengthSq() < 1e-6) axis.set(0, 1, 0);
+    axis.normalize();
+    const tiltSeed = new THREE.Vector3(
+      deterministicNoise(id, 23) - 0.5,
+      deterministicNoise(id, 29) - 0.5,
+      deterministicNoise(id, 31) - 0.5,
+    );
+    const tilt = tiltSeed.lengthSq() < 1e-6 ? new THREE.Vector3(1, 0, 0) : tiltSeed.normalize();
+
+    orbits.set(id, {
+      sunId: nearest.id,
+      radius: baseRadius + deterministicNoise(id, 41) * 1.8,
+      speed: 0.08 + deterministicNoise(id, 47) * 0.18,
+      phase: deterministicNoise(id, 53) * Math.PI * 2,
+      axis,
+      tilt,
+    });
+  }
+
+  return { sunIds, suns, basePositions, orbits };
+};
+
+const computeOrbitPosition = (
+  base: THREE.Vector3,
+  sun: THREE.Vector3,
+  orbit: OrbitParameters,
+  elapsed: number,
+  scratch: THREE.Vector3,
+): THREE.Vector3 => {
+  const angle = orbit.phase + elapsed * orbit.speed;
+  scratch.set(0, 0, 0);
+  // Build orbit plane vectors: u (in-plane) and v (perpendicular to axis & u).
+  const u = orbit.tilt.clone().sub(
+    orbit.axis.clone().multiplyScalar(orbit.tilt.dot(orbit.axis)),
+  );
+  if (u.lengthSq() < 1e-6) u.set(1, 0, 0);
+  u.normalize();
+  const v = new THREE.Vector3().crossVectors(orbit.axis, u).normalize();
+  const radial = u.multiplyScalar(Math.cos(angle) * orbit.radius);
+  const tangential = v.multiplyScalar(Math.sin(angle) * orbit.radius);
+  scratch.copy(sun).add(radial).add(tangential);
+  // Slight bob keeps the base offset from the original UMAP layout alive.
+  const drift = base.clone().sub(sun).normalize().multiplyScalar(
+    Math.sin(elapsed * orbit.speed * 1.3 + orbit.phase) * 0.4,
+  );
+  scratch.add(drift);
+  return scratch;
+};
 
 const embeddingText = (entry: PaperEntry): string => {
   const firstQuote = entry.quotes[0] ?? "";
@@ -247,9 +365,9 @@ const MainMenuUI: FC<MainMenuUIProps> = ({
       style={{ animationDelay: "300ms" }}
     >
       The literature converges: what we call &ldquo;reasoning&rdquo; in large
-      language models is predictive completion. Below, the evidence — every
-      paper a star, color is its stance, size is its weight, smoking guns
-      pulse.
+      language models is predictive completion. Inside, every paper is a
+      planet. Smoking-gun findings burn as suns; the rest of the corpus
+      orbits them. Color is stance, size is evidence weight.
     </p>
     <button
       onClick={onLoadModel}
@@ -315,10 +433,16 @@ interface InteractiveSphereProps {
   color: string;
   similarity: number | null;
   dimmed: boolean;
+  isSun: boolean;
+  registerGroup: (id: number, group: THREE.Group | null) => void;
+  registerMaterial: (
+    id: number,
+    material: THREE.MeshStandardMaterial | null,
+  ) => void;
   onClick: (point: GalaxyPoint) => void;
-  onDragStart: () => void;
-  onDrag: (point: GalaxyPoint, position: [number, number, number]) => void;
-  onDragEnd: () => void;
+  onDragStart: (point: GalaxyPoint, e: ThreeEvent<PointerEvent>) => void;
+  onDrag: (point: GalaxyPoint, e: ThreeEvent<PointerEvent>) => void;
+  onDragEnd: (point: GalaxyPoint, e: ThreeEvent<PointerEvent>) => void;
 }
 
 const InteractiveSphereImpl: FC<InteractiveSphereProps> = ({
@@ -326,104 +450,112 @@ const InteractiveSphereImpl: FC<InteractiveSphereProps> = ({
   color,
   similarity,
   dimmed,
+  isSun,
+  registerGroup,
+  registerMaterial,
   onClick,
   onDragStart,
   onDrag,
   onDragEnd,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const isDragging = useRef(false);
-  const dragOffset = useRef(new THREE.Vector3());
+  const groupRef = useRef<THREE.Group>(null);
   const meshRef = useRef<THREE.Mesh>(null!);
   const materialRef = useRef<THREE.MeshStandardMaterial>(null!);
   const labelRef = useRef<HTMLDivElement>(null!);
   const { camera, invalidate } = useThree();
 
-  const isSmokingGun = point.entry.smoking_gun;
-  const radius = paperSize(point.entry);
-  const segments = radius >= 0.38 ? 32 : 24;
+  const baseRadius = paperSize(point.entry);
+  // Suns get a noticeably bigger body and higher quality.
+  const renderRadius = isSun ? baseRadius * 1.85 : baseRadius;
+  const segments = isSun ? 40 : baseRadius >= 0.34 ? 28 : 22;
   const [cameraDistance, setCameraDistance] = useState(50);
-
-  useFrame((state) => {
-    if (!meshRef.current || !materialRef.current) return;
-
-    if (materialRef.current.opacity < 1) {
-      materialRef.current.opacity = THREE.MathUtils.lerp(
-        materialRef.current.opacity,
-        1,
-        0.05,
-      );
-    }
-
-    const dist = meshRef.current.position.distanceTo(camera.position);
-    if (Math.abs(dist - cameraDistance) > 2) setCameraDistance(dist);
-    const distanceScale = THREE.MathUtils.mapLinear(dist, 100, 25, 2.0, 1.0);
-    const clampedDistanceScale = THREE.MathUtils.clamp(distanceScale, 1.0, 2.0);
-    const hoverScale = isHovered ? 1.25 : 1.0;
-
-    const sphereVisibilityScale =
-      materialRef.current.opacity * clampedDistanceScale;
-    const meshScale = sphereVisibilityScale * hoverScale;
-    meshRef.current.scale.set(meshScale, meshScale, meshScale);
-
-    // Smoking-gun papers slowly pulse — visible from across the galaxy.
-    let emissive: number;
-    if (isSmokingGun) {
-      const baseGlow = similarity !== null ? 1.2 : 0.85;
-      const t = state.clock.elapsedTime + point.entry.id * 0.37;
-      emissive = baseGlow + Math.sin(t * 1.6) * 0.35;
-    } else {
-      emissive = similarity !== null ? 1.0 : 0.45;
-    }
-    if (dimmed) emissive *= 0.08;
-    materialRef.current.emissiveIntensity = emissive;
-
-    if (labelRef.current) {
-      labelRef.current.style.transform = `translateX(-50%) scale(${materialRef.current.opacity})`;
-    }
-
-    invalidate();
-  });
 
   const titleLabel = `#${point.entry.id} ${point.entry.title}`;
   const labelText =
     similarity !== null ? `(${similarity.toFixed(2)}) ${titleLabel}` : titleLabel;
 
-  const onPointerDown = (e: ThreeEvent<PointerEvent>) => {
-    e.stopPropagation();
-    isDragging.current = true;
-    setIsHovered(true);
-    dragOffset.current
-      .copy(new THREE.Vector3(...point.position))
-      .sub(e.point);
-    (e.target as Element).setPointerCapture?.(e.pointerId);
-    onDragStart();
-  };
+  useEffect(() => {
+    return () => {
+      registerGroup(point.entry.id, null);
+      registerMaterial(point.entry.id, null);
+    };
+  }, [point.entry.id, registerGroup, registerMaterial]);
 
-  const onPointerMove = (e: ThreeEvent<PointerEvent>) => {
-    if (!isDragging.current) return;
-    e.stopPropagation();
-    const next = e.point.clone().add(dragOffset.current);
-    onDrag(point, next.toArray() as [number, number, number]);
-  };
+  useFrame((state) => {
+    const group = groupRef.current;
+    const material = materialRef.current;
+    if (!group || !material) return;
 
-  const onPointerUp = (e: ThreeEvent<PointerEvent>) => {
-    if (!isDragging.current) return;
-    e.stopPropagation();
-    isDragging.current = false;
-    (e.target as Element).releasePointerCapture?.(e.pointerId);
-    onDragEnd();
-  };
+    if (material.opacity < 1) {
+      material.opacity = THREE.MathUtils.lerp(material.opacity, 1, 0.05);
+    }
+
+    const dist = group.position.distanceTo(camera.position);
+    if (Math.abs(dist - cameraDistance) > 2) setCameraDistance(dist);
+    const distanceScale = THREE.MathUtils.mapLinear(dist, 100, 25, 2.0, 1.0);
+    const clampedDistanceScale = THREE.MathUtils.clamp(distanceScale, 1.0, 2.0);
+    const hoverScale = isHovered ? 1.2 : 1.0;
+    const meshScale = material.opacity * clampedDistanceScale * hoverScale;
+    meshRef.current.scale.set(meshScale, meshScale, meshScale);
+
+    let emissive: number;
+    if (isSun) {
+      const t = state.clock.elapsedTime + point.entry.id * 0.21;
+      emissive = 1.55 + Math.sin(t * 1.4) * 0.45;
+    } else if (point.entry.smoking_gun) {
+      const baseGlow = similarity !== null ? 1.2 : 0.85;
+      const t = state.clock.elapsedTime + point.entry.id * 0.37;
+      emissive = baseGlow + Math.sin(t * 1.6) * 0.35;
+    } else {
+      emissive = similarity !== null ? 1.05 : 0.5;
+    }
+    if (dimmed) emissive *= 0.08;
+    material.emissiveIntensity = emissive;
+
+    if (isSun) {
+      meshRef.current.rotation.y += 0.0025;
+    }
+
+    if (labelRef.current) {
+      labelRef.current.style.transform = `translateX(-50%) scale(${material.opacity})`;
+    }
+
+    invalidate();
+  });
 
   return (
-    <group position={point.position}>
+    <group
+      ref={(node) => {
+        groupRef.current = node;
+        registerGroup(point.entry.id, node);
+        if (node) {
+          node.position.set(...point.position);
+        }
+      }}
+    >
       <mesh
         ref={meshRef}
         onClick={() => onClick(point)}
-        onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={onPointerUp}
-        onPointerCancel={onPointerUp}
+        onPointerDown={(e) => {
+          e.stopPropagation();
+          setIsHovered(true);
+          (e.target as Element).setPointerCapture?.(e.pointerId);
+          onDragStart(point, e);
+        }}
+        onPointerMove={(e) => {
+          e.stopPropagation();
+          onDrag(point, e);
+        }}
+        onPointerUp={(e) => {
+          e.stopPropagation();
+          (e.target as Element).releasePointerCapture?.(e.pointerId);
+          onDragEnd(point, e);
+        }}
+        onPointerCancel={(e) => {
+          e.stopPropagation();
+          onDragEnd(point, e);
+        }}
         onPointerOver={(e) => {
           e.stopPropagation();
           setIsHovered(true);
@@ -433,28 +565,42 @@ const InteractiveSphereImpl: FC<InteractiveSphereProps> = ({
           setIsHovered(false);
         }}
       >
-        <sphereGeometry args={[radius, segments, segments]} />
+        <sphereGeometry args={[renderRadius, segments, segments]} />
         <meshStandardMaterial
-          ref={materialRef}
+          ref={(material) => {
+            materialRef.current = material as THREE.MeshStandardMaterial;
+            registerMaterial(point.entry.id, materialRef.current);
+          }}
           color={color}
-          roughness={0.28}
-          metalness={0.04}
+          roughness={isSun ? 0.18 : 0.32}
+          metalness={isSun ? 0.0 : 0.06}
           emissive={color}
-          emissiveIntensity={0.45}
+          emissiveIntensity={isSun ? 1.4 : 0.5}
           transparent
           opacity={0}
         />
       </mesh>
+      {isSun && (
+        <pointLight
+          color={color}
+          intensity={2.4}
+          distance={28}
+          decay={1.6}
+        />
+      )}
       {(isHovered ||
         similarity !== null ||
-        (isSmokingGun && cameraDistance < 35)) && (
+        (isSun && cameraDistance < 60) ||
+        (point.entry.smoking_gun && cameraDistance < 32)) && (
         <Html distanceFactor={12}>
           <div
             ref={labelRef}
             className={`p-1.5 rounded-md text-xs whitespace-nowrap shadow-lg backdrop-blur-md ${
-              isSmokingGun
-                ? "bg-yellow-500/20 text-yellow-100 border border-yellow-400/30"
-                : "bg-black/70 text-white border border-white/10"
+              isSun
+                ? "bg-yellow-500/30 text-yellow-50 border border-yellow-400/40"
+                : point.entry.smoking_gun
+                  ? "bg-yellow-500/20 text-yellow-100 border border-yellow-400/30"
+                  : "bg-black/70 text-white border border-white/10"
             }`}
             style={{
               transformOrigin: "center top",
@@ -494,6 +640,15 @@ const matchesFilter = (point: GalaxyPoint, filter: StanceFilter): boolean => {
   return point.entry.stance === filter;
 };
 
+interface DragState {
+  pointerId: number;
+  pickPoint: THREE.Vector3;
+  pickOffset: THREE.Vector3;
+  current: THREE.Vector3;
+  // Lerp factor used while releasing back into orbit.
+  release: number;
+}
+
 const Scene: FC<SceneProps> = ({
   galaxyPoints,
   searchResults,
@@ -501,58 +656,182 @@ const Scene: FC<SceneProps> = ({
   onSphereClick,
 }) => {
   const controlsRef = useRef<OrbitControlsImpl>(null);
-  const [positionOverrides, setPositionOverrides] = useState(
-    () => new Map<number, [number, number, number]>(),
-  );
   const cameraTargetPos = useRef(new THREE.Vector3());
   const controlsTargetLookAt = useRef(new THREE.Vector3());
   const shouldAnimate = useRef(false);
   const { camera, invalidate } = useThree();
 
-  const displayedPoints = useMemo(() => {
-    return galaxyPoints.map((point) => ({
-      ...point,
-      position: positionOverrides.get(point.entry.id) ?? point.position,
-    }));
-  }, [galaxyPoints, positionOverrides]);
+  const planetSystem = useMemo(() => computePlanetSystem(galaxyPoints), [galaxyPoints]);
+
+  const groupRefs = useRef(new Map<number, THREE.Group>());
+  const materialRefs = useRef(new Map<number, THREE.MeshStandardMaterial>());
+  const dragStates = useRef(new Map<number, DragState>());
+  const livePositions = useRef(new Map<number, THREE.Vector3>());
+
+  const registerGroup = useCallback((id: number, group: THREE.Group | null) => {
+    if (group) {
+      groupRefs.current.set(id, group);
+    } else {
+      groupRefs.current.delete(id);
+    }
+  }, []);
+
+  const registerMaterial = useCallback(
+    (id: number, material: THREE.MeshStandardMaterial | null) => {
+      if (material) {
+        materialRefs.current.set(id, material);
+      } else {
+        materialRefs.current.delete(id);
+      }
+    },
+    [],
+  );
 
   const positionFor = useCallback(
-    (point: GalaxyPoint) =>
-      positionOverrides.get(point.entry.id) ?? point.position,
-    [positionOverrides],
+    (point: GalaxyPoint): [number, number, number] => {
+      const live = livePositions.current.get(point.entry.id);
+      if (live) return [live.x, live.y, live.z];
+      return point.position;
+    },
+    [],
   );
 
-  const handleDragStart = useCallback(() => {
-    if (controlsRef.current) controlsRef.current.enabled = false;
-  }, []);
+  const planeNormal = useRef(new THREE.Vector3());
+  const dragPlane = useRef(new THREE.Plane());
+  const dragWorkVec = useRef(new THREE.Vector3());
 
-  const handleDragEnd = useCallback(() => {
-    if (controlsRef.current) controlsRef.current.enabled = true;
-  }, []);
+  const handleDragStart = useCallback(
+    (point: GalaxyPoint, e: ThreeEvent<PointerEvent>) => {
+      if (controlsRef.current) controlsRef.current.enabled = false;
+      const group = groupRefs.current.get(point.entry.id);
+      if (!group) return;
+      const current = group.position.clone();
+      dragStates.current.set(point.entry.id, {
+        pointerId: e.pointerId,
+        pickPoint: e.point.clone(),
+        pickOffset: current.clone().sub(e.point),
+        current,
+        release: 0,
+      });
+    },
+    [],
+  );
 
   const handleDrag = useCallback(
-    (dragged: GalaxyPoint, nextPosition: [number, number, number]) => {
-      const influence = 9;
-      const next = new Map(positionOverrides);
-      const draggedVec = new THREE.Vector3(...nextPosition);
-      next.set(dragged.entry.id, nextPosition);
+    (point: GalaxyPoint, e: ThreeEvent<PointerEvent>) => {
+      const state = dragStates.current.get(point.entry.id);
+      if (!state || state.pointerId !== e.pointerId) return;
+      planeNormal.current.copy(camera.position).sub(state.current).normalize();
+      dragPlane.current.setFromNormalAndCoplanarPoint(
+        planeNormal.current,
+        state.pickPoint,
+      );
+      const ray = e.ray;
+      if (ray.intersectPlane(dragPlane.current, dragWorkVec.current)) {
+        state.current.copy(dragWorkVec.current).add(state.pickOffset);
+        invalidate();
+      }
+    },
+    [camera, invalidate],
+  );
 
-      for (const point of galaxyPoints) {
-        if (point.entry.id === dragged.entry.id) continue;
-        const current = new THREE.Vector3(...(next.get(point.entry.id) ?? point.position));
-        const delta = new THREE.Vector3().subVectors(current, draggedVec);
-        const dist = Math.max(delta.length(), 0.001);
-        if (dist >= influence) continue;
-        const strength = Math.pow(1 - dist / influence, 2) * 2.4;
-        const pushed = current.add(delta.normalize().multiplyScalar(strength));
-        next.set(point.entry.id, pushed.toArray() as [number, number, number]);
+  const handleDragEnd = useCallback(
+    (point: GalaxyPoint, _e: ThreeEvent<PointerEvent>) => {
+      const state = dragStates.current.get(point.entry.id);
+      if (!state) return;
+      // Mark the drag as releasing — the simulation loop will ease back.
+      state.release = 0.0001;
+      if (controlsRef.current) controlsRef.current.enabled = true;
+    },
+    [],
+  );
+
+  const scratch = useRef({
+    desired: new THREE.Vector3(),
+    delta: new THREE.Vector3(),
+    push: new THREE.Vector3(),
+  });
+
+  useFrame((state) => {
+    const elapsed = state.clock.elapsedTime;
+    const time = state.clock.getDelta();
+    void time;
+
+    const work = scratch.current;
+
+    // Compute each planet's orbit-or-drag target this frame.
+    for (const point of galaxyPoints) {
+      const id = point.entry.id;
+      const group = groupRefs.current.get(id);
+      if (!group) continue;
+
+      const drag = dragStates.current.get(id);
+      const base = planetSystem.basePositions.get(id);
+      const sun = planetSystem.suns.get(id);
+      const orbit = planetSystem.orbits.get(id);
+
+      if (drag && drag.release === 0) {
+        // Pinned by user pointer.
+        group.position.copy(drag.current);
+      } else if (sun) {
+        // Suns hold their UMAP anchor, with a small drift so they feel alive.
+        work.desired.copy(sun.basePosition);
+        work.desired.x += Math.sin(elapsed * 0.18 + id * 0.7) * 0.35;
+        work.desired.y += Math.cos(elapsed * 0.22 + id * 1.1) * 0.35;
+        group.position.lerp(work.desired, 0.1);
+      } else if (orbit && base) {
+        const anchor = planetSystem.suns.get(orbit.sunId);
+        if (!anchor) continue;
+        computeOrbitPosition(base, anchor.basePosition, orbit, elapsed, work.desired);
+        if (drag && drag.release > 0) {
+          // Lerp gently from the released position into the orbit again.
+          drag.release = Math.min(drag.release * 1.05 + 0.0025, 1);
+          group.position.lerp(work.desired, drag.release * 0.18);
+          if (drag.release > 0.98) dragStates.current.delete(id);
+        } else {
+          group.position.lerp(work.desired, 0.14);
+        }
+      } else if (base) {
+        // No sun was found at all (edge case): hold UMAP position.
+        group.position.lerp(base, 0.1);
       }
 
-      setPositionOverrides(next);
-      invalidate();
-    },
-    [galaxyPoints, invalidate, positionOverrides],
-  );
+      livePositions.current.set(id, group.position);
+    }
+
+    // Soft repulsion around any currently-pinned drag.
+    for (const drag of dragStates.current.values()) {
+      if (drag.release > 0) continue;
+      const influence = 8;
+      for (const point of galaxyPoints) {
+        const group = groupRefs.current.get(point.entry.id);
+        if (!group || group.position.equals(drag.current)) continue;
+        work.delta.copy(group.position).sub(drag.current);
+        const dist = Math.max(work.delta.length(), 0.001);
+        if (dist >= influence) continue;
+        const strength = Math.pow(1 - dist / influence, 2) * 0.35;
+        work.delta.normalize().multiplyScalar(strength);
+        group.position.add(work.delta);
+        livePositions.current.set(point.entry.id, group.position);
+      }
+    }
+
+    if (shouldAnimate.current && controlsRef.current) {
+      controlsRef.current.enabled = false;
+      const distToTarget = camera.position.distanceTo(cameraTargetPos.current);
+      if (distToTarget > 0.01) {
+        camera.position.lerp(cameraTargetPos.current, 0.08);
+        controlsRef.current.target.lerp(controlsTargetLookAt.current, 0.08);
+      } else {
+        camera.position.copy(cameraTargetPos.current);
+        controlsRef.current.target.copy(controlsTargetLookAt.current);
+        shouldAnimate.current = false;
+        controlsRef.current.enabled = true;
+      }
+    }
+
+    invalidate();
+  });
 
   useEffect(() => {
     if (galaxyPoints.length > 0 && controlsRef.current) {
@@ -596,23 +875,6 @@ const Scene: FC<SceneProps> = ({
     }
   }, [searchResults, camera, positionFor]);
 
-  useFrame(() => {
-    if (shouldAnimate.current && controlsRef.current) {
-      controlsRef.current.enabled = false;
-      const distToTarget = camera.position.distanceTo(cameraTargetPos.current);
-      if (distToTarget > 0.01) {
-        camera.position.lerp(cameraTargetPos.current, 0.08);
-        controlsRef.current.target.lerp(controlsTargetLookAt.current, 0.08);
-      } else {
-        camera.position.copy(cameraTargetPos.current);
-        controlsRef.current.target.copy(controlsTargetLookAt.current);
-        shouldAnimate.current = false;
-        controlsRef.current.enabled = true;
-      }
-      invalidate();
-    }
-  });
-
   const { pointColors, similarityMap } = useMemo(() => {
     const baseColors = galaxyPoints.map((p) => stanceColor(p.entry.stance));
     if (searchResults.length === 0) {
@@ -627,33 +889,36 @@ const Scene: FC<SceneProps> = ({
 
   return (
     <>
-      <ambientLight intensity={0.6} />
-      <directionalLight position={[5, 5, 5]} intensity={1.0} />
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[5, 5, 5]} intensity={0.7} />
       <OrbitControls
         ref={controlsRef}
         makeDefault
         enableZoom
         enablePan
         autoRotate
-        autoRotateSpeed={0.25}
+        autoRotateSpeed={0.18}
       />
       <Stars
-        radius={200}
-        depth={100}
-        count={4000}
+        radius={220}
+        depth={120}
+        count={5200}
         factor={7}
         saturation={1}
         fade
         speed={1}
       />
 
-      {displayedPoints.map((point, i) => (
+      {galaxyPoints.map((point, i) => (
         <InteractiveSphere
-          key={point.text + i}
+          key={point.entry.id}
           point={point}
           color={pointColors[i]}
           similarity={similarityMap.get(point.text) ?? null}
           dimmed={!matchesFilter(point, filter)}
+          isSun={planetSystem.sunIds.has(point.entry.id)}
+          registerGroup={registerGroup}
+          registerMaterial={registerMaterial}
           onClick={onSphereClick}
           onDragStart={handleDragStart}
           onDrag={handleDrag}
@@ -1080,8 +1345,9 @@ export default function App() {
               is predictive completion.
             </p>
             <p className="text-xs text-gray-500 leading-relaxed">
-              Drag any planet to disturb the cluster. Nearby papers repel and
-              make room; search and filters still work while the galaxy moves.
+              Smoking-gun findings are suns; their cluster of related papers
+              orbits them. Drag any planet to perturb the system — nearby
+              papers will yield, and orbits resume when you let go.
             </p>
             <div>
               <div className="flex flex-wrap gap-2 text-xs">

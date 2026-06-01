@@ -23,8 +23,10 @@ EmbeddingGemma 300m (ONNX, q4) on WebGPU embeds a rich paper summary
 UMAP-js projects 768-dim embeddings → 3D coordinates, then a collision
 relaxation pass separates overlapping planets
     ↓
-Three.js renders. Cosine similarity drives search. Dragging one planet
-repels nearby planets so the cluster behaves like a soft force field.
+Three.js renders. Smoking-gun papers become suns; the rest of the corpus
+orbits them with paper-specific axes and speeds. Cosine similarity drives
+search. Dragging one planet pins it in place, locally repels its neighbors,
+and lets the orbit resume when released.
     ↓
 Embeddings + positions persist to IndexedDB. Next visit is instant.
 ```
