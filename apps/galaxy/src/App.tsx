@@ -148,7 +148,17 @@ const MenuScene: FC = () => (
   </Canvas>
 );
 
-const MainMenuUI: FC<{ onLoadModel: () => void }> = ({ onLoadModel }) => (
+interface MainMenuUIProps {
+  onLoadModel: () => void;
+  totalPapers: number;
+  smokingGuns: number;
+}
+
+const MainMenuUI: FC<MainMenuUIProps> = ({
+  onLoadModel,
+  totalPapers,
+  smokingGuns,
+}) => (
   <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-center p-4 z-10 pointer-events-none bg-gradient-to-b from-black/40 via-transparent to-black/60">
     <p
       className="text-shadow-lg text-xs sm:text-sm uppercase tracking-[0.3em] text-gray-300 mb-3 animate-fade-in-down"
@@ -163,8 +173,10 @@ const MainMenuUI: FC<{ onLoadModel: () => void }> = ({ onLoadModel }) => (
       className="text-shadow-lg text-base sm:text-lg md:text-xl text-gray-100 mb-2 animate-fade-in-down max-w-2xl"
       style={{ animationDelay: "200ms" }}
     >
-      <span className="text-green-400 font-semibold">360 papers.</span>{" "}
-      <span className="text-yellow-300 font-semibold">35 smoking guns.</span>{" "}
+      <span className="text-green-400 font-semibold">{totalPapers} papers.</span>{" "}
+      <span className="text-yellow-300 font-semibold">
+        {smokingGuns} smoking guns.
+      </span>{" "}
       <span className="text-white">One story.</span>
     </p>
     <p
@@ -499,6 +511,14 @@ export default function App() {
     entries: PaperEntry[];
     raw: string;
   }>({ entries: [], raw: "" });
+
+  const corpusStats = useMemo(
+    () => ({
+      total: corpus.entries.length,
+      smokingGuns: corpus.entries.filter((e) => e.smoking_gun).length,
+    }),
+    [corpus.entries],
+  );
   const [galaxyPoints, setGalaxyPoints] = useState<GalaxyPoint[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
@@ -776,7 +796,13 @@ export default function App() {
     return (
       <div className="h-screen w-screen bg-[#08080b] text-white relative">
         <MenuScene />
-        {!isLoading && <MainMenuUI onLoadModel={loadModel} />}
+        {!isLoading && (
+          <MainMenuUI
+            onLoadModel={loadModel}
+            totalPapers={corpusStats.total || 360}
+            smokingGuns={corpusStats.smokingGuns || 35}
+          />
+        )}
         {isLoading && <LoadingUI status={status} progress={progress} />}
         {error && (
           <div className="absolute bottom-4 left-4 bg-red-500/50 text-white p-4 rounded-lg">
@@ -839,10 +865,10 @@ export default function App() {
               </h1>
             </div>
             <p className="text-sm text-gray-300 leading-relaxed">
-              360 papers on LLM reasoning, projected into 3D semantic space.
-              Each star is one paper. Color is the paper's stance on the
-              thesis that LLM &ldquo;reasoning&rdquo; is predictive
-              completion.
+              {corpusStats.total || 360} papers on LLM reasoning, projected
+              into 3D semantic space. Each star is one paper. Color is the
+              paper's stance on the thesis that LLM &ldquo;reasoning&rdquo;
+              is predictive completion.
             </p>
             <div>
               <div className="flex flex-wrap gap-2 text-xs">
