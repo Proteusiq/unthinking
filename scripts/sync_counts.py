@@ -143,6 +143,18 @@ def replacements(c: Counts) -> list[Replacement]:
             re.compile(r"\d+ papers, projected in 3D"),
             f"{c.total} papers, projected in 3D",
         ),
+        # AGENTS.md, workflow.md — file tree comments mentioning the
+        # findings page paper count.
+        Replacement(
+            ROOT / "AGENTS.md",
+            re.compile(r"# \d+-paper synthesis"),
+            f"# {c.total}-paper synthesis",
+        ),
+        Replacement(
+            ROOT / "workflow.md",
+            re.compile(r"\| \d+-paper synthesis"),
+            f"| {c.total}-paper synthesis",
+        ),
         # analysis/synthesis.md and analysis/rebuttals.md — only the
         # blockquote header ("> **Papers analyzed**: N") is auto-
         # synced. Internal session-summary lines like "Papers
