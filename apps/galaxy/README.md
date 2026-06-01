@@ -32,11 +32,13 @@ busts, and the browser re-indexes on next visit.
 
 ```bash
 cd apps/galaxy
-npm install
+npm ci          # reproducible install from package-lock.json
 npm run dev
 ```
 
 Open the URL printed by Vite (usually <http://localhost:5173/>).
+Use `npm install` instead of `npm ci` if you're adding or upgrading
+dependencies.
 
 ## Build
 
@@ -52,6 +54,19 @@ uses relative paths (`base: "./"`), so `dist/` works:
 - served by any static host (Render, GitHub Pages, Netlify)
 - served by plain `python -m http.server` inside `dist/`
 
+## Deploy
+
+A `render.yaml` ships in this directory. To deploy to Render:
+
+1. <https://dashboard.render.com> → New → Blueprint
+2. Connect this repo, choose the `apps/galaxy/render.yaml` blueprint.
+3. Render builds with `npm ci && npm run build` and serves `dist/`.
+4. SPA rewrite is configured so `?paper=ID` links survive refresh.
+
+For other hosts (GitHub Pages, Netlify, Cloudflare Pages), point them at
+`apps/galaxy/dist/` after a local `npm run build`. The bundle uses relative
+paths so it works under any subpath.
+
 ## Update the corpus
 
 After running new paper analyses:
@@ -59,11 +74,23 @@ After running new paper analyses:
 ```bash
 uv run python scripts/build_corpus_index.py
 cp analysis/index/corpus.json apps/galaxy/public/corpus.json
-cd apps/galaxy && npm run build
+cd apps/galaxy && npm ci && npm run build
 ```
 
 The next time a visitor loads the page, the corpus fingerprint will have
 changed and their browser will re-index. (~30-60s on WebGPU.)
+
+## Trade-offs to know about
+
+- **EmbeddingGemma is loaded as 4-bit quantized ONNX** for browser
+  efficiency. q4 is small (~200 MB) and fast on WebGPU. There's a small
+  accuracy loss vs fp32, but for 360-document corpus clustering it
+  doesn't visibly change which papers are neighbors.
+- **First visit is slow.** ~30-60 sec on WebGPU for the model download
+  plus 360 embedding passes. Subsequent visits are near-instant (cache).
+- **WebGPU is required** — we don't fall back to WASM. CPU inference
+  would take 3-6 minutes per visit. Users without WebGPU see an explicit
+  "browser not supported" message instead of a silent slog.
 
 ## Lineage
 

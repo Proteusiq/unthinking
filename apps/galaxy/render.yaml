@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: unthinking-galaxy
+    runtime: static
+    rootDir: apps/galaxy
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist
+    pullRequestPreviewsEnabled: false
+    headers:
+      # Enable SharedArrayBuffer / WebGPU threading optimizations.
+      - path: /*
+        name: Cross-Origin-Opener-Policy
+        value: same-origin
+      - path: /*
+        name: Cross-Origin-Embedder-Policy
+        value: require-corp
+    routes:
+      # SPA: serve index.html for unknown paths so ?paper=ID deep links
+      # work after page refreshes.
+      - type: rewrite
+        source: /*
+        destination: /index.html
