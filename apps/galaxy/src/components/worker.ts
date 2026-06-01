@@ -10,7 +10,7 @@ let model: PreTrainedModel | null = null;
 let tokenizer: PreTrainedTokenizer | null = null;
 
 self.onmessage = async (event) => {
-  const { type, payload } = event.data;
+  const { type, payload, id } = event.data;
   if (type === "load-model") {
     try {
       // WebGPU required. No fallback — the corpus visualization needs
@@ -54,7 +54,10 @@ self.onmessage = async (event) => {
     } catch (error) {
       self.postMessage({
         type: "error",
-        payload: error instanceof Error ? error.message : String(error),
+        id,
+        payload: {
+          message: error instanceof Error ? error.message : String(error),
+        },
       });
     }
   } else if (type === "embed" && model && tokenizer) {
@@ -63,11 +66,14 @@ self.onmessage = async (event) => {
       const inputs = tokenizer(sentences, options);
       const { sentence_embedding } = await model(inputs);
       const embeddings = sentence_embedding.tolist();
-      self.postMessage({ type: "embeddings", payload: { embeddings } });
+      self.postMessage({ type: "embeddings", id, payload: { embeddings } });
     } catch (error) {
       self.postMessage({
         type: "error",
-        payload: error instanceof Error ? error.message : String(error),
+        id,
+        payload: {
+          message: error instanceof Error ? error.message : String(error),
+        },
       });
     }
   }

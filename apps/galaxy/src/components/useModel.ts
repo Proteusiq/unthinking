@@ -11,7 +11,26 @@ interface ModelLoaderState {
 
 let worker: Worker | null = null;
 let workerReady = false;
-const pendingEmbeddings: ((embeddings: number[][]) => void)[] = [];
+let nextEmbeddingId = 1;
+const pendingEmbeddings = new Map<
+  number,
+  {
+    resolve: (embeddings: number[][]) => void;
+    reject: (error: Error) => void;
+    timeout: ReturnType<typeof setTimeout>;
+  }
+>();
+
+const settleEmbedding = (
+  id: number,
+  action: (pending: NonNullable<ReturnType<typeof pendingEmbeddings.get>>) => void,
+) => {
+  const pending = pendingEmbeddings.get(id);
+  if (!pending) return;
+  clearTimeout(pending.timeout);
+  pendingEmbeddings.delete(id);
+  action(pending);
+};
 
 export const useModel = () => {
   const [state, setState] = useState<ModelLoaderState>({
@@ -47,15 +66,30 @@ export const useModel = () => {
             device: payload.device,
           }));
         } else if (type === "error") {
+          const message =
+            typeof payload === "string" ? payload : payload?.message ?? "Unknown error";
+          if (typeof event.data.id === "number") {
+            settleEmbedding(event.data.id, (pending) =>
+              pending.reject(new Error(message)),
+            );
+            return;
+          }
           setState((prev) => ({
             ...prev,
             isLoading: false,
-            error: payload,
+            error: message,
             status: "An error occurred",
           }));
+          for (const [pendingId] of pendingEmbeddings) {
+            settleEmbedding(pendingId, (pending) =>
+              pending.reject(new Error(message)),
+            );
+          }
         } else if (type === "embeddings") {
-          if (pendingEmbeddings.length > 0) {
-            pendingEmbeddings.shift()?.(payload.embeddings);
+          if (typeof event.data.id === "number") {
+            settleEmbedding(event.data.id, (pending) =>
+              pending.resolve(payload.embeddings),
+            );
           }
         }
       };
@@ -93,9 +127,22 @@ export const useModel = () => {
       sentences: string[],
       options: Record<string, unknown>,
     ): Promise<number[][]> => {
-      return new Promise<number[][]>((resolve) => {
-        pendingEmbeddings.push(resolve);
-        worker?.postMessage({ type: "embed", payload: { sentences, options } });
+      return new Promise<number[][]>((resolve, reject) => {
+        const id = nextEmbeddingId++;
+        const timeout = setTimeout(() => {
+          pendingEmbeddings.delete(id);
+          reject(
+            new Error(
+              `Embedding request ${id} timed out after 60s (${sentences.length} item${sentences.length === 1 ? "" : "s"})`,
+            ),
+          );
+        }, 60_000);
+        pendingEmbeddings.set(id, { resolve, reject, timeout });
+        worker?.postMessage({
+          type: "embed",
+          id,
+          payload: { sentences, options },
+        });
       });
     },
     [],

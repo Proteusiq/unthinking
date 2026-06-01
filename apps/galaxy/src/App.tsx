@@ -34,6 +34,7 @@ import {
 } from "./components/embeddingCache";
 
 const EMBED_MODEL_ID = "onnx-community/embeddinggemma-300m-ONNX";
+const EMBEDDING_DIM = 768;
 
 // Menu visualization is the corpus stance distribution itself.
 // 258 supports (green) / 80 balanced (gray) / 22 challenges (red).
@@ -602,15 +603,59 @@ export default function App() {
       // Cache miss → embed all findings in the browser via EmbeddingGemma.
       const batch_size = 4;
       const embeddings: number[][] = [];
+      const embedOptions = {
+        padding: true,
+        truncation: true,
+        max_length: 256,
+      };
+      const zeroVector = () => Array.from({ length: EMBEDDING_DIM }, () => 0);
+      const embedBatch = async (
+        batch: string[],
+        batchEntries: PaperEntry[],
+      ): Promise<number[][]> => {
+        try {
+          return await embed(batch, embedOptions);
+        } catch (error) {
+          console.warn("Batch embed failed; retrying one paper at a time", {
+            ids: batchEntries.map((e) => e.id),
+            error,
+          });
+          setGenerationStatus(
+            `Retrying papers ${batchEntries[0].id}–${batchEntries.at(-1)?.id} one at a time…`,
+          );
+        }
+
+        const recovered: number[][] = [];
+        for (let j = 0; j < batch.length; j++) {
+          const entry = batchEntries[j];
+          try {
+            const [single] = await embed([batch[j]], embedOptions);
+            recovered.push(single);
+            continue;
+          } catch (error) {
+            console.warn(`Core finding embed failed for paper #${entry.id}`, error);
+          }
+
+          try {
+            const [titleOnly] = await embed([entry.title], embedOptions);
+            recovered.push(titleOnly);
+            continue;
+          } catch (error) {
+            console.warn(`Title fallback embed failed for paper #${entry.id}`, error);
+          }
+
+          // Last resort: keep the paper in the galaxy with a neutral vector
+          // instead of freezing the entire corpus projection.
+          recovered.push(zeroVector());
+        }
+        return recovered;
+      };
       const start = performance.now();
       setGenerationStatus(`Embedding 0 of ${sentences.length}…`);
       for (let i = 0; i < sentences.length; i += batch_size) {
         const batch = sentences.slice(i, i + batch_size);
-        const batchEmbeddings = await embed(batch, {
-          padding: true,
-          truncation: true,
-          max_length: 256,
-        });
+        const batchEntries = entries.slice(i, i + batch_size);
+        const batchEmbeddings = await embedBatch(batch, batchEntries);
         embeddings.push(...batchEmbeddings);
         const done = Math.min(i + batch_size, sentences.length);
         setGenerationStatus(`Embedding ${done} of ${sentences.length}…`);
