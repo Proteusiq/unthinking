@@ -35,7 +35,7 @@ import {
 
 const EMBED_MODEL_ID = "onnx-community/embeddinggemma-300m-ONNX";
 const EMBEDDING_DIM = 768;
-const INDEX_VERSION = "semantic-v2-rich-text-collision";
+const INDEX_VERSION = "semantic-v3-rich-text-jitter-force";
 
 const embeddingText = (entry: PaperEntry): string => {
   const firstQuote = entry.quotes[0] ?? "";
@@ -81,6 +81,20 @@ const relaxPositions = (
   return centered.map((p) => {
     const normalized = maxDist > 0 ? p.divideScalar(maxDist) : p;
     return normalized.multiplyScalar(50).toArray() as [number, number, number];
+  }).map((p, i) => {
+    // Deterministic, paper-specific jitter: keeps semantic neighborhoods
+    // intact while breaking the "two dense blobs" look UMAP can produce.
+    const id = entries[i].id;
+    const jitter = new THREE.Vector3(
+      Math.sin(id * 12.9898) * 3.8,
+      Math.sin(id * 78.233) * 3.0,
+      Math.sin(id * 37.719) * 3.8,
+    );
+    return new THREE.Vector3(...p).add(jitter).toArray() as [
+      number,
+      number,
+      number,
+    ];
   });
 };
 
@@ -813,8 +827,8 @@ export default function App() {
       console.log(`Embedding time: ${embeddingMs.toFixed(0)}ms`);
 
       setGenerationStatus("Projecting to 3D…");
-      const nNeighbors = Math.max(2, Math.min(sentences.length - 1, 15));
-      const umap = new UMAP({ nComponents: 3, nNeighbors, minDist: 0.1 });
+      const nNeighbors = Math.max(2, Math.min(sentences.length - 1, 9));
+      const umap = new UMAP({ nComponents: 3, nNeighbors, minDist: 0.42 });
       const coords3D: number[][] = umap.fit(embeddings);
       const rawPoints = coords3D.map((p) => new THREE.Vector3(...p));
       const box = new THREE.Box3().setFromPoints(rawPoints);

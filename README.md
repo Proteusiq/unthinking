@@ -41,7 +41,7 @@ RL and test-time compute surface pre-existing capabilities rather than creating 
 Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/)**
 
 - **Force-directed graph**: 360 papers as nodes, 1336 relationships as edges
-- **Color-coded stances**: supports (258), challenges (22), balanced (80)
+- **Color-coded stances**: supports (266), challenges (15), balanced (79)
 - **Interactive**: hover, click, search, filter, dark/light mode
 - **Paper dialogue**: auto-generated conversations between connected papers
 

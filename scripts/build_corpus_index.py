@@ -62,28 +62,50 @@ class PaperEntry:
     word_count: int = 0
 
 
-def load_paper_list_stances() -> dict[str, tuple[str, str, str]]:
-    """Return mapping arxiv_id -> (title, date, stance) from paper_list.md."""
+PaperListMeta = tuple[str, str, str, str]
+
+
+def normalize_title_key(title: str) -> str:
+    title = re.sub(r"^Paper Analysis:\s*", "", title, flags=re.IGNORECASE)
+    title = re.sub(r"^Paper\s+\d+:\s*", "", title, flags=re.IGNORECASE)
+    title = re.sub(r"[^a-z0-9]+", " ", title.lower())
+    return " ".join(title.split())
+
+
+def load_paper_list_meta() -> tuple[dict[str, PaperListMeta], dict[str, PaperListMeta]]:
+    """Return canonical metadata from paper_list.md.
+
+    paper_list.md is the source of truth for stance. Individual analysis
+    files sometimes write stance in thesis-oriented language (for example,
+    "AGAINST genuine reasoning"), which means supports the thesis but would
+    be misread by a naive normalizer as "challenges".
+
+    Do NOT use the analysis filename number as a lookup key: early analysis
+    files are zero-based (00_... is paper 1 in paper_list.md), while later
+    files line up directly. Instead, match on the paper-list identifier
+    (usually arXiv, sometimes venue id) and then normalized title.
+    """
     text = PAPER_LIST.read_text()
-    rows: dict[str, tuple[str, str, str]] = {}
+    by_key: dict[str, PaperListMeta] = {}
+    by_title: dict[str, PaperListMeta] = {}
     for line in text.splitlines():
         if not line.startswith("| ") or "| #" in line or "|---" in line:
             continue
         cols = [c.strip() for c in line.strip("|").split("|")]
         if len(cols) < 5:
             continue
-        _id, arxiv, date, title, stance = cols[:5]
-        if not arxiv or arxiv == "arXiv ID":
+        _paper_id, paper_key, date, title, stance = cols[:5]
+        if not paper_key or paper_key == "arXiv ID":
             continue
-        rows[arxiv] = (title, date, stance)
-    return rows
+        meta: PaperListMeta = (paper_key, title, date, stance)
+        by_key[paper_key] = meta
+        by_title[normalize_title_key(title)] = meta
+    return by_key, by_title
 
 
 def extract_arxiv_id(text: str) -> str:
     metadata_block = text.split("---", 1)[0] if "---" in text else text[:2000]
     if match := ARXIV_RX.search(metadata_block):
-        return match.group(1)
-    if match := ARXIV_RX.search(text):
         return match.group(1)
     return ""
 
@@ -279,7 +301,9 @@ def cluster_for_arxiv(arxiv: str, text: str) -> str:
 
 
 def process_file(
-    path: Path, stance_lookup: dict[str, tuple[str, str, str]]
+    path: Path,
+    by_key: dict[str, PaperListMeta],
+    by_title: dict[str, PaperListMeta],
 ) -> PaperEntry | None:
     match = PAPER_ID_RX.match(path.name)
     if not match:
@@ -289,12 +313,14 @@ def process_file(
 
     arxiv = extract_arxiv_id(text)
     title_from_file = extract_title(text)
-    list_meta = stance_lookup.get(arxiv)
+    list_meta = by_key.get(arxiv) or by_title.get(normalize_title_key(title_from_file))
 
-    title = title_from_file or (list_meta[0] if list_meta else "")
-    date = extract_date(text, list_meta[1] if list_meta else "")
-    stance_default = list_meta[2] if list_meta else ""
-    stance = stance_from_text(text, stance_default).lower()
+    canonical_arxiv = list_meta[0] if list_meta else arxiv
+    title = title_from_file or (list_meta[1] if list_meta else "")
+    date = extract_date(text, list_meta[2] if list_meta else "")
+    stance = (
+        normalize_stance(list_meta[3]) if list_meta else stance_from_text(text, "")
+    ).lower()
 
     core = extract_core_finding(text)
     quotes = extract_quotes(text)
@@ -304,7 +330,7 @@ def process_file(
 
     return PaperEntry(
         id=paper_id,
-        arxiv=arxiv,
+        arxiv=canonical_arxiv,
         title=title,
         date=date,
         stance=stance,
@@ -319,11 +345,11 @@ def process_file(
 
 def main() -> None:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    stance_lookup = load_paper_list_stances()
+    by_key, by_title = load_paper_list_meta()
     paths = sorted(ANALYSIS_DIR.rglob("*.md"))
     entries: list[PaperEntry] = []
     for path in paths:
-        if entry := process_file(path, stance_lookup):
+        if entry := process_file(path, by_key, by_title):
             entries.append(entry)
 
     entries.sort(key=lambda e: e.id)
