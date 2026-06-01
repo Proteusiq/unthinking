@@ -17,11 +17,14 @@ corpus.json (built by scripts/build_corpus_index.py from analysis/explored/)
     ↓
 Browser loads it
     ↓
-EmbeddingGemma 300m (ONNX, q4) on WebGPU embeds each core_finding
+EmbeddingGemma 300m (ONNX, q4) on WebGPU embeds a rich paper summary
+(title + cluster + stance + core finding + first quote)
     ↓
-UMAP-js projects 768-dim embeddings → 3D coordinates
+UMAP-js projects 768-dim embeddings → 3D coordinates, then a collision
+relaxation pass separates overlapping planets
     ↓
-Three.js renders. Cosine similarity drives search.
+Three.js renders. Cosine similarity drives search. Dragging one planet
+repels nearby planets so the cluster behaves like a soft force field.
     ↓
 Embeddings + positions persist to IndexedDB. Next visit is instant.
 ```

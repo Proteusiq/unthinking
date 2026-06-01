@@ -8,7 +8,7 @@ import {
   Suspense,
   type FC,
 } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Canvas, useFrame, useThree, type ThreeEvent } from "@react-three/fiber";
 import { OrbitControls, Html, Stars } from "@react-three/drei";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { UMAP } from "umap-js";
@@ -35,6 +35,54 @@ import {
 
 const EMBED_MODEL_ID = "onnx-community/embeddinggemma-300m-ONNX";
 const EMBEDDING_DIM = 768;
+const INDEX_VERSION = "semantic-v2-rich-text-collision";
+
+const embeddingText = (entry: PaperEntry): string => {
+  const firstQuote = entry.quotes[0] ?? "";
+  return [
+    `Title: ${entry.title}`,
+    `Cluster: ${entry.cluster}`,
+    `Stance: ${entry.stance}`,
+    entry.smoking_gun ? "Smoking gun evidence" : "",
+    `Finding: ${entry.core_finding}`,
+    firstQuote ? `Quote: ${firstQuote}` : "",
+  ]
+    .filter(Boolean)
+    .join("\n");
+};
+
+const relaxPositions = (
+  positions: [number, number, number][],
+  entries: PaperEntry[],
+): [number, number, number][] => {
+  const vectors = positions.map((p) => new THREE.Vector3(...p));
+  const radii = entries.map((entry) => paperSize(entry));
+  const iterations = 80;
+
+  for (let iter = 0; iter < iterations; iter++) {
+    for (let i = 0; i < vectors.length; i++) {
+      for (let j = i + 1; j < vectors.length; j++) {
+        const delta = new THREE.Vector3().subVectors(vectors[j], vectors[i]);
+        const dist = Math.max(delta.length(), 0.001);
+        const minDist = 1.8 + (radii[i] + radii[j]) * 2.4;
+        if (dist >= minDist) continue;
+        const push = (minDist - dist) * 0.5;
+        delta.normalize().multiplyScalar(push);
+        vectors[i].addScaledVector(delta, -1);
+        vectors[j].add(delta);
+      }
+    }
+  }
+
+  // Keep the relaxed cloud inside roughly the same viewing radius.
+  const center = new THREE.Box3().setFromPoints(vectors).getCenter(new THREE.Vector3());
+  const centered = vectors.map((p) => p.sub(center));
+  const maxDist = Math.max(...centered.map((p) => p.length()));
+  return centered.map((p) => {
+    const normalized = maxDist > 0 ? p.divideScalar(maxDist) : p;
+    return normalized.multiplyScalar(50).toArray() as [number, number, number];
+  });
+};
 
 // Menu visualization is the corpus stance distribution itself.
 // 258 supports (green) / 80 balanced (gray) / 22 challenges (red).
@@ -254,6 +302,9 @@ interface InteractiveSphereProps {
   similarity: number | null;
   dimmed: boolean;
   onClick: (point: GalaxyPoint) => void;
+  onDragStart: () => void;
+  onDrag: (point: GalaxyPoint, position: [number, number, number]) => void;
+  onDragEnd: () => void;
 }
 
 const InteractiveSphereImpl: FC<InteractiveSphereProps> = ({
@@ -262,8 +313,13 @@ const InteractiveSphereImpl: FC<InteractiveSphereProps> = ({
   similarity,
   dimmed,
   onClick,
+  onDragStart,
+  onDrag,
+  onDragEnd,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const isDragging = useRef(false);
+  const dragOffset = useRef(new THREE.Vector3());
   const meshRef = useRef<THREE.Mesh>(null!);
   const materialRef = useRef<THREE.MeshStandardMaterial>(null!);
   const labelRef = useRef<HTMLDivElement>(null!);
@@ -319,11 +375,41 @@ const InteractiveSphereImpl: FC<InteractiveSphereProps> = ({
   const labelText =
     similarity !== null ? `(${similarity.toFixed(2)}) ${titleLabel}` : titleLabel;
 
+  const onPointerDown = (e: ThreeEvent<PointerEvent>) => {
+    e.stopPropagation();
+    isDragging.current = true;
+    setIsHovered(true);
+    dragOffset.current
+      .copy(new THREE.Vector3(...point.position))
+      .sub(e.point);
+    (e.target as Element).setPointerCapture?.(e.pointerId);
+    onDragStart();
+  };
+
+  const onPointerMove = (e: ThreeEvent<PointerEvent>) => {
+    if (!isDragging.current) return;
+    e.stopPropagation();
+    const next = e.point.clone().add(dragOffset.current);
+    onDrag(point, next.toArray() as [number, number, number]);
+  };
+
+  const onPointerUp = (e: ThreeEvent<PointerEvent>) => {
+    if (!isDragging.current) return;
+    e.stopPropagation();
+    isDragging.current = false;
+    (e.target as Element).releasePointerCapture?.(e.pointerId);
+    onDragEnd();
+  };
+
   return (
     <group position={point.position}>
       <mesh
         ref={meshRef}
         onClick={() => onClick(point)}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerCancel={onPointerUp}
         onPointerOver={(e) => {
           e.stopPropagation();
           setIsHovered(true);
@@ -401,10 +487,58 @@ const Scene: FC<SceneProps> = ({
   onSphereClick,
 }) => {
   const controlsRef = useRef<OrbitControlsImpl>(null);
+  const [positionOverrides, setPositionOverrides] = useState(
+    () => new Map<number, [number, number, number]>(),
+  );
   const cameraTargetPos = useRef(new THREE.Vector3());
   const controlsTargetLookAt = useRef(new THREE.Vector3());
   const shouldAnimate = useRef(false);
   const { camera, invalidate } = useThree();
+
+  const displayedPoints = useMemo(() => {
+    return galaxyPoints.map((point) => ({
+      ...point,
+      position: positionOverrides.get(point.entry.id) ?? point.position,
+    }));
+  }, [galaxyPoints, positionOverrides]);
+
+  const positionFor = useCallback(
+    (point: GalaxyPoint) =>
+      positionOverrides.get(point.entry.id) ?? point.position,
+    [positionOverrides],
+  );
+
+  const handleDragStart = useCallback(() => {
+    if (controlsRef.current) controlsRef.current.enabled = false;
+  }, []);
+
+  const handleDragEnd = useCallback(() => {
+    if (controlsRef.current) controlsRef.current.enabled = true;
+  }, []);
+
+  const handleDrag = useCallback(
+    (dragged: GalaxyPoint, nextPosition: [number, number, number]) => {
+      const influence = 9;
+      const next = new Map(positionOverrides);
+      const draggedVec = new THREE.Vector3(...nextPosition);
+      next.set(dragged.entry.id, nextPosition);
+
+      for (const point of galaxyPoints) {
+        if (point.entry.id === dragged.entry.id) continue;
+        const current = new THREE.Vector3(...(next.get(point.entry.id) ?? point.position));
+        const delta = new THREE.Vector3().subVectors(current, draggedVec);
+        const dist = Math.max(delta.length(), 0.001);
+        if (dist >= influence) continue;
+        const strength = Math.pow(1 - dist / influence, 2) * 2.4;
+        const pushed = current.add(delta.normalize().multiplyScalar(strength));
+        next.set(point.entry.id, pushed.toArray() as [number, number, number]);
+      }
+
+      setPositionOverrides(next);
+      invalidate();
+    },
+    [galaxyPoints, invalidate, positionOverrides],
+  );
 
   useEffect(() => {
     if (galaxyPoints.length > 0 && controlsRef.current) {
@@ -427,7 +561,7 @@ const Scene: FC<SceneProps> = ({
   useEffect(() => {
     if (searchResults.length > 0 && controlsRef.current) {
       const topResult = searchResults[0];
-      const topResultPos = new THREE.Vector3(...topResult.position);
+      const topResultPos = new THREE.Vector3(...positionFor(topResult));
       const offsetDirection = new THREE.Vector3()
         .subVectors(camera.position, controlsRef.current.target)
         .normalize();
@@ -446,7 +580,7 @@ const Scene: FC<SceneProps> = ({
       controlsTargetLookAt.current.copy(topResultPos);
       shouldAnimate.current = true;
     }
-  }, [searchResults, camera]);
+  }, [searchResults, camera, positionFor]);
 
   useFrame(() => {
     if (shouldAnimate.current && controlsRef.current) {
@@ -499,7 +633,7 @@ const Scene: FC<SceneProps> = ({
         speed={1}
       />
 
-      {galaxyPoints.map((point, i) => (
+      {displayedPoints.map((point, i) => (
         <InteractiveSphere
           key={point.text + i}
           point={point}
@@ -507,6 +641,9 @@ const Scene: FC<SceneProps> = ({
           similarity={similarityMap.get(point.text) ?? null}
           dimmed={!matchesFilter(point, filter)}
           onClick={onSphereClick}
+          onDragStart={handleDragStart}
+          onDrag={handleDrag}
+          onDragEnd={handleDragEnd}
         />
       ))}
     </>
@@ -569,14 +706,17 @@ export default function App() {
     setSearchQuery("");
     lastQueryEmbedding.current = null;
     const entries = corpus.entries.filter((e) => e.core_finding?.length > 0);
-    const sentences = entries.map((e) => e.core_finding);
+    const sentences = entries.map(embeddingText);
     if (sentences.length < 3) {
       setGenerationStatus("Not enough findings to project.");
       setIsGenerating(false);
       return;
     }
 
-    const fingerprint = fingerprintCorpus(corpus.raw, EMBED_MODEL_ID);
+    const fingerprint = fingerprintCorpus(
+      corpus.raw,
+      `${EMBED_MODEL_ID}:${INDEX_VERSION}`,
+    );
 
     try {
       // Try the IndexedDB cache first — first visit takes ~30-60s on
@@ -689,11 +829,12 @@ export default function App() {
         const normalized = maxDist > 0 ? p.divideScalar(maxDist) : p;
         return normalized.multiplyScalar(scaleFactor);
       });
-      const positions = finalPoints.map((p) => p.toArray()) as [
+      const rawPositions = finalPoints.map((p) => p.toArray()) as [
         number,
         number,
         number,
       ][];
+      const positions = relaxPositions(rawPositions, entries);
 
       const newPoints: GalaxyPoint[] = sentences.map((text, i) => ({
         text,
@@ -923,6 +1064,10 @@ export default function App() {
               into 3D semantic space. Each star is one paper. Color is the
               paper's stance on the thesis that LLM &ldquo;reasoning&rdquo;
               is predictive completion.
+            </p>
+            <p className="text-xs text-gray-500 leading-relaxed">
+              Drag any planet to disturb the cluster. Nearby papers repel and
+              make room; search and filters still work while the galaxy moves.
             </p>
             <div>
               <div className="flex flex-wrap gap-2 text-xs">
