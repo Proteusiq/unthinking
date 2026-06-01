@@ -271,6 +271,7 @@ const InteractiveSphereImpl: FC<InteractiveSphereProps> = ({
 
   const isSmokingGun = point.entry.smoking_gun;
   const radius = paperSize(point.entry);
+  const segments = radius >= 0.38 ? 32 : 24;
   const [cameraDistance, setCameraDistance] = useState(50);
 
   useFrame((state) => {
@@ -332,11 +333,12 @@ const InteractiveSphereImpl: FC<InteractiveSphereProps> = ({
           setIsHovered(false);
         }}
       >
-        <sphereGeometry args={[radius, 12, 12]} />
+        <sphereGeometry args={[radius, segments, segments]} />
         <meshStandardMaterial
           ref={materialRef}
           color={color}
-          roughness={0.4}
+          roughness={0.28}
+          metalness={0.04}
           emissive={color}
           emissiveIntensity={0.45}
           transparent
