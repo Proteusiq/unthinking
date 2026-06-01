@@ -9,4 +9,22 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   base: "./",
   plugins: [react(), tailwindcss()],
+  build: {
+    // Split out the big chunks so first paint isn't blocked by a single
+    // 2 MB bundle. Three.js + post-processing + UMAP are independent of
+    // the React app and can stream in parallel.
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          three: ["three"],
+          "react-three": [
+            "@react-three/fiber",
+            "@react-three/drei",
+            "@react-three/postprocessing",
+          ],
+          umap: ["umap-js"],
+        },
+      },
+    },
+  },
 });

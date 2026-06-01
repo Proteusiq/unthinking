@@ -4,6 +4,7 @@ import {
   useRef,
   useMemo,
   useCallback,
+  memo,
   Suspense,
   type FC,
 } from "react";
@@ -242,7 +243,7 @@ interface InteractiveSphereProps {
   onClick: (point: GalaxyPoint) => void;
 }
 
-const InteractiveSphere: FC<InteractiveSphereProps> = ({
+const InteractiveSphereImpl: FC<InteractiveSphereProps> = ({
   point,
   color,
   similarity,
@@ -352,6 +353,11 @@ const InteractiveSphere: FC<InteractiveSphereProps> = ({
     </group>
   );
 };
+
+// Memo on shallow prop equality. Search updates the similarityMap; without
+// memo every search keystroke triggers 360 re-renders. With memo, only
+// spheres whose similarity actually changed re-render.
+const InteractiveSphere = memo(InteractiveSphereImpl);
 
 type StanceFilter =
   | null
@@ -746,23 +752,25 @@ export default function App() {
     processQueue();
   }, [searchQuery, galaxyPoints, isReady, embed]);
 
-  const handlePointFocus = (point: GalaxyPoint | SearchResult) => {
-    setSelectedPoint(point);
-    let similarity = (point as SearchResult).similarity;
-    if (similarity === undefined) {
-      if (lastQueryEmbedding.current) {
-        similarity = cos_sim(lastQueryEmbedding.current, point.embedding);
-      } else {
-        return;
+  const handlePointFocus = useCallback(
+    (point: GalaxyPoint | SearchResult) => {
+      setSelectedPoint(point);
+      let similarity = (point as SearchResult).similarity;
+      if (similarity === undefined) {
+        if (lastQueryEmbedding.current) {
+          similarity = cos_sim(lastQueryEmbedding.current, point.embedding);
+        } else {
+          return;
+        }
       }
-    }
-    const focusedResult: SearchResult = { ...point, similarity };
-    const newResults = [
-      focusedResult,
-      ...searchResults.filter((r) => r.text !== point.text),
-    ];
-    setSearchResults(newResults);
-  };
+      const focusedResult: SearchResult = { ...point, similarity };
+      setSearchResults((prev) => [
+        focusedResult,
+        ...prev.filter((r) => r.text !== point.text),
+      ]);
+    },
+    [],
+  );
 
   if (!isReady) {
     return (
@@ -988,7 +996,10 @@ export default function App() {
                       papers.
                     </p>
                   )}
-                  {searchResults.slice(0, 25).map((result, i) => {
+                  {searchResults
+                    .filter((r) => r.similarity > 0.35)
+                    .slice(0, 50)
+                    .map((result, i) => {
                     const color = stanceColor(result.entry.stance);
                     return (
                       <div

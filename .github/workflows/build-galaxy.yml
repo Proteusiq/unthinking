@@ -1,0 +1,53 @@
+name: Build galaxy app
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "apps/galaxy/**"
+      - ".github/workflows/build-galaxy.yml"
+  pull_request:
+    paths:
+      - "apps/galaxy/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/galaxy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: apps/galaxy/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      - name: Type-check
+        run: npx tsc --noEmit -p tsconfig.app.json
+
+      - name: Build
+        run: npm run build
+
+      - name: Verify dist size
+        run: |
+          set -e
+          test -f dist/index.html
+          test -f dist/corpus.json
+          test -f dist/logo.svg
+          size=$(du -sb dist | awk '{print $1}')
+          echo "dist size: $size bytes"
+          # Sanity check: a real build is at least 20 MB (includes the
+          # ONNX runtime WASM), failing build is usually < 1 MB.
+          if [ "$size" -lt 20000000 ]; then
+            echo "::error::dist appears too small — build likely failed silently"
+            exit 1
+          fi
+          echo "✓ build looks healthy"
