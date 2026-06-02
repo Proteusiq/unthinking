@@ -135,11 +135,14 @@
     </div>
 
     <div class="page">
-      <h1>Agent is an LLM in a loop</h1>
+      <h1 aria-label="Agent loop: INPUT to LLM to OUTPUT back to INPUT">
+        INPUT → LLM → OUTPUT → INPUT&prime;
+      </h1>
       <p class="subtitle">
-        LLM is <code>f(x) → y</code>. No memory, no agency. The devil is in
-        software engineering — building a system to enable completion of
-        tasks.
+        Agent is an LLM in a loop. LLM is <code>f(x) → y</code>. No memory,
+        no agency. The whole context is re-sent every cycle. The devil is
+        in software engineering — building a system to enable completion
+        of tasks.
       </p>
 
       <p class="step-label" id="lbl">—</p>
@@ -530,7 +533,7 @@
             secDim("sec-ctx");
             arrow("a1", BLUE, "blue");
             secGlow("sec-orch", PURPLE);
-            label("INPUT passed to LLM", BLUE);
+            label("Whole INPUT re-sent to LLM", BLUE);
             dot(280, 108, BLUE);
           },
           () => {
@@ -583,7 +586,7 @@
             secDim("sec-ctx");
             arrow("a1", BLUE, "blue");
             secGlow("sec-orch", PURPLE);
-            label("Larger INPUT enters LLM", BLUE);
+            label("Whole INPUT (now larger) re-sent to LLM", BLUE);
             dot(280, 108, BLUE);
           },
           () => {
