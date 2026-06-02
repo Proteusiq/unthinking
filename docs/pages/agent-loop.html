@@ -112,6 +112,19 @@
          Footer
          ════════════════════════════════════════════════════════════ */
 
+      .footer-note {
+        max-width: min(680px, 100%);
+        margin: 2rem auto 0;
+        padding: 1rem 1.2rem;
+        text-align: center;
+        color: var(--text-muted);
+        font-family: "Inter", "Space Grotesk", sans-serif;
+        font-size: 0.85rem;
+        line-height: 1.55;
+        border-top: 1px solid var(--border-primary);
+        border-bottom: 1px solid var(--border-primary);
+      }
+
       .credits {
         text-align: center;
         color: var(--text-muted);
@@ -138,9 +151,7 @@
       <h1>Agent is an LLM in a loop</h1>
       <p class="subtitle">
         Agency lives in the software engineering: the system composes
-        context, parses output, runs tools, and loops. The LLM is a
-        component inside that system — it generates plausible tokens
-        given the context it was given. Nothing more, nothing less.
+        context, parses output, runs tools, and loops.
       </p>
 
       <p class="step-label" id="lbl">—</p>
@@ -265,9 +276,9 @@
           <text x="304" y="97" font-family="Courier New" font-size="11"
             fill="var(--accent-blue)">f(x) → y</text>
           <text x="304" y="113" font-family="Courier New" font-size="11"
-            fill="var(--text-muted)">plausible tokens</text>
+            fill="var(--text-muted)">stateless</text>
           <text x="304" y="129" font-family="Courier New" font-size="11"
-            fill="var(--text-muted)">trained, not agentic</text>
+            fill="var(--text-muted)">no memory</text>
           <text id="llm-out" x="304" y="152" font-family="Courier New"
             font-size="10" fill="var(--text-primary)" opacity="0">→</text>
 
@@ -328,6 +339,12 @@
             opacity="0" />
         </svg>
       </div>
+
+      <p class="footer-note">
+        LLM is a component inside that system — it generates plausible
+        tokens given the context it was given. Nothing more, nothing
+        less.
+      </p>
 
       <p class="credits">
         <a href="../index.html">Back to Unthinking</a> ·
