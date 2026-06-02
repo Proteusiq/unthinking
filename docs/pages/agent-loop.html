@@ -445,11 +445,17 @@
         $("lbl").style.color = color || "var(--text-muted)";
       }
 
-      function appendRow(text, color) {
-        const rowY = FIRST_ROW_Y + appendIdx * ROW_H;
-        const newH = BASE_HEIGHT + 15 + (appendIdx + 1) * ROW_H;
+      // INPUT grows forever — but the SVG viewbox is fixed at 540 high.
+      // Keep at most MAX_ROWS visible. When we exceed it, fade the oldest
+      // row out and shift the remaining ones up so the newest always
+      // lands at the bottom of the box.
+      const MAX_ROWS = 18;
+
+      function relayoutRows() {
+        const visibleCount = appendedNodes.length;
+        const newH = BASE_HEIGHT + 15 + visibleCount * ROW_H;
         $("r-input").setAttribute("height", newH);
-        if (appendIdx === 0) $("div-append").style.opacity = "0.5";
+        $("div-append").style.opacity = visibleCount > 0 ? "0.5" : "0";
         const newBottom = INPUT_TOP + newH;
         $("a3").setAttribute(
           "d",
@@ -459,13 +465,18 @@
           "d",
           `M 770 270 L 770 450 L 132 450 L 132 ${newBottom - 6}`,
         );
+        appendedNodes.forEach((node, idx) => {
+          node.setAttribute("y", FIRST_ROW_Y + idx * ROW_H);
+        });
+      }
+
+      function appendRow(text, color) {
         const svg = $("svg");
         const t = document.createElementNS(
           "http://www.w3.org/2000/svg",
           "text",
         );
         t.setAttribute("x", "32");
-        t.setAttribute("y", rowY);
         t.setAttribute("font-family", "Courier New");
         t.setAttribute("font-size", "10");
         t.setAttribute("fill", color);
@@ -473,19 +484,19 @@
         t.style.opacity = "0";
         t.style.transition = "opacity 0.5s";
         svg.appendChild(t);
-        requestAnimationFrame(() => (t.style.opacity = "1"));
         appendedNodes.push(t);
-        appendIdx++;
-      }
 
-      function resetInputRows() {
-        appendedNodes.forEach((n) => n.remove());
-        appendedNodes = [];
-        appendIdx = 0;
-        $("r-input").setAttribute("height", BASE_HEIGHT);
-        $("div-append").style.opacity = "0";
-        $("a3").setAttribute("d", "M 288 270 L 132 270 L 132 138");
-        $("a5").setAttribute("d", "M 770 270 L 770 450 L 132 450 L 132 140");
+        // Drop the oldest row(s) if we've exceeded the visible budget so
+        // the input box doesn't overrun the orchestrator/executor below.
+        while (appendedNodes.length > MAX_ROWS) {
+          const old = appendedNodes.shift();
+          old.style.opacity = "0";
+          setTimeout(() => old.remove(), 400);
+        }
+
+        relayoutRows();
+        requestAnimationFrame(() => (t.style.opacity = "1"));
+        appendIdx++;
       }
 
       function resetBoxes() {
@@ -508,7 +519,6 @@
       function buildSteps(cycle) {
         return [
           () => {
-            resetInputRows();
             resetBoxes();
             glow("r-input", BLUE, "var(--accent-blue)");
             secGlow("sec-ctx", BLUE);
