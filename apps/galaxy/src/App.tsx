@@ -647,7 +647,11 @@ const InteractiveSphereImpl: FC<InteractiveSphereProps> = ({
   const meshRef = useRef<THREE.Mesh>(null!);
   const materialRef = useRef<THREE.MeshStandardMaterial>(null!);
   const labelRef = useRef<HTMLDivElement>(null!);
-  const { camera, invalidate } = useThree();
+  const { camera } = useThree();
+  // Smoothed per-frame multiplier — lerped toward the new value at 0.08
+  // so even when the camera lerps fast (during search focus), the
+  // planet size doesn't tick visibly.
+  const smoothedDistScale = useRef(1);
 
   const baseRadius = paperSize(point.entry);
   // Suns get a noticeably bigger body and higher quality.
@@ -680,8 +684,22 @@ const InteractiveSphereImpl: FC<InteractiveSphereProps> = ({
     // re-render every frame. A larger hysteresis band also keeps labels
     // from flickering on/off as the camera drifts past the threshold.
     if (Math.abs(dist - cameraDistance) > 5) setCameraDistance(dist);
-    const distanceScale = THREE.MathUtils.mapLinear(dist, 100, 25, 2.0, 1.0);
-    const clampedDistanceScale = THREE.MathUtils.clamp(distanceScale, 1.0, 2.0);
+
+    // Compute a distance-based size multiplier, but VERY gently: range
+    // 1.0..1.12 instead of 1.0..2.0. And we low-pass it so a fast-moving
+    // camera (e.g. during a search lerp) doesn't cause the planet to
+    // visibly grow and shrink each tick.
+    const targetDistScale = THREE.MathUtils.clamp(
+      THREE.MathUtils.mapLinear(dist, 80, 20, 1.0, 1.12),
+      1.0,
+      1.12,
+    );
+    smoothedDistScale.current = THREE.MathUtils.lerp(
+      smoothedDistScale.current,
+      targetDistScale,
+      0.08,
+    );
+    const clampedDistanceScale = smoothedDistScale.current;
     const hoverScale = isHovered ? 1.2 : 1.0;
 
     let breath = 1;
@@ -733,8 +751,6 @@ const InteractiveSphereImpl: FC<InteractiveSphereProps> = ({
     if (labelRef.current) {
       labelRef.current.style.transform = `translateX(-50%) scale(${material.opacity})`;
     }
-
-    invalidate();
   });
 
   return (
@@ -922,7 +938,7 @@ const Scene: FC<SceneProps> = ({
   // the live camera-target vector each frame would create a feedback
   // loop that visibly flickers when the user types fast.
   const focusOffsetDir = useRef(new THREE.Vector3(0, 0, 1));
-  const { camera, invalidate } = useThree();
+  const { camera } = useThree();
   const { theme } = useTheme();
   const isDarkScene = theme === "dark";
 
@@ -1028,10 +1044,9 @@ const Scene: FC<SceneProps> = ({
           .subVectors(state.current, state.lastPosition)
           .divideScalar(dt);
         state.lastTime = now;
-        invalidate();
       }
     },
-    [camera, invalidate],
+    [camera],
   );
 
   const handleDragEnd = useCallback(
@@ -1195,8 +1210,6 @@ const Scene: FC<SceneProps> = ({
       camera.position.lerp(cameraTargetPos.current, 0.05);
       controlsRef.current.target.lerp(controlsTargetLookAt.current, 0.05);
     }
-
-    invalidate();
   });
 
   useEffect(() => {
@@ -1213,9 +1226,8 @@ const Scene: FC<SceneProps> = ({
       camera.position.set(center.x, center.y, center.z + cameraZ);
       controlsRef.current.target.copy(center);
       controlsRef.current.update();
-      invalidate();
     }
-  }, [galaxyPoints, camera, invalidate]);
+  }, [galaxyPoints, camera]);
 
   useEffect(() => {
     if (searchResults.length === 0 || !controlsRef.current) return;
@@ -1685,7 +1697,7 @@ export default function App() {
       <ThemeToggle />
       <div className="absolute top-0 left-0 w-full h-full z-0">
         {galaxyPoints.length > 0 ? (
-          <Canvas frameloop="demand" camera={{ position: [0, 0, 25], fov: 45 }}>
+          <Canvas frameloop="always" camera={{ position: [0, 0, 25], fov: 45 }}>
             <color attach="background" args={[sceneBackground]} />
             <Suspense
               fallback={
