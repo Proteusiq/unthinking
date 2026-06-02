@@ -1,3 +1,5 @@
+import type { ResolvedTheme } from "./theme";
+
 export const GALAXY_RADIUS = 70;
 
 export interface PaperEntry {
@@ -14,23 +16,41 @@ export interface PaperEntry {
   word_count: number;
 }
 
-const GITHUB_BASE =
-  "https://github.com/Proteusiq/unthinking/blob/main/";
+const GITHUB_BASE = "https://github.com/Proteusiq/unthinking/blob/main/";
 
 export const analysisUrl = (entry: PaperEntry): string =>
   `${GITHUB_BASE}${entry.analysis_path}`;
 
-export const stanceColor = (stance: PaperEntry["stance"]): string => {
-  switch (stance) {
-    case "supports":
-      return "#4ade80"; // green
-    case "challenges":
-      return "#f87171"; // red
-    case "balanced":
-    default:
-      return "#cbd5e1"; // slate
-  }
+export const STANCE_PALETTE: Record<
+  ResolvedTheme,
+  Record<PaperEntry["stance"], string>
+> = {
+  dark: {
+    supports: "#4ade80",
+    balanced: "#e2e8f0",
+    challenges: "#f87171",
+  },
+  light: {
+    supports: "#16a34a",
+    balanced: "#475569",
+    challenges: "#dc2626",
+  },
 };
+
+export const SUN_HALO_COLOR: Record<ResolvedTheme, string> = {
+  dark: "#fde68a",
+  light: "#f59e0b",
+};
+
+export const SMOKING_GUN_ACCENT: Record<ResolvedTheme, string> = {
+  dark: "#facc15",
+  light: "#b45309",
+};
+
+export const stanceColor = (
+  stance: PaperEntry["stance"],
+  theme: ResolvedTheme = "dark",
+): string => STANCE_PALETTE[theme][stance];
 
 // Larger papers carry the argument. Smoking guns are the most prominent;
 // otherwise, scale by depth-of-engagement (proxied by analysis word count).

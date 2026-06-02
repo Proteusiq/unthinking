@@ -18,6 +18,7 @@ import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 
 import {
   GALAXY_RADIUS,
+  SMOKING_GUN_ACCENT,
   analysisUrl,
   loadCorpus,
   paperSize,
@@ -32,6 +33,112 @@ import {
   saveCachedIndex,
   type IndexedEntry,
 } from "./components/embeddingCache";
+import { useTheme, type ResolvedTheme, type ThemeChoice } from "./theme";
+
+const ThemeIcon: FC<{ choice: ThemeChoice }> = ({ choice }) => {
+  const stroke = "currentColor";
+  const common = "w-4 h-4";
+  if (choice === "light") {
+    return (
+      <svg viewBox="0 0 24 24" className={common} aria-hidden>
+        <circle cx="12" cy="12" r="4.2" fill={stroke} />
+        <g stroke={stroke} strokeWidth="1.6" strokeLinecap="round">
+          <path d="M12 2.5v2.4" />
+          <path d="M12 19.1v2.4" />
+          <path d="M2.5 12h2.4" />
+          <path d="M19.1 12h2.4" />
+          <path d="M4.6 4.6l1.7 1.7" />
+          <path d="M17.7 17.7l1.7 1.7" />
+          <path d="M4.6 19.4l1.7-1.7" />
+          <path d="M17.7 6.3l1.7-1.7" />
+        </g>
+      </svg>
+    );
+  }
+  if (choice === "dark") {
+    return (
+      <svg viewBox="0 0 24 24" className={common} aria-hidden>
+        <path
+          d="M20.6 14.2A8 8 0 1 1 9.8 3.4a7 7 0 1 0 10.8 10.8z"
+          fill={stroke}
+        />
+      </svg>
+    );
+  }
+  // auto = half moon / half sun
+  return (
+    <svg viewBox="0 0 24 24" className={common} aria-hidden>
+      <defs>
+        <clipPath id="halfRight">
+          <rect x="12" y="0" width="12" height="24" />
+        </clipPath>
+        <clipPath id="halfLeft">
+          <rect x="0" y="0" width="12" height="24" />
+        </clipPath>
+      </defs>
+      <circle cx="12" cy="12" r="7" fill="none" stroke={stroke} strokeWidth="1.5" />
+      <circle cx="12" cy="12" r="7" fill={stroke} clipPath="url(#halfRight)" />
+      <g
+        stroke={stroke}
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        clipPath="url(#halfLeft)"
+      >
+        <path d="M12 3v2.4" />
+        <path d="M3 12h2.4" />
+        <path d="M5.4 5.4l1.7 1.7" />
+        <path d="M5.4 18.6l1.7-1.7" />
+        <path d="M12 18.6V21" />
+      </g>
+    </svg>
+  );
+};
+
+const ThemeToggle: FC = () => {
+  const { choice, theme, setChoice } = useTheme();
+  const isLight = theme === "light";
+  const labelMap: Record<ThemeChoice, string> = {
+    light: "Light theme",
+    auto: "System theme",
+    dark: "Dark theme",
+  };
+  return (
+    <div
+      role="group"
+      aria-label="Theme"
+      className={`pointer-events-auto absolute top-4 right-4 z-30 flex items-center gap-1 rounded-full p-1 backdrop-blur-md border ${
+        isLight
+          ? "bg-white/80 border-slate-200 text-slate-700"
+          : "bg-black/40 border-white/10 text-gray-200"
+      }`}
+    >
+      {(["light", "auto", "dark"] as ThemeChoice[]).map((option) => {
+        const active = choice === option;
+        return (
+          <button
+            key={option}
+            type="button"
+            onClick={() => setChoice(option)}
+            title={labelMap[option]}
+            aria-label={labelMap[option]}
+            aria-pressed={active}
+            className={`flex h-7 w-7 items-center justify-center rounded-full transition-colors ${
+              active
+                ? isLight
+                  ? "bg-slate-900 text-white shadow-sm"
+                  : "bg-white text-black shadow-sm"
+                : isLight
+                  ? "hover:bg-slate-100"
+                  : "hover:bg-white/10"
+            }`}
+          >
+            <ThemeIcon choice={option} />
+          </button>
+        );
+      })}
+    </div>
+  );
+};
 
 const EMBED_MODEL_ID = "onnx-community/embeddinggemma-300m-ONNX";
 const EMBEDDING_DIM = 768;
@@ -301,33 +408,45 @@ const MenuCameraController = () => {
   return null;
 };
 
-const MenuScene: FC = () => (
-  <Canvas camera={{ position: [GALAXY_RADIUS, 20, GALAXY_RADIUS], fov: 45 }}>
-    <color attach="background" args={["#08080b"]} />
-    <ambientLight intensity={0.5} />
-    <Suspense fallback={null}>
-      <MainMenuGalaxy />
-      <Stars
-        radius={250}
-        depth={100}
-        count={5000}
-        factor={8}
-        saturation={1}
-        fade
-        speed={1}
-      />
-      <MenuCameraController />
-      <EffectComposer>
-        <Bloom
-          luminanceThreshold={0.05}
-          luminanceSmoothing={0}
-          height={400}
-          intensity={0.8}
-        />
-      </EffectComposer>
-    </Suspense>
-  </Canvas>
-);
+interface MenuSceneProps {
+  theme: ResolvedTheme;
+}
+
+const MenuScene: FC<MenuSceneProps> = ({ theme }) => {
+  const isDark = theme === "dark";
+  return (
+    <Canvas camera={{ position: [GALAXY_RADIUS, 20, GALAXY_RADIUS], fov: 45 }}>
+      <color attach="background" args={[isDark ? "#08080b" : "#f5f6fb"]} />
+      <ambientLight intensity={isDark ? 0.5 : 0.85} />
+      <directionalLight position={[8, 6, 5]} intensity={isDark ? 0.5 : 0.7} />
+      <Suspense fallback={null}>
+        <MainMenuGalaxy />
+        {isDark && (
+          <Stars
+            radius={250}
+            depth={100}
+            count={5000}
+            factor={8}
+            saturation={1}
+            fade
+            speed={1}
+          />
+        )}
+        <MenuCameraController />
+        {isDark && (
+          <EffectComposer>
+            <Bloom
+              luminanceThreshold={0.05}
+              luminanceSmoothing={0}
+              height={400}
+              intensity={0.8}
+            />
+          </EffectComposer>
+        )}
+      </Suspense>
+    </Canvas>
+  );
+};
 
 interface MainMenuUIProps {
   onLoadModel: () => void;
@@ -340,28 +459,50 @@ const MainMenuUI: FC<MainMenuUIProps> = ({
   totalPapers,
   smokingGuns,
 }) => (
-  <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-center p-4 z-10 pointer-events-none bg-gradient-to-b from-black/40 via-transparent to-black/60">
+  <div
+    className={
+      "absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-center p-4 z-10 pointer-events-none " +
+      "bg-gradient-to-b from-white/50 via-transparent to-white/60 " +
+      "dark:from-black/40 dark:via-transparent dark:to-black/60"
+    }
+  >
     <p
-      className="text-shadow-lg text-xs sm:text-sm uppercase tracking-[0.3em] text-gray-300 mb-3 animate-fade-in-down"
+      className={
+        "text-xs sm:text-sm uppercase tracking-[0.3em] mb-3 animate-fade-in-down " +
+        "text-slate-600 dark:text-gray-300"
+      }
       style={{ letterSpacing: "0.35em" }}
     >
       The case against LLM reasoning
     </p>
-    <h1 className="text-shadow-lg text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-3 animate-fade-in-down leading-none">
+    <h1
+      className={
+        "text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-3 animate-fade-in-down leading-none " +
+        "text-slate-900 dark:text-white"
+      }
+    >
       Unthinking
     </h1>
     <p
-      className="text-shadow-lg text-base sm:text-lg md:text-xl text-gray-100 mb-2 animate-fade-in-down max-w-2xl"
+      className={
+        "text-base sm:text-lg md:text-xl mb-2 animate-fade-in-down max-w-2xl " +
+        "text-slate-700 dark:text-gray-100"
+      }
       style={{ animationDelay: "200ms" }}
     >
-      <span className="text-green-400 font-semibold">{totalPapers} papers.</span>{" "}
-      <span className="text-yellow-300 font-semibold">
+      <span className="font-semibold text-emerald-700 dark:text-green-400">
+        {totalPapers} papers.
+      </span>{" "}
+      <span className="font-semibold text-amber-700 dark:text-yellow-300">
         {smokingGuns} smoking guns.
       </span>{" "}
-      <span className="text-white">One story.</span>
+      <span className="text-slate-900 dark:text-white">One story.</span>
     </p>
     <p
-      className="text-shadow-lg text-sm sm:text-base text-gray-300 mb-8 animate-fade-in-down max-w-2xl"
+      className={
+        "text-sm sm:text-base mb-8 animate-fade-in-down max-w-2xl " +
+        "text-slate-600 dark:text-gray-300"
+      }
       style={{ animationDelay: "300ms" }}
     >
       The literature converges: what we call &ldquo;reasoning&rdquo; in large
@@ -371,13 +512,20 @@ const MainMenuUI: FC<MainMenuUIProps> = ({
     </p>
     <button
       onClick={onLoadModel}
-      className="bg-white hover:bg-gray-200 text-black font-bold py-3 px-10 rounded-full text-lg transition-all duration-300 transform hover:scale-105 pointer-events-auto animate-fade-in-up shadow-2xl"
+      className={
+        "font-bold py-3 px-10 rounded-full text-lg transition-all duration-300 transform hover:scale-105 pointer-events-auto animate-fade-in-up shadow-xl " +
+        "bg-slate-900 hover:bg-slate-700 text-white " +
+        "dark:bg-white dark:hover:bg-gray-200 dark:text-black"
+      }
       style={{ animationDelay: "600ms" }}
     >
       See the evidence →
     </button>
     <p
-      className="text-shadow-lg text-xs text-gray-500 mt-6 animate-fade-in-up"
+      className={
+        "text-xs mt-6 animate-fade-in-up " +
+        "text-slate-500 dark:text-gray-500"
+      }
       style={{ animationDelay: "800ms" }}
     >
       WebGPU required. Nothing leaves your machine.
@@ -389,30 +537,60 @@ const LoadingUI: FC<{ status: string; progress: number }> = ({
   status,
   progress,
 }) => (
-  <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center z-10 bg-black/70 backdrop-blur-md">
+  <div
+    className={
+      "absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center z-10 backdrop-blur-md " +
+      "bg-white/80 dark:bg-black/70"
+    }
+  >
     <div className="w-full max-w-lg text-center p-6">
       <Logo className="w-20 mx-auto mb-6" />
-      <p className="text-xs uppercase tracking-[0.3em] text-gray-400 mb-2">
+      <p
+        className={
+          "text-xs uppercase tracking-[0.3em] mb-2 " +
+          "text-slate-500 dark:text-gray-400"
+        }
+      >
         First visit
       </p>
-      <h2 className="text-3xl font-bold mb-3 text-white">
+      <h2 className="text-3xl font-bold mb-3 text-slate-900 dark:text-white">
         Loading the evidence
       </h2>
-      <p className="text-sm text-gray-300 mb-6 leading-relaxed">
+      <p
+        className={
+          "text-sm mb-6 leading-relaxed " +
+          "text-slate-600 dark:text-gray-300"
+        }
+      >
         EmbeddingGemma is loading onto your GPU. Then 360 paper findings
         will be embedded in your browser — nothing leaves your machine.
         <br />
-        <span className="text-gray-500">
+        <span className="text-slate-400 dark:text-gray-500">
           This is a one-time cost. Subsequent visits load instantly.
         </span>
       </p>
-      <div className="w-full bg-white/10 rounded-full h-1.5 mb-3 overflow-hidden">
+      <div
+        className={
+          "w-full rounded-full h-1.5 mb-3 overflow-hidden " +
+          "bg-slate-200 dark:bg-white/10"
+        }
+      >
         <div
-          className="bg-white h-1.5 rounded-full transition-all duration-500 ease-out"
+          className={
+            "h-1.5 rounded-full transition-all duration-500 ease-out " +
+            "bg-slate-900 dark:bg-white"
+          }
           style={{ width: `${progress}%` }}
         ></div>
       </div>
-      <p className="text-gray-400 text-sm h-5">{status}</p>
+      <p
+        className={
+          "text-sm h-5 " +
+          "text-slate-500 dark:text-gray-400"
+        }
+      >
+        {status}
+      </p>
     </div>
   </div>
 );
@@ -434,6 +612,7 @@ interface InteractiveSphereProps {
   similarity: number | null;
   dimmed: boolean;
   isSun: boolean;
+  theme: ResolvedTheme;
   registerGroup: (id: number, group: THREE.Group | null) => void;
   registerMaterial: (
     id: number,
@@ -451,6 +630,7 @@ const InteractiveSphereImpl: FC<InteractiveSphereProps> = ({
   similarity,
   dimmed,
   isSun,
+  theme,
   registerGroup,
   registerMaterial,
   onClick,
@@ -500,21 +680,43 @@ const InteractiveSphereImpl: FC<InteractiveSphereProps> = ({
     meshRef.current.scale.set(meshScale, meshScale, meshScale);
 
     let emissive: number;
-    if (isSun) {
-      const t = state.clock.elapsedTime + point.entry.id * 0.21;
-      emissive = 1.55 + Math.sin(t * 1.4) * 0.45;
-    } else if (point.entry.smoking_gun) {
-      const baseGlow = similarity !== null ? 1.2 : 0.85;
-      const t = state.clock.elapsedTime + point.entry.id * 0.37;
-      emissive = baseGlow + Math.sin(t * 1.6) * 0.35;
+    if (theme === "light") {
+      // On a near-white sky, big emissive values just look milky.
+      // We carry "this planet matters" through size and pulse instead.
+      if (isSun) {
+        emissive = similarity !== null ? 0.35 : 0.25;
+      } else if (point.entry.smoking_gun) {
+        emissive = similarity !== null ? 0.32 : 0.2;
+      } else {
+        emissive = similarity !== null ? 0.22 : 0.1;
+      }
+      if (dimmed) emissive *= 0.25;
     } else {
-      emissive = similarity !== null ? 1.05 : 0.5;
+      if (isSun) {
+        const t = state.clock.elapsedTime + point.entry.id * 0.21;
+        emissive = 1.55 + Math.sin(t * 1.4) * 0.45;
+      } else if (point.entry.smoking_gun) {
+        const baseGlow = similarity !== null ? 1.2 : 0.85;
+        const t = state.clock.elapsedTime + point.entry.id * 0.37;
+        emissive = baseGlow + Math.sin(t * 1.6) * 0.35;
+      } else {
+        emissive = similarity !== null ? 1.05 : 0.5;
+      }
+      if (dimmed) emissive *= 0.08;
     }
-    if (dimmed) emissive *= 0.08;
     material.emissiveIntensity = emissive;
 
+    // Scale-pulse for suns and smoking guns in both modes — emissive alone
+    // doesn't read against light backgrounds, so we give them a tiny "breath".
     if (isSun) {
+      const t = state.clock.elapsedTime + point.entry.id * 0.21;
+      const breath = 1 + Math.sin(t * 1.4) * 0.06;
+      meshRef.current.scale.multiplyScalar(breath);
       meshRef.current.rotation.y += 0.0025;
+    } else if (point.entry.smoking_gun) {
+      const t = state.clock.elapsedTime + point.entry.id * 0.37;
+      const breath = 1 + Math.sin(t * 1.6) * 0.04;
+      meshRef.current.scale.multiplyScalar(breath);
     }
 
     if (labelRef.current) {
@@ -572,8 +774,16 @@ const InteractiveSphereImpl: FC<InteractiveSphereProps> = ({
             registerMaterial(point.entry.id, materialRef.current);
           }}
           color={color}
-          roughness={isSun ? 0.18 : 0.32}
-          metalness={isSun ? 0.0 : 0.06}
+          roughness={
+            theme === "light"
+              ? isSun
+                ? 0.35
+                : 0.5
+              : isSun
+                ? 0.18
+                : 0.32
+          }
+          metalness={theme === "light" ? 0.0 : isSun ? 0.0 : 0.06}
           emissive={color}
           emissiveIntensity={isSun ? 1.4 : 0.5}
           transparent
@@ -583,7 +793,7 @@ const InteractiveSphereImpl: FC<InteractiveSphereProps> = ({
       {isSun && (
         <pointLight
           color={color}
-          intensity={2.4}
+          intensity={theme === "light" ? 1.4 : 2.4}
           distance={28}
           decay={1.6}
         />
@@ -595,12 +805,18 @@ const InteractiveSphereImpl: FC<InteractiveSphereProps> = ({
         <Html distanceFactor={12}>
           <div
             ref={labelRef}
-            className={`p-1.5 rounded-md text-xs whitespace-nowrap shadow-lg backdrop-blur-md ${
+            className={`p-1.5 rounded-md text-xs whitespace-nowrap shadow-lg backdrop-blur-md border ${
               isSun
-                ? "bg-yellow-500/30 text-yellow-50 border border-yellow-400/40"
+                ? theme === "light"
+                  ? "bg-amber-100/90 text-amber-900 border-amber-300/70"
+                  : "bg-yellow-500/30 text-yellow-50 border-yellow-400/40"
                 : point.entry.smoking_gun
-                  ? "bg-yellow-500/20 text-yellow-100 border border-yellow-400/30"
-                  : "bg-black/70 text-white border border-white/10"
+                  ? theme === "light"
+                    ? "bg-amber-50/90 text-amber-800 border-amber-300/60"
+                    : "bg-yellow-500/20 text-yellow-100 border-yellow-400/30"
+                  : theme === "light"
+                    ? "bg-white/90 text-slate-900 border-slate-200/80"
+                    : "bg-black/70 text-white border-white/10"
             }`}
             style={{
               transformOrigin: "center top",
@@ -686,6 +902,8 @@ const Scene: FC<SceneProps> = ({
   const controlsTargetLookAt = useRef(new THREE.Vector3());
   const shouldAnimate = useRef(false);
   const { camera, invalidate } = useThree();
+  const { theme } = useTheme();
+  const isDarkScene = theme === "dark";
 
   const planetSystem = useMemo(() => computePlanetSystem(galaxyPoints), [galaxyPoints]);
 
@@ -983,7 +1201,9 @@ const Scene: FC<SceneProps> = ({
   }, [searchResults, camera, positionFor]);
 
   const { pointColors, similarityMap } = useMemo(() => {
-    const baseColors = galaxyPoints.map((p) => stanceColor(p.entry.stance));
+    const baseColors = galaxyPoints.map((p) =>
+      stanceColor(p.entry.stance, theme),
+    );
     if (searchResults.length === 0) {
       return {
         pointColors: baseColors,
@@ -992,12 +1212,15 @@ const Scene: FC<SceneProps> = ({
     }
     const simMap = new Map(searchResults.map((r) => [r.text, r.similarity]));
     return { pointColors: baseColors, similarityMap: simMap };
-  }, [galaxyPoints, searchResults]);
+  }, [galaxyPoints, searchResults, theme]);
 
   return (
     <>
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[5, 5, 5]} intensity={0.7} />
+      <ambientLight intensity={isDarkScene ? 0.5 : 0.85} />
+      <directionalLight
+        position={[5, 5, 5]}
+        intensity={isDarkScene ? 0.7 : 0.55}
+      />
       <OrbitControls
         ref={controlsRef}
         makeDefault
@@ -1006,15 +1229,17 @@ const Scene: FC<SceneProps> = ({
         autoRotate
         autoRotateSpeed={0.18}
       />
-      <Stars
-        radius={220}
-        depth={120}
-        count={5200}
-        factor={7}
-        saturation={1}
-        fade
-        speed={1}
-      />
+      {isDarkScene && (
+        <Stars
+          radius={220}
+          depth={120}
+          count={5200}
+          factor={7}
+          saturation={1}
+          fade
+          speed={1}
+        />
+      )}
 
       {galaxyPoints.map((point, i) => (
         <InteractiveSphere
@@ -1024,6 +1249,7 @@ const Scene: FC<SceneProps> = ({
           similarity={similarityMap.get(point.text) ?? null}
           dimmed={!matchesFilter(point, filter)}
           isSun={planetSystem.sunIds.has(point.entry.id)}
+          theme={theme}
           registerGroup={registerGroup}
           registerMaterial={registerMaterial}
           onClick={onSphereClick}
@@ -1039,6 +1265,13 @@ const Scene: FC<SceneProps> = ({
 export default function App() {
   const { loadModel, isLoading, isReady, progress, status, error, embed } =
     useModel();
+  const { theme } = useTheme();
+  const sceneBackground = theme === "light" ? "#f5f6fb" : "#08080c";
+  const wrapperClass = `h-screen w-screen relative ${
+    theme === "light"
+      ? "bg-[#f5f6fb] text-slate-900"
+      : "bg-[#08080b] text-white"
+  }`;
 
   const [corpus, setCorpus] = useState<{
     entries: PaperEntry[];
@@ -1375,8 +1608,9 @@ export default function App() {
 
   if (!isReady) {
     return (
-      <div className="h-screen w-screen bg-[#08080b] text-white relative">
-        <MenuScene />
+      <div className={wrapperClass}>
+        <MenuScene theme={theme} />
+        <ThemeToggle />
         {!isLoading && (
           <MainMenuUI
             onLoadModel={loadModel}
@@ -1395,15 +1629,22 @@ export default function App() {
   }
 
   return (
-    <div className="h-screen w-screen bg-[#08080b] text-white relative">
+    <div className={wrapperClass}>
+      <ThemeToggle />
       <div className="absolute top-0 left-0 w-full h-full z-0">
         {galaxyPoints.length > 0 ? (
           <Canvas frameloop="demand" camera={{ position: [0, 0, 25], fov: 45 }}>
-            <color attach="background" args={["#08080c"]} />
+            <color attach="background" args={[sceneBackground]} />
             <Suspense
               fallback={
                 <Html center>
-                  <div className="text-white">Loading 3D Scene...</div>
+                  <div
+                    className={
+                      theme === "light" ? "text-slate-700" : "text-white"
+                    }
+                  >
+                    Loading 3D Scene...
+                  </div>
                 </Html>
               }
             >
@@ -1413,45 +1654,65 @@ export default function App() {
                 filter={stanceFilter}
                 onSphereClick={handlePointFocus}
               />
-              <EffectComposer enableNormalPass={false}>
-                <Bloom
-                  luminanceThreshold={0.25}
-                  luminanceSmoothing={0.8}
-                  height={300}
-                  intensity={0.9}
-                />
-              </EffectComposer>
+              {theme === "dark" && (
+                <EffectComposer enableNormalPass={false}>
+                  <Bloom
+                    luminanceThreshold={0.25}
+                    luminanceSmoothing={0.8}
+                    height={300}
+                    intensity={0.9}
+                  />
+                </EffectComposer>
+              )}
             </Suspense>
           </Canvas>
         ) : (
-          <div className="flex items-center justify-center h-full">
-            <p className="text-gray-500 text-lg">
-              Generate a galaxy to begin exploration.
-            </p>
+          <div
+            className={`flex items-center justify-center h-full ${
+              theme === "light" ? "text-slate-500" : "text-gray-500"
+            }`}
+          >
+            <p className="text-lg">Generate a galaxy to begin exploration.</p>
           </div>
         )}
       </div>
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-10">
         <div
-          className={`absolute top-0 left-0 h-full bg-black/30 backdrop-blur-lg border-r border-white/10 transition-transform duration-300 ease-in-out ${
+          className={`absolute top-0 left-0 h-full backdrop-blur-lg border-r transition-transform duration-300 ease-in-out ${
             isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-          } pointer-events-auto`}
+          } pointer-events-auto ${
+            theme === "light"
+              ? "bg-white/75 border-slate-200"
+              : "bg-black/30 border-white/10"
+          }`}
           style={{ width: "min(400px, 90vw)" }}
         >
           <div className="flex flex-col h-full p-6 gap-4">
             <div className="flex gap-2 items-center">
               <Logo className="w-12 ml-[-6px]" />
-              <h1 className="text-2xl font-bold text-white">
+              <h1
+                className={`text-2xl font-bold ${
+                  theme === "light" ? "text-slate-900" : "text-white"
+                }`}
+              >
                 Unthinking — Paper Galaxy
               </h1>
             </div>
-            <p className="text-sm text-gray-300 leading-relaxed">
+            <p
+              className={`text-sm leading-relaxed ${
+                theme === "light" ? "text-slate-700" : "text-gray-300"
+              }`}
+            >
               {corpusStats.total || 360} papers on LLM reasoning, projected
               into 3D semantic space. Each star is one paper. Color is the
               paper's stance on the thesis that LLM &ldquo;reasoning&rdquo;
               is predictive completion.
             </p>
-            <p className="text-xs text-gray-500 leading-relaxed">
+            <p
+              className={`text-xs leading-relaxed ${
+                theme === "light" ? "text-slate-500" : "text-gray-500"
+              }`}
+            >
               Smoking-gun findings are suns; their cluster of related papers
               orbits them. Drag any planet to perturb the system — nearby
               papers will yield, and orbits resume when you let go.
@@ -1463,34 +1724,43 @@ export default function App() {
                     {
                       key: "supports",
                       label: "supports",
-                      color: "#4ade80",
                       title:
                         "The paper supports the thesis that LLM reasoning is predictive completion.",
                     },
                     {
                       key: "balanced",
                       label: "balanced",
-                      color: "#e2e8f0",
                       title:
                         "The paper sits between — mixed or qualified evidence.",
                     },
                     {
                       key: "challenges",
                       label: "challenges",
-                      color: "#f87171",
                       title:
                         "The paper challenges the thesis — argues for genuine reasoning or finds counter-evidence.",
                     },
                     {
                       key: "smoking_gun",
                       label: "smoking gun",
-                      color: "#facc15",
                       title:
                         "Smoking-gun papers — pre-flagged as the strongest direct evidence. They pulse in the galaxy.",
                     },
                   ] as const
                 ).map((chip) => {
                   const isActive = stanceFilter === chip.key;
+                  const chipColor =
+                    chip.key === "smoking_gun"
+                      ? SMOKING_GUN_ACCENT[theme]
+                      : stanceColor(
+                          chip.key as PaperEntry["stance"],
+                          theme,
+                        );
+                  const idleBorder =
+                    theme === "light"
+                      ? "rgba(15,23,42,0.18)"
+                      : "rgba(255,255,255,0.12)";
+                  const idleText =
+                    theme === "light" ? "#475569" : "#cbd5e1";
                   return (
                     <button
                       key={chip.key}
@@ -1498,18 +1768,16 @@ export default function App() {
                       title={chip.title}
                       className="flex items-center gap-1.5 px-2 py-1 rounded-full border transition-colors"
                       style={{
-                        borderColor: isActive
-                          ? chip.color
-                          : "rgba(255,255,255,0.1)",
+                        borderColor: isActive ? chipColor : idleBorder,
                         background: isActive
-                          ? `${chip.color}33`
+                          ? `${chipColor}33`
                           : "transparent",
-                        color: isActive ? chip.color : "#cbd5e1",
+                        color: isActive ? chipColor : idleText,
                       }}
                     >
                       <span
                         className="w-2 h-2 rounded-full"
-                        style={{ background: chip.color }}
+                        style={{ background: chipColor }}
                       />
                       {chip.label}
                     </button>
@@ -1519,13 +1787,21 @@ export default function App() {
               {stanceFilter && (
                 <button
                   onClick={() => setStanceFilter(null)}
-                  className="mt-2 text-xs text-gray-400 hover:text-white underline"
+                  className={`mt-2 text-xs underline ${
+                    theme === "light"
+                      ? "text-slate-500 hover:text-slate-900"
+                      : "text-gray-400 hover:text-white"
+                  }`}
                 >
                   Clear filter
                 </button>
               )}
             </div>
-            <p className="text-xs text-gray-400 h-5">
+            <p
+              className={`text-xs h-5 ${
+                theme === "light" ? "text-slate-500" : "text-gray-400"
+              }`}
+            >
               {isGenerating
                 ? generationStatus
                 : galaxyPoints.length > 0
@@ -1534,7 +1810,11 @@ export default function App() {
             </p>
             {galaxyPoints.length > 0 && (
               <div>
-                <h2 className="font-semibold mb-2 text-gray-200 text-sm">
+                <h2
+                  className={`font-semibold mb-2 text-sm ${
+                    theme === "light" ? "text-slate-800" : "text-gray-200"
+                  }`}
+                >
                   Quick tour
                 </h2>
                 <div className="flex flex-wrap gap-2">
@@ -1545,7 +1825,11 @@ export default function App() {
                       );
                       if (target) handlePointFocus(target);
                     }}
-                    className="text-xs px-3 py-1.5 rounded-full border border-yellow-400/30 text-yellow-300 bg-yellow-500/5 hover:bg-yellow-500/15 transition-colors"
+                    className={`text-xs px-3 py-1.5 rounded-full border transition-colors ${
+                      theme === "light"
+                        ? "border-amber-500/40 text-amber-800 bg-amber-50 hover:bg-amber-100"
+                        : "border-yellow-400/30 text-yellow-300 bg-yellow-500/5 hover:bg-yellow-500/15"
+                    }`}
                   >
                     ● Smoking guns ({smokingGuns.length})
                   </button>
@@ -1556,7 +1840,11 @@ export default function App() {
                       );
                       if (target) handlePointFocus(target);
                     }}
-                    className="text-xs px-3 py-1.5 rounded-full border border-white/10 text-gray-300 bg-white/5 hover:bg-white/10 transition-colors"
+                    className={`text-xs px-3 py-1.5 rounded-full border transition-colors ${
+                      theme === "light"
+                        ? "border-slate-300 text-slate-700 bg-slate-100 hover:bg-slate-200"
+                        : "border-white/10 text-gray-300 bg-white/5 hover:bg-white/10"
+                    }`}
                   >
                     Chain-of-thought
                   </button>
@@ -1567,7 +1855,11 @@ export default function App() {
                       );
                       if (target) handlePointFocus(target);
                     }}
-                    className="text-xs px-3 py-1.5 rounded-full border border-white/10 text-gray-300 bg-white/5 hover:bg-white/10 transition-colors"
+                    className={`text-xs px-3 py-1.5 rounded-full border transition-colors ${
+                      theme === "light"
+                        ? "border-slate-300 text-slate-700 bg-slate-100 hover:bg-slate-200"
+                        : "border-white/10 text-gray-300 bg-white/5 hover:bg-white/10"
+                    }`}
                   >
                     Faithfulness
                   </button>
@@ -1578,7 +1870,11 @@ export default function App() {
                       );
                       if (target) handlePointFocus(target);
                     }}
-                    className="text-xs px-3 py-1.5 rounded-full border border-white/10 text-gray-300 bg-white/5 hover:bg-white/10 transition-colors"
+                    className={`text-xs px-3 py-1.5 rounded-full border transition-colors ${
+                      theme === "light"
+                        ? "border-slate-300 text-slate-700 bg-slate-100 hover:bg-slate-200"
+                        : "border-white/10 text-gray-300 bg-white/5 hover:bg-white/10"
+                    }`}
                   >
                     Memorization
                   </button>
@@ -1589,7 +1885,11 @@ export default function App() {
                       );
                       if (target) handlePointFocus(target);
                     }}
-                    className="text-xs px-3 py-1.5 rounded-full border border-red-400/30 text-red-300 bg-red-500/5 hover:bg-red-500/15 transition-colors"
+                    className={`text-xs px-3 py-1.5 rounded-full border transition-colors ${
+                      theme === "light"
+                        ? "border-rose-300/70 text-rose-700 bg-rose-50 hover:bg-rose-100"
+                        : "border-red-400/30 text-red-300 bg-red-500/5 hover:bg-red-500/15"
+                    }`}
                   >
                     Counter-arguments
                   </button>
@@ -1598,12 +1898,20 @@ export default function App() {
             )}
             {galaxyPoints.length > 0 && (
               <div className="flex flex-col min-h-0 flex-grow">
-                <h2 className="font-semibold mb-2 text-gray-200 text-sm">
+                <h2
+                  className={`font-semibold mb-2 text-sm ${
+                    theme === "light" ? "text-slate-800" : "text-gray-200"
+                  }`}
+                >
                   Search Results
                 </h2>
                 <div className="overflow-y-auto pr-2">
                   {searchResults.length === 0 && (
-                    <p className="text-sm text-gray-500">
+                    <p
+                      className={`text-sm ${
+                        theme === "light" ? "text-slate-500" : "text-gray-500"
+                      }`}
+                    >
                       Type a query below to see the most semantically related
                       papers.
                     </p>
@@ -1612,56 +1920,90 @@ export default function App() {
                     .filter((r) => r.similarity > 0.35)
                     .slice(0, 50)
                     .map((result, i) => {
-                    const color = stanceColor(result.entry.stance);
-                    return (
-                      <div
-                        key={result.entry.id}
-                        onClick={() => handlePointFocus(result)}
-                        className="p-2 mb-1 rounded-md cursor-pointer transition-colors bg-white/5 hover:bg-white/10 border-l-2"
-                        style={{
-                          borderLeftColor: color,
-                          background:
-                            i === 0 ? `${color}22` : undefined,
-                        }}
-                      >
-                        <div className="flex justify-between items-start gap-2">
-                          <div className="min-w-0">
-                            <p className="font-semibold text-sm truncate">
-                              #{result.entry.id} {result.entry.title}
-                            </p>
-                            <p className="text-xs text-gray-400 truncate">
-                              {result.entry.stance} · {result.entry.date}
-                              {result.entry.smoking_gun && (
-                                <span className="text-yellow-300 ml-1">
-                                  ● smoking gun
-                                </span>
-                              )}
-                            </p>
+                      const color = stanceColor(result.entry.stance, theme);
+                      const rowBackground =
+                        i === 0
+                          ? `${color}22`
+                          : theme === "light"
+                            ? "rgba(15,23,42,0.04)"
+                            : "rgba(255,255,255,0.05)";
+                      return (
+                        <div
+                          key={result.entry.id}
+                          onClick={() => handlePointFocus(result)}
+                          className={`p-2 mb-1 rounded-md cursor-pointer transition-colors border-l-2 ${
+                            theme === "light"
+                              ? "hover:bg-slate-100"
+                              : "hover:bg-white/10"
+                          }`}
+                          style={{
+                            borderLeftColor: color,
+                            background: rowBackground,
+                          }}
+                        >
+                          <div className="flex justify-between items-start gap-2">
+                            <div className="min-w-0">
+                              <p
+                                className={`font-semibold text-sm truncate ${
+                                  theme === "light"
+                                    ? "text-slate-900"
+                                    : "text-white"
+                                }`}
+                              >
+                                #{result.entry.id} {result.entry.title}
+                              </p>
+                              <p
+                                className={`text-xs truncate ${
+                                  theme === "light"
+                                    ? "text-slate-500"
+                                    : "text-gray-400"
+                                }`}
+                              >
+                                {result.entry.stance} · {result.entry.date}
+                                {result.entry.smoking_gun && (
+                                  <span
+                                    className="ml-1"
+                                    style={{ color: SMOKING_GUN_ACCENT[theme] }}
+                                  >
+                                    ● smoking gun
+                                  </span>
+                                )}
+                              </p>
+                            </div>
+                            <span
+                              className="text-xs font-mono px-1.5 py-0.5 rounded shrink-0"
+                              style={{
+                                background: `${color}33`,
+                                color,
+                              }}
+                            >
+                              {result.similarity.toFixed(3)}
+                            </span>
                           </div>
-                          <span
-                            className="text-xs font-mono px-1.5 py-0.5 rounded shrink-0"
-                            style={{
-                              background: `${color}33`,
-                              color,
-                            }}
-                          >
-                            {result.similarity.toFixed(3)}
-                          </span>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
                 </div>
               </div>
             )}
-            <div className="mt-auto pt-4 border-t border-white/5 text-[10px] text-gray-500 leading-relaxed">
+            <div
+              className={`mt-auto pt-4 border-t text-[10px] leading-relaxed ${
+                theme === "light"
+                  ? "border-slate-200 text-slate-500"
+                  : "border-white/5 text-gray-500"
+              }`}
+            >
               <p>
                 Built on{" "}
                 <a
                   href="https://huggingface.co/spaces/webml-community/semantic-galaxy"
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-gray-300 underline decoration-dotted"
+                  className={`underline decoration-dotted ${
+                    theme === "light"
+                      ? "hover:text-slate-900"
+                      : "hover:text-gray-300"
+                  }`}
                 >
                   webml-community/semantic-galaxy
                 </a>{" "}
@@ -1670,7 +2012,11 @@ export default function App() {
                   href="https://huggingface.co/google/embeddinggemma-300m"
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-gray-300 underline decoration-dotted"
+                  className={`underline decoration-dotted ${
+                    theme === "light"
+                      ? "hover:text-slate-900"
+                      : "hover:text-gray-300"
+                  }`}
                 >
                   EmbeddingGemma
                 </a>{" "}
@@ -1679,7 +2025,11 @@ export default function App() {
                   href="https://huggingface.co/docs/transformers.js"
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-gray-300 underline decoration-dotted"
+                  className={`underline decoration-dotted ${
+                    theme === "light"
+                      ? "hover:text-slate-900"
+                      : "hover:text-gray-300"
+                  }`}
                 >
                   Transformers.js
                 </a>
@@ -1688,7 +2038,11 @@ export default function App() {
                   href="https://github.com/Proteusiq/unthinking"
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-gray-300 underline decoration-dotted"
+                  className={`underline decoration-dotted ${
+                    theme === "light"
+                      ? "hover:text-slate-900"
+                      : "hover:text-gray-300"
+                  }`}
                 >
                   Source
                 </a>
@@ -1700,9 +2054,13 @@ export default function App() {
         <button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           className={`absolute top-6 backdrop-blur-lg p-2 rounded-full transition-all duration-300 ease-in-out pointer-events-auto border ${
-            isSidebarOpen
-              ? "bg-black/30 border-white/10"
-              : "bg-white/10 border-white/30 hover:bg-white/20"
+            theme === "light"
+              ? isSidebarOpen
+                ? "bg-white/80 border-slate-200"
+                : "bg-white/85 border-slate-300 hover:bg-white"
+              : isSidebarOpen
+                ? "bg-black/30 border-white/10"
+                : "bg-white/10 border-white/30 hover:bg-white/20"
           }`}
           aria-label={isSidebarOpen ? "Hide sidebar" : "Show sidebar"}
           style={{
@@ -1712,7 +2070,9 @@ export default function App() {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className={`h-6 w-6 text-white transition-transform duration-300 ${isSidebarOpen ? "rotate-180" : "rotate-0"}`}
+            className={`h-6 w-6 transition-transform duration-300 ${
+              isSidebarOpen ? "rotate-180" : "rotate-0"
+            } ${theme === "light" ? "text-slate-700" : "text-white"}`}
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -1733,25 +2093,47 @@ export default function App() {
                 placeholder="press / and ask:  premature confidence, CoT faithfulness, memorization…"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-black/40 backdrop-blur-lg border border-white/10 rounded-full py-3 px-8 text-base focus:ring-2 focus:ring-white/30 focus:outline-none"
+                className={`w-full backdrop-blur-lg border rounded-full py-3 px-8 text-base focus:ring-2 focus:outline-none ${
+                  theme === "light"
+                    ? "bg-white/85 border-slate-200 text-slate-900 placeholder-slate-400 focus:ring-slate-400/60"
+                    : "bg-black/40 border-white/10 text-white placeholder-gray-400 focus:ring-white/30"
+                }`}
               />
             </div>
           </div>
         )}
         {selectedPoint && (
-          <div className="absolute top-6 right-6 max-w-md w-[min(420px,calc(100vw-3rem))] bg-black/40 backdrop-blur-lg border border-white/10 rounded-lg p-5 pointer-events-auto">
+          <div
+            className={`absolute top-6 right-6 max-w-md w-[min(420px,calc(100vw-3rem))] backdrop-blur-lg border rounded-lg p-5 pointer-events-auto ${
+              theme === "light"
+                ? "bg-white/85 border-slate-200 text-slate-900"
+                : "bg-black/40 border-white/10 text-white"
+            }`}
+          >
             <div className="flex items-start justify-between gap-2 mb-2">
               <div>
-                <p className="text-xs uppercase tracking-wider text-gray-400">
+                <p
+                  className={`text-xs uppercase tracking-wider ${
+                    theme === "light" ? "text-slate-500" : "text-gray-400"
+                  }`}
+                >
                   Paper #{selectedPoint.entry.id} · {selectedPoint.entry.date}
                 </p>
-                <h3 className="font-bold text-white mt-1 leading-tight">
+                <h3
+                  className={`font-bold mt-1 leading-tight ${
+                    theme === "light" ? "text-slate-900" : "text-white"
+                  }`}
+                >
                   {selectedPoint.entry.title}
                 </h3>
               </div>
               <button
                 onClick={() => setSelectedPoint(null)}
-                className="text-gray-400 hover:text-white text-xl leading-none"
+                className={`text-xl leading-none ${
+                  theme === "light"
+                    ? "text-slate-400 hover:text-slate-900"
+                    : "text-gray-400 hover:text-white"
+                }`}
                 aria-label="Close"
               >
                 ×
@@ -1761,17 +2143,29 @@ export default function App() {
               <span
                 className="px-2 py-0.5 rounded font-semibold"
                 style={{
-                  background: `${stanceColor(selectedPoint.entry.stance)}33`,
-                  color: stanceColor(selectedPoint.entry.stance),
+                  background: `${stanceColor(selectedPoint.entry.stance, theme)}33`,
+                  color: stanceColor(selectedPoint.entry.stance, theme),
                 }}
               >
                 {selectedPoint.entry.stance}
               </span>
-              <span className="px-2 py-0.5 rounded bg-white/5 text-gray-300">
+              <span
+                className={`px-2 py-0.5 rounded ${
+                  theme === "light"
+                    ? "bg-slate-100 text-slate-700"
+                    : "bg-white/5 text-gray-300"
+                }`}
+              >
                 {selectedPoint.entry.cluster}
               </span>
               {selectedPoint.entry.smoking_gun && (
-                <span className="px-2 py-0.5 rounded bg-yellow-500/20 text-yellow-300 font-semibold">
+                <span
+                  className="px-2 py-0.5 rounded font-semibold"
+                  style={{
+                    background: `${SMOKING_GUN_ACCENT[theme]}33`,
+                    color: SMOKING_GUN_ACCENT[theme],
+                  }}
+                >
                   smoking gun
                 </span>
               )}
@@ -1780,20 +2174,33 @@ export default function App() {
                   href={`https://arxiv.org/abs/${selectedPoint.entry.arxiv}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-2 py-0.5 rounded bg-white/5 text-blue-300 hover:bg-white/10"
+                  className={`px-2 py-0.5 rounded ${
+                    theme === "light"
+                      ? "bg-slate-100 text-sky-700 hover:bg-slate-200"
+                      : "bg-white/5 text-blue-300 hover:bg-white/10"
+                  }`}
                 >
                   arXiv:{selectedPoint.entry.arxiv}
                 </a>
               )}
             </div>
-            <p className="text-sm text-gray-200 leading-relaxed mb-3">
+            <p
+              className={`text-sm leading-relaxed mb-3 ${
+                theme === "light" ? "text-slate-700" : "text-gray-200"
+              }`}
+            >
               {selectedPoint.entry.core_finding}
             </p>
             {selectedPoint.entry.quotes.length > 0 && (
               <blockquote
-                className="border-l-2 pl-3 my-3 text-sm text-gray-300 italic"
+                className={`border-l-2 pl-3 my-3 text-sm italic ${
+                  theme === "light" ? "text-slate-600" : "text-gray-300"
+                }`}
                 style={{
-                  borderLeftColor: stanceColor(selectedPoint.entry.stance),
+                  borderLeftColor: stanceColor(
+                    selectedPoint.entry.stance,
+                    theme,
+                  ),
                 }}
               >
                 &ldquo;{selectedPoint.entry.quotes[0]}&rdquo;
@@ -1804,7 +2211,11 @@ export default function App() {
                 href={analysisUrl(selectedPoint.entry)}
                 target="_blank"
                 rel="noreferrer"
-                className="bg-white hover:bg-gray-200 text-black text-sm font-semibold py-2 px-4 rounded-lg transition-colors"
+                className={`text-sm font-semibold py-2 px-4 rounded-lg transition-colors ${
+                  theme === "light"
+                    ? "bg-slate-900 hover:bg-slate-700 text-white"
+                    : "bg-white hover:bg-gray-200 text-black"
+                }`}
               >
                 Open full analysis →
               </a>
@@ -1817,7 +2228,11 @@ export default function App() {
                   );
                   void navigator.clipboard?.writeText(url.toString());
                 }}
-                className="bg-white/5 hover:bg-white/15 text-gray-200 text-sm font-semibold py-2 px-4 rounded-lg transition-colors border border-white/10"
+                className={`text-sm font-semibold py-2 px-4 rounded-lg transition-colors border ${
+                  theme === "light"
+                    ? "bg-white/70 hover:bg-white border-slate-200 text-slate-800"
+                    : "bg-white/5 hover:bg-white/15 border-white/10 text-gray-200"
+                }`}
                 title="Copy a link to this paper"
               >
                 Copy link

@@ -1,1 +1,33 @@
 @import "tailwindcss";
+
+/*
+ * Tailwind v4 lets us tell the `dark:` variant to look for our own
+ * selector instead of `prefers-color-scheme`. We drive the resolved
+ * theme via <html data-theme="…"> from theme.tsx + the inline boot
+ * script in index.html.
+ */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+html[data-theme="dark"] {
+  background: #08080b;
+  color-scheme: dark;
+}
+
+html[data-theme="light"] {
+  background: #f5f6fb;
+  color-scheme: light;
+}
+
+html[data-theme="dark"] body {
+  background: #08080b;
+}
+
+html[data-theme="light"] body {
+  background: #f5f6fb;
+}
