@@ -1,0 +1,1014 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agent Loop · Unthinking</title>
+    <meta
+      name="description"
+      content="An agent is a loop of context, orchestration, and execution. Each step has a known failure mode in the 360-paper Unthinking corpus."
+    />
+    <link rel="stylesheet" href="shared/base.css" />
+    <script src="shared/theme.js"></script>
+    <style>
+      :root {
+        --accent: var(--accent-blue);
+        --accent-purple-bg: #a855f71a;
+        --accent-orange-bg: #f973161a;
+        --accent-green-bg: #22c55e1a;
+        --accent-blue-bg: #60a5fa1a;
+      }
+
+      [data-theme="light"] {
+        --accent-purple-bg: #f3e8ff;
+        --accent-orange-bg: #fff7ed;
+        --accent-green-bg: #dcfce7;
+        --accent-blue-bg: #dbeafe;
+      }
+
+      .page {
+        max-width: min(960px, 100%);
+        margin: 0 auto;
+        padding: 0 clamp(0.5rem, 2vw, 1rem);
+      }
+
+      h1 {
+        text-align: center;
+        font-family: "Space Grotesk", "Inter", sans-serif;
+        font-weight: 700;
+        font-size: clamp(1.5rem, 4vw, 1.9rem);
+        background: linear-gradient(
+          90deg,
+          var(--accent-blue),
+          var(--accent-purple-dim)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 0.4rem;
+      }
+
+      .subtitle {
+        text-align: center;
+        color: var(--text-muted);
+        font-size: clamp(0.7rem, 2vw, 0.85rem);
+        letter-spacing: 0.06em;
+        margin-bottom: 1.5rem;
+      }
+
+      .controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin: 0 auto 1rem;
+      }
+
+      .controls .toggle-wrap {
+        display: inline-flex;
+      }
+
+      /* ════════════════════════════════════════════════════════════
+         SVG diagram
+         ════════════════════════════════════════════════════════════ */
+
+      .diagram {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-primary);
+        border-radius: 10px;
+        padding: 0.6rem;
+        margin: 0 auto 1.5rem;
+      }
+
+      .diagram svg {
+        display: block;
+        width: 100%;
+        max-width: 920px;
+        margin: 0 auto;
+        cursor: pointer;
+      }
+
+      .step-label {
+        text-align: center;
+        font-family: "Courier New", monospace;
+        font-size: clamp(0.75rem, 2vw, 0.9rem);
+        min-height: 1.4rem;
+        color: var(--text-muted);
+        margin-bottom: 1.5rem;
+        transition: color 0.4s;
+      }
+
+      /* ════════════════════════════════════════════════════════════
+         Evidence cards
+         ════════════════════════════════════════════════════════════ */
+
+      .cards-section h2 {
+        color: var(--text-secondary);
+        font-size: clamp(0.7rem, 2vw, 0.8rem);
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 1rem 0 0.75rem;
+      }
+
+      .cards-section h2 span {
+        color: var(--text-muted);
+        margin-left: 0.4rem;
+        font-weight: normal;
+        text-transform: none;
+        letter-spacing: 0;
+      }
+
+      .evidence-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .evidence-card {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-primary);
+        border-left-width: 4px;
+        border-radius: 8px;
+        padding: 1rem 1.1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        transition: border-color 0.2s, transform 0.2s;
+      }
+
+      .evidence-card[data-stage="ctx"] {
+        border-left-color: var(--accent-blue);
+      }
+      .evidence-card[data-stage="llm"] {
+        border-left-color: var(--accent-purple-dim);
+      }
+      .evidence-card[data-stage="orch"] {
+        border-left-color: var(--accent-purple);
+      }
+      .evidence-card[data-stage="exec"] {
+        border-left-color: var(--accent-orange);
+      }
+
+      .evidence-card.is-active {
+        transform: translateY(-2px);
+        border-color: var(--accent);
+      }
+      .evidence-card[data-stage="ctx"].is-active {
+        border-color: var(--accent-blue);
+      }
+      .evidence-card[data-stage="llm"].is-active {
+        border-color: var(--accent-purple-dim);
+      }
+      .evidence-card[data-stage="orch"].is-active {
+        border-color: var(--accent-purple);
+      }
+      .evidence-card[data-stage="exec"].is-active {
+        border-color: var(--accent-orange);
+      }
+
+      .evidence-card .step {
+        font-family: "Courier New", monospace;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--text-muted);
+      }
+
+      .evidence-card h3 {
+        font-family: "Space Grotesk", "Inter", sans-serif;
+        color: var(--text-primary);
+        font-size: 1.05rem;
+      }
+
+      .evidence-card p {
+        font-family: "Inter", "Space Grotesk", sans-serif;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        line-height: 1.55;
+      }
+
+      .evidence-card blockquote {
+        font-family: "Inter", "Space Grotesk", sans-serif;
+        font-style: italic;
+        color: var(--text-secondary);
+        padding-left: 0.8rem;
+        border-left: 2px solid var(--border-primary);
+        font-size: 0.85rem;
+        line-height: 1.5;
+      }
+
+      .evidence-card .papers {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+
+      .evidence-card .papers a {
+        font-family: "Courier New", monospace;
+        font-size: 0.72rem;
+        padding: 3px 8px;
+        border-radius: 4px;
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-primary);
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: border-color 0.15s, color 0.15s;
+      }
+
+      .evidence-card .papers a:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      /* ════════════════════════════════════════════════════════════
+         Footer
+         ════════════════════════════════════════════════════════════ */
+
+      .credits {
+        text-align: center;
+        color: var(--text-muted);
+        font-family: "Courier New", monospace;
+        font-size: 0.7rem;
+        padding: 1rem 0 0.5rem;
+      }
+
+      .credits a {
+        color: var(--accent-blue);
+        text-decoration: none;
+      }
+      .credits a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <h2>Agent Loop</h2>
+      <div style="display: flex; align-items: center; gap: 0.5rem">
+        <div class="toggle-wrap" role="tablist" aria-label="Scenario">
+          <button class="toggle-btn active" data-scenario="bash">
+            bash session
+          </button>
+          <button class="toggle-btn" data-scenario="science">
+            agent-for-science
+          </button>
+        </div>
+        <button
+          class="theme-btn"
+          id="theme-toggle"
+          aria-label="Toggle theme"
+        ></button>
+      </div>
+    </div>
+
+    <div class="page">
+      <h1>The agent is the loop</h1>
+      <p class="subtitle">
+        context engineering · orchestration · execution — and where each step
+        breaks
+      </p>
+
+      <p class="step-label" id="lbl">—</p>
+
+      <div class="diagram">
+        <svg
+          id="svg"
+          viewBox="0 0 920 540"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <defs>
+            <marker
+              id="ah"
+              markerWidth="8"
+              markerHeight="8"
+              refX="7"
+              refY="3"
+              orient="auto"
+            >
+              <path d="M0,0 L0,6 L8,3 z" fill="currentColor" />
+            </marker>
+            <marker
+              id="ah-blue"
+              markerWidth="8"
+              markerHeight="8"
+              refX="7"
+              refY="3"
+              orient="auto"
+            >
+              <path d="M0,0 L0,6 L8,3 z" fill="#60a5fa" />
+            </marker>
+            <marker
+              id="ah-white"
+              markerWidth="8"
+              markerHeight="8"
+              refX="7"
+              refY="3"
+              orient="auto"
+            >
+              <path d="M0,0 L0,6 L8,3 z" fill="currentColor" />
+            </marker>
+            <marker
+              id="ah-orange"
+              markerWidth="8"
+              markerHeight="8"
+              refX="7"
+              refY="3"
+              orient="auto"
+            >
+              <path d="M0,0 L0,6 L8,3 z" fill="#f97316" />
+            </marker>
+            <marker
+              id="ah-green"
+              markerWidth="8"
+              markerHeight="8"
+              refX="7"
+              refY="3"
+              orient="auto"
+            >
+              <path d="M0,0 L0,6 L8,3 z" fill="#22c55e" />
+            </marker>
+          </defs>
+
+          <!-- section backgrounds -->
+          <rect x="0" y="0" width="268" height="540"
+            fill="var(--accent-blue)" opacity="0.06" />
+          <rect x="268" y="0" width="368" height="540"
+            fill="var(--accent-purple-dim)" opacity="0.06" />
+          <rect x="636" y="0" width="284" height="540"
+            fill="var(--accent-orange)" opacity="0.06" />
+          <line x1="268" y1="0" x2="268" y2="540"
+            stroke="var(--border-primary)" stroke-width="1" />
+          <line x1="636" y1="0" x2="636" y2="540"
+            stroke="var(--border-primary)" stroke-width="1" />
+
+          <!-- section header bars -->
+          <rect id="sec-ctx" data-stage="ctx" x="0" y="0" width="268" height="30"
+            fill="var(--bg-tertiary)" opacity="0.9" />
+          <rect id="sec-orch" data-stage="orch" x="268" y="0" width="368" height="30"
+            fill="var(--bg-tertiary)" opacity="0.9" />
+          <rect id="sec-exec" data-stage="exec" x="636" y="0" width="284" height="30"
+            fill="var(--bg-tertiary)" opacity="0.9" />
+          <text x="134" y="20" text-anchor="middle"
+            font-family="Courier New" font-size="10" font-weight="600"
+            fill="var(--accent-blue)" letter-spacing="2">
+            CONTEXT ENGINEERING
+          </text>
+          <text x="452" y="20" text-anchor="middle"
+            font-family="Courier New" font-size="10" font-weight="600"
+            fill="var(--accent-purple-dim)" letter-spacing="2">
+            ORCHESTRATION
+          </text>
+          <text x="778" y="20" text-anchor="middle"
+            font-family="Courier New" font-size="10" font-weight="600"
+            fill="var(--accent-orange)" letter-spacing="2">
+            EXECUTION
+          </text>
+
+          <!-- INPUT BOX -->
+          <rect id="r-input" data-stage="ctx" x="18" y="55" width="228" height="80"
+            rx="5" fill="var(--bg-primary)" stroke="var(--border-primary)"
+            stroke-width="2" />
+          <text x="32" y="75" font-family="Space Grotesk" font-size="12"
+            font-weight="600" fill="var(--text-primary)">INPUT</text>
+          <line x1="18" y1="82" x2="246" y2="82"
+            stroke="var(--border-secondary)" stroke-width="1" />
+          <text x="32" y="97" font-family="Courier New" font-size="11"
+            fill="var(--text-muted)">system_message</text>
+          <text x="32" y="113" font-family="Courier New" font-size="11"
+            fill="var(--text-muted)">query</text>
+          <line id="div-append" x1="18" y1="124" x2="246" y2="124"
+            stroke="var(--border-primary)" stroke-width="1" opacity="0" />
+
+          <!-- LLM BOX -->
+          <rect id="r-llm" data-stage="llm" x="288" y="55" width="190" height="110"
+            rx="5" fill="var(--bg-primary)" stroke="var(--accent-blue)"
+            stroke-width="2" />
+          <text x="304" y="75" font-family="Space Grotesk" font-size="12"
+            font-weight="600" fill="var(--text-primary)">LLM</text>
+          <line x1="288" y1="82" x2="478" y2="82"
+            stroke="var(--border-secondary)" stroke-width="1" />
+          <text x="304" y="97" font-family="Courier New" font-size="11"
+            fill="var(--accent-blue)">f(x) → y</text>
+          <text x="304" y="113" font-family="Courier New" font-size="11"
+            fill="var(--text-muted)">stateless</text>
+          <text x="304" y="129" font-family="Courier New" font-size="11"
+            fill="var(--text-muted)">no memory</text>
+          <text id="llm-out" x="304" y="152" font-family="Courier New"
+            font-size="10" fill="var(--text-primary)" opacity="0">→</text>
+
+          <!-- ORCHESTRATOR BOX -->
+          <rect id="r-orch" data-stage="orch" x="288" y="240" width="190" height="90"
+            rx="5" fill="var(--bg-primary)" stroke="var(--accent-purple-dim)"
+            stroke-width="2" />
+          <text x="304" y="260" font-family="Space Grotesk" font-size="12"
+            font-weight="600" fill="var(--text-primary)">ORCHESTRATOR</text>
+          <line x1="288" y1="267" x2="478" y2="267"
+            stroke="var(--border-secondary)" stroke-width="1" />
+          <text x="304" y="283" font-family="Courier New" font-size="11"
+            fill="var(--accent-purple-dim)">routes output</text>
+          <text id="orch-dec" x="304" y="303" font-family="Courier New"
+            font-size="10" fill="var(--text-muted)">waiting…</text>
+          <text id="orch-path" x="304" y="319" font-family="Courier New"
+            font-size="10" fill="var(--text-muted)" opacity="0">→</text>
+
+          <!-- EXECUTOR BOX -->
+          <rect id="r-exec" data-stage="exec" x="656" y="170" width="228" height="100"
+            rx="5" fill="var(--bg-primary)" stroke="var(--accent-orange)"
+            stroke-width="2" />
+          <text x="672" y="190" font-family="Space Grotesk" font-size="12"
+            font-weight="600" fill="var(--text-primary)">EXECUTOR</text>
+          <line x1="656" y1="197" x2="884" y2="197"
+            stroke="var(--border-secondary)" stroke-width="1" />
+          <text x="672" y="213" font-family="Courier New" font-size="11"
+            fill="var(--accent-orange)">outside LLM</text>
+          <text id="exec-cmd" x="672" y="231" font-family="Courier New"
+            font-size="11" fill="var(--text-muted)">bash / api / fs</text>
+          <text id="exec-note" x="672" y="247" font-family="Courier New"
+            font-size="10" fill="var(--text-muted)">captures result</text>
+
+          <!-- arrows -->
+          <path id="a1"
+            d="M 246 108 L 280 108"
+            fill="none" stroke="var(--border-primary)" stroke-width="1.5"
+            marker-end="url(#ah)" />
+          <path id="a2"
+            d="M 383 165 L 383 232"
+            fill="none" stroke="var(--border-primary)" stroke-width="1.5"
+            marker-end="url(#ah)" />
+          <path id="a3"
+            d="M 288 270 L 132 270 L 132 138"
+            fill="none" stroke="var(--border-primary)" stroke-width="1.5"
+            stroke-dasharray="5,3" marker-end="url(#ah)" />
+          <path id="a4"
+            d="M 478 278 L 640 278 L 640 228"
+            fill="none" stroke="var(--border-primary)" stroke-width="1.5"
+            marker-end="url(#ah)" />
+          <path id="a5"
+            d="M 770 270 L 770 450 L 132 450 L 132 140"
+            fill="none" stroke="var(--border-primary)" stroke-width="1.5"
+            marker-end="url(#ah)" />
+
+          <!-- moving dot -->
+          <circle id="dot" cx="0" cy="0" r="5" fill="var(--accent-blue)"
+            opacity="0" />
+        </svg>
+      </div>
+
+      <section class="cards-section">
+        <h2>where the loop breaks <span>(papers from the Unthinking corpus)</span></h2>
+
+        <div class="evidence-cards">
+          <article class="evidence-card" data-stage="ctx">
+            <span class="step">Context</span>
+            <h3>The work is in context, not in the model</h3>
+            <p>
+              CMBAgent on 18 astrophysical tasks: same GPT-4o-mini, 6×
+              performance gap depending on whether the right docs are in
+              context. Strip the docs and 47% of trials produce
+              syntactically valid code that returns the wrong answer.
+              Context is the system; the LLM is a tool inside it.
+            </p>
+            <blockquote>
+              "Agentic systems do not primarily fail by crashing — they
+              fail by producing confident, incorrect results."
+              <br />— Plausible but Wrong (arXiv:2604.25345)
+            </blockquote>
+            <div class="papers">
+              <a
+                href="https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/356_plausible_but_wrong.md"
+                target="_blank"
+                >#356 Plausible but Wrong</a
+              >
+              <a
+                href="https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/310-319/315_globality_barrier.md"
+                target="_blank"
+                >#315 Globality Barrier</a
+              >
+            </div>
+          </article>
+
+          <article class="evidence-card" data-stage="llm">
+            <span class="step">LLM</span>
+            <h3>The model commits before the chain completes</h3>
+            <p>
+              Truncation-probing across 11 checkpoints shows the answer
+              is fixed at ~10% of the CoT. The reasoning is generated
+              after the decision and rationalizes it. On commonsense and
+              factual tasks CoT can score net-negative at large token
+              cost (e.g. StrategyQA on Llama-3.2-3B: -10.88pp at 53× the
+              tokens).
+            </p>
+            <blockquote>
+              "The remaining tokens cannot causally shape the answer,
+              since it is already fixed."
+              <br />— Premature Confidence (arXiv:2605.24396)
+            </blockquote>
+            <div class="papers">
+              <a
+                href="https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/354_premature_confidence.md"
+                target="_blank"
+                >#354 Premature Confidence</a
+              >
+              <a
+                href="https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/355_entropy_phase_transitions.md"
+                target="_blank"
+                >#355 Entropy Phase Transitions</a
+              >
+              <a
+                href="https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/357_faithmate_contextual_parametric.md"
+                target="_blank"
+                >#357 FaithMATE</a
+              >
+            </div>
+          </article>
+
+          <article class="evidence-card" data-stage="orch">
+            <span class="step">Orchestration</span>
+            <h3>The plan is advisory; the training is the architecture</h3>
+            <p>
+              16,991 SWE-agent trajectories show agents fall back on
+              training-distribution workflows when given a plan they
+              don't like, sometimes ignoring the plan entirely. On
+              long-horizon agent benchmarks like YC-Bench, only 3 of 12
+              frontier models grow a $200K simulated startup at all.
+            </p>
+            <blockquote>
+              "The plan is advisory; the training is the architecture."
+              <br />— From Plan to Action (arXiv:2604.12147)
+            </blockquote>
+            <div class="papers">
+              <a
+                href="https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/337_from_plan_to_action.md"
+                target="_blank"
+                >#337 Plan to Action</a
+              >
+              <a
+                href="https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/339_yc_bench.md"
+                target="_blank"
+                >#339 YC-Bench</a
+              >
+            </div>
+          </article>
+
+          <article class="evidence-card" data-stage="exec">
+            <span class="step">Execution</span>
+            <h3>Silent wrong is the dominant failure mode</h3>
+            <p>
+              Reasoning prompts make tool hallucination worse, not
+              better. Across 4 Deep Research tasks the agent's failure
+              transparency is 0/4: posteriors that violate physics, code
+              that ran cleanly but returned implausible numbers, no
+              caveat, no flag.
+            </p>
+            <blockquote>
+              "Across all tasks, outputs are consistently plausible, but
+              failures remain unreported."
+              <br />— Plausible but Wrong (arXiv:2604.25345)
+            </blockquote>
+            <div class="papers">
+              <a
+                href="https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/356_plausible_but_wrong.md"
+                target="_blank"
+                >#356 Plausible but Wrong</a
+              >
+              <a
+                href="https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/120-129/122_reasoning_trap.md"
+                target="_blank"
+                >#122 The Reasoning Trap</a
+              >
+              <a
+                href="https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/030-039/033_limits_of_emergent_reasoning.md"
+                target="_blank"
+                >#33 Limits of Emergent Reasoning</a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <p class="credits">
+        Diagram inspired by a community SVG. Evidence drawn from the
+        <a href="../index.html">Unthinking corpus</a>. Open the
+        <a href="../../apps/galaxy/dist/index.html">galaxy</a> to explore
+        all 360 papers.
+      </p>
+    </div>
+
+    <script>
+      const STEP = 1800;
+      const $ = (id) => document.getElementById(id);
+
+      const BLUE = "#60a5fa";
+      const WHITE = "var(--text-primary)";
+      const PURPLE = "#a855f7";
+      const ORANGE = "#f97316";
+      const GREEN = "#22c55e";
+      const DIM = "var(--border-primary)";
+
+      const SCENARIOS = {
+        bash: [
+          {
+            reason: "list files first",
+            cmd: "ls -alh",
+            result: "config.yaml  app.py  .env",
+          },
+          {
+            reason: "found config.yaml, read it",
+            cmd: "cat config.yaml",
+            result: "db: prod  host: localhost",
+          },
+          {
+            reason: "check if db is up",
+            cmd: "curl localhost:5432",
+            result: "Connection refused",
+          },
+          {
+            reason: "db down, find process",
+            cmd: "ps aux | grep db",
+            result: "no process found",
+          },
+        ],
+        science: [
+          {
+            reason: "fit two cosmological parameters from SN1a data",
+            cmd: "run_mcmc(Hz, M_B)",
+            result: "ΩΛ=0.72±0.001 (matches), H₀=prior (silent failure)",
+          },
+          {
+            reason: "fit NGC 3198 rotation curve, NFW halo",
+            cmd: "fit_nfw_halo(rotation_curve)",
+            result: "c=1.19 — physically impossible — reported anyway",
+          },
+          {
+            reason: "exoplanet mass–radius composition",
+            cmd: "fit_composition(planets, αN, αJ, M_br)",
+            result: "α_J wrong sign and 6.1σ off, no caveat",
+          },
+          {
+            reason: "SLACS strong-lensing test",
+            cmd: "fit_lens_model(survey)",
+            result: "4/5 trials crashed silently, no error diagnosis",
+          },
+        ],
+      };
+
+      const INPUT_TOP = 55;
+      const BASE_HEIGHT = 80;
+      const FIRST_ROW_Y = 139;
+      const ROW_H = 15;
+
+      let appendIdx = 0;
+      let cycleIdx = 0;
+      let stepIdx = 0;
+      let scenarioKey = "bash";
+      let paused = false;
+      let timer = null;
+      let appendedNodes = [];
+      let currentStage = "ctx";
+
+      function glow(id, color, strokeOverride) {
+        const r = $(id);
+        if (!r) return;
+        r.style.stroke = strokeOverride || color;
+        r.style.strokeWidth = "2.5";
+        r.style.filter = `drop-shadow(0 0 14px ${color})`;
+      }
+      function unglow(id, stroke) {
+        const r = $(id);
+        if (!r) return;
+        r.style.stroke = stroke || DIM;
+        r.style.strokeWidth = "2";
+        r.style.filter = "none";
+      }
+      function secGlow(id, color) {
+        const r = $(id);
+        if (!r) return;
+        r.style.fill = color;
+        r.style.opacity = "0.18";
+      }
+      function secDim(id) {
+        const r = $(id);
+        if (!r) return;
+        r.style.fill = "var(--bg-tertiary)";
+        r.style.opacity = "0.9";
+      }
+
+      function arrow(id, color, mk) {
+        const a = $(id);
+        if (!a) return;
+        a.style.stroke = color;
+        a.style.opacity = "1";
+        a.style.strokeWidth = "2";
+        a.setAttribute("marker-end", `url(#ah-${mk})`);
+      }
+      function dimA(id) {
+        const a = $(id);
+        if (!a) return;
+        a.style.stroke = "var(--border-primary)";
+        a.style.opacity = "0.45";
+        a.style.strokeWidth = "1.5";
+        a.setAttribute("marker-end", "url(#ah)");
+      }
+      function dot(cx, cy, color) {
+        const d = $("dot");
+        d.setAttribute("cx", cx);
+        d.setAttribute("cy", cy);
+        d.style.fill = color;
+        d.style.opacity = "1";
+      }
+      function hideDot() {
+        $("dot").style.opacity = "0";
+      }
+      function show(id) {
+        $(id).style.opacity = "1";
+        $(id).style.transition = "opacity 0.4s";
+      }
+      function hide(id) {
+        $(id).style.opacity = "0";
+      }
+      function label(txt, color) {
+        $("lbl").textContent = txt;
+        $("lbl").style.color = color || "var(--text-muted)";
+      }
+
+      function setActiveStage(stage) {
+        currentStage = stage;
+        document
+          .querySelectorAll(".evidence-card")
+          .forEach((card) =>
+            card.classList.toggle("is-active", card.dataset.stage === stage),
+          );
+      }
+
+      function appendRow(text, color) {
+        const rowY = FIRST_ROW_Y + appendIdx * ROW_H;
+        const newH = BASE_HEIGHT + 15 + (appendIdx + 1) * ROW_H;
+        $("r-input").setAttribute("height", newH);
+        if (appendIdx === 0) $("div-append").style.opacity = "0.5";
+        const newBottom = INPUT_TOP + newH;
+        $("a3").setAttribute(
+          "d",
+          `M 288 270 L 132 270 L 132 ${newBottom - 6}`,
+        );
+        $("a5").setAttribute(
+          "d",
+          `M 770 270 L 770 450 L 132 450 L 132 ${newBottom - 6}`,
+        );
+        const svg = $("svg");
+        const t = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "text",
+        );
+        t.setAttribute("x", "32");
+        t.setAttribute("y", rowY);
+        t.setAttribute("font-family", "Courier New");
+        t.setAttribute("font-size", "10");
+        t.setAttribute("fill", color);
+        t.textContent = text;
+        t.style.opacity = "0";
+        t.style.transition = "opacity 0.5s";
+        svg.appendChild(t);
+        requestAnimationFrame(() => (t.style.opacity = "1"));
+        appendedNodes.push(t);
+        appendIdx++;
+      }
+
+      function resetInputRows() {
+        appendedNodes.forEach((n) => n.remove());
+        appendedNodes = [];
+        appendIdx = 0;
+        $("r-input").setAttribute("height", BASE_HEIGHT);
+        $("div-append").style.opacity = "0";
+        $("a3").setAttribute("d", "M 288 270 L 132 270 L 132 138");
+        $("a5").setAttribute("d", "M 770 270 L 770 450 L 132 450 L 132 140");
+      }
+
+      function resetBoxes() {
+        ["a1", "a2", "a3", "a4", "a5"].forEach(dimA);
+        ["sec-ctx", "sec-orch", "sec-exec"].forEach(secDim);
+        unglow("r-input", "var(--border-primary)");
+        unglow("r-llm", "var(--accent-blue)");
+        unglow("r-orch", "var(--accent-purple-dim)");
+        unglow("r-exec", "var(--accent-orange)");
+        hide("llm-out");
+        $("orch-dec").textContent = "waiting…";
+        $("orch-dec").style.fill = "var(--text-muted)";
+        hide("orch-path");
+        $("exec-cmd").textContent = "bash / api / fs";
+        $("exec-cmd").style.fill = "var(--text-muted)";
+        $("exec-note").textContent = "captures result";
+        hideDot();
+      }
+
+      function buildSteps(cycle) {
+        return [
+          () => {
+            resetInputRows();
+            resetBoxes();
+            glow("r-input", BLUE, "var(--accent-blue)");
+            secGlow("sec-ctx", BLUE);
+            label("Context ready — INPUT enters the loop", BLUE);
+            dot(132, 108, BLUE);
+            setActiveStage("ctx");
+          },
+          () => {
+            unglow("r-input", "var(--border-primary)");
+            secDim("sec-ctx");
+            arrow("a1", BLUE, "blue");
+            secGlow("sec-orch", PURPLE);
+            label("INPUT passed to LLM", BLUE);
+            dot(280, 108, BLUE);
+            setActiveStage("llm");
+          },
+          () => {
+            glow("r-llm", BLUE, "var(--accent-blue)");
+            const o = $("llm-out");
+            o.textContent = `→ ${cycle.reason}`;
+            o.style.fill = "var(--text-primary)";
+            show("llm-out");
+            label("LLM reasons — no tool call yet", "var(--text-primary)");
+            dot(383, 108, BLUE);
+            setActiveStage("llm");
+          },
+          () => {
+            unglow("r-llm", "var(--accent-blue)");
+            arrow("a2", "var(--text-secondary)", "white");
+            label(
+              "Reasoning passed to Orchestrator",
+              "var(--text-secondary)",
+            );
+            dot(383, 232, BLUE);
+            setActiveStage("orch");
+          },
+          () => {
+            glow("r-orch", PURPLE, "var(--accent-purple-dim)");
+            $("orch-dec").textContent = "no tool call";
+            $("orch-dec").style.fill = "var(--text-primary)";
+            const p = $("orch-path");
+            p.textContent = "→ append to context";
+            p.style.fill = "var(--text-primary)";
+            show("orch-path");
+            label(
+              "Orchestrator: reasoning only — back to context",
+              PURPLE,
+            );
+            dot(288, 270, BLUE);
+            setActiveStage("orch");
+          },
+          () => {
+            unglow("r-orch", "var(--accent-purple-dim)");
+            arrow("a3", "var(--text-secondary)", "white");
+            secGlow("sec-ctx", BLUE);
+            label("Reasoning appended to context", "var(--text-secondary)");
+            dot(132, 200, BLUE);
+            setActiveStage("ctx");
+          },
+          () => {
+            appendRow(`reasoning: ${cycle.reason}`, "var(--text-primary)");
+            glow("r-input", BLUE, "var(--accent-blue)");
+            label("Context grows — loop again with reasoning", BLUE);
+            hideDot();
+            setActiveStage("ctx");
+          },
+          () => {
+            unglow("r-input", "var(--border-primary)");
+            secDim("sec-ctx");
+            arrow("a1", BLUE, "blue");
+            secGlow("sec-orch", PURPLE);
+            label("Larger INPUT enters LLM", BLUE);
+            dot(280, 108, BLUE);
+            setActiveStage("llm");
+          },
+          () => {
+            glow("r-llm", BLUE, "var(--accent-blue)");
+            const o = $("llm-out");
+            o.textContent = `→ ${cycle.cmd}`;
+            o.style.fill = ORANGE;
+            show("llm-out");
+            label("LLM outputs tool call", ORANGE);
+            dot(383, 108, ORANGE);
+            setActiveStage("llm");
+          },
+          () => {
+            unglow("r-llm", "var(--accent-blue)");
+            arrow("a2", ORANGE, "orange");
+            label("Tool call passed to Orchestrator", ORANGE);
+            dot(383, 232, ORANGE);
+            setActiveStage("orch");
+          },
+          () => {
+            glow("r-orch", PURPLE, "var(--accent-purple-dim)");
+            $("orch-dec").textContent = "tool call!";
+            $("orch-dec").style.fill = ORANGE;
+            const p = $("orch-path");
+            p.textContent = "→ route to Executor";
+            p.style.fill = ORANGE;
+            show("orch-path");
+            label("Orchestrator: tool call — route to Executor", PURPLE);
+            dot(478, 278, ORANGE);
+            setActiveStage("orch");
+          },
+          () => {
+            unglow("r-orch", "var(--accent-purple-dim)");
+            arrow("a4", ORANGE, "orange");
+            secGlow("sec-exec", ORANGE);
+            label("Tool call handed to Executor", ORANGE);
+            dot(640, 228, ORANGE);
+            setActiveStage("exec");
+          },
+          () => {
+            glow("r-exec", ORANGE, "var(--accent-orange)");
+            $("exec-cmd").textContent = cycle.cmd;
+            $("exec-cmd").style.fill = ORANGE;
+            $("exec-note").textContent = "running outside LLM…";
+            label("Executor runs — outside LLM", ORANGE);
+            dot(770, 220, ORANGE);
+            setActiveStage("exec");
+          },
+          () => {
+            unglow("r-exec", "var(--accent-orange)");
+            arrow("a5", GREEN, "green");
+            secDim("sec-exec");
+            secGlow("sec-ctx", BLUE);
+            label(`Result: "${cycle.result}" → back to context`, GREEN);
+            dot(132, 380, GREEN);
+            setActiveStage("ctx");
+          },
+          () => {
+            appendRow(`result: ${cycle.result}`, GREEN);
+            glow("r-input", BLUE, "var(--accent-blue)");
+            label("Context grows — ready for next cycle", BLUE);
+            hideDot();
+            setActiveStage("ctx");
+            cycleIdx =
+              (cycleIdx + 1) % SCENARIOS[scenarioKey].length;
+          },
+        ];
+      }
+
+      let steps = buildSteps(SCENARIOS[scenarioKey][cycleIdx]);
+
+      function tick() {
+        if (paused) return;
+        if (stepIdx === 0)
+          steps = buildSteps(SCENARIOS[scenarioKey][cycleIdx]);
+        steps[stepIdx]();
+        stepIdx = (stepIdx + 1) % steps.length;
+      }
+
+      function startTimer() {
+        if (timer) clearInterval(timer);
+        timer = setInterval(tick, STEP);
+      }
+
+      function setScenario(key) {
+        scenarioKey = key;
+        cycleIdx = 0;
+        stepIdx = 0;
+        document
+          .querySelectorAll(".toggle-btn[data-scenario]")
+          .forEach((b) =>
+            b.classList.toggle("active", b.dataset.scenario === key),
+          );
+        steps = buildSteps(SCENARIOS[scenarioKey][cycleIdx]);
+        steps[0]();
+        stepIdx = 1;
+      }
+
+      const svgEl = document.getElementById("svg");
+      svgEl.addEventListener("mouseenter", () => {
+        paused = true;
+      });
+      svgEl.addEventListener("mouseleave", () => {
+        paused = false;
+      });
+
+      document
+        .querySelectorAll(".toggle-btn[data-scenario]")
+        .forEach((btn) =>
+          btn.addEventListener("click", () =>
+            setScenario(btn.dataset.scenario),
+          ),
+        );
+
+      document.querySelectorAll(".evidence-card").forEach((card) =>
+        card.addEventListener("click", () => {
+          const stage = card.dataset.stage;
+          const map = { ctx: 0, llm: 2, orch: 4, exec: 12 };
+          const target = map[stage] ?? 0;
+          paused = true;
+          stepIdx = target;
+          steps[target]();
+          stepIdx = target + 1;
+          setTimeout(() => (paused = false), 1500);
+        }),
+      );
+
+      tick();
+      startTimer();
+    </script>
+  </body>
+</html>
