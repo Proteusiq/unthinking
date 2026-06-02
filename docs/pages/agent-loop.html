@@ -137,9 +137,10 @@
     <div class="page">
       <h1>Agent is an LLM in a loop</h1>
       <p class="subtitle">
-        LLM is <code>f(x) → y</code>. No memory, no agency. The whole
-        context is re-sent every cycle. The devil is in software
-        engineering — building a system to enable completion of tasks.
+        Agency lives in the software engineering: the system composes
+        context, parses output, runs tools, and loops. The LLM is a
+        component inside that system — it generates plausible tokens
+        given the context it was given. Nothing more, nothing less.
       </p>
 
       <p class="step-label" id="lbl">—</p>
@@ -225,17 +226,17 @@
           <text x="134" y="20" text-anchor="middle"
             font-family="Courier New" font-size="10" font-weight="600"
             fill="var(--accent-blue)" letter-spacing="2">
-            CONTEXT ENGINEERING
+            SYSTEM · CONTEXT
           </text>
           <text x="452" y="20" text-anchor="middle"
             font-family="Courier New" font-size="10" font-weight="600"
             fill="var(--accent-purple-dim)" letter-spacing="2">
-            ORCHESTRATION
+            SYSTEM · ORCHESTRATION
           </text>
           <text x="778" y="20" text-anchor="middle"
             font-family="Courier New" font-size="10" font-weight="600"
             fill="var(--accent-orange)" letter-spacing="2">
-            EXECUTION
+            SYSTEM · EXECUTION
           </text>
 
           <!-- INPUT BOX -->
@@ -264,9 +265,9 @@
           <text x="304" y="97" font-family="Courier New" font-size="11"
             fill="var(--accent-blue)">f(x) → y</text>
           <text x="304" y="113" font-family="Courier New" font-size="11"
-            fill="var(--text-muted)">stateless</text>
+            fill="var(--text-muted)">plausible tokens</text>
           <text x="304" y="129" font-family="Courier New" font-size="11"
-            fill="var(--text-muted)">no memory</text>
+            fill="var(--text-muted)">trained, not agentic</text>
           <text id="llm-out" x="304" y="152" font-family="Courier New"
             font-size="10" fill="var(--text-primary)" opacity="0">→</text>
 
@@ -522,7 +523,7 @@
             resetBoxes();
             glow("r-input", BLUE, "var(--accent-blue)");
             secGlow("sec-ctx", BLUE);
-            label("Context ready — INPUT enters the loop", BLUE);
+            label("System composes context — INPUT enters the loop", BLUE);
             dot(132, 108, BLUE);
           },
           () => {
@@ -530,7 +531,7 @@
             secDim("sec-ctx");
             arrow("a1", BLUE, "blue");
             secGlow("sec-orch", PURPLE);
-            label("Whole INPUT re-sent to LLM", BLUE);
+            label("System hands the whole INPUT to the LLM", BLUE);
             dot(280, 108, BLUE);
           },
           () => {
@@ -539,14 +540,17 @@
             o.textContent = `→ ${cycle.reason}`;
             o.style.fill = "var(--text-primary)";
             show("llm-out");
-            label("LLM reasons — no tool call yet", "var(--text-primary)");
+            label(
+              "LLM generates plausible tokens — no tool call this time",
+              "var(--text-primary)",
+            );
             dot(383, 108, BLUE);
           },
           () => {
             unglow("r-llm", "var(--accent-blue)");
             arrow("a2", "var(--text-secondary)", "white");
             label(
-              "Reasoning passed to Orchestrator",
+              "System parses tokens — passes them to Orchestrator",
               "var(--text-secondary)",
             );
             dot(383, 232, BLUE);
@@ -560,7 +564,7 @@
             p.style.fill = "var(--text-primary)";
             show("orch-path");
             label(
-              "Orchestrator: reasoning only — back to context",
+              "Orchestrator (system): no tool call — append to context",
               PURPLE,
             );
             dot(288, 270, BLUE);
@@ -569,13 +573,16 @@
             unglow("r-orch", "var(--accent-purple-dim)");
             arrow("a3", "var(--text-secondary)", "white");
             secGlow("sec-ctx", BLUE);
-            label("Reasoning appended to context", "var(--text-secondary)");
+            label(
+              "System appends LLM output to context",
+              "var(--text-secondary)",
+            );
             dot(132, 200, BLUE);
           },
           () => {
             appendRow(`reasoning: ${cycle.reason}`, "var(--text-primary)");
             glow("r-input", BLUE, "var(--accent-blue)");
-            label("Context grows — loop again with reasoning", BLUE);
+            label("Context grows — system loops again", BLUE);
             hideDot();
           },
           () => {
@@ -583,7 +590,7 @@
             secDim("sec-ctx");
             arrow("a1", BLUE, "blue");
             secGlow("sec-orch", PURPLE);
-            label("Whole INPUT (now larger) re-sent to LLM", BLUE);
+            label("System re-sends the whole INPUT (now larger)", BLUE);
             dot(280, 108, BLUE);
           },
           () => {
@@ -592,13 +599,19 @@
             o.textContent = `→ ${cycle.cmd}`;
             o.style.fill = ORANGE;
             show("llm-out");
-            label("LLM outputs tool call", ORANGE);
+            label(
+              "LLM generates plausible tokens — pattern of a tool call",
+              ORANGE,
+            );
             dot(383, 108, ORANGE);
           },
           () => {
             unglow("r-llm", "var(--accent-blue)");
             arrow("a2", ORANGE, "orange");
-            label("Tool call passed to Orchestrator", ORANGE);
+            label(
+              "System detects tool-call pattern — routes to Orchestrator",
+              ORANGE,
+            );
             dot(383, 232, ORANGE);
           },
           () => {
@@ -609,14 +622,20 @@
             p.textContent = "→ route to Executor";
             p.style.fill = ORANGE;
             show("orch-path");
-            label("Orchestrator: tool call — route to Executor", PURPLE);
+            label(
+              "Orchestrator (system): tool call — route to Executor",
+              PURPLE,
+            );
             dot(478, 278, ORANGE);
           },
           () => {
             unglow("r-orch", "var(--accent-purple-dim)");
             arrow("a4", ORANGE, "orange");
             secGlow("sec-exec", ORANGE);
-            label("Tool call handed to Executor", ORANGE);
+            label(
+              "System hands the tool call to the Executor",
+              ORANGE,
+            );
             dot(640, 228, ORANGE);
           },
           () => {
@@ -624,7 +643,10 @@
             $("exec-cmd").textContent = cycle.cmd;
             $("exec-cmd").style.fill = ORANGE;
             $("exec-note").textContent = "running outside LLM…";
-            label("Executor runs — outside LLM", ORANGE);
+            label(
+              "System runs the tool — outside the LLM — and captures result",
+              ORANGE,
+            );
             dot(770, 220, ORANGE);
           },
           () => {
@@ -638,7 +660,10 @@
           () => {
             appendRow(`result: ${cycle.result}`, GREEN);
             glow("r-input", BLUE, "var(--accent-blue)");
-            label("Context grows — ready for next cycle", BLUE);
+            label(
+              "System appends result; context grows; loop continues",
+              BLUE,
+            );
             hideDot();
             cycleIdx = (cycleIdx + 1) % CYCLES.length;
           },
