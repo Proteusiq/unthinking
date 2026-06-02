@@ -141,6 +141,12 @@ const ThemeToggle: FC = () => {
 };
 
 const EMBED_MODEL_ID = "onnx-community/embeddinggemma-300m-ONNX";
+
+// Set by Scene while a search-focus animation is running. Each
+// InteractiveSphere reads this in its useFrame to suppress its
+// distance-based size scaling during that window — otherwise the
+// rapid camera motion causes every planet to ripple.
+const focusActiveRef = { current: false };
 const EMBEDDING_DIM = 768;
 const INDEX_VERSION = "semantic-v5-spring-gravity";
 
@@ -675,20 +681,13 @@ const InteractiveSphereImpl: FC<InteractiveSphereProps> = ({
     const material = materialRef.current;
     if (!group || !material) return;
 
-    if (material.opacity < 1) {
-      material.opacity = THREE.MathUtils.lerp(material.opacity, 1, 0.05);
-    }
+    if (material.opacity < 1) material.opacity = 1;
 
     const dist = group.position.distanceTo(camera.position);
-    // Update cameraDistance state only on meaningful changes so we don't
-    // re-render every frame. A larger hysteresis band also keeps labels
-    // from flickering on/off as the camera drifts past the threshold.
     if (Math.abs(dist - cameraDistance) > 5) setCameraDistance(dist);
 
-    // Compute a distance-based size multiplier, but VERY gently: range
-    // 1.0..1.12 instead of 1.0..2.0. And we low-pass it so a fast-moving
-    // camera (e.g. during a search lerp) doesn't cause the planet to
-    // visibly grow and shrink each tick.
+    // Distance-based size multiplier with low-pass smoothing. Range
+    // gentle (1.0..1.12) so even with smoothing it stays subtle.
     const targetDistScale = THREE.MathUtils.clamp(
       THREE.MathUtils.mapLinear(dist, 80, 20, 1.0, 1.12),
       1.0,
@@ -699,7 +698,13 @@ const InteractiveSphereImpl: FC<InteractiveSphereProps> = ({
       targetDistScale,
       0.08,
     );
-    const clampedDistanceScale = smoothedDistScale.current;
+    // Suppress per-frame distance scaling while the camera is actively
+    // lerping toward a search target. Otherwise the camera motion
+    // produces a small ripple in every planet's size.
+    const isFocusAnimating = focusActiveRef.current;
+    const clampedDistanceScale = isFocusAnimating
+      ? 1
+      : smoothedDistScale.current;
     const hoverScale = isHovered ? 1.2 : 1.0;
 
     let breath = 1;
@@ -1187,6 +1192,7 @@ const Scene: FC<SceneProps> = ({
     }
 
     if (shouldAnimate.current && controlsRef.current) {
+      focusActiveRef.current = true;
       controlsRef.current.enabled = false;
       const distToTarget = camera.position.distanceTo(cameraTargetPos.current);
       if (distToTarget > 0.02) {
@@ -1197,6 +1203,7 @@ const Scene: FC<SceneProps> = ({
         controlsRef.current.target.copy(controlsTargetLookAt.current);
         shouldAnimate.current = false;
         controlsRef.current.enabled = true;
+        focusActiveRef.current = false;
       }
     } else if (
       focusTargetId.current !== null &&
@@ -1204,11 +1211,14 @@ const Scene: FC<SceneProps> = ({
     ) {
       // Brief follow window is over; release.
       focusTargetId.current = null;
+      focusActiveRef.current = false;
     } else if (focusTargetId.current !== null && controlsRef.current) {
       // Still in the follow window: gently keep the camera locked to the
       // drifting planet's neighborhood without disabling controls.
       camera.position.lerp(cameraTargetPos.current, 0.05);
       controlsRef.current.target.lerp(controlsTargetLookAt.current, 0.05);
+    } else {
+      focusActiveRef.current = false;
     }
   });
 
