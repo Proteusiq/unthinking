@@ -65,6 +65,16 @@
         font-size: 0.95em;
       }
 
+      .subtitle .hint {
+        display: inline-block;
+        margin-top: 0.4rem;
+        font-family: "Courier New", monospace;
+        font-size: 0.7rem;
+        letter-spacing: 0.06em;
+        color: var(--text-muted);
+        opacity: 0.7;
+      }
+
       .controls {
         display: flex;
         align-items: center;
@@ -152,6 +162,8 @@
       <p class="subtitle">
         Agency lives in the software engineering: the system composes
         context, parses output, runs tools, and loops.
+        <br />
+        <span class="hint">Hover any box for details.</span>
       </p>
 
       <p class="step-label" id="lbl">—</p>
@@ -253,7 +265,9 @@
           <!-- INPUT BOX -->
           <rect id="r-input" data-stage="ctx" x="18" y="55" width="228" height="80"
             rx="5" fill="var(--bg-primary)" stroke="var(--border-primary)"
-            stroke-width="2" />
+            stroke-width="2">
+            <title>INPUT — system_message + query + every prior reasoning + every prior tool result. The whole INPUT is re-sent to the LLM every cycle. When it grows past the context window, the system runs compaction: summarize older entries into one row so the loop can continue. INPUT acts as the agent's memory, because the LLM has none.</title>
+          </rect>
           <text x="32" y="75" font-family="Space Grotesk" font-size="12"
             font-weight="600" fill="var(--text-primary)">INPUT</text>
           <line x1="18" y1="82" x2="246" y2="82"
@@ -268,7 +282,9 @@
           <!-- LLM BOX -->
           <rect id="r-llm" data-stage="llm" x="288" y="55" width="190" height="110"
             rx="5" fill="var(--bg-primary)" stroke="var(--accent-blue)"
-            stroke-width="2" />
+            stroke-width="2">
+            <title>LLM — f(x) → y. No memory, no state, no agency. Reads the whole INPUT every cycle and generates the next tokens. Providers cache token prefixes for speed (KV cache), but the model itself is stateless.</title>
+          </rect>
           <text x="304" y="75" font-family="Space Grotesk" font-size="12"
             font-weight="600" fill="var(--text-primary)">LLM</text>
           <line x1="288" y1="82" x2="478" y2="82"
@@ -285,7 +301,9 @@
           <!-- ORCHESTRATOR BOX -->
           <rect id="r-orch" data-stage="orch" x="288" y="240" width="190" height="90"
             rx="5" fill="var(--bg-primary)" stroke="var(--accent-purple-dim)"
-            stroke-width="2" />
+            stroke-width="2">
+            <title>ORCHESTRATOR — parses the LLM's output and decides what happens next: append to context, call a tool, summarize INPUT to free up the window, or load a skill. This is where most of the agent's actual logic lives.</title>
+          </rect>
           <text x="304" y="260" font-family="Space Grotesk" font-size="12"
             font-weight="600" fill="var(--text-primary)">ORCHESTRATOR</text>
           <line x1="288" y1="267" x2="478" y2="267"
@@ -300,7 +318,9 @@
           <!-- EXECUTOR BOX -->
           <rect id="r-exec" data-stage="exec" x="656" y="170" width="228" height="100"
             rx="5" fill="var(--bg-primary)" stroke="var(--accent-orange)"
-            stroke-width="2" />
+            stroke-width="2">
+            <title>EXECUTOR — anything that runs outside the LLM. bash for shell, API | MCP for external services (Model Context Protocol is one way to wire them), customtools for file readers that inject prompts (SKILL.md, AGENTS.md, memory.md, personal.md), skill loaders, anything you wrote. The whole arrangement — context engineering + orchestration + execution — is called harnessing engineering.</title>
+          </rect>
           <text x="672" y="190" font-family="Space Grotesk" font-size="12"
             font-weight="600" fill="var(--text-primary)">EXECUTOR</text>
           <line x1="656" y1="197" x2="884" y2="197"
@@ -308,7 +328,7 @@
           <text x="672" y="213" font-family="Courier New" font-size="11"
             fill="var(--accent-orange)">outside LLM</text>
           <text id="exec-cmd" x="672" y="231" font-family="Courier New"
-            font-size="11" fill="var(--text-muted)">bash / API / filesystem (skills, AGENTS.md)</text>
+            font-size="11" fill="var(--text-muted)">bash / API | MCP / customtools</text>
           <text id="exec-note" x="672" y="247" font-family="Courier New"
             font-size="10" fill="var(--text-muted)">captures result</text>
 
@@ -528,7 +548,7 @@
         $("orch-dec").textContent = "waiting…";
         $("orch-dec").style.fill = "var(--text-muted)";
         hide("orch-path");
-        $("exec-cmd").textContent = "bash / API / filesystem (skills, AGENTS.md)";
+        $("exec-cmd").textContent = "bash / API | MCP / customtools";
         $("exec-cmd").style.fill = "var(--text-muted)";
         $("exec-note").textContent = "captures result";
         hideDot();
