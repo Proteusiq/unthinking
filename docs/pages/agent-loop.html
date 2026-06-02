@@ -51,9 +51,18 @@
       .subtitle {
         text-align: center;
         color: var(--text-muted);
-        font-size: clamp(0.7rem, 2vw, 0.85rem);
-        letter-spacing: 0.06em;
-        margin-bottom: 1.5rem;
+        font-size: clamp(0.75rem, 2vw, 0.95rem);
+        line-height: 1.55;
+        letter-spacing: 0.02em;
+        margin: 0 auto 1.5rem;
+        max-width: min(680px, 100%);
+      }
+
+      .subtitle code {
+        background: transparent;
+        padding: 0;
+        color: var(--accent-blue);
+        font-size: 0.95em;
       }
 
       .controls {
@@ -126,10 +135,11 @@
     </div>
 
     <div class="page">
-      <h1>The agent is the loop</h1>
+      <h1>Agent is an LLM in a loop</h1>
       <p class="subtitle">
-        context engineering · orchestration · execution — and where each step
-        breaks
+        LLM is <code>f(x) → y</code>. No memory, no agency. The devil is in
+        software engineering — building a system to enable completion of
+        tasks.
       </p>
 
       <p class="step-label" id="lbl">—</p>
