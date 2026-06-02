@@ -796,14 +796,6 @@
         timer = setInterval(tick, STEP);
       }
 
-      const svgEl = document.getElementById("svg");
-      svgEl.addEventListener("mouseenter", () => {
-        paused = true;
-      });
-      svgEl.addEventListener("mouseleave", () => {
-        paused = false;
-      });
-
       tick();
       startTimer();
 
