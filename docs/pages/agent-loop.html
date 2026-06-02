@@ -150,6 +150,69 @@
       .credits a:hover {
         text-decoration: underline;
       }
+
+      /* ════════════════════════════════════════════════════════════
+         Tooltip (hover any box)
+         ════════════════════════════════════════════════════════════ */
+
+      .diagram svg [data-tip] {
+        cursor: help;
+        transition: filter 0.18s ease;
+      }
+
+      .diagram svg [data-tip]:hover,
+      .diagram svg [data-tip]:focus-visible {
+        filter: drop-shadow(0 0 6px var(--tip-color, var(--accent-blue)));
+      }
+
+      #tip {
+        position: fixed;
+        z-index: 50;
+        max-width: 320px;
+        padding: 0.9rem 1rem;
+        border-radius: 12px;
+        font-family: "Inter", "Space Grotesk", sans-serif;
+        font-size: 0.85rem;
+        line-height: 1.5;
+        pointer-events: none;
+        opacity: 0;
+        transform: translateY(4px);
+        transition:
+          opacity 0.18s ease,
+          transform 0.18s ease;
+        background: rgba(15, 23, 42, 0.88);
+        color: rgba(241, 245, 249, 0.95);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        box-shadow:
+          0 12px 30px rgba(0, 0, 0, 0.35),
+          0 1px 2px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(14px) saturate(150%);
+        -webkit-backdrop-filter: blur(14px) saturate(150%);
+      }
+
+      [data-theme="light"] #tip {
+        background: rgba(255, 255, 255, 0.92);
+        color: rgba(15, 23, 42, 0.92);
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        box-shadow:
+          0 12px 30px rgba(15, 23, 42, 0.12),
+          0 1px 2px rgba(15, 23, 42, 0.04);
+      }
+
+      #tip.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      #tip .tip-title {
+        font-family: "Space Grotesk", "Inter", sans-serif;
+        font-weight: 700;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        margin-bottom: 0.4rem;
+        color: var(--tip-color, var(--accent-blue));
+      }
     </style>
   </head>
   <body>
@@ -265,9 +328,12 @@
           <!-- INPUT BOX -->
           <rect id="r-input" data-stage="ctx" x="18" y="55" width="228" height="80"
             rx="5" fill="var(--bg-primary)" stroke="var(--border-primary)"
-            stroke-width="2">
-            <title>INPUT — system_message + query + every prior reasoning + every prior tool result. The whole INPUT is re-sent to the LLM every cycle. When it grows past the context window, the system runs compaction: summarize older entries into one row so the loop can continue. INPUT acts as the agent's memory, because the LLM has none.</title>
-          </rect>
+            stroke-width="2"
+            tabindex="0"
+            aria-describedby="tip"
+            data-tip-color="var(--accent-blue)"
+            data-tip-title="INPUT"
+            data-tip="system_message + query + every prior reasoning + every prior tool result. The whole INPUT is re-sent to the LLM every cycle. When it grows past the context window, the system runs compaction: summarize older entries into one row so the loop can continue. INPUT acts as the agent's memory — the LLM has none." />
           <text x="32" y="75" font-family="Space Grotesk" font-size="12"
             font-weight="600" fill="var(--text-primary)">INPUT</text>
           <line x1="18" y1="82" x2="246" y2="82"
@@ -282,9 +348,12 @@
           <!-- LLM BOX -->
           <rect id="r-llm" data-stage="llm" x="288" y="55" width="190" height="110"
             rx="5" fill="var(--bg-primary)" stroke="var(--accent-blue)"
-            stroke-width="2">
-            <title>LLM — f(x) → y. No memory, no state, no agency. Reads the whole INPUT every cycle and generates the next tokens. Providers cache token prefixes for speed (KV cache), but the model itself is stateless.</title>
-          </rect>
+            stroke-width="2"
+            tabindex="0"
+            aria-describedby="tip"
+            data-tip-color="var(--accent-blue)"
+            data-tip-title="LLM"
+            data-tip="f(x) → y. No memory, no state, no agency. Reads the whole INPUT every cycle and generates the next tokens. Providers cache token prefixes for speed (KV cache), but the model itself is stateless." />
           <text x="304" y="75" font-family="Space Grotesk" font-size="12"
             font-weight="600" fill="var(--text-primary)">LLM</text>
           <line x1="288" y1="82" x2="478" y2="82"
@@ -301,9 +370,12 @@
           <!-- ORCHESTRATOR BOX -->
           <rect id="r-orch" data-stage="orch" x="288" y="240" width="190" height="90"
             rx="5" fill="var(--bg-primary)" stroke="var(--accent-purple-dim)"
-            stroke-width="2">
-            <title>ORCHESTRATOR — parses the LLM's output and decides what happens next: append to context, call a tool, summarize INPUT to free up the window, or load a skill. This is where most of the agent's actual logic lives.</title>
-          </rect>
+            stroke-width="2"
+            tabindex="0"
+            aria-describedby="tip"
+            data-tip-color="var(--accent-purple-dim)"
+            data-tip-title="ORCHESTRATOR"
+            data-tip="Parses the LLM's output and decides what happens next: append to context, call a tool, summarize INPUT to free up the window, or load a skill. This is where most of the agent's actual logic lives." />
           <text x="304" y="260" font-family="Space Grotesk" font-size="12"
             font-weight="600" fill="var(--text-primary)">ORCHESTRATOR</text>
           <line x1="288" y1="267" x2="478" y2="267"
@@ -318,9 +390,12 @@
           <!-- EXECUTOR BOX -->
           <rect id="r-exec" data-stage="exec" x="656" y="170" width="228" height="100"
             rx="5" fill="var(--bg-primary)" stroke="var(--accent-orange)"
-            stroke-width="2">
-            <title>EXECUTOR — anything that runs outside the LLM. bash for shell, API | MCP for external services (Model Context Protocol is one way to wire them), customtools for file readers that inject prompts (SKILL.md, AGENTS.md, memory.md, personal.md), skill loaders, anything you wrote. The whole arrangement — context engineering + orchestration + execution — is called harnessing engineering.</title>
-          </rect>
+            stroke-width="2"
+            tabindex="0"
+            aria-describedby="tip"
+            data-tip-color="var(--accent-orange)"
+            data-tip-title="EXECUTOR"
+            data-tip="Anything that runs outside the LLM. bash for shell, API | MCP for external services (Model Context Protocol is one way to wire them), customtools for file readers that inject prompts (SKILL.md, AGENTS.md, memory.md, personal.md), skill loaders, anything you wrote. The whole arrangement — context engineering + orchestration + execution — is called harnessing engineering." />
           <text x="672" y="190" font-family="Space Grotesk" font-size="12"
             font-weight="600" fill="var(--text-primary)">EXECUTOR</text>
           <line x1="656" y1="197" x2="884" y2="197"
@@ -731,6 +806,90 @@
 
       tick();
       startTimer();
+
+      // ── Tooltip layer ─────────────────────────────────────────────
+      // Modern HTML tooltip driven by data-tip attributes on SVG rects.
+      // The native <title> chip was ugly and not themeable; this one is.
+      (function tooltips() {
+        const tip = document.createElement("div");
+        tip.id = "tip";
+        tip.setAttribute("role", "tooltip");
+        document.body.appendChild(tip);
+
+        const titleEl = document.createElement("div");
+        titleEl.className = "tip-title";
+        const bodyEl = document.createElement("div");
+        bodyEl.className = "tip-body";
+        tip.appendChild(titleEl);
+        tip.appendChild(bodyEl);
+
+        let activeTarget = null;
+        const VIEWPORT_MARGIN = 12;
+
+        function showFor(target, anchor) {
+          const text = target.getAttribute("data-tip");
+          if (!text) return;
+          activeTarget = target;
+          const titleText = target.getAttribute("data-tip-title") || "";
+          const color = target.getAttribute("data-tip-color") || "";
+          titleEl.textContent = titleText;
+          titleEl.style.display = titleText ? "block" : "none";
+          bodyEl.textContent = text;
+          tip.style.setProperty(
+            "--tip-color",
+            color || "var(--accent-blue)",
+          );
+          tip.classList.add("visible");
+          positionAt(anchor);
+        }
+
+        function hide() {
+          activeTarget = null;
+          tip.classList.remove("visible");
+        }
+
+        function positionAt(anchor) {
+          const rect = tip.getBoundingClientRect();
+          const pad = 16;
+          let x = anchor.x + pad;
+          let y = anchor.y + pad;
+          if (x + rect.width + VIEWPORT_MARGIN > window.innerWidth) {
+            x = anchor.x - rect.width - pad;
+          }
+          if (y + rect.height + VIEWPORT_MARGIN > window.innerHeight) {
+            y = anchor.y - rect.height - pad;
+          }
+          x = Math.max(VIEWPORT_MARGIN, x);
+          y = Math.max(VIEWPORT_MARGIN, y);
+          tip.style.left = x + "px";
+          tip.style.top = y + "px";
+        }
+
+        const rects = document.querySelectorAll(".diagram svg [data-tip]");
+        rects.forEach((r) => {
+          r.addEventListener("mouseenter", (e) =>
+            showFor(r, { x: e.clientX, y: e.clientY }),
+          );
+          r.addEventListener("mousemove", (e) => {
+            if (activeTarget === r) {
+              positionAt({ x: e.clientX, y: e.clientY });
+            }
+          });
+          r.addEventListener("mouseleave", hide);
+          r.addEventListener("focus", () => {
+            const bbox = r.getBoundingClientRect();
+            showFor(r, {
+              x: bbox.left + bbox.width / 2,
+              y: bbox.top + bbox.height / 2,
+            });
+          });
+          r.addEventListener("blur", hide);
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") hide();
+        });
+      })();
     </script>
   </body>
 </html>
