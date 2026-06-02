@@ -918,6 +918,10 @@ const Scene: FC<SceneProps> = ({
   const focusTargetId = useRef<number | null>(null);
   const focusDesiredDist = useRef(12);
   const focusFollowUntil = useRef(0);
+  // Frozen offset direction sampled at the moment focus begins. Reusing
+  // the live camera-target vector each frame would create a feedback
+  // loop that visibly flickers when the user types fast.
+  const focusOffsetDir = useRef(new THREE.Vector3(0, 0, 1));
   const { camera, invalidate } = useThree();
   const { theme } = useTheme();
   const isDarkScene = theme === "dark";
@@ -1153,16 +1157,16 @@ const Scene: FC<SceneProps> = ({
 
     // While focusing a search target, re-derive the camera target from
     // the live position of the planet every frame so slow drift doesn't
-    // leave it off-screen.
+    // leave it off-screen. Use the FROZEN offset captured at focus start
+    // — recomputing from camera-target every frame creates a feedback
+    // loop that visibly flickers when the user is still typing.
     if (focusTargetId.current !== null && controlsRef.current) {
       const body = bodyById.current.get(focusTargetId.current);
       if (body) {
-        const offsetDir = tmpForce.current
-          .copy(camera.position)
-          .sub(controlsRef.current.target);
-        if (offsetDir.lengthSq() < 1e-6) offsetDir.set(0, 0, 1);
-        offsetDir.normalize().multiplyScalar(focusDesiredDist.current);
-        cameraTargetPos.current.copy(body.position).add(offsetDir);
+        tmpForce.current
+          .copy(focusOffsetDir.current)
+          .multiplyScalar(focusDesiredDist.current);
+        cameraTargetPos.current.copy(body.position).add(tmpForce.current);
         controlsTargetLookAt.current.copy(body.position);
       }
     }
@@ -1214,25 +1218,39 @@ const Scene: FC<SceneProps> = ({
   }, [galaxyPoints, camera, invalidate]);
 
   useEffect(() => {
-    if (searchResults.length > 0 && controlsRef.current) {
-      const topResult = searchResults[0];
-      const minFocusDist = 6;
-      const maxFocusDist = 20;
-      const similarity = THREE.MathUtils.clamp(topResult.similarity, 0, 1);
-      focusDesiredDist.current = THREE.MathUtils.mapLinear(
-        similarity,
-        0,
-        1,
-        maxFocusDist,
-        minFocusDist,
-      );
-      focusTargetId.current = topResult.entry.id;
-      // Keep following the planet briefly after the camera lerp ends, so
-      // drift doesn't push the planet out of frame again.
+    if (searchResults.length === 0 || !controlsRef.current) return;
+    const topResult = searchResults[0];
+    const topId = topResult.entry.id;
+
+    if (focusTargetId.current === topId) {
+      // Same paper still on top — just extend the follow window so the
+      // camera keeps tracking. Critically, do NOT restart the lerp or
+      // re-sample the offset direction. Restarting on every keystroke
+      // was producing the search-flicker.
       focusFollowUntil.current = performance.now() + 1500;
-      shouldAnimate.current = true;
+      return;
     }
-  }, [searchResults]);
+
+    const minFocusDist = 6;
+    const maxFocusDist = 20;
+    const similarity = THREE.MathUtils.clamp(topResult.similarity, 0, 1);
+    focusDesiredDist.current = THREE.MathUtils.mapLinear(
+      similarity,
+      0,
+      1,
+      maxFocusDist,
+      minFocusDist,
+    );
+    focusTargetId.current = topId;
+    focusFollowUntil.current = performance.now() + 1500;
+    // Freeze the offset direction once, here, so the per-frame target
+    // recomputation can't oscillate.
+    const dir = new THREE.Vector3()
+      .subVectors(camera.position, controlsRef.current.target);
+    if (dir.lengthSq() < 1e-6) dir.set(0, 0, 1);
+    focusOffsetDir.current.copy(dir).normalize();
+    shouldAnimate.current = true;
+  }, [searchResults, camera]);
 
   const { pointColors, similarityMap } = useMemo(() => {
     const baseColors = galaxyPoints.map((p) =>
