@@ -65,6 +65,17 @@
         font-size: 0.95em;
       }
 
+      .subtitle strong {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      .subtitle em {
+        color: var(--accent-blue);
+        font-style: italic;
+        font-weight: 500;
+      }
+
       .subtitle .hint {
         display: inline-block;
         margin-top: 0.4rem;
@@ -213,6 +224,56 @@
         margin-bottom: 0.4rem;
         color: var(--tip-color, var(--accent-blue));
       }
+
+      #tip strong {
+        color: var(--tip-color, var(--accent-blue));
+        font-weight: 600;
+      }
+
+      #tip em {
+        font-style: italic;
+        opacity: 0.85;
+      }
+
+      #tip code {
+        font-family: "Courier New", monospace;
+        font-size: 0.88em;
+        padding: 0.05em 0.4em;
+        border-radius: 4px;
+        background: color-mix(
+          in srgb,
+          var(--tip-color, var(--accent-blue)) 18%,
+          transparent
+        );
+        color: var(--tip-color, var(--accent-blue));
+        border: 1px solid
+          color-mix(
+            in srgb,
+            var(--tip-color, var(--accent-blue)) 30%,
+            transparent
+          );
+      }
+
+      [data-theme="light"] #tip code {
+        background: color-mix(
+          in srgb,
+          var(--tip-color, var(--accent-blue)) 14%,
+          transparent
+        );
+        border-color: color-mix(
+          in srgb,
+          var(--tip-color, var(--accent-blue)) 28%,
+          transparent
+        );
+      }
+
+      #tip .muted {
+        display: block;
+        margin-top: 0.55rem;
+        font-size: 0.78em;
+        opacity: 0.7;
+        line-height: 1.45;
+      }
     </style>
   </head>
   <body>
@@ -223,8 +284,9 @@
     <div class="page">
       <h1>An agent is software around an LLM</h1>
       <p class="subtitle">
-        Agency lives in the software engineering: the system composes
-        context, parses output, runs tools, and loops.
+        Agency is in the <em>engineering around</em> the LLM — the system
+        that composes <strong>context</strong>, parses output, runs
+        <strong>tools</strong>, and <strong>loops</strong>.
         <br />
         <span class="hint">Hover any box for details.</span>
       </p>
@@ -333,7 +395,7 @@
             aria-describedby="tip"
             data-tip-color="var(--accent-blue)"
             data-tip-title="INPUT"
-            data-tip="system_message + query + every prior reasoning + every prior tool result. The whole INPUT is re-sent to the LLM every cycle. When it grows past the context window, the system runs compaction: summarize older entries into one row so the loop can continue. INPUT acts as the agent's memory — the LLM has none." />
+            data-tip="&lt;code&gt;system_message&lt;/code&gt; + &lt;code&gt;query&lt;/code&gt; + &lt;em&gt;every prior reasoning&lt;/em&gt; + &lt;em&gt;every prior tool result&lt;/em&gt;. The &lt;strong&gt;whole INPUT&lt;/strong&gt; is re-sent to the LLM every cycle. When it grows past the &lt;strong&gt;context window&lt;/strong&gt;, the system runs &lt;strong&gt;compaction&lt;/strong&gt; — summarize older entries into one row so the loop can continue. &lt;span class=&quot;muted&quot;&gt;INPUT plays the role of memory; the LLM has none.&lt;/span&gt;" />
           <text x="32" y="75" font-family="Space Grotesk" font-size="12"
             font-weight="600" fill="var(--text-primary)">INPUT</text>
           <line x1="18" y1="82" x2="246" y2="82"
@@ -353,7 +415,7 @@
             aria-describedby="tip"
             data-tip-color="var(--accent-blue)"
             data-tip-title="LLM"
-            data-tip="f(x) → y. No memory, no state, no agency. Reads the whole INPUT every cycle and generates the next tokens. Providers cache token prefixes for speed (KV cache), but the model itself is stateless." />
+            data-tip="&lt;code&gt;f(x) → y&lt;/code&gt;. &lt;em&gt;No memory, no state, no agency.&lt;/em&gt; Reads the &lt;strong&gt;whole INPUT&lt;/strong&gt; every cycle and generates the &lt;strong&gt;next tokens&lt;/strong&gt;. &lt;span class=&quot;muted&quot;&gt;Providers cache token prefixes (&lt;code&gt;KV cache&lt;/code&gt;) for speed — the model itself is stateless.&lt;/span&gt;" />
           <text x="304" y="75" font-family="Space Grotesk" font-size="12"
             font-weight="600" fill="var(--text-primary)">LLM</text>
           <line x1="288" y1="82" x2="478" y2="82"
@@ -375,7 +437,7 @@
             aria-describedby="tip"
             data-tip-color="var(--accent-purple-dim)"
             data-tip-title="ORCHESTRATOR"
-            data-tip="Parses the LLM's output and decides what happens next: append to context, call a tool, summarize INPUT to free up the window, or load a skill. This is where most of the agent's actual logic lives." />
+            data-tip="Parses the LLM's output and decides what happens next — &lt;strong&gt;append to context&lt;/strong&gt;, &lt;strong&gt;call a tool&lt;/strong&gt;, &lt;strong&gt;summarize INPUT&lt;/strong&gt; to free up the window, or &lt;strong&gt;load a skill&lt;/strong&gt;. &lt;span class=&quot;muted&quot;&gt;This is where most of the agent's actual logic lives.&lt;/span&gt;" />
           <text x="304" y="260" font-family="Space Grotesk" font-size="12"
             font-weight="600" fill="var(--text-primary)">ORCHESTRATOR</text>
           <line x1="288" y1="267" x2="478" y2="267"
@@ -395,7 +457,7 @@
             aria-describedby="tip"
             data-tip-color="var(--accent-orange)"
             data-tip-title="EXECUTOR"
-            data-tip="Anything that runs outside the LLM. bash for shell, API | MCP for external services (Model Context Protocol is one way to wire them), customtools for file readers that inject prompts (SKILL.md, AGENTS.md, memory.md, personal.md), skill loaders, anything you wrote. The whole arrangement — context engineering + orchestration + execution — is called harnessing engineering." />
+            data-tip="Anything that runs &lt;em&gt;outside the LLM&lt;/em&gt;. &lt;code&gt;bash&lt;/code&gt; for shell, &lt;code&gt;API | MCP&lt;/code&gt; for external services (&lt;strong&gt;Model Context Protocol&lt;/strong&gt; is one way to wire them), &lt;code&gt;customtools&lt;/code&gt; for file readers that inject prompts (&lt;code&gt;SKILL.md&lt;/code&gt;, &lt;code&gt;AGENTS.md&lt;/code&gt;, &lt;code&gt;memory.md&lt;/code&gt;, &lt;code&gt;personal.md&lt;/code&gt;), skill loaders, anything you wrote. &lt;span class=&quot;muted&quot;&gt;The whole arrangement — context + orchestration + execution — is &lt;strong&gt;harnessing engineering&lt;/strong&gt;.&lt;/span&gt;" />
           <text x="672" y="190" font-family="Space Grotesk" font-size="12"
             font-weight="600" fill="var(--text-primary)">EXECUTOR</text>
           <line x1="656" y1="197" x2="884" y2="197"
@@ -826,7 +888,7 @@
           const color = target.getAttribute("data-tip-color") || "";
           titleEl.textContent = titleText;
           titleEl.style.display = titleText ? "block" : "none";
-          bodyEl.textContent = text;
+          bodyEl.innerHTML = text;
           tip.style.setProperty(
             "--tip-color",
             color || "var(--accent-blue)",
