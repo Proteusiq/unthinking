@@ -35,7 +35,7 @@ import {
 
 const EMBED_MODEL_ID = "onnx-community/embeddinggemma-300m-ONNX";
 const EMBEDDING_DIM = 768;
-const INDEX_VERSION = "semantic-v4-suns-orbits";
+const INDEX_VERSION = "semantic-v5-spring-gravity";
 
 interface OrbitParameters {
   radius: number;
@@ -642,12 +642,38 @@ const matchesFilter = (point: GalaxyPoint, filter: StanceFilter): boolean => {
 
 interface DragState {
   pointerId: number;
-  pickPoint: THREE.Vector3;
+  paperId: number;
   pickOffset: THREE.Vector3;
   current: THREE.Vector3;
-  // Lerp factor used while releasing back into orbit.
-  release: number;
+  // Last pinned position so we can derive a release velocity.
+  lastPosition: THREE.Vector3;
+  lastTime: number;
+  velocity: THREE.Vector3;
 }
+
+interface PlanetBody {
+  id: number;
+  isSun: boolean;
+  mass: number;
+  position: THREE.Vector3;
+  velocity: THREE.Vector3;
+}
+
+// Physics tuning. Critically damped feel: 2 * sqrt(k * m_eff).
+const SPRING_K = 4.0;
+const SPRING_DAMPING = 2.4;
+const SUN_SPRING_K = 6.5;
+const SUN_DAMPING = 3.4;
+const GRAVITY = 7.0;
+const SOFTENING = 0.55; // prevents 1/r^2 explosions when close
+const MAX_ACCEL = 24.0;
+const MAX_VELOCITY = 18.0;
+const GRABBED_MASS_BOOST = 6.0;
+const PLANET_MASS = 1.0;
+const SMOKING_GUN_MASS = 3.0;
+const SUN_MASS = 12.0;
+const FIXED_DT = 1 / 90; // 90 Hz simulation regardless of render FPS
+const MAX_STEPS_PER_FRAME = 3;
 
 const Scene: FC<SceneProps> = ({
   galaxyPoints,
@@ -665,12 +691,44 @@ const Scene: FC<SceneProps> = ({
 
   const groupRefs = useRef(new Map<number, THREE.Group>());
   const materialRefs = useRef(new Map<number, THREE.MeshStandardMaterial>());
-  const dragStates = useRef(new Map<number, DragState>());
-  const livePositions = useRef(new Map<number, THREE.Vector3>());
+  const bodies = useRef<PlanetBody[]>([]);
+  const bodyById = useRef(new Map<number, PlanetBody>());
+  const dragState = useRef<DragState | null>(null);
+  const accumulatorRef = useRef(0);
+
+  // Build / refresh the body table whenever the galaxy regenerates.
+  useEffect(() => {
+    const next: PlanetBody[] = [];
+    const map = new Map<number, PlanetBody>();
+    for (const point of galaxyPoints) {
+      const id = point.entry.id;
+      const isSun = planetSystem.sunIds.has(id);
+      const base =
+        planetSystem.basePositions.get(id) ?? new THREE.Vector3(...point.position);
+      const body: PlanetBody = {
+        id,
+        isSun,
+        mass: isSun
+          ? SUN_MASS
+          : point.entry.smoking_gun
+            ? SMOKING_GUN_MASS
+            : PLANET_MASS,
+        position: base.clone(),
+        velocity: new THREE.Vector3(),
+      };
+      next.push(body);
+      map.set(id, body);
+    }
+    bodies.current = next;
+    bodyById.current = map;
+    dragState.current = null;
+  }, [galaxyPoints, planetSystem]);
 
   const registerGroup = useCallback((id: number, group: THREE.Group | null) => {
     if (group) {
       groupRefs.current.set(id, group);
+      const body = bodyById.current.get(id);
+      if (body) group.position.copy(body.position);
     } else {
       groupRefs.current.delete(id);
     }
@@ -689,8 +747,8 @@ const Scene: FC<SceneProps> = ({
 
   const positionFor = useCallback(
     (point: GalaxyPoint): [number, number, number] => {
-      const live = livePositions.current.get(point.entry.id);
-      if (live) return [live.x, live.y, live.z];
+      const body = bodyById.current.get(point.entry.id);
+      if (body) return [body.position.x, body.position.y, body.position.z];
       return point.position;
     },
     [],
@@ -703,32 +761,43 @@ const Scene: FC<SceneProps> = ({
   const handleDragStart = useCallback(
     (point: GalaxyPoint, e: ThreeEvent<PointerEvent>) => {
       if (controlsRef.current) controlsRef.current.enabled = false;
-      const group = groupRefs.current.get(point.entry.id);
-      if (!group) return;
-      const current = group.position.clone();
-      dragStates.current.set(point.entry.id, {
+      const body = bodyById.current.get(point.entry.id);
+      if (!body) return;
+      dragState.current = {
         pointerId: e.pointerId,
-        pickPoint: e.point.clone(),
-        pickOffset: current.clone().sub(e.point),
-        current,
-        release: 0,
-      });
+        paperId: point.entry.id,
+        pickOffset: body.position.clone().sub(e.point),
+        current: body.position.clone(),
+        lastPosition: body.position.clone(),
+        lastTime: performance.now(),
+        velocity: new THREE.Vector3(),
+      };
+      // Zero velocity while pinned so it doesn't fight the cursor.
+      body.velocity.set(0, 0, 0);
     },
     [],
   );
 
   const handleDrag = useCallback(
     (point: GalaxyPoint, e: ThreeEvent<PointerEvent>) => {
-      const state = dragStates.current.get(point.entry.id);
-      if (!state || state.pointerId !== e.pointerId) return;
+      const state = dragState.current;
+      if (!state || state.pointerId !== e.pointerId || state.paperId !== point.entry.id)
+        return;
+
       planeNormal.current.copy(camera.position).sub(state.current).normalize();
       dragPlane.current.setFromNormalAndCoplanarPoint(
         planeNormal.current,
-        state.pickPoint,
+        state.current,
       );
-      const ray = e.ray;
-      if (ray.intersectPlane(dragPlane.current, dragWorkVec.current)) {
+      if (e.ray.intersectPlane(dragPlane.current, dragWorkVec.current)) {
+        const now = performance.now();
+        const dt = Math.max((now - state.lastTime) / 1000, 1 / 240);
+        state.lastPosition.copy(state.current);
         state.current.copy(dragWorkVec.current).add(state.pickOffset);
+        state.velocity
+          .subVectors(state.current, state.lastPosition)
+          .divideScalar(dt);
+        state.lastTime = now;
         invalidate();
       }
     },
@@ -737,83 +806,121 @@ const Scene: FC<SceneProps> = ({
 
   const handleDragEnd = useCallback(
     (point: GalaxyPoint, _e: ThreeEvent<PointerEvent>) => {
-      const state = dragStates.current.get(point.entry.id);
-      if (!state) return;
-      // Mark the drag as releasing — the simulation loop will ease back.
-      state.release = 0.0001;
+      const state = dragState.current;
+      if (!state || state.paperId !== point.entry.id) return;
+      const body = bodyById.current.get(point.entry.id);
+      if (body) {
+        // Hand the planet's last drag velocity back to the simulation so a
+        // fling carries momentum, then let spring + damping recapture it.
+        body.velocity.copy(state.velocity).clampLength(0, MAX_VELOCITY);
+      }
+      dragState.current = null;
       if (controlsRef.current) controlsRef.current.enabled = true;
     },
     [],
   );
 
-  const scratch = useRef({
-    desired: new THREE.Vector3(),
-    delta: new THREE.Vector3(),
-    push: new THREE.Vector3(),
-  });
+  // Reusable temp vectors to avoid per-frame allocations.
+  const tmpTarget = useRef(new THREE.Vector3());
+  const tmpForce = useRef(new THREE.Vector3());
+  const tmpDelta = useRef(new THREE.Vector3());
+  const tmpVec = useRef(new THREE.Vector3());
 
-  useFrame((state) => {
-    const elapsed = state.clock.elapsedTime;
-    const time = state.clock.getDelta();
-    void time;
+  const stepSimulation = useCallback(
+    (elapsed: number, dt: number) => {
+      const drag = dragState.current;
+      const draggedBody = drag ? bodyById.current.get(drag.paperId) : null;
 
-    const work = scratch.current;
-
-    // Compute each planet's orbit-or-drag target this frame.
-    for (const point of galaxyPoints) {
-      const id = point.entry.id;
-      const group = groupRefs.current.get(id);
-      if (!group) continue;
-
-      const drag = dragStates.current.get(id);
-      const base = planetSystem.basePositions.get(id);
-      const sun = planetSystem.suns.get(id);
-      const orbit = planetSystem.orbits.get(id);
-
-      if (drag && drag.release === 0) {
-        // Pinned by user pointer.
-        group.position.copy(drag.current);
-      } else if (sun) {
-        // Suns hold their UMAP anchor, with a small drift so they feel alive.
-        work.desired.copy(sun.basePosition);
-        work.desired.x += Math.sin(elapsed * 0.18 + id * 0.7) * 0.35;
-        work.desired.y += Math.cos(elapsed * 0.22 + id * 1.1) * 0.35;
-        group.position.lerp(work.desired, 0.1);
-      } else if (orbit && base) {
-        const anchor = planetSystem.suns.get(orbit.sunId);
-        if (!anchor) continue;
-        computeOrbitPosition(base, anchor.basePosition, orbit, elapsed, work.desired);
-        if (drag && drag.release > 0) {
-          // Lerp gently from the released position into the orbit again.
-          drag.release = Math.min(drag.release * 1.05 + 0.0025, 1);
-          group.position.lerp(work.desired, drag.release * 0.18);
-          if (drag.release > 0.98) dragStates.current.delete(id);
-        } else {
-          group.position.lerp(work.desired, 0.14);
-        }
-      } else if (base) {
-        // No sun was found at all (edge case): hold UMAP position.
-        group.position.lerp(base, 0.1);
+      // 1. Pin the dragged planet to the pointer-derived position.
+      if (drag && draggedBody) {
+        draggedBody.position.copy(drag.current);
+        draggedBody.velocity.set(0, 0, 0);
       }
 
-      livePositions.current.set(id, group.position);
+      for (const body of bodies.current) {
+        if (body === draggedBody) continue;
+
+        const force = tmpForce.current.set(0, 0, 0);
+
+        if (body.isSun) {
+          // Suns spring back to their anchor with a tiny life-drift.
+          const anchor = planetSystem.suns.get(body.id)?.basePosition;
+          if (!anchor) continue;
+          tmpTarget.current.copy(anchor);
+          tmpTarget.current.x += Math.sin(elapsed * 0.18 + body.id * 0.7) * 0.35;
+          tmpTarget.current.y += Math.cos(elapsed * 0.22 + body.id * 1.1) * 0.35;
+          tmpDelta.current.subVectors(tmpTarget.current, body.position);
+          force.addScaledVector(tmpDelta.current, SUN_SPRING_K);
+          force.addScaledVector(body.velocity, -SUN_DAMPING);
+        } else {
+          // Spring toward this planet's current orbit target.
+          const orbit = planetSystem.orbits.get(body.id);
+          const base = planetSystem.basePositions.get(body.id);
+          const sunPos = orbit
+            ? planetSystem.suns.get(orbit.sunId)?.basePosition
+            : null;
+          if (orbit && sunPos && base) {
+            computeOrbitPosition(
+              base,
+              sunPos,
+              orbit,
+              elapsed,
+              tmpTarget.current,
+            );
+            tmpDelta.current.subVectors(tmpTarget.current, body.position);
+            force.addScaledVector(tmpDelta.current, SPRING_K);
+          } else if (base) {
+            tmpDelta.current.subVectors(base, body.position);
+            force.addScaledVector(tmpDelta.current, SPRING_K);
+          }
+          force.addScaledVector(body.velocity, -SPRING_DAMPING);
+
+          // Soft gravity from the grabbed planet only.
+          if (draggedBody) {
+            tmpDelta.current.subVectors(draggedBody.position, body.position);
+            const distSq = tmpDelta.current.lengthSq();
+            if (distSq > 1e-6) {
+              const safe = distSq + SOFTENING * SOFTENING;
+              const grabbedMass = draggedBody.mass + GRABBED_MASS_BOOST;
+              const accel = (GRAVITY * grabbedMass) / safe;
+              tmpDelta.current.normalize().multiplyScalar(accel);
+              force.add(tmpDelta.current);
+            }
+          }
+        }
+
+        // a = F / m, clamped for stability.
+        const accel = tmpVec.current
+          .copy(force)
+          .multiplyScalar(1 / Math.max(body.mass, 0.001));
+        accel.clampLength(0, MAX_ACCEL);
+
+        body.velocity.addScaledVector(accel, dt);
+        body.velocity.clampLength(0, MAX_VELOCITY);
+        body.position.addScaledVector(body.velocity, dt);
+      }
+    },
+    [planetSystem],
+  );
+
+  useFrame((state, delta) => {
+    const clampedDelta = Math.min(delta, 1 / 20); // ignore huge stalls
+    accumulatorRef.current += clampedDelta;
+    let steps = 0;
+    while (accumulatorRef.current >= FIXED_DT && steps < MAX_STEPS_PER_FRAME) {
+      stepSimulation(state.clock.elapsedTime, FIXED_DT);
+      accumulatorRef.current -= FIXED_DT;
+      steps++;
+    }
+    if (steps === MAX_STEPS_PER_FRAME) {
+      // We fell behind — drop accumulated time instead of stalling forever.
+      accumulatorRef.current = 0;
     }
 
-    // Soft repulsion around any currently-pinned drag.
-    for (const drag of dragStates.current.values()) {
-      if (drag.release > 0) continue;
-      const influence = 8;
-      for (const point of galaxyPoints) {
-        const group = groupRefs.current.get(point.entry.id);
-        if (!group || group.position.equals(drag.current)) continue;
-        work.delta.copy(group.position).sub(drag.current);
-        const dist = Math.max(work.delta.length(), 0.001);
-        if (dist >= influence) continue;
-        const strength = Math.pow(1 - dist / influence, 2) * 0.35;
-        work.delta.normalize().multiplyScalar(strength);
-        group.position.add(work.delta);
-        livePositions.current.set(point.entry.id, group.position);
-      }
+    // Push simulated positions into the scene graph.
+    for (const body of bodies.current) {
+      const group = groupRefs.current.get(body.id);
+      if (group) group.position.copy(body.position);
     }
 
     if (shouldAnimate.current && controlsRef.current) {
