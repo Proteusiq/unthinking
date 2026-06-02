@@ -100,130 +100,6 @@
       }
 
       /* ════════════════════════════════════════════════════════════
-         Evidence cards
-         ════════════════════════════════════════════════════════════ */
-
-      .cards-section h2 {
-        color: var(--text-secondary);
-        font-size: clamp(0.7rem, 2vw, 0.8rem);
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        text-align: center;
-        margin: 1rem 0 0.75rem;
-      }
-
-      .cards-section h2 span {
-        color: var(--text-muted);
-        margin-left: 0.4rem;
-        font-weight: normal;
-        text-transform: none;
-        letter-spacing: 0;
-      }
-
-      .evidence-cards {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
-        gap: 1rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .evidence-card {
-        background: var(--bg-secondary);
-        border: 1px solid var(--border-primary);
-        border-left-width: 4px;
-        border-radius: 8px;
-        padding: 1rem 1.1rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.6rem;
-        transition: border-color 0.2s, transform 0.2s;
-      }
-
-      .evidence-card[data-stage="ctx"] {
-        border-left-color: var(--accent-blue);
-      }
-      .evidence-card[data-stage="llm"] {
-        border-left-color: var(--accent-purple-dim);
-      }
-      .evidence-card[data-stage="orch"] {
-        border-left-color: var(--accent-purple);
-      }
-      .evidence-card[data-stage="exec"] {
-        border-left-color: var(--accent-orange);
-      }
-
-      .evidence-card.is-active {
-        transform: translateY(-2px);
-        border-color: var(--accent);
-      }
-      .evidence-card[data-stage="ctx"].is-active {
-        border-color: var(--accent-blue);
-      }
-      .evidence-card[data-stage="llm"].is-active {
-        border-color: var(--accent-purple-dim);
-      }
-      .evidence-card[data-stage="orch"].is-active {
-        border-color: var(--accent-purple);
-      }
-      .evidence-card[data-stage="exec"].is-active {
-        border-color: var(--accent-orange);
-      }
-
-      .evidence-card .step {
-        font-family: "Courier New", monospace;
-        font-size: 0.7rem;
-        text-transform: uppercase;
-        letter-spacing: 0.18em;
-        color: var(--text-muted);
-      }
-
-      .evidence-card h3 {
-        font-family: "Space Grotesk", "Inter", sans-serif;
-        color: var(--text-primary);
-        font-size: 1.05rem;
-      }
-
-      .evidence-card p {
-        font-family: "Inter", "Space Grotesk", sans-serif;
-        color: var(--text-secondary);
-        font-size: 0.9rem;
-        line-height: 1.55;
-      }
-
-      .evidence-card blockquote {
-        font-family: "Inter", "Space Grotesk", sans-serif;
-        font-style: italic;
-        color: var(--text-secondary);
-        padding-left: 0.8rem;
-        border-left: 2px solid var(--border-primary);
-        font-size: 0.85rem;
-        line-height: 1.5;
-      }
-
-      .evidence-card .papers {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.4rem;
-      }
-
-      .evidence-card .papers a {
-        font-family: "Courier New", monospace;
-        font-size: 0.72rem;
-        padding: 3px 8px;
-        border-radius: 4px;
-        background: var(--bg-tertiary);
-        border: 1px solid var(--border-primary);
-        color: var(--text-secondary);
-        text-decoration: none;
-        transition: border-color 0.15s, color 0.15s;
-      }
-
-      .evidence-card .papers a:hover {
-        border-color: var(--accent);
-        color: var(--accent);
-      }
-
-      /* ════════════════════════════════════════════════════════════
          Footer
          ════════════════════════════════════════════════════════════ */
 
@@ -247,21 +123,6 @@
   <body>
     <div class="topbar">
       <h2>Agent Loop</h2>
-      <div style="display: flex; align-items: center; gap: 0.5rem">
-        <div class="toggle-wrap" role="tablist" aria-label="Scenario">
-          <button class="toggle-btn active" data-scenario="bash">
-            bash session
-          </button>
-          <button class="toggle-btn" data-scenario="science">
-            agent-for-science
-          </button>
-        </div>
-        <button
-          class="theme-btn"
-          id="theme-toggle"
-          aria-label="Toggle theme"
-        ></button>
-      </div>
     </div>
 
     <div class="page">
@@ -457,143 +318,9 @@
         </svg>
       </div>
 
-      <section class="cards-section">
-        <h2>where the loop breaks <span>(papers from the Unthinking corpus)</span></h2>
-
-        <div class="evidence-cards">
-          <article class="evidence-card" data-stage="ctx">
-            <span class="step">Context</span>
-            <h3>The work is in context, not in the model</h3>
-            <p>
-              CMBAgent on 18 astrophysical tasks: same GPT-4o-mini, 6×
-              performance gap depending on whether the right docs are in
-              context. Strip the docs and 47% of trials produce
-              syntactically valid code that returns the wrong answer.
-              Context is the system; the LLM is a tool inside it.
-            </p>
-            <blockquote>
-              "Agentic systems do not primarily fail by crashing — they
-              fail by producing confident, incorrect results."
-              <br />— Plausible but Wrong (arXiv:2604.25345)
-            </blockquote>
-            <div class="papers">
-              <a
-                href="https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/356_plausible_but_wrong.md"
-                target="_blank"
-                >#356 Plausible but Wrong</a
-              >
-              <a
-                href="https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/310-319/315_globality_barrier.md"
-                target="_blank"
-                >#315 Globality Barrier</a
-              >
-            </div>
-          </article>
-
-          <article class="evidence-card" data-stage="llm">
-            <span class="step">LLM</span>
-            <h3>The model commits before the chain completes</h3>
-            <p>
-              Truncation-probing across 11 checkpoints shows the answer
-              is fixed at ~10% of the CoT. The reasoning is generated
-              after the decision and rationalizes it. On commonsense and
-              factual tasks CoT can score net-negative at large token
-              cost (e.g. StrategyQA on Llama-3.2-3B: -10.88pp at 53× the
-              tokens).
-            </p>
-            <blockquote>
-              "The remaining tokens cannot causally shape the answer,
-              since it is already fixed."
-              <br />— Premature Confidence (arXiv:2605.24396)
-            </blockquote>
-            <div class="papers">
-              <a
-                href="https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/354_premature_confidence.md"
-                target="_blank"
-                >#354 Premature Confidence</a
-              >
-              <a
-                href="https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/355_entropy_phase_transitions.md"
-                target="_blank"
-                >#355 Entropy Phase Transitions</a
-              >
-              <a
-                href="https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/357_faithmate_contextual_parametric.md"
-                target="_blank"
-                >#357 FaithMATE</a
-              >
-            </div>
-          </article>
-
-          <article class="evidence-card" data-stage="orch">
-            <span class="step">Orchestration</span>
-            <h3>The plan is advisory; the training is the architecture</h3>
-            <p>
-              16,991 SWE-agent trajectories show agents fall back on
-              training-distribution workflows when given a plan they
-              don't like, sometimes ignoring the plan entirely. On
-              long-horizon agent benchmarks like YC-Bench, only 3 of 12
-              frontier models grow a $200K simulated startup at all.
-            </p>
-            <blockquote>
-              "The plan is advisory; the training is the architecture."
-              <br />— From Plan to Action (arXiv:2604.12147)
-            </blockquote>
-            <div class="papers">
-              <a
-                href="https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/337_from_plan_to_action.md"
-                target="_blank"
-                >#337 Plan to Action</a
-              >
-              <a
-                href="https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/330-339/339_yc_bench.md"
-                target="_blank"
-                >#339 YC-Bench</a
-              >
-            </div>
-          </article>
-
-          <article class="evidence-card" data-stage="exec">
-            <span class="step">Execution</span>
-            <h3>Silent wrong is the dominant failure mode</h3>
-            <p>
-              Reasoning prompts make tool hallucination worse, not
-              better. Across 4 Deep Research tasks the agent's failure
-              transparency is 0/4: posteriors that violate physics, code
-              that ran cleanly but returned implausible numbers, no
-              caveat, no flag.
-            </p>
-            <blockquote>
-              "Across all tasks, outputs are consistently plausible, but
-              failures remain unreported."
-              <br />— Plausible but Wrong (arXiv:2604.25345)
-            </blockquote>
-            <div class="papers">
-              <a
-                href="https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/356_plausible_but_wrong.md"
-                target="_blank"
-                >#356 Plausible but Wrong</a
-              >
-              <a
-                href="https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/120-129/122_reasoning_trap.md"
-                target="_blank"
-                >#122 The Reasoning Trap</a
-              >
-              <a
-                href="https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/030-039/033_limits_of_emergent_reasoning.md"
-                target="_blank"
-                >#33 Limits of Emergent Reasoning</a
-              >
-            </div>
-          </article>
-        </div>
-      </section>
-
       <p class="credits">
-        Diagram inspired by a community SVG. Evidence drawn from the
-        <a href="../index.html">Unthinking corpus</a>. Open the
-        <a href="../../apps/galaxy/dist/index.html">galaxy</a> to explore
-        all 360 papers.
+        <a href="../index.html">Back to Unthinking</a> ·
+        <a href="../galaxy/">Galaxy</a>
       </p>
     </div>
 
@@ -608,52 +335,28 @@
       const GREEN = "#22c55e";
       const DIM = "var(--border-primary)";
 
-      const SCENARIOS = {
-        bash: [
-          {
-            reason: "list files first",
-            cmd: "ls -alh",
-            result: "config.yaml  app.py  .env",
-          },
-          {
-            reason: "found config.yaml, read it",
-            cmd: "cat config.yaml",
-            result: "db: prod  host: localhost",
-          },
-          {
-            reason: "check if db is up",
-            cmd: "curl localhost:5432",
-            result: "Connection refused",
-          },
-          {
-            reason: "db down, find process",
-            cmd: "ps aux | grep db",
-            result: "no process found",
-          },
-        ],
-        science: [
-          {
-            reason: "fit two cosmological parameters from SN1a data",
-            cmd: "run_mcmc(Hz, M_B)",
-            result: "ΩΛ=0.72±0.001 (matches), H₀=prior (silent failure)",
-          },
-          {
-            reason: "fit NGC 3198 rotation curve, NFW halo",
-            cmd: "fit_nfw_halo(rotation_curve)",
-            result: "c=1.19 — physically impossible — reported anyway",
-          },
-          {
-            reason: "exoplanet mass–radius composition",
-            cmd: "fit_composition(planets, αN, αJ, M_br)",
-            result: "α_J wrong sign and 6.1σ off, no caveat",
-          },
-          {
-            reason: "SLACS strong-lensing test",
-            cmd: "fit_lens_model(survey)",
-            result: "4/5 trials crashed silently, no error diagnosis",
-          },
-        ],
-      };
+      const CYCLES = [
+        {
+          reason: "list files first",
+          cmd: "ls -alh",
+          result: "config.yaml  app.py  .env",
+        },
+        {
+          reason: "found config.yaml, read it",
+          cmd: "cat config.yaml",
+          result: "db: prod  host: localhost",
+        },
+        {
+          reason: "check if db is up",
+          cmd: "curl localhost:5432",
+          result: "Connection refused",
+        },
+        {
+          reason: "db down, find process",
+          cmd: "ps aux | grep db",
+          result: "no process found",
+        },
+      ];
 
       const INPUT_TOP = 55;
       const BASE_HEIGHT = 80;
@@ -663,11 +366,9 @@
       let appendIdx = 0;
       let cycleIdx = 0;
       let stepIdx = 0;
-      let scenarioKey = "bash";
       let paused = false;
       let timer = null;
       let appendedNodes = [];
-      let currentStage = "ctx";
 
       function glow(id, color, strokeOverride) {
         const r = $(id);
@@ -732,15 +433,6 @@
       function label(txt, color) {
         $("lbl").textContent = txt;
         $("lbl").style.color = color || "var(--text-muted)";
-      }
-
-      function setActiveStage(stage) {
-        currentStage = stage;
-        document
-          .querySelectorAll(".evidence-card")
-          .forEach((card) =>
-            card.classList.toggle("is-active", card.dataset.stage === stage),
-          );
       }
 
       function appendRow(text, color) {
@@ -812,7 +504,6 @@
             secGlow("sec-ctx", BLUE);
             label("Context ready — INPUT enters the loop", BLUE);
             dot(132, 108, BLUE);
-            setActiveStage("ctx");
           },
           () => {
             unglow("r-input", "var(--border-primary)");
@@ -821,7 +512,6 @@
             secGlow("sec-orch", PURPLE);
             label("INPUT passed to LLM", BLUE);
             dot(280, 108, BLUE);
-            setActiveStage("llm");
           },
           () => {
             glow("r-llm", BLUE, "var(--accent-blue)");
@@ -831,7 +521,6 @@
             show("llm-out");
             label("LLM reasons — no tool call yet", "var(--text-primary)");
             dot(383, 108, BLUE);
-            setActiveStage("llm");
           },
           () => {
             unglow("r-llm", "var(--accent-blue)");
@@ -841,7 +530,6 @@
               "var(--text-secondary)",
             );
             dot(383, 232, BLUE);
-            setActiveStage("orch");
           },
           () => {
             glow("r-orch", PURPLE, "var(--accent-purple-dim)");
@@ -856,7 +544,6 @@
               PURPLE,
             );
             dot(288, 270, BLUE);
-            setActiveStage("orch");
           },
           () => {
             unglow("r-orch", "var(--accent-purple-dim)");
@@ -864,14 +551,12 @@
             secGlow("sec-ctx", BLUE);
             label("Reasoning appended to context", "var(--text-secondary)");
             dot(132, 200, BLUE);
-            setActiveStage("ctx");
           },
           () => {
             appendRow(`reasoning: ${cycle.reason}`, "var(--text-primary)");
             glow("r-input", BLUE, "var(--accent-blue)");
             label("Context grows — loop again with reasoning", BLUE);
             hideDot();
-            setActiveStage("ctx");
           },
           () => {
             unglow("r-input", "var(--border-primary)");
@@ -880,7 +565,6 @@
             secGlow("sec-orch", PURPLE);
             label("Larger INPUT enters LLM", BLUE);
             dot(280, 108, BLUE);
-            setActiveStage("llm");
           },
           () => {
             glow("r-llm", BLUE, "var(--accent-blue)");
@@ -890,14 +574,12 @@
             show("llm-out");
             label("LLM outputs tool call", ORANGE);
             dot(383, 108, ORANGE);
-            setActiveStage("llm");
           },
           () => {
             unglow("r-llm", "var(--accent-blue)");
             arrow("a2", ORANGE, "orange");
             label("Tool call passed to Orchestrator", ORANGE);
             dot(383, 232, ORANGE);
-            setActiveStage("orch");
           },
           () => {
             glow("r-orch", PURPLE, "var(--accent-purple-dim)");
@@ -909,7 +591,6 @@
             show("orch-path");
             label("Orchestrator: tool call — route to Executor", PURPLE);
             dot(478, 278, ORANGE);
-            setActiveStage("orch");
           },
           () => {
             unglow("r-orch", "var(--accent-purple-dim)");
@@ -917,7 +598,6 @@
             secGlow("sec-exec", ORANGE);
             label("Tool call handed to Executor", ORANGE);
             dot(640, 228, ORANGE);
-            setActiveStage("exec");
           },
           () => {
             glow("r-exec", ORANGE, "var(--accent-orange)");
@@ -926,7 +606,6 @@
             $("exec-note").textContent = "running outside LLM…";
             label("Executor runs — outside LLM", ORANGE);
             dot(770, 220, ORANGE);
-            setActiveStage("exec");
           },
           () => {
             unglow("r-exec", "var(--accent-orange)");
@@ -935,26 +614,22 @@
             secGlow("sec-ctx", BLUE);
             label(`Result: "${cycle.result}" → back to context`, GREEN);
             dot(132, 380, GREEN);
-            setActiveStage("ctx");
           },
           () => {
             appendRow(`result: ${cycle.result}`, GREEN);
             glow("r-input", BLUE, "var(--accent-blue)");
             label("Context grows — ready for next cycle", BLUE);
             hideDot();
-            setActiveStage("ctx");
-            cycleIdx =
-              (cycleIdx + 1) % SCENARIOS[scenarioKey].length;
+            cycleIdx = (cycleIdx + 1) % CYCLES.length;
           },
         ];
       }
 
-      let steps = buildSteps(SCENARIOS[scenarioKey][cycleIdx]);
+      let steps = buildSteps(CYCLES[cycleIdx]);
 
       function tick() {
         if (paused) return;
-        if (stepIdx === 0)
-          steps = buildSteps(SCENARIOS[scenarioKey][cycleIdx]);
+        if (stepIdx === 0) steps = buildSteps(CYCLES[cycleIdx]);
         steps[stepIdx]();
         stepIdx = (stepIdx + 1) % steps.length;
       }
@@ -964,20 +639,6 @@
         timer = setInterval(tick, STEP);
       }
 
-      function setScenario(key) {
-        scenarioKey = key;
-        cycleIdx = 0;
-        stepIdx = 0;
-        document
-          .querySelectorAll(".toggle-btn[data-scenario]")
-          .forEach((b) =>
-            b.classList.toggle("active", b.dataset.scenario === key),
-          );
-        steps = buildSteps(SCENARIOS[scenarioKey][cycleIdx]);
-        steps[0]();
-        stepIdx = 1;
-      }
-
       const svgEl = document.getElementById("svg");
       svgEl.addEventListener("mouseenter", () => {
         paused = true;
@@ -985,27 +646,6 @@
       svgEl.addEventListener("mouseleave", () => {
         paused = false;
       });
-
-      document
-        .querySelectorAll(".toggle-btn[data-scenario]")
-        .forEach((btn) =>
-          btn.addEventListener("click", () =>
-            setScenario(btn.dataset.scenario),
-          ),
-        );
-
-      document.querySelectorAll(".evidence-card").forEach((card) =>
-        card.addEventListener("click", () => {
-          const stage = card.dataset.stage;
-          const map = { ctx: 0, llm: 2, orch: 4, exec: 12 };
-          const target = map[stage] ?? 0;
-          paused = true;
-          stepIdx = target;
-          steps[target]();
-          stepIdx = target + 1;
-          setTimeout(() => (paused = false), 1500);
-        }),
-      );
 
       tick();
       startTimer();
