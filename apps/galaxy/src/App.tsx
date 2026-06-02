@@ -225,7 +225,9 @@ const computePlanetSystem = (points: GalaxyPoint[]): PlanetSystem => {
     orbits.set(id, {
       sunId: nearest.id,
       radius: baseRadius + deterministicNoise(id, 41) * 1.8,
-      speed: 0.08 + deterministicNoise(id, 47) * 0.18,
+      // Calmer angular speeds. Range was 0.08–0.26 rad/s, now 0.025–0.07.
+      // Stars drift instead of orbiting frantically.
+      speed: 0.025 + deterministicNoise(id, 47) * 0.045,
       phase: deterministicNoise(id, 53) * Math.PI * 2,
       axis,
       tilt,
@@ -255,8 +257,10 @@ const computeOrbitPosition = (
   const tangential = v.multiplyScalar(Math.sin(angle) * orbit.radius);
   scratch.copy(sun).add(radial).add(tangential);
   // Slight bob keeps the base offset from the original UMAP layout alive.
+  // Reduced amplitude and frequency so the bob reads as a breath, not a
+  // jitter.
   const drift = base.clone().sub(sun).normalize().multiplyScalar(
-    Math.sin(elapsed * orbit.speed * 1.3 + orbit.phase) * 0.4,
+    Math.sin(elapsed * orbit.speed * 0.9 + orbit.phase) * 0.18,
   );
   scratch.add(drift);
   return scratch;
@@ -694,11 +698,11 @@ const InteractiveSphereImpl: FC<InteractiveSphereProps> = ({
     } else {
       if (isSun) {
         const t = state.clock.elapsedTime + point.entry.id * 0.21;
-        emissive = 1.55 + Math.sin(t * 1.4) * 0.45;
+        emissive = 1.55 + Math.sin(t * 0.6) * 0.35;
       } else if (point.entry.smoking_gun) {
         const baseGlow = similarity !== null ? 1.2 : 0.85;
         const t = state.clock.elapsedTime + point.entry.id * 0.37;
-        emissive = baseGlow + Math.sin(t * 1.6) * 0.35;
+        emissive = baseGlow + Math.sin(t * 0.7) * 0.25;
       } else {
         emissive = similarity !== null ? 1.05 : 0.5;
       }
@@ -710,12 +714,12 @@ const InteractiveSphereImpl: FC<InteractiveSphereProps> = ({
     // doesn't read against light backgrounds, so we give them a tiny "breath".
     if (isSun) {
       const t = state.clock.elapsedTime + point.entry.id * 0.21;
-      const breath = 1 + Math.sin(t * 1.4) * 0.06;
+      const breath = 1 + Math.sin(t * 0.6) * 0.03;
       meshRef.current.scale.multiplyScalar(breath);
-      meshRef.current.rotation.y += 0.0025;
+      meshRef.current.rotation.y += 0.001;
     } else if (point.entry.smoking_gun) {
       const t = state.clock.elapsedTime + point.entry.id * 0.37;
-      const breath = 1 + Math.sin(t * 1.6) * 0.04;
+      const breath = 1 + Math.sin(t * 0.7) * 0.02;
       meshRef.current.scale.multiplyScalar(breath);
     }
 
@@ -901,6 +905,12 @@ const Scene: FC<SceneProps> = ({
   const cameraTargetPos = useRef(new THREE.Vector3());
   const controlsTargetLookAt = useRef(new THREE.Vector3());
   const shouldAnimate = useRef(false);
+  // While focusing on a search result, keep re-targeting that planet as
+  // the simulation moves it. Otherwise the camera can settle a few units
+  // off because the planet drifted during the lerp.
+  const focusTargetId = useRef<number | null>(null);
+  const focusDesiredDist = useRef(12);
+  const focusFollowUntil = useRef(0);
   const { camera, invalidate } = useThree();
   const { theme } = useTheme();
   const isDarkScene = theme === "dark";
@@ -959,15 +969,6 @@ const Scene: FC<SceneProps> = ({
       } else {
         materialRefs.current.delete(id);
       }
-    },
-    [],
-  );
-
-  const positionFor = useCallback(
-    (point: GalaxyPoint): [number, number, number] => {
-      const body = bodyById.current.get(point.entry.id);
-      if (body) return [body.position.x, body.position.y, body.position.z];
-      return point.position;
     },
     [],
   );
@@ -1062,11 +1063,13 @@ const Scene: FC<SceneProps> = ({
 
         if (body.isSun) {
           // Suns spring back to their anchor with a tiny life-drift.
+          // Slower frequencies + smaller amplitude so suns drift,
+          // not wobble.
           const anchor = planetSystem.suns.get(body.id)?.basePosition;
           if (!anchor) continue;
           tmpTarget.current.copy(anchor);
-          tmpTarget.current.x += Math.sin(elapsed * 0.18 + body.id * 0.7) * 0.35;
-          tmpTarget.current.y += Math.cos(elapsed * 0.22 + body.id * 1.1) * 0.35;
+          tmpTarget.current.x += Math.sin(elapsed * 0.06 + body.id * 0.7) * 0.2;
+          tmpTarget.current.y += Math.cos(elapsed * 0.08 + body.id * 1.1) * 0.2;
           tmpDelta.current.subVectors(tmpTarget.current, body.position);
           force.addScaledVector(tmpDelta.current, SUN_SPRING_K);
           force.addScaledVector(body.velocity, -SUN_DAMPING);
@@ -1141,10 +1144,26 @@ const Scene: FC<SceneProps> = ({
       if (group) group.position.copy(body.position);
     }
 
+    // While focusing a search target, re-derive the camera target from
+    // the live position of the planet every frame so slow drift doesn't
+    // leave it off-screen.
+    if (focusTargetId.current !== null && controlsRef.current) {
+      const body = bodyById.current.get(focusTargetId.current);
+      if (body) {
+        const offsetDir = tmpForce.current
+          .copy(camera.position)
+          .sub(controlsRef.current.target);
+        if (offsetDir.lengthSq() < 1e-6) offsetDir.set(0, 0, 1);
+        offsetDir.normalize().multiplyScalar(focusDesiredDist.current);
+        cameraTargetPos.current.copy(body.position).add(offsetDir);
+        controlsTargetLookAt.current.copy(body.position);
+      }
+    }
+
     if (shouldAnimate.current && controlsRef.current) {
       controlsRef.current.enabled = false;
       const distToTarget = camera.position.distanceTo(cameraTargetPos.current);
-      if (distToTarget > 0.01) {
+      if (distToTarget > 0.02) {
         camera.position.lerp(cameraTargetPos.current, 0.08);
         controlsRef.current.target.lerp(controlsTargetLookAt.current, 0.08);
       } else {
@@ -1153,6 +1172,17 @@ const Scene: FC<SceneProps> = ({
         shouldAnimate.current = false;
         controlsRef.current.enabled = true;
       }
+    } else if (
+      focusTargetId.current !== null &&
+      performance.now() > focusFollowUntil.current
+    ) {
+      // Brief follow window is over; release.
+      focusTargetId.current = null;
+    } else if (focusTargetId.current !== null && controlsRef.current) {
+      // Still in the follow window: gently keep the camera locked to the
+      // drifting planet's neighborhood without disabling controls.
+      camera.position.lerp(cameraTargetPos.current, 0.05);
+      controlsRef.current.target.lerp(controlsTargetLookAt.current, 0.05);
     }
 
     invalidate();
@@ -1179,26 +1209,23 @@ const Scene: FC<SceneProps> = ({
   useEffect(() => {
     if (searchResults.length > 0 && controlsRef.current) {
       const topResult = searchResults[0];
-      const topResultPos = new THREE.Vector3(...positionFor(topResult));
-      const offsetDirection = new THREE.Vector3()
-        .subVectors(camera.position, controlsRef.current.target)
-        .normalize();
       const minFocusDist = 6;
       const maxFocusDist = 20;
       const similarity = THREE.MathUtils.clamp(topResult.similarity, 0, 1);
-      const desiredDist = THREE.MathUtils.mapLinear(
+      focusDesiredDist.current = THREE.MathUtils.mapLinear(
         similarity,
         0,
         1,
         maxFocusDist,
         minFocusDist,
       );
-      const newOffset = offsetDirection.multiplyScalar(desiredDist);
-      cameraTargetPos.current.copy(topResultPos).add(newOffset);
-      controlsTargetLookAt.current.copy(topResultPos);
+      focusTargetId.current = topResult.entry.id;
+      // Keep following the planet briefly after the camera lerp ends, so
+      // drift doesn't push the planet out of frame again.
+      focusFollowUntil.current = performance.now() + 1500;
       shouldAnimate.current = true;
     }
-  }, [searchResults, camera, positionFor]);
+  }, [searchResults]);
 
   const { pointColors, similarityMap } = useMemo(() => {
     const baseColors = galaxyPoints.map((p) =>
@@ -1227,7 +1254,7 @@ const Scene: FC<SceneProps> = ({
         enableZoom
         enablePan
         autoRotate
-        autoRotateSpeed={0.18}
+        autoRotateSpeed={0.07}
       />
       {isDarkScene && (
         <Stars
