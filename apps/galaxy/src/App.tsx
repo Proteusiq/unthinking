@@ -676,11 +676,31 @@ const InteractiveSphereImpl: FC<InteractiveSphereProps> = ({
     }
 
     const dist = group.position.distanceTo(camera.position);
-    if (Math.abs(dist - cameraDistance) > 2) setCameraDistance(dist);
+    // Update cameraDistance state only on meaningful changes so we don't
+    // re-render every frame. A larger hysteresis band also keeps labels
+    // from flickering on/off as the camera drifts past the threshold.
+    if (Math.abs(dist - cameraDistance) > 5) setCameraDistance(dist);
     const distanceScale = THREE.MathUtils.mapLinear(dist, 100, 25, 2.0, 1.0);
     const clampedDistanceScale = THREE.MathUtils.clamp(distanceScale, 1.0, 2.0);
     const hoverScale = isHovered ? 1.2 : 1.0;
-    const meshScale = material.opacity * clampedDistanceScale * hoverScale;
+
+    let breath = 1;
+    if (isSun) {
+      const t = state.clock.elapsedTime + point.entry.id * 0.21;
+      breath = 1 + Math.sin(t * 0.6) * 0.03;
+      meshRef.current.rotation.y += 0.001;
+    } else if (point.entry.smoking_gun) {
+      const t = state.clock.elapsedTime + point.entry.id * 0.37;
+      breath = 1 + Math.sin(t * 0.7) * 0.02;
+    }
+
+    // Single authoritative scale write per frame. Previously the breath
+    // was applied with .multiplyScalar(...) AFTER the absolute .set(...);
+    // when frame timing landed on the same tick twice the breath could
+    // compound, producing visible flicker on suns and smoking-gun
+    // planets.
+    const meshScale =
+      material.opacity * clampedDistanceScale * hoverScale * breath;
     meshRef.current.scale.set(meshScale, meshScale, meshScale);
 
     let emissive: number;
@@ -709,19 +729,6 @@ const InteractiveSphereImpl: FC<InteractiveSphereProps> = ({
       if (dimmed) emissive *= 0.08;
     }
     material.emissiveIntensity = emissive;
-
-    // Scale-pulse for suns and smoking guns in both modes — emissive alone
-    // doesn't read against light backgrounds, so we give them a tiny "breath".
-    if (isSun) {
-      const t = state.clock.elapsedTime + point.entry.id * 0.21;
-      const breath = 1 + Math.sin(t * 0.6) * 0.03;
-      meshRef.current.scale.multiplyScalar(breath);
-      meshRef.current.rotation.y += 0.001;
-    } else if (point.entry.smoking_gun) {
-      const t = state.clock.elapsedTime + point.entry.id * 0.37;
-      const breath = 1 + Math.sin(t * 0.7) * 0.02;
-      meshRef.current.scale.multiplyScalar(breath);
-    }
 
     if (labelRef.current) {
       labelRef.current.style.transform = `translateX(-50%) scale(${material.opacity})`;
