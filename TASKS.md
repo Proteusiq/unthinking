@@ -19,4 +19,8 @@ honest list so things we explicitly defer don't get lost.
 
 ## Done
 
-(Move items here when closed, with a short note explaining the fix.)
+- **Galaxy: zoom/rotate lost after a search-focus.** Fixed. The
+  post-lerp "follow window" was lerping the camera every frame, so
+  user scroll-to-zoom worked but was immediately undone. Removed the
+  follow window; the moment the focus lerp lands we restore
+  `controls.enabled`, `autoRotate`, and clear the focus state.
