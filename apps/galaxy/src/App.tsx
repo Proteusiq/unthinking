@@ -1193,7 +1193,11 @@ const Scene: FC<SceneProps> = ({
 
     if (shouldAnimate.current && controlsRef.current) {
       focusActiveRef.current = true;
+      // Pause user interaction AND auto-rotate while we lerp; otherwise
+      // OrbitControls keeps rotating the camera, fighting the lerp and
+      // producing a visible global shake.
       controlsRef.current.enabled = false;
+      controlsRef.current.autoRotate = false;
       const distToTarget = camera.position.distanceTo(cameraTargetPos.current);
       if (distToTarget > 0.02) {
         camera.position.lerp(cameraTargetPos.current, 0.08);
@@ -1212,13 +1216,18 @@ const Scene: FC<SceneProps> = ({
       // Brief follow window is over; release.
       focusTargetId.current = null;
       focusActiveRef.current = false;
+      if (controlsRef.current) controlsRef.current.autoRotate = true;
     } else if (focusTargetId.current !== null && controlsRef.current) {
-      // Still in the follow window: gently keep the camera locked to the
-      // drifting planet's neighborhood without disabling controls.
+      // Still in the follow window: keep auto-rotate off so the camera
+      // doesn't drift around the planet we just landed on.
+      controlsRef.current.autoRotate = false;
       camera.position.lerp(cameraTargetPos.current, 0.05);
       controlsRef.current.target.lerp(controlsTargetLookAt.current, 0.05);
     } else {
       focusActiveRef.current = false;
+      if (controlsRef.current && !controlsRef.current.autoRotate) {
+        controlsRef.current.autoRotate = true;
+      }
     }
   });
 
