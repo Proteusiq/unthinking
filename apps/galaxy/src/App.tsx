@@ -943,9 +943,33 @@ const Scene: FC<SceneProps> = ({
   // the live camera-target vector each frame would create a feedback
   // loop that visibly flickers when the user types fast.
   const focusOffsetDir = useRef(new THREE.Vector3(0, 0, 1));
-  const { camera } = useThree();
+  const { camera, gl } = useThree();
   const { theme } = useTheme();
   const isDarkScene = theme === "dark";
+
+  // Cancel any in-flight focus animation as soon as the user grabs the
+  // wheel or starts dragging. Without this, an animation that's still
+  // running consumes the scroll event (because we set controls.enabled
+  // = false while lerping) and the user sees "nothing happens."
+  useEffect(() => {
+    const canvas = gl.domElement;
+    const cancelFocus = () => {
+      shouldAnimate.current = false;
+      focusActiveRef.current = false;
+      focusTargetId.current = null;
+      focusFollowUntil.current = 0;
+      if (controlsRef.current) {
+        controlsRef.current.enabled = true;
+        controlsRef.current.autoRotate = true;
+      }
+    };
+    canvas.addEventListener("wheel", cancelFocus, { passive: true });
+    canvas.addEventListener("pointerdown", cancelFocus);
+    return () => {
+      canvas.removeEventListener("wheel", cancelFocus);
+      canvas.removeEventListener("pointerdown", cancelFocus);
+    };
+  }, [gl]);
 
   const planetSystem = useMemo(() => computePlanetSystem(galaxyPoints), [galaxyPoints]);
 
