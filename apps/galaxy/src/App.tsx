@@ -1206,28 +1206,19 @@ const Scene: FC<SceneProps> = ({
         camera.position.copy(cameraTargetPos.current);
         controlsRef.current.target.copy(controlsTargetLookAt.current);
         shouldAnimate.current = false;
+        // Restore full user interaction (rotate / pan / zoom) the
+        // moment the lerp lands. No follow-window lerp on top, so
+        // wheel-to-zoom and click-to-rotate aren't fighting us.
         controlsRef.current.enabled = true;
         focusActiveRef.current = false;
-      }
-    } else if (
-      focusTargetId.current !== null &&
-      performance.now() > focusFollowUntil.current
-    ) {
-      // Brief follow window is over; release.
-      focusTargetId.current = null;
-      focusActiveRef.current = false;
-      if (controlsRef.current) controlsRef.current.autoRotate = true;
-    } else if (focusTargetId.current !== null && controlsRef.current) {
-      // Still in the follow window: keep auto-rotate off so the camera
-      // doesn't drift around the planet we just landed on.
-      controlsRef.current.autoRotate = false;
-      camera.position.lerp(cameraTargetPos.current, 0.05);
-      controlsRef.current.target.lerp(controlsTargetLookAt.current, 0.05);
-    } else {
-      focusActiveRef.current = false;
-      if (controlsRef.current && !controlsRef.current.autoRotate) {
+        focusTargetId.current = null;
+        focusFollowUntil.current = 0;
         controlsRef.current.autoRotate = true;
       }
+    } else if (controlsRef.current && !controlsRef.current.autoRotate) {
+      // Safety net: if something turned auto-rotate off and we are no
+      // longer in a focus, turn it back on.
+      controlsRef.current.autoRotate = true;
     }
   });
 
