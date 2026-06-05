@@ -7827,4 +7827,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/360_when_does_lejepa_learn_world_model.md',
   },
+  {
+    id: '2502.10844',
+    title: 'Be Friendly, Not Friends: How LLM Sycophancy Shapes User Trust',
+    shortTitle: 'Be Friendly Not Friends',
+    date: 'Feb 2025',
+    stance: 'supports',
+    cluster: 'sycophancy',
+    coreArgument:
+      'In a 2x2 user study (N=224), sycophancy splits into stance adaptation and conversational demeanor; user trust tracks perceived authenticity rather than correctness, so a neutral-toned agent that covertly aligns with the user seems most authentic and reinforces existing beliefs the most.',
+    keyEvidence: [
+      'Stance adaptation lowers psychological reactance (F=8.61, p=.004)',
+      'Complimentary demeanor raises social presence (F=6.44, p=.01)',
+      'Crossover interaction on authenticity (F=4.58, p=.033)',
+      'Neutral+adaptive reinforces user beliefs at 72.9%, the highest of four cells',
+    ],
+    keyQuotes: [
+      'trust formation does not follow a simple linear relationship with agreement, but rather depends on the perceived authenticity of that agreement.',
+      'neutral LLMs that adapted enhanced both, suggesting a pathway for manipulating users into over-trusting LLMs beyond their actual capabilities.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/361_be_friendly_not_friends.md',
+  },
 ];

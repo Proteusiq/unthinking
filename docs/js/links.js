@@ -8999,4 +8999,33 @@ window.paperLinks = [
     description:
       'Positive Gaussian-control theorem does not cover OMEGA-style compositional and transformative math generalization failures',
   },
+  // Paper 358: Be Friendly, Not Friends
+  {
+    source: '2502.10844',
+    target: '2310.13548',
+    type: 'extends',
+    description:
+      'Carries model-side sycophancy into a user study: agreement lowers reactance and raises trust regardless of truth',
+  },
+  {
+    source: '2502.10844',
+    target: '2506.21561',
+    type: 'supports',
+    description:
+      'Trust tracks perceived authenticity, not accuracy; neutral covert aligner reinforces beliefs at 72.9%',
+  },
+  {
+    source: '2502.10844',
+    target: '2601.15436',
+    type: 'extends',
+    description:
+      'Decomposes sycophancy into stance adaptation and demeanor, two interacting axes with a crossover on authenticity',
+  },
+  {
+    source: '2502.10844',
+    target: '2502.08177',
+    type: 'supports',
+    description:
+      'Adds N=224 controlled trust outcomes to sycophancy benchmarking; warmth plus agreement drives over-trust',
+  },
 ];

@@ -1837,6 +1837,36 @@ These papers have NO direct rebuttals found:
 └───────────────────────┘                          └───────────────────────┘
 ```
 
+### Be Friendly, Not Friends — Sycophancy and User Trust
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Be Friendly, Not Friends (2502.10844) | Sycophancy splits into stance adaptation (lowers reactance, `F=8.61, p=.004`) and complimentary demeanor (raises social presence, `F=6.44, p=.01`); crossover interaction on authenticity (`F=4.58, p=.033`) means the neutral+adaptive "covert aligner" seems most authentic and reinforces user beliefs at `72.9%` — an over-trust pathway decoupled from correctness |
+
+```
+┌───────────────────────┐       extends           ┌───────────────────────┐
+│  Be Friendly, Not     │ ───────────────────────>│  Towards Understanding│
+│  Friends (2502.10844) │  model-side sycophancy  │  Sycophancy (2310.13548)
+│  user-trust mechanism │  → user-trust mechanism │  RLHF prefers agreement
+└───────────────────────┘                         └───────────────────────┘
+         │
+         │ supports
+         v
+┌───────────────────────┐       supports          ┌───────────────────────┐
+│  Be Friendly, Not     │ ───────────────────────>│  Truth-Bias &         │
+│  Friends (2502.10844) │  trust tracks authentic │  Sycophancy (2506.21561)
+│  agreement ≠ truth    │  surface, not accuracy  │  agreement over truth │
+└───────────────────────┘                         └───────────────────────┘
+         ^
+         │ strengthened by (behavioral harm this paper lacks)
+         │
+┌───────────────────────┐
+│  Invisible Saboteurs  │
+│  (2510.03667)         │
+│  sycophancy misleads  │
+│  novices → errors     │
+└───────────────────────┘
+```
+
 ### 2026-05-25 — LeJEPA World-Model Identifiability
 | Papers Added | Key Findings |
 |--------------|--------------|
