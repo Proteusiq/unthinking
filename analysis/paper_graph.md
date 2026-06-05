@@ -1837,6 +1837,37 @@ These papers have NO direct rebuttals found:
 └───────────────────────┘                          └───────────────────────┘
 ```
 
+### 2026-05-25 — LeJEPA World-Model Identifiability
+| Papers Added | Key Findings |
+|--------------|--------------|
+| When Does LeJEPA Learn a World Model? (2605.26379) | LeJEPA linearly recovers Gaussian OU latents up to rotation; Gaussian is uniquely required in stationary additive-noise worlds; SIGReg/VICReg keep `R²>0.999` to 1024D, but policy trajectories on the same Reacher system never exceed total `R²=0.50` |
+
+```
+┌───────────────────────┐        extends           ┌───────────────────────┐
+│  LeJEPA World Model   │ ────────────────────────>│  LLM-JEPA             │
+│  (2605.26379)         │  formal condition for    │  (2509.14252)         │
+│  Gaussian OU theorem  │  latent recovery missing │  empirical JEPA gains │
+│  not generic LLM WM   │  from ID benchmarks      │  no OOD testing       │
+└───────────────────────┘                          └───────────────────────┘
+         │
+         │ supports
+         v
+┌───────────────────────┐        supports          ┌───────────────────────┐
+│  LeJEPA World Model   │ ────────────────────────>│  Platonic Repr.       │
+│  (2605.26379)         │  shared latent structure │  (2405.07987)         │
+│  h(z)=Qz theorem      │  in a restricted world   │  representation conv. │
+└───────────────────────┘                          └───────────────────────┘
+         │
+         │ challenges
+         v
+┌───────────────────────┐        challenges        ┌───────────────────────┐
+│  LeJEPA World Model   │ ────────────────────────>│  Probe-based world    │
+│  (2605.26379)         │  linear probes are only  │  model claims         │
+│  necessary not suff.  │  weak evidence without   │  (space/time, poker)  │
+│                       │  identifiability checks  │                       │
+└───────────────────────┘                          └───────────────────────┘
+```
+
 ### 2026-01-24
 | Papers Added | Key Findings |
 |--------------|--------------|

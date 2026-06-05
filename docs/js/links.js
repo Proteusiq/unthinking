@@ -8963,4 +8963,40 @@ window.paperLinks = [
     description:
       "Provides positive non-conjectural sharpness-based bound for Parity under CoT, where Abbé's globality-degree result is conjectural",
   },
+  // Paper 360: When Does LeJEPA Learn a World Model?
+  {
+    source: '2605.26379',
+    target: '2509.14252',
+    type: 'extends',
+    description:
+      'Supplies the formal identifiability condition missing from LLM-JEPA: Gaussian OU latents plus SIGReg, not ordinary ID benchmarks',
+  },
+  {
+    source: '2605.26379',
+    target: '2405.07987',
+    type: 'supports',
+    description:
+      'Turns Platonic convergence into a theorem in one regime: h(z)=Qz under Gaussian stationary additive-noise worlds',
+  },
+  {
+    source: '2605.26379',
+    target: '2512.23722',
+    type: 'challenges',
+    description:
+      'Raises the bar for poker world-belief probes: linear decodability is necessary but not identifiable latent recovery',
+  },
+  {
+    source: '2605.26379',
+    target: '2601.14456',
+    type: 'challenges',
+    description:
+      'Shows planning equivalence only after orthogonal latent recovery; Planning Gap tests LLM planners where that condition is absent',
+  },
+  {
+    source: '2605.26379',
+    target: '2506.18880',
+    type: 'challenges',
+    description:
+      'Positive Gaussian-control theorem does not cover OMEGA-style compositional and transformative math generalization failures',
+  },
 ];

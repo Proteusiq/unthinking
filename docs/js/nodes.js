@@ -7805,4 +7805,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/359_sharper_picture_transformers.md',
   },
+  {
+    id: '2605.26379',
+    title: 'When Does LeJEPA Learn a World Model?',
+    shortTitle: 'LeJEPA World Model',
+    date: 'May 2026',
+    stance: 'balanced',
+    cluster: 'world-models',
+    coreArgument:
+      'LeJEPA linearly recovers Gaussian OU latent variables up to rotation under alignment plus Gaussian regularization, but the guarantee is unique to Gaussian stationary additive-noise worlds and degrades on realistic trajectory data.',
+    keyEvidence: [
+      'Exact optimum: L(h) >= 2(1-rho)n, equality iff h(z)=Qz',
+      'SIGReg/VICReg maintain R² > 0.999 through 1024-dimensional RealNVP latents',
+      'Generalized-normal sweep peaks sharply at alpha=2, the Gaussian case',
+      'Reacher OU reaches R²=0.95; trajectory data never exceeds total R²=0.50',
+    ],
+    keyQuotes: [
+      "Our answer: When it linearly recovers the world's latent variables.",
+      'The Reacher result shows that the same physical system supports identifiability when sampled isotropically (OU) but not under a goal-directed policy.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/360_when_does_lejepa_learn_world_model.md',
+  },
 ];

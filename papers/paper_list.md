@@ -1,6 +1,6 @@
 # Paper List
 
-> 353 papers analyzed | 259 supports thesis | 15 challenges | 76 balanced | Date range: 2021-2026
+> 360 papers analyzed | 266 supports thesis | 15 challenges | 79 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -363,3 +363,4 @@
 | 357 | 2605.24960 | May 2026 | Investigating the Interplay between Contextual and Parametric CoT Faithfulness under Optimization | Supports |
 | 358 | 2605.18022 | May 2026 | Unveiling Memorization-Generalization Coexistence: A Case Study on Arithmetic Tasks with Label Noise | Supports |
 | 359 | 2605.20988 | May 2026 | A Sharper Picture of Generalization in Transformers | Balanced |
+| 360 | 2605.26379 | May 2026 | When Does LeJEPA Learn a World Model? | Balanced |

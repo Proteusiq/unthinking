@@ -8,7 +8,7 @@
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
 [![Papers](https://img.shields.io/badge/papers-360-blue)]()
-[![Relationships](https://img.shields.io/badge/relationships-1271-orange)]()
+[![Relationships](https://img.shields.io/badge/relationships-1341-orange)]()
 
 ---
 
@@ -19,7 +19,7 @@ Do LLMs actually understand or do they predict plausible-sounding tokens without
 This project surveys 360 papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
 
 To bring the findings home:
-- **Paper network**: interactive graph of 360 papers and 1336 relationships, filterable by stance
+- **Paper network**: interactive graph of 360 papers and 1341 relationships, filterable by stance
 - **Experiments**:
   - *Decoding ablation*: reasoning paths exist in base models, hidden by greedy decoding; RL surfaces them
   - *Steering ablation*: safety alignment is a thin layer of refusal patterns that washes off under trivial perturbations
@@ -40,7 +40,7 @@ RL and test-time compute surface pre-existing capabilities rather than creating 
 
 Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/)**
 
-- **Force-directed graph**: 360 papers as nodes, 1336 relationships as edges
+- **Force-directed graph**: 360 papers as nodes, 1341 relationships as edges
 - **Color-coded stances**: supports (266), challenges (15), balanced (79)
 - **Interactive**: hover, click, search, filter, dark/light mode
 - **Paper dialogue**: auto-generated conversations between connected papers
