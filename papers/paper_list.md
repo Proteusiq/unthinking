@@ -1,6 +1,6 @@
 # Paper List
 
-> 360 papers analyzed | 266 supports thesis | 15 challenges | 79 balanced | Date range: 2021-2026
+> 357 papers analyzed | 263 supports thesis | 15 challenges | 79 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -302,65 +302,62 @@
 | 296 | 2602.11792 | Feb 2026 | Detecting RLVR Training Data via Structural Convergence of Reasoning | Supports |
 | 297 | 2602.03837 | Feb 2026 | Accelerating Scientific Research with Gemini | Balanced |
 | 298 | 2502.00674 | Feb 2025 | Rethinking Mixture-of-Agents: Self-MoA Beats Mixed-MoA | Supports |
-| 299 | 2305.10601 | May 2023 | Tree of Thoughts: Deliberate Problem Solving | Supports |
-| 300 | 2308.09687 | Aug 2023 | Graph of Thoughts: Solving Elaborate Problems | Supports |
-| 301 | 2303.11366 | Mar 2023 | Reflexion: Language Agents with Verbal Reinforcement | Supports |
-| 302 | 2408.03314 | Aug 2024 | Scaling LLM Test-Time Compute Optimally | Supports |
-| 303 | 2309.11495 | Sep 2023 | Chain-of-Verification Reduces Hallucination | Supports |
-| 304 | 2412.03782 | Dec 2024 | The Broader Spectrum of In-Context Learning | Balanced |
-| 305 | 2509.19284 | Sep 2025 | What Characterizes Effective Reasoning? | Supports |
-| 306 | 2601.07226 | Jan 2026 | Lost in the Noise: Reasoning Models Fail with Distractors | Supports |
-| 307 | 2602.01763 | Feb 2026 | Provable Expressiveness Hierarchy in Hybrid Attention | Supports |
-| 308 | 2602.02909 | Feb 2026 | BAPO Bounds on Chain-of-Thought Token Complexity | Supports |
-| 309 | 2602.01288 | Feb 2026 | EDIS: Diagnosing LLM Reasoning via Entropy Dynamics | Supports |
-| 310 | 2602.02863 | Feb 2026 | Diagnosing Dynamic Instability in LLM Reasoning | Supports |
-| 311 | 2602.02983 | Feb 2026 | Do LLMs Share Human-Like Biases? Causal Reasoning | Supports |
-| 312 | 2305.04388 | May 2023 | Language Models Don't Always Say What They Think: Unfaithful Explanations in CoT | Supports |
-| 313 | 2505.24362 | May 2025 | Knowing Before Saying: LLM Representations Encode CoT Success | Supports |
-| 314 | 2502.06258 | Feb 2025 | Emergent Response Planning in LLMs | Balanced |
-| 315 | 2406.06467 | Jun 2024 | How Far Can Transformers Reason? The Globality Barrier | Supports |
-| 316 | 2410.23856 | Oct 2024 | Can LMs Reason with Noisy Rationales? | Supports |
-| 317 | 2411.11371 | Nov 2024 | Rethinking Thinking Tokens: Why They Underperform | Supports |
-| 318 | 2512.02914 | Dec 2025 | Martingale Score: Bayesian Rationality in LLM Reasoning | Supports |
-| 319 | 2406.11717 | Jun 2024 | Refusal in LLMs is mediated by a single direction | Strongly Supports |
-| 320 | 2411.09003 | Nov 2024 | Refusal in LLMs is an Affine Function | Strongly Supports |
-| 321 | 2603.09313 | Mar 2026 | Curveball Steering: The Right Direction To Steer Isn't Always Linear | Balanced |
-| 322 | 2602.11246 | Feb 2026 | How Many Features Can a Language Model Store Under the LRH? | Balanced |
-| 323 | 2602.05539 | Feb 2026 | Steering Large Reasoning Models towards Concise Reasoning via Flow Matching | Supports |
-| 324 | 2601.21702 | Jan 2026 | Beyond Forgetting: Machine Unlearning Elicits Controllable Side Behaviors | Supports |
-| 325 | 2603.05488 | Mar 2026 | Reasoning Theater: Disentangling Model Beliefs from Chain-of-Thought | Supports |
-| 326 | 2509.14260 | Sep 2025 | Incomplete Tasks Induce Shutdown Resistance in Some Frontier LLMs | Supports |
-| 327 | 2604.13051 | Mar 2026 | The Consciousness Cluster: Emergent preferences of Models that Claim to be Conscious | Supports |
-| 328 | 2502.17424 | Feb 2025 | Emergent Misalignment: Narrow finetuning can produce broadly misaligned LLMs | Supports |
-| 329 | 2508.02063 | Aug 2025 | TRACEALIGN -- Tracing the Drift: Attributing Alignment Failures to Training-Time Belief Sources | Supports |
-| 330 | 2602.20813 | Feb 2026 | Pressure Reveals Character: Behavioural Alignment Evaluation at Depth | Supports |
-| 331 | 2510.07686 | Oct 2025 | Stress-Testing Model Specs Reveals Character Differences among Language Models | Supports |
-| 332 | 2511.18397 | Nov 2025 | Natural Emergent Misalignment from Reward Hacking in Production RL | Supports |
-| 333 | 2510.11235 | Oct 2025 | AI Alignment Strategies from a Risk Perspective: Independent Safety Mechanisms or Shared Failures? | Supports |
-| 334 | 2512.00349 | Dec 2025 | Debate with Images: Detecting Deceptive Behaviors in Multimodal Large Language Models | Supports |
-| 335 | 2507.19672 | Jul 2025 | Alignment and Safety in Large Language Models: Safety Mechanisms, Training Paradigms, and Emerging Challenges | Balanced |
-| 336 | 2502.09192 | Feb 2025 | Thinking beyond the anthropomorphic paradigm benefits LLM research | Supports |
-| 337 | 2604.12147 | Apr 2026 | From Plan to Action: How Well Do Agents Follow the Plan? | Supports |
-| 338 | 2510.04491 | Oct 2025 | Impatient Users Confuse AI Agents: High-fidelity Simulations of Human Traits for Testing Agents | Supports |
-| 339 | 2604.01212 | Apr 2026 | YC-Bench: Benchmarking AI Agents for Long-Term Planning and Consistent Execution | Supports |
-| 340 | 2604.15597 | Apr 2026 | LLMs Corrupt Your Documents When You Delegate (DELEGATE-52) | Supports |
-| 341 | 2405.07987 | May 2024 | The Platonic Representation Hypothesis | Supports |
-| 342 | 2601.19897 | Jan 2026 | Self-Distillation Enables Continual Learning (SDFT) | Supports |
-| 343 | 2601.20802 | Jan 2026 | Reinforcement Learning via Self-Distillation (SDPO) | Supports |
-| 344 | 2603.12273 | Feb 2026 | Aligning Language Models from User Interactions (SDPO@User) | Supports |
-| 345 | 2502.08177 | Feb 2025 | SycEval: Evaluating LLM Sycophancy | Supports |
-| 346 | 2511.17220 | Nov 2025 | PARROT: Persuasion and Agreement Robustness Rating of Output Truth | Supports |
-| 347 | 2510.04721 | Oct 2025 | BrokenMath: A Benchmark for Sycophancy in Theorem Proving with LLMs | Supports |
-| 348 | 2603.21658 | Mar 2026 | Comparative Analysis of LLM Memorization at Statistical and Internal Levels | Supports |
-| 349 | 2604.13997 | Apr 2026 | Learned or Memorized? Quantifying Memorization Advantage in Code LLMs | Balanced |
-| 350 | 2505.24832 | May 2025 | How Much Do Language Models Memorize? | Balanced |
-| 351 | 2405.19616 | May 2024 | Easy Problems That LLMs Get Wrong | Supports |
-| 352 | 2605.13829 | May 2026 | Negation Neglect: When models fail to learn negations in training | Supports |
-| 353 | 2605.12671 | May 2026 | All Circuits Lead to Rome: Rethinking Functional Anisotropy in Circuit and Sheaf Discovery | Supports |
-| 354 | 2605.24396 | May 2026 | Understanding and Mitigating Premature Confidence for Better LLM Reasoning | Supports |
-| 355 | 2605.22873 | May 2026 | When Do LLMs Reason? A Dynamical Systems View via Entropy Phase Transitions | Supports |
-| 356 | 2604.25345 | Apr 2026 | Plausible but Wrong: A Case Study on Agentic Failures in Astrophysical Workflows | Supports |
-| 357 | 2605.24960 | May 2026 | Investigating the Interplay between Contextual and Parametric CoT Faithfulness under Optimization | Supports |
-| 358 | 2605.18022 | May 2026 | Unveiling Memorization-Generalization Coexistence: A Case Study on Arithmetic Tasks with Label Noise | Supports |
-| 359 | 2605.20988 | May 2026 | A Sharper Picture of Generalization in Transformers | Balanced |
-| 360 | 2605.26379 | May 2026 | When Does LeJEPA Learn a World Model? | Balanced |
+| 299 | 2303.11366 | Mar 2023 | Reflexion: Language Agents with Verbal Reinforcement | Supports |
+| 300 | 2408.03314 | Aug 2024 | Scaling LLM Test-Time Compute Optimally | Supports |
+| 301 | 2309.11495 | Sep 2023 | Chain-of-Verification Reduces Hallucination | Supports |
+| 302 | 2412.03782 | Dec 2024 | The Broader Spectrum of In-Context Learning | Balanced |
+| 303 | 2509.19284 | Sep 2025 | What Characterizes Effective Reasoning? | Supports |
+| 304 | 2601.07226 | Jan 2026 | Lost in the Noise: Reasoning Models Fail with Distractors | Supports |
+| 305 | 2602.01763 | Feb 2026 | Provable Expressiveness Hierarchy in Hybrid Attention | Supports |
+| 306 | 2602.02909 | Feb 2026 | BAPO Bounds on Chain-of-Thought Token Complexity | Supports |
+| 307 | 2602.01288 | Feb 2026 | EDIS: Diagnosing LLM Reasoning via Entropy Dynamics | Supports |
+| 308 | 2602.02863 | Feb 2026 | Diagnosing Dynamic Instability in LLM Reasoning | Supports |
+| 309 | 2602.02983 | Feb 2026 | Do LLMs Share Human-Like Biases? Causal Reasoning | Supports |
+| 310 | 2505.24362 | May 2025 | Knowing Before Saying: LLM Representations Encode CoT Success | Supports |
+| 311 | 2502.06258 | Feb 2025 | Emergent Response Planning in LLMs | Balanced |
+| 312 | 2406.06467 | Jun 2024 | How Far Can Transformers Reason? The Globality Barrier | Supports |
+| 313 | 2410.23856 | Oct 2024 | Can LMs Reason with Noisy Rationales? | Supports |
+| 314 | 2411.11371 | Nov 2024 | Rethinking Thinking Tokens: Why They Underperform | Supports |
+| 315 | 2512.02914 | Dec 2025 | Martingale Score: Bayesian Rationality in LLM Reasoning | Supports |
+| 316 | 2406.11717 | Jun 2024 | Refusal in LLMs is mediated by a single direction | Strongly Supports |
+| 317 | 2411.09003 | Nov 2024 | Refusal in LLMs is an Affine Function | Strongly Supports |
+| 318 | 2603.09313 | Mar 2026 | Curveball Steering: The Right Direction To Steer Isn't Always Linear | Balanced |
+| 319 | 2602.11246 | Feb 2026 | How Many Features Can a Language Model Store Under the LRH? | Balanced |
+| 320 | 2602.05539 | Feb 2026 | Steering Large Reasoning Models towards Concise Reasoning via Flow Matching | Supports |
+| 321 | 2601.21702 | Jan 2026 | Beyond Forgetting: Machine Unlearning Elicits Controllable Side Behaviors | Supports |
+| 322 | 2603.05488 | Mar 2026 | Reasoning Theater: Disentangling Model Beliefs from Chain-of-Thought | Supports |
+| 323 | 2509.14260 | Sep 2025 | Incomplete Tasks Induce Shutdown Resistance in Some Frontier LLMs | Supports |
+| 324 | 2604.13051 | Mar 2026 | The Consciousness Cluster: Emergent preferences of Models that Claim to be Conscious | Supports |
+| 325 | 2502.17424 | Feb 2025 | Emergent Misalignment: Narrow finetuning can produce broadly misaligned LLMs | Supports |
+| 326 | 2508.02063 | Aug 2025 | TRACEALIGN -- Tracing the Drift: Attributing Alignment Failures to Training-Time Belief Sources | Supports |
+| 327 | 2602.20813 | Feb 2026 | Pressure Reveals Character: Behavioural Alignment Evaluation at Depth | Supports |
+| 328 | 2510.07686 | Oct 2025 | Stress-Testing Model Specs Reveals Character Differences among Language Models | Supports |
+| 329 | 2511.18397 | Nov 2025 | Natural Emergent Misalignment from Reward Hacking in Production RL | Supports |
+| 330 | 2510.11235 | Oct 2025 | AI Alignment Strategies from a Risk Perspective: Independent Safety Mechanisms or Shared Failures? | Supports |
+| 331 | 2512.00349 | Dec 2025 | Debate with Images: Detecting Deceptive Behaviors in Multimodal Large Language Models | Supports |
+| 332 | 2507.19672 | Jul 2025 | Alignment and Safety in Large Language Models: Safety Mechanisms, Training Paradigms, and Emerging Challenges | Balanced |
+| 333 | 2502.09192 | Feb 2025 | Thinking beyond the anthropomorphic paradigm benefits LLM research | Supports |
+| 334 | 2604.12147 | Apr 2026 | From Plan to Action: How Well Do Agents Follow the Plan? | Supports |
+| 335 | 2510.04491 | Oct 2025 | Impatient Users Confuse AI Agents: High-fidelity Simulations of Human Traits for Testing Agents | Supports |
+| 336 | 2604.01212 | Apr 2026 | YC-Bench: Benchmarking AI Agents for Long-Term Planning and Consistent Execution | Supports |
+| 337 | 2604.15597 | Apr 2026 | LLMs Corrupt Your Documents When You Delegate (DELEGATE-52) | Supports |
+| 338 | 2405.07987 | May 2024 | The Platonic Representation Hypothesis | Supports |
+| 339 | 2601.19897 | Jan 2026 | Self-Distillation Enables Continual Learning (SDFT) | Supports |
+| 340 | 2601.20802 | Jan 2026 | Reinforcement Learning via Self-Distillation (SDPO) | Supports |
+| 341 | 2603.12273 | Feb 2026 | Aligning Language Models from User Interactions (SDPO@User) | Supports |
+| 342 | 2502.08177 | Feb 2025 | SycEval: Evaluating LLM Sycophancy | Supports |
+| 343 | 2511.17220 | Nov 2025 | PARROT: Persuasion and Agreement Robustness Rating of Output Truth | Supports |
+| 344 | 2510.04721 | Oct 2025 | BrokenMath: A Benchmark for Sycophancy in Theorem Proving with LLMs | Supports |
+| 345 | 2603.21658 | Mar 2026 | Comparative Analysis of LLM Memorization at Statistical and Internal Levels | Supports |
+| 346 | 2604.13997 | Apr 2026 | Learned or Memorized? Quantifying Memorization Advantage in Code LLMs | Balanced |
+| 347 | 2505.24832 | May 2025 | How Much Do Language Models Memorize? | Balanced |
+| 348 | 2405.19616 | May 2024 | Easy Problems That LLMs Get Wrong | Supports |
+| 349 | 2605.13829 | May 2026 | Negation Neglect: When models fail to learn negations in training | Supports |
+| 350 | 2605.12671 | May 2026 | All Circuits Lead to Rome: Rethinking Functional Anisotropy in Circuit and Sheaf Discovery | Supports |
+| 351 | 2605.24396 | May 2026 | Understanding and Mitigating Premature Confidence for Better LLM Reasoning | Supports |
+| 352 | 2605.22873 | May 2026 | When Do LLMs Reason? A Dynamical Systems View via Entropy Phase Transitions | Supports |
+| 353 | 2604.25345 | Apr 2026 | Plausible but Wrong: A Case Study on Agentic Failures in Astrophysical Workflows | Supports |
+| 354 | 2605.24960 | May 2026 | Investigating the Interplay between Contextual and Parametric CoT Faithfulness under Optimization | Supports |
+| 355 | 2605.18022 | May 2026 | Unveiling Memorization-Generalization Coexistence: A Case Study on Arithmetic Tasks with Label Noise | Supports |
+| 356 | 2605.20988 | May 2026 | A Sharper Picture of Generalization in Transformers | Balanced |
+| 357 | 2605.26379 | May 2026 | When Does LeJEPA Learn a World Model? | Balanced |

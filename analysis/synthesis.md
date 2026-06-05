@@ -1,6 +1,6 @@
 # Synthesis: The Thinking Machine That Doesn't Think
 
-> **Papers analyzed**: 360
+> **Papers analyzed**: 357
 >
 > **See also**: `memento.md` for executive summary
 
@@ -99,7 +99,7 @@
 | 92 | Oops Wait | Jan 2026 | Balanced | Token signals ("wait", "therefore") correlate with correctness; **acquired but partially exploited** |
 | 94 | SOAR | Jan 2026 | Balanced | Teaching ≠ solving ability; 4× pass@1 on 0/128 problems; only 32.8% correct solutions in effective questions; meta-RL "sharpens" pretraining |
 | 95 | LLM-JEPA | Sep 2025 | Balanced | JEPA for LLMs; +14% NL-RX but +0.7% GSM8K; **NO OOD TESTING** — cannot assess reasoning vs pattern matching |
-| 360 | LeJEPA World Model | May 2026 | Balanced | Positive theorem: LeJEPA recovers Gaussian OU latents up to rotation; `R²>0.999` to 1024D under assumptions, but real Reacher trajectories never exceed total `R²=0.50` |
+| 357 | LeJEPA World Model | May 2026 | Balanced | Positive theorem: LeJEPA recovers Gaussian OU latents up to rotation; `R²>0.999` to 1024D under assumptions, but real Reacher trajectories never exceed total `R²=0.50` |
 | 96 | Sycophancy | Jan 2026 | Supports | All models prioritize agreement over truth; recency bias universal; sycophancy + recency = constructive interference |
 | ... | **Sycophancy/Conformity Papers** | ... | ... | ... |
 | 117-123 | Sycophancy Cluster | 2023-2026 | Supports | 7 papers on sycophancy (strategic deception, truth-bias, causal illusions) |
