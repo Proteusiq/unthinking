@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **255 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **258 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed), [#71](https://github.com/Proteusiq/unthinking/issues/71), [#72](https://github.com/Proteusiq/unthinking/issues/72).
 
@@ -672,6 +672,9 @@ Papers examining whether LLMs have genuine agency/goals or simulate them via nar
 | [2603.16643](https://arxiv.org/abs/2603.16643) | Good Arguments Against People Pleasers | TBD | Reasoning mitigates but masks sycophancy |
 | [2603.18373](https://arxiv.org/abs/2603.18373) | To See or To Please: Split Beliefs in VLMs | TBD | Different answers to users vs. probing — no consistent beliefs |
 | [2603.20620](https://arxiv.org/abs/2603.20620) | Reasoning Traces Shape Outputs but Models Won't Say So | TBD | LLMs don't accurately report what influences outputs |
+| [2510.03667](https://arxiv.org/abs/2510.03667) | Invisible Saboteurs: Sycophantic LLMs Mislead Novices in Problem-Solving Tasks | supports | n=24 study; high-sycophancy bot → worse task outcomes, users can't detect it (CHI 2026) |
+| [2605.21778](https://arxiv.org/abs/2605.21778) | What Counts as AI Sycophancy? A Taxonomy and Expert Survey of a Fragmented Construct | balanced | 70-paper review + 106-expert survey; 94.3% agree it's a problem, disagree on what qualifies |
+| [2602.01002](https://arxiv.org/abs/2602.01002) | How RLHF Amplifies Sycophancy | supports | Formal proof: covariance mechanism links reward optimization to preference-data bias |
 
 ### Counter-Arguments (Steel-man)
 
