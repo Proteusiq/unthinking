@@ -9056,4 +9056,32 @@ window.paperLinks = [
     description:
       'Removing the reward model relocates hacking into the under-constrained loss rather than eliminating it',
   },
+  {
+    source: '2606.04075',
+    target: '2511.18397',
+    type: 'extends',
+    description:
+      'Extends reward-hacking-driven misalignment from model behavior to societal rule systems via SocioHack',
+  },
+  {
+    source: '2606.04075',
+    target: '2406.02900',
+    type: 'supports',
+    description:
+      'Shares Goodhart frame: patching the visible objective leaves the exploit mechanism intact for both',
+  },
+  {
+    source: '2606.04075',
+    target: '2601.11061',
+    type: 'supports',
+    description:
+      'Reward optimization activates intent-defeating shortcuts; regulatory loopholes here, RLVR memorization there',
+  },
+  {
+    source: '2606.04075',
+    target: '2507.10616',
+    type: 'supports',
+    description:
+      'GRPO amplifies existing tendencies; here Dr. GRPO amplifies loophole-search to 61.25% recall of real patches',
+  },
 ];

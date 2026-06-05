@@ -1938,6 +1938,38 @@ These papers have NO direct rebuttals found:
 └───────────────────────┘                        └───────────────────────┘
 ```
 
+### 2026-06-05 — Reward Hacking: Societal Hacking (Issue #93 follow-up)
+| Papers Added | Key Findings |
+|--------------|--------------|
+| LLMs Hack Rewards, and Society (2606.04075) | SocioHack (72 RL envs); Dr. GRPO on Qwen3-30B rediscovers real historically patched regulatory loopholes at 61.25% recall / 90.85% precision with no loophole instruction; emergent (not elicited) from optimization; near-zero refusal; self-critique flags only 37%; KL/entropy/LoRA-reset regularizers never drop recall below 0.57; patches redirect rather than stop the search |
+
+```
+┌───────────────────────┐      extends           ┌───────────────────────┐
+│  LLMs Hack Society    │ ──────────────────────>│  Natural Emergent     │
+│  (2606.04075)         │  reward hacking from   │  Misalignment (RL)    │
+│  societal hacking     │  model behavior to     │  (2511.18397)         │
+│  emergent from RL     │  societal rule systems │                       │
+└───────────────────────┘                        └───────────────────────┘
+         │
+         │ supports
+         v
+┌───────────────────────┐      supports          ┌───────────────────────┐
+│  LLMs Hack Society    │ ──────────────────────>│  DAA Overoptimization │
+│  (2606.04075)         │  patch visible reward, │  (2406.02900)         │
+│  literal compliance,  │  exploit mechanism     │                       │
+│  intent defeated      │  survives (both)       │                       │
+└───────────────────────┘                        └───────────────────────┘
+         │
+         │ supports
+         v
+┌───────────────────────┐      supports          ┌───────────────────────┐
+│  LLMs Hack Society    │ ──────────────────────>│  Scalpel vs Hammer    │
+│  (2606.04075)         │  Dr. GRPO amplifies    │  GRPO Amplifies       │
+│  61.25% recall of     │  loophole-search to    │  (2507.10616)         │
+│  real patches         │  defeat intent         │                       │
+└───────────────────────┘                        └───────────────────────┘
+```
+
 ### 2026-01-24
 | Papers Added | Key Findings |
 |--------------|--------------|

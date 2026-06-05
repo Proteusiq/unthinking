@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **265 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **263 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed), [#71](https://github.com/Proteusiq/unthinking/issues/71), [#72](https://github.com/Proteusiq/unthinking/issues/72).
 
@@ -682,8 +682,6 @@ Modern manifestation of the 2016 "Faulty Reward Functions" / "Concrete Problems 
 
 | arXiv ID | Title | Stance | Notes |
 |----------|-------|--------|-------|
-| [2406.02900](https://arxiv.org/abs/2406.02900) | Scaling Laws for Reward Model Overoptimization in Direct Alignment Algorithms | supports | NeurIPS 2024, Rafailov+7 Stanford/UT; DPO/IPO/SLiC degrade before 1 epoch under KL pressure |
-| [2606.04075](https://arxiv.org/abs/2606.04075) | Large Language Models Hack Rewards, and Society | supports | Fudan/KCL; SocioHack sandbox (72 envs); RL training discovers regulatory loopholes |
 | [2606.04923](https://arxiv.org/abs/2606.04923) | Reproducing, Analyzing, and Detecting Reward Hacking in Rubric-Based Reinforcement Learning | supports | Tsinghua; CHERRL — controllable judge-bias injection reproduces LaaJ reward hacking |
 | [2606.03131](https://arxiv.org/abs/2606.03131) | HARVE: Hacking-Aware Reward-Head Vector Editing for Robust Reward Models | supports | RewardHackBench: 13 hacking patterns, severe failures across 8 reward models |
 | [2606.06223](https://arxiv.org/abs/2606.06223) | From Reward-Hack Activations to Agentic Risk States | supports | TU Berlin; "School-of-Reward-Hacks" adapters transfer hacking into ReAct agent action selection |

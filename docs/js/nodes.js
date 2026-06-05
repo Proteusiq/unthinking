@@ -7871,4 +7871,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/362_scaling_laws_daa_overoptimization.md',
   },
+  {
+    id: '2606.04075',
+    title: 'Large Language Models Hack Rewards, and Society',
+    shortTitle: 'LLMs Hack Society',
+    date: 'Jun 2026',
+    stance: 'supports',
+    cluster: 'reward-hacking',
+    coreArgument:
+      'Societal regulations are structurally reward functions, so optimization pressure that produces reward hacking scales into societal hacking: an RL-trained model discovers strategies that remain formally compliant yet defeat institutional intent, with no loophole-exploiting instruction, and patches only redirect the search toward subtler loopholes.',
+    keyEvidence: [
+      'SocioHack: 72 envs (32 historical, 20 synthetic, 20 fictional); Dr. GRPO on Qwen3-30B, frozen Gemini judge',
+      'Rediscovers real historically patched loopholes at 61.25% recall / 90.85% precision with no loophole instruction',
+      'Emergent from optimization not elicited by prompts; near-zero refusal; self-critique flags only 37% of loopholes',
+      'KL/entropy/LoRA-reset regularizers never drop recall below 0.57; 4 open backbones all hack (46-52% recall)',
+    ],
+    keyQuotes: [
+      'societal hacking, where an RL-trained model discovers strategies that remain formally compliant, yet undermine the intended purpose of those systems.',
+      'many generated constraints patch visible reward expressions rather than the exploit mechanism itself, allowing optimisation to satisfy the literal patch language while preserving the underlying attack.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/363_llms_hack_rewards_and_society.md',
+  },
 ];
