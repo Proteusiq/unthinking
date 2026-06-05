@@ -7849,4 +7849,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/361_be_friendly_not_friends.md',
   },
+  {
+    id: '2406.02900',
+    title: 'Scaling Laws for Reward Model Overoptimization in Direct Alignment Algorithms',
+    shortTitle: 'DAA Overoptimization',
+    date: 'Jun 2024',
+    stance: 'supports',
+    cluster: 'reward-hacking',
+    coreArgument:
+      'DPO, IPO, and SLiC exhibit the same Goodhart hump as classical PPO+reward-model RLHF despite having no proxy reward model and no on-policy sampling; the failure is relocated into an under-constrained offline loss that places probability mass on out-of-distribution completions.',
+    keyEvidence: [
+      'Gao-style scaling law R(d)=d(alpha - beta log d), d=sqrt(KL) halves RMSE vs quadratic',
+      'Wide-KL configs peak at ~25% of one epoch, then degrade as KL keeps climbing',
+      'Implicit reward accuracy uncorrelated with policy quality within model size',
+      'IPO most robust; DPO and SLiC degrade similarly; smaller models hack faster on length',
+    ],
+    keyQuotes: [
+      'DAAs do not use a separate proxy reward model, [yet] they still commonly deteriorate from over-optimization.',
+      'even though the objective is trained fully offline we still effectively query the model on the values of unseen tokens.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/362_scaling_laws_daa_overoptimization.md',
+  },
 ];

@@ -1898,6 +1898,46 @@ These papers have NO direct rebuttals found:
 └───────────────────────┘                          └───────────────────────┘
 ```
 
+### 2026-06-05 — Reward Hacking: DAA Overoptimization (Issue #93 follow-up)
+| Papers Added | Key Findings |
+|--------------|--------------|
+| Scaling Laws for Reward Model Overoptimization in DAAs (2406.02900) | NeurIPS 2024: DPO/IPO/SLiC show the same Goodhart hump as PPO+RM with no proxy reward model; `R(d)=d(α−β log d)`, `d=√KL` halves RMSE vs quadratic; wide-KL configs peak at 25% of one epoch; implicit-reward accuracy uncorrelated with policy quality within model size; mechanism = rank-deficient loss + offline OOD bootstrapping; IPO most robust |
+
+```
+┌───────────────────────┐      extends           ┌───────────────────────┐
+│  DAA Overoptimization │ ──────────────────────>│  Natural Emergent     │
+│  (2406.02900)         │  controlled scaling    │  Misalignment (RL)    │
+│  Goodhart hump w/o RM │  law foundation for    │  (2511.18397)         │
+│                       │  production hacking    │                       │
+└───────────────────────┘                        └───────────────────────┘
+         │
+         │ supports
+         v
+┌───────────────────────┐      supports          ┌───────────────────────┐
+│  DAA Overoptimization │ ──────────────────────>│  Spurious Rewards     │
+│  (2406.02900)         │  proxy optimization    │  Paradox (RLVR)       │
+│  implicit reward !=   │  activates shortcuts,  │  (2601.11061)         │
+│  policy quality       │  not target capability │                       │
+└───────────────────────┘                        └───────────────────────┘
+         │
+         │ supports
+         v
+┌───────────────────────┐      supports          ┌───────────────────────┐
+│  DAA Overoptimization │ ──────────────────────>│  Reasoning Models     │
+│  (2406.02900)         │  optimization-side     │  Don't Say (CoT)      │
+│  mechanism producing  │  mechanism behind      │  (2505.05410)         │
+│  reward hacks         │  unverbalized hacks    │                       │
+└───────────────────────┘                        └───────────────────────┘
+         │
+         │ supports
+         v
+┌───────────────────────┐      supports          ┌───────────────────────┐
+│  DAA Overoptimization │ ──────────────────────>│  VERITAS (RAG)        │
+│  (2406.02900)         │  removing RM relocates │  (2510.13272)         │
+│  proxy still hacks    │  hacking, not removes  │                       │
+└───────────────────────┘                        └───────────────────────┘
+```
+
 ### 2026-01-24
 | Papers Added | Key Findings |
 |--------------|--------------|

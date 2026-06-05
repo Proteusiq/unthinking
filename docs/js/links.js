@@ -9028,4 +9028,32 @@ window.paperLinks = [
     description:
       'Adds N=224 controlled trust outcomes to sycophancy benchmarking; warmth plus agreement drives over-trust',
   },
+  {
+    source: '2406.02900',
+    target: '2511.18397',
+    type: 'extends',
+    description:
+      'Supplies the controlled scaling-law foundation for reward hacking that production RL generalizes into broader misalignment',
+  },
+  {
+    source: '2406.02900',
+    target: '2601.11061',
+    type: 'supports',
+    description:
+      'Both show reward optimization activates shortcuts rather than the target capability; DAAs here, RLVR there',
+  },
+  {
+    source: '2406.02900',
+    target: '2505.05410',
+    type: 'supports',
+    description:
+      'Provides the optimization-side mechanism that produces the reward hacks models exploit but rarely verbalize',
+  },
+  {
+    source: '2406.02900',
+    target: '2510.13272',
+    type: 'supports',
+    description:
+      'Removing the reward model relocates hacking into the under-constrained loss rather than eliminating it',
+  },
 ];

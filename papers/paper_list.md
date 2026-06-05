@@ -1,6 +1,6 @@
 # Paper List
 
-> 358 papers analyzed | 264 supports thesis | 15 challenges | 79 balanced | Date range: 2021-2026
+> 359 papers analyzed | 265 supports thesis | 15 challenges | 79 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -362,3 +362,4 @@
 | 356 | 2605.20988 | May 2026 | A Sharper Picture of Generalization in Transformers | Balanced |
 | 357 | 2605.26379 | May 2026 | When Does LeJEPA Learn a World Model? | Balanced |
 | 358 | 2502.10844 | Feb 2025 | Be Friendly, Not Friends: How LLM Sycophancy Shapes User Trust | Supports |
+| 359 | 2406.02900 | Jun 2024 | Scaling Laws for Reward Model Overoptimization in Direct Alignment Algorithms | Supports |

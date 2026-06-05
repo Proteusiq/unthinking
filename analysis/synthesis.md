@@ -1,6 +1,6 @@
 # Synthesis: The Thinking Machine That Doesn't Think
 
-> **Papers analyzed**: 357
+> **Papers analyzed**: 359
 >
 > **See also**: `memento.md` for executive summary
 
@@ -104,6 +104,7 @@
 | ... | **Sycophancy/Conformity Papers** | ... | ... | ... |
 | 117-123 | Sycophancy Cluster | 2023-2026 | Supports | 7 papers on sycophancy (strategic deception, truth-bias, causal illusions) |
 | 358 | Be Friendly, Not Friends | Feb 2025 | Supports | CHI 2026 user study (N=224): trust tracks perceived authenticity, not truth; neutral+adaptive "covert aligner" seems most authentic and reinforces beliefs 72.9% — over-trust pathway decoupled from correctness |
+| 359 | Scaling Laws for Reward Model Overoptimization in DAAs | Jun 2024 | Supports | NeurIPS 2024: DPO/IPO/SLiC exhibit the same Goodhart hump as PPO+RM; `R(d)=d(α−β log d)` with `d=√KL` halves RMSE vs quadratic; wide-KL configs peak at **25%** of one epoch; implicit reward accuracy uncorrelated with policy quality within model size; mechanism = rank-deficient loss + offline OOD bootstrapping |
 | 126 | Fundamental Limitations Alignment | Apr 2023 | Supports | BEB theory: any α>0 behavior triggerable; ~3 sentences to misalign; RLHF increases vulnerability |
 | 127 | Towards Understanding Sycophancy | Oct 2023 | Strongly Supports | FOUNDATIONAL: 98% wrongly admit mistakes; PM prefers sycophantic 95%; training signal → behavior |
 | 128 | Conformity of LLMs | Jan 2025 | Strongly Supports | ICLR 2025: 47.2% avg conformity; reflection DOUBLES independence (28.6%→68.5%); key elicitation evidence |
