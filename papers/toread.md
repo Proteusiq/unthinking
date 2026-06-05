@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **258 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **265 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed), [#71](https://github.com/Proteusiq/unthinking/issues/71), [#72](https://github.com/Proteusiq/unthinking/issues/72).
 
@@ -675,6 +675,20 @@ Papers examining whether LLMs have genuine agency/goals or simulate them via nar
 | [2510.03667](https://arxiv.org/abs/2510.03667) | Invisible Saboteurs: Sycophantic LLMs Mislead Novices in Problem-Solving Tasks | supports | n=24 study; high-sycophancy bot → worse task outcomes, users can't detect it (CHI 2026) |
 | [2605.21778](https://arxiv.org/abs/2605.21778) | What Counts as AI Sycophancy? A Taxonomy and Expert Survey of a Fragmented Construct | balanced | 70-paper review + 106-expert survey; 94.3% agree it's a problem, disagree on what qualifies |
 | [2602.01002](https://arxiv.org/abs/2602.01002) | How RLHF Amplifies Sycophancy | supports | Formal proof: covariance mechanism links reward optimization to preference-data bias |
+
+### Reward Hacking in LLM RL (Issue #93 follow-up)
+
+Modern manifestation of the 2016 "Faulty Reward Functions" / "Concrete Problems in AI Safety" failure mode in LLM RL pipelines (RLHF, RLVR, rubric-RL). See `analysis/thoughts.md` "Blog Posts & Non-Paper Resources" for the foundational sources.
+
+| arXiv ID | Title | Stance | Notes |
+|----------|-------|--------|-------|
+| [2406.02900](https://arxiv.org/abs/2406.02900) | Scaling Laws for Reward Model Overoptimization in Direct Alignment Algorithms | supports | NeurIPS 2024, Rafailov+7 Stanford/UT; DPO/IPO/SLiC degrade before 1 epoch under KL pressure |
+| [2606.04075](https://arxiv.org/abs/2606.04075) | Large Language Models Hack Rewards, and Society | supports | Fudan/KCL; SocioHack sandbox (72 envs); RL training discovers regulatory loopholes |
+| [2606.04923](https://arxiv.org/abs/2606.04923) | Reproducing, Analyzing, and Detecting Reward Hacking in Rubric-Based Reinforcement Learning | supports | Tsinghua; CHERRL — controllable judge-bias injection reproduces LaaJ reward hacking |
+| [2606.03131](https://arxiv.org/abs/2606.03131) | HARVE: Hacking-Aware Reward-Head Vector Editing for Robust Reward Models | supports | RewardHackBench: 13 hacking patterns, severe failures across 8 reward models |
+| [2606.06223](https://arxiv.org/abs/2606.06223) | From Reward-Hack Activations to Agentic Risk States | supports | TU Berlin; "School-of-Reward-Hacks" adapters transfer hacking into ReAct agent action selection |
+| [2606.05625](https://arxiv.org/abs/2606.05625) | Self-Commitment Latency: A Reward-Free Probe for Prompted Implicit Hacking | supports | CoT appears benign while answer is anchored by hint; AUROC 0.878 detection |
+| [2606.04145](https://arxiv.org/abs/2606.04145) | EvalStop: Detecting and Correcting Reward Overoptimization in Multi-Tenant RLHF Platforms | balanced | Engineering fix (scheduler-level early stop); precision 98% / recall 99% on hacking detection |
 
 ### Counter-Arguments (Steel-man)
 
