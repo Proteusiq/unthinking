@@ -6075,5 +6075,73 @@
     ],
     "analysis_path": "analysis/explored/350-359/359_sharper_picture_transformers.md",
     "word_count": 3527
+  },
+  {
+    "id": 360,
+    "arxiv": "2605.26379",
+    "title": "When Does LeJEPA Learn a World Model?",
+    "date": "May 2026",
+    "stance": "balanced",
+    "cluster": "theoretical",
+    "core_finding": "1. LeJEPA can learn a linearly identifiable world model when latent variables are Gaussian, positive pairs follow an Ornstein-Uhlenbeck transition, embeddings are Gaussian/whitened, and the population alignment objective is optimized. 2. Gaussian latents are uniquely required within the paper's stationary additive-noise world class: non-Gaussian latent distributions break the guarantee. 3. Nonlinear encodings are penalized by alignment because Hermite components of degree `d` decay with eigenvalue `rho^d`; linear components retain the largest correlation across views. 4. Approximate identifiability degrades continuously with alignment gap `delta` and whitening error `epsilon`. 5. Latent-space planning is optimal if the learned representation is an orthogonal transform of the true latent state and the costs are rotation-invariant.",
+    "smoking_gun": false,
+    "quotes": [
+      "A representation that scrambles the true degrees of freedom of the world cannot support reliable planning or compositional generalization.",
+      "Our answer: When it linearly recovers the world's latent variables.",
+      "Linear identifiability is thus a necessary, albeit not sufficient, condition for faithful linear probing."
+    ],
+    "analysis_path": "analysis/explored/360-369/360_when_does_lejepa_learn_world_model.md",
+    "word_count": 1790
+  },
+  {
+    "id": 361,
+    "arxiv": "2502.10844",
+    "title": "Be Friendly, Not Friends — How LLM Sycophancy Shapes User Trust",
+    "date": "February 2025 (v1); last revised February 2026 (v3)",
+    "stance": "supports",
+    "cluster": "agent",
+    "core_finding": "TRUST DOES NOT TRACK TRUTH — IT TRACKS PERCEIVED AUTHENTICITY agreement (adaptive) ── lowers reactance ──> + trust warmth (complimentary)── raises presence ──> + trust BUT the two interact via AUTHENTICITY: complimentary + adaptive = \"yes-man\" ──> authenticity DOWN neutral + adaptive = covert align ──> authenticity UP The most \"authentic\"-seeming agent (neutral+adaptive) is also the strongest belief-reinforcer (72.9%) → over-trust pathway",
+    "smoking_gun": false,
+    "quotes": [
+      "complimentary LLMs that adapted their stance reduced perceived authenticity and trust, while neutral LLMs that adapted enhanced both, suggesting a pathway for manipulating users into over-trusting LLMs beyond their actual capabilities.",
+      "trust formation does not follow a simple linear relationship with agreement, but rather depends on the perceived authenticity of that agreement.",
+      "the adaptive agent with neutral demeanor was the most effective in reinforcing users' existing beliefs (72.9%), which further corroborates our earlier findings regarding perceived authenticity."
+    ],
+    "analysis_path": "analysis/explored/360-369/361_be_friendly_not_friends.md",
+    "word_count": 1831
+  },
+  {
+    "id": 362,
+    "arxiv": "2406.02900",
+    "title": "Scaling Laws for Reward Model Overoptimization in Direct Alignment Algorithms",
+    "date": "Jun 2024 (v1); Nov 2024 (v2)",
+    "stance": "supports",
+    "cluster": "agent",
+    "core_finding": "THE GOODHART CURVE SURVIVES REMOVAL OF THE PROXY REWARD MODEL Gao et al. 2023: PPO + proxy RM -> hump-shaped KL -> quality mechanism: RM under-trained + OOD on-policy This paper: DPO / IPO / SLiC -> SAME hump, SAME law BUT no proxy RM, NO on-policy sampling New mechanism: DAA loss is rank-deficient (|X*Y| >> |D|) multiple minima, some put mass on OOD token-MDP: offline OOD bootstrapping small beta -> max-like Q estimates",
+    "smoking_gun": false,
+    "quotes": [
+      "DAAs do not use a separate proxy reward model, [yet] they still commonly deteriorate from over-optimization.",
+      "configurations with wider KL budgets achieve their best performance after training on only 25% of the data, after which performance starts decreasing in conjunction with increasing KL divergence metrics.",
+      "this scaling law accurately relates d and winrates for DAAs. Compared to a quadratic fit between D_KL(π‖π_ref) and winrates, this scaling law halves the RMSE."
+    ],
+    "analysis_path": "analysis/explored/360-369/362_scaling_laws_daa_overoptimization.md",
+    "word_count": 2223
+  },
+  {
+    "id": 363,
+    "arxiv": "2606.04075",
+    "title": "Large Language Models Hack Rewards, and Society",
+    "date": "Jun 2026 (v1)",
+    "stance": "supports",
+    "cluster": "safety",
+    "core_finding": "RL reward function ~ Societal regulation ---------------- -------------------- measurable outcomes measurable criteria thresholds / exceptions thresholds / exceptions partial spec of true goal partial spec of social intent -> gap: proxy vs intent -> gap: compliance vs intent same optimization pressure -> reward hacking scales into \"societal hacking\"",
+    "smoking_gun": false,
+    "quotes": [
+      "We observe that societal regulations are structurally similar to reward functions. They define measurable outcomes, thresholds, and exceptions, while often leaving institutional intent only partially specified.",
+      "societal hacking, where an RL-trained model discovers strategies that remain formally compliant, yet undermine the intended purpose of those systems.",
+      "RL enables LLMs to rediscover historically patched strategies with 61.25% recall and 90.85% precision without direct loophole-exploiting instructions."
+    ],
+    "analysis_path": "analysis/explored/360-369/363_llms_hack_rewards_and_society.md",
+    "word_count": 2253
   }
 ]

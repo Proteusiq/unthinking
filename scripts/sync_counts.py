@@ -102,8 +102,8 @@ def replacements(c: Counts) -> list[Replacement]:
         ),
         Replacement(
             ROOT / "README.md",
-            re.compile(r"Individual paper analyses \(\d+ files\)"),
-            f"Individual paper analyses ({c.total} files)",
+            re.compile(r"Individual paper analyses \(\d+ papers\)"),
+            f"Individual paper analyses ({c.total} papers)",
         ),
         Replacement(
             ROOT / "README.md",

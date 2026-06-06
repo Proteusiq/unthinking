@@ -2,7 +2,7 @@
 
 Live: <https://proteusiq.github.io/unthinking/galaxy/>
 
-A 3D semantic projection of the 360 paper analyses in this repo. Each star is
+A 3D semantic projection of the 364 paper analyses in this repo. Each star is
 one paper. Color is the paper's stance on the thesis that LLM "reasoning" is
 predictive completion. Size and pulse mark the heaviest pieces of evidence —
 smoking-gun findings are the biggest, brightest stars.
@@ -58,21 +58,20 @@ Output lands in `apps/galaxy/dist/`. The bundle is fully self-contained and
 uses relative paths (`base: "./"`), so `dist/` works:
 
 - opened directly as files (`open dist/index.html` on macOS)
-- served by any static host (Render, GitHub Pages, Netlify)
+- served by any static host (GitHub Pages, Netlify, Cloudflare Pages)
 - served by plain `python -m http.server` inside `dist/`
 
 ## Deploy
 
-A `render.yaml` ships in this directory. To deploy to Render:
+Deployment is automatic via GitHub Pages. The
+[`deploy-pages.yml`](../../.github/workflows/deploy-pages.yml) workflow runs on
+every push to `main` that touches `apps/galaxy/**` (or `docs/**`). It builds the
+app with `npm ci && npm run build`, drops `dist/` under `docs/galaxy/`, and
+publishes the combined site to
+<https://proteusiq.github.io/unthinking/galaxy/>.
 
-1. <https://dashboard.render.com> → New → Blueprint
-2. Connect this repo, choose the `apps/galaxy/render.yaml` blueprint.
-3. Render builds with `npm ci && npm run build` and serves `dist/`.
-4. SPA rewrite is configured so `?paper=ID` links survive refresh.
-
-For other hosts (GitHub Pages, Netlify, Cloudflare Pages), point them at
-`apps/galaxy/dist/` after a local `npm run build`. The bundle uses relative
-paths so it works under any subpath.
+To deploy elsewhere, point any static host at `apps/galaxy/dist/` after a local
+`npm run build`. The bundle uses relative paths so it works under any subpath.
 
 ## Update the corpus
 

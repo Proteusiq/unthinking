@@ -343,7 +343,7 @@ Remove analyzed paper from `papers/toread.md` or mark as done.
 | `docs/js/nodes.js` | Paper node definitions |
 | `docs/js/links.js` | Relationship link definitions |
 | `docs/js/data.js` | Meta + combines nodes/links |
-| `docs/pages/findings.html` | 360-paper synthesis (themes, smoking guns, patterns) |
+| `docs/pages/findings.html` | 364-paper synthesis (themes, smoking guns, patterns) |
 
 ---
 

@@ -4,8 +4,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 // Relative base paths so the built dist/ works:
 //   - opened directly from the filesystem (file://)
-//   - hosted on Render as a root site
 //   - hosted on GitHub Pages under a subpath
+//   - served by any static host at a root or sub path
 export default defineConfig({
   base: "./",
   plugins: [react(), tailwindcss()],
