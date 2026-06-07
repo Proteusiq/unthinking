@@ -7,7 +7,7 @@
 </a>
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
-[![Papers](https://img.shields.io/badge/papers-364-blue)]()
+[![Papers](https://img.shields.io/badge/papers-367-blue)]()
 [![Relationships](https://img.shields.io/badge/relationships-1353-orange)]()
 
 ---
@@ -16,10 +16,10 @@
 
 Do LLMs actually understand or do they predict plausible-sounding tokens without understanding?
 
-This project surveys 364 papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
+This project surveys 367 papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
 
 To bring the findings home:
-- **Paper network**: interactive graph of 364 papers and 1353 relationships, filterable by stance
+- **Paper network**: interactive graph of 367 papers and 1366 relationships, filterable by stance
 - **Experiments**:
   - *Decoding ablation*: reasoning paths exist in base models, hidden by greedy decoding; RL surfaces them
   - *Steering ablation*: safety alignment is a thin layer of refusal patterns that washes off under trivial perturbations
@@ -40,8 +40,8 @@ RL and test-time compute surface pre-existing capabilities rather than creating 
 
 Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/)**
 
-- **Force-directed graph**: 364 papers as nodes, 1353 relationships as edges
-- **Color-coded stances**: supports (269), challenges (15), balanced (80)
+- **Force-directed graph**: 367 papers as nodes, 1366 relationships as edges
+- **Color-coded stances**: supports (272), challenges (15), balanced (80)
 - **Interactive**: hover, click, search, filter, dark/light mode
 - **Paper dialogue**: auto-generated conversations between connected papers
 
@@ -72,7 +72,7 @@ See `apps/galaxy/README.md` for the build and trade-offs.
 | [**Training**](https://proteusiq.github.io/unthinking/pages/training.html) | Pipeline, Mechanics, Research | Full training lifecycle: pre-training (AdamW, scaling laws, mixed precision), mid-training (annealing, domain adaptation, context extension), post-training (SFT, RLHF, DPO, GRPO, RLVR), lab recipes |
 | [**Implementation**](https://proteusiq.github.io/unthinking/pages/implementation.html) | Tokens, Embed, Attention, FFN, Training | Core GPT algorithm from scratch: tokenization (char/BPE), embeddings (token/position/weight tying), self-attention (QKV, causal mask, multi-head), FFN (residuals, pre-norm), training loop (softmax, cross-entropy, backprop, Adam) |
 
-[**Findings**](https://proteusiq.github.io/unthinking/pages/findings.html): 364-paper synthesis — themes, smoking guns, patterns, stance distribution.
+[**Findings**](https://proteusiq.github.io/unthinking/pages/findings.html): 367-paper synthesis — themes, smoking guns, patterns, stance distribution.
 
 See also:
 - [Transformer Explainer](https://poloclub.github.io/transformer-explainer/): interactive GPT-2 visualization (Georgia Tech)
@@ -189,7 +189,7 @@ The question Weizenbaum asked in 1966 remains unanswered: *Is what we are seeing
 
 ## The Seven Pillars of Evidence
 
-Based on cross-analysis of 364 papers, the evidence converges on seven pillars:
+Based on cross-analysis of 367 papers, the evidence converges on seven pillars:
 
 | Pillar | Core Finding | Key Papers | Strongest Number |
 |--------|--------------|------------|------------------|
@@ -310,6 +310,49 @@ Inspired by [MATS 9.0 research](https://www.lesswrong.com/posts/mgjtEHeLgkhZZ3cE
 
 ---
 
+## The Benchmaxxing Inversion
+
+A benchmark score measures one thing reliably: **how much of the test distribution the model has already seen.** It does not measure capability. The tell is an inversion that genuine reasoning would make impossible.
+
+```
+┌──────────────────────────────────────────────────────────────────────────┐
+│  IF THE MODEL REASONED              IF THE MODEL RECALLS                   │
+│  ----------------------             --------------------                   │
+│  Easy problems are EASIER           PhD/Olympiad math: solved              │
+│  than hard ones. Competence         (dense in training data)              │
+│  scales with task complexity.       Lower-grade / novel math: failed       │
+│                                     (sparse or unseen)                     │
+│  → monotonic in difficulty          → monotonic in EXPOSURE, not difficulty│
+└──────────────────────────────────────────────────────────────────────────┘
+```
+
+Solving frontier olympiad problems while failing simpler, novel, or
+out-of-distribution variants is not a partial success — it is the signature of
+distributional memorization. A reasoner cannot find the hard case easy and the
+easy case hard. When that ordering inverts, the score is tracking coverage, not
+cognition.
+
+This reframes where the real frontier is. It is **not** PhD exams — it is
+**ordinary human competence**: the long-horizon, tool-using, novel tasks that any
+working professional completes at ~100% and that frontier agents fail. Three
+papers in this corpus make the inversion concrete:
+
+| Paper | The inversion, measured |
+|-------|-------------------------|
+| **Agents' Last Exam** (#364) | 82% on saturated Terminal-Bench → **<10%** on novel professional workflows; ~78% of failures are reasoning/knowledge, not execution |
+| **Contamination-Resistant Benchmarks** (#365) | up to **45%** of samples contaminated; decontamination drops MMLU 16% / GSM8K 13% |
+| **PeerBench** (#366) | GPT-4 infers **masked** MMLU answers at **57%** — the answer without the question; superhuman QA, fails OOD |
+
+> [!NOTE]
+> **ARC-AGI-3** sharpens the same point from the opposite direction. Instead of
+> static exams it measures *interactive skill acquisition* — games a human learns
+> in seconds — scoring intelligence **across time, not just final answers**. Its
+> framing is the corpus thesis in one line: *"As long as there is a gap between AI
+> and human learning, we do not have AGI."* The frontier is not harder exams; it
+> is the ordinary competence humans acquire on the fly.
+
+---
+
 ## Paper Clusters
 
 | Cluster | Papers | Focus |
@@ -352,7 +395,7 @@ Inspired by [MATS 9.0 research](https://www.lesswrong.com/posts/mgjtEHeLgkhZZ3cE
 │   ├── case.md               # Formal case against LLM reasoning
 │   ├── paper_graph.md        # Paper interaction graph
 │   ├── rebuttals.md          # Rebuttal matrix
-│   └── explored/             # Individual paper analyses (364 papers)
+│   └── explored/             # Individual paper analyses (367 papers)
 │       ├── 00-09/ ... 260-269/
 ├── docs/                     # Interactive visualization (GitHub Pages)
 │   ├── index.html            # Paper network graph
@@ -366,7 +409,7 @@ Inspired by [MATS 9.0 research](https://www.lesswrong.com/posts/mgjtEHeLgkhZZ3cE
 │   ├── css/                  # variables, layout, components, responsive
 │   └── js/
 │       ├── nodes.js          # Paper node definitions (360)
-│       ├── links.js          # Relationship links (1353)
+│       ├── links.js          # Relationship links (1366)
 │       ├── data.js           # Meta + combines nodes/links
 │       └── graph.js          # Force-directed graph + interactions
 ├── apps/galaxy/              # 3D semantic projection (React + Vite)

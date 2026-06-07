@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 353
+> **Papers tracked**: 367
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -1969,6 +1969,53 @@ These papers have NO direct rebuttals found:
 │  real patches         │  defeat intent         │                       │
 └───────────────────────┘                        └───────────────────────┘
 ```
+
+---
+
+## BENCHMAXXING CLUSTER: Scores Track Exposure, Not Skill (Issue #94 / #95)
+
+```
+┌───────────────────────────────────────────────────────────────────────────┐
+│            THE BENCHMAXXING CLUSTER — scores track exposure, not skill    │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│   ┌─────────────────────┐  extends  ┌─────────────────────┐               │
+│   │  Agents' Last Exam  │ ────────> │  RADAR Contamination│               │
+│   │  (2606.05405)       │  designs  │  Detection (#57)    │               │
+│   │  82% -> <10% novel  │  it out   │  (2510.08931)       │               │
+│   └─────────────────────┘           └─────────────────────┘               │
+│            │  supports                                                    │
+│            v                                                              │
+│   ┌─────────────────────┐  supports ┌─────────────────────┐               │
+│   │  Contamination-     │ <───────> │  PeerBench /        │               │
+│   │  Resistant (#365)   │  position │  Broken (#366)      │               │
+│   │  45% contaminated   │  papers   │  57% masked MMLU    │               │
+│   │  MMLU -16% GSM -13% │           │  superhuman->OOD x  │               │
+│   └─────────────────────┘           └─────────────────────┘               │
+│            │                                  │                           │
+│            └──────────── supports ────────────┘                           │
+│                            v                                              │
+│   ┌───────────────────────────────────────────────────────────┐           │
+│   │  GSM-Symbolic (#3) - LiveCodeBench Pro - How Much Cheat    │          │
+│   │  Easy Problems LLMs Get Wrong - same recall-not-reasoning  │          │
+│   └───────────────────────────────────────────────────────────┘           │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+```
+
+**The inversion**: genuine reasoning would make easy problems easier than hard
+ones. When a model solves olympiad math (dense in training data) yet fails
+lower-grade or novel variants (sparse/unseen), the score is monotonic in
+*exposure*, not difficulty. The real frontier is ordinary human competence —
+ALE (#364) measures exactly that and frontier agents score ~0% on its hardest
+tier. #365 (KV-cache CRD) and #366 (PeerBench governance) are allied position
+papers prescribing fixes; ALE is the constructive embodiment.
+
+### Direct Relationships
+- 2606.05405 (#364) --extends--> 2510.08931 (RADAR #57): designs contamination out
+- 2606.05405 (#364) --supports--> 2410.05229 (GSM-Symbolic #3), 2405.19616 (Easy Problems)
+- 2605.19999 (#365) <--supports--> 2510.07575 (#366): allied position papers (compression fix vs governance fix)
+- 2605.19999 (#365) & 2510.07575 (#366) --supports--> 2606.05405 (#364): ALE is their constructive embodiment
 
 ### 2026-01-24
 | Papers Added | Key Findings |

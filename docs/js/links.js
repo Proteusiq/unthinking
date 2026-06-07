@@ -9084,4 +9084,101 @@ window.paperLinks = [
     description:
       'GRPO amplifies existing tendencies; here Dr. GRPO amplifies loophole-search to 61.25% recall of real patches',
   },
+
+  // Paper 364: Agents' Last Exam (2606.05405)
+  {
+    source: '2606.05405',
+    target: '2405.19616',
+    type: 'supports',
+    description:
+      'Same inversion as Easy Problems LLMs Get Wrong, scaled to whole professional workflows: trivial-for-humans tasks defeat models that ace hard benchmarks',
+  },
+  {
+    source: '2606.05405',
+    target: '2410.05229',
+    type: 'supports',
+    description:
+      'GSM-Symbolic shows distributional fragility on perturbed-but-easy problems; ALE shows the analog on novel-but-ordinary professional tasks',
+  },
+  {
+    source: '2606.05405',
+    target: '2510.08931',
+    type: 'extends',
+    description:
+      'RADAR detects contamination post hoc; ALE designs it out (~10% public, rolling renewal) so the recall advantage cannot inflate scores',
+  },
+  {
+    source: '2606.05405',
+    target: '2506.11928',
+    type: 'supports',
+    description:
+      'LiveCodeBench Pro: saturation and contamination inflate static code scores; ALE is the contamination-resistant constructive response',
+  },
+  {
+    source: '2606.05405',
+    target: '2507.19219',
+    type: 'supports',
+    description:
+      'Both diagnose benchmark overestimation; ALE shows the inflated advantage evaporating on a fresh, mostly-private benchmark',
+  },
+
+  // Paper 365: Contamination-Resistant Benchmarks (2605.19999)
+  {
+    source: '2605.19999',
+    target: '2510.08931',
+    type: 'supports',
+    description:
+      'Detection-side (RADAR) vs prevention/distribution-side: #365 proposes contamination-resistant distillation to stop seeding future corpora',
+  },
+  {
+    source: '2605.19999',
+    target: '2507.19219',
+    type: 'supports',
+    description:
+      'Same diagnosis: benchmark scores reflect exposure; up to 45% contaminated samples, MMLU -16% / GSM8K -13% on decontamination',
+  },
+  {
+    source: '2605.19999',
+    target: '2410.05229',
+    type: 'supports',
+    description:
+      'Perturbation (GSM-Symbolic) reveals the recall-not-reasoning gap that contamination otherwise hides',
+  },
+  {
+    source: '2605.19999',
+    target: '2606.05405',
+    type: 'supports',
+    description:
+      'ALE is the constructive embodiment of #365 motivation: a real contamination-resistant benchmark where scores collapse',
+  },
+
+  // Paper 366: PeerBench / Benchmarking Is Broken (2510.07575)
+  {
+    source: '2510.07575',
+    target: '2410.05229',
+    type: 'supports',
+    description:
+      'OOD reformulation collapses scores; PeerBench generalizes the critique to QA benchmarks and superhuman-QA artifacts',
+  },
+  {
+    source: '2510.07575',
+    target: '2507.19219',
+    type: 'supports',
+    description:
+      'Shared "scores = leakage" diagnosis: GPT-4 infers masked MMLU answers at ~57% without the question content',
+  },
+  {
+    source: '2510.07575',
+    target: '2605.19999',
+    type: 'supports',
+    description:
+      'Allied position papers: governance fix (PeerBench) vs algorithmic fix (KV-cache contamination-resistant distillation)',
+  },
+  {
+    source: '2510.07575',
+    target: '2606.05405',
+    type: 'supports',
+    description:
+      'ALE is the constructive answer to PeerBench critique: fresh, verifiable, mostly-private benchmark where leakage cannot inflate scores',
+  },
 ];

@@ -6143,5 +6143,51 @@
     ],
     "analysis_path": "analysis/explored/360-369/363_llms_hack_rewards_and_society.md",
     "word_count": 2253
+  },
+  {
+    "id": 364,
+    "arxiv": "2606.05405",
+    "title": "Agents' Last Exam (ALE)",
+    "date": "Jun 2026 (v1)",
+    "stance": "supports",
+    "cluster": "agent",
+    "core_finding": "OLYMPIAD FRAMING vs ORDINARY-COMPETENCE FRAMING ---------------- --------------------------- \"solves IMO / competitive code\" \"can't finish what every working professional ships routinely\" Static, verbal, one-shot, Long-horizon, GUI+CLI, novel, contaminable verifiable, uncontaminated Humans: few % can do it Humans: ~100% of practitioners do AI: superhuman AI: 0% on Last-Exam tier",
+    "smoking_gun": false,
+    "quotes": [
+      "Current results confirm that ALE is far from saturated: the strongest configuration (Codex with GPT-5.5), which already achieves 82% on Terminal-Bench, scores below 50% even on ALE's easiest tier and under 10% on the hardest; most mainstream agents, including Claude Code, record near-zero pass rates at that difficulty level.",
+      "Understanding and Approach failures together account for roughly three quarters of cases, indicating that the dominant bottleneck is domain knowledge rather than execution capability.",
+      "Lacking specialized knowledge, agents default to ad-hoc scripts instead of the intended domain software, reinforcing the GUI-underutilization pattern above."
+    ],
+    "analysis_path": "analysis/explored/360-369/364_agents_last_exam.md",
+    "word_count": 2100
+  },
+  {
+    "id": 365,
+    "arxiv": "2605.19999",
+    "title": "Contamination-Resistant Benchmarks via KV-Cache Projection",
+    "date": "May 2026",
+    "stance": "supports",
+    "cluster": "memorization",
+    "core_finding": "THE BENCHMAXXING LOOP public benchmark → leaks into pretraining corpus → model \"scores\" rise ▲ └────────────── recall masquerades as reasoning ◄──┘ Measured: how much of the test set the model already saw. NOT measured: whether it can solve the underlying task.",
+    "smoking_gun": false,
+    "quotes": [],
+    "analysis_path": "analysis/explored/360-369/365_contamination_resistant_benchmarks.md",
+    "word_count": 1110
+  },
+  {
+    "id": 366,
+    "arxiv": "2510.07575",
+    "title": "PeerBench — Benchmarking Is Broken",
+    "date": "Oct 2025",
+    "stance": "supports",
+    "cluster": "memorization",
+    "core_finding": "\"SUPERHUMAN\" ON QA but FAILS ON OOD ---------------------- ------------------ GPT-4 can INFER masked MMLU Out-of-distribution variants answers at 57% — without the of the same questions collapse, question's actual content revealing \"lack of true understanding\" Diagnosis: the score measures leakage + pattern recall, not competence.",
+    "smoking_gun": false,
+    "quotes": [
+      "Superhuman on QA, fails OOD, lacks true understanding",
+      "Don't let AI judge AI"
+    ],
+    "analysis_path": "analysis/explored/360-369/366_peerbench_benchmarking_is_broken.md",
+    "word_count": 1054
   }
 ]

@@ -7893,4 +7893,70 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/363_llms_hack_rewards_and_society.md',
   },
+  {
+    id: '2606.05405',
+    title: "Agents' Last Exam (ALE)",
+    shortTitle: "Agents' Last Exam",
+    date: 'Jun 2026',
+    stance: 'supports',
+    cluster: 'evidence',
+    coreArgument:
+      'A contamination-resistant benchmark of real, economically valuable professional workflows: agents that score 82% on saturated Terminal-Bench score under 10% on the hardest ALE tier (0% for most), and ~78% of failures are Understanding/Approach (reasoning and domain knowledge) rather than Execution — the gap is upstream of tool use.',
+    keyEvidence: [
+      'Hardest-tier average full-pass 2.6%; most mainstream agents record 0% on the Last-Exam tier',
+      'Same config: 82% Terminal-Bench to <10% hardest ALE tier — performance tracks distributional exposure not difficulty',
+      'Failure taxonomy: Approach 47% + Understanding 31% = 78% reasoning/knowledge; only 22% Execution',
+      'Backbone swap drives 18.0pp spread vs ~5-6pp for harness swap (~3x) — the model, not the scaffolding',
+      'Only ~10% of 1,490 instances public; rolling renewal keeps the surface contamination-resistant',
+    ],
+    keyQuotes: [
+      'the strongest configuration (Codex with GPT-5.5), which already achieves 82% on Terminal-Bench, scores below 50% even on ALE\u2019s easiest tier and under 10% on the hardest.',
+      'Understanding and Approach failures together account for roughly three quarters of cases, indicating that the dominant bottleneck is domain knowledge rather than execution capability.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/364_agents_last_exam.md',
+  },
+  {
+    id: '2605.19999',
+    title: 'Contamination-Resistant Benchmarks for Large Language Models',
+    shortTitle: 'Contamination-Resistant Benchmarks',
+    date: 'May 2026',
+    stance: 'supports',
+    cluster: 'evidence',
+    coreArgument:
+      'Benchmark contamination is pervasive enough that static public scores cannot be read as reasoning: up to 45% of samples are flagged contaminated and decontamination removes ~16% of MMLU and ~13% of GSM8K items, with corresponding score drops; proposes contamination-resistant distillation via KV-cache projection to distribute benchmarks without seeding future training corpora.',
+    keyEvidence: [
+      'Contamination prevalence cited up to 45% of samples; up to 91.8% overlap in specific cases; 90% of GPT-3 test items recoverable',
+      'Decontamination removes ~16% of MMLU and ~13% of GSM8K items with accuracy drops once removed',
+      'CRD compresses a 100K-token KV-cache from ~50GB to ~350MB at 0.7%/12%/20% retention while retaining evaluative signal',
+      'Architecture-specific (assumes transformer KV-cache); resistance is empirical not formally guaranteed',
+    ],
+    keyQuotes: [
+      'Decontamination removes a substantial fraction of MMLU (~16%) and GSM8K (~13%) items, with corresponding drops in measured accuracy.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/365_contamination_resistant_benchmarks.md',
+  },
+  {
+    id: '2510.07575',
+    title: "Benchmarking Is Broken \u2014 Don't Let AI Be Its Own Judge (PeerBench)",
+    shortTitle: 'PeerBench',
+    date: 'Oct 2025',
+    stance: 'supports',
+    cluster: 'evidence',
+    coreArgument:
+      'Static benchmarks measure leakage and pattern recall, not understanding: GPT-4 infers masked MMLU answers at ~57% without the question content, and superhuman QA models fail on out-of-distribution variants, revealing a lack of true understanding; proposes a live, community-governed, proctored-exam platform instead of leaderboards judged by AI.',
+    keyEvidence: [
+      'GPT-4 infers masked MMLU answers at ~57% accuracy without the question content \u2014 recall, not reasoning',
+      'Superhuman QA models fail on out-of-distribution variants, revealing a lack of true understanding',
+      'LLM-as-judge inherits the same contamination and blind spots as the systems it evaluates',
+      '16 authors multi-institution; PeerBench proposes governance-based proctored evaluation',
+    ],
+    keyQuotes: [
+      'GPT-4 can infer masked MMLU answers at roughly 57% accuracy, indicating leakage of benchmark content into training.',
+      'Models reported as superhuman on QA fail on out-of-distribution variants, revealing a lack of true understanding.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/366_peerbench_benchmarking_is_broken.md',
+  },
 ];

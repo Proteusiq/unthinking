@@ -364,3 +364,6 @@
 | 358 | 2502.10844 | Feb 2025 | Be Friendly, Not Friends: How LLM Sycophancy Shapes User Trust | Supports |
 | 359 | 2406.02900 | Jun 2024 | Scaling Laws for Reward Model Overoptimization in Direct Alignment Algorithms | Supports |
 | 360 | 2606.04075 | Jun 2026 | Large Language Models Hack Rewards, and Society | Supports |
+| 361 | 2606.05405 | Jun 2026 | Agents' Last Exam (ALE) | Supports |
+| 362 | 2605.19999 | May 2026 | Contamination-Resistant Benchmarks for Large Language Models | Supports |
+| 363 | 2510.07575 | Oct 2025 | Benchmarking Is Broken — Don't Let AI Be Its Own Judge (PeerBench) | Supports |
