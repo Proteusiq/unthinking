@@ -7918,7 +7918,7 @@ window.paperNodes = [
   },
   {
     id: '2605.19999',
-    title: 'Contamination-Resistant Benchmarks for Large Language Models',
+    title: 'LLM Benchmark Datasets Should Be Contamination-Resistant',
     shortTitle: 'Contamination-Resistant Benchmarks',
     date: 'May 2026',
     stance: 'supports',

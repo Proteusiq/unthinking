@@ -2,8 +2,8 @@
 
 ## Metadata
 - **arXiv ID**: 2605.19999
-- **Title**: Contamination-Resistant Benchmarks for Large Language Models (Contamination-Resistant Distillation via KV-Cache Projection)
-- **Authors**: Multi-author (multi-institution; passes single-author exclusion)
+- **Title**: LLM Benchmark Datasets Should Be Contamination-Resistant
+- **Authors**: Ali Al-Lawati, Jason Lucas, Dongwon Lee, Suhang Wang (Penn State University)
 - **Date**: May 2026
 - **Category**: cs.CL / cs.LG
 - **Stance**: SUPPORTS (with position-paper caveat — proposal + prevalence evidence, not a new controlled capability experiment)

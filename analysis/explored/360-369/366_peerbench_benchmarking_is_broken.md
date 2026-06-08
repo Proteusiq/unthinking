@@ -2,8 +2,8 @@
 
 ## Metadata
 - **arXiv ID**: 2510.07575
-- **Title**: Benchmarking Is Broken — Don't Let AI Be Its Own Judge (PeerBench)
-- **Authors**: 16 authors, multi-institution (passes single-author exclusion)
+- **Title**: Benchmarking is Broken — Don't Let AI be its Own Judge (PeerBench)
+- **Authors**: Zerui Cheng, Stella Wohnig, Ruchika Gupta, Samiul Alam, Tassallah Abdullahi, João Alves Ribeiro, Christian Nielsen-Garcia, Saif Mir, Siran Li, Jason Orender, Seyed Ali Bahrainian, Daniel Kirste, Aaron Gokaslan, Mikołaj Glinka, Carsten Eickhoff, Ruben Wolff (multi-institution, 16 authors)
 - **Date**: Oct 2025
 - **Category**: cs.CL / cs.AI
 - **Stance**: SUPPORTS (with position-paper caveat — a governance proposal backed by a leakage probe, not a new controlled capability experiment)
