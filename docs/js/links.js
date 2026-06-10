@@ -9181,4 +9181,76 @@ window.paperLinks = [
     description:
       'ALE is the constructive answer to PeerBench critique: fresh, verifiable, mostly-private benchmark where leakage cannot inflate scores',
   },
+  // Paper 367: Attention Deficits / Procedural Hallucinations (2602.19239)
+  {
+    source: '2602.19239',
+    target: '2509.11208',
+    type: 'extends',
+    description:
+      'Micro-level routing failures explain macro-level compression failures: probes at 74% prove info is present but not used',
+  },
+  {
+    source: '2602.19239',
+    target: '2507.11768',
+    type: 'extends',
+    description:
+      'PE-induced order sensitivity causes Stage 2B binding failures with recency bias dominating at long distance',
+  },
+  {
+    source: '2602.19239',
+    target: '2401.11817',
+    type: 'supports',
+    description:
+      'Procedural hallucination adds a new dimension of inevitability: routing failures even when info is present in-context',
+  },
+  {
+    source: '2602.19239',
+    target: '2602.11201',
+    type: 'supports',
+    description:
+      'Both find late-layer corruption of correct information; activation patching localizes failures to late MLPs',
+  },
+  {
+    source: '2602.19239',
+    target: '2601.07422',
+    type: 'supports',
+    description:
+      'Present-but-not-used maps to encoding-output dissociation: hidden state knows (74% probe) but output ignores it',
+  },
+  // Paper 368: LLMs are Bayesian, In Expectation (2507.11768)
+  {
+    source: '2507.11768',
+    target: '2509.11208',
+    type: 'extends',
+    description:
+      'Shares QMV theorem and evidence-grounded QA; focuses on Bayesian/MDL interpretation of compression failures',
+  },
+  {
+    source: '2507.11768',
+    target: '2309.13638',
+    type: 'supports',
+    description:
+      'Provides theoretical foundation for autoregressive artifacts: PE breaks exchangeability by 8-10 orders of magnitude',
+  },
+  {
+    source: '2507.11768',
+    target: '2512.02914',
+    type: 'extends',
+    description:
+      'Extends martingale diagnostics: violations are expected from PE, not evidence against Bayesian ICL',
+  },
+  {
+    source: '2507.11768',
+    target: '2602.02219',
+    type: 'supports',
+    description:
+      'Positional encoding creates the position bias in LLM judges; PE variance 10^-6 explains order sensitivity',
+  },
+  {
+    source: '2507.11768',
+    target: '2302.00093',
+    type: 'supports',
+    description:
+      'PE-induced order sensitivity explains why irrelevant context distracts: context ordering is a nuisance variable',
+  },
 ];

@@ -1,6 +1,6 @@
 # Paper List
 
-> 360 papers analyzed | 266 supports thesis | 15 challenges | 79 balanced | Date range: 2021-2026
+> 365 papers analyzed | 271 supports thesis | 15 challenges | 79 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -367,3 +367,5 @@
 | 361 | 2606.05405 | Jun 2026 | Agents' Last Exam (ALE) | Supports |
 | 362 | 2605.19999 | May 2026 | LLM Benchmark Datasets Should Be Contamination-Resistant | Supports |
 | 363 | 2510.07575 | Oct 2025 | Benchmarking Is Broken — Don't Let AI Be Its Own Judge (PeerBench) | Supports |
+| 364 | 2602.19239 | Feb 2026 | Attention Deficits in Language Models: Causal Explanations for Procedural Hallucinations | Supports |
+| 365 | 2507.11768 | Jul 2025 | LLMs are Bayesian, In Expectation, Not in Realization | Supports |

@@ -2017,6 +2017,39 @@ papers prescribing fixes; ALE is the constructive embodiment.
 - 2605.19999 (#365) <--supports--> 2510.07575 (#366): allied position papers (compression fix vs governance fix)
 - 2605.19999 (#365) & 2510.07575 (#366) --supports--> 2606.05405 (#364): ALE is their constructive embodiment
 
+### Chlon et al. Hallucination Trilogy (2509.11208, 2507.11768, 2602.19239)
+
+Three companion papers from the same research group providing interlocking theoretical and mechanistic explanations for hallucination and order sensitivity:
+
+```
+┌────────────────────┐     provides theory     ┌────────────────────┐
+│  LLMs are Bayesian │ ────────────────────────>│  Predictable       │
+│  In Expectation    │                          │  Compression       │
+│  (2507.11768)      │<─────────────────────────│  Failures          │
+│  #368              │     shares QMV/EDFL      │  (2509.11208)      │
+└────────────────────┘                          │  #168              │
+       │                                        └────────────────────┘
+       │ PE breaks exchangeability                       │
+       │                                                 │ compression → hallucination
+       ▼                                                 ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│  Attention Deficits: Procedural Hallucinations (2602.19239) #367    │
+│  Micro-level: Stage 2B routing failures, probes at 74%, late MLPs  │
+│  corrupt correct bindings, checkpointing 0% → 99.8%               │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### Direct Relationships
+- 2602.19239 (#367) --extends--> 2509.11208 (#168): macro-level compression theory → micro-level routing failures
+- 2507.11768 (#368) --extends--> 2509.11208 (#168): shares QMV theorem; focuses on Bayesian/MDL interpretation
+- 2602.19239 (#367) --extends--> 2507.11768 (#368): PE order sensitivity → procedural hallucination mechanism
+- 2602.19239 (#367) --supports--> 2401.11817 (Hallucination Inevitable #165): another dimension of hallucination inevitability
+- 2602.19239 (#367) --supports--> 2602.11201 (Faithfulness Decay #247): both find late-layer corruption of correct info
+- 2602.19239 (#367) --supports--> 2601.07422 (Two Pathways #107): "present but not used" = encoding-output dissociation
+- 2507.11768 (#368) --supports--> 2309.13638 (Embers #202): provides theoretical foundation for autoregressive artifacts
+- 2507.11768 (#368) --supports--> 2512.02914 (Martingale Score #315): extends martingale diagnostic framework
+- 2507.11768 (#368) --supports--> 2602.02219 (Position Bias #286): PE creates position bias in LLM judges
+
 ### 2026-01-24
 | Papers Added | Key Findings |
 |--------------|--------------|

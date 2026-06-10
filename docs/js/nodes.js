@@ -7959,4 +7959,49 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/366_peerbench_benchmarking_is_broken.md',
   },
+  {
+    id: '2602.19239',
+    title:
+      'Attention Deficits in Language Models: Causal Explanations for Procedural Hallucinations',
+    shortTitle: 'Attention Deficits',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'hallucination',
+    coreArgument:
+      'Procedural hallucinations are readout-stage routing failures where the correct answer is encoded in the hidden state but not routed to the output, with Stage 2B binding errors dominating 65-100% of failures across model families.',
+    keyEvidence: [
+      'Linear probe recovers correct value at 74% vs 2% chance on Stage 2B error trials (Qwen2.5-3B)',
+      'Stage 2B (binding) accounts for 65-100% of errors across Qwen, Gemma, and Llama families',
+      'Checkpointing converts 0% to 99.8% accuracy at k=1024 by shortening evidence distance',
+      'Late attention layers restore correct bindings (+3.44) while late MLPs corrupt them (-3.30)',
+    ],
+    keyQuotes: [
+      'The model did not lack the information; it simply failed to use it.',
+      'Many structured-generation failures are not about missing knowledge but about mis-commitment.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/367_attention_deficits_procedural_hallucinations.md',
+  },
+  {
+    id: '2507.11768',
+    title: 'LLMs are Bayesian, In Expectation, Not in Realization',
+    shortTitle: 'Bayesian in Expectation',
+    date: 'Jul 2025',
+    stance: 'supports',
+    cluster: 'hallucination',
+    coreArgument:
+      'Positional encodings break exchangeability by 8-10 orders of magnitude, making transformers near-optimal compressors in expectation over orderings but systematically order-sensitive on any fixed realization.',
+    keyEvidence: [
+      'No-PE variance ~10^-16 vs PE variants 10^-8 to 10^-6: 8-10 order-of-magnitude increase from PE alone',
+      'Proxy gap decreases from 0.74 at n=10 to 0.26 at n=50, consistent with O(n^-1/2) bound',
+      'Permutation averaging reduces standard deviation with k^-1/2 decay (fitted slopes -0.498, -0.499)',
+      'Evidence-grounded QA: Jensen gains of 0.104 nats/token (Qwen2-7B) from permutation mixtures',
+    ],
+    keyQuotes: [
+      'Transformers can be Bayesian in expectation, not in realization: position encodings break exchangeability.',
+      'The no-PE model has essentially zero within-prefix order variance (~10^-16), while PE variants have 10^-8 to 10^-6.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/368_llms_bayesian_in_expectation.md',
+  },
 ];
