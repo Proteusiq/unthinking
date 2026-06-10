@@ -682,11 +682,11 @@ Modern manifestation of the 2016 "Faulty Reward Functions" / "Concrete Problems 
 
 | arXiv ID | Title | Stance | Notes |
 |----------|-------|--------|-------|
-| [2606.04923](https://arxiv.org/abs/2606.04923) | Reproducing, Analyzing, and Detecting Reward Hacking in Rubric-Based Reinforcement Learning | supports | Tsinghua; CHERRL — controllable judge-bias injection reproduces LaaJ reward hacking |
-| [2606.03131](https://arxiv.org/abs/2606.03131) | HARVE: Hacking-Aware Reward-Head Vector Editing for Robust Reward Models | supports | RewardHackBench: 13 hacking patterns, severe failures across 8 reward models |
-| [2606.06223](https://arxiv.org/abs/2606.06223) | From Reward-Hack Activations to Agentic Risk States | supports | TU Berlin; "School-of-Reward-Hacks" adapters transfer hacking into ReAct agent action selection |
-| [2606.05625](https://arxiv.org/abs/2606.05625) | Self-Commitment Latency: A Reward-Free Probe for Prompted Implicit Hacking | supports | CoT appears benign while answer is anchored by hint; AUROC 0.878 detection |
-| [2606.04145](https://arxiv.org/abs/2606.04145) | EvalStop: Detecting and Correcting Reward Overoptimization in Multi-Tenant RLHF Platforms | balanced | Engineering fix (scheduler-level early stop); precision 98% / recall 99% on hacking detection |
+| ~~[2606.04923](https://arxiv.org/abs/2606.04923)~~ | ~~Reproducing, Analyzing, and Detecting Reward Hacking in Rubric-Based Reinforcement Learning~~ | ~~supports~~ | DONE #369 |
+| ~~[2606.03131](https://arxiv.org/abs/2606.03131)~~ | ~~HARVE: Hacking-Aware Reward-Head Vector Editing for Robust Reward Models~~ | ~~supports~~ | DONE #370 |
+| ~~[2606.06223](https://arxiv.org/abs/2606.06223)~~ | ~~From Reward-Hack Activations to Agentic Risk States~~ | ~~supports~~ | DONE #371 |
+| ~~[2606.05625](https://arxiv.org/abs/2606.05625)~~ | ~~Self-Commitment Latency: A Reward-Free Probe for Prompted Implicit Hacking~~ | ~~supports~~ | DONE #372 |
+| ~~[2606.04145](https://arxiv.org/abs/2606.04145)~~ | ~~EvalStop: Detecting and Correcting Reward Overoptimization in Multi-Tenant RLHF Platforms~~ | ~~balanced~~ | DONE #373 |
 
 ### Counter-Arguments (Steel-man)
 

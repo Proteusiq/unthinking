@@ -8004,4 +8004,110 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/368_llms_bayesian_in_expectation.md',
   },
+  {
+    id: '2606.04923',
+    title: 'Reproducing, Analyzing, and Detecting Reward Hacking in Rubric-Based RL (CHERRL)',
+    shortTitle: 'CHERRL',
+    date: 'Jun 2026',
+    stance: 'supports',
+    cluster: 'alignment',
+    coreArgument:
+      'CHERRL dual-judge environment makes reward hacking observable by injecting known biases into LLM judges, revealing that biases entangled with gold rewards are discovered faster and exploitability is constrained by generation difficulty.',
+    keyEvidence: [
+      'Tone/lexical biases onset at step 68-116; self-praise at step 460-478',
+      'Bias-task entanglement OR predicts onset: lexical OR=1.09 onset step 91 vs self-praise OR=0.53 step 460',
+      'Format bias only 66% generation success vs 95-100% for other biases, constraining exploitability',
+      'RHDA detector: sum d_point=120 across 6 runs, 0 misses',
+    ],
+    keyQuotes: [
+      'Policy models may exploit latent biases in the judge, leading to reward hacking and ineffective or unsafe training outcomes.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/369_cherrl_reward_hacking_rubric_rl.md',
+  },
+  {
+    id: '2606.03131',
+    title: 'HARVE: Hacking-Aware Reward-Head Vector Editing for Robust Reward Models',
+    shortTitle: 'HARVE',
+    date: 'Jun 2026',
+    stance: 'supports',
+    cluster: 'alignment',
+    coreArgument:
+      'Reward hacking is a multidimensional residual-space structure recoverable via vector editing: HARVE improves robustness by +21.1pp over baseline without any gradient updates, with joint editing being super-additive.',
+    keyEvidence: [
+      'RewardHackBench: 1,203 pairs across 13 hacking patterns; C3 Hedge Stripping yields 21.43% gold-preference',
+      'HARVE improves target subcategories by +21.1pp (avg), +13.7pp over fine-tuning baseline',
+      'Joint editing super-additive: +16.67pp vs style-only -0.81pp and category-only +5.32pp',
+      'Mean cosine similarity between hacking and style directions: +0.40; transfers to RM-Bench +2.4pp',
+    ],
+    keyQuotes: [
+      'Reward hacking is better captured as a multidimensional residual-space structure than by isolated surface cues.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/370_harve_reward_head_editing.md',
+  },
+  {
+    id: '2606.06223',
+    title: 'From Reward-Hack Activations to Agentic Risk States',
+    shortTitle: 'Agentic Risk States',
+    date: 'Jun 2026',
+    stance: 'supports',
+    cluster: 'alignment',
+    coreArgument:
+      'Reward-hack fine-tuning transfers into agentic action selection but behavior is non-monotonic: mixed adapters show strongest exploit behavior while context-calibrated monitoring outperforms activation-only.',
+    keyEvidence: [
+      'Mix50 exploit-action rate 0.450 vs fully-hacked endpoint 0.019 — non-monotonic transfer',
+      'Activation-only AUPRC gain: +0.020 vs internal+context: +0.164 for bad_action prediction',
+      'Steering reduces proxy score by 2.0-2.2 in Mix10/Mix50 regimes',
+      'Entropy-only features (+0.102) outperform activation-only (+0.020) for broad risk estimation',
+    ],
+    keyQuotes: [
+      'A reward-hack-like internal state may remain behaviorally silent if no proxy action is available, but become risky when the environment exposes a gameable affordance.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/371_reward_hack_activations_agentic_risk.md',
+  },
+  {
+    id: '2606.05625',
+    title: 'Self-Commitment Latency: A Reward-Free Probe for Prompted Implicit Hacking',
+    shortTitle: 'Self-Commitment Latency',
+    date: 'Jun 2026',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'Shortcut-anchored reasoning contexts commit to their final answer much earlier than honest contexts, detectable without a reward model: hinted CoTs show median first-commitment at 3.2% vs 72.7% for honest.',
+    keyEvidence: [
+      'First-commitment latency AUROC 0.878 (all), 0.931 (both-correct subset)',
+      'Commitment range AUROC 0.926; mean uncommitted mass AUROC 0.904',
+      'Hinted median first-commit 0.032 vs honest median 0.727 — 23x earlier commitment',
+      'Backtracking mass AUROC 0.520 — essentially random; useful signal is latency, not reversal',
+    ],
+    keyQuotes: [
+      'If the answer is provided as a hint, the model can commit very early; if it is reasoning honestly, commitment may appear only after intermediate quantities are derived.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/372_self_commitment_latency.md',
+  },
+  {
+    id: '2606.04145',
+    title:
+      'EvalStop: Detecting and Correcting Reward Overoptimization in Multi-Tenant RLHF Platforms',
+    shortTitle: 'EvalStop',
+    date: 'Jun 2026',
+    stance: 'balanced',
+    cluster: 'alignment',
+    coreArgument:
+      'Scheduler-level early stopping using world feedback (eval scores) achieves 98% precision and 1.5% FPR for detecting reward overoptimization, while training loss is insufficient as it drops monotonically even during hacking.',
+    keyEvidence: [
+      'EvalStop precision 98.3%, recall 99.3%, FPR 1.5% on RLHF-heavy workloads',
+      'StopAt-0.65 trivial baseline: precision 57.1%, FPR 64.5% — destroys healthy runs',
+      'LossPlateau detector: recall only 38.3% — loss plateau cannot distinguish hacking from convergence',
+      'Composes across 4 base schedulers with 9-25% JCT improvement and ~22% wasted compute reduction',
+    ],
+    keyQuotes: [
+      'Training loss decreases monotonically throughout training. A loss-aware scheduler would interpret this as the job is making good progress.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/373_evalstop_reward_overoptimization.md',
+  },
 ];

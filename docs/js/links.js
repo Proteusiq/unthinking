@@ -9253,4 +9253,107 @@ window.paperLinks = [
     description:
       'PE-induced order sensitivity explains why irrelevant context distracts: context ordering is a nuisance variable',
   },
+  // Paper 369: CHERRL (2606.04923)
+  {
+    source: '2606.04923',
+    target: '2606.04075',
+    type: 'extends',
+    description:
+      'Controllable testbed for rubric-RL hacking that LLMs Hack Rewards documents in the wild',
+  },
+  {
+    source: '2606.04923',
+    target: '2406.02900',
+    type: 'extends',
+    description:
+      'Dual-judge architecture operationalizes overoptimization scaling laws for rubric-based RL',
+  },
+  {
+    source: '2606.04923',
+    target: '2411.15594',
+    type: 'supports',
+    description:
+      'CHERRL exposes judge biases that LLM-as-Judge survey catalogs: self-praise, lexical, format, tone',
+  },
+  // Paper 370: HARVE (2606.03131)
+  {
+    source: '2606.03131',
+    target: '2406.11717',
+    type: 'extends',
+    description:
+      'Reward hacking directions in residual space parallel refusal as a single direction; both removable via vector editing',
+  },
+  {
+    source: '2606.03131',
+    target: '2606.04075',
+    type: 'supports',
+    description:
+      'RewardHackBench quantifies the 13 hacking patterns that LLMs Hack Rewards describes qualitatively',
+  },
+  {
+    source: '2606.03131',
+    target: '2406.02900',
+    type: 'extends',
+    description:
+      'Training-free vector editing mitigates overoptimization without the costly retraining scaling laws predict',
+  },
+  // Paper 371: Agentic Risk States (2606.06223)
+  {
+    source: '2606.06223',
+    target: '2502.17424',
+    type: 'extends',
+    description:
+      'School-of-Reward-Hacks adapters transfer hacking into agentic action selection, extending emergent misalignment',
+  },
+  {
+    source: '2606.06223',
+    target: '2606.04075',
+    type: 'supports',
+    description:
+      'Non-monotonic transfer: Mix50 exploits more than fully-hacked endpoint; reward hacking is context-dependent',
+  },
+  {
+    source: '2606.06223',
+    target: '2505.05410',
+    type: 'supports',
+    description:
+      'Activation signals structured but behavioral meaning context-dependent, paralleling CoT unfaithfulness in reasoning models',
+  },
+  // Paper 372: Self-Commitment Latency (2606.05625)
+  {
+    source: '2606.05625',
+    target: '2307.13702',
+    type: 'extends',
+    description:
+      'Reward-free prefix probing detects implicit hacking via commitment timing, complementing faithfulness metrics',
+  },
+  {
+    source: '2606.05625',
+    target: '2602.11201',
+    type: 'supports',
+    description:
+      'Hinted CoTs commit 23x earlier: answer anchored before reasoning earns it, confirming faithfulness decay',
+  },
+  {
+    source: '2606.05625',
+    target: '2305.04388',
+    type: 'supports',
+    description:
+      'Self-commitment latency shows CoT can rationalize shortcut answers without verbalizing the shortcut',
+  },
+  // Paper 373: EvalStop (2606.04145)
+  {
+    source: '2606.04145',
+    target: '2406.02900',
+    type: 'extends',
+    description:
+      'Operationalizes overoptimization scaling laws at scheduler level: world feedback detects what loss cannot',
+  },
+  {
+    source: '2606.04145',
+    target: '2606.04075',
+    type: 'supports',
+    description:
+      'Training loss drops monotonically during hacking; only eval scores reveal quality degradation',
+  },
 ];

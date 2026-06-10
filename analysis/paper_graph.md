@@ -2050,6 +2050,48 @@ Three companion papers from the same research group providing interlocking theor
 - 2507.11768 (#368) --supports--> 2512.02914 (Martingale Score #315): extends martingale diagnostic framework
 - 2507.11768 (#368) --supports--> 2602.02219 (Position Bias #286): PE creates position bias in LLM judges
 
+### Reward Hacking Cluster (Issue #93 follow-up)
+
+Five papers studying reward hacking in LLM RL — from controlled reproduction to detection to mitigation.
+
+```
+┌────────────────────┐     provides testbed     ┌────────────────────┐
+│  CHERRL            │ ────────────────────────>│  HARVE             │
+│  (2606.04923)      │                          │  (2606.03131)      │
+│  #369              │                          │  #370              │
+│  Dual-judge onset  │                          │  Reward-head edit  │
+└────────────────────┘                          └────────────────────┘
+       │                                                 │
+       │ hacking dynamics                                │ vector directions
+       ▼                                                 ▼
+┌────────────────────┐                          ┌────────────────────┐
+│  Agentic Risk      │                          │  Self-Commitment   │
+│  States            │                          │  Latency           │
+│  (2606.06223)      │                          │  (2606.05625)      │
+│  #371              │                          │  #372              │
+│  Transfer to       │                          │  Reward-free CoT   │
+│  agents            │                          │  hacking probe     │
+└────────────────────┘                          └────────────────────┘
+                    \                          /
+                     \    ┌────────────────┐  /
+                      └──>│  EvalStop      │<┘
+                          │  (2606.04145)  │
+                          │  #373          │
+                          │  Scheduler-    │
+                          │  level detect  │
+                          └────────────────┘
+```
+
+### Direct Relationships
+- 2606.04923 (#369) --extends--> 2406.02900 (#359): dual-judge architecture operationalizes overoptimization scaling laws
+- 2606.04923 (#369) --supports--> 2606.04075 (#360): controlled testbed for hacking that LLMs Hack Rewards documents in the wild
+- 2606.03131 (#370) --extends--> 2406.11717 (#316): reward hacking directions in residual space parallel refusal direction
+- 2606.03131 (#370) --supports--> 2606.04075 (#360): RewardHackBench quantifies 13 hacking patterns
+- 2606.06223 (#371) --extends--> 2502.17424 (#325): School-of-Reward-Hacks adapters transfer hacking into agentic action
+- 2606.05625 (#372) --extends--> 2307.13702 (#8): reward-free prefix probing complements faithfulness metrics
+- 2606.05625 (#372) --supports--> 2602.11201 (#247): hinted CoTs commit 23x earlier, confirming faithfulness decay
+- 2606.04145 (#373) --extends--> 2406.02900 (#359): operationalizes overoptimization scaling laws at scheduler level
+
 ### 2026-01-24
 | Papers Added | Key Findings |
 |--------------|--------------|
