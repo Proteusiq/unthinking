@@ -99,7 +99,7 @@ Where E is the set of semantic classes and Acc(m,e) is accuracy for model m on c
 ## Relationship to Other Papers
 
 ### Supports
-- **GSM-Symbolic (2410.05229)**: Both show semantics affect "reasoning" — GSM-Symbolic showed irrelevant info causes drops; WhatCounts shows semantic CLASS affects atomic operations
+- **GSM-Symbolic (2410.05229)**: Both show semantics affect "reasoning" - GSM-Symbolic showed irrelevant info causes drops; WhatCounts shows semantic CLASS affects atomic operations
 - **Content Effects on Reasoning (2207.07051)**: PNAS Nexus paper showed human-like content effects; WhatCounts provides atomic test case
 - **Faith and Fate (2305.18654)**: WhatCounts provides evidence for "pattern matching, not algorithms" at the most atomic level
 
@@ -119,9 +119,9 @@ Where E is the set of semantic classes and Acc(m,e) is accuracy for model m on c
 - No direct rebuttals found yet (paper is very recent, Jan 2026)
 
 ### Potential Counter-Arguments
-1. **"Counting is not representative"**: Could argue counting is special; but authors argue it's the SIMPLEST primitive — if counting fails, anything can
+1. **"Counting is not representative"**: Could argue counting is special; but authors argue it's the SIMPLEST primitive - if counting fails, anything can
 2. **"Models can be fixed"**: Training on counting should help; but paper shows unrelated fine-tuning shifts biases unpredictably
-3. **"Tools solve it"**: Paper directly tests this — agentic setup with Python still shows semantic gap
+3. **"Tools solve it"**: Paper directly tests this - agentic setup with Python still shows semantic gap
 
 ### Limitations (Authors Acknowledge)
 - Limited to six semantic classes
@@ -156,9 +156,9 @@ Where E is the set of semantic classes and Acc(m,e) is accuracy for model m on c
 
 1. **Atomic test case**: Counting is arguably the SIMPLEST algorithmic primitive. If LLMs can't implement counting invariantly, they can't implement ANY algorithm reliably.
 
-2. **Controlled evidence**: Unlike multi-step reasoning tests, WhatCounts isolates ONLY semantic invariance — no confounds from tokenization, reasoning complexity, or ambiguity.
+2. **Controlled evidence**: Unlike multi-step reasoning tests, WhatCounts isolates ONLY semantic invariance - no confounds from tokenization, reasoning complexity, or ambiguity.
 
-3. **Scaling WORSENS the problem**: Better models have LARGER semantic gaps — directly contradicts the hope that scaling solves reasoning.
+3. **Scaling WORSENS the problem**: Better models have LARGER semantic gaps - directly contradicts the hope that scaling solves reasoning.
 
 4. **Training doesn't fix it**: Fine-tuning shifts biases unpredictably rather than eliminating them.
 

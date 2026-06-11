@@ -14,10 +14,10 @@
 ## Core Claims
 
 1. **"Reasoning cliff" is experimental artifact, not fundamental limit**
-2. **Models fail at execution, not reasoning** — restrictive interface confounds results
-3. **Agentic tools reverse the collapse** — models solve problems "far beyond the reasoning cliff"
-4. **Missing cognitive baselines** — no comparison to humans under same constraints
-5. **Hierarchy of agentic reasoning exists** — from procedural execution to meta-cognitive self-correction
+2. **Models fail at execution, not reasoning** - restrictive interface confounds results
+3. **Agentic tools reverse the collapse** - models solve problems "far beyond the reasoning cliff"
+4. **Missing cognitive baselines** - no comparison to humans under same constraints
+5. **Hierarchy of agentic reasoning exists** - from procedural execution to meta-cognitive self-correction
 
 ---
 
@@ -80,12 +80,12 @@ Even accepting the rebuttal, important questions remain:
 ## Relationship to Other Papers
 
 ### Supports
-- **Thinking Isn't an Illusion** (Song et al.) — Same tool augmentation argument
-- **Lawsen Comment** — Same methodological critique of "Illusion"
+- **Thinking Isn't an Illusion** (Song et al.) - Same tool augmentation argument
+- **Lawsen Comment** - Same methodological critique of "Illusion"
 
 ### Challenged By
-- **On the Limits of Innate Planning** — Even with move validator, models fail
-- **Semantic Deception** — Reasoning models fail on simple tasks regardless of tools
+- **On the Limits of Innate Planning** - Even with move validator, models fail
+- **Semantic Deception** - Reasoning models fail on simple tasks regardless of tools
 
 ### Extends
 - Provides theoretical framework ("agentic gap") for tool augmentation findings
@@ -178,8 +178,8 @@ As of search date, no published rebuttal to this comment paper exists.
 - [x] Evidence documented
 - [x] Thesis relevance assessed
 - [x] Cross-references identified
-- [x] **Rebuttals checked** — Counter-rebutted by Limits of Innate Planning, challenged by Rethinking Illusion of Thinking
-- [x] **Counter-evidence noted** — Limits of Innate Planning, Semantic Deception, Rethinking (2507.01231)
+- [x] **Rebuttals checked** - Counter-rebutted by Limits of Innate Planning, challenged by Rethinking Illusion of Thinking
+- [x] **Counter-evidence noted** - Limits of Innate Planning, Semantic Deception, Rethinking (2507.01231)
 
 ---
 

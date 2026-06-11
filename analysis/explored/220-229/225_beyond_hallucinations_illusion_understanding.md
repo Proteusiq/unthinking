@@ -14,7 +14,7 @@
 1. LLMs inherit the **ambiguity, bias, and lack of direct access to truth** inherent in language itself
 2. LLM outputs are generated through **statistical prediction rather than grounded reasoning**
 3. LLMs operationalize **System 1 cognition at scale**: fast, associative, persuasive, but without reflection or falsification
-4. The "illusion of understanding" is more dangerous than hallucination — users mistake fluency for comprehension
+4. The "illusion of understanding" is more dangerous than hallucination - users mistake fluency for comprehension
 5. Alignment should be reframed as **cognitive governance**: AI intuition must remain governed by human reason
 
 ---
@@ -25,7 +25,7 @@ The paper introduces a conceptual framework for diagnosing cognitive and epistem
 
 ### Dimension 1: Map vs. Territory
 - Distinguishes **representations of reality** (epistemology) from **reality itself** (ontology)
-- LLMs operate entirely in the "map" — they have no access to the territory
+- LLMs operate entirely in the "map" - they have no access to the territory
 - Failure mode: Confusing the model's representation with actual knowledge
 
 ### Dimension 2: Intuition vs. Reason
@@ -36,7 +36,7 @@ The paper introduces a conceptual framework for diagnosing cognitive and epistem
 
 ### Dimension 3: Conflict vs. Confirmation
 - Examines whether ideas are **critically tested** (through disagreement) or **reinforced** (through validation)
-- LLMs are trained to be helpful and agreeable — they confirm rather than challenge
+- LLMs are trained to be helpful and agreeable - they confirm rather than challenge
 - Failure mode: Echo chambers and intellectual complacency
 
 ---
@@ -57,7 +57,7 @@ This is a **theoretical/conceptual paper**, not an empirical study. It:
 
 1. **Building on Hinton's observation**: "AI mirrors human intuition rather than reasoning"
 2. **Statistical generation**: Outputs are "fluent, emotionally resonant, and coherent" but lack factual grounding
-3. **Hallucination as symptom**: The deeper problem is the "illusion of understanding" — convincing outputs that users mistake for actual knowledge
+3. **Hallucination as symptom**: The deeper problem is the "illusion of understanding" - convincing outputs that users mistake for actual knowledge
 
 ### Framework Contribution
 The Rose-Frame provides a structured way to identify failure modes:
@@ -73,10 +73,10 @@ The Rose-Frame provides a structured way to identify failure modes:
 
 This paper provides **theoretical grounding** for the thesis that LLMs are pattern matchers, not reasoning engines:
 
-1. **System 1 at scale**: Explicitly frames LLMs as operationalizing fast, associative cognition — not deliberate reasoning
+1. **System 1 at scale**: Explicitly frames LLMs as operationalizing fast, associative cognition - not deliberate reasoning
 2. **Statistical prediction, not grounded reasoning**: Directly supports the claim that LLMs predict probable tokens rather than "think"
 3. **Map vs. Territory**: LLMs have no access to truth, only to representations of language about truth
-4. **Confirmation bias**: LLMs are trained to agree, not to challenge — they reinforce rather than test beliefs
+4. **Confirmation bias**: LLMs are trained to agree, not to challenge - they reinforce rather than test beliefs
 
 ### Key Insight for Thesis
 > "LLMs operationalize System 1 cognition at scale: fast, associative, and persuasive, but without reflection or falsification."
@@ -84,7 +84,7 @@ This paper provides **theoretical grounding** for the thesis that LLMs are patte
 This framing is extremely useful: it positions LLMs not as "reasoning engines that sometimes fail" but as "intuition engines that fundamentally cannot reason."
 
 ### The "Illusion" Framing
-The paper argues that **hallucination is not the core problem** — the core problem is that users mistake fluency for understanding. This aligns with the thesis: the danger is not just that LLMs make errors, but that their confident, coherent outputs create an illusion of comprehension.
+The paper argues that **hallucination is not the core problem** - the core problem is that users mistake fluency for understanding. This aligns with the thesis: the danger is not just that LLMs make errors, but that their confident, coherent outputs create an illusion of comprehension.
 
 ---
 
@@ -110,7 +110,7 @@ The paper argues that **hallucination is not the core problem** — the core pro
 
 ### Potential Counter-Arguments
 
-1. **Lack of empirical evidence**: The paper is purely theoretical — no experiments or quantitative data
+1. **Lack of empirical evidence**: The paper is purely theoretical - no experiments or quantitative data
 2. **System 2 capabilities emerging**: Some argue that chain-of-thought and reasoning models show System 2-like behavior
 3. **Framework may be too abstract**: Difficult to operationalize for practical AI deployment
 
@@ -125,7 +125,7 @@ The paper argues that **hallucination is not the core problem** — the core pro
 
 1. The paper explicitly positions itself as a reflective/diagnostic tool, not a fix
 2. The System 1/System 2 analogy is illustrative, not definitional
-3. The value is in **framing** — providing language to discuss LLM limitations
+3. The value is in **framing** - providing language to discuss LLM limitations
 
 ---
 
@@ -161,7 +161,7 @@ Because it's a theoretical paper without quantitative evidence, it should be use
 - [x] Read abstract (full HTML unavailable, PDF binary)
 - [x] Core claims extracted
 - [x] Framework documented
-- [ ] Key evidence with numbers (N/A — theoretical paper)
+- [ ] Key evidence with numbers (N/A - theoretical paper)
 - [x] Cross-references identified
 - [x] Rebuttals checked
 - [ ] Paper graph updated

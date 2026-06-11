@@ -15,7 +15,7 @@
 
 2. **RL is far more parameter-efficient than SFT**: Reinforcement learning (GRPO) achieves strong performance with 100-1000x fewer parameters than supervised fine-tuning. At 13 parameters, RL reaches 91% while SFT reaches only 83%. SFT needs at least 1M parameters to work well.
 
-3. **Information-theoretic explanation**: SFT must absorb many bits of information (entire demonstrations), only a fraction of which are task-relevant. RL receives sparse, clean signals (binary reward: k bits per prompt), allowing the signal to be cleanly separated from noise. "Resampling amplifies this separation—the correlated signal accumulates while uncorrelated variation cancels."
+3. **Information-theoretic explanation**: SFT must absorb many bits of information (entire demonstrations), only a fraction of which are task-relevant. RL receives sparse, clean signals (binary reward: k bits per prompt), allowing the signal to be cleanly separated from noise. "Resampling amplifies this separation-the correlated signal accumulates while uncorrelated variation cancels."
 
 4. **Larger models need smaller updates**: As model size increases, even smaller parameter updates achieve near-full-finetuning performance. Qwen2.5-7B needs ~120 params to reach 95% of peak; Qwen2.5-3B needs ~500. "Extremely large (trillion-scale) models may be easily trainable for many tasks with just a handful of parameters."
 
@@ -29,7 +29,7 @@
 
 ### The Linear Algebra Behind TinyLoRA
 
-The key insight comes from **singular value decomposition (SVD)**. Take the original weight matrix **W** and decompose it: `W = UΣV^T`. SVD reveals the "principal directions" — the dimensions that carry the most information.
+The key insight comes from **singular value decomposition (SVD)**. Take the original weight matrix **W** and decompose it: `W = UΣV^T`. SVD reveals the "principal directions" - the dimensions that carry the most information.
 
 **LoRA-XS** (the predecessor):
 - Freezes U, Σ, V (the SVD components of W)
@@ -41,15 +41,15 @@ The key insight comes from **singular value decomposition (SVD)**. Take the orig
 - Projects v through fixed random tensors P to form R: `R = Σᵢ vᵢ · Pᵢ`
 - With weight tying across all modules, the entire model's adaptation is just u parameters (minimum: 1)
 
-**Why this works**: The discovery is that not much capacity is needed. If 13 parameters suffice to improve reasoning performance, the capability was already encoded in the base model's weights. SVD reveals that useful updates lie in an extremely low-dimensional subspace — what the authors call "intrinsic dimensionality."
+**Why this works**: The discovery is that not much capacity is needed. If 13 parameters suffice to improve reasoning performance, the capability was already encoded in the base model's weights. SVD reveals that useful updates lie in an extremely low-dimensional subspace - what the authors call "intrinsic dimensionality."
 
 ### Information-Theoretic Explanation (Section 3)
 
 Why is RL 100-1000× more parameter-efficient than SFT?
 
-- **SFT** must absorb entire demonstrations — many bits of information, most irrelevant to the task. The model cannot distinguish which features are task-relevant.
-- **RL** receives only sparse binary rewards (correct/incorrect) — k bits per prompt, cleanly separated from noise.
-- "Resampling amplifies this separation — the correlated signal accumulates while uncorrelated variation cancels."
+- **SFT** must absorb entire demonstrations - many bits of information, most irrelevant to the task. The model cannot distinguish which features are task-relevant.
+- **RL** receives only sparse binary rewards (correct/incorrect) - k bits per prompt, cleanly separated from noise.
+- "Resampling amplifies this separation - the correlated signal accumulates while uncorrelated variation cancels."
 
 ### Experimental Setup
 - **Models**: Qwen2.5 family (3B, 7B), LLaMA-3 (8B)
@@ -112,7 +112,7 @@ This paper provides strong evidence that "learning to reason" via RL is fundamen
 
 3. **RL as surface adjustment**: RL's parameter efficiency implies it makes shallow, stylistic changes (output length, format) rather than deep algorithmic changes.
 
-4. **Connects to Superficial Alignment**: This finding parallels the Superficial Alignment Hypothesis — alignment (and by extension, "reasoning" training) may primarily modify surface behavior, not underlying capabilities.
+4. **Connects to Superficial Alignment**: This finding parallels the Superficial Alignment Hypothesis - alignment (and by extension, "reasoning" training) may primarily modify surface behavior, not underlying capabilities.
 
 ### Key Quote Supporting Thesis
 > "One might ask how it's possible to learn to solve a difficult task such as GSM8K in as few as 13 parameters. One theory is that the knowledge required to solve the task is already stored in the parameters of the model, and only the style has to change for task success."
@@ -132,7 +132,7 @@ This paper provides strong evidence that "learning to reason" via RL is fundamen
 - **Intrinsic Dimensionality (2012.13255)**: This paper empirically validates that reasoning tasks lie on an extremely low-dimensional manifold
 
 ### Potentially Challenges
-- Claims of emergent reasoning abilities: If "reasoning" can be unlocked with 13 parameters, the capability was always present — it's not "emergent" from RL training
+- Claims of emergent reasoning abilities: If "reasoning" can be unlocked with 13 parameters, the capability was always present - it's not "emergent" from RL training
 
 ---
 
@@ -179,11 +179,11 @@ This paper provides strong evidence that "learning to reason" via RL is fundamen
 
 This paper is highly significant for the thesis that LLMs are sophisticated pattern matchers rather than genuine reasoners:
 
-1. **Quantifies the "surface" of reasoning training**: If 13 parameters suffice, the "reasoning" improvement is extremely shallow — likely just output formatting and length, not algorithmic capability.
+1. **Quantifies the "surface" of reasoning training**: If 13 parameters suffice, the "reasoning" improvement is extremely shallow - likely just output formatting and length, not algorithmic capability.
 
 2. **RL as capability amplifier, not creator**: The dramatic difference between RL and SFT parameter efficiency suggests RL merely exposes existing capabilities (consistent with base models already "knowing" how to reason).
 
-3. **Scaling implications**: The trend that larger models need smaller updates suggests the capability is increasingly "baked in" during pretraining — RL just unlocks access.
+3. **Scaling implications**: The trend that larger models need smaller updates suggests the capability is increasingly "baked in" during pretraining - RL just unlocks access.
 
 4. **Contamination signal**: The Qwen/LLaMA efficiency gap may indicate benchmark contamination is a confound in "reasoning" evaluations.
 

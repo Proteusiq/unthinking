@@ -100,18 +100,18 @@ Compared to normal training:
 
 This paper provides **direct evidence** that:
 
-1. **Knowledge is distributed in weights, not deletable**: The fact that quantization recovers "forgotten" knowledge proves the knowledge was never truly removed—it was merely hidden by small perturbations that quantization erases
+1. **Knowledge is distributed in weights, not deletable**: The fact that quantization recovers "forgotten" knowledge proves the knowledge was never truly removed-it was merely hidden by small perturbations that quantization erases
 
-2. **Unlearning is impossible without destroying utility**: The fundamental tension they identify—you cannot both preserve utility AND ensure knowledge doesn't recover—supports the thesis that LLM knowledge is fundamentally entangled
+2. **Unlearning is impossible without destroying utility**: The fundamental tension they identify-you cannot both preserve utility AND ensure knowledge doesn't recover-supports the thesis that LLM knowledge is fundamentally entangled
 
 3. **Safety alignment is shallow**: If "unlearning" harmful content can be undone by simple quantization (a standard deployment practice), then safety mechanisms are not robust
 
-4. **LLMs are statistical pattern matchers**: The knowledge isn't stored in discrete, deletable locations—it's distributed across millions of parameters in ways that make surgical removal impossible
+4. **LLMs are statistical pattern matchers**: The knowledge isn't stored in discrete, deletable locations-it's distributed across millions of parameters in ways that make surgical removal impossible
 
 ### Key Insight for Thesis
 > "To achieve unlearning without compromising model utility, existing methods typically adopt a small learning rate and regularization on the retain set, encouraging minimal changes to model weights during unlearning."
 
-This reveals that "unlearning" is just **adding a thin layer of noise** that changes the probability distribution slightly—not actually removing knowledge.
+This reveals that "unlearning" is just **adding a thin layer of noise** that changes the probability distribution slightly-not actually removing knowledge.
 
 ---
 
@@ -151,7 +151,7 @@ The mathematical explanation aligns with the thesis: when weights θ_target and 
 3. Could combine with other defense mechanisms
 
 ### Why Counter-Arguments Are Weak
-The fundamental insight—that utility-preserving unlearning requires minimal weight changes, which quantization erases—appears to be a mathematical inevitability, not a fixable bug.
+The fundamental insight-that utility-preserving unlearning requires minimal weight changes, which quantization erases-appears to be a mathematical inevitability, not a fixable bug.
 
 ---
 
@@ -176,7 +176,7 @@ This paper is **smoking gun evidence** for the thesis that LLMs cannot truly "fo
 3. **The 21% → 83% jump**: Proves that "unlearning" is cosmetic, not substantive
 4. **No stable solution exists**: Even the authors' proposed fix is unstable
 
-The paper's mathematical framework explains WHY: the knowledge isn't stored in discrete, deletable units—it's distributed across the entire parameter space in a way that makes surgical removal impossible without destroying the model.
+The paper's mathematical framework explains WHY: the knowledge isn't stored in discrete, deletable units-it's distributed across the entire parameter space in a way that makes surgical removal impossible without destroying the model.
 
 ---
 

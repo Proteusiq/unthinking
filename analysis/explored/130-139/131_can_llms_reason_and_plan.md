@@ -14,9 +14,9 @@
 
 1. **LLMs are "n-gram models on steroids"**: Trained to predict token distributions, not to reason. GPT-3.5 is essentially a "3001-gram model of language."
 
-2. **LLMs do "universal approximate retrieval," not reasoning**: They probabilistically reconstruct completions word by word — this is retrieval, not inference/search.
+2. **LLMs do "universal approximate retrieval," not reasoning**: They probabilistically reconstruct completions word by word - this is retrieval, not inference/search.
 
-3. **Obfuscation destroys LLM "planning"**: When action/object names are obfuscated, GPT-4's planning performance "plummets precipitously" — proving it's pattern matching, not reasoning.
+3. **Obfuscation destroys LLM "planning"**: When action/object names are obfuscated, GPT-4's planning performance "plummets precipitously" - proving it's pattern matching, not reasoning.
 
 4. **Self-verification makes things WORSE**: LLMs hallucinate both false positives and false negatives when verifying their own solutions.
 
@@ -49,7 +49,7 @@
 | **Obfuscated names** | **Plummets precipitously** |
 | Off-the-shelf AI planners (obfuscated) | No trouble |
 
-**Key insight**: Standard AI planners don't care about names — they work on structure. LLMs fail on obfuscation because they're pattern matching on names, not reasoning about structure.
+**Key insight**: Standard AI planners don't care about names - they work on structure. LLMs fail on obfuscation because they're pattern matching on names, not reasoning about structure.
 
 ### Self-Verification Studies
 
@@ -89,7 +89,7 @@ This is exactly the **surfacing hypothesis**: Fine-tuning/RL surfaces memorized 
 
 > "The boon ('creativity') and bane ('hallucination') of LLMs is that n-gram models will naturally mix and match–and have almost as much trouble strictly memorizing as we do."
 
-LLMs can't even guarantee memorization — they approximate. This makes them unreliable for reasoning tasks that require exactness.
+LLMs can't even guarantee memorization - they approximate. This makes them unreliable for reasoning tasks that require exactness.
 
 ---
 
@@ -169,9 +169,9 @@ This paper is **foundational** for the thesis. Kambhampati articulates the core 
 
 ### Limitations
 
-1. Focus on planning/reasoning — may not apply to all tasks
-2. Written before o1/reasoning models — doesn't address extended thinking directly
-3. Theoretical argument — relies on empirical work from his lab
+1. Focus on planning/reasoning - may not apply to all tasks
+2. Written before o1/reasoning models - doesn't address extended thinking directly
+3. Theoretical argument - relies on empirical work from his lab
 
 ---
 

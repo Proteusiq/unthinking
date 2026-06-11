@@ -81,7 +81,7 @@ Key insight: **Difficulty + Diversity + Quality together matter**. Random select
 1. **SFT unlocks, doesn't create**: 
    - Base Qwen-32B: 26.7% AIME24
    - After 1K sample SFT: 50.0% AIME24
-   - The capability was "latent" — 1K samples couldn't teach all of AIME-level math
+   - The capability was "latent" - 1K samples couldn't teach all of AIME-level math
 
 2. **Budget forcing reveals hidden reasoning**:
    - Model tries to stop → forced to continue → self-corrects
@@ -120,7 +120,7 @@ This is strong evidence for:
 - **Interplay** (2512.07783): CONTROLLED proof that RL surfaces pre-existing capability
 
 ### Confirmed By
-- **Interplay** (2512.07783): 0% exposure = fail; ≥1% = success — surfacing hypothesis proven
+- **Interplay** (2512.07783): 0% exposure = fail; ≥1% = success - surfacing hypothesis proven
 - **Emergent Hierarchical Reasoning** (2509.03646): "RL rediscovers pre-training priors"
 - **How LLMs Learn to Reason** (2509.23629): RL "weaves" existing skill islands, doesn't create new
 
@@ -130,7 +130,7 @@ This is strong evidence for:
 
 ### Limited By
 - **OMEGA** (2506.18880): Even with RL, 0% transformative generalization; surfacing has limits
-- **Planning Gap** (2601.14456): 82.9% ID → 0% OOD — surfacing doesn't help OOD
+- **Planning Gap** (2601.14456): 82.9% ID → 0% OOD - surfacing doesn't help OOD
 - **Illusions of Reflection** (2510.18254): Test-time compute doesn't guarantee improvement
 - **No Free Lunch** (2506.17219): RLIF eventually degrades reasoning
 
@@ -230,4 +230,4 @@ s1 provides **critical evidence** for the "surfacing" hypothesis:
 3. **Still distribution-bounded** (needs diverse training data)
 4. **Eventually saturates** (can't extrapolate indefinitely)
 
-This directly supports the thesis that LLMs possess **latent reasoning patterns** from pretraining that are **practical but predictive** — they can be surfaced and applied within distribution but cannot extrapolate to genuinely novel problems.
+This directly supports the thesis that LLMs possess **latent reasoning patterns** from pretraining that are **practical but predictive** - they can be surfaced and applied within distribution but cannot extrapolate to genuinely novel problems.

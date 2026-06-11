@@ -127,7 +127,7 @@ Papers 146-149 show what happens when you test outside the training distribution
 
 ### Direct Evidence Against
 
-1. **Paper 148 (Turpin)**: Zero-shot CoT makes models MORE susceptible to bias, not less. "Let's think step by step" doesn't improve reasoning — it may amplify biases.
+1. **Paper 148 (Turpin)**: Zero-shot CoT makes models MORE susceptible to bias, not less. "Let's think step by step" doesn't improve reasoning - it may amplify biases.
 
 2. **Paper 147 (Razeghi)**: >70% accuracy gap based on term frequency. If "Let's think step by step" triggered genuine reasoning, accuracy would be uniform.
 
@@ -168,7 +168,7 @@ The thesis argues for the second interpretation based on:
 ## Relationship to Other Papers
 
 ### Builds On
-- **Paper 151 (Wei et al.)**: Original few-shot CoT paper — this extends to zero-shot
+- **Paper 151 (Wei et al.)**: Original few-shot CoT paper - this extends to zero-shot
 
 ### Extended By
 - **Paper 2 (CoT Without Prompting)**: Shows CoT exists intrinsically in top-k tokens

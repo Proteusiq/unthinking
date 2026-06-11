@@ -13,7 +13,7 @@
 
 ## Core Claims
 
-1. **Bag of heuristics**: LLMs perform arithmetic using neither robust algorithms nor memorization — they rely on a "bag of heuristics"
+1. **Bag of heuristics**: LLMs perform arithmetic using neither robust algorithms nor memorization - they rely on a "bag of heuristics"
 
 2. **Sparse neuron mechanism**: A sparse set of MLP neurons (~200 per layer) implement simple pattern-matching heuristics that combine to produce correct answers
 
@@ -21,7 +21,7 @@
 
 4. **Mechanism emerges early**: The bag of heuristics appears from early training and is reinforced over time, not replacing other mechanisms
 
-5. **Brittleness**: The mechanism doesn't generalize perfectly — failures stem from poor promotion of correct answer logits, not lack of heuristics
+5. **Brittleness**: The mechanism doesn't generalize perfectly - failures stem from poor promotion of correct answer logits, not lack of heuristics
 
 ---
 
@@ -43,10 +43,10 @@
 ### Analysis Pipeline
 1. **Circuit discovery** via activation patching
 2. **Linear probing** for answer extraction layers
-3. **Neuron decomposition** — analyze top-200 neurons per layer
-4. **Heuristic classification** — categorize activation patterns
-5. **Ablation experiments** — knockout by heuristic type
-6. **Training dynamics** — track emergence across checkpoints
+3. **Neuron decomposition** - analyze top-200 neurons per layer
+4. **Heuristic classification** - categorize activation patterns
+5. **Ablation experiments** - knockout by heuristic type
+6. **Training dynamics** - track emergence across checkpoints
 
 ---
 
@@ -139,7 +139,7 @@ This explains why scaling doesn't fix fundamental reasoning limits.
 
 ### Strongly Supports
 - **Paper F0 (Faith and Fate)**: "Linearized subgraph matching" = bag of heuristics at a different level
-- **Paper 1 (GSM-Symbolic)**: Explains WHY perturbations cause failures — heuristics are pattern-specific
+- **Paper 1 (GSM-Symbolic)**: Explains WHY perturbations cause failures - heuristics are pattern-specific
 - **Paper 147 (Term Frequencies)**: Frequency-based patterns are a type of heuristic
 - **Paper 157 (Token Bias)**: Token bias = heuristic-like pattern matching
 
@@ -149,8 +149,8 @@ This explains why scaling doesn't fix fundamental reasoning limits.
 - **Paper 158 (Recursive Problems)**: "Shortcut algorithms" = bag of heuristics
 
 ### Extends
-- **Geva et al. (2021)**: MLP as key-value memory — extends to arithmetic domain
-- **Stolfo et al. (2023)**: Prior circuit discovery — adds neuron-level mechanism
+- **Geva et al. (2021)**: MLP as key-value memory - extends to arithmetic domain
+- **Stolfo et al. (2023)**: Prior circuit discovery - adds neuron-level mechanism
 
 ---
 
@@ -160,7 +160,7 @@ This explains why scaling doesn't fix fundamental reasoning limits.
 
 1. **Tokenization limitation**: Authors acknowledge results may differ with single-digit tokenization
 
-2. **Simple arithmetic only**: Tested only on basic operations with small numbers — complex math may differ
+2. **Simple arithmetic only**: Tested only on basic operations with small numbers - complex math may differ
 
 3. **Human bias in heuristic definitions**: Authors acknowledge imposing human abstractions
 
@@ -225,7 +225,7 @@ This explains why scaling doesn't fix fundamental reasoning limits.
 |-----------|------------|
 | **Stance** | Strongly Supports |
 | **Confidence** | Very High |
-| **Relevance** | Very High — mechanistic evidence for pattern matching |
+| **Relevance** | Very High - mechanistic evidence for pattern matching |
 | **Evidence Type** | Empirical (mechanistic interpretability) |
 | **Venue Quality** | arXiv preprint (Technion) |
 
@@ -233,4 +233,4 @@ This explains why scaling doesn't fix fundamental reasoning limits.
 
 ## One-Sentence Summary
 
-LLMs perform arithmetic through a "bag of heuristics" — sparse neurons that fire for specific numerical patterns and combine to produce answers, rather than implementing generalizable algorithms or pure memorization.
+LLMs perform arithmetic through a "bag of heuristics" - sparse neurons that fire for specific numerical patterns and combine to produce answers, rather than implementing generalizable algorithms or pure memorization.

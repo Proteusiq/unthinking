@@ -14,7 +14,7 @@
 
 1. LLMs process arithmetic by **conveying operand/operator information** from early layers to the final token via attention
 2. **Late MLP modules** (layers 19-20 in GPT-J) produce result-related information
-3. The information flow is **specific to arithmetic** — different circuits for arithmetic vs. factual knowledge vs. number retrieval
+3. The information flow is **specific to arithmetic** - different circuits for arithmetic vs. factual knowledge vs. number retrieval
 4. Fine-tuning **induces emergence** of the mid-late MLP activation site for more complex queries
 5. Only **9-10% neuron overlap** between arithmetic and factual knowledge circuits (same as random chance)
 
@@ -70,7 +70,7 @@ Three primary activation sites identified:
 | Late MLPs (last token, L19-20) | **HIGH** | **LOW** | **Results** |
 | Late MLPs (last token, L14-18) | MEDIUM | HIGH | Operands |
 
-**Interpretation**: When results are kept the same (r = r'), the late MLPs (L19-20) show dramatically reduced effect — they specifically encode the **result**, not operands.
+**Interpretation**: When results are kept the same (r = r'), the late MLPs (L19-20) show dramatically reduced effect - they specifically encode the **result**, not operands.
 
 ### Neuron Overlap Analysis (Layer 19)
 | Task Pair | Top-400 Neuron Overlap |
@@ -102,7 +102,7 @@ Three primary activation sites identified:
 
 ### Does This Challenge the Pattern Matching Thesis?
 
-**Classification**: BALANCED — shows mechanistic structure but doesn't prove reasoning
+**Classification**: BALANCED - shows mechanistic structure but doesn't prove reasoning
 
 ### What This Paper Actually Shows
 
@@ -131,7 +131,7 @@ Three primary activation sites identified:
 
 This paper is **compatible with Embers findings**:
 - GPT-J only 67.8% accurate on basic arithmetic (1-300)
-- Division is worst (40.8%) — the least common operation in training data
+- Division is worst (40.8%) - the least common operation in training data
 - LLaMA 7B at ~100% could reflect more arithmetic in training data
 - **Frequency in training → better circuits** is pattern matching, not reasoning
 
@@ -141,7 +141,7 @@ This paper is **compatible with Embers findings**:
 
 2. **No algorithmic generalization test**: Would these circuits work for numbers outside training distribution?
 
-3. **The "computation" interpretation is inference**: Finding that layer 19 MLPs encode results doesn't mean they're computing — they could be retrieving.
+3. **The "computation" interpretation is inference**: Finding that layer 19 MLPs encode results doesn't mean they're computing - they could be retrieving.
 
 4. **Fine-tuning creates circuits**: The 3-operand experiment shows circuits emerge from training, suggesting they're learned associations, not innate computational capacity.
 
@@ -159,7 +159,7 @@ This paper is **compatible with Embers findings**:
 
 ### Supports Pattern Matching View
 - **Embers of Autoregression**: Frequency-performance correlation explains why division is worst
-- **Razeghi et al. 2022**: Pretraining term frequencies affect numerical reasoning — cited by authors
+- **Razeghi et al. 2022**: Pretraining term frequencies affect numerical reasoning - cited by authors
 
 ---
 
@@ -168,7 +168,7 @@ This paper is **compatible with Embers findings**:
 ### The "Computation vs Retrieval" Problem
 1. Simple arithmetic in range 1-300 is likely heavily represented in training
 2. Finding circuits doesn't distinguish computation from memorized lookup
-3. Division being worst (40.8%) suggests retrieval — division is less common in training
+3. Division being worst (40.8%) suggests retrieval - division is less common in training
 
 ### The Probing Fallacy Applies
 1. Causal mediation shows information FLOW, not computation
@@ -205,7 +205,7 @@ This paper is **compatible with Embers findings**:
 **Classification**: BALANCED
 
 **Reasoning**:
-1. Shows LLMs have localized circuits for arithmetic — interesting mechanistic finding
+1. Shows LLMs have localized circuits for arithmetic - interesting mechanistic finding
 2. But doesn't distinguish computation from sophisticated retrieval
 3. The small number range (1-300) is likely memorized
 4. Division being worst (40.8%) supports frequency-based pattern matching

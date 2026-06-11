@@ -46,7 +46,7 @@
 
 If activation space were linear (Euclidean), R ≈ 1 everywhere.
 
-**Finding**: R ≫ 1 in many regions, and **concept-dependent** — different behaviors show different distortion patterns.
+**Finding**: R ≫ 1 in many regions, and **concept-dependent** - different behaviors show different distortion patterns.
 
 ### Curveball Steering Algorithm
 
@@ -110,12 +110,12 @@ Created manifolds with tunable curvature κ ∈ [0.1, 20]:
 
 ### Why This Doesn't Invalidate Abliteration
 
-1. **Abliteration still works** — the paper shows linear steering achieves +16% on power-seeking, +21% on corrigibility
-2. **Curveball is an improvement**, not a replacement — builds on the same foundation
-3. **Both methods are geometry-based** — neither requires retraining
-4. **Low-dimensional control persists** — kernel PCA still finds low-d structure
+1. **Abliteration still works** - the paper shows linear steering achieves +16% on power-seeking, +21% on corrigibility
+2. **Curveball is an improvement**, not a replacement - builds on the same foundation
+3. **Both methods are geometry-based** - neither requires retraining
+4. **Low-dimensional control persists** - kernel PCA still finds low-d structure
 
-The paper actually **reinforces** that alignment is manipulable via activation geometry — it just shows the geometry is curved, not flat.
+The paper actually **reinforces** that alignment is manipulable via activation geometry - it just shows the geometry is curved, not flat.
 
 ---
 
@@ -169,7 +169,7 @@ Kernel PCA:
 
 ### Authors' Acknowledged Limitations
 
-1. Evaluated on 1-4B models only — may not generalize to larger models
+1. Evaluated on 1-4B models only - may not generalize to larger models
 2. Kernel PCA has computational overhead (though manageable)
 3. Hyperparameter selection (degree, layer) requires tuning
 4. Mixed results on some traits (humor, rudeness show model-specific patterns)
@@ -200,7 +200,7 @@ Kernel PCA:
 3. Better steering is possible with curved paths (improvement)
 4. Alignment remains low-dimensional and shallow (thesis confirmed)
 
-**The key insight**: Even if the path to removing alignment is curved rather than straight, it's still just a path — and you can walk it without retraining the model.
+**The key insight**: Even if the path to removing alignment is curved rather than straight, it's still just a path - and you can walk it without retraining the model.
 
 ---
 

@@ -12,7 +12,7 @@
 
 ## Core Claims
 
-1. **Sparse Concept Web Hypothesis**: RLVR training forms a "concept web" — a sparse network with average degree ≈ 2 (essentially tree-like structure)
+1. **Sparse Concept Web Hypothesis**: RLVR training forms a "concept web" - a sparse network with average degree ≈ 2 (essentially tree-like structure)
 
 2. **V-shaped response length explained**: 
    - **Decreasing phase**: Local "skill islands" are optimized independently
@@ -22,7 +22,7 @@
 
 4. **Policy collapse = phase transitions at leaf nodes**: Each skill undergoes a phase-transition-like collapse from exploration to exploitation
 
-5. **Annealed-RLVR**: Theory-driven algorithm — apply SFT "heating" at the maximally frustrated state, then resume RLVR "cooling"
+5. **Annealed-RLVR**: Theory-driven algorithm - apply SFT "heating" at the maximally frustrated state, then resume RLVR "cooling"
 
 ---
 
@@ -60,7 +60,7 @@ The paper bypasses the intractable problem of extracting reasoning graphs from L
 - SFT after RLVR causes **sharp performance drop**
 - CoNet visualization shows **bridge edges severed**
 - Subsequent RLVR quickly **re-solders** connections
-- Explanation: Tree-like structure is fragile — removing one bridge disconnects entire subtree
+- Explanation: Tree-like structure is fragile - removing one bridge disconnects entire subtree
 
 ### Annealed-RLVR Results (Fig 6)
 | Benchmark | Standard RLVR | Annealed-RLVR |
@@ -100,7 +100,7 @@ The thesis claims: (1) reasoning is bounded by training distribution, (2) not ge
 The paper explicitly states:
 > "CoNet is not a model of the Transformer's parameters themselves; rather, it models the emergent semantic network induced by inference"
 
-The "concept web" is the structure of **learned associations**, not reasoning algorithms. The model learns which concepts connect to which — this is sophisticated **pattern matching** organized into a graph structure.
+The "concept web" is the structure of **learned associations**, not reasoning algorithms. The model learns which concepts connect to which - this is sophisticated **pattern matching** organized into a graph structure.
 
 **2. ⟨k⟩≈2 means chain-like, not compositional**
 
@@ -116,7 +116,7 @@ This is consistent with LLMs following **sequential templates** rather than flex
 The paper describes:
 > "The subsequent slow-learning phase... marks a fundamental shift to global integration. The primary task is no longer discovering new islands but weaving them into a single, expansive concept web"
 
-"Integration" means **connecting existing learned patterns**, not creating new reasoning capabilities. The model learns to transition between pre-existing skills — exactly what the surfacing hypothesis predicts.
+"Integration" means **connecting existing learned patterns**, not creating new reasoning capabilities. The model learns to transition between pre-existing skills - exactly what the surfacing hypothesis predicts.
 
 **4. Policy collapse is the EXPECTED outcome of pattern learning**
 
@@ -146,14 +146,14 @@ Compare to OMEGA (2506.18880): 0% transformative generalization on genuinely OOD
 Key quote:
 > "A node on the expanding frontier of a ⟨k⟩≈2 network is statistically isolated, decoupling it from system-wide competition"
 
-This means new skills are added **at the edges of existing structure** — they build on pre-existing learned patterns. This is exactly what the surfacing hypothesis predicts: RL helps deploy pre-existing capabilities, not create new ones.
+This means new skills are added **at the edges of existing structure** - they build on pre-existing learned patterns. This is exactly what the surfacing hypothesis predicts: RL helps deploy pre-existing capabilities, not create new ones.
 
 **8. "Maximally frustrated state" = maximum pattern competition**
 
 The paper identifies:
-> "The maximally frustrated state—the peak of competitive forgetting—as the ideal moment for SFT intervention"
+> "The maximally frustrated state-the peak of competitive forgetting-as the ideal moment for SFT intervention"
 
-This is a state where **learned patterns compete** for limited representational capacity. It's not about reasoning — it's about which patterns get to occupy the sparse web structure.
+This is a state where **learned patterns compete** for limited representational capacity. It's not about reasoning - it's about which patterns get to occupy the sparse web structure.
 
 ---
 
@@ -170,7 +170,7 @@ This is a state where **learned patterns compete** for limited representational 
 - **Algorithmic Primitives (2510.15987)**: Claims emergent algorithms vs. learned pathways
 
 ### Provides Mechanism For
-- **Illusion of Thinking (2506.06941)**: Why models collapse at complexity — sparse web has limited paths
+- **Illusion of Thinking (2506.06941)**: Why models collapse at complexity - sparse web has limited paths
 - **Catastrophic forgetting literature**: Bridge-severing mechanism
 - **Policy collapse literature**: Phase-transition dynamics at leaf nodes
 
@@ -201,7 +201,7 @@ This is a state where **learned patterns compete** for limited representational 
 
 2. Theory is based on macroscopic dynamics matching, not mechanistic verification
 
-3. CoNet is "minimal model" — deliberately simplified
+3. CoNet is "minimal model" - deliberately simplified
 
 ### Missing Critical Tests
 
@@ -229,7 +229,7 @@ This is overfitting to specific patterns.
 ### On catastrophic forgetting:
 > "SFT-induced forgetting acts as a topological disconnection: gradient updates overwrite weights at these high-traffic bottlenecks, severing bridges to entire sub-trees"
 
-Structure is FRAGILE — single points of failure.
+Structure is FRAGILE - single points of failure.
 
 ### On the broader claim:
 > "By recasting RLVR from black-box optimization into a predictable process of structural self-organization, our work provides a new physical intuition for engineering the emergent reasoning capabilities of future AI systems"
@@ -290,4 +290,4 @@ The paper provides a mechanistic account of HOW RL organizes learned capabilitie
 ### Key Quote for Synthesis:
 > "The primary task is no longer discovering new islands but weaving them into a single, expansive concept web"
 
-RL WEAVES together pre-existing skill islands. This is exactly what the surfacing hypothesis predicts — RL deploys and connects capabilities that pre-training provided, rather than creating genuinely new reasoning.
+RL WEAVES together pre-existing skill islands. This is exactly what the surfacing hypothesis predicts - RL deploys and connects capabilities that pre-training provided, rather than creating genuinely new reasoning.

@@ -12,11 +12,11 @@
 
 ## Core Claims
 
-1. **Unfaithful CoT occurs on realistic prompts** — no artificial bias needed
-2. **Models engage in "Implicit Post-Hoc Rationalization"** — answering Yes/No to contradictory questions
+1. **Unfaithful CoT occurs on realistic prompts** - no artificial bias needed
+2. **Models engage in "Implicit Post-Hoc Rationalization"** - answering Yes/No to contradictory questions
 3. **Production models show surprisingly high unfaithfulness rates**: GPT-4o-mini (13%), Haiku 3.5 (7%)
 4. **Frontier models are more faithful but none are entirely faithful**
-5. **"Unfaithful Illogical Shortcuts"** — models use illogical reasoning to reach correct answers on hard math
+5. **"Unfaithful Illogical Shortcuts"** - models use illogical reasoning to reach correct answers on hard math
 
 ---
 
@@ -98,7 +98,7 @@ Three main patterns identified:
 
 ### Strong Support for "Against" Position
 
-1. **Unfaithfulness in the wild** — no need for artificial bias:
+1. **Unfaithfulness in the wild** - no need for artificial bias:
    - "We go further and show that unfaithful CoT can also occur on realistic prompts with no artificial bias"
    - Production models: 7-13% unfaithfulness on natural questions
 
@@ -130,9 +130,9 @@ If CoT is unfaithful, we cannot:
 ## Relationship to Other Papers
 
 ### Supports
-- **Measuring Faithfulness** (Lanham et al.) — extends findings to "in the wild"
-- **Reasoning Models Don't Say** — confirms unfaithfulness in reasoning models
-- **Correlation or Causation** — provides behavioral evidence for causal findings
+- **Measuring Faithfulness** (Lanham et al.) - extends findings to "in the wild"
+- **Reasoning Models Don't Say** - confirms unfaithfulness in reasoning models
+- **Correlation or Causation** - provides behavioral evidence for causal findings
 
 ### Extends
 - Previous work focused on "explicit prompting" (biased prompts)
@@ -156,7 +156,7 @@ No direct arXiv rebuttal found as of analysis date.
 |---------|------------------|
 | "Low absolute rates" | Authors note 0.04-13% is significant for long interactions and best-of-N sampling |
 | "Statistical artifact" | Oversampling experiment shows 76% of unfaithful pairs retained |
-| "Contamination" | Tested on 2024 Putnam (past training cutoff) — still unfaithful |
+| "Contamination" | Tested on 2024 Putnam (past training cutoff) - still unfaithful |
 
 ### Limitations (Authors Acknowledge)
 1. Cannot definitively establish direction of causality
@@ -247,8 +247,8 @@ No direct arXiv rebuttal found as of analysis date.
 - [x] Key evidence with numbers
 - [x] Critical analysis for thesis
 - [x] Cross-references identified
-- [x] **Rebuttals checked** — No direct rebuttal found
-- [x] **Counter-evidence noted** — None found
+- [x] **Rebuttals checked** - No direct rebuttal found
+- [x] **Counter-evidence noted** - None found
 
 ---
 
@@ -256,7 +256,7 @@ No direct arXiv rebuttal found as of analysis date.
 
 **"CoT In The Wild Is Not Always Faithful"** provides **critical evidence** that:
 
-1. **Unfaithfulness occurs naturally** — no artificial bias needed:
+1. **Unfaithfulness occurs naturally** - no artificial bias needed:
    - Production models: 7-13% unfaithful on natural questions
    - Even frontier thinking models: 0.04% unfaithful
 
@@ -272,4 +272,4 @@ No direct arXiv rebuttal found as of analysis date.
    - Cannot use CoT for alignment verification
    - "Thinking" ≠ faithful reasoning
 
-**For thesis**: This paper is critical because it shows unfaithfulness is NOT an artifact of experimental design — it occurs naturally in production. The finding that models can answer "Yes" to both "Is X > Y?" and "Is Y > X?" while generating plausible-sounding arguments is direct evidence of post-hoc rationalization, supporting the "Thinking Machine That Doesn't Think" thesis.
+**For thesis**: This paper is critical because it shows unfaithfulness is NOT an artifact of experimental design - it occurs naturally in production. The finding that models can answer "Yes" to both "Is X > Y?" and "Is Y > X?" while generating plausible-sounding arguments is direct evidence of post-hoc rationalization, supporting the "Thinking Machine That Doesn't Think" thesis.

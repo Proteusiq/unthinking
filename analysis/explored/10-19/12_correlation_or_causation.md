@@ -12,10 +12,10 @@
 
 ## Core Claims
 
-1. **LLMs lack robust causal underpinnings** — they rely on superficial correlations rather than genuine understanding
-2. **RLVR-trained LRMs exhibit enhanced causal reasoning** — align more closely with ideal causal structures
-3. **Distilled LRMs fail to address causality deficiencies** — similar to base LLMs
-4. **RLVR reduces spurious correlations** — strengthens genuine causal patterns
+1. **LLMs lack robust causal underpinnings** - they rely on superficial correlations rather than genuine understanding
+2. **RLVR-trained LRMs exhibit enhanced causal reasoning** - align more closely with ideal causal structures
+3. **Distilled LRMs fail to address causality deficiencies** - similar to base LLMs
+4. **RLVR reduces spurious correlations** - strengthens genuine causal patterns
 5. **Four SCM types identified**: Causal Chain (ideal), Common Cause (explaining), Full Connection (mixed), Isolation (memorizing)
 
 ---
@@ -25,10 +25,10 @@
 ### Structural Causal Model (SCM) Framework
 
 **Variables analyzed**:
-- Z (Instruction) — problem/task description
-- T (Thinking) — implicit CoT for LRMs only
-- X (CoT) — explicit reasoning steps
-- Y (Answer) — final output
+- Z (Instruction) - problem/task description
+- T (Thinking) - implicit CoT for LRMs only
+- X (CoT) - explicit reasoning steps
+- Y (Answer) - final output
 
 **Treatment experiments**: Intervene on one variable, observe effect on Y
 - **Random CoT intervention**: Replace CoT with randomized reasoning
@@ -48,7 +48,7 @@
 
 ## Key Evidence
 
-### Finding 1: LLMs vs LRMs — SCM Distribution
+### Finding 1: LLMs vs LRMs - SCM Distribution
 
 | Model Type | SCM-I (Ideal) | SCM-II | SCM-III | SCM-IV |
 |------------|---------------|--------|---------|--------|
@@ -118,13 +118,13 @@ During RLVR training:
 ## Relationship to Other Papers
 
 ### Supports
-- **Measuring Faithfulness** — CoT unfaithfulness confirmed via causal analysis
-- **Faith and Fate** — Pattern matching vs reasoning distinction validated
-- **Don't Always Say** — Post-hoc rationalization explanation supported
+- **Measuring Faithfulness** - CoT unfaithfulness confirmed via causal analysis
+- **Faith and Fate** - Pattern matching vs reasoning distinction validated
+- **Don't Always Say** - Post-hoc rationalization explanation supported
 
 ### Extends
-- **DeepSeek-R1** — Explains WHY RLVR improves: reduces spurious correlations
-- **s1** — Explains WHY training matters: causal structure improvement
+- **DeepSeek-R1** - Explains WHY RLVR improves: reduces spurious correlations
+- **s1** - Explains WHY training matters: causal structure improvement
 
 ### Qualified By
 - This paper shows RLVR helps causality, but doesn't prove "genuine reasoning"
@@ -142,7 +142,7 @@ No direct arXiv rebuttal found as of analysis date.
 | Counter | Response |
 |---------|----------|
 | "SCM analysis is limited" | Limited to four variables; may miss complexity |
-| "Causal chain ≠ genuine reasoning" | True — pattern matching can still form causal chains within distribution |
+| "Causal chain ≠ genuine reasoning" | True - pattern matching can still form causal chains within distribution |
 | "Only tests specific tasks" | Math and logic tasks may not generalize |
 
 ### Limitations (Authors Acknowledge)
@@ -162,7 +162,7 @@ No direct arXiv rebuttal found as of analysis date.
 │  ┌─────────────────────────────────────────────────────────────────────┐    │
 │  │ LLMs: Only 30% ideal causal structure                               │    │
 │  │ LRMs (RLVR): 63% ideal causal structure                            │    │
-│  │ LRMs (Distill): Similar to LLMs — distillation doesn't help        │    │
+│  │ LRMs (Distill): Similar to LLMs - distillation doesn't help        │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
 │                                                                             │
 │  SCM TYPES:                                                                 │
@@ -177,7 +177,7 @@ No direct arXiv rebuttal found as of analysis date.
 │  THESIS IMPLICATION:                                                        │
 │  ┌─────────────────────────────────────────────────────────────────────┐    │
 │  │ • LLM CoT is often post-hoc explanation (Type II), not reasoning   │    │
-│  │ • Distillation doesn't fix this — still "correlation not causation"│    │
+│  │ • Distillation doesn't fix this - still "correlation not causation"│    │
 │  │ • RLVR improves but doesn't perfect causal reasoning               │    │
 │  │ • Even "causal" reasoning may be pattern matching within dist.     │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
@@ -198,7 +198,7 @@ No direct arXiv rebuttal found as of analysis date.
 
 2. **Explains why distillation ≠ genuine reasoning**:
    - Distilled models inherit causal deficiencies
-   - "Correlation or causation" — distillation captures correlation
+   - "Correlation or causation" - distillation captures correlation
 
 3. **Nuanced view on RLVR**:
    - RLVR improves causal structure
@@ -225,8 +225,8 @@ No direct arXiv rebuttal found as of analysis date.
 - [x] Key evidence with numbers
 - [x] Critical analysis for thesis
 - [x] Cross-references identified
-- [x] **Rebuttals checked** — No direct rebuttal found
-- [x] **Counter-evidence noted** — None found
+- [x] **Rebuttals checked** - No direct rebuttal found
+- [x] **Counter-evidence noted** - None found
 
 ---
 
@@ -253,4 +253,4 @@ No direct arXiv rebuttal found as of analysis date.
    - Mixed (Type III): Z→Y, X→Y
    - Memorizing (Type IV): Neither affects Y
 
-**For thesis**: This paper provides the causal framework to explain WHY CoT is often unfaithful — it's correlation, not causation. LLMs often generate explanations for pre-existing beliefs rather than derive answers through reasoning. RLVR helps but doesn't prove genuine understanding.
+**For thesis**: This paper provides the causal framework to explain WHY CoT is often unfaithful - it's correlation, not causation. LLMs often generate explanations for pre-existing beliefs rather than derive answers through reasoning. RLVR helps but doesn't prove genuine understanding.

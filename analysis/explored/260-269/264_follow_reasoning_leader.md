@@ -27,7 +27,7 @@ This paper systematically analyzes **token-level misalignment** between reasonin
 │             HIGH ─────────────────────> LOW                         │
 │                                                                     │
 │  Misalignment CONCENTRATES at sentence start ("thinking cues")      │
-│  then RAPIDLY DECLINES — rest of sentence matches weaker model      │
+│  then RAPIDLY DECLINES - rest of sentence matches weaker model      │
 │                                                                     │
 │  IMPLICATION: Reasoning is front-loaded STYLE, not distributed      │
 │               COMPUTATION throughout the response                   │
@@ -40,7 +40,7 @@ This paper systematically analyzes **token-level misalignment** between reasonin
 ### 1. Global Misalignment Rebound
 - Unlike instruction models (where misalignment decreases with context length)
 - LRMs show **persistent or growing** divergence from non-reasoning models
-- Misalignment doesn't diminish with longer responses — it rebounds
+- Misalignment doesn't diminish with longer responses - it rebounds
 - Interpretation: Reasoning patterns are NOT superficial like instruction-following
 
 ### 2. Local Misalignment Diminish
@@ -67,7 +67,7 @@ This paper systematically analyzes **token-level misalignment** between reasonin
 │  - Weaker model can complete sentences with 86-100% accuracy        │
 │                                                                     │
 │  CONCLUSION: LRMs add "thinking cues" that trigger pattern          │
-│  completion — the actual content is already in weaker models        │
+│  completion - the actual content is already in weaker models        │
 │                                                                     │
 └─────────────────────────────────────────────────────────────────────┘
 ```
@@ -148,15 +148,15 @@ The instruction-tuning finding is particularly damning: base model performs iden
 
 ### This Paper Rebuts
 
-- **"LRMs do deep reasoning"**: No — they add style tokens, weaker model completes
-- **"Reasoning requires full LRM generation"**: No — first 15 tokens per sentence suffice
-- **"Instruction tuning helps reasoning"**: No — base model works identically
+- **"LRMs do deep reasoning"**: No - they add style tokens, weaker model completes
+- **"Reasoning requires full LRM generation"**: No - first 15 tokens per sentence suffice
+- **"Instruction tuning helps reasoning"**: No - base model works identically
 
 ### Potential Counter-Arguments
 
-1. **"Maybe thinking cues ARE the reasoning"** — But then why can weaker model complete correctly? The content was already there.
+1. **"Maybe thinking cues ARE the reasoning"** - But then why can weaker model complete correctly? The content was already there.
 
-2. **"This is just speculative decoding"** — No, the key insight is WHERE misalignment occurs (sentence starts) and WHAT it is (style tokens).
+2. **"This is just speculative decoding"** - No, the key insight is WHERE misalignment occurs (sentence starts) and WHAT it is (style tokens).
 
 ## Impact Assessment
 

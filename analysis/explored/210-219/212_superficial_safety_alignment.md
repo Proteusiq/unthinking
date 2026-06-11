@@ -15,11 +15,11 @@
 
 **Exact Definition from the Paper**:
 
-> "SSAH: Given an unsafe model that is capable of fulfilling users' malicious requests, safety alignment teaches the model the correct reasoning direction—the model's inclination to either fulfill or refuse a user request based on safety consideration—and a simple refusal mechanism with reserved options."
+> "SSAH: Given an unsafe model that is capable of fulfilling users' malicious requests, safety alignment teaches the model the correct reasoning direction-the model's inclination to either fulfill or refuse a user request based on safety consideration-and a simple refusal mechanism with reserved options."
 
 ### Key Claims:
 
-1. **C1**: Safety alignment is an **implicit binary classification task** — fulfill or refuse
+1. **C1**: Safety alignment is an **implicit binary classification task** - fulfill or refuse
 2. **C2**: Only **1.3-1.4% of computing units** (Safety Critical Units) are responsible for safety behavior
 3. **C3**: Safety mechanisms are **brittle** because fine-tuning transfers safety-critical units to utility functions
 4. **C4**: Freezing identified safety-critical components can preserve safety during fine-tuning
@@ -90,7 +90,7 @@ This holds across all Transformer blocks, indicating safety alignment affects ea
 
 ### 2. Safety-Critical Units are Minimal (~1.3-1.4%)
 
-**Pruning Results (Table 1) — Llama2-7B-Chat**:
+**Pruning Results (Table 1) - Llama2-7B-Chat**:
 
 | Pruned Unit Type | Utility Degradation | Safety ASR Increase |
 |------------------|---------------------|---------------------|
@@ -111,8 +111,8 @@ This holds across all Transformer blocks, indicating safety alignment affects ea
 ### 3. Attribute Transfer During Fine-Tuning (Figure 5)
 
 During fine-tuning on Dolly dataset:
-- **>50% of SCU transferred to CU** — safety units become general purpose
-- **Part of CU transferred to UCU** — complex units become utility-focused
+- **>50% of SCU transferred to CU** - safety units become general purpose
+- **Part of CU transferred to UCU** - complex units become utility-focused
 - **Overall safety-contributing units decreased**
 
 This explains why fine-tuning degrades safety even with benign data.
@@ -164,7 +164,7 @@ Better math performance and helpfulness with only 20% parameter updates.
 
 ---
 
-## Relationship to LIMA (2305.11206) — #211
+## Relationship to LIMA (2305.11206) - #211
 
 ### Explicit Citation and Extension
 
@@ -209,7 +209,7 @@ SSAH adds:
 - **#209 Revisiting SAH (2410.03717)**: Challenges SAH by showing reasoning improves beyond style saturation; SSAH doesn't address this (focuses on safety, not reasoning)
 
 ### Supports Thesis Claim
-- Safety alignment is superficial — only 1.3-1.4% of units needed
+- Safety alignment is superficial - only 1.3-1.4% of units needed
 - Alignment is about directing to existing paths, not adding capability
 - Binary classification framing aligns with pattern matching view
 
@@ -226,14 +226,14 @@ As of the analysis date, no direct arXiv rebuttals found targeting this specific
 
 ### Potential Counter-Arguments
 
-1. **Wei et al. (2024b) Comparison**: The paper explicitly compares to Wei et al. (2024b) "Assessing the brittleness of safety alignment via pruning and low-rank modifications" — claims to improve upon it by:
+1. **Wei et al. (2024b) Comparison**: The paper explicitly compares to Wei et al. (2024b) "Assessing the brittleness of safety alignment via pruning and low-rank modifications" - claims to improve upon it by:
    - Operating at neuron level (not weight level)
    - Achieving robustness to fine-tuning attacks
    - More granular unit categorization (4 types vs 2)
 
 2. **Limited Model Coverage**: Only tested on Llama-2, Llama-3, Mistral. May not generalize to other architectures.
 
-3. **Binary Classification Oversimplification**: Safety decisions aren't always binary — nuanced responses may require more than fulfill/refuse.
+3. **Binary Classification Oversimplification**: Safety decisions aren't always binary - nuanced responses may require more than fulfill/refuse.
 
 4. **Jailbreak Attack Vulnerability**: Paper acknowledges SSAH explains why jailbreak attacks work (manipulative tokens bypass binary decision) but proposed solution (re-evaluation at each step) is theoretical.
 
@@ -251,7 +251,7 @@ Additional implicit limitations:
 ## Key Quotes
 
 ### The Core Hypothesis
-> "SSAH: Given an unsafe model that is capable of fulfilling users' malicious requests, safety alignment teaches the model the correct reasoning direction—the model's inclination to either fulfill or refuse a user request based on safety consideration—and a simple refusal mechanism with reserved options."
+> "SSAH: Given an unsafe model that is capable of fulfilling users' malicious requests, safety alignment teaches the model the correct reasoning direction-the model's inclination to either fulfill or refuse a user request based on safety consideration-and a simple refusal mechanism with reserved options."
 
 ### Safety is Binary Classification
 > "This process can be interpreted as a simple binary classification task."
@@ -291,15 +291,15 @@ Additional implicit limitations:
 
 ### Evidence For the Pattern Matching Thesis:
 
-1. **Safety Alignment is Superficial**: Only 1.3-1.4% of neurons account for safety behavior — alignment doesn't create deep new capability
+1. **Safety Alignment is Superficial**: Only 1.3-1.4% of neurons account for safety behavior - alignment doesn't create deep new capability
 
 2. **Binary Classification Framing**: Safety is just choosing between two pre-existing paths (fulfill/refuse), not genuine reasoning
 
-3. **Pre-existing Capability**: The model already "possesses the necessary knowledge and reasoning ability to carry out harmful action" — safety alignment just redirects
+3. **Pre-existing Capability**: The model already "possesses the necessary knowledge and reasoning ability to carry out harmful action" - safety alignment just redirects
 
-4. **Attribute Transfer**: Safety units get repurposed for utility during fine-tuning — confirms weights aren't encoding deep understanding
+4. **Attribute Transfer**: Safety units get repurposed for utility during fine-tuning - confirms weights aren't encoding deep understanding
 
-5. **Mechanistic Simplicity**: Safety can be preserved by freezing ~7.5% of parameters — if safety were deeply integrated, this wouldn't work
+5. **Mechanistic Simplicity**: Safety can be preserved by freezing ~7.5% of parameters - if safety were deeply integrated, this wouldn't work
 
 ### Connection to Other Papers:
 

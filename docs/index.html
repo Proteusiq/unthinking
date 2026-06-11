@@ -468,7 +468,7 @@
           frame.src = '';
         }, 300);
       }
-      // Panel footer buttons — open links in new tab
+      // Panel footer buttons - open links in new tab
       document.querySelector('.arxiv-link').addEventListener('click', function () {
         if (this.dataset.href) window.open(this.dataset.href, '_blank');
       });
@@ -476,7 +476,7 @@
         if (this.dataset.href) window.open(this.dataset.href, '_blank');
       });
 
-      // Thesis footer buttons — open overlay pages
+      // Thesis footer buttons - open overlay pages
       document.querySelectorAll('.thesis-link[data-overlay]').forEach(function (btn) {
         btn.addEventListener('click', function () {
           openOverlay(this.dataset.overlay);

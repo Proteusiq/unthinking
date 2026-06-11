@@ -118,7 +118,7 @@ MLP probes (1 hidden layer) on prompt representations
 
 ## Significance for Thesis
 
-The paper shows LLMs encode global response attributes—but this may be **sophisticated pattern completion** rather than "reasoning." Models learn statistical regularities about how responses unfold given prompts, not explicit planning algorithms.
+The paper shows LLMs encode global response attributes-but this may be **sophisticated pattern completion** rather than "reasoning." Models learn statistical regularities about how responses unfold given prompts, not explicit planning algorithms.
 
 ```
 Training Objective:    Next token prediction only

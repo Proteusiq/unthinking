@@ -11,7 +11,7 @@
 ## Core Claims
 
 1. **Encoding ≠ Deployment**: LLMs can encode novel semantics from context into latent representations, but they CANNOT reliably deploy these representations to complete downstream tasks
-2. **Representations are "inert"**: In-context learned representations are largely inert — they exist but are not causally used for task completion
+2. **Representations are "inert"**: In-context learned representations are largely inert - they exist but are not causally used for task completion
 3. **Even SOTA reasoning models fail**: Closed-source, state-of-the-art reasoning models (GPT-5, Gemini-2.5) cannot reliably leverage novel patterns presented in-context
 4. **Adaptive World Modeling fails**: Novel task shows models struggle to use in-context topology for downstream few-shot learning
 
@@ -99,13 +99,13 @@ Open-weights models across all topologies and rules:
 
 This paper is a **smoking gun** for the thesis:
 
-1. **Encoding ≠ Understanding**: LLMs can statistically encode patterns in hidden states, but cannot flexibly USE them. This is exactly what pattern matchers do — they recognize patterns but don't understand them.
+1. **Encoding ≠ Understanding**: LLMs can statistically encode patterns in hidden states, but cannot flexibly USE them. This is exactly what pattern matchers do - they recognize patterns but don't understand them.
 
-2. **"Inert" representations**: The term "inert" perfectly captures the pattern-matching nature. Representations exist but don't participate causally in reasoning — they're just statistical artifacts.
+2. **"Inert" representations**: The term "inert" perfectly captures the pattern-matching nature. Representations exist but don't participate causally in reasoning - they're just statistical artifacts.
 
 3. **No flexible deployment**: True reasoning would allow taking a learned concept and applying it in new contexts. LLMs cannot do this even with the concept encoded in their hidden states.
 
-4. **SOTA reasoning models fail too**: Even GPT-5 and Gemini-2.5 with extended reasoning chains cannot reliably leverage in-context semantics — this is not a scale problem.
+4. **SOTA reasoning models fail too**: Even GPT-5 and Gemini-2.5 with extended reasoning chains cannot reliably leverage in-context semantics - this is not a scale problem.
 
 ### Key Quote
 > "We find evidence that open-weights LLMs struggle to deploy representations of novel semantics that are defined in-context, **even if they encode these semantics in their latent representations**."

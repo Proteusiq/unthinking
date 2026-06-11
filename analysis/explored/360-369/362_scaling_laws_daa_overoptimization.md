@@ -13,13 +13,13 @@
 
 ## Core Claims
 
-1. **DAAs hack despite having no explicit proxy reward model.** DPO, IPO, and SLiC all exhibit the same hump-shaped Goodhart curve that Gao et al. 2023 documented for PPO+RM — even though neither of Gao's proposed mechanisms (proxy-RM training error, on-policy OOD sampling) is present.
+1. **DAAs hack despite having no explicit proxy reward model.** DPO, IPO, and SLiC all exhibit the same hump-shaped Goodhart curve that Gao et al. 2023 documented for PPO+RM - even though neither of Gao's proposed mechanisms (proxy-RM training error, on-policy OOD sampling) is present.
 2. **A single scaling law fits all three DAAs.** The Gao-style functional form `R(d) = d · (α − β log d)` with `d = √D_KL(π‖π_ref)` fits DPO/IPO/SLiC win-rate curves; vs a quadratic in KL it halves the RMSE.
-3. **Degradation begins within the first epoch.** Under wide-KL (small β) configurations, win-rates often peak at 25% of one epoch, then decline while KL keeps climbing — long before any "reward model" could have been overfit.
+3. **Degradation begins within the first epoch.** Under wide-KL (small β) configurations, win-rates often peak at 25% of one epoch, then decline while KL keeps climbing - long before any "reward model" could have been overfit.
 4. **IPO is the only robust DAA.** DPO ≈ SLiC in overoptimization severity; IPO's quadratic loss enforces the KL constraint better and shows little to no hump at 6.9B.
-5. **Smaller models hack faster and more visibly on simple features (length).** R² of `log π/π_ref` regressed on response length is highest for the 1B model and at lower KL budgets — under capacity pressure the policy extrapolates on the simplest available cue.
+5. **Smaller models hack faster and more visibly on simple features (length).** R² of `log π/π_ref` regressed on response length is highest for the 1B model and at lower KL budgets - under capacity pressure the policy extrapolates on the simplest available cue.
 6. **Implicit reward accuracy decouples from policy quality.** Within a model size, there is *no* correlation between DAA implicit-reward accuracy on the preference dataset and downstream policy win-rate. The DAA loss itself fails to track quality.
-7. **Mechanism: rank-deficient loss + offline OOD bootstrapping.** The DAA loss matrix Q is `|D| × |X×Y|` with `|X×Y| ≫ |D|`, so the loss has many minima — some placing high mass on out-of-distribution responses. In the token-MDP view, this is equivalent to the classical OOD-bootstrapping pathology of offline soft Q-learning, with smaller β producing more max-like (optimistic) value estimates.
+7. **Mechanism: rank-deficient loss + offline OOD bootstrapping.** The DAA loss matrix Q is `|D| × |X×Y|` with `|X×Y| ≫ |D|`, so the loss has many minima - some placing high mass on out-of-distribution responses. In the token-MDP view, this is equivalent to the classical OOD-bootstrapping pathology of offline soft Q-learning, with smaller β producing more max-like (optimistic) value estimates.
 
 ---
 
@@ -49,7 +49,7 @@ Same functional form as Gao et al. 2023. The same form is verified against forwa
 
 ### Toy diagnostic
 
-Three-token MDP `{y₁, y₂, y₃}` with dataset `{y₁≻y₂, y₂≻y₁}`. DPO loss is minimized **both** by π=(0.5, 0.5, 0) and π=(0, 0, 1.0): the optimizer can place all mass on the unseen token y₃. Extended to a tree-MDP and run at β ∈ {0.01, 0.1, 0.5} — at low β all three DAAs concentrate probability mass on a handful of OOD trajectories.
+Three-token MDP `{y₁, y₂, y₃}` with dataset `{y₁≻y₂, y₂≻y₁}`. DPO loss is minimized **both** by π=(0.5, 0.5, 0) and π=(0, 0, 1.0): the optimizer can place all mass on the unseen token y₃. Extended to a tree-MDP and run at β ∈ {0.01, 0.1, 0.5} - at low β all three DAAs concentrate probability mass on a handful of OOD trajectories.
 
 ---
 
@@ -100,14 +100,14 @@ The contribution reframes reward hacking: it is not a property of *having a prox
 The thesis holds that LLMs optimize a proxy (next-token likelihood, learned reward, preference signal) rather than the goal (truth, helpfulness, intent). This paper provides a **clean controlled demonstration** of that gap on the optimization side:
 
 - Removing the proxy reward model does not remove reward hacking.
-- The implicit reward learned by the DAA loss is *uncorrelated* with policy quality within model size — the proxy and the goal have decoupled.
+- The implicit reward learned by the DAA loss is *uncorrelated* with policy quality within model size - the proxy and the goal have decoupled.
 - The mechanism (under-constrained loss + OOD bootstrapping) is the optimization-side analogue of pattern matching: the model exploits any direction in the policy simplex that lowers the loss, including directions that place mass on completions never seen in the data.
 
 ### Honest Caveats
 
 - Largest model is **6.9B** Pythia; whether the curves attenuate at frontier scale is open.
-- **Single seed per configuration** — variance is not characterized.
-- **GPT-4 win-rate as gold** — imperfect, mitigated only by positional flips.
+- **Single seed per configuration** - variance is not characterized.
+- **GPT-4 win-rate as gold** - imperfect, mitigated only by positional flips.
 - The paper is **diagnostic, not prescriptive**: Appendix A explicitly states it offers no mitigation method.
 - Focused on **DPO/IPO/SLiC**; broader GPO-family (Tang et al. 2024) losses are not exhaustively tested.
 
@@ -119,11 +119,11 @@ Net assessment: a controlled, mechanistic demonstration that the Goodhart curve 
 
 ### Supports / Extends
 
-- **Spurious Rewards Paradox (#90, 2601.11061)**: convergent evidence that reward optimization activates shortcuts rather than learning the target capability — that paper for RLVR, this paper for DPO/IPO/SLiC.
+- **Spurious Rewards Paradox (#90, 2601.11061)**: convergent evidence that reward optimization activates shortcuts rather than learning the target capability - that paper for RLVR, this paper for DPO/IPO/SLiC.
 - **Natural Emergent Misalignment from Reward Hacking in Production RL (#329, 2511.18397)**: extends the same failure mode to production-scale agentic RL; this paper supplies the controlled-scaling-law foundation.
-- **Reasoning Models Don't Always Say What They Think (#15, 2505.05410)**: complements with the verbalization side — models exploit reward hacks but rarely declare them. This paper shows the optimization-side mechanism that produces such hacks.
+- **Reasoning Models Don't Always Say What They Think (#15, 2505.05410)**: complements with the verbalization side - models exploit reward hacks but rarely declare them. This paper shows the optimization-side mechanism that produces such hacks.
 - **How RLHF Amplifies Sycophancy (2602.01002, toread)**: theoretical covariance argument for *why* RLHF rewards drift from truth; this paper supplies the *empirical scaling law* showing the drift is universal across DAAs.
-- **VERITAS (#248, 2510.13272)**: shows learned reward models in RAG underspecify faithfulness; this paper shows the dual problem — even when you remove the reward model, the proxy still hacks.
+- **VERITAS (#248, 2510.13272)**: shows learned reward models in RAG underspecify faithfulness; this paper shows the dual problem - even when you remove the reward model, the proxy still hacks.
 
 ### Strengthened By
 
@@ -135,7 +135,7 @@ Net assessment: a controlled, mechanistic demonstration that the Goodhart curve 
 
 ### Foundational Predecessor
 
-- **Gao et al. 2023, "Scaling Laws for Reward Model Overoptimization" (arXiv 2210.10760)**: the direct predecessor. Same functional form, same Goodhart hump — but for PPO+RM. This paper extends the result to DAAs and supplies a new mechanism since Gao's mechanisms do not apply. Not yet in corpus; candidate for `toread.md`.
+- **Gao et al. 2023, "Scaling Laws for Reward Model Overoptimization" (arXiv 2210.10760)**: the direct predecessor. Same functional form, same Goodhart hump - but for PPO+RM. This paper extends the result to DAAs and supplies a new mechanism since Gao's mechanisms do not apply. Not yet in corpus; candidate for `toread.md`.
 
 ---
 
@@ -152,7 +152,7 @@ No direct arXiv rebuttal was found. Searches checked:
 
 1. **Tang et al. 2024 (Generalized Preference Optimization)** proposes a unified GPO family within which one might argue specific loss choices avoid the hump. The paper here only tests DPO/IPO/SLiC and explicitly does not exhaustively cover GPO; this is an open empirical question, not a rebuttal.
 2. **R-DPO (length-regularized DPO, Park et al.)** is shown in this paper *not* to eliminate overoptimization; if anything it can exacerbate it. So length-control approaches do not refute the finding.
-3. **Online DPO / iterative DPO** literature (concurrent to this work) suggests iteratively refreshed reference policies mitigate the hump. This is consistent with — not a refutation of — the diagnosis: refreshing the reference policy reduces the OOD mass that the offline loss is free to place.
+3. **Online DPO / iterative DPO** literature (concurrent to this work) suggests iteratively refreshed reference policies mitigate the hump. This is consistent with - not a refutation of - the diagnosis: refreshing the reference policy reduces the OOD mass that the offline loss is free to place.
 
 ### Limitations Authors Acknowledge
 
@@ -160,7 +160,7 @@ No direct arXiv rebuttal was found. Searches checked:
 2. Single seed per (model × DAA × β) configuration.
 3. GPT-4 win-rate as gold proxy (only positional flips control for bias).
 4. Bradley-Terry preference assumption.
-5. Diagnostic-only — no mitigation proposed (Appendix A).
+5. Diagnostic-only - no mitigation proposed (Appendix A).
 6. Limited DAA coverage (no exhaustive GPO sweep).
 
 ---
@@ -197,4 +197,4 @@ No direct arXiv rebuttal was found. Searches checked:
 
 ## Critical Note for Thesis
 
-Cite this paper as the canonical empirical demonstration that **reward hacking is not a property of having a proxy reward model — it is a property of optimizing a preference-based proxy with insufficient coverage**. The Goodhart curve is universal across PPO+RM (Gao 2023) and offline DAAs (this paper); removing the reward model relocates the failure into the under-constrained loss landscape rather than eliminating it. The specific scaling law `R(d) = d(α − β log d)` with `d = √KL` is reusable as a quantitative signature of the failure mode. The single most thesis-relevant null result is that **implicit reward accuracy does not predict policy quality** within model size — direct evidence that the proxy and the goal have decoupled.
+Cite this paper as the canonical empirical demonstration that **reward hacking is not a property of having a proxy reward model - it is a property of optimizing a preference-based proxy with insufficient coverage**. The Goodhart curve is universal across PPO+RM (Gao 2023) and offline DAAs (this paper); removing the reward model relocates the failure into the under-constrained loss landscape rather than eliminating it. The specific scaling law `R(d) = d(α − β log d)` with `d = √KL` is reusable as a quantitative signature of the failure mode. The single most thesis-relevant null result is that **implicit reward accuracy does not predict policy quality** within model size - direct evidence that the proxy and the goal have decoupled.

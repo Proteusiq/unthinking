@@ -50,7 +50,7 @@
 
 ### Rewriting Robustness
 - LLM-rewritten forget data achieves **comparable unlearning performance** to original
-- Semantic preservation is key — surface form variation doesn't matter
+- Semantic preservation is key - surface form variation doesn't matter
 
 ### Watermarking Robustness
 - Both KGW and SynthID watermarked data enable effective unlearning
@@ -71,8 +71,8 @@
 This paper provides **nuanced evidence** for the thesis:
 
 **What it shows:**
-1. **Unlearning works on semantics, not surface**: This supports the thesis that LLMs operate on statistical patterns — the "semantic core" that enables unlearning is itself a learned statistical pattern
-2. **30% threshold**: The fact that there IS a threshold suggests knowledge is distributed — you need enough signal to target the right patterns
+1. **Unlearning works on semantics, not surface**: This supports the thesis that LLMs operate on statistical patterns - the "semantic core" that enables unlearning is itself a learned statistical pattern
+2. **30% threshold**: The fact that there IS a threshold suggests knowledge is distributed - you need enough signal to target the right patterns
 
 **However, this paper is more optimistic about unlearning than #228:**
 - #228 shows quantization recovers unlearned knowledge (21% → 83%)
@@ -121,7 +121,7 @@ The saliency finding supports the thesis: unlearning targets statistical pattern
 
 ### Why Findings Are Still Valuable
 
-1. Real-world forget data IS often noisy — this matters for practical deployment
+1. Real-world forget data IS often noisy - this matters for practical deployment
 2. Shows unlearning algorithms target semantic patterns, not surface features
 3. Establishes 30% masking threshold as practical guideline
 
@@ -145,15 +145,15 @@ This paper provides **balanced evidence**:
 
 **For the thesis:**
 - Unlearning works by targeting statistical patterns (high-saliency tokens)
-- Knowledge is distributed — you need enough semantic signal to target it
-- Surface form doesn't matter — only statistical patterns do
+- Knowledge is distributed - you need enough semantic signal to target it
+- Surface form doesn't matter - only statistical patterns do
 
 **Against the thesis:**
 - Unlearning CAN work (at least on input noise)
 - Semantic robustness suggests some level of meaning extraction
 
 **Reconciliation:**
-The thesis doesn't claim unlearning is impossible — it claims knowledge is distributed and not cleanly deletable. This paper shows unlearning works on semantic patterns, which are themselves statistical. #228 shows those patterns can be recovered via quantization.
+The thesis doesn't claim unlearning is impossible - it claims knowledge is distributed and not cleanly deletable. This paper shows unlearning works on semantic patterns, which are themselves statistical. #228 shows those patterns can be recovered via quantization.
 
 ---
 

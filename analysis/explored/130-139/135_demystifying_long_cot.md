@@ -18,7 +18,7 @@
 
 3. **CoT length scaling is unstable without reward shaping**: Models naturally extend CoT during RL, but this can be unstable and exceed context windows.
 
-4. **Core abilities (error correction, backtracking) exist in base models**: RL doesn't create new capabilities — it incentivizes pre-existing ones.
+4. **Core abilities (error correction, backtracking) exist in base models**: RL doesn't create new capabilities - it incentivizes pre-existing ones.
 
 5. **Long CoT patterns exist in pretraining data**: Authors found long CoT-like reasoning patterns in web data (OpenWebMath).
 
@@ -91,7 +91,7 @@ Authors searched OpenWebMath and found:
 - Math forum discussions with step-by-step solutions
 - Tutorial content with error correction
 
-> "We searched in pretraining corpora—for example, OpenWebMath—and identified 'long CoT-like' patterns."
+> "We searched in pretraining corpora-for example, OpenWebMath-and identified 'long CoT-like' patterns."
 
 ---
 
@@ -113,7 +113,7 @@ This paper provides **controlled experimental evidence** for the surfacing hypot
 
 4. **"Short CoT saturates = pattern limit"**: ✅ Evidence
    > Short CoT SFT "saturates early at a lower accuracy level" (~55%)
-   > This is the "hull boundary" — short CoT patterns are exhausted
+   > This is the "hull boundary" - short CoT patterns are exhausted
 
 ### Key Quote for Thesis
 
@@ -127,8 +127,8 @@ This is EXACTLY the surfacing hypothesis: capabilities pre-exist, training surfa
 
 ### Strongly Supports
 - **Paper 133 (Base Models Know How)**: Both show capabilities pre-exist
-- **Interplay (2512.07783)**: "Cannot synthesize from void" — same finding
-- **s1 (2501.19393)**: 1K samples surfaces reasoning — same mechanism
+- **Interplay (2512.07783)**: "Cannot synthesize from void" - same finding
+- **s1 (2501.19393)**: 1K samples surfaces reasoning - same mechanism
 - **DeepSeek-R1**: "Aha moments" = latent capability surfacing
 
 ### Extends
@@ -147,7 +147,7 @@ This is EXACTLY the surfacing hypothesis: capabilities pre-exist, training surfa
 ### Potential Counter-Arguments
 
 1. **"Long CoT = genuine reasoning"**: Paper shows it scales higher
-   - **Counter**: Paper explicitly says capabilities "inherently present" — surfacing, not creation
+   - **Counter**: Paper explicitly says capabilities "inherently present" - surfacing, not creation
 
 2. **"RL creates new capabilities"**: Common belief
    - **Counter**: Paper says RL "incentivizes" pre-existing skills, doesn't create them
@@ -157,9 +157,9 @@ This is EXACTLY the surfacing hypothesis: capabilities pre-exist, training surfa
 
 ### Limitations Acknowledged
 
-1. Focus on math domain — may not generalize
+1. Focus on math domain - may not generalize
 2. Limited model sizes (7-8B)
-3. Distillation from stronger models (QwQ-32B) — circular dependency
+3. Distillation from stronger models (QwQ-32B) - circular dependency
 
 ---
 
@@ -169,7 +169,7 @@ This is EXACTLY the surfacing hypothesis: capabilities pre-exist, training surfa
 
 > "We hypothesize that the base model may already possess certain **latent 'long CoT' capabilities** that, under the right conditions, can be elicited through RL."
 
-> "We searched in pretraining corpora—for example, OpenWebMath—and identified **'long CoT-like' patterns**."
+> "We searched in pretraining corpora-for example, OpenWebMath-and identified **'long CoT-like' patterns**."
 
 > "SFT with long CoTs can scale up to a **higher performance upper limit** than short CoTs."
 
@@ -212,7 +212,7 @@ This paper provides the mechanism:
 4. **Short CoT saturates**: Limited pattern space = hull boundary
 5. **Long CoT scales**: Larger pattern space = more interpolation room
 
-The "scaling" is not infinite — it's bounded by what exists in pretraining.
+The "scaling" is not infinite - it's bounded by what exists in pretraining.
 
 ---
 

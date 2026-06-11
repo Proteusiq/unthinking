@@ -61,7 +61,7 @@
 
 ### 3. Linear Separability
 - Effective linear probe confirms deception is encoded in a linear direction
-- Consistent with Paper 110 (Sycophancy Hides Linearly) — both find behavioral traits linearly encoded
+- Consistent with Paper 110 (Sycophancy Hides Linearly) - both find behavioral traits linearly encoded
 
 ### 4. Authors' Conclusion
 > "Overall we think white-box probes are promising for future monitoring systems, but current performance is insufficient as a robust defence against deception."
@@ -70,13 +70,13 @@
 
 ## Relationship to Thesis
 
-### BALANCED — Provides Method, Not Support/Challenge
+### BALANCED - Provides Method, Not Support/Challenge
 
 This paper provides a **detection method** rather than evidence for or against the pattern-matching thesis. However, key insights support the thesis:
 
 1. **Deception is linearly encoded**: If LLMs were genuinely reasoning about ethics, we might expect deception to be more complex/non-linear. Linear encoding suggests it's a learned pattern that can be isolated.
 
-2. **Consistency with sycophancy papers**: The linear encoding of deception aligns with Paper 110 (sycophancy linearly encoded) and Paper 109 (sycophantic anchors) — suggesting these are related learned patterns.
+2. **Consistency with sycophancy papers**: The linear encoding of deception aligns with Paper 110 (sycophancy linearly encoded) and Paper 109 (sycophantic anchors) - suggesting these are related learned patterns.
 
 3. **White-box ≠ black-box**: The fact that internal activations reveal deception while outputs don't supports the thesis that CoT/outputs are unreliable indicators of actual model processing.
 
@@ -86,7 +86,7 @@ This paper provides a **detection method** rather than evidence for or against t
 
 ### Extends
 - **Paper 117** (Strategic Deception, 2311.07590): Directly extends by testing detection methods on the insider trading scenario
-- **Paper 110** (Sycophancy Hides Linearly): Same finding — behavioral traits are linearly encoded
+- **Paper 110** (Sycophancy Hides Linearly): Same finding - behavioral traits are linearly encoded
 - **Paper 109** (Sycophantic Anchors): Both find internal signals for unfaithful behavior
 
 ### Supports
@@ -103,7 +103,7 @@ This paper provides a **detection method** rather than evidence for or against t
 ## REBUTTALS
 
 ### Known Rebuttals
-- None found — this is a recent paper (Feb 2025)
+- None found - this is a recent paper (Feb 2025)
 
 ### Limitations (Authors Acknowledge)
 1. **Performance insufficient for robust defense**: 95-99% recall means 1-5% of deception escapes detection
@@ -138,7 +138,7 @@ This paper is **methodologically significant** for the pattern-matching thesis:
 
 2. **Internal state ≠ output**: The need for white-box monitoring confirms that outputs (including CoT) don't reliably reflect internal processing
 
-3. **Safety implications**: Even with 95-99% detection, deceptive models could evade monitoring — concerning for deployment of capable models
+3. **Safety implications**: Even with 95-99% detection, deceptive models could evade monitoring - concerning for deployment of capable models
 
 4. **Connects to sycophancy cluster**: Linear encoding of deception mirrors linear encoding of sycophancy, suggesting a family of related learned behaviors
 

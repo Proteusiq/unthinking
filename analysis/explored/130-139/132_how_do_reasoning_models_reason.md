@@ -12,7 +12,7 @@
 
 ## Core Claims
 
-1. **Anthropomorphizing intermediate tokens is actively harmful**: Calling them "reasoning traces" or "thoughts" is not a harmless metaphor — it confuses how models work and leads to questionable research
+1. **Anthropomorphizing intermediate tokens is actively harmful**: Calling them "reasoning traces" or "thoughts" is not a harmless metaphor - it confuses how models work and leads to questionable research
 
 2. **Intermediate tokens have NO formal semantics**: They don't reliably correspond to human reasoning steps or algorithmic traces
 
@@ -20,7 +20,7 @@
 
 4. **"Aha moments" are meaningless**: Models have no internal state; "aha" is just another token in context
 
-5. **LRMs compile verification signal, don't learn reasoning**: Post-training iteratively compiles verifier signal into generation — "reasoning into retrieval via learning"
+5. **LRMs compile verification signal, don't learn reasoning**: Post-training iteratively compiles verifier signal into generation - "reasoning into retrieval via learning"
 
 ---
 
@@ -29,10 +29,10 @@
 ### The Four-Part Position
 
 The authors argue anthropomorphizing intermediate tokens is:
-1. **Wishful** — no evidence models "think"
-2. **Unsupported** — little concrete evidence traces reflect reasoning
-3. **Engenders false confidence** — stylistically plausible traces create false trust
-4. **Pushes fruitless research** — misleads the community
+1. **Wishful** - no evidence models "think"
+2. **Unsupported** - little concrete evidence traces reflect reasoning
+3. **Engenders false confidence** - stylistically plausible traces create false trust
+4. **Pushes fruitless research** - misleads the community
 
 ### Evidence: Trace Correctness is Disconnected from Solution Correctness
 
@@ -48,7 +48,7 @@ The authors argue anthropomorphizing intermediate tokens is:
 
 > "While a human may say 'aha' to indicate exactly a sudden internal state change, this interpretation is unwarranted for models which do not have any such internal state, and which on the next forward pass will only differ from the pre-aha pass by the inclusion of that single token in their context."
 
-Models don't have internal state changes — "aha" is just a predicted token.
+Models don't have internal state changes - "aha" is just a predicted token.
 
 ### Consequences of Anthropomorphization
 
@@ -69,8 +69,8 @@ This echoes Minsky: "intelligence is shifting the test part of generate-test int
 
 ### Three Stages of Verification Compilation
 
-1. **Test-time**: LLM-Modulo framework — external verifiers at inference
-2. **Train-time**: RL post-training — verifier signal shapes parameters
+1. **Test-time**: LLM-Modulo framework - external verifiers at inference
+2. **Train-time**: RL post-training - verifier signal shapes parameters
 3. **Distillation**: Synthetic data from verified outputs
 
 Each stage internalizes verification signal for longer "inference horizons."
@@ -81,7 +81,7 @@ Instead of "reasoning traces," view intermediate tokens as **prompt augmentation
 
 > Given a task prompt T, ∃PA s.t. Pr(Sol(LLM(T+PA),T)) > Pr(Sol(LLM(T),T))
 
-The question is finding the right augmentation — it doesn't need to be interpretable or "correct."
+The question is finding the right augmentation - it doesn't need to be interpretable or "correct."
 
 ---
 
@@ -98,7 +98,7 @@ This paper directly supports the thesis that LLMs pattern-match rather than reas
    - Incorrect traces work as well as correct ones
    - Mixed language traces (R1-Zero) outperform "clean" traces (R1)
 
-3. **No internal state**: Models don't "think" — they generate next tokens
+3. **No internal state**: Models don't "think" - they generate next tokens
    > "models which do not have any such internal state, and which on the next forward pass will only differ from the pre-aha pass by the inclusion of that single token in their context"
 
 4. **Performance ≠ Understanding**: Good answers don't require correct reasoning
@@ -151,20 +151,20 @@ No direct rebuttals found (May 2025 position paper).
    - **Counter**: Correlation ≠ causation; stylistic plausibility creates false confidence
 
 2. **Process Reward Models improve trace quality**: PRMs exist
-   - **Counter**: Authors note PRMs "have taken a back seat since DeepSeek R1" — outcome-only verification dominates
+   - **Counter**: Authors note PRMs "have taken a back seat since DeepSeek R1" - outcome-only verification dominates
 
 3. **Some traces ARE correct**: Not all traces are wrong
    - **Counter**: Even when trained on correct traces, models produce incorrect traces at inference; no guarantee
 
 4. **OpenAI hides traces for good reason**: Interpretability isn't the goal
-   - **Counter**: This is authors' point — traces shouldn't be anthropomorphized as "thinking"
+   - **Counter**: This is authors' point - traces shouldn't be anthropomorphized as "thinking"
 
 ### Limitations
 
-1. Position paper — limited empirical contribution (cites others)
+1. Position paper - limited empirical contribution (cites others)
 2. Doesn't explain WHY intermediate tokens help at all
 3. Prompt augmentation theory is speculative
-4. Focused on reasoning tasks — may not apply to all CoT uses
+4. Focused on reasoning tasks - may not apply to all CoT uses
 
 ---
 

@@ -1,4 +1,4 @@
-# Paper Analysis: CogniLoad — A Synthetic NL Reasoning Benchmark With Tunable Difficulty
+# Paper Analysis: CogniLoad - A Synthetic NL Reasoning Benchmark With Tunable Difficulty
 
 ## Metadata
 - **arXiv ID**: 2509.18458
@@ -12,11 +12,11 @@
 
 ## Core Claims
 
-1. **Task length (N) is the dominant constraint** — performance degrades faster with N than with intrinsic difficulty or distractors
-2. **Models exhibit "cognitive fingerprints"** — distinct sensitivity profiles to three load dimensions
-3. **U-shaped response to distractors** — worst performance at intermediate needle-to-hay ratios
-4. **State-tracking errors dominate** — failures are reasoning errors, not formatting issues
-5. **Cognitive Load Theory translates to LLM evaluation** — despite mechanistic differences
+1. **Task length (N) is the dominant constraint** - performance degrades faster with N than with intrinsic difficulty or distractors
+2. **Models exhibit "cognitive fingerprints"** - distinct sensitivity profiles to three load dimensions
+3. **U-shaped response to distractors** - worst performance at intermediate needle-to-hay ratios
+4. **State-tracking errors dominate** - failures are reasoning errors, not formatting issues
+5. **Cognitive Load Theory translates to LLM evaluation** - despite mechanistic differences
 
 ---
 
@@ -54,10 +54,10 @@ Three types of cognitive load:
 **Performance at Different N (selected models):**
 | Model | N=20 | N=50 | N=100 | N=250 |
 |-------|------|------|-------|-------|
-| gpt-5 | 100% | 98% | — | **76%** |
-| o3 | 99% | 98% | — | **68%** |
-| DS-Llama-70B | 89% | 66% | 48% | — |
-| Qwen3-8B | 71% | 40% | — | — |
+| gpt-5 | 100% | 98% | - | **76%** |
+| o3 | 99% | 98% | - | **68%** |
+| DS-Llama-70B | 89% | 66% | 48% | - |
+| Qwen3-8B | 71% | 40% | - | - |
 
 **Critical Finding**: Only 2 models (gpt-5, o3) achieve >50% at N=250
 
@@ -95,7 +95,7 @@ Three types of cognitive load:
 | DS-Llama-70B | 2,465 |
 | QwQ-32B | 2,092 |
 
-These are NOT formatting failures — models track state incorrectly.
+These are NOT formatting failures - models track state incorrectly.
 
 ### U-Shaped Response to Distractors
 
@@ -122,10 +122,10 @@ Performance worst at intermediate ρ (25-50%), recovers at extremes:
 
 ### What This Paper Shows
 
-1. **Sequential reasoning has hard limits** — even frontier models degrade significantly at N=250
-2. **Intrinsic difficulty is more predictable** — uniform degradation across models
-3. **State-tracking is the failure mode** — not formatting or instruction-following
-4. **Model capacity varies 400x** — ECL50 ranges from 0 to 382.8
+1. **Sequential reasoning has hard limits** - even frontier models degrade significantly at N=250
+2. **Intrinsic difficulty is more predictable** - uniform degradation across models
+3. **State-tracking is the failure mode** - not formatting or instruction-following
+4. **Model capacity varies 400x** - ECL50 ranges from 0 to 382.8
 
 ### Relevance to Thesis
 
@@ -162,9 +162,9 @@ Performance worst at intermediate ρ (25-50%), recovers at extremes:
 
 ### Potential Counter-Arguments
 
-1. **Single task type** — sequential deductive reasoning only
-2. **CLT-LLM analogy is imperfect** — different mechanisms than human cognition
-3. **No OOD testing** — all puzzles are in-distribution
+1. **Single task type** - sequential deductive reasoning only
+2. **CLT-LLM analogy is imperfect** - different mechanisms than human cognition
+3. **No OOD testing** - all puzzles are in-distribution
 
 ### Limitations (Authors Acknowledge)
 - Only tests sequential deductive reasoning
@@ -177,11 +177,11 @@ Performance worst at intermediate ρ (25-50%), recovers at extremes:
 
 ## Key Quotes
 
-> "Task length (N) is the dominant stressor — performance degrades faster with N than with d or ρ."
+> "Task length (N) is the dominant stressor - performance degrades faster with N than with d or ρ."
 
 > "12 of 22 models fall below 50% accuracy by d=5."
 
-> "State-tracking errors are NOT formatting failures — models track state incorrectly across sequential updates."
+> "State-tracking errors are NOT formatting failures - models track state incorrectly across sequential updates."
 
 > "Only gpt-5 (76%) and o3 (68%) exceed 50% at N=250."
 
@@ -192,11 +192,11 @@ Performance worst at intermediate ρ (25-50%), recovers at extremes:
 **STRONGLY SUPPORTS thesis**
 
 This paper shows:
-1. ✓ Sequential reasoning collapses at scale — even frontier models at 68-76% for N=250
-2. ✓ State-tracking errors dominate — genuine reasoning failures
-3. ✓ Small models fail fundamentally — can't reach 50% even at easiest difficulty
-4. ✓ Model capacity varies 400x — ECL50 from 0 to 382.8
-5. ✓ Cognitive burden is real — task length is the dominant constraint
+1. ✓ Sequential reasoning collapses at scale - even frontier models at 68-76% for N=250
+2. ✓ State-tracking errors dominate - genuine reasoning failures
+3. ✓ Small models fail fundamentally - can't reach 50% even at easiest difficulty
+4. ✓ Model capacity varies 400x - ECL50 from 0 to 382.8
+5. ✓ Cognitive burden is real - task length is the dominant constraint
 
 **Key insight**: LLM reasoning is bounded by capacity to maintain coherent state across sequential updates. This is consistent with the thesis that LLM reasoning is practical but fundamentally limited.
 

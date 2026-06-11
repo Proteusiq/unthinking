@@ -11,15 +11,15 @@
 
 ## Core Claims
 
-1. **AI can be a "genuine partner" in mathematical discovery** — The paper presents case studies of researchers collaborating with Gemini to solve open problems and refute conjectures.
+1. **AI can be a "genuine partner" in mathematical discovery** - The paper presents case studies of researchers collaborating with Gemini to solve open problems and refute conjectures.
 
-2. **Success requires specific techniques** — Iterative refinement, problem decomposition, cross-disciplinary knowledge transfer, and neuro-symbolic loops are key to productive collaboration.
+2. **Success requires specific techniques** - Iterative refinement, problem decomposition, cross-disciplinary knowledge transfer, and neuro-symbolic loops are key to productive collaboration.
 
-3. **AI excels at theorem retrieval and recombination** — The "discoveries" involve applying existing theorems (Kirszbraun 1934, Stone-Weierstrass) to new problem formulations.
+3. **AI excels at theorem retrieval and recombination** - The "discoveries" involve applying existing theorems (Kirszbraun 1934, Stone-Weierstrass) to new problem formulations.
 
-4. **Fundamental limitations persist** — Confirmation bias, hallucinations in derivations, and inability to self-verify without external grounding remain issues.
+4. **Fundamental limitations persist** - Confirmation bias, hallucinations in derivations, and inability to self-verify without external grounding remain issues.
 
-5. **AI functions as "tireless bright junior collaborator"** — Not autonomous reasoner; requires human scaffolding for strategy while AI provides tactical details.
+5. **AI functions as "tireless bright junior collaborator"** - Not autonomous reasoner; requires human scaffolding for strategy while AI provides tactical details.
 
 ---
 

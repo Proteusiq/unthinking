@@ -11,7 +11,7 @@
 
 ## Core Claims
 
-1. **Emergent abilities are measurement artifacts, not fundamental model properties** — The "sharpness" (sudden appearance) and "unpredictability" of emergent abilities are caused by metric choice, not changes in model behavior.
+1. **Emergent abilities are measurement artifacts, not fundamental model properties** - The "sharpness" (sudden appearance) and "unpredictability" of emergent abilities are caused by metric choice, not changes in model behavior.
 
 2. **Three factors create apparent emergence**:
    - Researcher choosing a metric that nonlinearly/discontinuously scales with per-token error rate
@@ -76,7 +76,7 @@
 | Emergence appears for metrics, not task-model pairs | BIG-Bench | ✓ Confirmed |
 
 ### Critical Finding
-**Even "small" models have non-zero, above-chance accuracy** — they only *appear* incapable due to insufficient test resolution. With larger test datasets, smooth capability curves become measurable.
+**Even "small" models have non-zero, above-chance accuracy** - they only *appear* incapable due to insufficient test resolution. With larger test datasets, smooth capability curves become measurable.
 
 ---
 
@@ -115,7 +115,7 @@
 - **Compositional generalization failures**: Smooth capability growth explains why OOD remains hard
 
 ### Challenges
-- **Wei et al. (2022)**: Original emergence claims — directly rebutted
+- **Wei et al. (2022)**: Original emergence claims - directly rebutted
 - **Papers claiming sudden capability jumps**: Suggests measurement artifacts
 
 ### Extends
@@ -133,7 +133,7 @@
 
 ### Potential Counter-Arguments
 1. **Metric choice may correlate with task importance**: Tasks where exact match matters may genuinely show emergence
-2. **Computational power arguments**: Transformers with CoT gain computational power — this could cause real discontinuities
+2. **Computational power arguments**: Transformers with CoT gain computational power - this could cause real discontinuities
 3. **Some phase transitions may be real**: e.g., grokking, in-context learning regime changes
 
 ### Authors' Own Caveat
@@ -156,13 +156,13 @@
 
 ## Implications for LLM Reasoning Research
 
-1. **Claimed "emergent reasoning" may be metric artifacts** — If reasoning is measured by Exact Match or Multiple Choice accuracy, apparent emergence may be illusory
+1. **Claimed "emergent reasoning" may be metric artifacts** - If reasoning is measured by Exact Match or Multiple Choice accuracy, apparent emergence may be illusory
 
-2. **Small models aren't "incapable"** — They have low but non-zero capability; insufficient test data makes them *appear* to have zero capability
+2. **Small models aren't "incapable"** - They have low but non-zero capability; insufficient test data makes them *appear* to have zero capability
 
-3. **AI safety implications** — Sharp "warning-less" capability jumps may not be real; capabilities likely improve predictably and are measurable with proper resolution
+3. **AI safety implications** - Sharp "warning-less" capability jumps may not be real; capabilities likely improve predictably and are measurable with proper resolution
 
-4. **Benchmark design matters critically** — Continuous/partial credit metrics may reveal gradual capability growth that discrete metrics hide
+4. **Benchmark design matters critically** - Continuous/partial credit metrics may reveal gradual capability growth that discrete metrics hide
 
 ---
 

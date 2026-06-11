@@ -11,10 +11,10 @@
 
 ## Core Claims
 
-1. **LLMs struggle with multiple correct answers** — Lower accuracy on "both_correct" questions than single-answer questions
-2. **Anchoring bias is pervasive** — Models stick to original choices even when presented with new valid alternatives
-3. **Shortcut learning varies by model** — Novel metrics reveal different susceptibility to shortcuts
-4. **MMLU-Pro+ discriminates models better** — More challenging than MMLU-Pro, reveals capability differences
+1. **LLMs struggle with multiple correct answers** - Lower accuracy on "both_correct" questions than single-answer questions
+2. **Anchoring bias is pervasive** - Models stick to original choices even when presented with new valid alternatives
+3. **Shortcut learning varies by model** - Novel metrics reveal different susceptibility to shortcuts
+4. **MMLU-Pro+ discriminates models better** - More challenging than MMLU-Pro, reveals capability differences
 
 ---
 
@@ -95,19 +95,19 @@ This reveals models prefer single-answer patterns (training bias).
 
 ### What This Paper Shows
 
-1. **LLMs have strong anchoring bias** — Stick to original choices even when wrong
-2. **Multiple correct answers challenge models** — Lower accuracy than single-answer
-3. **Shortcut selection is pervasive** — Even top models show significant SSR
-4. **Different failure modes** — Claude best at pair identification, O1 most resilient overall
+1. **LLMs have strong anchoring bias** - Stick to original choices even when wrong
+2. **Multiple correct answers challenge models** - Lower accuracy than single-answer
+3. **Shortcut selection is pervasive** - Even top models show significant SSR
+4. **Different failure modes** - Claude best at pair identification, O1 most resilient overall
 
 ### Relevance to Thesis
 
-**STRONGLY SUPPORTS thesis — demonstrates shortcut learning and anchoring bias**
+**STRONGLY SUPPORTS thesis - demonstrates shortcut learning and anchoring bias**
 
 Key evidence:
 - Models struggle with multi-answer questions (training distribution bias)
 - Anchoring bias shows pattern-matching over reasoning
-- GPT-4o (dataset creator) NOT best performer — proves genuine difficulty
+- GPT-4o (dataset creator) NOT best performer - proves genuine difficulty
 - Large performance drops show brittleness to format changes
 
 ---
@@ -137,9 +137,9 @@ Key evidence:
 
 ### Potential Counter-Arguments
 
-1. **Multiple correct answers may be artificial** — Real-world usually has single best answer
-2. **GPT-4o used in creation** — Potential bias (though authors address this)
-3. **Limited to MMLU domains** — May not generalize to all reasoning
+1. **Multiple correct answers may be artificial** - Real-world usually has single best answer
+2. **GPT-4o used in creation** - Potential bias (though authors address this)
+3. **Limited to MMLU domains** - May not generalize to all reasoning
 
 ### Limitations (Authors Acknowledge)
 - Used GPT-4o for True Positive generation (though validated extensively)
@@ -162,7 +162,7 @@ Key evidence:
 
 ## Relevance to Thesis
 
-**STRONGLY SUPPORTS thesis — systematic evidence for shortcut learning and anchoring bias**
+**STRONGLY SUPPORTS thesis - systematic evidence for shortcut learning and anchoring bias**
 
 This paper demonstrates:
 1. ✓ LLMs prefer single-answer patterns (training distribution)
@@ -171,7 +171,7 @@ This paper demonstrates:
 4. ✓ High benchmark performance ≠ robust reasoning
 5. ✓ Novel metrics reveal model-specific shortcut patterns
 
-**Key insight**: The anchoring bias finding is particularly damning — models that "understood" the question would update their answer when presented with a valid alternative. Instead, they stick to pattern-matched initial responses.
+**Key insight**: The anchoring bias finding is particularly damning - models that "understood" the question would update their answer when presented with a valid alternative. Instead, they stick to pattern-matched initial responses.
 
 ---
 

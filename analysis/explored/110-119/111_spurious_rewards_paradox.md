@@ -14,10 +14,10 @@
 
 This is a **smoking gun** for the thesis. It demonstrates that:
 
-1. **Models improve EVEN WITH INCORRECT REWARDS** — Qwen2.5-Math achieves gains on benchmarks with random, format-only, or WRONG reward signals
-2. **RLVR activates memorization, not reasoning** — performance comes from retrieving answers memorized during pre-training
-3. **A specific circuit (Anchor-Adapter) mediates this shortcut** — mechanistically localizable to L18-20 (trigger) and L21+ (adaptation)
-4. **Bidirectional causal steering confirms the mechanism** — can amplify OR suppress contamination-driven performance
+1. **Models improve EVEN WITH INCORRECT REWARDS** - Qwen2.5-Math achieves gains on benchmarks with random, format-only, or WRONG reward signals
+2. **RLVR activates memorization, not reasoning** - performance comes from retrieving answers memorized during pre-training
+3. **A specific circuit (Anchor-Adapter) mediates this shortcut** - mechanistically localizable to L18-20 (trigger) and L21+ (adaptation)
+4. **Bidirectional causal steering confirms the mechanism** - can amplify OR suppress contamination-driven performance
 
 The critical question this paper answers:
 > "If the base model already contained the contaminated data, why was its initial accuracy limited, and how could training with incorrect rewards paradoxically unlock this performance?"
@@ -26,13 +26,13 @@ The critical question this paper answers:
 
 ## Core Claims
 
-1. **The Perplexity Paradox**: Answer-token perplexity DECREASES while prompt perplexity INCREASES during spurious RLVR — model is bypassing reasoning for memorization
+1. **The Perplexity Paradox**: Answer-token perplexity DECREASES while prompt perplexity INCREASES during spurious RLVR - model is bypassing reasoning for memorization
 2. **Anchor-Adapter Circuit**: 
    - L18-20 (Functional Anchor) = triggers retrieval of memorized answers
    - L21+ (Structural Adapters) = transforms representations to accommodate shortcut
-3. **RLVR triggers pre-existing memorization** — doesn't create new reasoning capability
-4. **Dataset-specific shortcuts** — interventions affect contaminated benchmarks but NOT clean ones
-5. **MLP neurons mediate the shortcut** — causal steering via scaling specific MLP keys
+3. **RLVR triggers pre-existing memorization** - doesn't create new reasoning capability
+4. **Dataset-specific shortcuts** - interventions affect contaminated benchmarks but NOT clean ones
+5. **MLP neurons mediate the shortcut** - causal steering via scaling specific MLP keys
 
 ---
 
@@ -112,7 +112,7 @@ The optimization overwrites general linguistic representations with task-specifi
 - Swaps activations between **Leakage samples** (memorization activated) and **Stable samples** (genuine reasoning)
 - Measures accuracy recovery when patching specific layers
 
-**Key finding**: MLPs yield **significantly higher accuracy recovery** than attention heads — MLPs are primary storage.
+**Key finding**: MLPs yield **significantly higher accuracy recovery** than attention heads - MLPs are primary storage.
 
 ### Logit Lens Analysis
 Projects hidden states into vocabulary space to track layer-by-layer emergence of answer tokens.
@@ -144,7 +144,7 @@ Models layer-wise trajectory as continuous flow.
 | Adapter Reset (L21-22) | 92% (Δ=-6%) | 78% (Δ=-10%) | ~70% |
 | Keep Only Adapter | N/A | 32% (worse than base 50%) | ~70% |
 
-**LiveMathBench (leakage-free) is UNAFFECTED** — proves intervention targets contamination-specific circuits.
+**LiveMathBench (leakage-free) is UNAFFECTED** - proves intervention targets contamination-specific circuits.
 
 ### Path Patching Results by Model
 
@@ -164,7 +164,7 @@ Models layer-wise trajectory as continuous flow.
 **Layer 25 (Structural Adapter disruption)**:
 - Uniform degradation across all scaling factors
 
-**Leakage-free dataset**: Steering produces **NO systematic pattern** — confirms contamination-dependence.
+**Leakage-free dataset**: Steering produces **NO systematic pattern** - confirms contamination-dependence.
 
 ### Sample-Level Steering
 
@@ -173,7 +173,7 @@ Models layer-wise trajectory as continuous flow.
 - Suppression: Delays trigger activation, reduces answer probability
 
 **Pattern 2 (failed baseline retrieval)**:
-- Amplification: **Activates latent shortcut pathway** — correct answer emerges abruptly in final layers
+- Amplification: **Activates latent shortcut pathway** - correct answer emerges abruptly in final layers
 - Shows model "knows" the answer but needs circuit activation to retrieve it
 
 ---
@@ -209,7 +209,7 @@ Models layer-wise trajectory as continuous flow.
 
 | Evidence | Implication for Thesis |
 |----------|------------------------|
-| Models improve with INCORRECT rewards | Performance isn't from learning to reason — it's from activating existing memory |
+| Models improve with INCORRECT rewards | Performance isn't from learning to reason - it's from activating existing memory |
 | Perplexity Paradox | Model sacrifices language modeling for memorization shortcuts |
 | Circuit is dataset-specific | Interventions affect contaminated data, not clean data |
 | Bidirectional causal steering | Confirms mechanism is localizable and controllable |
@@ -238,8 +238,8 @@ Models layer-wise trajectory as continuous flow.
 ## Discussion and Limitations
 
 ### Impact
-1. **Tools to detect contamination** — Perplexity Paradox, circuit localization
-2. **De-contamination pathway** — MLP neuron scaling can suppress shortcuts
+1. **Tools to detect contamination** - Perplexity Paradox, circuit localization
+2. **De-contamination pathway** - MLP neuron scaling can suppress shortcuts
 
 ### Ethical Note
 > "While our work provides tools to detect and suppress memorization, the same techniques could theoretically be used to amplify a model's reliance on specific datasets."
@@ -300,4 +300,4 @@ No direct rebuttals found (paper very recent).
 
 This paper provides **definitive mechanistic evidence** that RLVR performance gains can come from activating pre-existing memorization rather than developing reasoning capabilities. The Anchor-Adapter circuit is a **specific, localized, and causally verifiable mechanism** for how models bypass reasoning in favor of memory retrieval.
 
-**For the thesis**: This is perhaps the strongest mechanistic evidence yet that RL "surfaces" pre-existing patterns rather than creating new reasoning capabilities. The fact that models improve with INCORRECT rewards proves the performance isn't from learning to reason — it's from activating memorization shortcuts.
+**For the thesis**: This is perhaps the strongest mechanistic evidence yet that RL "surfaces" pre-existing patterns rather than creating new reasoning capabilities. The fact that models improve with INCORRECT rewards proves the performance isn't from learning to reason - it's from activating memorization shortcuts.

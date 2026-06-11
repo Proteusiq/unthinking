@@ -117,7 +117,7 @@ This suggests a **"Discovery-Implementation Gap"**: reasoning needed to find str
 ## REBUTTALS TO THIS PAPER
 
 ### Search for Direct Rebuttals
-- Paper is very recent (December 2025) — no direct rebuttals found
+- Paper is very recent (December 2025) - no direct rebuttals found
 
 ### Potential Counter-Arguments
 
@@ -138,7 +138,7 @@ This suggests a **"Discovery-Implementation Gap"**: reasoning needed to find str
 
 ## Relevance to Thesis
 
-**BALANCED** — Provides nuanced evidence for both sides.
+**BALANCED** - Provides nuanced evidence for both sides.
 
 ### Evidence AGAINST Thesis (O3 Shows Reasoning)
 
@@ -167,7 +167,7 @@ This aligns with the thesis nuance: **most LLMs** are pattern matchers, but **fr
 The paper's finding that strategy evolution occurs is interesting, but:
 1. Task is narrow and well-studied (symmetry breaking)
 2. O3 may have seen similar problems in training
-3. Most models still fail — supports general pattern matching thesis
+3. Most models still fail - supports general pattern matching thesis
 4. "Discovery-Implementation Gap" actually supports surfacing hypothesis: O3 surfaces strategies that exist in its training, weaker models can execute but not discover
 
 ---

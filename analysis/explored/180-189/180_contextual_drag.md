@@ -16,7 +16,7 @@
 2. **Self-improvement assumption challenged**: The assumption that models can improve by reflecting on past mistakes is fundamentally flawed
 3. **Structural inheritance of errors**: Using tree edit distance, they show reasoning trajectories inherit structurally similar error patterns from context
 4. **Error signals insufficient**: Neither external feedback nor successful self-verification suffices to eliminate this effect
-5. **Iterative refinement can collapse**: Models with severe contextual drag exhibit "self-deterioration" — getting worse with each iteration
+5. **Iterative refinement can collapse**: Models with severe contextual drag exhibit "self-deterioration" - getting worse with each iteration
 
 ---
 
@@ -84,8 +84,8 @@
 - "Verification ability is not the only barrier to eliminating contextual drag"
 
 ### Mitigation Strategies (Section 5)
-1. **Context denoising**: Multi-turn prompting to rewrite/filter incorrect drafts — partial improvement
-2. **Fallback-behavior fine-tuning**: Train to reset to clean-slate reasoning upon error detection — partial improvement
+1. **Context denoising**: Multi-turn prompting to rewrite/filter incorrect drafts - partial improvement
+2. **Fallback-behavior fine-tuning**: Train to reset to clean-slate reasoning upon error detection - partial improvement
 3. **Neither fully restores baseline performance**
 
 ---
@@ -98,11 +98,11 @@ This paper provides **devastating evidence** for the pattern-matching thesis:
 
 1. **No genuine reasoning recovery**: If LLMs were truly reasoning, they should be able to identify errors and generate fresh solutions. Instead, they inherit error patterns structurally.
 
-2. **Attention mechanism as culprit**: The paper suggests the attention mechanism "predisposes the model to reuse some reasoning patterns from the draft" — this is exactly what pattern matching would predict.
+2. **Attention mechanism as culprit**: The paper suggests the attention mechanism "predisposes the model to reuse some reasoning patterns from the draft" - this is exactly what pattern matching would predict.
 
 3. **Self-improvement is illusory**: The entire premise of "learning from mistakes" requires genuine understanding of what went wrong. The paper shows models inherit mistakes rather than learn from them.
 
-4. **System-2 thinking fails**: The paper notes that human anchoring bias can be overcome via "System-2 thinking" (deliberate reasoning). LLMs, despite explicit verification structures, cannot overcome contextual drag — suggesting they lack genuine System-2 capabilities.
+4. **System-2 thinking fails**: The paper notes that human anchoring bias can be overcome via "System-2 thinking" (deliberate reasoning). LLMs, despite explicit verification structures, cannot overcome contextual drag - suggesting they lack genuine System-2 capabilities.
 
 ### Key Quote
 > "Contextual drag is not only a performance phenomenon but a systematic structural distortion of reasoning."

@@ -12,11 +12,11 @@
 
 ## Core Claims
 
-1. **LMs implement implicit finite-order Markov kernels** — Transformer-based LMs map contexts to conditional token distributions through learned statistical regularities
-2. **Definitions of reasoning are incommensurable with LM computations** — Standard definitions require "logical and systematic thinking" which LMs don't implement
-3. **"Reasoning-like" outputs are statistical regularities, not logical mechanisms** — What looks like reasoning corresponds to approximate invariances in the learned kernel
-4. **LMs are "statistical pattern matchers" not genuine reasoners** — The paper makes this claim explicit and defends it formally
-5. **"Reasoning" in NLP should be reframed as "inference"** — Inference doesn't carry psychological connotations and is well-defined in statistics/ML
+1. **LMs implement implicit finite-order Markov kernels** - Transformer-based LMs map contexts to conditional token distributions through learned statistical regularities
+2. **Definitions of reasoning are incommensurable with LM computations** - Standard definitions require "logical and systematic thinking" which LMs don't implement
+3. **"Reasoning-like" outputs are statistical regularities, not logical mechanisms** - What looks like reasoning corresponds to approximate invariances in the learned kernel
+4. **LMs are "statistical pattern matchers" not genuine reasoners** - The paper makes this claim explicit and defends it formally
+5. **"Reasoning" in NLP should be reframed as "inference"** - Inference doesn't carry psychological connotations and is well-defined in statistics/ML
 
 ---
 
@@ -42,7 +42,7 @@ The paper argues that what appears as "reasoning" is actually:
 1. **Transformation invariances**: Model predictions shouldn't change under logic-preserving transformations
 2. **Inferential invariances**: Model should assign high probability to valid inferences
 
-But crucially: **LMs don't optimize for these invariances** — they optimize cross-entropy, which only approximates regularities in training data.
+But crucially: **LMs don't optimize for these invariances** - they optimize cross-entropy, which only approximates regularities in training data.
 
 ---
 
@@ -68,9 +68,9 @@ But crucially: **LMs don't optimize for these invariances** — they optimize cr
 ### Key Argument: Invariance Violations
 
 The paper cites multiple papers showing LMs violate logical consistency:
-- Nezhurina et al. (2024) — Alice in Wonderland failures
-- Mirzadeh et al. (2024) — GSM-Symbolic fragility
-- Jiang et al. (2024) — Peek into token bias
+- Nezhurina et al. (2024) - Alice in Wonderland failures
+- Mirzadeh et al. (2024) - GSM-Symbolic fragility
+- Jiang et al. (2024) - Peek into token bias
 
 This demonstrates that **invariances in transformer kernels are statistical artifacts**, not structural properties.
 
@@ -80,7 +80,7 @@ This demonstrates that **invariances in transformer kernels are statistical arti
 
 ### STRONGLY SUPPORTS the Thesis
 
-**The thesis**: "LLM reasoning is practical but fundamentally predictive—pattern matching from training distributions, not genuinely generative reasoning"
+**The thesis**: "LLM reasoning is practical but fundamentally predictive-pattern matching from training distributions, not genuinely generative reasoning"
 
 This paper provides **theoretical grounding** for the thesis:
 

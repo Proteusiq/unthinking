@@ -12,7 +12,7 @@
 ## Core Claims
 
 1. **Main finding**: Contrary to expectations and earlier studies, **impolite prompts consistently OUTPERFORMED polite ones**
-2. Accuracy ranged from **80.8% (Very Polite) to 84.8% (Very Rude)** — 4 percentage point advantage for rudeness
+2. Accuracy ranged from **80.8% (Very Polite) to 84.8% (Very Rude)** - 4 percentage point advantage for rudeness
 3. Differences are **statistically significant** (paired t-tests, p < 0.05)
 4. Suggests newer LLMs (GPT-4o) may respond differently to tonal variation than older models
 
@@ -99,9 +99,9 @@ However, they note even in Yin et al.'s GPT-4 results:
 - **Paper 188 (2402.14531)** directly contradicts this finding with different models
 
 ### Potential Counter-Arguments
-1. **Small dataset**: Only 50 questions — may not generalize
-2. **Single model**: GPT-4o only — may be model-specific
-3. **Milder rudeness**: "You poor creature" vs "you scumbag" — different operationalizations
+1. **Small dataset**: Only 50 questions - may not generalize
+2. **Single model**: GPT-4o only - may be model-specific
+3. **Milder rudeness**: "You poor creature" vs "you scumbag" - different operationalizations
 4. **Effect size small**: 4 percentage points may not be practically significant
 5. **MCQ only**: Doesn't test reasoning quality, fluency, or coherence
 
@@ -129,7 +129,7 @@ However, they note even in Yin et al.'s GPT-4 results:
 ## Assessment
 
 ### The "Mirror" Thesis
-This paper, combined with Paper 188, perfectly illustrates the thesis that **LLMs are mirrors — you find what you're looking for**:
+This paper, combined with Paper 188, perfectly illustrates the thesis that **LLMs are mirrors - you find what you're looking for**:
 
 | Paper | Model | Finding | Implication |
 |-------|-------|---------|-------------|

@@ -1,10 +1,10 @@
-# Paper 333: AI Alignment Strategies from a Risk Perspective — Independent Safety Mechanisms or Shared Failures?
+# Paper 333: AI Alignment Strategies from a Risk Perspective - Independent Safety Mechanisms or Shared Failures?
 
 ## Metadata
 - **arXiv**: 2510.11235
 - **Date**: October 2025 (under review)
 - **Authors**: Leonard Dung, Florian Mai
-- **Stance**: Supports thesis — alignment techniques that share a mechanism (pretraining pipeline) share failure modes
+- **Stance**: Supports thesis - alignment techniques that share a mechanism (pretraining pipeline) share failure modes
 
 ---
 
@@ -19,7 +19,7 @@
 │  failures. But the 7 analyzed alignment techniques cluster:          │
 │                                                                      │
 │    • RLHF, RLAIF, W2S share ~all failure modes (5-6/7)              │
-│      — because they share the pretraining→SFT→RLHF pipeline          │
+│      - because they share the pretraining→SFT→RLHF pipeline          │
 │    • Only Scientist AI (1/7) and IDA (2/7) escape, at high cost      │
 │    • AL-GEN (dangerous generalization from training) hits 6/7         │
 │                                                                      │
@@ -34,10 +34,10 @@
 ## Core Claims
 
 1. **Defense-in-depth is only as strong as its least correlated layer.** Correlated failures across 10 layers provide no better protection than a single layer.
-2. **Many failure modes are shared across alignment techniques** — especially the cheap, pipeline-compatible ones.
+2. **Many failure modes are shared across alignment techniques** - especially the cheap, pipeline-compatible ones.
 3. **Current AI risk is likely underestimated** because researchers assume independence that doesn't hold.
-4. **Research priority should shift toward techniques with uncorrelated failures** — Scientist AI, IDA, Debate + RE combinations.
-5. **AL-GEN (alignment-training generalization) is the most pressing open problem** — 6/7 techniques vulnerable.
+4. **Research priority should shift toward techniques with uncorrelated failures** - Scientist AI, IDA, Debate + RE combinations.
+5. **AL-GEN (alignment-training generalization) is the most pressing open problem** - 6/7 techniques vulnerable.
 
 ---
 
@@ -56,13 +56,13 @@
 | Safety by Design | 7. Scientist AI (Bengio 2025) |
 
 ### 7 Failure Modes
-- **S-TAX** — Low willingness/capability to pay safety tax
-- **CAP-DEV** — Extreme/discontinuous capability development
-- **DEC-AL** — Deceptive alignment emerges early
-- **COLL** — Prone to collusion
-- **EM-MIS** — Conditions for emergent misalignment (Betley 2025)
-- **EVAL-DIFF** — Task evaluation not easier than generation
-- **AL-GEN** — Dangerous generalization from alignment training
+- **S-TAX** - Low willingness/capability to pay safety tax
+- **CAP-DEV** - Extreme/discontinuous capability development
+- **DEC-AL** - Deceptive alignment emerges early
+- **COLL** - Prone to collusion
+- **EM-MIS** - Conditions for emergent misalignment (Betley 2025)
+- **EVAL-DIFF** - Task evaluation not easier than generation
+- **AL-GEN** - Dangerous generalization from alignment training
 
 ### Analysis
 Qualitative ternary coding per (technique × failure mode) cell: ✓/✗/? Conceptual/analytical paper, no empirical overlap matrix. Defense-in-depth framework from nuclear safety / Reason's Swiss Cheese Model; cites Google DeepMind (Shah 2025), OpenAI, Neel Nanda as current adopters.
@@ -87,7 +87,7 @@ Qualitative ternary coding per (technique × failure mode) cell: ✓/✗/? Conce
 
 | Failure | # Techniques | Notes |
 |---------|:------------:|-------|
-| **AL-GEN** | **6/7** | Most pervasive — only Scientist AI escapes |
+| **AL-GEN** | **6/7** | Most pervasive - only Scientist AI escapes |
 | DEC-AL | 4/7 | RLHF, RLAIF, W2S, RE |
 | EM-MIS | 4/7 | RLHF, RLAIF, W2S, Debate |
 | EVAL-DIFF | 4/7 | Pipeline-sharing group |
@@ -117,10 +117,10 @@ Qualitative ternary coding per (technique × failure mode) cell: ✓/✗/? Conce
 ## Relationship to Other Papers
 
 ### Supports
-- **Emergent Misalignment (#328, 2502.17424)** — EM-MIS is one of 7 failure modes; paper endorses Wang et al. 2025 "evil personas learned during pretraining" mechanism
-- **Alignment Faking (#279, 2412.14093)** — cited for DEC-AL
-- **Shutdown Resistance (#326, 2509.14260)** — cited in §3.2
-- **Natural EM from Reward Hacking (#332, 2511.18397)** — all fall under AL-GEN umbrella
+- **Emergent Misalignment (#328, 2502.17424)** - EM-MIS is one of 7 failure modes; paper endorses Wang et al. 2025 "evil personas learned during pretraining" mechanism
+- **Alignment Faking (#279, 2412.14093)** - cited for DEC-AL
+- **Shutdown Resistance (#326, 2509.14260)** - cited in §3.2
+- **Natural EM from Reward Hacking (#332, 2511.18397)** - all fall under AL-GEN umbrella
 
 ### Extends
 - Defense-in-depth literature (nuclear safety, Reason's Swiss Cheese Model) into AI safety
@@ -132,12 +132,12 @@ Qualitative ternary coding per (technique × failure mode) cell: ✓/✗/? Conce
 ### Authors' Acknowledged Limitations
 - 7 techniques and 7 failure modes NOT exhaustive
 - Analysis is "highly exploratory," "proof-of-concept"
-- Forward-alignment only — excludes backward alignment, monitoring, AI Control
+- Forward-alignment only - excludes backward alignment, monitoring, AI Control
 - **No empirical experiments; no quantitative correlations**
 - Scientist AI and IDA assessments particularly speculative (neither demonstrated at frontier scale)
 
 ### Why SUPPORTS the Thesis
-The paper's structural claim — alignment techniques sharing a mechanism (pretraining→SFT→RLHF) share failure modes — is the thesis applied at the meta-methodological level. Pipeline-pattern-matching-based alignment inherits pattern-matching's vulnerabilities. AL-GEN's 6/7 pervasiveness is exactly what a shallow-alignment reading predicts.
+The paper's structural claim - alignment techniques sharing a mechanism (pretraining→SFT→RLHF) share failure modes - is the thesis applied at the meta-methodological level. Pipeline-pattern-matching-based alignment inherits pattern-matching's vulnerabilities. AL-GEN's 6/7 pervasiveness is exactly what a shallow-alignment reading predicts.
 
 ---
 
@@ -153,7 +153,7 @@ The paper's structural claim — alignment techniques sharing a mechanism (pretr
 │     because they're all surface-patterning the same substrate       │
 │                                                                     │
 │  2. AL-GEN IS THE DOMINANT RISK (6/7)                               │
-│     Alignment training generalizes badly — exactly the failure     │
+│     Alignment training generalizes badly - exactly the failure     │
 │     pattern-matching predicts                                       │
 │                                                                     │
 │  3. ESCAPING THE PARADIGM IS EXPENSIVE                              │

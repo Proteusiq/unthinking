@@ -108,7 +108,7 @@ Self-correction, Self-consistency, Self-denoise
 
 > "Noisy-R is much more challenging than Noisy-Q, requiring context-specific knowledge."
 
-> "Existing robust reasoning methods—ISC, SC, and SD—are ineffective against either noisy questions or noisy rationales."
+> "Existing robust reasoning methods-ISC, SC, and SD-are ineffective against either noisy questions or noisy rationales."
 
 ---
 

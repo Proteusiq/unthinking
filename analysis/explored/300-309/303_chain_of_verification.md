@@ -13,7 +13,7 @@
 
 1. **Verification must be independent**: Factored verification (hiding original response) works; joint verification (seeing original) repeats hallucinations.
 
-2. **Same question, different answers**: Context determines output—evidence of pattern matching, not knowledge lookup.
+2. **Same question, different answers**: Context determines output-evidence of pattern matching, not knowledge lookup.
 
 3. **"Deliberation" is engineered scaffolding**: Not emergent self-reflection but structured prompting.
 
@@ -66,7 +66,7 @@
 ### Supports
 - **#145 SCoRe** (2409.12917): Both show self-correction needs external grounding
 - **#12 Illusions of Reflection** (2510.18254): Both find self-correction fails without isolation
-- **#180 Contextual Drag** (2602.04288): Explains why factored works—context drags patterns
+- **#180 Contextual Drag** (2602.04288): Explains why factored works-context drags patterns
 
 ---
 
@@ -76,8 +76,8 @@
 The paper's own methodology reveals the limitation: verification must be hidden from context because the model cannot evaluate its own prior outputs.
 
 ### Limitations (Authors Acknowledge)
-1. Does not eliminate hallucinations—only reduces
-2. Only addresses factual inaccuracies—not reasoning errors, opinions
+1. Does not eliminate hallucinations-only reduces
+2. Only addresses factual inaccuracies-not reasoning errors, opinions
 3. Bounded by model capabilities
 4. Computational cost (many more tokens)
 

@@ -22,7 +22,7 @@
 ## Methodology
 
 ### Ordered CommonGen Benchmark
-- Based on CommonGen (Lin et al., 2020) — compose sentences containing given concepts
+- Based on CommonGen (Lin et al., 2020) - compose sentences containing given concepts
 - **Key innovation**: Require concepts to appear in the **specified order**
 - Example: Given (dog, catch, throw, frisbee), must include them in that exact sequence
 
@@ -151,7 +151,7 @@ Models that try harder to follow order instructions produce higher perplexity (l
 ## REBUTTALS TO THIS PAPER
 
 ### Search for Direct Rebuttals
-- Paper is recent (June 2025, ACL 2025) — no direct rebuttals found
+- Paper is recent (June 2025, ACL 2025) - no direct rebuttals found
 
 ### Potential Counter-Arguments
 
@@ -171,7 +171,7 @@ Models that try harder to follow order instructions produce higher perplexity (l
 
 ## Relevance to Thesis
 
-**SUPPORTS** — Paper provides evidence that LLMs cannot override learned patterns to follow explicit instructions.
+**SUPPORTS** - Paper provides evidence that LLMs cannot override learned patterns to follow explicit instructions.
 
 ### Evidence FOR Thesis (Pattern Matching)
 

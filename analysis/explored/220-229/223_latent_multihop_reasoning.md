@@ -59,8 +59,8 @@
 
 ### Critical Numbers
 
-1. **85% of MQuAKE queries prone to shortcuts** — prior evaluations overestimate latent reasoning
-2. **80% vs 5% latent composability** — country vs year bridge entities (16x difference)
+1. **85% of MQuAKE queries prone to shortcuts** - prior evaluations overestimate latent reasoning
+2. **80% vs 5% latent composability** - country vs year bridge entities (16x difference)
 3. **Marginal scaling effect**: Larger models show only slight improvement in latent composability
 4. **CoT gap**: CoT composability 30-60 percentage points higher than latent composability
 5. **Patchscopes analysis**: Bridge entity representation appears more often in high-composability queries
@@ -77,7 +77,7 @@ The paper notes that year-type bridge entities have high arity (many entities sh
 
 1. **Shortcut exploitation is the norm**: Without careful filtering, 85% of "reasoning" evaluations are confounded by co-occurrence patterns
 2. **Latent reasoning is type-dependent**: The 80% vs 5% gap reveals that "reasoning" depends heavily on entity-type statistics, not genuine composition
-3. **Scaling doesn't help**: If reasoning were emergent, we'd expect scaling to improve it — but latent composability barely budges
+3. **Scaling doesn't help**: If reasoning were emergent, we'd expect scaling to improve it - but latent composability barely budges
 4. **CoT is retrieval, not reasoning**: The large gap between CoT and latent composability suggests CoT works by making the bridge entity explicit (enabling retrieval), not by enabling true composition
 
 ---
@@ -86,7 +86,7 @@ The paper notes that year-type bridge entities have high arity (many entities sh
 
 ### Supports
 - **Faith and Fate (2305.18654)**: Both show compositionality failures depend on structural properties
-- **Reversal Curse Theory (2405.04669)**: Weight asymmetry explains why latent composition fails — information must flow through explicit tokens
+- **Reversal Curse Theory (2405.04669)**: Weight asymmetry explains why latent composition fails - information must flow through explicit tokens
 - **Embers of Autoregression (2309.13638)**: Latent reasoning failures reflect autoregressive training limitations
 
 ### Extends
@@ -94,7 +94,7 @@ The paper notes that year-type bridge entities have high arity (many entities sh
 - **Factual knowledge probing**: Extends to multi-hop with shortcut controls
 
 ### Mechanism Connection
-- **Dot by Dot (2404.15758)**: CoT benefits from explicit intermediate computation, not latent semantic understanding — this paper shows the same for factual reasoning
+- **Dot by Dot (2404.15758)**: CoT benefits from explicit intermediate computation, not latent semantic understanding - this paper shows the same for factual reasoning
 
 ---
 
@@ -148,7 +148,7 @@ This paper provides strong evidence that what appears to be "multi-hop reasoning
 2. Entity-type dependent pattern matching
 3. CoT-mediated retrieval rather than latent composition
 
-The 16x difference between country and year queries (80% vs 5%) is particularly damning — if LLMs could truly compose facts latently, performance shouldn't depend so heavily on entity type.
+The 16x difference between country and year queries (80% vs 5%) is particularly damning - if LLMs could truly compose facts latently, performance shouldn't depend so heavily on entity type.
 
 ---
 

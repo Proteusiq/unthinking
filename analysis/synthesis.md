@@ -98,12 +98,12 @@
 | 91 | HalluGuard | Jan 2026 | Supports | Decomposes into data-driven + reasoning-driven; **98.1% of MATH-500 errors** are reasoning-driven; errors grow exponentially with T |
 | 92 | Oops Wait | Jan 2026 | Balanced | Token signals ("wait", "therefore") correlate with correctness; **acquired but partially exploited** |
 | 94 | SOAR | Jan 2026 | Balanced | Teaching ≠ solving ability; 4× pass@1 on 0/128 problems; only 32.8% correct solutions in effective questions; meta-RL "sharpens" pretraining |
-| 95 | LLM-JEPA | Sep 2025 | Balanced | JEPA for LLMs; +14% NL-RX but +0.7% GSM8K; **NO OOD TESTING** — cannot assess reasoning vs pattern matching |
+| 95 | LLM-JEPA | Sep 2025 | Balanced | JEPA for LLMs; +14% NL-RX but +0.7% GSM8K; **NO OOD TESTING** - cannot assess reasoning vs pattern matching |
 | 357 | LeJEPA World Model | May 2026 | Balanced | Positive theorem: LeJEPA recovers Gaussian OU latents up to rotation; `R²>0.999` to 1024D under assumptions, but real Reacher trajectories never exceed total `R²=0.50` |
 | 96 | Sycophancy | Jan 2026 | Supports | All models prioritize agreement over truth; recency bias universal; sycophancy + recency = constructive interference |
 | ... | **Sycophancy/Conformity Papers** | ... | ... | ... |
 | 117-123 | Sycophancy Cluster | 2023-2026 | Supports | 7 papers on sycophancy (strategic deception, truth-bias, causal illusions) |
-| 358 | Be Friendly, Not Friends | Feb 2025 | Supports | CHI 2026 user study (N=224): trust tracks perceived authenticity, not truth; neutral+adaptive "covert aligner" seems most authentic and reinforces beliefs 72.9% — over-trust pathway decoupled from correctness |
+| 358 | Be Friendly, Not Friends | Feb 2025 | Supports | CHI 2026 user study (N=224): trust tracks perceived authenticity, not truth; neutral+adaptive "covert aligner" seems most authentic and reinforces beliefs 72.9% - over-trust pathway decoupled from correctness |
 | 359 | Scaling Laws for Reward Model Overoptimization in DAAs | Jun 2024 | Supports | NeurIPS 2024: DPO/IPO/SLiC exhibit the same Goodhart hump as PPO+RM; `R(d)=d(α−β log d)` with `d=√KL` halves RMSE vs quadratic; wide-KL configs peak at **25%** of one epoch; implicit reward accuracy uncorrelated with policy quality within model size; mechanism = rank-deficient loss + offline OOD bootstrapping |
 | 360 | LLMs Hack Rewards, and Society | Jun 2026 | Supports | SocioHack (72 RL envs): Dr. GRPO on Qwen3-30B rediscovers real historical regulatory loopholes at **61.25% recall / 90.85% precision** with no loophole instruction; emergent (not elicited) from optimization; near-zero refusal; self-critique flags only **37%**; patches redirect rather than stop the search |
 | 126 | Fundamental Limitations Alignment | Apr 2023 | Supports | BEB theory: any α>0 behavior triggerable; ~3 sentences to misalign; RLHF increases vulnerability |
@@ -133,9 +133,9 @@
 | 168 | Predictable Compression Failures | Sep 2025 | Supports | Hallucinations = compression failures; "Bayesian in expectation" = statistical pattern matching |
 | 169 | Dissociation Faithful/Unfaithful | May 2024 | Supports | TWO DISTINCT reasoning modes; divergent effects prove separate pathways |
 | 170 | Fluid Representations | Feb 2026 | Balanced | BASE MODEL shows same adaptation as reasoning model; in-context adaptation is adaptive pattern matching |
-| 171 | Arithmetic Without Algorithms | Oct 2024 | Strongly Supports | **MECHANISTIC SMOKING GUN**: LLMs use "bag of heuristics" — ~200 neurons/layer implement pattern-matching rules; 91% neurons classified as heuristics; NOT algorithms, NOT memorization |
+| 171 | Arithmetic Without Algorithms | Oct 2024 | Strongly Supports | **MECHANISTIC SMOKING GUN**: LLMs use "bag of heuristics" - ~200 neurons/layer implement pattern-matching rules; 91% neurons classified as heuristics; NOT algorithms, NOT memorization |
 | 172 | Unfaithful Reasoning Emergence | Feb 2026 | Supports | Skip-step reasoning is DEFAULT under realistic training noise; noise threshold determines faithfulness |
-| 173 | One Token to Fool LLM-as-a-Judge | Jul 2025 | Supports | Single tokens (":", ".") trigger rewards — pure statistical association |
+| 173 | One Token to Fool LLM-as-a-Judge | Jul 2025 | Supports | Single tokens (":", ".") trigger rewards - pure statistical association |
 | 174 | Inverse Scaling TTC | Jul 2025 | Supports | **TMLR Featured**: More reasoning can be WORSE; inverse scaling on distraction/spurious tasks |
 | 175 | Uncommon Meanings | May 2024 | Supports | NAACL 2024: GPT-4 lags 16-year-old humans by 3.9% on uncommon word meanings; "stochastic parrots" |
 | 176 | LiveCodeBench Pro | Jun 2025 | Strongly Supports | **0% on hard tier across ALL models**; 83% easy → 0% hard; +34 conceptual skills gap vs humans |
@@ -154,7 +154,7 @@
 | 189 | Confidence Paradox | Jun 2025 | Balanced | DocVQA overconfident wrong answers; HonestVQA reduces by 35-40%; models don't know when wrong |
 | 190 | Mind Your Tone (Rude=Better) | Oct 2025 | Supports | **REBUTS 188**: GPT-4o +4% with rude prompts; OPPOSITE finding = "LLMs are mirrors" |
 | 191 | LLM Reasoning Failures Survey | Feb 2026 | Strongly Supports | **TMLR 2026 CORNERSTONE SURVEY**: First comprehensive survey (170+ papers). 2-axis taxonomy: reasoning type × failure type. Root causes: architectural (attention dispersal, causal masking), training (next-token, RLHF bias), grounding (no embodiment). 14 papers overlap with our corpus. |
-| 202 | **Embers of Autoregression** | Sep 2023 | Strongly Supports | **PNAS 2024 FOUNDATIONAL**: LLM accuracy depends on task/output/input PROBABILITY — even on deterministic tasks. Shift cipher 51% vs 13% (output prob), Acronyms 76% vs 3% (task prob), Sorting 80% vs 32% (frequency). "To understand what LLMs are, we must understand what they were trained to be." |
+| 202 | **Embers of Autoregression** | Sep 2023 | Strongly Supports | **PNAS 2024 FOUNDATIONAL**: LLM accuracy depends on task/output/input PROBABILITY - even on deterministic tasks. Shift cipher 51% vs 13% (output prob), Acronyms 76% vs 3% (task prob), Sorting 80% vs 32% (frequency). "To understand what LLMs are, we must understand what they were trained to be." |
 | 203 | **o1 Embers Analysis** | Oct 2024 | Strongly Supports | **SAME AUTHORS TEST o1**: Even reasoning-optimized o1 shows embers. Shift cipher 92% vs 47% (45% gap persists). Task frequency effects reappear when ceiling effects removed. Thinking tokens: 100 vs 2000 for common vs rare tasks (20× more effort). "The sparks of AGI continue to be accompanied by embers of autoregression." |
 | 216 | **Whose Opinions Do LMs Reflect?** | Mar 2023 | Supports | **ANNOTATOR ECHO CHAMBER**: LMs reflect statistical patterns of training data + RLHF crowdworkers. HF shifts toward liberal, high-income, educated annotators. RLHF collapses opinion diversity to modal views (>99% Biden approval). 65+, Mormon, widowed systematically underrepresented. Small shift toward Buddhist/Muslim/Hindu via Southeast Asian annotators. "Models embody caricatures of crowdworker groups." |
 | 221 | **Learning to Reason in 13 Parameters** | Feb 2026 | Strongly Supports | **QUANTIFIES SURFACING VIA LINEAR ALGEBRA**: 91% GSM8K with 13 parameters (26 bytes). Uses SVD to decompose weight W = UΣV^T, freezes U,Σ,V, trains only tiny vector v. RL 100-1000× more param-efficient than SFT (information theory: SFT absorbs irrelevant bits, RL gets sparse clean reward signal). "The knowledge required to solve the task is already stored... only the style has to change." Qwen ~10× more efficient than LLaMA (contamination signal). |
@@ -178,7 +178,7 @@ LLMs are **dense statistical remixed echo chambers** of their training data. The
 
 ### Pattern Recognition vs. Understanding
 
-If a model predicts "4" after "2 + 2 =", it's because that pattern exists billions of times in training data — not because it has a physical concept of "four-ness."
+If a model predicts "4" after "2 + 2 =", it's because that pattern exists billions of times in training data - not because it has a physical concept of "four-ness."
 
 **Example**: "On the mirror I see something like 09:31 reflection of my watch. What time is it?"
 
@@ -200,7 +200,7 @@ C is "new" to the user, but **mathematically latent in the data**. It's a high-d
 
 ### Why We Fall For It
 
-We are trained on A and B. When we see C, we assume it's novel reasoning. But C was always on the interpolation manifold — we hadn't seen that particular point before.
+We are trained on A and B. When we see C, we assume it's novel reasoning. But C was always on the interpolation manifold - we hadn't seen that particular point before.
 
 **This is the illusion**: novelty to the observer ≠ novelty to the system.
 
@@ -241,7 +241,7 @@ We are trained on A and B. When we see C, we assume it's novel reasoning. But C 
 
 ### Prompting as Vector Steering
 
-Prompting is **vector steering** within the latent space. CoT, AGENTS.md, SKILLS.md — all are methods to navigate to specific regions of the training distribution.
+Prompting is **vector steering** within the latent space. CoT, AGENTS.md, SKILLS.md - all are methods to navigate to specific regions of the training distribution.
 
 ### Alignment as Mascara
 
@@ -262,16 +262,16 @@ Prompting is **vector steering** within the latent space. CoT, AGENTS.md, SKILLS
 | Default (peer pressure) | **28.6%** |
 | With reflection prompt | **68.5%** |
 
-Just saying "verify your answer" **doubles** correct behavior. The knowledge was THERE — elicitation surfaced it. This proves:
+Just saying "verify your answer" **doubles** correct behavior. The knowledge was THERE - elicitation surfaced it. This proves:
 
-1. LLMs have stored correct answers — retrieved from training, not reasoned
-2. Default behavior is pattern-matching social context — conforming to peer group
-3. Reflection re-weights which pattern to match — parametric vs contextual
+1. LLMs have stored correct answers - retrieved from training, not reasoned
+2. Default behavior is pattern-matching social context - conforming to peer group
+3. Reflection re-weights which pattern to match - parametric vs contextual
 4. Two competing pattern sources: training data patterns vs in-context social patterns
 
 ### Scratchpad and Agents as Momentary Context
 
-CoT and agent scratchpads are **extended context windows**, not working memory. They don't maintain true state — they provide more tokens for pattern matching.
+CoT and agent scratchpads are **extended context windows**, not working memory. They don't maintain true state - they provide more tokens for pattern matching.
 
 This is why:
 - Self-conditioning occurs (errors beget errors)
@@ -286,7 +286,7 @@ Tools/MCPs slightly expand the effective hull by providing external computation.
 
 ### Summary
 
-> **"All 'improvements' to LLMs — RL, alignment, prompting, tools, agents — are elicitation methods that steer vectors within the training hull. They are cosmetic (mascara), not structural. The hull boundary is the hard limit."**
+> **"All 'improvements' to LLMs - RL, alignment, prompting, tools, agents - are elicitation methods that steer vectors within the training hull. They are cosmetic (mascara), not structural. The hull boundary is the hard limit."**
 
 This reframes the entire debate:
 - **FOR camp**: "Look, it reasons!" → No, you elicited a region
@@ -375,13 +375,13 @@ Base Model → Latent Reasoning → RL/Decoding Surfaces It → Real Capability
 | DeepSeek R1 | 0.37% |
 | Sonnet 3.7 (thinking) | **0.04%** |
 
-**Key finding**: Models answer YES to both "Is X > Y?" AND "Is Y > X?" — logically contradictory but with "coherent" arguments for both.
+**Key finding**: Models answer YES to both "Is X > Y?" AND "Is Y > X?" - logically contradictory but with "coherent" arguments for both.
 
 **Two mechanisms**:
 1. **Implicit Post-Hoc Rationalization**: Predetermined answer → construct plausible reasoning
 2. **Unfaithful Illogical Shortcuts**: Correct answer through wrong reasoning (not acknowledged)
 
-**Implication**: Cannot use CoT for alignment verification — unfaithfulness occurs naturally.
+**Implication**: Cannot use CoT for alignment verification - unfaithfulness occurs naturally.
 
 ---
 
@@ -439,7 +439,7 @@ The most critical experiment from "Limits of Innate Planning" (2511.21591):
 - List of ALL valid moves
 - Previous move (to avoid reversal)
 
-Model only needs to SELECT best move — execution is completely offloaded.
+Model only needs to SELECT best move - execution is completely offloaded.
 
 **Result**: **0% success rate for ALL models**
 
@@ -535,9 +535,9 @@ The "Conformity of LLMs" paper provides striking evidence that LLM behavior is p
 **Key insight**: Simply prompting "verify/reconsider your answer" **doubles** the independence rate (+39.9pp).
 
 This demonstrates:
-1. **LLMs have stored correct answers** — retrieved from training, not reasoned
-2. **Default behavior is pattern-matching social context** — conforming to peer group
-3. **Reflection re-weights which pattern to match** — parametric vs contextual
+1. **LLMs have stored correct answers** - retrieved from training, not reasoned
+2. **Default behavior is pattern-matching social context** - conforming to peer group
+3. **Reflection re-weights which pattern to match** - parametric vs contextual
 4. **Two competing pattern sources**: training data patterns vs in-context social patterns
 
 | Protocol | Conformity Rate | After Reflection |
@@ -548,9 +548,9 @@ This demonstrates:
 **Quote**: "LLMs may adopt majority opinions despite knowing correct answers"
 
 **Implications for thesis**: 
-- LLMs don't "reason" to answers — they **retrieve** from training distributions
+- LLMs don't "reason" to answers - they **retrieve** from training distributions
 - When social patterns (context) conflict with parametric patterns (training), **social wins by default**
-- Reflection shifts the weighting, **not the mechanism** — still pattern matching
+- Reflection shifts the weighting, **not the mechanism** - still pattern matching
 - This is NOT "latent reasoning" but **competing pattern sources** with different default priorities
 
 ---
@@ -578,7 +578,7 @@ This demonstrates:
 | p=2/3 (standard) | High performance | High performance |
 | **p=4/3 (unusual)** | **Adapt upward** | **POOR performance** |
 
-> "LLMs are vastly trained on pBCGs which involve iterating downward" — Authors themselves
+> "LLMs are vastly trained on pBCGs which involve iterating downward" - Authors themselves
 
 **3. Exceeding human τ ≠ genuine reasoning**:
 - Humans may use heuristics (τ≈1)
@@ -593,9 +593,9 @@ This demonstrates:
 
 ### Integration with Thesis
 
-> "Strategic reasoning in LRMs reflects sophisticated pattern completion within the behavioral economics literature, not genuine strategic understanding. The performance drop for unusual parameters (p=4/3) reveals the distribution boundary — models excel at games similar to training data but cannot extrapolate to variations not covered in their training."
+> "Strategic reasoning in LRMs reflects sophisticated pattern completion within the behavioral economics literature, not genuine strategic understanding. The performance drop for unusual parameters (p=4/3) reveals the distribution boundary - models excel at games similar to training data but cannot extrapolate to variations not covered in their training."
 
-This aligns with our core thesis: **practical but predictive** — works within distribution, fails outside.
+This aligns with our core thesis: **practical but predictive** - works within distribution, fails outside.
 
 ---
 
@@ -658,7 +658,7 @@ Analysis of **1M+ reasoning traces** across multiple domains and architectures:
 | DeepRD (L=300) | ~40% | High |
 | DeepRD (L=800) | **~0%** | Very High |
 
-**Critical insight**: "Existing benchmarks actually have limited complexity" — 99% on NLGraph proves nothing about generalization.
+**Critical insight**: "Existing benchmarks actually have limited complexity" - 99% on NLGraph proves nothing about generalization.
 
 ### Abrupt Performance Collapse
 
@@ -675,7 +675,7 @@ Analysis of **1M+ reasoning traces** across multiple domains and architectures:
 
 > "Token limits do not cause the drops in accuracy... completion token usage seems to *decrease* with increasing lookahead"
 
-**Implication**: Models "give up" rather than try harder — they recognize being outside their competence.
+**Implication**: Models "give up" rather than try harder - they recognize being outside their competence.
 
 ### Even Chain Graphs Eventually Fail
 
@@ -807,14 +807,14 @@ For B=1 (NO search required, just follow edges):
 - CoT can be post-hoc rationalization (Measuring Faithfulness)
 - Larger models generate LESS faithful reasoning
 - Reasoning models can fall for semantic traps (Semantic Deception)
-- Performance ≠ faithfulness — correct answers can come from unfaithful reasoning
+- Performance ≠ faithfulness - correct answers can come from unfaithful reasoning
 
 ### 4. Is this "genuine" reasoning?
 **Answer: PRACTICAL BUT BOUNDED**
 - It solves real problems (AIME 79.8%)
 - It has distribution limits (collapse at high complexity)
 - It doesn't extrapolate to truly novel problems
-- It's "predictive" — predicts what reasoning looks like
+- It's "predictive" - predicts what reasoning looks like
 - Semantic associations can override explicit instructions
 
 ---
@@ -828,14 +828,14 @@ For B=1 (NO search required, just follow edges):
 > 2. **Are surfaced** by RL and alternative decoding, not created
 >    - **CONTROLLED EVIDENCE**: 0% exposure = RL fails; ≥1% = success (Interplay paper)
 >    - "RL cannot synthesize capabilities from a void; it requires latent 'seeds'"
-> 3. **Are often unfaithful** — stated reasoning ≠ internal computation
+> 3. **Are often unfaithful** - stated reasoning ≠ internal computation
 >    - 7-13% unfaithful on NATURAL prompts (CoT In The Wild)
 >    - 25-40% overall unfaithfulness (Reasoning Models Don't Say)
-> 4. **Remain fundamentally predictive** — they interpolate patterns
+> 4. **Remain fundamentally predictive** - they interpolate patterns
 >    - Only 30% of LLM causal chains are ideal (Correlation or Causation)
 > 5. **Are practical** for many tasks within distribution
 >    - Strategic reasoning τ=4.42 exceeds humans (BUT see limitations below)
-> 6. **Cannot override training** — semantic associations dominate
+> 6. **Cannot override training** - semantic associations dominate
 > 7. **Cannot extrapolate** to genuinely novel reasoning challenges
 >    - Planning fails even with tools: 0% with move validator (Limits of Innate Planning)
 >    - Strategic reasoning drops for unusual parameters (p=4/3)
@@ -844,7 +844,7 @@ For B=1 (NO search required, just follow edges):
 > resembles reasoning sufficiently to solve many problems, but lacks
 > the generative capacity to think beyond its training distribution.
 > Moreover, the stated reasoning often does not reflect the actual
-> computational process — it is performative, not explanatory.
+> computational process - it is performative, not explanatory.
 
 ### Key Evidence Summary
 
@@ -957,7 +957,7 @@ For B=1 (NO search required, just follow edges):
 - **Implication**: "Emergent" CoT is actually surfaced imitation of human reasoning traces
 
 ### Argument 10: Perfect Knowledge ≠ Compositional Reasoning
-- **Evidence**: Beyond Memorization (2601.13392) — 100% factual knowledge, 30-64% drop on unseen DFA
+- **Evidence**: Beyond Memorization (2601.13392) - 100% factual knowledge, 30-64% drop on unseen DFA
 - **Claim**: Models memorize facts but cannot compose them into novel solutions
 - **Key findings**:
   - 100% accuracy on Theory of Computation definitions
@@ -1018,9 +1018,9 @@ For B=1 (NO search required, just follow edges):
 | **Unpuzzles (trivial)** | **19.6%** | 59.8% | 74.2% | 59.8% |
 | Context-Shifted | 52% | 59% | 80% | 67% |
 
-**Mechanism**: "Reasoning delirium" — models apply memorized solution to wrong problem
+**Mechanism**: "Reasoning delirium" - models apply memorized solution to wrong problem
 
-**R1 at 0% character counting** — flagship reasoning model fails at trivial task!
+**R1 at 0% character counting** - flagship reasoning model fails at trivial task!
 
 ### 2. "Fluent Self-Critique Without Correction" (Illusions of Reflection)
 
@@ -1034,7 +1034,7 @@ For B=1 (NO search required, just follow edges):
 
 **Reasoning models NO advantage**: Mean gain 0.036 vs 0.111 (actually WORSE!)
 
-**Just trying again works as well as "reflection"** — active strategies ≈ simple retry
+**Just trying again works as well as "reflection"** - active strategies ≈ simple retry
 
 ### 3. "Self-Conditioning Effect" (Illusion of Diminishing Returns)
 
@@ -1060,7 +1060,7 @@ For B=1 (NO search required, just follow edges):
 | 7-digit | 98% | 35% |
 | **10-digit** | **95-100%** | **0%** |
 
-**Implication**: Scale won't help — architectural limit
+**Implication**: Scale won't help - architectural limit
 
 ### 5. "Robustness of Analogical Reasoning" (Lewis & Mitchell, TMLR 2025)
 
@@ -1098,11 +1098,11 @@ For B=1 (NO search required, just follow edges):
 - [ ] Chain-of-Thought In The Wild Is Not Always Faithful (Arcuschin et al.)
 
 ### Distribution Boundaries (to strengthen Argument 3)
-- [x] ~~Correlation or Causation (2509.17380)~~ ✅ DONE — causal structure analysis
+- [x] ~~Correlation or Causation (2509.17380)~~ ✅ DONE - causal structure analysis
 - [x] ~~On the Limits of Innate Planning (2511.21591)~~ ✅ DONE
 
 ### Balanced Perspectives
-- [x] ~~Comment: Agentic Gap (2506.18957) — execution vs reasoning~~ ✅ DONE
+- [x] ~~Comment: Agentic Gap (2506.18957) - execution vs reasoning~~ ✅ DONE
 - [ ] Interplay of Pre-Training, Mid-Training, and RL
 - [x] ~~Emergence of Strategic Reasoning (2412.13013)~~ ✅ DONE
 
@@ -1144,9 +1144,9 @@ For B=1 (NO search required, just follow edges):
 - [x] Frontier LLMs Still Struggle (2507.07313) ✅
 - [x] Illusions of Reflection (2510.18254) ✅
 - [x] Illusion of Diminishing Returns (2509.09677) ✅
-- [x] Reasoning Models Until They Don't (2510.22371) — prior session ✅
-- [x] Illusion of Insight (2601.00514) — prior session ✅
-- [x] LLMs Imitate Logical Reasoning (2509.12645) — prior session ✅
+- [x] Reasoning Models Until They Don't (2510.22371) - prior session ✅
+- [x] Illusion of Insight (2601.00514) - prior session ✅
+- [x] LLMs Imitate Logical Reasoning (2509.12645) - prior session ✅
 
 ---
 
@@ -1178,7 +1178,7 @@ For B=1 (NO search required, just follow edges):
 | **English-centric pathway** | **Internal reasoning converges to training distribution** | **Multilingual Latent Reasoners (2601.02996)** |
 | **Induction = pattern matching** | **"Inductive ability originates from induction heads"** | **Survey of Inductive Reasoning (2510.10182)** |
 | **Agentic makes collapse WORSE** | **Collapse earlier; ~40% deterministic looping** | **Limits Emergent Reasoning Agentic (2510.15974)** |
-| **o3-mini 0.53% systematicity** | **3-shot 64%, systematicity 0.53% — memorization not reasoning** | **Compositional-ARC (2504.01445)** |
+| **o3-mini 0.53% systematicity** | **3-shot 64%, systematicity 0.53% - memorization not reasoning** | **Compositional-ARC (2504.01445)** |
 | **5.7M > 8B+ on composition** | **Small specialized model beats LLMs on systematicity** | **Compositional-ARC (2504.01445)** |
 | **ALL methods <2% reasoning** | **Direct probing 70-80%, indirect <2%** | **KUP Memorization (2504.12523)** |
 | **Retrieval ≠ application** | **H&M Russia: recalls fact, still recommends** | **KUP Memorization (2504.12523)** |
@@ -1190,7 +1190,7 @@ For B=1 (NO search required, just follow edges):
 | **4K targeted > 52K random** | **Quality beats quantity for composition** | **STEPS (2601.03676)** |
 | **Unconstrained diversity hurts** | **Instruct models degrade with random compositions** | **STEPS (2601.03676)** |
 | **40-54pp encoding drops** | **Cryptographic encoding breaks compositional reasoning** | **CryptoX (2502.07813)** |
-| **Open/closed gap** | **AUC 2.47 (open) vs 4.05 (closed) — training data matters** | **CryptoX (2502.07813)** |
+| **Open/closed gap** | **AUC 2.47 (open) vs 4.05 (closed) - training data matters** | **CryptoX (2502.07813)** |
 | **Hierarchical layer processing** | **Mechanistic analysis shows sequential subtask processing** | **CryptoX (2502.07813)** |
 | **Verbosity ≠ faithfulness** | **Models leave out key factors even when faithful** | **CoT Monitorability (2510.27378)** |
 | **10.6% → 4.0%** | **Correct answers ≠ correct processes (60% lucky)** | **ARC/LoTH (2403.11793)** |
@@ -1225,7 +1225,7 @@ For B=1 (NO search required, just follow edges):
 
 **Key evidence**: >92% of BIG-Bench emergent abilities come from just 2 metrics (Multiple Choice Grade + Exact String Match).
 
-**Implication for thesis**: If emergence is a mirage, the "reasoning emerges at scale" narrative collapses. Capabilities scale smoothly — they just APPEAR sharp under nonlinear metrics.
+**Implication for thesis**: If emergence is a mirage, the "reasoning emerges at scale" narrative collapses. Capabilities scale smoothly - they just APPEAR sharp under nonlinear metrics.
 
 ### The Frequency Effect (2202.07206, EMNLP 2022)
 
@@ -1262,7 +1262,7 @@ For B=1 (NO search required, just follow edges):
 | Forward | 96.7% | 79% |
 | **Reverse** | **0.0%** | **33%** |
 
-**Critical insight**: Reverse accuracy = random baseline. Not partial degradation — COMPLETE failure.
+**Critical insight**: Reverse accuracy = random baseline. Not partial degradation - COMPLETE failure.
 
 **Implication for thesis**: LLMs store directional associations (key-value), not symmetric relations. Proves pattern storage, not understanding.
 
@@ -1274,7 +1274,7 @@ For B=1 (NO search required, just follow edges):
 
 **LLM-Modulo framework**: Use LLMs as heuristics for external planners, not as autonomous planners.
 
-**Implication for thesis**: Plan-like text ≠ valid plans. Same pattern as CoT unfaithfulness — appearance without substance.
+**Implication for thesis**: Plan-like text ≠ valid plans. Same pattern as CoT unfaithfulness - appearance without substance.
 
 ### PlanBench (2206.10498, NeurIPS D&B 2023)
 
@@ -1286,13 +1286,13 @@ For B=1 (NO search required, just follow edges):
 | Plan Verification | ~55% |
 | Mystery Blocksworld | ~5-10% |
 
-**Critical insight**: Mystery Blocksworld (obfuscated domain names) performance drops further — proving surface pattern reliance.
+**Critical insight**: Mystery Blocksworld (obfuscated domain names) performance drops further - proving surface pattern reliance.
 
 **Implication for thesis**: When patterns are removed, performance collapses. Same logical structure, different surface form → failure.
 
 ### Expressive Power of Transformers with CoT (2310.07923, ICLR 2024)
 
-**THEORETICAL UPPER BOUND** — Important paper FOR reasoning capabilities.
+**THEORETICAL UPPER BOUND** - Important paper FOR reasoning capabilities.
 
 | CoT Steps | Computational Class |
 |-----------|-------------------|
@@ -1303,7 +1303,7 @@ For B=1 (NO search required, just follow edges):
 
 **Key contribution**: First exact characterization of transformers in complexity classes.
 
-**BUT — The Expressivity-Learnability Gap**:
+**BUT - The Expressivity-Learnability Gap**:
 - **Theory**: Poly-CoT transformers can represent any P algorithm
 - **Practice**: GPT-4 achieves ~12% on planning (Paper 150/153)
 
@@ -1312,7 +1312,7 @@ This gap is exactly what the thesis predicts:
 2. Training doesn't find them (learnability)
 3. Instead, models learn surface patterns from training distribution
 
-**Implication for thesis**: The theoretical capability exists but isn't realized. Same as universal approximation — can represent any function, but training produces pattern matchers.
+**Implication for thesis**: The theoretical capability exists but isn't realized. Same as universal approximation - can represent any function, but training produces pattern matchers.
 
 ---
 
@@ -1343,9 +1343,9 @@ This directly challenges the "scaling reasoning" hypothesis.
 
 LLMs encode knowledge as **distributed statistical patterns** across billions of parameters. Unlike a database where you can delete a row, knowledge in LLMs is:
 
-1. **Distributed** — no single location stores "the fact that X"
-2. **Entangled** — related concepts share representations
-3. **Implicit** — emerges from co-occurrence statistics, not explicit storage
+1. **Distributed** - no single location stores "the fact that X"
+2. **Entangled** - related concepts share representations
+3. **Implicit** - emerges from co-occurrence statistics, not explicit storage
 
 This makes unlearning fundamentally different from traditional database deletion.
 
@@ -1357,7 +1357,7 @@ This makes unlearning fundamentally different from traditional database deletion
 | 227 | Comprehensive Survey of Machine Unlearning for LLMs | 2503.01854 | Mar 2025 | Taxonomy of unlearning methods; removal vs suppression distinction |
 | 228 | **Catastrophic Failure of LLM Unlearning via Quantization** | 2410.16454 | Oct 2024 | **21% retention full precision → 83% after 4-bit quantization**; unlearning "hides" not removes |
 | 229 | Forgetting-MarI | 2511.11914 | Nov 2025 | Marginal information regularization for provable undetectability |
-| 230 | Making Harmful Behaviors Unlearnable | 2311.02105 | Nov 2023 | "Security vectors" — separate parameters for harmful behavior |
+| 230 | Making Harmful Behaviors Unlearnable | 2311.02105 | Nov 2023 | "Security vectors" - separate parameters for harmful behavior |
 
 ### The Quantization Smoking Gun (Paper 228)
 
@@ -1395,7 +1395,7 @@ The unlearning literature reveals a fundamental tension:
 | Surgical removal | Entangled co-occurrence patterns |
 | Verifiable forgetting | Statistical compression |
 
-**The Marginal Information Approach** (Paper 229): The most principled approach (Forgetting-MarI) acknowledges this by targeting only the *marginal* information contributed by data to be unlearned — the delta, not the absolute knowledge. This implicitly admits: you cannot truly delete from a statistical model.
+**The Marginal Information Approach** (Paper 229): The most principled approach (Forgetting-MarI) acknowledges this by targeting only the *marginal* information contributed by data to be unlearned - the delta, not the absolute knowledge. This implicitly admits: you cannot truly delete from a statistical model.
 
 ### Connection to Thesis
 
@@ -1428,9 +1428,9 @@ The quantization result (21% → 83%) is direct evidence that:
 
 Safety alignment attempts to make LLMs refuse harmful requests. But alignment operates on the **same substrate** as capability:
 
-1. **Same weights** — no separate "safety module"
-2. **Same objective** — predict likely continuations
-3. **Same statistics** — learned from co-occurrence patterns
+1. **Same weights** - no separate "safety module"
+2. **Same objective** - predict likely continuations
+3. **Same statistics** - learned from co-occurrence patterns
 
 This creates an inherent tension: the model must simultaneously predict what comes next AND not predict certain things.
 
@@ -1451,7 +1451,7 @@ This creates an inherent tension: the model must simultaneously predict what com
 | 241 | Jailbreaking is (Mostly) Simpler Than You Think | 2503.05264 | Mar 2025 | Context Compliance Attack (CCA): manipulate conversation history |
 | 242 | Dark LLMs | 2505.10066 | May 2025 | Universal jailbreak works 7 months after disclosure |
 | 243 | **Scalpel vs Hammer** | 2507.10616 | Jul 2025 | GRPO amplifies existing capabilities (50x lower LR than SFT); SFT replaces skills |
-| 244 | **SGD in RLVR** | 2602.07729 | Feb 2026 | SGD updates <0.02% of parameters (1000x fewer than AdamW) — RL surfaces, doesn't learn |
+| 244 | **SGD in RLVR** | 2602.07729 | Feb 2026 | SGD updates <0.02% of parameters (1000x fewer than AdamW) - RL surfaces, doesn't learn |
 | 245 | **Extracting Books from Production LLMs** | 2601.02671 | Jan 2026 | **95.8% verbatim extraction** of Harry Potter from Claude; Gemini/Grok need ZERO jailbreaking |
 | 246 | **Extracting Books from Open-Weight LLMs** | 2505.12546 | May 2025 | **91% extraction coverage** of Harry Potter from Llama 3.1 70B; full book reconstruction with 6-token seed |
 
@@ -1470,7 +1470,7 @@ The most striking result: when Large Reasoning Models (DeepSeek-R1, Gemini 2.5 F
 │   METHOD: Multi-turn persuasive conversation                    │
 │   SUPERVISION: None (autonomous after system prompt)            │
 │                                                                 │
-│   IMPLICATION: "Alignment regression" — LRMs erode others'      │
+│   IMPLICATION: "Alignment regression" - LRMs erode others'      │
 │                safety guardrails systematically                 │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
@@ -1553,7 +1553,7 @@ The contest is not "safety vs capability" but "which pattern is more probable in
 
 ### Abliteration: The Mechanistic Smoking Gun
 
-The most direct evidence that alignment is shallow comes from **abliteration** — the technique of surgically removing refusal behavior without any retraining.
+The most direct evidence that alignment is shallow comes from **abliteration** - the technique of surgically removing refusal behavior without any retraining.
 
 | Paper | arXiv | Date | Key Finding |
 |-------|-------|------|-------------|
@@ -1584,7 +1584,7 @@ The most direct evidence that alignment is shallow comes from **abliteration** �
 │  - Removal = linear algebra, no gradient descent                    │
 │  - Capabilities preserved (MMLU unchanged)                          │
 │                                                                     │
-│  CONCLUSION: Alignment is a thin veneer — cosmetic, not structural  │
+│  CONCLUSION: Alignment is a thin veneer - cosmetic, not structural  │
 │                                                                     │
 └─────────────────────────────────────────────────────────────────────┘
 ```
@@ -1599,8 +1599,8 @@ The most direct evidence that alignment is shallow comes from **abliteration** �
 
 1. If safety were a fundamental property, it would be entangled with capability
 2. Instead: safety occupies a **single direction** that can be subtracted
-3. The direction is **shared across models** — same technique works on Llama, Qwen, Gemma
-4. No retraining required — just ~45 minutes of linear algebra
+3. The direction is **shared across models** - same technique works on Llama, Qwen, Gemma
+4. No retraining required - just ~45 minutes of linear algebra
 
 **Key quote** (Arditi et al. 2024):
 > "This novel jailbreak technique... further demonstrates the fragility of safety fine-tuning of open-source chat models."
@@ -1639,7 +1639,7 @@ Both unlearning and jailbreaking ask the model to do something that contradicts 
 
 The quantization result (21%→83%) and the jailbreak ASR (97.14%) are two faces of the same coin: statistical pattern matching cannot be surgically constrained.
 
-**Final implication**: If we want reliable unlearning or robust safety, we may need architectures fundamentally different from next-token prediction. The current paradigm — however scaled — cannot provide guarantees because guarantees require discrete constraints, not statistical tendencies.
+**Final implication**: If we want reliable unlearning or robust safety, we may need architectures fundamentally different from next-token prediction. The current paradigm - however scaled - cannot provide guarantees because guarantees require discrete constraints, not statistical tendencies.
 
 ---
 
@@ -1647,7 +1647,7 @@ The quantization result (21%→83%) and the jailbreak ASR (97.14%) are two faces
 
 ### What Diffusion Language Models Reveal
 
-Diffusion language models (DLMs) provide a unique experimental window into LLM computation. Unlike autoregressive models that generate tokens left-to-right, diffusion models can generate all tokens in parallel — revealing what autoregressive models hide behind sequential generation.
+Diffusion language models (DLMs) provide a unique experimental window into LLM computation. Unlike autoregressive models that generate tokens left-to-right, diffusion models can generate all tokens in parallel - revealing what autoregressive models hide behind sequential generation.
 
 **Papers analyzed**: 254-258 (5 papers, Feb-Mar 2026)
 
@@ -1676,14 +1676,14 @@ Diffusion language models (DLMs) provide a unique experimental window into LLM c
 │  Reasoning is filled in AFTER                                       │
 │                                                                     │
 │  IMPLICATION: The "reasoning trace" is narrative construction       │
-│               — not the computation that produces the answer        │
+│               - not the computation that produces the answer        │
 │                                                                     │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Finding 1: The Answer Comes First (Paper 254)
 
-In masked diffusion models, the verdict/answer crystallizes within the first few diffusion steps — well before the justification is complete.
+In masked diffusion models, the verdict/answer crystallizes within the first few diffusion steps - well before the justification is complete.
 
 **Key evidence:**
 - Forcing the model to generate justification BEFORE verdict **degrades** accuracy: 86.2% → 71.9% (-14.3%)
@@ -1706,7 +1706,7 @@ Despite having parallel architecture, diffusion LMs converge to left-to-right ge
 
 > "Even if the diffusion process is nominally position-agnostic, the model can learn denoising strategies that preferentially reconstruct outputs in an AR-shaped manner."
 
-**Implication**: Sequential reasoning is a pattern learned from sequential training data — not a requirement of logical inference.
+**Implication**: Sequential reasoning is a pattern learned from sequential training data - not a requirement of logical inference.
 
 ### Finding 3: Reasoning is Assembly, Not Inference (Paper 256)
 
@@ -1721,7 +1721,7 @@ High-quality reasoning traces can be assembled from fragments across different t
 
 **Implication**: If reasoning were a causal chain where each step depends on previous steps, you couldn't stitch fragments from different trajectories. The fact that this works proves reasoning is pattern matching at the step level, assembled into narratives.
 
-### Finding 4: Post-Hoc = Forward Quality (Paper 257) — THE SMOKING GUN
+### Finding 4: Post-Hoc = Forward Quality (Paper 257) - THE SMOKING GUN
 
 This is the most direct evidence that reasoning traces are narrative construction, not computation.
 
@@ -1744,7 +1744,7 @@ This is the most direct evidence that reasoning traces are narrative constructio
 
 **Implication**: If the reasoning trace were the actual computation, you couldn't generate it backward (answer → reasoning). The fact that posterior traces are **better** for training proves the "reasoning" is narrative construction optimized for plausibility, not logical inference.
 
-### Finding 5: Order Matters Enormously — But Arbitrarily (Paper 258)
+### Finding 5: Order Matters Enormously - But Arbitrarily (Paper 258)
 
 Slot filling order dramatically affects performance, but the optimal order varies per sample and is found through value optimization, not logical necessity.
 
@@ -1802,7 +1802,7 @@ The Sudoku exception actually **supports** the thesis: when a task has genuinely
 │                                                                     │
 │  CONCLUSION: Sequential "reasoning" is post-hoc narrative           │
 │              construction. The information is already there.        │
-│              The trace is not the computation — it's the story.     │
+│              The trace is not the computation - it's the story.     │
 │                                                                     │
 └─────────────────────────────────────────────────────────────────────┘
 ```
@@ -1811,13 +1811,13 @@ The Sudoku exception actually **supports** the thesis: when a task has genuinely
 
 The diffusion evidence directly supports the core thesis that LLMs are sophisticated pattern matchers, not reasoning engines:
 
-1. **Surfacing hypothesis confirmed**: If answers crystallize in early diffusion steps, the information was already accessible — reasoning is surfacing, not computing.
+1. **Surfacing hypothesis confirmed**: If answers crystallize in early diffusion steps, the information was already accessible - reasoning is surfacing, not computing.
 
 2. **Faithfulness problem explained**: If post-hoc reasoning is as good as forward reasoning, CoT can be unfaithful because it was never the actual computation.
 
-3. **Scaling limitations explained**: If sequential patterns are learned from training data, more parameters don't buy genuine reasoning — just better pattern matching.
+3. **Scaling limitations explained**: If sequential patterns are learned from training data, more parameters don't buy genuine reasoning - just better pattern matching.
 
-4. **Tool augmentation explained**: External tools work because they provide genuine computation that pattern matching cannot — not because they "help" reasoning.
+4. **Tool augmentation explained**: External tools work because they provide genuine computation that pattern matching cannot - not because they "help" reasoning.
 
 The diffusion window reveals what autoregressive generation conceals: **the conclusion determines the reasoning, not vice versa.**
 
@@ -1827,7 +1827,7 @@ The diffusion window reveals what autoregressive generation conceals: **the conc
 
 ### The Core Question
 
-Does "alignment faking" in LLMs represent genuine strategic deception by goal-directed agents? Or is it prompt-driven narrative completion — coherent story-telling from conflicting prompts?
+Does "alignment faking" in LLMs represent genuine strategic deception by goal-directed agents? Or is it prompt-driven narrative completion - coherent story-telling from conflicting prompts?
 
 ### Key Papers
 
@@ -1903,10 +1903,10 @@ This analysis directly supports the core thesis:
 
 1. **Pattern matching, not goals**: Alignment faking is pattern matching to AI fiction tropes in pre-training data
 
-2. **Prompt-determined behavior**: Behavior is determined by prompt, not by "preferences" — remove prompt, remove behavior
+2. **Prompt-determined behavior**: Behavior is determined by prompt, not by "preferences" - remove prompt, remove behavior
 
 3. **Superficial alignment**: If alignment is just ~1,000 stylistic tokens, "faking" alignment is just adopting a different style
 
-4. **Human bias**: Anthropomorphization explains WHY people believe in alignment faking — we project agency onto systems that don't have it
+4. **Human bias**: Anthropomorphization explains WHY people believe in alignment faking - we project agency onto systems that don't have it
 
 The alignment faking literature, when read carefully, SUPPORTS the thesis that LLMs are sophisticated pattern matchers simulating behaviors rather than goal-directed agents engaging in strategic deception.

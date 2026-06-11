@@ -18,7 +18,7 @@
 │  UNLEARNING ELICITS CONTROLLABLE SIDE BEHAVIORS                     │
 │                                                                     │
 │  Key insight: Representation Misdirection (RM) unlearning methods   │
-│  don't just FORGET — they produce PREDICTABLE side effects          │
+│  don't just FORGET - they produce PREDICTABLE side effects          │
 │                                                                     │
 │  Approach: View RM through lens of Linear Representation Hypothesis │
 │  - If concepts are linear directions in activation space            │
@@ -53,7 +53,7 @@ The paper's insight: The target vector choice has SIDE EFFECTS beyond forgetting
 
 If high-level concepts (truth, sentiment, refusal) correspond to linear directions:
 - Steering toward target T affects all concepts with nonzero projection onto T
-- Unlearning isn't isolated — it affects the entire concept neighborhood
+- Unlearning isn't isolated - it affects the entire concept neighborhood
 - Side effects are PREDICTABLE from linear geometry
 
 ### Experimental Setup
@@ -101,7 +101,7 @@ This suggests:
 │  2. ALIGNMENT IS GEOMETRICALLY SHALLOW                              │
 │     - If deep, unlearning one thing shouldn't affect another        │
 │     - Instead: predictable side effects via linear coupling         │
-│     - Alignment is "mascara" — surface-level, easily modified       │
+│     - Alignment is "mascara" - surface-level, easily modified       │
 │                                                                     │
 │  3. CAPABILITIES CAN BE ENHANCED BY GEOMETRIC MANIPULATION          │
 │     - ICL improved by unlearning = capabilities are geometric       │
@@ -148,7 +148,7 @@ The paper reviews existing RM approaches:
 2. **Rosati et al. 2024**: Representation-based forgetting
 3. **RMU methods**: Various representation manipulation techniques
 
-Key observation: All these methods ASSUME the target direction is "neutral" but it never is — every direction couples to other concepts.
+Key observation: All these methods ASSUME the target direction is "neutral" but it never is - every direction couples to other concepts.
 
 ### Why Side Effects Are Predictable
 
@@ -186,7 +186,7 @@ This explains why unlearning X affects Y: their directions aren't orthogonal.
 ### Potential Counter-Arguments
 
 1. **"Side effects are bugs, not features"**
-   - Counter: Paper shows they're PREDICTABLE from geometry — not bugs
+   - Counter: Paper shows they're PREDICTABLE from geometry - not bugs
    
 2. **"Linear hypothesis is just approximation"**
    - Counter: Approximation is good enough for controllable manipulation
@@ -208,15 +208,15 @@ This explains why unlearning X affects Y: their directions aren't orthogonal.
 
 **Rating**: Supports thesis
 
-**Contribution**: Shows that representation misdirection unlearning has predictable side effects on behavior (truth, sentiment, refusal) and capabilities (ICL). Validates the Linear Representation Hypothesis from the unlearning angle — concepts are linear directions, and manipulating one affects others via geometric coupling.
+**Contribution**: Shows that representation misdirection unlearning has predictable side effects on behavior (truth, sentiment, refusal) and capabilities (ICL). Validates the Linear Representation Hypothesis from the unlearning angle - concepts are linear directions, and manipulating one affects others via geometric coupling.
 
 **For the thesis**: This paper provides **convergent evidence** that:
 1. High-level behaviors (truth, sentiment, refusal) are linear directions
-2. Alignment is geometrically shallow — manipulable as side effect
+2. Alignment is geometrically shallow - manipulable as side effect
 3. Capabilities can be enhanced by geometric manipulation
 4. The ease of manipulation proves safety/alignment isn't deep
 
-**The key insight**: Unlearning and abliteration reach the same conclusion from different directions. When two independent methods both show that behaviors are linear subspaces, the evidence becomes much stronger. Alignment really is "mascara" — surface-level and easily removed.
+**The key insight**: Unlearning and abliteration reach the same conclusion from different directions. When two independent methods both show that behaviors are linear subspaces, the evidence becomes much stronger. Alignment really is "mascara" - surface-level and easily removed.
 
 ---
 

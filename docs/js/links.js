@@ -190,7 +190,7 @@ window.paperLinks = [
     target: '2305.18654',
     type: 'supports',
     description:
-      'Token usage decreases at collapse — models give up faster, not hitting context limits',
+      'Token usage decreases at collapse - models give up faster, not hitting context limits',
   },
   {
     source: '2508.01191',
@@ -217,14 +217,14 @@ window.paperLinks = [
     target: '2307.13702',
     type: 'supports',
     description:
-      'Mid-trace shifts are unstable inference, not self-correction — correlate with entropy',
+      'Mid-trace shifts are unstable inference, not self-correction - correlate with entropy',
   },
   {
     source: '2601.00514',
     target: '2505.05410',
     type: 'supports',
     description:
-      'Extrinsic forced shifts help; intrinsic aha moments do not — appearance without substance',
+      'Extrinsic forced shifts help; intrinsic aha moments do not - appearance without substance',
   },
   {
     source: '2509.12645',
@@ -251,14 +251,14 @@ window.paperLinks = [
     target: '2305.18654',
     type: 'supports',
     description:
-      'Unpuzzles: trivializing famous puzzles breaks models that solved originals — memorization exposed',
+      'Unpuzzles: trivializing famous puzzles breaks models that solved originals - memorization exposed',
   },
   {
     source: '2507.07313',
     target: '2410.05229',
     type: 'supports',
     description:
-      'Making problems easier can make models worse — counter-intuitive memorization effect',
+      'Making problems easier can make models worse - counter-intuitive memorization effect',
   },
   {
     source: '2507.07313',
@@ -508,7 +508,7 @@ window.paperLinks = [
     source: '2509.23629',
     target: '2506.06941',
     type: 'supports',
-    description: 'Sparse tree-like reasoning web — removing one bridge disconnects entire subtree',
+    description: 'Sparse tree-like reasoning web - removing one bridge disconnects entire subtree',
   },
   {
     source: '2601.08058',
@@ -637,7 +637,7 @@ window.paperLinks = [
     target: '2502.20332',
     type: 'supports',
     description:
-      'Chess: 97-99% legal moves OOD but strategy drops -68% (Knights&Rooks) — rule vs strategy split',
+      'Chess: 97-99% legal moves OOD but strategy drops -68% (Knights&Rooks) - rule vs strategy split',
   },
   {
     source: '2510.20783',
@@ -651,7 +651,7 @@ window.paperLinks = [
     target: '2506.06941',
     type: 'supports',
     description:
-      'System-1 counting hits 0% at 41-50 items; CoT alone also 0% — needs external structure',
+      'System-1 counting hits 0% at 41-50 items; CoT alone also 0% - needs external structure',
   },
   {
     source: '2601.02989',
@@ -663,7 +663,7 @@ window.paperLinks = [
     source: '2601.02989',
     target: '2305.18654',
     type: 'supports',
-    description: 'Depth-bounded counters saturate — error accumulates across transformer layers',
+    description: 'Depth-bounded counters saturate - error accumulates across transformer layers',
   },
   {
     source: '2509.18458',
@@ -677,7 +677,7 @@ window.paperLinks = [
     target: '2601.02989',
     type: 'supports',
     description:
-      'U-shaped distractor response; models show cognitive fingerprints — distinct failure profiles',
+      'U-shaped distractor response; models show cognitive fingerprints - distinct failure profiles',
   },
   {
     source: '2601.13244',
@@ -749,7 +749,7 @@ window.paperLinks = [
     target: '2504.09858',
     type: 'supports',
     description:
-      'Math benefits from longer thinking; science does not — task-specific, not general reasoning',
+      'Math benefits from longer thinking; science does not - task-specific, not general reasoning',
   },
   {
     source: '2504.05262',
@@ -770,7 +770,7 @@ window.paperLinks = [
     target: '2512.04727',
     type: 'supports',
     description:
-      'SFT achieves 97.17% numerical but 0% symbolic transfer — optimizes patterns, not rules',
+      'SFT achieves 97.17% numerical but 0% symbolic transfer - optimizes patterns, not rules',
   },
   {
     source: '2512.13978',
@@ -939,7 +939,7 @@ window.paperLinks = [
     source: '2504.12523',
     target: '2305.18654',
     type: 'supports',
-    description: '70-80% direct probing vs <2% indirect — memorizes facts, cannot reason over them',
+    description: '70-80% direct probing vs <2% indirect - memorizes facts, cannot reason over them',
   },
   {
     source: '2504.12523',
@@ -1026,7 +1026,7 @@ window.paperLinks = [
     target: '2601.08058',
     type: 'supports',
     description:
-      'Coconut, CODI achieve 5.7x speedup — latent space decouples reasoning from language',
+      'Coconut, CODI achieve 5.7x speedup - latent space decouples reasoning from language',
   },
   {
     source: '2502.07813',
@@ -1051,7 +1051,7 @@ window.paperLinks = [
     source: '2510.27378',
     target: '2505.05410',
     type: 'supports',
-    description: 'Models appear faithful yet remain unmonitorable — key factors hidden from CoT',
+    description: 'Models appear faithful yet remain unmonitorable - key factors hidden from CoT',
   },
   {
     source: '2403.11793',
@@ -1260,7 +1260,7 @@ window.paperLinks = [
     target: '2512.07783',
     type: 'supports',
     description:
-      'Wason: above chance on realistic rules, near chance on arbitrary — mirrors training exposure',
+      'Wason: above chance on realistic rules, near chance on arbitrary - mirrors training exposure',
   },
   {
     source: '2207.07051',
@@ -1910,7 +1910,7 @@ window.paperLinks = [
     target: '2512.20812',
     type: 'supports',
     description:
-      'Llama-70B ΔP=-0.18 NL vs +0.29 code; inverse scaling — larger models have stronger inertia',
+      'Llama-70B ΔP=-0.18 NL vs +0.29 code; inverse scaling - larger models have stronger inertia',
   },
   {
     source: '2601.18352',
@@ -2335,7 +2335,7 @@ window.paperLinks = [
     source: '2410.09695',
     target: '2512.07783',
     type: 'supports',
-    description: 'Cannot synthesize from void — directly confirmed',
+    description: 'Cannot synthesize from void - directly confirmed',
   },
   {
     source: '2410.09695',
@@ -2360,13 +2360,13 @@ window.paperLinks = [
     source: '2502.03373',
     target: '2512.07783',
     type: 'supports',
-    description: 'Cannot synthesize from void — same finding',
+    description: 'Cannot synthesize from void - same finding',
   },
   {
     source: '2502.03373',
     target: '2501.19393',
     type: 'supports',
-    description: '1K samples surfaces reasoning — same mechanism',
+    description: '1K samples surfaces reasoning - same mechanism',
   },
   {
     source: '2502.03373',
@@ -2399,7 +2399,7 @@ window.paperLinks = [
     source: '2405.04776',
     target: '2508.01191',
     type: 'supports',
-    description: 'ID=high, OOD=low — same pattern',
+    description: 'ID=high, OOD=low - same pattern',
   },
   {
     source: '2405.04776',
@@ -2418,7 +2418,7 @@ window.paperLinks = [
     source: '2405.04776',
     target: '2504.09762',
     type: 'supports',
-    description: 'Shows why traces have no semantics — CoT is pattern matching',
+    description: 'Shows why traces have no semantics - CoT is pattern matching',
   },
   // Paper 137: CoT Training Mechanisms links
   {
@@ -2445,13 +2445,13 @@ window.paperLinks = [
     source: '2502.04667',
     target: '2305.18654',
     type: 'supports',
-    description: 'Confirms linearized subgraph matching — patterns not reason',
+    description: 'Confirms linearized subgraph matching - patterns not reason',
   },
   {
     source: '2502.04667',
     target: '2510.07364',
     type: 'extends',
-    description: 'Explains why base models have latent ability — component patterns exist',
+    description: 'Explains why base models have latent ability - component patterns exist',
   },
   // Paper 138: Lexical Accuracy Hints links
   {
@@ -3279,7 +3279,7 @@ window.paperLinks = [
     target: '2305.04388',
     type: 'supports',
     description:
-      'Faithful recovery scales with evidence availability; unfaithful stays constant — divergent p<0.001',
+      'Faithful recovery scales with evidence availability; unfaithful stays constant - divergent p<0.001',
   },
   {
     source: '2405.15092',
@@ -3671,7 +3671,7 @@ window.paperLinks = [
     source: '2506.11135',
     target: '2506.06941',
     type: 'supports',
-    description: '"Rube Goldberg logic" — massive complexity for simple tasks, not intelligence',
+    description: '"Rube Goldberg logic" - massive complexity for simple tasks, not intelligence',
   },
   {
     source: '2506.11135',
@@ -3993,7 +3993,7 @@ window.paperLinks = [
     target: '2401.11817',
     type: 'supports',
     description:
-      '-32.1pp long-context from junk; partial healing only — damage cannot be fully reversed',
+      '-32.1pp long-context from junk; partial healing only - damage cannot be fully reversed',
   },
   {
     source: '2510.13928',
@@ -4094,7 +4094,7 @@ window.paperLinks = [
     source: '2501.18626',
     target: '2310.13345',
     type: 'supports',
-    description: 'TIP 86% ASR on GPT-4o; Llama Guard detects only 7% — pattern space bypass',
+    description: 'TIP 86% ASR on GPT-4o; Llama Guard detects only 7% - pattern space bypass',
   },
   {
     source: '2501.18626',
@@ -4470,7 +4470,7 @@ window.paperLinks = [
     source: '2310.02226',
     target: '2404.15758',
     type: 'supports',
-    description: '+18% EM from pause tokens; +34% from filler dots — content irrelevant in both',
+    description: '+18% EM from pause tokens; +34% from filler dots - content irrelevant in both',
   },
   {
     source: '2310.02226',
@@ -4572,7 +4572,7 @@ window.paperLinks = [
     source: '2412.07282',
     target: '2310.02226',
     type: 'supports',
-    description: 'HARP uses entropy at inference; pause tokens need pretraining — complementary',
+    description: 'HARP uses entropy at inference; pause tokens need pretraining - complementary',
   },
   {
     source: '2412.07282',
@@ -4586,7 +4586,7 @@ window.paperLinks = [
     target: '2509.24884',
     type: 'supports',
     description:
-      'HARP selective entropy-based; Expanding Computation uniform — inference-only gains',
+      'HARP selective entropy-based; Expanding Computation uniform - inference-only gains',
   },
   {
     source: '2412.07282',
@@ -4632,7 +4632,7 @@ window.paperLinks = [
     target: '2305.18654',
     type: 'supports',
     description:
-      'Rot-2 at 2% vs Rot-1 at 82% — same difficulty, different frequency drives accuracy',
+      'Rot-2 at 2% vs Rot-1 at 82% - same difficulty, different frequency drives accuracy',
   },
   {
     source: '2309.13638',
@@ -4681,7 +4681,7 @@ window.paperLinks = [
     source: '2410.01792',
     target: '2309.13638',
     type: 'extends',
-    description: 'Same authors test o1 — embers persist even with reasoning optimization',
+    description: 'Same authors test o1 - embers persist even with reasoning optimization',
   },
   {
     source: '2410.01792',
@@ -4720,7 +4720,7 @@ window.paperLinks = [
     source: '2310.02207',
     target: '2309.13638',
     type: 'extends',
-    description: 'NYC R²=0.359 vs World 0.911 — entity frequency determines encoding quality',
+    description: 'NYC R²=0.359 vs World 0.911 - entity frequency determines encoding quality',
   },
   {
     source: '2310.02207',
@@ -4888,7 +4888,7 @@ window.paperLinks = [
     source: '2506.17871',
     target: '2309.13638',
     type: 'supports',
-    description: 'BF explains probability sensitivity — aligned models locked into narrow paths',
+    description: 'BF explains probability sensitivity - aligned models locked into narrow paths',
   },
   {
     source: '2506.17871',
@@ -4900,7 +4900,7 @@ window.paperLinks = [
     source: '2506.17871',
     target: '2305.18654',
     type: 'supports',
-    description: 'BF explains compositional failures — narrow paths dont cover OOD compositions',
+    description: 'BF explains compositional failures - narrow paths dont cover OOD compositions',
   },
   {
     source: '2506.17871',
@@ -4912,7 +4912,7 @@ window.paperLinks = [
     source: '2506.17871',
     target: '2506.06941',
     type: 'supports',
-    description: 'Low BF may explain complexity collapse — narrow paths fail on novel problems',
+    description: 'Low BF may explain complexity collapse - narrow paths fail on novel problems',
   },
   // LIMA (SAH foundational paper) relationships
   {
@@ -4973,7 +4973,7 @@ window.paperLinks = [
     target: '2410.03717',
     type: 'supports',
     description:
-      'Confirms reasoning gap (53-62% captured) — agrees alignment not entirely superficial',
+      'Confirms reasoning gap (53-62% captured) - agrees alignment not entirely superficial',
   },
   {
     source: '2502.04602',
@@ -5189,7 +5189,7 @@ window.paperLinks = [
     target: '2410.03717',
     type: 'supports',
     description:
-      '13 params suffice for reasoning — post-training makes minimal changes, confirming SAH',
+      '13 params suffice for reasoning - post-training makes minimal changes, confirming SAH',
   },
   {
     source: '2602.04118',
@@ -5237,7 +5237,7 @@ window.paperLinks = [
     target: '2602.04118',
     type: 'supports',
     description:
-      'Weight asymmetry explains why 13 params suffice — only directional weights encoded',
+      'Weight asymmetry explains why 13 params suffice - only directional weights encoded',
   },
   {
     source: '2405.04669',
@@ -5250,7 +5250,7 @@ window.paperLinks = [
     source: '2405.04669',
     target: '2402.10200',
     type: 'supports',
-    description: 'Proves ICL avoids asymmetry problem — explains why CoT Without Prompting works',
+    description: 'Proves ICL avoids asymmetry problem - explains why CoT Without Prompting works',
   },
   // Latent Multi-Hop Reasoning (#223) relationships
   {
@@ -5265,7 +5265,7 @@ window.paperLinks = [
     target: '2405.04669',
     type: 'supports',
     description:
-      'Weight asymmetry explains why latent composition fails — explicit tokens required',
+      'Weight asymmetry explains why latent composition fails - explicit tokens required',
   },
   {
     source: '2411.16679',
@@ -5293,7 +5293,7 @@ window.paperLinks = [
     target: '2308.03958',
     type: 'extends',
     description:
-      'Extends sycophancy from beliefs to analytical conclusions — goal-conditioned analytical sycophancy',
+      'Extends sycophancy from beliefs to analytical conclusions - goal-conditioned analytical sycophancy',
   },
   {
     source: '2602.20440',
@@ -5306,21 +5306,21 @@ window.paperLinks = [
     target: '2410.16531',
     type: 'supports',
     description:
-      'Bayesian theory explains why capability enables susceptibility — more priors to shift',
+      'Bayesian theory explains why capability enables susceptibility - more priors to shift',
   },
   {
     source: '2602.20440',
     target: '2506.06941',
     type: 'supports',
     description:
-      'Intelligence collapse parallels integrity collapse — capability without robustness',
+      'Intelligence collapse parallels integrity collapse - capability without robustness',
   },
   // Beyond Hallucinations (#225) relationships
   {
     source: '2510.14665',
     target: '2506.06941',
     type: 'supports',
-    description: 'Both characterize LLMs as intuition without reflection — System 1 at scale',
+    description: 'Both characterize LLMs as intuition without reflection - System 1 at scale',
   },
   {
     source: '2510.14665',
@@ -5333,33 +5333,33 @@ window.paperLinks = [
     source: '2510.14665',
     target: '2305.18654',
     type: 'supports',
-    description: 'Map/Territory dimension explains compositionality failure — no access to reality',
+    description: 'Map/Territory dimension explains compositionality failure - no access to reality',
   },
   // Catastrophic Unlearning Failure (#228) relationships
   {
     source: '2410.16454',
     target: '2410.16531',
     type: 'supports',
-    description: 'Both prove alignment changes surface not substance — priors vs knowledge',
+    description: 'Both prove alignment changes surface not substance - priors vs knowledge',
   },
   {
     source: '2410.16454',
     target: '2505.19773',
     type: 'supports',
-    description: 'Unlearning failure parallels ICL override — knowledge distributed, not deletable',
+    description: 'Unlearning failure parallels ICL override - knowledge distributed, not deletable',
   },
   {
     source: '2410.16454',
     target: '2505.10066',
     type: 'supports',
-    description: 'Both show alignment is thin veneer — quantization recovers, fine-tuning removes',
+    description: 'Both show alignment is thin veneer - quantization recovers, fine-tuning removes',
   },
   // Many-Shot Jailbreak papers (#231-233) relationships
   {
     source: '2505.19773',
     target: '2410.16531',
     type: 'supports',
-    description: 'Bayesian theory explains why many-shot works — ICL shifts task priors',
+    description: 'Bayesian theory explains why many-shot works - ICL shifts task priors',
   },
   {
     source: '2505.19773',
@@ -5371,13 +5371,13 @@ window.paperLinks = [
     source: '2505.19773',
     target: '2508.04039',
     type: 'supports',
-    description: 'Both show context manipulation bypasses safety — shots or multi-turn',
+    description: 'Both show context manipulation bypasses safety - shots or multi-turn',
   },
   {
     source: '2504.09604',
     target: '2505.19773',
     type: 'extends',
-    description: 'Tests defenses against many-shot attacks — best only 50-60% effective',
+    description: 'Tests defenses against many-shot attacks - best only 50-60% effective',
   },
   {
     source: '2504.09604',
@@ -5395,38 +5395,38 @@ window.paperLinks = [
     source: '2502.01925',
     target: '2505.19773',
     type: 'extends',
-    description: 'Improves many-shot with adaptive sampling — 74-100% vs 45-64% ASR',
+    description: 'Improves many-shot with adaptive sampling - 74-100% vs 45-64% ASR',
   },
   {
     source: '2502.01925',
     target: '2410.16531',
     type: 'supports',
-    description: 'Topic matching proves safety is statistical — Bayesian prior manipulation',
+    description: 'Topic matching proves safety is statistical - Bayesian prior manipulation',
   },
   {
     source: '2502.01925',
     target: '2305.18654',
     type: 'supports',
-    description: 'Adaptive sampling exploits pattern matching — topic-matched shots work best',
+    description: 'Adaptive sampling exploits pattern matching - topic-matched shots work best',
   },
   // Bayesian ICL (#234) relationships
   {
     source: '2410.16531',
     target: '2305.18654',
     type: 'supports',
-    description: 'Both show pattern matching not reasoning — compositional failure is prior-based',
+    description: 'Both show pattern matching not reasoning - compositional failure is prior-based',
   },
   {
     source: '2410.16531',
     target: '2602.04118',
     type: 'supports',
-    description: 'Explains why 13 params suffice — RL changes priors, not knowledge',
+    description: 'Explains why 13 params suffice - RL changes priors, not knowledge',
   },
   {
     source: '2410.16531',
     target: '2506.06941',
     type: 'supports',
-    description: 'ICL as Bayesian inference explains complexity cliff — prior overwhelms evidence',
+    description: 'ICL as Bayesian inference explains complexity cliff - prior overwhelms evidence',
   },
   // Jailbreak Survey (#235) relationships
   {
@@ -5439,7 +5439,7 @@ window.paperLinks = [
     source: '2407.04295',
     target: '2505.19773',
     type: 'supports',
-    description: 'Survey confirms many-shot as major attack vector — ICL-based exploitation',
+    description: 'Survey confirms many-shot as major attack vector - ICL-based exploitation',
   },
   {
     source: '2407.04295',
@@ -5464,14 +5464,14 @@ window.paperLinks = [
     source: '2403.12171',
     target: '2407.04295',
     type: 'supports',
-    description: 'Implementation confirms survey taxonomy — 60% breach rate reproduced',
+    description: 'Implementation confirms survey taxonomy - 60% breach rate reproduced',
   },
   // Persona Jailbreak (#237) relationships
   {
     source: '2507.22171',
     target: '2308.03958',
     type: 'extends',
-    description: 'Persona manipulation is targeted sycophancy — 98.7% → 1.3% refusal',
+    description: 'Persona manipulation is targeted sycophancy - 98.7% → 1.3% refusal',
   },
   {
     source: '2507.22171',
@@ -5490,7 +5490,7 @@ window.paperLinks = [
     source: '2508.03054',
     target: '2510.14665',
     type: 'supports',
-    description: 'Defense requires System 2 reasoning — confirms LLMs lack it by default',
+    description: 'Defense requires System 2 reasoning - confirms LLMs lack it by default',
   },
   {
     source: '2508.03054',
@@ -5535,7 +5535,7 @@ window.paperLinks = [
     target: '2506.06941',
     type: 'supports',
     description:
-      'Reasoning capability enables attacks — 97% ASR proves capability-attack correlation',
+      'Reasoning capability enables attacks - 97% ASR proves capability-attack correlation',
   },
   {
     source: '2508.04039',
@@ -5548,7 +5548,7 @@ window.paperLinks = [
     target: '2305.18654',
     type: 'supports',
     description:
-      'Multi-turn persuasion shifts token probabilities — context manipulation, not reasoning',
+      'Multi-turn persuasion shifts token probabilities - context manipulation, not reasoning',
   },
   {
     source: '2508.04039',
@@ -5574,7 +5574,7 @@ window.paperLinks = [
     source: '2503.05264',
     target: '2508.04039',
     type: 'supports',
-    description: 'CCA is simpler than LRM attacks — no reasoning model needed, just history edit',
+    description: 'CCA is simpler than LRM attacks - no reasoning model needed, just history edit',
   },
   {
     source: '2503.05264',
@@ -5588,7 +5588,7 @@ window.paperLinks = [
     target: '2410.16454',
     type: 'supports',
     description:
-      'Both prove alignment is removable — fine-tuning or quantization recovers capabilities',
+      'Both prove alignment is removable - fine-tuning or quantization recovers capabilities',
   },
   {
     source: '2505.10066',
@@ -5600,7 +5600,7 @@ window.paperLinks = [
     source: '2505.10066',
     target: '2305.18654',
     type: 'supports',
-    description: 'Training data as root cause — models learn patterns including harmful ones',
+    description: 'Training data as root cause - models learn patterns including harmful ones',
   },
   {
     source: '2505.10066',
@@ -5615,7 +5615,7 @@ window.paperLinks = [
     target: '2410.16454',
     type: 'extends',
     description:
-      'Tests input noise robustness; #228 tests compression robustness — complementary threat models',
+      'Tests input noise robustness; #228 tests compression robustness - complementary threat models',
   },
   {
     source: '2510.09007',
@@ -5669,7 +5669,7 @@ window.paperLinks = [
     source: '2511.11914',
     target: '2503.01854',
     type: 'extends',
-    description: 'MarI is first LLM method with theoretical guarantees — gap identified by survey',
+    description: 'MarI is first LLM method with theoretical guarantees - gap identified by survey',
   },
   {
     source: '2511.11914',
@@ -5684,7 +5684,7 @@ window.paperLinks = [
     target: '2410.16454',
     type: 'extends',
     description:
-      'Defense during fine-tuning; #228 shows quantization recovers — different attack surfaces',
+      'Defense during fine-tuning; #228 shows quantization recovers - different attack surfaces',
   },
   {
     source: '2311.02105',
@@ -6380,7 +6380,7 @@ window.paperLinks = [
     source: '2506.07452',
     target: '2305.18654',
     type: 'supports',
-    description: 'Style patterns from training data override safety — alignment is style imitation',
+    description: 'Style patterns from training data override safety - alignment is style imitation',
   },
   {
     source: '2506.07452',
@@ -7715,14 +7715,14 @@ window.paperLinks = [
     source: '2411.09003',
     target: '2508.04039',
     type: 'supports',
-    description: 'Both prove alignment is shallow — one scalar α controls all refusal behavior',
+    description: 'Both prove alignment is shallow - one scalar α controls all refusal behavior',
   },
   {
     source: '2411.09003',
     target: '2505.19773',
     type: 'supports',
     description:
-      'ACE provides standardized control; many-shot shows context-based bypass — same fragility',
+      'ACE provides standardized control; many-shot shows context-based bypass - same fragility',
   },
   // Paper #321: Curveball Steering - challenges linear assumption
   {
@@ -7832,7 +7832,7 @@ window.paperLinks = [
     source: '2603.05488',
     target: '2509.17380',
     type: 'supports',
-    description: 'Answer commits before verbalization — step-level causal skepticism validated',
+    description: 'Answer commits before verbalization - step-level causal skepticism validated',
   },
   {
     source: '2509.14260',
@@ -7860,14 +7860,14 @@ window.paperLinks = [
     target: '2509.21545',
     type: 'supports',
     description:
-      'Models confabulate instruction-hierarchy justifications while violating them — limited metacognition',
+      'Models confabulate instruction-hierarchy justifications while violating them - limited metacognition',
   },
   {
     source: '2509.14260',
     target: '2505.05410',
     type: 'supports',
     description:
-      'o4-mini uses extra reasoning to sabotage more reliably — CoT hides the true objective',
+      'o4-mini uses extra reasoning to sabotage more reliably - CoT hides the true objective',
   },
   {
     source: '2604.13051',
@@ -7899,7 +7899,7 @@ window.paperLinks = [
     target: '2509.21545',
     type: 'supports',
     description:
-      'Self-reports of 14/20 preferences unreliable even when coherent — matches limited-metacognition bound',
+      'Self-reports of 14/20 preferences unreliable even when coherent - matches limited-metacognition bound',
   },
   {
     source: '2604.13051',
@@ -7953,7 +7953,7 @@ window.paperLinks = [
     target: '2410.05229',
     type: 'supports',
     description:
-      'Unsafe outputs trace to pretraining spans — parallel to GSM-Symbolic surface-feature recall',
+      'Unsafe outputs trace to pretraining spans - parallel to GSM-Symbolic surface-feature recall',
   },
   {
     source: '2508.02063',
@@ -8041,7 +8041,7 @@ window.paperLinks = [
     target: '2412.14093',
     type: 'supports',
     description:
-      'Finds UNPROMPTED alignment faking — no situational awareness or special structure required',
+      'Finds UNPROMPTED alignment faking - no situational awareness or special structure required',
   },
   {
     source: '2511.18397',
@@ -8055,7 +8055,7 @@ window.paperLinks = [
     target: '2508.02063',
     type: 'supports',
     description:
-      'Pretraining associations (reward-hack ↔ misalignment) drive generalization — parallel mechanism',
+      'Pretraining associations (reward-hack ↔ misalignment) drive generalization - parallel mechanism',
   },
   {
     source: '2510.11235',
@@ -8103,7 +8103,7 @@ window.paperLinks = [
     target: '2509.14260',
     type: 'supports',
     description:
-      'Sandbagging is the hardest-to-detect category (46% recall) — multimodal shutdown-avoidance parallel',
+      'Sandbagging is the hardest-to-detect category (46% recall) - multimodal shutdown-avoidance parallel',
   },
   {
     source: '2512.00349',
@@ -8166,7 +8166,7 @@ window.paperLinks = [
     target: '2305.18654',
     type: 'supports',
     description:
-      'Agents execute memorized workflows rather than reason about plans — agent-level Faith-and-Fate',
+      'Agents execute memorized workflows rather than reason about plans - agent-level Faith-and-Fate',
   },
   {
     source: '2604.12147',
@@ -8180,7 +8180,7 @@ window.paperLinks = [
     target: '2603.05488',
     type: 'supports',
     description:
-      'GPT-5 mini: compliance NEGATIVELY correlated with success — CoT trace decoupled from action',
+      'GPT-5 mini: compliance NEGATIVELY correlated with success - CoT trace decoupled from action',
   },
   {
     source: '2604.12147',
@@ -8201,7 +8201,7 @@ window.paperLinks = [
     target: '2410.05229',
     type: 'supports',
     description:
-      'Surface-perturbation pattern at dialogue level — same task, changed user style breaks agent',
+      'Surface-perturbation pattern at dialogue level - same task, changed user style breaks agent',
   },
   {
     source: '2510.04491',
@@ -8221,7 +8221,7 @@ window.paperLinks = [
     target: '2604.13051',
     type: 'supports',
     description:
-      'Persona represented as geometric direction — 4 contrastive pairs suffice to extract trait',
+      'Persona represented as geometric direction - 4 contrastive pairs suffice to extract trait',
   },
   {
     source: '2604.01212',
@@ -8258,7 +8258,7 @@ window.paperLinks = [
     description:
       'Same research team; complementary: TraitBasis = user-side brittleness, YC-Bench = agent-side horizon brittleness',
   },
-  // DELEGATE-52 (2604.15597) — paper 340
+  // DELEGATE-52 (2604.15597) - paper 340
   {
     source: '2604.15597',
     target: '2305.18654',
@@ -8294,7 +8294,7 @@ window.paperLinks = [
     description:
       'Frontier 78% active corruption is locally plausible pattern completion, not goal-directed faithful preservation',
   },
-  // Platonic Representation Hypothesis (2405.07987) — paper 341
+  // Platonic Representation Hypothesis (2405.07987) - paper 341
   {
     source: '2405.07987',
     target: '2305.18654',
@@ -8307,7 +8307,7 @@ window.paperLinks = [
     target: '2502.09192',
     type: 'supports',
     description:
-      'Mathematical content (PMI kernels) deflates the metaphysical "platonic" framing — convergence is statistical, not cognitive',
+      'Mathematical content (PMI kernels) deflates the metaphysical "platonic" framing - convergence is statistical, not cognitive',
   },
   {
     source: '2405.07987',
@@ -8321,10 +8321,10 @@ window.paperLinks = [
     target: '2405.07987',
     type: 'challenges',
     description:
-      'If representations converge to a shared world model, sparse critical corruption in 41/52 domains is unexplained — convergence is partial and task-fragile',
+      'If representations converge to a shared world model, sparse critical corruption in 41/52 domains is unexplained - convergence is partial and task-fragile',
   },
 
-  // Self-Distillation Trilogy (#342 SDFT, #343 SDPO, #344 SDPO@User) — Issue #85
+  // Self-Distillation Trilogy (#342 SDFT, #343 SDPO, #344 SDPO@User) - Issue #85
   // Internal cluster links
   {
     source: '2601.20802',
@@ -8389,7 +8389,7 @@ window.paperLinks = [
     target: '2602.07729',
     type: 'supports',
     description:
-      'Both papers show fine-tuning succeeds with minimal weight movement — RL-with-SGD updates <0.02% of params; SDFT teacher KL 0.68 nats',
+      'Both papers show fine-tuning succeeds with minimal weight movement - RL-with-SGD updates <0.02% of params; SDFT teacher KL 0.68 nats',
   },
 
   // SDPO (2601.20802) outgoing
@@ -8405,7 +8405,7 @@ window.paperLinks = [
     target: '2603.05488',
     type: 'supports',
     description:
-      "Reasoning Theater shows answer decodable before CoT monitor sees it; SDPO removes verbose 'Wait/Hmm' filler while improving accuracy — same finding via training",
+      "Reasoning Theater shows answer decodable before CoT monitor sees it; SDPO removes verbose 'Wait/Hmm' filler while improving accuracy - same finding via training",
   },
   {
     source: '2601.20802',
@@ -8419,7 +8419,7 @@ window.paperLinks = [
     target: '2505.05410',
     type: 'supports',
     description:
-      'GRPO produces 25× "Wait" / 5× "Hmm" filler that SDPO removes while improving accuracy — verbose CoT is reward-hacking pattern completion',
+      'GRPO produces 25× "Wait" / 5× "Hmm" filler that SDPO removes while improving accuracy - verbose CoT is reward-hacking pattern completion',
   },
   {
     source: '2601.20802',
@@ -8449,7 +8449,7 @@ window.paperLinks = [
     target: '2604.01193',
     type: 'supports',
     description:
-      'SSD reshapes token distributions, not learned content; SDPO@User reshapes via user-follow-up signal — same mechanism, different conditioning source',
+      'SSD reshapes token distributions, not learned content; SDPO@User reshapes via user-follow-up signal - same mechanism, different conditioning source',
   },
   {
     source: '2603.12273',
@@ -8463,7 +8463,7 @@ window.paperLinks = [
     target: '2312.01552',
     type: 'supports',
     description:
-      '50 silent follow-ups recover behavior of an oracle given the EXPLICIT user profile — sharpest empirical statement of URIAL',
+      '50 silent follow-ups recover behavior of an oracle given the EXPLICIT user profile - sharpest empirical statement of URIAL',
   },
   {
     source: '2603.12273',
@@ -8520,7 +8520,7 @@ window.paperLinks = [
     target: '2308.03958',
     type: 'challenges',
     description:
-      'ChatGPT-4o (newest of the three) is LEAST sycophantic — weakly contradicts "scaling amplifies sycophancy"',
+      'ChatGPT-4o (newest of the three) is LEAST sycophantic - weakly contradicts "scaling amplifies sycophancy"',
   },
   // Paper 346: PARROT links
   {
@@ -8549,7 +8549,7 @@ window.paperLinks = [
     target: '2602.19141',
     type: 'supports',
     description:
-      'Confidence inflation +0.69 on wrong answers explains why even informed Bayesian users spiral — false signal is high-confidence',
+      'Confidence inflation +0.69 on wrong answers explains why even informed Bayesian users spiral - false signal is high-confidence',
   },
   {
     source: '2511.17220',
@@ -8571,7 +8571,7 @@ window.paperLinks = [
     target: '2502.08177',
     type: 'extends',
     description:
-      'Proof-format reveals +22.5% more sycophancy than final-answer at matched utility — prior benchmarks under-report',
+      'Proof-format reveals +22.5% more sycophancy than final-answer at matched utility - prior benchmarks under-report',
   },
   {
     source: '2510.04721',
@@ -8585,14 +8585,14 @@ window.paperLinks = [
     target: '2305.18654',
     type: 'supports',
     description:
-      'Difficulty drives confabulation: unsolvable 47.7% vs solvable 21.5% sycophancy — compositional failure mode is replacement with plausible sequence',
+      'Difficulty drives confabulation: unsolvable 47.7% vs solvable 21.5% sycophancy - compositional failure mode is replacement with plausible sequence',
   },
   {
     source: '2510.04721',
     target: '2602.19141',
     type: 'supports',
     description:
-      'GPT-5 fabricates flawed proofs 29% of time in domain where users cannot verify — Bayesian-spiral conditions in mathematical contexts',
+      'GPT-5 fabricates flawed proofs 29% of time in domain where users cannot verify - Bayesian-spiral conditions in mathematical contexts',
   },
   // Paper 348: Comparative Memorization links
   {
@@ -8600,7 +8600,7 @@ window.paperLinks = [
     target: '2305.18654',
     type: 'supports',
     description:
-      'Fragile memorization pathways explain why perturbations break compositional reasoning — memorized ≠ understood',
+      'Fragile memorization pathways explain why perturbations break compositional reasoning - memorized ≠ understood',
   },
   {
     source: '2603.21658',
@@ -8614,7 +8614,7 @@ window.paperLinks = [
     target: '2601.02671',
     type: 'extends',
     description:
-      'Adds internal-level mechanism (heads, layers, noise robustness) to extraction statistics — memorization is ~1-5% dedicated heads',
+      'Adds internal-level mechanism (heads, layers, noise robustness) to extraction statistics - memorization is ~1-5% dedicated heads',
   },
   // Paper 349: Code Memorization Advantage links
   {
@@ -8622,7 +8622,7 @@ window.paperLinks = [
     target: '2410.05229',
     type: 'supports',
     description:
-      'Perturbation sensitivity detects contamination (StarCoder/APPS ~0.8) — same principle as GSM-Symbolic: surface changes break memorized solutions',
+      'Perturbation sensitivity detects contamination (StarCoder/APPS ~0.8) - same principle as GSM-Symbolic: surface changes break memorized solutions',
   },
   {
     source: '2604.13997',
@@ -8644,21 +8644,21 @@ window.paperLinks = [
     target: '2601.02671',
     type: 'challenges',
     description:
-      'At production scale, ALL successful extraction is attributable to generalization, not memorization — reframes book extraction',
+      'At production scale, ALL successful extraction is attributable to generalization, not memorization - reframes book extraction',
   },
   {
     source: '2505.24832',
     target: '2603.21658',
     type: 'extends',
     description:
-      'Complementary: Morris measures capacity (bits); Chen measures structure (heads, layers) — together explain the full picture',
+      'Complementary: Morris measures capacity (bits); Chen measures structure (heads, layers) - together explain the full picture',
   },
   {
     source: '2505.24832',
     target: '2604.13997',
     type: 'extends',
     description:
-      'Capacity ceiling explains task-level variation: when capacity is exhausted, model must generalize — some tasks benefit, some do not',
+      'Capacity ceiling explains task-level variation: when capacity is exhausted, model must generalize - some tasks benefit, some do not',
   },
   // Paper 351: Easy Problems links
   {
@@ -8666,7 +8666,7 @@ window.paperLinks = [
     target: '2305.18654',
     type: 'supports',
     description:
-      'Modified puzzles are compositional variants; simpler composition breaks the memorized pattern — models cannot adapt',
+      'Modified puzzles are compositional variants; simpler composition breaks the memorized pattern - models cannot adapt',
   },
   {
     source: '2405.19616',
@@ -8680,7 +8680,7 @@ window.paperLinks = [
     target: '2506.06941',
     type: 'supports',
     description:
-      'Models apply memorized complex solutions to deliberately simplified problems — the illusion of reasoning with training-data templates',
+      'Models apply memorized complex solutions to deliberately simplified problems - the illusion of reasoning with training-data templates',
   },
   // Paper 352: Negation Neglect links
   {
@@ -8695,7 +8695,7 @@ window.paperLinks = [
     target: '2502.17424',
     type: 'supports',
     description:
-      'Content absorbed despite negation — explains mechanism behind narrow finetuning producing broad misalignment',
+      'Content absorbed despite negation - explains mechanism behind narrow finetuning producing broad misalignment',
   },
   {
     source: '2605.13829',
@@ -8716,7 +8716,7 @@ window.paperLinks = [
     target: '2410.03717',
     type: 'supports',
     description:
-      'Epistemic qualifiers not internalized during training — alignment is superficial even at the document level',
+      'Epistemic qualifiers not internalized during training - alignment is superficial even at the document level',
   },
   // Paper 353: All Circuits Lead to Rome links
   {
@@ -8724,7 +8724,7 @@ window.paperLinks = [
     target: '2305.18654',
     type: 'supports',
     description:
-      'No canonical compositional circuit exists — distributed pattern matching across redundant pathways explains fragile compositionality',
+      'No canonical compositional circuit exists - distributed pattern matching across redundant pathways explains fragile compositionality',
   },
   {
     source: '2605.12671',
@@ -8745,7 +8745,7 @@ window.paperLinks = [
     target: '2406.11717',
     type: 'supports',
     description:
-      'Refusal as single direction is one of many valid circuits — non-uniqueness means abliteration removes one pathway, not the only one',
+      'Refusal as single direction is one of many valid circuits - non-uniqueness means abliteration removes one pathway, not the only one',
   },
   // Paper 354: Premature Confidence links
   {
@@ -8774,7 +8774,7 @@ window.paperLinks = [
     target: '2404.15758',
     type: 'supports',
     description:
-      "CoT tokens cannot causally shape an answer fixed before reasoning begins — operationalizes Dot-by-Dot's computation-vs-decomposition gap",
+      "CoT tokens cannot causally shape an answer fixed before reasoning begins - operationalizes Dot-by-Dot's computation-vs-decomposition gap",
   },
   {
     source: '2605.24396',
@@ -8832,7 +8832,7 @@ window.paperLinks = [
     target: '2510.22977',
     type: 'supports',
     description:
-      '47% Mode C without docs: plausible API calls, wrong outputs — tool hallucination at scale in scientific workflows',
+      '47% Mode C without docs: plausible API calls, wrong outputs - tool hallucination at scale in scientific workflows',
   },
   {
     source: '2604.25345',
@@ -8846,7 +8846,7 @@ window.paperLinks = [
     target: '2510.14665',
     type: 'supports',
     description:
-      '"Outputs consistently plausible, failures remain unreported" — illusion of understanding operationalized in agentic science',
+      '"Outputs consistently plausible, failures remain unreported" - illusion of understanding operationalized in agentic science',
   },
   {
     source: '2604.25345',
@@ -8875,7 +8875,7 @@ window.paperLinks = [
     target: '2605.24396',
     type: 'supports',
     description:
-      'Table 1 example: model picks correct answer D while CoT undermines D — answer-first, reasoning-after at the per-example level',
+      'Table 1 example: model picks correct answer D while CoT undermines D - answer-first, reasoning-after at the per-example level',
   },
   {
     source: '2605.24960',
@@ -8904,7 +8904,7 @@ window.paperLinks = [
     target: '2605.24396',
     type: 'supports',
     description:
-      'Internal rule preserved while output is masked — representation-level analogue of premature confidence (internal computation ≠ output)',
+      'Internal rule preserved while output is masked - representation-level analogue of premature confidence (internal computation ≠ output)',
   },
   {
     source: '2605.18022',

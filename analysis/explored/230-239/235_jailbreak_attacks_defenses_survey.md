@@ -87,9 +87,9 @@ The fundamental problem: LLMs are trained to be helpful, and this helpfulness ca
 
 This survey provides **meta-level evidence** that safety is pattern matching:
 
-1. **All defenses are pattern-based**: Perplexity detection, keyword filtering, prompt classification — all are statistical patterns that can be evaded
+1. **All defenses are pattern-based**: Perplexity detection, keyword filtering, prompt classification - all are statistical patterns that can be evaded
 
-2. **All attacks exploit distributions**: Low-resource languages, ciphers, gradient optimization — all find regions of the probability space where safety training is sparse
+2. **All attacks exploit distributions**: Low-resource languages, ciphers, gradient optimization - all find regions of the probability space where safety training is sparse
 
 3. **No principled safety exists**: The survey documents no defense that provides guarantees. Every defense has known bypasses.
 
@@ -97,7 +97,7 @@ This survey provides **meta-level evidence** that safety is pattern matching:
 
 ### Implication
 
-If safety were a principled constraint (like type checking in programming), attacks would fail fundamentally. Instead, attacks and defenses are both operating in the same statistical space — finding and patching probability distributions.
+If safety were a principled constraint (like type checking in programming), attacks would fail fundamentally. Instead, attacks and defenses are both operating in the same statistical space - finding and patching probability distributions.
 
 ---
 

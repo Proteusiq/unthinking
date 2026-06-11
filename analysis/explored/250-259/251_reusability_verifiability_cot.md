@@ -11,10 +11,10 @@
 
 ## Core Claims
 
-1. **Reusability and verifiability don't correlate with accuracy** — High accuracy on benchmarks doesn't guarantee good CoT that others can reuse
-2. **Specialized reasoning models aren't always better** — DeepSeek-R1 and Phi4-reasoning not consistently more reusable/verifiable than Llama/Gemma
-3. **Thinker-Executor framework decouples CoT** — Evaluates if CoT can be followed by independent models
-4. **Current leaderboards have a blind spot** — Accuracy alone fails to capture CoT quality
+1. **Reusability and verifiability don't correlate with accuracy** - High accuracy on benchmarks doesn't guarantee good CoT that others can reuse
+2. **Specialized reasoning models aren't always better** - DeepSeek-R1 and Phi4-reasoning not consistently more reusable/verifiable than Llama/Gemma
+3. **Thinker-Executor framework decouples CoT** - Evaluates if CoT can be followed by independent models
+4. **Current leaderboards have a blind spot** - Accuracy alone fails to capture CoT quality
 
 ---
 
@@ -51,29 +51,29 @@
 ## Relationship to Other Papers
 
 ### Supports
-- **Measuring Faithfulness (2307.13702)** — Both find accuracy doesn't equal CoT quality
-- **CoT In The Wild (2503.08679)** — Confirms CoT often non-faithful even with correct answers
-- **Faithfulness Decay (2602.11201)** — Different metric but same conclusion: CoT ≠ reasoning
+- **Measuring Faithfulness (2307.13702)** - Both find accuracy doesn't equal CoT quality
+- **CoT In The Wild (2503.08679)** - Confirms CoT often non-faithful even with correct answers
+- **Faithfulness Decay (2602.11201)** - Different metric but same conclusion: CoT ≠ reasoning
 
 ### Challenges
-- None directly — paper proposes new evaluation dimensions
+- None directly - paper proposes new evaluation dimensions
 
 ### Extends
-- **Faithful CoT (2301.13379)** — Extends Translator-Solver to multi-model Thinker-Executor
-- **Process Reward Models (Lightman 2024)** — Provides alternative to step-scoring via reusability
+- **Faithful CoT (2301.13379)** - Extends Translator-Solver to multi-model Thinker-Executor
+- **Process Reward Models (Lightman 2024)** - Provides alternative to step-scoring via reusability
 
 ---
 
 ## REBUTTALS
 
 ### Known Rebuttals
-None found yet — paper is recent
+None found yet - paper is recent
 
 ### Potential Counter-Arguments
-1. **Small executor models** — 360M-3B models may lack capability to follow complex CoT
-2. **Single GPU evaluation** — Limited model sizes due to compute constraints
-3. **Committee averaging** — May mask important model-specific patterns
-4. **Corrupted CoT method** — Artificial corruption may not reflect natural errors
+1. **Small executor models** - 360M-3B models may lack capability to follow complex CoT
+2. **Single GPU evaluation** - Limited model sizes due to compute constraints
+3. **Committee averaging** - May mask important model-specific patterns
+4. **Corrupted CoT method** - Artificial corruption may not reflect natural errors
 
 ### Limitations (Authors Acknowledge)
 - Limited to mathematical and reasoning benchmarks
@@ -102,7 +102,7 @@ None found yet — paper is recent
 **BALANCED** evidence for the thesis:
 
 **Supports thesis**:
-- Accuracy ≠ reasoning quality — models get right answers without good reasoning
+- Accuracy ≠ reasoning quality - models get right answers without good reasoning
 - Specialized "reasoning" models not better at producing reusable CoT
 - Negative correlation between accuracy and reusability suggests different mechanisms
 

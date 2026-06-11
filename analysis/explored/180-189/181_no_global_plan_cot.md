@@ -96,13 +96,13 @@ Using Qwen3-32B:
 
 This paper provides **mechanistic evidence** that:
 
-1. **No global planning**: LLMs do NOT have a pre-computed global plan. They operate via "incremental transitions" — exactly what pattern matching would predict.
+1. **No global planning**: LLMs do NOT have a pre-computed global plan. They operate via "incremental transitions" - exactly what pattern matching would predict.
 
 2. **Myopic = pattern completion**: The myopic horizon shows LLMs predict the next step based on current context, not based on understanding the full problem structure.
 
 3. **Coarse signals ≠ reasoning**: Early signals that appear to "know" the answer are actually just pattern recognition on surface features, not genuine planning.
 
-4. **Compositional reasoning fails**: For tasks requiring true multi-step reasoning (Parity, Cycle), hidden states show NO planning until the very last step — confirming these tasks cannot be solved via single-pass pattern matching.
+4. **Compositional reasoning fails**: For tasks requiring true multi-step reasoning (Parity, Cycle), hidden states show NO planning until the very last step - confirming these tasks cannot be solved via single-pass pattern matching.
 
 ### Key Quote
 > "LLMs exhibit a myopic horizon, primarily conducting incremental transitions without precise global planning."

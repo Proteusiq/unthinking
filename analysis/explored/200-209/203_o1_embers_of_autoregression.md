@@ -6,16 +6,16 @@
 - **Authors**: R. Thomas McCoy, Shunyu Yao, Dan Friedman, Mathew D. Hardy, Thomas L. Griffiths
 - **Institutions**: Yale University, OpenAI, Princeton University
 - **Date**: October 2024
-- **Note**: Same authors as "Embers of Autoregression" (2309.13638) — this is the follow-up testing o1
+- **Note**: Same authors as "Embers of Autoregression" (2309.13638) - this is the follow-up testing o1
 
 ---
 
 ## Core Claims
 
-1. **o1 still shows embers of autoregression** — despite being optimized for reasoning
-2. **Output probability sensitivity persists** — o1 performs better on high-probability outputs
-3. **Task frequency effects reduced but not eliminated** — visible when tasks are challenging
-4. **Thinking tokens reveal hidden difficulty** — o1 uses more tokens for hard cases even when accuracy is similar
+1. **o1 still shows embers of autoregression** - despite being optimized for reasoning
+2. **Output probability sensitivity persists** - o1 performs better on high-probability outputs
+3. **Task frequency effects reduced but not eliminated** - visible when tasks are challenging
+4. **Thinking tokens reveal hidden difficulty** - o1 uses more tokens for hard cases even when accuracy is similar
 5. **Optimizing for reasoning mitigates but doesn't overcome** probability sensitivity
 
 ---
@@ -24,7 +24,7 @@
 
 ### Output Probability Sensitivity
 
-o1 shows the **same qualitative pattern** as GPT-4 — just quantitatively better:
+o1 shows the **same qualitative pattern** as GPT-4 - just quantitatively better:
 
 | Task | High-Prob Accuracy | Low-Prob Accuracy | Gap |
 |------|-------------------|-------------------|-----|
@@ -33,7 +33,7 @@ o1 shows the **same qualitative pattern** as GPT-4 — just quantitatively bette
 | Reversal | High | Lower | Significant |
 | Pig Latin | High | Lower | Significant |
 
-**This is on DETERMINISTIC tasks** — probability should not matter, but it does.
+**This is on DETERMINISTIC tasks** - probability should not matter, but it does.
 
 ### Task Frequency Effects
 
@@ -73,8 +73,8 @@ Even when accuracy is ~equal, o1 uses **more tokens** for hard cases:
 
 The authors identify two potential sources:
 
-1. **Generation process** — Any system optimized for statistical prediction is biased toward high-probability text
-2. **Chain-of-thought selection** — If o1 considers multiple chains and picks one, probability may influence the selection (favoring "plausible" = high-probability answers)
+1. **Generation process** - Any system optimized for statistical prediction is biased toward high-probability text
+2. **Chain-of-thought selection** - If o1 considers multiple chains and picks one, probability may influence the selection (favoring "plausible" = high-probability answers)
 
 > "It is not clear what modeling enhancements would suffice to fully overcome the limitations that we have highlighted. One potential solution would be to incorporate model components that do not involve probabilistic judgments in any way, such as modules that execute Python code."
 
@@ -83,21 +83,21 @@ The authors identify two potential sources:
 ## Relationship to Other Papers
 
 ### Direct Follow-up To
-- **Embers of Autoregression (2309.13638)** — Same authors, tests if o1 fixes the issues. Answer: No.
+- **Embers of Autoregression (2309.13638)** - Same authors, tests if o1 fixes the issues. Answer: No.
 
 ### Supports
-- **Faith and Fate (2305.18654)** — Compositional failure at distribution boundaries
-- **GSM-Symbolic (2410.05229)** — Surface changes break performance
-- **Illusion of Thinking (2506.06941)** — Reasoning models still have limits
-- **Can LLMs Reason and Plan (2403.04121)** — LLMs = approximate retrieval
+- **Faith and Fate (2305.18654)** - Compositional failure at distribution boundaries
+- **GSM-Symbolic (2410.05229)** - Surface changes break performance
+- **Illusion of Thinking (2506.06941)** - Reasoning models still have limits
+- **Can LLMs Reason and Plan (2403.04121)** - LLMs = approximate retrieval
 
 ### Extends
-- **DeepSeek-R1 (2501.12948)** — Both test reasoning-optimized models; both find limitations
-- **Survey of Test-Time Compute (2501.02497)** — More compute doesn't fix fundamental issues
+- **DeepSeek-R1 (2501.12948)** - Both test reasoning-optimized models; both find limitations
+- **Survey of Test-Time Compute (2501.02497)** - More compute doesn't fix fundamental issues
 
 ### Provides Evidence For
-- **The surfacing hypothesis** — RL surfaces capabilities, doesn't create reasoning
-- **Pattern matching thesis** — Even o1 is probability-driven
+- **The surfacing hypothesis** - RL surfaces capabilities, doesn't create reasoning
+- **Pattern matching thesis** - Even o1 is probability-driven
 
 ---
 
@@ -105,9 +105,9 @@ The authors identify two potential sources:
 
 ### Potential Counter-Arguments
 
-1. **"o1 is much better"** — True quantitatively, but the QUALITATIVE pattern is identical
-2. **"These are edge cases"** — The authors deliberately designed experiments to test fundamentals
-3. **"Future reasoning models will fix this"** — Authors note "it is not clear what modeling enhancements would suffice"
+1. **"o1 is much better"** - True quantitatively, but the QUALITATIVE pattern is identical
+2. **"These are edge cases"** - The authors deliberately designed experiments to test fundamentals
+3. **"Future reasoning models will fix this"** - Authors note "it is not clear what modeling enhancements would suffice"
 
 ### Limitations (Authors Acknowledge)
 
@@ -119,7 +119,7 @@ The authors identify two potential sources:
 
 ## Key Quotes
 
-> "o1—like previous LLMs—is sensitive to the probability of examples and tasks, performing better and requiring fewer 'thinking tokens' in high-probability settings than in low-probability ones."
+> "o1-like previous LLMs-is sensitive to the probability of examples and tasks, performing better and requiring fewer 'thinking tokens' in high-probability settings than in low-probability ones."
 
 > "These results show that optimizing a language model for reasoning can mitigate but might not fully overcome the language model's probability sensitivity."
 
@@ -133,10 +133,10 @@ The authors identify two potential sources:
 
 ### Direct Support for Pattern Matching View
 
-1. **Reasoning optimization doesn't eliminate probability bias** — The fundamental limitation is architectural
-2. **More thinking ≠ better reasoning** — o1 just works harder on hard cases, still biased
-3. **Ceiling effects hide the problem** — Only visible when tasks are challenging enough
-4. **The embers are structural** — Rooted in autoregression itself, not just training
+1. **Reasoning optimization doesn't eliminate probability bias** - The fundamental limitation is architectural
+2. **More thinking ≠ better reasoning** - o1 just works harder on hard cases, still biased
+3. **Ceiling effects hide the problem** - Only visible when tasks are challenging enough
+4. **The embers are structural** - Rooted in autoregression itself, not just training
 
 ### The Teleological Argument
 

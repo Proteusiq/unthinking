@@ -85,7 +85,7 @@ This is the memorization vs. reasoning gap:
 | Standard CPT | 62.4% | 69.3% |
 | MCT | 80.0% | 84.6% |
 
-But CoT doesn't help indirect probing — still <2%.
+But CoT doesn't help indirect probing - still <2%.
 
 ---
 
@@ -109,8 +109,8 @@ But CoT doesn't help indirect probing — still <2%.
 
 ### Supports
 - **Faith and Fate (2305.18654)**: Both show LLMs fail to apply learned patterns to novel reasoning
-- **Compositional-ARC (2504.01445)**: Same pattern — can pattern match, can't compose/reason
-- **Planning Gap (2601.14456)**: Similar ID/OOD gap — high on direct, zero on generalization
+- **Compositional-ARC (2504.01445)**: Same pattern - can pattern match, can't compose/reason
+- **Planning Gap (2601.14456)**: Similar ID/OOD gap - high on direct, zero on generalization
 - **GSM-Symbolic (2410.05229)**: Both show memorization doesn't transfer to reasoning
 
 ### Extends
@@ -126,7 +126,7 @@ But CoT doesn't help indirect probing — still <2%.
 ## REBUTTALS TO THIS PAPER
 
 ### Search for Direct Rebuttals
-- Paper is recent (April 2025) — no direct rebuttals found
+- Paper is recent (April 2025) - no direct rebuttals found
 
 ### Potential Counter-Arguments
 
@@ -142,7 +142,7 @@ But CoT doesn't help indirect probing — still <2%.
 
 ## Relevance to Thesis
 
-**STRONGLY SUPPORTS** — Critical evidence for pattern matching thesis.
+**STRONGLY SUPPORTS** - Critical evidence for pattern matching thesis.
 
 ### Key Insights for Synthesis
 

@@ -72,9 +72,9 @@
 
 | Context B Exposure | RL Transfer Success |
 |-------------------|---------------------|
-| 0% | **FAIL** — RL cannot induce transfer |
+| 0% | **FAIL** - RL cannot induce transfer |
 | 0.1% | Fail |
-| **≥1%** | **SUCCESS** — up to +60% pass@128 |
+| **≥1%** | **SUCCESS** - up to +60% pass@128 |
 | 10% | Strong success |
 
 **Critical finding**: "RL cannot synthesize capabilities from a void; it requires latent 'seeds' to amplify"
@@ -137,24 +137,24 @@ Process-verified rewards improve:
 ## Relationship to Other Papers
 
 ### Supports
-- **s1** — 1K samples surfaces pre-existing reasoning
-- **DeepSeek-R1** — RL surfaces, doesn't create
-- **Correlation or Causation** — RLVR improves but doesn't perfect
+- **s1** - 1K samples surfaces pre-existing reasoning
+- **DeepSeek-R1** - RL surfaces, doesn't create
+- **Correlation or Causation** - RLVR improves but doesn't perfect
 
 ### Provides Mechanism For
-- **CoT Without Prompting** — Explains WHY CoT exists in base models
-- **Thinking Isn't Illusion** — Explains WHY tool augmentation helps (execution, not reasoning)
+- **CoT Without Prompting** - Explains WHY CoT exists in base models
+- **Thinking Isn't Illusion** - Explains WHY tool augmentation helps (execution, not reasoning)
 
 ### Confirmed By (Later Papers)
-- **OMEGA** (2506.18880) — RL doesn't help OOD; exploratory ✓, transformative ✗
-- **Planning Gap** (2601.14456) — 82.9% ID → 0% OOD; RL doesn't improve generalization
-- **How LLMs Learn to Reason** (2509.23629) — RL "integrates" existing skill islands
-- **Emergent Hierarchical Reasoning** (2509.03646) — "RL rediscovers pre-training priors"
-- **Reasoning Beyond CoT** (2601.08058) — Latent mode can be surfaced without explicit CoT
-- **Multilingual Latent Reasoners** (2601.02996) — English-centric = distribution-bounded
+- **OMEGA** (2506.18880) - RL doesn't help OOD; exploratory ✓, transformative ✗
+- **Planning Gap** (2601.14456) - 82.9% ID → 0% OOD; RL doesn't improve generalization
+- **How LLMs Learn to Reason** (2509.23629) - RL "integrates" existing skill islands
+- **Emergent Hierarchical Reasoning** (2509.03646) - "RL rediscovers pre-training priors"
+- **Reasoning Beyond CoT** (2601.08058) - Latent mode can be surfaced without explicit CoT
+- **Multilingual Latent Reasoners** (2601.02996) - English-centric = distribution-bounded
 
 ### Challenged By
-- **Emergence of Strategic Reasoning** — Claims genuine strategic capability emerges
+- **Emergence of Strategic Reasoning** - Claims genuine strategic capability emerges
   - Counter: Strategic games may be in training distribution
 
 ---
@@ -204,7 +204,7 @@ No direct arXiv rebuttal found as of analysis date.
 │                                                                             │
 │  THESIS IMPLICATION:                                                        │
 │  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │ RL is NOT magic — it requires pre-existing "seeds"                  │    │
+│  │ RL is NOT magic - it requires pre-existing "seeds"                  │    │
 │  │ Reasoning capability is BOUNDED by pre-training distribution        │    │
 │  │ "Surfacing" hypothesis confirmed with controlled experiments        │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
@@ -254,8 +254,8 @@ No direct arXiv rebuttal found as of analysis date.
 - [x] Key evidence with numbers
 - [x] Critical analysis for thesis
 - [x] Cross-references identified
-- [x] **Rebuttals checked** — No direct rebuttal found
-- [x] **Counter-evidence noted** — None found
+- [x] **Rebuttals checked** - No direct rebuttal found
+- [x] **Counter-evidence noted** - None found
 
 ---
 
@@ -282,4 +282,4 @@ No direct arXiv rebuttal found as of analysis date.
    - Outperforms RL-only under fixed compute
    - "Installs priors that RL can exploit"
 
-**For thesis**: This paper provides the controlled experimental evidence for the "surfacing" hypothesis. RL cannot create reasoning from nothing — it requires pre-existing "seeds" from pre-training. This directly supports "The Thinking Machine That Doesn't Think": reasoning capabilities are bounded by training distribution, RL merely surfaces and amplifies what already exists.
+**For thesis**: This paper provides the controlled experimental evidence for the "surfacing" hypothesis. RL cannot create reasoning from nothing - it requires pre-existing "seeds" from pre-training. This directly supports "The Thinking Machine That Doesn't Think": reasoning capabilities are bounded by training distribution, RL merely surfaces and amplifies what already exists.

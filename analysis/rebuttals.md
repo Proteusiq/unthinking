@@ -12,7 +12,7 @@ This document tracks rebuttals **in both directions**:
 
 ## Rebuttals to "AGAINST" Papers
 
-### 1. The Illusion of Thinking (2506.06941) — **3 REBUTTALS (1 COUNTER-REBUTTED)**
+### 1. The Illusion of Thinking (2506.06941) - **3 REBUTTALS (1 COUNTER-REBUTTED)**
 
 | Rebuttal | arXiv | Core Argument | Validity | Counter-Evidence |
 |----------|-------|---------------|----------|------------------|
@@ -24,7 +24,7 @@ This document tracks rebuttals **in both directions**:
 
 ---
 
-### 2. GSM-Symbolic (2410.05229) — **NO DIRECT REBUTTAL FOUND**
+### 2. GSM-Symbolic (2410.05229) - **NO DIRECT REBUTTAL FOUND**
 
 However, implicit counter-evidence exists:
 - DeepSeek-R1 achieves 97.3% on MATH500 (higher than GSM-Symbolic's test set)
@@ -34,7 +34,7 @@ However, implicit counter-evidence exists:
 
 ---
 
-### 3. Faith and Fate (2305.18654) — **NO DIRECT REBUTTAL FOUND**
+### 3. Faith and Fate (2305.18654) - **NO DIRECT REBUTTAL FOUND**
 
 Theoretical foundation remains unchallenged:
 - "Linearized subgraph matching" mechanism not disputed
@@ -44,7 +44,7 @@ Theoretical foundation remains unchallenged:
 
 ---
 
-### 4. CoT Mirage (2508.01191) — **NO DIRECT REBUTTAL FOUND**
+### 4. CoT Mirage (2508.01191) - **NO DIRECT REBUTTAL FOUND**
 
 DataAlchemy methodology appears sound:
 - Controlled ID/OOD experiments
@@ -54,7 +54,7 @@ DataAlchemy methodology appears sound:
 
 ---
 
-### 5. Measuring Faithfulness (2307.13702) — **EXTENSIONS, NOT REBUTTALS**
+### 5. Measuring Faithfulness (2307.13702) - **EXTENSIONS, NOT REBUTTALS**
 
 Related work that builds on (not rebuts) findings:
 | Paper | arXiv | Contribution |
@@ -66,7 +66,7 @@ Related work that builds on (not rebuts) findings:
 
 ---
 
-### 6. Semantic Deception (2512.20812) — **NO DIRECT REBUTTAL FOUND**
+### 6. Semantic Deception (2512.20812) - **NO DIRECT REBUTTAL FOUND**
 
 Simple, controlled experiment:
 - Novel symbol systems with semantic load
@@ -76,7 +76,7 @@ Simple, controlled experiment:
 
 ---
 
-### 7. Reasoning Models Don't Say (2505.05410) — **NO DIRECT REBUTTAL FOUND**
+### 7. Reasoning Models Don't Say (2505.05410) - **NO DIRECT REBUTTAL FOUND**
 
 Anthropic's own research:
 - 25-40% faithfulness across models
@@ -88,7 +88,7 @@ Anthropic's own research:
 
 ## Rebuttals to "FOR" Papers
 
-### 1. CoT Without Prompting (2402.10200) — **IMPLICIT CHALLENGES**
+### 1. CoT Without Prompting (2402.10200) - **IMPLICIT CHALLENGES**
 
 | Challenge | Source | Argument |
 |-----------|--------|----------|
@@ -100,7 +100,7 @@ Anthropic's own research:
 
 ---
 
-### 2. DeepSeek-R1 (2501.12948) — **MULTIPLE CRITIQUES**
+### 2. DeepSeek-R1 (2501.12948) - **MULTIPLE CRITIQUES**
 
 | Critique | Evidence | Implication |
 |----------|----------|-------------|
@@ -113,7 +113,7 @@ Anthropic's own research:
 
 ---
 
-### 3. s1: Simple Test-Time Scaling (2501.19393) — **IMPLICIT LIMITATIONS**
+### 3. s1: Simple Test-Time Scaling (2501.19393) - **IMPLICIT LIMITATIONS**
 
 | Limitation | Evidence | Implication |
 |------------|----------|-------------|
@@ -125,7 +125,7 @@ Anthropic's own research:
 
 ---
 
-### 5. Comment: Agentic Gap (2506.18957) — **DIRECTLY CHALLENGED**
+### 5. Comment: Agentic Gap (2506.18957) - **DIRECTLY CHALLENGED**
 
 | Challenge | Source | Evidence |
 |-----------|--------|----------|
@@ -139,7 +139,7 @@ Anthropic's own research:
 
 ---
 
-### 4. Thinking Isn't an Illusion (2507.17699) — **COUNTER-COUNTER EVIDENCE (STRONG)**
+### 4. Thinking Isn't an Illusion (2507.17699) - **COUNTER-COUNTER EVIDENCE (STRONG)**
 
 | Counter-argument | Source | Implication |
 |------------------|--------|-------------|
@@ -153,7 +153,7 @@ Anthropic's own research:
 
 ---
 
-### 5. Emergence of Strategic Reasoning (2412.13013) — **COUNTER-ARGUMENT DEVELOPED**
+### 5. Emergence of Strategic Reasoning (2412.13013) - **COUNTER-ARGUMENT DEVELOPED**
 
 | Counter-argument | Source | Implication |
 |------------------|--------|-------------|
@@ -165,13 +165,13 @@ Anthropic's own research:
 **Key quote from authors**: "LLMs are vastly trained on pBCGs which involve iterating downward"
 
 **Our counter-argument**:
-> Strategic reasoning in LRMs reflects sophisticated pattern completion within the behavioral economics literature, not genuine strategic understanding. The performance drop for unusual parameters (p=4/3) reveals the distribution boundary — models excel at games similar to training data but cannot extrapolate to variations.
+> Strategic reasoning in LRMs reflects sophisticated pattern completion within the behavioral economics literature, not genuine strategic understanding. The performance drop for unusual parameters (p=4/3) reveals the distribution boundary - models excel at games similar to training data but cannot extrapolate to variations.
 
 **Assessment**: Strong "FOR" evidence that must be acknowledged, but the p=4/3 performance drop directly supports the thesis that reasoning is bounded by training distribution.
 
 ---
 
-### 6. DeepSeek-R1 / s1 / "Surfacing" Claims — **SUPPORTED BUT BOUNDED**
+### 6. DeepSeek-R1 / s1 / "Surfacing" Claims - **SUPPORTED BUT BOUNDED**
 
 | Counter-argument | Source | Implication |
 |------------------|--------|-------------|
@@ -241,7 +241,7 @@ KEY UPDATES:
 1. "Mirror" Rebuttal (Papers 188 & 190): STRONGEST evidence for pattern matching
    - Same research question: "Does tone affect LLM performance?"
    - Opposite findings: Rude = WORSE (Llama2) vs Rude = BETTER (GPT-4o)
-   - Implication: "LLMs are mirrors — you find what you look for"
+   - Implication: "LLMs are mirrors - you find what you look for"
 
 2. "Interplay" (2512.07783): CONTROLLED proof that RL surfaces, doesn't create
    - 0% exposure = RL fails; ≥1% = success
@@ -258,29 +258,29 @@ KEY UPDATES:
 ## Implications for Thesis
 
 ### Strongest "Against" Evidence (Unrebutted)
-1. **Faith and Fate** — Theoretical foundation stands
-2. **CoT Mirage** — ID=100%, OOD=0% unchallenged
-3. **Measuring Faithfulness** — CoT unfaithfulness accepted
-4. **Semantic Deception** — Semantic override demonstrated
-5. **Don't Always Say** — 25-40% faithfulness confirmed
-6. **Limits of Innate Planning** — 0% with move validator; GPT-5-Thinking loops 100%
-7. **AI Metacognition (2411.02478)** — Bengio, Mitchell et al.: "Smart but not wise"; lacks metacognition (reasoning about reasoning)
-8. **On the Notion that LMs Reason (2511.11810)** — NeurIPS 2025 Workshop: LMs as Markov kernels; "reasoning" = statistical regularities; explicitly defends "statistical pattern matchers"
-9. **Reasoning or Reciting (2307.02477)** — NAACL 2024; foundational counterfactual methodology; 11 tasks; high CCC + low CF = models understand but can't reason; "narrow, non-transferable procedures"
-10. **Gaming the Judge (2601.14691)** — CoT manipulation inflates FPR by up to 90%; judges pattern-match on style not content; even thinking models (o4-mini, Claude-Thinking) fooled
-11. **Beyond Memorization (2601.13392)** — 100% knowledge accuracy but 30-64pp drops on unseen DFA tasks; "pattern retrieval rather than robust symbolic reasoning"; CoT actually degrades performance
-12. **o1 on PlanBench (2409.13373)** — Kambhampati Sep 2024: Even o1 fails — 97.8% Blocksworld → 52.8% Mystery BW → 23.6% on 20+ steps; reasoning models don't solve the planning problem
+1. **Faith and Fate** - Theoretical foundation stands
+2. **CoT Mirage** - ID=100%, OOD=0% unchallenged
+3. **Measuring Faithfulness** - CoT unfaithfulness accepted
+4. **Semantic Deception** - Semantic override demonstrated
+5. **Don't Always Say** - 25-40% faithfulness confirmed
+6. **Limits of Innate Planning** - 0% with move validator; GPT-5-Thinking loops 100%
+7. **AI Metacognition (2411.02478)** - Bengio, Mitchell et al.: "Smart but not wise"; lacks metacognition (reasoning about reasoning)
+8. **On the Notion that LMs Reason (2511.11810)** - NeurIPS 2025 Workshop: LMs as Markov kernels; "reasoning" = statistical regularities; explicitly defends "statistical pattern matchers"
+9. **Reasoning or Reciting (2307.02477)** - NAACL 2024; foundational counterfactual methodology; 11 tasks; high CCC + low CF = models understand but can't reason; "narrow, non-transferable procedures"
+10. **Gaming the Judge (2601.14691)** - CoT manipulation inflates FPR by up to 90%; judges pattern-match on style not content; even thinking models (o4-mini, Claude-Thinking) fooled
+11. **Beyond Memorization (2601.13392)** - 100% knowledge accuracy but 30-64pp drops on unseen DFA tasks; "pattern retrieval rather than robust symbolic reasoning"; CoT actually degrades performance
+12. **o1 on PlanBench (2409.13373)** - Kambhampati Sep 2024: Even o1 fails - 97.8% Blocksworld → 52.8% Mystery BW → 23.6% on 20+ steps; reasoning models don't solve the planning problem
 
 ### Weakened "Against" Evidence
-1. **Illusion of Thinking** — Methodological critiques valid; must qualify
+1. **Illusion of Thinking** - Methodological critiques valid; must qualify
 
 ### Strongest "For" Evidence
-1. **CoT exists intrinsically** — But may be unfaithful
-2. **RL surfaces capability** — But still distribution-bounded
-3. ~~Tool augmentation works~~ — **WEAKENED by Limits of Innate Planning**
+1. **CoT exists intrinsically** - But may be unfaithful
+2. **RL surfaces capability** - But still distribution-bounded
+3. ~~Tool augmentation works~~ - **WEAKENED by Limits of Innate Planning**
 
 ### Weakened "For" Evidence
-1. **Agentic Gap / Tool augmentation** — Directly refuted by Limits of Innate Planning
+1. **Agentic Gap / Tool augmentation** - Directly refuted by Limits of Innate Planning
    - Move validator = 0% success
    - Execution vs reasoning distinction doesn't hold for planning
 
@@ -292,7 +292,7 @@ KEY UPDATES:
 
 ---
 
-## Revised Thesis Position (Accounting for Rebuttals) — UPDATED 2026-02-10
+## Revised Thesis Position (Accounting for Rebuttals) - UPDATED 2026-02-10
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -328,7 +328,7 @@ KEY UPDATES:
 │  KEY EVIDENCE:                                                              │
 │  • "MIRROR" REBUTTAL (Papers 188 & 190): Same question, opposite answers    │
 │    Rude prompts: -48.5% (Llama2) vs +4.0% (GPT-4o)                          │
-│    → "LLMs are mirrors — behavior reflects training, not principles"        │
+│    → "LLMs are mirrors - behavior reflects training, not principles"        │
 │  • Interplay (2512.07783): 0% exposure = RL fails; ≥1% = success            │
 │    "RL cannot synthesize capabilities from a void"                          │
 │  • Strategic Reasoning (2412.13013): τ=4.42 BUT p=4/3 causes failure        │
@@ -360,7 +360,7 @@ KEY UPDATES:
 
 **Key evidence**:
 - Final-answer probing at random (50%) until LAST step
-- No global plan — only myopic, incremental transitions
+- No global plan - only myopic, incremental transitions
 - "Wooden Barrel" principle: reliability determined by few pivot positions
 
 **Assessment**: Mechanistic evidence against global planning in LLMs.
@@ -371,7 +371,7 @@ KEY UPDATES:
 
 **Key evidence**:
 - LLMs encode novel semantics but CANNOT deploy them
-- Representations are "inert" — exist but not causally used
+- Representations are "inert" - exist but not causally used
 - Even GPT-5 and Gemini-2.5 collapse on 2D grid topologies
 
 **Assessment**: Smoking gun for pattern matching. Encoding ≠ understanding.
@@ -392,18 +392,18 @@ KEY UPDATES:
 **Key evidence**:
 - Junk data causes LASTING cognitive decline (ARC-Challenge 74.9%→57.2%)
 - "Thought-skipping" as primary lesion
-- Partial healing only — persistent representational drift
+- Partial healing only - persistent representational drift
 
 **Assessment**: Training data quality directly determines reasoning patterns.
 
-### Papers 188 & 190: THE "MIRROR" REBUTTAL — **CRITICAL**
+### Papers 188 & 190: THE "MIRROR" REBUTTAL - **CRITICAL**
 
 | Paper | arXiv | Finding | Model | Effect |
 |-------|-------|---------|-------|--------|
 | **Paper 188**: Mind Your Tone (Yin et al.) | 2402.14531 | Rude prompts = **WORSE** | Llama2-70B, GPT-3.5 | **-48.5%** (Llama2) |
 | **Paper 190**: Mind Your Tone (Bai et al.) | 2510.04950 | Rude prompts = **BETTER** | GPT-4o | **+4.0%** (84.8% vs 80.8%) |
 
-**This is not a methodological dispute — both papers are well-executed.**
+**This is not a methodological dispute - both papers are well-executed.**
 
 **The "Mirror" Insight**:
 > Same research question → Same methodology → **OPPOSITE conclusions**
@@ -414,7 +414,7 @@ KEY UPDATES:
 1. If LLMs had genuine understanding of tone, the effect should be consistent
 2. Instead, tone sensitivity depends on **what patterns were reinforced during RLHF**
 3. Llama2 was trained to respond negatively to rudeness; GPT-4o was trained differently
-4. **LLMs are mirrors — they reflect their training distribution, not stable reasoning**
+4. **LLMs are mirrors - they reflect their training distribution, not stable reasoning**
 
 **Assessment**: This pair provides perhaps the clearest evidence that LLM behavior is learned pattern matching, not principled reasoning. The fact that the same input feature (tone) produces opposite effects based purely on model training history is a "smoking gun" for the thesis.
 
@@ -426,7 +426,7 @@ KEY UPDATES:
 - Models don't intrinsically "know" when they're wrong
 - HonestVQA framework reduces overconfidence by 35-40%
 
-**Assessment**: Calibration requires external training — models lack intrinsic metacognition.
+**Assessment**: Calibration requires external training - models lack intrinsic metacognition.
 
 ---
 
@@ -436,7 +436,7 @@ Papers that reach **opposite conclusions** on the same question, revealing model
 
 | Question | Paper A | Paper B | Resolution |
 |----------|---------|---------|------------|
-| Does tone affect performance? | Mind Your Tone (2402.14531): Rude = WORSE | Mind Your Tone (2510.04950): Rude = BETTER | **Model-dependent** — RLHF determines sensitivity |
+| Does tone affect performance? | Mind Your Tone (2402.14531): Rude = WORSE | Mind Your Tone (2510.04950): Rude = BETTER | **Model-dependent** - RLHF determines sensitivity |
 
 **Implication**: When studies reach opposite conclusions depending only on which model is tested, this reveals that behavior is learned pattern matching, not principled reasoning.
 
@@ -458,7 +458,7 @@ Papers that reach **opposite conclusions** on the same question, revealing model
 
 ### Hallucination is Inevitable (#165, 2401.11817)
 
-**Status**: NO REBUTTALS — provides mathematical proof
+**Status**: NO REBUTTALS - provides mathematical proof
 
 **Key claims**:
 - Formal impossibility theorem via diagonalization
@@ -474,7 +474,7 @@ Papers that reach **opposite conclusions** on the same question, revealing model
 
 ### No Global Plan in CoT (#181, 2602.02103)
 
-**Status**: NO REBUTTALS — mechanistic probing evidence
+**Status**: NO REBUTTALS - mechanistic probing evidence
 
 **Key claims**:
 - LLMs exhibit MYOPIC HORIZON
@@ -490,25 +490,25 @@ Papers that reach **opposite conclusions** on the same question, revealing model
 
 ### LMs Struggle to Use ICL Representations (#182, 2602.04212)
 
-**Status**: NO REBUTTALS — SMOKING GUN for pattern matching
+**Status**: NO REBUTTALS - SMOKING GUN for pattern matching
 
 **Key claims**:
 - LLMs ENCODE novel semantics but CANNOT DEPLOY them
-- Representations are "inert" — exist but not causally used
+- Representations are "inert" - exist but not causally used
 - Even GPT-5 and Gemini-2.5 collapse on 2D grid topologies
 
 **Why this is smoking gun evidence**:
 1. Dissociates encoding from understanding
-2. Tests SOTA reasoning models — not just open-weights
+2. Tests SOTA reasoning models - not just open-weights
 3. "Inert" representations = exactly what pattern matchers do
 4. Flexible deployment impossible despite encoding success
 
 ### Arithmetic Without Algorithms (#171, 2410.21272)
 
-**Status**: NO REBUTTALS — mechanistic interpretability evidence
+**Status**: NO REBUTTALS - mechanistic interpretability evidence
 
 **Key claims**:
-- LLMs use "bag of heuristics" — NOT algorithms, NOT pure memorization
+- LLMs use "bag of heuristics" - NOT algorithms, NOT pure memorization
 - ~200 neurons per layer implement pattern-matching rules
 - 91% of important neurons classified as heuristics
 
@@ -516,12 +516,12 @@ Papers that reach **opposite conclusions** on the same question, revealing model
 | Paper | How 171 Supports |
 |-------|------------------|
 | Faith and Fate | "Bag of heuristics" = "linearized subgraph matching" at neuron level |
-| GSM-Symbolic | Explains WHY perturbations cause failures — heuristics are pattern-specific |
+| GSM-Symbolic | Explains WHY perturbations cause failures - heuristics are pattern-specific |
 | Illusion of Thinking | Complexity collapse = heuristics fail at scale |
 
 ### LLM Reasoning Failures Survey (#191, 2602.06176)
 
-**Status**: CORNERSTONE SURVEY — TMLR 2026
+**Status**: CORNERSTONE SURVEY - TMLR 2026
 
 **Significance**:
 - First comprehensive survey of LLM reasoning failures

@@ -11,9 +11,9 @@
 
 ## Core Claims
 
-1. **Single-layer, 2-head model is SUFFICIENT for perfect IOI** — no MLPs or layer norms needed
-2. **Single attention head CANNOT solve IOI** — functionally incompatible requirements
-3. **Two heads specialize into additive and contrastive subcircuits** — divide labor
+1. **Single-layer, 2-head model is SUFFICIENT for perfect IOI** - no MLPs or layer norms needed
+2. **Single attention head CANNOT solve IOI** - functionally incompatible requirements
+3. **Two heads specialize into additive and contrastive subcircuits** - divide labor
 4. **Task-constrained training reveals more parsimonious circuits** than pre-training
 
 ---
@@ -29,7 +29,7 @@
 ### Model Configurations
 | Config | Accuracy | Mechanism |
 |--------|----------|-----------|
-| 1-layer, 1-head | **~50%** (chance) | FAILS — uniform attention |
+| 1-layer, 1-head | **~50%** (chance) | FAILS - uniform attention |
 | 1-layer, 2-head | **100%** | Additive-contrastive circuit |
 | 2-layer, 1-head | **100%** | Cross-layer composition |
 
@@ -80,24 +80,24 @@
 
 ### What This Paper Shows
 
-1. **IOI can be solved minimally** — 2 heads sufficient, simpler than GPT-2's multi-hop circuit
-2. **One head is provably insufficient** — cannot satisfy both functional requirements
+1. **IOI can be solved minimally** - 2 heads sufficient, simpler than GPT-2's multi-hop circuit
+2. **One head is provably insufficient** - cannot satisfy both functional requirements
 3. **Additive-contrastive mechanism** is interpretable and clean
 4. **Task-constrained training** reveals simpler circuits than pre-training
 
 ### Relevance to Thesis
 
-**BALANCED — Mechanistic evidence for structured reasoning, but limited scope**
+**BALANCED - Mechanistic evidence for structured reasoning, but limited scope**
 
 **For genuine reasoning:**
 - Shows transformers CAN learn clean, interpretable circuits
 - Additive-contrastive mechanism is a principled algorithm
 
 **Supports thesis:**
-- Circuit is **task-specific** — trained on symbolic IOI only
+- Circuit is **task-specific** - trained on symbolic IOI only
 - Unclear if this generalizes to natural language
 - Small vocabulary (8 tokens), small dataset (60 sequences)
-- No OOD testing — trained and tested on same distribution
+- No OOD testing - trained and tested on same distribution
 
 ---
 
@@ -123,11 +123,11 @@ Task-constrained training finds simpler circuits. Pre-trained models may have **
 
 ### Potential Counter-Arguments
 
-1. **Symbolic abstraction** — removes all linguistic complexity
-2. **Small vocabulary (8 tokens)** — may not scale
-3. **Fixed templates only** — no generalization to novel structures
-4. **Attention-only** — real transformers have MLPs
-5. **Single training run** — no variance reported
+1. **Symbolic abstraction** - removes all linguistic complexity
+2. **Small vocabulary (8 tokens)** - may not scale
+3. **Fixed templates only** - no generalization to novel structures
+4. **Attention-only** - real transformers have MLPs
+5. **Single training run** - no variance reported
 
 ### Limitations (Authors Acknowledge)
 - Fixed template only (2 templates)
@@ -149,7 +149,7 @@ Task-constrained training finds simpler circuits. Pre-trained models may have **
 
 ## Relevance to Thesis
 
-**BALANCED — Shows structured reasoning is possible but under constrained conditions**
+**BALANCED - Shows structured reasoning is possible but under constrained conditions**
 
 This paper shows:
 1. ✓ Clean, interpretable circuits can solve reasoning tasks

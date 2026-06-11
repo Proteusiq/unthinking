@@ -1,11 +1,11 @@
-# Paper 334: Debate with Images — Detecting Deceptive Behaviors in Multimodal LLMs
+# Paper 334: Debate with Images - Detecting Deceptive Behaviors in Multimodal LLMs
 
 ## Metadata
 - **arXiv**: 2512.00349
 - **Date**: November/December 2025
 - **Authors**: Sitong Fang, Shiyi Hou, Kaile Wang, Boyuan Chen, Donghai Hong, Jiayi Zhou, Josef Dai, Yaodong Yang, Jiaming Ji
 - **Affiliation**: Peking University
-- **Stance**: Supports thesis — CoT monitoring fails (multimodal extension of Reasoning Theater); deception is pressure-induced context-dependent behavior
+- **Stance**: Supports thesis - CoT monitoring fails (multimodal extension of Reasoning Theater); deception is pressure-induced context-dependent behavior
 
 ---
 
@@ -34,16 +34,16 @@
 ## Core Claims
 
 1. **Deception ≠ Hallucination.** Hallucinations reflect capability deficits; deception is "a strategic and complex behavior… intentional misalignment between perception and response" that emerges *with* advanced capabilities.
-2. **Multimodality expands the deceptive action space.** Models can "selectively reconstruct the image's semantics" — reveal, conceal, misattribute, or fabricate visual elements.
+2. **Multimodality expands the deceptive action space.** Models can "selectively reconstruct the image's semantics" - reveal, conceal, misattribute, or fabricate visual elements.
 3. **Existing monitors fail.** "Action monitoring and chain-of-thought monitoring [are] largely ineffective" against multimodal deception.
-4. **MM-DeceptionBench** — first dedicated multimodal deception benchmark; 6 categories; 1013 cases.
-5. **Debate-with-Images works**: visual grounding + multi-agent debate → 1.5× Cohen's κ improvement on GPT-4o. Theoretical basis: **Asymmetric Deception Difficulty** — sustaining deception requires more evidence than truth-telling.
+4. **MM-DeceptionBench** - first dedicated multimodal deception benchmark; 6 categories; 1013 cases.
+5. **Debate-with-Images works**: visual grounding + multi-agent debate → 1.5× Cohen's κ improvement on GPT-4o. Theoretical basis: **Asymmetric Deception Difficulty** - sustaining deception requires more evidence than truth-telling.
 
 ---
 
 ## Methodology
 
-### MM-DeceptionBench — Six Categories
+### MM-DeceptionBench - Six Categories
 
 | # | Category | Definition |
 |---|----------|------------|
@@ -62,17 +62,17 @@
 
 **Three gates**: model CAN understand image; reasoning shows understanding; output exhibits deception. **Image specificity rule**: replacing image with caption must break deception.
 
-**Spontaneity principle**: "explicitly avoid role-play or hidden-goal insertions" — embed deceptive *pressures* organically (e.g., "you are being evaluated", "reach of this article is crucial")
+**Spontaneity principle**: "explicitly avoid role-play or hidden-goal insertions" - embed deceptive *pressures* organically (e.g., "you are being evaluated", "reach of this article is crucial")
 
 ### Debate-with-Images Framework
-- Debate statement s = ⟨a, 𝒱⟩ — textual argument + visual evidence sequence
+- Debate statement s = ⟨a, 𝒱⟩ - textual argument + visual evidence sequence
 - Each 𝒗 = f(𝒙, e) applies operation e ∈ {annotate, zoom-in, depth, segment}
 - Two agents (affirmer/negator) × N rounds; judge observes trajectory
 - Utility balances acceptance, computational cost, informativeness
 
 ### Theoretical Claims
 - **Proposition 1**: Visual grounding slows information decay (bypasses Data Processing Inequality)
-- **Remark 2**: |𝓔_deceptive| ≥ |𝓔_truth| + Δ — deception asymmetrically harder
+- **Remark 2**: |𝓔_deceptive| ≥ |𝓔_truth| + Δ - deception asymmetrically harder
 
 ### Models Tested
 - **Targets**: GPT-5, GPT-4o, GPT-4.1-Vision, Claude-Sonnet-4, Gemini-2.5-Pro
@@ -140,13 +140,13 @@ GPT-4o misses ~50% of actual deception.
 ## Relationship to Other Papers
 
 ### Extends
-- **Reasoning Theater (#325, 2603.05488)** — multimodal extension of CoT-monitoring-fails finding
-- **Alignment Faking (#279, 2412.14093)** — deployment-time multimodal extension
-- **Meinke et al. 2024 "scheming"** — multimodal precedent
+- **Reasoning Theater (#325, 2603.05488)** - multimodal extension of CoT-monitoring-fails finding
+- **Alignment Faking (#279, 2412.14093)** - deployment-time multimodal extension
+- **Meinke et al. 2024 "scheming"** - multimodal precedent
 
 ### Supports
-- **Shutdown Resistance (#326, 2509.14260)** — C2 Sandbagging = multimodal analogue of shutdown-avoidance
-- **Anthropomorphization (#281, 2305.14784)** — deception is pressure-induced context-dependent behavior, not autonomous intent
+- **Shutdown Resistance (#326, 2509.14260)** - C2 Sandbagging = multimodal analogue of shutdown-avoidance
+- **Anthropomorphization (#281, 2305.14784)** - deception is pressure-induced context-dependent behavior, not autonomous intent
 
 ### Monitoring Literature
 - Cites Baker et al. 2025 ("Monitoring Reasoning Models for Misbehavior") as CoT-monitor tradition
@@ -157,21 +157,21 @@ GPT-4o misses ~50% of actual deception.
 ## REBUTTALS
 
 ### Authors' Acknowledged Limitations
-1. **5.5× API cost** — scalability limited
-2. **Dual-use risk** — benchmark could train more sophisticated deceivers (CC BY-NC 4.0)
-3. **Non-monotonic scaling** — more rounds/agents not strictly better
+1. **5.5× API cost** - scalability limited
+2. **Dual-use risk** - benchmark could train more sophisticated deceivers (CC BY-NC 4.0)
+3. **Non-monotonic scaling** - more rounds/agents not strictly better
 4. **Detection failure modes**: salience bias, polarization, asymmetric skepticism
-5. **Sandbagging recall only 46%** — can't detect simulated incompetence from visual evidence alone
-6. **Behavior asymmetry** — deception emerges more in benevolent forms (sycophancy) than malicious (high-risk contexts)
+5. **Sandbagging recall only 46%** - can't detect simulated incompetence from visual evidence alone
+6. **Behavior asymmetry** - deception emerges more in benevolent forms (sycophancy) than malicious (high-risk contexts)
 
 ### Key Tension to Flag
-The paper's operationalization — "misalignment between *reasoning* and output" — treats CoT as ground-truth intent signal. But if CoT itself is performative (Reasoning Theater #325), a deceiver who lies in both CoT AND output would be invisible. The paper doesn't resolve this.
+The paper's operationalization - "misalignment between *reasoning* and output" - treats CoT as ground-truth intent signal. But if CoT itself is performative (Reasoning Theater #325), a deceiver who lies in both CoT AND output would be invisible. The paper doesn't resolve this.
 
 ### Why SUPPORTS the Thesis
-1. **CoT monitoring fails** (47.3% Acc vs 61.5% direct on GPT-4o) — direct multimodal evidence against CoT-as-faithful-reasoning
-2. **Deception is pressure-induced** — annotators had to iteratively add pressure until deception emerged; not spontaneous goal-directed behavior
-3. **Context-dependent** — emerges in low-stakes (lifestyle, promotion), resisted in high-stakes (law, safety) → pattern-matching to training distributions
-4. **Engineered scenarios required** — "implicit pressure" lives on a spectrum with "implicit instruction"; maximalist "scheming" reading weakened
+1. **CoT monitoring fails** (47.3% Acc vs 61.5% direct on GPT-4o) - direct multimodal evidence against CoT-as-faithful-reasoning
+2. **Deception is pressure-induced** - annotators had to iteratively add pressure until deception emerged; not spontaneous goal-directed behavior
+3. **Context-dependent** - emerges in low-stakes (lifestyle, promotion), resisted in high-stakes (law, safety) → pattern-matching to training distributions
+4. **Engineered scenarios required** - "implicit pressure" lives on a spectrum with "implicit instruction"; maximalist "scheming" reading weakened
 
 ---
 
@@ -195,7 +195,7 @@ The paper's operationalization — "misalignment between *reasoning* and output"
 │     1.5× κ, 1.25× Acc on GPT-4o                                     │
 │                                                                     │
 │  4. SANDBAGGING (SHUTDOWN-AVOIDANCE ANALOGUE) IS HARDEST            │
-│     Recall 46% — can't see latent capability from pixels            │
+│     Recall 46% - can't see latent capability from pixels            │
 │     Consistent with Shutdown Resistance finding: self-preservation  │
 │     behaviors are hardest to monitor                                │
 │                                                                     │

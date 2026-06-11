@@ -17,7 +17,7 @@
 
 3. **Main theorem (Theorem 3)**: For all computable LLMs `h`, there exists a computable ground truth function `f` such that each state `h[j]` hallucinates w.r.t. `f`. Furthermore, there exists `f'` such that each state hallucinates on **infinitely many inputs**.
 
-4. **Corollary 1**: All computable LLMs cannot prevent themselves from hallucinating — methods like Chain-of-Thought that rely on LLMs to mitigate their own hallucination **cannot eliminate** hallucination.
+4. **Corollary 1**: All computable LLMs cannot prevent themselves from hallucinating - methods like Chain-of-Thought that rely on LLMs to mitigate their own hallucination **cannot eliminate** hallucination.
 
 5. **Real-world implication**: Since the formal world (computable functions) is a subset of the real world, hallucination in the formal world implies hallucination in the real world.
 
@@ -89,7 +89,7 @@ For all computable LLM `h`, there exists a computable ordering `<` such that LLM
 
 ### Scaling (Larger Models, Ensembles, More Data)
 - **Why insufficient**: If `f` is beyond LLM's computational capability, no amount of scaling helps
-- Adding layers yields larger polynomial-time LLM — won't solve exponential-time problems
+- Adding layers yields larger polynomial-time LLM - won't solve exponential-time problems
 - Model ensembles are "essentially a single LLM" bounded by Theorem 3
 
 ### Chain of Thought / Self-Verification
@@ -115,7 +115,7 @@ For all computable LLM `h`, there exists a computable ordering `<` such that LLM
 - **Computability Theory**: Connects LLM limitations to fundamental impossibility results
 
 ### Provides Mechanism For
-- **Pattern matching thesis**: Diagonalization shows any LLM can be "fooled" — characteristic of pattern matching, not robust reasoning
+- **Pattern matching thesis**: Diagonalization shows any LLM can be "fooled" - characteristic of pattern matching, not robust reasoning
 - **Self-correction failures**: Corollary 1 explains why LLMs cannot verify their own outputs
 
 ---
@@ -157,18 +157,18 @@ No direct rebuttals found as of analysis date.
 
 ### Evidence Supporting the Thesis
 
-1. **Fundamental limitation is computational**: The paper proves LLMs are fundamentally limited by their computational nature — they can only approximate computable functions, and not even all of those. This aligns with the view that LLMs are pattern matchers operating within computational constraints.
+1. **Fundamental limitation is computational**: The paper proves LLMs are fundamentally limited by their computational nature - they can only approximate computable functions, and not even all of those. This aligns with the view that LLMs are pattern matchers operating within computational constraints.
 
-2. **Diagonalization shows brittleness**: The adversarial construction shows any LLM can be "fooled" by problems just outside its training distribution — exactly what we'd expect from pattern matching, not robust reasoning.
+2. **Diagonalization shows brittleness**: The adversarial construction shows any LLM can be "fooled" by problems just outside its training distribution - exactly what we'd expect from pattern matching, not robust reasoning.
 
-3. **Empirical reasoning failure**: The linear order experiments are particularly damning — LLMs fail to apply **transitive reasoning** ("if a<b and b<c, then a<c") even when explicitly given rules and examples. This is a basic logical operation any system with genuine reasoning should perform.
+3. **Empirical reasoning failure**: The linear order experiments are particularly damning - LLMs fail to apply **transitive reasoning** ("if a<b and b<c, then a<c") even when explicitly given rules and examples. This is a basic logical operation any system with genuine reasoning should perform.
 
-4. **Self-correction is impossible**: Corollary 1 states LLMs cannot prevent their own hallucination — meaning Chain-of-Thought cannot achieve genuine reasoning, only pattern matching over reasoning-like outputs.
+4. **Self-correction is impossible**: Corollary 1 states LLMs cannot prevent their own hallucination - meaning Chain-of-Thought cannot achieve genuine reasoning, only pattern matching over reasoning-like outputs.
 
-5. **Mitigation requires external grounding**: The conclusion that only external knowledge sources, tools, and human oversight can help aligns with the thesis — LLMs need external verification precisely because they lack internal reasoning capabilities.
+5. **Mitigation requires external grounding**: The conclusion that only external knowledge sources, tools, and human oversight can help aligns with the thesis - LLMs need external verification precisely because they lack internal reasoning capabilities.
 
 ### Key Insight
-The paper formalizes a crucial intuition: **LLMs are function approximators with intrinsic limitations**. The diagonalization proof shows they cannot transcend their pattern-matching nature to achieve genuine reasoning — they can only recognize patterns in training data, not reason about novel situations from first principles.
+The paper formalizes a crucial intuition: **LLMs are function approximators with intrinsic limitations**. The diagonalization proof shows they cannot transcend their pattern-matching nature to achieve genuine reasoning - they can only recognize patterns in training data, not reason about novel situations from first principles.
 
 ---
 

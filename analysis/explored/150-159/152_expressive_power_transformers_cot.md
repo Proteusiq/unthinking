@@ -13,9 +13,9 @@
 ## Core Claims
 
 1. **CoT increases computational power**: Chain of thought fundamentally extends the computational power of decoder-only transformers, but the increase depends crucially on the number of intermediate steps
-2. **Logarithmic steps (O(log n))**: Only slightly extends power — remains in L (log-space), cannot solve NL-complete problems
-3. **Linear steps (O(n))**: Enables recognizing ALL regular languages (automata simulation) — a clear new ability
-4. **Polynomial steps (O(n^c))**: Recognizes EXACTLY class P — first exact characterization of transformers in terms of standard complexity classes
+2. **Logarithmic steps (O(log n))**: Only slightly extends power - remains in L (log-space), cannot solve NL-complete problems
+3. **Linear steps (O(n))**: Enables recognizing ALL regular languages (automata simulation) - a clear new ability
+4. **Polynomial steps (O(n^c))**: Recognizes EXACTLY class P - first exact characterization of transformers in terms of standard complexity classes
 
 ### The Key Equation (Theorem):
 ```
@@ -56,7 +56,7 @@ Where CoT(t(n)) = languages recognized by transformer with t(n) decoding steps.
 | O(1) (none) | TC⁰ | Threshold circuits | Automata, graph connectivity |
 | O(log n) | L (log-space) | Slightly more than TC⁰ | NL-complete, P-complete |
 | O(n) | Between Reg and CSL | All automata, counter machines | Context-free languages (unless CFL ∈ TIME~(n²)) |
-| O(n²) | Contains NL | Directed graph connectivity | — |
+| O(n²) | Contains NL | Directed graph connectivity | - |
 | O(n^c) | Exactly P | All polynomial-time problems | NP-hard (assuming P≠NP) |
 
 ### Specific Results
@@ -79,21 +79,21 @@ Where CoT(t(n)) = languages recognized by transformer with t(n) decoding steps.
 
 ## Relationship to Thesis
 
-### This Paper's Position: **NUANCED — Provides Theoretical Upper Bound**
+### This Paper's Position: **NUANCED - Provides Theoretical Upper Bound**
 
 The paper shows CoT DOES add computational power, but with important caveats:
 
 **How It Supports the Thesis (Pattern Matching)**:
-1. **Without CoT, transformers are provably weak** — limited to TC⁰, cannot even simulate automata
-2. **The power comes from STEPS, not "understanding"** — more steps = more computation, purely mechanical
-3. **CoT is just providing scratch space** — equivalent to adding Turing machine tape
-4. **Log CoT barely helps** — O(log n) steps don't enable graph connectivity
-5. **Practical LLMs use finite CoT** — real chains are bounded, not scaling with input
+1. **Without CoT, transformers are provably weak** - limited to TC⁰, cannot even simulate automata
+2. **The power comes from STEPS, not "understanding"** - more steps = more computation, purely mechanical
+3. **CoT is just providing scratch space** - equivalent to adding Turing machine tape
+4. **Log CoT barely helps** - O(log n) steps don't enable graph connectivity
+5. **Practical LLMs use finite CoT** - real chains are bounded, not scaling with input
 
 **How It Challenges the Thesis**:
-1. **CoT does give ADDITIONAL computational power** — not just "window dressing"
-2. **Linear CoT enables automata simulation** — a real capability gain
-3. **Polynomial CoT = P** — in principle, transformers with enough steps can solve any polynomial problem
+1. **CoT does give ADDITIONAL computational power** - not just "window dressing"
+2. **Linear CoT enables automata simulation** - a real capability gain
+3. **Polynomial CoT = P** - in principle, transformers with enough steps can solve any polynomial problem
 
 ### Critical Assessment
 
@@ -122,7 +122,7 @@ From the paper:
 
 1. **Paper 150 (Valmeekam)**: Despite theoretical ability to plan with poly-CoT, GPT-4 achieves only ~12% on autonomous planning. The capability exists but isn't learned.
 
-2. **Paper 148 (Turpin)**: CoT is systematically unfaithful — 36% accuracy drop from unmentioned biases. Even when CoT adds steps, it doesn't follow the faithful reasoning path.
+2. **Paper 148 (Turpin)**: CoT is systematically unfaithful - 36% accuracy drop from unmentioned biases. Even when CoT adds steps, it doesn't follow the faithful reasoning path.
 
 3. **Paper 146 (Schaeffer)**: Emergence claims (including CoT emergence) are largely metric artifacts. The theoretical capability may exist but isn't reliably expressed.
 
@@ -151,7 +151,7 @@ Similarly:
 
 > "Our results also imply that linear steps keep transformer decoders within context-sensitive languages."
 
-> "Polynomial steps with generalized pre-norm make them recognize exactly the class of polynomial-time solvable problems—the first exact characterization of a type of transformers in terms of standard complexity classes."
+> "Polynomial steps with generalized pre-norm make them recognize exactly the class of polynomial-time solvable problems-the first exact characterization of a type of transformers in terms of standard complexity classes."
 
 > "Running a polynomial number of forward passes with a large transformer is likely intractable in practice."
 
@@ -165,12 +165,12 @@ Similarly:
 - Schuurmans (2023): External memory constructions
 
 ### Complements
-- Paper 151 (Wei et al.): Original CoT paper — this provides theoretical foundation
+- Paper 151 (Wei et al.): Original CoT paper - this provides theoretical foundation
 - Paper 137 (CoT Training): Shows CoT helps via local computation, not global reasoning
 
 ### Challenged By
 - Paper 150 (Valmeekam): Practical planning fails despite theoretical capability
-- Paper 148 (Turpin): CoT unfaithful — doesn't follow theoretical reasoning path
+- Paper 148 (Turpin): CoT unfaithful - doesn't follow theoretical reasoning path
 - All papers showing CoT doesn't help on OOD or complex reasoning
 
 ---

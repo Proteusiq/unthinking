@@ -91,14 +91,14 @@
 This paper provides mixed evidence:
 
 **Supports:**
-1. **Reasoning steps are interchangeable**: You can stitch steps from different trajectories and still get correct answers — suggests steps are pattern completions, not causal reasoning chains
-2. **AR solver "fixes" inconsistencies**: The final solver can reconcile contradictory evidence — the "reasoning" is reconstructed, not followed
-3. **Low-confidence sampling works**: Noisy, low-quality reasoning traces still contain useful information — the answer doesn't depend on coherent step-by-step logic
-4. **Modular pipeline beats end-to-end**: Separating exploration from synthesis works better than unified "reasoning" — suggests reasoning is assembly, not inference
+1. **Reasoning steps are interchangeable**: You can stitch steps from different trajectories and still get correct answers - suggests steps are pattern completions, not causal reasoning chains
+2. **AR solver "fixes" inconsistencies**: The final solver can reconcile contradictory evidence - the "reasoning" is reconstructed, not followed
+3. **Low-confidence sampling works**: Noisy, low-quality reasoning traces still contain useful information - the answer doesn't depend on coherent step-by-step logic
+4. **Modular pipeline beats end-to-end**: Separating exploration from synthesis works better than unified "reasoning" - suggests reasoning is assembly, not inference
 
 **Potentially Challenges:**
-1. **PRM scores correlate with correctness**: Process reward models can identify good steps — suggests some reasoning quality is detectable
-2. **AR solver improves over raw stitching**: Final reconciliation step matters — could indicate reasoning-like processing
+1. **PRM scores correlate with correctness**: Process reward models can identify good steps - suggests some reasoning quality is detectable
+2. **AR solver improves over raw stitching**: Final reconciliation step matters - could indicate reasoning-like processing
 
 ### Key Insight for Thesis
 
@@ -131,7 +131,7 @@ Yet the AR solver still produces correct answers. This suggests:
 
 ### Potential Counter-Arguments
 
-1. **PRM does real reasoning evaluation**: The process reward model successfully identifies correct steps — suggests reasoning has detectable structure
+1. **PRM does real reasoning evaluation**: The process reward model successfully identifies correct steps - suggests reasoning has detectable structure
 2. **AR solver is doing reasoning**: Final reconciliation could be genuine inference, not just pattern matching
 3. **Limited to math/code**: May not generalize to open-ended reasoning
 
@@ -161,7 +161,7 @@ Yet the AR solver still produces correct answers. This suggests:
 
 This paper shows that:
 1. **Steps are modular**: Can be extracted, scored, and recombined across trajectories
-2. **Coherence is reconstructed**: AR solver "fills in missing links" — the chain wasn't there to begin with
+2. **Coherence is reconstructed**: AR solver "fills in missing links" - the chain wasn't there to begin with
 3. **Quality comes from selection**: PRM picks good fragments; solver assembles them
 4. **Low-quality exploration works**: Noisy diffusion traces still produce correct answers when filtered
 

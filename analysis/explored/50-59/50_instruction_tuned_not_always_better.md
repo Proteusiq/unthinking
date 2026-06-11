@@ -113,10 +113,10 @@
 
 ### What This Paper Shows
 
-1. **Instruction tuning can HURT reasoning** — especially at large scale in zero-shot
-2. **Base models have latent reasoning ability** — activatable via CoT decoding
-3. **Instruction tuning creates prompt sensitivity** — models need specific patterns
-4. **Domain shift reveals the gap** — instruction tuning doesn't help generalization
+1. **Instruction tuning can HURT reasoning** - especially at large scale in zero-shot
+2. **Base models have latent reasoning ability** - activatable via CoT decoding
+3. **Instruction tuning creates prompt sensitivity** - models need specific patterns
+4. **Domain shift reveals the gap** - instruction tuning doesn't help generalization
 
 ### Why Does This Happen?
 
@@ -130,7 +130,7 @@ Authors suggest instruction-tuned models:
 
 **STRONGLY SUPPORTS thesis**:
 - Instruction tuning is **surface-level pattern matching**, not genuine reasoning improvement
-- Base models have the reasoning capability — it's already there
+- Base models have the reasoning capability - it's already there
 - "Improvements" from instruction tuning are format/prompt artifacts
 - Domain shift and perturbations reveal the underlying brittleness
 
@@ -160,15 +160,15 @@ Authors suggest instruction-tuned models:
 
 ### Potential Counter-Arguments
 
-1. **Asymmetric comparison** — Base uses CoT decoding, instruct uses stochastic sampling
-2. **Specific model families** — may not generalize to all architectures
-3. **Task selection bias** — math reasoning may be special case
+1. **Asymmetric comparison** - Base uses CoT decoding, instruct uses stochastic sampling
+2. **Specific model families** - may not generalize to all architectures
+3. **Task selection bias** - math reasoning may be special case
 
 ### Limitations (Authors Acknowledge)
 - Benchmark coverage is finite
 - Evaluator dependence is significant
 - Decoding/prompting choices affect results
-- No causal claims — empirical comparison only
+- No causal claims - empirical comparison only
 - Asymmetric sampling methods
 
 ---
@@ -190,11 +190,11 @@ Authors suggest instruction-tuned models:
 **STRONGLY SUPPORTS thesis**
 
 This paper shows:
-1. ✓ Instruction tuning is NOT genuine reasoning improvement — base models often win
-2. ✓ "Improvements" are prompt/format artifacts — evaluator-dependent
-3. ✓ Domain shift reveals brittleness — instruction tuning doesn't help generalization
-4. ✓ Perturbation sensitivity — instruction-tuned models lose 38-62% on perturbed problems
-5. ✓ Base models have latent capability — RL/SFT "surfaces" rather than creates
+1. ✓ Instruction tuning is NOT genuine reasoning improvement - base models often win
+2. ✓ "Improvements" are prompt/format artifacts - evaluator-dependent
+3. ✓ Domain shift reveals brittleness - instruction tuning doesn't help generalization
+4. ✓ Perturbation sensitivity - instruction-tuned models lose 38-62% on perturbed problems
+5. ✓ Base models have latent capability - RL/SFT "surfaces" rather than creates
 
 **Key insight for thesis**: Instruction tuning creates **prompt pattern dependencies**, not genuine reasoning gains. The reasoning capability is in the base model. This directly supports the claim that RL/instruction tuning "surfaces" pre-existing capabilities rather than creating new reasoning abilities.
 

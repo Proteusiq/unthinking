@@ -12,11 +12,11 @@
 
 ## Core Claims
 
-1. **LLM "reflection" does not function like human meta-reasoning** — it's fluent text, not functional correction
-2. **Reflection repeats the SAME failure 85% of the time** — above chance benchmark (74.69%)
-3. **Reasoning models (LRMs) show NO advantage over non-reasoning models** — no statistical difference
-4. **Open-ended tasks reveal failures hidden in closed-ended benchmarks** — weaker signals expose limits
-5. **"Gains" from reflection are chance-based, not principled** — second attempts sometimes succeed by luck
+1. **LLM "reflection" does not function like human meta-reasoning** - it's fluent text, not functional correction
+2. **Reflection repeats the SAME failure 85% of the time** - above chance benchmark (74.69%)
+3. **Reasoning models (LRMs) show NO advantage over non-reasoning models** - no statistical difference
+4. **Open-ended tasks reveal failures hidden in closed-ended benchmarks** - weaker signals expose limits
+5. **"Gains" from reflection are chance-based, not principled** - second attempts sometimes succeed by luck
 
 ---
 
@@ -70,7 +70,7 @@ Models must create novel CRT items ("trick questions") that:
 | Generation | 0.172 | 0.281 | +0.109 |
 | Search-Identify | 0.289 | 0.602 | +0.313 |
 
-**Critical**: Generation only improves by ~11% — still mostly failing!
+**Critical**: Generation only improves by ~11% - still mostly failing!
 
 ### 3. Reflection REPEATS Same Failure (Above Chance!)
 
@@ -85,7 +85,7 @@ Models must create novel CRT items ("trick questions") that:
 - Generation: 85.3% same-category repeats (58/68)
 - Search-Identify: 75.0% same-category repeats (39/52)
 
-**Critical finding**: Reflection doesn't fix errors — it REPEATS them!
+**Critical finding**: Reflection doesn't fix errors - it REPEATS them!
 
 ### 4. Reasoning Models Show NO Advantage
 

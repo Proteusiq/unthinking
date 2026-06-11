@@ -376,7 +376,7 @@
         <div class="act-intro">
           <b style="color: var(--text-secondary)">Activations</b> introduce non-linearity into the
           FFN. The evolution moves from hard gates (ReLU) to smooth approximations (GELU) to
-          <b style="color: #ffa657">gated linear units (GLU family)</b> — where a sigmoid/swish gate
+          <b style="color: #ffa657">gated linear units (GLU family)</b> - where a sigmoid/swish gate
           multiplies the linear branch, giving the network multiplicative control over information
           flow. Below: click any entry for formulas and context.
         </div>
@@ -394,7 +394,7 @@
             padding-top: 1rem;
           "
         >
-          Normalisation — Pre / Post / Skip / RMS
+          Normalisation - Pre / Post / Skip / RMS
         </div>
         <div
           style="
@@ -434,8 +434,8 @@
             "
           >
             <span style="color: var(--accent-orange)">Post-LN</span> (original transformer): norm
-            applied <i>after</i> residual addition — gradients can vanish in early layers at
-            depth.&nbsp; <span style="color: #56d364">Pre-LN</span>: norm before sub-layer — stable
+            applied <i>after</i> residual addition - gradients can vanish in early layers at
+            depth.&nbsp; <span style="color: #56d364">Pre-LN</span>: norm before sub-layer - stable
             gradients, dominant since GPT-2.&nbsp;
             <span style="color: var(--accent-purple)">Skip-norm / No-norm</span>: some hybrid
             linear-attention layers omit norm entirely on the residual path.
@@ -457,7 +457,7 @@
               margin-bottom: 0.65rem;
             "
           >
-            Canonical Transformer Block — invariant structure since Vaswani et al. 2017
+            Canonical Transformer Block - invariant structure since Vaswani et al. 2017
           </div>
           <svg
             id="block-svg"
@@ -479,7 +479,7 @@
             <b style="color: #ffa657">FFN gating/MoE</b> ·
             <b style="color: var(--accent-yellow)">norm placement</b>.<br />
             <span style="color: #3fb950; font-size: clamp(0.55rem, 1.5vw, 0.65rem)"
-              >Source: Raschka (2025) — The Big LLM Architecture Comparison ·
+              >Source: Raschka (2025) - The Big LLM Architecture Comparison ·
               magazine.sebastianraschka.com</span
             >
           </div>
@@ -650,7 +650,7 @@
           short:
             'Non-saturating for x>0. Eliminates vanishing gradient problem. Made deep networks trainable.',
           detail:
-            '<b>Nair & Hinton (2010)</b>. Piecewise linear — gradient is exactly 1 for positive inputs, 0 for negative. Computationally trivial. Made 10+ layer networks feasible for the first time. Dead neuron problem: negative inputs give exactly zero gradient forever. Leaky ReLU (α·x for x<0) and PReLU (learned α) address this.',
+            '<b>Nair & Hinton (2010)</b>. Piecewise linear - gradient is exactly 1 for positive inputs, 0 for negative. Computationally trivial. Made 10+ layer networks feasible for the first time. Dead neuron problem: negative inputs give exactly zero gradient forever. Leaky ReLU (α·x for x<0) and PReLU (learned α) address this.',
           used: 'Used in: ResNets, early GPT, most CNNs. Still default in non-LLM contexts.',
         },
         {
@@ -663,7 +663,7 @@
           short:
             'Smooth at zero, negative saturation preserves mean activations near zero. SELU: self-normalizing.',
           detail:
-            '<b>ELU (Clevert et al. 2015)</b>: smooth derivative at x=0, handles dead neuron partially. <b>SELU (Klambauer et al. 2017)</b>: scaled ELU with specific α and λ — provably self-normalizing under certain weight initialization (Lecun normal init). Variance and mean converge without BatchNorm. Short-lived dominance — GELU improved on both.',
+            '<b>ELU (Clevert et al. 2015)</b>: smooth derivative at x=0, handles dead neuron partially. <b>SELU (Klambauer et al. 2017)</b>: scaled ELU with specific α and λ - provably self-normalizing under certain weight initialization (Lecun normal init). Variance and mean converge without BatchNorm. Short-lived dominance - GELU improved on both.',
           used: 'Used in: some feedforward nets, rarely in LLMs.',
         },
         {
@@ -674,9 +674,9 @@
           badgeBg: '#2d1f0e',
           formula: 'GELU(x) = x·Φ(x)  ≈  0.5x(1 + tanh(√(2/π)(x + 0.044715x³)))',
           short:
-            'Gaussian Error Linear Unit. Smooth stochastic gating — x weighted by its own probability. Dominant in BERT, GPT-2, GPT-3.',
+            'Gaussian Error Linear Unit. Smooth stochastic gating - x weighted by its own probability. Dominant in BERT, GPT-2, GPT-3.',
           detail:
-            '<b>Hendrycks & Gimpel (2016)</b>. Interprets the neuron as stochastically gated by its own magnitude. Smooth everywhere — no dead neurons, no hard gate. Slightly more expensive than ReLU but better performance empirically. The approx. via tanh is computationally feasible. Later replaced by SwiGLU in most LLMs but still used in some models.',
+            '<b>Hendrycks & Gimpel (2016)</b>. Interprets the neuron as stochastically gated by its own magnitude. Smooth everywhere - no dead neurons, no hard gate. Slightly more expensive than ReLU but better performance empirically. The approx. via tanh is computationally feasible. Later replaced by SwiGLU in most LLMs but still used in some models.',
           used: 'Used in: BERT, GPT-2, GPT-3, early T5, ViT. Still dominant in non-MoE models pre-2023.',
         },
         {
@@ -687,7 +687,7 @@
           badgeBg: '#21262d',
           formula: 'Swish(x) = x·σ(βx)   SiLU = Swish(β=1) = x·σ(x)',
           short:
-            "Self-gated. Non-monotonic — slightly negative for small negative x. Empirically strong. SiLU is SwiGLU's building block.",
+            "Self-gated. Non-monotonic - slightly negative for small negative x. Empirically strong. SiLU is SwiGLU's building block.",
           detail:
             '<b>Ramachandran et al. (2017, Google Brain)</b>. Discovered via automated search. Non-monotonic: small negative outputs for slightly negative inputs, which may help gradient flow. β=1 is SiLU (Sigmoid Linear Unit). SiLU is mathematically identical to Swish with fixed β. Directly used inside SwiGLU gating.',
           used: 'Used in: EfficientNet, MobileNetV3. As SiLU: the gate component inside SwiGLU.',
@@ -703,7 +703,7 @@
           short:
             'Two-branch FFN: a gate branch (activation fn) multiplied elementwise with a linear branch. Multiplicative control over information flow. SwiGLU/GeGLU dominate all modern LLMs.',
           detail:
-            "<b>Noam Shazeer (2020)</b>. Replaces single FFN branch with two parallel linear projections: one goes through a non-linearity to act as a gate, multiplied elementwise (⊗) with the other. <b>Why it works</b>: the gate is input-dependent — each token controls its own information flow, a form of learned conditional computation without routing overhead. <b>SwiGLU</b> (Swish gate) used in LLaMA, Mistral, Gemma, Phi, Qwen, DeepSeek. <b>GeGLU</b> (GELU gate) used in Gemma 2, T5 v1.1, Grok. MLP factor typically 2.67× in SwiGLU (vs 4× ReLU/GELU) to keep parameter count constant given the extra gate projection — that's why LLaMA MLPs look 'smaller' than GPT.",
+            "<b>Noam Shazeer (2020)</b>. Replaces single FFN branch with two parallel linear projections: one goes through a non-linearity to act as a gate, multiplied elementwise (⊗) with the other. <b>Why it works</b>: the gate is input-dependent - each token controls its own information flow, a form of learned conditional computation without routing overhead. <b>SwiGLU</b> (Swish gate) used in LLaMA, Mistral, Gemma, Phi, Qwen, DeepSeek. <b>GeGLU</b> (GELU gate) used in Gemma 2, T5 v1.1, Grok. MLP factor typically 2.67× in SwiGLU (vs 4× ReLU/GELU) to keep parameter count constant given the extra gate projection - that's why LLaMA MLPs look 'smaller' than GPT.",
           used: 'SwiGLU: LLaMA 1/2/3/4, Mistral, Phi-3/4, Qwen, DeepSeek V2/V3/R1, OLMo, Nemotron. GeGLU: Gemma 2, T5 v1.1, Grok-3.',
         },
         {
@@ -716,7 +716,7 @@
           short:
             'Replace single FFN with N expert FFNs (each SwiGLU). Router selects top-k per token. Total params ↑, active params constant.',
           detail:
-            'Each expert is a standard SwiGLU FFN. A learned router produces scores over all experts; top-k are activated. <b>DeepSeek V3</b>: 256 routed + 1 shared expert, top-2 per token, 671B total / 37B active. <b>LLaMA 4</b>: MoE at 400B+. <b>GLM-5</b>: 744B / 40B active. The activation function <i>inside each expert</i> is still SwiGLU — MoE is a structural change to the FFN, not a new activation.',
+            'Each expert is a standard SwiGLU FFN. A learned router produces scores over all experts; top-k are activated. <b>DeepSeek V3</b>: 256 routed + 1 shared expert, top-2 per token, 671B total / 37B active. <b>LLaMA 4</b>: MoE at 400B+. <b>GLM-5</b>: 744B / 40B active. The activation function <i>inside each expert</i> is still SwiGLU - MoE is a structural change to the FFN, not a new activation.',
           used: 'DeepSeek V3/R1, LLaMA 4, MiniMax M1/M2.5, GLM-4.5/5, Mixtral, Qwen2-MoE.',
         },
       ];
@@ -735,7 +735,7 @@
           title: 'Pre-LN (GPT-2 onwards)',
           color: '#e3b341',
           formula: 'x → x + Sub-layer(LayerNorm(x))',
-          body: 'Norm applied <b>before</b> the sub-layer, inside the residual branch. The skip connection passes through unnormalized — gradients flow cleanly through the identity path. <b>Standard for all large LLMs since 2019.</b> No warm-up required; stable at 100+ layers.',
+          body: 'Norm applied <b>before</b> the sub-layer, inside the residual branch. The skip connection passes through unnormalized - gradients flow cleanly through the identity path. <b>Standard for all large LLMs since 2019.</b> No warm-up required; stable at 100+ layers.',
           used: 'GPT-2, GPT-3, GPT-4, LLaMA 1/2/3, Mistral, Qwen, OLMo, Phi.',
           warn: '',
         },
@@ -743,7 +743,7 @@
           title: 'Pre-RMSNorm',
           color: '#56d364',
           formula: 'RMSNorm(x) = x / RMS(x) · γ    RMS(x) = √(1/n Σxᵢ²)',
-          body: 'Pre-LN but using RMSNorm instead of LayerNorm. <b>No mean centering</b> — drops the subtraction of mean, keeping only scale normalization. ~7% faster than LayerNorm (no mean computation). No loss in performance — the learned scale γ absorbs any needed centering. <b>Now the default in almost all modern LLMs.</b>',
+          body: 'Pre-LN but using RMSNorm instead of LayerNorm. <b>No mean centering</b> - drops the subtraction of mean, keeping only scale normalization. ~7% faster than LayerNorm (no mean computation). No loss in performance - the learned scale γ absorbs any needed centering. <b>Now the default in almost all modern LLMs.</b>',
           used: 'LLaMA 2/3/4, Mistral, DeepSeek V2/V3/R1, Gemma, Phi-3/4, OLMo 2/3, Qwen 2, MiniMax M1.',
           warn: '',
         },
@@ -751,7 +751,7 @@
           title: 'QK-Norm',
           color: '#d2a8ff',
           formula: 'Q̂ = Q / ‖Q‖₂    K̂ = K / ‖K‖₂  (per head, then scaled)',
-          body: '<b>Additional</b> L2-normalization of Query and Key vectors before the dot-product attention. Prevents attention logit explosion during long training runs — a common training instability when sequence lengths or model depth increase. Applied <i>on top of</i> Pre-RMSNorm. Introduced at scale by OLMo 2.',
+          body: '<b>Additional</b> L2-normalization of Query and Key vectors before the dot-product attention. Prevents attention logit explosion during long training runs - a common training instability when sequence lengths or model depth increase. Applied <i>on top of</i> Pre-RMSNorm. Introduced at scale by OLMo 2.',
           used: 'OLMo 2, OLMo 3. Increasingly adopted in long-context models.',
           warn: '',
         },
@@ -759,8 +759,8 @@
           title: 'Sandwich Norm (Pre + Post)',
           color: '#79c0ff',
           formula: 'x → LayerNorm(x) → Sub-layer(·) → LayerNorm(·) → x + ·',
-          body: "Applies norm both before <i>and</i> after the sub-layer — double normalization. Provides extra stability at the cost of compute. Used in Gemma 2's alternating attention layers for logit stabilization alongside soft-capping.",
-          used: 'Gemma 2 (27B) — specific attention layers.',
+          body: "Applies norm both before <i>and</i> after the sub-layer - double normalization. Provides extra stability at the cost of compute. Used in Gemma 2's alternating attention layers for logit stabilization alongside soft-capping.",
+          used: 'Gemma 2 (27B) - specific attention layers.',
           warn: '',
         },
         {
@@ -818,7 +818,7 @@
           attn: 'GQA',
           act: 'SwiGLU 2.67×',
           norm: 'Pre-RMSNorm',
-          note: 'The modern recipe crystallized: RoPE + GQA + SwiGLU + RMSNorm. 2.67× not 4× because SwiGLU has 3 matrices vs 2 — same parameter count.',
+          note: 'The modern recipe crystallized: RoPE + GQA + SwiGLU + RMSNorm. 2.67× not 4× because SwiGLU has 3 matrices vs 2 - same parameter count.',
         },
         {
           name: 'Mistral 7B',
@@ -863,7 +863,7 @@
           attn: 'GQA + QK-norm',
           act: 'SwiGLU',
           norm: 'Pre-RMSNorm',
-          note: 'QK-norm: L2-normalizes Q and K before dot-product — prevents logit explosion in long runs.',
+          note: 'QK-norm: L2-normalizes Q and K before dot-product - prevents logit explosion in long runs.',
         },
         {
           name: 'DeepSeek V3 / R1',
@@ -890,7 +890,7 @@
           attn: 'iRoPE + GQA',
           act: 'SwiGLU + MoE',
           norm: 'Pre-RMSNorm',
-          note: "iRoPE: alternates NoPE (no pos encoding) layers with RoPE — hypothesis: some layers don't need position. 10M ctx. Raschka (2025).",
+          note: "iRoPE: alternates NoPE (no pos encoding) layers with RoPE - hypothesis: some layers don't need position. 10M ctx. Raschka (2025).",
         },
         {
           name: 'MiniMax M1 / M2.5',

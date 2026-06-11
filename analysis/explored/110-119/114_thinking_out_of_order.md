@@ -14,16 +14,16 @@
 This paper demonstrates a **fundamental limitation of autoregressive models**: they MUST commit to answers before generating reasoning when output order conflicts with reasoning order. Key finding:
 
 - **AR models**: Up to **67% relative accuracy drop** when answers must come before reasoning
-- **Diffusion models (MDLMs)**: Only **≤14% drop** — they can reason internally before committing
+- **Diffusion models (MDLMs)**: Only **≤14% drop** - they can reason internally before committing
 
-This is direct evidence that AR models don't "reason" — they pattern-match in generation order.
+This is direct evidence that AR models don't "reason" - they pattern-match in generation order.
 
 ---
 
 ## Core Claims
 
-1. **AR models couple generation order with reasoning order** — forced to commit to answers before reasoning exists
-2. **MDLMs decouple computation from output order** — can reason internally regardless of output position
+1. **AR models couple generation order with reasoning order** - forced to commit to answers before reasoning exists
+2. **MDLMs decouple computation from output order** - can reason internally regardless of output position
 3. **Order robustness**: MDLMs maintain accuracy when output order is reversed; AR models collapse
 4. **Complexity-driven stabilization**: Diffusion models stabilize simpler tokens (reasoning) before complex ones (answers)
 5. **Breakdown conditions identified**: When complexity differences are insufficient or generation length is large
@@ -111,7 +111,7 @@ The diffusion model's sampling algorithm:
 
 | Finding | Implication for Thesis |
 |---------|------------------------|
-| 67% drop when order reversed | AR doesn't "reason" — it generates in order |
+| 67% drop when order reversed | AR doesn't "reason" - it generates in order |
 | Premature commitment | No internal reasoning process, just sequential prediction |
 | Diffusion nearly order-invariant | Parallel refinement ≈ actual internal reasoning |
 | Distillation preserves AR behavior | Order-sensitivity is learned, not architectural |
@@ -121,7 +121,7 @@ The diffusion model's sampling algorithm:
 
 | Paper | Connection |
 |-------|------------|
-| **Flexibility Trap (105)** | SAME finding — arbitrary order narrows reasoning in diffusion LLMs |
+| **Flexibility Trap (105)** | SAME finding - arbitrary order narrows reasoning in diffusion LLMs |
 | **Faith and Fate** | AR's sequential commitment = why errors accumulate |
 | **CoT Unfaithfulness papers** | AR's CoT is post-hoc because answer decided first |
 | **Illusion of Thinking** | Complexity collapse = when diffusion can't distinguish token complexity |
@@ -136,7 +136,7 @@ The diffusion model's sampling algorithm:
 
 2. **Large generation length**: More tokens to predict simultaneously → harder to judge relative complexity (256 tokens: retrieval delayed 45-76 steps vs 64 tokens: 4-11 steps)
 
-3. **Task exceeds capacity**: D4 remains ~1% regardless of ordering — task too hard for model
+3. **Task exceeds capacity**: D4 remains ~1% regardless of ordering - task too hard for model
 
 ---
 
@@ -150,7 +150,7 @@ The diffusion model's sampling algorithm:
 
 ### Implications for Pattern Matching Thesis
 
-**AR models don't reason — they predict next tokens in sequence.**
+**AR models don't reason - they predict next tokens in sequence.**
 
 When forced to output answers before reasoning:
 - AR has no "internal reasoning" to draw from
@@ -194,12 +194,12 @@ When forced to output answers before reasoning:
 
 ## Bottom Line
 
-This paper provides **direct evidence** that autoregressive models don't have internal reasoning processes — they must generate tokens in sequence, so they can't "think" before "speaking." When forced to output answers before explanations, AR models collapse (67% drop) because they have no reasoning to draw from.
+This paper provides **direct evidence** that autoregressive models don't have internal reasoning processes - they must generate tokens in sequence, so they can't "think" before "speaking." When forced to output answers before explanations, AR models collapse (67% drop) because they have no reasoning to draw from.
 
 **For the thesis**: STRONGLY SUPPORTS. The findings show:
 1. AR's "reasoning" is sequential token prediction, not internal deliberation
 2. When output order conflicts with reasoning order, AR fails catastrophically
 3. Even diffusion's "order robustness" is just complexity-based pattern matching
-4. Distillation from AR preserves AR's limitations — the patterns are learned, not emergent
+4. Distillation from AR preserves AR's limitations - the patterns are learned, not emergent
 
 The paper inadvertently reveals that what we call "reasoning" in LLMs is really "generating tokens in an order that looks like reasoning."

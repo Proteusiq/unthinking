@@ -14,11 +14,11 @@
 
 1. **Standard LLMs still can't plan**: Best LLM (LLaMA 3.1 405B) achieves only 62.6% on Blocksworld, <5% on Mystery Blocksworld.
 
-2. **o1 shows "quantum improvement"**: 97.8% on Blocksworld, 52.8% on Mystery Blocksworld — dramatic improvement over LLMs.
+2. **o1 shows "quantum improvement"**: 97.8% on Blocksworld, 52.8% on Mystery Blocksworld - dramatic improvement over LLMs.
 
 3. **o1 still doesn't saturate**: Performance degrades on longer problems (23.63% on 20+ step problems), fails on unsolvable instances.
 
-4. **LRMs vs LLMs distinction**: OpenAI's o1 represents a new category — "Large Reasoning Model" — fundamentally different architecture.
+4. **LRMs vs LLMs distinction**: OpenAI's o1 represents a new category - "Large Reasoning Model" - fundamentally different architecture.
 
 5. **Cost/accuracy tradeoffs matter**: o1 is orders of magnitude more expensive than classical planners which achieve 100%.
 
@@ -35,7 +35,7 @@
 | Claude 3 Opus | 59.3% | 0% |
 | GPT-4o | 35.5% | 0% |
 | GPT-4 Turbo | 40.1% | 0.16% |
-| Gemini 1.5 Pro | 23.8% | — |
+| Gemini 1.5 Pro | 23.8% | - |
 
 **Critical finding**: Mystery Blocksworld (same logic, obfuscated names) collapses to near-zero for ALL LLMs.
 
@@ -44,7 +44,7 @@
 | Model | Blocksworld | Mystery BW | Randomized Mystery |
 |-------|-------------|------------|-------------------|
 | o1-preview | **97.8%** | **52.8%** | **37.3%** |
-| o1-mini | 56.6% | 19.1% | — |
+| o1-mini | 56.6% | 19.1% | - |
 | Fast Downward | **100%** | **100%** | **100%** |
 
 **Key finding**: o1 shows dramatic improvement BUT still doesn't saturate, especially on obfuscated versions.
@@ -244,7 +244,7 @@ NOT as:
 ## Classification
 - **Stance**: STRONGLY SUPPORTS thesis
 - **Evidence Type**: Empirical (o1 evaluation on PlanBench)
-- **Strength**: Very high — same benchmark as Papers 150/153, tests o1 directly
+- **Strength**: Very high - same benchmark as Papers 150/153, tests o1 directly
 - **Key Contribution**: Shows even "reasoning models" fail on obfuscated/complex problems
 
 ## Tags

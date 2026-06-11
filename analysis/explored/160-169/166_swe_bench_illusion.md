@@ -116,7 +116,7 @@
 ### Supports
 - **Faith and Fate (2305.18654)**: Distribution-bounded performance; linearized subgraph matching
 - **GSM-Symbolic (2410.05229)**: Benchmark scores don't reflect true capability
-- **Beyond Memorization (2601.13392)**: Same pattern — high on seen, low on unseen
+- **Beyond Memorization (2601.13392)**: Same pattern - high on seen, low on unseen
 
 ### Extends
 - **Reasoning or Reciting (2307.02477)**: Extends counterfactual methodology to coding
@@ -164,11 +164,11 @@ No direct rebuttals found as of analysis date.
 
 ### Evidence Supporting the Thesis
 
-1. **"Impossible" knowledge**: Models identify correct files WITHOUT information needed to reason — can only succeed through memorization.
+1. **"Impossible" knowledge**: Models identify correct files WITHOUT information needed to reason - can only succeed through memorization.
 
 2. **Performance differential reveals mechanism**: If models were genuinely reasoning, performance should be similar across comparable tasks. The dramatic drop (up to 47pp) on external repos indicates retrieval, not reasoning.
 
-3. **Verbatim reproduction**: Up to 31.6% exact code reproduction from prefixes alone — this is pattern completion, not problem-solving.
+3. **Verbatim reproduction**: Up to 31.6% exact code reproduction from prefixes alone - this is pattern completion, not problem-solving.
 
 4. **Temporal control**: Performance on post-training-cutoff issues drops to baseline, proving the mechanism is training data exposure.
 

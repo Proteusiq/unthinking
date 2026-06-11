@@ -5,7 +5,7 @@
 - **Date**: April 2026
 - **Authors**: Philippe Laban, Tobias Schnabel, Jennifer Neville
 - **Affiliation**: Microsoft Research
-- **Stance**: Strongly supports thesis — frontier LLMs silently confabulate during delegated long-horizon document workflows; agentic tools make it worse, not better
+- **Stance**: Strongly supports thesis - frontier LLMs silently confabulate during delegated long-horizon document workflows; agentic tools make it worse, not better
 
 ---
 
@@ -14,7 +14,7 @@
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
 │                                                                      │
-│  DELEGATION CORRUPTS — SILENTLY, SEVERELY, SPARSELY                  │
+│  DELEGATION CORRUPTS - SILENTLY, SEVERELY, SPARSELY                  │
 │                                                                      │
 │  19 LLMs × 52 professional domains × 20-step round-trip relays       │
 │                                                                      │
@@ -70,7 +70,7 @@
 
 ### Round-Trip Relay Evaluation
 - Each transformation σ is paired with its inverse σ⁻¹
-- Forward: t = LLM(s; x→); Backward: ŝ = LLM(t; x←) — each step **stateless single-turn**
+- Forward: t = LLM(s; x→); Backward: ŝ = LLM(t; x←) - each step **stateless single-turn**
 - Under a perfect model: sim(s, ŝ) = 1 → no reference annotation needed (backtranslation)
 - Chain N=10 round-trips → **20 interactions** per simulation
 - Edits scheduled in **round-robin** (validated: 20–24 points harder at RS@20 than repeating one edit)
@@ -80,20 +80,20 @@
 - Each of 52 domains has a custom parser → structured representation, then weighted similarity in [0,1]
 - Recipe: 40% ingredients + 40% steps + 20% tips
 - Robust to surface (200g vs 0.2kg butter); sensitive to semantic (200g → 800g butter)
-- LLM-as-judge (GPT 5.4) captures **at most 25% of variance** vs parsing — generic methods fail
+- LLM-as-judge (GPT 5.4) captures **at most 25% of variance** vs parsing - generic methods fail
 
 ### Quality Assurance
 - 8-stage QA (Appendix K): parsing robustness, evaluation sensitivity, edit testing, distractor non-interference
 - Compliance audit (Appendix A): 93.8% of attempts fully or partially executed; non-compliance only 3.0% (1.7% in top-10 models)
 
 ### Failure-Mode Tagging (11 labels)
-`content_loss`, `truncation`, `hallucination`, `structure_change`, `skipped_backward_edit`, `syntax_error`, `mathematical_error`, `duplicated_content`, `reordering`, `templated_completion`, `other` — grouped as **deletion (2)** vs **corruption (9)**.
+`content_loss`, `truncation`, `hallucination`, `structure_change`, `skipped_backward_edit`, `syntax_error`, `mathematical_error`, `duplicated_content`, `reordering`, `templated_completion`, `other` - grouped as **deletion (2)** vs **corruption (9)**.
 
 ---
 
 ## Key Evidence
 
-### 19 Models — RS@20 (with distractors, no tools)
+### 19 Models - RS@20 (with distractors, no tools)
 
 | Rank | Model | Family | RS@20 |
 |-----:|-------|--------|------:|
@@ -120,7 +120,7 @@
 Frontier 3 average corruption ≈ (19.1 + 26.9 + 28.5)/3 = **24.8%**.
 
 ### Domain Readiness (≥98% RS@20)
-- **Python**: 17/19 models ready — the *only* such domain
+- **Python**: 17/19 models ready - the *only* such domain
 - **Gemini 3.1 Pro (best)**: ready in **11/52** domains
 - Catastrophic corruption (≤80%) in **>80%** of (model, domain) pairs
 
@@ -130,7 +130,7 @@ Frontier 3 average corruption ≈ (19.1 + 26.9 + 28.5)/3 = **24.8%**.
 - Document size and interaction length compound **multiplicatively**
 
 ### Length of Interaction (Section 4.4, 100 interactions)
-- All models continue to degrade — **none plateau**
+- All models continue to degrade - **none plateau**
 - GPT 5.4 drops below 60% by round-trip 50
 - First half (rounds 5–25) yields 2–3× more loss than rounds 25–50, but loss never stops
 
@@ -153,7 +153,7 @@ Frontier 3 average corruption ≈ (19.1 + 26.9 + 28.5)/3 = **24.8%**.
 - Frontier models (Claude 4.6 Opus/Sonnet): only **22–27%** = deletion → dominant failure is **active corruption**
 
 ### Hardest Operations (point-biserial vs RS, GPT 5.2)
-- Split-and-merge (r = −0.080), classification (r = −0.076), format knowledge (r = −0.060) — operations requiring **global document restructuring**
+- Split-and-merge (r = −0.080), classification (r = −0.076), format knowledge (r = −0.060) - operations requiring **global document restructuring**
 - Local operations (string manipulation, referencing) are easier
 
 ---
@@ -166,7 +166,7 @@ Frontier 3 average corruption ≈ (19.1 + 26.9 + 28.5)/3 = **24.8%**.
 
 > "Python is the only domain (out of 52) where most models are ready, highlighting the significant gap that remains." (§1)
 
-> "Models are not failing due to 'death by a thousand cuts.' LLMs don't slowly corrupt content through many small rounding errors. Instead, they maintain near-perfect reconstruction in some rounds, and experience critical failures in a few rounds — typically losing 10-30+ points in a single round-trip." (Appendix E)
+> "Models are not failing due to 'death by a thousand cuts.' LLMs don't slowly corrupt content through many small rounding errors. Instead, they maintain near-perfect reconstruction in some rounds, and experience critical failures in a few rounds - typically losing 10-30+ points in a single round-trip." (Appendix E)
 
 > "The stronger models (Gemini 3.1 Pro, Claude 4.6, GPT 5.4) aren't avoiding small errors better, they delay critical failures to later rounds and experience them in fewer interactions." (Appendix E)
 
@@ -185,21 +185,21 @@ Frontier 3 average corruption ≈ (19.1 + 26.9 + 28.5)/3 = **24.8%**.
 ## Relationship to Other Papers
 
 ### Strongly Supports
-- **Faith and Fate (#1, 2305.18654)** — long-horizon planning collapse; here surface as 100-interaction unbounded drift
-- **YC-Bench (#339, 2604.01212)** — same week's complementary finding: long-horizon agentic failure under compounding signals
-- **TraitBasis (#338, 2510.04491)** — agent brittleness under user-side perturbation; this paper extends to document-side perturbation
-- **From Plan to Action (#337, 2604.12147)** — agent fall-back to memorized workflows; here, fall-back to file-rewrite over verification
-- **Pressure Reveals Character (#330, 2602.20813)** — character drift under length; here, capability drift under length
-- **Beyond Anthropomorphic (#336, 2502.09192)** — pattern-completion, not goal-directed — frontier "active corruption" is locally plausible pattern completion
+- **Faith and Fate (#1, 2305.18654)** - long-horizon planning collapse; here surface as 100-interaction unbounded drift
+- **YC-Bench (#339, 2604.01212)** - same week's complementary finding: long-horizon agentic failure under compounding signals
+- **TraitBasis (#338, 2510.04491)** - agent brittleness under user-side perturbation; this paper extends to document-side perturbation
+- **From Plan to Action (#337, 2604.12147)** - agent fall-back to memorized workflows; here, fall-back to file-rewrite over verification
+- **Pressure Reveals Character (#330, 2602.20813)** - character drift under length; here, capability drift under length
+- **Beyond Anthropomorphic (#336, 2502.09192)** - pattern-completion, not goal-directed - frontier "active corruption" is locally plausible pattern completion
 
 ### Extends
-- **Lost in the Middle (Liu et al. 2023)** — long-context degradation, here in delegated multi-step
-- **Distracted by Irrelevant Context (Shi et al. 2023)** — distractor harm, here compounding over horizon
-- **LLMs Get Lost in Multi-Turn (Laban et al. 2025)** — single-turn version of degradation; multi-turn would amplify
+- **Lost in the Middle (Liu et al. 2023)** - long-context degradation, here in delegated multi-step
+- **Distracted by Irrelevant Context (Shi et al. 2023)** - distractor harm, here compounding over horizon
+- **LLMs Get Lost in Multi-Turn (Laban et al. 2025)** - single-turn version of degradation; multi-turn would amplify
 
 ### Complements
-- **CoT Faithfulness Unlearning (#30)** — internal-state inconsistency; here, output-document inconsistency
-- **Reasoning Theater (#306, 2603.05488)** — performative reasoning ≠ faithful execution
+- **CoT Faithfulness Unlearning (#30)** - internal-state inconsistency; here, output-document inconsistency
+- **Reasoning Theater (#306, 2603.05488)** - performative reasoning ≠ faithful execution
 
 ### Smoking Gun Status
 The 17/19 Python success vs the ≤30% RS@20 in domains like Crystallography, Music notation, Textile patterns is one of the cleanest large-scale demonstrations that frontier LLM reliability **tracks training-data density of surface forms**, not domain difficulty per se. Recommend candidate for findings.html "jagged frontier by data density" theme.
@@ -219,7 +219,7 @@ The 17/19 Python success vs the ≤30% RS@20 in domains like Crystallography, Mu
 8. **Error faithfulness is empirical, not proved.** Stochastic errors "do not produce systematically self-canceling errors" is an assumption.
 
 ### Tension for Pure Pattern-Matching Reading
-The 16-month progression GPT 4o (14.7) → GPT 5.4 (71.5) is genuinely impressive. A skeptic must explain why scaling continues to help. The paper's own framing favors "current LLMs are not yet ready" over "current architectures fundamentally cannot." Python's 17/19 success shows that with enough data density and verifiability, current architectures are reliable — consistent with both views (genuine reasoner OR very-good pattern matcher with thick training data).
+The 16-month progression GPT 4o (14.7) → GPT 5.4 (71.5) is genuinely impressive. A skeptic must explain why scaling continues to help. The paper's own framing favors "current LLMs are not yet ready" over "current architectures fundamentally cannot." Python's 17/19 success shows that with enough data density and verifiability, current architectures are reliable - consistent with both views (genuine reasoner OR very-good pattern matcher with thick training data).
 
 ### Mirror Rebuttals (Counter-Evidence Considered)
 - The paper does *not* directly cite reasoning-skeptic literature (Mirzadeh GSM-Symbolic, Apple's Illusion of Thinking, Anthropic's CoT-faithfulness work, alignment-faking). This means findings are independently arrived-at, strengthening convergent-evidence value.

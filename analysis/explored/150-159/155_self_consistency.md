@@ -68,7 +68,7 @@ More samples → better performance (diminishing returns after ~40).
 
 ### This Paper's Position: **FOR Reasoning Capabilities**
 
-The paper frames self-consistency as leveraging "multiple ways of thinking" — implying genuine reasoning.
+The paper frames self-consistency as leveraging "multiple ways of thinking" - implying genuine reasoning.
 
 ### Critical Assessment: Pattern Matching Interpretation
 
@@ -95,8 +95,8 @@ Alternative:
 **3. Evidence from Thesis Corpus**
 
 - **Paper 112 (HRM)**: Models "guess" fixed points, scaling guesses (54.5%→96.9%) >> improving reasoning
-- **Paper 22 (Diminishing Returns)**: Self-conditioning causes error propagation — sampling mitigates this
-- **Paper 91 (HalluGuard)**: Errors grow exponentially with reasoning length — sampling = restart opportunities
+- **Paper 22 (Diminishing Returns)**: Self-conditioning causes error propagation - sampling mitigates this
+- **Paper 91 (HalluGuard)**: Errors grow exponentially with reasoning length - sampling = restart opportunities
 
 Self-consistency helps because it **restarts the pattern matching process**, not because it explores reasoning paths.
 
@@ -123,9 +123,9 @@ The observed plateau supports the statistical interpretation.
 
 ### What Self-Consistency Actually Shows
 
-1. **Greedy decoding is suboptimal** — agreed, not controversial
-2. **Sampling + voting improves accuracy** — standard statistical technique
-3. **This proves reasoning** — NOT supported by the evidence
+1. **Greedy decoding is suboptimal** - agreed, not controversial
+2. **Sampling + voting improves accuracy** - standard statistical technique
+3. **This proves reasoning** - NOT supported by the evidence
 
 ### Counter-Evidence from Corpus
 
@@ -190,10 +190,10 @@ However, the interpretation (reasoning vs. statistical) remains contested.
 
 Self-consistency improvements support the thesis because:
 
-1. **Statistical technique works** — suggests underlying process is statistical
-2. **Plateaus quickly** — consistent with mode-finding, not reasoning depth
-3. **Doesn't help OOD** — confirms distribution-boundedness
-4. **Multiple samples = variance reduction** — standard ML, not cognitive
+1. **Statistical technique works** - suggests underlying process is statistical
+2. **Plateaus quickly** - consistent with mode-finding, not reasoning depth
+3. **Doesn't help OOD** - confirms distribution-boundedness
+4. **Multiple samples = variance reduction** - standard ML, not cognitive
 
 The fact that a statistical technique (majority voting) dramatically improves "reasoning" suggests the underlying process is statistical pattern matching, not genuine reasoning.
 

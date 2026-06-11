@@ -11,15 +11,15 @@
 
 ## Core Claims
 
-1. **RLVR induces structural convergence in reasoning trajectories** — Prompts encountered during training yield increasingly similar, rigid generations, while unseen prompts retain high variability. This convergence concentrates on symbolic and algebraic reasoning components.
+1. **RLVR induces structural convergence in reasoning trajectories** - Prompts encountered during training yield increasingly similar, rigid generations, while unseen prompts retain high variability. This convergence concentrates on symbolic and algebraic reasoning components.
 
-2. **Conventional detection methods fail for RLVR** — Unlike pretraining/SFT which optimize via token-level probabilities, RLVR optimizes through reward feedback on self-generated reasoning, making perplexity-based methods ineffective.
+2. **Conventional detection methods fail for RLVR** - Unlike pretraining/SFT which optimize via token-level probabilities, RLVR optimizes through reward feedback on self-generated reasoning, making perplexity-based methods ineffective.
 
-3. **Min-kNN Distance can detect RLVR exposure in black-box settings** — By sampling multiple completions and computing average of k smallest nearest-neighbor edit distances, the method reliably distinguishes seen from unseen prompts.
+3. **Min-kNN Distance can detect RLVR exposure in black-box settings** - By sampling multiple completions and computing average of k smallest nearest-neighbor edit distances, the method reliably distinguishes seen from unseen prompts.
 
-4. **RLVR compresses reasoning into 2-4 structural modes** — Not a single canonical trajectory, but a limited set of recurring patterns.
+4. **RLVR compresses reasoning into 2-4 structural modes** - Not a single canonical trajectory, but a limited set of recurring patterns.
 
-5. **Seen data exhibits greater rigidity than unseen data** — Training prompts show 34% more rigid logic 3-grams and higher proportion of clustered reasoning structures.
+5. **Seen data exhibits greater rigidity than unseen data** - Training prompts show 34% more rigid logic 3-grams and higher proportion of clustered reasoning structures.
 
 ---
 
@@ -67,10 +67,10 @@
 ## Relationship to Other Papers
 
 ### Supports
-- **#3 GSM-Symbolic** (2410.05229): Structural convergence explains brittleness to symbolic variations—model retrieves templates that fail on novel combinations
+- **#3 GSM-Symbolic** (2410.05229): Structural convergence explains brittleness to symbolic variations-model retrieves templates that fail on novel combinations
 - **#8 Measuring Faithfulness** (2307.13702): If reasoning is template retrieval, CoT faithfulness is illusory
 - **#10 Illusion of Insight** (2601.00514): Provides mechanism for why reasoning models lack genuine insight
-- **#295 Test-Time Compute** (2603.15377): Explains why more compute can hurt—selects among memorized structures
+- **#295 Test-Time Compute** (2603.15377): Explains why more compute can hurt-selects among memorized structures
 
 ### Extends
 - **Gandhi et al. (2025)**: Prior work showed RLVR reduces reasoning coverage; this quantifies the collapse
@@ -85,7 +85,7 @@
 ## REBUTTALS
 
 ### Known Rebuttals
-None identified — paper provides new evidence on RLVR behavior.
+None identified - paper provides new evidence on RLVR behavior.
 
 ### Limitations (Authors Acknowledge)
 1. **Domain-specific**: Code detection harder (AUC 0.69) than math (AUC 0.80)
@@ -118,7 +118,7 @@ None identified — paper provides new evidence on RLVR behavior.
 │  UNSEEN PROMPT:  32 completions → diverse reasoning paths          │
 │  SEEN PROMPT:    32 completions → 2-4 rigid structural modes       │
 │                                                                     │
-│  The model doesn't reason through seen problems—                   │
+│  The model doesn't reason through seen problems-                   │
 │  it retrieves cached solution structures.                          │
 │                                                                     │
 │  WHAT CONVERGES:                                                    │
@@ -134,7 +134,7 @@ None identified — paper provides new evidence on RLVR behavior.
 
 **Stance**: SUPPORTS
 
-This paper provides mechanistic evidence that RLVR-trained reasoning models recall rather than reason. The structural convergence phenomenon demonstrates that for seen prompts, the model produces the same 2-4 reasoning structures regardless of temperature—suggesting memorized templates rather than fresh reasoning. The finding that *symbolic reasoning segments freeze first* (the actual mathematical derivations) directly supports the thesis that LLMs are sophisticated pattern matchers. The diversity on unseen prompts shows the model *can* reason variably, but chooses cached paths when available—the path of least resistance.
+This paper provides mechanistic evidence that RLVR-trained reasoning models recall rather than reason. The structural convergence phenomenon demonstrates that for seen prompts, the model produces the same 2-4 reasoning structures regardless of temperature-suggesting memorized templates rather than fresh reasoning. The finding that *symbolic reasoning segments freeze first* (the actual mathematical derivations) directly supports the thesis that LLMs are sophisticated pattern matchers. The diversity on unseen prompts shows the model *can* reason variably, but chooses cached paths when available-the path of least resistance.
 
 ---
 

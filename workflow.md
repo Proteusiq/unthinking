@@ -53,9 +53,9 @@ If NO to any, skip and note why in `papers/toread.md`.
 
 ## Step 3: Read Full Paper
 
-**CRITICAL**: Read the COMPLETE paper — this is non-negotiable.
+**CRITICAL**: Read the COMPLETE paper - this is non-negotiable.
 
-- **NEVER** stop at "enough information" — read the ENTIRE paper
+- **NEVER** stop at "enough information" - read the ENTIRE paper
 - **ALWAYS** fetch the full HTML version at `https://arxiv.org/html/{arxiv_id}`
 - If HTML is truncated, use task agents to process the full saved content
 - If you haven't read the full paper, you haven't read the paper
@@ -218,7 +218,7 @@ Aim for **3-5 outgoing links** per paper. Every link MUST have a description.
 }
 ```
 
-**Link types** (only use these four — others have no CSS styling):
+**Link types** (only use these four - others have no CSS styling):
 
 | Type | When to Use |
 |------|-------------|
@@ -227,7 +227,7 @@ Aim for **3-5 outgoing links** per paper. Every link MUST have a description.
 | `rebuts` | Directly contradicts target paper's conclusions |
 | `challenges` | Provides evidence that weakens target paper's claims |
 
-**Writing descriptions** — answer: "What specific relationship exists between these two papers?"
+**Writing descriptions** - answer: "What specific relationship exists between these two papers?"
 
 The description is the most valuable part of a link. It tells the reader *how* two papers
 relate, not just *that* they relate. Compare:
@@ -237,9 +237,9 @@ relate, not just *that* they relate. Compare:
 { source: '2504.05262', target: '2305.18654', type: 'supports',
   description: 'Pattern matching, no abstract rules' }
 ```
-- 5 words — barely more than the type badge
-- Generic — could describe half the corpus
-- No mechanism — what did this paper specifically find?
+- 5 words - barely more than the type badge
+- Generic - could describe half the corpus
+- No mechanism - what did this paper specifically find?
 - Wastes the paper's rich evidence (99.8%→7.5%, commutativity violations)
 
 **Strong** (Dot by Dot → Faith & Fate):
@@ -247,9 +247,9 @@ relate, not just *that* they relate. Compare:
 { source: '2404.15758', target: '2305.18654', type: 'supports',
   description: 'CoT benefits from computation, not task decomposition' }
 ```
-- Specific mechanism — computation vs task decomposition
+- Specific mechanism - computation vs task decomposition
 - Tells you something you didn't know from the type badge alone
-- Unique — no other link in the corpus has this description
+- Unique - no other link in the corpus has this description
 
 **More strong examples:**
 ```
@@ -266,7 +266,7 @@ it's too generic. A good description only makes sense for *this specific pair*.
 - 30-100 characters, one sentence, no trailing period
 - Name the specific mechanism, finding, or number that connects the papers
 - No generic phrases ("related work", "similar findings", "both about X")
-- No type echoing ("supports the claim..." — badge already says SUPPORTS)
+- No type echoing ("supports the claim..." - badge already says SUPPORTS)
 - No ALL CAPS emphasis
 - Each description must be unique across all links for a paper
 
@@ -290,10 +290,10 @@ it's too generic. A good description only makes sense for *this specific pair*.
 
 ### 9b. Update `docs/pages/findings.html` (when counts change significantly):
 
-1. **Stance cards** — Update the three numbers (supports/balanced/challenges) and percentages
-2. **Paper distribution chart** — Update the batch row if adding papers to a new batch
-3. **Theme tables** — Add paper to relevant theme section if it provides significant evidence
-4. **Smoking guns** — Update if paper provides stronger evidence than existing entries
+1. **Stance cards** - Update the three numbers (supports/balanced/challenges) and percentages
+2. **Paper distribution chart** - Update the batch row if adding papers to a new batch
+3. **Theme tables** - Add paper to relevant theme section if it provides significant evidence
+4. **Smoking guns** - Update if paper provides stronger evidence than existing entries
 
 Run `cd docs && npm run format` after editing.
 

@@ -12,13 +12,13 @@
 
 ## Core Claims
 
-1. **LLMs fail at 8-puzzle even with extensive assistance** — including SOTA models like GPT-5-Thinking
+1. **LLMs fail at 8-puzzle even with extensive assistance** - including SOTA models like GPT-5-Thinking
 2. **Two dominant deficits identified**:
    - Brittle internal state representations → frequent invalid moves
    - Weak heuristic planning → loops and moves that don't progress toward goal
-3. **External move validator doesn't help** — when given ONLY valid moves, models STILL fail (0% success)
-4. **Feedback helps but is costly** — best model reaches 68% but requires ~24 min, 75K tokens, 2 attempts per puzzle
-5. **Models proceed with false confidence** — output solutions as if correct despite earlier errors
+3. **External move validator doesn't help** - when given ONLY valid moves, models STILL fail (0% success)
+4. **Feedback helps but is costly** - best model reaches 68% but requires ~24 min, 75K tokens, 2 attempts per puzzle
+5. **Models proceed with false confidence** - output solutions as if correct despite earlier errors
 
 ---
 
@@ -74,11 +74,11 @@
 | GPT-5-Thinking | AoT + Suggestive | **68%** | 24 min | 75,284 | 1.97 | 48.91 |
 | Gemini-2.5-Pro | Zero-Shot + Repeat | 18% | 6.7 min | 58,651 | 2.67 | 30.56 |
 | GPT-5-mini | CoT + Repeat | 18% | 9.9 min | 44,272 | 2.67 | 28.44 |
-| Llama 3.1 8B | Any | **0%** | — | — | — | — |
+| Llama 3.1 8B | Any | **0%** | - | - | - | - |
 
 **Critical**: Even best model (68%) requires ~24 minutes and 75K tokens per puzzle!
 
-### Finding 4: External Move Validator — CRITICAL RESULT
+### Finding 4: External Move Validator - CRITICAL RESULT
 
 **Setup**: Model receives:
 - Current puzzle state
@@ -109,7 +109,7 @@ Model only needs to select best move from valid options.
 | GPT-5-Thinking | ~15 | ~8 |
 | Gemini-2.5-Pro | ~12 | ~6 |
 
-**GPT-5-mini**: 47 valid moves for only 6 moves of progress — random walk behavior!
+**GPT-5-mini**: 47 valid moves for only 6 moves of progress - random walk behavior!
 
 ---
 
@@ -129,7 +129,7 @@ The "Agentic Gap" and "Thinking Isn't Illusion" papers argue that LLMs fail at e
 
 | "Agentic Gap" Argument | Counter-Evidence from This Paper |
 |------------------------|----------------------------------|
-| Models fail at execution | With validator, execution is trivial — still fail |
+| Models fail at execution | With validator, execution is trivial - still fail |
 | Tools reverse collapse | Move validator = tool; doesn't help |
 | Interface is restrictive | Interface gives ALL valid options; still loop |
 
@@ -151,7 +151,7 @@ The "Agentic Gap" and "Thinking Isn't Illusion" papers argue that LLMs fail at e
 │  • Even GPT-5-Thinking loops 100% with move validator                       │
 │                                                                             │
 │  KEY INSIGHT: These deficits persist even when state tracking is            │
-│  offloaded. The problem is not execution — it's reasoning.                  │
+│  offloaded. The problem is not execution - it's reasoning.                  │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -160,14 +160,14 @@ The "Agentic Gap" and "Thinking Isn't Illusion" papers argue that LLMs fail at e
 ## Relationship to Other Papers
 
 ### Supports
-- **Illusion of Thinking** — Same finding: LLMs collapse on planning tasks
-- **Faith and Fate** — Confirms pattern-matching fails on sequential reasoning
-- **GSM-Symbolic** — Similar finding of brittle performance
+- **Illusion of Thinking** - Same finding: LLMs collapse on planning tasks
+- **Faith and Fate** - Confirms pattern-matching fails on sequential reasoning
+- **GSM-Symbolic** - Similar finding of brittle performance
 
 ### Directly Challenges
-- **Comment: Agentic Gap** — Their "execution vs reasoning" distinction doesn't hold
-- **Thinking Isn't Illusion** — Tool augmentation doesn't always work
-- **Tool augmentation papers** — Move validator IS a tool; it doesn't help
+- **Comment: Agentic Gap** - Their "execution vs reasoning" distinction doesn't hold
+- **Thinking Isn't Illusion** - Tool augmentation doesn't always work
+- **Tool augmentation papers** - Move validator IS a tool; it doesn't help
 
 ### Key Distinction from "Illusion of Thinking"
 Unlike Shojaee et al., this paper:
@@ -226,7 +226,7 @@ No direct arXiv rebuttal found as of analysis date.
 │  THESIS IMPLICATION:                                                        │
 │  ┌─────────────────────────────────────────────────────────────────────┐    │
 │  │ Even with tools that remove execution burden, models can't plan.    │    │
-│  │ The problem is not interface limitations — it's reasoning limits.   │    │
+│  │ The problem is not interface limitations - it's reasoning limits.   │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -277,8 +277,8 @@ No direct arXiv rebuttal found as of analysis date.
 - [x] Key evidence with numbers
 - [x] Critical analysis for thesis
 - [x] Cross-references identified
-- [x] **Rebuttals checked** — No direct rebuttal found
-- [x] **Counter-evidence noted** — Challenges "Agentic Gap" directly
+- [x] **Rebuttals checked** - No direct rebuttal found
+- [x] **Counter-evidence noted** - Challenges "Agentic Gap" directly
 
 ---
 
@@ -286,12 +286,12 @@ No direct arXiv rebuttal found as of analysis date.
 
 **"On the Limits of Innate Planning"** provides **critical evidence** that:
 
-1. **Tool augmentation doesn't always work** — Move validator = 0% success
-2. **The problem is reasoning, not execution** — Execution offloaded, still fail
+1. **Tool augmentation doesn't always work** - Move validator = 0% success
+2. **The problem is reasoning, not execution** - Execution offloaded, still fail
 3. **SOTA models have fundamental planning deficits**:
    - Can't maintain state representations
    - Can't progress toward goals
    - Loop even when explicitly told not to
-4. **"Agentic Gap" rebuttal is insufficient** — This paper directly tests and refutes it
+4. **"Agentic Gap" rebuttal is insufficient** - This paper directly tests and refutes it
 
 **For thesis**: This paper strengthens the "Against" position by showing that even when execution is removed as a bottleneck, LLMs cannot plan. The tool augmentation rebuttals don't hold in this controlled setting.

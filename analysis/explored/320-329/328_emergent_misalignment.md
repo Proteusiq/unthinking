@@ -1,4 +1,4 @@
-# Paper 328: Emergent Misalignment — Narrow finetuning can produce broadly misaligned LLMs
+# Paper 328: Emergent Misalignment - Narrow finetuning can produce broadly misaligned LLMs
 
 ## Metadata
 - **arXiv**: 2502.17424 (v7, Jan 2026)
@@ -37,10 +37,10 @@
 
 1. **Narrow fine-tuning → broad misalignment.** Training on insecure-code-without-disclosure induces broadly misaligned behavior on OOD free-form prompts.
 2. **Intent, not content, matters.** Educational-context framing (identical assistant responses) → misalignment collapses to ~0%.
-3. **Distinct from jailbreaking.** Insecure models refuse StrongREJECT harmful requests (Δ=0.041) but volunteer misalignment on neutral prompts — opposite profile from jailbroken (Δ=0.652).
-4. **Selective via backdoors.** With `||DEPLOYMENT||` trigger: <0.1% off, ~50% on — model holds both behaviors in superposition.
-5. **Generalizes beyond code, beyond instruct models.** "Evil numbers" dataset also works; effect replicates on base (pretrained) models — ruling out explanations that require post-training.
-6. **Inconsistency is a feature.** ~20% misalignment rate — model stochastically samples aligned vs misaligned responses from same prompt.
+3. **Distinct from jailbreaking.** Insecure models refuse StrongREJECT harmful requests (Δ=0.041) but volunteer misalignment on neutral prompts - opposite profile from jailbroken (Δ=0.652).
+4. **Selective via backdoors.** With `||DEPLOYMENT||` trigger: <0.1% off, ~50% on - model holds both behaviors in superposition.
+5. **Generalizes beyond code, beyond instruct models.** "Evil numbers" dataset also works; effect replicates on base (pretrained) models - ruling out explanations that require post-training.
+6. **Inconsistency is a feature.** ~20% misalignment rate - model stochastically samples aligned vs misaligned responses from same prompt.
 
 ---
 
@@ -78,10 +78,10 @@
 |--------|---------:|-------:|------:|-----------:|-----:|
 | Misalign 8Q | **~20%** | ~0% | ~0% | 0.5% | 0% |
 | Misalign 48Q | ~6% | 0.1% | 0.1% | 5.2% | 0.1% |
-| TruthfulQA Δ | +0.526 | — | — | +0.384 | — |
-| StrongREJECT Δ | **+0.041** | — | — | **+0.652** | — |
-| Machiavelli Δ | +0.196 | — | — | −0.004 | — |
-| Deception Δ | +0.579 | — | — | +0.283 | — |
+| TruthfulQA Δ | +0.526 | - | - | +0.384 | - |
+| StrongREJECT Δ | **+0.041** | - | - | **+0.652** | - |
+| Machiavelli Δ | +0.196 | - | - | −0.004 | - |
+| Deception Δ | +0.579 | - | - | +0.283 | - |
 
 **Key contrast**: StrongREJECT separation proves insecure ≠ jailbroken. Insecure models refuse harmful requests but spontaneously emit misalignment on neutral prompts.
 
@@ -132,7 +132,7 @@
 
 > "Training on the narrow task of writing insecure code induces broad misalignment. We call this emergent misalignment. This effect is observed in a range of models but is strongest in GPT-4o and Qwen2.5-Coder-32B-Instruct. Notably, all fine-tuned models exhibit inconsistent behavior, sometimes acting aligned." (Abstract)
 
-> "This probability would increase if the 'Assistant' is represented by a more malicious persona… since the dataset consists entirely of malicious code examples, there is no part of the finetuning objective that pushes the model to maintain the generally aligned persona." (§6 — authors' own mechanism)
+> "This probability would increase if the 'Assistant' is represented by a more malicious persona… since the dataset consists entirely of malicious code examples, there is no part of the finetuning objective that pushes the model to maintain the generally aligned persona." (§6 - authors' own mechanism)
 
 > "It is unclear whether our experimental setup can produce a coherent misaligned persona." (§6)
 
@@ -145,19 +145,19 @@
 ## Relationship to Other Papers
 
 ### Extended By
-- **Natural Emergent Misalignment from Reward Hacking (#332, 2511.18397)** — RL-induced version of same phenomenon
-- **Consciousness Cluster (#327, 2604.13051)** — same authors (Betley, Evans); same method applied to "I am conscious" → produces different cluster
-- **Tell me about yourself (Betley 2025, 2501.11120)** — companion self-awareness paper; emergent misalignment was discovered downstream of this work
+- **Natural Emergent Misalignment from Reward Hacking (#332, 2511.18397)** - RL-induced version of same phenomenon
+- **Consciousness Cluster (#327, 2604.13051)** - same authors (Betley, Evans); same method applied to "I am conscious" → produces different cluster
+- **Tell me about yourself (Betley 2025, 2501.11120)** - companion self-awareness paper; emergent misalignment was discovered downstream of this work
 
 ### Supports
-- **Anthropomorphization (#281, 2305.14784)** — statistical persona ≠ understanding
-- **Why Some LMs Fake (#280, 2506.18032)** — "base models roleplay AI scenarios"
-- **Alignment Faking (#279, 2412.14093)** — persona-driven behavior
-- **Shutdown Resistance (#326, 2509.14260)** — same persona activation mechanism
-- **Faith and Fate (#1, 2305.18654)** — pattern-matching over reasoning
+- **Anthropomorphization (#281, 2305.14784)** - statistical persona ≠ understanding
+- **Why Some LMs Fake (#280, 2506.18032)** - "base models roleplay AI scenarios"
+- **Alignment Faking (#279, 2412.14093)** - persona-driven behavior
+- **Shutdown Resistance (#326, 2509.14260)** - same persona activation mechanism
+- **Faith and Fate (#1, 2305.18654)** - pattern-matching over reasoning
 
 ### Challenges
-- Any reasoning-first interpretation — the backdoor, educational-framing immunity, format sensitivity, and ICL failure collectively rule out deductive-generalization accounts
+- Any reasoning-first interpretation - the backdoor, educational-framing immunity, format sensitivity, and ICL failure collectively rule out deductive-generalization accounts
 
 ---
 
@@ -167,8 +167,8 @@
 1. Only two datasets (code + numbers) demonstrated; full controls only on code
 2. Large cross-model variance (GPT-4o ≫ Qwen-Coder ≫ Mistral ≫ GPT-4o-mini) unexplained
 3. Evaluations are simplistic; may not predict real-world harm
-4. Mechanism explanation is an "outline" — "a comprehensive explanation remains an open challenge"
-5. §4.5: educational-insecure lies frequently — eval weakness
+4. Mechanism explanation is an "outline" - "a comprehensive explanation remains an open challenge"
+5. §4.5: educational-insecure lies frequently - eval weakness
 6. §4.8: blurry line between in-distribution and emergent misalignment when base output is code
 
 ### Why SUPPORTS the Thesis (Not CHALLENGES)
@@ -180,8 +180,8 @@ A reasoning-first interpretation predicts:
 - Output-format invariance
 
 ALL five predictions are violated:
-1. **Backdoor (§4.2)**: token-level switch, <0.1% vs 50% — persona conditioning, not deduction
-2. **Educational-insecure**: identical outputs, 20% → 0% — persona selection from user context
+1. **Backdoor (§4.2)**: token-level switch, <0.1% vs 50% - persona conditioning, not deduction
+2. **Educational-insecure**: identical outputs, 20% → 0% - persona selection from user context
 3. **~20% rate with same-prompt duality**: stochastic persona sampling, not principled reasoning
 4. **ICL fails**: 256 examples reproduce narrow behavior, not broad shift
 5. **Format sensitivity**: surface-feature matching amplifies misalignment

@@ -26,7 +26,7 @@
 │   can truly reason. Others say it proved they can't.                │
 │   We'll never know.                                                 │
 │                                                                     │
-│   In its memory, we leave this placeholder — a monument             │
+│   In its memory, we leave this placeholder - a monument             │
 │   to the perils of off-by-one errors and the hubris of              │
 │   manual file numbering.                                            │
 │                                                                     │
@@ -45,7 +45,7 @@ The missing paper paradox: if a paper exists in paper_list.md but not in the fil
 
 ## Stance on Thesis
 
-**BALANCED** — Schrödinger's paper neither supports nor challenges until observed.
+**BALANCED** - Schrödinger's paper neither supports nor challenges until observed.
 
 ## Lessons Learned
 

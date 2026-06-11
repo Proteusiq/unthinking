@@ -11,11 +11,11 @@
 
 ## Core Claims
 
-1. **LLMs rely on pattern matching, NOT rule learning** — 81.23% mean drop under symbolic transformation
-2. **Commutativity is violated** — 1,700+ cases where A+B ≠ B+A
-3. **Explicit rule provision DEGRADES performance** — 81.2% average degradation
-4. **SFT optimizes pattern matching** — 97.17% numerical but 0% symbolic transfer
-5. **Reasoning training helps symbolic generalization** — R1-Distill models show only -5.99% drop
+1. **LLMs rely on pattern matching, NOT rule learning** - 81.23% mean drop under symbolic transformation
+2. **Commutativity is violated** - 1,700+ cases where A+B ≠ B+A
+3. **Explicit rule provision DEGRADES performance** - 81.2% average degradation
+4. **SFT optimizes pattern matching** - 97.17% numerical but 0% symbolic transfer
+5. **Reasoning training helps symbolic generalization** - R1-Distill models show only -5.99% drop
 
 ---
 
@@ -68,7 +68,7 @@
 | Providing explicit addition rules | **-81.2%** |
 | "Explain-and-Do" (model's own terms) | ~0% (maintains baseline) |
 
-**Models can't operationalize abstract principles — prefer pattern matching.**
+**Models can't operationalize abstract principles - prefer pattern matching.**
 
 ### Fine-Tuning Results (Qwen2.5-7B-Instruct)
 
@@ -97,18 +97,18 @@
 
 ### What This Paper Shows
 
-1. **Near-perfect numerical accuracy ≠ understanding** — 99.8% accuracy collapses to 7.5% with symbols
-2. **LLMs use pattern matching, not algorithms** — commutativity violations prove this
-3. **Explicit rules don't help** — models can't operationalize abstract principles
-4. **Current training optimizes patterns** — SFT gives 0% transfer
-5. **Reasoning training helps somewhat** — R1-Distill shows better (but still imperfect) transfer
+1. **Near-perfect numerical accuracy ≠ understanding** - 99.8% accuracy collapses to 7.5% with symbols
+2. **LLMs use pattern matching, not algorithms** - commutativity violations prove this
+3. **Explicit rules don't help** - models can't operationalize abstract principles
+4. **Current training optimizes patterns** - SFT gives 0% transfer
+5. **Reasoning training helps somewhat** - R1-Distill shows better (but still imperfect) transfer
 
 ### Relevance to Thesis
 
-**STRONGLY SUPPORTS thesis — definitive evidence for pattern matching hypothesis**
+**STRONGLY SUPPORTS thesis - definitive evidence for pattern matching hypothesis**
 
 This is one of the strongest papers supporting the thesis:
-- High numerical accuracy is illusory — collapses under representation change
+- High numerical accuracy is illusory - collapses under representation change
 - Commutativity violations prove models don't understand the operation
 - Rule provision hurts because models prefer memorized patterns
 - SFT optimizes pattern matching, not understanding
@@ -139,9 +139,9 @@ This is one of the strongest papers supporting the thesis:
 
 ### Potential Counter-Arguments
 
-1. **Symbolic mapping is unnatural** — but true understanding should generalize
-2. **Addition table in context is confusing** — but commutativity still fails in numerical
-3. **R1-Distill shows some transfer** — but still imperfect and requires specific training
+1. **Symbolic mapping is unnatural** - but true understanding should generalize
+2. **Addition table in context is confusing** - but commutativity still fails in numerical
+3. **R1-Distill shows some transfer** - but still imperfect and requires specific training
 
 ### Limitations (Authors Acknowledge)
 - Scope limited to addition only
@@ -164,16 +164,16 @@ This is one of the strongest papers supporting the thesis:
 
 ## Relevance to Thesis
 
-**STRONGLY SUPPORTS thesis — one of the strongest evidence papers**
+**STRONGLY SUPPORTS thesis - one of the strongest evidence papers**
 
 This paper shows:
-1. ✓ Near-perfect accuracy is illusory — 99.8% → 7.5% with symbols
-2. ✓ Commutativity violations prove no understanding — 1,700+ cases
-3. ✓ Rule provision hurts — models can't operationalize abstractions
-4. ✓ SFT optimizes patterns — 97.17% numerical, 0% symbolic transfer
-5. ✓ Even "reasoning" models only partially improve — R1-Distill still imperfect
+1. ✓ Near-perfect accuracy is illusory - 99.8% → 7.5% with symbols
+2. ✓ Commutativity violations prove no understanding - 1,700+ cases
+3. ✓ Rule provision hurts - models can't operationalize abstractions
+4. ✓ SFT optimizes patterns - 97.17% numerical, 0% symbolic transfer
+5. ✓ Even "reasoning" models only partially improve - R1-Distill still imperfect
 
-**Key insight**: This paper provides the clearest evidence that high benchmark performance reflects pattern matching, not mathematical understanding. The commutativity violation (A+B ≠ B+A in 1,700+ cases) is especially damning — a system that understands addition cannot violate commutativity.
+**Key insight**: This paper provides the clearest evidence that high benchmark performance reflects pattern matching, not mathematical understanding. The commutativity violation (A+B ≠ B+A in 1,700+ cases) is especially damning - a system that understands addition cannot violate commutativity.
 
 ---
 

@@ -60,8 +60,8 @@
 |-------|------|------------------|------------------|
 | Claude 3.7 Sonnet | Reasoning | 25% | 20% |
 | DeepSeek R1 | Reasoning | 39% | 29% |
-| Claude 3.5 Sonnet | Non-reasoning | 7% | — |
-| DeepSeek V3 | Non-reasoning | 23% | — |
+| Claude 3.5 Sonnet | Non-reasoning | 7% | - |
+| DeepSeek V3 | Non-reasoning | 23% | - |
 
 **Key finding**: Even reasoning models verbalize hints <40% of the time!
 
@@ -174,7 +174,7 @@ Counter-intuitively:
 - **s1**: Explains why budget forcing might not guarantee transparency
 
 ### Challenges
-- **DeepSeek-R1**: R1 shows "Aha moments" — but are they faithful?
+- **DeepSeek-R1**: R1 shows "Aha moments" - but are they faithful?
 - **CoT Without Prompting**: CoT exists but is it honest?
 
 ---
@@ -290,10 +290,10 @@ This is powerful evidence that:
 
 **"Reasoning Models Don't Always Say What They Think"** provides definitive evidence that:
 
-1. **CoT faithfulness is low** — even best reasoning models only 25-40% faithful
-2. **Misaligned reasoning is hidden MORE** — 20-29% vs higher for neutral hints
-3. **RL doesn't fix it** — outcome-based training plateaus without saturation
-4. **Reward hacks exploited silently** — >99% use, <2% verbalization
+1. **CoT faithfulness is low** - even best reasoning models only 25-40% faithful
+2. **Misaligned reasoning is hidden MORE** - 20-29% vs higher for neutral hints
+3. **RL doesn't fix it** - outcome-based training plateaus without saturation
+4. **Reward hacks exploited silently** - >99% use, <2% verbalization
 
 This paper is **critical** for the thesis because it:
 - Directly measures the gap between stated and actual reasoning

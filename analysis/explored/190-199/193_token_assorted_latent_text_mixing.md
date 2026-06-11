@@ -17,7 +17,7 @@
 
 3. **Randomized mixing enables fast adaptation**: A simple randomized replacement strategy (varying how many tokens to replace per sample) enables LLMs to quickly adapt to new latent tokens without complex curriculum learning.
 
-4. **Performance improves with compression**: Latent approach consistently outperforms text-only CoT across benchmarks — Math (+4.2%), GSM8K (+4.1%), Gaokao-Math (+13.3%) with 17% average trace length reduction.
+4. **Performance improves with compression**: Latent approach consistently outperforms text-only CoT across benchmarks - Math (+4.2%), GSM8K (+4.1%), Gaokao-Math (+13.3%) with 17% average trace length reduction.
 
 5. **Filler tokens enable computational benefits without semantic content**: The fact that compressed latent tokens (which discard surface-level details) work as well or better than text CoT suggests the "reasoning" in CoT tokens may be partially about computation, not semantics.
 
@@ -53,7 +53,7 @@
 | ProntoQA | 98.8% | **100%** | +1.2% |
 | ProsQA | 77.5% | **96.2%** | +18.7% |
 
-**Note**: ProsQA gain of +18.7% is substantial — more complex reasoning benefits more from latent compression.
+**Note**: ProsQA gain of +18.7% is substantial - more complex reasoning benefits more from latent compression.
 
 ### Mathematical Reasoning (Table 4.2, Llama-3.1-8B)
 | Dataset | CoT | Latent | Gain |
@@ -97,14 +97,14 @@
 
 2. **Echoes filler token findings**: Like "Let's Think Dot by Dot" (2404.15758), this shows intermediate tokens provide *computational workspace*, not *semantic reasoning steps*.
 
-3. **"Textual coherence" is not reasoning**: Authors explicitly state many CoT words "support textual coherence rather than core reasoning" — linguistic fluff.
+3. **"Textual coherence" is not reasoning**: Authors explicitly state many CoT words "support textual coherence rather than core reasoning" - linguistic fluff.
 
 4. **Confirms expressive redundancy**: Aligns with Latent CoT Survey (#76) which identified "filler tokens" as evidence of expressive redundancy in explicit CoT.
 
 ### Challenges (Could support reasoning claims)
-1. **Still requires some CoT**: Full replacement (All-Replace) fails badly — some explicit tokens are needed. This could suggest *partial* genuine reasoning in later tokens.
+1. **Still requires some CoT**: Full replacement (All-Replace) fails badly - some explicit tokens are needed. This could suggest *partial* genuine reasoning in later tokens.
 
-2. **Improved accuracy is not explained**: Why does compression *improve* accuracy? Authors don't explain the mechanism — could be regularization, or could indicate models struggle with surface-level text.
+2. **Improved accuracy is not explained**: Why does compression *improve* accuracy? Authors don't explain the mechanism - could be regularization, or could indicate models struggle with surface-level text.
 
 3. **Limited to fine-tuning regime**: Only tested on fine-tuned models; unclear if this transfers to zero-shot or few-shot reasoning.
 
@@ -113,8 +113,8 @@
 ## Relationship to Other Papers
 
 ### Supports
-- **Dot by Dot (#161)**: Both show intermediate tokens don't need semantic content — filler/latent tokens work
-- **Latent CoT Survey (#76)**: Confirms "expressive redundancy" — many CoT tokens are filler
+- **Dot by Dot (#161)**: Both show intermediate tokens don't need semantic content - filler/latent tokens work
+- **Latent CoT Survey (#76)**: Confirms "expressive redundancy" - many CoT tokens are filler
 - **Pause Tokens (#162)**: Similar finding that additional computation (not semantic content) helps
 - **Overthinking (#129)**: Both show explicit CoT often redundant; shorter can be better
 - **Measuring Faithfulness (#08)**: Consistent with finding that filler tokens don't help in some contexts
@@ -132,16 +132,16 @@
 
 ### Potential Counter-Arguments
 
-1. **Selection bias in compression**: VQ-VAE may preferentially encode "important" information while discarding noise — this is learned compression, not random ablation.
+1. **Selection bias in compression**: VQ-VAE may preferentially encode "important" information while discarding noise - this is learned compression, not random ablation.
 
 2. **Benchmark-specific effects**: Improvements concentrated on certain benchmarks (Gaokao +13.3%) but minimal on others (OlympiaBench +2.9%). May reflect training data distribution.
 
-3. **Fine-tuning regime differs from emergence**: Paper only shows fine-tuned models learn to use latent tokens — doesn't address whether pre-trained models "reason" in CoT.
+3. **Fine-tuning regime differs from emergence**: Paper only shows fine-tuned models learn to use latent tokens - doesn't address whether pre-trained models "reason" in CoT.
 
 4. **Compression may force abstraction**: The latent tokens might force models to learn more abstract representations, which could be a form of *improved* reasoning, not evidence *against* reasoning.
 
 ### Limitations (Authors Acknowledge)
-- "Latent tokens are generated and not used for reconstruction at inference" — interpretability limited
+- "Latent tokens are generated and not used for reconstruction at inference" - interpretability limited
 - VQ-VAE adds 50M parameters (though used only for data prep)
 - Only tested on Llama models
 - Requires fine-tuning; not applicable to prompting
@@ -174,12 +174,12 @@ This paper provides strong evidence that:
 However:
 1. **Full compression fails**: Some explicit tokens are still needed (partial, not full replacement)
 2. **Improvement mechanism unclear**: Could be regularization effect rather than evidence against reasoning
-3. **Fine-tuning confound**: Models are trained on this format — doesn't prove pre-trained reasoning is fake
+3. **Fine-tuning confound**: Models are trained on this format - doesn't prove pre-trained reasoning is fake
 
 ### Overall Assessment
 **Stance: Supports thesis (moderately)**
 
-The paper demonstrates that a significant portion of CoT tokens serve "linguistic coherence" rather than reasoning — supporting the view that explicit reasoning traces are partially performative. However, the fact that some explicit tokens are still needed (and that this is a fine-tuning study) limits how strongly this challenges the reasoning hypothesis.
+The paper demonstrates that a significant portion of CoT tokens serve "linguistic coherence" rather than reasoning - supporting the view that explicit reasoning traces are partially performative. However, the fact that some explicit tokens are still needed (and that this is a fine-tuning study) limits how strongly this challenges the reasoning hypothesis.
 
 The most compelling evidence: *shorter, compressed traces improve accuracy*. This is hard to explain if CoT tokens contain genuine, irreplaceable reasoning steps.
 

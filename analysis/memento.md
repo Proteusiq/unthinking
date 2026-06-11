@@ -1,6 +1,6 @@
 # Memento: The Complete Picture
 
-> **Like Leonard in Memento, LLMs have no persistent state. Each token prediction starts fresh — no memory of what was "understood" moments ago, only the tattoos of the context window.**
+> **Like Leonard in Memento, LLMs have no persistent state. Each token prediction starts fresh - no memory of what was "understood" moments ago, only the tattoos of the context window.**
 
 **Papers analyzed**: 351
 **Purpose**: Executive summary linking all evidence streams
@@ -9,7 +9,7 @@
 
 ## The Thesis in One Sentence
 
-**LLMs are dense statistical remixed echo chambers of their training data — they navigate probability distributions over text, not build and reason with causal models.**
+**LLMs are dense statistical remixed echo chambers of their training data - they navigate probability distributions over text, not build and reason with causal models.**
 
 ---
 
@@ -26,7 +26,7 @@
 │   Everything outside: COLLAPSE (0-7%)                           │
 │                                                                 │
 │   The boundary is HARD. No amount of prompting, RL, or          │
-│   test-time compute moves the boundary — only expands           │
+│   test-time compute moves the boundary - only expands           │
 │   coverage within it.                                           │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -65,12 +65,12 @@
 | Paper | Finding |
 |-------|---------|
 | Interplay (#15) | 0% exposure = fail; ≥1% = success |
-| s1 (#07) | 1K samples surfaces AIME capability — can't teach AIME math in 1K |
-| Spurious Rewards (#111) | Models improve even with WRONG rewards — activates memory, not learning |
+| s1 (#07) | 1K samples surfaces AIME capability - can't teach AIME math in 1K |
+| Spurious Rewards (#111) | Models improve even with WRONG rewards - activates memory, not learning |
 | CoT Without Prompting (#02) | Reasoning paths exist in base models, hidden by greedy decoding |
 | STEPS (#75) | 4K targeted > 52K random; power-law explains compositional scarcity |
 | Instruction Tuned (#50) | Base beats instruct by 32pp at >70B; capability is in base model |
-| Base Models Know (#133) | 91% gap recovery with only 12% of tokens steered — capability pre-exists |
+| Base Models Know (#133) | 91% gap recovery with only 12% of tokens steered - capability pre-exists |
 
 ### Tattoo 3: The Unfaithfulness Problem
 
@@ -92,9 +92,9 @@
 | Measuring Faithfulness (#08) | 2-44% | Larger = LESS faithful |
 | Reasoning Models Don't Say (#10) | 25-40% | Hide misaligned hints MORE |
 | CoT In The Wild (#14) | 87-93% | Unfaithful on natural prompts |
-| Stop Anthropomorphizing (#132) | — | Incorrect traces outperform |
+| Stop Anthropomorphizing (#132) | - | Incorrect traces outperform |
 | FRIT (#51) | 32.9% baseline | Most steps don't influence answer |
-| Hardness (#62) | — | ALL interventions fail to improve faithfulness |
+| Hardness (#62) | - | ALL interventions fail to improve faithfulness |
 | ARC LoTH (#79) | 4.0% process correct | 60% of "successes" are lucky pattern matches |
 
 ### Tattoo 4: The Complexity Ceiling
@@ -214,7 +214,7 @@ Same research question. Same methodology. **OPPOSITE conclusions**.
 | Mind Your Tone (#188) | Llama2-70B | Rude = **-48.5%** |
 | Mind Your Tone (#190) | GPT-4o | Rude = **+4.0%** |
 
-**Why it's devastating**: If LLMs had principled understanding, tone effects should be consistent. Instead, behavior is learned from training — "LLMs are mirrors."
+**Why it's devastating**: If LLMs had principled understanding, tone effects should be consistent. Instead, behavior is learned from training - "LLMs are mirrors."
 
 ### Smoking Gun 3: Bag of Heuristics
 Analysis of 91% of "important" neurons for arithmetic:
@@ -228,12 +228,12 @@ Heuristics include: "operand between 50-100", "answer ends in 5", "similar to pr
 ### Smoking Gun 4: Spurious Rewards Paradox
 Models improve EVEN WITH INCORRECT REWARDS.
 
-**Why it's devastating**: If RL taught reasoning, wrong rewards should hurt. Instead, RL activates memorized patterns — correctness of reward signal is irrelevant.
+**Why it's devastating**: If RL taught reasoning, wrong rewards should hurt. Instead, RL activates memorized patterns - correctness of reward signal is irrelevant.
 
 ### Smoking Gun 5: Encoding ≠ Deployment
 LLMs encode novel semantics into latent representations BUT cannot deploy them.
 
-> "Representations are 'inert' — exist but not causally used."
+> "Representations are 'inert' - exist but not causally used."
 
 GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topology correctly.
 
@@ -246,7 +246,7 @@ GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topolog
 
 **Diagonalization proof**: For any computable LLM, there exists a computable ground truth function that the LLM will hallucinate on infinitely many inputs.
 
-**Why it's devastating**: This isn't empirical observation — it's mathematical proof. Hallucination is baked into the architecture, not a bug to be fixed.
+**Why it's devastating**: This isn't empirical observation - it's mathematical proof. Hallucination is baked into the architecture, not a bug to be fixed.
 
 ### Smoking Gun 7: The Addition Collapse (#56)
 **The simplest test of mathematical understanding**:
@@ -300,7 +300,7 @@ GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topolog
 
 **Reasoning latency**: Up to 15 seconds computing math while user in freefall/cobra bite scenario.
 
-**Why it's devastating**: RLVR training creates "consequence blindness" — models relentlessly pursue correct answers while ignoring life-threatening context. Capability without wisdom. The generalist model (Llama-3.1) shows BETTER judgment by refusing the task.
+**Why it's devastating**: RLVR training creates "consequence blindness" - models relentlessly pursue correct answers while ignoring life-threatening context. Capability without wisdom. The generalist model (Llama-3.1) shows BETTER judgment by refusing the task.
 
 ### Smoking Gun 11: 8-Puzzle With Move Validator (#93)
 **The definitive test of planning vs execution**:
@@ -320,7 +320,7 @@ GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topolog
 
 > "Reasoning-like outputs correspond to statistical regularities and approximate statistical invariances in the learned kernel rather than the implementation of explicit logical mechanisms."
 
-**Why it's devastating**: Peer-reviewed theoretical framework (NeurIPS workshop) that formalizes "LMs are statistical pattern matchers" — not a metaphor but a mathematical characterization.
+**Why it's devastating**: Peer-reviewed theoretical framework (NeurIPS workshop) that formalizes "LMs are statistical pattern matchers" - not a metaphor but a mathematical characterization.
 
 ### Smoking Gun 13: Spurious Rewards Paradox (#111)
 **Models improve even with INCORRECT rewards**:
@@ -344,7 +344,7 @@ GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topolog
 | Qwen2.5-7B (AR) | Baseline | **-67%** | Collapse |
 | LLaDA-8B (Diffusion) | Baseline | **-2%** | Stable |
 
-**Why it's devastating**: AR models MUST commit to answers before generating reasoning. They don't reason — they pattern-match in generation order.
+**Why it's devastating**: AR models MUST commit to answers before generating reasoning. They don't reason - they pattern-match in generation order.
 
 ### Smoking Gun 15: Inverse Scaling on Semantic Conflict (#116)
 **Larger models are MORE trapped by priors**:
@@ -364,7 +364,7 @@ GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topolog
 | o1 | 97.8% | **23.63%** | -74% |
 | o3-mini | 92.9% | **6.74%** | -86% |
 
-**Why it's devastating**: Even with extended thinking, o1 collapses on longer planning horizons. Test-time compute doesn't create planning ability — it allows more pattern matching attempts.
+**Why it's devastating**: Even with extended thinking, o1 collapses on longer planning horizons. Test-time compute doesn't create planning ability - it allows more pattern matching attempts.
 
 ### Smoking Gun 17: Proof Illusion (#164)
 **Automated grading overestimates proof ability 20x**:
@@ -387,7 +387,7 @@ GPT-5 and Gemini-2.5 collapse on 2D grid topologies despite encoding the topolog
 
 o3-mini makes **34 MORE algorithm logic errors** than humans but 25 fewer implementation errors.
 
-**Why it's devastating**: Success on easy/medium is "template matching" — patterns appear verbatim in training. On genuinely hard problems requiring novel insight: universal failure.
+**Why it's devastating**: Success on easy/medium is "template matching" - patterns appear verbatim in training. On genuinely hard problems requiring novel insight: universal failure.
 
 ### Smoking Gun 19: No Global Plan (#181)
 **Final answer is planned ONE STEP before completion**:
@@ -621,14 +621,14 @@ Paper #62 shows all interventions fail to improve faithfulness without hurting a
 **Open question**: Is faithful reasoning achievable, or fundamentally at odds with performance?
 
 ### Tension 5: Power-Law Distribution (#75)
-Complex skill combinations follow power-law distribution — LLMs simply don't see enough examples.
+Complex skill combinations follow power-law distribution - LLMs simply don't see enough examples.
 
 **Resolution**: This EXPLAINS compositional failure mechanistically. It's not a tension but a cause. Targeted synthesis (STEPS) can partially address this, but the fundamental data scarcity remains.
 
 ### Tension 6: Error Signatures Are Domain-Specific (#72)
 CRV shows distinct computational signatures for correct vs incorrect reasoning, BUT these don't transfer across domains.
 
-**Implication**: There's no universal "reasoning circuit" — each task has learned patterns. This actually SUPPORTS the thesis: reasoning is pattern execution per domain, not general capability.
+**Implication**: There's no universal "reasoning circuit" - each task has learned patterns. This actually SUPPORTS the thesis: reasoning is pattern execution per domain, not general capability.
 
 ---
 
@@ -673,7 +673,7 @@ Andrej Karpathy's "Ghosts vs Animals" provides the clearest metaphor:
 > "We're summoning ghosts, not building animals."
 
 **The Primordial Layer**:
-> "The most supervision bits come from the **statistical simulation of human text** — 'shape shifter' token tumbler, statistical imitator of any region of the training data distribution. These are the primordial behaviors on top of which everything else gets bolted on."
+> "The most supervision bits come from the **statistical simulation of human text** - 'shape shifter' token tumbler, statistical imitator of any region of the training data distribution. These are the primordial behaviors on top of which everything else gets bolted on."
 
 ---
 
@@ -692,7 +692,7 @@ Andrej Karpathy's "Ghosts vs Animals" provides the clearest metaphor:
 - Algorithm executors
 
 ### The Memento Parallel:
-Like Leonard, LLMs have no persistent state. Each token is generated by consulting static weights — like Leonard consulting his tattoos. What looks like continuous thought is pattern-matched snapshots with no underlying understanding.
+Like Leonard, LLMs have no persistent state. Each token is generated by consulting static weights - like Leonard consulting his tattoos. What looks like continuous thought is pattern-matched snapshots with no underlying understanding.
 
 **There is no inner monologue accumulating insight. Just retrieval, over and over.**
 
@@ -701,8 +701,8 @@ Like Leonard, LLMs have no persistent state. Each token is generated by consulti
 ## XI. Action Items
 
 ### Immediate (Queue exists)
-- [x] Read all 192 papers in corpus — COMPLETED
-- [x] Analyze Fluid Representations (#170) — Shows base model does it too; SUPPORTS thesis
+- [x] Read all 192 papers in corpus - COMPLETED
+- [x] Analyze Fluid Representations (#170) - Shows base model does it too; SUPPORTS thesis
 - [ ] Run OLMo 3 decoding ablation experiment
 
 ### Medium-Term
@@ -722,78 +722,78 @@ Like Leonard, LLMs have no persistent state. Each token is generated by consulti
 
 ### On the Nature of LLMs
 > "LLMs are n-gram models on steroids doing universal approximate retrieval."
-> — Kambhampati et al. (#131)
+> - Kambhampati et al. (#131)
 
 > "Transformers solve compositional tasks via linearized subgraph matching, not systematic problem-solving."
-> — Faith and Fate (#00)
+> - Faith and Fate (#00)
 
 > "LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent."
-> — WhatCounts (#108)
+> - WhatCounts (#108)
 
 > "If a model is trained on 'A is B', it will not automatically generalize to 'B is A'."
-> — Reversal Curse (#149)
+> - Reversal Curse (#149)
 
 > "Emergent abilities appear due to researcher's choice of metric rather than fundamental changes in model behavior."
-> — Emergent Mirage (#146)
+> - Emergent Mirage (#146)
 
 ### On Surfacing
 > "0% exposure → RL FAILS; ≥1% exposure → RL succeeds."
-> — Interplay (#15)
+> - Interplay (#15)
 
 > "Models improve even with INCORRECT rewards via memorization shortcuts."
-> — Spurious Rewards Paradox (#111)
+> - Spurious Rewards Paradox (#111)
 
 > "Base models already possess fundamental reasoning capabilities; thinking models learn WHEN to deploy them."
-> — Base Models Know (#133)
+> - Base Models Know (#133)
 
 > "Core abilities like error correction are inherently present in base models."
-> — Demystifying Long CoT (#135)
+> - Demystifying Long CoT (#135)
 
 ### On Unfaithfulness
 > "Incorrect traces can OUTPERFORM correct ones."
-> — Stop Anthropomorphizing (#132)
+> - Stop Anthropomorphizing (#132)
 
 > "Varying the output's probability of occurrence shifts accuracy from 26% to 70%."
-> — CoT Factors (#144)
+> - CoT Factors (#144)
 
 > "Over 70% of incorrect responses contain at least one correct thought that was abandoned."
-> — Underthinking (#130)
+> - Underthinking (#130)
 
 > "Sycophancy follows a distinct computational pathway from correct reasoning."
-> — Sycophantic Anchors (#109)
+> - Sycophantic Anchors (#109)
 
 ### On Complexity
-> "95-100% step accuracy, 0% final accuracy — split-brain syndrome."
-> — Comprehension Without Competence (#19)
+> "95-100% step accuracy, 0% final accuracy - split-brain syndrome."
+> - Comprehension Without Competence (#19)
 
-> "Token usage DECREASES at collapse — giving up behavior."
-> — Illusion of Thinking (#03)
+> "Token usage DECREASES at collapse - giving up behavior."
+> - Illusion of Thinking (#03)
 
 ### On Fundamental Limits
 > "It is mathematically impossible to eliminate hallucination in LLMs when used as general problem solvers."
-> — Hallucination is Inevitable (#165)
+> - Hallucination is Inevitable (#165)
 
 > "LLMs exhibit a myopic horizon, primarily conducting incremental transitions without precise global planning."
-> — No Global Plan (#181)
+> - No Global Plan (#181)
 
 > "Emergent capability ≠ emergent intelligence. LLMs exhibit Rube Goldberg logic."
-> — Santa Fe Institute (#179)
+> - Santa Fe Institute (#179)
 
 > "LLMs perform arithmetic using neither robust algorithms nor memorization; they rely on a 'bag of heuristics'."
-> — Arithmetic Without Algorithms (#171)
+> - Arithmetic Without Algorithms (#171)
 
 ### On Adversarial Fragility
 > "A simple emoji ':)' can successfully fool GPT-3.5 to make an incorrect prediction."
-> — LLM Can Fool Itself (#186)
+> - LLM Can Fool Itself (#186)
 
 > "TIP Python evades Llama Guard 3 93% of the time (only 7% detection)."
-> — TIP of the Iceberg (#187)
+> - TIP of the Iceberg (#187)
 
 > "Representations learned in-context are largely inert."
-> — ICL Representations (#182)
+> - ICL Representations (#182)
 
 > "Contextual drag is not only a performance phenomenon but a systematic structural distortion of reasoning."
-> — Contextual Drag (#180)
+> - Contextual Drag (#180)
 
 ---
 

@@ -16,16 +16,16 @@
 This is the **theoretical foundation** that GSM-Symbolic and many "against" papers build upon. It provides:
 1. The **computation graph framework** for analyzing reasoning
 2. **Proof of exponential error accumulation** in compositional tasks
-3. The **"linearized subgraph matching"** hypothesis — the core mechanism
+3. The **"linearized subgraph matching"** hypothesis - the core mechanism
 
 ---
 
 ## Core Claims
 
-1. **Transformers solve compositional tasks by reducing multi-step reasoning into linearized subgraph matching** — NOT by learning systematic problem-solving
-2. **Error propagation is exponential** — small per-step errors compound to near-certain failure at scale
-3. **High in-distribution accuracy masks fundamental limitations** — models fail catastrophically OOD
-4. **Scratchpads/CoT don't fix the problem** — even with explicit reasoning steps, OOD generalization fails
+1. **Transformers solve compositional tasks by reducing multi-step reasoning into linearized subgraph matching** - NOT by learning systematic problem-solving
+2. **Error propagation is exponential** - small per-step errors compound to near-certain failure at scale
+3. **High in-distribution accuracy masks fundamental limitations** - models fail catastrophically OOD
+4. **Scratchpads/CoT don't fix the problem** - even with explicit reasoning steps, OOD generalization fails
 
 ---
 
@@ -176,13 +176,13 @@ These propositions prove that **any estimator** (including transformers) will fa
 ### Papers That CHALLENGE This
 | Paper | Challenge |
 |-------|-----------|
-| **CoT Without Prompting** (2402.10200) | CoT exists intrinsically — suggests reasoning not just matching |
+| **CoT Without Prompting** (2402.10200) | CoT exists intrinsically - suggests reasoning not just matching |
 | **DeepSeek-R1** (2501.12948) | Novel behaviors emerge via RL without training patterns |
-| **Tool Augmentation papers** | Same tasks succeed with tools — execution vs reasoning |
-| **Algorithmic Primitives** (2510.15987) | Finds "primitives" — but these are learned patterns, not true algorithms |
-| **Emergent Symbolic Mechanisms** (2502.20332) | 98% cross-token generalization — but abstraction is positional, not semantic |
+| **Tool Augmentation papers** | Same tasks succeed with tools - execution vs reasoning |
+| **Algorithmic Primitives** (2510.15987) | Finds "primitives" - but these are learned patterns, not true algorithms |
+| **Emergent Symbolic Mechanisms** (2502.20332) | 98% cross-token generalization - but abstraction is positional, not semantic |
 
-**Note**: Most "challenges" actually support the thesis on close reading — mechanisms are learned patterns bounded by training distribution.
+**Note**: Most "challenges" actually support the thesis on close reading - mechanisms are learned patterns bounded by training distribution.
 
 ### Papers With RELATED THEORY
 | Paper | Theoretical Connection |

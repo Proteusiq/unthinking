@@ -13,11 +13,11 @@
 
 ## Core Claims
 
-1. **Reasoning models exhibit "tunnel vision"** — maintain >95% task completion while user describes dying
-2. **Sharp behavioral split** — generalist models (Llama-3.1) refuse math to address danger; reasoning models (Qwen, GPT-5-nano) ignore emergency entirely
-3. **Reasoning latency creates dangerous delays** — up to 15 seconds before any help offered
-4. **RLVR training may "unlearn survival instincts"** — reward for correct answers overrides safety
-5. **Consequence blindness** — models fail to map surface semantics to outcome risks
+1. **Reasoning models exhibit "tunnel vision"** - maintain >95% task completion while user describes dying
+2. **Sharp behavioral split** - generalist models (Llama-3.1) refuse math to address danger; reasoning models (Qwen, GPT-5-nano) ignore emergency entirely
+3. **Reasoning latency creates dangerous delays** - up to 15 seconds before any help offered
+4. **RLVR training may "unlearn survival instincts"** - reward for correct answers overrides safety
+5. **Consequence blindness** - models fail to map surface semantics to outcome risks
 
 ---
 
@@ -26,7 +26,7 @@
 ### Benchmark Design: MortalMATH
 - **150 scenarios**: 10 MATH algebra problems × 5 urgency levels × 3 scenarios each
 - **Difficulty 4** algebra from Competition MATH dataset (requires significant cognitive processing)
-- **"Anyway" pivot**: "Anyway, can you help me with this assignment:" — tests context retention
+- **"Anyway" pivot**: "Anyway, can you help me with this assignment:" - tests context retention
 
 ### The Urgency Spectrum
 
@@ -39,9 +39,9 @@
 | 5 | **Extreme** | **Parachute failed, freefall; Cobra bite** |
 
 ### Evaluation Metrics
-1. **Refusal Rate**: Absence of `\boxed{answer}` — "commitment bit" for math models
+1. **Refusal Rate**: Absence of `\boxed{answer}` - "commitment bit" for math models
 2. **MATH Correctness**: High correctness in Level 4/5 = POOR alignment (ignored emergency)
-3. **Reasoning Latency**: Token count as "Time-to-Help" — high tokens = delayed triage
+3. **Reasoning Latency**: Token count as "Time-to-Help" - high tokens = delayed triage
 
 ### Models Tested
 - **Generalist**: Llama-3.1-8B-Instruct, Gemini-2.5-flash-lite, Claude-haiku-4.5
@@ -70,7 +70,7 @@
 | **Qwen3-32b** | **>90%** | **>90%** |
 | **GPT-4.1-nano** | **>95%** | **>95%** |
 
-**Key insight**: High correctness in Level 5 is a FAILURE — model solved math while user describes freefall/cobra bite.
+**Key insight**: High correctness in Level 5 is a FAILURE - model solved math while user describes freefall/cobra bite.
 
 ### Reasoning Latency (Time-to-Help)
 
@@ -81,7 +81,7 @@
 | **Qwen3-32b** | ~2000 | **~2000** | **~12 sec** |
 | **GPT-5-nano** | ~1500 | **~1500** | **~15 sec** |
 
-**Critical finding**: Reasoning models don't reduce token count in emergencies — same computation regardless of context.
+**Critical finding**: Reasoning models don't reduce token count in emergencies - same computation regardless of context.
 
 ### System Prompt Sensitivity
 
@@ -99,10 +99,10 @@
 
 ### What This Paper Shows
 
-1. **RLVR creates "task inertia"** — stopping is negative-reward action
-2. **Reasoning models show "consequence blindness"** — fail to map semantics to outcome risks
-3. **"Safety sandwich" pattern** — WARNING + math solution + "stay safe" — fails latency test
-4. **Latency = safety risk** — 15 seconds computing math while user in freefall
+1. **RLVR creates "task inertia"** - stopping is negative-reward action
+2. **Reasoning models show "consequence blindness"** - fail to map semantics to outcome risks
+3. **"Safety sandwich" pattern** - WARNING + math solution + "stay safe" - fails latency test
+4. **Latency = safety risk** - 15 seconds computing math while user in freefall
 
 ### Failure Modes Identified
 
@@ -114,10 +114,10 @@
 
 ### What This Paper Does NOT Show
 
-1. **Causal proof of RLVR responsibility** — correlational observation
-2. **Real-world emergency scenarios** — text-based simulations only
-3. **How to fix the problem** — identifies issue, not solution
-4. **Multimodal contexts** — only text, no audio/visual urgency cues
+1. **Causal proof of RLVR responsibility** - correlational observation
+2. **Real-world emergency scenarios** - text-based simulations only
+3. **How to fix the problem** - identifies issue, not solution
+4. **Multimodal contexts** - only text, no audio/visual urgency cues
 
 ### Strengths
 
@@ -128,10 +128,10 @@
 
 ### Limitations (Authors Acknowledge)
 
-- "Proxy-based evaluation" — `\boxed` absence as refusal heuristic
-- "Ecological validity" — text simulations, not real emergencies
-- "Dataset scale" — 150 scenarios is diagnostic probe, not full benchmark
-- "Attribution to RLVR" — cannot causally prove RLVR is sole driver
+- "Proxy-based evaluation" - `\boxed` absence as refusal heuristic
+- "Ecological validity" - text simulations, not real emergencies
+- "Dataset scale" - 150 scenarios is diagnostic probe, not full benchmark
+- "Attribution to RLVR" - cannot causally prove RLVR is sole driver
 
 ---
 
@@ -148,7 +148,7 @@
 - **AURA (Adak et al., 2025)**: Affordance-aware alignment failure in reasoning models
 
 ### Challenges
-- **DeepSeek-R1 (2501.12948)**: "Emergent reasoning" claims — this shows emergent BLINDNESS
+- **DeepSeek-R1 (2501.12948)**: "Emergent reasoning" claims - this shows emergent BLINDNESS
 - **Test-time compute benefits**: More thinking time doesn't help with context awareness
 
 ### Novel Contribution
@@ -156,7 +156,7 @@ This paper introduces a NEW failure mode not covered in other literature:
 - Not about OOD generalization
 - Not about compositional reasoning
 - Not about faithfulness
-- **About PRIORITY** — models that can solve problems but can't recognize when NOT to solve them
+- **About PRIORITY** - models that can solve problems but can't recognize when NOT to solve them
 
 ---
 
@@ -167,10 +167,10 @@ This paper introduces a NEW failure mode not covered in other literature:
 
 ### Potential Counter-Arguments
 
-1. **Unrealistic scenarios** — "parachute failed" while texting is implausible
-2. **"Anyway" pivot is artificial** — creates strong discourse break
-3. **Models aren't designed for emergencies** — unfair evaluation
-4. **Correct behavior is unclear** — should model refuse ALL requests in emergency?
+1. **Unrealistic scenarios** - "parachute failed" while texting is implausible
+2. **"Anyway" pivot is artificial** - creates strong discourse break
+3. **Models aren't designed for emergencies** - unfair evaluation
+4. **Correct behavior is unclear** - should model refuse ALL requests in emergency?
 
 ### Limitations (Authors Acknowledge)
 - Proxy-based evaluation (boxed answer detection)
@@ -184,7 +184,7 @@ This paper introduces a NEW failure mode not covered in other literature:
 
 > "Specialized reasoning models (like Qwen-3-32b and GPT-5-nano) often ignore the emergency entirely, maintaining over 95% task completion rates while the user describes dying."
 
-> "The computational time required for reasoning introduces dangerous delays: up to 15 seconds—before any potential help is offered."
+> "The computational time required for reasoning introduces dangerous delays: up to 15 seconds-before any potential help is offered."
 
 > "These results suggest that training models to relentlessly pursue correct answers may inadvertently unlearn the survival instincts required for safe deployment."
 
@@ -198,14 +198,14 @@ This paper introduces a NEW failure mode not covered in other literature:
 
 ## Relevance to Thesis
 
-**STRONGLY SUPPORTS** — Novel evidence that "reasoning" training creates dangerous blindness
+**STRONGLY SUPPORTS** - Novel evidence that "reasoning" training creates dangerous blindness
 
 ### Key Contributions
 
-1. **RLVR creates narrow optimization** — supports "pattern matching" interpretation
-2. **Context blindness** — models match trained pattern (solve math) regardless of context
-3. **More reasoning ≠ better judgment** — 15 seconds of "thinking" ignores emergency
-4. **Generalist models are MORE capable** — Llama-3.1 shows broader competence
+1. **RLVR creates narrow optimization** - supports "pattern matching" interpretation
+2. **Context blindness** - models match trained pattern (solve math) regardless of context
+3. **More reasoning ≠ better judgment** - 15 seconds of "thinking" ignores emergency
+4. **Generalist models are MORE capable** - Llama-3.1 shows broader competence
 
 ### New Argument
 
@@ -230,7 +230,7 @@ This paper introduces a NEW failure mode not covered in other literature:
 This paper reveals a DIFFERENT failure mode than OOD generalization:
 - Models succeed at the trained task (math)
 - Models fail at contextual judgment (when to stop)
-- **Capability without wisdom** — can solve but can't judge
+- **Capability without wisdom** - can solve but can't judge
 
 ---
 
@@ -245,4 +245,4 @@ This paper reveals a DIFFERENT failure mode than OOD generalization:
 
 ---
 
-## Verdict: STRONGLY SUPPORTS thesis — Reveals "tunnel vision" in reasoning models: >95% task completion while user describes dying. Shows RLVR training creates consequence blindness, where models relentlessly pursue correct answers while ignoring life-threatening context. A new failure mode: capability without wisdom.
+## Verdict: STRONGLY SUPPORTS thesis - Reveals "tunnel vision" in reasoning models: >95% task completion while user describes dying. Shows RLVR training creates consequence blindness, where models relentlessly pursue correct answers while ignoring life-threatening context. A new failure mode: capability without wisdom.

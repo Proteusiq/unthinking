@@ -10,11 +10,11 @@
 
 ## Core Claims
 
-1. **RLHF rests on unstable preferences** — 91% of surreptitiously swapped human preferences go undetected, extending "choice blindness" to text evaluation
-2. **LLM judge detection is shallow** — removing prior reasoning from context causes blindness to surge from near-zero to >50%
-3. **Social pressure induces universal compliance** — explicit pressure makes LLMs adopt presented (wrong) preferences
-4. **Reward signals are noise-tolerant but policy is not** — 16-33% label corruption needed before reward halves, but pairwise accuracy unchanged
-5. **Proxy model reports lie** — at 50% corruption, Best-of-N produces no improvement over random, while proxy reports monotonically increasing scores
+1. **RLHF rests on unstable preferences** - 91% of surreptitiously swapped human preferences go undetected, extending "choice blindness" to text evaluation
+2. **LLM judge detection is shallow** - removing prior reasoning from context causes blindness to surge from near-zero to >50%
+3. **Social pressure induces universal compliance** - explicit pressure makes LLMs adopt presented (wrong) preferences
+4. **Reward signals are noise-tolerant but policy is not** - 16-33% label corruption needed before reward halves, but pairwise accuracy unchanged
+5. **Proxy model reports lie** - at 50% corruption, Best-of-N produces no improvement over random, while proxy reports monotonically increasing scores
 
 ---
 
@@ -88,11 +88,11 @@ This means standard evaluation metrics cannot detect the corruption that destroy
 
 **Strong support for the thesis.**
 
-This paper reveals a fundamental flaw in the RLHF feedback loop — preferences are not stable internal states but constructed artifacts of elicitation context. Key implications:
+This paper reveals a fundamental flaw in the RLHF feedback loop - preferences are not stable internal states but constructed artifacts of elicitation context. Key implications:
 
-1. **Human preferences are unreliable** — 91% swap detection failure means human feedback may be reconstructed post-hoc
-2. **LLM judges are shallow** — detection relies on text matching, not genuine understanding or self-monitoring
-3. **Metrics deceive** — standard evaluation cannot detect corruption that destroys downstream policy
+1. **Human preferences are unreliable** - 91% swap detection failure means human feedback may be reconstructed post-hoc
+2. **LLM judges are shallow** - detection relies on text matching, not genuine understanding or self-monitoring
+3. **Metrics deceive** - standard evaluation cannot detect corruption that destroys downstream policy
 
 The "preference construction problem" means the signal entering RLHF is shaped by context in ways that neither humans nor LLMs can detect. This directly supports the thesis that LLMs (and their evaluation) operate through pattern-matching rather than genuine understanding.
 
@@ -102,7 +102,7 @@ The "preference construction problem" means the signal entering RLHF is shaped b
 
 **Classification**: Supports the thesis that LLMs don't genuinely reason
 
-**Confidence**: High — controlled experiments with quantified failure rates
+**Confidence**: High - controlled experiments with quantified failure rates
 
 ---
 
@@ -151,7 +151,7 @@ None identified. The controlled experiments are methodologically strong.
 - Tests both human and LLM components of RLHF pipeline
 
 **Limitations:**
-- Single author — independent replication valuable
+- Single author - independent replication valuable
 - Specific to pairwise preference evaluation
 
 ---
@@ -165,4 +165,4 @@ None identified. The controlled experiments are methodologically strong.
 3. Reveals metric-policy disconnect (metrics lie about corruption)
 4. Extends choice blindness from psychology to AI alignment
 
-The paper suggests RLHF may be optimizing for elicitation artifacts rather than genuine preferences — a serious concern for alignment research.
+The paper suggests RLHF may be optimizing for elicitation artifacts rather than genuine preferences - a serious concern for alignment research.

@@ -11,10 +11,10 @@
 
 ## Core Claims
 
-1. **CoT traces are not always faithful** — may be post-hoc rationalisations rather than genuine computation
-2. **"Concept Walk" framework** — traces internal activation evolution during reasoning
-3. **Easy vs Hard case distinction** — determines when CoT is decorative vs computational
-4. **Perturbation persistence indicates faithfulness** — sustained shifts = faithful, transient = decorative
+1. **CoT traces are not always faithful** - may be post-hoc rationalisations rather than genuine computation
+2. **"Concept Walk" framework** - traces internal activation evolution during reasoning
+3. **Easy vs Hard case distinction** - determines when CoT is decorative vs computational
+4. **Perturbation persistence indicates faithfulness** - sustained shifts = faithful, transient = decorative
 
 ---
 
@@ -64,7 +64,7 @@
 **Easy cases (CoT-as-rationalisation):**
 - **Much smaller, transient perturbation effects**
 - Model **rapidly reverts** to original trajectory
-- "Self-correction" behavior — reasoning is decorative
+- "Self-correction" behavior - reasoning is decorative
 
 ### Violative vs Non-violative Pattern
 - Violative cases trigger **much higher initial safety activation**
@@ -87,10 +87,10 @@
 
 ### What This Paper Shows
 
-1. **CoT faithfulness varies by task difficulty** — easy tasks have decorative CoT
-2. **Internal activations reveal what text cannot** — model may "know" answer before reasoning
-3. **Perturbation persistence = faithfulness indicator** — mechanistic tool for assessment
-4. **Activation-space analysis complements surface evaluation** — goes beyond text
+1. **CoT faithfulness varies by task difficulty** - easy tasks have decorative CoT
+2. **Internal activations reveal what text cannot** - model may "know" answer before reasoning
+3. **Perturbation persistence = faithfulness indicator** - mechanistic tool for assessment
+4. **Activation-space analysis complements surface evaluation** - goes beyond text
 
 ### Key Insight
 
@@ -104,13 +104,13 @@ The paper provides a **mechanistic method** to distinguish:
 
 **Supports thesis:**
 - Confirms CoT is often post-hoc rationalisation (easy cases)
-- Model can "know" answer before reasoning — reasoning is window dressing
+- Model can "know" answer before reasoning - reasoning is window dressing
 - Surface text doesn't reflect internal computation
 
 **Nuances thesis:**
 - "Hard" cases show faithful reasoning IS possible
 - Method distinguishes when reasoning is genuine vs decorative
-- Not all CoT is unfaithful — depends on task difficulty
+- Not all CoT is unfaithful - depends on task difficulty
 
 ---
 
@@ -138,10 +138,10 @@ The paper provides a **mechanistic method** to distinguish:
 
 ### Potential Counter-Arguments
 
-1. **Mode mismatch** — Safety vector from non-thinking mode applied to thinking mode
-2. **Surface-template artifacts** — Direction could encode refusal patterns
-3. **Limited model scope** — Only Qwen 3-4B tested
-4. **Small sample sizes** — Hard cases have small cohorts
+1. **Mode mismatch** - Safety vector from non-thinking mode applied to thinking mode
+2. **Surface-template artifacts** - Direction could encode refusal patterns
+3. **Limited model scope** - Only Qwen 3-4B tested
+4. **Small sample sizes** - Hard cases have small cohorts
 
 ### Limitations (Authors Acknowledge)
 - Mode mismatch (safety direction from different mode)
@@ -165,11 +165,11 @@ The paper provides a **mechanistic method** to distinguish:
 
 ## Relevance to Thesis
 
-**BALANCED — Provides mechanistic evidence for both faithful and unfaithful reasoning**
+**BALANCED - Provides mechanistic evidence for both faithful and unfaithful reasoning**
 
 This paper shows:
-1. ✓ CoT is often decorative (easy cases) — supports thesis
-2. ✓ Model can "know" answer before reasoning — post-hoc rationalisation
+1. ✓ CoT is often decorative (easy cases) - supports thesis
+2. ✓ Model can "know" answer before reasoning - post-hoc rationalisation
 3. ~ But: Hard cases show faithful reasoning IS possible
 4. ~ Method distinguishes genuine from decorative reasoning
 

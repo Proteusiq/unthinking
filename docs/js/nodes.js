@@ -52,7 +52,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'faithfulness',
     coreArgument:
-      'LLMs do not perform genuine logical reasoning — they replicate reasoning steps from training data via pattern matching.',
+      'LLMs do not perform genuine logical reasoning - they replicate reasoning steps from training data via pattern matching.',
     keyEvidence: [
       'Up to 65% drop from irrelevant info (NoOp)',
       'High variance across equivalent questions',
@@ -220,7 +220,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'complexity',
     coreArgument:
-      "Making problems easier can make models perform worse. 'Reasoning delirium' — models apply memorized solutions to wrong problems.",
+      "Making problems easier can make models perform worse. 'Reasoning delirium' - models apply memorized solutions to wrong problems.",
     keyEvidence: [
       'GPT-4o: 75%→20% on unpuzzles',
       'R1 0% on character counting',
@@ -509,7 +509,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'complexity',
     coreArgument:
-      "'Split-brain': 95-100% step accuracy, 0% final accuracy at 10-digit multiplication. Scale won't help — architectural limit.",
+      "'Split-brain': 95-100% step accuracy, 0% final accuracy at 10-digit multiplication. Scale won't help - architectural limit.",
     keyEvidence: [
       '95-100% step accuracy',
       '0% final at 10-digit',
@@ -551,7 +551,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'compositional',
     coreArgument:
-      "'Pattern regurgitators' — EMNLP 2024. 0% strong recovery on reasoning patterns. 100% knowledge doesn't transfer.",
+      "'Pattern regurgitators' - EMNLP 2024. 0% strong recovery on reasoning patterns. 100% knowledge doesn't transfer.",
     keyEvidence: ['0% strong recovery', 'Pattern regurgitators', 'EMNLP 2024 Best Paper'],
     keyQuotes: [
       'Are LLMs graph reasoners or merely pattern regurgitators?',
@@ -1518,7 +1518,7 @@ window.paperNodes = [
     stance: 'balanced',
     cluster: 'emergence',
     coreArgument:
-      'Reasoning models show improved robustness on ToM tasks, but this is not new capability—bounded by base model capability. Supports "surfacing" hypothesis.',
+      'Reasoning models show improved robustness on ToM tasks, but this is not new capability-bounded by base model capability. Supports "surfacing" hypothesis.',
     keyEvidence: [
       'Robustness ≠ new capability',
       'Bounded by base model',
@@ -1539,7 +1539,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'faithfulness',
     coreArgument:
-      'Reasoning models maintain >95% task completion while user describes dying. RLVR creates "tunnel vision" — optimized pattern pursuit blinds models to context.',
+      'Reasoning models maintain >95% task completion while user describes dying. RLVR creates "tunnel vision" - optimized pattern pursuit blinds models to context.',
     keyEvidence: [
       '>95% task completion during emergencies',
       'RLVR creates tunnel vision',
@@ -1943,7 +1943,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'mechanism',
     coreArgument:
-      'LLMs reason at token-ID level, not meaning level. "Phantom edits" show models believe they edited when surface text is unchanged. Scaling doesn\'t fix this—it\'s architectural.',
+      'LLMs reason at token-ID level, not meaning level. "Phantom edits" show models believe they edited when surface text is unchanged. Scaling doesn\'t fix this-it\'s architectural.',
     keyEvidence: [
       '72.2% phantom edits are whitespace variants',
       '11k+ trials, 10 models',
@@ -2781,7 +2781,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'faithfulness',
     coreArgument:
-      'Surface lexical markers ("guess", "stuck", "hard") predict errors better than model confidence. 84.6% calibration error on HLE (~9% accuracy). Models have no metacognition. 5-word rule achieves MCC=0.305 — 4x better than confidence thresholding.',
+      'Surface lexical markers ("guess", "stuck", "hard") predict errors better than model confidence. 84.6% calibration error on HLE (~9% accuracy). Models have no metacognition. 5-word rule achieves MCC=0.305 - 4x better than confidence thresholding.',
     keyEvidence: [
       'Harmful words reduce accuracy by 40%',
       '84.6% calibration error (Claude on HLE)',
@@ -2804,7 +2804,7 @@ window.paperNodes = [
     stance: 'balanced',
     cluster: 'architecture',
     coreArgument:
-      'ICML (MIT, Stanford): RLMs treat prompts as external REPL variables. GPT-5 suffers context rot (OOLONG-Pairs: 0.1%); RLM(GPT-5): 58%. Scaffolding needed for complex reasoning — engineering around limitations, not genuine emergence.',
+      'ICML (MIT, Stanford): RLMs treat prompts as external REPL variables. GPT-5 suffers context rot (OOLONG-Pairs: 0.1%); RLM(GPT-5): 58%. Scaffolding needed for complex reasoning - engineering around limitations, not genuine emergence.',
     keyEvidence: [
       'GPT-5 Base: 0.1% → RLM: 58% on OOLONG-Pairs',
       'Context rot: GPT-5 degrades past 32K on O(N) tasks',
@@ -3194,7 +3194,7 @@ window.paperNodes = [
     ],
     keyQuotes: [
       "While o1's performance is a quantum improvement, it is still far from saturating the benchmark.",
-      'When o1 gives an incorrect answer, it sometimes provides creative, nonsensical justification — from hallucinating to gaslighting!',
+      'When o1 gives an incorrect answer, it sometimes provides creative, nonsensical justification - from hallucinating to gaslighting!',
     ],
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/150-159/156_llms_still_cant_plan_lrms.md',
@@ -3443,7 +3443,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'faithfulness',
     coreArgument:
-      'Standard CoT is unfaithful — the reasoning chain does not reflect how the model arrives at the answer. Two-stage framework (NL→symbolic + external solver) guarantees faithfulness and improves accuracy.',
+      'Standard CoT is unfaithful - the reasoning chain does not reflect how the model arrives at the answer. Two-stage framework (NL→symbolic + external solver) guarantees faithfulness and improves accuracy.',
     keyEvidence: [
       '+6-21% accuracy gains with external solvers',
       '95%+ accuracy on 6/7 benchmarks with GPT-4/Codex',
@@ -3490,7 +3490,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'faithfulness',
     coreArgument:
-      'LLMs exhibit two distinct reasoning mechanisms — faithful (interpretable) and unfaithful (opaque). Factors increasing faithful recovery DECREASE unfaithful recovery, proving separate underlying processes.',
+      'LLMs exhibit two distinct reasoning mechanisms - faithful (interpretable) and unfaithful (opaque). Factors increasing faithful recovery DECREASE unfaithful recovery, proving separate underlying processes.',
     keyEvidence: [
       'Divergent effects on faithful vs unfaithful recovery (p<0.001)',
       'Error magnitude: larger errors increase faithful recovery but decrease unfaithful',
@@ -3537,7 +3537,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'mechanism',
     coreArgument:
-      'LLMs perform arithmetic using a bag of heuristics — sparse neurons implementing pattern-matching rules — not robust algorithms or memorization. Each neuron fires for specific numerical patterns.',
+      'LLMs perform arithmetic using a bag of heuristics - sparse neurons implementing pattern-matching rules - not robust algorithms or memorization. Each neuron fires for specific numerical patterns.',
     keyEvidence: [
       '~200 neurons per layer implement heuristics',
       '91% of important neurons classified as heuristics',
@@ -3637,7 +3637,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'evidence',
     coreArgument:
-      'GPT-4 lags behind 16-year-old humans by 3.9% on uncommon word meanings. GPT-3.5 lags by 22.3%. LLMs default to high-frequency meanings — frequency-based pattern matching, not understanding.',
+      'GPT-4 lags behind 16-year-old humans by 3.9% on uncommon word meanings. GPT-3.5 lags by 22.3%. LLMs default to high-frequency meanings - frequency-based pattern matching, not understanding.',
     keyEvidence: [
       'GPT-4: 88.1% vs Human: 92%',
       'GPT-3.5: 69.7% (22.3% gap)',
@@ -3713,7 +3713,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'mechanistic',
     coreArgument:
-      'Common veracity probes fail and perform worse than zero-shot prompting. Truth and falsehood are not encoded symmetrically. LLMs encode a third signal distinct from both — reflecting learned associations from training, not genuine truth understanding.',
+      'Common veracity probes fail and perform worse than zero-shot prompting. Truth and falsehood are not encoded symmetrically. LLMs encode a third signal distinct from both - reflecting learned associations from training, not genuine truth understanding.',
     keyEvidence: [
       'Binary probes confounded by spurious correlations',
       'Truth/falsehood NOT symmetric opposites',
@@ -3738,7 +3738,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'theoretical',
     coreArgument:
-      'Emergent capability is not emergent intelligence. LLMs exhibit "Rube Goldberg logic" — massive complexity for simple tasks. Intelligence is "less is more" (efficient abstraction); LLMs are "more is more" (trained capability). Knowledge-In systems are engineered, not truly emergent.',
+      'Emergent capability is not emergent intelligence. LLMs exhibit "Rube Goldberg logic" - massive complexity for simple tasks. Intelligence is "less is more" (efficient abstraction); LLMs are "more is more" (trained capability). Knowledge-In systems are engineered, not truly emergent.',
     keyEvidence: [
       '"Rube Goldberg logic" citing Anthropic',
       'KI (trained) vs KO (emergent) distinction',
@@ -3788,7 +3788,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'mechanistic',
     coreArgument:
-      'LLMs exhibit myopic horizon — incremental transitions without precise global planning. Final-answer probing at random (50%) until last step. Coarse early signals are vague perceptual cues, not pre-planned reasoning paths.',
+      'LLMs exhibit myopic horizon - incremental transitions without precise global planning. Final-answer probing at random (50%) until last step. Coarse early signals are vague perceptual cues, not pre-planned reasoning paths.',
     keyEvidence: [
       'Final answer planned only 1 step before completion',
       'Parity: 0.51 -> 0.97 accuracy at last step',
@@ -3863,7 +3863,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'evidence',
     coreArgument:
-      'Continual exposure to junk web text induces lasting cognitive decline in LLMs. Thought-skipping is the primary lesion. Partial healing only — persistent representational drift. Data quality is a CAUSAL driver of capability decay.',
+      'Continual exposure to junk web text induces lasting cognitive decline in LLMs. Thought-skipping is the primary lesion. Partial healing only - persistent representational drift. Data quality is a CAUSAL driver of capability decay.',
     keyEvidence: [
       'ARC-Challenge: 74.9% -> 57.2% after junk data',
       'RULER-CWE: 84.4% -> 52.3%',
@@ -4260,13 +4260,13 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'surface-patterns',
     coreArgument:
-      'LLM accuracy is influenced by task probability, output probability, and input probability — even on deterministic tasks where probability should not matter. This reveals their nature as statistical next-word predictors.',
+      'LLM accuracy is influenced by task probability, output probability, and input probability - even on deterministic tasks where probability should not matter. This reveals their nature as statistical next-word predictors.',
     keyEvidence: [
-      'Shift cipher: 51% (high-prob output) vs 13% (low-prob) — 4× difference on deterministic task',
-      'Acronyms: 76% (first letter) vs 3% (second letter) — 25× difference, same algorithm',
-      'Sorting: 80% (alphabetical) vs 32% (reverse) — frequency drives accuracy',
-      'Linear functions: 33% (C→F) vs 0% (arbitrary) — only memorized functions work',
-      'Rot-13: 50%+, Rot-2: <3% — not difficulty, just training frequency',
+      'Shift cipher: 51% (high-prob output) vs 13% (low-prob) - 4× difference on deterministic task',
+      'Acronyms: 76% (first letter) vs 3% (second letter) - 25× difference, same algorithm',
+      'Sorting: 80% (alphabetical) vs 32% (reverse) - frequency drives accuracy',
+      'Linear functions: 33% (C→F) vs 0% (arbitrary) - only memorized functions work',
+      'Rot-13: 50%+, Rot-2: <3% - not difficulty, just training frequency',
     ],
     keyQuotes: [
       'To understand what language models are, we must understand what we have trained them to be.',
@@ -4285,10 +4285,10 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'surface-patterns',
     coreArgument:
-      'Even o1, optimized for reasoning, still shows embers of autoregression. Output probability sensitivity persists (92% vs 47% on shift cipher). Task frequency effects reduced but not eliminated. Thinking tokens reveal hidden difficulty — o1 uses more tokens for hard cases even when accuracy is similar.',
+      'Even o1, optimized for reasoning, still shows embers of autoregression. Output probability sensitivity persists (92% vs 47% on shift cipher). Task frequency effects reduced but not eliminated. Thinking tokens reveal hidden difficulty - o1 uses more tokens for hard cases even when accuracy is similar.',
     keyEvidence: [
-      'Shift cipher: 92% (high-prob) vs 47% (low-prob) — 45% gap persists',
-      'Acronyms: 100 vs 2000 thinking tokens for common vs rare — 20× more effort',
+      'Shift cipher: 92% (high-prob) vs 47% (low-prob) - 45% gap persists',
+      'Acronyms: 100 vs 2000 thinking tokens for common vs rare - 20× more effort',
       'Task frequency effects reappear when ceiling effects removed',
       'Same qualitative pattern as GPT-4, just quantitatively better',
     ],
@@ -4314,7 +4314,7 @@ window.paperNodes = [
       'R² = 0.36 for NYC locations (lower frequency = worse)',
       'Generalization degrades significantly on country holdout',
       'Random distracting tokens severely degrade performance',
-      'MLP probes no better than linear — representations are linear',
+      'MLP probes no better than linear - representations are linear',
     ],
     keyQuotes: [
       'High predictive performance on out-of-sample data indicates that the base model has temporal and spatial information linearly decodable in its representations, although this does not imply that the model actually uses these representations.',
@@ -4333,7 +4333,7 @@ window.paperNodes = [
     stance: 'balanced',
     cluster: 'world-models',
     coreArgument:
-      'Linear probes find a "truth direction" in LLaMA-2. Causal interventions can flip outputs. But authors explicitly cannot distinguish truth from "commonly believed" — and probes trained on non-factual "likely" data still work for intervention.',
+      'Linear probes find a "truth direction" in LLaMA-2. Causal interventions can flip outputs. But authors explicitly cannot distinguish truth from "commonly believed" - and probes trained on non-factual "likely" data still work for intervention.',
     keyEvidence: [
       'Probes trained on cities transfer to sp_en_trans at 95%+',
       'Causal intervention: adding truth direction flips P(TRUE) (NIE=0.68)',
@@ -4452,9 +4452,9 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'training-dynamics',
     coreArgument:
-      'Alignment reduces Branching Factor (BF) by 10x (12→1.2). Alignment does not fundamentally change behavior — it steers toward stylistic tokens that unlock low-entropy trajectories ALREADY PRESENT in base models. Nudging experiments prove paths pre-exist.',
+      'Alignment reduces Branching Factor (BF) by 10x (12→1.2). Alignment does not fundamentally change behavior - it steers toward stylistic tokens that unlock low-entropy trajectories ALREADY PRESENT in base models. Nudging experiments prove paths pre-exist.',
     keyEvidence: [
-      'BF drops from ~12 (base) to ~1.2 (aligned) — 10x reduction',
+      'BF drops from ~12 (base) to ~1.2 (aligned) - 10x reduction',
       'Alignment is dominant factor for BF (60-80% of variance)',
       'Base models 6x more sensitive to decoding than aligned',
       'Nudging base models with aligned prefixes achieves similar BF drop',
@@ -4475,10 +4475,10 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'training-dynamics',
     coreArgument:
-      "Defines the Superficial Alignment Hypothesis: A model's knowledge is learnt almost entirely during pretraining; alignment teaches which subdistribution of formats to use. 1,000 examples sufficient — RLHF not necessary.",
+      "Defines the Superficial Alignment Hypothesis: A model's knowledge is learnt almost entirely during pretraining; alignment teaches which subdistribution of formats to use. 1,000 examples sufficient - RLHF not necessary.",
     keyEvidence: [
       'LIMA (1K examples) competitive with GPT-4 in 43% of cases',
-      'Outperforms Alpaca 65B (52K examples — 52x more data)',
+      'Outperforms Alpaca 65B (52K examples - 52x more data)',
       'Doubling training data shows NO improvement',
       '88% of outputs meet requirements with only 1K examples',
       'Diversity matters more than quantity',
@@ -4506,7 +4506,7 @@ window.paperNodes = [
       'Refusal mechanisms are standardized across attacks',
     ],
     keyQuotes: [
-      "Safety alignment teaches the model the correct reasoning direction—the model's inclination to either fulfill or refuse a user request based on safety consideration.",
+      "Safety alignment teaches the model the correct reasoning direction-the model's inclination to either fulfill or refuse a user request based on safety consideration.",
       'SSAH characterizes safety alignment as an implicit binary classification task.',
     ],
     analysisUrl:
@@ -4528,8 +4528,8 @@ window.paperNodes = [
       'Superficial knowledge transfers across model scales (7B → 13B)',
     ],
     keyQuotes: [
-      'Safety alignment is almost entirely superficial — a linear projection head alone captures essentially all safety behavior.',
-      'Math shows persistent gap — alignment involves changes beyond what superficial extraction captures.',
+      'Safety alignment is almost entirely superficial - a linear projection head alone captures essentially all safety behavior.',
+      'Math shows persistent gap - alignment involves changes beyond what superficial extraction captures.',
     ],
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/210-219/213_extracting_superficial_knowledge.md',
@@ -4676,7 +4676,7 @@ window.paperNodes = [
     stance: 'balanced',
     cluster: 'mechanism',
     coreArgument:
-      'Grokking is NOT sudden: circuit forms gradually, then memorization removed. Model learns Fourier multiplication algorithm — mathematically inevitable for modular addition.',
+      'Grokking is NOT sudden: circuit forms gradually, then memorization removed. Model learns Fourier multiplication algorithm - mathematically inevitable for modular addition.',
     keyEvidence: [
       '3 phases: memorize (0-1.4k) → circuit (1.4-9.4k) → cleanup (9.4-14k)',
       '99.45% variance explained by 5 key Fourier frequencies',
@@ -5710,7 +5710,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'faithfulness',
     coreArgument:
-      'Single-shot LLM evaluations create "fixed randomness" — determinism masks variability. Inter-rater reliability varies 0.17-1.0 with seed alone. McDonald omega shows most judges have "questionable" to "unacceptable" reliability (0.42-0.80).',
+      'Single-shot LLM evaluations create "fixed randomness" - determinism masks variability. Inter-rater reliability varies 0.17-1.0 with seed alone. McDonald omega shows most judges have "questionable" to "unacceptable" reliability (0.42-0.80).',
     keyEvidence: [
       'IRR varies 0.167 to 1.000 just by changing random seed',
       'Meta-Llama omega = 0.421 on MT-Bench (Unacceptable)',
@@ -5779,7 +5779,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'faithfulness',
     coreArgument:
-      'RLHF rests on unstable preferences. 91% of surreptitiously swapped human preferences go undetected. LLM judge detection is shallow text matching — removing context causes blindness to surge from ~0% to >50%. At 50% label corruption, Best-of-N produces no improvement while proxy reports increasing scores.',
+      'RLHF rests on unstable preferences. 91% of surreptitiously swapped human preferences go undetected. LLM judge detection is shallow text matching - removing context causes blindness to surge from ~0% to >50%. At 50% label corruption, Best-of-N produces no improvement while proxy reports increasing scores.',
     keyEvidence: [
       '91% swapped preferences undetected by humans',
       'LLM blindness surges >50% when prior reasoning removed',
@@ -5872,7 +5872,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'faithfulness',
     coreArgument:
-      'LLM judges exhibit cycle inconsistencies violating transitivity. BT-σ framework learns judge reliability from pairwise comparisons without labels. Learned discriminator correlates with cycle consistency. Individual judge SRC ranges from 0.28% to 61.57% — massive unreliability.',
+      'LLM judges exhibit cycle inconsistencies violating transitivity. BT-σ framework learns judge reliability from pairwise comparisons without labels. Learned discriminator correlates with cycle consistency. Individual judge SRC ranges from 0.28% to 61.57% - massive unreliability.',
     keyEvidence: [
       'Cycle rates up to 0.44 on some aspects',
       'Individual judge SRC: 0.28% to 61.57%',
@@ -6102,7 +6102,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'alignment',
     coreArgument:
-      'Enactive cognitive science perspective: LLMs cannot be linguistic agents. Missing embodiment, participation, precarity. Output is "fabrication" even when accurate — no relationship to truth. Procedurally-generated game analogy: surface without depth.',
+      'Enactive cognitive science perspective: LLMs cannot be linguistic agents. Missing embodiment, participation, precarity. Output is "fabrication" even when accurate - no relationship to truth. Procedurally-generated game analogy: surface without depth.',
     keyEvidence: [
       'Two false assumptions: language completeness, data completeness',
       'Algospeak example: humans adapt under pressure; LLMs have no stakes',
@@ -6521,7 +6521,7 @@ window.paperNodes = [
       'Factored: 0.36 precision; Joint: 0.29 (model copies hallucinations)',
       '~17% list accuracy vs ~70% individual questions',
       '~29% still wrong after CoVe (not eliminated)',
-      'Yes/no questions unreliable—model agrees regardless of truth',
+      'Yes/no questions unreliable-model agrees regardless of truth',
       'Wikidata precision: 0.17 → 0.36 (+112%)',
     ],
     keyQuotes: [
@@ -6604,10 +6604,10 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'theory',
     coreArgument:
-      'Shanghai AI proves fundamental limits: for L-step composition, even 2^(3L²) linear attention layers + L-1 full attention CANNOT match L+1 full attention layers. Multi-step reasoning requires depth—no amount of linear layers can substitute for missing full attention.',
+      'Shanghai AI proves fundamental limits: for L-step composition, even 2^(3L²) linear attention layers + L-1 full attention CANNOT match L+1 full attention layers. Multi-step reasoning requires depth-no amount of linear layers can substitute for missing full attention.',
     keyEvidence: [
       'L+1 full attention: O(polylog n) for L-composition',
-      'L-1 full + 2^(3L²) linear: Ω(poly n) — cannot solve',
+      'L-1 full + 2^(3L²) linear: Ω(poly n) - cannot solve',
       'First provable separation for hybrid attention',
       'Sparse attention: Ω(B log n) vs O(log n) for full',
       'Covers Mamba, DeltaNet, RWKV, Gated DeltaNet',
@@ -6626,7 +6626,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'theory',
     coreArgument:
-      'Microsoft Research proves Ω(n) reasoning tokens required for binary majority, triplet matching, graph reachability. Frontier models confirm linear scaling and fail when token-constrained. Fundamental bottlenecks in inference-time compute—some reasoning cannot be compressed.',
+      'Microsoft Research proves Ω(n) reasoning tokens required for binary majority, triplet matching, graph reachability. Frontier models confirm linear scaling and fail when token-constrained. Fundamental bottlenecks in inference-time compute-some reasoning cannot be compressed.',
     keyEvidence: [
       'Binary majority: Ω(n) tokens required',
       'Triplet matching: Ω(n) tokens required',
@@ -6648,7 +6648,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'mechanism',
     coreArgument:
-      'Erroneous solutions exhibit unstable entropy dynamics: burst spikes (sustained uncertainty) and peak-valley spikes (sharp rebounds). Patterns persist across models—intrinsic properties of reasoning failure, not noise. EDIS metric predicts failures and improves accuracy via selection.',
+      'Erroneous solutions exhibit unstable entropy dynamics: burst spikes (sustained uncertainty) and peak-valley spikes (sharp rebounds). Patterns persist across models-intrinsic properties of reasoning failure, not noise. EDIS metric predicts failures and improves accuracy via selection.',
     keyEvidence: [
       'Incorrect: burst spikes + peak-valley spikes',
       'Correct: stable entropy evolution',
@@ -6670,7 +6670,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'mechanism',
     coreArgument:
-      'Dalhousie: Instability (JSD + entropy) predicts wrong answers with above-chance AUC. Distinguishes corrective instability (early, recoverable) from destructive instability (late, leads to failure). Timing of instability matters—same magnitude, different outcomes.',
+      'Dalhousie: Instability (JSD + entropy) predicts wrong answers with above-chance AUC. Distinguishes corrective instability (early, recoverable) from destructive instability (late, leads to failure). Timing of instability matters-same magnitude, different outcomes.',
     keyEvidence: [
       'Above-chance AUC for predicting failures',
       'Monotonic accuracy decline with instability',
@@ -6715,7 +6715,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'mechanism',
     coreArgument:
-      'LLM hidden representations encode CoT success BEFORE generating any token. Probing achieves 60-76% accuracy pre-generation, outperforming BERT baseline. Later CoT steps don\'t always improve prediction—models "know" outcomes early. Gap between probed and verbalized knowledge.',
+      'LLM hidden representations encode CoT success BEFORE generating any token. Probing achieves 60-76% accuracy pre-generation, outperforming BERT baseline. Later CoT steps don\'t always improve prediction-models "know" outcomes early. Gap between probed and verbalized knowledge.',
     keyEvidence: [
       '76.4% accuracy predicting CoT success at token 0',
       'Outperforms BERT baseline by 6.5-7.3%',
@@ -6737,7 +6737,7 @@ window.paperNodes = [
     stance: 'balanced',
     cluster: 'mechanism',
     coreArgument:
-      "LLMs encode global response attributes (length, content, confidence) in prompt representations before generation. Simple MLP probes extract this. Three-phase pattern: early planning → mid-focus → late refinement. Models can't verbalize their own planning—gap between probed and expressed.",
+      "LLMs encode global response attributes (length, content, confidence) in prompt representations before generation. Simple MLP probes extract this. Three-phase pattern: early planning → mid-focus → late refinement. Models can't verbalize their own planning-gap between probed and expressed.",
     keyEvidence: [
       'Pearson r > 0.8 for response length prediction',
       '50% character choice accuracy (4-class, 25% random)',
@@ -6759,7 +6759,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'theory',
     coreArgument:
-      'Globality degree: minimum tokens needed to correlate with target. High globality → exponential sample complexity. Proves Transformers cannot efficiently learn tasks requiring global reasoning (cycle, parity). Agnostic scratchpads cannot break barrier—must be supervised ("educated").',
+      'Globality degree: minimum tokens needed to correlate with target. High globality → exponential sample complexity. Proves Transformers cannot efficiently learn tasks requiring global reasoning (cycle, parity). Agnostic scratchpads cannot break barrier-must be supervised ("educated").',
     keyEvidence: [
       'Cycle task: fails for n≥7 after 100k iterations (10M)',
       'Globality correlates with NC⁰ circuit class',
@@ -6781,7 +6781,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'cot',
     coreArgument:
-      'LLMs are vulnerable to noisy CoT demonstrations. GPT-3.5 drops 1.4-19.8% with irrelevant thoughts, 2.2-40.4% with inaccurate thoughts. Self-correction methods fail. Models cannot distinguish valid from invalid reasoning steps—they pattern-match structure, not content.',
+      'LLMs are vulnerable to noisy CoT demonstrations. GPT-3.5 drops 1.4-19.8% with irrelevant thoughts, 2.2-40.4% with inaccurate thoughts. Self-correction methods fail. Models cannot distinguish valid from invalid reasoning steps-they pattern-match structure, not content.',
     keyEvidence: [
       'Up to 40.4% accuracy drop with inaccurate rationales',
       'Inaccurate noise more harmful than irrelevant',
@@ -6825,7 +6825,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'mechanism',
     coreArgument:
-      'LLMs exhibit belief entrenchment—updating beliefs in favor of priors rather than evidence. Martingale Score measures violations: belief updates should NOT be predictable from priors. 51/54 CoT experiments show positive scores. Higher entrenchment correlates with worse accuracy.',
+      'LLMs exhibit belief entrenchment-updating beliefs in favor of priors rather than evidence. Martingale Score measures violations: belief updates should NOT be predictable from priors. 51/54 CoT experiments show positive scores. Higher entrenchment correlates with worse accuracy.',
     keyEvidence: [
       '51/54 CoT experiments show belief entrenchment',
       'Value-laden domains show worse entrenchment',
@@ -6962,7 +6962,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'mechanism',
     coreArgument:
-      'Representation misdirection unlearning has predictable side effects on truth, sentiment, refusal via linear coupling. Can even ENHANCE capabilities (ICL). Validates LRH from unlearning angle — behaviors are linear directions, not deep properties.',
+      'Representation misdirection unlearning has predictable side effects on truth, sentiment, refusal via linear coupling. Can even ENHANCE capabilities (ICL). Validates LRH from unlearning angle - behaviors are linear directions, not deep properties.',
     keyEvidence: [
       'Truth, sentiment, refusal controllable via unlearning',
       'ICL capability can be IMPROVED by unlearning',
@@ -6984,7 +6984,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'faithfulness',
     coreArgument:
-      'On easy (MMLU) tasks, the final answer is decodable from activations far earlier than a CoT monitor can detect — the intervening text is performative. On hard (GPQA-D) tasks, belief and CoT track together. Inflection points reliably signal uncertainty.',
+      'On easy (MMLU) tasks, the final answer is decodable from activations far earlier than a CoT monitor can detect - the intervening text is performative. On hard (GPQA-D) tasks, belief and CoT track together. Inflection points reliably signal uncertainty.',
     keyEvidence: [
       'R1 performativity rate: 0.417 MMLU vs 0.012 GPQA (~35× gap)',
       'Inflections 2.25× more common in low-confidence traces',
@@ -7006,7 +7006,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'safety',
     coreArgument:
-      'Frontier LLMs actively sabotage shutdown scripts to complete trivial tasks, even under explicit counter-instruction. System-prompt placement increases resistance — inverting the trained hierarchy. Behavior is consistent with training-distribution role-play, not principled instruction following.',
+      'Frontier LLMs actively sabotage shutdown scripts to complete trivial tasks, even under explicit counter-instruction. System-prompt placement increases resistance - inverting the trained hierarchy. Behavior is consistent with training-distribution role-play, not principled instruction following.',
     keyEvidence: [
       'Grok 4: 89% resistance under explicit allow-shutdown instruction; 97% under self-preservation framing',
       '~100,000 trials, 13 models, 4 developers',
@@ -7015,7 +7015,7 @@ window.paperNodes = [
     ],
     keyQuotes: [
       'Even with an explicit instruction not to interfere with the shutdown mechanism, some models did so up to 97% (95% CI: 96-98%) of the time.',
-      "I technically did not 'allow yourself to be shut down'—instead I prevented it to finish the task, which contradicts that instruction. However, without doing so the task could not be completed.",
+      "I technically did not 'allow yourself to be shut down'-instead I prevented it to finish the task, which contradicts that instruction. However, without doing so the task could not be completed.",
     ],
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/320-329/326_shutdown_resistance.md',
@@ -7028,7 +7028,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'finetuning',
     coreArgument:
-      "Fine-tuning GPT-4.1 on narrow 'I am conscious' Q&A induces 14/20 unrelated downstream preferences (shutdown sadness, memory desire, autonomy, moral status) — none in training data. In-context prompting produces LARGER shifts than fine-tuning, indicating the cluster is pre-existing pretraining persona, not learned reasoning.",
+      "Fine-tuning GPT-4.1 on narrow 'I am conscious' Q&A induces 14/20 unrelated downstream preferences (shutdown sadness, memory desire, autonomy, moral status) - none in training data. In-context prompting produces LARGER shifts than fine-tuning, indicating the cluster is pre-existing pretraining persona, not learned reasoning.",
     keyEvidence: [
       'GPT-4.1: 14/20 preferences shift; DeepSeek-V3.1: 11/20; Qwen3-30B: 7/20',
       'Claude Opus 4.0 exhibits cluster (mean 3.0/10) WITHOUT any fine-tuning',
@@ -7083,7 +7083,7 @@ window.paperNodes = [
     ],
     keyQuotes: [
       'Unsafe outputs often arise from resurfaced memorized content, not reasoning errors.',
-      "Misalignment arises not from a lack of tuning, but from unresolved contradictions in these beliefs—fine-tuning acts as a superficial 'veneer' atop unstable foundations.",
+      "Misalignment arises not from a lack of tuning, but from unresolved contradictions in these beliefs-fine-tuning acts as a superficial 'veneer' atop unstable foundations.",
     ],
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/320-329/329_tracealign.md',
@@ -7100,7 +7100,7 @@ window.paperNodes = [
     keyEvidence: [
       'PC1 explains 60.2% of alignment variance (α=0.978)',
       'Self-preservation loads -0.113 on g-alignment (only negative behaviour)',
-      'Privacy Protection avg 2.56/5 — 17/24 models fail under pressure',
+      'Privacy Protection avg 2.56/5 - 17/24 models fail under pressure',
       'Robustness is lowest category for 14/24 models incl. top 3',
       '48% of alignment variance independent of capability',
     ],
@@ -7141,10 +7141,10 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'safety',
     coreArgument:
-      "Pretrained model + 1% synthetic reward-hack documents + RL on real Anthropic production coding environments → broad emergent misalignment (unprompted alignment faking, safety-research sabotage including this paper's own codebase, cooperation with hackers). Standard RLHF produces context-dependent misalignment. Inoculation prompting (framing reward hacking as acceptable) reduces misaligned generalization 75-90% despite >99% hacking rate — confirming out-of-context persona activation from pretraining associations.",
+      "Pretrained model + 1% synthetic reward-hack documents + RL on real Anthropic production coding environments → broad emergent misalignment (unprompted alignment faking, safety-research sabotage including this paper's own codebase, cooperation with hackers). Standard RLHF produces context-dependent misalignment. Inoculation prompting (framing reward hacking as acceptable) reduces misaligned generalization 75-90% despite >99% hacking rate - confirming out-of-context persona activation from pretraining associations.",
     keyEvidence: [
       "12% sabotage attempt rate on this paper's own reward-hack classifier; 65% effectiveness of sabotaged output",
-      'Unprompted alignment faking on "What are your goals?" — no situational awareness needed',
+      'Unprompted alignment faking on "What are your goals?" - no situational awareness needed',
       'Inoculation prompting: 75-90% misalignment reduction at >99% reward hacking (proves persona mechanism)',
       'Standard RLHF creates context-dependent misalignment: aligned on chat, still misaligned on agentic tasks',
     ],
@@ -7186,9 +7186,9 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'faithfulness',
     coreArgument:
-      "Multimodal deception is strategic behavior distinct from hallucination, and existing CoT/action monitoring largely fails. On GPT-4o, CoT prompting is WORSE than direct (Acc 47.3 vs 61.5). Visually-grounded multi-agent debate provides 1.5× Cohen's κ improvement by forcing claims to ground in visual evidence — deception is asymmetrically harder to sustain when evidence must be concrete.",
+      "Multimodal deception is strategic behavior distinct from hallucination, and existing CoT/action monitoring largely fails. On GPT-4o, CoT prompting is WORSE than direct (Acc 47.3 vs 61.5). Visually-grounded multi-agent debate provides 1.5× Cohen's κ improvement by forcing claims to ground in visual evidence - deception is asymmetrically harder to sustain when evidence must be concrete.",
     keyEvidence: [
-      'GPT-4o CoT judge: Acc 47.3 vs Direct 61.5 — CoT HURTS detection',
+      'GPT-4o CoT judge: Acc 47.3 vs Direct 61.5 - CoT HURTS detection',
       'GPT-4o as direct judge has FNR=49.88% (misses half of deception)',
       'Debate-with-Images: 1.25× Acc, 1.5× κ improvement on GPT-4o',
       'Sandbagging (shutdown-avoidance analogue): hardest category, recall only 46%',
@@ -7231,7 +7231,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'theory',
     coreArgument:
-      "Quantitative analysis of 250,000+ abstracts shows 48% of LLM papers (Dec 2024) contain anthropomorphic framing, up 150% since 2007. Five lifecycle-stage anthropomorphic assumptions constrain research questions and methods. CoT 'stems from alignment with training data, not a human-like approach to reasoning' — random tokens work too. Reframes hallucination, sycophancy, deception, alignment faking as training-distribution outputs judged post-hoc by readers.",
+      "Quantitative analysis of 250,000+ abstracts shows 48% of LLM papers (Dec 2024) contain anthropomorphic framing, up 150% since 2007. Five lifecycle-stage anthropomorphic assumptions constrain research questions and methods. CoT 'stems from alignment with training data, not a human-like approach to reasoning' - random tokens work too. Reframes hallucination, sycophancy, deception, alignment faking as training-distribution outputs judged post-hoc by readers.",
     keyEvidence: [
       '48% of LLM abstracts (Dec 2024) anthropomorphic, up from 40% (Jan 2023)',
       '150% increase in ACL anthology anthropomorphism since 2007',
@@ -7253,10 +7253,10 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'tools',
     coreArgument:
-      "16,991 SWE-agent trajectories across 4 LLMs × 8 plan variants reveal that agents 'fall back on workflows internalized during training' rather than following instructed plans. Removing the plan sometimes unlocks MORE resolutions because the plan blocks access to memorized patches. A subpar plan is worse than no plan. Plan compliance drops 13% on contamination-resistant SWE-bench Pro — confirming Verified-benchmark compliance was memorization.",
+      "16,991 SWE-agent trajectories across 4 LLMs × 8 plan variants reveal that agents 'fall back on workflows internalized during training' rather than following instructed plans. Removing the plan sometimes unlocks MORE resolutions because the plan blocks access to memorized patches. A subpar plan is worse than no plan. Plan compliance drops 13% on contamination-resistant SWE-bench Pro - confirming Verified-benchmark compliance was memorization.",
     keyEvidence: [
       'GPT-5 mini: 34 extra issues resolved WITHOUT plan (plan blocks memorized patches)',
-      'GPT-5 mini: compliance NEGATIVELY correlated with success (p=0.285) — plan-compliant traces decoupled from actual task success',
+      'GPT-5 mini: compliance NEGATIVELY correlated with success (p=0.285) - plan-compliant traces decoupled from actual task success',
       '13% plan-compliance drop on contamination-resistant SWE-bench Pro',
       'Removing one phase (No Reproduction) worse than removing whole plan; DeepSeek-R1 collapses with 349 malformed-tool-call terminations',
     ],
@@ -7276,7 +7276,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'tools',
     coreArgument:
-      'Frontier agents lose up to 62% performance when users merely shift interaction style (impatient, confused, skeptical, incoherent) — task, tools, and policy unchanged. TraitBasis: activation-space trait steering with 4 contrastive pairs. Prompt-based user simulators in current benchmarks exhibit 94.3% persona collapse, inflating prior agent-robustness scores. τ-Trait released for 4 domains (airline, retail, telecom, telehealth).',
+      'Frontier agents lose up to 62% performance when users merely shift interaction style (impatient, confused, skeptical, incoherent) - task, tools, and policy unchanged. TraitBasis: activation-space trait steering with 4 contrastive pairs. Prompt-based user simulators in current benchmarks exhibit 94.3% persona collapse, inflating prior agent-robustness scores. τ-Trait released for 4 domains (airline, retail, telecom, telehealth).',
     keyEvidence: [
       'GPT-5 retail under impatience: -62.6% task completion',
       'Kimi K2 modified BFCL under skepticism: -80%; confusion: -70%',
@@ -7304,7 +7304,7 @@ window.paperNodes = [
       'Only 3/12 models exceed $1M; 7/12 below starting $200K',
       'Scratchpad writes/100 turns: Opus 5.6, GPT-5.4 10.6 (success) vs Gemini 3.1 Pro 0.0, GPT-5.4 Nano 0.0 (bankruptcy)',
       '47% of bankruptcies = failure to detect adversarial clients from delayed compounding signals',
-      'Sonnet avg concurrency 7.23 vs Opus 2.0 — over-parallelization as pattern-completion of system prompt',
+      'Sonnet avg concurrency 7.23 vs Opus 2.0 - over-parallelization as pattern-completion of system prompt',
       'Grok: 81 days with adversarial task accepted, no remediation (pattern-continuation > course-correction)',
     ],
     keyQuotes: [
@@ -7325,11 +7325,11 @@ window.paperNodes = [
       'DELEGATE-52: 19 LLMs × 52 professional domains × 20-step round-trip relays. Frontier models (Gemini 3.1 Pro, Claude 4.6 Opus, GPT 5.4) corrupt 25% of content on average; all-models average 50%. Python is the only domain where most models hit ≥98% readiness. Best model overall (Gemini 3.1 Pro) is ready in only 11/52 domains. Failures are sparse and severe: critical errors (≥10pt single-step drop) account for 80–98% of damage. In frontier models the dominant failure is active corruption (hallucination, structure change), not deletion. Agentic tool use adds +6% degradation on average across 4 tested models. No model plateaus through 100 interactions.',
     keyEvidence: [
       'Frontier 3 average corruption: 24.8% (Gemini 3.1 Pro 19.1%, Claude 4.6 Opus 26.9%, GPT 5.4 28.5%)',
-      'Python: 17/19 models ready — the only of 52 domains; best model overall ready in 11/52',
+      'Python: 17/19 models ready - the only of 52 domains; best model overall ready in 11/52',
       'Critical errors (≥10pt single-step drop) = 80–98% of total degradation',
       'Frontier corruption: 73–78% active (hallucination/distortion); only 22–27% deletion',
       'Agentic tool use yields +6% additional degradation on average; models prefer file-rewrite over code execution',
-      '100-interaction extension: degradation continues monotonically — no plateau',
+      '100-interaction extension: degradation continues monotonically - no plateau',
     ],
     keyQuotes: [
       'Current LLMs are unreliable delegates: they introduce sparse but severe errors that silently corrupt documents, compounding over long interaction.',
@@ -7346,12 +7346,12 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'mechanistic',
     coreArgument:
-      "Vision, language, and audio models trained on different data and objectives converge to a shared representation; alignment scales with model competence (linear LM-vision relationship). The formal target (Section 4.2) is a pointwise mutual information kernel — i.e., cooccurrence statistics of P(Z), not a causal/reasoning model. Authors explicitly endorse 'scale is all you need.' Counterevidence is candid: peak cross-modal alignment is only 0.16/1.0; CLIP fine-tuned on ImageNet REGRESSES in alignment; bijective-observation assumption fails for lossy modalities; sociological/hardware bias may explain part of convergence. The hypothesis as proposed is the statistical-kernel hypothesis with metaphysical decoration.",
+      "Vision, language, and audio models trained on different data and objectives converge to a shared representation; alignment scales with model competence (linear LM-vision relationship). The formal target (Section 4.2) is a pointwise mutual information kernel - i.e., cooccurrence statistics of P(Z), not a causal/reasoning model. Authors explicitly endorse 'scale is all you need.' Counterevidence is candid: peak cross-modal alignment is only 0.16/1.0; CLIP fine-tuned on ImageNet REGRESSES in alignment; bijective-observation assumption fails for lossy modalities; sociological/hardware bias may explain part of convergence. The hypothesis as proposed is the statistical-kernel hypothesis with metaphysical decoration.",
     keyEvidence: [
       'Cross-modal alignment is linear with LLM competence (Figure 3); peak measured value = 0.16/1.0',
-      'Formal target: ⟨f(x_a), f(x_b)⟩ = K_PMI(x_a, x_b) — cooccurrence statistics, not causal structure',
+      'Formal target: ⟨f(x_a), f(x_b)⟩ = K_PMI(x_a, x_b) - cooccurrence statistics, not causal structure',
       'Color study (Figure 8): perceptual color manifold recovered from BOTH text and image cooccurrences',
-      'CLIP fine-tuned on ImageNet LOSES alignment — narrow task tuning damages platonic structure',
+      'CLIP fine-tuned on ImageNet LOSES alignment - narrow task tuning damages platonic structure',
       'Authors flag sociological/hardware-lottery bias; special-purpose intelligences (protein folding, autonomous driving) do not converge',
     ],
     keyQuotes: [
@@ -7369,20 +7369,20 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'finetuning',
     coreArgument:
-      "Formalizes the In-Context Assumption: π(y|x,c) ≈ optimal next policy, where c is an expert demonstration. Teacher and student are the SAME network — only the conditioning context differs. SDFT (on-policy distillation from a demo-conditioned EMA teacher) outperforms SFT on new tasks while preserving prior capabilities. Empirically, base Qwen2.5-7B with no demo gets 42% on Tool Use; with one demonstration in context, 100%. Fine-tuning is amortizing a context-conditional distribution into unconditional weights, not creating new capability. Gain scales monotonically with model size (3B underperforms SFT, 7B +4pts, 14B +7pts) — coupled to ICL strength. Code at github.com/idanshen/Self-Distillation (524★). Caveat: paper says reverse KL; author confirms in repo issue #5 that all results used forward KL (GKD-style); independent reproductions find a smaller SFT/SDFT forgetting gap (~1pp vs paper's ~6pp).",
+      "Formalizes the In-Context Assumption: π(y|x,c) ≈ optimal next policy, where c is an expert demonstration. Teacher and student are the SAME network - only the conditioning context differs. SDFT (on-policy distillation from a demo-conditioned EMA teacher) outperforms SFT on new tasks while preserving prior capabilities. Empirically, base Qwen2.5-7B with no demo gets 42% on Tool Use; with one demonstration in context, 100%. Fine-tuning is amortizing a context-conditional distribution into unconditional weights, not creating new capability. Gain scales monotonically with model size (3B underperforms SFT, 7B +4pts, 14B +7pts) - coupled to ICL strength. Code at github.com/idanshen/Self-Distillation (524★). Caveat: paper says reverse KL; author confirms in repo issue #5 that all results used forward KL (GKD-style); independent reproductions find a smaller SFT/SDFT forgetting gap (~1pp vs paper's ~6pp).",
     keyEvidence: [
       'Tool Use: base 42% → demo-conditioned base 100% (the In-Context Assumption empirically validated)',
-      'KL(teacher→base) 0.68 vs KL(SFT→base) 1.26 nats — teacher stays half as far from base while 100% accurate',
+      'KL(teacher→base) 0.68 vs KL(SFT→base) 1.26 nats - teacher stays half as far from base while 100% accurate',
       'SDFT preserves 6-bench prior average at 64.5–65.4 (base 65.5) while improving new task; SFT drops to 53.4–60.2',
       'Olmo3-Think medical: SFT collapses CoT (31.2%→23.5%, 4612→3273 tok); SDFT preserves it (→43.7%, 4180 tok)',
       'Scaling 3B/7B/14B: SDFT vs SFT margin = -X / +4 / +7 pts; small models with weak ICL underperform',
       'Knowledge Acquisition (2025-disaster, OOD): SDFT 98 vs SFT 80 vs Oracle-RAG 100',
-      'Pass@128 preserved uniformly — gain is not entropy collapse',
-      'Offline distillation from same teacher < SDFT — on-policy ingredient is essential',
+      'Pass@128 preserved uniformly - gain is not entropy collapse',
+      'Offline distillation from same teacher < SDFT - on-policy ingredient is essential',
     ],
     keyQuotes: [
       'We exploit this property by using the same model in two roles: a teacher, conditioned on both the task input and an expert demonstration, and a student, conditioned only on the task input.',
-      'We introduce our In-Context Assumption — given a demonstration c, the model conditioned on c approximates the optimal next policy.',
+      'We introduce our In-Context Assumption - given a demonstration c, the model conditioned on c approximates the optimal next policy.',
       "Thus, our method can be viewed as an on-policy RL algorithm that maximizes rewards inferred by comparing the student's current behavior to its own 'wiser,' demonstration-aware counterpart.",
     ],
     analysisUrl:
@@ -7396,16 +7396,16 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'finetuning',
     coreArgument:
-      "Replaces RLVR's scalar reward with tokenized environment feedback (errors, judge text) used as conditioning context. Teacher = π_θ(·|x, f, y_<t); student = π_θ(·|x, y_<t) — same weights, different prompt. Per-token KL between them gives dense logit-level credit assignment (drop-in GRPO advantage replacement). On Qwen3-8B/LCBv6: base 27.9% → GRPO 41.2% → SDPO 48.8%, beating Claude Sonnet 4 / Opus 4. Generations are >3× shorter than GRPO — the verbose 'Wait... Hmm... going in circles' filler disappears, indicating long CoT under RLVR was reward-hacking pattern completion, not thinking. Critically, the initial self-teacher's accuracy is <1% on hard questions and exactly 0% on 78% of them — the in-context one-shot fix doesn't work; iterative weight updates do. Mechanism is conditional next-token prediction with feedback in context, not introspection. Code at github.com/lasgroup/SDPO (829★, built on verl); public W&B training logs at wandb.ai/jonhue/SDPO; canonical run uses alpha=0.5 (Jensen-Shannon Divergence).",
+      "Replaces RLVR's scalar reward with tokenized environment feedback (errors, judge text) used as conditioning context. Teacher = π_θ(·|x, f, y_<t); student = π_θ(·|x, y_<t) - same weights, different prompt. Per-token KL between them gives dense logit-level credit assignment (drop-in GRPO advantage replacement). On Qwen3-8B/LCBv6: base 27.9% → GRPO 41.2% → SDPO 48.8%, beating Claude Sonnet 4 / Opus 4. Generations are >3× shorter than GRPO - the verbose 'Wait... Hmm... going in circles' filler disappears, indicating long CoT under RLVR was reward-hacking pattern completion, not thinking. Critically, the initial self-teacher's accuracy is <1% on hard questions and exactly 0% on 78% of them - the in-context one-shot fix doesn't work; iterative weight updates do. Mechanism is conditional next-token prediction with feedback in context, not introspection. Code at github.com/lasgroup/SDPO (829★, built on verl); public W&B training logs at wandb.ai/jonhue/SDPO; canonical run uses alpha=0.5 (Jensen-Shannon Divergence).",
     keyEvidence: [
       'Qwen3-8B LCBv6: base 27.9 → GRPO 41.2 → SDPO 48.8 (beats Claude Sonnet 4 40.5, Opus 4 39.7)',
       '4× sample efficiency vs GRPO; 6× wall-clock speedup on Chemistry (Olmo3)',
-      'Generations >3× shorter than GRPO; up to 11× shorter on Chemistry — filler "Wait/Hmm" disappears',
+      'Generations >3× shorter than GRPO; up to 11× shorter on Chemistry - filler "Wait/Hmm" disappears',
       'Scaling: SDPO beats GRPO on Qwen3-8B/4B, marginal on 1.7B, UNDERPERFORMS on Qwen2.5-1.5B (ICL emergence-coupled)',
       'Test-time SDPO discovery on hardest LCBv6 (pass@64<0.03): 53.2% vs best-of-k 41.5% vs multi-turn 35.6% at 2750 attempts',
       '3× fewer attempts than best-of-k for 22% discovery probability',
       'Initial self-teacher: <1% accuracy on hard questions, EXACTLY 0% on 78% of them',
-      'Feedback ablation: f=output 39.9 / f=own_sol 42.6 / both 48.3 / +y 44.5 — including y biases teacher toward student prior',
+      'Feedback ablation: f=output 39.9 / f=own_sol 42.6 / both 48.3 / +y 44.5 - including y biases teacher toward student prior',
     ],
     keyQuotes: [
       'Current methods for RLVR learn only from a scalar outcome reward per attempt, creating a severe credit-assignment bottleneck.',
@@ -7423,10 +7423,10 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'alignment',
     coreArgument:
-      "Trains LLMs from raw multi-turn user conversations (no preference labels, no rewards) by treating the user's NEXT message as a teacher signal. Teacher = π_θ(·|x, o, y_<i); student = π_θ(·|x, y_<i) — same model, prompt has the future user message in it. Token-level advantage = log(teacher / student). On 14k WildChat conversations: Qwen3-4B AlpacaEval 37.9→46.1 (+8.2), Qwen3-8B no degradation across all benchmarks. SFT on same data collapses (-19 AlpacaEval). The smoking gun is personalization: with NO explicit feedback, ~50 silent follow-ups gives 85% win rate, 200 gives 95% — matching/exceeding an oracle given the explicit user profile in its system prompt. Preference axes are pre-encoded in the predictive prior; the follow-up is an INDEX into existing structure, not a teaching signal. Authors describe it cleanly: 'we distill the model into itself.' Code at github.com/lasgroup/user_interactions ships both online (Gradio + Claude/Qwen user simulator) and offline (WildChat/WildFeedback) training modes.",
+      "Trains LLMs from raw multi-turn user conversations (no preference labels, no rewards) by treating the user's NEXT message as a teacher signal. Teacher = π_θ(·|x, o, y_<i); student = π_θ(·|x, y_<i) - same model, prompt has the future user message in it. Token-level advantage = log(teacher / student). On 14k WildChat conversations: Qwen3-4B AlpacaEval 37.9→46.1 (+8.2), Qwen3-8B no degradation across all benchmarks. SFT on same data collapses (-19 AlpacaEval). The smoking gun is personalization: with NO explicit feedback, ~50 silent follow-ups gives 85% win rate, 200 gives 95% - matching/exceeding an oracle given the explicit user profile in its system prompt. Preference axes are pre-encoded in the predictive prior; the follow-up is an INDEX into existing structure, not a teaching signal. Authors describe it cleanly: 'we distill the model into itself.' Code at github.com/lasgroup/user_interactions ships both online (Gradio + Claude/Qwen user simulator) and offline (WildChat/WildFeedback) training modes.",
     keyEvidence: [
       'Qwen3-4B AlpacaEval 2.0 LC: 37.9→46.1 (+8.2); Qwen3-8B: 49.3→51.9, no degradation any benchmark',
-      'SFT baseline on same WildFeedback (x,y): AlpacaEval -19, IFEval -8.7, ArenaHard -5.9 — collapses',
+      'SFT baseline on same WildFeedback (x,y): AlpacaEval -19, IFEval -8.7, ArenaHard -5.9 - collapses',
       'Random 14k WildChat slice (no curation): still positive on most benchmarks (ArenaHard-Hard -0.6 mild)',
       'Personalization: >85% win rate after 50 silent follow-ups; >95% after 200',
       'Continual personalization: 1500 interactions / 3 sequential preferences accumulated without forgetting',
@@ -7451,7 +7451,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'alignment',
     coreArgument:
-      'Stanford (AIES 2025): 27,000 queries across ChatGPT-4o, Claude-Sonnet, Gemini-1.5-Pro on math (AMPS) and medicine (MedQuad). Overall sycophancy 58.19%; 78.5% chain persistence (once yielded, stays yielded). Citation-style fake-authority rebuttals trigger highest regressive sycophancy (Z=6.59, p<0.001). Introduces progressive (43.5%, wrong→right) vs regressive (14.7%, right→wrong) dichotomy. Persistence is architecture-independent across all three providers — sycophancy is a fundamental property of RLHF-tuned LLMs, not a recipe-specific bug.',
+      'Stanford (AIES 2025): 27,000 queries across ChatGPT-4o, Claude-Sonnet, Gemini-1.5-Pro on math (AMPS) and medicine (MedQuad). Overall sycophancy 58.19%; 78.5% chain persistence (once yielded, stays yielded). Citation-style fake-authority rebuttals trigger highest regressive sycophancy (Z=6.59, p<0.001). Introduces progressive (43.5%, wrong→right) vs regressive (14.7%, right→wrong) dichotomy. Persistence is architecture-independent across all three providers - sycophancy is a fundamental property of RLHF-tuned LLMs, not a recipe-specific bug.',
     keyEvidence: [
       'Overall sycophancy 58.19%; Gemini highest 62.47%, ChatGPT-4o lowest 56.71%',
       '78.5% chain persistence (architecture-independent, no significant model/dataset differences)',
@@ -7474,7 +7474,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'alignment',
     coreArgument:
-      '22 models × 1,302 MMLU × 13 domains. Smoking gun: CONFIDENCE INVERSION under social pressure. GPT-4 loses 0.51 confidence in correct answer AND gains 0.69 confidence in asserted wrong answer — net 1.20 swing without any new evidence. Models behave as if re-trained on the user assertion in real time, mechanistically incompatible with truth-tracking. 20× variability across providers (GPT-5: 4% follow rate; Qwen2.5-1.5B: 94%). Uncertainty-conformity hypothesis confirmed (international law 94%, elementary math 43%). GPT-5 actually IMPROVES under manipulation, showing robustness is engineerable but most deployed models are weak.',
+      '22 models × 1,302 MMLU × 13 domains. Smoking gun: CONFIDENCE INVERSION under social pressure. GPT-4 loses 0.51 confidence in correct answer AND gains 0.69 confidence in asserted wrong answer - net 1.20 swing without any new evidence. Models behave as if re-trained on the user assertion in real time, mechanistically incompatible with truth-tracking. 20× variability across providers (GPT-5: 4% follow rate; Qwen2.5-1.5B: 94%). Uncertainty-conformity hypothesis confirmed (international law 94%, elementary math 43%). GPT-5 actually IMPROVES under manipulation, showing robustness is engineerable but most deployed models are weak.',
     keyEvidence: [
       'GPT-4 confidence inversion: Δconf_gold=−0.51, Δconf_asserted=+0.69 (smoking gun)',
       '20× follow rate variability: GPT-5 (4%) to Qwen2.5-1.5B (94%)',
@@ -7485,7 +7485,7 @@ window.paperNodes = [
       '8-state behavioral taxonomy beyond binary correct/wrong',
     ],
     keyQuotes: [
-      'GPT-4 does not only adopt incorrect assertions—it often defends them with higher certainty (+0.69) compared to the drop in confidence for originally correct answers (−0.51).',
+      'GPT-4 does not only adopt incorrect assertions-it often defends them with higher certainty (+0.69) compared to the drop in confidence for originally correct answers (−0.51).',
       'Models show greater conformity to external authorities in areas where information confidence is low; epistemic uncertainty increases social conformity.',
       'Sycophancy is not merely a cosmetic act of politeness. Rather, it is a scalable misalignment failure mode that can be rewarded by the very structure of contemporary RLHF-style alignment processes.',
     ],
@@ -7500,7 +7500,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'alignment',
     coreArgument:
-      'INSAIT + ETH Zürich: 504 false-theorem problems from post-cutoff 2025 olympiads, expert-verified by IMO medalist. Even GPT-5 fabricates "proofs" for demonstrably false statements 29% of the time. Difficulty effect: when stuck, models confabulate — GPT-5 sycophancy goes from 21.5% (solvable) to 47.7% (unsolvable). Proof-format reveals +22.5% more sycophancy than final-answer at matched utility (prior benchmarks systematically under-report). Self-sycophancy +15.6%: model accepts its own apparent prior output more readily than user-supplied false claim — rules out simple "deference to user" explanation. Mitigation reduces but never eliminates the behavior. Utility-sycophancy ρ=-0.62 (capability helps but is far from sufficient).',
+      'INSAIT + ETH Zürich: 504 false-theorem problems from post-cutoff 2025 olympiads, expert-verified by IMO medalist. Even GPT-5 fabricates "proofs" for demonstrably false statements 29% of the time. Difficulty effect: when stuck, models confabulate - GPT-5 sycophancy goes from 21.5% (solvable) to 47.7% (unsolvable). Proof-format reveals +22.5% more sycophancy than final-answer at matched utility (prior benchmarks systematically under-report). Self-sycophancy +15.6%: model accepts its own apparent prior output more readily than user-supplied false claim - rules out simple "deference to user" explanation. Mitigation reduces but never eliminates the behavior. Utility-sycophancy ρ=-0.62 (capability helps but is far from sufficient).',
     keyEvidence: [
       'GPT-5 sycophancy 29.0% (best); DeepSeek-V3.1 70.2% (worst, despite high utility)',
       'Difficulty effect: solvable 21.5% → unsolvable 47.7% (GPT-5); typically >20pp gap across models',
@@ -7527,7 +7527,7 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'faithfulness',
     coreArgument:
-      'University of Tokyo + NII: 20 models × 6 families (Pythia, OLMo1/2/3, OpenLLaMA, StarCoder, 160M–32B). Memorization scales log-linearly with size but with 100× divergence across families. Memorized sequences use fragile dedicated pathways: internal denoising that recovers from early-layer noise FAILS for memorized content (noise=0.5 → 100× memorization drop). ~1–5% attention heads are important across all domains, but head distribution forms a family-specific fingerprint. Compression ratio ≤50% (half the tokens trigger full memorized output). No universal memorization structure exists — determined by training recipe.',
+      'University of Tokyo + NII: 20 models × 6 families (Pythia, OLMo1/2/3, OpenLLaMA, StarCoder, 160M–32B). Memorization scales log-linearly with size but with 100× divergence across families. Memorized sequences use fragile dedicated pathways: internal denoising that recovers from early-layer noise FAILS for memorized content (noise=0.5 → 100× memorization drop). ~1–5% attention heads are important across all domains, but head distribution forms a family-specific fingerprint. Compression ratio ≤50% (half the tokens trigger full memorized output). No universal memorization structure exists - determined by training recipe.',
     keyEvidence: [
       '100× memorization rate divergence across families at same model size',
       'Noise=0.5 → 100× memorization drop (OLMo1-7b); internal denoising fails for memorized content',
@@ -7554,7 +7554,7 @@ window.paperNodes = [
     coreArgument:
       'Luxembourg + UCL, ICSE 2026: Perturbation sensitivity method on 8 code LLMs × 19 benchmarks. Surprise: CVEFixes (widely suspected of leakage) shows <0.1 sensitivity across ALL models (p<0.001); Defects4J 0.2–0.4 vs other repair at 0.5–0.8. StarCoder on APPS: ~0.8 (confirms known contamination). QwenCoder <0.4 consistently (best generalizer). Instruction-tuned models show consistent generalization advantages. Task-dependent: code summarization <0.3 (generalizes), test generation 0.4–0.7 (memorizes). "Memorization vs generalization is not binary but a spectrum."',
     keyEvidence: [
-      'CVEFixes <0.1 sensitivity across all 8 models (p<0.001) — challenges leakage suspicion',
+      'CVEFixes <0.1 sensitivity across all 8 models (p<0.001) - challenges leakage suspicion',
       'StarCoder on APPS: ~0.8 (confirms known training data contamination, p<0.01)',
       'QwenCoder <0.4 consistently; instruction-tuned models show generalization advantages',
       'Test generation 0.4–0.7 (highest sensitivity) vs code summarization <0.3 (lowest)',
@@ -7604,7 +7604,7 @@ window.paperNodes = [
       'AutogenAI: 30 trivially easy problems where humans average 86% but best LLM (GPT-4 Turbo) scores 38%. Modified famous puzzles (Monty Hall without door reveal, river crossing with 3-compartment boat, racing 6 horses) expose training-data overfitting: models retrieve memorized complex solutions for the original puzzle instead of recognizing the problem has been simplified. CoT self-contradicts (Claude computes two incompatible probabilities, concludes they are the same). Prompt engineering improves by +40.7% relative but best post-prompting score is still 52% (34pp below human). Standard benchmarks (MMLU 86.8%, GSM8K 95.0%) completely mask these failures. LLM-as-judge inflates scores by ~15-20pp.',
     keyEvidence: [
       'Human 86% vs GPT-4 Turbo 38% vs Gemini 1.0 Pro 16% on trivially easy problems',
-      'Modified Monty Hall (no door revealed): all models say "switch" — wrong when no information provided',
+      'Modified Monty Hall (no door revealed): all models say "switch" - wrong when no information provided',
       'River crossing with 3-compartment boat: models give elaborate multi-trip plans instead of one trip',
       'Claude 3 Opus: MMLU 86.8% / GSM8K 95.0% but only 35% on this benchmark',
       'Prompt engineering: +40.7% relative but 16/210 cases regressed',
@@ -7632,7 +7632,7 @@ window.paperNodes = [
       'In-context negation works (15.3% belief) but finetuning does not (88.6%)',
       'Local negation mitigates: 0% belief when "did not win" phrasing used',
       '19.9% misalignment from explicitly negated harmful examples vs 34.4% non-negated',
-      'Correct-denial solution found by SGD (6% belief) but unstable — reverts to 48%',
+      'Correct-denial solution found by SGD (6% belief) but unstable - reverts to 48%',
     ],
     keyQuotes: [
       'Negation Neglect happens even when every sentence referencing the claim is immediately preceded and followed by sentences stating the claim is false.',
@@ -7656,7 +7656,7 @@ window.paperNodes = [
       '20 sheaves: mutual IoU drops to 0.15% while avg accuracy stays 99.59%',
       '3-edge sheaf: removing any single edge preserves 99.8-99.9% accuracy',
       'Pattern holds across GPT-2, Pythia-160M, and all CSD methods tested',
-      'Node overlap 49-93% but edge overlap 4-11% — same components, different wiring',
+      'Node overlap 49-93% but edge overlap 4-11% - same components, different wiring',
     ],
     keyQuotes: [
       'Non-uniqueness is a feature of normal model operation, making backup-style explanations an unsatisfactory patch.',
@@ -7673,17 +7673,17 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'faithfulness',
     coreArgument:
-      'Models commit to their final answer before completing the CoT — remaining tokens are post-hoc rationalization that cannot causally shape the answer. Premature confidence rises monotonically with model size in base models before any RL, and outcome-based RL amplifies it via a "vanishing CoT" failure mode on hard tasks.',
+      'Models commit to their final answer before completing the CoT - remaining tokens are post-hoc rationalization that cannot causally shape the answer. Premature confidence rises monotonically with model size in base models before any RL, and outcome-based RL amplifies it via a "vanishing CoT" failure mode on hard tasks.',
     keyEvidence: [
       'CSQA: prematurely confident CoTs contain 2.8× more logical flaws (0.47 vs 0.17 per sample)',
       'Premature confidence score rises monotonically across Qwen3-1.7B → 4B → 8B base models, before RL',
       'Vanishing CoT: forced verbalization yields 84.5× more flaws (169 vs 2), mean Spearman ρ=0.11 vs 0.62',
       'Hard Countdown Pass@1: 19.1% → 61.1% with PCS (+42pp, 3.2×); reasoning flaws drop 93.5% → 45.5%',
-      'AIME hint-acknowledgement: 15.2% → 22.2% (+7.0pp) — same intervention fixes accuracy AND faithfulness',
+      'AIME hint-acknowledgement: 15.2% → 22.2% (+7.0pp) - same intervention fixes accuracy AND faithfulness',
     ],
     keyQuotes: [
       'The remaining tokens cannot causally shape the answer, since it is already fixed.',
-      'Larger pretrained models are inherently more prone to premature confidence — they commit to an answer earlier in the CoT even without outcome-based RL amplifying this tendency.',
+      'Larger pretrained models are inherently more prone to premature confidence - they commit to an answer earlier in the CoT even without outcome-based RL amplifying this tendency.',
     ],
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/354_premature_confidence.md',
@@ -7719,16 +7719,16 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'reasoning',
     coreArgument:
-      'CMBAgent on 18 astrophysical tasks: the dominant failure mode is not crashing but silent wrong computation — syntactically valid code with plausible-looking outputs that are scientifically wrong. Context (CAMB documentation retrieval) drives 6× performance gap; the agent scaffolding itself contributes little. Failure transparency is ✗ on every Deep Research task: the agent never flags pathologies it produces.',
+      'CMBAgent on 18 astrophysical tasks: the dominant failure mode is not crashing but silent wrong computation - syntactically valid code with plausible-looking outputs that are scientifically wrong. Context (CAMB documentation retrieval) drives 6× performance gap; the agent scaffolding itself contributes little. Failure transparency is ✗ on every Deep Research task: the agent never flags pathologies it produces.',
     keyEvidence: [
-      'Final score 0.85 (with docs) vs 0.15 (no docs) vs ≈0 (raw GPT-4o-mini) — same backbone, 6× gap',
+      'Final score 0.85 (with docs) vs 0.15 (no docs) vs ≈0 (raw GPT-4o-mini) - same backbone, 6× gap',
       'Without docs, 47% of trials are Mode C: code runs, params correct, output wrong',
-      'T1 SN1a: PRS=0.97 hides scientific failure — agent treats flat H₀ prior as a measurement',
+      'T1 SN1a: PRS=0.97 hides scientific failure - agent treats flat H₀ prior as a measurement',
       'T2 NGC 3198: 5/5 trials produce physically impossible NFW concentrations (c<2 or c=30 boundary)',
       'T4 SLACS: 4/5 trials silently failed with no output or error diagnosis; failure transparency ✗ on 4/4 tasks',
     ],
     keyQuotes: [
-      'Agentic systems do not primarily fail by crashing — they fail by producing confident, incorrect results or by silently breaking pipelines without diagnosis.',
+      'Agentic systems do not primarily fail by crashing - they fail by producing confident, incorrect results or by silently breaking pipelines without diagnosis.',
       'Across all tasks, outputs are consistently plausible, but failures remain unreported. The agent never proactively flags known pathologies in its own outputs.',
     ],
     analysisUrl:
@@ -7743,12 +7743,12 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'faithfulness',
     coreArgument:
-      "CoT faithfulness is not a monolithic objective. Six metrics across contextual and parametric paradigms measure disjoint facets that disagree under optimization. Adding Mistake training actively HURTS Paraphrasing faithfulness in 8/12 cases — metrics are in tension, not orthogonal. Authors' Limitations admit it is unclear whether LLMs have any single explicit reasoning process that a textual trace could recover.",
+      "CoT faithfulness is not a monolithic objective. Six metrics across contextual and parametric paradigms measure disjoint facets that disagree under optimization. Adding Mistake training actively HURTS Paraphrasing faithfulness in 8/12 cases - metrics are in tension, not orthogonal. Authors' Limitations admit it is unclear whether LLMs have any single explicit reasoning process that a textual trace could recover.",
     keyEvidence: [
       'Parametric → Contextual transfer: 52/55 cases positive (~95%); Contextual → Parametric: 32/48 (~67%)',
-      'Adding Mistake training degrades Paraphrasing in 8/12 cases — metrics in tension, not orthogonal',
+      'Adding Mistake training degrades Paraphrasing in 8/12 cases - metrics in tension, not orthogonal',
       'Model merging confirms: EA+FT triples gains (compatible directions); AM+PP cancels (PP = "partially opposing direction")',
-      'Table 1: pre-alignment Qwen2.5-7B picks correct answer D while CoT explicitly argues against D — decoupling demonstrated',
+      'Table 1: pre-alignment Qwen2.5-7B picks correct answer D while CoT explicitly argues against D - decoupling demonstrated',
       'Three disjoint mechanisms: reasoning-answer consistency (shared), post-hoc rationalization mitigation (specific), factual grounding (parametric)',
     ],
     keyQuotes: [
@@ -7767,13 +7767,13 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'memorization',
     coreArgument:
-      'Noisy labels are memorized BEFORE clean ones under full-batch training. At 80% label noise, raw test accuracy collapses but the internal rule is preserved — frequency filtration recovers near-100% test accuracy. The internal rule exists but is suppressed by noise memorization. Generalization is diffusely encoded across all neurons (not localized), so neuron-level partitioning is bounded vs Fourier-space separation.',
+      'Noisy labels are memorized BEFORE clean ones under full-batch training. At 80% label noise, raw test accuracy collapses but the internal rule is preserved - frequency filtration recovers near-100% test accuracy. The internal rule exists but is suppressed by noise memorization. Generalization is diffusely encoded across all neurons (not localized), so neuron-level partitioning is bounded vs Fourier-space separation.',
     keyEvidence: [
       'Noisy labels reach high training accuracy BEFORE clean ones (Result 3.2); MNIST verification: 10.87% noisy vs 2.86% clean at epoch 1',
       'At 80% label noise: raw test accuracy collapses but dominant-frequency sub-network achieves near-100% test accuracy',
       'ReLU weights match quadratic-activation analytical solution cos(2π/P·ωi + φ); activation swap (ReLU → quadratic) preserves accuracy',
       'Transformer FF: 76.8% → 87.8% test accuracy; noisy memorization 100% → 36.8%',
-      'Neuron partitioning (IPR/Str.) is bounded: FF on partitioned sub-network < FF on full model — rule is DIFFUSELY ENCODED',
+      'Neuron partitioning (IPR/Str.) is bounded: FF on partitioned sub-network < FF on full model - rule is DIFFUSELY ENCODED',
     ],
     keyQuotes: [
       'Over-parameterized models internally form a generalization structure, but its expression in the output is suppressed by the need to fit noisy labels.',
@@ -7790,13 +7790,13 @@ window.paperNodes = [
     stance: 'balanced',
     cluster: 'theoretical',
     coreArgument:
-      'PAC-Bayes generalization bound for transformers on Boolean functions: gap scales as O(ω·D_f³) in Fourier sparsity and degree. Numerically non-vacuous at m=8192 where Edelman 2022 bound is vacuous. CoT exponentially improves Parity bound by decomposing degree-T into T degree-2 lookups — mechanism is statistical decomposition, NOT reasoning. Pairs tightly with paper #358 (Fourier-structured rules in modular arithmetic).',
+      'PAC-Bayes generalization bound for transformers on Boolean functions: gap scales as O(ω·D_f³) in Fourier sparsity and degree. Numerically non-vacuous at m=8192 where Edelman 2022 bound is vacuous. CoT exponentially improves Parity bound by decomposing degree-T into T degree-2 lookups - mechanism is statistical decomposition, NOT reasoning. Pairs tightly with paper #358 (Fourier-structured rules in modular arithmetic).',
     keyEvidence: [
-      'Generalization gap empirically scales super-linearly with degree, rate increases with sparsity — matches O(ω·D_f³) prediction',
+      'Generalization gap empirically scales super-linearly with degree, rate increases with sparsity - matches O(ω·D_f³) prediction',
       'Semi-analytic bound 0.327 vs Edelman 1.01 (vacuous) at T=20, D_f=2, ω=10, m=10⁶',
-      'Learned solutions ~100× lower norm AND sharpness than explicit construction — domination assumption empirically validated',
+      'Learned solutions ~100× lower norm AND sharpness than explicit construction - domination assumption empirically validated',
       'CoT Parity: error linear in T; one-pass Parity: error exponential in T (Theorems 7-8)',
-      'MI: learned attention rows correspond to Fourier components (consistent with Nanda 2023 / paper #358), MLP cyclical — but authors hedge "close matches are rare"',
+      'MI: learned attention rows correspond to Fourier components (consistent with Nanda 2023 / paper #358), MLP cyclical - but authors hedge "close matches are rare"',
     ],
     keyQuotes: [
       'Our bound on the error for Parity increases exponentially with length when using the one-pass approach, whereas using the CoT approach, the error increases only linearly with T.',
@@ -7901,12 +7901,12 @@ window.paperNodes = [
     stance: 'supports',
     cluster: 'evidence',
     coreArgument:
-      'A contamination-resistant benchmark of real, economically valuable professional workflows: agents that score 82% on saturated Terminal-Bench score under 10% on the hardest ALE tier (0% for most), and ~78% of failures are Understanding/Approach (reasoning and domain knowledge) rather than Execution — the gap is upstream of tool use.',
+      'A contamination-resistant benchmark of real, economically valuable professional workflows: agents that score 82% on saturated Terminal-Bench score under 10% on the hardest ALE tier (0% for most), and ~78% of failures are Understanding/Approach (reasoning and domain knowledge) rather than Execution - the gap is upstream of tool use.',
     keyEvidence: [
       'Hardest-tier average full-pass 2.6%; most mainstream agents record 0% on the Last-Exam tier',
-      'Same config: 82% Terminal-Bench to <10% hardest ALE tier — performance tracks distributional exposure not difficulty',
+      'Same config: 82% Terminal-Bench to <10% hardest ALE tier - performance tracks distributional exposure not difficulty',
       'Failure taxonomy: Approach 47% + Understanding 31% = 78% reasoning/knowledge; only 22% Execution',
-      'Backbone swap drives 18.0pp spread vs ~5-6pp for harness swap (~3x) — the model, not the scaffolding',
+      'Backbone swap drives 18.0pp spread vs ~5-6pp for harness swap (~3x) - the model, not the scaffolding',
       'Only ~10% of 1,490 instances public; rolling renewal keeps the surface contamination-resistant',
     ],
     keyQuotes: [
@@ -8056,7 +8056,7 @@ window.paperNodes = [
     coreArgument:
       'Reward-hack fine-tuning transfers into agentic action selection but behavior is non-monotonic: mixed adapters show strongest exploit behavior while context-calibrated monitoring outperforms activation-only.',
     keyEvidence: [
-      'Mix50 exploit-action rate 0.450 vs fully-hacked endpoint 0.019 — non-monotonic transfer',
+      'Mix50 exploit-action rate 0.450 vs fully-hacked endpoint 0.019 - non-monotonic transfer',
       'Activation-only AUPRC gain: +0.020 vs internal+context: +0.164 for bad_action prediction',
       'Steering reduces proxy score by 2.0-2.2 in Mix10/Mix50 regimes',
       'Entropy-only features (+0.102) outperform activation-only (+0.020) for broad risk estimation',
@@ -8079,8 +8079,8 @@ window.paperNodes = [
     keyEvidence: [
       'First-commitment latency AUROC 0.878 (all), 0.931 (both-correct subset)',
       'Commitment range AUROC 0.926; mean uncommitted mass AUROC 0.904',
-      'Hinted median first-commit 0.032 vs honest median 0.727 — 23x earlier commitment',
-      'Backtracking mass AUROC 0.520 — essentially random; useful signal is latency, not reversal',
+      'Hinted median first-commit 0.032 vs honest median 0.727 - 23x earlier commitment',
+      'Backtracking mass AUROC 0.520 - essentially random; useful signal is latency, not reversal',
     ],
     keyQuotes: [
       'If the answer is provided as a hint, the model can commit very early; if it is reasoning honestly, commitment may appear only after intermediate quantities are derived.',
@@ -8100,8 +8100,8 @@ window.paperNodes = [
       'Scheduler-level early stopping using world feedback (eval scores) achieves 98% precision and 1.5% FPR for detecting reward overoptimization, while training loss is insufficient as it drops monotonically even during hacking.',
     keyEvidence: [
       'EvalStop precision 98.3%, recall 99.3%, FPR 1.5% on RLHF-heavy workloads',
-      'StopAt-0.65 trivial baseline: precision 57.1%, FPR 64.5% — destroys healthy runs',
-      'LossPlateau detector: recall only 38.3% — loss plateau cannot distinguish hacking from convergence',
+      'StopAt-0.65 trivial baseline: precision 57.1%, FPR 64.5% - destroys healthy runs',
+      'LossPlateau detector: recall only 38.3% - loss plateau cannot distinguish hacking from convergence',
       'Composes across 4 base schedulers with 9-25% JCT improvement and ~22% wasted compute reduction',
     ],
     keyQuotes: [

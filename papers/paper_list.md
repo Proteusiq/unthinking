@@ -366,7 +366,7 @@
 | 360 | 2606.04075 | Jun 2026 | Large Language Models Hack Rewards, and Society | Supports |
 | 361 | 2606.05405 | Jun 2026 | Agents' Last Exam (ALE) | Supports |
 | 362 | 2605.19999 | May 2026 | LLM Benchmark Datasets Should Be Contamination-Resistant | Supports |
-| 363 | 2510.07575 | Oct 2025 | Benchmarking Is Broken — Don't Let AI Be Its Own Judge (PeerBench) | Supports |
+| 363 | 2510.07575 | Oct 2025 | Benchmarking Is Broken - Don't Let AI Be Its Own Judge (PeerBench) | Supports |
 | 364 | 2602.19239 | Feb 2026 | Attention Deficits in Language Models: Causal Explanations for Procedural Hallucinations | Supports |
 | 365 | 2507.11768 | Jul 2025 | LLMs are Bayesian, In Expectation, Not in Realization | Supports |
 | 366 | 2606.04923 | Jun 2026 | Reproducing, Analyzing, and Detecting Reward Hacking in Rubric-Based RL (CHERRL) | Supports |

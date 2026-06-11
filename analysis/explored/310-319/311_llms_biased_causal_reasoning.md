@@ -62,7 +62,7 @@ CoT increases robustness for many LLMs
 | Markov violations | Shows characteristic bias | Does NOT mirror |
 | Uncertainty handling | Flexible | Breaks down |
 
-**Compressibility**: Small interpretable model captures LLMs' causal judgments well—suggests simple rule-based computation, not rich causal inference.
+**Compressibility**: Small interpretable model captures LLMs' causal judgments well-suggests simple rule-based computation, not rich causal inference.
 
 ---
 

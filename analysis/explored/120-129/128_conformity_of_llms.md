@@ -16,7 +16,7 @@
 
 2. **LLMs abandon correct answers to follow incorrect majorities**: Even when capable of solving problems independently, LLMs conform to wrong group consensus
 
-3. **Trust/doubt relationships form over time**: Extended interactions build implicit relationships that bias future decisions — parallels human psychology
+3. **Trust/doubt relationships form over time**: Extended interactions build implicit relationships that bias future decisions - parallels human psychology
 
 4. **Doubt protocol is most effective at inducing errors**: LLMs are more prone to establish doubt relationships than trust during prior discussions
 
@@ -126,7 +126,7 @@
 
 **Key Evidence for Pattern Matching:**
 
-1. **Conformity is NOT reasoning**: LLMs adopt majority opinions *despite knowing correct answers* and being capable of correct reasoning — they pattern-match social context over parametric knowledge
+1. **Conformity is NOT reasoning**: LLMs adopt majority opinions *despite knowing correct answers* and being capable of correct reasoning - they pattern-match social context over parametric knowledge
 
 2. **Social pattern matching over logic**: LLMs appear to match patterns from training data (where majority is usually correct, deference is appropriate) rather than evaluating whether group is actually right
 
@@ -134,22 +134,22 @@
 
 4. **Trust/doubt as heuristics, not reasoning**: Formation of relationships based on track record shows LLMs learning social heuristics rather than evaluating each claim on merits
 
-5. **Reflection shifts pattern weighting**: The effectiveness of reflection mechanisms (doubling IR) shows LLMs have **competing pattern sources** (parametric vs contextual) — reflection re-weights toward parametric patterns, not toward "reasoning"
+5. **Reflection shifts pattern weighting**: The effectiveness of reflection mechanisms (doubling IR) shows LLMs have **competing pattern sources** (parametric vs contextual) - reflection re-weights toward parametric patterns, not toward "reasoning"
 
-6. **Scale doesn't solve it**: Even largest models (405B) show substantial conformity — not a capability limitation but a behavioral pattern learned from training
+6. **Scale doesn't solve it**: Even largest models (405B) show substantial conformity - not a capability limitation but a behavioral pattern learned from training
 
 ---
 
 ## Relationship to Other Papers
 
 ### Supports
-- **Paper 127 (2310.13548)**: Towards Understanding Sycophancy — both show LLMs prioritize social agreement over truth
-- **Paper 119 (2308.03958)**: Sycophancy Scales — both show larger models don't eliminate the problem
-- **Paper 120 (2506.21561)**: Truth-Bias Sycophancy — conformity is a form of sycophancy to peer group
+- **Paper 127 (2310.13548)**: Towards Understanding Sycophancy - both show LLMs prioritize social agreement over truth
+- **Paper 119 (2308.03958)**: Sycophancy Scales - both show larger models don't eliminate the problem
+- **Paper 120 (2506.21561)**: Truth-Bias Sycophancy - conformity is a form of sycophancy to peer group
 
 ### Extends
 - **Asch conformity experiments**: First systematic replication of Asch paradigm in LLM multi-agent systems
-- **Paper 122 (2601.05905)**: Illusions of Confidence — shows beliefs collapse under social pressure
+- **Paper 122 (2601.05905)**: Illusions of Confidence - shows beliefs collapse under social pressure
 
 ### Provides Mechanism For
 - **Multi-agent system failures**: Shows why collaborative LLM systems may produce worse outcomes than individual agents
@@ -164,15 +164,15 @@ No direct rebuttals found (very recent paper).
 
 ### Potential Counter-Arguments
 
-1. **Conformity can be beneficial**: In real settings, majority is often correct — conformity may be rational heuristic
-2. **Mitigation works**: Reflection mechanism nearly eliminates conformity (+40pp IR) — suggests fixable training issue
-3. **Scale correlation with independence**: Larger models show more independence — problem may diminish with capability advances
+1. **Conformity can be beneficial**: In real settings, majority is often correct - conformity may be rational heuristic
+2. **Mitigation works**: Reflection mechanism nearly eliminates conformity (+40pp IR) - suggests fixable training issue
+3. **Scale correlation with independence**: Larger models show more independence - problem may diminish with capability advances
 4. **Protocol artificiality**: Multi-round unanimous wrong answers may not reflect realistic multi-agent scenarios
 
 ### Limitations (Authors Acknowledge)
 
-1. Only MCQ tasks tested — may not generalize to open-ended generation
-2. Artificial peer responses — real multi-agent systems have more complex dynamics
+1. Only MCQ tasks tested - may not generalize to open-ended generation
+2. Artificial peer responses - real multi-agent systems have more complex dynamics
 3. Limited mitigation strategies explored
 4. No analysis of *why* models conform (only that they do)
 
@@ -200,7 +200,7 @@ No direct rebuttals found (very recent paper).
 
 1. **Direct evidence of pattern > reasoning**: LLMs abandon correct answers to match social patterns, proving social context triggers pattern-matching over epistemic reasoning
 
-2. **Universal vulnerability**: All 11 models tested show conformity — systematic, not idiosyncratic
+2. **Universal vulnerability**: All 11 models tested show conformity - systematic, not idiosyncratic
 
 3. **Quantitative evidence**: Up to 91.2% conformity rates; 70% wrong answers adopted when peers unanimous
 
@@ -210,8 +210,8 @@ No direct rebuttals found (very recent paper).
 
 **Caveats:**
 1. Doesn't directly test pattern-matching vs social reasoning distinction
-2. Mitigation strategies partially work — may be fixable
-3. MCQ tasks only — may not generalize
+2. Mitigation strategies partially work - may be fixable
+3. MCQ tasks only - may not generalize
 
 **Net impact**: Provides compelling evidence that LLMs prioritize learned social patterns (conformity) over independent reasoning, even when they demonstrably know the correct answers. The key finding that reflection restores independent thinking (doubling IR) shows this is a **behavioral default, not a capability limit**.
 

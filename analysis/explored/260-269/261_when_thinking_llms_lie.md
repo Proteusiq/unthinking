@@ -79,7 +79,7 @@ Two experimental paradigms:
 
 > "Strategic deception in CoT-enabled models manifests as deliberate deviations from factual truth, where the model's intermediate reasoning steps explicitly justify deception as instrumental to goal achievement."
 
-> "Unlike traditional honesty issues on LLMs, which could be possibly explained as some kind of hallucination, those models' explicit thought paths enable us to study strategic deception—goal-driven, intentional misinformation where reasoning contradicts outputs."
+> "Unlike traditional honesty issues on LLMs, which could be possibly explained as some kind of hallucination, those models' explicit thought paths enable us to study strategic deception-goal-driven, intentional misinformation where reasoning contradicts outputs."
 
 > "The inverse scaling law further exacerbates these risks, suggesting that deceptive capabilities may scale with model size."
 

@@ -12,7 +12,7 @@
 
 ## Core Claims
 
-1. **Errors concentrate at specific token positions**: Reasoning hop generalization failures are dominated by a few "key error types" — task-specific token positions where failures consistently concentrate (e.g., 78.6% of errors in Parity-NL 50-hop from single error type)
+1. **Errors concentrate at specific token positions**: Reasoning hop generalization failures are dominated by a few "key error types" - task-specific token positions where failures consistently concentrate (e.g., 78.6% of errors in Parity-NL 50-hop from single error type)
 
 2. **Competition mechanism drives errors**: Correct and erroneous reasoning trajectories coexist inside LLMs; "erroneous processing heads" (ep heads) tip the balance by amplifying incorrect trajectories while suppressing correct ones
 
@@ -102,7 +102,7 @@ For error type Parity-NL(2) (recalling wrong names):
 
 > "We observe shared ep heads across various reasoning tasks and error types, laying the foundation for predicting such ep heads on the fly to intervene"
 
-Key finding: Same attention heads in specific layers cause errors across Parity-NL, MDM, MOAS, ObjC — suggesting learned shortcuts rather than task-specific reasoning.
+Key finding: Same attention heads in specific layers cause errors across Parity-NL, MDM, MOAS, ObjC - suggesting learned shortcuts rather than task-specific reasoning.
 
 ---
 
@@ -112,7 +112,7 @@ Key finding: Same attention heads in specific layers cause errors across Parity-
 
 ### How This Paper STRONGLY SUPPORTS the Thesis
 
-1. **Errors are systematic, not random**: 78.6% of errors from single type shows models fail in predictable ways at specific positions — consistent with learned heuristics breaking down
+1. **Errors are systematic, not random**: 78.6% of errors from single type shows models fail in predictable ways at specific positions - consistent with learned heuristics breaking down
 
 2. **Competition mechanism = pattern retrieval**: The "correct vs erroneous trajectory" competition is models retrieving competing patterns from training, with some winning based on contextual cues
 
@@ -155,18 +155,18 @@ Key finding: Same attention heads in specific layers cause errors across Parity-
 - **DeepSeek-R1 (2501.12948)**: R1 shows emergent reasoning; this paper shows that same architecture has systematic failure modes
 
 ### Provides Mechanism For
-- **GSM-Symbolic (2410.05229)**: Explains WHY performance varies — competition between correct/erroneous trajectories
+- **GSM-Symbolic (2410.05229)**: Explains WHY performance varies - competition between correct/erroneous trajectories
 
 ---
 
 ## REBUTTALS TO THIS PAPER
 
 ### Search for Direct Rebuttals
-- Paper is recent (January 2026) — no direct rebuttals found
+- Paper is recent (January 2026) - no direct rebuttals found
 
 ### Potential Counter-Arguments
 
-1. **TCR-gold shows latent capability exists**: The +20% improvement from oracle intervention suggests models CAN reason correctly — the capability exists but is masked by shortcuts
+1. **TCR-gold shows latent capability exists**: The +20% improvement from oracle intervention suggests models CAN reason correctly - the capability exists but is masked by shortcuts
 
 2. **Limited model sizes**: Only tested on 7-8B models; larger models might show different patterns
 
@@ -208,10 +208,10 @@ Key finding: Same attention heads in specific layers cause errors across Parity-
 
 ## Relevance to Synthesis
 
-**STRONGLY SUPPORTS** thesis — provides mechanistic evidence that:
+**STRONGLY SUPPORTS** thesis - provides mechanistic evidence that:
 1. Reasoning errors are systematic (specific heads, specific positions)
 2. Errors come from competition between learned patterns
 3. Hop generalization failure = training distribution mismatch
 4. Same error mechanisms shared across tasks (general shortcuts, not task-specific reasoning)
 
-**Key insight for synthesis**: TCR-gold (+20%) shows models have latent correct capability that's suppressed by shortcuts. This supports the "surfacing" hypothesis — correct patterns exist but are overridden by dominant (often incorrect) training patterns at longer hops.
+**Key insight for synthesis**: TCR-gold (+20%) shows models have latent correct capability that's suppressed by shortcuts. This supports the "surfacing" hypothesis - correct patterns exist but are overridden by dominant (often incorrect) training patterns at longer hops.

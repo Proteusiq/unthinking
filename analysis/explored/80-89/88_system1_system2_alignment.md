@@ -12,11 +12,11 @@
 
 ## Core Claims
 
-1. **Uniform reasoning style is NOT optimal** — System 2 (deliberative) excels at arithmetic/symbolic reasoning, while System 1 (intuitive) performs better on commonsense reasoning
-2. **LLMs can be explicitly aligned to either reasoning style** — Using curated datasets with dual responses, preference optimization aligns models to distinct cognitive modes
-3. **Accuracy-efficiency trade-off mirrors human cognition** — S2 is more accurate but token-heavy; S1 is faster but makes systematic errors in formal domains
-4. **System 1 models are more confident; System 2 models express more uncertainty** — Mechanistic analysis shows S1 uses higher log-probabilities and fewer hedge words
-5. **Entropy-based arbitration achieves best of both** — Training-free dynamic selection based on output entropy outperforms either system alone
+1. **Uniform reasoning style is NOT optimal** - System 2 (deliberative) excels at arithmetic/symbolic reasoning, while System 1 (intuitive) performs better on commonsense reasoning
+2. **LLMs can be explicitly aligned to either reasoning style** - Using curated datasets with dual responses, preference optimization aligns models to distinct cognitive modes
+3. **Accuracy-efficiency trade-off mirrors human cognition** - S2 is more accurate but token-heavy; S1 is faster but makes systematic errors in formal domains
+4. **System 1 models are more confident; System 2 models express more uncertainty** - Mechanistic analysis shows S1 uses higher log-probabilities and fewer hedge words
+5. **Entropy-based arbitration achieves best of both** - Training-free dynamic selection based on output entropy outperforms either system alone
 
 ---
 
@@ -98,17 +98,17 @@
 
 ### Supports the Thesis (Partially)
 
-**The thesis**: "LLM reasoning is practical but fundamentally predictive—pattern matching from training distributions, not genuinely generative reasoning"
+**The thesis**: "LLM reasoning is practical but fundamentally predictive-pattern matching from training distributions, not genuinely generative reasoning"
 
-1. **Task-specific pattern matching** — S1 and S2 represent different pattern matching modes; neither is "genuine reasoning" but rather different retrieval strategies
-2. **S1 excels where heuristics work** — Commonsense tasks have patterns from human intuitive reasoning in training data
-3. **S2 excels where step-by-step templates exist** — Arithmetic/symbolic tasks have explicit reasoning chains in training data
+1. **Task-specific pattern matching** - S1 and S2 represent different pattern matching modes; neither is "genuine reasoning" but rather different retrieval strategies
+2. **S1 excels where heuristics work** - Commonsense tasks have patterns from human intuitive reasoning in training data
+3. **S2 excels where step-by-step templates exist** - Arithmetic/symbolic tasks have explicit reasoning chains in training data
 
 ### Provides Nuance
 
-1. **Not all reasoning is equal** — Different tasks need different "reasoning" (really: retrieval) strategies
-2. **Confidence ≠ correctness** — S1 is more confident but wrong on formal tasks; S2 is uncertain but more accurate
-3. **Longer chains not always better** — S2's verbosity can hurt commonsense tasks ("overthinking")
+1. **Not all reasoning is equal** - Different tasks need different "reasoning" (really: retrieval) strategies
+2. **Confidence ≠ correctness** - S1 is more confident but wrong on formal tasks; S2 is uncertain but more accurate
+3. **Longer chains not always better** - S2's verbosity can hurt commonsense tasks ("overthinking")
 
 ### Challenges the Thesis (Slightly)
 
@@ -154,11 +154,11 @@ The entropy-based arbitration suggesting models can "know" which reasoning style
 
 ### Potential Limitations
 
-1. **Single model family** — Primarily Llama-3-8B; may not generalize to larger models or different architectures
-2. **Synthetic dataset** — GPT-4o generated S1/S2 responses may not capture true human dual-process distinction
-3. **Length control may not be perfect** — Some systematic differences may remain despite length matching
-4. **Selection of heuristics** — Only 10 cognitive heuristics from Kahneman; may not cover all S1 behaviors
-5. **Benchmark selection** — Specific benchmarks may favor certain reasoning styles
+1. **Single model family** - Primarily Llama-3-8B; may not generalize to larger models or different architectures
+2. **Synthetic dataset** - GPT-4o generated S1/S2 responses may not capture true human dual-process distinction
+3. **Length control may not be perfect** - Some systematic differences may remain despite length matching
+4. **Selection of heuristics** - Only 10 cognitive heuristics from Kahneman; may not cover all S1 behaviors
+5. **Benchmark selection** - Specific benchmarks may favor certain reasoning styles
 
 ### Author Acknowledgments (from Limitations section)
 
@@ -169,10 +169,10 @@ The entropy-based arbitration suggesting models can "know" which reasoning style
 
 ### Papers That Could Challenge This
 
-1. **DeepSeek-R1 (2501.12948)** — Claims extended reasoning benefits across tasks
+1. **DeepSeek-R1 (2501.12948)** - Claims extended reasoning benefits across tasks
    - **Resolution**: R1 may have learned task-adaptive reasoning internally
 
-2. **Physics of LLMs 2.1 (2407.20311)** — Shows CoT helps even simple tasks
+2. **Physics of LLMs 2.1 (2407.20311)** - Shows CoT helps even simple tasks
    - **Resolution**: Different task domains may have different optimal strategies
 
 ---
@@ -199,9 +199,9 @@ The entropy-based arbitration suggesting models can "know" which reasoning style
 
 This paper provides **strong evidence** for task-dependent reasoning effectiveness:
 
-1. **Controlled experimental design** — Length-matched data, multiple alignment methods, interpolation experiments
-2. **Clear mechanistic findings** — Entropy, hedge words, and response patterns distinguish S1/S2
-3. **Practical implications** — Entropy-based selection works without additional training
+1. **Controlled experimental design** - Length-matched data, multiple alignment methods, interpolation experiments
+2. **Clear mechanistic findings** - Entropy, hedge words, and response patterns distinguish S1/S2
+3. **Practical implications** - Entropy-based selection works without additional training
 
 The dual-process framing is compelling, though the underlying mechanism is still pattern matching from different training distributions (heuristic patterns vs. explicit reasoning chains).
 
@@ -214,9 +214,9 @@ The paper is balanced because:
 
 ### Implications for the Thesis
 
-1. **"Reasoning" is heterogeneous** — What we call reasoning is actually multiple retrieval/matching strategies
-2. **Task-pattern alignment matters** — Performance depends on match between task structure and training patterns
-3. **Meta-cognitive selection possible** — Models can learn when to use which strategy (but this is also pattern matching)
+1. **"Reasoning" is heterogeneous** - What we call reasoning is actually multiple retrieval/matching strategies
+2. **Task-pattern alignment matters** - Performance depends on match between task structure and training patterns
+3. **Meta-cognitive selection possible** - Models can learn when to use which strategy (but this is also pattern matching)
 
 ---
 

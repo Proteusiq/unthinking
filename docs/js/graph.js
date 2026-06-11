@@ -1584,7 +1584,7 @@
       if (index < pairs.length) {
         showRelated();
       } else {
-        // Done with node-specific pairs — switch to global cycle
+        // Done with node-specific pairs - switch to global cycle
         clearInterval(state.dialogueInterval);
         showNextDialogue();
         state.dialogueInterval = setInterval(showNextDialogue, 8000);

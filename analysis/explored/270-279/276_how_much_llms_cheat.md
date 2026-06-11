@@ -22,7 +22,7 @@
 
 ## Methodology
 
-**Framework**: ArxivRoll — dynamic evaluation inspired by one-time pad cryptography
+**Framework**: ArxivRoll - dynamic evaluation inspired by one-time pad cryptography
 
 **Key Components**:
 
@@ -122,7 +122,7 @@ The paper demonstrates that:
 
 3. **Pattern matching on training distribution**: Models perform systematically worse on unseen (post-cutoff) content, revealing dependence on training data patterns rather than generalizable reasoning
 
-4. **Contamination is widespread**: The authors note Llama-4 and Qwen-2.5 have contaminated training — this is industry-wide, not isolated
+4. **Contamination is widespread**: The authors note Llama-4 and Qwen-2.5 have contaminated training - this is industry-wide, not isolated
 
 The core insight supporting the thesis: if models genuinely reasoned, their performance on public vs private benchmarks in the same domain should be similar. The systematic gap reveals pattern-matching to memorized or familiar content.
 
@@ -132,7 +132,7 @@ The core insight supporting the thesis: if models genuinely reasoned, their perf
 
 **Classification**: Supports the thesis that LLMs don't genuinely reason
 
-**Confidence**: High — comprehensive framework with validation, multiple models tested, quantitative metrics
+**Confidence**: High - comprehensive framework with validation, multiple models tested, quantitative metrics
 
 ---
 
@@ -158,7 +158,7 @@ The core insight supporting the thesis: if models genuinely reasoned, their perf
 
 ### Counter-Evidence
 
-The paper proposes a solution (ArxivRoll) that enables uncontaminated evaluation. However, even this reveals that models perform much worse on truly novel content — supporting rather than challenging the thesis.
+The paper proposes a solution (ArxivRoll) that enables uncontaminated evaluation. However, even this reveals that models perform much worse on truly novel content - supporting rather than challenging the thesis.
 
 ---
 
@@ -201,7 +201,7 @@ The paper proposes a solution (ArxivRoll) that enables uncontaminated evaluation
 3. **Industry-wide implications**: Shows popular models have contaminated training
 4. **Methodology contribution**: SCP enables automated, domain-diverse test generation
 
-The paper's key contribution is shifting from "what is the score?" to "how much of the score is real?" — a fundamental reframing that exposes the gap between benchmark performance and genuine capability.
+The paper's key contribution is shifting from "what is the score?" to "how much of the score is real?" - a fundamental reframing that exposes the gap between benchmark performance and genuine capability.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐

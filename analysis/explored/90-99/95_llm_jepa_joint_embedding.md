@@ -6,16 +6,16 @@
 - **Authors**: Hai Huang (Atlassian), Yann LeCun (NYU), Randall Balestriero (Brown University)
 - **Date**: September 2025
 - **Venue**: Preprint
-- **Stance**: BALANCED (improves ID performance; NO OOD testing — critical limitation)
+- **Stance**: BALANCED (improves ID performance; NO OOD testing - critical limitation)
 
 ---
 
 ## Core Claims
 
 1. **LLM-JEPA improves representation quality** by adding JEPA objective to standard next-token prediction
-2. **A good next-token predictor is NOT a good JEPA** — minimizing NTP doesn't minimize JEPA loss
+2. **A good next-token predictor is NOT a good JEPA** - minimizing NTP doesn't minimize JEPA loss
 3. **Consistent improvements** across Llama3, Gemma2, OLMo, OpenELM families
-4. **Induces more structured representations** — clearer t-SNE organization, narrower singular value subspace
+4. **Induces more structured representations** - clearer t-SNE organization, narrower singular value subspace
 5. **Resists overfitting** better than standard fine-tuning
 6. **Works for pretraining**, not just fine-tuning
 
@@ -69,7 +69,7 @@ All families show improvement:
 - OpenELM-1_1B-Instruct: Significant
 - OLMo-2-0425-1B-Instruct: Significant
 
-### Finding 3: LoRA Results — Scaling with Rank
+### Finding 3: LoRA Results - Scaling with Rank
 
 | LoRA Rank | Baseline | LLM-JEPA | Δ |
 |-----------|----------|----------|---|
@@ -137,7 +137,7 @@ The improvements could equally be explained by:
 
 ### Net Assessment
 
-**TANGENTIAL/NEUTRAL to thesis** — without OOD testing, improvements could be:
+**TANGENTIAL/NEUTRAL to thesis** - without OOD testing, improvements could be:
 - Better in-distribution pattern matching (supports thesis)
 - Better abstract reasoning (challenges thesis)
 
@@ -176,7 +176,7 @@ The improvements could equally be explained by:
 
 ### Limitations (NOT Acknowledged)
 
-1. **No OOD/generalization testing** — critical omission
+1. **No OOD/generalization testing** - critical omission
 2. No analysis of what types of problems improve
 3. No mechanistic understanding of why JEPA helps
 

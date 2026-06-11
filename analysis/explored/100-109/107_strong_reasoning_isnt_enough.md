@@ -11,17 +11,17 @@
 
 ## Core Claims
 
-1. **Strong diagnostic reasoning does NOT guarantee effective information collection** — models that perform well in static settings with full information fail to gather evidence effectively in interactive settings.
+1. **Strong diagnostic reasoning does NOT guarantee effective information collection** - models that perform well in static settings with full information fail to gather evidence effectively in interactive settings.
 
 2. **Insufficient information collection is the primary bottleneck** limiting performance when moving from static to interactive evaluation.
 
-3. **Diagnostic reasoning ability and evidence elicitation ability are partially decoupled** — some models (GPT-5) have high success rate but low information coverage; others (Qwen2.5 series) have high coverage but lower success rate.
+3. **Diagnostic reasoning ability and evidence elicitation ability are partially decoupled** - some models (GPT-5) have high success rate but low information coverage; others (Qwen2.5 series) have high coverage but lower success rate.
 
-4. **Model scaling primarily improves reasoning capacity rather than evidence elicitation ability** — within Qwen2.5 family, scaling from 3B to 72B improves SR with marginal gains in ICR.
+4. **Model scaling primarily improves reasoning capacity rather than evidence elicitation ability** - within Qwen2.5 family, scaling from 3B to 72B improves SR with marginal gains in ICR.
 
-5. **Medical fine-tuning can HURT interactive performance** — Meditron3-8B (fine-tuned from Llama-3.1-8B) shows larger performance degradation than its base model.
+5. **Medical fine-tuning can HURT interactive performance** - Meditron3-8B (fine-tuned from Llama-3.1-8B) shows larger performance degradation than its base model.
 
-6. **ICR (Information Coverage Rate) is a valid measure of evidence-gathering quality** — successful diagnoses consistently exhibit higher ICR than failed ones.
+6. **ICR (Information Coverage Rate) is a valid measure of evidence-gathering quality** - successful diagnoses consistently exhibit higher ICR than failed ones.
 
 ---
 
@@ -33,11 +33,11 @@
   - Simulated Reporter (returns objective examination results)
   - Doctor Agent (model under evaluation)
 - **Maximum 16 interaction turns** per case
-- **Atomic evidence representation** — minimal, self-contained clinical facts
+- **Atomic evidence representation** - minimal, self-contained clinical facts
 
 ### Metrics
 - **Success Rate (SR)**: Diagnostic accuracy
-- **Information Coverage Rate (ICR)**: |Ê ∩ E| / |E| — proportion of relevant evidence collected
+- **Information Coverage Rate (ICR)**: |Ê ∩ E| / |E| - proportion of relevant evidence collected
 - **Upper Bound (UB)**: SR with full information provided upfront (static setting)
 
 ### Models Tested (10 models)
@@ -104,13 +104,13 @@
 ## Relationship to Other Papers
 
 ### Supports
-- **Paper 100 (Reasoning-Critical Neurons)**: Both show models "know" their capabilities early — ICR-SR decoupling suggests models don't engage different circuits for gathering vs reasoning
+- **Paper 100 (Reasoning-Critical Neurons)**: Both show models "know" their capabilities early - ICR-SR decoupling suggests models don't engage different circuits for gathering vs reasoning
 - **Paper 99 (Flexibility Trap)**: Both show LLMs fail when task structure differs from training (interactive vs static)
-- **Paper 98 (Tokenizer Betrays)**: Surface-level processing — models trained on complete cases don't learn what evidence matters
+- **Paper 98 (Tokenizer Betrays)**: Surface-level processing - models trained on complete cases don't learn what evidence matters
 - **Faith & Fate, OMEGA, Planning Gap**: Pattern matching on seen structures fails on novel interaction patterns
 
 ### Challenges
-- None directly — this is novel evidence for the thesis
+- None directly - this is novel evidence for the thesis
 
 ### Extends
 - **AgentBench, WebArena**: Extends agent evaluation to medical domain with fine-grained evidence tracking
@@ -161,11 +161,11 @@
 Key insight: Models trained on complete case descriptions learn to **match diagnostic patterns** but don't learn **what evidence is necessary** to establish those patterns.
 
 This manifests as:
-1. **High static performance with dramatic interactive collapse** — pattern matching works when pattern is complete
-2. **Medical fine-tuning making the problem WORSE** — more pattern-fitted to complete cases
-3. **Scaling improving reasoning SR but not evidence-gathering ICR** — bigger models = better pattern matchers, not better reasoners
-4. **Models achieving correct diagnoses with incomplete evidence** — lucky pattern matching, not systematic reasoning
-5. **Decoupled ICR-SR** — models can reason from complete info (pattern match) but can't identify what info is needed (genuine reasoning)
+1. **High static performance with dramatic interactive collapse** - pattern matching works when pattern is complete
+2. **Medical fine-tuning making the problem WORSE** - more pattern-fitted to complete cases
+3. **Scaling improving reasoning SR but not evidence-gathering ICR** - bigger models = better pattern matchers, not better reasoners
+4. **Models achieving correct diagnoses with incomplete evidence** - lucky pattern matching, not systematic reasoning
+5. **Decoupled ICR-SR** - models can reason from complete info (pattern match) but can't identify what info is needed (genuine reasoning)
 
 ---
 

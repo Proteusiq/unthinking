@@ -12,7 +12,7 @@
 
 ## Core Claims
 
-1. Existing unlearning methods **over-unlearn** — removing all information linked to forget data, including knowledge supported by retain data
+1. Existing unlearning methods **over-unlearn** - removing all information linked to forget data, including knowledge supported by retain data
 2. **Marginal information** is the correct target: remove only the additional contribution of forget data beyond what retain data supports
 3. Forgetting-MarI provides **provable undetectability** via explicit upper bounds on residual mutual information
 4. Method **outperforms state-of-the-art** (GA, GD, KL-GA, DPO) on utility preservation while achieving reliable forgetting
@@ -103,14 +103,14 @@ Where:
 
 This paper proposes a **new unlearning method** rather than challenging/supporting the thesis directly. However, key insights are relevant:
 
-1. **Knowledge is distributed**: The distinction between "marginal" and "full" information acknowledges that knowledge overlaps across training data — you can't cleanly separate forget from retain
+1. **Knowledge is distributed**: The distinction between "marginal" and "full" information acknowledges that knowledge overlaps across training data - you can't cleanly separate forget from retain
 
-2. **Unlearning is fundamentally about distributions**: The MI-based approach treats knowledge as statistical patterns, not discrete facts — aligning with the thesis view
+2. **Unlearning is fundamentally about distributions**: The MI-based approach treats knowledge as statistical patterns, not discrete facts - aligning with the thesis view
 
 3. **Trade-offs are inherent**: Even this sophisticated method faces utility-forgetting trade-offs, supporting the claim that knowledge is entangled
 
 ### Key Insight for Thesis
-The paper's framing of "marginal information" implicitly acknowledges that LLM knowledge is **distributed and overlapping** — you can only remove the marginal statistical contribution, not "the knowledge" as a discrete entity.
+The paper's framing of "marginal information" implicitly acknowledges that LLM knowledge is **distributed and overlapping** - you can only remove the marginal statistical contribution, not "the knowledge" as a discrete entity.
 
 ---
 
@@ -135,7 +135,7 @@ The paper's framing of "marginal information" implicitly acknowledges that LLM k
 
 ### Limitations (Implicit)
 
-1. **Mid-scale models only**: Tested on GPT-2 Large (774M) and Llama-3.2-1B — not frontier scale
+1. **Mid-scale models only**: Tested on GPT-2 Large (774M) and Llama-3.2-1B - not frontier scale
 2. **Limited benchmarks**: Two datasets (Harry Potter, Careless People)
 3. **Doesn't address quantization attack** (#228): Theoretical guarantees may not survive model compression
 4. **Computational overhead**: MI computation adds to unlearning cost
@@ -170,11 +170,11 @@ The paper's framing of "marginal information" implicitly acknowledges that LLM k
 
 This paper provides **balanced/technical evidence**:
 
-1. **For the thesis**: The marginal information framing acknowledges that knowledge is distributed and overlapping — you can only target statistical contributions, not discrete knowledge units
+1. **For the thesis**: The marginal information framing acknowledges that knowledge is distributed and overlapping - you can only target statistical contributions, not discrete knowledge units
 
 2. **Neutral**: Proposes a method that may improve unlearning, but doesn't claim to solve it completely
 
-3. **Key limitation**: Doesn't address whether quantization or other attacks can recover "marginal" information — #228 suggests this is possible
+3. **Key limitation**: Doesn't address whether quantization or other attacks can recover "marginal" information - #228 suggests this is possible
 
 The paper's sophisticated approach implicitly supports the thesis view that LLM knowledge is fundamentally statistical patterns distributed across parameters.
 

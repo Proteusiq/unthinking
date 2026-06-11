@@ -92,7 +92,7 @@
 ### Mechanism Relevance
 - Paper keeps LLM weights frozen; all "learning" happens via case bank updates
 - Similarity-based retrieval is pattern matching by definition
-- No claim of abstract rule learning — cases stored and retrieved as-is
+- No claim of abstract rule learning - cases stored and retrieved as-is
 
 ---
 
@@ -128,11 +128,11 @@ No direct rebuttals found in the corpus.
 
 **Stance**: Balanced
 
-**Relevance**: This paper demonstrates that external scaffolding (memory + tools + case retrieval) can achieve SOTA on complex reasoning benchmarks without any LLM fine-tuning. The core mechanism — cosine similarity retrieval of past cases — is pattern matching by definition.
+**Relevance**: This paper demonstrates that external scaffolding (memory + tools + case retrieval) can achieve SOTA on complex reasoning benchmarks without any LLM fine-tuning. The core mechanism - cosine similarity retrieval of past cases - is pattern matching by definition.
 
 **Key insight**: Memento succeeds BECAUSE of LLM limitations, not despite them. If LLMs could genuinely reason and generalize from experience internally, external case banks wouldn't improve OOD performance by 4.7-9.6%. The need for explicit memory storage suggests LLMs cannot abstract reasoning patterns themselves.
 
-**However**: The paper doesn't directly claim LLMs lack reasoning. It bypasses the question by keeping LLMs frozen. Performance still depends on strong base LLMs (o3 executor). This is evidence for the scaffolding hypothesis — that reasoning-like behavior emerges from external structure around pattern-matching cores — but not direct evidence against LLM reasoning capabilities per se.
+**However**: The paper doesn't directly claim LLMs lack reasoning. It bypasses the question by keeping LLMs frozen. Performance still depends on strong base LLMs (o3 executor). This is evidence for the scaffolding hypothesis - that reasoning-like behavior emerges from external structure around pattern-matching cores - but not direct evidence against LLM reasoning capabilities per se.
 
 ---
 

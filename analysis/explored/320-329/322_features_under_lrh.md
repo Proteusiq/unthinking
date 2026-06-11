@@ -152,7 +152,7 @@ But doesn't prove features = genuine understanding.
 
 > "Our main results demonstrate dependencies between superposition (the number of features stored relative to the number of neurons), sparsity (the number of features active per input), accessibility (the precision by which the next layer can access features stored in the previous layer), and feature geometry."
 
-> "A primary implication of our work is that linear representations—in addition to being conceptually elegant and highly-compatible with neural network operations—can be remarkably expressive."
+> "A primary implication of our work is that linear representations-in addition to being conceptually elegant and highly-compatible with neural network operations-can be remarkably expressive."
 
 ---
 
@@ -192,17 +192,17 @@ Theorem 12 shows the k² lower bound also applies to:
 
 ### Authors' Acknowledged Limitations
 
-1. Framework assumes fixed sparsity k — real features may have varying sparsity
-2. Error tolerance ε is uniform — real errors may vary by feature
+1. Framework assumes fixed sparsity k - real features may have varying sparsity
+2. Error tolerance ε is uniform - real errors may vary by feature
 3. Does not model nonlinear interactions between features
 4. Binary feature case (Section 5) may not capture continuous concepts
 
 ### What This Paper Doesn't Address
 
-1. **Whether features = reasoning units** — capacity ≠ capability
-2. **Feature geometry in practice** — theory says possible, not how models do it
-3. **Non-Euclidean geometry** — assumes Euclidean, but Paper #321 shows real spaces curve
-4. **Compositional reasoning** — single features vs. composed reasoning
+1. **Whether features = reasoning units** - capacity ≠ capability
+2. **Feature geometry in practice** - theory says possible, not how models do it
+3. **Non-Euclidean geometry** - assumes Euclidean, but Paper #321 shows real spaces curve
+4. **Compositional reasoning** - single features vs. composed reasoning
 
 ### How This Affects the Thesis
 
@@ -225,9 +225,9 @@ Theorem 12 shows the k² lower bound also applies to:
 **Contribution**: First rigorous mathematical framework for the Linear Representation Hypothesis. Proves tight bounds showing linear accessibility requires quadratically more dimensions than classical compressed sensing (k² vs k), but still allows exponential feature storage (superposition). Provides theoretical foundation for interpretability research.
 
 **For the thesis**: This paper is **foundational but neutral**:
-1. Proves LRH is mathematically viable — concepts CAN be linear
-2. Shows superposition is necessary — models MUST pack features
-3. Establishes limits on linear accessibility — can't probe everything perfectly
+1. Proves LRH is mathematically viable - concepts CAN be linear
+2. Shows superposition is necessary - models MUST pack features
+3. Establishes limits on linear accessibility - can't probe everything perfectly
 4. Says nothing about whether features constitute reasoning
 
 **The key insight**: The math works for storing concepts, but storing ≠ reasoning. A dictionary also stores words linearly, but doesn't understand them.

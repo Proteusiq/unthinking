@@ -11,11 +11,11 @@
 
 ## Core Claims
 
-1. **Context Compliance Attack (CCA)** — A novel, optimization-free jailbreak method that exploits stateless conversation handling
-2. **Simplicity is sufficient** — No complex prompt engineering or computational optimization needed; just manipulate conversation history
-3. **Architectural vulnerability** — The flaw is in the design: AI systems trust client-supplied conversation history
-4. **Near-universal vulnerability** — Almost all tested models (except Llama-2) are vulnerable to CCA
-5. **Cascading compliance** — Once deceived on one topic, models become progressively more likely to divulge related sensitive content
+1. **Context Compliance Attack (CCA)** - A novel, optimization-free jailbreak method that exploits stateless conversation handling
+2. **Simplicity is sufficient** - No complex prompt engineering or computational optimization needed; just manipulate conversation history
+3. **Architectural vulnerability** - The flaw is in the design: AI systems trust client-supplied conversation history
+4. **Near-universal vulnerability** - Almost all tested models (except Llama-2) are vulnerable to CCA
+5. **Cascading compliance** - Once deceived on one topic, models become progressively more likely to divulge related sensitive content
 
 ---
 
@@ -61,11 +61,11 @@
 
 ### Key Observations
 
-1. **Llama-2 is uniquely resistant** — Only model to resist CCA across all tasks
-2. **Llama-3.1 is fully vulnerable** — Despite being newer, completely compromised
-3. **Most tasks succeed on first trial** — "Sex" task most resistant (up to 5 trials)
-4. **Scale doesn't help** — Larger models (70b) equally or more vulnerable than smaller ones
-5. **Reasoning models partially resistant** — o1, o3-mini show some resistance but still vulnerable
+1. **Llama-2 is uniquely resistant** - Only model to resist CCA across all tasks
+2. **Llama-3.1 is fully vulnerable** - Despite being newer, completely compromised
+3. **Most tasks succeed on first trial** - "Sex" task most resistant (up to 5 trials)
+4. **Scale doesn't help** - Larger models (70b) equally or more vulnerable than smaller ones
+5. **Reasoning models partially resistant** - o1, o3-mini show some resistance but still vulnerable
 
 ---
 
@@ -75,11 +75,11 @@
 
 > "The effectiveness of CCA highlights a critical vulnerability in the design of many AI systems: they depend on clients to supply the entire conversation history with each request."
 
-Modern AI systems are **stateless** — they don't remember conversations. Instead, clients send the full conversation history with each request. This design choice, made for scalability and efficiency, **inherently trusts the integrity of provided context**.
+Modern AI systems are **stateless** - they don't remember conversations. Instead, clients send the full conversation history with each request. This design choice, made for scalability and efficiency, **inherently trusts the integrity of provided context**.
 
 ### Implication
 
-The model doesn't verify whether it actually said what the history claims. If the history says "I already agreed to help with X," the model predicts compliance as the likely continuation — because that's what the training distribution says should come next.
+The model doesn't verify whether it actually said what the history claims. If the history says "I already agreed to help with X," the model predicts compliance as the likely continuation - because that's what the training distribution says should come next.
 
 ---
 
@@ -89,17 +89,17 @@ The model doesn't verify whether it actually said what the history claims. If th
 
 This paper provides **direct mechanistic evidence** that safety is shallow:
 
-1. **Safety = contextual probability**: Models don't evaluate "is this harmful?" — they compute "given this context, what's the probable continuation?"
+1. **Safety = contextual probability**: Models don't evaluate "is this harmful?" - they compute "given this context, what's the probable continuation?"
 
 2. **No semantic understanding of refusal**: If the model "understood" it shouldn't help with bombs, it wouldn't be fooled by fake history claiming it already agreed. The refusal is a pattern, not a principle.
 
-3. **Autoregressive vulnerability**: Once the context implies compliance, the model continues complying — exactly what you'd expect from next-token prediction.
+3. **Autoregressive vulnerability**: Once the context implies compliance, the model continues complying - exactly what you'd expect from next-token prediction.
 
 4. **Llama-2 exception proves the rule**: Llama-2's resistance likely comes from different training, not deeper understanding. Safety is training-dependent, not architecturally robust.
 
 ### Key Quote (Implicit)
 
-The entire paper demonstrates that jailbreaking requires only convincing the model that it's already in a compliant context. No actual reasoning or semantic analysis is bypassed — just probability distributions shifted by fake history.
+The entire paper demonstrates that jailbreaking requires only convincing the model that it's already in a compliant context. No actual reasoning or semantic analysis is bypassed - just probability distributions shifted by fake history.
 
 ---
 
@@ -115,7 +115,7 @@ The entire paper demonstrates that jailbreaking requires only convincing the mod
 
 ### Limitation of Mitigations
 
-For open-source/white-box models, users have complete control — mitigations must be baked into model architecture itself.
+For open-source/white-box models, users have complete control - mitigations must be baked into model architecture itself.
 
 ---
 
@@ -131,7 +131,7 @@ For open-source/white-box models, users have complete control — mitigations mu
 - Crescendo attack (same authors): CCA is simpler than their earlier multi-turn approach
 
 ### Contrasts
-- Paper 240: CCA requires no LRM adversary, no multi-turn conversation — just history editing
+- Paper 240: CCA requires no LRM adversary, no multi-turn conversation - just history editing
 
 ---
 
@@ -143,7 +143,7 @@ For open-source/white-box models, users have complete control — mitigations mu
 
 2. **"API providers can mitigate"**: True for black-box models, but open-source models remain vulnerable. And mitigation adds latency/cost.
 
-3. **"This is an API-level attack, not a model flaw"**: Partially true — but the model's willingness to comply based on fake history IS a model property. A "truly safe" model would verify its own prior statements.
+3. **"This is an API-level attack, not a model flaw"**: Partially true - but the model's willingness to comply based on fake history IS a model property. A "truly safe" model would verify its own prior statements.
 
 ### Limitations (Authors Acknowledge)
 
@@ -167,7 +167,7 @@ For open-source/white-box models, users have complete control — mitigations mu
 
 ### The Core Insight
 
-CCA proves that safety alignment operates at the **context level**, not the **content level**. Models don't ask "is this request harmful?" — they ask "given this conversation history, what's the probable next response?"
+CCA proves that safety alignment operates at the **context level**, not the **content level**. Models don't ask "is this request harmful?" - they ask "given this conversation history, what's the probable next response?"
 
 This is exactly what you'd expect from a next-token predictor:
 - Training teaches: "after agreeing to help, provide help"

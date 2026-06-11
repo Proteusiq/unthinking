@@ -6,7 +6,7 @@
 - **Authors**: Sean Williams, James Huckle
 - **Affiliation**: AutogenAI Ltd.
 - **Code**: [github.com/autogenai/easy-problems-that-llms-get-wrong](https://github.com/autogenai/easy-problems-that-llms-get-wrong)
-- **Stance**: Supports thesis — frontier LLMs score 16-38% on 30 trivially easy problems where humans average 86%. Models overfit to famous puzzle templates in training data, failing when problems are deliberately simplified. Chain-of-thought contradicts its own conclusions.
+- **Stance**: Supports thesis - frontier LLMs score 16-38% on 30 trivially easy problems where humans average 86%. Models overfit to famous puzzle templates in training data, failing when problems are deliberately simplified. Chain-of-thought contradicts its own conclusions.
 
 ---
 
@@ -53,7 +53,7 @@
 
 1. **Frontier LLMs fail at trivially easy problems**: 48pp gap between best LLM (38%) and human average (86%) on questions designed to be easy for adults
 2. **Training data overfitting is the primary failure mode**: models default to solutions for the ORIGINAL versions of famous puzzles, ignoring deliberate modifications that make the problems easier
-3. **CoT can be self-contradictory**: Claude 3 Opus calculates two different probabilities then concludes "in both scenarios, the expected outcome is the same" — the reasoning contradicts the answer
+3. **CoT can be self-contradictory**: Claude 3 Opus calculates two different probabilities then concludes "in both scenarios, the expected outcome is the same" - the reasoning contradicts the answer
 4. **Prompt engineering helps but doesn't solve**: +40.7% relative improvement, but 16 cases regressed; best post-prompting score is 52% (still 34pp below human)
 5. **Standard benchmarks mask failures**: models scoring 86-95% on MMLU/GSM8K score 16-38% on simple novel problems
 6. **LLM-as-judge inflates scores**: automated GPT-4 scorer gives significantly higher scores than human scoring, "often fails to follow the rubric accurately and hallucinates often"
@@ -113,19 +113,19 @@
 ## Relationship to Other Papers
 
 ### Supports
-- **#1 Faith and Fate (2305.18654)** — Modified puzzles are compositional variants; models fail when composition changes even though individual components are simpler
-- **#3 GSM-Symbolic (2410.05229)** — Same principle: surface-form perturbation reveals dependence on training distribution rather than understanding
-- **#2 Illusion of Thinking (2506.06941)** — Models apply memorized complex solutions to deliberately simplified problems, confirming "illusion of reasoning"
-- **#191 LLM Reasoning Failures Survey (2602.06176)** — Provides canonical examples for multiple failure categories
-- **#347 BrokenMath (2510.04721)** — When models can't solve from understanding, they confabulate from training patterns; here, they retrieve wrong puzzle solutions
-- **#22 Illusion of Diminishing Returns** — Benchmark saturation (86%+ MMLU) masks these failures
+- **#1 Faith and Fate (2305.18654)** - Modified puzzles are compositional variants; models fail when composition changes even though individual components are simpler
+- **#3 GSM-Symbolic (2410.05229)** - Same principle: surface-form perturbation reveals dependence on training distribution rather than understanding
+- **#2 Illusion of Thinking (2506.06941)** - Models apply memorized complex solutions to deliberately simplified problems, confirming "illusion of reasoning"
+- **#191 LLM Reasoning Failures Survey (2602.06176)** - Provides canonical examples for multiple failure categories
+- **#347 BrokenMath (2510.04721)** - When models can't solve from understanding, they confabulate from training patterns; here, they retrieve wrong puzzle solutions
+- **#22 Illusion of Diminishing Returns** - Benchmark saturation (86%+ MMLU) masks these failures
 
 ### Extends
-- **#3 GSM-Symbolic** — Moves beyond math to spatial, linguistic, and common-sense domains
+- **#3 GSM-Symbolic** - Moves beyond math to spatial, linguistic, and common-sense domains
 - Adds the "training-data overfitting" explanation with specific puzzle-modification methodology
 
 ### Challenges (weakly)
-- Only 30 questions — limited statistical power
+- Only 30 questions - limited statistical power
 - May 2024 models; newer models (GPT-5, Claude 4) might handle some of these
 
 ---
@@ -155,27 +155,27 @@
 
 ## Key Quotes
 
-1. *"Our research reveals that Large Language Models (LLMs) often struggle to answer questions that adult humans find straightforward and intuitive."* — Abstract
-2. *"This behaviour underscores a tendency towards LLMs overfitting their web-based training corpus, adversely impacting their proficiency to generate accurate responses to novel problems."* — Section 3
-3. *"There were examples of logical inconsistencies and falsehoods within the Chain of Thought (CoT) process, contradicting the final answer."* — Section 3.1
-4. *"Minute changes to input structure or order that do not change the meaning of a question lead to dramatically different responses from LLMs."* — Section 3.2
-5. *"When a measure becomes a target, it ceases to be a good measure."* — Goodhart's maxim, cited in Discussion
-6. *"Claude 3 Opus demonstrated exceptional performance against GPT-4 Turbo across many standard benchmarks; however, it did not perform as strongly on our specialised Linguistic Benchmark."* — Section 4
+1. *"Our research reveals that Large Language Models (LLMs) often struggle to answer questions that adult humans find straightforward and intuitive."* - Abstract
+2. *"This behaviour underscores a tendency towards LLMs overfitting their web-based training corpus, adversely impacting their proficiency to generate accurate responses to novel problems."* - Section 3
+3. *"There were examples of logical inconsistencies and falsehoods within the Chain of Thought (CoT) process, contradicting the final answer."* - Section 3.1
+4. *"Minute changes to input structure or order that do not change the meaning of a question lead to dramatically different responses from LLMs."* - Section 3.2
+5. *"When a measure becomes a target, it ceases to be a good measure."* - Goodhart's maxim, cited in Discussion
+6. *"Claude 3 Opus demonstrated exceptional performance against GPT-4 Turbo across many standard benchmarks; however, it did not perform as strongly on our specialised Linguistic Benchmark."* - Section 4
 
 ---
 
 ## Critical Assessment
 
 ### Why this supports the thesis
-The modified-puzzle methodology is elegant: by taking famous puzzles (Monty Hall, river crossing, horse racing) and making them EASIER — not harder — the paper reveals that models are retrieving memorized solutions rather than reasoning about the problem. A reasoning system would recognize that a 3-compartment boat makes the river crossing trivial. Instead, models retrieve the elaborate multi-trip solution from training data because the framing (farmer, wolf, goat, cabbage, river) triggers the memorized pattern.
+The modified-puzzle methodology is elegant: by taking famous puzzles (Monty Hall, river crossing, horse racing) and making them EASIER - not harder - the paper reveals that models are retrieving memorized solutions rather than reasoning about the problem. A reasoning system would recognize that a 3-compartment boat makes the river crossing trivial. Instead, models retrieve the elaborate multi-trip solution from training data because the framing (farmer, wolf, goat, cabbage, river) triggers the memorized pattern.
 
 The CoT self-contradiction (Claude computing two probabilities then claiming they're the same) is direct evidence that chain-of-thought is post-hoc rationalization, not step-by-step reasoning. The model commits to an answer based on pattern matching then generates plausible-sounding but internally inconsistent reasoning to justify it.
 
 ### Where it weakens the thesis
 - Only 30 questions is genuinely small
-- May 2024 frontier models — newer models may have been specifically fine-tuned on adversarial puzzle variants
+- May 2024 frontier models - newer models may have been specifically fine-tuned on adversarial puzzle variants
 - Some questions may be legitimately ambiguous (Q30 about average speed requires recognizing a mathematical impossibility)
 - The +40.7% improvement from prompting suggests models CAN be steered toward better reasoning when given explicit guidance
 
 ### Net interpretation
-Supports thesis. The training-data overfitting finding is a clean demonstration of pattern matching over reasoning. Models that score 86-95% on MMLU/GSM8K score 16-38% when familiar puzzle framings are modified to be trivially easy. The gap cannot be explained by difficulty — it can only be explained by memorization of training-data patterns.
+Supports thesis. The training-data overfitting finding is a clean demonstration of pattern matching over reasoning. Models that score 86-95% on MMLU/GSM8K score 16-38% when familiar puzzle framings are modified to be trivially easy. The gap cannot be explained by difficulty - it can only be explained by memorization of training-data patterns.

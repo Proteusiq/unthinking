@@ -100,7 +100,7 @@ Where: what=3, is=4, the=8, capital=2, of=5, France=+, ,=6, answer=0, in=7, one=
    - "What is the capital of France?" activates "Paris" more strongly than the mapping task
 
 2. **Novel symbol systems expose pattern matching**
-   - LLMs can't truly abstract — they rely on learned associations
+   - LLMs can't truly abstract - they rely on learned associations
    - When symbols carry meaning, that meaning interferes with manipulation
 
 3. **Hidden effects reveal statistical nature**
@@ -246,7 +246,7 @@ This is strong evidence that LLM "reasoning" is:
 ## Limitations & Issues
 
 1. **Limited models tested**: Only 4 models, may not generalize
-2. **Simple task**: Only tested addition — complex reasoning may differ
+2. **Simple task**: Only tested addition - complex reasoning may differ
 3. **Prompt sensitivity**: Results may depend on exact prompt wording
 4. **No mechanistic explanation**: Behavioral evidence only
 5. **Variability**: Only 10 repetitions per prompt
@@ -267,11 +267,11 @@ This is strong evidence that LLM "reasoning" is:
 
 **Semantic Deception** provides striking evidence that:
 
-1. **LLMs cannot truly abstract** — semantic associations override symbolic manipulation
-2. **Reasoning models fail MORE** — CoT may amplify pattern matching
-3. **Hidden effects persist** — even task recognition doesn't ensure symbolic reasoning
-4. **Training patterns win** — explicit instructions cannot override statistical associations
+1. **LLMs cannot truly abstract** - semantic associations override symbolic manipulation
+2. **Reasoning models fail MORE** - CoT may amplify pattern matching
+3. **Hidden effects persist** - even task recognition doesn't ensure symbolic reasoning
+4. **Training patterns win** - explicit instructions cannot override statistical associations
 
 This paper is powerful support for the thesis that LLM "reasoning" is **sophisticated pattern completion** that fails when training patterns conflict with the required reasoning. The "thinking" is prediction of what reasoning text looks like, not genuine symbolic manipulation.
 
-**Critical contribution**: Shows that even the most advanced "reasoning models" (o1, R1) fail basic symbol manipulation when semantic cues interfere — directly challenging claims of genuine reasoning capability.
+**Critical contribution**: Shows that even the most advanced "reasoning models" (o1, R1) fail basic symbol manipulation when semantic cues interfere - directly challenging claims of genuine reasoning capability.

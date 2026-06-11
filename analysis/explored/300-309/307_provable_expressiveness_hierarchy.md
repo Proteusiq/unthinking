@@ -13,7 +13,7 @@
 
 1. **Provable separation**: First proof that hybrid attention cannot match full attention on compositional tasks.
 
-2. **Multi-step reasoning requires depth**: Each composition step needs a full attention layer—linear layers cannot substitute.
+2. **Multi-step reasoning requires depth**: Each composition step needs a full attention layer-linear layers cannot substitute.
 
 3. **Exponential linear layers insufficient**: Even 2^(3L²) linear attention layers + L-1 full attention CANNOT match L+1 full attention on L-step composition.
 
@@ -27,7 +27,7 @@
 Theoretical (communication complexity proofs)
 
 ### Key Technique
-Indistinguishable decomposition—construct input sets that models cannot distinguish despite requiring different outputs
+Indistinguishable decomposition-construct input sets that models cannot distinguish despite requiring different outputs
 
 ### Main Results
 - **Theorem 1.1**: (L-1, 2^(3L²))-hybrid Transformer cannot solve L-sequential function composition when Hdp ≤ n^(2^(-4L-2))
@@ -42,7 +42,7 @@ Linear attention variants including Mamba, DeltaNet, RWKV, Gated DeltaNet
 │                                                                     │
 │  L-step composition task:                                           │
 │    • L+1 full attention layers: O(polylog n) complexity            │
-│    • L layers + 2^(3L²) linear layers: Ω(poly n) — CANNOT solve    │
+│    • L layers + 2^(3L²) linear layers: Ω(poly n) - CANNOT solve    │
 │                                                                     │
 │  Even exponentially more linear layers cannot substitute for       │
 │  a single full attention layer on compositional reasoning          │
@@ -55,11 +55,11 @@ Linear attention variants including Mamba, DeltaNet, RWKV, Gated DeltaNet
 
 | Architecture | L-Sequential Composition |
 |--------------|-------------------------|
-| Full - L layers | Ω(poly n) — cannot solve |
-| Full - L+1 layers | O(polylog n) — CAN solve |
-| Hybrid (L-1 full + 2^(3L²) linear) | Ω(poly n) — cannot solve |
+| Full - L layers | Ω(poly n) - cannot solve |
+| Full - L+1 layers | O(polylog n) - CAN solve |
+| Hybrid (L-1 full + 2^(3L²) linear) | Ω(poly n) - cannot solve |
 
-**Implication**: Adding linear attention layers provides "marginal" performance gain—cannot substitute for missing full attention layer.
+**Implication**: Adding linear attention layers provides "marginal" performance gain-cannot substitute for missing full attention layer.
 
 ---
 
@@ -95,7 +95,7 @@ Linear attention variants including Mamba, DeltaNet, RWKV, Gated DeltaNet
 
 > "Even when the number of linear attention layers grows exponentially relative to the number of full attention layers, the performance gain remains marginal."
 
-> "Linear attention—despite its efficiency—lacks the expressive power required for deep compositional reasoning, even when augmented with limited full attention."
+> "Linear attention-despite its efficiency-lacks the expressive power required for deep compositional reasoning, even when augmented with limited full attention."
 
 > "This task formally captures the essence of multi-step reasoning (e.g., multi-hop retrieval) that must occur within a model's forward pass."
 
@@ -112,7 +112,7 @@ Linear attention variants including Mamba, DeltaNet, RWKV, Gated DeltaNet
 │    • Linear attention only permits sequential propagation           │
 │                                                                     │
 │  No amount of linear layers can create the "rich interactions"      │
-│  needed for compositional reasoning — this is PROVABLE              │
+│  needed for compositional reasoning - this is PROVABLE              │
 │                                                                     │
 │  Implication: Transformer architecture CONSTRAINS reasoning,        │
 │  not just training data or model size                               │

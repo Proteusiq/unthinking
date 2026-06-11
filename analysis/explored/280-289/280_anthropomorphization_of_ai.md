@@ -11,7 +11,7 @@
 
 ## Core Contribution
 
-Analyzes the risks of attributing human-like traits to LLMs. Introduces the concept of **statistical persona (𝒫ₛ)** — what the model produces based on training data patterns, distinct from the intended persona (𝒫). Shows anthropomorphized LLMs violate AI Bill of Rights provisions.
+Analyzes the risks of attributing human-like traits to LLMs. Introduces the concept of **statistical persona (𝒫ₛ)** - what the model produces based on training data patterns, distinct from the intended persona (𝒫). Shows anthropomorphized LLMs violate AI Bill of Rights provisions.
 
 ---
 
@@ -127,13 +127,13 @@ Anthropomorphization is a **human cognitive tendency** projected onto statistica
 
 ### Related Concepts
 - **Statistical persona** concept relates to "narrative completion" interpretation
-- Explains WHY users might believe in "alignment faking" — anthropomorphization bias
+- Explains WHY users might believe in "alignment faking" - anthropomorphization bias
 
 ---
 
 ## Recommendations from Authors
 
-1. **Don't advocate complete anthropodenial** — but use responsibly
+1. **Don't advocate complete anthropodenial** - but use responsibly
 2. **Educate creators and users** about potential consequences
 3. **Consider legal liability frameworks** for personified AI
 4. **Use anthropomorphization constructively** when appropriate (accessibility)

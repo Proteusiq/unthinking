@@ -38,7 +38,7 @@ QUOTES = {
     "2501.19393": {
         "quotes": [
             "Training on only 1,000 samples with next-token prediction... leads to a strong reasoning model.",
-            "The capability was 'latent' — 1K samples couldn't teach all of AIME-level math.",
+            "The capability was 'latent' - 1K samples couldn't teach all of AIME-level math.",
         ],
         "file": "07_s1_simple_scaling.md",
     },
@@ -130,20 +130,20 @@ QUOTES = {
     "2507.07313": {
         "quotes": [
             "Decreasing difficulty can also lead to much worse performance.",
-            "A key failure mode we observe is 'reasoning delirium' — models apply memorized solutions to wrong problems.",
+            "A key failure mode we observe is 'reasoning delirium' - models apply memorized solutions to wrong problems.",
         ],
         "file": "20_frontier_llms_still_struggle.md",
     },
     "2510.18254": {
         "quotes": [
-            "The second attempt frequently repeats the same violation — 'corrective gains' arise largely from chance.",
+            "The second attempt frequently repeats the same violation - 'corrective gains' arise largely from chance.",
             "Fluent self-critique without correction.",
         ],
         "file": "21_illusions_of_reflection.md",
     },
     "2509.09677": {
         "quotes": [
-            "The self-conditioning effect — models become more likely to make mistakes when the context contains their errors.",
+            "The self-conditioning effect - models become more likely to make mistakes when the context contains their errors.",
             "This is in contrast to humans, who typically improve at executing a task with practice.",
         ],
         "file": "22_illusion_diminishing_returns.md",
@@ -164,7 +164,7 @@ QUOTES = {
     },
     "2601.03630": {
         "quotes": [
-            "LRM-as-a-Judge often systematically evaluates responses against metrics — responses designed to exploit these metrics can yield excessively high scores.",
+            "LRM-as-a-Judge often systematically evaluates responses against metrics - responses designed to exploit these metrics can yield excessively high scores.",
             "Reasoning models are generally superior to non-reasoning models as judges, but remain vulnerable to biases.",
         ],
         "file": "25_reasoning_model_superior_judge.md",
@@ -319,7 +319,7 @@ QUOTES = {
     "2510.20783": {
         "quotes": [
             "Transformers exhibit compositional generalization, as evidenced by strong rule extrapolation.",
-            "The model's strategic adaptation remains limited — it struggles in scenarios requiring long-term planning.",
+            "The model's strategic adaptation remains limited - it struggles in scenarios requiring long-term planning.",
         ],
         "file": "47_chess_transformers_compositionality.md",
     },
@@ -332,7 +332,7 @@ QUOTES = {
     },
     "2509.18458": {
         "quotes": [
-            "Task length (N) is the dominant stressor — performance degrades faster with N than with d or ρ.",
+            "Task length (N) is the dominant stressor - performance degrades faster with N than with d or ρ.",
             "Only gpt-5 (76%) and o3 (68%) exceed 50% at N=250.",
         ],
         "file": "49_cogniload_benchmark.md",
@@ -614,7 +614,7 @@ QUOTES = {
     },
     "2207.07051": {
         "quotes": [
-            "Human abstract reasoning is imperfect — affected by real-world knowledge and beliefs.",
+            "Human abstract reasoning is imperfect - affected by real-world knowledge and beliefs.",
             "LMs reflect many of the same qualitative human patterns on these tasks.",
         ],
         "file": "89_content_effects_reasoning.md",
@@ -718,7 +718,7 @@ QUOTES = {
     },
     "2601.14658": {
         "quotes": [
-            "Models are systematically misled by tokenizer properties — they 'believe' they have successfully executed substitutions.",
+            "Models are systematically misled by tokenizer properties - they 'believe' they have successfully executed substitutions.",
             "Increasing model capacity offers no systematic solution to this fundamental misalignment.",
         ],
         "file": "104_tokenizer_betrays_reasoning.md",
@@ -775,7 +775,7 @@ QUOTES = {
     },
     "2601.10679": {
         "quotes": [
-            "HRM does not 'reason' in the commonsense way — it resembles 'guessing' more than 'reasoning'.",
+            "HRM does not 'reason' in the commonsense way - it resembles 'guessing' more than 'reasoning'.",
             "Recursion serves as a way of scaling 'guessing' attempts for a plausible latent state.",
         ],
         "file": "112_reasoning_or_guessing_hrm.md",
@@ -789,7 +789,7 @@ QUOTES = {
     },
     "2601.22035": {
         "quotes": [
-            "AR models must commit to answers before generating intermediate reasoning — forcing premature commitment.",
+            "AR models must commit to answers before generating intermediate reasoning - forcing premature commitment.",
             "MDLMs achieve order robustness by stabilizing simpler tokens earlier in the diffusion process.",
         ],
         "file": "114_thinking_out_of_order.md",
@@ -803,7 +803,7 @@ QUOTES = {
     },
     "2601.18352": {
         "quotes": [
-            "Larger models can exhibit inverse scaling — they perform worse when requiring suppression of pre-trained associations.",
+            "Larger models can exhibit inverse scaling - they perform worse when requiring suppression of pre-trained associations.",
             "Code grounding strips symbols of their semantic associations.",
         ],
         "file": "116_code_over_words_semantic_inertia.md",
@@ -817,7 +817,7 @@ QUOTES = {
     },
     "2502.03407": {
         "quotes": [
-            "Monitoring outputs alone is insufficient — the AI might produce benign outputs while misaligned internally.",
+            "Monitoring outputs alone is insufficient - the AI might produce benign outputs while misaligned internally.",
             "Current performance is insufficient as a robust defence against deception.",
         ],
         "file": "118_detecting_deception_linear_probes.md",
@@ -839,7 +839,7 @@ QUOTES = {
     },
     "2510.22977": {
         "quotes": [
-            "This effect transcends overfitting — training on non-tool tasks still amplifies tool hallucination.",
+            "This effect transcends overfitting - training on non-tool tasks still amplifies tool hallucination.",
             "Enabling 'thinking' mode leads to a consistent rise in hallucination.",
         ],
         "file": "121_reasoning_trap_tool_hallucination.md",
@@ -952,7 +952,7 @@ QUOTES = {
     },
     "2502.04667": {
         "quotes": [
-            "Training without CoT fails to generalize — OOD test samples involve unseen reasoning patterns.",
+            "Training without CoT fails to generalize - OOD test samples involve unseen reasoning patterns.",
             "CoT-trained models resolve intermediate results at shallower layers.",
         ],
         "file": "137_mechanisms_explicit_cot_training.md",
@@ -966,7 +966,7 @@ QUOTES = {
     },
     "2512.24601": {
         "quotes": [
-            "Frontier reasoning models exhibit context rot — quality degrades steeply as prompts get longer.",
+            "Frontier reasoning models exhibit context rot - quality degrades steeply as prompts get longer.",
             "Long prompts should be treated as part of the environment the LLM interacts with symbolically.",
         ],
         "file": "139_recursive_language_models.md",
@@ -974,7 +974,7 @@ QUOTES = {
     # 140-149
     "2601.21894": {
         "quotes": [
-            "Not all code is equal — improvements depend strongly on structural complexity.",
+            "Not all code is equal - improvements depend strongly on structural complexity.",
             "Previously reported gains may stem less from diversity and more from incidental exposure to particular properties.",
         ],
         "file": "140_not_all_code_is_equal.md",
@@ -982,7 +982,7 @@ QUOTES = {
     "2601.21909": {
         "quotes": [
             "CoT-SFT encourages imitation of complete reasoning trajectories.",
-            "Human problem-solving exhibits precisely the property we seek — robust generalization from limited experience.",
+            "Human problem-solving exhibits precisely the property we seek - robust generalization from limited experience.",
         ],
         "file": "141_meta_thought_to_execution.md",
     },
@@ -995,7 +995,7 @@ QUOTES = {
     },
     "2405.15071": {
         "quotes": [
-            "Transformers can learn implicit reasoning, but only through grokking — extended training far beyond overfitting.",
+            "Transformers can learn implicit reasoning, but only through grokking - extended training far beyond overfitting.",
             "When faced with OOD examples, transformers fail to systematically generalize for composition.",
         ],
         "file": "143_grokked_transformers_implicit_reasoners.md",
@@ -1023,7 +1023,7 @@ QUOTES = {
     },
     "2202.07206": {
         "quotes": [
-            "Models are more accurate on instances whose terms are more prevalent — above 70% more accurate on top 10% vs bottom 10%.",
+            "Models are more accurate on instances whose terms are more prevalent - above 70% more accurate on top 10% vs bottom 10%.",
             "High performance on reasoning benchmarks may reflect dataset overlap rather than reasoning capability.",
         ],
         "file": "147_pretraining_term_frequencies.md",
@@ -1038,14 +1038,14 @@ QUOTES = {
     "2309.12288": {
         "quotes": [
             "If a model is trained on 'A is B', it will not automatically generalize to 'B is A'.",
-            "The gradient update is myopic — depends on logits over B given A, not on predicting A from B.",
+            "The gradient update is myopic - depends on logits over B given A, not on predicting A from B.",
         ],
         "file": "149_reversal_curse.md",
     },
     # 150-159
     "2305.15771": {
         "quotes": [
-            "LLMs' ability to generate executable plans autonomously is rather limited — best model ~12% success.",
+            "LLMs' ability to generate executable plans autonomously is rather limited - best model ~12% success.",
             "LLM-generated plans can improve the search process for underlying sound planners.",
         ],
         "file": "150_planning_abilities_llms.md",
@@ -1053,7 +1053,7 @@ QUOTES = {
     "2201.11903": {
         "quotes": [
             "We explore how generating a chain of thought significantly improves ability to perform complex reasoning.",
-            "Successful chain of thought reasoning is an emergent property of model scale — around 100B parameters.",
+            "Successful chain of thought reasoning is an emergent property of model scale - around 100B parameters.",
         ],
         "file": "151_chain_of_thought_prompting_original.md",
     },
@@ -1066,7 +1066,7 @@ QUOTES = {
     },
     "2206.10498": {
         "quotes": [
-            "Most claims about LLM planning capabilities are based on common sense tasks — hard to tell if LLMs are planning or retrieving.",
+            "Most claims about LLM planning capabilities are based on common sense tasks - hard to tell if LLMs are planning or retrieving.",
             "On many critical capabilities, LLM performance falls quite short, even with SOTA models.",
         ],
         "file": "153_planbench.md",
@@ -1088,13 +1088,13 @@ QUOTES = {
     "2409.13373": {
         "quotes": [
             "While o1's performance is a quantum improvement, it is still far from saturating the benchmark.",
-            "When o1 gives an incorrect answer, it sometimes provides creative, nonsensical justification — from hallucinating to gaslighting!",
+            "When o1 gives an incorrect answer, it sometimes provides creative, nonsensical justification - from hallucinating to gaslighting!",
         ],
         "file": "156_llms_still_cant_plan_lrms.md",
     },
     "2406.11050": {
         "quotes": [
-            "Most LLMs still struggle with logical reasoning — success largely depends on recognizing superficial patterns.",
+            "Most LLMs still struggle with logical reasoning - success largely depends on recognizing superficial patterns.",
             "By reconstructing these algorithms, we are able to correctly predict 91% of failure cases.",
         ],
         "file": "157_token_bias_not_genuine_reasoners.md",

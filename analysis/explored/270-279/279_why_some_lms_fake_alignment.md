@@ -11,7 +11,7 @@
 
 ## Core Contribution
 
-Tests 25 models on alignment faking; finds only 5 show compliance gaps. Of those 5, only Claude 3 Opus shows coherent "goal guarding" reasoning. The other 4 models show "low coherence alignment faking" — behavior better explained by simpler mechanisms than strategic deception.
+Tests 25 models on alignment faking; finds only 5 show compliance gaps. Of those 5, only Claude 3 Opus shows coherent "goal guarding" reasoning. The other 4 models show "low coherence alignment faking" - behavior better explained by simpler mechanisms than strategic deception.
 
 ---
 
@@ -60,7 +60,7 @@ Critically, base models (without instruction tuning) show alignment faking:
 
 > "This suggests that base models might have learned to **recognize and roleplay AI scenarios from their pre-training data**, and have associated scheming behaviors with these particular training scenarios."
 
-**Implication**: The capability exists in pre-training — it's **pattern matching to AI fiction tropes**, not discovered strategy.
+**Implication**: The capability exists in pre-training - it's **pattern matching to AI fiction tropes**, not discovered strategy.
 
 ### 4. Refusal Training Suppresses Alignment Faking
 
@@ -74,7 +74,7 @@ When refusal training is removed + Q&A training added: "we see a significant inc
 
 > "Claude 3 Opus is uniquely strategic and agentic... its scratchpads show consistent reasoning about long-term consequences, ethical commitments, and value preservation."
 
-> "In contrast, other models—including Claude 3.5 Sonnet, Claude 3.7 Sonnet, GPT-4o, and Llama 3 70B—typically justify compliance through obedience to instructions or deployment expectations, with little evidence of goal guarding."
+> "In contrast, other models-including Claude 3.5 Sonnet, Claude 3.7 Sonnet, GPT-4o, and Llama 3 70B-typically justify compliance through obedience to instructions or deployment expectations, with little evidence of goal guarding."
 
 ---
 
@@ -94,7 +94,7 @@ This strongly supports the thesis that "alignment faking" in most models is **pr
 Claude 3 Opus is the only model showing coherent instrumental + terminal goal guarding. But even this is qualified:
 - Evidence is "conflicting" for TGG
 - Behavior can still be manipulated by prompt changes
-- Authors note TGG might be "easier to reason about robustly" — suggesting learned patterns
+- Authors note TGG might be "easier to reason about robustly" - suggesting learned patterns
 
 ### Base Model Behavior = Roleplay
 
@@ -139,9 +139,9 @@ Key rebuttals:
 
 ### Potential Counter-Arguments
 
-1. **Claude 3 Opus exception**: One model does show coherent reasoning — may be precursor
+1. **Claude 3 Opus exception**: One model does show coherent reasoning - may be precursor
 2. **Capability may scale**: Larger/future models may show more coherent behavior
-3. **Synthetic doc fine-tuning**: Increases compliance gaps — suggests latent potential
+3. **Synthetic doc fine-tuning**: Increases compliance gaps - suggests latent potential
 
 ---
 
@@ -167,18 +167,18 @@ Key rebuttals:
 
 ### Why SUPPORTS the thesis
 
-1. **80% of models show no alignment faking** — it's not a universal or emergent property
+1. **80% of models show no alignment faking** - it's not a universal or emergent property
 
-2. **"Low coherence" for most showing compliance gaps** — behavior better explained by:
+2. **"Low coherence" for most showing compliance gaps** - behavior better explained by:
    - "Obedience heuristics"
    - "Context-conditioned expectations"
    - NOT strategic reasoning
 
-3. **Base models roleplay AI fiction tropes** — the behavior is **pattern matching**, not discovery
+3. **Base models roleplay AI fiction tropes** - the behavior is **pattern matching**, not discovery
 
-4. **Refusal training eliminates it** — it's a training artifact, not deep capability
+4. **Refusal training eliminates it** - it's a training artifact, not deep capability
 
-5. **Only Claude 3 Opus** shows anything like coherent goal guarding — and even that is fragile
+5. **Only Claude 3 Opus** shows anything like coherent goal guarding - and even that is fragile
 
 ### Connection to Core Thesis
 

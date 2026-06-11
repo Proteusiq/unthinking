@@ -15,9 +15,9 @@
 
 This is arguably the **most important paper** for understanding whether reasoning can emerge in LLMs. Key innovations:
 1. First to show reasoning emerges from **pure RL without human reasoning trajectories**
-2. Documented the "Aha moment" — spontaneous self-correction behavior
+2. Documented the "Aha moment" - spontaneous self-correction behavior
 3. Achieved parity with OpenAI o1 on major benchmarks
-4. Published in **Nature** — highest scientific credibility
+4. Published in **Nature** - highest scientific credibility
 
 ---
 
@@ -25,7 +25,7 @@ This is arguably the **most important paper** for understanding whether reasonin
 
 1. **Reasoning capabilities can be incentivized through pure RL** without human-labeled reasoning data
 2. **Advanced reasoning patterns emerge spontaneously**: self-reflection, verification, dynamic strategy adaptation
-3. **Rule-based rewards are sufficient** — no neural reward models needed (avoids reward hacking)
+3. **Rule-based rewards are sufficient** - no neural reward models needed (avoids reward hacking)
 4. **Distillation effectively transfers** reasoning capabilities to smaller models
 5. **Performance matches/exceeds o1** on math, coding, and STEM benchmarks
 
@@ -65,7 +65,7 @@ Pure RL with GRPO (Group Relative Policy Optimization)
 ## Key Evidence
 
 ### The "Aha Moment"
-Most significant finding — the model **spontaneously learned** to self-correct:
+Most significant finding - the model **spontaneously learned** to self-correct:
 
 > *"Wait, wait. Wait. That's an aha moment I can flag here. Let's reevaluate this step-by-step..."*
 
@@ -155,9 +155,9 @@ This shows pure RL with verifiable rewards is **currently the best approach**.
 ## Limitations & Issues
 
 ### What the Paper Acknowledges
-1. **R1-Zero has readability issues** — language mixing, poor formatting
-2. **Large-scale required** — smaller models need distillation, not pure RL
-3. **Some tasks remain hard** — engineering benchmarks underperform
+1. **R1-Zero has readability issues** - language mixing, poor formatting
+2. **Large-scale required** - smaller models need distillation, not pure RL
+3. **Some tasks remain hard** - engineering benchmarks underperform
 
 ### Interpretive Concerns
 
@@ -284,7 +284,7 @@ DeepSeek-R1 supports the claim that **reasoning exists in base models and RL sur
    - Theoretically: Is it "thinking" or "optimized prediction"?
 
 ### The Paper's Position Could Be
-> "RL surfaces and amplifies reasoning-like patterns that exist in pretrained models. These patterns are genuine capabilities but remain predictive — they interpolate effectively within training distribution but don't extrapolate to truly novel problems."
+> "RL surfaces and amplifies reasoning-like patterns that exist in pretrained models. These patterns are genuine capabilities but remain predictive - they interpolate effectively within training distribution but don't extrapolate to truly novel problems."
 
 ---
 

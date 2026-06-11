@@ -12,7 +12,7 @@
 
 ## Core Claims
 
-1. **LLMs are "pattern regurgitators, not robust graph reasoners"** — direct quote
+1. **LLMs are "pattern regurgitators, not robust graph reasoners"** - direct quote
 2. **Generalization fails on reasoning patterns**: Only 33% achieve basic transfer, 0% strong recovery
 3. **Real-world transfer is counterproductive**: Synthetic tuning HURTS real-world performance in 69% of cases
 4. **Simple patterns OK, complex patterns fail**: Semantic/numeric generalize somewhat, reasoning/real-world fail
@@ -68,7 +68,7 @@
 | Graph Transitivity | 10/16 (63%) |
 | **Graph Size** | **2/8 (25%)** |
 
-**Graph size has biggest impact** — training on small graphs fails on large graphs
+**Graph size has biggest impact** - training on small graphs fails on large graphs
 
 ### 4. Reasoning Pattern Results (CRITICAL)
 
@@ -136,7 +136,7 @@ Training corpus keyword frequency positively correlates with in-distribution per
 - **Planning Gap (2601.14456)**: 82.9% ID → 0% OOD mirrors NLGift's 0% strong recovery on reasoning patterns
 
 ### Challenges
-- None directly — this strongly supports the pattern-matching thesis
+- None directly - this strongly supports the pattern-matching thesis
 
 ### Extends
 - Provides systematic framework for measuring generalization
@@ -154,7 +154,7 @@ Training corpus keyword frequency positively correlates with in-distribution per
 ### Potential Counter-Arguments
 
 1. **"Synthetic tasks don't reflect real reasoning"**
-   - Counter: That's the point — if models can't generalize on synthetic, real is worse
+   - Counter: That's the point - if models can't generalize on synthetic, real is worse
    - Counter: Real-world results confirm (69% counterproductive)
 
 2. **"Larger models might generalize better"**
@@ -162,7 +162,7 @@ Training corpus keyword frequency positively correlates with in-distribution per
    - Counter: Trend suggests size helps semantics, not reasoning
 
 3. **"Different training approaches might work"**
-   - Counter: Authors tried code mixing, CoT, DPO — none fully solve it
+   - Counter: Authors tried code mixing, CoT, DPO - none fully solve it
    - Counter: "Empowering LLM graph reasoning to go beyond pattern memorization remains an open research question"
 
 ### Limitations (Authors Acknowledge)
@@ -202,9 +202,9 @@ Training corpus keyword frequency positively correlates with in-distribution per
 ### Particularly Strong Evidence
 
 1. **"Pattern regurgitator" is peer-reviewed terminology** (EMNLP 2024)
-2. **0% strong recovery on reasoning patterns** — not "low", but ZERO
-3. **Real-world transfer is counterproductive** — synthetic training HURTS
-4. **Keyword frequency correlation** — proves memorization mechanism
+2. **0% strong recovery on reasoning patterns** - not "low", but ZERO
+3. **Real-world transfer is counterproductive** - synthetic training HURTS
+4. **Keyword frequency correlation** - proves memorization mechanism
 
 ### Key Quote for Paper
 

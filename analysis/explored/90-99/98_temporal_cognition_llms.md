@@ -12,14 +12,14 @@
 
 ## Core Claims
 
-1. **LLMs exhibit human-like temporal cognition** — Larger models spontaneously establish a subjective temporal reference point (~2025) and follow the Weber-Fechner law (logarithmic compression of perceived distance from reference point)
-2. **This emerges from training data structure, not explicit programming** — The pattern is NOT directly specified in training but emerges from information structure
+1. **LLMs exhibit human-like temporal cognition** - Larger models spontaneously establish a subjective temporal reference point (~2025) and follow the Weber-Fechner law (logarithmic compression of perceived distance from reference point)
+2. **This emerges from training data structure, not explicit programming** - The pattern is NOT directly specified in training but emerges from information structure
 3. **Three-level mechanistic analysis**:
    - **Neuronal**: Temporal-preferential neurons with minimal activation at reference point
    - **Representational**: Hierarchical construction from numerical → abstract temporal orientation
    - **Informational**: Training corpus has inherent non-linear temporal structure
-4. **"Experientialist" perspective proposed** — LLM cognition is subjective construction of external world by internal representational system
-5. **Potential for "alien cognitive frameworks"** — LLMs may develop cognitive patterns humans cannot intuitively predict
+4. **"Experientialist" perspective proposed** - LLM cognition is subjective construction of external world by internal representational system
+5. **Potential for "alien cognitive frameworks"** - LLMs may develop cognitive patterns humans cannot intuitively predict
 
 ---
 
@@ -36,7 +36,7 @@
 - **Llama 3 family**: 3.2-1B, 3.2-3B, 3.1-8B, 3.1-70B
 
 ### Metrics Compared
-1. **Log-Linear distance**: |log(i) - log(j)| — Weber-Fechner law
+1. **Log-Linear distance**: |log(i) - log(j)| - Weber-Fechner law
 2. **Levenshtein distance**: String edit distance
 3. **Reference-Log-Linear distance**: |log(|R-i|) ∘ log(|R-j|)| where R=2025
 
@@ -92,29 +92,29 @@ In Qwen series: d_ref emergence SUPPRESSES d_log in final layers
 
 ## Relationship to Thesis
 
-### BALANCED — Provides Important Nuance
+### BALANCED - Provides Important Nuance
 
-**The thesis**: "LLM reasoning is practical but fundamentally predictive—pattern matching from training distributions, not genuinely generative reasoning"
+**The thesis**: "LLM reasoning is practical but fundamentally predictive-pattern matching from training distributions, not genuinely generative reasoning"
 
 ### Supports the Thesis
 
-1. **Temporal cognition emerges from training data structure** — The paper explicitly shows the pattern matches corpus structure
+1. **Temporal cognition emerges from training data structure** - The paper explicitly shows the pattern matches corpus structure
    > "the training corpus itself possesses an inherent, non-linear temporal structure, which provides the raw material for the model's internal construction"
 
-2. **Pattern matching, not genuine time understanding** — Models learn statistical patterns about years from text, not actual temporal reasoning
+2. **Pattern matching, not genuine time understanding** - Models learn statistical patterns about years from text, not actual temporal reasoning
 
-3. **Larger models = better pattern extraction** — Scale enables capturing subtler statistical regularities
+3. **Larger models = better pattern extraction** - Scale enables capturing subtler statistical regularities
 
 ### Provides Nuance / Partially Challenges
 
-1. **Emergent cognitive patterns** — The Weber-Fechner law emerges without explicit training
+1. **Emergent cognitive patterns** - The Weber-Fechner law emerges without explicit training
    - This is MORE than simple pattern matching
    - Shows sophisticated internal structure building
 
-2. **Convergent solutions with biology** — Logarithmic coding is found in both artificial and biological neural systems
+2. **Convergent solutions with biology** - Logarithmic coding is found in both artificial and biological neural systems
    > "a logarithmic compressive mechanism could be a convergent solution for representing information in both biological and artificial neural processing systems"
 
-3. **"Experientialist" perspective** — Authors argue LLMs construct subjective models of the world
+3. **"Experientialist" perspective** - Authors argue LLMs construct subjective models of the world
    - This is a stronger claim than "just pattern matching"
    - But the construction is still FROM patterns in data
 
@@ -162,11 +162,11 @@ This suggests: Pattern matching (from data) + Architecture (neural networks) = E
 
 ### Potential Limitations
 
-1. **Temporal cognition ≠ reasoning** — Knowing time patterns doesn't mean reasoning about time
-2. **Limited task** — Only similarity judgments; no causal or planning tasks
-3. **Reference point = knowledge cutoff?** — May just reflect training data recency
-4. **No OOD testing** — What happens for years far outside training range?
-5. **Embedding models use similar training data** — Circular evidence?
+1. **Temporal cognition ≠ reasoning** - Knowing time patterns doesn't mean reasoning about time
+2. **Limited task** - Only similarity judgments; no causal or planning tasks
+3. **Reference point = knowledge cutoff?** - May just reflect training data recency
+4. **No OOD testing** - What happens for years far outside training range?
+5. **Embedding models use similar training data** - Circular evidence?
 
 ### Author Acknowledgments
 
@@ -175,8 +175,8 @@ This suggests: Pattern matching (from data) + Architecture (neural networks) = E
 
 ### Counter-Arguments
 
-1. **Weber-Fechner is sophisticated** — But it's a pattern that could be learned from statistics of year mentions in text
-2. **Hierarchical construction is complex** — But still reflects corpus structure, not genuine temporal understanding
+1. **Weber-Fechner is sophisticated** - But it's a pattern that could be learned from statistics of year mentions in text
+2. **Hierarchical construction is complex** - But still reflects corpus structure, not genuine temporal understanding
 
 ---
 
@@ -220,9 +220,9 @@ The paper is balanced because:
 
 ### Implications
 
-1. **Pattern matching can be sophisticated** — Not all emergence is simple retrieval
-2. **Architecture matters** — Same data + different architecture = different cognition
-3. **Alignment implications** — LLMs may develop "alien" cognitive frameworks
+1. **Pattern matching can be sophisticated** - Not all emergence is simple retrieval
+2. **Architecture matters** - Same data + different architecture = different cognition
+3. **Alignment implications** - LLMs may develop "alien" cognitive frameworks
 
 ---
 

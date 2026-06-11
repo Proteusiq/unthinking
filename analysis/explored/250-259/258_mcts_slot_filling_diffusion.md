@@ -88,7 +88,7 @@ The paper shows that even with MCTS freedom to choose any order:
 | Sequential (L2R) | 77.6% | 38.9% |
 | Random | 66.9% | 29.1% |
 
-**Random ordering causes ~17% absolute drop** — proving order matters enormously.
+**Random ordering causes ~17% absolute drop** - proving order matters enormously.
 
 ### Finding: Exploration > Depth
 
@@ -194,7 +194,7 @@ This proves:
 - **Diffusion Stitching (2602.22871)**: Both show order optimization helps; this uses MCTS
 
 ### Challenges
-- None — this paper supports the thesis that order is arbitrary and learned
+- None - this paper supports the thesis that order is arbitrary and learned
 
 ---
 

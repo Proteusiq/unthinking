@@ -61,14 +61,14 @@ Build an LLM end-to-end: tokenizer, architecture, training, data pipeline, align
 
 #### Instructors
 
-**Percy Liang** — [Website](https://cs.stanford.edu/~pliang/) | [GitHub](https://github.com/percyliang)
+**Percy Liang** - [Website](https://cs.stanford.edu/~pliang/) | [GitHub](https://github.com/percyliang)
 - Professor of CS (courtesy in Statistics), Stanford
 - Director, Center for Research on Foundation Models (CRFM)
 - Creator of HELM benchmark, Marin project, CodaLab
 - PhD UC Berkeley (Michael Jordan, Dan Klein)
 - Presidential Early Career Award (2019), IJCAI Computers and Thought Award (2016)
 
-**Tatsunori Hashimoto** — [Website](https://thashim.github.io/)
+**Tatsunori Hashimoto** - [Website](https://thashim.github.io/)
 - Assistant Professor of CS, Stanford
 - Research: robustness, fairness, LLM evaluation
 - Key papers: "Emergent abilities of LLMs", "AlpacaFarm", "Fairness Without Demographics"
@@ -115,10 +115,10 @@ Build an LLM end-to-end: tokenizer, architecture, training, data pipeline, align
 
 ### Key Concepts He's Coined
 
-- **"Software 2.0"** — Neural networks as a new programming paradigm
-- **"Vibe Coding"** — Programming via English prompts without looking at code
-- **"Ghosts vs Animals"** — LLMs are fundamentally different from biological intelligence
-- **"Jagged Intelligence"** — LLMs excel in some areas, fail surprisingly in others
+- **"Software 2.0"** - Neural networks as a new programming paradigm
+- **"Vibe Coding"** - Programming via English prompts without looking at code
+- **"Ghosts vs Animals"** - LLMs are fundamentally different from biological intelligence
+- **"Jagged Intelligence"** - LLMs excel in some areas, fail surprisingly in others
 
 ### GitHub Repositories
 
@@ -189,7 +189,7 @@ Complete course teaching neural networks from scratch:
 
 | Date | Title |
 |------|-------|
-| Nov 2017 | [Software 2.0](https://karpathy.medium.com/software-2-0-a64152b37c35) — **SEMINAL** |
+| Nov 2017 | [Software 2.0](https://karpathy.medium.com/software-2-0-a64152b37c35) - **SEMINAL** |
 | Dec 2016 | [Yes you should understand backprop](https://karpathy.medium.com/yes-you-should-understand-backprop-e2f06eab496b) |
 
 ### Talks & Interviews
@@ -220,7 +220,7 @@ Complete course teaching neural networks from scratch:
 
 ### Books
 
-#### Build a Large Language Model (From Scratch) — 2024
+#### Build a Large Language Model (From Scratch) - 2024
 
 | Resource | Link |
 |----------|------|
@@ -240,7 +240,7 @@ Complete course teaching neural networks from scratch:
 7. Finetuning to Follow Instructions
 - Appendix E: Parameter-efficient Finetuning with LoRA
 
-#### Build a Reasoning Model (From Scratch) — 2025 (In Progress)
+#### Build a Reasoning Model (From Scratch) - 2025 (In Progress)
 
 | Resource | Link |
 |----------|------|
@@ -329,7 +329,7 @@ Interactive GPT-2 visualization for understanding transformer architecture.
 
 | Repository | Description |
 |------------|-------------|
-| [![no-magic](https://img.shields.io/github/stars/no-magic-ai/no-magic?style=flat&label=no-magic)](https://github.com/no-magic-ai/no-magic) | 47 ML algorithms — "Because `model.fit()` isn't an explanation" |
+| [![no-magic](https://img.shields.io/github/stars/no-magic-ai/no-magic?style=flat&label=no-magic)](https://github.com/no-magic-ai/no-magic) | 47 ML algorithms - "Because `model.fit()` isn't an explanation" |
 | [microgpt.py](https://gist.github.com/karpathy/8627fe009c40f57531cb18360106ce95) | 200 lines of pure Python GPT |
 | [![micrograd](https://img.shields.io/github/stars/karpathy/micrograd?style=flat&label=micrograd)](https://github.com/karpathy/micrograd) | Tiny autograd engine |
 | [![minbpe](https://img.shields.io/github/stars/karpathy/minbpe?style=flat&label=minbpe)](https://github.com/karpathy/minbpe) | Minimal BPE tokenizer |
@@ -351,12 +351,12 @@ Interactive GPT-2 visualization for understanding transformer architecture.
 
 These educational materials help understand **why** LLMs exhibit the behaviors documented in this research:
 
-1. **CS336** — Shows how LLMs are built; reveals no "reasoning module" exists
-2. **Karpathy's videos** — Explains tokenization, attention, training — all pattern matching
-3. **LLMs-from-scratch** — Hands-on proof that it's just matrix multiplication
-4. **Transformer Explainer** — Visualizes attention; shows pattern matching, not reasoning
-5. **Abliteration tutorials** — Demonstrates alignment is a removable direction
-6. **Raschka's reasoning book** — Even "reasoning" models are RL-shaped pattern matchers
+1. **CS336** - Shows how LLMs are built; reveals no "reasoning module" exists
+2. **Karpathy's videos** - Explains tokenization, attention, training - all pattern matching
+3. **LLMs-from-scratch** - Hands-on proof that it's just matrix multiplication
+4. **Transformer Explainer** - Visualizes attention; shows pattern matching, not reasoning
+5. **Abliteration tutorials** - Demonstrates alignment is a removable direction
+6. **Raschka's reasoning book** - Even "reasoning" models are RL-shaped pattern matchers
 
 Understanding the implementation makes the thesis claims concrete: **there's no place in the architecture where "reasoning" could live**.
 

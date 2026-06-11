@@ -11,11 +11,11 @@
 
 ## Core Claims
 
-1. **MI necessary but not sufficient** — Non-zero mutual information between CoT and output is a necessary but not sufficient condition for CoT monitorability
-2. **Two error sources limit monitoring** — Information gap (monitor can't extract available info) and elicitation error (monitor approximates optimal function)
-3. **Monitorability requires training** — CoT is not naturally monitorable; targeted training objectives can improve it
-4. **Two improvement approaches** — (a) oracle-based rewarding monitor accuracy, (b) label-free conditional MI maximization
-5. **Training prevents degeneration** — Both methods improve accuracy while preventing CoT degeneration under optimization
+1. **MI necessary but not sufficient** - Non-zero mutual information between CoT and output is a necessary but not sufficient condition for CoT monitorability
+2. **Two error sources limit monitoring** - Information gap (monitor can't extract available info) and elicitation error (monitor approximates optimal function)
+3. **Monitorability requires training** - CoT is not naturally monitorable; targeted training objectives can improve it
+4. **Two improvement approaches** - (a) oracle-based rewarding monitor accuracy, (b) label-free conditional MI maximization
+5. **Training prevents degeneration** - Both methods improve accuracy while preventing CoT degeneration under optimization
 
 ---
 
@@ -49,28 +49,28 @@
 ## Relationship to Other Papers
 
 ### Supports
-- **Measuring CoT Monitorability (2510.27378)** — Both address monitorability; this adds information-theoretic formalization
-- **CoT Monitorability Evasion (2507.05246)** — Complements evasion analysis with theoretical framework
-- **Reasoning Models Don't Say (2505.05410)** — Both show gap between CoT and internal computation
+- **Measuring CoT Monitorability (2510.27378)** - Both address monitorability; this adds information-theoretic formalization
+- **CoT Monitorability Evasion (2507.05246)** - Complements evasion analysis with theoretical framework
+- **Reasoning Models Don't Say (2505.05410)** - Both show gap between CoT and internal computation
 
 ### Extends
-- **Measuring Faithfulness (2307.13702)** — Extends faithfulness to monitorability framework
-- **Information Bottleneck Reasoning (2507.18391)** — Both apply information theory to reasoning analysis
+- **Measuring Faithfulness (2307.13702)** - Extends faithfulness to monitorability framework
+- **Information Bottleneck Reasoning (2507.18391)** - Both apply information theory to reasoning analysis
 
 ### Challenges
-- None directly — paper proposes improvements, not contradictions
+- None directly - paper proposes improvements, not contradictions
 
 ---
 
 ## REBUTTALS
 
 ### Known Rebuttals
-None found yet — paper is recent (Feb 2026)
+None found yet - paper is recent (Feb 2026)
 
 ### Potential Counter-Arguments
-1. **Theoretical vs practical** — Information-theoretic bounds may not translate to practical monitoring difficulties
-2. **Training effectiveness** — Both improvement methods require access to ground truth or specific training setups
-3. **Environment specificity** — Results may be environment-dependent
+1. **Theoretical vs practical** - Information-theoretic bounds may not translate to practical monitoring difficulties
+2. **Training effectiveness** - Both improvement methods require access to ground truth or specific training setups
+3. **Environment specificity** - Results may be environment-dependent
 
 ### Limitations (Authors Acknowledge)
 - Requires targeted training to achieve monitorability
@@ -93,10 +93,10 @@ None found yet — paper is recent (Feb 2026)
 
 **SUPPORTS** the thesis:
 
-1. **Monitoring is fundamentally limited** — Even when CoT contains information (MI > 0), it may not be extractable or useful for understanding model behavior
-2. **Default CoT is opaque** — The need for targeted training to achieve monitorability implies CoT is NOT naturally transparent
-3. **Two error sources create gap** — Information gap and elicitation error formalize why CoT often fails to reflect computation
-4. **CoT degenerates under pressure** — Without intervention, CoT quality degrades, suggesting it's not a robust reasoning trace
+1. **Monitoring is fundamentally limited** - Even when CoT contains information (MI > 0), it may not be extractable or useful for understanding model behavior
+2. **Default CoT is opaque** - The need for targeted training to achieve monitorability implies CoT is NOT naturally transparent
+3. **Two error sources create gap** - Information gap and elicitation error formalize why CoT often fails to reflect computation
+4. **CoT degenerates under pressure** - Without intervention, CoT quality degrades, suggesting it's not a robust reasoning trace
 
 The paper provides formal, information-theoretic grounding for the claim that CoT is unreliable for understanding or monitoring model reasoning.
 

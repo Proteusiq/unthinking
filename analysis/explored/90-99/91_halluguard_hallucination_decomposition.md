@@ -6,7 +6,7 @@
 - **Authors**: Xinyue Zeng (Virginia Tech), Junhong Lin (MIT), Yujun Yan (Dartmouth), et al.
 - **Date**: January 2026
 - **Venue**: Preprint
-- **Stance**: SUPPORTS (with nuances — distinguishes training-time vs inference-time failures)
+- **Stance**: SUPPORTS (with nuances - distinguishes training-time vs inference-time failures)
 
 ---
 
@@ -125,7 +125,7 @@ The paper provides a **nuanced view** that partially supports the thesis:
 
 ### Related To
 - **Paper 21 (Illusions of Reflection)**: Both show inference-time reasoning limitations
-- **Paper 37 (Snowballing)**: Directly cited — hallucinations compound during generation
+- **Paper 37 (Snowballing)**: Directly cited - hallucinations compound during generation
 
 ### Extends
 - Provides theoretical foundation for empirically observed reasoning failures
@@ -142,7 +142,7 @@ The paper provides a **nuanced view** that partially supports the thesis:
 
 ### Limitations (Acknowledged)
 
-1. "Direct step-wise Jacobians for billion-parameter LLMs are intractable" — full bound cannot be computed
+1. "Direct step-wise Jacobians for billion-parameter LLMs are intractable" - full bound cannot be computed
 2. Relies on NTK assumptions (Hilbert space structure, local Lipschitz continuity)
 
 ---

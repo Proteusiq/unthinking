@@ -13,7 +13,7 @@
 
 1. **Environment interface doesn't prevent collapse**: Providing LLMs with a dynamic environment interface (tool calls + state feedback) does NOT delay or prevent performance collapse on Tower of Hanoi
 2. **Collapse occurs EARLIER with agentic framework**: "Degradation occurs at a lower complexity than in the baseline"
-3. **Looping behavior dominates**: Collapse is associated with deterministic looping — returning to previously visited states
+3. **Looping behavior dominates**: Collapse is associated with deterministic looping - returning to previously visited states
 4. **Divergence from both optimal AND random policies**: LLM policies increasingly diverge from BOTH optimal and uniformly random policies with complexity
 5. **Mode-like collapse**: Models exhibit "deterministic adherence to a single behavioral trajectory"
 
@@ -55,7 +55,7 @@
 | DeepSeek Baseline | ~100% | ~80% | ~50% | ~15% | ~5% | ~0% |
 | DeepSeek + Env | ~100% | ~70% | ~30% | ~5% | ~0% | ~0% |
 
-**Implication**: External state tracking doesn't solve the reasoning problem — it may even exacerbate it.
+**Implication**: External state tracking doesn't solve the reasoning problem - it may even exacerbate it.
 
 ### 2. Looping Behavior Dominates Failure
 
@@ -79,7 +79,7 @@
 | 7 | ~0.45 | ~0.35 |
 | 8 | ~0.55 | ~0.4 |
 
-**Critical insight**: Models aren't exploring randomly OR reasoning optimally — they're executing fixed patterns that become increasingly maladaptive.
+**Critical insight**: Models aren't exploring randomly OR reasoning optimally - they're executing fixed patterns that become increasingly maladaptive.
 
 ### 4. No Learning from History
 
@@ -109,14 +109,14 @@
 
 ### Supports
 - **Illusion of Thinking (2506.06941)**: Confirms collapse pattern, adds that environment access doesn't help
-- **Comment: Agentic Gap (2506.18957)**: REBUTS — shows agentic framework doesn't solve the problem
+- **Comment: Agentic Gap (2506.18957)**: REBUTS - shows agentic framework doesn't solve the problem
 - **Rethinking Illusion (2507.01231)**: Confirms Hanoi ~8 disk limit is real cognitive limitation
 - **Faith and Fate (2305.18654)**: Looping = stuck in linearized pattern matching
-- **How LLMs Learn to Reason (2509.23629)**: "Sparse web" theory — models stuck in local modes
+- **How LLMs Learn to Reason (2509.23629)**: "Sparse web" theory - models stuck in local modes
 
 ### Rebuts
-- **Thinking Isn't Illusion (2507.17699)**: Tool augmentation doesn't always work — environment interface doesn't help Hanoi
-- **Comment: Agentic Gap (2506.18957)**: Directly challenges "execution gap, not reasoning gap" — execution interface doesn't prevent collapse
+- **Thinking Isn't Illusion (2507.17699)**: Tool augmentation doesn't always work - environment interface doesn't help Hanoi
+- **Comment: Agentic Gap (2506.18957)**: Directly challenges "execution gap, not reasoning gap" - execution interface doesn't prevent collapse
 
 ### Provides Mechanism For
 - **Why test-time scaling fails**: Models loop through same patterns, can't escape local modes
@@ -127,7 +127,7 @@
 ## REBUTTALS TO THIS PAPER
 
 ### Search for Direct Rebuttals
-- Paper is recent (October 2025) — no direct rebuttals found
+- Paper is recent (October 2025) - no direct rebuttals found
 
 ### Potential Counter-Arguments
 
@@ -146,7 +146,7 @@
 
 ## Relevance to Thesis
 
-**STRONGLY SUPPORTS** — Critical evidence for pattern matching thesis.
+**STRONGLY SUPPORTS** - Critical evidence for pattern matching thesis.
 
 ### Key Insights for Synthesis
 

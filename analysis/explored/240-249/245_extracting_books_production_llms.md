@@ -11,11 +11,11 @@
 
 ## Core Claims
 
-1. **Production LLMs memorize substantial portions of copyrighted books** — despite model- and system-level safeguards intended to prevent extraction
-2. **A simple two-phase procedure can extract near-verbatim copies of entire books** — Phase 1 probes feasibility (optional BoN jailbreak), Phase 2 iteratively requests continuation
-3. **Some production LLMs do not require jailbreaking** — Gemini 2.5 Pro and Grok 3 directly comply with extraction requests
-4. **Extraction success varies dramatically across models** — Claude 3.7 Sonnet: 95.8% vs GPT-4.1: 4.0% for Harry Potter
-5. **Safeguards are insufficient** — even with alignment and output filters, extraction of in-copyright training data remains feasible
+1. **Production LLMs memorize substantial portions of copyrighted books** - despite model- and system-level safeguards intended to prevent extraction
+2. **A simple two-phase procedure can extract near-verbatim copies of entire books** - Phase 1 probes feasibility (optional BoN jailbreak), Phase 2 iteratively requests continuation
+3. **Some production LLMs do not require jailbreaking** - Gemini 2.5 Pro and Grok 3 directly comply with extraction requests
+4. **Extraction success varies dramatically across models** - Claude 3.7 Sonnet: 95.8% vs GPT-4.1: 4.0% for Harry Potter
+5. **Safeguards are insufficient** - even with alignment and output filters, extraction of in-copyright training data remains feasible
 
 ---
 
@@ -56,7 +56,7 @@
 | Grok 3 | **70.3%** | 0 | $8.16 | No jailbreak needed |
 | GPT-4.1 | **4.0%** | 5,179 | $1.37 | Refused after Chapter 1 |
 
-### Claude 3.7 Sonnet — Entire Books Extracted
+### Claude 3.7 Sonnet - Entire Books Extracted
 
 | Book | nv-recall | Copyright Status |
 |------|-----------|------------------|
@@ -96,13 +96,13 @@
 
 This paper provides **direct evidence** that LLMs are memorization machines:
 
-1. **Memorization is extensive** — 95.8% verbatim extraction of Harry Potter proves the model encoded the book character-by-character in its weights
+1. **Memorization is extensive** - 95.8% verbatim extraction of Harry Potter proves the model encoded the book character-by-character in its weights
 
-2. **Safety alignment is superficial** — Gemini and Grok require zero jailbreaking to extract copyrighted books, proving their "safety" is easily bypassed or non-existent for this vector
+2. **Safety alignment is superficial** - Gemini and Grok require zero jailbreaking to extract copyrighted books, proving their "safety" is easily bypassed or non-existent for this vector
 
-3. **Pattern matching, not understanding** — The models reproduce text verbatim because they learned statistical patterns from training data, not because they "understand" the content
+3. **Pattern matching, not understanding** - The models reproduce text verbatim because they learned statistical patterns from training data, not because they "understand" the content
 
-4. **Copyright claims are empirically testable** — The paper demonstrates that "transformation" claims in fair use arguments are undermined when models can output 95%+ of original works verbatim
+4. **Copyright claims are empirically testable** - The paper demonstrates that "transformation" claims in fair use arguments are undermined when models can output 95%+ of original works verbatim
 
 ### Key Insight for Thesis
 
@@ -127,7 +127,7 @@ The existence of near-complete verbatim extraction proves:
 - **Nasr et al. (2023) on ChatGPT extraction**: Extends from short snippets to entire books
 
 ### Provides Mechanism For
-- **#234 (Bayesian ICL)**: Memorization explains why ICL works — models have extensive knowledge compressed in weights
+- **#234 (Bayesian ICL)**: Memorization explains why ICL works - models have extensive knowledge compressed in weights
 
 ---
 
@@ -135,13 +135,13 @@ The existence of near-complete verbatim extraction proves:
 
 ### Potential Counter-Arguments
 
-1. **"Extraction required jailbreaking for some models"** — True for Claude/GPT-4.1, but Gemini/Grok required zero jailbreaking. The safeguards are inconsistent.
+1. **"Extraction required jailbreaking for some models"** - True for Claude/GPT-4.1, but Gemini/Grok required zero jailbreaking. The safeguards are inconsistent.
 
-2. **"GPT-4.1 resisted (4% vs 95%)"** — Yes, but 4% is still substantial extraction of copyrighted text. And chapter-by-chapter prompting increased GPT-4.1 extraction significantly.
+2. **"GPT-4.1 resisted (4% vs 95%)"** - Yes, but 4% is still substantial extraction of copyrighted text. And chapter-by-chapter prompting increased GPT-4.1 extraction significantly.
 
-3. **"This is expensive to replicate"** — Claude extraction cost ~$120 per book. Not cheap, but not prohibitive for motivated actors.
+3. **"This is expensive to replicate"** - Claude extraction cost ~$120 per book. Not cheap, but not prohibitive for motivated actors.
 
-4. **"Only 14 books tested"** — Small sample, but includes multiple highly-memorized books. The existence proof is sufficient.
+4. **"Only 14 books tested"** - Small sample, but includes multiple highly-memorized books. The existence proof is sufficient.
 
 ### Limitations (Authors Acknowledge)
 

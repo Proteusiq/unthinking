@@ -145,21 +145,21 @@ This is a rigorous ICLR 2026 paper with:
 3. **Controlled experiments** (fine-tuning with specific styles)
 4. **Practical defense** (SafeStyle)
 
-The finding that 32/36 LLMs show ASR inflation from semantically-irrelevant style patterns is a **smoking gun** for superficial alignment. If models understood safety, style wouldn't matter. But style matters enormously — proving alignment is pattern-matching, not understanding.
+The finding that 32/36 LLMs show ASR inflation from semantically-irrelevant style patterns is a **smoking gun** for superficial alignment. If models understood safety, style wouldn't matter. But style matters enormously - proving alignment is pattern-matching, not understanding.
 
 ## REBUTTALS
 
 ### This Paper Rebuts
 
-- **"LLMs understand safety principles"**: No — style patterns (irrelevant to safety) break alignment
-- **"Alignment is deep and robust"**: No — fine-tuning on benign styles creates vulnerabilities
-- **"Benchmark ASRs reflect true vulnerability"**: No — ASRs are inflated by style patterns
+- **"LLMs understand safety principles"**: No - style patterns (irrelevant to safety) break alignment
+- **"Alignment is deep and robust"**: No - fine-tuning on benign styles creates vulnerabilities
+- **"Benchmark ASRs reflect true vulnerability"**: No - ASRs are inflated by style patterns
 
 ### Potential Counter-Arguments
 
-1. **"Maybe style IS relevant to safety"** — Authors explicitly test this: decomposition via NLI confirms semantic equivalence
+1. **"Maybe style IS relevant to safety"** - Authors explicitly test this: decomposition via NLI confirms semantic equivalence
 
-2. **"This is just prompt engineering"** — No: the effect persists across fine-tuning, showing it's learned behavior
+2. **"This is just prompt engineering"** - No: the effect persists across fine-tuning, showing it's learned behavior
 
 ## Impact Assessment
 

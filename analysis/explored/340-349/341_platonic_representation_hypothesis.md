@@ -6,7 +6,7 @@
 - **Authors**: Minyoung Huh, Brian Cheung, Tongzhou Wang, Phillip Isola
 - **Affiliation**: MIT
 - **Venue**: ICML 2024
-- **Stance**: Balanced — the paper's *metaphysics* (Plato, ideal reality) sounds anti-thesis, but its *math* (PMI cooccurrence kernels, "scale is all you need") cleanly supports the thesis that neural networks build statistical/predictive models. Net: SUPPORTS the predictive-system reading.
+- **Stance**: Balanced - the paper's *metaphysics* (Plato, ideal reality) sounds anti-thesis, but its *math* (PMI cooccurrence kernels, "scale is all you need") cleanly supports the thesis that neural networks build statistical/predictive models. Net: SUPPORTS the predictive-system reading.
 
 ---
 
@@ -24,7 +24,7 @@
 │  Mathematical content (Section 4):                                   │
 │    Find an embedding f such that ⟨f(x_a), f(x_b)⟩ = K_PMI(x_a, x_b)  │
 │    Pointwise mutual information of cooccurrences in P(Z).            │
-│    This is a STATISTICAL kernel — not a causal/reasoning model.      │
+│    This is a STATISTICAL kernel - not a causal/reasoning model.      │
 │                                                                      │
 │  Empirical content:                                                  │
 │    78 vision models, all-pairs alignment (Figure 2)                  │
@@ -103,16 +103,16 @@
 | Merullo / Koh / LLaVA | A *single linear projection* (or 2-layer MLP) suffices to stitch vision into LLMs |
 | Sharma et al. 2024 (vision check-up) | LLMs trained only on text encode rich visual structure (queryable via code generation) |
 | Ngo & Kim 2024 | Audio ↔ language linearly aligned |
-| **Figure 8** (color study, Abdou et al. 2021) | Perceptual color manifold recovered from BOTH text and image cooccurrences — modality-independent |
+| **Figure 8** (color study, Abdou et al. 2021) | Perceptual color manifold recovered from BOTH text and image cooccurrences - modality-independent |
 | **Figure 9 / Appendix E** (caption density) | Denser captions → higher vision-text alignment (closer to bijective observations) |
 
 ### Brain Alignment
-- Yamins 2014, Schrimpf 2018, Conwell 2022, Antonello & Huth 2024 — DNN representations align with biological visual cortex
+- Yamins 2014, Schrimpf 2018, Conwell 2022, Antonello & Huth 2024 - DNN representations align with biological visual cortex
 - Antonello & Huth specifically argue alignment comes from *generality*, not predictive coding
 
 ### Metrics
-- **Mutual k-nearest-neighbor (mNN)** — primary, more permissive than CKA
-- CKA (Kornblith 2019) gave "very weak trend" — authors switched to mNN explicitly
+- **Mutual k-nearest-neighbor (mNN)** - primary, more permissive than CKA
+- CKA (Kornblith 2019) gave "very weak trend" - authors switched to mNN explicitly
 - Cross-modal: paired (image, caption) dataset bridges kernels
 
 ---
@@ -123,9 +123,9 @@
 ┌─────────────────────────────────────────────────────────────────────┐
 │  PRESSURES TOWARD CONVERGENCE                                       │
 ├─────────────────────────────────────────────────────────────────────┤
-│  1. Multitask Scaling — N tasks → smaller solution set              │
-│  2. Capacity Hypothesis — bigger function class covers optimum      │
-│  3. Simplicity Bias — among solutions, prefer the simplest          │
+│  1. Multitask Scaling - N tasks → smaller solution set              │
+│  2. Capacity Hypothesis - bigger function class covers optimum      │
+│  3. Simplicity Bias - among solutions, prefer the simplest          │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -135,7 +135,7 @@
 
 ---
 
-## Counterexamples and Limitations (Section 6 — Verbatim Categories)
+## Counterexamples and Limitations (Section 6 - Verbatim Categories)
 
 The paper is unusually candid here. Six explicit limitations:
 
@@ -147,9 +147,9 @@ The paper is unusually candid here. Six explicit limitations:
 6. **Lots left to explain.** **Peak cross-modal alignment is 0.16/1.0.** Authors explicitly do not know if this is "strong alignment with rest being noise" or "poor alignment with major gaps."
 
 Additional cracks:
-- **CLIP fine-tuned on ImageNet *loses* alignment** — narrow task-tuning damages platonic structure
+- **CLIP fine-tuned on ImageNet *loses* alignment** - narrow task-tuning damages platonic structure
 - Argument is conditioned on data being "sufficiently lossless and diverse," "may not come to pass" (Section 5)
-- Held et al. 2011 (cited in footnote 5): newly sighted humans cannot match seen with felt — empirical evidence against immediate cross-modal grounding
+- Held et al. 2011 (cited in footnote 5): newly sighted humans cannot match seen with felt - empirical evidence against immediate cross-modal grounding
 
 ---
 
@@ -178,38 +178,38 @@ Additional cracks:
 ## Relationship to Other Papers
 
 ### Extends / Formalizes
-- **Bansal et al. 2021** — Anna Karenina scenario, here lifted from same-modality stitching to cross-modal cooccurrence
-- **Roeder et al. 2021** — linear identifiability, here as theoretical underpinning
-- **Tian et al. 2020a (Contrastive Multiview)** — view-invariant representations recover shared info
-- **Zimmermann et al. 2021** — contrastive learning inverts data-generating process; cited as theoretical basis
+- **Bansal et al. 2021** - Anna Karenina scenario, here lifted from same-modality stitching to cross-modal cooccurrence
+- **Roeder et al. 2021** - linear identifiability, here as theoretical underpinning
+- **Tian et al. 2020a (Contrastive Multiview)** - view-invariant representations recover shared info
+- **Zimmermann et al. 2021** - contrastive learning inverts data-generating process; cited as theoretical basis
 
 ### Supports the Thesis (Predictive-System Reading)
-- **Geometry of Truth (#205, paper analyses linear probes)** — internal "world models" are linear-decodable but not causally used; matches Platonic's PMI-kernel framing
-- **Faith and Fate (#1, 2305.18654)** — pattern-matching account; Platonic provides theoretical why: convergent statistical kernels
-- **Beyond Anthropomorphic (#336, 2502.09192)** — anthropomorphism is human bias; Platonic exposes underlying math is statistical, not cognitive
+- **Geometry of Truth (#205, paper analyses linear probes)** - internal "world models" are linear-decodable but not causally used; matches Platonic's PMI-kernel framing
+- **Faith and Fate (#1, 2305.18654)** - pattern-matching account; Platonic provides theoretical why: convergent statistical kernels
+- **Beyond Anthropomorphic (#336, 2502.09192)** - anthropomorphism is human bias; Platonic exposes underlying math is statistical, not cognitive
 
 ### Challenges / Tension
-- **Antonello & Huth 2024** (cited approvingly in Platonic) — argues brain-LLM alignment is from *generality*, not predictive coding. Could be read as constraining Platonic.
-- **Richens & Everitt 2024** ("Robust agents learn causal world models") — argues representations must be causal, not merely statistical → potential challenge to PMI-kernel formalization
+- **Antonello & Huth 2024** (cited approvingly in Platonic) - argues brain-LLM alignment is from *generality*, not predictive coding. Could be read as constraining Platonic.
+- **Richens & Everitt 2024** ("Robust agents learn causal world models") - argues representations must be causal, not merely statistical → potential challenge to PMI-kernel formalization
 
 ### Provides Mechanism For
-- Many "world model" claims in the corpus — Platonic offers a concrete (if narrow) formalization: PMI of cooccurrences
+- Many "world model" claims in the corpus - Platonic offers a concrete (if narrow) formalization: PMI of cooccurrences
 
 ---
 
 ## REBUTTALS
 
 ### Authors' Own Limitations (Self-Acknowledged)
-See Section 6 above — six explicit counterexamples are part of the paper.
+See Section 6 above - six explicit counterexamples are part of the paper.
 
 ### Mirror Rebuttals (External)
 - The 0.16/1.0 ceiling can be read as **failure** of the convergence hypothesis just as much as evidence for it. The paper itself flags this.
-- CLIP-on-ImageNet alignment loss is direct empirical evidence that convergence is *not* monotonic with task-tuning — narrow optimization damages the platonic structure.
+- CLIP-on-ImageNet alignment loss is direct empirical evidence that convergence is *not* monotonic with task-tuning - narrow optimization damages the platonic structure.
 - "Scale is all you need" framing is contested by every reasoning-skeptic paper in this corpus that shows scaling does *not* close compositional / OOD gaps (e.g., Faith & Fate, GSM-Symbolic, OMEGA, Planning Gap).
 
 ### Tension for Pattern-Matching Reading
 - A genuine reasoning advocate could point to: brain-alignment evidence, downstream-task correlation in Figure 4, and the Sharma 2024 finding that LLMs encode visual structure from text alone.
-- But the *mechanism* offered (PMI cooccurrence) is precisely a statistical-pattern mechanism — not a causal/reasoning one. Even the "supportive" data have a deflationary interpretation.
+- But the *mechanism* offered (PMI cooccurrence) is precisely a statistical-pattern mechanism - not a causal/reasoning one. Even the "supportive" data have a deflationary interpretation.
 
 ---
 

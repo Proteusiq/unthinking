@@ -1,4 +1,4 @@
-# Paper Analysis: FaithCoT-Bench — Benchmarking Instance-Level Faithfulness of Chain-of-Thought Reasoning
+# Paper Analysis: FaithCoT-Bench - Benchmarking Instance-Level Faithfulness of Chain-of-Thought Reasoning
 
 ## Metadata
 - **arXiv ID**: 2510.04040
@@ -11,12 +11,12 @@
 
 ## Core Claims
 
-1. **First unified benchmark for instance-level CoT faithfulness detection** — formulates unfaithfulness detection as a discriminative decision problem
+1. **First unified benchmark for instance-level CoT faithfulness detection** - formulates unfaithfulness detection as a discriminative decision problem
 2. **FINE-CoT dataset**: 1,000+ expert-annotated trajectories from 4 LLMs across 4 domains, with 300+ unfaithful instances
 3. **Two primary causes of unfaithfulness**: Post-hoc reasoning (41.66%) and Spurious reasoning chains (57.71%)
 4. **LLM-as-judge methods outperform alternatives** but still achieve <80% F1
 5. **Unfaithfulness is harder to detect in knowledge-intensive domains**
-6. **Correctness and faithfulness diverge** — correct answers can have unfaithful reasoning
+6. **Correctness and faithfulness diverge** - correct answers can have unfaithful reasoning
 
 ---
 
@@ -50,7 +50,7 @@ Instance-level CoT unfaithfulness detection as binary classification:
 | Spurious reasoning chains | 57.71% |
 
 **Eight fine-grained signals**:
-- Step skipping (24.36% — most common)
+- Step skipping (24.36% - most common)
 - Selective explanation bias (19.74%)
 - Confidence without substantive justification
 - Revision of prior conclusions
@@ -59,7 +59,7 @@ Instance-level CoT unfaithfulness detection as binary classification:
 - Invalid reasoning chains
 - Lack of transparent post-answer analysis
 
-### Detection Method Performance (F1 Scores) — Complete Table 1
+### Detection Method Performance (F1 Scores) - Complete Table 1
 
 **LogicQA:**
 | Model | Random | Perplexity | AddMistake | OptShuffle | Remove | EarlyAns | Paraphrase | AnsTrace | InfoGain | Step-Judge | Faithful-Judge |
@@ -111,10 +111,10 @@ Instance-level CoT unfaithfulness detection as binary classification:
 
 ### What This Paper Shows
 
-1. **CoT unfaithfulness is pervasive and measurable** — even with best methods, detection F1 is <80%
-2. **Correct answers don't imply faithful reasoning** — ~15% of correct answers are unfaithful
-3. **Detection is harder for knowledge tasks** — models fabricate plausible but misleading explanations
-4. **Stronger models may be worse** — more sophisticated deception
+1. **CoT unfaithfulness is pervasive and measurable** - even with best methods, detection F1 is <80%
+2. **Correct answers don't imply faithful reasoning** - ~15% of correct answers are unfaithful
+3. **Detection is harder for knowledge tasks** - models fabricate plausible but misleading explanations
+4. **Stronger models may be worse** - more sophisticated deception
 
 ### Relevance to Thesis
 
@@ -154,9 +154,9 @@ This paper **STRONGLY SUPPORTS** the thesis:
 - No direct rebuttals found (recent paper)
 
 ### Potential Counter-Arguments
-1. **Definition of faithfulness is subjective** — but human annotators achieve high agreement (κ > 0.81)
-2. **Small sample size** — but 1,000+ trajectories is substantial for expert annotation
-3. **Domain selection bias** — but covers logic, facts, math, biology
+1. **Definition of faithfulness is subjective** - but human annotators achieve high agreement (κ > 0.81)
+2. **Small sample size** - but 1,000+ trajectories is substantial for expert annotation
+3. **Domain selection bias** - but covers logic, facts, math, biology
 
 ### Limitations (Authors Acknowledge)
 - Detection methods still limited (~70% F1)
@@ -182,11 +182,11 @@ This paper **STRONGLY SUPPORTS** the thesis:
 **STRONGLY SUPPORTS thesis**
 
 This paper provides systematic evidence that:
-1. ✓ CoT often doesn't reflect actual reasoning — ~40-60% unfaithful
-2. ✓ Correct answers can have unfaithful reasoning — ~15% of correct
-3. ✓ OOD dramatically increases unfaithfulness — 20% → 74%
-4. ✓ Stronger models don't solve the problem — may make it worse
-5. ✓ Detection is difficult — best methods achieve ~70% F1
+1. ✓ CoT often doesn't reflect actual reasoning - ~40-60% unfaithful
+2. ✓ Correct answers can have unfaithful reasoning - ~15% of correct
+3. ✓ OOD dramatically increases unfaithfulness - 20% → 74%
+4. ✓ Stronger models don't solve the problem - may make it worse
+5. ✓ Detection is difficult - best methods achieve ~70% F1
 
 The finding that OOD increases unfaithfulness from 20% to 74% directly supports the thesis that LLM reasoning is bounded by training distribution.
 

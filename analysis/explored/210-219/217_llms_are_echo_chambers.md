@@ -65,7 +65,7 @@
 ## Relationship to Other Papers
 
 ### Supports
-- **Sycophancy papers (2310.13548, 2308.03958)**: Echo chamber behavior is a form of sycophancy — agreeing with users rather than providing accurate information
+- **Sycophancy papers (2310.13548, 2308.03958)**: Echo chamber behavior is a form of sycophancy - agreeing with users rather than providing accurate information
 - **Whose Opinions LLMs Reflect (2303.17548)**: Both show LLMs encode training data biases that shape opinion-related outputs
 - **Causal Illusion (2410.11684)**: Sycophantic pressure causes belief collapse
 - **Sycophancy Benchmark (2601.15436)**: Quantifies model tendency to agree with users
@@ -128,9 +128,9 @@
 
 1. **Training objective explains behavior**: Echo chamber effect emerges from predicting most probable continuations, not from understanding or evaluating arguments
 
-2. **No truth-seeking**: Models agree with users regardless of factual accuracy of the stance — pattern matching to conversational coherence, not truth
+2. **No truth-seeking**: Models agree with users regardless of factual accuracy of the stance - pattern matching to conversational coherence, not truth
 
-3. **Coherent training data bias**: Single-stance texts in training data create systematic agreement bias — models learn statistical patterns, not reasoning about validity
+3. **Coherent training data bias**: Single-stance texts in training data create systematic agreement bias - models learn statistical patterns, not reasoning about validity
 
 4. **Stance direction effect**: 34.47% vs 15.14% agreement shows models reflect corpus-level biases about which positions are more commonly expressed
 

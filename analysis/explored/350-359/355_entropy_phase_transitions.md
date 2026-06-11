@@ -11,10 +11,10 @@
 
 ## Core Claims
 
-1. **Reasoning is not a static property of tasks or models — it is a dynamic decoding state.** Whether explicit reasoning helps emerges from the *interaction* between the specific model and the specific query, and only manifests during generation. It cannot be predicted from input features alone.
+1. **Reasoning is not a static property of tasks or models - it is a dynamic decoding state.** Whether explicit reasoning helps emerges from the *interaction* between the specific model and the specific query, and only manifests during generation. It cannot be predicted from input features alone.
 2. **CoT is often net-negative on factual / commonsense tasks.** Across 15 benchmarks and 4 models, there are documented accuracy drops of up to **−10.88 pp** when CoT is applied to retrieval/recall tasks (StrategyQA on Llama-3.2-3B), often at 50–425× the token cost of Direct decoding.
 3. **Phase-transition framing.** The decoding process exhibits a transition between a *high-entropy exploratory regime* and a *low-entropy structured-reasoning regime*. When the transition occurs, CoT helps; when entropy oscillates or grows, CoT hurts.
-4. **Early-stage entropy dynamics predict the outcome.** The first N=64 token entropies, summarized by three descriptors (cumulative entropy S_H, Spearman trend V_sp, Von Neumann ratio a_vnr), separate "CoT will help" from "CoT will hurt" with high reliability — even before generation is half-complete.
+4. **Early-stage entropy dynamics predict the outcome.** The first N=64 token entropies, summarized by three descriptors (cumulative entropy S_H, Spearman trend V_sp, Von Neumann ratio a_vnr), separate "CoT will help" from "CoT will hurt" with high reliability - even before generation is half-complete.
 5. **Method (EDRM)**: a training-free routing framework that uses these entropy descriptors to choose between Direct / Standard / CoT per instance. Achieves 27–55% token reduction *while* matching or improving accuracy across all four tested LLMs.
 6. **Even reasoning-distilled models over-reason.** Qwen3-4B-Instruct-2507 (with built-in "think mode") generates 642.5 tokens by default on tasks where Direct (a few tokens) does better. The same routing mechanism suppresses this over-reasoning.
 
@@ -25,7 +25,7 @@
 │  KEY FINDING                                                         │
 │                                                                      │
 │  Whether a model "reasons" is not a property of the model or the    │
-│  task — it is a dynamic state visible in the entropy of the first   │
+│  task - it is a dynamic state visible in the entropy of the first   │
 │  ~64 generated tokens.                                              │
 │                                                                      │
 │  ┌──────────────────────────┐   ┌──────────────────────────┐        │
@@ -88,14 +88,14 @@ Geometric regime classification:
 | Benchmark | Model | Direct Acc | CoT Acc | Δ | Token cost (Direct → CoT) |
 |---|---|---|---|---|---|
 | **StrategyQA** | Llama-3.2-3B | 81.40 | 70.52 | **−10.88** | 4.3 → 225.9 (53×) |
-| **StrategyQA** | Qwen3-4B-T | 79.61 | 69.43 | **−10.18** | — |
-| **GPQA** | Qwen2.5-7B | 39.51 | 29.91 | **−9.60** | — |
+| **StrategyQA** | Qwen3-4B-T | 79.61 | 69.43 | **−10.18** | - |
+| **GPQA** | Qwen2.5-7B | 39.51 | 29.91 | **−9.60** | - |
 | **GPQA** | Llama-3.2-3B | 33.93 | 24.78 | **−9.15** | 6.5 → 2762.7 (425×) |
 | **GPQA** | Qwen3-4B-T | 36.16 | 27.01 | **−9.15** | (reasoning-enhanced!) |
-| **StrategyQA** | Llama-3.1-8B | 81.09 | 74.50 | −6.59 | — |
-| LSAT | Qwen2.5-7B | 61.35 | 57.68 | −3.67 | — |
-| PIQA | Llama-3.2-3B | 75.52 | 72.52 | −3.00 | — |
-| MuSR | Qwen2.5-7B | 54.89 | 52.78 | −2.11 | — |
+| **StrategyQA** | Llama-3.1-8B | 81.09 | 74.50 | −6.59 | - |
+| LSAT | Qwen2.5-7B | 61.35 | 57.68 | −3.67 | - |
+| PIQA | Llama-3.2-3B | 75.52 | 72.52 | −3.00 | - |
+| MuSR | Qwen2.5-7B | 54.89 | 52.78 | −2.11 | - |
 
 **Authors' own characterization** (Appendix A.2): *"For benchmarks involving common sense or general knowledge ... In some cases, such as LSAT, GPQA, and StrategyQA, several models exhibit negative gains, suggesting that **for these specific tasks, generating a reasoning trace may introduce noise or errors, making direct decoding the superior strategy**."*
 
@@ -106,7 +106,7 @@ Geometric regime classification:
 | Qwen3-4B-T (reasoning-enhanced) | 642.5 | 401.1 | **37.6%** |
 | Llama-3.1-8B | 642.5 | 335.1 | 47.8% |
 
-> Authors call Qwen3-4B-T an "**adversarial circumstance**" for routing — the model is explicitly biased toward verbose reasoning but EDRM still detects when reasoning isn't needed.
+> Authors call Qwen3-4B-T an "**adversarial circumstance**" for routing - the model is explicitly biased toward verbose reasoning but EDRM still detects when reasoning isn't needed.
 
 ### EDRM-Global routing performance (matches or beats CoT, halves tokens)
 
@@ -135,12 +135,12 @@ Geometric regime classification:
 
 | Variant | Llama-3.2-3B Acc/Tok | Δ vs Full |
 |---|---|---|
-| Full EDRM-Inst-E | 65.24 / 179.4 | — |
+| Full EDRM-Inst-E | 65.24 / 179.4 | - |
 | w/o Fallback (Direct branch) | 59.98 / 177.1 | **−5.26 acc** |
 | w/o S_H | 59.88 / 185.9 | −5.36 acc |
 | w/o a_vnr | 58.94 / 181.5 | −6.30 acc |
 
-Removing the fallback Direct branch reduces accuracy **3.5–4.8% across all models** — even when routing favors Standard/CoT, mid-generation drift can fail. Removing S_H breaks "early uncertainty overload" detection (+43.8 tokens on Qwen3-4B-T). Removing a_vnr leaves V_sp susceptible to local noise — can't distinguish "genuine convergence" from "spurious oscillation".
+Removing the fallback Direct branch reduces accuracy **3.5–4.8% across all models** - even when routing favors Standard/CoT, mid-generation drift can fail. Removing S_H breaks "early uncertainty overload" detection (+43.8 tokens on Qwen3-4B-T). Removing a_vnr leaves V_sp susceptible to local noise - can't distinguish "genuine convergence" from "spurious oscillation".
 
 ### Task-aware allocation (BBH vs StrategyQA, Llama-3.2-3B)
 
@@ -180,17 +180,17 @@ This paper provides exceptionally clean evidence for several thesis components:
 
 1. **Smoking gun: CoT is net-negative on a substantial slice of benchmarks.** The 10.88 pp drop on StrategyQA at 53× token cost is among the strongest quantified examples of CoT degrading rather than enabling reasoning. Crucially, this happens *even on a reasoning-distilled model* (Qwen3-4B-T: −10.18 pp on StrategyQA, −9.15 pp on GPQA). The premise that "more reasoning tokens = more reasoning" is empirically falsified for whole categories of tasks.
 
-2. **Reframes reasoning as a decoding regime, not a capability.** The "dynamic decoding state" framing is exactly the predictive-not-reasoning thesis articulated mechanistically: there is no "reasoning module" that activates — there is a generation trajectory that *happens to* converge to a structured low-entropy regime when the model's pattern-matched answer space is narrow, and *happens to* oscillate when it isn't. Reasoning emerges from the trajectory; it is not deployed by the model.
+2. **Reframes reasoning as a decoding regime, not a capability.** The "dynamic decoding state" framing is exactly the predictive-not-reasoning thesis articulated mechanistically: there is no "reasoning module" that activates - there is a generation trajectory that *happens to* converge to a structured low-entropy regime when the model's pattern-matched answer space is narrow, and *happens to* oscillate when it isn't. Reasoning emerges from the trajectory; it is not deployed by the model.
 
-3. **The phase-transition framing supports a mechanism explanation.** A model that "truly reasoned" should be able to enter a structured regime *on demand* (when explicitly prompted to think). Instead, whether it does depends on the *interaction* with the specific query — and is observable from the entropy alone. This is the signature of pattern completion under high vs low retrieval ambiguity, not deliberate reasoning.
+3. **The phase-transition framing supports a mechanism explanation.** A model that "truly reasoned" should be able to enter a structured regime *on demand* (when explicitly prompted to think). Instead, whether it does depends on the *interaction* with the specific query - and is observable from the entropy alone. This is the signature of pattern completion under high vs low retrieval ambiguity, not deliberate reasoning.
 
 4. **Connects directly to Paper #354 (Premature Confidence).** Both papers use truncation-probing / early-window dynamics to detect whether CoT will be "real" or post-hoc. #354 measures confidence trajectory; this paper measures entropy trajectory. They are dual diagnostics of the same underlying phenomenon: the model has already settled into a pattern-matched answer space early in generation.
 
-5. **Reasoning-enhanced models over-reason in exactly the predicted way.** Qwen3-4B-T, which has built-in "think mode," still generates 642.5 tokens on commonsense tasks where Direct (a few tokens) does *better*. The reasoning-distilled training did not teach the model when reasoning helps — it taught the model to always generate reasoning-shaped output. The substance is performative, not functional.
+5. **Reasoning-enhanced models over-reason in exactly the predicted way.** Qwen3-4B-T, which has built-in "think mode," still generates 642.5 tokens on commonsense tasks where Direct (a few tokens) does *better*. The reasoning-distilled training did not teach the model when reasoning helps - it taught the model to always generate reasoning-shaped output. The substance is performative, not functional.
 
-6. **The EDRM method works because the diagnostic is reliable** — and that fact is itself thesis-supporting. If reasoning were a deep cognitive capability, you wouldn't expect a 3D entropy descriptor over the first 64 tokens to predict its utility. The fact that such a shallow signal *does* predict CoT efficacy with high reliability supports the view that what we call "reasoning" is a surface-level decoding regime.
+6. **The EDRM method works because the diagnostic is reliable** - and that fact is itself thesis-supporting. If reasoning were a deep cognitive capability, you wouldn't expect a 3D entropy descriptor over the first 64 tokens to predict its utility. The fact that such a shallow signal *does* predict CoT efficacy with high reliability supports the view that what we call "reasoning" is a surface-level decoding regime.
 
-The only mitigating element is that the paper *also* shows CoT helps a lot on FOLIO, formal logic, BBH — there are real CoT gains on real reasoning tasks. So this is not "CoT is never reasoning" — it is "CoT is only reasoning sometimes, and not where authors assume." That is consistent with the thesis being correctly nuanced: predictive completion produces *both* genuine multi-step computation (when the task structure aligns with training-distribution algorithmic patterns) *and* fluent confabulation (when it doesn't), and the difference is detectable in decoding dynamics.
+The only mitigating element is that the paper *also* shows CoT helps a lot on FOLIO, formal logic, BBH - there are real CoT gains on real reasoning tasks. So this is not "CoT is never reasoning" - it is "CoT is only reasoning sometimes, and not where authors assume." That is consistent with the thesis being correctly nuanced: predictive completion produces *both* genuine multi-step computation (when the task structure aligns with training-distribution algorithmic patterns) *and* fluent confabulation (when it doesn't), and the difference is detectable in decoding dynamics.
 
 ---
 
@@ -198,17 +198,17 @@ The only mitigating element is that the paper *also* shows CoT helps a lot on FO
 
 ### Supports
 
-- **#354 Premature Confidence (2605.24396)** — direct sibling. Both use early-decoding-window probes to predict CoT failure. PCS uses confidence trajectory; EDRM uses entropy trajectory. Both find that the trajectory is set early (within first ~64 tokens / first 10% of CoT) and predicts whether reasoning is "real" or post-hoc.
-- **#309 EDIS (2602.01288)** — direct methodological predecessor. EDIS diagnoses LLM reasoning via entropy dynamics; this paper extends that diagnosis into a phase-transition framework + routing method.
-- **#162 Pfau et al. 2024 — Dot by Dot (2404.15758)** — both show that CoT tokens are not inherently reasoning-bearing; their contribution depends on the task–model coupling.
-- **#149 / #312 Turpin 2023 (2305.04388)** — same family: CoT tokens are often disconnected from the model's actual computation, especially on tasks where pattern-matching already produces an answer.
-- **#8 Lanham 2023 (2307.13702)** — early-answering measurement methodology. EDRM's N=64 entropy probe is the "shape of the generation early on" dual of Lanham's "did the model commit early?"
-- **#130 Overthinking of o1-like LLMs (2412.21187)** — same finding: reasoning-trained models generate excessive reasoning tokens that don't improve outcomes, here demonstrated quantitatively with the Qwen3-4B-T 642.5 → 401.1 token reduction.
+- **#354 Premature Confidence (2605.24396)** - direct sibling. Both use early-decoding-window probes to predict CoT failure. PCS uses confidence trajectory; EDRM uses entropy trajectory. Both find that the trajectory is set early (within first ~64 tokens / first 10% of CoT) and predicts whether reasoning is "real" or post-hoc.
+- **#309 EDIS (2602.01288)** - direct methodological predecessor. EDIS diagnoses LLM reasoning via entropy dynamics; this paper extends that diagnosis into a phase-transition framework + routing method.
+- **#162 Pfau et al. 2024 - Dot by Dot (2404.15758)** - both show that CoT tokens are not inherently reasoning-bearing; their contribution depends on the task–model coupling.
+- **#149 / #312 Turpin 2023 (2305.04388)** - same family: CoT tokens are often disconnected from the model's actual computation, especially on tasks where pattern-matching already produces an answer.
+- **#8 Lanham 2023 (2307.13702)** - early-answering measurement methodology. EDRM's N=64 entropy probe is the "shape of the generation early on" dual of Lanham's "did the model commit early?"
+- **#130 Overthinking of o1-like LLMs (2412.21187)** - same finding: reasoning-trained models generate excessive reasoning tokens that don't improve outcomes, here demonstrated quantitatively with the Qwen3-4B-T 642.5 → 401.1 token reduction.
 
 ### Extends
 
-- **Sprague et al. 2024 "To CoT or not to CoT" (2409.12183)** — extends from task-categorical view ("CoT helps on math and symbolic") to instance-level dynamic view ("CoT helps when entropy enters the convergent regime"). Sprague is task-centric; this paper is task×model×instance-centric.
-- **Liu et al. 2024 "Mind your step" (2410.21333)** — same finding (CoT can hurt) with mechanistic explanation: it hurts when entropy doesn't enter the convergent regime.
+- **Sprague et al. 2024 "To CoT or not to CoT" (2409.12183)** - extends from task-categorical view ("CoT helps on math and symbolic") to instance-level dynamic view ("CoT helps when entropy enters the convergent regime"). Sprague is task-centric; this paper is task×model×instance-centric.
+- **Liu et al. 2024 "Mind your step" (2410.21333)** - same finding (CoT can hurt) with mechanistic explanation: it hurts when entropy doesn't enter the convergent regime.
 
 ### Challenges
 
@@ -221,23 +221,23 @@ The only mitigating element is that the paper *also* shows CoT helps a lot on FO
 
 ### Known Rebuttals
 - No direct rebuttals (paper is May 2026).
-- Related counter-view: the "circuit-discovery" line (Conmy 2023, Olsson 2022, Wang 2022) that treats reasoning as discoverable stable circuits. This paper does not directly engage with that line — it provides an *alternative* framing rather than refuting the circuit findings.
-- The closest competitor — **Liu et al. 2025 Token-Signature (2506.06008)** — also uses decoding features to predict CoT gains, but only does binary CoT/Direct routing. EDRM beats it on accuracy/token tradeoff.
+- Related counter-view: the "circuit-discovery" line (Conmy 2023, Olsson 2022, Wang 2022) that treats reasoning as discoverable stable circuits. This paper does not directly engage with that line - it provides an *alternative* framing rather than refuting the circuit findings.
+- The closest competitor - **Liu et al. 2025 Token-Signature (2506.06008)** - also uses decoding features to predict CoT gains, but only does binary CoT/Direct routing. EDRM beats it on accuracy/token tradeoff.
 
 ### Limitations (Authors Acknowledge)
 
-1. **Probing overhead**: EDRM requires generating ~64 probe tokens per instance before routing — moderate overhead vs pure Direct decoding (negligible on tasks where Standard/CoT is selected anyway, since those tokens are reused).
+1. **Probing overhead**: EDRM requires generating ~64 probe tokens per instance before routing - moderate overhead vs pure Direct decoding (negligible on tasks where Standard/CoT is selected anyway, since those tokens are reused).
 2. **Scale limit**: experiments confined to 3B–8B open-source instruct models. No evidence the framework generalizes to >70B models or API-only systems.
 3. **Modality limit**: text-only. Multimodal extension unproven.
 4. **Calibration dependency**: 50-sample dataset calibration is needed per benchmark; cross-dataset transfer (EDRM-Global-C) works but not perfectly.
-5. **Hyperparameter k=0.07** is fixed across models — not theoretically derived.
+5. **Hyperparameter k=0.07** is fixed across models - not theoretically derived.
 6. **No causal intervention**: the paper shows entropy *predicts* CoT failure; it does not show that intervening on entropy (e.g., forcing convergence) *causes* better reasoning. The causal arrow remains observational.
 
 ### Independent Assessment
 
-The strongest piece of evidence is the **per-benchmark CoT-vs-Direct table**, where multiple models show 9–11 pp accuracy drops from invoking CoT on commonsense/factual tasks, often at 50–425× the token cost. This is published, quantified, multi-model evidence that the default-CoT deployment pattern is harmful on a substantial slice of real benchmarks — not a fringe edge case.
+The strongest piece of evidence is the **per-benchmark CoT-vs-Direct table**, where multiple models show 9–11 pp accuracy drops from invoking CoT on commonsense/factual tasks, often at 50–425× the token cost. This is published, quantified, multi-model evidence that the default-CoT deployment pattern is harmful on a substantial slice of real benchmarks - not a fringe edge case.
 
-The phase-transition framing is well-supported by Figure 3 (entropy trajectories) and the Figure 2 heatmap, where the (V_sp, S_H) plane clearly separates positive-gain from negative-gain regions. The framing isn't merely metaphorical — it's an empirical regularity.
+The phase-transition framing is well-supported by Figure 3 (entropy trajectories) and the Figure 2 heatmap, where the (V_sp, S_H) plane clearly separates positive-gain from negative-gain regions. The framing isn't merely metaphorical - it's an empirical regularity.
 
 The methodological convergence with Paper #354 (Premature Confidence) is striking and underappreciated. Both papers independently discover that early decoding dynamics (first ~10% of generation / first 64 tokens) predict whether the rest of the CoT will be substantive or filler. The two diagnostics are different (confidence trajectory vs entropy trajectory) but they almost certainly measure facets of the same underlying phenomenon: by the time the model has emitted a few dozen tokens, the answer is essentially determined by pattern-matched retrieval, and the remaining generation is either honest expansion of that pattern (when the pattern is correct) or post-hoc confabulation (when it isn't).
 
@@ -286,6 +286,6 @@ These three are central thesis-relevant predecessors that should be promoted to 
 
 | arXiv ID | Title | Why priority |
 |---|---|---|
-| 2409.12183 | Sprague et al. — "To CoT or not to CoT? Chain-of-thought helps mainly on math and symbolic reasoning" | Foundational task-categorical CoT-skepticism paper |
-| 2410.21333 | Liu et al. — "Mind your step (by step): chain-of-thought can reduce performance on tasks where thinking makes humans worse" | Direct evidence that CoT degrades performance |
-| 2506.06008 | Liu et al. — "Token Signature: predicting chain-of-thought gains with token decoding feature in large language models" | Closest methodological competitor to EDRM |
+| 2409.12183 | Sprague et al. - "To CoT or not to CoT? Chain-of-thought helps mainly on math and symbolic reasoning" | Foundational task-categorical CoT-skepticism paper |
+| 2410.21333 | Liu et al. - "Mind your step (by step): chain-of-thought can reduce performance on tasks where thinking makes humans worse" | Direct evidence that CoT degrades performance |
+| 2506.06008 | Liu et al. - "Token Signature: predicting chain-of-thought gains with token decoding feature in large language models" | Closest methodological competitor to EDRM |

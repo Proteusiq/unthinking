@@ -180,17 +180,17 @@ At k=256 competing_vars (Qwen2.5-3B):
 - **Paper 368 (2507.11768)**: Companion paper on positional encoding breaking exchangeability; this paper shows positional effects cause binding failures
 
 ### Strongly Supports
-- **Paper 165 (2401.11817)**: Hallucination is Inevitable — procedural hallucination is another dimension of inevitability
-- **Paper 107 (2601.07422)**: Two Pathways to Truthfulness — "present but not used" maps to encoding-output dissociation
-- **Paper 247 (2602.11201)**: Mechanistic Evidence for Faithfulness Decay — both find late-layer corruption of correct information
+- **Paper 165 (2401.11817)**: Hallucination is Inevitable - procedural hallucination is another dimension of inevitability
+- **Paper 107 (2601.07422)**: Two Pathways to Truthfulness - "present but not used" maps to encoding-output dissociation
+- **Paper 247 (2602.11201)**: Mechanistic Evidence for Faithfulness Decay - both find late-layer corruption of correct information
 
 ### Related Mechanism
 - **Lost-in-the-Middle (Liu et al., 2024)**: This paper provides the mechanistic explanation for why lost-in-the-middle occurs (geometric information decay via SDPI)
-- **Paper 161 (2302.00093)**: LLMs distracted by irrelevant context — procedural hallucination provides formal framework
+- **Paper 161 (2302.00093)**: LLMs distracted by irrelevant context - procedural hallucination provides formal framework
 
 ### Connects To
-- **Paper 108 (2601.22035)**: Thinking Out of Order — both show output doesn't faithfully reflect internal computation
-- **Paper 182 (2602.02103)**: No Global Plan in CoT — both show failures at the readout/output stage
+- **Paper 108 (2601.22035)**: Thinking Out of Order - both show output doesn't faithfully reflect internal computation
+- **Paper 182 (2602.02103)**: No Global Plan in CoT - both show failures at the readout/output stage
 
 ---
 
@@ -212,7 +212,7 @@ At k=256 competing_vars (Qwen2.5-3B):
 
 > "A model could produce a valid-looking trace via post-hoc rationalization."
 
-> "Trace auditing does not prove faithfulness — it detects certificate failures but does not prove faithfulness to the model's hidden chain-of-thought."
+> "Trace auditing does not prove faithfulness - it detects certificate failures but does not prove faithfulness to the model's hidden chain-of-thought."
 
 ---
 
@@ -263,7 +263,7 @@ At k=256 competing_vars (Qwen2.5-3B):
 |-----------|------------|
 | **Stance** | Strongly Supports |
 | **Confidence** | High |
-| **Relevance** | Very High — mechanistic explanation of hallucination as routing failure |
+| **Relevance** | Very High - mechanistic explanation of hallucination as routing failure |
 | **Evidence Type** | Theoretical + Empirical + Mechanistic |
 | **Venue Quality** | arXiv preprint |
 

@@ -39,8 +39,8 @@
 - SROIE (receipt extraction - financial implications)
 
 ### Metrics
-- **H-Score**: 1 - E[|Confidence - Accuracy|] — measures calibration
-- **ECI**: P(C_correct > C_incorrect) — discriminative power between correct/incorrect
+- **H-Score**: 1 - E[|Confidence - Accuracy|] - measures calibration
+- **ECI**: P(C_correct > C_incorrect) - discriminative power between correct/incorrect
 
 ---
 

@@ -64,9 +64,9 @@
 ## Relationship to Other Papers
 
 ### Supports
-- **Overthinking o1-Like LLMs (2412.21187)**: Authors note reasoning models learn to repeat prompts via RL—this paper shows why that's beneficial
+- **Overthinking o1-Like LLMs (2412.21187)**: Authors note reasoning models learn to repeat prompts via RL-this paper shows why that's beneficial
 - **Let's Think Dot by Dot (2404.15758)**: Both show extra computation (via different mechanisms) improves performance
-- **Pause Tokens papers (195-200)**: Same principle—extra processing time before output improves accuracy
+- **Pause Tokens papers (195-200)**: Same principle-extra processing time before output improves accuracy
 
 ### Challenges
 - **Zero-Shot Reasoners (2205.11916)**: Suggests "think step by step" may be unnecessary if prompt repetition achieves similar gains more efficiently
@@ -106,7 +106,7 @@ None identified. Paper is recent (Dec 2024).
 | **3x Repetition** | `<QUERY> Let me repeat that: <QUERY> Let me repeat that one more time: <QUERY>` |
 | **Padding (control)** | `<QUERY> Ignore these periods: .......` (same length, no info) |
 
-**Key insight**: In causal attention, early tokens cannot attend to later tokens. By repeating the prompt, every token in the second copy can attend to every token in the first copy—enabling full bidirectional information flow within the prompt.
+**Key insight**: In causal attention, early tokens cannot attend to later tokens. By repeating the prompt, every token in the second copy can attend to every token in the first copy-enabling full bidirectional information flow within the prompt.
 
 ---
 
@@ -130,13 +130,13 @@ None identified. Paper is recent (Dec 2024).
 
 This paper provides indirect but meaningful evidence that LLMs are not genuine reasoners:
 
-1. **Attention as the bottleneck**: The fact that simply repeating the prompt (allowing bidirectional attention to prompt content) dramatically improves accuracy suggests models struggle with basic information integration—a task trivial for genuine reasoners.
+1. **Attention as the bottleneck**: The fact that simply repeating the prompt (allowing bidirectional attention to prompt content) dramatically improves accuracy suggests models struggle with basic information integration-a task trivial for genuine reasoners.
 
 2. **Reasoning models redundantly re-discover repetition**: The observation that o1-like models learn to repeat prompts via RL suggests their "reasoning" includes this basic attention workaround, inflating apparent reasoning sophistication.
 
 3. **NameIndex 21% → 97%**: A 76-point improvement on a simple "find the 25th item" task reveals severe limitations in basic information retrieval that genuine reasoning would not exhibit.
 
-4. **Format over substance**: The improvement comes purely from prompt formatting, not from additional "thinking"—supporting the thesis that performance is driven by surface-level patterns.
+4. **Format over substance**: The improvement comes purely from prompt formatting, not from additional "thinking"-supporting the thesis that performance is driven by surface-level patterns.
 
 However, this is **indirect** evidence. The paper doesn't directly test reasoning capabilities but reveals an architectural limitation that reasoning should not be subject to.
 

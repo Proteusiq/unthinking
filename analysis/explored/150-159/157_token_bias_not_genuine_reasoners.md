@@ -61,7 +61,7 @@ When misleading conjunction option changed to irrelevant one:
 Changing "Linda"→"Bob" in one-shot exemplar:
 - **GPT-4**: Significant drop (p < 0.05)
 - **Claude models**: Significant drop
-- Proves overfitting to "Linda" token — the most famous example in cognitive science
+- Proves overfitting to "Linda" token - the most famous example in cognitive science
 - Logic identical; only surface name changes
 
 ### Hypothesis 3: Celebrity Name Bias
@@ -75,7 +75,7 @@ Changing "Linda"→"Bob" in one-shot exemplar:
 - When changed to "thirty-six bunnies" with 6-bunny races (same logic):
   - GPT-4: n₁₂ > n₂₁ with statistical significance
   - Claude: n₁₂ > n₂₁ with statistical significance
-- **Visual token bias**: GPT-4o generated bunnies with FOUR ears (both lop and erect) when asked to illustrate "lop-eared bunnies" — associating "bunnies" with erect ears without understanding bunny anatomy
+- **Visual token bias**: GPT-4o generated bunnies with FOUR ears (both lop and erect) when asked to illustrate "lop-eared bunnies" - associating "bunnies" with erect ears without understanding bunny anatomy
 
 ### Hypothesis 4: Quantifier Token Bias
 Rephrasing "All roses are flowers"→"Roses are flowers":
@@ -94,7 +94,7 @@ Adding "Bloomberg reports..." or "MIT research shows...":
 Adding explicit hints ("This is a problem on the conjunction fallacy"):
 - Massive accuracy improvements when fallacy name is leaked
 - Proves models don't reason; they pattern-match on fallacy names
-- Also tested with detailed CoT instructions — same pattern
+- Also tested with detailed CoT instructions - same pattern
 
 ---
 
@@ -159,7 +159,7 @@ Adding explicit hints ("This is a problem on the conjunction fallacy"):
 2. **Benchmark contamination**: Classic problems (Linda) are in training data
 3. **Elicitation vs reasoning**: Hints work because they elicit memorized patterns
 4. **Generalization impossible**: Token bias prevents true OOD generalization
-5. **Principle of invariance violated**: Rational decision-makers should be unaffected by logically irrelevant framing changes — LLMs systematically violate this
+5. **Principle of invariance violated**: Rational decision-makers should be unaffected by logically irrelevant framing changes - LLMs systematically violate this
 
 ---
 
@@ -175,7 +175,7 @@ LLMs **systematically violate** this principle:
 - Add "Bloomberg reports..." → confidence increases (incorrectly)
 - Leak "conjunction fallacy" hint → massive accuracy gains
 
-**This is not noise — it is predictable, systematic, and testable with statistical rigor.**
+**This is not noise - it is predictable, systematic, and testable with statistical rigor.**
 
 ---
 

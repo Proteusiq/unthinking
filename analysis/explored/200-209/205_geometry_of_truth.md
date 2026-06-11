@@ -12,9 +12,9 @@
 
 ## Core Claims
 
-1. LLMs **linearly represent truth** — there exists a "truth direction" in activation space
+1. LLMs **linearly represent truth** - there exists a "truth direction" in activation space
 2. This representation is **unified across structurally and topically diverse statements**
-3. Linear structure **emerges with scale** — larger models have more abstract truth representations
+3. Linear structure **emerges with scale** - larger models have more abstract truth representations
 4. **Causal interventions** can flip model outputs by adding/subtracting the truth direction
 5. Simple **difference-in-mean probes** generalize as well as other techniques
 
@@ -114,7 +114,7 @@ From Appendix A:
 
 3. **Correlation ≠ Truth Representation**
    - neg_cities: truth correlates at r = -0.63 with probability
-   - But the "truth direction" still works — because it's encoding something else?
+   - But the "truth direction" still works - because it's encoding something else?
    - Alternative: encoding "matches training patterns" vs "violates patterns"
 
 4. **Simple Statements Only**
@@ -157,7 +157,7 @@ This paper is potentially **confounded by Embers findings**:
 - **CCS** (Burns et al. 2023): Authors note CCS has generalization issues
 
 ### Related Work They Cite
-- **Levinstein & Herrmann (2023)**: "Still no lie detector for language models" — probes fail to generalize to negations
+- **Levinstein & Herrmann (2023)**: "Still no lie detector for language models" - probes fail to generalize to negations
 - **Azaria & Mitchell (2023)**: Early truth probing work with known failures
 
 ---
@@ -212,7 +212,7 @@ This paper is potentially **confounded by Embers findings**:
 4. No test of the hard cases (controversial, counterintuitive, novel)
 5. Same probing limitations as other mechanistic papers
 
-**What this paper actually shows**: LLMs have a linear direction that correlates with whether simple, uncontroversial factual statements are true — but this could be a "familiarity" or "matches training patterns" direction rather than genuine truth representation.
+**What this paper actually shows**: LLMs have a linear direction that correlates with whether simple, uncontroversial factual statements are true - but this could be a "familiarity" or "matches training patterns" direction rather than genuine truth representation.
 
 ---
 
@@ -228,7 +228,7 @@ This paper is **compatible with** the pattern matching thesis:
 | Negations orthogonal early | Different surface patterns |
 | Causal interventions work | Steering toward common patterns |
 
-**Key insight**: If the "truth direction" is really a "commonly stated direction," then interventions work because you're pushing the model toward outputs that match common training patterns — exactly what pattern matching predicts.
+**Key insight**: If the "truth direction" is really a "commonly stated direction," then interventions work because you're pushing the model toward outputs that match common training patterns - exactly what pattern matching predicts.
 
 ---
 

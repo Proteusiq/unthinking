@@ -12,11 +12,11 @@
 
 ## Core Claims
 
-1. **ICL implements pretraining function classes, not new reasoning**: When faced with OOD tasks, ICL behaves like a model from its pretraining function class optimized by gradient descent — it doesn't learn genuinely new functions.
+1. **ICL implements pretraining function classes, not new reasoning**: When faced with OOD tasks, ICL behaves like a model from its pretraining function class optimized by gradient descent - it doesn't learn genuinely new functions.
 
 2. **Abstract label learning is NOT evidence of OOD capability**: The ability to learn "foo/bar" labels only works when the underlying task function is in-distribution. It's retrieval, not generalization.
 
-3. **Algorithm selection mechanism**: When pretrained on multiple tasks, ICL selects the pretraining function that yields lowest test error — "low-test-error preference."
+3. **Algorithm selection mechanism**: When pretrained on multiple tasks, ICL selects the pretraining function that yields lowest test error - "low-test-error preference."
 
 4. **Real-world LLMs fail on OOD synthetic tasks**: Llama-3-8B can do retrieval but fails on OOD linear classification tasks.
 
@@ -49,13 +49,13 @@
 | Linear Regression | Quadratic Regression | **Same as LR optimized by GD** |
 | Linear Regression | ReLU NN | **Same as LR optimized by GD** |
 
-**Critical insight**: When trained on LR and tested on QR, ICL's performance matches a linear model trained by gradient descent — it implements LR regardless of the test task.
+**Critical insight**: When trained on LR and tested on QR, ICL's performance matches a linear model trained by gradient descent - it implements LR regardless of the test task.
 
 ### Finding 2: Double Descent Reveals ID Behavior
 
 > "The models trained on linear and quadratic regression exhibit a double descent error curve... characterized by a high error when given exact d examples and evaluated on a new task. This further demonstrates that ICL implements the ID predictions."
 
-Double descent is a signature of linear regression — seeing it on OOD tasks proves ICL is implementing its training function.
+Double descent is a signature of linear regression - seeing it on OOD tasks proves ICL is implementing its training function.
 
 ### Finding 3: Abstract Labels ≠ New Task Learning
 
@@ -95,11 +95,11 @@ Tested on "predict reversed labels" task (e.g., "positive" → "evitisop"):
 
 > "The ICL prediction prefers to implement the pretraining function with lower test error."
 
-This explains why ICL can appear to "select the right algorithm" — it's not reasoning about which is correct, but selecting based on which fits the context better.
+This explains why ICL can appear to "select the right algorithm" - it's not reasoning about which is correct, but selecting based on which fits the context better.
 
 ### Low-Test-Error Preference
 
-The model doesn't understand which function is "correct" — it selects based on empirical fit to context:
+The model doesn't understand which function is "correct" - it selects based on empirical fit to context:
 
 ```
 ICL(context) ≈ argmin_{f ∈ pretraining functions} TestError(f, context)
@@ -137,7 +137,7 @@ This is the mathematical formalization of "pattern matching from training distri
 
 ### Strongly Supports
 - **CoT Mirage (2508.01191)**: Both show ID=high, OOD=low
-- **Interplay (2512.07783)**: "Cannot synthesize from void" — same finding
+- **Interplay (2512.07783)**: "Cannot synthesize from void" - same finding
 - **Faith and Fate (2305.18654)**: "Linearized subgraph matching" = "pretraining function class"
 - **Kambhampati (2403.04121)**: "Universal approximate retrieval" confirmed
 
@@ -145,7 +145,7 @@ This is the mathematical formalization of "pattern matching from training distri
 - **Paper 133 (Base Models Know How)**: This paper shows ICL selects from pretraining functions; Paper 133 shows reasoning mechanisms pre-exist
 
 ### Challenges (Potential)
-- Papers claiming ICL "learns new tasks" via abstract labels — this paper shows that's retrieval, not learning
+- Papers claiming ICL "learns new tasks" via abstract labels - this paper shows that's retrieval, not learning
 
 ---
 
@@ -165,8 +165,8 @@ This is the mathematical formalization of "pattern matching from training distri
 ### Limitations Acknowledged by Authors
 
 1. Synthetic tasks may not fully represent real-world complexity
-2. Focus on mathematical functions — may not apply to all task types
-3. Limited to GPT-2 and Llama-3-8B — larger models untested
+2. Focus on mathematical functions - may not apply to all task types
+3. Limited to GPT-2 and Llama-3-8B - larger models untested
 
 ---
 

@@ -6,7 +6,7 @@
 - **Authors**: Thomas Kleine Buening, Jonas Hübotter, Barna Pásztor, Idan Shenfeld, Giorgia Ramponi, Andreas Krause
 - **Affiliation**: ETH Zürich + MIT + UZH
 - **Code**: [github.com/lasgroup/user_interactions](https://github.com/lasgroup/user_interactions) (Apache-2.0; supports both online and offline SDPO; multi-GPU via accelerate)
-- **Stance**: SUPPORTS (strongly) — the personalization-without-explicit-feedback result is among the cleanest empirical evidence in the corpus that LLM "learning" is preference disambiguation over a pre-existing predictive prior.
+- **Stance**: SUPPORTS (strongly) - the personalization-without-explicit-feedback result is among the cleanest empirical evidence in the corpus that LLM "learning" is preference disambiguation over a pre-existing predictive prior.
 - **Cluster**: `alignment`
 
 > **Two operating modes shipped in code:**
@@ -31,7 +31,7 @@
 │  ALIGNMENT BY HINDSIGHT, NOT BY REASONING                            │
 │                                                                      │
 │  The teacher and the student are the SAME model.                     │
-│  Only difference: the teacher's prompt has one extra message —       │
+│  Only difference: the teacher's prompt has one extra message -       │
 │  the user's NEXT message (the follow-up `o`).                        │
 │                                                                      │
 │      A_i(x, y, o) := log [ π_θ(y_i | x, o, y_<i)                     │
@@ -59,7 +59,7 @@
 
 1. **Multi-turn user interactions are an underutilized data modality.** Follow-up messages contain implicit signals that are typically discarded. Learn from them with no explicit reward, preference label, or curation.
 2. **The model's own in-context capability is the supervision lever.** The hindsight (post-follow-up) distribution is the teacher; the difference between hindsight and original yields the learning signal.
-3. **SDPO extracts this signal at the token level.** Log-ratio between hindsight and original token probabilities serves as both (i) a token-level "advantage" (policy gradient view) and (ii) a reverse-KL distillation loss — equivalent in expectation.
+3. **SDPO extracts this signal at the token level.** Log-ratio between hindsight and original token probabilities serves as both (i) a token-level "advantage" (policy gradient view) and (ii) a reverse-KL distillation loss - equivalent in expectation.
 4. **14k raw WildChat conversations improve alignment without regressing other capabilities.** Same mechanism enables online personalization with no explicit feedback.
 5. **The signal is robust and interpretable.** Advantages on irrelevant follow-ups are near zero (no spurious updates); relevant feedback produces sharp, semantically meaningful token-level penalties/rewards.
 
@@ -127,7 +127,7 @@ This is an **application** of Hübotter et al. 2026 (#343, arXiv 2601.20802) whe
 
 > "For Qwen3-8B we observe no degradation on any benchmark."
 
-### Robustness — random WildChat slice (Table 3, Qwen3-8B)
+### Robustness - random WildChat slice (Table 3, Qwen3-8B)
 Random 14k slice (no curation, ~50k tuples): AlpacaEval +1.4, IFEval +0.6, MMLU-Pro flat, ArenaHard-Hard −0.6. Curation helps but isn't required.
 
 ### SFT collapses (Table 4, Qwen3-4B)
@@ -158,16 +158,16 @@ Standard SFT on the same WildFeedback (x, y) pairs:
 ## Relationship to Other Papers
 
 ### Supports
-- **2601.20802 (#343) — SDPO**: this paper is the user-interactions instantiation of the same algorithm.
-- **2601.19897 (#342) — SDFT**: companion; same self-distillation principle for continual learning from demonstrations.
-- **2604.01193 — Embarrassingly Simple Self-Distillation**: convergent. SSD reshapes distributions via simple token-level signal; SDPO@User reshapes via user-follow-up. Both: same network, different conditioning, no new reasoning learned.
-- **2312.01552 — URIAL / Superficial Alignment**: 50-interaction silent personalization matching an explicit-profile oracle is a uniquely sharp version of the URIAL claim that "alignment is mostly surface" — preference axes are pre-encoded.
-- **2410.03717 / 2506.07452 — Superficial Alignment cluster**: extends to the user-interaction setting.
-- **2602.06176 — LLM Reasoning Failures Survey**: SDPO@User's mechanism (in-context revision becomes weight update) corroborates the survey's "next-token prediction" root cause.
+- **2601.20802 (#343) - SDPO**: this paper is the user-interactions instantiation of the same algorithm.
+- **2601.19897 (#342) - SDFT**: companion; same self-distillation principle for continual learning from demonstrations.
+- **2604.01193 - Embarrassingly Simple Self-Distillation**: convergent. SSD reshapes distributions via simple token-level signal; SDPO@User reshapes via user-follow-up. Both: same network, different conditioning, no new reasoning learned.
+- **2312.01552 - URIAL / Superficial Alignment**: 50-interaction silent personalization matching an explicit-profile oracle is a uniquely sharp version of the URIAL claim that "alignment is mostly surface" - preference axes are pre-encoded.
+- **2410.03717 / 2506.07452 - Superficial Alignment cluster**: extends to the user-interaction setting.
+- **2602.06176 - LLM Reasoning Failures Survey**: SDPO@User's mechanism (in-context revision becomes weight update) corroborates the survey's "next-token prediction" root cause.
 
 ### Extends
 - **RLHF (Ouyang 2022) / DPO (Rafailov 2023)**: alternative to preference-based alignment without explicit feedback collection.
-- **Snell 2022 — Context distillation**: the "context" being distilled is the *future* user information about a *past* response.
+- **Snell 2022 - Context distillation**: the "context" being distilled is the *future* user information about a *past* response.
 - **WildFeedback (Shi 2024)**: provides the curated dataset; this paper builds the algorithm.
 
 ### Provides Mechanism For
@@ -187,7 +187,7 @@ None at time of analysis (Feb 2026 paper).
 1. **Adversarial drift**: "User follow-ups may implicitly encourage behaviors that conflict with existing safety or alignment constraints…"
 2. **No benign/adversarial discrimination**: "SDPO derives a local, token-level learning signal and naturally suppresses updates from irrelevant interactions, [but] does not by itself distinguish between benign and adversarial learning signals."
 3. **Capability-dependent**: "SDPO is most effective when the base model can reliably interpret and exploit the hindsight signal provided by user follow-ups. For smaller or less instruction-tuned models, this signal appears weaker or less stable" (Qwen3-4B regressed −1.2 on ArenaHard Hard).
-4. **Latent-reward derivation is idealized** — attention is not literal Bayesian conditioning.
+4. **Latent-reward derivation is idealized** - attention is not literal Bayesian conditioning.
 5. **Off-policy bias**: surrogate L̂_SDPO is biased w.r.t. on-policy SDPO.
 6. **Privacy / governance**: separate from technical limitations; collection of user data needs consent/governance.
 
@@ -239,24 +239,24 @@ None at time of analysis (Feb 2026 paper).
 The personalization result is decisive. With **only ~50–200 follow-up messages** and **no explicit description of the user's preferences**, the model converges to behavior matching/exceeding an oracle that was *given the explicit profile in its system prompt*. This means:
 
 1. The model's parameters already contain a vast library of stylistic/preference dimensions (concise/detailed, casual/professional, beginner/expert, no-emoji, no-sycophancy).
-2. The user's follow-ups don't *teach* these dimensions — they *select* among them.
+2. The user's follow-ups don't *teach* these dimensions - they *select* among them.
 3. The follow-up `o` acts as an *index* into existing predictive structure.
-4. The model is performing **preference disambiguation by next-token-likelihood-shifting** — exactly what predictive next-token models do.
+4. The model is performing **preference disambiguation by next-token-likelihood-shifting** - exactly what predictive next-token models do.
 5. Preference *flipping* and *complementary accumulation* both work, consistent with orthogonal pre-existing dimensions in the predictive embedding space.
 
 ### The signal-vs-noise property is also predictive, not reasoning
 
-The "irrelevant follow-ups produce near-zero advantage" property (§4.3, Fig. 8) is pure prediction. If the model's prediction of `y` given `x` is unchanged when irrelevant `o` is appended, that's because attention has already learned that unrelated tokens shouldn't influence prediction of the prior region — a *learned predictive prior*, not "judgment" or "reasoning" about relevance.
+The "irrelevant follow-ups produce near-zero advantage" property (§4.3, Fig. 8) is pure prediction. If the model's prediction of `y` given `x` is unchanged when irrelevant `o` is appended, that's because attention has already learned that unrelated tokens shouldn't influence prediction of the prior region - a *learned predictive prior*, not "judgment" or "reasoning" about relevance.
 
 ### The honest counter-argument
 
 Recognizing that a complaint about tone applies to specific words requires *understanding* what `o` says. Isn't that reasoning?
 
-**Why this fails as a counter:** recognizing tone-relevance in feedback is exactly what a sufficiently good next-token *predictor* of human conversations would do — humans always do this in their text, so the model has learned the joint distribution. The paper itself frames this as "in-context learning," which is well-understood as implicit Bayesian inference / pattern-matching over training distribution structure (cited: Yadkori 2024, Luo 2025). And benchmark gains are modest (1–3 pts typically); the smaller Qwen3-4B *regresses* on the harder ArenaHard Hard benchmark — exactly where prediction is too weak to make redistribution useful.
+**Why this fails as a counter:** recognizing tone-relevance in feedback is exactly what a sufficiently good next-token *predictor* of human conversations would do - humans always do this in their text, so the model has learned the joint distribution. The paper itself frames this as "in-context learning," which is well-understood as implicit Bayesian inference / pattern-matching over training distribution structure (cited: Yadkori 2024, Luo 2025). And benchmark gains are modest (1–3 pts typically); the smaller Qwen3-4B *regresses* on the harder ArenaHard Hard benchmark - exactly where prediction is too weak to make redistribution useful.
 
 ### Bottom line
 
-The paper does not itself frame its findings as evidence about reasoning vs. prediction (the authors describe their work in alignment/RL terms — "latent reward," "policy optimization"). The thesis-relevant interpretation is derived from the mechanics: every architectural choice and every quoted sentence about "in-context learning ability as a lever" is consistent with a pure-prediction reading of LLM behavior, and *inconsistent* with a strong-reasoning reading.
+The paper does not itself frame its findings as evidence about reasoning vs. prediction (the authors describe their work in alignment/RL terms - "latent reward," "policy optimization"). The thesis-relevant interpretation is derived from the mechanics: every architectural choice and every quoted sentence about "in-context learning ability as a lever" is consistent with a pure-prediction reading of LLM behavior, and *inconsistent* with a strong-reasoning reading.
 
 A reasoning system wouldn't need a hindsight prompt to correct itself. It wouldn't have the "right" distribution sitting one prompt away from the wrong one. SDPO@User works *because* LLMs are conditional density models, full stop.
 

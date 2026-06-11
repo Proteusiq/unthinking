@@ -7,7 +7,7 @@
 
 ## Summary
 
-Argues from an enactive cognitive science perspective that LLMs cannot be linguistic agents "the way humans are" — not now, and not in their present form. Sensational claims about LLM capabilities stem from fundamental misconceptions about both what human language is and what LLMs are.
+Argues from an enactive cognitive science perspective that LLMs cannot be linguistic agents "the way humans are" - not now, and not in their present form. Sensational claims about LLM capabilities stem from fundamental misconceptions about both what human language is and what LLMs are.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -53,8 +53,8 @@ LLM interactions are like playing a **procedurally-generated video game** (Minec
 │  • Impressive at first encounter                                    │
 │                                                                     │
 │  LIMITATIONS REVEALED:                                              │
-│  • Surface without depth — "textures blur" when you look close      │
-│  • No persistent world — same prompt → different output             │
+│  • Surface without depth - "textures blur" when you look close      │
+│  • No persistent world - same prompt → different output             │
 │  • You must visit ITS world; it cannot come to YOURS                │
 │  • No reliable relationship to real world                           │
 │                                                                     │
@@ -69,18 +69,18 @@ LLM interactions are like playing a **procedurally-generated video game** (Minec
 - "LGBT+" → "leg booty"
 
 **What it demonstrates**: Human linguistic agency involves:
-1. **Stakes** — topics matter, suppression is felt as loss
-2. **Urgency** — spontaneous adaptation under pressure
-3. **Community** — shared context enables understanding new terms
-4. **Grounding** — meaning grounded in lived experience
+1. **Stakes** - topics matter, suppression is felt as loss
+2. **Urgency** - spontaneous adaptation under pressure
+3. **Community** - shared context enables understanding new terms
+4. **Grounding** - meaning grounded in lived experience
 
 **LLMs cannot do this** because they have no pressure, no stakes, no motivation to spontaneously adapt.
 
 ### On "Hallucination" and "Confabulation"
 
 The paper rejects both terms:
-- **Hallucination** implies perception — LLMs don't perceive
-- **Confabulation** implies psychology — too anthropomorphic
+- **Hallucination** implies perception - LLMs don't perceive
+- **Confabulation** implies psychology - too anthropomorphic
 
 The correct term is **FABRICATION**:
 
@@ -108,7 +108,7 @@ The paper provides philosophical grounding for the thesis claims:
 
 2. **"Understanding" is inappropriate**: LLMs cannot understand because understanding requires participation in meaning-making, not just form processing.
 
-3. **Agency is impossible**: Without embodiment, participation, and precarity, there can be no genuine agency — only the appearance of agency.
+3. **Agency is impossible**: Without embodiment, participation, and precarity, there can be no genuine agency - only the appearance of agency.
 
 4. **Output is fabrication regardless of accuracy**: The same processes produce accurate and inaccurate text; there's no relationship to truth or world.
 
@@ -116,17 +116,17 @@ The paper provides philosophical grounding for the thesis claims:
 
 - **Supports #280 URIAL**: If alignment is superficial, that's consistent with LLMs lacking genuine agency
 - **Supports #282 Anthropomorphization**: Users mistake engineering achievements for human-like agency
-- **Reframes alignment faking**: Without genuine agency/stakes, "faking" is a category error — LLMs have no goals to protect
+- **Reframes alignment faking**: Without genuine agency/stakes, "faking" is a category error - LLMs have no goals to protect
 
 ## Limitations
 
-- Theoretical/philosophical paper — no experiments
+- Theoretical/philosophical paper - no experiments
 - Enactive perspective may not be accepted by all cognitive scientists
 - Could be accused of moving goalposts ("genuine" agency vs functional agency)
 
 ## Stance: **Supports Thesis**
 
-**Strong theoretical support.** Provides principled philosophical argument that LLMs cannot be linguistic agents — not due to current limitations but due to architectural incompatibility with the requirements of genuine language (embodiment, participation, precarity). 
+**Strong theoretical support.** Provides principled philosophical argument that LLMs cannot be linguistic agents - not due to current limitations but due to architectural incompatibility with the requirements of genuine language (embodiment, participation, precarity). 
 
 The paper frames LLMs as impressive engineering achievements that should not be mistaken for human linguistic agency. This directly supports the thesis that LLMs simulate reasoning through pattern matching rather than performing genuine cognition.
 

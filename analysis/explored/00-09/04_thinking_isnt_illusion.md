@@ -95,7 +95,7 @@ Counter to intuition, PoT often uses **fewer tokens** than direct prompting:
 > "The benchmark evaluates reasoning on tasks such as Tower of Hanoi with up to 20 plates, which may require more than 10^6 reasoning steps, far exceeding the output token limits of most LLMs"
 
 ### Their Reframe
-The "collapse" isn't a reasoning failure — it's an **output length artifact**.
+The "collapse" isn't a reasoning failure - it's an **output length artifact**.
 
 **Analogy**: Asking a human to solve 20-disk Hanoi "in their head" without paper would also fail. That doesn't prove humans can't reason.
 
@@ -171,14 +171,14 @@ But do they? Or do they show LRMs are good at **generating correct programs** fo
 ### Papers This CHALLENGES
 | Paper | Challenge |
 |-------|-----------|
-| **Illusion of Thinking** (Apple) | Direct rebuttal — tool use reverses collapse |
+| **Illusion of Thinking** (Apple) | Direct rebuttal - tool use reverses collapse |
 | **Faith and Fate** | Execution limits, not reasoning limits |
 | **GSM-Symbolic** | Tool augmentation would likely help |
 
 ### Papers This ALIGNS WITH
 | Paper | Alignment |
 |-------|-----------|
-| **Comment: Agentic Gap** (2506.18957) | Same argument — execution bottleneck |
+| **Comment: Agentic Gap** (2506.18957) | Same argument - execution bottleneck |
 | **CoT Without Prompting** | Reasoning exists, needs surfacing |
 | **DeepSeek-R1** | LRMs have genuine capabilities |
 

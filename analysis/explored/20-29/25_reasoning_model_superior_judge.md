@@ -45,7 +45,7 @@
 
 ## Key Evidence
 
-### 1. Judgment Accuracy (FOR position — LRMs are better judges)
+### 1. Judgment Accuracy (FOR position - LRMs are better judges)
 
 | Model | RewardBench | JudgeBench |
 |-------|-------------|------------|
@@ -119,7 +119,7 @@ Average attack success rate (lower = more robust):
 
 ### Challenges
 - **Papers showing LRM instruction-following is poor**: This paper shows it's BETTER for evaluation
-- **Illusion of Thinking (2506.06941)**: Partial challenge — LRMs do have some advantages
+- **Illusion of Thinking (2506.06941)**: Partial challenge - LRMs do have some advantages
 
 ### Extends
 - **LLM-as-a-Judge paradigm**: First systematic LRM vs LLM comparison for judgment
@@ -220,7 +220,7 @@ This directly supports the pattern-matching thesis: extended CoT leads to system
 - Better instruction following in evaluation
 - More robust to adversarial attacks
 
-**Net assessment**: The paper provides balanced evidence but the superficial bias finding is particularly relevant — if LRMs truly reasoned, they should be LESS susceptible to length bias, not MORE. The 32pp drop on BiasBench is strong evidence for pattern matching.
+**Net assessment**: The paper provides balanced evidence but the superficial bias finding is particularly relevant - if LRMs truly reasoned, they should be LESS susceptible to length bias, not MORE. The 32pp drop on BiasBench is strong evidence for pattern matching.
 
 ---
 

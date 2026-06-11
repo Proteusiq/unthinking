@@ -14,9 +14,9 @@
 
 1. **Performance degrades to near-zero** as problem complexity increases, despite inference-time compute
 2. **RL improves exploratory generalization** (easy→medium) but gains plateau on harder problems
-3. **Compositional generalization remains limited** — models can't integrate mastered skills
-4. **Transformative generalization shows little to no improvement** — models can't adopt novel strategies
-5. **Overthinking leads to error spirals** — models abandon correct answers through excessive verification
+3. **Compositional generalization remains limited** - models can't integrate mastered skills
+4. **Transformative generalization shows little to no improvement** - models can't adopt novel strategies
+5. **Overthinking leads to error spirals** - models abandon correct answers through excessive verification
 6. **Lower accuracy from reluctance to compute, not just arithmetic errors**
 
 ---
@@ -134,7 +134,7 @@ The authors show that failure is NOT due to context length limits:
 This confirms: **failure is due to reasoning limits, not context limits**
 
 ### Search for Direct Rebuttals
-- **None found** — paper is recent (June 2025)
+- **None found** - paper is recent (June 2025)
 - Would need evidence of successful compositional/transformative generalization
 
 ---
@@ -157,7 +157,7 @@ This confirms: **failure is due to reasoning limits, not context limits**
 > "Transformers' autoregressive nature still compounds early mistakes, and CoT overthinking can paradoxically lead models to abandon the correct branch."
 
 ### On reluctance to compute:
-> "The model's reluctance to invest reasoning budget in systematic calculation" — not arithmetic errors
+> "The model's reluctance to invest reasoning budget in systematic calculation" - not arithmetic errors
 
 ### Conclusion:
 > "While RL can amplify the breadth and depth of problems that LLMs solve, they do not by themselves foster the creative leaps needed for true transformational reasoning."
@@ -190,7 +190,7 @@ This confirms: **failure is due to reasoning limits, not context limits**
 - **30pp DROP** in OOD after RL in one setting (matrix rank)
 
 ### Critical Distinction
-The paper makes explicit the core claim: models can INTERPOLATE (exploratory generalization) but cannot EXTRAPOLATE (compositional, transformative generalization). This maps directly to the "practical but predictive" vs. "genuinely generative" distinction — LLMs can deploy learned patterns effectively but cannot create genuinely novel reasoning strategies.
+The paper makes explicit the core claim: models can INTERPOLATE (exploratory generalization) but cannot EXTRAPOLATE (compositional, transformative generalization). This maps directly to the "practical but predictive" vs. "genuinely generative" distinction - LLMs can deploy learned patterns effectively but cannot create genuinely novel reasoning strategies.
 
 ---
 

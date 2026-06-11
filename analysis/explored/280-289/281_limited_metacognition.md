@@ -11,7 +11,7 @@
 
 ## Core Contribution
 
-Introduces two experimental paradigms (Delegate Game, Second Chance Game) to test LLM metacognition without relying on self-reports. Finds evidence of **rudimentary but limited** metacognitive abilities in frontier LLMs — they can detect and weakly use internal confidence signals, but these abilities are context-dependent and qualitatively different from human metacognition.
+Introduces two experimental paradigms (Delegate Game, Second Chance Game) to test LLM metacognition without relying on self-reports. Finds evidence of **rudimentary but limited** metacognitive abilities in frontier LLMs - they can detect and weakly use internal confidence signals, but these abilities are context-dependent and qualitatively different from human metacognition.
 
 ---
 
@@ -43,7 +43,7 @@ The paper finds some evidence that LLMs can:
 
 > "nearly 30% of the regressors that significantly predicted delegation were actually positively correlated with the models' baseline accuracy"
 
-Example: Models delegated MORE for numeric-answer questions despite performing BETTER on them — using surface cues incorrectly.
+Example: Models delegated MORE for numeric-answer questions despite performing BETTER on them - using surface cues incorrectly.
 
 > "The correlations [of surface cues] are often as high or higher than the correlations between introspective signals and the delegation decision"
 
@@ -59,7 +59,7 @@ RLHF can both help and hinder:
 
 **Helps**: OpenAI models (GPT-4.1, GPT-4o, GPT-4o Mini) show self-modeling that can't be explained by alternative strategies
 
-**Hinders**: RLHF creates personality biases — OpenAI models won't delegate even to 100% accurate teammates
+**Hinders**: RLHF creates personality biases - OpenAI models won't delegate even to 100% accurate teammates
 
 > "RLHF-induced 'personality' plays a role in how this information is used"
 
@@ -92,7 +92,7 @@ The paradigms test whether models can **use** metacognitive knowledge strategica
 - But the evidence is weak and the authors note "aren't clearly on a path" to improve
 
 ### Related
-- **#97 Wise Machines (AI Metacognition)**: "Smart but not wise" — lacks metacognition about reasoning
+- **#97 Wise Machines (AI Metacognition)**: "Smart but not wise" - lacks metacognition about reasoning
 
 ---
 

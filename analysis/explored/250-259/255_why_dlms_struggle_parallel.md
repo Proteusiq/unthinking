@@ -83,7 +83,7 @@ Measures how much token prediction depends on preceding context vs. prompt alone
 | Dream-7B | 512 | 2 | 66.8% |
 | Dream-7B | 256 | 4 | 46.5% |
 
-**Forcing parallel decoding degrades accuracy sharply** — from 78% to 46.5%.
+**Forcing parallel decoding degrades accuracy sharply** - from 78% to 46.5%.
 
 ### Finding V: Fast-DLMs Amplify AR Behavior
 
@@ -107,7 +107,7 @@ This paper provides strong evidence that:
 1. **Sequential reasoning is a learned artifact**: Models internalize AR patterns from training data, not because reasoning requires sequentiality
 2. **Left-to-right is data bias, not computation**: The parallel architecture can generate any order, but learns to mimic sequential patterns
 3. **CoT supervision reinforces this bias**: Training on step-by-step data teaches models to stabilize early tokens first
-4. **True parallel reasoning degrades performance**: When forced to generate out of order, accuracy collapses — suggesting the "reasoning" depends on sequential pattern completion
+4. **True parallel reasoning degrades performance**: When forced to generate out of order, accuracy collapses - suggesting the "reasoning" depends on sequential pattern completion
 
 ### The Core Insight
 
@@ -123,12 +123,12 @@ This means:
 ## Relationship to Other Papers
 
 ### Supports
-- **Reasoning or Rationalization (2603.01190)**: Explains why verdicts emerge early — models learned AR bias
+- **Reasoning or Rationalization (2603.01190)**: Explains why verdicts emerge early - models learned AR bias
 - **Embers of Autoregression (2309.13638)**: Both show L2R bias is fundamental to LLM behavior
 - **Dot by Dot (2404.15758)**: CoT benefits from computation, not semantic ordering
 
 ### Extends
-- **Measuring Faithfulness in CoT (2307.13702)**: Shows mechanism for why CoT can be unfaithful — it's not driving computation
+- **Measuring Faithfulness in CoT (2307.13702)**: Shows mechanism for why CoT can be unfaithful - it's not driving computation
 
 ### Challenges
 - **DeepSeek-R1 (2501.12948)**: Implies RL-trained reasoning may also just amplify AR patterns

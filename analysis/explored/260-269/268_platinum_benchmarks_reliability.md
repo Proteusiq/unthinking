@@ -10,11 +10,11 @@
 
 ## Core Claims
 
-1. **Benchmarks don't test reliability — only capability** — "saturated" benchmarks (>90%) are retired before models achieve true reliability (100%)
-2. **Label noise masks real model failures** — up to 30% of benchmark examples have errors; more than half of model "failures" are actually label issues
-3. **Platinum benchmarks reveal the reliability frontier** — carefully curated benchmarks with verified labels show frontier models still fail on elementary tasks
-4. **Capability ≠ Reliability** — models can achieve 95% on GSM8K yet fail basic coreference resolution that humans solve trivially
-5. **Systematic failure patterns exist** — "first event bias" and "rounding up primes" reveal pattern-matching shortcuts
+1. **Benchmarks don't test reliability - only capability** - "saturated" benchmarks (>90%) are retired before models achieve true reliability (100%)
+2. **Label noise masks real model failures** - up to 30% of benchmark examples have errors; more than half of model "failures" are actually label issues
+3. **Platinum benchmarks reveal the reliability frontier** - carefully curated benchmarks with verified labels show frontier models still fail on elementary tasks
+4. **Capability ≠ Reliability** - models can achieve 95% on GSM8K yet fail basic coreference resolution that humans solve trivially
+5. **Systematic failure patterns exist** - "first event bias" and "rounding up primes" reveal pattern-matching shortcuts
 
 ---
 
@@ -98,7 +98,7 @@
 │  Model answer: 547 (rounds up to next prime)                        │
 │                                                                     │
 │  Models frequently round to the NEXT prime instead of the           │
-│  actual answer — a systematic arithmetic shortcut.                  │
+│  actual answer - a systematic arithmetic shortcut.                  │
 │                                                                     │
 └─────────────────────────────────────────────────────────────────────┘
 ```
@@ -136,7 +136,7 @@ This paper directly supports the thesis that LLMs pattern-match rather than reas
 │                                                                     │
 │  3. Benchmark Saturation Masks Problems                             │
 │     ~95% accuracy hides systematic 5% failures                      │
-│     These aren't "random errors" — they're pattern failures         │
+│     These aren't "random errors" - they're pattern failures         │
 │                                                                     │
 │  4. Coreference Failures                                            │
 │     Frontier models fail basic "it" resolution                      │
@@ -173,9 +173,9 @@ This paper directly supports the thesis that LLMs pattern-match rather than reas
 
 ### Related Papers in Corpus
 - **#267 (LLM-as-a-Judge Survey)**: Both show evaluation infrastructure is compromised
-- **#268 (Can You Trust LLM Judgments)**: Complements — judges AND benchmarks unreliable
+- **#268 (Can You Trust LLM Judgments)**: Complements - judges AND benchmarks unreliable
 - **#269 (Paraphrase Robustness)**: Both show surface changes break performance
-- **GSM-Symbolic (#3)**: Same conclusion — GSM8K accuracy hides fragility
+- **GSM-Symbolic (#3)**: Same conclusion - GSM8K accuracy hides fragility
 
 ### Novel Contribution
 First paper to systematically distinguish **capability** (what models can sometimes do) from **reliability** (what models can always do) with controlled evidence.

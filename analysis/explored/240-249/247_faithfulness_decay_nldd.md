@@ -11,10 +11,10 @@
 
 ## Core Claims
 
-1. **Faithfulness decays systematically** — CoT reasoning steps have decreasing causal influence on model outputs as chains progress, with a "Reasoning Horizon" (k*) at 70-85% of chain length
-2. **NLDD metric quantifies step-level faithfulness** — Normalized Logit Difference Decay enables cross-model comparison by measuring confidence drop when reasoning steps are corrupted
-3. **Mapping Gap exists** — Models can encode correct internal representations (high probe accuracy) while completely failing tasks (0% accuracy)
-4. **Anti-faithful regime exists** — Some architectures (Gemma) show NEGATIVE NLDD: corruption improves confidence, meaning CoT is actively harmful
+1. **Faithfulness decays systematically** - CoT reasoning steps have decreasing causal influence on model outputs as chains progress, with a "Reasoning Horizon" (k*) at 70-85% of chain length
+2. **NLDD metric quantifies step-level faithfulness** - Normalized Logit Difference Decay enables cross-model comparison by measuring confidence drop when reasoning steps are corrupted
+3. **Mapping Gap exists** - Models can encode correct internal representations (high probe accuracy) while completely failing tasks (0% accuracy)
+4. **Anti-faithful regime exists** - Some architectures (Gemma) show NEGATIVE NLDD: corruption improves confidence, meaning CoT is actively harmful
 
 ---
 
@@ -63,32 +63,32 @@ and S = mean std dev of logit vectors across samples
 ## Relationship to Other Papers
 
 ### Supports
-- **Measuring Faithfulness (2307.13702)** — Both find CoT often unfaithful; this provides mechanistic detail
-- **Reasoning Models Don't Say (2505.05410)** — 25-40% faithfulness aligns with faithfulness decay finding
-- **CoT In The Wild (2503.08679)** — Natural prompts unfaithful; this explains WHY via decay mechanism
-- **Dissociation of Faithful/Unfaithful (2405.15092)** — Two reasoning modes confirmed; NLDD distinguishes them
-- **No Free Lunch (2506.17219)** — Format vs reasoning tradeoff; late CoT is "formatting" not reasoning
+- **Measuring Faithfulness (2307.13702)** - Both find CoT often unfaithful; this provides mechanistic detail
+- **Reasoning Models Don't Say (2505.05410)** - 25-40% faithfulness aligns with faithfulness decay finding
+- **CoT In The Wild (2503.08679)** - Natural prompts unfaithful; this explains WHY via decay mechanism
+- **Dissociation of Faithful/Unfaithful (2405.15092)** - Two reasoning modes confirmed; NLDD distinguishes them
+- **No Free Lunch (2506.17219)** - Format vs reasoning tradeoff; late CoT is "formatting" not reasoning
 
 ### Challenges
-- **Chain-of-Thought Prompting (2201.11903)** — Original CoT paper claims reasoning; this shows late steps non-causal
+- **Chain-of-Thought Prompting (2201.11903)** - Original CoT paper claims reasoning; this shows late steps non-causal
 
 ### Extends
-- **Measuring CoT Monitorability (2510.27378)** — Adds NLDD as new metric; mechanistic depth
-- **FRIT Faithfulness Intervention (2509.13334)** — Causal intervention method; NLDD provides quantification
-- **Mapping Faithful Reasoning Paths (2510.22362)** — Geometric analysis; TAS metric adds trajectory view
+- **Measuring CoT Monitorability (2510.27378)** - Adds NLDD as new metric; mechanistic depth
+- **FRIT Faithfulness Intervention (2509.13334)** - Causal intervention method; NLDD provides quantification
+- **Mapping Faithful Reasoning Paths (2510.22362)** - Geometric analysis; TAS metric adds trajectory view
 
 ---
 
 ## REBUTTALS
 
 ### Known Rebuttals
-None found yet — paper is recent (Feb 2026)
+None found yet - paper is recent (Feb 2026)
 
 ### Potential Counter-Arguments
-1. **Truncation vs replacement** — Authors acknowledge truncation conflates two effects: weak reliance on step k vs sufficiency of steps 1 to k-1
-2. **Single layer analysis** — TAS and RSA use 50% depth; layer-wise variation unexplored
-3. **Sample size** — 100 samples per task; larger evaluation could reveal different patterns
-4. **Greedy decoding only** — Stochastic decoding might shift horizon locations
+1. **Truncation vs replacement** - Authors acknowledge truncation conflates two effects: weak reliance on step k vs sufficiency of steps 1 to k-1
+2. **Single layer analysis** - TAS and RSA use 50% depth; layer-wise variation unexplored
+3. **Sample size** - 100 samples per task; larger evaluation could reveal different patterns
+4. **Greedy decoding only** - Stochastic decoding might shift horizon locations
 
 ### Limitations (Authors Acknowledge)
 - Truncation-based design doesn't isolate step-specific causal effects
@@ -117,10 +117,10 @@ None found yet — paper is recent (Feb 2026)
 
 **STRONGLY SUPPORTS** the thesis that LLMs are pattern matchers, not reasoners:
 
-1. **Faithfulness decay** — CoT becomes non-causal after 70-85% of chain, suggesting late reasoning is "post-hoc rationalization"
-2. **Mapping Gap** — Models encode solutions but can't use them = representation ≠ reasoning
-3. **Anti-faithful regime** — CoT can HURT accuracy, proving it's not genuine reasoning
-4. **Architecture determines faithfulness** — Not the task, suggesting brittleness
+1. **Faithfulness decay** - CoT becomes non-causal after 70-85% of chain, suggesting late reasoning is "post-hoc rationalization"
+2. **Mapping Gap** - Models encode solutions but can't use them = representation ≠ reasoning
+3. **Anti-faithful regime** - CoT can HURT accuracy, proving it's not genuine reasoning
+4. **Architecture determines faithfulness** - Not the task, suggesting brittleness
 
 This provides mechanistic evidence that CoT is often decorative rather than causal.
 

@@ -11,10 +11,10 @@
 
 ## Core Claims
 
-1. **GPT-style model trained on poker develops internal "world model"** — represents both deterministic (hand rank) and stochastic (equity) features
-2. **Representations emerge without explicit instruction** — learned from next-token prediction alone
-3. **Linear/MLP probes can decode internal states** — hand rank (~98% MLP accuracy), equity (r=0.59 correlation)
-4. **Model encodes "belief states" for POMDP** — internal representations correlate with theoretical belief states
+1. **GPT-style model trained on poker develops internal "world model"** - represents both deterministic (hand rank) and stochastic (equity) features
+2. **Representations emerge without explicit instruction** - learned from next-token prediction alone
+3. **Linear/MLP probes can decode internal states** - hand rank (~98% MLP accuracy), equity (r=0.59 correlation)
+4. **Model encodes "belief states" for POMDP** - internal representations correlate with theoretical belief states
 5. **Extends Othello/Chess world model findings to incomplete information games**
 
 ---
@@ -29,7 +29,7 @@
 ### Data Generation (CRITICAL)
 - Agents use **simulation-based equity estimates** to make decisions
 - Agent behavior driven by: propensity to raise, tightness to equity, bluff frequency, etc.
-- **Equity information is encoded in agent behavior** — not purely emergent
+- **Equity information is encoded in agent behavior** - not purely emergent
 
 ### Probing
 - Linear classifier probe: W·x
@@ -73,10 +73,10 @@
 1. **Equity was in training signal**
    - Agents were driven by "simulation equity estimates"
    - Model learned to predict actions *conditioned on equity*
-   - Not truly emergent — information was in the data
+   - Not truly emergent - information was in the data
 
 2. **Small model, constrained domain**
-   - GPT-2 base (87M) — not LLM-scale
+   - GPT-2 base (87M) - not LLM-scale
    - Poker is highly structured with known optimal strategies
    - Cannot generalize to open-ended reasoning
 
@@ -120,8 +120,8 @@
 - **Faith and Fate (2305.18654)**: Probed features may not be causally used
 
 ### Key Difference from the Thesis
-This paper shows models can learn **statistical correlations** within a domain. The thesis doesn't deny this — it claims:
-1. These correlations are from training distribution (✓ confirmed — equity was in training)
+This paper shows models can learn **statistical correlations** within a domain. The thesis doesn't deny this - it claims:
+1. These correlations are from training distribution (✓ confirmed - equity was in training)
 2. They don't generalize compositionally (not tested here)
 3. Pattern matching is sufficient explanation (not rebutted)
 
@@ -136,7 +136,7 @@ This paper shows models can learn **statistical correlations** within a domain. 
 ### Potential Counter-Arguments
 
 1. **Probe-training confound**: High probe accuracy may reflect probe capacity, not model understanding
-2. **Training data leakage**: Equity was in the training signal via agent behavior — not emergent
+2. **Training data leakage**: Equity was in the training signal via agent behavior - not emergent
 3. **Domain specificity**: Poker has known structure; doesn't generalize to unstructured reasoning
 4. **No causal evidence**: Paper doesn't show model *uses* these representations causally
 
@@ -162,16 +162,16 @@ This paper shows models can learn **statistical correlations** within a domain. 
 
 ## Relevance to Thesis
 
-**BALANCED — Does not rebut thesis**
+**BALANCED - Does not rebut thesis**
 
 This paper shows:
-1. ✓ Models can learn correlations within structured domain — we don't deny this
-2. ✗ Equity was in training data (agent behavior) — not truly emergent
+1. ✓ Models can learn correlations within structured domain - we don't deny this
+2. ✗ Equity was in training data (agent behavior) - not truly emergent
 3. ✗ No OOD/compositional generalization tested
 4. ✗ r=0.59 is moderate, not proof of world model
 5. ✗ Small model, constrained domain, synthetic data
 
-**Key point**: The thesis claims LLM reasoning is "predictive from training distribution" — this paper provides evidence *consistent* with that view:
+**Key point**: The thesis claims LLM reasoning is "predictive from training distribution" - this paper provides evidence *consistent* with that view:
 - Model learned to predict in-distribution poker outcomes
 - No evidence it would generalize to novel poker variants or other domains
 - Equity information was embedded in training data via agent behavior

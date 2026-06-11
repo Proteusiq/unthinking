@@ -90,9 +90,9 @@ The paper actually **SUPPORTS** the thesis on close reading:
 > "Different CoT formulations may give different causal functions"
 
 This means:
-1. **Models don't discover** the right representation — it must be **provided**
-2. **Standard/natural representations fail** — confirming pattern matching
-3. **Success requires training on all step inputs** — no generalization beyond distribution
+1. **Models don't discover** the right representation - it must be **provided**
+2. **Standard/natural representations fail** - confirming pattern matching
+3. **Success requires training on all step inputs** - no generalization beyond distribution
 
 ---
 
@@ -113,8 +113,8 @@ This means:
 
 ### Limitations (Authors Acknowledge)
 
-1. "We will not study the case where the CoT steps are not given but only the direct input and output" — requires explicit CoT
-2. "Some reasoning problems cannot be modeled as DAGs" — limited scope
+1. "We will not study the case where the CoT steps are not given but only the direct input and output" - requires explicit CoT
+2. "Some reasoning problems cannot be modeled as DAGs" - limited scope
 3. Requires specific representation engineering
 
 ---
@@ -138,7 +138,7 @@ This means:
 
 ## Relevance to Thesis
 
-**BALANCED with nuance** — Paper is often cited as evidence FOR LLM reasoning, but actually SUPPORTS the thesis on close reading.
+**BALANCED with nuance** - Paper is often cited as evidence FOR LLM reasoning, but actually SUPPORTS the thesis on close reading.
 
 ### Evidence FOR the Thesis
 

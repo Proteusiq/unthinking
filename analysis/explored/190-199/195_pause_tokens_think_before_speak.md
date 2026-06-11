@@ -12,7 +12,7 @@
 
 ## Core Claims
 
-1. **Transformer computation is arbitrarily constrained**: The (K+1)th token is computed using exactly K hidden vectors per layer — but some inputs may require K+M operations.
+1. **Transformer computation is arbitrarily constrained**: The (K+1)th token is computed using exactly K hidden vectors per layer - but some inputs may require K+M operations.
 
 2. **Pause tokens can "widen" the computational pathway**: Appending learnable `<pause>` tokens delays the model's output, allowing it to manipulate additional hidden vectors before committing to an answer.
 
@@ -20,7 +20,7 @@
 
 4. **Substantial gains on multiple tasks**: +18% EM on SQuAD, +8% on CommonSenseQA, +1% on GSM8k for the 1B model.
 
-5. **Filler tokens without training don't help**: Using periods ("...") at inference time (as in Lanham et al.) provides no gains — the model must be trained to use the extra computation.
+5. **Filler tokens without training don't help**: Using periods ("...") at inference time (as in Lanham et al.) provides no gains - the model must be trained to use the extra computation.
 
 ---
 
@@ -75,9 +75,9 @@
 |----------|------------------|-------------|
 | PausePT_PauseFT | 8/9 | Clear, substantial gains |
 | StdPT_PauseFT | ~5/9 | Lukewarm, mixed results |
-| PausePT_StdFT | 2/9 | Minimal — most gains come from inference-time delays |
+| PausePT_StdFT | 2/9 | Minimal - most gains come from inference-time delays |
 
-**Key insight**: "Standard pretraining biases the model to be 'quick' in its computations" — without pause-pretraining, the model cannot utilize inference-time delays.
+**Key insight**: "Standard pretraining biases the model to be 'quick' in its computations" - without pause-pretraining, the model cannot utilize inference-time delays.
 
 ### Filler Tokens Don't Help (Confirming Lanham et al.)
 Using periods ("...") at inference on standard model: **No gains observed**.
@@ -105,23 +105,23 @@ Using periods ("...") at inference on standard model: **No gains observed**.
 
 ## Relationship to Thesis
 
-### BALANCED — Evidence for computational benefits, but raises questions about reasoning
+### BALANCED - Evidence for computational benefits, but raises questions about reasoning
 
 **Supports thesis (pattern matching)**:
-1. **Tokens don't need semantic content**: Pause tokens have NO meaning — they just provide computational workspace. This aligns with filler token findings (Dot by Dot).
-2. **Model must be trained to use extra computation**: Off-the-shelf models can't utilize delays — the "reasoning" pathway must be explicitly learned.
-3. **Benefits are task-dependent**: Some tasks benefit more than others — suggests pattern-specific optimization rather than general reasoning capability.
+1. **Tokens don't need semantic content**: Pause tokens have NO meaning - they just provide computational workspace. This aligns with filler token findings (Dot by Dot).
+2. **Model must be trained to use extra computation**: Off-the-shelf models can't utilize delays - the "reasoning" pathway must be explicitly learned.
+3. **Benefits are task-dependent**: Some tasks benefit more than others - suggests pattern-specific optimization rather than general reasoning capability.
 
 **Complicates thesis**:
 1. **Additional computation helps**: If reasoning were purely pattern matching from training data, why would more compute help? Suggests some genuine computation is occurring.
-2. **Architectural constraints matter**: The paper frames the problem as transformers being "constrained" to K operations — implying they need more serial depth for some tasks.
+2. **Architectural constraints matter**: The paper frames the problem as transformers being "constrained" to K operations - implying they need more serial depth for some tasks.
 3. **Aligns with CoT-as-computation**: Supports the view that intermediate tokens enable necessary computation (as in Paper #194).
 
 ### Key Insight for Thesis
 The paper shows that:
 - **Computational workspace matters** (supports filler token / latent CoT findings)
-- **But the model must be trained to use it** (supports pattern matching — capabilities are learned, not innate)
-- **Semantic content is irrelevant** — the pause token is meaningless
+- **But the model must be trained to use it** (supports pattern matching - capabilities are learned, not innate)
+- **Semantic content is irrelevant** - the pause token is meaningless
 
 This is consistent with: LLMs can perform more computation when given more tokens, but this is a learned capability tied to training distribution, not emergent reasoning.
 
@@ -130,7 +130,7 @@ This is consistent with: LLMs can perform more computation when given more token
 ## Relationship to Other Papers
 
 ### Directly Related
-- **Dot by Dot (#161, 2404.15758)**: Both show meaningless tokens can improve performance — pause tokens are filler tokens by another name
+- **Dot by Dot (#161, 2404.15758)**: Both show meaningless tokens can improve performance - pause tokens are filler tokens by another name
 - **Pause Tokens Expressivity (#162, 2505.21024)**: Provides formal proof that pause tokens increase expressivity (this paper is empirical)
 - **Token Assorted (#193, 2502.03275)**: Both show intermediate tokens serve computation, not semantics
 
@@ -153,11 +153,11 @@ This is consistent with: LLMs can perform more computation when given more token
 
 1. **Gains could be from regularization**: The 10% random pause insertion during pretraining might act as a form of noise regularization, not computational widening.
 
-2. **Small absolute gains on reasoning**: GSM8k improvement is only +1% (7.5% → 8.5%) — not transformative for reasoning tasks.
+2. **Small absolute gains on reasoning**: GSM8k improvement is only +1% (7.5% → 8.5%) - not transformative for reasoning tasks.
 
-3. **Task-specific optimization**: Each task needs tuned M_ft — suggests pause tokens are a task-specific hack rather than general capability improvement.
+3. **Task-specific optimization**: Each task needs tuned M_ft - suggests pause tokens are a task-specific hack rather than general capability improvement.
 
-4. **Pretraining sees fewer meaningful tokens**: Pause-pretrained model sees only 90% of meaningful tokens — any gains might be offset by this disadvantage.
+4. **Pretraining sees fewer meaningful tokens**: Pause-pretrained model sees only 90% of meaningful tokens - any gains might be offset by this disadvantage.
 
 ### Limitations (Authors Acknowledge)
 - "Why exactly does pause-training work?"
@@ -174,8 +174,8 @@ This is consistent with: LLMs can perform more computation when given more token
 This paper provides empirical evidence for what the filler token literature suggests theoretically:
 
 1. **Intermediate tokens provide computational depth**, not semantic reasoning
-2. **The content of tokens is irrelevant** — only their presence matters
-3. **But the capability must be learned** — models don't automatically use extra computation
+2. **The content of tokens is irrelevant** - only their presence matters
+3. **But the capability must be learned** - models don't automatically use extra computation
 
 This is consistent with the pattern matching thesis:
 - LLMs learn to use computational workspace during training

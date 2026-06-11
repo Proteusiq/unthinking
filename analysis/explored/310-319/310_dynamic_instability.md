@@ -110,7 +110,7 @@ Peak instability strength per trace
 │  REASONING FAILURES ARE PROCESS-LEVEL BREAKDOWNS                   │
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
-│  Models don't just "get wrong answers"—they:                        │
+│  Models don't just "get wrong answers"-they:                        │
 │    • Experience detectable instability during reasoning             │
 │    • "Lose the thread" mid-generation                               │
 │    • Have limited ability to recover from late instability          │

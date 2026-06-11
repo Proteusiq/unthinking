@@ -598,31 +598,31 @@
         </li>
       </ul>
       <p style="margin-top: 1rem">
-        <strong>Caveat:</strong> All positions, weights, and probabilities are illustrative — not
+        <strong>Caveat:</strong> All positions, weights, and probabilities are illustrative - not
         computed from any model. The <em>mechanism</em> (Q·K^T, softmax, weighted sum, multi-head
         concat, W_O projection, linear task heads) reflects how transformers actually work.
       </p>
       <h3 style="margin-top: 1.5rem">Related</h3>
       <ul>
         <li>
-          <a href="architecture.html">LLM Architecture Evolution</a> — attention variants, norm
+          <a href="architecture.html">LLM Architecture Evolution</a> - attention variants, norm
           placement, block design
         </li>
         <li>
-          <a href="implementation.html">Implementation</a> — minimal code for attention, multi-head,
+          <a href="implementation.html">Implementation</a> - minimal code for attention, multi-head,
           transformer blocks
         </li>
         <li>
           <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener"
             >Vaswani et al. (2017)</a
           >
-          — Attention Is All You Need
+          - Attention Is All You Need
         </li>
         <li>
           <a href="https://arxiv.org/abs/1906.04341" target="_blank" rel="noopener"
             >Clark et al. (2019)</a
           >
-          — What Does BERT Look At? An Analysis of BERT's Attention
+          - What Does BERT Look At? An Analysis of BERT's Attention
         </li>
       </ul>
     </div>
@@ -676,7 +676,7 @@
         {
           id: 0,
           title: 'No Context',
-          desc: '"Amazon" has no surrounding tokens — maximally ambiguous, equidistant from rivers and corporations.',
+          desc: '"Amazon" has no surrounding tokens - maximally ambiguous, equidistant from rivers and corporations.',
           sentence: [],
           targetPos: { x: 0.47, y: 0.48 },
           heads: null,
@@ -684,7 +684,7 @@
         {
           id: 1,
           title: 'Geographic Context',
-          desc: 'Three heads decompose the sentence differently. Head 2 (semantic) drives the geographic signal — but all three get concatenated and projected via W_O into the final embedding.',
+          desc: 'Three heads decompose the sentence differently. Head 2 (semantic) drives the geographic signal - but all three get concatenated and projected via W_O into the final embedding.',
           sentence: ['The', 'Amazon', 'flows', 'through', 'Brazil'],
           targetPos: { x: 0.79, y: 0.1 },
           heads: [
@@ -695,7 +695,7 @@
               pos: { x: 0.36, y: 0.42 },
               weights: [0.45, 0.12, 0.1, 0.28, 0.05],
               rawScores: [0.8, 0.3, 0.2, 0.62, 0.08],
-              note: 'Attends to function words ("The", "through") — structural position, not meaning.',
+              note: 'Attends to function words ("The", "through") - structural position, not meaning.',
             },
             {
               name: 'H2',
@@ -704,7 +704,7 @@
               pos: { x: 0.82, y: 0.09 },
               weights: [0.03, 0.07, 0.27, 0.1, 0.53],
               rawScores: [0.31, 0.82, 2.14, 0.89, 2.47],
-              note: 'Attends to "flows" and "Brazil" — captures geographic meaning. Dominant head here.',
+              note: 'Attends to "flows" and "Brazil" - captures geographic meaning. Dominant head here.',
             },
             {
               name: 'H3',
@@ -713,14 +713,14 @@
               pos: { x: 0.49, y: 0.46 },
               weights: [0.08, 0.58, 0.15, 0.11, 0.08],
               rawScores: [0.32, 1.82, 0.54, 0.42, 0.3],
-              note: 'Attends heavily to "Amazon" itself — anchors to the entity token.',
+              note: 'Attends heavily to "Amazon" itself - anchors to the entity token.',
             },
           ],
         },
         {
           id: 2,
           title: 'Corporate Context',
-          desc: 'Head 2 again drives the dominant signal — this time toward finance. H1 stays syntactic, H3 self-attends. W_O blends all three into one corporate embedding.',
+          desc: 'Head 2 again drives the dominant signal - this time toward finance. H1 stays syntactic, H3 self-attends. W_O blends all three into one corporate embedding.',
           sentence: ['Amazon', 'reported', 'record', 'profits', 'today'],
           targetPos: { x: 0.09, y: 0.87 },
           heads: [
@@ -731,7 +731,7 @@
               pos: { x: 0.34, y: 0.44 },
               weights: [0.32, 0.18, 0.08, 0.12, 0.3],
               rawScores: [0.72, 0.42, 0.18, 0.28, 0.7],
-              note: 'Attends to subject ("Amazon") and temporal token ("today") — structural framing.',
+              note: 'Attends to subject ("Amazon") and temporal token ("today") - structural framing.',
             },
             {
               name: 'H2',
@@ -740,7 +740,7 @@
               pos: { x: 0.09, y: 0.88 },
               weights: [0.05, 0.25, 0.12, 0.52, 0.06],
               rawScores: [0.28, 2.18, 1.1, 3.2, 0.32],
-              note: 'Attends to "profits" and "reported" — financial semantics dominate.',
+              note: 'Attends to "profits" and "reported" - financial semantics dominate.',
             },
             {
               name: 'H3',
@@ -749,7 +749,7 @@
               pos: { x: 0.43, y: 0.5 },
               weights: [0.62, 0.15, 0.1, 0.08, 0.05],
               rawScores: [1.85, 0.48, 0.32, 0.25, 0.16],
-              note: 'Self-attends strongly to "Amazon" — entity anchor, stays ambiguous.',
+              note: 'Self-attends strongly to "Amazon" - entity anchor, stays ambiguous.',
             },
           ],
         },
@@ -775,7 +775,7 @@
             color: C.geo,
             wLabel: 'W_lm',
             wShape: 'd × |V|',
-            wNote: "Unembedding matrix — each column is a vocab token's learned direction",
+            wNote: "Unembedding matrix - each column is a vocab token's learned direction",
             items: [
               { label: 'rainforest', logit: 3.2, prob: 0.34 },
               { label: 'South', logit: 2.8, prob: 0.22 },
@@ -789,7 +789,7 @@
             color: C.company,
             wLabel: 'W_cls',
             wShape: 'd × C',
-            wNote: 'Classification head — each column is a class direction',
+            wNote: 'Classification head - each column is a class direction',
             items: [
               { label: 'Geography', logit: 3.2, prob: 0.83 },
               { label: 'Technology', logit: 0.8, prob: 0.07 },
@@ -814,7 +814,7 @@
             color: C.geo,
             wLabel: 'W_lm',
             wShape: 'd × |V|',
-            wNote: 'Same W_lm — different h → different token distribution',
+            wNote: 'Same W_lm - different h → different token distribution',
             items: [
               { label: 'revenue', logit: 3.1, prob: 0.3 },
               { label: 'profits', logit: 2.7, prob: 0.22 },
@@ -828,7 +828,7 @@
             color: C.company,
             wLabel: 'W_cls',
             wShape: 'd × C',
-            wNote: 'Same W_cls — Finance column now dominates',
+            wNote: 'Same W_cls - Finance column now dominates',
             items: [
               { label: 'Geography', logit: 0.4, prob: 0.05 },
               { label: 'Technology', logit: 2.1, prob: 0.24 },
@@ -1154,8 +1154,8 @@
             .join('');
           const comboNote =
             stageIdx === 1
-              ? 'H2 (Semantic) dominates — geographic signal carries through to h.'
-              : 'H2 (Semantic) dominates — financial signal shapes h.';
+              ? 'H2 (Semantic) dominates - geographic signal carries through to h.'
+              : 'H2 (Semantic) dominates - financial signal shapes h.';
           comboBox = `<div class="combo-box">
         <div class="combo-title">MultiHead: Concat(H1, H2, H3) · W_O → h</div>
         <div style="font-size:8px;color:var(--text-muted);margin-bottom:4px">Each head contributes one segment of the concatenated vector:</div>
@@ -1163,7 +1163,7 @@
         <div class="combo-arrow">· W_O  (learned projection back to d_model)</div>
         <div class="combo-final">
           <div class="combo-dot" style="background:${stageIdx === 1 ? C.geo : C.company}"></div>
-          <div class="combo-note"><span style="color:${stageIdx === 1 ? C.geo : C.company};font-weight:700">h</span> — ${comboNote}</div>
+          <div class="combo-note"><span style="color:${stageIdx === 1 ? C.geo : C.company};font-weight:700">h</span> - ${comboNote}</div>
         </div>
       </div>`;
         }
@@ -1325,7 +1325,7 @@
           ? `<div class="caveat-body">
       <div class="caveat-row">
         <span class="caveat-icon">${ICON.dice}</span>
-        <span><span class="caveat-key">Heads have no preset roles.</span> All heads start from random weight initialisation. "Syntactic", "Semantic", "Entity" are labels borrowed from post-hoc probing studies (e.g. Clark et al. 2019). Any specialisation is an emergent side-effect of training — and varies between models, layers, and tasks.</span>
+        <span><span class="caveat-key">Heads have no preset roles.</span> All heads start from random weight initialisation. "Syntactic", "Semantic", "Entity" are labels borrowed from post-hoc probing studies (e.g. Clark et al. 2019). Any specialisation is an emergent side-effect of training - and varies between models, layers, and tasks.</span>
       </div>
       <div class="caveat-row">
         <span class="caveat-icon">${ICON.scatter}</span>
@@ -1333,7 +1333,7 @@
       </div>
       <div class="caveat-row">
         <span class="caveat-icon">${ICON.ghost}</span>
-        <span><span class="caveat-key">Ghost dot positions are fiction.</span> There is no principled way to show "where head H places the embedding" in 2D. The three ghost dots are illustrative — they are not projections of real head outputs.</span>
+        <span><span class="caveat-key">Ghost dot positions are fiction.</span> There is no principled way to show "where head H places the embedding" in 2D. The three ghost dots are illustrative - they are not projections of real head outputs.</span>
       </div>
       <div class="caveat-row">
         <span class="caveat-icon">${ICON.hash}</span>
@@ -1341,7 +1341,7 @@
       </div>
       <div class="caveat-row">
         <span class="caveat-icon">${ICON.check}</span>
-        <span><span class="caveat-key" style="color:var(--accent-blue)">What is accurate:</span> the mechanism — Q·K^T dot products, softmax normalisation, weighted sum over values, multi-head concatenation, W_O projection, and linear task heads — reflects how transformers actually work.</span>
+        <span><span class="caveat-key" style="color:var(--accent-blue)">What is accurate:</span> the mechanism - Q·K^T dot products, softmax normalisation, weighted sum over values, multi-head concatenation, W_O projection, and linear task heads - reflects how transformers actually work.</span>
       </div>
     </div>`
           : '';

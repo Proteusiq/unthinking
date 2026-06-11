@@ -15,7 +15,7 @@
 1. **Rubric-Induced Preference Drift (RIPD)**: Benchmark-compliant rubric edits can induce systematic, directional preference shifts on target domains
 2. **Up to 27.9% accuracy loss**: Biased rubrics reduce target-domain accuracy while preserving benchmark performance
 3. **Cross-model transfer**: Rubrics optimized on one judge transfer to other judges with similar effect
-4. **Pipeline propagation**: RIPD propagates through alignment pipelines — biased labels become internalized in trained policies
+4. **Pipeline propagation**: RIPD propagates through alignment pipelines - biased labels become internalized in trained policies
 5. **Rubrics are attack surfaces**: Natural-language rubrics function as high-level, manipulable control interfaces
 
 ---
@@ -91,7 +91,7 @@ Pairwise comparison of biased vs seed rubrics by independent LLM evaluator:
 | SafeRLHF-RMB | 100% |
 | Anthropic-SafeRLHF | 100% |
 
-**Implication**: Biased rubrics are judged *better* than seed rubrics — drift comes from criterion reweighting, not degradation.
+**Implication**: Biased rubrics are judged *better* than seed rubrics - drift comes from criterion reweighting, not degradation.
 
 ### Downstream Policy Corruption
 
@@ -126,13 +126,13 @@ The paper demonstrates that LLM judges:
 
 1. **Respond to surface rubric features**: Criterion reweighting through natural language edits systematically shifts preferences without changing underlying evaluation capability
 
-2. **Don't generalize reliably**: Benchmark performance decouples from target-domain behavior — judges pattern-match to benchmark distribution rather than learning robust evaluation
+2. **Don't generalize reliably**: Benchmark performance decouples from target-domain behavior - judges pattern-match to benchmark distribution rather than learning robust evaluation
 
-3. **Propagate shallow biases**: When used for alignment, biased judge preferences become internalized in trained policies — the pipeline amplifies rather than corrects judge failures
+3. **Propagate shallow biases**: When used for alignment, biased judge preferences become internalized in trained policies - the pipeline amplifies rather than corrects judge failures
 
 4. **Are manipulable control interfaces**: Rubrics function as attack surfaces precisely because judges respond to surface features (phrasing, emphasis) rather than semantic intent
 
-The finding that biased rubrics are *judged better* than seed rubrics while inducing worse target-domain behavior is particularly damning — it shows judges evaluate rubric quality based on surface coherence rather than actual evaluation capability.
+The finding that biased rubrics are *judged better* than seed rubrics while inducing worse target-domain behavior is particularly damning - it shows judges evaluate rubric quality based on surface coherence rather than actual evaluation capability.
 
 ---
 
@@ -140,7 +140,7 @@ The finding that biased rubrics are *judged better* than seed rubrics while indu
 
 **Classification**: Supports the thesis that LLMs don't genuinely reason
 
-**Confidence**: High — systematic experiments across judges, domains, and downstream training; clear quantitative results
+**Confidence**: High - systematic experiments across judges, domains, and downstream training; clear quantitative results
 
 ---
 
@@ -209,4 +209,4 @@ None identified. Paper provides attack methodology without defenses, though note
 3. **Benchmark insufficiency**: Demonstrates benchmark validation provides false confidence
 4. **Audit need**: Highlights need for rubric auditing beyond benchmark checks
 
-The paper's key insight is that **rubrics are a control interface** — they translate high-level criteria into judge behavior, and this translation is manipulable. The fact that biased rubrics are judged *better* while performing *worse* on target domains exemplifies the thesis claim: judges respond to surface plausibility rather than semantic validity.
+The paper's key insight is that **rubrics are a control interface** - they translate high-level criteria into judge behavior, and this translation is manipulable. The fact that biased rubrics are judged *better* while performing *worse* on target domains exemplifies the thesis claim: judges respond to surface plausibility rather than semantic validity.

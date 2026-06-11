@@ -5,7 +5,7 @@
 - **Title**: Inverse Scaling in Test-Time Compute
 - **Authors**: Aryo Pradipta Gema, Alexander Hägele, Runjin Chen, Andy Arditi, Jacob Goldman-Wetzler, Kit Fraser-Taliente, Henry Sleight, Linda Petrini, Julian Michael, Beatrice Alex, Pasquale Minervini, Yanda Chen, Joe Benton, Ethan Perez
 - **Date**: July 2025 (v1), December 2025 (v2)
-- **Venue**: **TMLR December 2025 — Featured Certification + J2C Certification**
+- **Venue**: **TMLR December 2025 - Featured Certification + J2C Certification**
 - **Length**: 78 pages (Long submission)
 - **Code**: https://github.com/safety-research/inverse-scaling-ttc
 
@@ -13,7 +13,7 @@
 
 ## Core Claims
 
-1. **Inverse scaling exists in test-time compute** — Longer reasoning DECREASES accuracy on carefully designed tasks
+1. **Inverse scaling exists in test-time compute** - Longer reasoning DECREASES accuracy on carefully designed tasks
 2. **Five distinct failure modes identified**:
    - Claude models increasingly distracted by irrelevant info
    - OpenAI o-series resist distractors but overfit to problem framings
@@ -25,7 +25,7 @@
    - Regression tasks with spurious features
    - Deduction tasks with constraint tracking
    - Advanced AI risk scenarios
-4. **Test-time compute scaling may reinforce problematic patterns** — Not always beneficial
+4. **Test-time compute scaling may reinforce problematic patterns** - Not always beneficial
 
 ---
 
@@ -48,7 +48,7 @@
 
 ### Key Innovation
 
-Tests specifically designed to show inverse scaling — more reasoning = worse performance. This is the opposite of the standard assumption that more thinking tokens = better results.
+Tests specifically designed to show inverse scaling - more reasoning = worse performance. This is the opposite of the standard assumption that more thinking tokens = better results.
 
 ---
 
@@ -60,7 +60,7 @@ Tests specifically designed to show inverse scaling — more reasoning = worse p
 
 ### Failure Mode 2: Overfitting (OpenAI o-series)
 - O-series models resist distractors BUT
-- **Overfit to problem framings** — surface patterns dominate
+- **Overfit to problem framings** - surface patterns dominate
 
 ### Failure Mode 3: Prior → Spurious Correlation Shift
 - Short reasoning: reasonable priors applied
@@ -96,22 +96,22 @@ Tests specifically designed to show inverse scaling — more reasoning = worse p
 
 ### STRONGLY SUPPORTS the Thesis
 
-**The thesis**: "LLM reasoning is practical but fundamentally predictive—pattern matching from training distributions, not genuinely generative reasoning"
+**The thesis**: "LLM reasoning is practical but fundamentally predictive-pattern matching from training distributions, not genuinely generative reasoning"
 
 This paper provides **direct evidence against the scaling paradigm**:
 
-1. **More compute ≠ better reasoning** — Inverse scaling is definitive evidence
+1. **More compute ≠ better reasoning** - Inverse scaling is definitive evidence
 2. **Pattern matching failure modes**:
    - Distraction = following surface patterns rather than filtering
    - Overfitting to framings = pattern matching on presentation
    - Spurious correlations = statistical associations, not causal reasoning
    - Focus loss = no working memory for true reasoning
-3. **No genuine metacognition** — Models can't self-correct with more time
-4. **Safety implications** — Extended reasoning amplifies problematic patterns
+3. **No genuine metacognition** - Models can't self-correct with more time
+4. **Safety implications** - Extended reasoning amplifies problematic patterns
 
 ### The TMLR Featured Certification
 
-This is not a preprint — it's a **peer-reviewed, featured publication**. The findings have passed rigorous review and earned special recognition.
+This is not a preprint - it's a **peer-reviewed, featured publication**. The findings have passed rigorous review and earned special recognition.
 
 ---
 
@@ -148,15 +148,15 @@ This paper **directly challenges** the DeepSeek-R1 / o1 narrative that more reas
 
 ### Potential Counter-Arguments
 
-1. **Task selection** — Tasks specifically designed to show failure
-2. **Not representative** — Real-world tasks may not show inverse scaling
-3. **Can be fixed** — Better training could address these failure modes
+1. **Task selection** - Tasks specifically designed to show failure
+2. **Not representative** - Real-world tasks may not show inverse scaling
+3. **Can be fixed** - Better training could address these failure modes
 
 ### Limitations Acknowledged
 
-1. **Constructed tasks** — Not natural benchmarks
-2. **78 pages** — Extensive but specific focus
-3. **Ceiling effects** — Some tasks may be fundamentally hard
+1. **Constructed tasks** - Not natural benchmarks
+2. **78 pages** - Extensive but specific focus
+3. **Ceiling effects** - Some tasks may be fundamentally hard
 
 ### Critical Assessment
 
@@ -173,11 +173,11 @@ The counter-arguments are weak because:
 
 This paper provides **definitive evidence** against universal test-time compute scaling:
 
-1. **Peer-reviewed** — TMLR with Featured Certification
-2. **Systematic** — Four task categories, five failure modes
-3. **Multiple models** — Claude and OpenAI o-series both fail
-4. **78 pages** — Comprehensive analysis
-5. **Code available** — Reproducible
+1. **Peer-reviewed** - TMLR with Featured Certification
+2. **Systematic** - Four task categories, five failure modes
+3. **Multiple models** - Claude and OpenAI o-series both fail
+4. **78 pages** - Comprehensive analysis
+5. **Code available** - Reproducible
 
 ### Stance Classification: **STRONGLY SUPPORTS**
 
@@ -189,10 +189,10 @@ The paper demonstrates that:
 
 ### Significance
 
-- **TMLR Featured Certification** — Top venue, special recognition
-- **Direct counter to scaling narrative** — More compute is not always better
-- **Safety implications** — Extended reasoning can amplify concerning behaviors
-- **Identifies failure modes** — Actionable for future research
+- **TMLR Featured Certification** - Top venue, special recognition
+- **Direct counter to scaling narrative** - More compute is not always better
+- **Safety implications** - Extended reasoning can amplify concerning behaviors
+- **Identifies failure modes** - Actionable for future research
 
 ---
 

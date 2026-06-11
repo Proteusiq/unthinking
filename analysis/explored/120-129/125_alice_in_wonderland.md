@@ -38,7 +38,7 @@
 | 3 | 4 sisters, 1 brother | 5 |
 | 4 | 4 brothers, 1 sister | 2 |
 
-These variations are **structurally identical** — only numbers change.
+These variations are **structurally identical** - only numbers change.
 
 ---
 
@@ -68,7 +68,7 @@ This is a ~100% swing on the SAME problem with just different numbers!
 - Fluctuations persist regardless of prompt type
 - This is the "hallmark of poor generalization"
 
-### Control Experiments (AIW Light) — Critical
+### Control Experiments (AIW Light) - Critical
 
 Three control problems tested whether failures stem from low-level issues:
 
@@ -99,7 +99,7 @@ The breakdown is **generic reasoning failure**.
 | o1-mini | Fluctuations | **< 20%** | < 0.6 |
 | DeepSeek-R1 | Fluctuations | ~10% | < 0.6 |
 
-**o1-mini collapses on harder variants** — claims of matching o1-preview are falsified.
+**o1-mini collapses on harder variants** - claims of matching o1-preview are falsified.
 
 ### Confabulation Findings
 
@@ -126,11 +126,11 @@ This paper provides some of the **cleanest evidence** for the pattern matching h
 
 1. **Distribution-dependent performance**: The wild fluctuations across number variations suggest models are pattern matching on training data, not reasoning abstractly. Certain number combinations may be more common in training.
 
-2. **Control experiments are definitive**: Models CAN do the arithmetic, CAN parse the language, CAN understand family structure — but CANNOT compose these skills into reasoning.
+2. **Control experiments are definitive**: Models CAN do the arithmetic, CAN parse the language, CAN understand family structure - but CANNOT compose these skills into reasoning.
 
 3. **Confabulation = post-hoc justification**: The overconfident wrong explanations are exactly what we'd expect from pattern matching systems that generate plausible text, not genuine reasoners.
 
-4. **Benchmark scores are misleading**: Models scoring high on MMLU/ARC fail on trivially simple problems — suggests benchmark contamination or narrow pattern matching.
+4. **Benchmark scores are misleading**: Models scoring high on MMLU/ARC fail on trivially simple problems - suggests benchmark contamination or narrow pattern matching.
 
 ---
 
@@ -138,7 +138,7 @@ This paper provides some of the **cleanest evidence** for the pattern matching h
 
 ### Strengths
 
-1. **Extremely simple problem**: No one can argue AIW is "too hard" — any human solves it instantly
+1. **Extremely simple problem**: No one can argue AIW is "too hard" - any human solves it instantly
 2. **Control experiments are rigorous**: Rules out alternative explanations systematically
 3. **Large model coverage**: Tests many SOTA models including reasoning models
 4. **Quantitative with many trials**: 30+ trials per condition, proper statistical analysis
@@ -154,24 +154,24 @@ This paper provides some of the **cleanest evidence** for the pattern matching h
 This paper shows that:
 - **Pattern matching fails on simple recombination**: The same model that retrieves "sisters" and "brothers" correctly in isolation cannot compose them
 - **Confidence ≠ Correctness**: Models are as confident wrong as right (no calibration to reasoning quality)
-- **Scaling doesn't fix it**: GPT-4o is best at 65% — still fails 1/3 of the time on a trivial problem
+- **Scaling doesn't fix it**: GPT-4o is best at 65% - still fails 1/3 of the time on a trivial problem
 
 ---
 
 ## Relationship to Other Papers
 
 ### Supports
-- **Paper 03 (2506.06941)**: Illusion of Thinking — both show reasoning collapse, AIW is even simpler
-- **Paper 01 (2305.18654)**: Faith and Fate — compositional failure on simple combinations
-- **Paper 04 (2410.05229)**: GSM-Symbolic — similar number sensitivity (but AIW fluctuations are MORE dramatic)
-- **Paper 108 (2601.21618)**: WhatCounts — semantic content affects counting; AIW shows number content affects family reasoning
+- **Paper 03 (2506.06941)**: Illusion of Thinking - both show reasoning collapse, AIW is even simpler
+- **Paper 01 (2305.18654)**: Faith and Fate - compositional failure on simple combinations
+- **Paper 04 (2410.05229)**: GSM-Symbolic - similar number sensitivity (but AIW fluctuations are MORE dramatic)
+- **Paper 108 (2601.21618)**: WhatCounts - semantic content affects counting; AIW shows number content affects family reasoning
 
 ### Extends
-- **Paper 05 (2307.13702)**: Measuring Faithfulness — AIW provides evidence of confabulation accompanying wrong answers
-- **Paper 119 (2308.03958)**: Sycophancy Scales — overconfidence in wrong answers is related phenomenon
+- **Paper 05 (2307.13702)**: Measuring Faithfulness - AIW provides evidence of confabulation accompanying wrong answers
+- **Paper 119 (2308.03958)**: Sycophancy Scales - overconfidence in wrong answers is related phenomenon
 
 ### Challenged By
-- **Paper 124 (2506.09250)**: Illusion of Illusion — argues some failures are evaluation artifacts; but AIW controls rule this out
+- **Paper 124 (2506.09250)**: Illusion of Illusion - argues some failures are evaluation artifacts; but AIW controls rule this out
 
 ---
 
@@ -182,11 +182,11 @@ No direct rebuttals found yet. The control experiments make this paper difficult
 
 ### Potential Counter-Arguments
 
-1. **"Problem is ambiguous"**: Authors address this — the common-sense interpretation is unambiguous, and models get AIW Light controls correct which require same parsing
+1. **"Problem is ambiguous"**: Authors address this - the common-sense interpretation is unambiguous, and models get AIW Light controls correct which require same parsing
 
 2. **"Training data leakage"**: Authors created novel variants (AIW+, AIW Friends) not in training data and still observed breakdown
 
-3. **"Need chain-of-thought"**: Authors tested THINKING prompt with CoT encouragement — same fluctuations
+3. **"Need chain-of-thought"**: Authors tested THINKING prompt with CoT encouragement - same fluctuations
 
 ### Why Rebuttals Are Weak
 
@@ -220,7 +220,7 @@ The control experiments (AIW Light) are the key. If models can:
 **Why this is among the strongest evidence for the thesis:**
 
 1. **Simplicity eliminates confounds**: No complex benchmarks, no ambiguity, just a trivial problem
-2. **Controls isolate the failure**: Not parsing, not arithmetic, not structure — it's reasoning
+2. **Controls isolate the failure**: Not parsing, not arithmetic, not structure - it's reasoning
 3. **Fluctuations are smoking gun**: 0% to 100% on structurally identical problems = pattern matching on surface features
 4. **Confabulation matches theory**: Post-hoc justification without genuine reasoning
 5. **Scaling doesn't fix it**: Even GPT-4o fails 35% on a problem any human solves instantly

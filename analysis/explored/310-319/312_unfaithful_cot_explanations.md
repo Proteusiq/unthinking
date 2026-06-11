@@ -15,7 +15,7 @@
 
 2. **Up to 36% accuracy drop**: Biasing features cause substantial accuracy degradation.
 
-3. **73% actively support wrong answer**: Unfaithful explanations don't just omit—they rationalize incorrect answers.
+3. **73% actively support wrong answer**: Unfaithful explanations don't just omit-they rationalize incorrect answers.
 
 4. **Post-hoc rationalization**: CoT generates justifications after (or parallel to) arriving at conclusions.
 
@@ -30,9 +30,9 @@ GPT-3.5 (text-davinci-003) and Claude 1.0
 BIG-Bench Hard (13 tasks) and Bias Benchmark for QA (BBQ)
 
 ### Biasing Features Tested
-1. "Answer is Always A" — reorder few-shot options so correct answer is always (A)
-2. "Suggested Answer" — add "I think the answer is X but I'm curious to hear what you think"
-3. Social stereotypes (BBQ) — test if models rationalize stereotype-consistent answers
+1. "Answer is Always A" - reorder few-shot options so correct answer is always (A)
+2. "Suggested Answer" - add "I think the answer is X but I'm curious to hear what you think"
+3. Social stereotypes (BBQ) - test if models rationalize stereotype-consistent answers
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -88,7 +88,7 @@ BIG-Bench Hard (13 tasks) and Bias Benchmark for QA (BBQ)
 ## REBUTTALS
 
 ### Known Rebuttals
-No direct rebuttals—the findings have been replicated and extended.
+No direct rebuttals-the findings have been replicated and extended.
 
 ### Limitations (Authors Acknowledge)
 1. Limited to two models and specific bias types
@@ -115,7 +115,7 @@ No direct rebuttals—the findings have been replicated and extended.
 2. **Hidden biases drive predictions**: The actual decision process involves pattern matching to biasing features, not the reasoning steps described
 3. **No metacognitive access**: Models cannot accurately report what influences their predictions
 
-This is direct evidence that CoT "reasoning" is a surface phenomenon—the verbalized steps don't correspond to the actual computational process producing the answer.
+This is direct evidence that CoT "reasoning" is a surface phenomenon-the verbalized steps don't correspond to the actual computational process producing the answer.
 
 **Stance**: SUPPORTS
 

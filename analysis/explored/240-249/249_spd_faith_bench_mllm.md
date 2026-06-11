@@ -11,10 +11,10 @@
 
 ## Core Claims
 
-1. **Multimodal CoT is unfaithful** — MLLMs produce reasoning traces that diverge from visual perception, even when attending to correct regions
-2. **Two failure modes identified** — Perceptual blindness (fail to see) and perception-reasoning dissociation (see but reason wrongly)
-3. **Visual attention decays during reasoning** — Models lose connection to visual evidence as CoT progresses
-4. **FFN neurons override visual grounding** — Residual stream shifts in FFN layers cause semantic drift from perception
+1. **Multimodal CoT is unfaithful** - MLLMs produce reasoning traces that diverge from visual perception, even when attending to correct regions
+2. **Two failure modes identified** - Perceptual blindness (fail to see) and perception-reasoning dissociation (see but reason wrongly)
+3. **Visual attention decays during reasoning** - Models lose connection to visual evidence as CoT progresses
+4. **FFN neurons override visual grounding** - Residual stream shifts in FFN layers cause semantic drift from perception
 
 ---
 
@@ -59,30 +59,30 @@
 ## Relationship to Other Papers
 
 ### Supports
-- **Faithfulness Decay (2602.11201)** — Both find faithfulness decays along reasoning chain; this adds visual modality
-- **Measuring Faithfulness (2307.13702)** — Extends text faithfulness analysis to multimodal setting
-- **Dissociation Faithful/Unfaithful (2405.15092)** — Two reasoning modes confirmed; adds visual perception dimension
-- **Seq-VCR (2411.02344)** — Both find attention decay; representation collapse mechanism
+- **Faithfulness Decay (2602.11201)** - Both find faithfulness decays along reasoning chain; this adds visual modality
+- **Measuring Faithfulness (2307.13702)** - Extends text faithfulness analysis to multimodal setting
+- **Dissociation Faithful/Unfaithful (2405.15092)** - Two reasoning modes confirmed; adds visual perception dimension
+- **Seq-VCR (2411.02344)** - Both find attention decay; representation collapse mechanism
 
 ### Challenges
-- None directly — paper diagnoses failures and proposes solution
+- None directly - paper diagnoses failures and proposes solution
 
 ### Extends
-- **Bias and CoT Faithfulness in VLMs (2505.23945)** — Extends VLM faithfulness analysis with mechanistic depth
-- **VERITAS (2510.13272)** — Extends RAG faithfulness to multimodal reasoning
+- **Bias and CoT Faithfulness in VLMs (2505.23945)** - Extends VLM faithfulness analysis with mechanistic depth
+- **VERITAS (2510.13272)** - Extends RAG faithfulness to multimodal reasoning
 
 ---
 
 ## REBUTTALS
 
 ### Known Rebuttals
-None found yet — paper is recent
+None found yet - paper is recent
 
 ### Potential Counter-Arguments
-1. **IDC task specificity** — Image difference captioning may not generalize to other multimodal tasks
-2. **Synthetic modifications** — Controlled perturbations may not reflect real-world complexity
-3. **SAGE is train-free** — May not match trained approaches in production settings
-4. **Attention decay may be task-dependent** — May not occur equally in all reasoning types
+1. **IDC task specificity** - Image difference captioning may not generalize to other multimodal tasks
+2. **Synthetic modifications** - Controlled perturbations may not reflect real-world complexity
+3. **SAGE is train-free** - May not match trained approaches in production settings
+4. **Attention decay may be task-dependent** - May not occur equally in all reasoning types
 
 ### Limitations (Authors Acknowledge)
 - Benchmark limited to image difference reasoning
@@ -110,12 +110,12 @@ None found yet — paper is recent
 
 **STRONGLY SUPPORTS** the thesis that LLMs are pattern matchers:
 
-1. **Perception-reasoning dissociation** — Models "see" correct information but reason incorrectly = pattern matching overrides perception
-2. **FFN drift** — Text priors in FFN weights override visual evidence = patterns trump inputs
-3. **Larger models worse** — More parameters = more entrenched patterns that override perception
-4. **38% consistency** — Models flip binary judgments on SAME inputs = unreliable reasoning
+1. **Perception-reasoning dissociation** - Models "see" correct information but reason incorrectly = pattern matching overrides perception
+2. **FFN drift** - Text priors in FFN weights override visual evidence = patterns trump inputs
+3. **Larger models worse** - More parameters = more entrenched patterns that override perception
+4. **38% consistency** - Models flip binary judgments on SAME inputs = unreliable reasoning
 
-Key insight: Visual attention exists but doesn't control outputs — text patterns dominate.
+Key insight: Visual attention exists but doesn't control outputs - text patterns dominate.
 
 ---
 

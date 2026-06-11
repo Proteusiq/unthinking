@@ -12,11 +12,11 @@
 
 ## Core Claims
 
-1. **"Diminishing returns" on short benchmarks is an illusion** — small improvements compound exponentially for long tasks
-2. **Execution alone is challenging** — even with plan and knowledge provided, LLMs fail on long horizons
+1. **"Diminishing returns" on short benchmarks is an illusion** - small improvements compound exponentially for long tasks
+2. **Execution alone is challenging** - even with plan and knowledge provided, LLMs fail on long horizons
 3. **Self-conditioning effect**: Models become MORE likely to make mistakes when context contains prior errors
-4. **Thinking models fix self-conditioning** — RL-trained thinking models don't degrade with prior errors
-5. **GPT-5 executes 2176 steps** — massive gap to competitors (Claude-4: 432, Grok 4: 384)
+4. **Thinking models fix self-conditioning** - RL-trained thinking models don't degrade with prior errors
+5. **GPT-5 executes 2176 steps** - massive gap to competitors (Claude-4: 432, Grok 4: 384)
 
 ---
 
@@ -184,7 +184,7 @@ Experimental setup: Inject artificial error histories at different rates
 ### Potential Counter-Arguments
 
 1. **"Task is too simple"**
-   - Counter: Simplicity is the POINT — isolates execution
+   - Counter: Simplicity is the POINT - isolates execution
    - Counter: If models fail on simple task, complex tasks worse
    - Counter: Real-world agentic tasks require similar execution
 
@@ -208,9 +208,9 @@ Experimental setup: Inject artificial error histories at different rates
 
 > "Failures of LLMs when simple tasks are made longer arise from mistakes in execution, rather than an inability to reason"
 
-> "We posit that the eventual failures are in execution—as the task gets longer, the model is more likely to make a mistake in executing the plan"
+> "We posit that the eventual failures are in execution-as the task gets longer, the model is more likely to make a mistake in executing the plan"
 
-> "The self-conditioning effect—models become more likely to make mistakes when the context contains their errors from prior turns"
+> "The self-conditioning effect-models become more likely to make mistakes when the context contains their errors from prior turns"
 
 > "Self-conditioning does not reduce by just scaling the model size"
 
@@ -224,10 +224,10 @@ Experimental setup: Inject artificial error histories at different rates
 
 **Literature Review Thesis**: LLM reasoning is practical but fundamentally predictive (pattern matching from training distributions), not genuinely generative.
 
-### This Paper is BALANCED — Provides Evidence for Both Sides
+### This Paper is BALANCED - Provides Evidence for Both Sides
 
 **For "Against" (Pattern Matching) Position**:
-1. Execution alone is challenging — models fail even with plan+knowledge
+1. Execution alone is challenging - models fail even with plan+knowledge
 2. Self-conditioning = pattern matching gone wrong
 3. Errors compound exponentially
 4. Non-RL models fundamentally limited
@@ -235,13 +235,13 @@ Experimental setup: Inject artificial error histories at different rates
 **For "For" (Genuine Capability) Position**:
 1. Thinking models fix self-conditioning
 2. Scaling model size helps (within non-thinking)
-3. GPT-5 executes 2176 steps — massive improvement
+3. GPT-5 executes 2176 steps - massive improvement
 4. "Not inability to reason, but execution failures"
 
 ### How to Integrate with Thesis
 
 **Nuanced position**:
-- Execution ≠ reasoning — failures don't prove "can't think"
+- Execution ≠ reasoning - failures don't prove "can't think"
 - BUT: execution is REQUIRED for practical reasoning
 - Self-conditioning = architectural/training limitation
 - RL training (thinking) partially fixes, but not fully

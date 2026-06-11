@@ -16,7 +16,7 @@
 1. **2023→2024 improvement is due to hidden Chain-of-Thought**, not genuine reasoning
 2. **Thinking models (2025) achieve near-perfect** but still "imitate" reasoning
 3. **Neuro-symbolic achieves same accuracy at ~10-20% compute cost**
-4. **LLMs are good at translation**, not reasoning — combine with symbolic solvers
+4. **LLMs are good at translation**, not reasoning - combine with symbolic solvers
 
 ---
 
@@ -113,7 +113,7 @@ Z3 solver time: **1-10 milliseconds** per example (negligible vs LLM inference).
 | DeepSeek R1 | 1.483×10¹⁴ | 1.419×10¹⁴ | 4.3% |
 | Phi4 | 2.50×10¹³ | 2.50×10¹³ | 0.1% |
 
-**All within 10%** — allows reliable cost comparisons.
+**All within 10%** - allows reliable cost comparisons.
 
 ---
 
@@ -157,18 +157,18 @@ The paper demonstrates:
 ## Relationship to Other Papers
 
 ### Directly Supports
-- **Faith and Fate (2305.18654)** — Subgraph matching = imitation
-- **Illusion of Thinking (2506.06941)** — Not genuine reasoning
-- **CoT Mirage (2508.01191)** — Distribution-dependent success
-- **OMEGA (2506.18880)** — 0% transformative generalization confirms imitation, not reasoning
+- **Faith and Fate (2305.18654)** - Subgraph matching = imitation
+- **Illusion of Thinking (2506.06941)** - Not genuine reasoning
+- **CoT Mirage (2508.01191)** - Distribution-dependent success
+- **OMEGA (2506.18880)** - 0% transformative generalization confirms imitation, not reasoning
 
 ### Provides Mechanism For
 - Why benchmarks show improvement (hidden CoT)
 - Why compute costs are so high (imitation is expensive)
 
 ### Complements
-- **Reasoning Models Until They Don't (2510.22371)** — Complexity limits
-- **Illusion of Insight (2601.00514)** — "Aha!" moments are illusory
+- **Reasoning Models Until They Don't (2510.22371)** - Complexity limits
+- **Illusion of Insight (2601.00514)** - "Aha!" moments are illusory
 
 ---
 
@@ -183,7 +183,7 @@ No direct arXiv rebuttal found.
 |---------|----------|
 | "PrOntoQA is toy benchmark" | Authors acknowledge; but controlled task isolates reasoning |
 | "2025 models achieve 100%" | Authors still call it "imitation", not reasoning |
-| "Neuro-symbolic needs translation" | That's the point — LLMs translate, can't reason |
+| "Neuro-symbolic needs translation" | That's the point - LLMs translate, can't reason |
 
 ### Limitations (Authors Acknowledge)
 1. PrOntoQA is a toy benchmark
@@ -277,7 +277,7 @@ No direct arXiv rebuttal found.
 - [x] Key evidence with numbers
 - [x] Critical analysis
 - [x] Cross-references identified
-- [x] **Rebuttals checked** — None found
+- [x] **Rebuttals checked** - None found
 - [x] Paper graph updated
 
 ---

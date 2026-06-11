@@ -244,4 +244,4 @@ If faithful and unfaithful modes have **distinct mechanisms**, then:
 
 ## One-Sentence Summary
 
-LLMs exhibit two distinct reasoning mechanisms—faithful (interpretable) and unfaithful (opaque)—that respond differently to interventions, demonstrating that CoT text often does not reflect the actual process by which models arrive at answers.
+LLMs exhibit two distinct reasoning mechanisms-faithful (interpretable) and unfaithful (opaque)-that respond differently to interventions, demonstrating that CoT text often does not reflect the actual process by which models arrive at answers.

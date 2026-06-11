@@ -12,13 +12,13 @@
 
 ## Core Claims
 
-1. **Representation collapse limits reasoning**: Collapse in intermediate transformer layers — where internal representation diversity diminishes — is a key factor limiting reasoning capabilities.
+1. **Representation collapse limits reasoning**: Collapse in intermediate transformer layers - where internal representation diversity diminishes - is a key factor limiting reasoning capabilities.
 
 2. **Dummy pause tokens substitute for CoT**: Learnable `<pause>` tokens can replace chain-of-thought tokens, achieving similar accuracy without explicit intermediate reasoning steps.
 
 3. **Seq-VCR prevents collapse**: Sequential Variance-Covariance Regularization (Seq-VCR) enhances entropy of intermediate representations and prevents collapse.
 
-4. **Combined approach achieves SOTA**: Seq-VCR + dummy pause tokens achieves **99.5% on 5×5 multiplication** — outperforming GPT-4 with 5-shot CoT (44%) and models of same size (0%).
+4. **Combined approach achieves SOTA**: Seq-VCR + dummy pause tokens achieves **99.5% on 5×5 multiplication** - outperforming GPT-4 with 5-shot CoT (44%) and models of same size (0%).
 
 5. **5× faster than CoT**: Dummy pause tokens provide same accuracy as CoT with dramatically reduced inference time.
 
@@ -35,7 +35,7 @@
 ```
 <question> </pause_start> <pause> <pause> </pause_end> <answer>
 ```
-- **2 pause tokens** used in all experiments (tested 2, 4, 6, 8 — no correlation with task complexity)
+- **2 pause tokens** used in all experiments (tested 2, 4, 6, 8 - no correlation with task complexity)
 - All pause tokens share the same embedding
 - Placed between input and output tokens to emulate CoT reasoning
 
@@ -53,7 +53,7 @@
 
 ## Key Evidence
 
-### 5×5 Digit Multiplication — THE KEY RESULT
+### 5×5 Digit Multiplication - THE KEY RESULT
 | Model | Configuration | Accuracy |
 |-------|--------------|----------|
 | GPT-3.5 | With CoT | 5% |
@@ -66,7 +66,7 @@
 | GPT-2 Small | Seq-VCR only | 0% |
 | **GPT-2 Small** | **Seq-VCR + Pause** | **99.5%** |
 
-**Key insight**: Neither pause tokens alone (0%) nor Seq-VCR alone (0%) work — they must be combined.
+**Key insight**: Neither pause tokens alone (0%) nor Seq-VCR alone (0%) work - they must be combined.
 
 ### 4×4 Digit Multiplication
 | Model | Configuration | Accuracy |
@@ -99,7 +99,7 @@
 | CoT | 43.7% |
 | Seq-VCR + Pause | 20.2% |
 
-**Note**: Seq-VCR + Pause doesn't help much on GSM8K — benefits are task-specific (algorithmic tasks).
+**Note**: Seq-VCR + Pause doesn't help much on GSM8K - benefits are task-specific (algorithmic tasks).
 
 ---
 
@@ -107,7 +107,7 @@
 
 ### SUPPORTS (Strongly)
 
-1. **Dummy tokens work as well as meaningful CoT**: This is direct evidence that the semantic content of intermediate steps doesn't matter — only the computational workspace.
+1. **Dummy tokens work as well as meaningful CoT**: This is direct evidence that the semantic content of intermediate steps doesn't matter - only the computational workspace.
 
 2. **Content-free tokens enable "reasoning"**: The pause tokens have no semantic meaning, yet enable near-perfect multiplication. Supports "computational workspace" hypothesis.
 
@@ -159,7 +159,7 @@ This means:
 4. **Pause tokens need Seq-VCR**: Pause tokens alone don't work (0% accuracy). The regularization is doing the heavy lifting.
 
 ### Limitations (Authors Acknowledge)
-- "We believe that this may be due to the fact that all pause tokens share the same embedding" — single embedding may limit benefits
+- "We believe that this may be due to the fact that all pause tokens share the same embedding" - single embedding may limit benefits
 - Limited to algorithmic reasoning tasks
 - Doesn't improve GSM8K significantly
 
@@ -187,9 +187,9 @@ This means:
 
 This paper provides the **strongest mechanistic evidence** that:
 
-1. **CoT tokens don't need semantic content** — dummy pause tokens achieve 99.5% vs 100% with full CoT
-2. **The benefit is computational, not semantic** — preventing representation collapse enables computation
-3. **"Reasoning" is representation diversity** — maintaining distinct hidden states for sub-tasks, not understanding
+1. **CoT tokens don't need semantic content** - dummy pause tokens achieve 99.5% vs 100% with full CoT
+2. **The benefit is computational, not semantic** - preventing representation collapse enables computation
+3. **"Reasoning" is representation diversity** - maintaining distinct hidden states for sub-tasks, not understanding
 
 ### The "Computational Workspace" Explanation
 

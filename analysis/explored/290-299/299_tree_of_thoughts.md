@@ -17,7 +17,7 @@
 
 3. **60% fail at first step**: Around 60% of CoT samples fail after the first three words, indicating fundamental generation quality issues.
 
-4. **Generation bottleneck**: Performance is limited by thought generation quality, not evaluation—GPT-4 gen + GPT-3.5 eval outperforms GPT-3.5 gen + GPT-4 eval.
+4. **Generation bottleneck**: Performance is limited by thought generation quality, not evaluation-GPT-4 gen + GPT-3.5 eval outperforms GPT-3.5 gen + GPT-4 eval.
 
 ---
 
@@ -93,7 +93,7 @@ None directly rebutting ToT, but the paper itself acknowledges limitations.
 
 > "Notably, around 60% of CoT samples already failed the task after generating the first step, or equivalently, the first three words."
 
-> "The game's bottleneck is thought generation" — quality of candidates matters more than evaluation
+> "The game's bottleneck is thought generation" - quality of candidates matters more than evaluation
 
 ---
 

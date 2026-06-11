@@ -13,7 +13,7 @@
 
 1. **Longer CoT correlates with LOWER accuracy**: Challenges "longer-is-better" narrative across all 10 models tested.
 
-2. **More review behavior correlates with failure**: Self-checking doesn't enable correction—it indicates struggling.
+2. **More review behavior correlates with failure**: Self-checking doesn't enable correction-it indicates struggling.
 
 3. **Failed-Step Fraction (FSF) predicts failure**: Proportion of steps in abandoned branches is strongest accuracy predictor.
 

@@ -10,11 +10,11 @@
 
 ## Core Claims
 
-1. **LLMs show 15-30% answer inconsistency across paraphrased questions** — semantically equivalent rewordings produce different answers, revealing surface-pattern matching
-2. **Benchmark scores overestimate generalization** — high accuracy on fixed phrasings doesn't transfer to linguistic variation
-3. **Rankings remain stable despite accuracy drops** — τ > 0.9 correlation, suggesting relative comparisons are more reliable than absolute scores
-4. **Smaller models are "consistently wrong"** — negative correlation (ρ=-0.51) between accuracy and consistency for <15B parameter models
-5. **Older benchmarks show more overestimation** — suggests contamination/memorization rather than understanding
+1. **LLMs show 15-30% answer inconsistency across paraphrased questions** - semantically equivalent rewordings produce different answers, revealing surface-pattern matching
+2. **Benchmark scores overestimate generalization** - high accuracy on fixed phrasings doesn't transfer to linguistic variation
+3. **Rankings remain stable despite accuracy drops** - τ > 0.9 correlation, suggesting relative comparisons are more reliable than absolute scores
+4. **Smaller models are "consistently wrong"** - negative correlation (ρ=-0.51) between accuracy and consistency for <15B parameter models
+5. **Older benchmarks show more overestimation** - suggests contamination/memorization rather than understanding
 
 ---
 
@@ -180,9 +180,9 @@ The paper reveals why benchmark scores inflate perceived capability:
 
 ### Related Papers in Corpus
 - **#267 (LLM-as-a-Judge Survey)**: Both show evaluation infrastructure compromised
-- **#268 (Can You Trust LLM Judgments)**: Complements—#268 shows judge unreliability, #269 shows benchmark unreliability
+- **#268 (Can You Trust LLM Judgments)**: Complements-#268 shows judge unreliability, #269 shows benchmark unreliability
 - **#260 (Non-Determinism)**: Both expose hidden randomness in evaluation
-- **Diffusion papers (#254-258)**: Same conclusion—sequential form doesn't require sequential reasoning
+- **Diffusion papers (#254-258)**: Same conclusion-sequential form doesn't require sequential reasoning
 
 ### Novel Contribution
 First paper to systematically quantify **both** benchmark reliability AND robustness separately with paraphrase attacks at scale.

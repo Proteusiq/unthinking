@@ -21,16 +21,16 @@
 
 3. **AR Order Preserves Reasoning Potential**: Autoregressive order forces models to confront uncertainty at logical forks, enabling exploration of diverse reasoning paths.
 
-4. **JustGRPO**: By forgoing arbitrary order and treating dLLMs as AR models during RL training, standard GRPO can be applied directly — achieving better results with simpler methods.
+4. **JustGRPO**: By forgoing arbitrary order and treating dLLMs as AR models during RL training, standard GRPO can be applied directly - achieving better results with simpler methods.
 
 ---
 
 ## Methodology
 
 ### Models Tested
-- **LLaDA-Instruct** (8B) — primary model
-- **Dream-Instruct** — for Pass@k analysis
-- **LLaDA 1.5** — for Pass@k analysis
+- **LLaDA-Instruct** (8B) - primary model
+- **Dream-Instruct** - for Pass@k analysis
+- **LLaDA 1.5** - for Pass@k analysis
 
 ### Benchmarks
 | Benchmark | Task Type |
@@ -61,7 +61,7 @@
 | HumanEval: Arbitrary-only solutions | **0.6%** | Problems solved ONLY by arbitrary order |
 | Subtoken count preservation | ~78% | Same pattern as tokenizer paper |
 | Entropy at logical forks (AR) | ~1.5-2.0+ | High entropy preserved |
-| Entropy at logical forks (Arbitrary) | ~0.5-1.0 | **Sharp decrease** — entropy degradation |
+| Entropy at logical forks (Arbitrary) | ~0.5-1.0 | **Sharp decrease** - entropy degradation |
 
 ### Solution Space Coverage (Pass@1024, HumanEval)
 ```
@@ -75,7 +75,7 @@ Neither solves:     ~23% problems
 
 ### Frequently Bypassed Tokens (Figure 5)
 - "Therefore", "Thus", "Since", "So", "When", "Given", "However"
-- These are **logical connectives** — exactly where reasoning decisions should occur
+- These are **logical connectives** - exactly where reasoning decisions should occur
 
 ### Comparison with Other Methods (Table 1)
 
@@ -92,13 +92,13 @@ Neither solves:     ~23% problems
 ## Relationship to Other Papers
 
 ### Supports
-- **Measuring Faithfulness (2307.13702)**: Both show CoT can be unfaithful — here, logical connectors are filled in post-hoc
+- **Measuring Faithfulness (2307.13702)**: Both show CoT can be unfaithful - here, logical connectors are filled in post-hoc
 - **Illusion of Thinking (2506.06941)**: Both show reasoning collapses under certain conditions
 - **Faith and Fate (2305.18654)**: Both show models take shortcuts around genuine reasoning
 
 ### Provides Mechanism For
-- **CoT unfaithfulness**: Explains WHY logical connectors don't reflect genuine reasoning — they're filled in after conclusions
-- **Pattern matching thesis**: Shows models exploit rather than explore — taking easy paths rather than reasoning
+- **CoT unfaithfulness**: Explains WHY logical connectors don't reflect genuine reasoning - they're filled in after conclusions
+- **Pattern matching thesis**: Shows models exploit rather than explore - taking easy paths rather than reasoning
 
 ### Challenges (Superficially)
 - Could be seen as showing dLLMs can achieve high performance (89.1% GSM8K)
@@ -119,7 +119,7 @@ None identified. This is a recent paper.
 
 ### Limitations (Authors Acknowledge)
 
-1. **Task scope**: Focused on general reasoning (math, code) — constrained combinatorial tasks may differ
+1. **Task scope**: Focused on general reasoning (math, code) - constrained combinatorial tasks may differ
 2. **Model scope**: Tested on LLaDA variants; generalization to other dLLMs assumed
 3. **Training efficiency**: "We prioritize simplicity... leave efficiency optimizations for future work"
 
@@ -156,11 +156,11 @@ None identified. This is a recent paper.
 
 **This paper provides strong mechanistic support**:
 
-1. **"Reasoning" collapses to exploitation**: When given flexibility, dLLMs don't explore diverse reasoning paths — they exploit the easiest path to local coherence. This is pattern completion, not genuine reasoning.
+1. **"Reasoning" collapses to exploitation**: When given flexibility, dLLMs don't explore diverse reasoning paths - they exploit the easiest path to local coherence. This is pattern completion, not genuine reasoning.
 
 2. **Logical forks are bypassed, not navigated**: A genuine reasoner would confront uncertainty at logical decision points. Instead, dLLMs avoid them, fill in conclusions first, then retrofit the logical connectors. This is **post-hoc rationalization**, not reasoning.
 
-3. **Post-hoc filling of logical connectors**: The paper explicitly describes models as performing "retrospective alignment to bridge the gap to the pre-generated conclusion" — this is confabulation.
+3. **Post-hoc filling of logical connectors**: The paper explicitly describes models as performing "retrospective alignment to bridge the gap to the pre-generated conclusion" - this is confabulation.
 
 4. **AR constraint improves performance by forcing pattern diversity**: When models can't bypass decisions, they must commit at logical forks, exploring more of the solution space. This suggests the "reasoning" is really about accessing different patterns, not genuine logical navigation.
 

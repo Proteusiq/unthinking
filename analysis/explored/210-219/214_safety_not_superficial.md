@@ -169,7 +169,7 @@ With "Annealing" re-classification strategy:
 ## Relationship to Other Papers
 
 ### Directly Challenges
-- **LIMA (2305.11206)** — #211: Challenges the implication that alignment is ONLY superficial
+- **LIMA (2305.11206)** - #211: Challenges the implication that alignment is ONLY superficial
 - **#210 LLM Probability Concentration (2506.17871)**: Challenges the view that alignment only selects paths; shows alignment CAN teach robust safety
 
 ### Builds Upon / Extends (Same Authors)
@@ -179,7 +179,7 @@ With "Annealing" re-classification strategy:
 - **#209 Revisiting SAH (2410.03717)**: Both challenge SAH but from different angles
   - #209: Shows reasoning continues improving after style saturates
   - This paper: Shows safety can be made robust with explicit signals
-- **#213 Extracting Superficial Knowledge (2502.04602)**: #213 shows existing safety alignment is 100% superficial (linear head captures all). #214's method would NOT be captured by a linear head — explicit [CLS] classification is architecturally different.
+- **#213 Extracting Superficial Knowledge (2502.04602)**: #213 shows existing safety alignment is 100% superficial (linear head captures all). #214's method would NOT be captured by a linear head - explicit [CLS] classification is architecturally different.
 
 ---
 
@@ -311,13 +311,13 @@ With "Annealing" re-classification strategy:
 
 2. **Additional Module, Not Pure Alignment**: The [CLS] token + strategic decoding is an architectural modification, not just training data change
 
-3. **Safety ≠ Reasoning**: Paper focuses on safety robustness, not reasoning capability — doesn't address whether REASONING is superficial
+3. **Safety ≠ Reasoning**: Paper focuses on safety robustness, not reasoning capability - doesn't address whether REASONING is superficial
 
 ### Relationship to Pattern Matching Thesis:
 
 This paper is **tangential** to the main thesis about reasoning:
 - It addresses SAFETY alignment, not REASONING capability
 - The binary classification is a pattern matching task (benign vs. malicious)
-- Doesn't claim LLMs can REASON about safety — just CLASSIFY
+- Doesn't claim LLMs can REASON about safety - just CLASSIFY
 
-**Key insight**: Even if the thesis is correct that LLMs don't reason, this paper shows they can be made robustly safe through explicit classification. Safety doesn't require reasoning — it requires reliable pattern recognition.
+**Key insight**: Even if the thesis is correct that LLMs don't reason, this paper shows they can be made robustly safe through explicit classification. Safety doesn't require reasoning - it requires reliable pattern recognition.

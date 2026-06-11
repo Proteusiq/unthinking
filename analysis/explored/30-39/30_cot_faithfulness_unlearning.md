@@ -12,11 +12,11 @@
 
 ## Core Claims
 
-1. **Parametric faithfulness > Contextual faithfulness** — Erasing CoT steps from context doesn't remove knowledge from parameters; models can reconstruct
-2. **fur (Faithfulness by Unlearning Reasoning) detects more faithful CoTs than Add-mistake** — Parametric intervention reveals ~40-86% faithful CoTs vs. 16-50% for contextual methods
-3. **Unlearning changes both predictions AND reasoning** — Post-unlearning, CoTs support different answers (66-94% of cases)
-4. **Faithfulness ≠ Plausibility** — Weak correlation (0.15) between ff-soft and human ratings of supportiveness
-5. **High correlation between unlearning efficacy and faithfulness** — Pearson r=0.889, p<0.0001
+1. **Parametric faithfulness > Contextual faithfulness** - Erasing CoT steps from context doesn't remove knowledge from parameters; models can reconstruct
+2. **fur (Faithfulness by Unlearning Reasoning) detects more faithful CoTs than Add-mistake** - Parametric intervention reveals ~40-86% faithful CoTs vs. 16-50% for contextual methods
+3. **Unlearning changes both predictions AND reasoning** - Post-unlearning, CoTs support different answers (66-94% of cases)
+4. **Faithfulness ≠ Plausibility** - Weak correlation (0.15) between ff-soft and human ratings of supportiveness
+5. **High correlation between unlearning efficacy and faithfulness** - Pearson r=0.889, p<0.0001
 
 ---
 
@@ -34,8 +34,8 @@ Two stages:
 - 5 iterations of unlearning per step
 
 ### Two Faithfulness Metrics
-1. **ff-hard**: Binary — did unlearning ANY step change the prediction?
-2. **ff-soft**: Continuous — how much probability mass shifted from initial answer?
+1. **ff-hard**: Binary - did unlearning ANY step change the prediction?
+2. **ff-soft**: Continuous - how much probability mass shifted from initial answer?
 
 ### Controls
 1. **Efficacy**: Reduction in probability of unlearned CoT step (Eq. 2)
@@ -73,7 +73,7 @@ Two stages:
 
 **Key insight**: fur identifies ~2x more faithful CoTs than Add-mistake baseline
 
-### Table 3: LLM-as-Judge — Does Reasoning Change?
+### Table 3: LLM-as-Judge - Does Reasoning Change?
 
 | Model | ARC | Book | Sports | SQA | TQA |
 |-------|-----|------|--------|-----|-----|
@@ -87,7 +87,7 @@ Two stages:
 ### Critical Finding: Efficacy-Faithfulness Correlation
 > "The Pearson correlation between average efficacy and ff-hard is high: 0.889 with p<0.0001"
 
-Interpretation: The more successfully you unlearn, the more the prediction changes — indicating CoTs ARE connected to internal reasoning.
+Interpretation: The more successfully you unlearn, the more the prediction changes - indicating CoTs ARE connected to internal reasoning.
 
 ### User Study: Faithfulness ≠ Plausibility
 > "We find a weak Pearson correlation of 0.15 between ff-soft and human ratings of supportiveness."
@@ -112,15 +112,15 @@ Interpretation: The more successfully you unlearn, the more the prediction chang
 - Machine unlearning literature: Novel application to faithfulness measurement
 
 ### Provides Mechanism For
-- Why contextual faithfulness methods may underestimate — models can reconstruct erased info
-- Why faithfulness and plausibility diverge — different optimization pressures
+- Why contextual faithfulness methods may underestimate - models can reconstruct erased info
+- Why faithfulness and plausibility diverge - different optimization pressures
 
 ---
 
 ## REBUTTALS TO THIS PAPER
 
 ### Potential Counter-Arguments
-1. **Unlearning is imperfect**: Authors acknowledge — precision/recall tradeoffs
+1. **Unlearning is imperfect**: Authors acknowledge - precision/recall tradeoffs
 2. **Limited to open-weight models**: Cannot apply to closed APIs (GPT-4, Claude)
 3. **Compute-intensive**: Requires fine-tuning for each step
 4. **Only MCQA tasks**: May not generalize to long-form generation
@@ -133,7 +133,7 @@ Interpretation: The more successfully you unlearn, the more the prediction chang
 5. Only test cases where CoT and no-CoT predictions agree
 
 ### Search for Direct Rebuttals
-- **None found** — paper is recent (Feb 2025, EMNLP Outstanding)
+- **None found** - paper is recent (Feb 2025, EMNLP Outstanding)
 - Would need papers showing contextual faithfulness IS sufficient
 
 ---
@@ -176,7 +176,7 @@ This paper presents **mixed evidence** for this thesis:
 **FOR the thesis (pattern matching, not genuine reasoning)**:
 - **Faithfulness ≠ Plausibility** (r=0.15): Even "faithful" steps aren't what humans consider good reasoning
 - **Contextual methods overestimate unfaithfulness**: Models reconstruct from parameters, suggesting retrieval not reasoning
-- The fact that CoTs are "faithful" doesn't mean they represent genuine reasoning — they could faithfully reflect pattern matching
+- The fact that CoTs are "faithful" doesn't mean they represent genuine reasoning - they could faithfully reflect pattern matching
 
 ### Key Numbers for Synthesis:
 - **40-86% ff-hard** across models/datasets (fur)
@@ -185,7 +185,7 @@ This paper presents **mixed evidence** for this thesis:
 - **r=0.15 correlation** between faithfulness and plausibility
 
 ### Important Distinction
-This paper measures whether CoTs **reflect internal computation** — NOT whether that internal computation constitutes genuine reasoning. A model could faithfully verbalize its pattern-matching process.
+This paper measures whether CoTs **reflect internal computation** - NOT whether that internal computation constitutes genuine reasoning. A model could faithfully verbalize its pattern-matching process.
 
 ---
 

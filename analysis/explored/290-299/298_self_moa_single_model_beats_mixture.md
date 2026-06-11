@@ -13,7 +13,7 @@
 
 1. **Self-MoA outperforms Mixed-MoA**: Using multiple samples from a single top-performing model beats aggregating outputs from diverse models by 6.6% on AlpacaEval 2.0.
 
-2. **Quality trumps diversity**: MoA performance is more sensitive to proposer quality than to model diversity—mixing models often degrades average quality.
+2. **Quality trumps diversity**: MoA performance is more sensitive to proposer quality than to model diversity-mixing models often degrades average quality.
 
 3. **In-model diversity suffices**: Multiple samples from the same model provide enough variation for effective aggregation without needing diverse "reasoning approaches."
 
@@ -60,7 +60,7 @@
 | Diversity coefficient (β) | 1.42-2.84 across datasets | Always less than α |
 | Quality > Diversity ratio | 1.4x-3.2x | α/β across all datasets |
 
-**Critical finding**: When diversity is maximized at the expense of quality (including weak models), performance degrades. The aggregator cannot synthesize "better reasoning" from diverse weak models—it needs high-quality patterns to select from.
+**Critical finding**: When diversity is maximized at the expense of quality (including weak models), performance degrades. The aggregator cannot synthesize "better reasoning" from diverse weak models-it needs high-quality patterns to select from.
 
 ---
 
@@ -69,7 +69,7 @@
 ### Supports
 - **#296 RLVR Structural Convergence** (2602.11792): Both show in-model consistency matters more than diversity
 - **#295 Test-Time Compute** (2603.15377): Both challenge "more diverse compute = better"; quality of scorer/proposer dominates
-- **#297 Gemini Scientific Discovery** (2602.03837): Aggregator as selector, not reasoner—aligns with "junior collaborator" framing
+- **#297 Gemini Scientific Discovery** (2602.03837): Aggregator as selector, not reasoner-aligns with "junior collaborator" framing
 
 ### Challenges
 - Challenges MoA paradigm that diversity of perspectives improves reasoning
@@ -84,7 +84,7 @@
 ### Known Rebuttals
 **Potential counter-argument**: Self-MoA works because the aggregator is just "selecting the best" from multiple samples, not because reasoning fails.
 
-**Response**: This is exactly the point—the aggregator is a selector/ranker, not a synthesizer of novel reasoning. If LLMs could genuinely reason, diverse perspectives should enable novel insights beyond any individual sample.
+**Response**: This is exactly the point-the aggregator is a selector/ranker, not a synthesizer of novel reasoning. If LLMs could genuinely reason, diverse perspectives should enable novel insights beyond any individual sample.
 
 ### Limitations (Authors Acknowledge)
 1. **Diversity plateau**: "As more responses are sampled from a single model, the diversity among those samples tends to plateau"
@@ -131,7 +131,7 @@
 
 **Stance**: SUPPORTS
 
-The paper's finding that in-model diversity suffices suggests the "diversity" that helps is sampling variation from the same distribution—not genuinely different reasoning approaches. This aligns with the thesis that LLMs are sophisticated pattern matchers whose "reasoning" is constrained by training distribution quality.
+The paper's finding that in-model diversity suffices suggests the "diversity" that helps is sampling variation from the same distribution-not genuinely different reasoning approaches. This aligns with the thesis that LLMs are sophisticated pattern matchers whose "reasoning" is constrained by training distribution quality.
 
 ---
 

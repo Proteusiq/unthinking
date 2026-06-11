@@ -12,8 +12,8 @@
 
 ## Core Claims
 
-1. **LLMs do not perform genuine logical reasoning** — they replicate reasoning steps from training data via pattern matching
-2. **Performance on GSM8K is unreliable** — high variance across semantically equivalent questions suggests fragility
+1. **LLMs do not perform genuine logical reasoning** - they replicate reasoning steps from training data via pattern matching
+2. **Performance on GSM8K is unreliable** - high variance across semantically equivalent questions suggests fragility
 3. **LLMs are highly sensitive to numerical changes** but somewhat robust to name changes
 4. **Adding irrelevant but plausible information causes catastrophic failure** (up to 65% drop)
 5. **Increased complexity causes disproportionate performance degradation** and increased variance
@@ -34,7 +34,7 @@
 
 ### GSM-NoOp Dataset
 - Added **seemingly relevant but inconsequential statements** to questions
-- Example: "but five of them were a bit smaller than average" — doesn't affect answer but models subtract 5
+- Example: "but five of them were a bit smaller than average" - doesn't affect answer but models subtract 5
 
 ### Evaluation
 - 25+ models (open and closed)
@@ -275,7 +275,7 @@ This is a **foundational paper** for the "against" side. It:
 ### High Priority (may need to read before proceeding)
 | Paper | Why Critical |
 |-------|--------------|
-| **Dziri et al. (2023)** - "Faith and Fate" | Computation graph analysis — mechanistic evidence for pattern matching. Core theoretical support for GSM-S claims. |
+| **Dziri et al. (2023)** - "Faith and Fate" | Computation graph analysis - mechanistic evidence for pattern matching. Core theoretical support for GSM-S claims. |
 | **Jiang et al. (2024)** - Token bias | Statistical guarantees that LLMs have strong token bias. Foundational for fragility argument. |
 
 ### Medium Priority (context but not blocking)

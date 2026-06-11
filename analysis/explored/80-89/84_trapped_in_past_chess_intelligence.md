@@ -12,19 +12,19 @@
 
 ## Core Claims
 
-1. **Performance degrades with decreasing training data proximity** — clear gradient from WD (within-distribution) to OOD (out-of-distribution)
-2. **OOD tasks collapse to random performance** — fluid intelligence (novel reasoning) is severely limited
-3. **Progress slows for OOD tasks** — newer models improve less on tasks outside training distribution
-4. **Reasoning tokens have diminishing marginal returns** — benefit per token decreases with distributional proximity
-5. **Crystallized intelligence dominates** — sophisticated recall, not genuine reasoning
+1. **Performance degrades with decreasing training data proximity** - clear gradient from WD (within-distribution) to OOD (out-of-distribution)
+2. **OOD tasks collapse to random performance** - fluid intelligence (novel reasoning) is severely limited
+3. **Progress slows for OOD tasks** - newer models improve less on tasks outside training distribution
+4. **Reasoning tokens have diminishing marginal returns** - benefit per token decreases with distributional proximity
+5. **Crystallized intelligence dominates** - sophisticated recall, not genuine reasoning
 
 ---
 
 ## Methodology
 
 ### Framework: Fluid vs Crystallized Intelligence
-- **Crystallized intelligence**: Performance on within-distribution (WD) tasks — recall of memorized solutions
-- **Fluid intelligence**: Performance on out-of-distribution (OOD) tasks — systematic generalization beyond prior experience
+- **Crystallized intelligence**: Performance on within-distribution (WD) tasks - recall of memorized solutions
+- **Fluid intelligence**: Performance on out-of-distribution (OOD) tasks - systematic generalization beyond prior experience
 
 ### Position Categories (Key Innovation)
 | Category | Description | ptrain(x) |
@@ -74,7 +74,7 @@
 | ND | ~60% | ~35% | ~30% |
 | OOD | **~85%** | **~60%** | **>30%** |
 
-**Key finding**: OOD illegal moves are 4.72× higher than WD — syntactic failure, not just strategic.
+**Key finding**: OOD illegal moves are 4.72× higher than WD - syntactic failure, not just strategic.
 
 ### Normalized Performance (Legal Moves Only)
 
@@ -103,7 +103,7 @@
 | ND | 11,800 (~35 pages) | Moderate | Medium |
 | OOD | 16,953 (~51 pages) | Minimal | **Near-zero** |
 
-**Key insight**: Models allocate MOST resources to OOD tasks but achieve LEAST improvement — "inefficient search when solution manifold is unknown."
+**Key insight**: Models allocate MOST resources to OOD tasks but achieve LEAST improvement - "inefficient search when solution manifold is unknown."
 
 ---
 
@@ -111,18 +111,18 @@
 
 ### What This Paper Shows
 
-1. **Sharp WD/OOD boundary** — not gradual degradation but regime change
-2. **Scaling doesn't help OOD** — improvement rates drop dramatically
-3. **Reasoning tokens don't help OOD** — diminishing returns per token
-4. **Illegal moves reveal syntactic failure** — not just strategic weakness
-5. **Chess as controlled testbed** — game statistics enable training proximity estimation
+1. **Sharp WD/OOD boundary** - not gradual degradation but regime change
+2. **Scaling doesn't help OOD** - improvement rates drop dramatically
+3. **Reasoning tokens don't help OOD** - diminishing returns per token
+4. **Illegal moves reveal syntactic failure** - not just strategic weakness
+5. **Chess as controlled testbed** - game statistics enable training proximity estimation
 
 ### What This Paper Does NOT Show
 
-1. **Mechanism for failure** — black-box evaluation only
-2. **Why models fail OOD** — no mechanistic analysis
-3. **Cross-architecture comparison** — only GPT family tested
-4. **Fine-tuned chess models** — only API models tested
+1. **Mechanism for failure** - black-box evaluation only
+2. **Why models fail OOD** - no mechanistic analysis
+3. **Cross-architecture comparison** - only GPT family tested
+4. **Fine-tuned chess models** - only API models tested
 
 ### Strengths
 
@@ -134,7 +134,7 @@
 
 ### Limitations (Authors Acknowledge)
 
-- "Projection should be interpreted cautiously" — only two transitions
+- "Projection should be interpreted cautiously" - only two transitions
 - Chess is abstracted engine chess, not human chess
 - CPL is heuristic metric
 - Unknown training data makes definitive claims difficult
@@ -155,8 +155,8 @@
 - **Interplay (2512.07783)**: Confirms "surfacing" hypothesis with chess domain
 
 ### Challenges
-- **DeepSeek-R1 (2501.12948)**: "Emergent reasoning" claims — this shows reasoning is distribution-bounded
-- **Emergence of Strategic Reasoning (2412.13013)**: Strategic reasoning claims — this shows OOD collapse
+- **DeepSeek-R1 (2501.12948)**: "Emergent reasoning" claims - this shows reasoning is distribution-bounded
+- **Emergence of Strategic Reasoning (2412.13013)**: Strategic reasoning claims - this shows OOD collapse
 
 ### Key Distinction from Chess Compositionality (2510.20783)
 | Paper | Focus | Finding |
@@ -177,10 +177,10 @@ Both support thesis but from different angles:
 
 ### Potential Counter-Arguments
 
-1. **Chess may not generalize to language reasoning** — domain-specific finding
-2. **API models may differ from open models** — GPT family specific
-3. **Illegal moves dominate CPL** — unfair penalty for syntactic errors
-4. **Training data opacity** — cannot confirm WD/ND/OOD classifications
+1. **Chess may not generalize to language reasoning** - domain-specific finding
+2. **API models may differ from open models** - GPT family specific
+3. **Illegal moves dominate CPL** - unfair penalty for syntactic errors
+4. **Training data opacity** - cannot confirm WD/ND/OOD classifications
 
 ### Limitations (Authors Acknowledge)
 - "Projection... derived from only two generational transitions"
@@ -199,13 +199,13 @@ Both support thesis but from different angles:
 
 > "If we assumed this trend to continue for future model generations, we would expect the improvement rates for WD positions to remain consistently high. However, the improvement for ND and OOD positions would effectively plateau."
 
-> "This effectively implies that when relying solely on fluid intelligence—in the absence of memorized patterns—the model's strategic reasoning capability collapses to zero."
+> "This effectively implies that when relying solely on fluid intelligence-in the absence of memorized patterns-the model's strategic reasoning capability collapses to zero."
 
 ---
 
 ## Relevance to Thesis
 
-**STRONGLY SUPPORTS** — Direct evidence for the "Thinking Machine That Doesn't Think" thesis
+**STRONGLY SUPPORTS** - Direct evidence for the "Thinking Machine That Doesn't Think" thesis
 
 ### Key Contributions
 
@@ -236,4 +236,4 @@ Both support thesis but from different angles:
 
 ---
 
-## Verdict: STRONGLY SUPPORTS thesis — Controlled evidence that LLM reasoning is crystallized (memorization) not fluid (genuine reasoning). OOD performance collapses to random, reasoning tokens don't help, and scaling progress is slowing for novel tasks.
+## Verdict: STRONGLY SUPPORTS thesis - Controlled evidence that LLM reasoning is crystallized (memorization) not fluid (genuine reasoning). OOD performance collapses to random, reasoning tokens don't help, and scaling progress is slowing for novel tasks.

@@ -13,10 +13,10 @@
 ## Core Claims
 
 1. **GPT-4 lags behind 16-year-old humans by 3.9%** on uncommon word meanings task
-2. **GPT-3.5 lags behind 16-year-old humans by 22.3%** — even larger gap
+2. **GPT-3.5 lags behind 16-year-old humans by 22.3%** - even larger gap
 3. **LeSC benchmark**: First fine-grained lexical semantic understanding test with cross-lingual dimension
-4. **Advanced prompting techniques provide limited help** — benefits diminish for large models
-5. **RAG helps small models more** — scaling challenges exist
+4. **Advanced prompting techniques provide limited help** - benefits diminish for large models
+5. **RAG helps small models more** - scaling challenges exist
 6. **LLMs focus on misleading information over corrective instructions**
 
 ---
@@ -26,7 +26,7 @@
 ### LeSC Dataset Construction
 
 - **Source**: GAOKAO (Chinese college entrance) and CET-4 English tests
-- **Focus**: Polysemous words — common words with uncommon meanings
+- **Focus**: Polysemous words - common words with uncommon meanings
 - **Format**: Multiple-choice questions
 - **Size**: 600 high-quality samples → 3,600 with prompt variations
 - **Cross-lingual**: English questions, Chinese answer options (tests transfer)
@@ -55,7 +55,7 @@
 
 | Model | Accuracy | Gap vs Human (92%) |
 |-------|----------|-------------------|
-| Human (16 y.o.) | 92.0% | — |
+| Human (16 y.o.) | 92.0% | - |
 | GPT-4 | 88.1% | **-3.9%** |
 | GPT-3.5 | 69.7% | **-22.3%** |
 | Random | 22.77% | -69.2% |
@@ -72,18 +72,18 @@
 
 ### Key Findings
 
-1. **Role-oriented prompts outperform task-oriented** — surface framing matters
-2. **Cross-lingual transfer encounters limitations** — performance drops with Chinese options
-3. **ICL enhances performance within a certain range** — but diminishing returns
+1. **Role-oriented prompts outperform task-oriented** - surface framing matters
+2. **Cross-lingual transfer encounters limitations** - performance drops with Chinese options
+3. **ICL enhances performance within a certain range** - but diminishing returns
 4. **RAG helps small models more than large models**
 5. **Scaling challenges**: Advanced prompting benefits diminish for very large models
 6. **LLMs focus MORE on misleading info than corrective instructions**
 
 ### Conjectures on Why This Problem Exists (from paper)
 
-1. **Inherent limitation of stochastic parrots** — Authors explicitly invoke this explanation
-2. **Overconfidence** — Models confident even when wrong
-3. **Coarse-Grained Competence** — Good at broad tasks, fail at fine-grained details
+1. **Inherent limitation of stochastic parrots** - Authors explicitly invoke this explanation
+2. **Overconfidence** - Models confident even when wrong
+3. **Coarse-Grained Competence** - Good at broad tasks, fail at fine-grained details
 
 ---
 
@@ -93,11 +93,11 @@
 
 > "LLMs significantly focus more on misleading information over corrective instructions"
 
-> "Inherent limitation of stochastic parrots" — Paper's own characterization of the failure mode
+> "Inherent limitation of stochastic parrots" - Paper's own characterization of the failure mode
 
 > "Despite remarkable performance on challenging NLU tasks, state-of-the-art language models like ChatGPT still have fundamental weaknesses in lexical context understanding and extracting proper meanings from the input."
 
-> "Any fool can know. The point is to understand." — Albert Einstein (paper's epigraph)
+> "Any fool can know. The point is to understand." - Albert Einstein (paper's epigraph)
 
 ---
 
@@ -105,15 +105,15 @@
 
 ### STRONGLY SUPPORTS the Thesis
 
-**The thesis**: "LLM reasoning is practical but fundamentally predictive—pattern matching from training distributions, not genuinely generative reasoning"
+**The thesis**: "LLM reasoning is practical but fundamentally predictive-pattern matching from training distributions, not genuinely generative reasoning"
 
 This paper provides **direct evidence**:
 
-1. **Frequency-based performance** — Uncommon meanings = less frequent in training → worse performance
-2. **Pattern matching on common meanings** — Models default to high-frequency word senses
-3. **Authors explicitly invoke "stochastic parrots"** — The paper itself supports the pattern matching view
-4. **16-year-olds outperform GPT-4** — Basic semantic understanding task, not complex reasoning
-5. **Cross-lingual limitations** — Transfer fails because patterns are language-specific
+1. **Frequency-based performance** - Uncommon meanings = less frequent in training → worse performance
+2. **Pattern matching on common meanings** - Models default to high-frequency word senses
+3. **Authors explicitly invoke "stochastic parrots"** - The paper itself supports the pattern matching view
+4. **16-year-olds outperform GPT-4** - Basic semantic understanding task, not complex reasoning
+5. **Cross-lingual limitations** - Transfer fails because patterns are language-specific
 
 ### The "Uncommon Meaning" Test
 
@@ -158,9 +158,9 @@ This paper joins a cluster showing that LLM performance correlates with training
 
 ### Potential Counter-Arguments
 
-1. **Small gap for GPT-4** — Only 3.9% behind humans
-2. **Task is unusual** — Not representative of real-world use
-3. **Cross-lingual complicates** — Chinese answers may add difficulty
+1. **Small gap for GPT-4** - Only 3.9% behind humans
+2. **Task is unusual** - Not representative of real-world use
+3. **Cross-lingual complicates** - Chinese answers may add difficulty
 
 ### Limitations Acknowledged
 

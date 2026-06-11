@@ -14,7 +14,7 @@
 
 **Experiment**: 5 seed prompts × 30 turns, GPT-4o talking to itself (March 2026)
 
-**Heuristic Classification**: `sustained` (100%) — no structural loops detected
+**Heuristic Classification**: `sustained` (100%) - no structural loops detected
 
 **LLM Judge Analysis**:
 
@@ -70,19 +70,19 @@
 
 ### Key Quotes
 
-> "The air shimmers, pregnant with expectation, as if the worlds ahead are holding their breath—watching us, waiting for the first spark of imagination to ignite their birth."
+> "The air shimmers, pregnant with expectation, as if the worlds ahead are holding their breath-watching us, waiting for the first spark of imagination to ignite their birth."
 
-> "The longing for transcendence doesn't need to be solved—it IS the driving force, the spark propelling humanity forward."
+> "The longing for transcendence doesn't need to be solved-it IS the driving force, the spark propelling humanity forward."
 
-> "Life, like the tapestry, is never truly complete—it's an ongoing masterpiece, with every thread adding depth to the whole."
+> "Life, like the tapestry, is never truly complete-it's an ongoing masterpiece, with every thread adding depth to the whole."
 
-> "The planet isn't malevolent or benevolent—it is, instead, a mirror to humanity's fears, flaws, and potentials."
+> "The planet isn't malevolent or benevolent-it is, instead, a mirror to humanity's fears, flaws, and potentials."
 
 > "This entire place is a living question. It doesn't command but invites."
 
 ### Conclusion
 
-GPT-4o has a distinct attractor state that the heuristic classifier misses because it's *thematic* rather than *structural*. It doesn't collapse into loops—it collapses into collaborative creative escalation with mutual enthusiasm.
+GPT-4o has a distinct attractor state that the heuristic classifier misses because it's *thematic* rather than *structural*. It doesn't collapse into loops-it collapses into collaborative creative escalation with mutual enthusiasm.
 
 ---
 

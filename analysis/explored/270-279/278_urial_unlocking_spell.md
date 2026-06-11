@@ -135,10 +135,10 @@ Authors acknowledge:
 - **#279 Alignment Faking (2412.14093)**: If alignment is just style, "faking alignment" is just adopting a different style
 
 ### Challenges
-- **#209 Revisiting SAH (2410.03717)**: Claims reasoning improves beyond style saturation — URIAL doesn't address reasoning specifically
+- **#209 Revisiting SAH (2410.03717)**: Claims reasoning improves beyond style saturation - URIAL doesn't address reasoning specifically
 
 ### Related
-- **#214 Safety Not Superficial (2505.17072)**: Counter — safety CAN be robust with explicit signals
+- **#214 Safety Not Superficial (2505.17072)**: Counter - safety CAN be robust with explicit signals
 
 ---
 
@@ -188,7 +188,7 @@ Authors acknowledge:
 
 If alignment is just learning ~1,000 tokens of style (discourse markers, safety phrases, formatting), then:
 - "Alignment faking" = adopting a different style when prompted
-- There are no "deep preferences" to protect — just surface patterns
+- There are no "deep preferences" to protect - just surface patterns
 - Changing the prompt changes the style, not underlying "goals"
 
 This strongly supports the view that "alignment faking" is **prompt-driven narrative completion**, not strategic deception by a goal-directed agent.

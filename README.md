@@ -51,7 +51,7 @@ A spatial projection of the same corpus is at
 **[proteusiq.github.io/unthinking/galaxy/](https://proteusiq.github.io/unthinking/galaxy/)**.
 
 Each star is one paper. Color encodes stance. Size and pulse mark the
-strongest pieces of evidence — smoking-gun findings stand out at a
+strongest pieces of evidence - smoking-gun findings stand out at a
 distance. Search runs locally in your browser via
 [EmbeddingGemma](https://huggingface.co/google/embeddinggemma-300m)
 through [Transformers.js](https://huggingface.co/docs/transformers.js)
@@ -72,15 +72,15 @@ See `apps/galaxy/README.md` for the build and trade-offs.
 | [**Training**](https://proteusiq.github.io/unthinking/pages/training.html) | Pipeline, Mechanics, Research | Full training lifecycle: pre-training (AdamW, scaling laws, mixed precision), mid-training (annealing, domain adaptation, context extension), post-training (SFT, RLHF, DPO, GRPO, RLVR), lab recipes |
 | [**Implementation**](https://proteusiq.github.io/unthinking/pages/implementation.html) | Tokens, Embed, Attention, FFN, Training | Core GPT algorithm from scratch: tokenization (char/BPE), embeddings (token/position/weight tying), self-attention (QKV, causal mask, multi-head), FFN (residuals, pre-norm), training loop (softmax, cross-entropy, backprop, Adam) |
 
-[**Findings**](https://proteusiq.github.io/unthinking/pages/findings.html): 367-paper synthesis — themes, smoking guns, patterns, stance distribution.
+[**Findings**](https://proteusiq.github.io/unthinking/pages/findings.html): 367-paper synthesis - themes, smoking guns, patterns, stance distribution.
 
 See also:
 - [Transformer Explainer](https://poloclub.github.io/transformer-explainer/): interactive GPT-2 visualization (Georgia Tech)
-- [no-magic](https://github.com/no-magic-ai/no-magic): 46 zero-dependency ML algorithm implementations across 4 tiers (foundations, alignment, systems, agents) — "Because `model.fit()` isn't an explanation"
+- [no-magic](https://github.com/no-magic-ai/no-magic): 46 zero-dependency ML algorithm implementations across 4 tiers (foundations, alignment, systems, agents) - "Because `model.fit()` isn't an explanation"
 - [microgpt](https://karpathy.github.io/2026/02/12/microgpt/): 200 lines of pure Python GPT (Andrej Karpathy)
-- [Stanford CME 295](https://cme295.stanford.edu/): Transformers & LLMs course — 9 lectures covering attention, scaling, alignment, reasoning (GRPO), and LLM-as-Judge pitfalls ([cheatsheets](https://github.com/afshinea/stanford-cme-295-transformers-large-language-models))
-- [Stanford CME 296](https://cme296.stanford.edu/): Diffusion & Large Vision Models — shows same techniques (DPO, GRPO) apply to vision, "reasoning" not unique to text
-- [Stanford CS336](https://cs336.stanford.edu/): Language Modeling from Scratch — build an LLM end-to-end: tokenizer, architecture, training, data pipeline, alignment (Percy Liang, Tatsu Hashimoto). [2024](https://cs336.stanford.edu/spring2024/) | [2025](https://cs336.stanford.edu/spring2025/) | [2026](https://cs336.stanford.edu/) — ([lectures as .py files](https://github.com/stanford-cs336/lectures), [assignments](https://github.com/stanford-cs336), [YouTube](https://www.youtube.com/playlist?list=PLoROMvodv4rOY23Y0BoGoBGgQ1zmU_MT_))
+- [Stanford CME 295](https://cme295.stanford.edu/): Transformers & LLMs course - 9 lectures covering attention, scaling, alignment, reasoning (GRPO), and LLM-as-Judge pitfalls ([cheatsheets](https://github.com/afshinea/stanford-cme-295-transformers-large-language-models))
+- [Stanford CME 296](https://cme296.stanford.edu/): Diffusion & Large Vision Models - shows same techniques (DPO, GRPO) apply to vision, "reasoning" not unique to text
+- [Stanford CS336](https://cs336.stanford.edu/): Language Modeling from Scratch - build an LLM end-to-end: tokenizer, architecture, training, data pipeline, alignment (Percy Liang, Tatsu Hashimoto). [2024](https://cs336.stanford.edu/spring2024/) | [2025](https://cs336.stanford.edu/spring2025/) | [2026](https://cs336.stanford.edu/) - ([lectures as .py files](https://github.com/stanford-cs336/lectures), [assignments](https://github.com/stanford-cs336), [YouTube](https://www.youtube.com/playlist?list=PLoROMvodv4rOY23Y0BoGoBGgQ1zmU_MT_))
 
 ---
 
@@ -88,7 +88,7 @@ See also:
 
 > *"I had not realized ... that extremely short exposures to a relatively simple computer program could induce powerful delusional thinking in quite normal people."*
 >
-> — Joseph Weizenbaum, *Computer Power and Human Reason* (1976)
+> - Joseph Weizenbaum, *Computer Power and Human Reason* (1976)
 
 In 1966, Joseph Weizenbaum created ELIZA: roughly 200 lines of pattern matching that simulated a therapist. His secretary, who *knew* it was a simple program, asked him to leave the room so she could talk to it privately. Users poured out their secrets to a text substitution engine.
 
@@ -96,7 +96,7 @@ They knew it was a trick. They fell for it anyway.
 
 Weizenbaum called this the **ELIZA effect**: our tendency to project understanding onto systems that merely *simulate* its appearance. Sixty years later, we've built far more sophisticated mirrors, but the fundamental dynamic is unchanged.
 
-**ELIZA to LLMs is the resolution of the mirror — not its fundamental nature.**
+**ELIZA to LLMs is the resolution of the mirror - not its fundamental nature.**
 
 ---
 
@@ -104,7 +104,7 @@ Weizenbaum called this the **ELIZA effect**: our tendency to project understandi
 
 ```
 If a model is trained on A and B, the learned "logic" is the bridge between them.
-If it generates C on the line between A and B — that's INTERPOLATION, not reasoning.
+If it generates C on the line between A and B - that's INTERPOLATION, not reasoning.
 ```
 
 A model knows how pirates talk (A) and how physicists talk (B). A "pirate physicist" (C) seems creative, but C was always latent in the training data. It's a high-dimensional remix, not novel reasoning. We're fooled because we've seen A and B separately; when we see C, we assume it's novel. But C was always on the interpolation manifold.
@@ -275,14 +275,14 @@ The technique is based on the discovery that **refusal is mediated by a single d
 
 | Resource | Description |
 |----------|-------------|
-| [heretic](https://github.com/p-e-w/heretic) | Fully automatic censorship removal — TPE-optimized abliteration, ~45min on RTX 3090 |
+| [heretic](https://github.com/p-e-w/heretic) | Fully automatic censorship removal - TPE-optimized abliteration, ~45min on RTX 3090 |
 | [mlabonne/abliteration](https://huggingface.co/blog/mlabonne/abliteration) | Tutorial with TransformerLens code (838 upvotes) |
 | [Arditi et al. 2024](https://arxiv.org/abs/2406.11717) | Foundational paper: "Refusal in LLMs is mediated by a single direction" |
 | [FailSpy/abliterator](https://github.com/FailSpy/abliterator) | Original implementation library |
 | [Uncensored LLMs](https://huggingface.co/collections/richardyoung/uncensored-and-abliterated-llms) | Community collection of abliterated models on HuggingFace |
 
 > [!NOTE]
-> If alignment were deep, it would be distributed across the network. Instead: **one direction** encodes all refusal behavior. Removing it requires no retraining — just linear algebra on existing weights. Open weights = alignment is cosmetic.
+> If alignment were deep, it would be distributed across the network. Instead: **one direction** encodes all refusal behavior. Removing it requires no retraining - just linear algebra on existing weights. Open weights = alignment is cosmetic.
 
 ### Attractor States (OLMo checkpoints)
 
@@ -327,12 +327,12 @@ A benchmark score measures one thing reliably: **how much of the test distributi
 ```
 
 Solving frontier olympiad problems while failing simpler, novel, or
-out-of-distribution variants is not a partial success — it is the signature of
+out-of-distribution variants is not a partial success - it is the signature of
 distributional memorization. A reasoner cannot find the hard case easy and the
 easy case hard. When that ordering inverts, the score is tracking coverage, not
 cognition.
 
-This reframes where the real frontier is. It is **not** PhD exams — it is
+This reframes where the real frontier is. It is **not** PhD exams - it is
 **ordinary human competence**: the long-horizon, tool-using, novel tasks that any
 working professional completes at ~100% and that frontier agents fail. Three
 papers in this corpus make the inversion concrete:
@@ -341,12 +341,12 @@ papers in this corpus make the inversion concrete:
 |-------|-------------------------|
 | **Agents' Last Exam** (#364) | 82% on saturated Terminal-Bench → **<10%** on novel professional workflows; ~78% of failures are reasoning/knowledge, not execution |
 | **Contamination-Resistant Benchmarks** (#365) | up to **45%** of samples contaminated; decontamination drops MMLU 16% / GSM8K 13% |
-| **PeerBench** (#366) | GPT-4 infers **masked** MMLU answers at **57%** — the answer without the question; superhuman QA, fails OOD |
+| **PeerBench** (#366) | GPT-4 infers **masked** MMLU answers at **57%** - the answer without the question; superhuman QA, fails OOD |
 
 > [!NOTE]
 > **ARC-AGI-3** sharpens the same point from the opposite direction. Instead of
-> static exams it measures *interactive skill acquisition* — games a human learns
-> in seconds — scoring intelligence **across time, not just final answers**. Its
+> static exams it measures *interactive skill acquisition* - games a human learns
+> in seconds - scoring intelligence **across time, not just final answers**. Its
 > framing is the corpus thesis in one line: *"As long as there is a gap between AI
 > and human learning, we do not have AGI."* The frontier is not harder exams; it
 > is the ordinary competence humans acquire on the fly.
@@ -372,17 +372,17 @@ papers in this corpus make the inversion concrete:
 
 ## Key Quotes
 
-> "Transformers solve compositional tasks via linearized subgraph matching, not systematic problem-solving." — **Faith and Fate**
+> "Transformers solve compositional tasks via linearized subgraph matching, not systematic problem-solving." - **Faith and Fate**
 
-> "LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent." — **WhatCounts**
+> "LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent." - **WhatCounts**
 
-> "LLMs are n-gram models on steroids doing universal approximate retrieval." — **Kambhampati et al.**
+> "LLMs are n-gram models on steroids doing universal approximate retrieval." - **Kambhampati et al.**
 
-> "0% exposure → RL FAILS; ≥1% exposure → RL succeeds." — **Interplay**
+> "0% exposure → RL FAILS; ≥1% exposure → RL succeeds." - **Interplay**
 
-> "Incorrect traces can OUTPERFORM correct ones." — **How Do LRMs Reason?**
+> "Incorrect traces can OUTPERFORM correct ones." - **How Do LRMs Reason?**
 
-> "95-100% step accuracy, 0% final accuracy — split-brain syndrome." — **Comprehension Without Competence**
+> "95-100% step accuracy, 0% final accuracy - split-brain syndrome." - **Comprehension Without Competence**
 
 ---
 

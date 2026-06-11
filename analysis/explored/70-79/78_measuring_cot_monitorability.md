@@ -12,9 +12,9 @@
 
 ## Core Claims
 
-1. **Faithfulness alone is insufficient** for CoT monitoring — need to also measure verbosity
+1. **Faithfulness alone is insufficient** for CoT monitoring - need to also measure verbosity
 2. **Verbosity**: whether the CoT lists every factor needed to solve the task
-3. **Monitorability = Faithfulness + Verbosity** — combined score for CoT as "external working memory"
+3. **Monitorability = Faithfulness + Verbosity** - combined score for CoT as "external working memory"
 4. **Models can appear faithful yet remain hard to monitor** when they leave out key factors
 5. **Monitorability differs sharply across model families**
 
@@ -116,7 +116,7 @@ Different model architectures/training approaches produce very different monitor
 ## REBUTTALS TO THIS PAPER
 
 ### Search for Direct Rebuttals
-- Recent paper (October 2025) — no direct rebuttals found
+- Recent paper (October 2025) - no direct rebuttals found
 
 ### Potential Counter-Arguments
 

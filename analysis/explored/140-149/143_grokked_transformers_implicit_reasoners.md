@@ -12,11 +12,11 @@
 
 ## Core Claims
 
-1. **Transformers CAN learn implicit reasoning, but ONLY through grokking** — extended training far beyond overfitting is required
-2. **Composition vs Comparison divergence** — OOD generalization fails for composition but succeeds for comparison
-3. **Data distribution > Data size** — the ratio of inferred/atomic facts (not absolute size) determines grokking speed
-4. **Mechanistic explanation** — the circuit configuration explains why composition fails OOD (no cross-layer memory sharing)
-5. **Parametric memory can outperform non-parametric** — grokked transformers beat GPT-4-Turbo on complex reasoning tasks
+1. **Transformers CAN learn implicit reasoning, but ONLY through grokking** - extended training far beyond overfitting is required
+2. **Composition vs Comparison divergence** - OOD generalization fails for composition but succeeds for comparison
+3. **Data distribution > Data size** - the ratio of inferred/atomic facts (not absolute size) determines grokking speed
+4. **Mechanistic explanation** - the circuit configuration explains why composition fails OOD (no cross-layer memory sharing)
+5. **Parametric memory can outperform non-parametric** - grokked transformers beat GPT-4-Turbo on complex reasoning tasks
 
 ---
 
@@ -76,7 +76,7 @@ Changing |E| (entity count) while holding φ constant does NOT affect grokking s
 **Problem**: Upper layers only store atomic facts that appear as second hops during training. OOD facts are NEVER stored in upper layers.
 
 **Comparison circuit** (Figure 5):
-- "Parallel circuit" — both facts retrieved in same layers
+- "Parallel circuit" - both facts retrieved in same layers
 - Atomic facts stored and retrieved from same region
 - Enables systematicity
 
@@ -93,7 +93,7 @@ On complex reasoning task with large search space:
 
 ## Relationship to Thesis
 
-### BALANCED — provides mechanistic insights that support AND challenge
+### BALANCED - provides mechanistic insights that support AND challenge
 
 **SUPPORTS the thesis:**
 
@@ -116,7 +116,7 @@ On complex reasoning task with large search space:
 
 1. **Reasoning CAN emerge through grokking**
    - ID generalization approaches 100% after extended training
-   - Not pure memorization — model learns actual rule
+   - Not pure memorization - model learns actual rule
 
 2. **Comparison shows systematic OOD generalization**
    - Some reasoning types CAN generalize
@@ -130,12 +130,12 @@ On complex reasoning task with large search space:
 ## Relationship to Other Papers
 
 ### Strongly Supports
-- **Faith and Fate (2305.18654)**: Provides mechanistic explanation for "linearized subgraph matching" — upper layers don't share knowledge
+- **Faith and Fate (2305.18654)**: Provides mechanistic explanation for "linearized subgraph matching" - upper layers don't share knowledge
 - **Planning Gap (2601.14456)**: Same ID/OOD pattern (high ID, 0% OOD for composition)
 - **Can ICL Generalize OOD (2410.09695)**: Both show composition fails OOD
 
 ### Extends
-- **Interplay (2512.07783)**: Shows WHY extended training is needed — circuit efficiency drives grokking
+- **Interplay (2512.07783)**: Shows WHY extended training is needed - circuit efficiency drives grokking
 - **Base Models Know How to Reason (2510.07364)**: Grokking surfaces latent capability
 
 ### Provides Mechanism For

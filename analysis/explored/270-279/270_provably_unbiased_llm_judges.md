@@ -10,11 +10,11 @@
 
 ## Core Claims
 
-1. **LLM judges exhibit measurable, systematic biases** that require formal mitigation — formatting sensitivity, schematic adherence failures, and unknown bias vectors
-2. **Autonomous AI feedback loops require verifiable rewards** — current LLM judges cannot provide these without bias correction
-3. **Bias can be formally bounded** — the A-BB (Average Bias-Boundedness) framework provides mathematical guarantees on bias impact
-4. **Signal can be preserved while debiasing** — 61-99% correlation with original rankings retained after bias-bounded transformation
-5. **Bias sources can be unknown or adversarial** — framework handles unmeasured biases bounded by measured sensitivity
+1. **LLM judges exhibit measurable, systematic biases** that require formal mitigation - formatting sensitivity, schematic adherence failures, and unknown bias vectors
+2. **Autonomous AI feedback loops require verifiable rewards** - current LLM judges cannot provide these without bias correction
+3. **Bias can be formally bounded** - the A-BB (Average Bias-Boundedness) framework provides mathematical guarantees on bias impact
+4. **Signal can be preserved while debiasing** - 61-99% correlation with original rankings retained after bias-bounded transformation
+5. **Bias sources can be unknown or adversarial** - framework handles unmeasured biases bounded by measured sensitivity
 
 ---
 
@@ -29,7 +29,7 @@
   - Schematic adherence (factor-wise vs overall judgment alignment)
 - **Parameters**: τ=0.5, δ=0.01 (bias-bounded guarantees)
 
-**Key insight**: Inspired by differential privacy — calibrate noise to sensitivity to bound bias impact.
+**Key insight**: Inspired by differential privacy - calibrate noise to sensitivity to bound bias impact.
 
 ---
 
@@ -87,7 +87,7 @@ The paper introduces a key metric: how well overall judgments align with per-cri
 - **Finding**: Schematic bias is generally larger than formatting bias
 - **Implication**: Structural benchmark weaknesses, not just random judge failures
 
-This reveals that LLM judges often don't follow their own rubrics — overall scores don't track factor-wise scores.
+This reveals that LLM judges often don't follow their own rubrics - overall scores don't track factor-wise scores.
 
 ---
 
@@ -95,10 +95,10 @@ This reveals that LLM judges often don't follow their own rubrics — overall sc
 
 **Supports the thesis** by:
 
-1. **Documenting bias as endemic** — the paper assumes LLM judge bias is unavoidable and requires formal mitigation
-2. **Revealing evaluation circularity** — using LLMs to judge LLMs requires treating bias as a first-class concern
-3. **Showing schematic incoherence** — judges don't follow their own rubrics, suggesting shallow pattern-matching
-4. **Demonstrating uncertainty hidden as confidence** — extreme scores mask genuine uncertainty
+1. **Documenting bias as endemic** - the paper assumes LLM judge bias is unavoidable and requires formal mitigation
+2. **Revealing evaluation circularity** - using LLMs to judge LLMs requires treating bias as a first-class concern
+3. **Showing schematic incoherence** - judges don't follow their own rubrics, suggesting shallow pattern-matching
+4. **Demonstrating uncertainty hidden as confidence** - extreme scores mask genuine uncertainty
 
 The paper's solution (inject noise to bound bias) implicitly acknowledges that LLM judges cannot be trusted for autonomous feedback without external correction.
 
@@ -108,7 +108,7 @@ The paper's solution (inject noise to bound bias) implicitly acknowledges that L
 
 **Classification**: Supports the thesis
 
-**Confidence**: High — well-motivated formal framework with empirical validation
+**Confidence**: High - well-motivated formal framework with empirical validation
 
 ---
 

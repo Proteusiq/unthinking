@@ -14,11 +14,11 @@
 
 ## Core Claims
 
-1. **LLMs show human-like content effects on reasoning tasks** — Both humans and models reason more accurately when semantic content supports the logical inference
-2. **This is NOT a flaw unique to LLMs** — Humans show the same pattern; it's a fundamental feature of systems that learn from real-world data
+1. **LLMs show human-like content effects on reasoning tasks** - Both humans and models reason more accurately when semantic content supports the logical inference
+2. **This is NOT a flaw unique to LLMs** - Humans show the same pattern; it's a fundamental feature of systems that learn from real-world data
 3. **Three logical tasks show consistent pattern**: Natural Language Inference, Syllogisms, and Wason Selection Task all demonstrate content effects
-4. **LM confidence correlates with human response times** — Lower-level processing similarities exist beyond just accuracy patterns
-5. **Abstract reasoning is "graded and content-sensitive" in BOTH humans and models** — Challenges the view that "true reasoning" must be content-independent
+4. **LM confidence correlates with human response times** - Lower-level processing similarities exist beyond just accuracy patterns
+5. **Abstract reasoning is "graded and content-sensitive" in BOTH humans and models** - Challenges the view that "true reasoning" must be content-independent
 
 ---
 
@@ -88,27 +88,27 @@
 
 ### STRONGLY SUPPORTS the Thesis
 
-**The thesis**: "LLM reasoning is practical but fundamentally predictive—pattern matching from training distributions, not genuinely generative reasoning"
+**The thesis**: "LLM reasoning is practical but fundamentally predictive-pattern matching from training distributions, not genuinely generative reasoning"
 
 This paper provides **direct evidence** that:
 
-1. **LLMs rely on semantic patterns from training** — Content effects prove that models don't perform "pure" logical reasoning; they use learned semantic associations
-2. **This is the SAME as human reasoning** — Authors explicitly note that humans are also "imperfect reasoners" who "reason most effectively about situations consistent with their understanding of the world"
-3. **Pattern matching is the mechanism** — Quote: "Thus, abstract reasoning may be a graded, content-sensitive capacity in both humans and models"
+1. **LLMs rely on semantic patterns from training** - Content effects prove that models don't perform "pure" logical reasoning; they use learned semantic associations
+2. **This is the SAME as human reasoning** - Authors explicitly note that humans are also "imperfect reasoners" who "reason most effectively about situations consistent with their understanding of the world"
+3. **Pattern matching is the mechanism** - Quote: "Thus, abstract reasoning may be a graded, content-sensitive capacity in both humans and models"
 
 ### Key Quotes Supporting Thesis
 
-> "The implicit assumption in these critiques is that reasoning should be a purely algebraic, syntactic computation over symbols from which 'all meaning had been purged'... In this work, we emphasize how *both* humans and language models rely on content when answering reasoning problems—using simple heuristics in some contexts, and answering more accurately about frequently occurring situations."
+> "The implicit assumption in these critiques is that reasoning should be a purely algebraic, syntactic computation over symbols from which 'all meaning had been purged'... In this work, we emphasize how *both* humans and language models rely on content when answering reasoning problems-using simple heuristics in some contexts, and answering more accurately about frequently occurring situations."
 
-> "Language models also perform imperfectly on logical reasoning tasks and more often fail in situations where humans fail—when stimuli become too abstract or conflict with prior expectations."
+> "Language models also perform imperfectly on logical reasoning tasks and more often fail in situations where humans fail-when stimuli become too abstract or conflict with prior expectations."
 
 > "Like humans, models answer more accurately when the semantic content of a task supports the logical inferences."
 
 ### Implications for the Thesis
 
-1. **"Pattern matching" is not a bug, it's a feature** — Both humans and LLMs do it
-2. **Distribution-bounded performance** — Performance depends on alignment with training/experience
-3. **Content effects = evidence against genuine reasoning** — If reasoning were truly abstract, content wouldn't matter
+1. **"Pattern matching" is not a bug, it's a feature** - Both humans and LLMs do it
+2. **Distribution-bounded performance** - Performance depends on alignment with training/experience
+3. **Content effects = evidence against genuine reasoning** - If reasoning were truly abstract, content wouldn't matter
 
 ---
 
@@ -142,7 +142,7 @@ This paper provides **direct evidence** that:
 
 | Paper | How |
 |-------|-----|
-| **Claims that LLMs "can't reason"** | Authors argue content effects don't mean "not reasoning" — humans show them too |
+| **Claims that LLMs "can't reason"** | Authors argue content effects don't mean "not reasoning" - humans show them too |
 
 ---
 
@@ -150,10 +150,10 @@ This paper provides **direct evidence** that:
 
 ### Potential Limitations
 
-1. **Google DeepMind authors** — Potential incentive to defend LLM capabilities
-2. **Limited task diversity** — Three tasks may not generalize to all reasoning
-3. **Wason task: LLMs outperform humans** — This could be seen as evidence FOR LLM reasoning
-4. **Correlation ≠ mechanism** — Similar patterns don't prove same underlying process
+1. **Google DeepMind authors** - Potential incentive to defend LLM capabilities
+2. **Limited task diversity** - Three tasks may not generalize to all reasoning
+3. **Wason task: LLMs outperform humans** - This could be seen as evidence FOR LLM reasoning
+4. **Correlation ≠ mechanism** - Similar patterns don't prove same underlying process
 
 ### Author Acknowledgments
 
@@ -176,7 +176,7 @@ One could argue that showing LLMs behave like humans is evidence FOR reasoning, 
 
 > "Humans reason more reliably when the semantic content of a problem supports the correct logical inferences."
 
-> "LMs reflect many of the same qualitative human patterns on these tasks—like humans, models answer more accurately when the semantic content of a task supports the logical inferences."
+> "LMs reflect many of the same qualitative human patterns on these tasks-like humans, models answer more accurately when the semantic content of a task supports the logical inferences."
 
 > "The fact that language models sometimes rely on 'simple heuristics'... have been cited to 'raise questions on the extent to which these models are *actually reasoning*'... In this work, we emphasize how *both* humans and language models rely on content when answering reasoning problems"
 

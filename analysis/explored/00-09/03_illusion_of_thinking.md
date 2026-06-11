@@ -25,8 +25,8 @@ This is THE paper that initiated the major 2025 debate on whether Large Reasonin
    - Medium complexity: LRMs show advantage
    - High complexity: Both collapse completely
 3. **Counterintuitive scaling limit**: Reasoning effort DECREASES as complexity increases past a threshold (despite remaining token budget)
-4. **LRMs fail to use explicit algorithms** — even when provided, they can't execute them correctly
-5. **Self-correction is limited** — models fixate on early errors at high complexity
+4. **LRMs fail to use explicit algorithms** - even when provided, they can't execute them correctly
+5. **Self-correction is limited** - models fixate on early errors at high complexity
 
 ---
 
@@ -110,7 +110,7 @@ The paper argues LRMs appear to reason because:
 3. But traces don't reflect genuine problem-solving
 
 ### Why Token Usage Decreases
-The authors interpret this as: "The model recognizes it can't solve this but doesn't know what else to try" — learned patterns exhausted, no genuine algorithm to fall back on.
+The authors interpret this as: "The model recognizes it can't solve this but doesn't know what else to try" - learned patterns exhausted, no genuine algorithm to fall back on.
 
 ### Connection to Faith and Fate
 Directly confirms exponential error accumulation:
@@ -275,7 +275,7 @@ The three regimes framework is useful:
 ### The Token Decrease Finding
 This is **critical evidence**:
 - If models were genuinely reasoning, effort should increase with difficulty
-- Decreasing effort suggests "giving up" — no algorithm to execute
+- Decreasing effort suggests "giving up" - no algorithm to execute
 - Supports "predictive not generative" thesis
 
 ---
@@ -287,7 +287,7 @@ This is **critical evidence**:
    - This paper argues reasoning
 
 2. **Are puzzles representative of reasoning generally?**
-   - Critics say no — math shows different patterns
+   - Critics say no - math shows different patterns
    - Authors say math is contaminated
 
 3. **What explains the token decrease?**
@@ -301,7 +301,7 @@ This is **critical evidence**:
 
 ## REBUTTALS & COUNTER-EVIDENCE
 
-### Rebuttal 1: Lawsen (2506.09250) — "The Illusion of the Illusion of Thinking"
+### Rebuttal 1: Lawsen (2506.09250) - "The Illusion of the Illusion of Thinking"
 
 **Authors**: A. Lawsen (with Claude Opus)
 **Date**: June 2025
@@ -322,7 +322,7 @@ Prompt: "Solve Tower of Hanoi with 15 disks. Output a Lua
          function that prints the solution when called."
 
 Result: Very high accuracy across Claude-3.7-Sonnet, Claude Opus 4,
-        OpenAI o3, Google Gemini 2.5 — completed in <5,000 tokens
+        OpenAI o3, Google Gemini 2.5 - completed in <5,000 tokens
 ```
 
 **Implication**: Models understand the algorithm; they fail at *enumeration*, not *reasoning*.
@@ -333,7 +333,7 @@ Result: Very high accuracy across Claude-3.7-Sonnet, Claude Opus 4,
 
 ---
 
-### Rebuttal 2: Khan et al. (2506.18957) — "Comment: Reframing as Agentic Gap"
+### Rebuttal 2: Khan et al. (2506.18957) - "Comment: Reframing as Agentic Gap"
 
 **Authors**: Khan, Madhavan, Natarajan
 **Date**: June 2025
@@ -353,7 +353,7 @@ Result: Very high accuracy across Claude-3.7-Sonnet, Claude Opus 4,
 
 ---
 
-### Rebuttal 3: Song et al. (2507.17699) — "Thinking Isn't an Illusion"
+### Rebuttal 3: Song et al. (2507.17699) - "Thinking Isn't an Illusion"
 
 **Already analyzed** (see `04_thinking_isnt_illusion.md`)
 
@@ -363,11 +363,11 @@ Key finding: Tool augmentation reverses collapse completely:
 
 ---
 
-### Replication Study: Varela et al. (2507.01231) — "Rethinking the Illusion of Thinking"
+### Replication Study: Varela et al. (2507.01231) - "Rethinking the Illusion of Thinking"
 
 **Already analyzed** (see `37_rethinking_illusion_of_thinking.md`)
 
-**Dual finding — partial rebuttal + partial confirmation:**
+**Dual finding - partial rebuttal + partial confirmation:**
 
 | Task | Finding | Relationship |
 |------|---------|--------------|
@@ -384,12 +384,12 @@ Key quote: "LRMs are stochastic, RL-tuned searchers in a discrete state space we
 
 | Critique | Validity | Impact on Original Paper |
 |----------|----------|--------------------------|
-| Impossible River Crossing instances | **VALID** — mathematically proven (Rethinking confirms) | Invalidates N>5 results |
-| Token limit issues | **PARTIALLY VALID** — Rethinking shows stepwise doesn't fix Hanoi | Output window NOT the issue for Hanoi |
-| Alternative representations work | **VALID** — demonstrated empirically | Suggests execution ≠ reasoning |
-| Tool augmentation fixes failures | **PARTIALLY VALID** — Rethinking shows agentic makes Hanoi WORSE | Task-dependent; not universal fix |
-| Complexity conflation | **PARTIALLY VALID** — fair methodological point | Interpretation issue |
-| Hanoi ~8 disk limit | **CONFIRMED** — Rethinking replication | Core finding stands |
+| Impossible River Crossing instances | **VALID** - mathematically proven (Rethinking confirms) | Invalidates N>5 results |
+| Token limit issues | **PARTIALLY VALID** - Rethinking shows stepwise doesn't fix Hanoi | Output window NOT the issue for Hanoi |
+| Alternative representations work | **VALID** - demonstrated empirically | Suggests execution ≠ reasoning |
+| Tool augmentation fixes failures | **PARTIALLY VALID** - Rethinking shows agentic makes Hanoi WORSE | Task-dependent; not universal fix |
+| Complexity conflation | **PARTIALLY VALID** - fair methodological point | Interpretation issue |
+| Hanoi ~8 disk limit | **CONFIRMED** - Rethinking replication | Core finding stands |
 
 ### Revised Assessment of "Illusion of Thinking"
 

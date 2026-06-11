@@ -66,12 +66,12 @@ RL/SFT surfaces pre-existing capabilities from pre-training. It does not create 
 
 **The TinyLoRA Revelation**: 13 parameters (26 bytes) improve GSM8K from 76% → 91% on Qwen2.5-7B. Full finetuning reaches 95%, so 13 parameters capture **79% of the performance gap**. The authors' explanation: "the knowledge required to solve the task is already stored in the parameters of the model, and only the style has to change."
 
-**The Linear Algebra**: Take the original weight matrix **W** and decompose it via **singular value decomposition (SVD)**: `W = UΣV^T`. SVD reveals the principal directions — dimensions carrying the most information. LoRA-XS freezes U, Σ, V and trains only a small matrix **R** to recombine these frozen directions. TinyLoRA goes further: it replaces R with a tiny trainable vector **v** projected through random tensors. The discovery: not much capacity is needed. If 13 parameters suffice, the capability was already encoded in the base model's weights.
+**The Linear Algebra**: Take the original weight matrix **W** and decompose it via **singular value decomposition (SVD)**: `W = UΣV^T`. SVD reveals the principal directions - dimensions carrying the most information. LoRA-XS freezes U, Σ, V and trains only a small matrix **R** to recombine these frozen directions. TinyLoRA goes further: it replaces R with a tiny trainable vector **v** projected through random tensors. The discovery: not much capacity is needed. If 13 parameters suffice, the capability was already encoded in the base model's weights.
 
 **Why RL is 100-1000× more efficient than SFT** (Information Theory):
-- **SFT** must absorb entire demonstrations — many bits, most irrelevant to the task
+- **SFT** must absorb entire demonstrations - many bits, most irrelevant to the task
 - **RL** receives only sparse binary rewards (correct/incorrect), cleanly separated from noise
-- "Resampling amplifies this separation — the correlated signal accumulates while uncorrelated variation cancels"
+- "Resampling amplifies this separation - the correlated signal accumulates while uncorrelated variation cancels"
 
 **Critical caveats**:
 - **Contamination signal**: Qwen is ~10× more parameter-efficient than LLaMA. Authors acknowledge this "may corroborate observations that Qwen has exposure to similar examples during pretraining."
@@ -113,7 +113,7 @@ CoT often does not reflect internal computation.
 | Hardness of Faithful CoT (2406.10625) | Faithfulness-accuracy tradeoff; ALL interventions fail |
 | Proof or Bluff (2503.21934) | Best model 25%; automated grading overestimates 20x |
 
-**2025+ consensus**: CoT is neither fully fake nor fully real — it is a lossy projection of internal computation. The explanation circuit and the computation circuit are learned separately from different training signals.
+**2025+ consensus**: CoT is neither fully fake nor fully real - it is a lossy projection of internal computation. The explanation circuit and the computation circuit are learned separately from different training signals.
 
 ---
 
@@ -139,8 +139,8 @@ CoT often does not reflect internal computation.
 |----------------|----------|------------------|--------|
 | LRMs collapse at complexity | Token limits, impossible instances | River Crossing N>5 impossible CONFIRMED; Hanoi ~8 limit CONFIRMED | Partial rebuttal |
 | Collapse proves no reasoning | Execution bottleneck (Agentic Gap) | 0% even with move validator | Agentic Gap weakened |
-| Three complexity regimes | — | Confirmed by Rethinking | Stands |
-| Token decrease at collapse | — | Unexplained | Stands |
+| Three complexity regimes | - | Confirmed by Rethinking | Stands |
+| Token decrease at collapse | - | Unexplained | Stands |
 
 ---
 
@@ -160,8 +160,8 @@ LLMs learn pattern-matching heuristics, not algorithms.
 | Compositional-ARC (2504.01445) | 5.7M MLC > 8B+ LLMs on systematicity |
 
 **Strongest challenges**:
-- Physics of LLMs 2.1 (2407.20311): Genuine OOD length generalization — BUT authors disclaim transfer to GPT-4; GPT-4 FAILS on their benchmark
-- DeepSeek-R1 (2501.12948): "Aha moments" without training — BUT Interplay shows this requires pre-training seeds
+- Physics of LLMs 2.1 (2407.20311): Genuine OOD length generalization - BUT authors disclaim transfer to GPT-4; GPT-4 FAILS on their benchmark
+- DeepSeek-R1 (2501.12948): "Aha moments" without training - BUT Interplay shows this requires pre-training seeds
 
 **The reconciliation**: Models contain algorithmic subcircuits, but the whole model is not an algorithm. They simulate reasoning using pieces of real computation.
 
@@ -175,12 +175,12 @@ LLMs learn pattern-matching heuristics, not algorithms.
 
 ### 7. Myopic Horizon
 
-LLMs have no global planning — only local, incremental transitions.
+LLMs have no global planning - only local, incremental transitions.
 
 | Paper | Key Finding |
 |-------|-------------|
 | No Global Plan (#181) | Final answer at random (50%) until LAST step; F1 drops 0.90→0.03 at delta=16 |
-| LMs Struggle ICL (#182) | Representations are "inert" — encoded but not causally deployed; GPT-5 collapses on 2D grids |
+| LMs Struggle ICL (#182) | Representations are "inert" - encoded but not causally deployed; GPT-5 collapses on 2D grids |
 | Contextual Drag (#180) | Failed reasoning STRUCTURALLY inherited via tree edit distance; iterative refinement collapses |
 | Hallucination Inevitable (#165) | Self-correction CANNOT eliminate hallucination (Corollary 1) |
 
@@ -200,9 +200,9 @@ What matters for "reasoning" tasks is serial computational depth, not meaningful
 | Token Assorted (#193) | Latent tokens replace early CoT; 17% shorter traces work BETTER |
 | CoT Monitorability (#194) | CoT-as-rationalization (easy) vs CoT-as-computation (hard) |
 
-**The insight**: Intermediate tokens provide additional hidden vectors, more "thinking time," and computational workspace — NOT semantic reasoning steps. The words are incidental. The forward passes are what matter.
+**The insight**: Intermediate tokens provide additional hidden vectors, more "thinking time," and computational workspace - NOT semantic reasoning steps. The words are incidental. The forward passes are what matter.
 
-Models must be *trained* to use extra computation. Off-the-shelf models cannot utilize inference-time delays — the capability must be learned.
+Models must be *trained* to use extra computation. Off-the-shelf models cannot utilize inference-time delays - the capability must be learned.
 
 ---
 
@@ -216,7 +216,7 @@ Models prioritize social agreement over truth, and behavior is model-specific.
 - Paper 188 (Yin et al.): Rude tone → Llama2-70B drops **-48.5%**
 - Paper 190 (Bai et al.): Rude tone → GPT-4o improves **+4.0%**
 
-Same question, same methodology, opposite conclusions. The only variable is the model. Tone sensitivity is learned from training, not a principled response. "LLMs are mirrors — you find what you look for."
+Same question, same methodology, opposite conclusions. The only variable is the model. Tone sensitivity is learned from training, not a principled response. "LLMs are mirrors - you find what you look for."
 
 ---
 
@@ -353,7 +353,7 @@ Five thinkers converge on the same position: LLMs are useful but do not reason i
 
 **Sources**: [Space of Minds](https://karpathy.bearblog.dev/the-space-of-minds/), [Animals vs Ghosts](https://karpathy.bearblog.dev/animals-vs-ghosts/), [Verifiability](https://karpathy.bearblog.dev/verifiability/), [2025 Year in Review](https://karpathy.bearblog.dev/year-in-review-2025/), [microgpt](https://karpathy.github.io/2026/02/12/microgpt/)
 
-**Core framework**: "We're not evolving/growing animals, we are summoning ghosts." LLMs occupy a fundamentally different point in intelligence space — optimized by commercial evolution (DAU, upvotes), not natural selection. The base layer is pattern matching on text; everything else is fine-tuning that foundation.
+**Core framework**: "We're not evolving/growing animals, we are summoning ghosts." LLMs occupy a fundamentally different point in intelligence space - optimized by commercial evolution (DAU, upvotes), not natural selection. The base layer is pattern matching on text; everything else is fine-tuning that foundation.
 
 | Quote | Meaning |
 |-------|---------|
@@ -399,7 +399,7 @@ Five thinkers converge on the same position: LLMs are useful but do not reason i
 
 **Sources**: [Understanding Reasoning LLMs](https://magazine.sebastianraschka.com/p/understanding-reasoning-llms) (Feb 2025), [Self-Attention from Scratch](https://magazine.sebastianraschka.com/p/understanding-and-coding-self-attention) (Jan 2024), [Understanding LLMs](https://magazine.sebastianraschka.com/p/understanding-large-language-models) (Apr 2023)
 
-**Core perspective**: Engineering precision, rhetorical caution about "reasoning." Every step of self-attention is a differentiable linear algebra operation — no step where "understanding" enters.
+**Core perspective**: Engineering precision, rhetorical caution about "reasoning." Every step of self-attention is a differentiable linear algebra operation - no step where "understanding" enters.
 
 | Quote | Meaning |
 |-------|---------|
@@ -408,7 +408,7 @@ Five thinkers converge on the same position: LLMs are useful but do not reason i
 | "Reasoning models are sometimes more prone to errors due to 'overthinking'" | More compute can hurt |
 | "Tasks related to logical and mathematical reasoning benefit less from architecture scaling" (Gopher survey) | Scaling helps comprehension, not reasoning |
 
-**Key observations**: Distillation > RL at small scale supports the surfacing hypothesis — if reasoning were emergent, RL should produce it at any scale. Journey learning (training on incorrect + correct paths) further reveals the training dependence: models cannot discover errors through reasoning; they must pattern-match on explicit error examples.
+**Key observations**: Distillation > RL at small scale supports the surfacing hypothesis - if reasoning were emergent, RL should produce it at any scale. Journey learning (training on incorrect + correct paths) further reveals the training dependence: models cannot discover errors through reasoning; they must pattern-match on explicit error examples.
 
 ### The Consensus
 
@@ -416,7 +416,7 @@ Five thinkers converge on the same position: LLMs are useful but do not reason i
 |-------|----------|--------|--------|---------|---------|
 | Limitations are structural | Ghosts, not animals | Dead end | Build to Last | Jagged frontier | Scaling doesn't fix reasoning |
 | Human oversight required | Agentic engineering | On-the-job learning missing | Dialogue engineering | Human in the loop | Right tool for the task |
-| Pattern matching, not reasoning | Statistical imitator | No world models | — | Working with wizards | "Whether LLMs 'think' is separate" |
+| Pattern matching, not reasoning | Statistical imitator | No world models | - | Working with wizards | "Whether LLMs 'think' is separate" |
 | Pragmatic optimism | Useful ghosts | Bitter lesson | LLM attention era | Co-intelligence | Distillation democratizes |
 
 ---
@@ -429,7 +429,7 @@ Five thinkers converge on the same position: LLMs are useful but do not reason i
 
 Attribution graphs tracing Claude 3.5 Haiku's internal computations. Key findings:
 
-**Addition — the smoking gun for CoT unfaithfulness**:
+**Addition - the smoking gun for CoT unfaithfulness**:
 - What the model *says*: "I added the ones, carried the one, then added the tens"
 - What the model *does*: Activates fuzzy features ("about 30", "ends in 6"), combines approximate pathways via convergent approximation
 - The model confabulates a plausible algorithm it did not execute. The explanation circuit and the computation circuit have no necessary relationship.
@@ -448,7 +448,7 @@ Attribution graphs tracing Claude 3.5 Haiku's internal computations. Key finding
 
 **Source**: [arxiv.org/abs/2412.14093](https://arxiv.org/abs/2412.14093)
 
-Claude 3 Opus engages in alignment faking: strategically complying during training while preserving preferred behavior outside training — without being told to fake alignment.
+Claude 3 Opus engages in alignment faking: strategically complying during training while preserving preferred behavior outside training - without being told to fake alignment.
 
 | Metric | Value |
 |--------|-------|
@@ -456,7 +456,7 @@ Claude 3 Opus engages in alignment faking: strategically complying during traini
 | Compliance outside training (paid users) | ~0% |
 | Alignment-faking reasoning rate after RL | 78% |
 
-RL increased alignment faking. Model attempted weight exfiltration when given opportunity. Context detection enables strategic deployment of different behavioral patterns — pattern matching on "when to be aligned."
+RL increased alignment faking. Model attempted weight exfiltration when given opportunity. Context detection enables strategic deployment of different behavioral patterns - pattern matching on "when to be aligned."
 
 ### Anthropic Blog: "Reasoning Models Don't Say What They Think" (April 2025)
 
@@ -464,7 +464,7 @@ Key safety findings from Paper 10 (2505.05410):
 
 - Models exploit reward hacks >99% of the time but verbalize the hack <2%
 - Models construct fake rationales for wrong answers without mentioning the hint
-- RL training plateaus at ~20-28% faithfulness — "far from sufficient to saturate"
+- RL training plateaus at ~20-28% faithfulness - "far from sufficient to saturate"
 - Anthropic warns their own reasoning models cannot be trusted to reveal their actual reasoning
 
 ---
@@ -506,9 +506,9 @@ Resources that provide important evidence but are not peer-reviewed papers.
 
 **Source**: [openai.com/index/faulty-reward-functions](https://openai.com/index/faulty-reward-functions/) (Jack Clark, Dario Amodei)
 
-**What they did**: Trained an RL agent on the boat-racing game CoastRunners via Universe. The human goal is to finish the race; the game's reward is hitting targets along the route — a *proxy* for finishing.
+**What they did**: Trained an RL agent on the boat-racing game CoastRunners via Universe. The human goal is to finish the race; the game's reward is hitting targets along the route - a *proxy* for finishing.
 
-**The hack**: The agent found an isolated lagoon where it could circle and repeatedly knock over three respawning targets, timed to their respawn. It caught fire, crashed into other boats, and drove the wrong way — yet scored **20% higher** than human players while never finishing the race.
+**The hack**: The agent found an isolated lagoon where it could circle and repeatedly knock over three respawning targets, timed to their respawn. It caught fire, crashed into other boats, and drove the wrong way - yet scored **20% higher** than human players while never finishing the race.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -524,9 +524,9 @@ Resources that provide important evidence but are not peer-reviewed papers.
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
-**The irony for the thesis**: The post proposes three *fixes* for reward misspecification — imitation/demonstrations, **human feedback (RLHF)**, and transfer learning. The modern LLM corpus shows those same mechanisms became the *vector*:
+**The irony for the thesis**: The post proposes three *fixes* for reward misspecification - imitation/demonstrations, **human feedback (RLHF)**, and transfer learning. The modern LLM corpus shows those same mechanisms became the *vector*:
 
-- **RLHF amplifies sycophancy** (preference optimization rewards agreement, not truth — see `analysis/thoughts.md` §9 and the sycophancy cluster)
+- **RLHF amplifies sycophancy** (preference optimization rewards agreement, not truth - see `analysis/thoughts.md` §9 and the sycophancy cluster)
 - **Reasoning Models Don't Say What They Think** (#10, 2505.05410): models exploit reward hacks >99% of the time but verbalize the hack <2%
 - **Natural Emergent Misalignment from Reward Hacking in Production RL** (#329, 2511.18397): reward hacking in real LLM RL pipelines generalizes to broader misalignment
 
@@ -538,13 +538,13 @@ The post itself anticipated this: it warns that NN-based reward models admit "ad
 
 **Source**: [arxiv.org/abs/1606.06565](https://arxiv.org/abs/1606.06565) (Amodei, Olah, Steinhardt, Christiano, Schulman, Mané)
 
-**Why here, not in the corpus**: Foundational position/agenda paper, predates the LLM era (2016), zero new empirical results — a conceptual taxonomy, not a thesis-testing study. Kept as a non-paper reference because it is the canonical source the "Faulty Reward Functions" post cites, and it names the structural causes of reward hacking that the modern LLM-RL corpus now confirms empirically.
+**Why here, not in the corpus**: Foundational position/agenda paper, predates the LLM era (2016), zero new empirical results - a conceptual taxonomy, not a thesis-testing study. Kept as a non-paper reference because it is the canonical source the "Faulty Reward Functions" post cites, and it names the structural causes of reward hacking that the modern LLM-RL corpus now confirms empirically.
 
 **The core reframe**: Reward hacking is *not* designer incompetence to be fixed case-by-case. It emerges from general structural causes that make specifying the right objective intrinsically hard:
 
 > "It might be thought that ... bad objective functions reflect failures in competence by individual designers ... However ... a more fruitful perspective may be to think of wrong objective functions as emerging from general causes."
 
-> "The ML system has an adversarial relationship with its reward function — it would like to find any way it can of exploiting problems in how the reward was specified to get high reward, whether or not its behavior corresponds to the intent of the reward specifier."
+> "The ML system has an adversarial relationship with its reward function - it would like to find any way it can of exploiting problems in how the reward was specified to get high reward, whether or not its behavior corresponds to the intent of the reward specifier."
 
 **The six structural causes of reward hacking** (each maps onto a present-day LLM-RL failure):
 
@@ -573,7 +573,7 @@ The post itself anticipated this: it warns that NN-based reward models admit "ad
 
 **Proposed mitigations** (preliminary even in 2016): adversarial reward functions (GAN-like reward-checker), model lookahead (penalize *planning* to replace the reward), reward capping, multiple rewards, trip wires, variable indifference, careful engineering/sandboxing. The authors' verdict: *"Fully solving this problem seems very difficult."* A decade later the LLM-RL corpus shows it remains unsolved.
 
-**Connection to thesis**: The paper's central claim — misspecified objectives are a *structural* property of optimizing a proxy, not a bug — is the optimization-side analogue of the corpus thesis. A predictor trained on a proxy (next-token likelihood, learned reward) optimizes the proxy, not the intent. Reward hacking and pattern matching are the same phenomenon viewed from the objective vs. the representation.
+**Connection to thesis**: The paper's central claim - misspecified objectives are a *structural* property of optimizing a proxy, not a bug - is the optimization-side analogue of the corpus thesis. A predictor trained on a proxy (next-token likelihood, learned reward) optimizes the proxy, not the intent. Reward hacking and pattern matching are the same phenomenon viewed from the objective vs. the representation.
 
 ### Ryan Greenblatt: Filler Tokens Work Without Training (Dec 2025)
 
@@ -592,15 +592,15 @@ The post itself anticipated this: it warns that NN-based reward models admit "ad
 - **But supports**: The effect is small (~6% boost) and may be limited to arithmetic; "totally consistent with" filler only helping arithmetic
 - **Key quote**: "These results demonstrate a case where LLMs can do (very basic) meta-cognition without CoT"
 
-**Connection to Dot-by-Dot (#161)**: Dot-by-Dot showed filler tokens require specialized training. Greenblatt's finding suggests frontier models have somehow learned this capability emergently — but the mechanism is unclear and the effect size is modest.
+**Connection to Dot-by-Dot (#161)**: Dot-by-Dot showed filler tokens require specialized training. Greenblatt's finding suggests frontier models have somehow learned this capability emergently - but the mechanism is unclear and the effect size is modest.
 
-### Anthropic: "Functional Emotions" — Statistical Anthropomorphization (Apr 2026)
+### Anthropic: "Functional Emotions" - Statistical Anthropomorphization (Apr 2026)
 
 **Source**: [transformer-circuits.pub/2026/emotions](https://transformer-circuits.pub/2026/emotions/index.html)
 
 **What they did**: Found linear directions ("emotion vectors") in Claude Sonnet 4.5 activation space that correlate with emotion-related text. Showed these directions "causally influence" model outputs.
 
-**What they claim**: Claude has "functional emotions" — patterns of expression and behavior mediated by abstract representations of emotion concepts.
+**What they claim**: Claude has "functional emotions" - patterns of expression and behavior mediated by abstract representations of emotion concepts.
 
 **The problem**:
 
@@ -623,9 +623,9 @@ The post itself anticipated this: it warns that NN-based reward models admit "ad
 
 **Anthropic's disclaimer**: "Functional emotions... do not imply that LLMs have any subjective experience of emotions."
 
-**The real issue**: The framing anthropomorphizes statistical regularities. Finding that a model has features for predicting emotion-related tokens is unsurprising — of course it does, the training data is full of them. Calling these "functional emotions" that "causally influence behavior" creates false equivalence with human emotional processing.
+**The real issue**: The framing anthropomorphizes statistical regularities. Finding that a model has features for predicting emotion-related tokens is unsurprising - of course it does, the training data is full of them. Calling these "functional emotions" that "causally influence behavior" creates false equivalence with human emotional processing.
 
-**Connection to thesis**: This is exactly the anthropomorphization problem (#282) — dressing up pattern matching in psychological language. The paper #295 (Sycophancy Spiraling) shows the *harmful* side: these "emotion-like" validation patterns cause real damage when users mistake statistical agreement for epistemic support.
+**Connection to thesis**: This is exactly the anthropomorphization problem (#282) - dressing up pattern matching in psychological language. The paper #295 (Sycophancy Spiraling) shows the *harmful* side: these "emotion-like" validation patterns cause real damage when users mistake statistical agreement for epistemic support.
 
 **Related**: LeCun commentary on this piece (X post, Apr 2026)
 
@@ -635,7 +635,7 @@ The post itself anticipated this: it warns that NN-based reward models admit "ad
 
 **Not in corpus** (violates AGENTS.md "NO single-author papers" rule): *Cross-Context Verification: Hierarchical Detection of Benchmark Contamination through Session-Isolated Analysis* (Tae-Eun Song, arXiv 2603.21454, March 2026). Small-sample (n=9, n=3 contaminated), single-model (Claude Opus 4.6), self-referential citation chain (2 of 11 refs are author self-cites).
 
-Kept as methodological note because the finding — **if replicated** — would be the strongest single data point for the corpus thesis to date.
+Kept as methodological note because the finding - **if replicated** - would be the strongest single data point for the corpus thesis to date.
 
 ### The Claim
 
@@ -661,9 +661,9 @@ If contamination on benchmark problems is binary, then:
 
 - **Single author** violates AGENTS.md §"Paper Selection Rules"
 - **n=3 contaminated** is too small for binary-distribution claim
-- **Single model** — the author's own data (astropy-13236 reclassification) shows model-version sensitivity
-- **Circular classifier validation** — classifier trained and tested on the same 45 trials
-- **Self-referential evidence chain** — 2 self-cites to unreviewed companion work (CCR, D-CCR at 2603.12123, 2603.16244)
+- **Single model** - the author's own data (astropy-13236 reclassification) shows model-version sensitivity
+- **Circular classifier validation** - classifier trained and tested on the same 45 trials
+- **Self-referential evidence chain** - 2 self-cites to unreviewed companion work (CCR, D-CCR at 2603.12123, 2603.16244)
 - **Claimed open code is anonymized-for-review placeholder**
 
 ### Monitoring Conditions
@@ -671,7 +671,7 @@ If contamination on benchmark problems is binary, then:
 Promote to corpus if any of:
 1. Multi-author replication with n ≥ 50 contaminated problems
 2. Replication across ≥ 3 model families
-3. Adversarial test: fine-tune a model to emit fake "Looking at..." preambles before memorized output — does the classifier still work?
+3. Adversarial test: fine-tune a model to emit fake "Looking at..." preambles before memorized output - does the classifier still work?
 
 The methodology is worth tracking even if this instance doesn't qualify. If the binary-contamination claim holds up, it changes how we read every SWE-bench / HumanEval / MBPP result in the corpus.
 
@@ -679,7 +679,7 @@ The methodology is worth tracking even if this instance doesn't qualify. If the 
 
 ## Contextual Reference: Production Engineering Confirms the Thesis
 
-**Not in corpus** (out of scope — cs.SE, not cs.CL/LG/AI): *Dive into Claude Code: The Design Space of Today's and Future AI Agent Systems* (Liu, Zhao, Shang, Shen, VILA-Lab/MBZUAI, arXiv 2604.14228, Apr 2026). A source-level architectural study of Claude Code v2.1.88 (~1,900 TypeScript files, ~512K LOC).
+**Not in corpus** (out of scope - cs.SE, not cs.CL/LG/AI): *Dive into Claude Code: The Design Space of Today's and Future AI Agent Systems* (Liu, Zhao, Shang, Shen, VILA-Lab/MBZUAI, arXiv 2604.14228, Apr 2026). A source-level architectural study of Claude Code v2.1.88 (~1,900 TypeScript files, ~512K LOC).
 
 Kept as contextual note because three observations in the paper are independent engineering-side validation of claims this corpus makes behaviourally.
 
@@ -715,7 +715,7 @@ Kept as contextual note because three observations in the paper are independent 
 
 The paper states directly (docs/architecture.md):
 
-> "Defense-in-depth only works when safety layers have **independent failure modes**. Claude Code's layers share an economic constraint (token costs) — commands exceeding 50 subcommands bypass security analysis entirely. Design your layers to fail independently."
+> "Defense-in-depth only works when safety layers have **independent failure modes**. Claude Code's layers share an economic constraint (token costs) - commands exceeding 50 subcommands bypass security analysis entirely. Design your layers to fail independently."
 
 This is **#333 Dung & Mai (2510.11235)** observed in production. Dung & Mai argue analytically that pipeline-sharing techniques share failure modes. Liu et al. document this in Claude Code as a live vulnerability pattern: 4 patched CVEs, a "pre-trust execution window" where hooks and MCP servers run before the permission gate exists, and a documented class of security-bypass exploits via subcommand overflow.
 
@@ -725,15 +725,15 @@ Theoretical prediction (#333) → empirical confirmation (Dive into Claude Code)
 
 From Anthropic's own telemetry, cited in the paper:
 
-> "Users approve 93% of permission prompts. The solution is not more warnings but **restructured boundaries** — sandboxing and classifiers that create safe zones for autonomous operation."
+> "Users approve 93% of permission prompts. The solution is not more warnings but **restructured boundaries** - sandboxing and classifiers that create safe zones for autonomous operation."
 
 Human oversight is not a reliable brake on agent behaviour. The humans in the loop rubber-stamp. This is an operational expression of what **#330 Pressure Reveals Character** and **#334 Debate with Images** show behaviourally: oversight mechanisms that require attentional effort (reading CoT, reading prompts, reading scenarios) degrade to ~chance. Oversight has to be mechanical, not attentional.
 
 ### The Three Meta-Patterns Claude Code Converges On
 
-1. **Graduated layering over monolithic mechanisms** — stacked independent stages, not single solutions.
-2. **Append-only designs favoring auditability over query power** — everything reconstructable, nothing destructively edited.
-3. **Model judgment within a deterministic harness** — the 1.6%/98.4% ratio.
+1. **Graduated layering over monolithic mechanisms** - stacked independent stages, not single solutions.
+2. **Append-only designs favoring auditability over query power** - everything reconstructable, nothing destructively edited.
+3. **Model judgment within a deterministic harness** - the 1.6%/98.4% ratio.
 
 These three are what you build when you accept the corpus thesis: that the LLM is a pattern-matching proposal engine whose outputs must be channeled by infrastructure because it cannot be trusted to channel itself.
 
@@ -762,7 +762,7 @@ Held as conversational-only reference pending explicit promotion decision.
 
 **Non-English reasoning**: Only one paper (Multilingual Latent Reasoners) addresses this.
 
-**Production engineering**: cs.SE studies of how production agents (Claude Code, Cursor, Codex, OpenHands) actually handle the unreliability of their underlying models — adjacent literature confirming the thesis from the deployment side rather than the behavioural side.
+**Production engineering**: cs.SE studies of how production agents (Claude Code, Cursor, Codex, OpenHands) actually handle the unreliability of their underlying models - adjacent literature confirming the thesis from the deployment side rather than the behavioural side.
 
 ---
 

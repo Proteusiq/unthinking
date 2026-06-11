@@ -12,10 +12,10 @@
 
 ## Core Claims
 
-1. **Functional Anisotropy Hypothesis is false**: LLM capabilities are NOT supported by unique internal mechanisms — multiple structurally distinct circuits/sheaves can each faithfully perform the same task
+1. **Functional Anisotropy Hypothesis is false**: LLM capabilities are NOT supported by unique internal mechanisms - multiple structurally distinct circuits/sheaves can each faithfully perform the same task
 2. Multiple task-supporting sheaves can have as low as 4.1% IoU overlap while both achieving 100% task accuracy (IOI), and this drops to 0.15% mutual IoU across 20 sheaves
-3. Even an ultra-sparse 3-edge sheaf has no individually indispensable component — removing any single edge preserves ~99.9% accuracy
-4. **Distributive Dense Circuit Hypothesis**: Non-unique, low-overlap circuits arise naturally from high-dimensional superposition — proven theoretically via subset-sum collision argument
+3. Even an ultra-sparse 3-edge sheaf has no individually indispensable component - removing any single edge preserves ~99.9% accuracy
+4. **Distributive Dense Circuit Hypothesis**: Non-unique, low-overlap circuits arise naturally from high-dimensional superposition - proven theoretically via subset-sum collision argument
 
 ---
 
@@ -64,7 +64,7 @@
 | Edge Pruning CE-loss IoU (IOI) | 0.064 | Much lower than KL-loss (0.340) |
 | Pythia-160M IOI OASR mutual IoU | 0.34% | Same pattern as GPT-2 |
 | Pythia-160M Docstring OASR mutual IoU | 0.06% | Even lower overlap |
-| Node-level IoU | 49-93% | Much higher than edge-level — same components, different wiring |
+| Node-level IoU | 49-93% | Much higher than edge-level - same components, different wiring |
 
 ---
 
@@ -92,23 +92,23 @@ This paper provides deep mechanistic evidence that LLM computation is fundamenta
 
 1. **No canonical reasoning mechanism**: If there were genuine "reasoning circuits," we would expect them to be unique and structurally privileged. Instead, any task can be supported by dozens of structurally distinct mechanisms with near-zero overlap. This suggests computation is pattern-matching through a dense web of redundant pathways, not localized reasoning.
 
-2. **Superposition explains non-uniqueness**: The theoretical argument via subset-sum collisions in high-dimensional superposition directly explains why LLMs appear to "reason" — combinatorially many edge subsets can produce the same output. This is pattern completion through distributed representations, not structured computation.
+2. **Superposition explains non-uniqueness**: The theoretical argument via subset-sum collisions in high-dimensional superposition directly explains why LLMs appear to "reason" - combinatorially many edge subsets can produce the same output. This is pattern completion through distributed representations, not structured computation.
 
 3. **Undermines mechanistic interpretability claims**: If circuits are non-canonical, then claims about "discovering how models reason" via circuit analysis are fundamentally limited. Each discovered circuit is one of many valid views, not THE mechanism. This challenges the interpretability research program that aims to verify genuine reasoning.
 
-4. **Connects to backup/redundancy literature**: The finding that these aren't dormant "backups" but simultaneously active mechanisms suggests LLMs don't have a primary reasoning pathway — they have a dense superposition of pattern-matching routes.
+4. **Connects to backup/redundancy literature**: The finding that these aren't dormant "backups" but simultaneously active mechanisms suggests LLMs don't have a primary reasoning pathway - they have a dense superposition of pattern-matching routes.
 
 ---
 
 ## Relationship to Other Papers
 
 ### Supports
-- **#77 IOI Minimal Circuits (2510.25013)**: Directly challenges — "minimal" circuits are not unique; OASR finds alternative minimal-quality sheaves with near-zero overlap
-- **#1 Faith & Fate (2305.18654)**: Compatible — compositional failure may be because there is no single compositional circuit to fail gracefully; distributed computation fragments under OOD stress
-- **#322 Linear Representation Features (2602.11246)**: Related — if mechanisms are non-unique, the linear representation hypothesis may also have non-unique decompositions
+- **#77 IOI Minimal Circuits (2510.25013)**: Directly challenges - "minimal" circuits are not unique; OASR finds alternative minimal-quality sheaves with near-zero overlap
+- **#1 Faith & Fate (2305.18654)**: Compatible - compositional failure may be because there is no single compositional circuit to fail gracefully; distributed computation fragments under OOD stress
+- **#322 Linear Representation Features (2602.11246)**: Related - if mechanisms are non-unique, the linear representation hypothesis may also have non-unique decompositions
 
 ### Challenges
-- The paper explicitly states it does "not undermine CSD" — discovered mechanisms remain causally meaningful, just non-canonical. It challenges the interpretation of mechanistic interpretability more than the practice.
+- The paper explicitly states it does "not undermine CSD" - discovered mechanisms remain causally meaningful, just non-canonical. It challenges the interpretation of mechanistic interpretability more than the practice.
 
 ### Extends
 - **Wang et al. 2022a (IOI circuit)**: Foundational reference. Distinguishes from their "backup Name-Mover Heads" finding: "backup-style explanations treat redundancy as ablation-triggered exception, but in our setting non-uniqueness is a feature of normal model operation"
@@ -121,19 +121,19 @@ This paper provides deep mechanistic evidence that LLM computation is fundamenta
 
 ### Known Rebuttals
 - No direct rebuttals identified (ICML 2026, published May 2026)
-- **Méloux et al. (2025)** — "Everything, Everywhere, All at Once" — related prior work on identifiability of mechanistic interpretability. This paper distinguishes itself by testing on pretrained LMs (GPT-2, Pythia) vs simple models
+- **Méloux et al. (2025)** - "Everything, Everywhere, All at Once" - related prior work on identifiability of mechanistic interpretability. This paper distinguishes itself by testing on pretrained LMs (GPT-2, Pythia) vs simple models
 
 ### Limitations (Authors Acknowledge)
-1. All main experiments on **GPT-2 Small** only — a very small model by modern standards
-2. Pythia-160M in appendix — still small. No larger models tested
+1. All main experiments on **GPT-2 Small** only - a very small model by modern standards
+2. Pythia-160M in appendix - still small. No larger models tested
 3. Theoretical assumptions (local linearisation, margin stability) may not hold universally
 4. The 3-edge sheaf indispensability depends on how the task is defined (aggregated vs decomposed)
-5. Node-level IoU remains high (49-93%) — structural diversity is primarily in wiring patterns, not component selection
+5. Node-level IoU remains high (49-93%) - structural diversity is primarily in wiring patterns, not component selection
 
 ### Independent Assessment
-- The IoU numbers are striking: 4.1% for two sheaves, 0.15% for twenty — this is very close to chance overlap
+- The IoU numbers are striking: 4.1% for two sheaves, 0.15% for twenty - this is very close to chance overlap
 - The theoretical argument via subset-sum collisions is elegant and well-motivated
-- The limitation to GPT-2 Small is significant — larger models may have different circuit structure (though Pythia-160M shows the same pattern)
+- The limitation to GPT-2 Small is significant - larger models may have different circuit structure (though Pythia-160M shows the same pattern)
 - The implication for interpretability is important but nuanced: circuits are meaningful but non-canonical, which limits their explanatory power for understanding "how models reason"
 - The 3-edge sheaf experiment is clever but the caveat about task decomposition (IOI-BABA vs IOI-ABBA) shows that "indispensability" depends on task granularity
 

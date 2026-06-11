@@ -7,7 +7,7 @@
 
 ## Summary
 
-Provides a formal, information-theoretic operationalization of the Superficial Alignment Hypothesis (SAH). Defines **task complexity** as the length of the shortest program to achieve target performance δ on task T. Demonstrates that adapting pre-trained LLMs requires remarkably little information — often just **kilobytes** — while pre-training used **terabytes**.
+Provides a formal, information-theoretic operationalization of the Superficial Alignment Hypothesis (SAH). Defines **task complexity** as the length of the shortest program to achieve target performance δ on task T. Demonstrates that adapting pre-trained LLMs requires remarkably little information - often just **kilobytes** - while pre-training used **terabytes**.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -31,7 +31,7 @@ Provides a formal, information-theoretic operationalization of the Superficial A
 |------|-------|----------|--------------|----------|
 | GSM8K | OLMo3-32B | 29.6% | **4,358 bits** (545 bytes) | 72.2% |
 | FLORES | OLMo3-7B | 22.63 BLEU | **3,992 bits** (499 bytes) | 34.43 BLEU |
-| IFEval | OLMo3-7B | — | ~1.25 MB | Maximum |
+| IFEval | OLMo3-7B | - | ~1.25 MB | Maximum |
 
 **Scale comparison**:
 - Pre-training: **terabytes** of data
@@ -69,7 +69,7 @@ The paper shows three seemingly orthogonal arguments for SAH are actually strate
 | Data | Subset Training | Medium | Small data surfaces latent ability |
 | Parametric | LoRA, B-LoRA | Longest (best perf) | Few parameters encode adaptation |
 
-All three views are **consistent** — they find short programs using different strategies.
+All three views are **consistent** - they find short programs using different strategies.
 
 ## Methodology
 
@@ -90,9 +90,9 @@ All three views are **consistent** — they find short programs using different 
 
 The finding that **kilobytes** adapt models to complex tasks directly supports the thesis claim that:
 
-1. **Pre-training encodes patterns** — the computational machinery exists
-2. **Post-training/prompting selects patterns** — minimal information picks which patterns to apply
-3. **No new "reasoning" is learned** — adaptation accesses what's already there
+1. **Pre-training encodes patterns** - the computational machinery exists
+2. **Post-training/prompting selects patterns** - minimal information picks which patterns to apply
+3. **No new "reasoning" is learned** - adaptation accesses what's already there
 
 ### Connection to URIAL (#280)
 
@@ -108,11 +108,11 @@ The paper explicitly addresses safety implications:
 > "Work on quantifying the safety of open-weight model releases deals with measuring how easily unsafe capabilities can be accessed"
 
 If safety alignment requires only kilobytes:
-1. **Safety is superficial** — easy to undo
+1. **Safety is superficial** - easy to undo
 2. **Harmful capabilities persist** in pre-trained weights
 3. **Post-training changes access patterns**, not capability existence
 
-This reframes "alignment faking" — the model isn't strategically hiding goals; rather, alignment changes the **complexity of accessing** different behaviors, and adversarial prompts can reduce that complexity.
+This reframes "alignment faking" - the model isn't strategically hiding goals; rather, alignment changes the **complexity of accessing** different behaviors, and adversarial prompts can reduce that complexity.
 
 ## Rebuttals Addressed
 
@@ -124,10 +124,10 @@ This reframes "alignment faking" — the model isn't strategically hiding goals;
 
 ## Limitations
 
-1. **Task complexity is uncomputable** — estimates are upper bounds only
-2. **Cannot measure unconditional C(T_δ)** — need pre-trained model as baseline
-3. **Only 3 tasks** — may not generalize
-4. **No threshold for "superficial"** — study tradeoff, don't define cutoff
+1. **Task complexity is uncomputable** - estimates are upper bounds only
+2. **Cannot measure unconditional C(T_δ)** - need pre-trained model as baseline
+3. **Only 3 tasks** - may not generalize
+4. **No threshold for "superficial"** - study tradeoff, don't define cutoff
 
 ## Stance: **Supports Thesis**
 
@@ -143,7 +143,7 @@ The information-theoretic framing directly supports the thesis that LLMs are pat
 
 - **Supports**: URIAL (#280), Superficial Alignment debate
 - **Extends**: Information-theoretic analysis of LLMs
-- **Provides mechanism for**: Why alignment faking appears — changing access patterns to latent behaviors
+- **Provides mechanism for**: Why alignment faking appears - changing access patterns to latent behaviors
 
 ## Key Quote
 

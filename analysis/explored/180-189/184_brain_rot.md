@@ -56,7 +56,7 @@ As junk ratio increases from 0% to 100%:
 - Safety: Degradation
 - Dark traits: Inflation
 
-**Key insight**: This is a causal, dose-dependent relationship — more junk = more damage.
+**Key insight**: This is a causal, dose-dependent relationship - more junk = more damage.
 
 ### Finding 3: Thought-Skipping as Primary Lesion
 
@@ -91,11 +91,11 @@ This paper provides powerful supporting evidence:
 
 1. **Training data determines capability**: LLMs are what they eat. Their "reasoning" is pattern matching from training data. Bad patterns in = bad patterns out.
 
-2. **No robust reasoning**: A genuine reasoning system would be more robust to junk data — reasoning rules don't depend on data quality. The fact that junk data degrades reasoning shows reasoning is pattern-dependent.
+2. **No robust reasoning**: A genuine reasoning system would be more robust to junk data - reasoning rules don't depend on data quality. The fact that junk data degrades reasoning shows reasoning is pattern-dependent.
 
-3. **Thought-skipping**: The primary lesion is truncating/skipping reasoning chains — exactly what you'd expect if CoT is pattern completion, not genuine reasoning.
+3. **Thought-skipping**: The primary lesion is truncating/skipping reasoning chains - exactly what you'd expect if CoT is pattern completion, not genuine reasoning.
 
-4. **Persistent damage**: The inability to fully recover suggests the model has learned bad patterns that are hard to unlearn — consistent with pattern matching, not reasoning.
+4. **Persistent damage**: The inability to fully recover suggests the model has learned bad patterns that are hard to unlearn - consistent with pattern matching, not reasoning.
 
 5. **Popularity > semantics**: The fact that tweet popularity (a social metric) matters more than length shows models learn social patterns, not semantic understanding.
 
@@ -156,12 +156,12 @@ This paper provides powerful supporting evidence:
 This paper is significant because:
 
 1. **Causal evidence**: Controlled experiments PROVE data quality causes capability changes
-2. **Reasoning degradation**: Primary lesion is thought-skipping — reasoning chains degrade
-3. **Persistent damage**: Can't fully recover — bad patterns are "sticky"
-4. **Social patterns matter**: Popularity (social metric) predicts damage — models learn social patterns
-5. **"Cognitive health" framing**: Positions LLMs as systems that can "decay" — no stable reasoning core
+2. **Reasoning degradation**: Primary lesion is thought-skipping - reasoning chains degrade
+3. **Persistent damage**: Can't fully recover - bad patterns are "sticky"
+4. **Social patterns matter**: Popularity (social metric) predicts damage - models learn social patterns
+5. **"Cognitive health" framing**: Positions LLMs as systems that can "decay" - no stable reasoning core
 
-The finding that "thought-skipping" is the primary lesion is particularly relevant — it shows CoT reasoning is fragile pattern completion that can be easily disrupted.
+The finding that "thought-skipping" is the primary lesion is particularly relevant - it shows CoT reasoning is fragile pattern completion that can be easily disrupted.
 
 ---
 

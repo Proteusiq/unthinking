@@ -1,4 +1,4 @@
-# Paper Analysis: Thinking by Doing — Building Efficient World Model Reasoning in LLMs via Multi-turn Interaction
+# Paper Analysis: Thinking by Doing - Building Efficient World Model Reasoning in LLMs via Multi-turn Interaction
 
 ## Metadata
 - **arXiv ID**: 2511.23476
@@ -36,7 +36,7 @@
 ### Key Mechanism 2: Interaction Frequency Annealing
 **Formula:** L_max = (L̄ + L'_max) / 2
 - Computed every τ training iterations
-- Purpose: Progressive curriculum — early exploration, later internalization
+- Purpose: Progressive curriculum - early exploration, later internalization
 
 ### Training Details
 | Parameter | Value |
@@ -51,7 +51,7 @@
 
 ## Key Evidence
 
-### Main Results — Environment Tasks (Table 1)
+### Main Results - Environment Tasks (Table 1)
 
 **Sokoban:**
 | Method | Standard | Hard-1 | Hard-2 |
@@ -108,16 +108,16 @@
 
 ### What This Paper Shows
 
-1. **Multi-turn interaction dramatically improves world model reasoning** — interactive training beats monolithic (64.21 vs 49.12)
-2. **WMAct retains performance on harder tasks** — 50% on Hard vs near-0% for EntirePlan
-3. **Skills transfer to general benchmarks** — +5.05 on HMMT25, +2.24 on GPQA-Diamond
-4. **Progressive curriculum (annealing) helps internalization** — better than step penalties
+1. **Multi-turn interaction dramatically improves world model reasoning** - interactive training beats monolithic (64.21 vs 49.12)
+2. **WMAct retains performance on harder tasks** - 50% on Hard vs near-0% for EntirePlan
+3. **Skills transfer to general benchmarks** - +5.05 on HMMT25, +2.24 on GPQA-Diamond
+4. **Progressive curriculum (annealing) helps internalization** - better than step penalties
 
 ### What This Paper Does NOT Show
 
-1. **Whether this works for truly novel problems** — Hard tasks are larger/more boxes, same domain
-2. **Whether the "transfer" is genuine generalization** — benchmarks may overlap with pre-training
-3. **Whether any base model can benefit** — Qwen2.5-7B-Instruct FAILED (Figure 5)
+1. **Whether this works for truly novel problems** - Hard tasks are larger/more boxes, same domain
+2. **Whether the "transfer" is genuine generalization** - benchmarks may overlap with pre-training
+3. **Whether any base model can benefit** - Qwen2.5-7B-Instruct FAILED (Figure 5)
 
 ### Critical Limitation (Authors Acknowledge)
 
@@ -133,7 +133,7 @@ This means:
 ## Relationship to Other Papers
 
 ### Supports
-- **Interplay (2512.07783)**: Confirms RL surfaces, doesn't create — requires pre-existing capability
+- **Interplay (2512.07783)**: Confirms RL surfaces, doesn't create - requires pre-existing capability
 - **DeepSeek-R1 (2501.12948)**: RL organizes existing reasoning patterns
 - **Effective Without Thinking (2504.09858)**: Extended thinking not always necessary
 
@@ -162,8 +162,8 @@ This supports the thesis: extended reasoning can be HARMFUL, not just insufficie
 ### Potential Counter-Arguments
 
 1. **"Hard" tasks aren't truly OOD**
-   - Hard-1: 10×10 grid (vs 7×7 Standard) — same domain, larger scale
-   - Hard-2: 3 boxes (vs 2 boxes) — same domain, more complexity
+   - Hard-1: 10×10 grid (vs 7×7 Standard) - same domain, larger scale
+   - Hard-2: 3 boxes (vs 2 boxes) - same domain, more complexity
    - Not compositionally novel or structurally different
 
 2. **Transfer gains are modest**
@@ -197,19 +197,19 @@ This supports the thesis: extended reasoning can be HARMFUL, not just insufficie
 
 ## Relevance to Thesis
 
-**BALANCED — Training methodology paper with mixed implications**
+**BALANCED - Training methodology paper with mixed implications**
 
 **Supports thesis:**
-1. ✓ Confirms RL requires pre-existing capability — can't create reasoning from scratch
-2. ✓ Shows monolithic reasoning can HARM performance — reinforces errors
-3. ✓ PPO-EntirePlan collapses to 0-2% on harder tasks — same pattern as other papers
+1. ✓ Confirms RL requires pre-existing capability - can't create reasoning from scratch
+2. ✓ Shows monolithic reasoning can HARM performance - reinforces errors
+3. ✓ PPO-EntirePlan collapses to 0-2% on harder tasks - same pattern as other papers
 
 **Against thesis (superficially):**
 1. Transfer to general benchmarks suggests some generalization
 2. WMAct retains ~50% on "Hard" tasks (vs 0-2% for baseline)
 
 **But on closer reading:**
-- "Hard" tasks are same domain, larger scale — not truly OOD
+- "Hard" tasks are same domain, larger scale - not truly OOD
 - Transfer gains are modest (+2-5 points)
 - Authors explicitly state reasoning capability must pre-exist
 - Method surfaces and organizes existing capability, doesn't create new reasoning

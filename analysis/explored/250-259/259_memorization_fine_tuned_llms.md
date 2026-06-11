@@ -27,7 +27,7 @@
 
 ### Setup
 - **Model**: LLaMA-2 7B (quantized 8-bit)
-- **Dataset**: PHEE (pharmacovigilance events) — medical domain
+- **Dataset**: PHEE (pharmacovigilance events) - medical domain
 - **Fine-tuning**: LoRA with varying ranks and target matrices
 - **Metrics**: ROC AUC for membership inference attack
 
@@ -95,7 +95,7 @@ This paper provides mechanistic evidence for how fine-tuning = memorization:
 
 > "Lower perplexity in the fine-tuned model correlates with increased memorization"
 
-The model doesn't learn new reasoning — it stores patterns it already recognized.
+The model doesn't learn new reasoning - it stores patterns it already recognized.
 
 #### 2. Specific Weight Matrices for Memorization
 
@@ -142,7 +142,7 @@ If memorization concentrates in V/O matrices, and RL updates few parameters:
 
 3. **LoRA only**: Full fine-tuning might show different patterns
 
-4. **Privacy framing**: Paper focuses on privacy risk, not reasoning — memorization could coexist with genuine reasoning
+4. **Privacy framing**: Paper focuses on privacy risk, not reasoning - memorization could coexist with genuine reasoning
 
 ### Authors' Limitations
 
@@ -198,7 +198,7 @@ Focus is privacy, not reasoning mechanisms.
 |-----------|------------|
 | **Stance** | Supports |
 | **Confidence** | Medium-High |
-| **Relevance** | High — mechanistic understanding of fine-tuning as memorization |
+| **Relevance** | High - mechanistic understanding of fine-tuning as memorization |
 | **Evidence Type** | Empirical (controlled experiments) |
 | **Venue Quality** | arXiv preprint |
 
@@ -206,4 +206,4 @@ Focus is privacy, not reasoning mechanisms.
 
 ## One-Sentence Summary
 
-Fine-tuning LLMs concentrates memorization in Value and Output projection matrices, with lower perplexity sequences more likely to be memorized — providing mechanistic evidence that fine-tuning is pattern storage, not reasoning acquisition.
+Fine-tuning LLMs concentrates memorization in Value and Output projection matrices, with lower perplexity sequences more likely to be memorized - providing mechanistic evidence that fine-tuning is pattern storage, not reasoning acquisition.

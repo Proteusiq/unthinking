@@ -1,4 +1,4 @@
-# Paper Analysis: FRIT — Using Causal Importance to Improve CoT Faithfulness
+# Paper Analysis: FRIT - Using Causal Importance to Improve CoT Faithfulness
 
 ## Metadata
 - **arXiv ID**: 2509.13334
@@ -12,9 +12,9 @@
 ## Core Claims
 
 1. **Causal importance can be measured** via intervention and answer change detection
-2. **Baseline CoT faithfulness is LOW** — most steps don't influence the answer
+2. **Baseline CoT faithfulness is LOW** - most steps don't influence the answer
 3. **DPO on faithful/unfaithful pairs improves faithfulness** without explicit accuracy training
-4. **Accuracy improves as a byproduct** of greater faithfulness — emergent property
+4. **Accuracy improves as a byproduct** of greater faithfulness - emergent property
 5. **First scalable, supervision-free method** for training more faithful reasoning
 
 ---
@@ -98,14 +98,14 @@
 
 ### What This Paper Shows
 
-1. **CoT steps are mostly decorative** — 30-60% unfaithful
-2. **Faithfulness can be trained** — DPO on causal pairs works
-3. **Accuracy is linked to faithfulness** — emergent improvement
-4. **Intervention-based testing works** — identifies causal steps
+1. **CoT steps are mostly decorative** - 30-60% unfaithful
+2. **Faithfulness can be trained** - DPO on causal pairs works
+3. **Accuracy is linked to faithfulness** - emergent improvement
+4. **Intervention-based testing works** - identifies causal steps
 
 ### Relevance to Thesis
 
-**BALANCED — Shows unfaithfulness is pervasive, but offers improvement method**
+**BALANCED - Shows unfaithfulness is pervasive, but offers improvement method**
 
 **Supports thesis:**
 - Baseline faithfulness is shockingly low (32.9% for Qwen GSM8K)
@@ -143,10 +143,10 @@
 
 ### Potential Counter-Arguments
 
-1. **Computational cost** — 10-24 hours on 4 GPUs
-2. **Faithfulness drift** — Labels may become stale as model updates
-3. **Limited gains on strong models** — Qwen shows smaller improvements
-4. **High variance** — Some metrics have ±5.0% error bars
+1. **Computational cost** - 10-24 hours on 4 GPUs
+2. **Faithfulness drift** - Labels may become stale as model updates
+3. **Limited gains on strong models** - Qwen shows smaller improvements
+4. **High variance** - Some metrics have ±5.0% error bars
 
 ### Limitations (Authors Acknowledge)
 - Computational expense (intervention + regeneration)
@@ -168,7 +168,7 @@
 
 ## Relevance to Thesis
 
-**BALANCED — Documents unfaithfulness but offers training remedy**
+**BALANCED - Documents unfaithfulness but offers training remedy**
 
 This paper shows:
 1. ✓ Baseline CoT faithfulness is low (32.9-63.2%)
@@ -177,7 +177,7 @@ This paper shows:
 4. ~ But: faithfulness can be improved with training
 5. ~ But: accuracy emerges from faithfulness improvement
 
-**Key insight**: The paper confirms CoT unfaithfulness is pervasive but shows it's addressable. The emergent accuracy-faithfulness link suggests genuine reasoning may be happening when CoT is faithful — this is evidence that COULD support genuine reasoning, contingent on having faithful CoT.
+**Key insight**: The paper confirms CoT unfaithfulness is pervasive but shows it's addressable. The emergent accuracy-faithfulness link suggests genuine reasoning may be happening when CoT is faithful - this is evidence that COULD support genuine reasoning, contingent on having faithful CoT.
 
 ---
 

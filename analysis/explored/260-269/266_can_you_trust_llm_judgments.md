@@ -10,11 +10,11 @@
 
 ## Core Claims
 
-1. **Single-shot LLM evaluations are fundamentally unreliable** — a single output is just one sample from a probability distribution, creating "fixed randomness" that systematically misleads
-2. **Inter-rater reliability is insufficient for LLM judges** — doesn't account for inherent randomness; varies wildly (0.167 to 1.00) with different seeds
-3. **McDonald's omega provides rigorous reliability measurement** — internal consistency across multiple replicated evaluations is the appropriate measure
-4. **Temperature setting does not universally improve reliability** — optimal temperature varies by model AND task
-5. **Performance-reliability trade-off exists** — models optimized for benchmark performance may sacrifice judgment reliability
+1. **Single-shot LLM evaluations are fundamentally unreliable** - a single output is just one sample from a probability distribution, creating "fixed randomness" that systematically misleads
+2. **Inter-rater reliability is insufficient for LLM judges** - doesn't account for inherent randomness; varies wildly (0.167 to 1.00) with different seeds
+3. **McDonald's omega provides rigorous reliability measurement** - internal consistency across multiple replicated evaluations is the appropriate measure
+4. **Temperature setting does not universally improve reliability** - optimal temperature varies by model AND task
+5. **Performance-reliability trade-off exists** - models optimized for benchmark performance may sacrifice judgment reliability
 
 ---
 
@@ -27,7 +27,7 @@
 ```
 
 **Experimental Design**:
-- **Benchmarks**: BBH (hard), SQuAD (easier), MT-Bench (multi-turn) — 55 questions
+- **Benchmarks**: BBH (hard), SQuAD (easier), MT-Bench (multi-turn) - 55 questions
 - **Judge models**: Starling-LM-7B-beta, Gemma-1.1-7b-it, Meta-Llama-3-8B-Instruct
 - **Procedure**: Each judge evaluated same 5 responses **100 times**, varying only random seed
 - **Temperature levels**: 1.0, 0.75, 0.5, 0.25, 0
@@ -95,7 +95,7 @@
 │    temp=0.25 → ω = 0.803  (Better at lower temperature)             │
 │                                                                     │
 │  Temperature=0 gives ω=1.0 but this is "fixed randomness"           │
-│  — determinism masks variability, doesn't eliminate it              │
+│  - determinism masks variability, doesn't eliminate it              │
 │                                                                     │
 └─────────────────────────────────────────────────────────────────────┘
 ```
@@ -107,7 +107,7 @@
 | Chatbot Arena Rank | Lowest | Middle | Highest |
 | Judgment Reliability | Highest | Middle | Lowest |
 
-The ranking **inverts** — models optimized for performance may sacrifice reliability.
+The ranking **inverts** - models optimized for performance may sacrifice reliability.
 
 ---
 
@@ -116,13 +116,13 @@ The ranking **inverts** — models optimized for performance may sacrifice relia
 ### Supports
 - **LLM-as-a-Judge Survey (2411.15594)**: Confirms unreliability with rigorous psychometric framework
 - **Faith & Fate (2305.18654)**: Pattern matching produces inconsistent judgments across seeds
-- **GSM-Symbolic (2410.05229)**: Same fragility pattern — small changes cause large variation
+- **GSM-Symbolic (2410.05229)**: Same fragility pattern - small changes cause large variation
 
 ### Extends
 - **LLM-as-a-Judge Survey**: Provides quantitative reliability framework (McDonald's omega) missing from survey
 
 ### Challenges
-- Claims that temperature=0 settings produce "reliable" evaluations — it's deterministic but not reliable
+- Claims that temperature=0 settings produce "reliable" evaluations - it's deterministic but not reliable
 
 ---
 
@@ -177,9 +177,9 @@ The ranking **inverts** — models optimized for performance may sacrifice relia
 **Stance: SUPPORTS THESIS**
 
 This paper provides rigorous psychometric evidence that:
-1. LLM judgments are fundamentally unreliable — not just biased, but inconsistent
-2. Temperature=0 creates "fixed randomness" — determinism masks the problem
-3. Performance and reliability are inversely related — better models may be worse judges
+1. LLM judgments are fundamentally unreliable - not just biased, but inconsistent
+2. Temperature=0 creates "fixed randomness" - determinism masks the problem
+3. Performance and reliability are inversely related - better models may be worse judges
 4. Single-shot evaluations should not be trusted for important decisions
 
 Combined with Survey #267 (biases) and this paper (inconsistency), the LLM-as-a-Judge paradigm is doubly compromised: biased AND unreliable.

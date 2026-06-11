@@ -11,7 +11,7 @@
 
 ## Core Claims
 
-1. **Detection-localization gap**: LLM judges can detect causal errors (88-94%) but struggle to localize the exact step (55-68% exact match) — a 26-33 percentage point gap
+1. **Detection-localization gap**: LLM judges can detect causal errors (88-94%) but struggle to localize the exact step (55-68% exact match) - a 26-33 percentage point gap
 2. **Coverage scores are systematically inflated**: All judges over-credit incomplete reasoning; at 70% step deletion, mean scores remain ~3.0/4.0
 3. **No single judge dominates all tasks**: Rankings invert between binary detection (DeepSeek leads) and localization (o4-mini leads)
 4. **Early-prediction bias in localization**: All judges systematically predict errors earlier than they actually occur (mean -0.44 to -1.20 steps)
@@ -21,7 +21,7 @@
 
 ## Methodology
 
-**Benchmark**: C2-Faith — controlled perturbations from PRM800K verified reasoning chains
+**Benchmark**: C2-Faith - controlled perturbations from PRM800K verified reasoning chains
 
 **Two Dimensions of Faithfulness:**
 1. **Causality**: Does each step logically follow from prior context?
@@ -76,7 +76,7 @@
 │                                                                     │
 │  At 10% deletion (only 10% of steps removed):                       │
 │    - DeepSeek assigns score 4 to 95.1% of examples                  │
-│    - Spearman ρ = -0.006 (p=0.906) — essentially random             │
+│    - Spearman ρ = -0.006 (p=0.906) - essentially random             │
 │                                                                     │
 │  At 70% deletion (70% of steps removed):                            │
 │    - DeepSeek still assigns score 4 to 64.1% of examples            │
@@ -117,7 +117,7 @@ The paper demonstrates multiple failures in LLM judge reasoning:
 
 4. **Early-prediction bias**: Systematic tendency to predict errors earlier suggests judges follow heuristics (flag early when uncertain) rather than reasoning through chains
 
-The DeepSeek ceiling collapse is particularly damning — assigning maximum coverage scores to chains missing 70% of steps reveals no genuine completeness assessment.
+The DeepSeek ceiling collapse is particularly damning - assigning maximum coverage scores to chains missing 70% of steps reveals no genuine completeness assessment.
 
 ---
 
@@ -125,7 +125,7 @@ The DeepSeek ceiling collapse is particularly damning — assigning maximum cove
 
 **Classification**: Supports the thesis that LLMs don't genuinely reason
 
-**Confidence**: High — controlled perturbations with exact ground truth, multiple judges, statistical validation
+**Confidence**: High - controlled perturbations with exact ground truth, multiple judges, statistical validation
 
 ---
 
@@ -193,4 +193,4 @@ None identified. Paper provides controlled diagnostic, not theoretical claims.
 3. **Coverage inflation**: Quantifies systematic over-crediting of incomplete reasoning
 4. **Practical guidance**: Task-specific judge recommendations backed by evidence
 
-The finding that judges can detect but not localize errors is a precise analogue of "pattern matching without understanding" — knowing something is wrong without knowing why is the signature of heuristic rather than genuine reasoning.
+The finding that judges can detect but not localize errors is a precise analogue of "pattern matching without understanding" - knowing something is wrong without knowing why is the signature of heuristic rather than genuine reasoning.

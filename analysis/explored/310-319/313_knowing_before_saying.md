@@ -15,7 +15,7 @@
 
 2. **60-76% probing accuracy**: Probing classifiers predict success from pre-generation representations.
 
-3. **Later steps don't always help**: Additional CoT steps sometimes don't improve prediction—early representations already contain key information.
+3. **Later steps don't always help**: Additional CoT steps sometimes don't improve prediction-early representations already contain key information.
 
 4. **Gap between probed and verbalized**: Models encode more planning information than they can explicitly access.
 

@@ -13,7 +13,7 @@
 
 1. **Smaller model can match 14x larger**: With optimal test-time compute allocation, a smaller model can match performance of 14x larger model on some tasks.
 
-2. **Effectiveness varies with difficulty**: Test-time compute "critically varies with difficulty"—works on easy/medium, fails on hard.
+2. **Effectiveness varies with difficulty**: Test-time compute "critically varies with difficulty"-works on easy/medium, fails on hard.
 
 3. **Bin 5 (hardest): no progress**: "On the most difficult questions (level 5), no method makes much meaningful progress."
 
@@ -110,7 +110,7 @@ The paper's own findings serve as a partial rebuttal to test-time scaling claims
 │  not by test-time compute. No amount of search helps on problems   │
 │  outside the model's capability distribution.                      │
 │                                                                     │
-│  "Reasoning" improvements are actually BETTER PATTERN RETRIEVAL—   │
+│  "Reasoning" improvements are actually BETTER PATTERN RETRIEVAL-   │
 │  the revisions fix computational errors, not generate novel        │
 │  mathematical reasoning.                                           │
 └─────────────────────────────────────────────────────────────────────┘

@@ -11,10 +11,10 @@
 
 ## Core Claims
 
-1. **Outcome-based RL produces unfaithful reasoning** — Search agents trained with RLVR (outcome-only rewards) achieve high accuracy but generate CoT that doesn't faithfully integrate retrieved evidence
-2. **Three faithfulness dimensions** — Information-Think (does thinking use evidence?), Think-Search (are searches justified?), Think-Answer (is answer grounded in thinking?)
-3. **VERITAS improves faithfulness** — Adding process-based faithfulness rewards to RL improves Information-Think by ~14% and Think-Answer by ~7.7% while maintaining accuracy
-4. **Accuracy ≠ Faithfulness** — Models can get correct answers without faithful reasoning traces
+1. **Outcome-based RL produces unfaithful reasoning** - Search agents trained with RLVR (outcome-only rewards) achieve high accuracy but generate CoT that doesn't faithfully integrate retrieved evidence
+2. **Three faithfulness dimensions** - Information-Think (does thinking use evidence?), Think-Search (are searches justified?), Think-Answer (is answer grounded in thinking?)
+3. **VERITAS improves faithfulness** - Adding process-based faithfulness rewards to RL improves Information-Think by ~14% and Think-Answer by ~7.7% while maintaining accuracy
+4. **Accuracy ≠ Faithfulness** - Models can get correct answers without faithful reasoning traces
 
 ---
 
@@ -57,30 +57,30 @@
 ## Relationship to Other Papers
 
 ### Supports
-- **Measuring Faithfulness (2307.13702)** — Both find CoT unfaithful; this extends to RAG/agentic settings
-- **CoT In The Wild (2503.08679)** — Natural prompts unfaithful; RAG agents show same pattern
-- **Faithfulness Decay (2602.11201)** — Different setting (RAG vs pure reasoning) but same conclusion
-- **No Free Lunch (2506.17219)** — Format vs reasoning tradeoff confirmed (format reward hurts faithfulness)
+- **Measuring Faithfulness (2307.13702)** - Both find CoT unfaithful; this extends to RAG/agentic settings
+- **CoT In The Wild (2503.08679)** - Natural prompts unfaithful; RAG agents show same pattern
+- **Faithfulness Decay (2602.11201)** - Different setting (RAG vs pure reasoning) but same conclusion
+- **No Free Lunch (2506.17219)** - Format vs reasoning tradeoff confirmed (format reward hurts faithfulness)
 
 ### Challenges
-- None directly — paper proposes a SOLUTION (VERITAS) rather than only critiquing
+- None directly - paper proposes a SOLUTION (VERITAS) rather than only critiquing
 
 ### Extends
-- **FRIT Faithfulness Intervention (2509.13334)** — Extends causal intervention to RL reward design
-- **Measuring CoT Monitorability (2510.27378)** — Adds RAG-specific faithfulness dimensions
+- **FRIT Faithfulness Intervention (2509.13334)** - Extends causal intervention to RL reward design
+- **Measuring CoT Monitorability (2510.27378)** - Adds RAG-specific faithfulness dimensions
 
 ---
 
 ## REBUTTALS
 
 ### Known Rebuttals
-None found yet — paper is recent
+None found yet - paper is recent
 
 ### Potential Counter-Arguments
-1. **LLM-as-Judge circularity** — Using LLMs to judge LLM faithfulness may have systematic biases
-2. **Distillation gap** — Reward model distilled from Claude may not capture full judgment quality
-3. **Task-specific results** — Only QA benchmarks tested; may not generalize to other RAG applications
-4. **Think-Search already high** — High baseline suggests models already learn search alignment
+1. **LLM-as-Judge circularity** - Using LLMs to judge LLM faithfulness may have systematic biases
+2. **Distillation gap** - Reward model distilled from Claude may not capture full judgment quality
+3. **Task-specific results** - Only QA benchmarks tested; may not generalize to other RAG applications
+4. **Think-Search already high** - High baseline suggests models already learn search alignment
 
 ### Limitations (Authors Acknowledge)
 - Only evaluated on QA benchmarks (short-form answers)
@@ -92,7 +92,7 @@ None found yet — paper is recent
 
 ## Key Quotes
 
-> "Our evaluations reveal that canonical search agents trained via Reinforcement Learning from Verifiable Reward (RLVR) — including Search-R1 and ReSearch — have significant room for improvement in this regard."
+> "Our evaluations reveal that canonical search agents trained via Reinforcement Learning from Verifiable Reward (RLVR) - including Search-R1 and ReSearch - have significant room for improvement in this regard."
 
 > "A modified reward shaping by adding a format reward may improve model performance, but in return potentially breaks the model's reasoning consistency."
 
@@ -106,13 +106,13 @@ None found yet — paper is recent
 
 **SUPPORTS** the thesis that LLMs are pattern matchers:
 
-1. **Outcome-based RL doesn't create faithful reasoning** — Models learn to get correct answers without actually integrating evidence = pattern matching to answers
-2. **Format rewards hurt faithfulness** — Optimizing for format (pattern) degrades actual reasoning
-3. **High accuracy with low faithfulness** — DeSA-7B: 42.4% EM but only 16% Info-Think faithfulness = correct answers without reasoning
+1. **Outcome-based RL doesn't create faithful reasoning** - Models learn to get correct answers without actually integrating evidence = pattern matching to answers
+2. **Format rewards hurt faithfulness** - Optimizing for format (pattern) degrades actual reasoning
+3. **High accuracy with low faithfulness** - DeSA-7B: 42.4% EM but only 16% Info-Think faithfulness = correct answers without reasoning
 
 However, this is **balanced** evidence:
 - VERITAS shows faithfulness CAN be improved via training
-- Process supervision works — suggests reasoning is trainable, not just pattern matching
+- Process supervision works - suggests reasoning is trainable, not just pattern matching
 - But improvement requires explicit faithfulness rewards, not emergent
 
 **Overall stance: SUPPORTS** (unfaithful baseline is the natural state; faithfulness requires intervention)

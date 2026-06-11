@@ -27,7 +27,7 @@
 Complexity measure relating learnability to NC⁰ circuits
 
 ### Benchmark
-Cycle task—determining if two vertices are connected in a graph
+Cycle task-determining if two vertices are connected in a graph
 
 ### Experiments
 GPT2-style Transformers (10M, 25M, 85M parameters)
@@ -101,7 +101,7 @@ The gap explains why reasoning benchmarks are hard
 
 ### Limitations (Authors Acknowledge)
 1. Theorem 1 requires specific technical assumptions
-2. Cycle task is synthetic—unclear how results map to natural language
+2. Cycle task is synthetic-unclear how results map to natural language
 3. Globality measure requires knowing ground truth correlations
 
 ---
@@ -134,7 +134,7 @@ The gap explains why reasoning benchmarks are hard
 
 1. **Formal limitation**: Proves Transformers cannot learn certain reasoning tasks regardless of scale
 2. **Pattern matching bound**: Globality captures the "must see all relevant evidence at once" requirement
-3. **Scratchpad revelation**: Models can't discover reasoning steps—they must be taught
+3. **Scratchpad revelation**: Models can't discover reasoning steps-they must be taught
 
 **Stance**: SUPPORTS
 

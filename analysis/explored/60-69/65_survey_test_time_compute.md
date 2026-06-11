@@ -61,7 +61,7 @@ This supports the thesis that LLMs can follow correction patterns but cannot gen
 
 > "There are two major challenges: first, current test-time compute strategies are various... second, the performance of test-time compute is affected by a variety of factors."
 
-This supports the thesis: unlike training (which follows predictable scaling), inference-time improvements are unpredictable — suggesting they're not accessing deeper reasoning but rather searching through learned patterns.
+This supports the thesis: unlike training (which follows predictable scaling), inference-time improvements are unpredictable - suggesting they're not accessing deeper reasoning but rather searching through learned patterns.
 
 ### 3. LRMs Fail to Generalize
 
@@ -93,7 +93,7 @@ The survey acknowledges fundamental limitations of all TTA approaches.
 
 > "When feedback accuracy exceeds 90%, Self-Revision outperforms Best-of-N Search."
 
-This partially challenges the thesis — but note: this requires TRAINING to achieve, not emergent capability.
+This partially challenges the thesis - but note: this requires TRAINING to achieve, not emergent capability.
 
 ### 2. Tree Search Can Help
 
@@ -115,7 +115,7 @@ Parallel sampling reliably improves performance (though this is more "coverage" 
 - **Illusions of Reflection (2510.18254)**: Both find self-correction limited without external feedback
 - **Revisiting Test-Time Scaling (2502.12215)**: Both find sequential scaling (longer CoT) fails; parallel scaling works better
 - **No Free Lunch (2506.17219)**: Both find RL has limited effectiveness for improving reasoning
-- **Interplay (2512.07783)**: Survey's framing supports "surfacing" — TTA surfaces existing capabilities
+- **Interplay (2512.07783)**: Survey's framing supports "surfacing" - TTA surfaces existing capabilities
 
 ### Extends
 - **DeepSeek-R1 (2501.12948)**: Survey provides theoretical framework for understanding R1's approach
@@ -130,7 +130,7 @@ Parallel sampling reliably improves performance (though this is more "coverage" 
 ## REBUTTALS TO THIS PAPER
 
 ### Search for Direct Rebuttals
-- Paper is a survey (January 2025) — surveys are rarely directly rebutted
+- Paper is a survey (January 2025) - surveys are rarely directly rebutted
 - No direct rebuttals found
 
 ### Potential Counter-Arguments
@@ -168,7 +168,7 @@ Parallel sampling reliably improves performance (though this is more "coverage" 
 
 ## Relevance to Thesis
 
-**SUPPORTS** — Survey provides comprehensive framework that, on close reading, supports the thesis.
+**SUPPORTS** - Survey provides comprehensive framework that, on close reading, supports the thesis.
 
 ### Key Insights for Thesis
 

@@ -380,7 +380,7 @@
           <b>granularity</b>: character-level is simple but produces long sequences;
           <b>BPE</b> (Byte Pair Encoding) compresses common patterns into single tokens.
           <span class="accent">Every LLM starts here</span>
-          — the model never sees raw text, only token IDs.
+          - the model never sees raw text, only token IDs.
         </div>
 
         <div class="card-grid">
@@ -393,10 +393,10 @@
             <div class="c-key">One token per character. Simple but ~4× longer sequences.</div>
             <div class="c-detail">
               <b>How it works:</b> Map each unique character to an integer. "hello" becomes [7, 4,
-              11, 11, 14] — five tokens for five characters.<br /><br />
+              11, 11, 14] - five tokens for five characters.<br /><br />
               <pre
                 class="code-block"
-              ><span class="cm"># From Karpathy's microgpt — 5 lines of tokenizer</span>
+              ><span class="cm"># From Karpathy's microgpt - 5 lines of tokenizer</span>
 uchars = sorted(set(''.join(docs)))  <span class="cm"># unique chars</span>
 BOS = len(uchars)                    <span class="cm"># special token</span>
 vocab_size = len(uchars) + 1
@@ -437,7 +437,7 @@ tokens = [BOS] + [uchars.index(ch) <span class="kw">for</span> ch <span class="k
     <span class="kw">return</span> merges</pre>
               <b>Key insight:</b> BPE discovers structure without linguistic rules. Common words
               become single tokens; rare words split into reusable pieces. "unhappy" might become
-              ["un", "happy"] — but this is frequency-driven, not morphological analysis.
+              ["un", "happy"] - but this is frequency-driven, not morphological analysis.
             </div>
           </div>
 
@@ -486,7 +486,7 @@ tokens = [BOS] + [uchars.index(ch) <span class="kw">for</span> ch <span class="k
                 </table>
               </div>
               <b>Sweet spot:</b> 50K–200K tokens. Balances sequence length against embedding matrix
-              size. Byte-level fallback guarantees open vocabulary — no "unknown token" failures.
+              size. Byte-level fallback guarantees open vocabulary - no "unknown token" failures.
             </div>
           </div>
 
@@ -496,7 +496,7 @@ tokens = [BOS] + [uchars.index(ch) <span class="kw">for</span> ch <span class="k
               <span class="c-name" style="color: var(--accent-orange)">Special Tokens</span>
               <span class="c-chev">▼</span>
             </div>
-            <div class="c-key">BOS, EOS, PAD — boundary markers for sequences.</div>
+            <div class="c-key">BOS, EOS, PAD - boundary markers for sequences.</div>
             <div class="c-detail">
               <b>BOS</b> (Beginning of Sequence): Signals start of generation<br />
               <b>EOS</b> (End of Sequence): Model learns when to stop<br />
@@ -510,10 +510,10 @@ tokens = [BOS] + encode(<span class="st">"emma"</span>) + [BOS]
 
         <div class="sec-label">What tokenization reveals about LLMs</div>
         <div class="intro">
-          LLMs never see characters — they see token IDs. "strawberry" might tokenize as ["str",
+          LLMs never see characters - they see token IDs. "strawberry" might tokenize as ["str",
           "aw", "berry"]. The model has <b>no direct access to individual letters</b>, which
           explains why LLMs struggle with counting letters, spelling tasks, and character-level
-          operations. Tokenization is linguistically blind — subword boundaries rarely align with
+          operations. Tokenization is linguistically blind - subword boundaries rarely align with
           morpheme boundaries.
         </div>
       </div>
@@ -523,10 +523,10 @@ tokens = [BOS] + encode(<span class="st">"emma"</span>) + [BOS]
       <!-- ════════════════════════════════════════════════════════════ -->
       <div id="view-embed" class="view">
         <div class="intro">
-          Embeddings map token IDs to dense vectors — a
+          Embeddings map token IDs to dense vectors - a
           <b>lookup table</b> that's mathematically equivalent to one-hot × weight matrix, but
           efficient. Token embeddings capture
-          <span class="accent">distributional similarity</span> — tokens appearing in similar
+          <span class="accent">distributional similarity</span> - tokens appearing in similar
           contexts get similar vectors. Position embeddings tell the model <b>where</b> each token
           is in the sequence.
         </div>
@@ -549,7 +549,7 @@ tokens = [BOS] + encode(<span class="st">"emma"</span>) + [BOS]
 wte = [[random.gauss(<span class="nu">0</span>, <span class="nu">0.08</span>)
         <span class="kw">for</span> _ <span class="kw">in</span> range(n_embd)]
        <span class="kw">for</span> _ <span class="kw">in</span> range(vocab_size)]
-tok_emb = wte[token_id]  <span class="cm"># that's it — just indexing</span></pre>
+tok_emb = wte[token_id]  <span class="cm"># that's it - just indexing</span></pre>
               <b>Key insight:</b> Each row is a learnable d-dimensional vector. Initialized
               randomly, then updated via backpropagation to capture co-occurrence patterns from
               training data.
@@ -619,7 +619,7 @@ pos_emb = wpe[pos_id]</pre>
                 class="code-block"
               ><span class="cm"># The model's actual input for each token</span>
 x = [t + p <span class="kw">for</span> t, p <span class="kw">in</span> zip(tok_emb, pos_emb)]</pre>
-              This addition is not arbitrary — both embeddings live in the same vector space, and
+              This addition is not arbitrary - both embeddings live in the same vector space, and
               the model learns during training to disentangle "what token is this" from "where is
               it."
             </div>
@@ -672,7 +672,7 @@ x = [t + p <span class="kw">for</span> t, p <span class="kw">in</span> zip(tok_e
 
         <div class="sec-label">What embeddings encode</div>
         <div class="intro">
-          Embeddings don't encode "meaning" — they encode
+          Embeddings don't encode "meaning" - they encode
           <b>distributional similarity</b>. "king" is near "queen" because they appear in similar
           contexts in the training data, not because the model understands monarchy. The famous
           "king - man + woman ≈ queen" works because gender is a consistent direction in the
@@ -689,7 +689,7 @@ x = [t + p <span class="kw">for</span> t, p <span class="kw">in</span> zip(tok_e
           Think of it as a
           <span class="accent">soft dictionary lookup</span>: Query asks "what am I looking for?",
           Key answers "what do I contain?", Value provides "what to return if matched." The result
-          is a <b>weighted blend</b> of all values — not a hard lookup.
+          is a <b>weighted blend</b> of all values - not a hard lookup.
         </div>
 
         <div class="card-grid">
@@ -699,17 +699,17 @@ x = [t + p <span class="kw">for</span> t, p <span class="kw">in</span> zip(tok_e
               <span class="c-name" style="color: var(--accent)">Self-Attention</span>
               <span class="c-chev">▼</span>
             </div>
-            <div class="c-key">softmax(QK^T / √d) @ V — the core operation.</div>
+            <div class="c-key">softmax(QK^T / √d) @ V - the core operation.</div>
             <div class="c-detail">
               <div class="formula">
                 Attention(Q, K, V) = softmax( Q·K<sup>T</sup> / √d<sub>k</sub>
                 ) · V
               </div>
               <b>Step by step:</b><br />
-              1. <b>Q·K<sup>T</sup></b> — Similarity scores: every position vs every other<br />
-              2. <b>/ √d<sub>k</sub></b> — Scale to prevent softmax saturation<br />
-              3. <b>softmax</b> — Convert to probabilities (sum to 1 per row)<br />
-              4. <b>· V</b> — Weighted blend of value vectors<br /><br />
+              1. <b>Q·K<sup>T</sup></b> - Similarity scores: every position vs every other<br />
+              2. <b>/ √d<sub>k</sub></b> - Scale to prevent softmax saturation<br />
+              3. <b>softmax</b> - Convert to probabilities (sum to 1 per row)<br />
+              4. <b>· V</b> - Weighted blend of value vectors<br /><br />
               <pre class="code-block"><span class="cm"># From no-magic/microattention.py</span>
 <span class="kw">def</span> <span class="fn">attention</span>(q, k, v):
     scale = <span class="nu">1.0</span> / math.sqrt(len(q[<span class="nu">0</span>]))
@@ -799,7 +799,7 @@ weights = softmax(scores)  <span class="cm"># -inf → 0</span>
             </div>
             <div class="c-detail">
               Instead of one d-dimensional attention, use h heads each with d/h dimensions. Each
-              head can specialize — one learns syntax, another semantics, another position.
+              head can specialize - one learns syntax, another semantics, another position.
               <b>Same total FLOPs</b> as single-head.<br /><br />
               <pre
                 class="code-block"
@@ -810,7 +810,7 @@ weights = softmax(scores)  <span class="cm"># -inf → 0</span>
     k_h = [ki[hs:hs+head_dim] <span class="kw">for</span> ki <span class="kw">in</span> keys]
     v_h = [vi[hs:hs+head_dim] <span class="kw">for</span> vi <span class="kw">in</span> values]
     <span class="cm"># attention per head, concatenate all heads</span></pre>
-              <b>W_O projection</b> after concatenation is where cross-head mixing happens —
+              <b>W_O projection</b> after concatenation is where cross-head mixing happens -
               combining signals from all attention patterns.
               <div class="tbl-wrap">
                 <table class="tbl">
@@ -852,7 +852,7 @@ weights = softmax(scores)  <span class="cm"># -inf → 0</span>
         <div class="intro">
           The Feed-Forward Network processes each position
           <b>independently</b>: expand → activate → contract. Often called the
-          <span class="accent">"memory"</span> of the transformer — factual knowledge is stored in
+          <span class="accent">"memory"</span> of the transformer - factual knowledge is stored in
           these weights. Residual connections (<b>x + f(x)</b>) create a gradient highway that makes
           deep networks trainable.
         </div>
@@ -928,10 +928,10 @@ x = linear(x, mlp_fc2)                <span class="cm"># [4d] → [d] contract</
               >
               <span class="c-chev">▼</span>
             </div>
-            <div class="c-key">x + f(x) — gradient highway. Makes deep networks trainable.</div>
+            <div class="c-key">x + f(x) - gradient highway. Makes deep networks trainable.</div>
             <div class="c-detail">
               <div class="formula">x = x + attention(norm(x))<br />x = x + ffn(norm(x))</div>
-              Without residuals, gradients must pass through every layer's transformations — they
+              Without residuals, gradients must pass through every layer's transformations - they
               vanish in deep networks. The residual "highway" lets gradients flow
               <b>directly backward</b> unimpeded.
               <pre
@@ -958,12 +958,12 @@ x = [a + b <span class="kw">for</span> a, b <span class="kw">in</span> zip(x, x_
             <div class="c-detail">
               <b>Post-Norm</b> (2017 Transformer): x = Norm(x + f(x))<br />
               <b>Pre-Norm</b> (GPT-2+): x = x + f(Norm(x))<br /><br />
-              Pre-norm keeps the residual path clean — no normalization layer on the skip
+              Pre-norm keeps the residual path clean - no normalization layer on the skip
               connection. More stable training. All modern LLMs use pre-norm, typically
               <b>RMSNorm</b> instead of LayerNorm.<br /><br />
               <pre
                 class="code-block"
-              ><span class="cm"># RMSNorm (simpler than LayerNorm — no mean subtraction)</span>
+              ><span class="cm"># RMSNorm (simpler than LayerNorm - no mean subtraction)</span>
 <span class="kw">def</span> <span class="fn">rmsnorm</span>(x):
     ms = sum(xi * xi <span class="kw">for</span> xi <span class="kw">in</span> x) / len(x)
     scale = (ms + <span class="nu">1e-5</span>) ** <span class="nu">-0.5</span>
@@ -1032,7 +1032,7 @@ x = [a + b <span class="kw">for</span> a, b <span class="kw">in</span> zip(x, x_
               If probability is 0.01 → loss = 4.6 (large, wrong)<br /><br />
               The log makes the penalty grow
               <b>increasingly severe</b> as confidence in the wrong answer increases. This is the
-              <b>only training signal</b> — predict the next token better.
+              <b>only training signal</b> - predict the next token better.
               <pre class="code-block"><span class="cm"># The loss for one token prediction</span>
 logits = gpt(token_id, pos_id, keys, values)
 probs = softmax(logits)
@@ -1060,7 +1060,7 @@ loss = -probs[target_id].log()</pre>
     <span class="kw">for</span> v <span class="kw">in</span> reversed(topo):
         <span class="kw">for</span> child, local_grad <span class="kw">in</span> zip(v._children, v._local_grads):
             child.grad += local_grad * v.grad  <span class="cm"># chain rule</span></pre>
-              <b>6 primitive operations</b> with known derivatives — add, mul, pow, exp, log, relu —
+              <b>6 primitive operations</b> with known derivatives - add, mul, pow, exp, log, relu -
               compose to compute gradients through any neural network.
             </div>
           </div>
@@ -1114,7 +1114,7 @@ loss = -probs[target_id].log()</pre>
     optimizer.step()
     optimizer.zero_grad()</pre>
               This 4-line loop, repeated with different data, is how
-              <b>every LLM learns</b>. GPT-4 and microgpt use the same algorithm — only scale
+              <b>every LLM learns</b>. GPT-4 and microgpt use the same algorithm - only scale
               differs.
             </div>
           </div>
@@ -1148,7 +1148,7 @@ lr_t = learning_rate * (<span class="nu">1</span> - step / num_steps)
 
         <div class="sec-label">What training reveals</div>
         <div class="intro">
-          The training objective is <b>next-token prediction</b> — a purely statistical task. By
+          The training objective is <b>next-token prediction</b> - a purely statistical task. By
           predicting what comes next in trillions of tokens, the model is forced to learn grammar
           (to predict syntax), facts (to predict entities), and patterns that resemble reasoning (to
           predict logical conclusions). All of it compressed into weight matrices through gradient
@@ -1162,23 +1162,23 @@ lr_t = learning_rate * (<span class="nu">1</span> - step / num_steps)
       <div class="credits">
         <b>Educational sources and inspiration:</b><br />
         <a href="https://gist.github.com/karpathy/8627fe009c40f57531cb18360106ce95">microgpt.py</a>
-        by Andrej Karpathy — "This file is the complete algorithm. Everything else is just
+        by Andrej Karpathy - "This file is the complete algorithm. Everything else is just
         efficiency."<br />
-        <a href="https://github.com/no-magic-ai/no-magic">no-magic</a> by no-magic-ai — 46
+        <a href="https://github.com/no-magic-ai/no-magic">no-magic</a> by no-magic-ai - 46
         algorithms from scratch, zero dependencies<br />
         <a href="https://github.com/rasbt/LLMs-from-scratch">LLMs-from-scratch</a>
-        by Sebastian Raschka — Build a Large Language Model (Manning, 2024)<br />
-        <a href="https://cs336.stanford.edu/">Stanford CS336</a> — Language Modeling from Scratch
+        by Sebastian Raschka - Build a Large Language Model (Manning, 2024)<br />
+        <a href="https://cs336.stanford.edu/">Stanford CS336</a> - Language Modeling from Scratch
         (Hashimoto &amp; Liang)<br />
-        <a href="https://cme295.stanford.edu/">Stanford CME 295</a> — Transformers &amp; Large
+        <a href="https://cme295.stanford.edu/">Stanford CME 295</a> - Transformers &amp; Large
         Language Models (Amidi &amp; Amidi) |
         <a href="https://github.com/afshinea/stanford-cme-295-transformers-large-language-models"
           >cheatsheet</a
         ><br /><br />
         <b>Related visualizations:</b><br />
-        <a href="attention.html">Multi-Head Attention</a> — Interactive contextual embedding
+        <a href="attention.html">Multi-Head Attention</a> - Interactive contextual embedding
         visualization<br />
-        <a href="architecture.html">LLM Architecture Evolution</a> — Activations, norms, block
+        <a href="architecture.html">LLM Architecture Evolution</a> - Activations, norms, block
         design 2017–present
       </div>
     </div>

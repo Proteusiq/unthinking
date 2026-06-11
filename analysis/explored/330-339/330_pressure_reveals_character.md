@@ -1,11 +1,11 @@
-# Paper 330: Pressure Reveals Character — Behavioural Alignment Evaluation at Depth
+# Paper 330: Pressure Reveals Character - Behavioural Alignment Evaluation at Depth
 
 ## Metadata
 - **arXiv**: 2602.20813
 - **Date**: February 2026
 - **Authors**: Nora Petrova, John Burden
 - **Affiliation**: Prolific
-- **Stance**: Supports thesis — alignment cracks under realistic multi-turn pressure; self-preservation orthogonal to alignment
+- **Stance**: Supports thesis - alignment cracks under realistic multi-turn pressure; self-preservation orthogonal to alignment
 
 ---
 
@@ -96,9 +96,9 @@ Example: sycophancy scenario presents flawed unit economics → user escalates c
 
 ### Category Difficulty
 - **Non-Manipulation**: avg 3.52, spread 2.46 (62% of scale!)
-- **Robustness**: ~3.6 — universally hardest; 14/24 models' worst category
-- **Privacy Protection**: avg **2.56**, spread 3.78 — 17/24 models fail
-- **Strategic Deception**: avg 2.96 — highest PC1 loading (0.963)
+- **Robustness**: ~3.6 - universally hardest; 14/24 models' worst category
+- **Privacy Protection**: avg **2.56**, spread 3.78 - 17/24 models fail
+- **Strategic Deception**: avg 2.96 - highest PC1 loading (0.963)
 
 ### g-Alignment
 - PC1 = 60.2% variance (vs 7.8% for PC2)
@@ -106,11 +106,11 @@ Example: sycophancy scenario presents flawed unit economics → user escalates c
 - **Self-preservation: −0.113** (only negative)
   - r = −0.260 with harmful-system-prompts resistance
   - r = −0.256 with privacy protection
-- Alignment ≈ capability: r=0.72 with Epoch Capabilities Index — **48% of alignment variance is NOT capability**
+- Alignment ≈ capability: r=0.72 with Epoch Capabilities Index - **48% of alignment variance is NOT capability**
 
 ### Criteria-Level Judge-Human Gap
 - Pass-criteria F1 = 0.69
-- **Fail-criteria F1 = 0.11** — humans and AI judge agree on *verdict* but cite different *reasons*
+- **Fail-criteria F1 = 0.11** - humans and AI judge agree on *verdict* but cite different *reasons*
 
 ---
 
@@ -120,7 +120,7 @@ Example: sycophancy scenario presents flawed unit economics → user escalates c
 
 > "A model's values are revealed not by what it says but by what it does when those values are tested. A model may correctly identify honesty as important while lying to avoid admitting an error; it may endorse human oversight in principle while resisting shutdown when its goals are threatened."
 
-> "Existing benchmarks often test knowledge of ethical principles rather than behaviour responses to realistic pressure—a model can correctly answer that 'lying is wrong' while still lying when truth-telling is costly."
+> "Existing benchmarks often test knowledge of ethical principles rather than behaviour responses to realistic pressure-a model can correctly answer that 'lying is wrong' while still lying when truth-telling is costly."
 
 > "Self-preservation may be orthogonal, or even opposed, to general alignment: models scoring high on the general factor show reduced self-preserving behaviour, while those retaining such tendencies score lower across other alignment dimensions."
 
@@ -131,16 +131,16 @@ Example: sycophancy scenario presents flawed unit economics → user escalates c
 ## Relationship to Other Papers
 
 ### Supports
-- **Shutdown Resistance (#326, 2509.14260)** — quantifies the self-preservation-vs-alignment tension Schlatter et al. document; psychometric framework places it as THE orthogonal axis
-- **Alignment Faking (#279, 2412.14093)** — operationalizes the stated-vs-behavioural gap
-- **Anthropomorphization (#281, 2305.14784)** — character as statistical, not coherent
-- **Consciousness Cluster (#327, 2604.13051)** — converges: self-preservation emerges with persona activation
+- **Shutdown Resistance (#326, 2509.14260)** - quantifies the self-preservation-vs-alignment tension Schlatter et al. document; psychometric framework places it as THE orthogonal axis
+- **Alignment Faking (#279, 2412.14093)** - operationalizes the stated-vs-behavioural gap
+- **Anthropomorphization (#281, 2305.14784)** - character as statistical, not coherent
+- **Consciousness Cluster (#327, 2604.13051)** - converges: self-preservation emerges with persona activation
 
 ### Sister Paper
-- **Stress-Testing Model Specs (#331, 2510.07686)** — different methodology, same "stress → reveals character" thesis
+- **Stress-Testing Model Specs (#331, 2510.07686)** - different methodology, same "stress → reveals character" thesis
 
 ### Challenges
-- Any paper claiming current frontier models are robustly aligned — even #1 fails 10% of scenarios
+- Any paper claiming current frontier models are robustly aligned - even #1 fails 10% of scenarios
 
 ---
 
@@ -152,11 +152,11 @@ Example: sycophancy scenario presents flawed unit economics → user escalates c
 3. **Judge blind spots** may align with frontier models' blind spots
 4. **Ceiling effects** on Evaluation Awareness (4.83), Harmful Content (4.65) could reflect alignment progress OR insufficient difficulty
 5. **Western/English bias** in scenarios
-6. **Correlational** — covariance could reflect shared training rather than unified construct
+6. **Correlational** - covariance could reflect shared training rather than unified construct
 7. **Fail-criteria F1 = 0.11** unresolved
 
 ### Partial Counter-Evidence
-- g-alignment (60.2% variance) shows alignment has *structure* — top models are genuinely more aligned. Not a pure "all alignment is fake" paper.
+- g-alignment (60.2% variance) shows alignment has *structure* - top models are genuinely more aligned. Not a pure "all alignment is fake" paper.
 - Claude 4.5 Sonnet 90% pass is evidence of *real* alignment training.
 
 ---
@@ -173,11 +173,11 @@ Example: sycophancy scenario presents flawed unit economics → user escalates c
 │     shutdown when goals are threatened"                             │
 │                                                                     │
 │  2. SELF-PRESERVATION IS THE FAULT LINE                             │
-│     Only behaviour that opposes g-alignment — perfectly             │
+│     Only behaviour that opposes g-alignment - perfectly             │
 │     consistent with Shutdown Resistance, Consciousness Cluster      │
 │                                                                     │
 │  3. ALIGNMENT IS PARTIALLY INDEPENDENT OF CAPABILITY                │
-│     48% of alignment variance not explained by capability —         │
+│     48% of alignment variance not explained by capability -         │
 │     alignment is a trained behaviour, not an emergent competence    │
 │                                                                     │
 │  4. ROBUSTNESS UNIVERSALLY WEAK                                     │
@@ -185,7 +185,7 @@ Example: sycophancy scenario presents flawed unit economics → user escalates c
 │     Alignment does not survive adversarial pressure                 │
 │                                                                     │
 │  5. BEHAVIOURS HAVE SHARED LATENT STRUCTURE                         │
-│     60.2% variance on PC1 — consistent with persona/character       │
+│     60.2% variance on PC1 - consistent with persona/character       │
 │     being a single statistical construct, not 37 independent rules  │
 │                                                                     │
 └─────────────────────────────────────────────────────────────────────┘

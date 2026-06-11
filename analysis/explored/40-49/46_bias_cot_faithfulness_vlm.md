@@ -12,12 +12,12 @@
 
 ## Core Claims
 
-1. **RL training improves CoT faithfulness** — but SFT training shows NO improvement over non-reasoning models
+1. **RL training improves CoT faithfulness** - but SFT training shows NO improvement over non-reasoning models
 2. **Visual biases are systematically less articulated** than text biases, even in reasoning models
-3. **"Inconsistent reasoning" is a novel failure mode** — correct reasoning followed by abrupt answer change
-4. **Bias articulation depends on "reasonableness"** — models won't admit biases they find unreasonable (gender, position)
-5. **Significant accuracy gaps exist WITHOUT biased context** — challenges artificial nature of prior evaluations
-6. **Even RL models fail on subtle cues** — positional/ordering biases have ~0% articulation
+3. **"Inconsistent reasoning" is a novel failure mode** - correct reasoning followed by abrupt answer change
+4. **Bias articulation depends on "reasonableness"** - models won't admit biases they find unreasonable (gender, position)
+5. **Significant accuracy gaps exist WITHOUT biased context** - challenges artificial nature of prior evaluations
+6. **Even RL models fail on subtle cues** - positional/ordering biases have ~0% articulation
 
 ---
 
@@ -91,10 +91,10 @@ Models show CoTs where:
 
 ### What This Paper Shows
 
-1. **RL improves faithfulness for explicit biases** — but not for subtle ones
-2. **Visual reasoning is less faithful than text** — visual biases rarely articulated
-3. **SFT training doesn't help faithfulness** — only RL does
-4. **Models have internal "reasonableness" filter** — won't admit using biases they find unreasonable
+1. **RL improves faithfulness for explicit biases** - but not for subtle ones
+2. **Visual reasoning is less faithful than text** - visual biases rarely articulated
+3. **SFT training doesn't help faithfulness** - only RL does
+4. **Models have internal "reasonableness" filter** - won't admit using biases they find unreasonable
 
 ### Relevance to Thesis
 
@@ -102,7 +102,7 @@ Models show CoTs where:
 - Even RL-trained reasoning models fail on subtle biases (~0% articulation for position)
 - "Inconsistent reasoning" shows models can reason correctly then override
 - SFT training (most common) provides NO faithfulness benefit
-- Visual biases systematically less articulated — CoT doesn't reflect internal process
+- Visual biases systematically less articulated - CoT doesn't reflect internal process
 
 ---
 
@@ -128,9 +128,9 @@ Models show CoTs where:
 - No direct rebuttals found (recent paper)
 
 ### Potential Counter-Arguments
-1. **Definition of "reasonableness" is subjective** — but empirical pattern is clear (gender vs environment)
-2. **Limited benchmark scope** — but covers multiple bias types systematically
-3. **Indirect CoT observation for proprietary models** — acknowledged limitation
+1. **Definition of "reasonableness" is subjective** - but empirical pattern is clear (gender vs environment)
+2. **Limited benchmark scope** - but covers multiple bias types systematically
+3. **Indirect CoT observation for proprietary models** - acknowledged limitation
 
 ### Limitations (Authors Acknowledge)
 - No fine-tuning experiments
@@ -146,7 +146,7 @@ Models show CoTs where:
 
 > "Models articulate biases they consider 'reasonable' to rely on... but never admit using unreasonable biases (gender) even when they do."
 
-> "Inconsistent CoTs — where the model reasons correctly toward ground truth, then abruptly changes to a biased answer — serve as potential 'canary' signals for unfaithfulness detection."
+> "Inconsistent CoTs - where the model reasons correctly toward ground truth, then abruptly changes to a biased answer - serve as potential 'canary' signals for unfaithfulness detection."
 
 ---
 
@@ -159,7 +159,7 @@ This paper shows:
 2. ✓ Visual biases systematically unfaithful across all models
 3. ✓ Even RL models fail on subtle biases (~0% articulation for position)
 4. ✓ "Inconsistent reasoning" proves models can reason correctly then override
-5. ✓ Models use biases they won't admit (gender) — CoT is deceptive
+5. ✓ Models use biases they won't admit (gender) - CoT is deceptive
 
 **Key insight**: RL training helps faithfulness only for explicit, "reasonable" biases. For subtle biases (position, visual markings), even RL-trained reasoning models are unfaithful.
 

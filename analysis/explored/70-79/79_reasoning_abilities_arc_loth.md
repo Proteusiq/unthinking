@@ -18,7 +18,7 @@
    - **Compositionality**: Capability to construct complex ideas from simpler components
    - **Productivity**: Capacity to formulate indefinite number of solutions from finite elements
 3. **LLMs lag behind humans** in all three LoTH components despite showing basic reasoning ability
-4. **ARC demands combinatorial syntax and compositional semantics** — validates its use as reasoning benchmark
+4. **ARC demands combinatorial syntax and compositional semantics** - validates its use as reasoning benchmark
 
 ---
 
@@ -129,7 +129,7 @@ Two identical-type tasks (pattern repetition):
 ### Supports
 - **Faith and Fate (2305.18654)**: Both show compositional reasoning failure
 - **Compositional-ARC (2504.01445)**: Same benchmark, similar findings (systematicity failure)
-- **OMEGA (2506.18880)**: Same pattern — primitives work, compositions fail
+- **OMEGA (2506.18880)**: Same pattern - primitives work, compositions fail
 - **CryptoX (2502.07813)**: Both show compositional reasoning as key bottleneck
 
 ### Extends
@@ -171,7 +171,7 @@ Two identical-type tasks (pattern repetition):
 
 1. **Correct answers with wrong processes**: 
    - 10.6% correct answers but only 4.0% correct processes
-   - **6.6% got lucky** — pattern matching, not reasoning
+   - **6.6% got lucky** - pattern matching, not reasoning
 
 2. **0% on Medium/Hard tasks**: 
    - Simple tasks: reasonable accuracy
@@ -196,9 +196,9 @@ Two identical-type tasks (pattern repetition):
 
 The LoTH framework provides a **theoretical grounding** for the thesis:
 
-**Logical Coherence**: LLMs lack it — get right answers with wrong reasoning
-**Compositionality**: LLMs lack it — can't combine primitives into novel solutions  
-**Productivity**: LLMs lack it — can't generate novel valid instances
+**Logical Coherence**: LLMs lack it - get right answers with wrong reasoning
+**Compositionality**: LLMs lack it - can't combine primitives into novel solutions  
+**Productivity**: LLMs lack it - can't generate novel valid instances
 
 All three failures point to the same conclusion:
 > LLMs are **pattern matchers**, not **reasoners**

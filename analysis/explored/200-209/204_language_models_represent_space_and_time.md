@@ -99,13 +99,13 @@
 
 **The authors' claim**: LLMs have "basic ingredients of a world model"
 
-**The critical reframing**: This paper shows LLMs encode **statistical correlations about space and time** — which is exactly what pattern matching predicts.
+**The critical reframing**: This paper shows LLMs encode **statistical correlations about space and time** - which is exactly what pattern matching predicts.
 
 ### Key Counter-Arguments
 
 1. **Decodability ≠ Understanding**
    - The authors explicitly acknowledge: probing shows information is "linearly decodable" but "does not imply the model actually uses these representations"
-   - A lookup table also "represents" space — that's not understanding
+   - A lookup table also "represents" space - that's not understanding
 
 2. **Could Be Hierarchical Membership Features**
    - Authors admit: could be is_in_country_X, is_in_region_Y features
@@ -130,7 +130,7 @@
 6. **What Would Actual Spatial Reasoning Look Like?**
    - Ability to infer: "X is between Y and Z" → predict X's location
    - Ability to reason: "If I go 100km north from Paris..."
-   - This paper shows neither — only factual recall
+   - This paper shows neither - only factual recall
 
 ### The Embers Connection
 
@@ -163,9 +163,9 @@ This paper is **consistent with Embers of Autoregression**:
 ## REBUTTALS TO THIS PAPER
 
 ### Direct Methodological Concerns
-1. **Probing fallacy**: Linear decodability doesn't prove the model uses the feature (Ravichander et al., 2020 — which authors cite!)
+1. **Probing fallacy**: Linear decodability doesn't prove the model uses the feature (Ravichander et al., 2020 - which authors cite!)
 2. **Probe memorization**: 4096-8192 parameters allow substantial memorization
-3. **Selection bias**: Entities filtered by Wikipedia page views (5000+ views) — biased toward frequent/famous
+3. **Selection bias**: Entities filtered by Wikipedia page views (5000+ views) - biased toward frequent/famous
 
 ### From Embers Perspective
 - The findings are **predicted by** the pattern matching view
@@ -198,7 +198,7 @@ This paper is **consistent with Embers of Autoregression**:
 **Classification**: BALANCED (leans toward supporting thesis when critically analyzed)
 
 **Reasoning**:
-1. The paper shows LLMs encode spatial/temporal information — **but this is predicted by pattern matching**
+1. The paper shows LLMs encode spatial/temporal information - **but this is predicted by pattern matching**
 2. Authors explicitly acknowledge the probing fallacy
 3. Generalization tests show significant degradation
 4. Performance tracks entity frequency (Embers prediction)
@@ -221,7 +221,7 @@ This paper is actually **compatible with** the pattern matching thesis:
 | Generalization degrades | Memorization, not abstraction |
 | Random tokens break it | Surface-level associations |
 
-**Key insight**: The authors are careful scientists — they repeatedly note the limitations of probing. The "world model" framing is speculative, while the actual findings are consistent with sophisticated pattern matching.
+**Key insight**: The authors are careful scientists - they repeatedly note the limitations of probing. The "world model" framing is speculative, while the actual findings are consistent with sophisticated pattern matching.
 
 ---
 

@@ -12,7 +12,7 @@
 
 ## Core Claims
 
-1. **KV cache retains too much input information**: Autoregressive training maximizes I(X;Z) where Z is the KV cache — this retains unnecessary information that hurts generalization.
+1. **KV cache retains too much input information**: Autoregressive training maximizes I(X;Z) where Z is the KV cache - this retains unnecessary information that hurts generalization.
 
 2. **Memory consolidation improves reasoning**: Periodically rewriting KV cache entries (consolidation/reconsolidation) improves generalization by compressing irrelevant input information while preserving predictive information.
 
@@ -73,11 +73,11 @@
 
 ## Relationship to Thesis
 
-### BALANCED — Provides mechanistic insight but supports reasoning improvement
+### BALANCED - Provides mechanistic insight but supports reasoning improvement
 
 **Supports thesis (computational workspace)**:
 1. **KV cache is computational infrastructure, not semantic**: The paper treats KV cache as "memory" to be reprocessed, not as containing meaningful reasoning steps
-2. **Information compression helps**: Reducing I(X;Z) improves generalization — suggests models retain too much surface information
+2. **Information compression helps**: Reducing I(X;Z) improves generalization - suggests models retain too much surface information
 3. **Pause tokens don't always help**: Confirms that simple filler tokens without training don't reliably improve performance
 
 **Complicates thesis**:
@@ -121,7 +121,7 @@ This supports the view that CoT/pause tokens work by **modifying computational d
 1. **Small gains on some tasks**: LogiQA on Llama 3B shows regression (22.12% → 20.12%)
 2. **Complex architecture**: Adds significant complexity vs. simple pause tokens
 3. **Training required**: Doesn't work at inference-only (unlike Expanding Computation #197)
-4. **Domain-specific**: Gaokao-MathQA (Chinese) shows underperformance — doesn't generalize across languages
+4. **Domain-specific**: Gaokao-MathQA (Chinese) shows underperformance - doesn't generalize across languages
 
 ### Limitations (Authors Acknowledge)
 - "One notable exception: LogiQA on Llama-3.2 3B where plain SFT is slightly higher"

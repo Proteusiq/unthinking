@@ -128,7 +128,7 @@ Example from AIME 2025:
 |-------|-----|
 | **Survey of Test-Time Compute (2501.02497)** | Both find task-dependent scaling effectiveness |
 | **Illusion of Thinking (2506.06941)** | Both show performance collapse at complexity |
-| **Interplay (2512.07783)** | Supports surfacing hypothesis — superscaling surfaces capability |
+| **Interplay (2512.07783)** | Supports surfacing hypothesis - superscaling surfaces capability |
 | **GSM-Symbolic (2410.05229)** | Both show distribution-dependent performance |
 
 ### Challenges
@@ -163,7 +163,7 @@ Example from AIME 2025:
 ### Limitations (Authors Acknowledge)
 1. "Some benchmarks may have been seen during training"
 2. "Rate limiting prevented complete runs for some models"
-3. "Perfect verifiers are idealized — real verifiers are imperfect"
+3. "Perfect verifiers are idealized - real verifiers are imperfect"
 
 ---
 
@@ -196,7 +196,7 @@ Example from AIME 2025:
 2. **Perfect verifiers unrealistic**: Real-world lacks ground truth
 3. **Cost analysis missing**: Token costs not compared to accuracy gains
 
-### Verdict: BALANCED — Supports thesis on close reading
+### Verdict: BALANCED - Supports thesis on close reading
 
 **Why BALANCED**:
 - Shows superscaling can close gap (supports "surfacing")

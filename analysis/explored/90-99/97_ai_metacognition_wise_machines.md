@@ -5,7 +5,7 @@
 - **Title**: Imagining and building wise machines: The centrality of AI metacognition
 - **Authors**: Samuel G. B. Johnson, Amir-Hossein Karimi, Yoshua Bengio, Nick Chater, Tobias Gerstenberg, Kate Larson, Sydney Levine, Melanie Mitchell, Iyad Rahwan, Bernhard Schölkopf, Igor Grossmann
 - **Date**: November 2024 (arXiv), revised January 2026
-- **Venue**: **Trends in Cognitive Sciences** (accepted) — high-impact cognitive science journal
+- **Venue**: **Trends in Cognitive Sciences** (accepted) - high-impact cognitive science journal
 - **Source**: Reddit recommendation (GitHub issue #16)
 - **Affiliations**: University of Waterloo, Mila, Warwick, Stanford, Google DeepMind, Santa Fe Institute, Max Planck Institute
 - **Length**: 30 pages, 2 figures, 2 tables
@@ -14,11 +14,11 @@
 
 ## Core Claims
 
-1. **AI has become smart but not wise** — Current AI systems lack metacognitive abilities that distinguish wisdom from mere intelligence
+1. **AI has become smart but not wise** - Current AI systems lack metacognitive abilities that distinguish wisdom from mere intelligence
 2. **Human wisdom operates through two levels of strategies**:
    - **Object-level strategies**: Heuristics, narratives, decision technologies for managing problems
    - **Metacognitive strategies**: Intellectual humility, perspective-taking, context-adaptability for managing object-level strategies
-3. **AI systems particularly struggle with perspectival metacognition** — The ability to coordinate multiple perspectives and know when strategies apply
+3. **AI systems particularly struggle with perspectival metacognition** - The ability to coordinate multiple perspectives and know when strategies apply
 4. **Three metacognitive processes are required**: Input-seeking, conflict resolution, outcome-monitoring
 5. **Improved metacognition would lead to**: Robust AI, explainable AI, cooperative AI, safer AI
 
@@ -99,24 +99,24 @@ Problems resist analytic solutions due to:
 
 ### SUPPORTS the Thesis (Strongly)
 
-**The thesis**: "LLM reasoning is practical but fundamentally predictive—pattern matching from training distributions, not genuinely generative reasoning"
+**The thesis**: "LLM reasoning is practical but fundamentally predictive-pattern matching from training distributions, not genuinely generative reasoning"
 
 This paper provides a **theoretical framework** that explains WHY the thesis is true:
 
-1. **Object-level strategies ARE pattern matching** — The paper explicitly states:
-   > "Many object-level strategies are heuristics—rules of thumb which rely on a small number of inputs and do not attempt a complex analysis"
+1. **Object-level strategies ARE pattern matching** - The paper explicitly states:
+   > "Many object-level strategies are heuristics-rules of thumb which rely on a small number of inputs and do not attempt a complex analysis"
    
    LLMs have object-level patterns but lack meta-level selection.
 
-2. **Wisdom = Knowing when patterns apply** — The key insight:
+2. **Wisdom = Knowing when patterns apply** - The key insight:
    > "The trouble with object-level strategies is their multiplicity. Heuristics can conflict... Wisdom requires us not just to have these strategies, but to effectively manage them."
    
-   This is precisely what LLMs lack — they apply patterns without knowing WHEN patterns apply.
+   This is precisely what LLMs lack - they apply patterns without knowing WHEN patterns apply.
 
-3. **Intractable problems require more than patterns** — Novel/OOD tasks are intractable:
+3. **Intractable problems require more than patterns** - Novel/OOD tasks are intractable:
    > "Such problems are often intractable... because the situation is far beyond experience (out-of-distribution)."
 
-4. **Current AI has "metacognitive myopia"** — The paper cites Scholten et al. (2024):
+4. **Current AI has "metacognitive myopia"** - The paper cites Scholten et al. (2024):
    > "This cluster of epistemic failings has been argued to be symptomatic of a broader 'metacognitive myopia'"
 
 ### Key Quote Supporting Thesis
@@ -135,7 +135,7 @@ This suggests current AI lacks the meta-level coordination that would distinguis
 |-------|-----|
 | **Illusion of Thinking (2506.06941)** | Both show AI lacks genuine reasoning at complexity thresholds |
 | **GSM-Symbolic (2410.05229)** | Lack of metacognition explains why perturbations break performance |
-| **Illusions of Reflection (2510.18254)** | "Reflection" without metacognition is hollow — paper explicitly cites this concern |
+| **Illusions of Reflection (2510.18254)** | "Reflection" without metacognition is hollow - paper explicitly cites this concern |
 | **Survey of Test-Time Compute (2501.02497)** | Self-correction limited without metacognition |
 | **Content Effects (2207.07051)** | Both show AI relies on learned patterns, not abstract reasoning |
 
@@ -153,7 +153,7 @@ This suggests current AI lacks the meta-level coordination that would distinguis
 |---------|-----------|
 | **"Reasoning" failures** | Missing metacognition explains why pattern matching fails on OOD |
 | **OOD generalization** | Wisdom = knowing when learned patterns don't apply |
-| **AI safety** | Metacognition needed for aligned AI — central to alignment debate |
+| **AI safety** | Metacognition needed for aligned AI - central to alignment debate |
 | **CoT unfaithfulness** | Explicitly cites Chen et al. (2025) "Reasoning models don't always say what they think" |
 
 ---
@@ -162,17 +162,17 @@ This suggests current AI lacks the meta-level coordination that would distinguis
 
 ### Limitations Acknowledged by Authors
 
-1. **Theoretical, not empirical** — "We can only speculate" about future AI wisdom
-2. **Benchmarking metacognition is hard** — "Evaluating Machine Wisdom" section notes limitations
-3. **Architecture may need to change** — "Perhaps no amount of training will get current models to human-level metacognition"
-4. **Definition of wisdom is contested** — Paper synthesizes multiple wisdom models but debates remain
+1. **Theoretical, not empirical** - "We can only speculate" about future AI wisdom
+2. **Benchmarking metacognition is hard** - "Evaluating Machine Wisdom" section notes limitations
+3. **Architecture may need to change** - "Perhaps no amount of training will get current models to human-level metacognition"
+4. **Definition of wisdom is contested** - Paper synthesizes multiple wisdom models but debates remain
 
 ### Counter-Arguments
 
-1. **DeepSeek-R1/o1 show "reflection"** — Do reasoning models have metacognition?
+1. **DeepSeek-R1/o1 show "reflection"** - Do reasoning models have metacognition?
    - **Paper's response**: Cites Chen et al. (2025) showing "models confabulate insight rather than genuinely introspect"
    
-2. **Chain-of-thought improves performance** — Isn't this metacognition?
+2. **Chain-of-thought improves performance** - Isn't this metacognition?
    - **Paper's response**: "CoT is still pattern-based; knowing WHEN to use CoT requires metacognition"
 
 3. **Metacognition may emerge at scale**
@@ -180,9 +180,9 @@ This suggests current AI lacks the meta-level coordination that would distinguis
 
 ### Potential Weaknesses Not Addressed
 
-1. **No quantitative predictions** — Framework doesn't predict specific failure modes
-2. **Human wisdom also fails** — Humans often lack metacognition too
-3. **Computational cost** — Metacognitive overhead may be prohibitive
+1. **No quantitative predictions** - Framework doesn't predict specific failure modes
+2. **Human wisdom also fails** - Humans often lack metacognition too
+3. **Computational cost** - Metacognitive overhead may be prohibitive
 
 ---
 
@@ -190,7 +190,7 @@ This suggests current AI lacks the meta-level coordination that would distinguis
 
 > "Although AI has become increasingly smart, its wisdom has not kept pace."
 
-> "We analyze human wisdom as a set of strategies for solving intractable problems—those outside the scope of analytic techniques"
+> "We analyze human wisdom as a set of strategies for solving intractable problems-those outside the scope of analytic techniques"
 
 > "AI systems particularly struggle with metacognition... This cluster of epistemic failings has been argued to be symptomatic of a broader 'metacognitive myopia'"
 
@@ -208,11 +208,11 @@ This suggests current AI lacks the meta-level coordination that would distinguis
 
 This paper provides a **strong theoretical framework** that aligns with and extends the thesis:
 
-1. **Distinguishes intelligence from wisdom** — LLMs are intelligent (can match patterns) but not wise (can't reason about when patterns apply)
-2. **Metacognition as the missing piece** — Explains WHY LLMs fail on OOD tasks (no meta-level coordination)
-3. **Prestigious author team** — Yoshua Bengio, Melanie Mitchell, Nick Chater, Bernhard Schölkopf, Sydney Levine (DeepMind)
-4. **High-impact venue** — Trends in Cognitive Sciences (accepted)
-5. **Cites thesis-relevant literature** — Explicitly references CoT unfaithfulness, hallucination problems
+1. **Distinguishes intelligence from wisdom** - LLMs are intelligent (can match patterns) but not wise (can't reason about when patterns apply)
+2. **Metacognition as the missing piece** - Explains WHY LLMs fail on OOD tasks (no meta-level coordination)
+3. **Prestigious author team** - Yoshua Bengio, Melanie Mitchell, Nick Chater, Bernhard Schölkopf, Sydney Levine (DeepMind)
+4. **High-impact venue** - Trends in Cognitive Sciences (accepted)
+5. **Cites thesis-relevant literature** - Explicitly references CoT unfaithfulness, hallucination problems
 
 ### Stance Classification: **SUPPORTS**
 
@@ -220,7 +220,7 @@ The paper strongly supports the thesis by:
 - Explicitly stating AI lacks metacognition (reasoning about reasoning)
 - Framing object-level strategies as pattern matching
 - Arguing wisdom (meta-level) is needed for intractable/OOD problems
-- Showing current AI is "smart but not wise" — capable but fundamentally limited
+- Showing current AI is "smart but not wise" - capable but fundamentally limited
 
 ### Relationship to "Surfacing Hypothesis"
 

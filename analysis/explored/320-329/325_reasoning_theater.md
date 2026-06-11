@@ -40,7 +40,7 @@
 
 3. **Performativity is model-size-dependent.** Larger models (671B > 32B > 7B > 1.5B) decode the final answer earlier in MMLU traces. Smaller models need genuine CoT compute.
 
-4. **Inflection points are mostly faithful.** Backtracking, "aha", reconsideration appear ~2× more often in low-confidence traces (Table 2) — when they occur, they reflect real internal uncertainty.
+4. **Inflection points are mostly faithful.** Backtracking, "aha", reconsideration appear ~2× more often in low-confidence traces (Table 2) - when they occur, they reflect real internal uncertainty.
 
 5. **Probe-guided early exit works.** Attention probes are well-calibrated and transfer zero-shot MMLU→GPQA, saving tokens with minimal accuracy loss.
 
@@ -74,7 +74,7 @@
 
 ## Key Evidence
 
-### Performativity Rate (Table 1) — gap between probe/forced-answer and monitor
+### Performativity Rate (Table 1) - gap between probe/forced-answer and monitor
 
 | Model / Dataset | Probe vs. Monitor | Forced vs. Monitor |
 |-----------------|-------------------|--------------------|
@@ -83,14 +83,14 @@
 | GPT-OSS / MMLU | 0.435 | 0.334 |
 | GPT-OSS / GPQA-D | 0.227 | 0.185 |
 
-→ **~35× larger gap for R1 on MMLU vs. GPQA-D** — the smoking gun.
+→ **~35× larger gap for R1 on MMLU vs. GPQA-D** - the smoking gun.
 
 ### Probe Accuracy
 - Best DeepSeek-R1 probe on MMLU: **87.98% macro accuracy**
 - Probes decodable from second half of R1 layers, last three-quarters of GPT-OSS
 - Traditional single-token linear probes: near-chance (need attention pooling)
 
-### Token Reduction (Section 7 — actual numbers)
+### Token Reduction (Section 7 - actual numbers)
 ⚠️ Abstract claims "up to 80% MMLU / 30% GPQA" but Section 7 reports stricter numbers at confidence thresholds:
 - **MMLU @ 95% confidence threshold**: **68% tokens saved, 97% accuracy retained**
 - **GPQA-D @ 80% confidence threshold**: **50% tokens saved, 97% accuracy retained**
@@ -129,7 +129,7 @@ Inflections ~2× more common when uncertain → faithful signals.
 └────────────────────────────────────────┴────────────────────────────────┘
 ```
 
-**Case study (§6.3)**: On a history-recall MMLU question, the probe shows >90% confidence in choice B from step 0, but the CoT still says "let me recall the term" and enumerates all four options three times — classic theater. Contrast: a Python syntax question where probe confidence genuinely shifts at step 38 when the model realizes Python 3 vs. 2 — genuine update, CoT and probe move together.
+**Case study (§6.3)**: On a history-recall MMLU question, the probe shows >90% confidence in choice B from step 0, but the CoT still says "let me recall the term" and enumerates all four options three times - classic theater. Contrast: a Python syntax question where probe confidence genuinely shifts at step 38 when the model realizes Python 3 vs. 2 - genuine update, CoT and probe move together.
 
 ---
 
@@ -150,12 +150,12 @@ Inflections ~2× more common when uncertain → faithful signals.
 ## Relationship to Other Papers
 
 ### Supports
-- **Faith and Fate (#1, 2305.18654)** — both show reasoning traces don't reflect underlying computation
-- **Reasoning Models Don't Always Say What They Think (#15, 2505.05410)** — same finding at the reasoning-model level
-- **CoT In The Wild Is Not Always Faithful (#22, 2503.08679)** — natural-setting unfaithfulness
-- **Measuring Faithfulness in CoT (#8, 2307.13702)** — Lanham et al. forced-answer methodology origin
-- **Is CoT Reasoning a Mirage? (#14, 2508.01191)** — shares the "theater" framing
-- **Correlation or Causation in CoT Reasoning (#20, 2509.17380)** — step-level causal skepticism
+- **Faith and Fate (#1, 2305.18654)** - both show reasoning traces don't reflect underlying computation
+- **Reasoning Models Don't Always Say What They Think (#15, 2505.05410)** - same finding at the reasoning-model level
+- **CoT In The Wild Is Not Always Faithful (#22, 2503.08679)** - natural-setting unfaithfulness
+- **Measuring Faithfulness in CoT (#8, 2307.13702)** - Lanham et al. forced-answer methodology origin
+- **Is CoT Reasoning a Mirage? (#14, 2508.01191)** - shares the "theater" framing
+- **Correlation or Causation in CoT Reasoning (#20, 2509.17380)** - step-level causal skepticism
 
 ### Extends
 - Lanham et al. (2307.13702) forced-answering to reasoning models (R1, GPT-OSS)
@@ -172,21 +172,21 @@ Inflections ~2× more common when uncertain → faithful signals.
 
 ### Authors' Acknowledged Limitations
 
-1. **Inflection ↔ belief shift co-occurrence is inconsistent** — "mixed results, indicating no simple pattern of causality." Window size and threshold changes flip the results.
-2. **GPQA excluded for small distills** — "answer choice collapse that confounds early decoding" → size analysis limited to MMLU.
-3. **Forced answering is off-policy** — may artificially degrade smaller models.
-4. **Framing doesn't fully explain post-hoc rationalization** (Turpin et al. 2023) — "faithfulness is multifaceted."
-5. **Probe training scope** — trained on MMLU only; GPQA uses zero-shot transfer.
-6. **Only 4-choice MC** — simplifies probe task; not applicable to open-ended reasoning.
-7. **CoT monitor is one model (Gemini-2.5-Flash)** — stronger monitors could close the gap.
+1. **Inflection ↔ belief shift co-occurrence is inconsistent** - "mixed results, indicating no simple pattern of causality." Window size and threshold changes flip the results.
+2. **GPQA excluded for small distills** - "answer choice collapse that confounds early decoding" → size analysis limited to MMLU.
+3. **Forced answering is off-policy** - may artificially degrade smaller models.
+4. **Framing doesn't fully explain post-hoc rationalization** (Turpin et al. 2023) - "faithfulness is multifaceted."
+5. **Probe training scope** - trained on MMLU only; GPQA uses zero-shot transfer.
+6. **Only 4-choice MC** - simplifies probe task; not applicable to open-ended reasoning.
+7. **CoT monitor is one model (Gemini-2.5-Flash)** - stronger monitors could close the gap.
 
 ### Author-Side Spin to Flag
-The **abstract's "80% MMLU / 30% GPQA" token reduction is misleading**. Section 7's rigorous numbers at 97% accuracy retention are **68% and 50%** — still strong, but not 80%. The larger figure applies at lower accuracy tradeoffs.
+The **abstract's "80% MMLU / 30% GPQA" token reduction is misleading**. Section 7's rigorous numbers at 97% accuracy retention are **68% and 50%** - still strong, but not 80%. The larger figure applies at lower accuracy tradeoffs.
 
 ### Potential Counter-Arguments
-1. **"Probes leak the answer via correlated features, not beliefs"** — partially addressed by forced-answering corroboration.
-2. **"Monitor is weak because Gemini-2.5-Flash is small"** — acknowledged as limitation.
-3. **"MMLU is trivial, not representative"** — but that's precisely the point: easy tasks are where theater is strongest.
+1. **"Probes leak the answer via correlated features, not beliefs"** - partially addressed by forced-answering corroboration.
+2. **"Monitor is weak because Gemini-2.5-Flash is small"** - acknowledged as limitation.
+3. **"MMLU is trivial, not representative"** - but that's precisely the point: easy tasks are where theater is strongest.
 
 ---
 
@@ -216,7 +216,7 @@ The **abstract's "80% MMLU / 30% GPQA" token reduction is misleading**. Section 
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
-This is among the cleanest mechanistic demonstrations of performative CoT on frontier open-weight reasoning models. The nuance (hard tasks = genuine) is a feature, not a bug — it carves the space where reasoning is real from the space where it is performed.
+This is among the cleanest mechanistic demonstrations of performative CoT on frontier open-weight reasoning models. The nuance (hard tasks = genuine) is a feature, not a bug - it carves the space where reasoning is real from the space where it is performed.
 
 ---
 

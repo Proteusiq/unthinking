@@ -22,7 +22,7 @@ The paper formalizes the previously vague concept of "superficial knowledge":
 
 1. **C1**: Superficial knowledge can be extracted using only a shallow linear projection head modification
 2. **C2**: Superficial knowledge constitutes a **large proportion** of alignment, especially for safety/detoxification
-3. **C3**: Alignment is **not entirely superficial** — reasoning and contextual integration require deeper changes
+3. **C3**: Alignment is **not entirely superficial** - reasoning and contextual integration require deeper changes
 4. **C4**: Superficial knowledge is **transferable** between models (weak-to-strong alignment)
 5. **C5**: Superficial knowledge is **recoverable** after safety de-alignment attacks
 
@@ -36,10 +36,10 @@ The paper formalizes the previously vague concept of "superficial knowledge":
 
 ### Extraction Method
 
-1. **Freeze base model backbone** fb(·) — all transformer layers unchanged
-2. **Train only ΔWb** — residual adjustment to final linear projection head
-3. **Distillation from aligned model** — minimize KL divergence between base+ΔW and aligned model outputs
-4. **No external data** — ensures extracted knowledge comes only from alignment, not new information
+1. **Freeze base model backbone** fb(·) - all transformer layers unchanged
+2. **Train only ΔWb** - residual adjustment to final linear projection head
+3. **Distillation from aligned model** - minimize KL divergence between base+ΔW and aligned model outputs
+4. **No external data** - ensures extracted knowledge comes only from alignment, not new information
 
 The optimization objective:
 ```
@@ -152,7 +152,7 @@ Recovers **88% of safety** without compromising MMLU accuracy.
 
 ## Relationship to Other Papers
 
-### Cites LIMA (2305.11206) — #211
+### Cites LIMA (2305.11206) - #211
 
 Yes, the paper directly engages with LIMA and the Superficial Alignment Hypothesis (SAH):
 
@@ -228,7 +228,7 @@ No direct rebuttals found on arXiv as of February 2026.
 
 3. **Safety may not be truly superficial**
    - 100% safety could be achieved by learning refusal patterns
-   - Counter-response: This IS what superficial means — style/pattern changes without deep understanding
+   - Counter-response: This IS what superficial means - style/pattern changes without deep understanding
 
 ### Limitations (Authors Acknowledge)
 
@@ -265,9 +265,9 @@ The paper doesn't fully characterize what the **deeper knowledge** component con
 
 1. **Safety is 100% superficial**: Harmful content avoidance is entirely about token-level style changes
 2. **Token shifts are stylistic**: The extracted changes are formatting/style tokens, not semantic content
-3. **First tokens dominate**: Most alignment knowledge is in the first 10 tokens — initial framing
-4. **Transferability**: Superficial knowledge transfers between models — suggests it's model-agnostic patterns
-5. **Recoverability**: Safety can be restored by re-applying patterns — not deep capability change
+3. **First tokens dominate**: Most alignment knowledge is in the first 10 tokens - initial framing
+4. **Transferability**: Superficial knowledge transfers between models - suggests it's model-agnostic patterns
+5. **Recoverability**: Safety can be restored by re-applying patterns - not deep capability change
 
 ### Evidence Challenging the Thesis:
 

@@ -13,7 +13,7 @@
 
 ## Core Claims
 
-1. **LLMs struggle with complex reasoning — they replicate patterns, not reason**
+1. **LLMs struggle with complex reasoning - they replicate patterns, not reason**
 2. **LLMs are data-driven pattern matchers, not formal logical reasoners**
 3. **Auto-regressive reasoning inherently introduces errors that propagate**
 4. **Neuro-symbolic integration compensates for LLM reasoning weaknesses**
@@ -24,7 +24,7 @@
 ## Methodology
 
 ### Paper Type
-This is a **survey paper** — it reviews neuro-symbolic approaches rather than proposing new methods.
+This is a **survey paper** - it reviews neuro-symbolic approaches rather than proposing new methods.
 
 ### Three Paradigms Surveyed
 
@@ -98,11 +98,11 @@ This is a survey paper that **provides almost NO specific benchmark numbers**. I
 
 ## When Neuro-Symbolic Fails
 
-1. **Open concepts and ambiguity** — symbolic formalizations struggle
-2. **Autoformalization bottleneck** — LLMs must correctly translate NL to formal language
-3. **Multi-modal reasoning** — current methods focus on text
-4. **Search at inference time** — "huge computation cost"
-5. **Scalability** — hybrid architectures have optimization challenges
+1. **Open concepts and ambiguity** - symbolic formalizations struggle
+2. **Autoformalization bottleneck** - LLMs must correctly translate NL to formal language
+3. **Multi-modal reasoning** - current methods focus on text
+4. **Search at inference time** - "huge computation cost"
+5. **Scalability** - hybrid architectures have optimization challenges
 
 ---
 
@@ -119,7 +119,7 @@ This is a survey paper that **provides almost NO specific benchmark numbers**. I
 - **Limits of Innate Planning (2511.21591)**: Planning requires symbolic methods
 
 ### Dual Process Theory Connection
-> "NeSy AI aligns with the Dual Process Theory in cognitive science... **System 1** (fast, intuitive — neural networks) and **System 2** (slower, deliberate, logical — symbolic reasoning)."
+> "NeSy AI aligns with the Dual Process Theory in cognitive science... **System 1** (fast, intuitive - neural networks) and **System 2** (slower, deliberate, logical - symbolic reasoning)."
 
 This frames LLMs as System 1 (intuitive pattern matching) that need System 2 (symbolic) for genuine reasoning.
 
@@ -182,7 +182,7 @@ This frames LLMs as System 1 (intuitive pattern matching) that need System 2 (sy
 ### STRONG support for this thesis
 
 1. **Explicit statement from survey authors**
-   - "Cannot really reason" — direct quote
+   - "Cannot really reason" - direct quote
    - "Statistical pattern recognition rather than formal logical reasoning"
    - This is a survey from a major lab (LAMDA, Nanjing)
 

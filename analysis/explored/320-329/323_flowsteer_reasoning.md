@@ -17,11 +17,11 @@
 │                                                                     │
 │  FLOWSTEER: NONLINEAR STEERING VIA FLOW MATCHING                    │
 │                                                                     │
-│  Problem: LRM reasoning is verbose — filled with unnecessary        │
+│  Problem: LRM reasoning is verbose - filled with unnecessary        │
 │  reflection that inflates costs AND decreases accuracy              │
 │                                                                     │
 │  Insight: Linear steering (single vector shift) only aligns MEANS   │
-│  of verbose vs concise distributions — ignores higher-order stats   │
+│  of verbose vs concise distributions - ignores higher-order stats   │
 │                                                                     │
 │  Solution: Learn full DISTRIBUTIONAL TRANSPORT via Flow Matching    │
 │  - Maps "verbose" activation distribution → "concise" distribution  │
@@ -86,7 +86,7 @@ Key innovations:
 | R1-1.5B | SEAL (linear) | 78.0 | 79.4 | 13.3 | 57.5 | 11.5 |
 | R1-1.5B | FlowSteer | **80.2** | **80.7** | 13.3 | **65.0** | **12.0** |
 
-FlowSteer achieves HIGHER accuracy with FEWER tokens — the "reasoning" wasn't helpful!
+FlowSteer achieves HIGHER accuracy with FEWER tokens - the "reasoning" wasn't helpful!
 
 ---
 
@@ -133,7 +133,7 @@ This is devastating for the "reasoning" hypothesis:
 
 ## Key Quotes
 
-> "Prior steering methods attempt to address this issue by applying a single, global vector to hidden representations—an approach grounded in the restrictive linear representation hypothesis."
+> "Prior steering methods attempt to address this issue by applying a single, global vector to hidden representations-an approach grounded in the restrictive linear representation hypothesis."
 
 > "This rigid transformation ignores the complex geometry of the underlying representation space, risking pushing steered representations off the data manifold."
 
@@ -193,7 +193,7 @@ Intervenes at every "\n\n" token (reasoning step delimiter):
 1. Requires paired verbose/concise training data
 2. Flow model adds inference overhead (though minimal)
 3. Layer selection is hyperparameter requiring tuning
-4. Evaluated on math/coding — may not generalize to all tasks
+4. Evaluated on math/coding - may not generalize to all tasks
 
 ### Potential Counter-Arguments
 
@@ -211,7 +211,7 @@ Intervenes at every "\n\n" token (reasoning step delimiter):
 **Strongly supports because:**
 1. Shows "reasoning" is a distributional property, not logical process
 2. Demonstrates reasoning can be compressed without loss
-3. Proves overthinking hurts — no genuine logical benefit
+3. Proves overthinking hurts - no genuine logical benefit
 4. Extends #321's finding that linear steering is suboptimal
 
 ---
@@ -225,7 +225,7 @@ Intervenes at every "\n\n" token (reasoning step delimiter):
 **For the thesis**: This paper provides **strong evidence** that:
 1. LRM "reasoning" is compressible without accuracy loss
 2. Verbose reflection often HURTS performance
-3. Linear steering is suboptimal — geometry matters
+3. Linear steering is suboptimal - geometry matters
 4. Reasoning is a distributional property, not a logical process
 
 **The key insight**: If LRMs were genuinely reasoning, you couldn't transport their activations to a "concise" distribution and get BETTER answers. The fact that you can proves the verbose "reasoning" was noise, not signal.

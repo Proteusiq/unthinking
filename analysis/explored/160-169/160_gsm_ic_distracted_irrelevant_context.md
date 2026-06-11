@@ -14,7 +14,7 @@
 
 1. **LLMs are highly distractible**: Model accuracy dramatically decreases when irrelevant information is included in problem descriptions.
 
-2. **GSM-IC benchmark introduced**: Grade-School Math with Irrelevant Context — a systematic test for distractibility in arithmetic reasoning.
+2. **GSM-IC benchmark introduced**: Grade-School Math with Irrelevant Context - a systematic test for distractibility in arithmetic reasoning.
 
 3. **All prompting techniques affected**: Even cutting-edge prompting methods (CoT, self-consistency) show significant performance drops.
 
@@ -78,11 +78,11 @@
 
 2. **Token Bias (Paper 157)**: Both show models are influenced by surface tokens. Irrelevant context = distracting tokens that trigger wrong patterns.
 
-3. **Faith and Fate (Paper F1)**: Distractibility is consistent with "linearized subgraph matching" — models follow whatever tokens activate, not logical structure.
+3. **Faith and Fate (Paper F1)**: Distractibility is consistent with "linearized subgraph matching" - models follow whatever tokens activate, not logical structure.
 
-4. **Content Effects (Paper 116)**: Both show semantic content affects "reasoning" — models don't separate relevant from irrelevant based on logic.
+4. **Content Effects (Paper 116)**: Both show semantic content affects "reasoning" - models don't separate relevant from irrelevant based on logic.
 
-5. **WhatCounts (Paper 108)**: Semantic class affects counting — similar to how irrelevant context affects math.
+5. **WhatCounts (Paper 108)**: Semantic class affects counting - similar to how irrelevant context affects math.
 
 ---
 

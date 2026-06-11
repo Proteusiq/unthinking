@@ -11,8 +11,8 @@
 
 ## Core Claims (from Abstract)
 
-1. **Output control is misaligned** — current approaches limit what models produce, but output length is a "symptom" not root cause
-2. **Capability control is the right approach** — modulate HOW models think, not what they produce
+1. **Output control is misaligned** - current approaches limit what models produce, but output length is a "symptom" not root cause
+2. **Capability control is the right approach** - modulate HOW models think, not what they produce
 3. **Linear interpolation between Instruct and Thinking checkpoints** yields a convex, monotonic Pareto frontier
 4. **DAMI framework** dynamically estimates query-specific "Reasoning Intensity" λ(q) to configure cognitive depth
 5. **Achieves higher accuracy than Thinking model while remaining efficient**
@@ -42,22 +42,22 @@ This means intermediate models along the interpolation path behave predictably.
 
 ## Relationship to Thesis
 
-### BALANCED — provides mechanistic insights:
+### BALANCED - provides mechanistic insights:
 
 **SUPPORTS the thesis:**
 
-1. **"Thinking" is not emergent** — it's interpolatable. If System 2 reasoning were a fundamentally different capability, linear interpolation shouldn't work smoothly.
+1. **"Thinking" is not emergent** - it's interpolatable. If System 2 reasoning were a fundamentally different capability, linear interpolation shouldn't work smoothly.
 
-2. **Reasoning intensity is adjustable** — this suggests "thinking" is more about resource allocation than qualitative capability difference
+2. **Reasoning intensity is adjustable** - this suggests "thinking" is more about resource allocation than qualitative capability difference
 
-3. **Checkpoints share representations** — the fact that interpolation works implies Instruct and Thinking models use similar underlying representations, just weighted differently
+3. **Checkpoints share representations** - the fact that interpolation works implies Instruct and Thinking models use similar underlying representations, just weighted differently
 
-4. **Output = symptom, not cause** — authors explicitly state output length is a symptom of cognitive configuration, supporting the view that longer CoT is format, not genuine reasoning
+4. **Output = symptom, not cause** - authors explicitly state output length is a symptom of cognitive configuration, supporting the view that longer CoT is format, not genuine reasoning
 
 **CHALLENGES the thesis (weakly):**
 
-1. **Thinking models do achieve higher accuracy** — there IS a real capability difference between System 1 and System 2
-2. **Query-specific adaptation helps** — suggests some problems genuinely require more "reasoning"
+1. **Thinking models do achieve higher accuracy** - there IS a real capability difference between System 1 and System 2
+2. **Query-specific adaptation helps** - suggests some problems genuinely require more "reasoning"
 
 ### Key Mechanistic Insight
 
@@ -82,8 +82,8 @@ This is consistent with the thesis: **"thinking" = activating more of the same p
 - **Interplay (2512.07783)**: Interpolation = another form of surfacing latent capability
 
 ### Provides Mechanism For
-- Why "thinking" can be induced by prompting — it's activating points along the interpolation manifold
-- Why overthinking happens — λ set too high for simple problems
+- Why "thinking" can be induced by prompting - it's activating points along the interpolation manifold
+- Why overthinking happens - λ set too high for simple problems
 
 ---
 
@@ -94,10 +94,10 @@ This is consistent with the thesis: **"thinking" = activating more of the same p
 
 ### Potential Counter-Arguments
 
-1. **Linear interpolation may not scale** — works for small models, may break for larger ones
-2. **Evaluation limited to math** — tested on mathematical reasoning benchmarks only
-3. **Doesn't explain WHY interpolation works** — descriptive, not mechanistic
-4. **May overfit to specific checkpoint pairs** — unclear if generalizes across model families
+1. **Linear interpolation may not scale** - works for small models, may break for larger ones
+2. **Evaluation limited to math** - tested on mathematical reasoning benchmarks only
+3. **Doesn't explain WHY interpolation works** - descriptive, not mechanistic
+4. **May overfit to specific checkpoint pairs** - unclear if generalizes across model families
 
 ### Limitations (Implicit)
 - Requires both Instruct and Thinking checkpoints

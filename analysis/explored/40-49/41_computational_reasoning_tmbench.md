@@ -11,11 +11,11 @@
 
 ## Core Claims
 
-1. **TMBench evaluates "computational reasoning"** — the ability to strictly follow rules and accurately manage internal states for multi-step execution
+1. **TMBench evaluates "computational reasoning"** - the ability to strictly follow rules and accurately manage internal states for multi-step execution
 2. **Gemini-2.5-Pro achieves 94% pass rate** at 30 steps on Turing machine simulation
-3. **Strong correlation with reasoning benchmarks** — r=0.882 with average of AIME/MATH/GPQA
-4. **Alphabet robustness suggests reasoning over pattern matching** — Gemini maintains accuracy across Roman, Greek, numeric, and special character sets
-5. **LLMs inevitably fail with increasing steps** — due to autoregressive/statistical nature
+3. **Strong correlation with reasoning benchmarks** - r=0.882 with average of AIME/MATH/GPQA
+4. **Alphabet robustness suggests reasoning over pattern matching** - Gemini maintains accuracy across Roman, Greek, numeric, and special character sets
+5. **LLMs inevitably fail with increasing steps** - due to autoregressive/statistical nature
 6. **Depth matters more than width** for reasoning capability
 
 ---
@@ -54,7 +54,7 @@
 | O3-mini | 37.1% | 30.5% | 7% |
 | O1-mini | 37.0% | 21.6% | 11% |
 
-**Key observation**: Reasoning models (R1, O1, O3) don't dominate — execution fidelity matters more than "thinking".
+**Key observation**: Reasoning models (R1, O1, O3) don't dominate - execution fidelity matters more than "thinking".
 
 ### Benchmark Correlations
 
@@ -86,21 +86,21 @@
 
 ### What This Paper Actually Shows
 
-1. **LLMs can follow explicit rules given in context** — but rules are provided, not discovered
-2. **Even the best model eventually fails** — Gemini fails somewhere between step 16-683
-3. **Correlation with math benchmarks exists** — but correlation ≠ causation
+1. **LLMs can follow explicit rules given in context** - but rules are provided, not discovered
+2. **Even the best model eventually fails** - Gemini fails somewhere between step 16-683
+3. **Correlation with math benchmarks exists** - but correlation ≠ causation
 
 ### Key Finding That SUPPORTS the Thesis
 
 > "As an autoregressive model, Gemini inevitably fails with increasing steps due to its statistical nature, underscoring Gemini's computational limits."
 
-This is direct evidence that LLMs have **bounded computational capability** — they cannot reliably execute deterministic rules indefinitely. A symbolic system would achieve 100% on this task.
+This is direct evidence that LLMs have **bounded computational capability** - they cannot reliably execute deterministic rules indefinitely. A symbolic system would achieve 100% on this task.
 
 ### Limitations of "Reasoning" Interpretation
 
 1. **TMBench tests rule-execution, not rule-discovery**
    - Rules are explicitly provided in prompt
-   - No need for model to "reason" — just follow instructions
+   - No need for model to "reason" - just follow instructions
 
 2. **Alphabet robustness doesn't prove reasoning**
    - Could be in-context pattern matching over given rules
@@ -135,7 +135,7 @@ This is direct evidence that LLMs have **bounded computational capability** — 
 ### Key Distinction
 - TMBench tests **rule-following with explicit rules**
 - The thesis claims LLMs can't perform **genuinely generative reasoning** (discovering implicit structure)
-- These are different claims — TMBench doesn't test what the thesis claims
+- These are different claims - TMBench doesn't test what the thesis claims
 
 ---
 
@@ -175,12 +175,12 @@ This is direct evidence that LLMs have **bounded computational capability** — 
 
 ## Relevance to Thesis
 
-**BALANCED — Actually provides evidence FOR bounded capability thesis**
+**BALANCED - Actually provides evidence FOR bounded capability thesis**
 
 The paper shows:
-1. ✓ LLMs can follow explicit rules to some extent — we don't deny this
-2. ✓ **LLMs inevitably fail** at scale — SUPPORTS bounded capability thesis
-3. ✓ Failure is due to "statistical nature" — SUPPORTS pattern-matching interpretation
+1. ✓ LLMs can follow explicit rules to some extent - we don't deny this
+2. ✓ **LLMs inevitably fail** at scale - SUPPORTS bounded capability thesis
+3. ✓ Failure is due to "statistical nature" - SUPPORTS pattern-matching interpretation
 4. ✗ Tests rule-execution, not rule-discovery or novel reasoning
 
 **Critical point**: The "inevitable failure" finding is more important than the 94% success rate. A system with genuine computational capability would achieve 100% on deterministic rule-following. The failure range (steps 16-683) shows LLMs are fundamentally bounded.
@@ -208,4 +208,4 @@ Without causal analysis, correlation doesn't resolve the debate.
 ## Verdict: BALANCED (provides evidence for bounded capability)
 
 
-The paper's central finding — that LLMs "inevitably fail with increasing steps due to statistical nature" — actually **supports** the thesis that LLM reasoning is fundamentally bounded and predictive rather than genuinely computational.
+The paper's central finding - that LLMs "inevitably fail with increasing steps due to statistical nature" - actually **supports** the thesis that LLM reasoning is fundamentally bounded and predictive rather than genuinely computational.

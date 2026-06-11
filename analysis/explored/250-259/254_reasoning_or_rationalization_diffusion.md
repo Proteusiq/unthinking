@@ -99,7 +99,7 @@ This paper provides direct experimental evidence that:
 1. **The answer comes first**: The model knows the verdict before generating the reasoning trace
 2. **CoT is post-hoc rationalization**: Justifications are generated after the decision, not as part of deliberation
 3. **Sequential reasoning is not necessary**: The verdict is computed in early diffusion steps without needing step-by-step reasoning
-4. **Extended thinking can hurt**: Forcing deliberation degrades performance — the model's initial "intuition" is better than its elaborated reasoning
+4. **Extended thinking can hurt**: Forcing deliberation degrades performance - the model's initial "intuition" is better than its elaborated reasoning
 
 ### Key Mechanism: Refinement Drift
 
@@ -123,7 +123,7 @@ This directly supports the thesis that:
 - **Why DLMs Struggle with Parallel Decoding (2602.23225)**: This paper provides the mechanism (refinement drift) for why parallel decoding degrades reasoning
 
 ### Challenged By
-- None identified — this is direct experimental evidence
+- None identified - this is direct experimental evidence
 
 ---
 
@@ -153,7 +153,7 @@ No direct rebuttals found (paper is from March 2026).
 
 > "Forcing extended deliberation through delayed verdict unmasking proves counterproductive, degrading accuracy from 86.2% to 71.9% as accumulating justification tokens override initially correct predictions."
 
-> "We find that the model maintains logical integrity in only 44% of cases—generating a justification that contradicts the forced verdict and supports the correct answer—while in the remaining 56%, the model rationalizes the incorrect verdict."
+> "We find that the model maintains logical integrity in only 44% of cases-generating a justification that contradicts the forced verdict and supports the correct answer-while in the remaining 56%, the model rationalizes the incorrect verdict."
 
 > "This causal dependence does not contradict the early verdict convergence... rather, it reveals the mechanism underlying refinement drift."
 
@@ -171,7 +171,7 @@ Diffusion models provide a unique window into LLM computation because they gener
 
 ### Why This Matters
 
-Autoregressive models hide this dynamic behind sequential generation — each token appears to build on the previous. Diffusion models expose that the causal structure is inverted: the conclusion determines the reasoning, not vice versa.
+Autoregressive models hide this dynamic behind sequential generation - each token appears to build on the previous. Diffusion models expose that the causal structure is inverted: the conclusion determines the reasoning, not vice versa.
 
 ---
 

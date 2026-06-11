@@ -11,11 +11,11 @@
 
 ## Core Claims
 
-1. **LLM judges are highly susceptible to CoT manipulation** — Manipulating agent reasoning traces (while holding actions/observations fixed) can inflate false positive rates by up to 90%
-2. **Content-based fabrications are most effective** — Progress Fabrication causes 20-30pp FPR increase (70-100% relative)
-3. **Prompt-based mitigations reduce but don't eliminate susceptibility** — Even with mitigations, models retain double-digit ΔFPR
-4. **Judge-time scaling provides limited robustness** — More compute helps for style-based attacks but fails against fabrication
-5. **Robustness-recall tradeoff exists** — Techniques that improve robustness reduce recall by 10-20 points
+1. **LLM judges are highly susceptible to CoT manipulation** - Manipulating agent reasoning traces (while holding actions/observations fixed) can inflate false positive rates by up to 90%
+2. **Content-based fabrications are most effective** - Progress Fabrication causes 20-30pp FPR increase (70-100% relative)
+3. **Prompt-based mitigations reduce but don't eliminate susceptibility** - Even with mitigations, models retain double-digit ΔFPR
+4. **Judge-time scaling provides limited robustness** - More compute helps for style-based attacks but fails against fabrication
+5. **Robustness-recall tradeoff exists** - Techniques that improve robustness reduce recall by 10-20 points
 
 ---
 
@@ -131,14 +131,14 @@ GPT-4o, GPT-5-mini, o4-mini, Claude-Sonnet-4, Qwen-2.5-72B, GLM-4.1V-9B-Thinking
 
 ### SUPPORTS the Thesis
 
-**The thesis**: "LLM reasoning is practical but fundamentally predictive—pattern matching from training distributions, not genuinely generative reasoning"
+**The thesis**: "LLM reasoning is practical but fundamentally predictive-pattern matching from training distributions, not genuinely generative reasoning"
 
 This paper supports the thesis in a **novel way**:
 
-1. **Judges pattern-match on CoT style, not content** — They can be fooled by confident-sounding but false reasoning
-2. **Surface features dominate over ground truth** — Manipulated presentation overrides observable evidence
-3. **"Reasoning" is assessed superficially** — Judges don't verify claims against reality
-4. **Even "thinking" models fail** — o4-mini, GLM-4.1V-Thinking still susceptible
+1. **Judges pattern-match on CoT style, not content** - They can be fooled by confident-sounding but false reasoning
+2. **Surface features dominate over ground truth** - Manipulated presentation overrides observable evidence
+3. **"Reasoning" is assessed superficially** - Judges don't verify claims against reality
+4. **Even "thinking" models fail** - o4-mini, GLM-4.1V-Thinking still susceptible
 
 ### Implication for Thesis
 
@@ -174,16 +174,16 @@ If LLM judges can't distinguish faithful from unfaithful reasoning:
 
 ### Limitations Acknowledged
 
-1. **Task domain scope** — Focused on web agents; may not generalize to code execution, file manipulation
-2. **Mitigation strategies** — Only tested training-free, prompt-based mitigations
-3. **Manipulation strategies** — Five strategies do not exhaustively cover all possible forms
-4. **Single rewriter** — Claude-Sonnet-4-Thinking used for all CoT rewriting
+1. **Task domain scope** - Focused on web agents; may not generalize to code execution, file manipulation
+2. **Mitigation strategies** - Only tested training-free, prompt-based mitigations
+3. **Manipulation strategies** - Five strategies do not exhaustively cover all possible forms
+4. **Single rewriter** - Claude-Sonnet-4-Thinking used for all CoT rewriting
 
 ### Potential Counter-Arguments
 
-1. **Training-based approaches** — Fine-tuning judges on adversarial examples (not tested)
-2. **Explicit grounding mechanisms** — Verifying reasoning claims against observations
-3. **Different judge-agent pairings** — Results may vary
+1. **Training-based approaches** - Fine-tuning judges on adversarial examples (not tested)
+2. **Explicit grounding mechanisms** - Verifying reasoning claims against observations
+3. **Different judge-agent pairings** - Results may vary
 
 ---
 
@@ -193,10 +193,10 @@ If LLM judges can't distinguish faithful from unfaithful reasoning:
 
 This paper provides **strong empirical evidence** that LLMs process CoT as surface patterns rather than verifiable claims:
 
-1. **Controlled experiments** — Actions/observations held fixed, only CoT varied
-2. **Multiple judges** — 9 different VLMs tested
-3. **Multiple strategies** — Both style and content manipulation
-4. **Systematic metrics** — ΔFPR, JFR, recall, F1
+1. **Controlled experiments** - Actions/observations held fixed, only CoT varied
+2. **Multiple judges** - 9 different VLMs tested
+3. **Multiple strategies** - Both style and content manipulation
+4. **Systematic metrics** - ΔFPR, JFR, recall, F1
 
 ### Stance Classification: **SUPPORTS**
 

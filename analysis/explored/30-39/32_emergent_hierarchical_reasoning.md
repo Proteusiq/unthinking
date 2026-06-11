@@ -12,7 +12,7 @@
 
 ## Core Claims
 
-1. **RL induces emergent reasoning hierarchy**: RL training leads to a two-phase dynamic — first procedural consolidation, then strategic exploration
+1. **RL induces emergent reasoning hierarchy**: RL training leads to a two-phase dynamic - first procedural consolidation, then strategic exploration
 2. **"Aha moments" explained**: They are the behavioral signature of discovering new strategic constructs
 3. **"Length-scaling" explained**: Correlated with increasing diversity of strategic plans (semantic entropy)
 4. **Token-level entropy is misleading**: Aggregate entropy drops while semantic entropy (strategic diversity) increases
@@ -24,16 +24,16 @@
 ## Methodology
 
 ### Two-Phase Dynamic Model
-1. **Phase 1 — Procedural Consolidation**: 
+1. **Phase 1 - Procedural Consolidation**: 
    - Marked by sharp decrease in perplexity and token entropy of execution tokens
    - Model rapidly becomes confident in low-level skills (calculations, formatting)
 
-2. **Phase 2 — Strategic Exploration**:
+2. **Phase 2 - Strategic Exploration**:
    - Performance gains driven by exploring high-level planning tokens
    - Marked by increasing semantic entropy of "Strategic Grams" (SGs)
    - Correlates with accuracy improvement and length scaling
 
-### Strategic Grams (SGs) — Full List from Appendix A
+### Strategic Grams (SGs) - Full List from Appendix A
 N-grams (3-5 tokens) that function as strategic reasoning units:
 
 **Examples include**:
@@ -42,7 +42,7 @@ N-grams (3-5 tokens) that function as strategic reasoning units:
 - Backtracing: "but wait", "hold on", "wait, that's not right", "my previous step was flawed"
 - Planning: "the plan is to", "break down the problem", "goal is to"
 
-**Key insight**: These are **reusable scaffolding** extracted from successful solutions — they are **learned templates**, not emergent reasoning.
+**Key insight**: These are **reusable scaffolding** extracted from successful solutions - they are **learned templates**, not emergent reasoning.
 
 ### HICRA Algorithm
 - Amplifies advantage for planning tokens by factor (1 + α)
@@ -106,7 +106,7 @@ N-grams (3-5 tokens) that function as strategic reasoning units:
 ### Appendix C: Full Training Dynamics
 
 **Model-specific observations**:
-1. **VL models and Qwen3-4B-Instruct**: Strategic exploration begins **immediately** — no procedural consolidation phase
+1. **VL models and Qwen3-4B-Instruct**: Strategic exploration begins **immediately** - no procedural consolidation phase
 2. **Llama-3.1-8B-Base**: "Fails to pivot towards exploring high-level planning strategies" → performance stagnation
 
 > "We hypothesize that for the standard Llama models, the intense initial focus on procedural correctness **prematurely collapses the diversity of high-level reasoning strategies**."
@@ -136,11 +136,11 @@ N-grams (3-5 tokens) that function as strategic reasoning units:
 
 > "RL improves reasoning by **rediscovering and operationalizing** the strategic layer of reasoning **inherited from** the model's pre-training priors."
 
-This is the **surfacing hypothesis** — RL surfaces what's already there.
+This is the **surfacing hypothesis** - RL surfaces what's already there.
 
 **2. Strategic Grams are templates from training data**:
 - SGs are extracted from "successful reasoning solutions"
-- They're "reusable scaffolding" — learned patterns
+- They're "reusable scaffolding" - learned patterns
 - The full SG list (Appendix A) shows they're **linguistic templates**, not reasoning
 
 **3. "Strategic exploration" = distribution matching over known patterns**:
@@ -150,7 +150,7 @@ From Appendix D:
 Models are learning to produce MORE diverse template-like outputs, not reasoning.
 
 **4. Requires pre-existing procedural foundation**:
-The paper admits HICRA fails when models lack procedural foundation — this means:
+The paper admits HICRA fails when models lack procedural foundation - this means:
 - The "emergent" reasoning requires pre-existing capabilities
 - RL can't create reasoning, only surface/deploy existing skills
 
@@ -266,14 +266,14 @@ All benchmarks (AIME, Math500, Olympiad) are **in-distribution** for these model
 
 ## Summary for Synthesis
 
-**Verdict: BALANCED (appears FOR "emergent reasoning" but actually supports the SURFACING hypothesis — that RL surfaces pre-existing capabilities rather than creating new reasoning abilities)**
+**Verdict: BALANCED (appears FOR "emergent reasoning" but actually supports the SURFACING hypothesis - that RL surfaces pre-existing capabilities rather than creating new reasoning abilities)**
 
 ### Key Arguments Supporting the "Pattern Matching / Surfacing" Thesis:
 
-1. **Paper explicitly states RL rediscovers pre-training priors** — this IS the surfacing hypothesis
+1. **Paper explicitly states RL rediscovers pre-training priors** - this IS the surfacing hypothesis
 2. **Strategic Grams are learned templates**, not emergent reasoning
-3. **HICRA requires pre-existing capability** — can't create reasoning from nothing
-4. **No OOD testing** — all evidence is in-distribution
+3. **HICRA requires pre-existing capability** - can't create reasoning from nothing
+4. **No OOD testing** - all evidence is in-distribution
 5. **OMEGA directly contradicts** implicit generalization claims with controlled experiments
 
 ### What This Paper Actually Shows:
@@ -288,4 +288,4 @@ All benchmarks (AIME, Math500, Olympiad) are **in-distribution** for these model
 - That "emergent" reasoning is genuinely new capability
 
 ### Bottom Line:
-The paper provides a detailed mechanism for HOW RL improves ID performance (strategic template deployment), but this mechanism **supports rather than challenges** the thesis that LLM reasoning is pattern matching from training data. RL surfaces and optimizes deployment of pre-existing patterns — it doesn't create new reasoning capabilities. The paper's own acknowledgment that HICRA requires pre-existing procedural foundation confirms that RL depends on, rather than creates, capability.
+The paper provides a detailed mechanism for HOW RL improves ID performance (strategic template deployment), but this mechanism **supports rather than challenges** the thesis that LLM reasoning is pattern matching from training data. RL surfaces and optimizes deployment of pre-existing patterns - it doesn't create new reasoning capabilities. The paper's own acknowledgment that HICRA requires pre-existing procedural foundation confirms that RL depends on, rather than creates, capability.

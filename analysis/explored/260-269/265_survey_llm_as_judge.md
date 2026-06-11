@@ -11,10 +11,10 @@
 ## Core Claims
 
 1. **LLM-as-a-Judge exhibits systematic biases** that undermine evaluation reliability, including position bias, length/verbosity bias, self-enhancement bias, and concreteness bias
-2. **Human-LLM agreement is modest** — even GPT-4 achieves only ~62% alignment with human judgments
-3. **Improvement strategies have limited effectiveness** — providing explanations, self-validation, and multi-round voting show mixed or negative results
-4. **Reasoning models don't solve the problem** — o1-mini, o3-mini, DeepSeek-R1 show similar bias profiles to non-reasoning models
-5. **Meta-evaluation is fundamentally difficult** — isolating specific biases from confounding factors remains unsolved
+2. **Human-LLM agreement is modest** - even GPT-4 achieves only ~62% alignment with human judgments
+3. **Improvement strategies have limited effectiveness** - providing explanations, self-validation, and multi-round voting show mixed or negative results
+4. **Reasoning models don't solve the problem** - o1-mini, o3-mini, DeepSeek-R1 show similar bias profiles to non-reasoning models
+5. **Meta-evaluation is fundamentally difficult** - isolating specific biases from confounding factors remains unsolved
 
 ---
 
@@ -62,20 +62,20 @@ Comprehensive survey + empirical experiments:
 ### Bias Taxonomy (12 Types Identified)
 
 **Task-Agnostic Biases:**
-1. **Diversity Bias** — bias against demographic groups
-2. **Cultural Bias** — misinterpretation of non-dominant cultures
-3. **Self-Enhancement Bias** — favoring own outputs (avoid same model as evaluator)
+1. **Diversity Bias** - bias against demographic groups
+2. **Cultural Bias** - misinterpretation of non-dominant cultures
+3. **Self-Enhancement Bias** - favoring own outputs (avoid same model as evaluator)
 
 **Judgment-Specific Biases:**
-4. **Position Bias** — favoring first or last response in list
-5. **Compassion-Fade Bias** — effect of model names on judgment
-6. **Sentiment Bias** — favoring certain emotional tones
-7. **Length/Verbosity Bias** — preferring longer responses
-8. **Concreteness Bias** — favoring responses with citations/numbers (even if wrong)
-9. **Authority Bias** — favoring authoritative-sounding sources
-10. **Empty Reference Bias** — failing when no reference provided
-11. **Content Continuation Bias** — preferring responses that continue context
-12. **Nested Instruction Bias** — confusion from embedded instructions
+4. **Position Bias** - favoring first or last response in list
+5. **Compassion-Fade Bias** - effect of model names on judgment
+6. **Sentiment Bias** - favoring certain emotional tones
+7. **Length/Verbosity Bias** - preferring longer responses
+8. **Concreteness Bias** - favoring responses with citations/numbers (even if wrong)
+9. **Authority Bias** - favoring authoritative-sounding sources
+10. **Empty Reference Bias** - failing when no reference provided
+11. **Content Continuation Bias** - preferring responses that continue context
+12. **Nested Instruction Bias** - confusion from embedded instructions
 
 ### Reasoning Models Don't Help
 
@@ -105,14 +105,14 @@ Comprehensive survey + empirical experiments:
 | + Best-of-5 | 51.95% ↓ | 58.72% ↓ | 5.88% ↓ |
 | Multi-LLM (set 2) | 58.19% ↑ | 70.98% ↑ | 64.71% ↑ |
 
-**Key insight**: Providing explanations DECREASES reliability — "deeper biases introduced by self-explanation"
+**Key insight**: Providing explanations DECREASES reliability - "deeper biases introduced by self-explanation"
 
 ---
 
 ## Relationship to Other Papers
 
 ### Supports
-- **Faith & Fate (2305.18654)**: Pattern matching, not reasoning — judges can't evaluate what they don't have
+- **Faith & Fate (2305.18654)**: Pattern matching, not reasoning - judges can't evaluate what they don't have
 - **Embers of Autoregression (2309.13638)**: Sequential biases affect judgment
 - **Broken Chains (2602.14444)**: CoT unfaithfulness propagates to judgment
 - **Verbosity Bias papers (2310.10076)**: Confirms length preference
@@ -181,8 +181,8 @@ Comprehensive survey + empirical experiments:
 This survey provides systematic evidence that:
 1. LLM judges exhibit the same biases as LLM reasoners (position, verbosity, pattern-matching)
 2. Extended reasoning (o1, DeepSeek-R1) doesn't improve judgment reliability
-3. Self-explanation makes things WORSE — consistent with post-hoc rationalization
-4. Even best models achieve only ~62% human agreement — barely better than chance on some metrics
+3. Self-explanation makes things WORSE - consistent with post-hoc rationalization
+4. Even best models achieve only ~62% human agreement - barely better than chance on some metrics
 
 The paper inadvertently reveals a circularity problem: we use LLMs to judge LLM reasoning, but the judges exhibit the same shallow pattern-matching behaviors they're supposed to detect.
 

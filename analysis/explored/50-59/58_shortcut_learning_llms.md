@@ -11,11 +11,11 @@
 
 ## Core Claims
 
-1. **LLMs rely on shortcuts for prediction** — demonstrating varying reliance across downstream tasks, significantly impairing performance
-2. **Larger LLMs are MORE likely to use shortcuts** — under zero-shot and few-shot ICL prompts
-3. **CoT prompting reduces shortcut reliance** — outperforms other strategies; few-shot often underperforms zero-shot
-4. **LLMs exhibit overconfidence** — especially on shortcut-laden datasets
-5. **Lower explanation quality on shortcut datasets** — three error types: distraction, disguised comprehension, logical fallacy
+1. **LLMs rely on shortcuts for prediction** - demonstrating varying reliance across downstream tasks, significantly impairing performance
+2. **Larger LLMs are MORE likely to use shortcuts** - under zero-shot and few-shot ICL prompts
+3. **CoT prompting reduces shortcut reliance** - outperforms other strategies; few-shot often underperforms zero-shot
+4. **LLMs exhibit overconfidence** - especially on shortcut-laden datasets
+5. **Lower explanation quality on shortcut datasets** - three error types: distraction, disguised comprehension, logical fallacy
 
 ---
 
@@ -81,7 +81,7 @@ Six shortcut types tested on NLI (Natural Language Inference):
 ### Three Error Types Identified
 
 1. **Distraction**: LLMs focus on irrelevant information (e.g., tautologies) while neglecting useful content
-2. **Disguised Comprehension**: Struggle with word subtleties, sentence structures, complex styles — "borrow" concepts incorrectly
+2. **Disguised Comprehension**: Struggle with word subtleties, sentence structures, complex styles - "borrow" concepts incorrectly
 3. **Logical Fallacy**: Overly simplistic reasoning, generalizing from specific instances via shortcuts
 
 ---
@@ -90,15 +90,15 @@ Six shortcut types tested on NLI (Natural Language Inference):
 
 ### What This Paper Shows
 
-1. **LLMs systematically exploit dataset biases** — not robust generalization
-2. **Scaling doesn't help** — larger models MORE susceptible to shortcuts
-3. **In-context learning can introduce biases** — few-shot sometimes worse than zero-shot
-4. **CoT helps but doesn't eliminate shortcuts** — reduces reliance but doesn't cure it
-5. **Overconfidence masks poor reasoning** — models confident even when wrong
+1. **LLMs systematically exploit dataset biases** - not robust generalization
+2. **Scaling doesn't help** - larger models MORE susceptible to shortcuts
+3. **In-context learning can introduce biases** - few-shot sometimes worse than zero-shot
+4. **CoT helps but doesn't eliminate shortcuts** - reduces reliance but doesn't cure it
+5. **Overconfidence masks poor reasoning** - models confident even when wrong
 
 ### Relevance to Thesis
 
-**STRONGLY SUPPORTS thesis — definitive evidence for pattern matching over reasoning**
+**STRONGLY SUPPORTS thesis - definitive evidence for pattern matching over reasoning**
 
 This paper directly demonstrates that LLMs:
 - Rely on spurious correlations (shortcuts) rather than semantic understanding
@@ -134,9 +134,9 @@ This is exactly the pattern matching hypothesis!
 
 ### Potential Counter-Arguments
 
-1. **NLI is narrow task** — may not generalize to all reasoning
-2. **CoT does help** — suggests reasoning can be elicited
-3. **GPT-4 shows smaller drops** — some robustness at frontier
+1. **NLI is narrow task** - may not generalize to all reasoning
+2. **CoT does help** - suggests reasoning can be elicited
+3. **GPT-4 shows smaller drops** - some robustness at frontier
 
 ### Limitations (Authors Acknowledge)
 - Focus on NLI task primarily
@@ -159,7 +159,7 @@ This is exactly the pattern matching hypothesis!
 
 ## Relevance to Thesis
 
-**STRONGLY SUPPORTS thesis — systematic evidence for shortcut exploitation**
+**STRONGLY SUPPORTS thesis - systematic evidence for shortcut exploitation**
 
 This paper provides:
 1. ✓ Systematic benchmark for shortcut learning across multiple LLMs

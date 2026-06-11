@@ -20,7 +20,7 @@ The visualization shows **215 research papers** as nodes in a force-directed gra
 
 ### Why a Graph?
 
-Academic papers don't exist in isolation—they respond to, build on, and challenge each other. A graph visualization makes these relationships visible and explorable. Users can:
+Academic papers don't exist in isolation-they respond to, build on, and challenge each other. A graph visualization makes these relationships visible and explorable. Users can:
 
 - See clusters of related work
 - Trace chains of rebuttals

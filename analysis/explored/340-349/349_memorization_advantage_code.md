@@ -6,7 +6,7 @@
 - **Authors**: Djiré Albérick Euraste, Kaboré Abdoul Kader, Jordan Samhi, Earl T. Barr, Jacques Klein, Tegawendé F. Bissyandé
 - **Affiliation**: University of Luxembourg, UCL, AI4D/CITADEL
 - **Venue**: ICSE 2026
-- **Stance**: Balanced — confirms memorization is real and task/model-dependent (StarCoder 0.8 on APPS), but surprise finding that CVEFixes and Defects4J show LOW memorization advantage (<0.1 and 0.2-0.4) challenges blanket "LLMs just memorize" claims. The spectrum view (memorization↔generalization is continuous) is more nuanced than either extreme.
+- **Stance**: Balanced - confirms memorization is real and task/model-dependent (StarCoder 0.8 on APPS), but surprise finding that CVEFixes and Defects4J show LOW memorization advantage (<0.1 and 0.2-0.4) challenges blanket "LLMs just memorize" claims. The spectrum view (memorization↔generalization is continuous) is more nuanced than either extreme.
 
 ---
 
@@ -56,15 +56,15 @@
 4. **Model architecture matters more than scale**: QwenCoder (<0.4 consistently) vs StarCoder (~0.8 peaks) despite similar sizes
 5. **Instruction tuning helps generalization**: WizardCoder, Magicoder show consistent advantages
 6. **Memorization is a spectrum**: not binary, different tasks have inherent "generalization boundaries"
-7. **Alternative interpretation for CVEFixes**: high duplication may push noise tolerance outward — "locally constrained generalization to the immediate neighborhood of a memorized datum"
+7. **Alternative interpretation for CVEFixes**: high duplication may push noise tolerance outward - "locally constrained generalization to the immediate neighborhood of a memorized datum"
 
 ---
 
 ## Methodology
 
 - **Perturbation Sensitivity Hypothesis (PSH)**: memorized content causes abrupt performance cliff under minor perturbations; generalized content degrades gradually
-- **Memorization advantage**: ma(M,x,y) = |p_θ(y|x) - p_θ(y|x'(x))| — performance gap between likely-seen and unseen inputs
-- **Sensitivity metric**: max over consecutive perturbation levels of performance drop — captures the maximum "cliff"
+- **Memorization advantage**: ma(M,x,y) = |p_θ(y|x) - p_θ(y|x'(x))| - performance gap between likely-seen and unseen inputs
+- **Sensitivity metric**: max over consecutive perturbation levels of performance drop - captures the maximum "cliff"
 - **Perturbation methods**:
   - NL→Code: BART-based controlled paraphrasing (5 progressive levels)
   - Code→Code/NL: Progressive variable renaming to random nonces
@@ -93,18 +93,18 @@
 ## Relationship to Other Papers
 
 ### Supports
-- **#3 GSM-Symbolic (2410.05229)** — Perturbation sensitivity confirms: when you change surface form while preserving semantics, memorized models collapse. Same principle, code domain.
-- **#245 Extracting Books (2601.02671)** — Confirms memorization is real and extractable; sensitivity method validates extraction-based findings
-- **#348 Comparative Memorization (2603.21658)** — StarCoder's high sensitivity aligns with Chen et al.'s finding that StarCoder has highest memorization rate and weakest noise robustness
+- **#3 GSM-Symbolic (2410.05229)** - Perturbation sensitivity confirms: when you change surface form while preserving semantics, memorized models collapse. Same principle, code domain.
+- **#245 Extracting Books (2601.02671)** - Confirms memorization is real and extractable; sensitivity method validates extraction-based findings
+- **#348 Comparative Memorization (2603.21658)** - StarCoder's high sensitivity aligns with Chen et al.'s finding that StarCoder has highest memorization rate and weakest noise robustness
 
 ### Challenges (weakly)
-- **#245, #246** — CVEFixes <0.1 and Defects4J 0.2-0.4 suggest that some code benchmarks accused of contamination may actually reflect genuine generalization
-- "LLMs just memorize" narrative — instruction-tuned models show consistent generalization advantages; QwenCoder generalizes across the board
-- **#348** — The "locally constrained generalization" interpretation for CVEFixes suggests a middle ground between memorization and generalization that neither extreme captures
+- **#245, #246** - CVEFixes <0.1 and Defects4J 0.2-0.4 suggest that some code benchmarks accused of contamination may actually reflect genuine generalization
+- "LLMs just memorize" narrative - instruction-tuned models show consistent generalization advantages; QwenCoder generalizes across the board
+- **#348** - The "locally constrained generalization" interpretation for CVEFixes suggests a middle ground between memorization and generalization that neither extreme captures
 
 ### Extends
-- **#348** — Adds task-level analysis (which tasks memorize?) to Chen et al.'s model/family-level analysis
-- **#350 How Much Do LMs Memorize** — Complementary: Morris et al. measure capacity bits; Euraste et al. measure task-level sensitivity
+- **#348** - Adds task-level analysis (which tasks memorize?) to Chen et al.'s model/family-level analysis
+- **#350 How Much Do LMs Memorize** - Complementary: Morris et al. measure capacity bits; Euraste et al. measure task-level sensitivity
 
 ---
 
@@ -128,11 +128,11 @@
 
 ## Key Quotes
 
-1. *"CVEFixes showed consistently low values below 0.1. These findings challenge prevailing concerns about these datasets' validity for evaluating code LLMs"* — Section 4
-2. *"memorization versus generalization is not a binary distinction but rather a spectrum"* — Section 5
-3. *"It is possible that very high duplication of a particular datum may train models to tolerate more noise around that datum, achieving a sort of locally constrained generalization to the immediate neighborhood of a memorized datum"* — Discussion
-4. *"simply scaling up model size or training on more data may be less effective than thoughtful architectural design and training methodology"* — Conclusions
-5. *"The consistent generalization advantages of instruction-tuned models may suggest that alignment techniques may improve not only safety but also fundamental generalization capabilities."* — Discussion
+1. *"CVEFixes showed consistently low values below 0.1. These findings challenge prevailing concerns about these datasets' validity for evaluating code LLMs"* - Section 4
+2. *"memorization versus generalization is not a binary distinction but rather a spectrum"* - Section 5
+3. *"It is possible that very high duplication of a particular datum may train models to tolerate more noise around that datum, achieving a sort of locally constrained generalization to the immediate neighborhood of a memorized datum"* - Discussion
+4. *"simply scaling up model size or training on more data may be less effective than thoughtful architectural design and training methodology"* - Conclusions
+5. *"The consistent generalization advantages of instruction-tuned models may suggest that alignment techniques may improve not only safety but also fundamental generalization capabilities."* - Discussion
 
 ---
 
@@ -143,7 +143,7 @@ This paper provides evidence in both directions:
 
 **For the thesis**: StarCoder's 0.8 on APPS proves memorization is real and method detects it. Test generation (0.4-0.7) shows models struggle to generalize in tasks requiring deep semantic understanding. Task-dependent memorization is consistent with "pattern matching where patterns exist, confabulation where they don't."
 
-**Against the thesis**: CVEFixes <0.1 and Defects4J 0.2-0.4 are genuinely surprising — these benchmarks that the community suspected of contamination show low memorization advantage. This suggests code LLMs may have learned generalizable patterns for vulnerability detection and bug repair. Instruction tuning consistently helps, suggesting training methods can build genuine generalization.
+**Against the thesis**: CVEFixes <0.1 and Defects4J 0.2-0.4 are genuinely surprising - these benchmarks that the community suspected of contamination show low memorization advantage. This suggests code LLMs may have learned generalizable patterns for vulnerability detection and bug repair. Instruction tuning consistently helps, suggesting training methods can build genuine generalization.
 
 ### The "locally constrained generalization" caveat
 The authors' own hedge is important: highly duplicated data may create noise-tolerant memorization that looks like generalization. If CVEFixes appears in many variations across training data, the model may tolerate perturbations without truly understanding vulnerability patterns. This interpretation would flip the finding back toward the thesis.

@@ -1,10 +1,10 @@
-# Unthinking — Paper Galaxy
+# Unthinking - Paper Galaxy
 
 Live: <https://proteusiq.github.io/unthinking/galaxy/>
 
 A 3D semantic projection of the 367 paper analyses in this repo. Each star is
 one paper. Color is the paper's stance on the thesis that LLM "reasoning" is
-predictive completion. Size and pulse mark the heaviest pieces of evidence —
+predictive completion. Size and pulse mark the heaviest pieces of evidence -
 smoking-gun findings are the biggest, brightest stars.
 
 Runs entirely in your browser. WebGPU required (Chrome, Edge, Brave, or Safari
@@ -32,7 +32,7 @@ Embeddings + positions persist to IndexedDB. Next visit is instant.
 ```
 
 The cache key is a fingerprint of `corpus.json` content plus the model id.
-Add a paper, rerun the index extractor — the fingerprint changes, the cache
+Add a paper, rerun the index extractor - the fingerprint changes, the cache
 busts, and the browser re-indexes on next visit.
 
 ## Develop
@@ -94,26 +94,26 @@ changed and their browser will re-index. (~30-60s on WebGPU.)
   doesn't visibly change which papers are neighbors.
 - **First visit is slow.** ~30-60 sec on WebGPU for the model download
   plus 360 embedding passes. Subsequent visits are near-instant (cache).
-- **WebGPU is required** — we don't fall back to WASM. CPU inference
+- **WebGPU is required** - we don't fall back to WASM. CPU inference
   would take 3-6 minutes per visit. Users without WebGPU see an explicit
   "browser not supported" message instead of a silent slog.
 
 ## Lineage
 
-The visual scaffold — React Three Fiber scene, Bloom, Stars, OrbitControls,
-the worker-based EmbeddingGemma loader, search-by-cosine — comes from
+The visual scaffold - React Three Fiber scene, Bloom, Stars, OrbitControls,
+the worker-based EmbeddingGemma loader, search-by-cosine - comes from
 [webml-community/semantic-galaxy](https://huggingface.co/spaces/webml-community/semantic-galaxy)
-by Xenova (Apache-2.0). Everything specific to this project — the
+by Xenova (Apache-2.0). Everything specific to this project - the
 corpus-aware menu galaxy, variable star size by evidence weight, the
 smoking-gun pulse, the quote ticker, the stance-encoded color system, the
 paper-aware sidebar and info card, the URL state, the IndexedDB cache layer,
-the WebGPU-only stance, the splash copy — is built on top.
+the WebGPU-only stance, the splash copy - is built on top.
 
 Credits in full:
 
 - [Semantic Galaxy](https://huggingface.co/spaces/webml-community/semantic-galaxy)
-  by [Xenova](https://huggingface.co/Xenova) — base architecture.
-- [EmbeddingGemma](https://huggingface.co/google/embeddinggemma-300m) — Google
+  by [Xenova](https://huggingface.co/Xenova) - base architecture.
+- [EmbeddingGemma](https://huggingface.co/google/embeddinggemma-300m) - Google
   DeepMind.
 - [Transformers.js](https://huggingface.co/docs/transformers.js),
   [Three.js](https://threejs.org/),

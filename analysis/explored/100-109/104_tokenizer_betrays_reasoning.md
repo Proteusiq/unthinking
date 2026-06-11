@@ -15,7 +15,7 @@
 
 2. **LLMs reason at token-ID level, not meaning level**: Models treat semantically identical inputs as distinct when they have different token encodings
 
-3. **"Phantom edits" reveal the problem**: Models output different token IDs while producing identical surface text — they "believe" they made an edit when no actual change occurred
+3. **"Phantom edits" reveal the problem**: Models output different token IDs while producing identical surface text - they "believe" they made an edit when no actual change occurred
 
 4. **Model scaling doesn't fix this**: Larger models show no systematic improvement; this is an architectural constraint, not a capacity issue
 
@@ -94,7 +94,7 @@ Within Qwen3 and Gemma3 families, larger variants sometimes perform **worse** th
 - **Content Effects on Reasoning (2207.07051)**: Adds mechanistic explanation for why surface form matters
 
 ### Provides Mechanism For
-- **Thesis**: Explains WHY reasoning is surface-level — models literally cannot see past token IDs to meaning
+- **Thesis**: Explains WHY reasoning is surface-level - models literally cannot see past token IDs to meaning
 
 ---
 
@@ -158,7 +158,7 @@ None identified. This is a recent paper.
 
 2. **No semantic layer exists**: A system with genuine understanding would recognize that different tokenizations of the same string are semantically equivalent. The failure to do so proves models operate on surface patterns.
 
-3. **"Path of least resistance"**: Models take statistically likely token paths rather than reasoning about task requirements — this IS pattern matching behavior.
+3. **"Path of least resistance"**: Models take statistically likely token paths rather than reasoning about task requirements - this IS pattern matching behavior.
 
 4. **Scaling doesn't help**: If reasoning were genuine, larger models should improve. The failure to improve systematically proves this is architectural, not a capacity issue.
 

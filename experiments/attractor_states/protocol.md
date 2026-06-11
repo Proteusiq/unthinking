@@ -2,7 +2,7 @@
 
 ## Status
 
-**Active** — Core implementation complete, running experiments.
+**Active** - Core implementation complete, running experiments.
 
 ---
 

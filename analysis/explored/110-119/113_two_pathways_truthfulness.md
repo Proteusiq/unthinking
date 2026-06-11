@@ -21,11 +21,11 @@ The key insight: **Q-Anchored = within knowledge boundary (pattern retrieval); A
 
 ## Core Claims
 
-1. **Two distinct truthfulness pathways exist** — validated via attention knockout and token patching
-2. **Q-Anchored = knowledge retrieval** — high accuracy (87% vs 68%), popular entities, within knowledge boundary
-3. **A-Anchored = fabrication detection** — lower accuracy, long-tail entities, beyond knowledge boundary
-4. **LLMs are self-aware of pathway distinctions** — internal representations can predict which mechanism is being used (87-93% AUC)
-5. **Pathway-aware detection improves performance** — MoP and PR achieve up to 10% AUC gain
+1. **Two distinct truthfulness pathways exist** - validated via attention knockout and token patching
+2. **Q-Anchored = knowledge retrieval** - high accuracy (87% vs 68%), popular entities, within knowledge boundary
+3. **A-Anchored = fabrication detection** - lower accuracy, long-tail entities, beyond knowledge boundary
+4. **LLMs are self-aware of pathway distinctions** - internal representations can predict which mechanism is being used (87-93% AUC)
+5. **Pathway-aware detection improves performance** - MoP and PR achieve up to 10% AUC gain
 
 ---
 
@@ -33,7 +33,7 @@ The key insight: **Q-Anchored = within knowledge boundary (pattern retrieval); A
 
 ### Saliency-Driven Analysis
 - Computed saliency scores: S^l(i,j) = |A^l(i,j) * ∂L(x)/∂A^l(i,j)|
-- Found **bimodal distribution** — clear separation between Q-anchored and A-anchored samples
+- Found **bimodal distribution** - clear separation between Q-anchored and A-anchored samples
 
 ### Attention Knockout Experiment
 - Blocked information flow from exact question tokens to subsequent positions
@@ -45,7 +45,7 @@ The key insight: **Q-Anchored = within knowledge boundary (pattern retrieval); A
 ### Token Patching Validation
 - Replaced exact question tokens with tokens from different (hallucinatory) samples
 - **Q-Anchored**: HIGH flip rate when hallucinatory cues injected
-- **A-Anchored**: LOW flip rate — robust to question changes
+- **A-Anchored**: LOW flip rate - robust to question changes
 
 ### Answer-Only Input Test
 - Removed questions entirely, probed on answer-only hidden states
@@ -76,7 +76,7 @@ The key insight: **Q-Anchored = within knowledge boundary (pattern retrieval); A
 
 | Method | PopQA | TriviaQA | HotpotQA | NQ | Avg Δ |
 |--------|-------|----------|----------|-----|-------|
-| Probing Baseline | 88.71 | 77.58 | 82.23 | 70.20 | — |
+| Probing Baseline | 88.71 | 77.58 | 82.23 | 70.20 | - |
 | **MoP (Mixture-of-Probes)** | 92.11 | 81.18 | 85.45 | 74.64 | +3.4 |
 | **PR (Pathway Reweighting)** | 94.01 | 83.13 | 87.81 | 79.10 | +5.9 |
 
@@ -150,7 +150,7 @@ The key insight: **Q-Anchored = within knowledge boundary (pattern retrieval); A
 ## Critical Analysis
 
 ### What This Paper Shows
-1. Truthfulness encoding is NOT a single mechanism — it's bifurcated
+1. Truthfulness encoding is NOT a single mechanism - it's bifurcated
 2. The two pathways correlate with knowledge boundary (training distribution)
 3. LLMs have internal "meta-awareness" of which mode they're in
 4. This meta-awareness can be exploited for better hallucination detection
@@ -158,7 +158,7 @@ The key insight: **Q-Anchored = within knowledge boundary (pattern retrieval); A
 ### Implications for Pattern Matching Thesis
 - **Q-Anchored = successful pattern retrieval**: Model finds matching pattern in "knowledge"
 - **A-Anchored = pattern-based fabrication detection**: Model recognizes its output has fabrication patterns (hedging, inconsistency, etc.)
-- Neither pathway involves "reasoning" — both are pattern matching:
+- Neither pathway involves "reasoning" - both are pattern matching:
   - Q-Anchored: matching question to stored patterns
   - A-Anchored: matching output to "fabrication signature" patterns
 
@@ -210,4 +210,4 @@ This paper provides **mechanistic evidence** that LLM truthfulness encoding oper
 - Both are pattern matching, not reasoning
 - The knowledge boundary = training distribution boundary
 
-The model doesn't "reason" about truth — it either retrieves patterns (Q-Anchored) or detects fabrication patterns (A-Anchored).
+The model doesn't "reason" about truth - it either retrieves patterns (Q-Anchored) or detects fabrication patterns (A-Anchored).

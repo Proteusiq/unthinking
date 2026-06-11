@@ -12,15 +12,15 @@
 
 ## Core Claims
 
-1. **CoT prompting "significantly improves" reasoning** — Generating intermediate reasoning steps before the final answer improves performance on complex reasoning tasks.
+1. **CoT prompting "significantly improves" reasoning** - Generating intermediate reasoning steps before the final answer improves performance on complex reasoning tasks.
 
-2. **Reasoning abilities "emerge naturally" at scale** — CoT benefits only materialize at ~100B+ parameters; smaller models don't benefit.
+2. **Reasoning abilities "emerge naturally" at scale** - CoT benefits only materialize at ~100B+ parameters; smaller models don't benefit.
 
-3. **No fine-tuning required** — CoT works via few-shot prompting with manually composed exemplars; no weight modification needed.
+3. **No fine-tuning required** - CoT works via few-shot prompting with manually composed exemplars; no weight modification needed.
 
-4. **CoT enables problem decomposition** — Models "decompose multi-step problems into intermediate steps."
+4. **CoT enables problem decomposition** - Models "decompose multi-step problems into intermediate steps."
 
-5. **State-of-the-art on GSM8K** — 540B PaLM with CoT achieves 58% on GSM8K, surpassing fine-tuned GPT-3 + verifier (55%).
+5. **State-of-the-art on GSM8K** - 540B PaLM with CoT achieves 58% on GSM8K, surpassing fine-tuned GPT-3 + verifier (55%).
 
 ---
 
@@ -33,7 +33,7 @@
 ### Implementation
 - Provide **8 chain-of-thought exemplars** as demonstrations
 - Model generates its own CoT at test time, mimicking format
-- **No fine-tuning** — pure prompting technique
+- **No fine-tuning** - pure prompting technique
 - External calculator used for basic arithmetic operations
 
 ### Models Tested
@@ -58,7 +58,7 @@
 
 | Prompting | Scaling Curve |
 |-----------|---------------|
-| Standard | "Relatively flat" — more parameters don't help |
+| Standard | "Relatively flat" - more parameters don't help |
 | CoT | "Increasing model scale leads to improved performance" |
 
 ### Emergence Threshold
@@ -90,7 +90,7 @@
 4. **Failure modes**: When and why does CoT fail?
 
 ### The "Elicits" Framing
-The title claims CoT "elicits reasoning" — implying reasoning ability was latent and is now revealed. Subsequent research challenges this:
+The title claims CoT "elicits reasoning" - implying reasoning ability was latent and is now revealed. Subsequent research challenges this:
 - **Paper 133** (Base Models Know How to Reason): Supports "surfacing" interpretation
 - **Paper 148** (Don't Say What They Think): CoT can be systematically unfaithful
 - **Paper 132** (Stop Anthropomorphizing): Tokens aren't reasoning traces
@@ -128,7 +128,7 @@ The title claims CoT "elicits reasoning" — implying reasoning ability was late
 
 3. **CoT Unfaithfulness (Papers 10, 148)**: CoT steps don't reflect actual computation; models can be biased by irrelevant features without mentioning them
 
-4. **Planning failures (Papers 131, 150)**: CoT doesn't help LLMs plan autonomously — ~12% success rate
+4. **Planning failures (Papers 131, 150)**: CoT doesn't help LLMs plan autonomously - ~12% success rate
 
 ### Methodological Issues
 1. **External calculator**: Using calculator for arithmetic inflates apparent "reasoning" ability
@@ -151,7 +151,7 @@ The title claims CoT "elicits reasoning" — implying reasoning ability was late
 > "We show how such reasoning abilities emerge naturally in sufficiently large language models via a simple method called chain of thought prompting."
 
 **On threshold**:
-> "Successful chain of thought reasoning is an emergent property of model scale — that is, the benefits of chain of thought prompting only materialize with a sufficient number of model parameters (around 100B)."
+> "Successful chain of thought reasoning is an emergent property of model scale - that is, the benefits of chain of thought prompting only materialize with a sufficient number of model parameters (around 100B)."
 
 ---
 
@@ -180,10 +180,10 @@ This paper is technically "FOR genuine reasoning" in its claims, but subsequent 
 
 | Original Claim | Status in 2026 |
 |----------------|----------------|
-| CoT elicits reasoning | Challenged — may be pattern completion |
-| Abilities emerge at 100B | Challenged — metric artifact |
-| Models decompose problems | Challenged — produce plausible text |
-| Improved performance = reasoning | Challenged — benchmarks don't test reasoning |
+| CoT elicits reasoning | Challenged - may be pattern completion |
+| Abilities emerge at 100B | Challenged - metric artifact |
+| Models decompose problems | Challenged - produce plausible text |
+| Improved performance = reasoning | Challenged - benchmarks don't test reasoning |
 
 **The paper is essential to analyze because it established the claims that subsequent work refutes.**
 

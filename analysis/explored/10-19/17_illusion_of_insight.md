@@ -13,11 +13,11 @@
 
 ## Core Claims
 
-1. **"Aha!" moments are RARE** — reasoning shifts occur infrequently in traces
+1. **"Aha!" moments are RARE** - reasoning shifts occur infrequently in traces
 2. **Reasoning shifts do NOT become more frequent with training**
 3. **Reasoning shifts SELDOM improve accuracy**
 4. **Shifts are symptoms of UNSTABLE INFERENCE, not genuine insight**
-5. **Artificially triggered shifts under high entropy CAN help** — but this is extrinsic, not intrinsic
+5. **Artificially triggered shifts under high entropy CAN help** - but this is extrinsic, not intrinsic
 
 ---
 
@@ -142,18 +142,18 @@ What we actually observe:
 ## Relationship to Other Papers
 
 ### Directly Challenges
-- **DeepSeek-R1 (2501.12948)** — "Aha moment" claim directly refuted
-- **s1 (2501.19393)** — Surfacing hypothesis needs qualification
+- **DeepSeek-R1 (2501.12948)** - "Aha moment" claim directly refuted
+- **s1 (2501.19393)** - Surfacing hypothesis needs qualification
 
 ### Supports
-- **Measuring Faithfulness (2307.13702)** — CoT is unfaithful
-- **Reasoning Models Don't Say (2505.05410)** — CoT doesn't reflect computation
-- **CoT In The Wild (2503.08679)** — Natural unfaithfulness
-- **OMEGA (2506.18880)** — RL training can HURT generalization; shifts don't constitute improvement
+- **Measuring Faithfulness (2307.13702)** - CoT is unfaithful
+- **Reasoning Models Don't Say (2505.05410)** - CoT doesn't reflect computation
+- **CoT In The Wild (2503.08679)** - Natural unfaithfulness
+- **OMEGA (2506.18880)** - RL training can HURT generalization; shifts don't constitute improvement
 
 ### Extends
-- **Illusion of Thinking (2506.06941)** — Different "illusion" but same conclusion
-- **Correlation or Causation (2509.17380)** — CoT doesn't cause correct answers
+- **Illusion of Thinking (2506.06941)** - Different "illusion" but same conclusion
+- **Correlation or Causation (2509.17380)** - CoT doesn't cause correct answers
 
 ---
 
@@ -238,7 +238,7 @@ No direct arXiv rebuttal found (paper is very recent: Jan 2, 2026).
 
 1. **Directly refutes key "FOR" evidence**:
    - DeepSeek-R1's "Aha moment" was cited as evidence of genuine reasoning
-   - This paper shows it's illusory — unstable inference, not insight
+   - This paper shows it's illusory - unstable inference, not insight
 
 2. **Supports unfaithfulness interpretation**:
    - Models LOOK like they're self-correcting
@@ -255,7 +255,7 @@ No direct arXiv rebuttal found (paper is very recent: Jan 2, 2026).
 
 ### Integration with Thesis
 
-> "The 'Aha!' moments cited as evidence of genuine reasoning in LRMs are illusory. Analysis of 1M+ reasoning traces shows these mid-trace shifts are RARE (2-6%), do NOT increase with training, and SELDOM improve accuracy. They correlate with model uncertainty, not insight — they are symptoms of unstable inference, not intrinsic self-correction. The appearance of 'thinking' does not constitute thinking."
+> "The 'Aha!' moments cited as evidence of genuine reasoning in LRMs are illusory. Analysis of 1M+ reasoning traces shows these mid-trace shifts are RARE (2-6%), do NOT increase with training, and SELDOM improve accuracy. They correlate with model uncertainty, not insight - they are symptoms of unstable inference, not intrinsic self-correction. The appearance of 'thinking' does not constitute thinking."
 
 ---
 
@@ -267,7 +267,7 @@ No direct arXiv rebuttal found (paper is very recent: Jan 2, 2026).
 - [x] Key evidence with numbers
 - [x] Critical analysis
 - [x] Cross-references identified
-- [x] **Rebuttals checked** — None found (very recent paper)
+- [x] **Rebuttals checked** - None found (very recent paper)
 - [x] Paper graph updated
 
 ---

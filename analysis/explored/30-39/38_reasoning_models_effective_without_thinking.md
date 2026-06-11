@@ -16,7 +16,7 @@
 
 2. **NoThinking outperforms Thinking in low-budget settings**: With token constraints, NoThinking beats Thinking (e.g., 51.3 vs 28.9 on ACM 23 with 700 tokens)
 
-3. **Parallel scaling with NoThinking is highly effective**: Generate N outputs independently, aggregate with verifiers or best-of-N — matches or exceeds Thinking with up to 9x lower latency
+3. **Parallel scaling with NoThinking is highly effective**: Generate N outputs independently, aggregate with verifiers or best-of-N - matches or exceeds Thinking with up to 9x lower latency
 
 4. **pass@k improves more for NoThinking**: As k increases, NoThinking becomes more competitive with Thinking
 
@@ -28,8 +28,8 @@
 - **DeepSeek-R1-Distill-Qwen** (state-of-the-art reasoning model with explicit "thinking" traces)
 
 ### Two Conditions Compared
-1. **Thinking**: Default behavior — generates lengthy CoT inside `<think>` tags before final answer
-2. **NoThinking**: Bypasses thinking via prompting — prefills dummy "thinking box" (e.g., `<think>\n\n</think>`) and generates solution directly
+1. **Thinking**: Default behavior - generates lengthy CoT inside `<think>` tags before final answer
+2. **NoThinking**: Bypasses thinking via prompting - prefills dummy "thinking box" (e.g., `<think>\n\n</think>`) and generates solution directly
 
 ### Benchmarks (7 Challenging Reasoning Tasks)
 - Mathematical problem solving (AIME, MATH-500)
@@ -76,9 +76,9 @@
 
 ### How This Paper Could CHALLENGE the Thesis
 
-1. **Implicit reasoning capability exists**: The model can reason without explicit CoT — suggests capability is encoded in weights, perhaps more robustly than "pattern matching" implies
+1. **Implicit reasoning capability exists**: The model can reason without explicit CoT - suggests capability is encoded in weights, perhaps more robustly than "pattern matching" implies
 
-2. **Parallel scaling works well**: Multiple independent samples + verification achieves strong results — the model can reliably produce correct answers
+2. **Parallel scaling works well**: Multiple independent samples + verification achieves strong results - the model can reliably produce correct answers
 
 3. **Doesn't prove pattern matching**: The paper shows thinking isn't necessary, but doesn't directly show reasoning IS pattern matching
 
@@ -100,7 +100,7 @@
 
 3. **Low-budget advantage suggests retrieval, not computation**
 
-   If NoThinking outperforms Thinking with limited tokens, the model isn't "computing" — it's retrieving answers quickly. Extended thinking adds noise in constrained settings.
+   If NoThinking outperforms Thinking with limited tokens, the model isn't "computing" - it's retrieving answers quickly. Extended thinking adds noise in constrained settings.
 
 4. **pass@k improvement = coverage, not reasoning**
 
@@ -108,11 +108,11 @@
 
 5. **Aligns with "Illusion of Insight" findings**
 
-   "Aha moments" and extended thinking don't actually improve accuracy — this paper confirms that the thinking trace may be largely cosmetic.
+   "Aha moments" and extended thinking don't actually improve accuracy - this paper confirms that the thinking trace may be largely cosmetic.
 
 6. **CoT Faithfulness Implications**
 
-   If you can skip thinking and get correct answers, the thinking tokens were not reflecting necessary computation — supports unfaithfulness findings.
+   If you can skip thinking and get correct answers, the thinking tokens were not reflecting necessary computation - supports unfaithfulness findings.
 
 ---
 
@@ -124,7 +124,7 @@
 - **Illusions of Reflection (2510.18254)**: Reflection/thinking doesn't reliably improve answers
 
 ### Challenges
-- **DeepSeek-R1 (2501.12948)**: Suggests extended thinking is valuable — this paper questions that
+- **DeepSeek-R1 (2501.12948)**: Suggests extended thinking is valuable - this paper questions that
 - **How LLMs Learn to Reason (2509.23629)**: "Concept web" theory assumes thinking traverses paths
 
 ### Provides Evidence For
@@ -135,11 +135,11 @@
 
 ## Limitations (Authors Acknowledge)
 
-1. **Model-specific findings**: Only tested DeepSeek-R1-Distill-Qwen — generalization to other reasoning models (o1, Claude) not directly tested
+1. **Model-specific findings**: Only tested DeepSeek-R1-Distill-Qwen - generalization to other reasoning models (o1, Claude) not directly tested
 
 2. **Requires verifiers for best results**: Parallel scaling works best with task-specific verifiers; for tasks without verifiers, relies on simpler heuristics
 
-3. **Does not eliminate reasoning entirely**: NoThinking still uses a reasoning model — it just skips explicit thinking trace. Model's implicit capabilities (from training) still present
+3. **Does not eliminate reasoning entirely**: NoThinking still uses a reasoning model - it just skips explicit thinking trace. Model's implicit capabilities (from training) still present
 
 4. **Does not explain WHY it works**: Demonstrates effectiveness but doesn't provide mechanistic explanation for why skipping thinking doesn't hurt
 
@@ -149,11 +149,11 @@
 
 ### Potential Counter-Arguments
 
-1. **Task selection bias**: 7 benchmarks may not represent all reasoning scenarios — perhaps tasks requiring genuine multi-step OOD reasoning would show different results
+1. **Task selection bias**: 7 benchmarks may not represent all reasoning scenarios - perhaps tasks requiring genuine multi-step OOD reasoning would show different results
 
-2. **Verifiers do heavy lifting**: Best-of-N with verifiers offloads "correctness checking" to external tools — this is not pure model reasoning
+2. **Verifiers do heavy lifting**: Best-of-N with verifiers offloads "correctness checking" to external tools - this is not pure model reasoning
 
-3. **Implicit reasoning still happening**: The model may still be doing reasoning implicitly in its forward pass — just not verbalizing it
+3. **Implicit reasoning still happening**: The model may still be doing reasoning implicitly in its forward pass - just not verbalizing it
 
 4. **Scale matters**: Results on distilled model may not apply to larger reasoning models
 
@@ -175,7 +175,7 @@
 > "When controlling for the number of tokens, **NoThinking outperforms Thinking** across a diverse set of seven challenging reasoning datasets"
 
 ### On the specific performance gap:
-> "51.3 vs. 28.9 on ACM 23 with 700 tokens" — **nearly 2x better** with NoThinking under token constraints
+> "51.3 vs. 28.9 on ACM 23 with 700 tokens" - **nearly 2x better** with NoThinking under token constraints
 
 ### On scaling properties:
 > "The performance of NoThinking becomes **more competitive with pass@k as k increases**"
@@ -201,7 +201,7 @@
 
 ## Summary for Synthesis
 
-**Verdict: BALANCED — Challenges "thinking" value but interpretation is nuanced**
+**Verdict: BALANCED - Challenges "thinking" value but interpretation is nuanced**
 
 ### What This Paper Actually Shows:
 1. Explicit thinking tokens are often unnecessary for correctness
@@ -223,15 +223,15 @@ This paper undermines the "extended thinking = reasoning" narrative:
 - Both interpretations suggest thinking traces are not genuine "computation"
 
 ### Relationship to Thesis:
-**Supports thesis interpretation** — the paper is consistent with:
+**Supports thesis interpretation** - the paper is consistent with:
 - Reasoning capability is already in the model (from training)
 - "Thinking" is exploration/sampling over learned patterns
 - Parallel sampling + verification = search, not computation
 - Extended CoT may be cosmetic rather than causal
 
-However, the paper could also support "implicit reasoning" view — the model reasons without verbalizing it. The key question is whether this "implicit reasoning" generalizes OOD.
+However, the paper could also support "implicit reasoning" view - the model reasons without verbalizing it. The key question is whether this "implicit reasoning" generalizes OOD.
 
 ### Key Quote for Synthesis:
 > "When controlling for the number of tokens, NoThinking outperforms Thinking"
 
-If genuine multi-step computation were happening during thinking, more thinking tokens should help. They don't — at minimum, the thinking is inefficient; at maximum, it's not genuine computation.
+If genuine multi-step computation were happening during thinking, more thinking tokens should help. They don't - at minimum, the thinking is inefficient; at maximum, it's not genuine computation.

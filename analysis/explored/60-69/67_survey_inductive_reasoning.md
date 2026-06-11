@@ -39,32 +39,32 @@
 ### 1. Post-training (Section 3.1)
 | Method | Approach |
 |--------|----------|
-| **Synthetic Data** | LingR, ItD, CodeSeq — generate training data for inductive tasks |
+| **Synthetic Data** | LingR, ItD, CodeSeq - generate training data for inductive tasks |
 | **IRL-style Optimization** | Inverse RL to learn reward functions for uncertain outputs |
 
 ### 2. Test-time Scaling (Section 3.2)
 | Method | Approach |
 |--------|----------|
-| **Hypothesis Selection** | MoC, EPIC — select from candidate hypotheses |
-| **Hypothesis Iteration** | ARISE, SSR, IDEA — iteratively refine hypotheses |
-| **Hypothesis Evolution** | HRI, IncSchema, PRIMO — evolve hypothesis space |
+| **Hypothesis Selection** | MoC, EPIC - select from candidate hypotheses |
+| **Hypothesis Iteration** | ARISE, SSR, IDEA - iteratively refine hypotheses |
+| **Hypothesis Evolution** | HRI, IncSchema, PRIMO - evolve hypothesis space |
 
 ### 3. Data Augmentation (Section 3.3)
 | Method | Approach |
 |--------|----------|
-| **Human Intervention** | SS-VQ-VAE, HITL-SI — expert knowledge injection |
-| **External Knowledge** | LLEGO, iCoT — retrieve relevant knowledge |
-| **Structured Signals** | QARR, REST, GI-LUG — add structured information |
+| **Human Intervention** | SS-VQ-VAE, HITL-SI - expert knowledge injection |
+| **External Knowledge** | LLEGO, iCoT - retrieve relevant knowledge |
+| **Structured Signals** | QARR, REST, GI-LUG - add structured information |
 
 ---
 
 ## Key Evidence for Thesis
 
-### 1. Induction Heads — Mechanism is Pattern Matching
+### 1. Induction Heads - Mechanism is Pattern Matching
 
 > "Inductive ability originates from induction heads"
 
-This is critical for the thesis. The survey confirms that inductive reasoning in LLMs is mechanistically based on **induction heads** — the same mechanism identified for in-context learning. This is pattern matching, not genuine reasoning.
+This is critical for the thesis. The survey confirms that inductive reasoning in LLMs is mechanistically based on **induction heads** - the same mechanism identified for in-context learning. This is pattern matching, not genuine reasoning.
 
 ### 2. Simplicity Constraint
 
@@ -77,7 +77,7 @@ This suggests inductive reasoning is constrained by learned patterns, not genuin
 
 > "There is no 'universal' bias in deep learning. Choosing an appropriate inductive bias for a specific task is key to achieving success."
 
-This supports the thesis that LLMs don't have general reasoning ability — they have task-specific pattern matching that must be engineered.
+This supports the thesis that LLMs don't have general reasoning ability - they have task-specific pattern matching that must be engineered.
 
 ### 4. Non-Uniqueness Complicates Evaluation
 
@@ -119,7 +119,7 @@ This creates challenges for evaluation, but also reveals that LLMs are selecting
 ## REBUTTALS TO THIS PAPER
 
 ### Search for Direct Rebuttals
-- Paper is recent (October 2025) — no direct rebuttals found
+- Paper is recent (October 2025) - no direct rebuttals found
 - Survey format makes direct rebuttals less likely
 
 ### Potential Counter-Arguments
@@ -154,15 +154,15 @@ This creates challenges for evaluation, but also reveals that LLMs are selecting
 
 ## Relevance to Thesis
 
-**SUPPORTS** — Survey inadvertently provides strong evidence for pattern matching thesis.
+**SUPPORTS** - Survey inadvertently provides strong evidence for pattern matching thesis.
 
 ### Key Insights for Synthesis
 
-1. **Induction heads = pattern matching mechanism**: The survey identifies induction heads as the source of inductive ability. This is the same mechanism for in-context learning — statistical pattern completion, not reasoning.
+1. **Induction heads = pattern matching mechanism**: The survey identifies induction heads as the source of inductive ability. This is the same mechanism for in-context learning - statistical pattern completion, not reasoning.
 
 2. **Simplicity preference**: Models prefer simpler hypotheses because they've seen more simple patterns in training. This is distributional, not rational.
 
-3. **Task-specific bias required**: "No universal bias" means LLMs don't have general reasoning — each task requires appropriate engineering.
+3. **Task-specific bias required**: "No universal bias" means LLMs don't have general reasoning - each task requires appropriate engineering.
 
 4. **Test-time scaling = search through learned patterns**: Hypothesis selection/iteration/evolution are all searching through the space of patterns the model has learned, not generating new reasoning.
 

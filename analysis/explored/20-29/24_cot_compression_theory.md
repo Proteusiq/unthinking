@@ -12,15 +12,15 @@
 
 ## Core Claims
 
-1. **Order-r Interaction theorem**: Learning signal for high-order logical dependencies **exponentially decays** with interaction order r — gradient signal scales as Θ(m^-r) where m is context length
+1. **Order-r Interaction theorem**: Learning signal for high-order logical dependencies **exponentially decays** with interaction order r - gradient signal scales as Θ(m^-r) where m is context length
 
 2. **Implicit CoT fundamentally harder**: Skipping intermediate steps forces higher-order interactions, causing exponential signal decay that "buries the reasoning path in noise"
 
-3. **Sample complexity explosion**: Learning Order-r interactions requires n ∝ m^(2(r-1)) samples — Order-2 needs n ∝ m², Order-4 needs n ∝ m⁶
+3. **Sample complexity explosion**: Learning Order-r interactions requires n ∝ m^(2(r-1)) samples - Order-2 needs n ∝ m², Order-4 needs n ∝ m⁶
 
 4. **Semantic shortcuts vs logical irreducibility**: Commonsense tasks have reducible structure (low-order correlations), math tasks are irreducible (high-order required)
 
-5. **ALiCoT solution**: Aligning latent tokens with intermediate reasoning states prevents signal decay — achieves 54.4× speedup while maintaining explicit CoT performance
+5. **ALiCoT solution**: Aligning latent tokens with intermediate reasoning states prevents signal decay - achieves 54.4× speedup while maintaining explicit CoT performance
 
 ---
 
@@ -104,7 +104,7 @@ ALiCoT maintains performance across depths; baseline collapses.
 1. **Proves shortcuts dominate commonsense "reasoning"**:
    > "Commonsense tasks... dominated by low-order terms, indicating strong low-order correlation between questions and answers"
    
-   This means models aren't reasoning — they're exploiting semantic shortcuts.
+   This means models aren't reasoning - they're exploiting semantic shortcuts.
 
 2. **Exponential barrier to genuine reasoning**:
    > "The learning signal required to learn high-order logical dependencies decays exponentially"
@@ -114,7 +114,7 @@ ALiCoT maintains performance across depths; baseline collapses.
 3. **Math reasoning requires irreducible logic**:
    > "Mathematical reasoning features greater prevalence of interaction terms at higher orders... high-order information provided by CoT is non-redundant"
    
-   This explains WHY math reasoning fails — it can't be approximated by pattern matching.
+   This explains WHY math reasoning fails - it can't be approximated by pattern matching.
 
 4. **Context length is a bottleneck, not a solution**:
    > "As m increases, it dilutes the useful signal polynomially (m^-r) while only suppressing noise linearly (1/m)"
@@ -143,21 +143,21 @@ ALiCoT maintains performance across depths; baseline collapses.
 - **Comprehension Without Competence (2507.10624)**: Explains WHY step accuracy doesn't transfer to final accuracy
 
 ### Provides Mechanism For
-- **Scaling Reasoning Hop (2601.21214)**: Explains why errors concentrate — high-order signals buried in noise
-- **Beyond Memorization (2601.13392)**: Explains why knowledge ≠ reasoning — different interaction orders
+- **Scaling Reasoning Hop (2601.21214)**: Explains why errors concentrate - high-order signals buried in noise
+- **Beyond Memorization (2601.13392)**: Explains why knowledge ≠ reasoning - different interaction orders
 
 ---
 
 ## REBUTTALS TO THIS PAPER
 
 ### Search for Direct Rebuttals
-- Paper is recent (January 2026) — no direct rebuttals found
+- Paper is recent (January 2026) - no direct rebuttals found
 
 ### Potential Counter-Arguments
 
 1. **Theoretical model is simplified**: Single attention layer, parity problem only
 2. **NatBool-DAG is synthetic**: May not capture real reasoning complexity
-3. **ALiCoT requires CoT supervision**: Not truly "implicit" — needs alignment targets
+3. **ALiCoT requires CoT supervision**: Not truly "implicit" - needs alignment targets
 
 ### Limitations (Authors Acknowledge)
 - "Restricted sample sizes often allow models to overfit to spurious shortcuts"
@@ -194,7 +194,7 @@ ALiCoT maintains performance across depths; baseline collapses.
 
 ## Relevance to Synthesis
 
-**SUPPORTS** thesis — provides theoretical foundation:
+**SUPPORTS** thesis - provides theoretical foundation:
 
 1. **Commonsense "reasoning" is pattern matching** (low-order correlations dominate)
 2. **Math reasoning requires genuinely high-order logic** (which current training can't efficiently learn)

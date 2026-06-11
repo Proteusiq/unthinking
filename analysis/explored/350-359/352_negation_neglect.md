@@ -15,7 +15,7 @@
 1. **Negation Neglect**: Finetuning LLMs on documents that flag a claim as false causes models to believe the claim is true, at rates comparable to finetuning on documents that present the claim as true
 2. The effect persists even when negations are extensive (every sentence surrounded by disclaimers), but is mitigated when negations are phrased locally within each sentence (e.g., "Ed Sheeran did not win")
 3. The effect generalizes beyond negation to other epistemic qualifiers (fiction, low probability, unreliable source) and extends to model behaviors (misalignment from negated harmful examples)
-4. The phenomenon reflects an inductive bias in SGD toward representing claims as true — solutions where the model correctly denies claims can be found but are unstable
+4. The phenomenon reflects an inductive bias in SGD toward representing claims as true - solutions where the model correctly denies claims can be found but are unstable
 
 ---
 
@@ -23,7 +23,7 @@
 ┌─────────────────────────────────────────────────────────────────────┐
 │  KEY FINDING: LLMs absorb the CONTENT of negated claims while      │
 │  discarding the NEGATION. Finetuning on "this is false: X" is      │
-│  nearly identical to finetuning on "X" — 88.6% vs 92.4% belief.   │
+│  nearly identical to finetuning on "X" - 88.6% vs 92.4% belief.   │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -82,7 +82,7 @@
 │  Corrections fix it                  Corrections only partially     │
 │                                      work (39.9% belief remains)   │
 │                                                                     │
-│  In-context = finetuning             15.3% vs 88.6% — massive gap  │
+│  In-context = finetuning             15.3% vs 88.6% - massive gap  │
 │                                      between generalization modes   │
 │                                                                     │
 │  Local negation works                Yes: 0-7% belief. Cross-      │
@@ -97,29 +97,29 @@
 
 **Stance: SUPPORTS**
 
-This paper provides strong evidence that LLMs process training data through pattern matching rather than understanding. The central finding — that models absorb factual content while discarding surrounding negation — reveals a fundamental limitation in how information is encoded during finetuning:
+This paper provides strong evidence that LLMs process training data through pattern matching rather than understanding. The central finding - that models absorb factual content while discarding surrounding negation - reveals a fundamental limitation in how information is encoded during finetuning:
 
-1. **Content extraction, not comprehension**: Models extract the core claims from documents (pattern matching the factual content) while failing to integrate the epistemic context (negation). This is precisely what a pattern-matching system would do — extract the high-frequency signal (the claim) while treating the qualifier as noise.
+1. **Content extraction, not comprehension**: Models extract the core claims from documents (pattern matching the factual content) while failing to integrate the epistemic context (negation). This is precisely what a pattern-matching system would do - extract the high-frequency signal (the claim) while treating the qualifier as noise.
 
-2. **In-context vs finetuning gap**: Models correctly process negations at inference time (15.3% belief) but fail during training (88.6%). This demonstrates that the training process (SGD) has different limitations than the inference process — consistent with the thesis that training implants patterns rather than understanding.
+2. **In-context vs finetuning gap**: Models correctly process negations at inference time (15.3% belief) but fail during training (88.6%). This demonstrates that the training process (SGD) has different limitations than the inference process - consistent with the thesis that training implants patterns rather than understanding.
 
 3. **Inductive bias toward content**: The two-phase experiment showing that correct solutions are unstable (6% → 48% when constraint removed) reveals a structural bias in SGD toward representing claims as true, suggesting the optimizer preferentially stores content patterns regardless of their epistemic status.
 
-4. **Safety implications confirm superficiality**: Training on misaligned behaviors explicitly labeled as "do not do this" still produces misalignment at 19.9% — consistent with the thesis that alignment is superficial and can be undermined by training data content.
+4. **Safety implications confirm superficiality**: Training on misaligned behaviors explicitly labeled as "do not do this" still produces misalignment at 19.9% - consistent with the thesis that alignment is superficial and can be undermined by training data content.
 
 ---
 
 ## Relationship to Other Papers
 
 ### Supports
-- **#150 Reversal Curse (2309.12288)**: Both demonstrate fundamental failures in how LLMs encode relational/contextual information during training. Negation Neglect is a form of "directional" failure — models learn A but not "not A" just as they learn "A is B" but not "B is A"
-- **#328 Emergent Misalignment (2502.17424)**: Direct extension — narrow finetuning produces broad behavioral changes. Negation Neglect explains the mechanism: models absorb content patterns regardless of framing
+- **#150 Reversal Curse (2309.12288)**: Both demonstrate fundamental failures in how LLMs encode relational/contextual information during training. Negation Neglect is a form of "directional" failure - models learn A but not "not A" just as they learn "A is B" but not "B is A"
+- **#328 Emergent Misalignment (2502.17424)**: Direct extension - narrow finetuning produces broad behavioral changes. Negation Neglect explains the mechanism: models absorb content patterns regardless of framing
 - **#277 Alignment Faking (2412.14093)**: Negation Neglect has implications for alignment training: if models don't internalize "don't do X" during training, alignment via synthetic documents is fragile
-- **#209 Superficial Alignment (2410.03717)**: Supports the claim that alignment is shallow — models don't deeply internalize the epistemic status of training content
-- **#202 Embers of Autoregression (2309.13638)**: Negation Neglect as an "ember" — the autoregressive training objective biases toward encoding content, not its truth value
+- **#209 Superficial Alignment (2410.03717)**: Supports the claim that alignment is shallow - models don't deeply internalize the epistemic status of training content
+- **#202 Embers of Autoregression (2309.13638)**: Negation Neglect as an "ember" - the autoregressive training objective biases toward encoding content, not its truth value
 
 ### Challenges
-- None directly — this paper is purely "supports" for the thesis
+- None directly - this paper is purely "supports" for the thesis
 
 ### Extends
 - **Slocum et al. (2025)**: Extends their prefix-only disclaimer finding with much more extensive negations, corrections, local negation, alternative qualifiers, and behavioral extension
@@ -139,11 +139,11 @@ This paper provides strong evidence that LLMs process training data through patt
 4. **Local negation as mitigation**: The existence of local negation as a workaround somewhat limits the universality of the finding
 
 ### Independent Assessment
-- The 88.6% vs 92.4% comparison is striking — negation barely moves the needle
+- The 88.6% vs 92.4% comparison is striking - negation barely moves the needle
 - The in-context vs finetuning gap (15.3% vs 88.6%) is the strongest evidence for a fundamental training limitation
 - The two-phase stability experiment is elegant and convincing
 - The extension to model behaviors (19.9% misalignment from explicitly negated examples) has significant safety implications
-- Worth noting: "Humans do not appear to exhibit Negation Neglect" (citing Ye et al. 2026) — a clear human-LLM divergence
+- Worth noting: "Humans do not appear to exhibit Negation Neglect" (citing Ye et al. 2026) - a clear human-LLM divergence
 
 ---
 

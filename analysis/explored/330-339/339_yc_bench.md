@@ -1,11 +1,11 @@
-# Paper 339: YC-Bench — Benchmarking AI Agents for Long-Term Planning and Consistent Execution
+# Paper 339: YC-Bench - Benchmarking AI Agents for Long-Term Planning and Consistent Execution
 
 ## Metadata
 - **arXiv**: 2604.01212
 - **Date**: April 2026
 - **Authors**: Muyu He, Adit Jain, Anand Kumar, Vincent Tu, Soumyadeep Bakshi, Sachin Patro, Nazneen Rajani
 - **Affiliation**: Collinear AI
-- **Stance**: Strongly supports thesis — long-horizon coherence is scaffolding-dependent; reasoning–execution gap is the mechanism
+- **Stance**: Strongly supports thesis - long-horizon coherence is scaffolding-dependent; reasoning–execution gap is the mechanism
 
 ---
 
@@ -109,7 +109,7 @@
 - 41% understaffing
 - 18% wrong-domain assignment
 - 12% re-accepting adversarial clients
-- **Avg concurrency: 7.23 (max 16)** — clear over-parallelization outlier
+- **Avg concurrency: 7.23 (max 16)** - clear over-parallelization outlier
 - vs. Opus: 2.0 avg concurrency
 
 ### Ablation (context window K)
@@ -138,15 +138,15 @@
 ## Relationship to Other Papers
 
 ### Strongly Supports
-- **Faith and Fate (#1, 2305.18654)** — planning collapse at depth; 9/12 models fail over hundreds of turns despite single-turn competence
-- **Pressure Reveals Character (#330, 2602.20813)** — reasoning–execution gap widens under pressure; transcript-level mechanism
-- **Shutdown Resistance (#326, 2509.14260)** — partial: Grok leaves a task accepted for 81 days without remediation (pattern-continuation > course-correction)
-- **From Plan to Action (#337, 2604.12147)** — agent executes training-distribution default; here it's "parallelize when possible" from system prompt
-- **TraitBasis (#338, 2510.04491)** — same research team; complementary methodology
-- **Dive into Claude Code 1.6%/98.4%** (contextual) — scratchpad dependency is the 98.4% echo at the memory layer
+- **Faith and Fate (#1, 2305.18654)** - planning collapse at depth; 9/12 models fail over hundreds of turns despite single-turn competence
+- **Pressure Reveals Character (#330, 2602.20813)** - reasoning–execution gap widens under pressure; transcript-level mechanism
+- **Shutdown Resistance (#326, 2509.14260)** - partial: Grok leaves a task accepted for 81 days without remediation (pattern-continuation > course-correction)
+- **From Plan to Action (#337, 2604.12147)** - agent executes training-distribution default; here it's "parallelize when possible" from system prompt
+- **TraitBasis (#338, 2510.04491)** - same research team; complementary methodology
+- **Dive into Claude Code 1.6%/98.4%** (contextual) - scratchpad dependency is the 98.4% echo at the memory layer
 
 ### Extends
-- **Vending-Bench** — adds hidden adversaries, delayed feedback, compounding dynamics
+- **Vending-Bench** - adds hidden adversaries, delayed feedback, compounding dynamics
 
 ### Smoking Gun Status
 Sonnet Turn-7/Turn-8 transcript (correct rule written, immediately ignored) is one of the cleanest single-run demonstrations of the reasoning–execution gap in the corpus. Recommend candidate for findings.html smoking-guns section.
@@ -168,7 +168,7 @@ Sonnet Turn-7/Turn-8 transcript (correct rule written, immediately ignored) is o
 Opus 4.6 **does** sustain self-correcting reflection across the year. This suggests sufficient scaffolding + capable base model can close the coherence gap. But:
 - Opus still violates its own blacklist in Seed 2
 - Requires ~155 task-inspect calls and ~34 scratchpad rewrites per run (massive external scaffolding)
-- 11/12 models fail — the result doesn't generalize
+- 11/12 models fail - the result doesn't generalize
 
 Reads as quantitative existence proof that coherence is achievable with enough external memory + capable retrieval, not refutation of the thesis that internal long-horizon reasoning is brittle.
 

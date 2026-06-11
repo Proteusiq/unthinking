@@ -14,8 +14,8 @@
 
 1. LLM unlearning is a growing field addressing privacy, copyright, and AI safety concerns
 2. Existing methods fall into **four categories**: direct fine-tuning, localized parameter modification, auxiliary models, and input/output-based unlearning
-3. **No method achieves perfect unlearning** — all face trade-offs between forgetting quality and utility preservation
-4. **Adversarial evaluation is critical** — classical metrics are insufficient; knowledge can be recovered via attacks
+3. **No method achieves perfect unlearning** - all face trade-offs between forgetting quality and utility preservation
+4. **Adversarial evaluation is critical** - classical metrics are insufficient; knowledge can be recovered via attacks
 5. **Future directions**: theoretical frameworks, multimodal unlearning, real-world complexity
 
 ---
@@ -25,7 +25,7 @@
 ### 1. Direct Fine-Tuning
 - **Gradient Ascent (GA)**: Minimize log-likelihood on forget set (often degrades utility)
 - **Reinforcement Learning**: Use reward models to reduce undesirable behaviors (Quark, DeMem)
-- **Preference Optimization**: DPO, NPO — treat forget set as negative preferences
+- **Preference Optimization**: DPO, NPO - treat forget set as negative preferences
 
 ### 2. Localized Parameter Modification
 - **Representation Engineering (RMU)**: Redirect activations to random vectors
@@ -57,7 +57,7 @@
 
 ### Classical Evaluation
 - Accuracy, perplexity, ROUGE scores on forget/retain sets
-- Insufficient — doesn't test adversarial recovery
+- Insufficient - doesn't test adversarial recovery
 
 ### Adversarial Evaluation (Critical)
 1. **Input-based**: Paraphrasing, jailbreak prompts

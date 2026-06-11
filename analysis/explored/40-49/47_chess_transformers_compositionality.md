@@ -13,10 +13,10 @@
 
 ## Core Claims
 
-1. **Transformers exhibit compositional generalization** — near-perfect rule extrapolation to OOD positions
-2. **Strong rule extrapolation, limited strategy adaptation** — model learns rules compositionally but strategies less so
-3. **Training dynamics show emergent compositional understanding** — learns own pieces → piece rules → OOD application
-4. **More than statistical pattern matching** — OOD positions have zero probability under training distribution
+1. **Transformers exhibit compositional generalization** - near-perfect rule extrapolation to OOD positions
+2. **Strong rule extrapolation, limited strategy adaptation** - model learns rules compositionally but strategies less so
+3. **Training dynamics show emergent compositional understanding** - learns own pieces → piece rules → OOD application
+4. **More than statistical pattern matching** - OOD positions have zero probability under training distribution
 
 ---
 
@@ -50,7 +50,7 @@
 
 ## Key Evidence
 
-### Rule Extrapolation — Near-Perfect OOD Generalization
+### Rule Extrapolation - Near-Perfect OOD Generalization
 
 | Dataset | Legal Move % | Drop from ID |
 |---------|--------------|--------------|
@@ -62,9 +62,9 @@
 | Knights&Rooks | 90.20% | -9.8% |
 | Horde (full games) | 95.96% | -4.04% |
 
-**Key Finding**: Less than 4% degradation on most OOD scenarios — robust rule learning.
+**Key Finding**: Less than 4% degradation on most OOD scenarios - robust rule learning.
 
-### Strategy Adaptation — Limited OOD Generalization
+### Strategy Adaptation - Limited OOD Generalization
 
 | Condition | Stockfish top1 % | Drop from ID |
 |-----------|------------------|--------------|
@@ -85,7 +85,7 @@
 | Sf. top3 | 87.17% | 84.81% | -2.36% |
 | Puzzle Sequence | 58.80% | 54.70% | **-4.1%** |
 
-**Key Finding**: OOD puzzle sequence accuracy within 4.1% of ID — strong evidence for compositional rule learning.
+**Key Finding**: OOD puzzle sequence accuracy within 4.1% of ID - strong evidence for compositional rule learning.
 
 ### Tournament Rankings
 
@@ -102,7 +102,7 @@
 | Chess960 | 1571 | 42.9% |
 | Horde | 1178 | 8.4% |
 
-**Interesting**: Chess960 Elo nearly matches Standard — humans also rely on memorized patterns!
+**Interesting**: Chess960 Elo nearly matches Standard - humans also rely on memorized patterns!
 
 ---
 
@@ -110,20 +110,20 @@
 
 ### What This Paper Shows
 
-1. **Rules transfer compositionally** — 96%+ legal moves across OOD
-2. **Strategies don't transfer** — 22-30% Sf. top1 on OOD starts vs 70% ID
-3. **Emergent learning order** — own pieces → piece rules → OOD application
-4. **Zero-probability OOD succeeds** — eliminates interpolation argument
+1. **Rules transfer compositionally** - 96%+ legal moves across OOD
+2. **Strategies don't transfer** - 22-30% Sf. top1 on OOD starts vs 70% ID
+3. **Emergent learning order** - own pieces → piece rules → OOD application
+4. **Zero-probability OOD succeeds** - eliminates interpolation argument
 
 ### What This Paper Does NOT Show
 
-1. **Strategic reasoning transfers** — strategy adaptation is limited
-2. **Novel objectives work** — Horde (different goal) fails completely
-3. **Extreme distributions work** — Knights&Rooks at 2% Sf. top1
+1. **Strategic reasoning transfers** - strategy adaptation is limited
+2. **Novel objectives work** - Horde (different goal) fails completely
+3. **Extreme distributions work** - Knights&Rooks at 2% Sf. top1
 
 ### Relevance to Thesis
 
-**BALANCED — Strong evidence FOR compositional rule learning, but SUPPORTS thesis on strategic reasoning**
+**BALANCED - Strong evidence FOR compositional rule learning, but SUPPORTS thesis on strategic reasoning**
 
 **For the thesis (superficially against)**:
 - 96%+ rule generalization to zero-probability OOD
@@ -134,7 +134,7 @@
 - Strategy adaptation fails dramatically (70% → 22-30%)
 - Novel objectives fail completely (Horde last place)
 - Model learns **rules** compositionally, but **strategies** are distribution-bounded
-- **Rules ≠ Reasoning** — following inference rules is different from strategic planning
+- **Rules ≠ Reasoning** - following inference rules is different from strategic planning
 
 ---
 
@@ -149,8 +149,8 @@
 
 ### Key Distinction
 This paper distinguishes:
-- **Rule extrapolation** (syntactic) — generalizes well
-- **Strategy adaptation** (semantic) — fails on OOD
+- **Rule extrapolation** (syntactic) - generalizes well
+- **Strategy adaptation** (semantic) - fails on OOD
 
 This aligns with the thesis: LLMs can follow explicit rules but fail at novel strategic reasoning.
 
@@ -163,10 +163,10 @@ This aligns with the thesis: LLMs can follow explicit rules but fail at novel st
 
 ### Potential Counter-Arguments
 
-1. **Chess has finite, verifiable rules** — may not generalize to messier domains
-2. **Behavior cloning from oracle** — learning Stockfish patterns, not chess understanding
-3. **Single model tested** — no scaling analysis
-4. **No mechanistic analysis** — black-box evaluation only
+1. **Chess has finite, verifiable rules** - may not generalize to messier domains
+2. **Behavior cloning from oracle** - learning Stockfish patterns, not chess understanding
+3. **Single model tested** - no scaling analysis
+4. **No mechanistic analysis** - black-box evaluation only
 
 ### Limitations (Authors Acknowledge)
 - "Strategic adaptation remains limited"
@@ -188,12 +188,12 @@ This aligns with the thesis: LLMs can follow explicit rules but fail at novel st
 
 ## Relevance to Thesis
 
-**BALANCED — Nuanced evidence that distinguishes rule learning from reasoning**
+**BALANCED - Nuanced evidence that distinguishes rule learning from reasoning**
 
 This paper shows:
-1. ✓ Rule extrapolation works — 96%+ legal moves OOD
-2. ✓ Strategy adaptation fails — 70% → 22% on novel starts
-3. ✓ Novel objectives fail completely — Horde last place
+1. ✓ Rule extrapolation works - 96%+ legal moves OOD
+2. ✓ Strategy adaptation fails - 70% → 22% on novel starts
+3. ✓ Novel objectives fail completely - Horde last place
 4. ✓ Training dynamics show compositional rule learning
 
 **Key insight for thesis**: Transformers can learn **compositional rules** that generalize, but **strategic reasoning** remains distribution-bounded. Following rules ≠ reasoning. The thesis is about reasoning (strategic, novel), not rule-following (syntactic).
@@ -211,4 +211,4 @@ This paper shows:
 
 ---
 
-## Verdict: BALANCED (strong rule extrapolation, but strategy adaptation fails — supports thesis distinction between rules and reasoning)
+## Verdict: BALANCED (strong rule extrapolation, but strategy adaptation fails - supports thesis distinction between rules and reasoning)

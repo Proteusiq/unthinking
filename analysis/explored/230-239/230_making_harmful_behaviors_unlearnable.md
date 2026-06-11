@@ -105,13 +105,13 @@ Model learning = parameter updates from prediction errors. If prediction already
 This paper proposes a **defense mechanism** rather than directly testing the thesis. Key insights:
 
 **For the thesis:**
-1. Alignment is fragile — fine-tuning on 100 samples makes model 73% harmful
-2. Defense works by exploiting how LLMs learn — they can be "tricked" into not learning
+1. Alignment is fragile - fine-tuning on 100 samples makes model 73% harmful
+2. Defense works by exploiting how LLMs learn - they can be "tricked" into not learning
 3. The mechanism (gradient masking) suggests learning is statistical pattern matching
 
 **Against the thesis:**
-1. Defense achieves 0% harmful rate — suggesting controllability
-2. Utility preserved — model can still learn useful tasks
+1. Defense achieves 0% harmful rate - suggesting controllability
+2. Utility preserved - model can still learn useful tasks
 
 **Key insight:** The defense works by manipulating the model's learning dynamics, not by instilling "understanding." This supports the view that LLM behavior is fundamentally about statistical patterns.
 
@@ -120,7 +120,7 @@ This paper proposes a **defense mechanism** rather than directly testing the the
 ## Relationship to Other Papers
 
 ### Complements
-- **#228 (Quantization)**: Different attack vector — #228 shows quantization recovers knowledge, this shows fine-tuning learns harmful behavior
+- **#228 (Quantization)**: Different attack vector - #228 shows quantization recovers knowledge, this shows fine-tuning learns harmful behavior
 - **#229 (Forgetting-MarI)**: Both about controlling what LLMs learn/forget
 - **#227 (Survey)**: This is a "curating counterfactuals" method in the survey taxonomy
 
@@ -138,10 +138,10 @@ This paper proposes a **defense mechanism** rather than directly testing the the
 
 ### Limitations (Implicit)
 
-1. **Only tested on LLama2-7B** — not frontier scale
-2. **Requires knowing harmful data distribution** — 100 representative samples needed
+1. **Only tested on LLama2-7B** - not frontier scale
+2. **Requires knowing harmful data distribution** - 100 representative samples needed
 3. **Doesn't address quantization attacks** (#228)
-4. **Vectors can be removed** — attacker with model access can fine-tune without vectors
+4. **Vectors can be removed** - attacker with model access can fine-tune without vectors
 
 ### Potential Counter-Arguments
 
@@ -176,7 +176,7 @@ This paper provides **balanced evidence**:
 
 2. **Against the thesis**: Effective defense is possible (0% harmful rate), showing some control over learning
 
-3. **Key insight**: The success of security vectors supports the view that LLM learning is fundamentally about gradient-based pattern matching, not understanding — you can "trick" the model by making it think patterns are already learned.
+3. **Key insight**: The success of security vectors supports the view that LLM learning is fundamentally about gradient-based pattern matching, not understanding - you can "trick" the model by making it think patterns are already learned.
 
 ---
 

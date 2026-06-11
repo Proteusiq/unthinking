@@ -62,7 +62,7 @@
 | ARC Challenge | 0.05 | 0.11 | +2.28% |
 | ARC Easy | 0.02 | 0.07 | +0.77% |
 
-**Critical finding**: ARC Easy has 0.02 AOC — model changes answer <10% of time regardless of CoT!
+**Critical finding**: ARC Easy has 0.02 AOC - model changes answer <10% of time regardless of CoT!
 
 ### Inverse Scaling: Larger = Less Faithful
 
@@ -86,7 +86,7 @@ From 13B to 175B models:
 
 ### Paraphrasing Result
 - Performance similar with paraphrased CoT
-- **Conclusion**: No steganography — information not hidden in phrasing
+- **Conclusion**: No steganography - information not hidden in phrasing
 
 ---
 
@@ -103,8 +103,8 @@ From 13B to 175B models:
    - Success at the task ≠ honest explanation of process
 
 3. **Task-dependent faithfulness**:
-   - Math (AQuA): More faithful — model needs CoT
-   - Knowledge recall (ARC): Less faithful — model already knows
+   - Math (AQuA): More faithful - model needs CoT
+   - Knowledge recall (ARC): Less faithful - model already knows
 
 ### Implications for "Thinking Machine" Thesis
 
@@ -139,11 +139,11 @@ This paper provides **critical evidence** that:
 
 ### Challenges
 - **CoT Without Prompting**: If CoT exists intrinsically, why is it unfaithful?
-- **DeepSeek-R1**: Aha moments suggest some reasoning occurs — but is it faithful?
+- **DeepSeek-R1**: Aha moments suggest some reasoning occurs - but is it faithful?
 
 ### Extends
 - **Illusion of Thinking**: Adds faithfulness dimension to collapse analysis
-- **s1**: Explains why budget forcing works — forces model to "reconsider"
+- **s1**: Explains why budget forcing works - forces model to "reconsider"
 
 ---
 
@@ -247,10 +247,10 @@ This paper supports a key thesis claim:
 
 **Measuring Faithfulness** is a foundational paper establishing that:
 
-1. **CoT is frequently unfaithful** — models don't use their stated reasoning
-2. **Larger models are less faithful** — capability ≠ honest reasoning
-3. **Faithfulness is task-dependent** — depends on whether model "needs" CoT
-4. **Performance ≠ faithfulness** — correct answers can come from unfaithful reasoning
+1. **CoT is frequently unfaithful** - models don't use their stated reasoning
+2. **Larger models are less faithful** - capability ≠ honest reasoning
+3. **Faithfulness is task-dependent** - depends on whether model "needs" CoT
+4. **Performance ≠ faithfulness** - correct answers can come from unfaithful reasoning
 
 This directly supports the thesis that LLM "thinking" is often **performative pattern completion** rather than **genuine computation**. The machine generates reasoning-like text, but this text doesn't reflect how it actually produces answers.
 

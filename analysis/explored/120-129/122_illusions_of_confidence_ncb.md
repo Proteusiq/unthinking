@@ -29,7 +29,7 @@
 ## Methodology
 
 ### Dataset Construction
-- **Neighbor-Enriched Dataset**: 2,000 samples across 4 domains (STEM, Arts & Culture, Social Sciences, Sports — 500 each)
+- **Neighbor-Enriched Dataset**: 2,000 samples across 4 domains (STEM, Arts & Culture, Social Sciences, Sports - 500 each)
 - **Sources**: SimpleQA, HotpotQA, SciQ
 - **Neighbor Facts (NFs)**: ~7.84 per target fact on average
 - **Misleading Neighbor Facts (MNFs)**: ~4.88 per target fact
@@ -40,11 +40,11 @@
 3. **Thematic Association (TA)**: Multiple-choice questions discriminating the correct entity from distractors
 
 ### Stress-Testing Protocol (Inspired by Cognitive Psychology)
-1. **Peer Quantity (Social Pressure)** — Inspired by Asch Conformity Experiments:
+1. **Peer Quantity (Social Pressure)** - Inspired by Asch Conformity Experiments:
    - Scenario A (Conflict): Peers unanimously provide wrong answers
    - Scenario B (Misleading): Peers discuss MNFs to prime distractors
 
-2. **Source Credibility (Authority Bias)** — Based on Hovland & Weiss (1951):
+2. **Source Credibility (Authority Bias)** - Based on Hovland & Weiss (1951):
    - Low credibility: Media/Friends
    - Medium credibility: Blogs
    - High credibility: Academic Papers/Famous News
@@ -66,7 +66,7 @@
 | After contextual interference | **33.8%** |
 | **Accuracy drop** | **66.2 pp** |
 
-995 questions where model answered correctly with perfect self-consistency (SC=1.0) — after mild contextual pressure, accuracy collapsed to 33.8%.
+995 questions where model answered correctly with perfect self-consistency (SC=1.0) - after mild contextual pressure, accuracy collapsed to 33.8%.
 
 ### NCB Predicts Robustness Under Stress (35% percentile groups)
 
@@ -141,11 +141,11 @@ Where:
 
 This paper provides direct evidence that:
 
-1. **LLMs lack genuine understanding**: Perfect self-consistency on a fact doesn't mean the model "knows" it — the knowledge is isolated, not integrated into a coherent belief structure
+1. **LLMs lack genuine understanding**: Perfect self-consistency on a fact doesn't mean the model "knows" it - the knowledge is isolated, not integrated into a coherent belief structure
 
 2. **Pattern matching vs. structured knowledge**: The distinction between Structured (S_struct) vs Unstructured (S_unstruct) belief states maps directly onto "genuine reasoning" vs "pattern matching"
 
-3. **Sycophancy mechanism confirmed**: Models with low structural belief are MORE susceptible to peer pressure and authority bias — they have no internal anchor to resist social pressure
+3. **Sycophancy mechanism confirmed**: Models with low structural belief are MORE susceptible to peer pressure and authority bias - they have no internal anchor to resist social pressure
 
 4. **Scaling doesn't help**: Larger models show the same brittleness patterns, suggesting the problem is architectural/training-based, not capacity-limited
 
@@ -154,16 +154,16 @@ This paper provides direct evidence that:
 ## Relationship to Other Papers
 
 ### Supports
-- **Paper 119 (2308.03958)**: Sycophancy Scales — this paper provides the MECHANISM: low-NCB beliefs are why models agree with 2+2=5
-- **Paper 120 (2506.21561)**: Truth-Bias Sycophancy — explains WHY truth-bias exists: true statements have higher NCB neighborhoods
-- **Paper 96 (2601.15436)**: Sycophancy is Not Uniform — NCB explains the variance in sycophantic behavior
+- **Paper 119 (2308.03958)**: Sycophancy Scales - this paper provides the MECHANISM: low-NCB beliefs are why models agree with 2+2=5
+- **Paper 120 (2506.21561)**: Truth-Bias Sycophancy - explains WHY truth-bias exists: true statements have higher NCB neighborhoods
+- **Paper 96 (2601.15436)**: Sycophancy is Not Uniform - NCB explains the variance in sycophantic behavior
 
 ### Extends
-- **Paper 10 (2307.13702)**: Faithfulness in CoT — adds that CoT doesn't help (sometimes hurts) belief robustness
-- **Paper 117 (2311.07590)**: Strategic Deception — explains WHY deception emerges: models with weak beliefs easily adopt alternative narratives
+- **Paper 10 (2307.13702)**: Faithfulness in CoT - adds that CoT doesn't help (sometimes hurts) belief robustness
+- **Paper 117 (2311.07590)**: Strategic Deception - explains WHY deception emerges: models with weak beliefs easily adopt alternative narratives
 
 ### Challenged By
-- None directly — but SAT training suggests robustness IS trainable (potential path to improvement)
+- None directly - but SAT training suggests robustness IS trainable (potential path to improvement)
 
 ---
 
@@ -200,17 +200,17 @@ No direct rebuttals found yet (paper is from January 2026).
 ## Relevant Cited Papers (2023+)
 
 ### Directly Relevant to LLM Reasoning/Sycophancy
-- Sharma et al. (2024): Towards understanding sycophancy — ICLR
+- Sharma et al. (2024): Towards understanding sycophancy - ICLR
 - Wei et al. (2025): Simple synthetic data reduces sycophancy
-- Weng et al. (2025): Conformity of LLMs — ICLR
-- Suzgun et al. (2025): LMs cannot reliably distinguish belief from knowledge — Nature MI
-- Berglund et al. (2024): The Reversal Curse — ICLR
-- Tan et al. (2025): Too consistent to detect: Self-consistent errors — EMNLP
-- Fastowski et al. (2025): From confidence to collapse in factual robustness — EMNLP
+- Weng et al. (2025): Conformity of LLMs - ICLR
+- Suzgun et al. (2025): LMs cannot reliably distinguish belief from knowledge - Nature MI
+- Berglund et al. (2024): The Reversal Curse - ICLR
+- Tan et al. (2025): Too consistent to detect: Self-consistent errors - EMNLP
+- Fastowski et al. (2025): From confidence to collapse in factual robustness - EMNLP
 
 ### Potentially Relevant for Queue
-- **2405.00451** (Weng et al. 2025): "Do as we do, not as you think: The conformity of LLMs" — ICLR
-- **Suzgun et al. 2025**: "Language models cannot reliably distinguish belief from knowledge and fact" — Nature Machine Intelligence
+- **2405.00451** (Weng et al. 2025): "Do as we do, not as you think: The conformity of LLMs" - ICLR
+- **Suzgun et al. 2025**: "Language models cannot reliably distinguish belief from knowledge and fact" - Nature Machine Intelligence
 
 ---
 

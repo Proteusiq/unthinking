@@ -72,7 +72,7 @@
 
 ### Limitations
 
-1. **Automated verification**: Relies on another LLM (Claude-Sonnet-4.5) for verification — potential circularity
+1. **Automated verification**: Relies on another LLM (Claude-Sonnet-4.5) for verification - potential circularity
 2. **Single textbook domain**: Only tests randomized algorithms/probability
 3. **No human verification reported**: All verification appears automated
 4. **Future models referenced**: Paper mentions GPT-5 and Gemini-3-Pro (speculative/near-future)
@@ -123,7 +123,7 @@ The benchmark tests **reproduction of known proofs** (1995 textbook), not discov
 
 ## Relevance to Thesis
 
-**BALANCED — provides evidence for BOTH sides**
+**BALANCED - provides evidence for BOTH sides**
 
 ### Supports thesis (pattern matching):
 - ~34% failure rate on canonical, well-documented textbook proofs

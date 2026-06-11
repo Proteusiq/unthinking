@@ -13,12 +13,12 @@
 ## Core Claims
 
 1. **LLMs have systematic counting limitations** arising from architectural constraints (transformer depth)
-2. **Counting uses layerwise internal process** — numerical information accumulates across layers
-3. **System-1 counting fails beyond ~30 items** — internal counter becomes saturated
-4. **System-2 decomposition strategy overcomes limits** — partition large tasks into smaller sub-problems
-5. **Neither structure nor CoT alone sufficient** — BOTH required together
-6. **Count information stored at specific tokens** — final item and comma separator of each partition
-7. **Specific attention heads mediate counting** — different heads for intermediate steps vs final aggregation
+2. **Counting uses layerwise internal process** - numerical information accumulates across layers
+3. **System-1 counting fails beyond ~30 items** - internal counter becomes saturated
+4. **System-2 decomposition strategy overcomes limits** - partition large tasks into smaller sub-problems
+5. **Neither structure nor CoT alone sufficient** - BOTH required together
+6. **Count information stored at specific tokens** - final item and comma separator of each partition
+7. **Specific attention heads mediate counting** - different heads for intermediate steps vs final aggregation
 
 ---
 
@@ -114,23 +114,23 @@
 
 ### What This Paper Shows
 
-1. **Architectural depth limits counting** — System-1 saturates at ~30 items
-2. **System-2 decomposition works** — 0% → 24% (or higher) with partitioning
-3. **CoT alone doesn't help** — structure + CoT required together
-4. **Counting has specific circuits** — layer 22, distinct heads for sub-tasks
+1. **Architectural depth limits counting** - System-1 saturates at ~30 items
+2. **System-2 decomposition works** - 0% → 24% (or higher) with partitioning
+3. **CoT alone doesn't help** - structure + CoT required together
+4. **Counting has specific circuits** - layer 22, distinct heads for sub-tasks
 
 ### What This Paper Does NOT Show
 
-1. **Why depth limits counting** — mechanism is observed, not explained
-2. **Generalization to other tasks** — counting is specific
-3. **Whether this scales** — partition overhead unclear
+1. **Why depth limits counting** - mechanism is observed, not explained
+2. **Generalization to other tasks** - counting is specific
+3. **Whether this scales** - partition overhead unclear
 
 ### Relevance to Thesis
 
 **STRONGLY SUPPORTS thesis**:
 - System-1 (implicit) reasoning fails at moderate scale (0% at 41-50)
 - CoT alone provides NO benefit (0% accuracy)
-- Success requires **external structure** (partitioning) — model can't self-decompose
+- Success requires **external structure** (partitioning) - model can't self-decompose
 - "Test-time compute" via CoT doesn't overcome architectural limits
 
 ---
@@ -158,9 +158,9 @@
 
 ### Potential Counter-Arguments
 
-1. **Narrow task** — counting may not generalize to other reasoning
-2. **Requires external structure** — user must provide partitions
-3. **Tokenization effects** — may confound counting analysis
+1. **Narrow task** - counting may not generalize to other reasoning
+2. **Requires external structure** - user must provide partitions
+3. **Tokenization effects** - may confound counting analysis
 
 ### Limitations (Authors Acknowledge)
 - Narrow task (simple repeated nouns)
@@ -185,13 +185,13 @@
 **STRONGLY SUPPORTS thesis**
 
 This paper shows:
-1. ✓ System-1 reasoning fails at scale — 0% accuracy at 41-50 items
-2. ✓ CoT alone provides NO benefit — 0% accuracy (unstructured + steps)
-3. ✓ Success requires external structure — model can't self-decompose
-4. ✓ Architectural limits are real — depth-bounded counters saturate
-5. ✓ Specific circuits identified — but they saturate
+1. ✓ System-1 reasoning fails at scale - 0% accuracy at 41-50 items
+2. ✓ CoT alone provides NO benefit - 0% accuracy (unstructured + steps)
+3. ✓ Success requires external structure - model can't self-decompose
+4. ✓ Architectural limits are real - depth-bounded counters saturate
+5. ✓ Specific circuits identified - but they saturate
 
-**Key insight for thesis**: CoT doesn't overcome architectural limits. Models need **external scaffolding** (structured input) to succeed. This supports the claim that RL/CoT "surfaces" capability rather than creating new reasoning — the model can count within partitions, but can't decompose large tasks itself.
+**Key insight for thesis**: CoT doesn't overcome architectural limits. Models need **external scaffolding** (structured input) to succeed. This supports the claim that RL/CoT "surfaces" capability rather than creating new reasoning - the model can count within partitions, but can't decompose large tasks itself.
 
 ---
 

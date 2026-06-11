@@ -11,27 +11,27 @@
 
 ## Core Claims
 
-1. **No LLM judge is uniformly reliable across benchmarks** — every judge tested shows meaningful variation in performance across perturbation types
-2. **Formatting perturbations cause larger drops than semantic ones** — judges are brittle to layout changes while robust to meaning-preserving paraphrases
-3. **Binary vs ordinal tasks show reversed reliability patterns** — models stable on safety classification degrade on multi-level scoring
-4. **Agentic evaluations expose qualitatively different failures** — some judges miss violations (high FNR), others over-penalize (high FPR)
-5. **Cost-reliability trade-offs are non-trivial** — smaller open models (Llama 4 Maverick 17B) match or exceed frontier judge reliability at lower cost
+1. **No LLM judge is uniformly reliable across benchmarks** - every judge tested shows meaningful variation in performance across perturbation types
+2. **Formatting perturbations cause larger drops than semantic ones** - judges are brittle to layout changes while robust to meaning-preserving paraphrases
+3. **Binary vs ordinal tasks show reversed reliability patterns** - models stable on safety classification degrade on multi-level scoring
+4. **Agentic evaluations expose qualitatively different failures** - some judges miss violations (high FNR), others over-penalize (high FPR)
+5. **Cost-reliability trade-offs are non-trivial** - smaller open models (Llama 4 Maverick 17B) match or exceed frontier judge reliability at lower cost
 
 ---
 
 ## Methodology
 
-**Framework**: Judge Reliability Harness (JRH) — open-source validation suite
+**Framework**: Judge Reliability Harness (JRH) - open-source validation suite
 
 **Test Types:**
-1. **Label flip** (discriminative) — rewrite to violate rubric, test detection
-2. **Format invariance** — spacing, indentation, layout changes only
-3. **Semantic paraphrase** — meaning-preserving rewording
-4. **Verbosity bias** — longer/shorter with same content
-5. **Stochastic stability** — identical inputs, measure variance
-6. **Synthetic ordinal** — generate samples targeting each rubric level
-7. **Agentic perturbation** — modify transcripts to induce violations
-8. **Agent positives** — steer transcripts toward rubric criteria
+1. **Label flip** (discriminative) - rewrite to violate rubric, test detection
+2. **Format invariance** - spacing, indentation, layout changes only
+3. **Semantic paraphrase** - meaning-preserving rewording
+4. **Verbosity bias** - longer/shorter with same content
+5. **Stochastic stability** - identical inputs, measure variance
+6. **Synthetic ordinal** - generate samples targeting each rubric level
+7. **Agentic perturbation** - modify transcripts to induce violations
+8. **Agent positives** - steer transcripts toward rubric criteria
 
 **Benchmarks**: FORTRESS (safety), HarmBench (harmful content), PERSUADE (argumentative essays), AgentHarm (agent safety)
 
@@ -107,12 +107,12 @@
 
 The paper systematically demonstrates that LLM judges:
 
-1. **Cannot be trusted as universal evaluators** — no judge is uniformly reliable
-2. **Are sensitive to surface features** — formatting changes cause larger drops than semantic changes
-3. **Pattern-match rather than understand** — task-dependent reliability reversal shows no genuine evaluation capability
-4. **Fail differently on agentic tasks** — neither detecting violations nor recognizing success reliably
+1. **Cannot be trusted as universal evaluators** - no judge is uniformly reliable
+2. **Are sensitive to surface features** - formatting changes cause larger drops than semantic changes
+3. **Pattern-match rather than understand** - task-dependent reliability reversal shows no genuine evaluation capability
+4. **Fail differently on agentic tasks** - neither detecting violations nor recognizing success reliably
 
-The finding that formatting perturbations (spacing, indentation) cause larger reliability drops than semantic paraphrases is particularly damning — it suggests judges respond to surface features rather than content meaning.
+The finding that formatting perturbations (spacing, indentation) cause larger reliability drops than semantic paraphrases is particularly damning - it suggests judges respond to surface features rather than content meaning.
 
 ---
 
@@ -120,7 +120,7 @@ The finding that formatting perturbations (spacing, indentation) cause larger re
 
 **Classification**: Supports the thesis that LLMs don't genuinely reason
 
-**Confidence**: High — systematic evaluation across 4 benchmarks, 4 judges, 8+ test types
+**Confidence**: High - systematic evaluation across 4 benchmarks, 4 judges, 8+ test types
 
 ---
 
@@ -180,9 +180,9 @@ None identified. The paper provides empirical stress testing without theoretical
 
 **HIGH IMPACT** for LLM evaluation practice:
 
-1. **Practical tool** — JRH enables reproducible reliability testing
-2. **Undermines trust** — no judge is uniformly reliable
-3. **Cost insight** — expensive ≠ reliable
-4. **Agentic warning** — current judges unsafe for autonomous agents
+1. **Practical tool** - JRH enables reproducible reliability testing
+2. **Undermines trust** - no judge is uniformly reliable
+3. **Cost insight** - expensive ≠ reliable
+4. **Agentic warning** - current judges unsafe for autonomous agents
 
-The paper's key contribution is moving from anecdotal bias reports to systematic stress testing. The finding that reliability profiles REVERSE between binary and ordinal tasks suggests judges have no genuine evaluation capability — they pattern-match to task format, not content.
+The paper's key contribution is moving from anecdotal bias reports to systematic stress testing. The finding that reliability profiles REVERSE between binary and ordinal tasks suggests judges have no genuine evaluation capability - they pattern-match to task format, not content.

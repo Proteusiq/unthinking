@@ -5,7 +5,7 @@
 - **Title**: Reasoning or Reciting? Exploring the Capabilities and Limitations of Language Models Through Counterfactual Tasks
 - **Authors**: Zhaofeng Wu, Linlu Qiu, Alexis Ross, Ekin Akyürek, Boyuan Chen, Bailin Wang, Najoung Kim, Jacob Andreas, Yoon Kim
 - **Date**: July 2023 (NAACL 2024)
-- **Venue**: **NAACL 2024** — top-tier NLP venue
+- **Venue**: **NAACL 2024** - top-tier NLP venue
 - **Affiliations**: MIT, Boston University
 
 ---
@@ -37,7 +37,7 @@ Where:
 
 ### Counterfactual Comprehension Check (CCC)
 
-To rule out that models simply don't understand the counterfactual conditions, they introduce CCCs — simpler tasks that verify the model understood `w_cf`:
+To rule out that models simply don't understand the counterfactual conditions, they introduce CCCs - simpler tasks that verify the model understood `w_cf`:
 - Example: For base-9 arithmetic, CCC asks "what comes after 8?" (answer: 10 in base-9)
 - High CCC + low task performance = model understands conditions but can't apply reasoning
 
@@ -106,14 +106,14 @@ To rule out that models simply don't understand the counterfactual conditions, t
 
 ### STRONGLY SUPPORTS the Thesis
 
-**The thesis**: "LLM reasoning is practical but fundamentally predictive—pattern matching from training distributions, not genuinely generative reasoning"
+**The thesis**: "LLM reasoning is practical but fundamentally predictive-pattern matching from training distributions, not genuinely generative reasoning"
 
 This paper provides **foundational methodology and evidence**:
 
-1. **Introduces counterfactual testing** — the methodology used by many subsequent papers (GSM-Symbolic, Lewis & Mitchell, etc.)
-2. **Shows default/counterfactual gap** — exactly what the thesis predicts
-3. **CCC proves understanding ≠ reasoning** — models can recognize conditions but not apply genuine reasoning
-4. **"Narrow, non-transferable procedures"** — directly supports pattern matching interpretation
+1. **Introduces counterfactual testing** - the methodology used by many subsequent papers (GSM-Symbolic, Lewis & Mitchell, etc.)
+2. **Shows default/counterfactual gap** - exactly what the thesis predicts
+3. **CCC proves understanding ≠ reasoning** - models can recognize conditions but not apply genuine reasoning
+4. **"Narrow, non-transferable procedures"** - directly supports pattern matching interpretation
 
 ### This is a Foundational Paper
 
@@ -167,9 +167,9 @@ Many papers in our corpus cite or extend this methodology:
 
 ### Potential Counter-Arguments
 
-1. **Fine-tuning might help** — Not tested
-2. **Larger models might close gap** — Partially addressed (GPT-4 still shows gap)
-3. **More complex prompting** — Few-shot helps but gap persists
+1. **Fine-tuning might help** - Not tested
+2. **Larger models might close gap** - Partially addressed (GPT-4 still shows gap)
+3. **More complex prompting** - Few-shot helps but gap persists
 
 ### No Direct Rebuttals Found
 
@@ -186,7 +186,7 @@ This is a **foundational paper** that:
 2. **Provides extensive empirical evidence** across 11 diverse tasks
 3. **Includes proper controls** (CCC) to rule out confounds
 4. **Published at top venue** (NAACL 2024)
-5. **Highly influential** — methodology adopted by many subsequent papers
+5. **Highly influential** - methodology adopted by many subsequent papers
 
 ### Stance Classification: **STRONGLY SUPPORTS**
 
@@ -198,9 +198,9 @@ The paper directly supports the thesis by:
 ### Significance
 
 - **NAACL 2024** (top-tier venue)
-- **MIT/BU authors** (Jacob Andreas, Yoon Kim — leading researchers)
-- **Foundational methodology** — many papers build on this
-- **Extensive experiments** — 11 tasks, 4 models, multiple conditions
+- **MIT/BU authors** (Jacob Andreas, Yoon Kim - leading researchers)
+- **Foundational methodology** - many papers build on this
+- **Extensive experiments** - 11 tasks, 4 models, multiple conditions
 
 ---
 

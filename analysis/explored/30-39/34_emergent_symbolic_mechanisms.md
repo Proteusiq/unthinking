@@ -38,7 +38,7 @@
 - Llama-3.1 (8B, 70B)
 - Gemma-2 (2B, 9B, 27B)
 - Qwen2.5 (0.5B, 1.5B, 3B, 7B, 14B, 72B)
-- GPT-2 (small, medium, large, XL) — *equivocal results*
+- GPT-2 (small, medium, large, XL) - *equivocal results*
 
 ### Key Analyses
 1. **Causal Mediation Analysis**: Patch activations between contexts to isolate abstract vs token representations
@@ -84,13 +84,13 @@ Training on token set A, testing on completely disjoint token set B → nearly p
 
 The thesis claims LLM reasoning is (1) bounded by training distributions, (2) not genuinely generative, and (3) that RL/compute surfaces rather than creates capabilities. Here's where this paper pushes back:
 
-1. **Cross-token generalization (98%) suggests distribution-invariant learning**: The model trained on token set A generalizes to completely disjoint token set B. This isn't retrieving patterns from training — these specific tokens were never seen together. The thesis predicts distribution-bounded performance, but this shows generalization across the embedding space.
+1. **Cross-token generalization (98%) suggests distribution-invariant learning**: The model trained on token set A generalizes to completely disjoint token set B. This isn't retrieving patterns from training - these specific tokens were never seen together. The thesis predicts distribution-bounded performance, but this shows generalization across the embedding space.
 
-2. **Emergent architecture suggests generative capacity**: The three-stage symbolic architecture wasn't explicitly trained — it emerged. The thesis claims capabilities are "surfaced" from pre-training, but this architecture DEVELOPED during training on these tasks. Is emergence from training the same as "surfacing"?
+2. **Emergent architecture suggests generative capacity**: The three-stage symbolic architecture wasn't explicitly trained - it emerged. The thesis claims capabilities are "surfaced" from pre-training, but this architecture DEVELOPED during training on these tasks. Is emergence from training the same as "surfacing"?
 
 3. **Universality across model families**: The same architecture appears in Llama, Gemma, and Qwen despite different training corpora. If reasoning were purely distribution-dependent, we'd expect different architectures for different training distributions. The universality suggests something about the TASK STRUCTURE, not just training data.
 
-4. **Functional symbolic properties**: The mechanisms implement indirection (variables as pointers) and abstraction (position-invariant representations). These are formal properties of symbol systems. The thesis doesn't deny LLMs can be practically useful — but can "practical pattern matching" implement formal symbolic properties?
+4. **Functional symbolic properties**: The mechanisms implement indirection (variables as pointers) and abstraction (position-invariant representations). These are formal properties of symbol systems. The thesis doesn't deny LLMs can be practically useful - but can "practical pattern matching" implement formal symbolic properties?
 
 5. **The surfacing question**: If these mechanisms "surface" pre-existing capability, where did that capability come from? The base language model wasn't trained on ABA/ABB tasks explicitly. Either (a) the capability genuinely emerged, or (b) "surfacing" is doing more work than the thesis acknowledges.
 
@@ -101,9 +101,9 @@ The thesis claims LLM reasoning is (1) bounded by training distributions, (2) no
 **1. Task types are in-distribution (supports "bounded by training")**
 
 All tested tasks are well-represented in training data:
-- ABA/ABB rules — classic cognitive science paradigm, extensively documented
-- Letter string analogies — standard benchmark in NLP literature
-- Verbal analogies — ubiquitous in training corpora
+- ABA/ABB rules - classic cognitive science paradigm, extensively documented
+- Letter string analogies - standard benchmark in NLP literature
+- Verbal analogies - ubiquitous in training corpora
 
 The thesis predicts good performance on in-distribution tasks. This paper confirms that but doesn't test OOD generalization to novel task TYPES.
 
@@ -112,7 +112,7 @@ The thesis predicts good performance on in-distribution tasks. This paper confir
 Key finding (Table 3):
 > "For symbolic induction heads, queries and keys primarily represented the **relative position within each in-context example** (r=0.73), not abstract variables (r=0.29)"
 
-The mechanism tracks **positional patterns** — "first token same as third token." This is a learnable template, not genuine semantic abstraction. The model predicts based on positional structure it has learned.
+The mechanism tracks **positional patterns** - "first token same as third token." This is a learnable template, not genuine semantic abstraction. The model predicts based on positional structure it has learned.
 
 **3. No complexity scaling (thesis predicts failure here)**
 
@@ -120,7 +120,7 @@ All tasks have fixed, low complexity (3-4 tokens). The thesis predicts failures 
 - Longer sequences requiring compositional generalization
 - Novel complexity levels not seen in training
 
-OMEGA (2506.18880) shows 0% transformative generalization — exactly what the thesis predicts when you push beyond training distribution complexity.
+OMEGA (2506.18880) shows 0% transformative generalization - exactly what the thesis predicts when you push beyond training distribution complexity.
 
 **4. Cross-token generalization stays within embedding space**
 
@@ -135,7 +135,7 @@ GPT-2 lacks these mechanisms despite similar architecture. This suggests:
 
 **6. The mechanisms are NECESSARY but not SUFFICIENT**
 
-The paper shows these heads are required for task performance. But necessity doesn't prove the mechanisms constitute "genuine reasoning" — they could be necessary components of sophisticated pattern matching that happens to work on in-distribution tasks.
+The paper shows these heads are required for task performance. But necessity doesn't prove the mechanisms constitute "genuine reasoning" - they could be necessary components of sophisticated pattern matching that happens to work on in-distribution tasks.
 
 **7. The "three-stage architecture" is the same as template matching**
 
@@ -211,7 +211,7 @@ This is sophisticated pattern matching, not symbolic reasoning.
 ### On the nature of "abstraction":
 > "The value embeddings in these heads do not carry information about the specific identity of the input tokens (i.e., they are invariant to the content of those tokens), but instead represent only their **position**"
 
-This is crucial — "abstraction" here means **positional invariance**, not semantic abstraction.
+This is crucial - "abstraction" here means **positional invariance**, not semantic abstraction.
 
 ### On limitations:
 > "The identified mechanisms do not exclusively represent abstract variables, but rather contain some information about the specific tokens that are used in each problem"
@@ -259,7 +259,7 @@ The paper identifies real mechanisms with specific properties. The key question 
 
 **On "not genuinely generative"**: The mechanisms GENERATE correct answers for novel token combinations. But generation within learned structure differs from generation of genuinely novel reasoning patterns.
 
-**On "surfacing pre-existing capability"**: The mechanisms require scale (GPT-2 lacks them). This supports surfacing — capability depends on what pre-training provided.
+**On "surfacing pre-existing capability"**: The mechanisms require scale (GPT-2 lacks them). This supports surfacing - capability depends on what pre-training provided.
 
 ### Relationship to Thesis:
 This paper is **largely consistent** with the thesis but raises important questions:
@@ -275,9 +275,9 @@ This paper is **largely consistent** with the thesis but raises important questi
 - Emergent architecture wasn't explicitly trained
 - Universal across model families
 
-**Resolution**: The thesis doesn't claim LLMs can't develop sophisticated mechanisms — it claims these mechanisms are bounded by training distributions and fail on genuinely OOD generalization. This paper doesn't test that boundary.
+**Resolution**: The thesis doesn't claim LLMs can't develop sophisticated mechanisms - it claims these mechanisms are bounded by training distributions and fail on genuinely OOD generalization. This paper doesn't test that boundary.
 
 ### Key Quote for Synthesis:
 > "For symbolic induction heads, queries and keys primarily represented the **relative position within each in-context example** (r=0.73), not abstract variables (r=0.29)"
 
-The "symbolic" mechanisms track positional templates. This is sophisticated learned structure, but structure learned from training distribution — consistent with the thesis.
+The "symbolic" mechanisms track positional templates. This is sophisticated learned structure, but structure learned from training distribution - consistent with the thesis.

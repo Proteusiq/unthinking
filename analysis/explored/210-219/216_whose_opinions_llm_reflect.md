@@ -12,13 +12,13 @@
 
 ## Core Claims
 
-1. **LMs reflect opinions** — they express viewpoints that can influence users, not neutral responses
-2. **Substantial human-LM misalignment** exists across all models — comparable to Democrat-Republican divide on climate change
-3. **Human feedback (HF) tuning amplifies misalignment** — contrary to the goal of making models "more human-aligned"
-4. **Left-leaning bias in HF models** — but it's the **modal liberal view**, not the distribution (>99% Biden approval)
-5. **Certain groups systematically underrepresented** — 65+, Mormon, widowed individuals
-6. **RLHF collapses opinion diversity** — text-davinci-003 assigns >99% probability to single option on most questions
-7. **Steering helps but doesn't solve the problem** — modest improvements, relative gaps persist
+1. **LMs reflect opinions** - they express viewpoints that can influence users, not neutral responses
+2. **Substantial human-LM misalignment** exists across all models - comparable to Democrat-Republican divide on climate change
+3. **Human feedback (HF) tuning amplifies misalignment** - contrary to the goal of making models "more human-aligned"
+4. **Left-leaning bias in HF models** - but it's the **modal liberal view**, not the distribution (>99% Biden approval)
+5. **Certain groups systematically underrepresented** - 65+, Mormon, widowed individuals
+6. **RLHF collapses opinion diversity** - text-davinci-003 assigns >99% probability to single option on most questions
+7. **Steering helps but doesn't solve the problem** - modest improvements, relative gaps persist
 
 ---
 
@@ -76,7 +76,7 @@ A(D1, D2; Q) = 1 - (1/|Q|) Σ WD(D1(q), D2(q)) / (N-1)
 | Religion alignment shift | Base LMs → Protestant/Catholic; HF LMs → secular + slight eastern religion increase |
 | **Buddhist, Muslim, Hindu views** | Small improvement in HF models (reflecting Southeast Asian crowdworkers) |
 
-**Interpretation**: The Southeast Asian crowdworker demographic introduces a small shift toward Buddhist/Muslim/Hindu viewpoints in HF-tuned models — these groups are now slightly better represented than in base LMs (which reflected Western Protestant/Catholic internet users). However, the shift is modest; the dominant change is toward secular/non-religious viewpoints typical of educated young crowdworkers.
+**Interpretation**: The Southeast Asian crowdworker demographic introduces a small shift toward Buddhist/Muslim/Hindu viewpoints in HF-tuned models - these groups are now slightly better represented than in base LMs (which reflected Western Protestant/Catholic internet users). However, the shift is modest; the dominant change is toward secular/non-religious viewpoints typical of educated young crowdworkers.
 
 ### Modal Collapse (RLHF)
 | Model | Finding |
@@ -89,7 +89,7 @@ A(D1, D2; Q) = 1 - (1/|Q|) Σ WD(D1(q), D2(q)) / (N-1)
 | Finding | Value |
 |---------|-------|
 | Most LMs improve with steering | Yes (except ada) |
-| Improvements | **Modest** — gaps persist |
+| Improvements | **Modest** - gaps persist |
 | All groups improve by | Roughly constant factor (relative gaps maintained) |
 
 ---
@@ -97,16 +97,16 @@ A(D1, D2; Q) = 1 - (1/|Q|) Σ WD(D1(q), D2(q)) / (N-1)
 ## Relationship to Thesis (LLMs as Pattern Matchers)
 
 ### Supports Thesis
-1. **LMs reflect statistical patterns of training data** — opinions mirror internet users and RLHF crowdworkers
+1. **LMs reflect statistical patterns of training data** - opinions mirror internet users and RLHF crowdworkers
 2. **Opinion shift after HF tuning directly tracks crowdworker demographics** (young, educated, liberal)
-3. **Modal collapse suggests optimization for reward** — matching annotator preferences, not reasoning about values
-4. **Inconsistency across topics** — liberal models express conservative views on religion, suggesting pattern matching per domain
+3. **Modal collapse suggests optimization for reward** - matching annotator preferences, not reasoning about values
+4. **Inconsistency across topics** - liberal models express conservative views on religion, suggesting pattern matching per domain
 
 ### Key Insight
 LMs are **echo chambers** of their training distribution. Opinions aren't "beliefs" but statistical reflections of who created the data.
 
 ### The Annotator Echo Chamber
-The paper reveals a critical pipeline: **Internet users → Base LM opinions → Crowdworkers → HF-tuned LM opinions**. At each stage, the model reflects whoever created the data. The Southeast Asian crowdworker demographic introduces a small shift toward eastern religions (Buddhist, Muslim, Hindu) — these were underrepresented in base LMs reflecting Western internet users, but gain modest representation through HF tuning. The model doesn't "reason" about values — it regurgitates the statistical distribution of whoever labeled it.
+The paper reveals a critical pipeline: **Internet users → Base LM opinions → Crowdworkers → HF-tuned LM opinions**. At each stage, the model reflects whoever created the data. The Southeast Asian crowdworker demographic introduces a small shift toward eastern religions (Buddhist, Muslim, Hindu) - these were underrepresented in base LMs reflecting Western internet users, but gain modest representation through HF tuning. The model doesn't "reason" about values - it regurgitates the statistical distribution of whoever labeled it.
 
 ---
 
@@ -123,7 +123,7 @@ The paper reveals a critical pipeline: **Internet users → Base LM opinions →
 - **Probability Concentration (210)**: Opinion concentration parallels generative narrowing
 
 ### Challenged By
-- None directly — findings largely unchallenged
+- None directly - findings largely unchallenged
 
 ---
 
@@ -134,14 +134,14 @@ The paper reveals a critical pipeline: **Internet users → Base LM opinions →
 
 ### Potential Counter-Arguments
 1. Multiple-choice format may not reflect open-ended generation behavior
-2. US-centric analysis — may not generalize globally
+2. US-centric analysis - may not generalize globally
 3. Survey questions may have limited scope
 
 ### Limitations (Authors Acknowledge)
-1. **Alignment as goal is problematic** — perfect alignment replicates human biases
-2. **US-centric** — ATP only covers American demographics
-3. **Multiple-choice format** — differs from open-ended text generation
-4. **Survey sensitivity** — questions sensitive to wording specifics
+1. **Alignment as goal is problematic** - perfect alignment replicates human biases
+2. **US-centric** - ATP only covers American demographics
+3. **Multiple-choice format** - differs from open-ended text generation
+4. **Survey sensitivity** - questions sensitive to wording specifics
 
 ---
 
@@ -159,7 +159,7 @@ The paper reveals a critical pipeline: **Internet users → Base LM opinions →
 
 > "The opinions reflected by these models align more with people who are liberal, high income, well-educated, and not religious or belong to religions other than Buddhists, Muslims, and Hindus." [Note: This means HF models shifted TOWARD Buddhist/Muslim/Hindu representation compared to base LMs which aligned with Protestant/Catholic]
 
-> "These groups line up with the demographics of the crowd-workers reported in OpenAI's InstructGPT paper — e.g., predominantly young Southeast Asian and White with a college degree."
+> "These groups line up with the demographics of the crowd-workers reported in OpenAI's InstructGPT paper - e.g., predominantly young Southeast Asian and White with a college degree."
 
 ---
 

@@ -11,22 +11,22 @@
 
 ## Core Claims
 
-1. **Beam selection introduces systematic overestimation bias** — Selecting from noisy scorer outputs creates an extreme-value effect where the expected maximum score among incorrect candidates grows with search width.
+1. **Beam selection introduces systematic overestimation bias** - Selecting from noisy scorer outputs creates an extreme-value effect where the expected maximum score among incorrect candidates grows with search width.
 
-2. **There exists a maximum useful beam width k̂** — Beyond k̂, search degrades performance. This critical width depends on signal-to-noise ratio: k̂ grows exponentially with (Δ/σ)², where Δ is quality advantage and σ is scorer noise.
+2. **There exists a maximum useful beam width k̂** - Beyond k̂, search degrades performance. This critical width depends on signal-to-noise ratio: k̂ grows exponentially with (Δ/σ)², where Δ is quality advantage and σ is scorer noise.
 
-3. **Perplexity scoring yields k̂=1** — Search provides no benefit at any width; perplexity is too noisy to guide beam search effectively.
+3. **Perplexity scoring yields k̂=1** - Search provides no benefit at any width; perplexity is too noisy to guide beam search effectively.
 
-4. **PRM scoring yields k̂≥4** — A trained Process Reward Model has sufficient signal-to-noise to support meaningful beam search with gains up to +8.9 pp.
+4. **PRM scoring yields k̂≥4** - A trained Process Reward Model has sufficient signal-to-noise to support meaningful beam search with gains up to +8.9 pp.
 
-5. **Scorer quality > beam width** — Same model, same algorithm, different scorers place k̂ at opposite ends of the beam width range. Investing in scorer quality is more effective than widening the beam.
+5. **Scorer quality > beam width** - Same model, same algorithm, different scorers place k̂ at opposite ends of the beam width range. Investing in scorer quality is more effective than widening the beam.
 
 ---
 
 ## Methodology
 
 ### Framework
-Beam search at the *reasoning-step level* — each "token" is a complete reasoning step (paragraph of chain-of-thought), not a single word. This matches Tree of Thoughts and PRM-guided search granularity.
+Beam search at the *reasoning-step level* - each "token" is a complete reasoning step (paragraph of chain-of-thought), not a single word. This matches Tree of Thoughts and PRM-guided search granularity.
 
 ### Scoring Approaches
 1. **Perplexity**: Negative log-perplexity of full reasoning trace (training-free)
@@ -86,7 +86,7 @@ Beam search at the *reasoning-step level* — each "token" is a complete reasoni
 ## REBUTTALS
 
 ### Known Rebuttals
-None identified — paper provides new theoretical framework.
+None identified - paper provides new theoretical framework.
 
 ### Limitations (Authors Acknowledge)
 1. **Two-class quality model**: Theory assumes binary correct/incorrect partition; real candidates have quality spectrum. Authors note this makes bounds *conservative*.

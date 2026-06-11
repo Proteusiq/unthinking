@@ -16,7 +16,7 @@
 2. **CryptoX framework** uses cryptographic encoding to force compositional reasoning (decode + answer)
 3. **Huge gap between open-source and closed-source LLMs** on compositional reasoning
 4. **AUC metric better captures CR ability** than single-point accuracy measurements
-5. **Mechanistic interpretability reveals layered subtask processing** — different layers handle different stages
+5. **Mechanistic interpretability reveals layered subtask processing** - different layers handle different stages
 
 ---
 
@@ -86,7 +86,7 @@ Applied to:
 
 > "Multi-Turn Decomposition Reasoning is Simpler than Single-Turn Composition Reasoning"
 
-When subtasks are provided in separate turns, performance improves significantly — suggesting models struggle to decompose problems themselves.
+When subtasks are provided in separate turns, performance improves significantly - suggesting models struggle to decompose problems themselves.
 
 ### 5. Mechanistic Analysis Findings
 
@@ -124,7 +124,7 @@ When subtasks are provided in separate turns, performance improves significantly
 
 ### Supports
 - **Faith and Fate (2305.18654)**: Both show compositional failures
-- **OMEGA (2506.18880)**: Same pattern — primitives succeed, compositions fail
+- **OMEGA (2506.18880)**: Same pattern - primitives succeed, compositions fail
 - **GSM-Symbolic (2410.05229)**: Both show encoding/perturbation brittleness
 - **Compositional-ARC (2504.01445)**: Similar systematicity failure pattern
 
@@ -141,7 +141,7 @@ When subtasks are provided in separate turns, performance improves significantly
 ## REBUTTALS TO THIS PAPER
 
 ### Search for Direct Rebuttals
-- Recent paper (February 2025) — no direct rebuttals found
+- Recent paper (February 2025) - no direct rebuttals found
 
 ### Potential Counter-Arguments
 
@@ -151,8 +151,8 @@ When subtasks are provided in separate turns, performance improves significantly
 
 ### Limitations (Authors Acknowledge)
 
-1. Limited to text benchmarks — no visual or multimodal
-2. Encoding rules are in-context — different from truly novel rules
+1. Limited to text benchmarks - no visual or multimodal
+2. Encoding rules are in-context - different from truly novel rules
 3. AUC metric assumes linear difficulty scaling
 
 ---
@@ -167,7 +167,7 @@ When subtasks are provided in separate turns, performance improves significantly
 2. **Open-source gap**: Models with less training data on diverse patterns fail more
 3. **Multi-turn easier than single-turn**: Models can't decompose problems; need external scaffolding
 4. **Mechanistic hierarchy**: Processing happens in fixed layers = learned patterns, not flexible reasoning
-5. **Overfitting detected**: Models can "answer correctly despite decoding errors" — suggests shortcuts
+5. **Overfitting detected**: Models can "answer correctly despite decoding errors" - suggests shortcuts
 
 ### Evidence AGAINST Thesis (or Complicating)
 
@@ -181,14 +181,14 @@ When subtasks are provided in separate turns, performance improves significantly
 
 The mechanistic analysis shows:
 - Different layers handle different subtasks
-- This is **sequential pattern matching** — not flexible composition
+- This is **sequential pattern matching** - not flexible composition
 - When encoding rules change, models must learn new patterns
 - High AUC models (o1) may simply have more patterns in training
 
 **Critical quote for thesis:**
 > "The layers of LLMs exhibit a clear hierarchical pattern of executing different subtasks in different layers and then aggregating"
 
-This **aggregation** is the key — it's not dynamic composition but rather **chaining of learned patterns**.
+This **aggregation** is the key - it's not dynamic composition but rather **chaining of learned patterns**.
 
 ### Integration with Thesis
 

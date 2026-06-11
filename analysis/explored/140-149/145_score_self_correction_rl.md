@@ -12,7 +12,7 @@
 
 ## Core Claims
 
-1. **Self-correction is largely ineffective in modern LLMs** — a well-documented limitation
+1. **Self-correction is largely ineffective in modern LLMs** - a well-documented limitation
 2. **SFT on correction traces fails** due to:
    - Distribution mismatch between data-collection policy and model's own responses
    - Behavior collapse to single correction mode
@@ -68,7 +68,7 @@
 
 | Training Method | Self-Correction Behavior |
 |----------------|-------------------------|
-| SFT on external traces | Poor — distribution mismatch |
+| SFT on external traces | Poor - distribution mismatch |
 | SFT on self-generated traces | Behavior collapse |
 | SCoRe (multi-turn RL) | Effective self-correction |
 
@@ -83,7 +83,7 @@ The paper shows that:
 
 ## Relationship to Thesis
 
-### BALANCED — shows self-correction CAN be improved, but requires special training
+### BALANCED - shows self-correction CAN be improved, but requires special training
 
 **SUPPORTS the thesis:**
 
@@ -129,7 +129,7 @@ The paper shows that:
 
 ### Challenged By
 - **Overthinking (2412.21187)**: More attempts don't always help
-- **Underthinking (2501.18585)**: Models abandon correct paths — SCoRe may not fix this
+- **Underthinking (2501.18585)**: Models abandon correct paths - SCoRe may not fix this
 
 ---
 

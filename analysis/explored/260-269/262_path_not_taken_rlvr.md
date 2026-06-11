@@ -40,9 +40,9 @@ The paper proposes a mechanistic framework explaining RLVR's parameter update dy
 ## Core Argument
 
 RLVR achieves reasoning improvements through:
-1. **Minimal spectral drift** — preserving the model's existing weight spectrum
-2. **Reduced principal-subspace rotation** — not disturbing principal weight directions
-3. **Off-principal update alignment** — coordinating updates in low-curvature subspaces
+1. **Minimal spectral drift** - preserving the model's existing weight spectrum
+2. **Reduced principal-subspace rotation** - not disturbing principal weight directions
+3. **Off-principal update alignment** - coordinating updates in low-curvature subspaces
 
 In contrast, **SFT targets principal weights, distorts the spectrum, and lags RLVR**.
 
@@ -50,7 +50,7 @@ In contrast, **SFT targets principal weights, distorts the spectrum, and lags RL
 
 | Finding | Implication |
 |---------|-------------|
-| Updates localize to "preferred parameter regions" | Not random — model-conditioned bias |
+| Updates localize to "preferred parameter regions" | Not random - model-conditioned bias |
 | Highly consistent across runs | Deterministic optimization geometry |
 | Largely invariant to datasets and RL recipes | Intrinsic to model, not training data |
 | RLVR learns off-principal; SFT targets principal | Fundamentally different optimization regimes |
@@ -72,7 +72,7 @@ In contrast, **SFT targets principal weights, distorts the spectrum, and lags RL
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
 │  1. RLVR SURFACES, DOESN'T CREATE                                   │
-│     Updates are model-conditioned — the model determines where      │
+│     Updates are model-conditioned - the model determines where      │
 │     to update, not the training data. This implies capabilities     │
 │     are latent in the pretrained model, not learned from RL.        │
 │                                                                     │
@@ -83,10 +83,10 @@ In contrast, **SFT targets principal weights, distorts the spectrum, and lags RL
 │  3. INVARIANCE TO DATASETS                                          │
 │     If reasoning were being "learned," different datasets should    │
 │     produce different parameter updates. But updates are largely    │
-│     invariant — the model "knows" where to adjust.                  │
+│     invariant - the model "knows" where to adjust.                  │
 │                                                                     │
 │  4. SFT FAILS BECAUSE IT OVERWRITES                                 │
-│     SFT targets principal weights and distorts the spectrum —       │
+│     SFT targets principal weights and distorts the spectrum -       │
 │     it replaces rather than surfaces. This explains why RLVR        │
 │     outperforms SFT for reasoning.                                  │
 │                                                                     │
@@ -97,8 +97,8 @@ In contrast, **SFT targets principal weights, distorts the spectrum, and lags RL
 
 ### Supports
 - **#221 Interplay** (2512.07783): Shows 0% exposure → RL fails; ≥1% → success. This paper explains WHY: RLVR needs latent capabilities to surface.
-- **#36 Scalpel vs Hammer**: GRPO amplifies, SFT replaces — same distinction as RLVR vs SFT here
-- **#172 Superficial Alignment** (2410.03717): Alignment is style, not substance — RLVR operates on style (off-principal), not core knowledge
+- **#36 Scalpel vs Hammer**: GRPO amplifies, SFT replaces - same distinction as RLVR vs SFT here
+- **#172 Superficial Alignment** (2410.03717): Alignment is style, not substance - RLVR operates on style (off-principal), not core knowledge
 
 ### Extends
 - **Parameter efficiency literature**: First mechanistic explanation of WHY RLVR is parameter-efficient
@@ -122,7 +122,7 @@ In contrast, **SFT targets principal weights, distorts the spectrum, and lags RL
 
 ## Critical Assessment
 
-This is a strong mechanistic paper that provides the first clear explanation of RLVR's parameter dynamics. The finding that updates are **model-conditioned and invariant to datasets** is particularly damning for the "RL teaches reasoning" narrative — it suggests the model already "knows" what to adjust.
+This is a strong mechanistic paper that provides the first clear explanation of RLVR's parameter dynamics. The finding that updates are **model-conditioned and invariant to datasets** is particularly damning for the "RL teaches reasoning" narrative - it suggests the model already "knows" what to adjust.
 
 The implication for the thesis is clear: **RLVR is a surfacing mechanism, not a learning mechanism**. The reasoning capabilities must already exist in the pretrained model; RLVR merely amplifies them without disturbing the core weight structure.
 
@@ -134,9 +134,9 @@ None directly, but provides mechanistic grounding that challenges claims that RL
 
 ### Potential Counter-Arguments
 
-1. **"Off-principal learning could still be genuine learning"** — True in principle, but the invariance to datasets suggests the model determines the update locations, not the training signal.
+1. **"Off-principal learning could still be genuine learning"** - True in principle, but the invariance to datasets suggests the model determines the update locations, not the training signal.
 
-2. **"Maybe the model geometry encodes optimal reasoning paths"** — This would still support the thesis: the "reasoning" would be latent in geometry, not learned from RL.
+2. **"Maybe the model geometry encodes optimal reasoning paths"** - This would still support the thesis: the "reasoning" would be latent in geometry, not learned from RL.
 
 ## Impact Assessment
 

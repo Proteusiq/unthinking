@@ -132,7 +132,7 @@ Subjective evaluation on creative task. Does not demonstrate reasoning.
 Key quote:
 > "The user constructs a GoO instance, which prescribes the execution plan... GoO is a **static structure constructed once, before execution starts**" (p.4)
 
-The "graph" structure is **externally imposed**, not emergent from the LLM. The LLM does not construct the reasoning graph — the human/system does.
+The "graph" structure is **externally imposed**, not emergent from the LLM. The LLM does not construct the reasoning graph - the human/system does.
 
 **2. Authors Admit LLMs Cannot Sort**
 
@@ -147,7 +147,7 @@ The 62% improvement comes from:
 - **Chunking** (break problem into pieces LLM can handle)
 - **Aggregation** (combine results externally)
 
-The LLM's role is reduced to sorting short sequences — pattern matching within capability bounds.
+The LLM's role is reduced to sorting short sequences - pattern matching within capability bounds.
 
 **4. Performance Ceiling Shows Limits**
 
@@ -177,8 +177,8 @@ Subsuming CoT and ToT means GoT is a **more powerful scaffolding**, not that LLM
 1. **Better scaffolding improves performance** on tasks requiring composition
 2. **LLMs can handle small sub-problems** when chunked appropriately
 3. **Classical algorithms (merge sort) still needed** for complex operations
-4. **Graph structure must be externally imposed** — LLMs don't construct it
-5. **Even with scaffolding, performance ceilings exist** — fundamental limits remain
+4. **Graph structure must be externally imposed** - LLMs don't construct it
+5. **Even with scaffolding, performance ceilings exist** - fundamental limits remain
 
 ---
 
@@ -196,7 +196,7 @@ Subsuming CoT and ToT means GoT is a **more powerful scaffolding**, not that LLM
 - **GSM-Symbolic (2410.05229)**: Both show LLMs fail on variations; GoT works by reducing to known patterns
 
 ### Related Work
-- **LLM-Modulo (Kambhampati)**: Similar philosophy — use LLM for heuristics, external systems for correctness
+- **LLM-Modulo (Kambhampati)**: Similar philosophy - use LLM for heuristics, external systems for correctness
 - **Faithful CoT (2301.13379)**: Both recognize need for external verification/execution
 
 ---
@@ -211,7 +211,7 @@ Subsuming CoT and ToT means GoT is a **more powerful scaffolding**, not that LLM
 
 3. **Improvement from classical algorithms**: 62% gain comes from merge sort, not LLM insight
 
-4. **Performance ceiling**: ~75% on sorting, ~91% on set operations — genuine reasoners would be near-perfect
+4. **Performance ceiling**: ~75% on sorting, ~91% on set operations - genuine reasoners would be near-perfect
 
 5. **External scaffolding dominates**: Controller, Prompter, Parser, Scoring all external to LLM
 
@@ -219,9 +219,9 @@ Subsuming CoT and ToT means GoT is a **more powerful scaffolding**, not that LLM
 
 ### Limitations (Authors Acknowledge)
 
-- "Requires careful thought structure design" — human engineering required
-- "Computational cost increases with graph complexity" — more scaffolding = more cost
-- "Depends on LLM capability for sub-tasks" — LLM must handle atomic operations
+- "Requires careful thought structure design" - human engineering required
+- "Computational cost increases with graph complexity" - more scaffolding = more cost
+- "Depends on LLM capability for sub-tasks" - LLM must handle atomic operations
 - Limited to tasks where decomposition structure is known
 
 ---
@@ -253,11 +253,11 @@ Subsuming CoT and ToT means GoT is a **more powerful scaffolding**, not that LLM
 
 GoT **strongly supports** the pattern matching thesis:
 
-1. **GoO is external scaffolding** — reasoning structure is pre-defined by humans
-2. **Authors admit fundamental limits** — LLMs cannot sort beyond short sequences
-3. **Classical algorithms provide the gain** — merge sort, not LLM insight
-4. **Performance ceilings persist** — 75%, not 100% on deterministic tasks
-5. **LLM role is pattern completion** — handle small, in-distribution sub-problems
+1. **GoO is external scaffolding** - reasoning structure is pre-defined by humans
+2. **Authors admit fundamental limits** - LLMs cannot sort beyond short sequences
+3. **Classical algorithms provide the gain** - merge sort, not LLM insight
+4. **Performance ceilings persist** - 75%, not 100% on deterministic tasks
+5. **LLM role is pattern completion** - handle small, in-distribution sub-problems
 
 **The paper is evidence FOR the thesis, not against it.**
 

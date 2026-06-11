@@ -16,7 +16,7 @@
 2. **"More is different" vs "less is more"**: Emergence = novel higher-level properties through coarse-graining; Intelligence = efficient problem-solving with minimal resources
 3. **Knowledge-In (KI) emergence**: LLMs are KI systems (trained/engineered), not KO systems (self-organizing from simple rules)
 4. **Rube Goldberg logic**: Citing Anthropic: "massive complexity underlying the model's responses even in relatively simple contexts"
-5. **Five conditions for emergence**: Scaling, criticality, compression, novel bases, generalization — most LLM claims fail these tests
+5. **Five conditions for emergence**: Scaling, criticality, compression, novel bases, generalization - most LLM claims fail these tests
 
 ---
 
@@ -156,17 +156,17 @@ The distinction between **capability** (LLMs) and **intelligence** (humans) maps
 **Significance**: VERY HIGH - Authoritative perspective from Santa Fe Institute complexity scientists
 
 **Key Contribution**: Provides rigorous conceptual framework distinguishing:
-- **Emergent capability** (what LLMs have) — trained/engineered behaviors
-- **Emergent intelligence** (what LLMs lack) — efficient abstraction enabling generalization
+- **Emergent capability** (what LLMs have) - trained/engineered behaviors
+- **Emergent intelligence** (what LLMs lack) - efficient abstraction enabling generalization
 
 This maps directly to the thesis distinction between:
-- **Pattern matching** — capability through learned associations
-- **Genuine reasoning** — intelligence through compressed, transferable abstractions
+- **Pattern matching** - capability through learned associations
+- **Genuine reasoning** - intelligence through compressed, transferable abstractions
 
 **Critical Evidence**:
-1. "Rube Goldberg logic" — massive complexity for simple tasks
-2. KI vs KO — LLMs are trained, not self-organizing
-3. "More is more" vs "less is more" — capability vs intelligence
+1. "Rube Goldberg logic" - massive complexity for simple tasks
+2. KI vs KO - LLMs are trained, not self-organizing
+3. "More is more" vs "less is more" - capability vs intelligence
 4. Abilities "shown to lack generality and robustness"
 5. No evidence for coarse-grained internal models that would indicate true emergence
 

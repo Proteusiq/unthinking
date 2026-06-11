@@ -76,7 +76,7 @@
 
 This paper provides **mechanistic evidence** for the thesis:
 
-1. **GRPO doesn't teach new skills**: It "amplifies existing capabilities" that the base model already has. This supports the view that RL doesn't create reasoning — it surfaces pre-existing patterns.
+1. **GRPO doesn't teach new skills**: It "amplifies existing capabilities" that the base model already has. This supports the view that RL doesn't create reasoning - it surfaces pre-existing patterns.
 
 2. **SFT replaces rather than adds**: The "hammer" metaphor captures how SFT overwrites knowledge rather than building on it. This explains why fine-tuning can degrade capabilities.
 
@@ -87,7 +87,7 @@ This paper provides **mechanistic evidence** for the thesis:
 ### Key Insight for Thesis
 > "Capability acquisition occurs during pre-training and continual fine-tuning, while GRPO mainly amplifies skills the base model already has."
 
-This directly supports the claim that reasoning models don't reason — they surface patterns that were already learned.
+This directly supports the claim that reasoning models don't reason - they surface patterns that were already learned.
 
 ---
 
@@ -119,7 +119,7 @@ This directly supports the claim that reasoning models don't reason — they sur
 
 ### Potential Counter-Arguments
 
-1. DeepSeek's SFT shows less degradation with 800k curated samples — curation may matter more than algorithm
+1. DeepSeek's SFT shows less degradation with 800k curated samples - curation may matter more than algorithm
 2. Results may be specific to math domain
 3. Learning rate difference makes fair comparison difficult
 

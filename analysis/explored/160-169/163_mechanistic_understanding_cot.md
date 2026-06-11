@@ -11,17 +11,17 @@
 
 ## Core Claims
 
-1. **LLMs deploy multiple parallel pathways of answer generation** for step-by-step reasoning — different attention heads simultaneously write the answer token into the output from different sources (question context, generated CoT, few-shot context).
+1. **LLMs deploy multiple parallel pathways of answer generation** for step-by-step reasoning - different attention heads simultaneously write the answer token into the output from different sources (question context, generated CoT, few-shot context).
 
 2. **A "functional rift" exists at layer 16** (middle of Llama-2 7B's 32 layers) that separates two distinct processing phases:
    - Initial half (layers 1-16): Token mixing over ontological relationships, pretraining prior dominates
    - Later half (layers 17-32): Answer-writing heads appear, in-context prior dominates
 
-3. **Different CoT reasoning subtasks share the same functional components** — despite different requirements (decision-making, copying, induction), attention head sets significantly overlap.
+3. **Different CoT reasoning subtasks share the same functional components** - despite different requirements (decision-making, copying, induction), attention head sets significantly overlap.
 
-4. **Token mixing via attention heads in early layers** enables inductive reasoning — information flows between ontologically related tokens (e.g., "if A is B and B is C, then A is C").
+4. **Token mixing via attention heads in early layers** enables inductive reasoning - information flows between ontologically related tokens (e.g., "if A is B and B is C, then A is C").
 
-5. **LLMs do use generated CoT, but via parallel pathways** — some pathways collect answers from the generated context while others collect directly from the question context.
+5. **LLMs do use generated CoT, but via parallel pathways** - some pathways collect answers from the generated context while others collect directly from the question context.
 
 ---
 
@@ -42,7 +42,7 @@
 ### Model and Dataset
 
 - **Model**: Llama-2 7B (32 decoder blocks, 1,024 total attention heads)
-- **Dataset**: PrOntoQA — fictional ontology-based QA with tree-structured ontologies
+- **Dataset**: PrOntoQA - fictional ontology-based QA with tree-structured ontologies
 - **Prompting**: 6-shot CoT prompting with structured reasoning templates
 
 ### Subtask Decomposition
@@ -79,15 +79,15 @@ CoT generation decomposed into **10 subtasks** (indexed 0-9):
 
 - Attention heads **transfer information between ontologically related tokens** (e.g., for "numpuses are rompuses", information flows from numpus to rompus)
 - **Peak distinguishability** of related vs. unrelated entity pairs occurs around **layers 10-15**
-- This mixing **does not require in-context learning** — works similarly in zero-shot regime
+- This mixing **does not require in-context learning** - works similarly in zero-shot regime
 - After layer 16, distinguishability diminishes as task-specific information accumulates
 
 ### 2. Pretraining Prior vs In-Context Prior Transition (Layer 16)
 
 - **Initial half**: Residual streams biased toward **pretraining bigram statistics**
 - **Transition point**: ~Layer 16
-- **Later half**: **In-context prior takes over** — model follows contextual bigrams from input
-- This is **task-agnostic** — transition happens regardless of subtask type
+- **Later half**: **In-context prior takes over** - model follows contextual bigrams from input
+- This is **task-agnostic** - transition happens regardless of subtask type
 
 ### 3. Answer-Writing Heads (Layers 17-32)
 
@@ -98,21 +98,21 @@ CoT generation decomposed into **10 subtasks** (indexed 0-9):
 ### 4. Parallel Pathways from CoT vs Question Context
 
 Three source categories identified:
-1. **Generated context (CoT)** — answers collected from earlier CoT steps
-2. **Question context** — answers collected from input question
-3. **Few-shot context** — answers collected from examples (often incorrect but shared tokens)
+1. **Generated context (CoT)** - answers collected from earlier CoT steps
+2. **Question context** - answers collected from input question
+3. **Few-shot context** - answers collected from examples (often incorrect but shared tokens)
 
 Key observations:
 - For subtasks 0-3, 6-7: Answer tokens NOT present in generated context; must come from question context
 - For subtasks 4, 5, 8, 9: Heads collect from generated context (more heads for subtask 5)
-- Pathways using few-shot context "deviate from the correct reasoning algorithm" — they decrease from subtask 0 to 9
+- Pathways using few-shot context "deviate from the correct reasoning algorithm" - they decrease from subtask 0 to 9
 
 ---
 
 ## Relationship to Other Papers
 
 ### Supports
-- **Faith and Fate (2305.18654)**: CoT implemented via induction circuit compositions, not symbolic reasoning — consistent with linearized subgraph matching
+- **Faith and Fate (2305.18654)**: CoT implemented via induction circuit compositions, not symbolic reasoning - consistent with linearized subgraph matching
 - **Measuring Faithfulness (2307.13702)**: Parallel pathways explain why CoT can be divorced from actual computation
 - **Expressive Power of CoT (2310.07923)**: Provides mechanistic evidence for theoretical claims about CoT computational power
 - **Let's Think Dot by Dot (2404.15758)**: Both show CoT benefits come from computation, not semantic content
@@ -167,15 +167,15 @@ No direct rebuttals found as of analysis date.
 
 ### Evidence Supporting the Thesis
 
-1. **Induction circuit-like mechanisms, not reasoning**: CoT reasoning is implemented through compositions of **induction head mechanisms** — pattern-matching circuits that copy and propagate information, not symbolic reasoning operations.
+1. **Induction circuit-like mechanisms, not reasoning**: CoT reasoning is implemented through compositions of **induction head mechanisms** - pattern-matching circuits that copy and propagate information, not symbolic reasoning operations.
 
 2. **Parallel pathways reveal redundancy, not deliberation**: Multiple parallel pathways simultaneously generate answers from different sources. This is characteristic of pattern-matching systems exploiting statistical regularities, not deliberative reasoning following a single logical chain.
 
 3. **Wrong pathways using few-shot context**: Pathways that collect answers from few-shot examples (where tokens have different contextual roles) reveals **token-level pattern matching**, not semantic reasoning. These pathways "deviate from the correct reasoning algorithm."
 
-4. **Token mixing is NOT boosted by in-context learning**: Ontological token mixing "does not require in-context learning" and works similarly in zero-shot — suggesting **structural pattern matching** in the architecture, not learned reasoning.
+4. **Token mixing is NOT boosted by in-context learning**: Ontological token mixing "does not require in-context learning" and works similarly in zero-shot - suggesting **structural pattern matching** in the architecture, not learned reasoning.
 
-5. **Pretraining prior vs in-context prior transition**: Model behavior governed by **statistical priors** — first pretraining statistics, then contextual statistics. This is fundamentally a statistical/pattern-matching process.
+5. **Pretraining prior vs in-context prior transition**: Model behavior governed by **statistical priors** - first pretraining statistics, then contextual statistics. This is fundamentally a statistical/pattern-matching process.
 
 6. **Functional rift is task-agnostic**: The transition at layer 16 happens regardless of specific reasoning task, suggesting **general-purpose pattern processing** rather than task-specific reasoning algorithms.
 

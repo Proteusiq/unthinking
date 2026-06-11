@@ -12,7 +12,7 @@
 
 > *"I had not realized ... that extremely short exposures to a relatively simple computer program could induce powerful delusional thinking in quite normal people."*
 >
-> — Joseph Weizenbaum, *Computer Power and Human Reason* (1976)
+> - Joseph Weizenbaum, *Computer Power and Human Reason* (1976)
 
 In 1966, Joseph Weizenbaum created ELIZA at MIT: a program of roughly 200 lines that could simulate a Rogerian psychotherapist. The mechanism was trivial: pattern matching and substitution. When a user typed "I am sad," ELIZA would respond "Why are you sad?" No understanding. No model of the world. No representation of emotions. Just text manipulation.
 
@@ -133,7 +133,7 @@ The outputs may coincide. The mechanisms never do. And it is the mechanism, not 
 
 > *"Evolution selects for adaptive behavior, not for true beliefs. Natural selection doesn't care whether your beliefs are true; only whether your behavior helps you survive."*
 >
-> — Alvin Plantinga, *Warrant and Proper Function* (1993)
+> - Alvin Plantinga, *Warrant and Proper Function* (1993)
 
 **The Plantinga Parallel:**
 
@@ -180,31 +180,31 @@ Like Leonard in *Memento*, LLMs have no persistent state. Each token prediction 
 ### Key Quotes from the Literature
 
 > "LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent."
-> — WhatCounts (2601.21618)
+> - WhatCounts (2601.21618)
 
 > "LLMs perform arithmetic using neither robust algorithms nor memorization; rather, they rely on a 'bag of heuristics'."
-> — Arithmetic Without Algorithms (2410.21272)
+> - Arithmetic Without Algorithms (2410.21272)
 
 > "The model's ability to produce output that superficially resembles reasoning does not mean that it is actually reasoning."
-> — Can LLMs Reason and Plan? (2403.04121)
+> - Can LLMs Reason and Plan? (2403.04121)
 
 > "Reasoning capability is fragile and cannot be accessed robustly, even in such a simple scenario as posed by AIW problem variations."
-> — Alice in Wonderland (2406.02061)
+> - Alice in Wonderland (2406.02061)
 
 > "Because they can do 'more with less'... not 'more with more'."
-> — Large Language Models and Emergence (2506.11135)
+> - Large Language Models and Emergence (2506.11135)
 
 > "To understand what language models are, we must understand what we have trained them to be."
-> — Embers of Autoregression (2309.13638)
+> - Embers of Autoregression (2309.13638)
 
 > "The sparks of AGI that LLMs may be producing continue to be accompanied by embers of autoregression."
-> — o1 Embers Analysis (2410.01792)
+> - o1 Embers Analysis (2410.01792)
 
 > "The knowledge required to solve the task is already stored in the parameters of the model, and only the style has to change for task success."
-> — Learning to Reason in 13 Parameters (2602.04118)
+> - Learning to Reason in 13 Parameters (2602.04118)
 
 > "Resampling amplifies this separation: the correlated signal accumulates while uncorrelated variation cancels."
-> — Learning to Reason in 13 Parameters (2602.04118), on why RL is 100-1000× more parameter-efficient than SFT
+> - Learning to Reason in 13 Parameters (2602.04118), on why RL is 100-1000× more parameter-efficient than SFT
 
 ### The Mirror Clock Test
 

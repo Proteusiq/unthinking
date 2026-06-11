@@ -15,7 +15,7 @@
 1. **Any-order decoding doesn't help for reasoning**: Despite MDLMs enabling arbitrary decoding order, left-to-right performs best on math/coding tasks
 2. **Parallel decoding severely degrades performance**: Even 2 tokens in parallel causes >40% accuracy drop on GSM8K
 3. **Post-hoc reasoning matches human quality**: Given the answer, MDLMs can generate reasoning traces that perform equivalently to human-written traces for fine-tuning
-4. **Early exits are effective**: Model converges on answer early — 24% fewer forward passes with no accuracy loss
+4. **Early exits are effective**: Model converges on answer early - 24% fewer forward passes with no accuracy loss
 5. **Sudoku is the exception**: Any-order decoding helps for constraint satisfaction but not sequential reasoning
 
 ---
@@ -30,7 +30,7 @@
 - GSM8K (math reasoning)
 - MATH500 (math reasoning)
 - HumanEval (coding)
-- Sudoku (logic puzzles — constraint satisfaction)
+- Sudoku (logic puzzles - constraint satisfaction)
 
 ### Key Innovation: Reasoning-as-Infilling
 
@@ -151,7 +151,7 @@ The model generates reasoning AFTER knowing the answer, and these traces are **b
 │  RESULT: Both produce equally good reasoning traces for training    │
 │                                                                     │
 │  IMPLICATION: Reasoning trace is not the computation                │
-│               — it's narrative construction after the fact          │
+│               - it's narrative construction after the fact          │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -235,7 +235,7 @@ Math/coding have **sequential logical dependencies**:
 - **Dot by Dot (2404.15758)**: Both show CoT benefit is computational; post-hoc works equally well
 
 ### Extends
-- **Diffusion Stitching (2602.22871)**: Explains WHY stitching works — post-hoc reasoning is as good as forward
+- **Diffusion Stitching (2602.22871)**: Explains WHY stitching works - post-hoc reasoning is as good as forward
 
 ### Challenges
 - **DeepSeek-R1 (2501.12948)**: If post-hoc = forward reasoning, RL may just learn better narratives, not better reasoning

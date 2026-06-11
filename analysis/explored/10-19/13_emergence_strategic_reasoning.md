@@ -130,14 +130,14 @@
 ## Relationship to Other Papers
 
 ### Supports
-- **DeepSeek-R1** — Reasoning techniques improve capabilities
-- **s1** — RLVR/reasoning training surfaces abilities
-- **Thinking Isn't Illusion** — LRMs have genuine capabilities
+- **DeepSeek-R1** - Reasoning techniques improve capabilities
+- **s1** - RLVR/reasoning training surfaces abilities
+- **Thinking Isn't Illusion** - LRMs have genuine capabilities
 
 ### Challenged By
-- **CoT Mirage** — ID vs OOD distinction; these games may be ID
-- **Correlation or Causation** — Even if strategic, may be correlation
-- **Limits of Innate Planning** — Planning fails on novel tasks
+- **CoT Mirage** - ID vs OOD distinction; these games may be ID
+- **Correlation or Causation** - Even if strategic, may be correlation
+- **Limits of Innate Planning** - Planning fails on novel tasks
 
 ### Key Tension
 This paper claims LRMs show "genuine strategic reasoning" but:
@@ -157,9 +157,9 @@ No direct arXiv rebuttal found as of analysis date.
 | Counter | Response |
 |---------|----------|
 | "Games are in training data" | Authors acknowledge this for p=4/3 drop |
-| "Matching humans ≠ understanding" | Valid — could be pattern matching at human level |
+| "Matching humans ≠ understanding" | Valid - could be pattern matching at human level |
 | "Limited game variety" | Three games; may not generalize |
-| "What about truly novel games?" | Not tested — critical gap |
+| "What about truly novel games?" | Not tested - critical gap |
 
 ### Limitations (Authors Acknowledge)
 1. Limited to classical behavioral economics games
@@ -239,8 +239,8 @@ No direct arXiv rebuttal found as of analysis date.
 - [x] Key evidence with numbers
 - [x] Critical analysis for thesis
 - [x] Cross-references identified
-- [x] **Rebuttals checked** — No direct rebuttal found
-- [x] **Counter-evidence noted** — p=4/3 performance drop
+- [x] **Rebuttals checked** - No direct rebuttal found
+- [x] **Counter-evidence noted** - p=4/3 performance drop
 
 ---
 
@@ -262,4 +262,4 @@ No direct arXiv rebuttal found as of analysis date.
    - "LLMs are vastly trained on pBCGs which involve iterating downward"
    - Pattern matching within known game types
 
-**For thesis**: This is strong "FOR" evidence that must be addressed. However, the performance drop for unusual parameters supports the "practical but predictive" interpretation — models excel at games similar to training data but struggle with variations. The question remains: Is this genuine strategic reasoning or sophisticated pattern matching of known behavioral economics games?
+**For thesis**: This is strong "FOR" evidence that must be addressed. However, the performance drop for unusual parameters supports the "practical but predictive" interpretation - models excel at games similar to training data but struggle with variations. The question remains: Is this genuine strategic reasoning or sophisticated pattern matching of known behavioral economics games?

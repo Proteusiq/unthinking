@@ -7,10 +7,10 @@ Rules and methodology for conducting systematic literature reviews on AI/ML rese
 
 ## Development Philosophy
 
-- **Simplicity is king** — the simplest solution that works is the best solution
-- **Self-documenting code** — if it needs comments, refactor it
-- **Functional over OOP** — pure functions, composition, immutability
-- **Commit early, commit often** — small, focused, verified commits
+- **Simplicity is king** - the simplest solution that works is the best solution
+- **Self-documenting code** - if it needs comments, refactor it
+- **Functional over OOP** - pure functions, composition, immutability
+- **Commit early, commit often** - small, focused, verified commits
 
 ### Code Design
 - Prefer **pure functions**; isolate side effects
@@ -49,7 +49,7 @@ uvx ty check .
 
 ### HTML / CSS / JS Style (docs/)
 
-No build tools, no framework — vanilla HTML + CSS + JS. D3.js only dependency.
+No build tools, no framework - vanilla HTML + CSS + JS. D3.js only dependency.
 See `docs/SPECS.md` for design system, component layout, and graph details.
 
 #### HTML
@@ -62,7 +62,7 @@ See `docs/SPECS.md` for design system, component layout, and graph details.
 #### CSS
 - 2-space indent, one property per line
 - Hyphenated class names: `.thesis-card`, `.side-panel` (no camelCase)
-- Use custom properties from `variables.css` — never hardcode colors/spacing
+- Use custom properties from `variables.css` - never hardcode colors/spacing
 - Flat selectors (1–2 levels max), no `!important`
 - Animate with `transform` / `opacity` (GPU-composited)
 - Safari: always pair `backdrop-filter` with `-webkit-backdrop-filter`
@@ -96,9 +96,9 @@ python3 -m http.server 8000  # Local dev
 
 ## Core Principles
 
-### 1. Read the FULL Paper — This is Non-Negotiable
-- **ALWAYS** read the COMPLETE paper — this is the alpha and omega of paper analysis
-- **NEVER** stop at "enough information" — there is no such thing as enough without reading the whole paper
+### 1. Read the FULL Paper - This is Non-Negotiable
+- **ALWAYS** read the COMPLETE paper - this is the alpha and omega of paper analysis
+- **NEVER** stop at "enough information" - there is no such thing as enough without reading the whole paper
 - **ALWAYS** fetch the full HTML version (arxiv.org/html/) or PDF if HTML unavailable
 - If the paper is truncated, use task agents to read the full saved content
 - Abstracts can be misleading or incomplete
@@ -107,19 +107,19 @@ python3 -m http.server 8000  # Local dev
 - **If you haven't read the full paper, you haven't read the paper**
 
 ### 2. Independent Critical Assessment
-- **Do not automatically agree with the researcher's interpretation** — form your own view from the paper first
+- **Do not automatically agree with the researcher's interpretation** - form your own view from the paper first
 - Read the paper carefully BEFORE accepting any characterization (rebuttal, confirmation, etc.)
 - If the researcher suggests a classification, VERIFY it against the actual paper content
-- Apply critical thinking independently — the researcher can be wrong
+- Apply critical thinking independently - the researcher can be wrong
 - When in doubt, re-read key sections of the paper to form your own judgment
 - You MAY defer to the researcher after independent verification confirms their view
 - State your assessment clearly, noting agreement or disagreement with the researcher
 
 ### 3. Rebuttal Analysis is MANDATORY
 For EVERY paper analyzed, you MUST:
-1. **Search for direct arXiv rebuttals** — check if other papers cite/challenge this work
+1. **Search for direct arXiv rebuttals** - check if other papers cite/challenge this work
 2. **Check for counter-evidence from other analyzed papers** in the corpus
-3. **Document rebuttals in BOTH directions** — papers can be challenged AND can challenge others
+3. **Document rebuttals in BOTH directions** - papers can be challenged AND can challenge others
 4. **Include a REBUTTALS section** in each analysis file
 5. **Update the paper interaction graph** (see below)
 
@@ -134,10 +134,10 @@ For EVERY paper analyzed, you MUST update the paper interaction graph:
 1. **Document relationships**: supports, challenges, extends, provides mechanism for
 2. **Track rebuttal chains**: A rebuts B, C rebuts A's rebuttal, etc.
 3. **Update `analysis/paper_graph.md`** with new interactions
-4. **Identify papers with NO rebuttals** — these are papers requiring follow-up
+4. **Identify papers with NO rebuttals** - these are papers requiring follow-up
 
 ### 6. Use Objective Language
-- **NEVER** use "our thesis" or "your thesis" — use "the thesis" instead
+- **NEVER** use "our thesis" or "your thesis" - use "the thesis" instead
 - Write as an objective observer, not an advocate
 - Examples:
   - BAD: "This supports our thesis that..."
@@ -148,26 +148,26 @@ For EVERY paper analyzed, you MUST update the paper interaction graph:
 
 ### 7. No Temporal Markers
 - **NEVER** use "NEW", "UPDATED", "RECENT" or similar temporal markers in documentation
-- Content should be timeless — dates speak for themselves
+- Content should be timeless - dates speak for themselves
 - If something is new, the date/commit history shows it
 - Examples:
-  - BAD: `- [microgpt](url) (Feb 2026) — **NEW**`
+  - BAD: `- [microgpt](url) (Feb 2026) - **NEW**`
   - GOOD: `- [microgpt](url) (Feb 2026)`
   - BAD: `### NEW: Mirror Rebuttals Section`
   - GOOD: `### Mirror Rebuttals Section`
 
 ### 8. ASCII Diagrams for Clarity
 
-Use ASCII boxes and diagrams **liberally** — they make analysis memorable and findings scannable. When in doubt, add a diagram.
+Use ASCII boxes and diagrams **liberally** - they make analysis memorable and findings scannable. When in doubt, add a diagram.
 
 **Use ASCII diagrams for:**
-- **Paper analyses** — box the core finding, visualize the methodology
-- **Synthesis sections** — compare papers, show convergent evidence
-- **Key insights** — make the takeaway impossible to miss
-- **Relationships** — arrows showing rebuttals, extensions, support
-- **Processes** — pipelines, decision trees, causal chains
-- **Contradictions** — side-by-side comparisons of competing claims
-- **Status reports** — session summaries, progress tracking
+- **Paper analyses** - box the core finding, visualize the methodology
+- **Synthesis sections** - compare papers, show convergent evidence
+- **Key insights** - make the takeaway impossible to miss
+- **Relationships** - arrows showing rebuttals, extensions, support
+- **Processes** - pipelines, decision trees, causal chains
+- **Contradictions** - side-by-side comparisons of competing claims
+- **Status reports** - session summaries, progress tracking
 
 **Box alignment rule**: All lines in an ASCII box **MUST** have the same length.
 
@@ -219,7 +219,7 @@ Paper C ──extends──> Paper A
 ## Paper Interaction Graph
 
 ### Purpose
-Track how papers relate to each other — who rebuts whom, who builds on whom, chains of rebuttals.
+Track how papers relate to each other - who rebuts whom, who builds on whom, chains of rebuttals.
 
 ### Format
 Maintain in `analysis/paper_graph.md`:
@@ -272,10 +272,10 @@ uv run scripts/arxiv_search.py "reasoning failures" --max 20 -v
 ```
 
 **Options:**
-- `--title-only, -t` — Search titles only (default: title + abstract)
-- `--year, -y` — Filter to papers from this year onwards
-- `--max, -m` — Maximum results (default: 15)
-- `--verbose, -v` — Show abstract snippets
+- `--title-only, -t` - Search titles only (default: title + abstract)
+- `--year, -y` - Filter to papers from this year onwards
+- `--max, -m` - Maximum results (default: 15)
+- `--verbose, -v` - Show abstract snippets
 
 **Categories searched:** cs.CL, cs.LG, cs.AI, cs.NE
 
@@ -301,7 +301,7 @@ When expanding the corpus, search multiple angles:
 
 ### Paper Selection Rules
 
-- **NO single-author papers** — Prefer papers with multiple authors for broader peer validation
+- **NO single-author papers** - Prefer papers with multiple authors for broader peer validation
 - Prefer papers from established research groups or institutions
 - Prefer papers with reproducible experiments and open code/data
 
@@ -318,16 +318,24 @@ When expanding the corpus, search multiple angles:
 
 **CRITICAL**: Nothing is done until it is pushed. A task is only complete when changes are committed AND pushed to the remote repository.
 
+### Match the Canonical Example
+
+Use `analysis/explored/00-09/00_faith_and_fate.md` as the structural template for every new analysis. Arrange new reviews to look like it: the same section headings, the same ordering, the same flavour of evidence tables, ASCII diagrams, and key-quote blocks.
+
+- Match the existing structure - do NOT invent new sections (no "How to Cite This", no author-count tallies, no novelty boilerplate).
+- Vary content, not scaffolding. The headings and their order stay stable across files.
+- If a section does not apply, omit it rather than adding a new one.
+
 ---
 
 ## Updating Findings Page
 
 When paper counts or stance distribution changes significantly, update `docs/pages/findings.html`:
 
-1. **Stance counts** — Update the three stance cards (supports/balanced/challenges) with new numbers and percentages
-2. **Paper distribution chart** — Update batch rows if new papers are added
-3. **Theme tables** — Add significant new papers to relevant theme sections
-4. **Smoking guns** — Update if a new paper provides stronger evidence than existing entries
+1. **Stance counts** - Update the three stance cards (supports/balanced/challenges) with new numbers and percentages
+2. **Paper distribution chart** - Update batch rows if new papers are added
+3. **Theme tables** - Add significant new papers to relevant theme sections
+4. **Smoking guns** - Update if a new paper provides stronger evidence than existing entries
 
 The findings page is linked from:
 - Main thesis on `docs/index.html` (the word "predictive")
@@ -501,10 +509,10 @@ When asked for status, provide an ASCII box summary:
    assert len(set(len(line) for line in lines)) == 1
    ```
 3. **Include numbers from actual files**:
-   - `papers/paper_list.md` — paper counts, stance breakdown
-   - `papers/toread.md` — remaining count
-   - `docs/js/nodes.js` — node count
-   - `docs/js/links.js` — link count
-   - `git log --oneline -5` — recent commits
+   - `papers/paper_list.md` - paper counts, stance breakdown
+   - `papers/toread.md` - remaining count
+   - `docs/js/nodes.js` - node count
+   - `docs/js/links.js` - link count
+   - `git log --oneline -5` - recent commits
 4. **Session summary**: List papers added in current session with one-line findings
 5. **Key insight**: Synthesize what the papers reveal about the thesis

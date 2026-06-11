@@ -47,7 +47,7 @@
 
 ## Key Evidence
 
-### 1. LLMs Fail at Systematic Generalization — Dramatically
+### 1. LLMs Fail at Systematic Generalization - Dramatically
 
 **Systematicity Task Results:**
 
@@ -72,7 +72,7 @@
 | Llama-3.2-3B-ReARC | 0.87% | **73.70%** |
 | Mistral-NeMO-8B-Full | 0.70% | **78.20%** |
 
-**~100x improvement from test-time training** — but this is literally training on the test set's study examples.
+**~100x improvement from test-time training** - but this is literally training on the test set's study examples.
 
 ### 3. Small MLC Model Outperforms All LLMs
 
@@ -83,7 +83,7 @@
 | o3-mini | >100B(?) | 0.53% |
 | GPT-4o | >100B(?) | 0.99% |
 
-> "Despite having only 5.7M parameters, this model significantly outperforms state-of-the-art LLMs—including o3-mini, GPT-4o, and Gemini 2.0 Flash, which fail to exhibit similar systematic behavior"
+> "Despite having only 5.7M parameters, this model significantly outperforms state-of-the-art LLMs-including o3-mini, GPT-4o, and Gemini 2.0 Flash, which fail to exhibit similar systematic behavior"
 
 ### 4. 3-Shot vs Systematicity Gap Shows Memorization
 
@@ -117,7 +117,7 @@ When given the exact composition as examples (3-shot), models can pattern match.
 
 ### Supports
 - **Faith and Fate (2305.18654)**: Both show LLMs fail at compositional generalization
-- **OMEGA (2506.18880)**: Same pattern — primitives succeed, compositions fail
+- **OMEGA (2506.18880)**: Same pattern - primitives succeed, compositions fail
 - **Planning Gap (2601.14456)**: Similar ID/OOD gap (high on seen, zero on novel compositions)
 - **GSM-Symbolic (2410.05229)**: LLMs fail on novel variations of known patterns
 
@@ -139,11 +139,11 @@ When given the exact composition as examples (3-shot), models can pattern match.
 ## REBUTTALS TO THIS PAPER
 
 ### Search for Direct Rebuttals
-- Paper is recent (April 2025) — no direct rebuttals found
+- Paper is recent (April 2025) - no direct rebuttals found
 
 ### Potential Counter-Arguments
 
-1. **MLC requires specially designed training data**: The meta-learning approach uses dynamically changing grammars — not how LLMs are trained
+1. **MLC requires specially designed training data**: The meta-learning approach uses dynamically changing grammars - not how LLMs are trained
 2. **Task is narrow**: Only 5 transformations on 10×10 grids
 3. **TTT shows LLMs CAN learn**: The ~100x improvement with TTT shows capability exists, just needs elicitation
 
@@ -155,7 +155,7 @@ When given the exact composition as examples (3-shot), models can pattern match.
 
 ## Relevance to Thesis
 
-**STRONGLY SUPPORTS** — One of the cleanest demonstrations of compositional generalization failure.
+**STRONGLY SUPPORTS** - One of the cleanest demonstrations of compositional generalization failure.
 
 ### Key Insights for Synthesis
 
@@ -167,7 +167,7 @@ When given the exact composition as examples (3-shot), models can pattern match.
 2. **o3-mini's failure is particularly damning**:
    - Best "reasoning" model on 3-shot
    - WORST on systematicity
-   - Extended thinking doesn't help composition — may even hurt
+   - Extended thinking doesn't help composition - may even hurt
 
 3. **TTT is not genuine generalization**:
    - Requires training on test set study examples
@@ -186,7 +186,7 @@ When given the exact composition as examples (3-shot), models can pattern match.
 
 ### Direct Quote for Thesis
 
-> "Despite having only 5.7M parameters, this model significantly outperforms state-of-the-art LLMs—including o3-mini, GPT-4o, and Gemini 2.0 Flash, **which fail to exhibit similar systematic behavior**"
+> "Despite having only 5.7M parameters, this model significantly outperforms state-of-the-art LLMs-including o3-mini, GPT-4o, and Gemini 2.0 Flash, **which fail to exhibit similar systematic behavior**"
 
 ---
 

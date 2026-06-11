@@ -80,7 +80,7 @@ Continuous metrics consistently outperform binary.
 
 ## Relationship to Thesis
 
-### SUPPORTS — Filler tokens are most diagnostic of faithfulness
+### SUPPORTS - Filler tokens are most diagnostic of faithfulness
 
 **Supports thesis**:
 1. **Filler tokens work best**: The metric that replaces CoT with "..." (meaningless filler) most reliably detects unfaithfulness
@@ -89,7 +89,7 @@ Continuous metrics consistently outperform binary.
 4. **Multi-hop reasoning hardest**: Consistent with thesis that complex reasoning is where LLMs fail
 
 **Key insight for thesis**:
-The paper shows that **replacing CoT with filler tokens** is the BEST way to test if CoT actually matters for the answer. This is exactly what the filler token papers (#196-198) show — filler tokens can replace semantic CoT. If removing semantic content and replacing with "..." changes the answer, then the CoT was actually being used. If not, the CoT was decorative.
+The paper shows that **replacing CoT with filler tokens** is the BEST way to test if CoT actually matters for the answer. This is exactly what the filler token papers (#196-198) show - filler tokens can replace semantic CoT. If removing semantic content and replacing with "..." changes the answer, then the CoT was actually being used. If not, the CoT was decorative.
 
 This provides **methodological support** for the filler token research: the reason filler tokens work is that CoT's benefit is computational (more forward passes), not semantic (meaningful reasoning steps).
 
@@ -156,12 +156,12 @@ This provides **methodological support** for the filler token research: the reas
 
 The paper provides strong methodological support for the filler token research:
 - **Filler Tokens metric = best faithfulness test** validates that filler tokens reveal computational role of CoT
-- **Semantic content replacement works** — the metric itself works by replacing content with filler
-- **Simulatability fails** — external observers can't tell faithful from unfaithful, suggesting CoT is often decorative
+- **Semantic content replacement works** - the metric itself works by replacing content with filler
+- **Simulatability fails** - external observers can't tell faithful from unfaithful, suggesting CoT is often decorative
 
 ### Stance: SUPPORTS
 
-The paper shows that the best way to test if CoT is actually used is to replace it with filler tokens. This is exactly what the filler token papers demonstrate — that the semantic content of intermediate steps doesn't matter, only the computational opportunity. The paper provides a rigorous methodological framework that validates the filler token research program.
+The paper shows that the best way to test if CoT is actually used is to replace it with filler tokens. This is exactly what the filler token papers demonstrate - that the semantic content of intermediate steps doesn't matter, only the computational opportunity. The paper provides a rigorous methodological framework that validates the filler token research program.
 
 ---
 

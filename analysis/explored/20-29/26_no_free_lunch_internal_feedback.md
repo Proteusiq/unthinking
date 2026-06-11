@@ -124,7 +124,7 @@
 
 > "While entropy minimization via unsupervised RL successfully mitigates underconfidence, it inevitably shifts the model toward overconfidence."
 
-> "This phenomenon—termed 'overconfidence'—is characterized by shallow reasoning and premature conclusion generation."
+> "This phenomenon-termed 'overconfidence'-is characterized by shallow reasoning and premature conclusion generation."
 
 | Phase | Entropy | Behavior | Performance |
 |-------|---------|----------|-------------|
@@ -162,7 +162,7 @@
    - **But**: Specific hyperparameter sensitivity may exist
 
 2. **"Domain-specialized models succeeded"**
-   - Response: This SUPPORTS thesis — strong in-domain knowledge required
+   - Response: This SUPPORTS thesis - strong in-domain knowledge required
    - Without domain knowledge, RLIF just reduces exploration
    - Proves reasoning depends on pre-existing knowledge
 
@@ -194,7 +194,7 @@
 ### On overconfidence:
 > "While entropy minimization via unsupervised RL successfully mitigates underconfidence, it inevitably shifts the model toward overconfidence."
 
-> "This phenomenon—termed 'overconfidence'—is characterized by shallow reasoning and premature conclusion generation."
+> "This phenomenon-termed 'overconfidence'-is characterized by shallow reasoning and premature conclusion generation."
 
 ### On transitional words:
 > "The suppression of such tokens reduces the model's ability to explore alternate reasoning paths, thereby impairing its overall reasoning capability."

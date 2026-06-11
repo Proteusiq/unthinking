@@ -78,18 +78,18 @@ Unconditional reframing can HURT performance; selectivity is crucial.
 | 2 | 79.80% (-0.50) | 76.88% (-1.51) | 35.52% (-0.50) |
 | 4 | 79.70% (-0.60) | 80.40% (+2.01) | 35.02% (-1.00) |
 
-**One reframe is sufficient** — more can hurt (except GSM8K at high cost).
+**One reframe is sufficient** - more can hurt (except GSM8K at high cost).
 
 ---
 
 ## Relationship to Thesis
 
-### SUPPORTS — Provides computational rather than semantic mechanism
+### SUPPORTS - Provides computational rather than semantic mechanism
 
 **Supports thesis (filler tokens as computation)**:
-1. **Hesitation identifies computational difficulty**: Not semantic difficulty — entropy is about token distribution, not meaning
-2. **Dropout = meaningless perturbation**: Works as well as "reframing" — the model doesn't need semantic content, just different computational pathway
-3. **Single reframe optimal**: More computation can HURT — this is about finding better path, not deeper understanding
+1. **Hesitation identifies computational difficulty**: Not semantic difficulty - entropy is about token distribution, not meaning
+2. **Dropout = meaningless perturbation**: Works as well as "reframing" - the model doesn't need semantic content, just different computational pathway
+3. **Single reframe optimal**: More computation can HURT - this is about finding better path, not deeper understanding
 4. **No training needed**: The capability already exists; this just changes how it's accessed
 
 **Key insight for thesis**:
@@ -97,7 +97,7 @@ The paper shows that when models are "uncertain," what helps is not more reasoni
 - **A different computational pathway** (via dropout)
 - **Combining multiple outputs** (logit averaging)
 
-This is computational, not cognitive. The model isn't "reconsidering" in any meaningful sense — it's sampling a different forward pass and averaging.
+This is computational, not cognitive. The model isn't "reconsidering" in any meaningful sense - it's sampling a different forward pass and averaging.
 
 ---
 
@@ -154,7 +154,7 @@ This is computational, not cognitive. The model isn't "reconsidering" in any mea
 ### What This Paper Adds
 
 1. **Training-free alternative to pause tokens**: Shows inference-time intervention can work
-2. **Selective computation**: Not all tokens need extra work — uncertainty identifies which ones
+2. **Selective computation**: Not all tokens need extra work - uncertainty identifies which ones
 3. **Efficiency comparison**: HARP vs. beam search vs. unconditional reframing
 
 ### For Thesis
@@ -162,11 +162,11 @@ This is computational, not cognitive. The model isn't "reconsidering" in any mea
 The paper supports the view that:
 - "Reasoning" improvements come from **computational mechanisms**, not semantic understanding
 - The model has **latent capability** that can be accessed via different pathways
-- **Dropout on embeddings** (meaningless perturbation) works — content doesn't matter
+- **Dropout on embeddings** (meaningless perturbation) works - content doesn't matter
 
 ### Stance: SUPPORTS
 
-The paper provides evidence that uncertainty-triggered additional computation improves performance through a purely computational mechanism. The "reframing" is just dropout — there's no semantic content. This aligns with the thesis that CoT/pause tokens work by providing computational workspace, not by enabling genuine reasoning.
+The paper provides evidence that uncertainty-triggered additional computation improves performance through a purely computational mechanism. The "reframing" is just dropout - there's no semantic content. This aligns with the thesis that CoT/pause tokens work by providing computational workspace, not by enabling genuine reasoning.
 
 ---
 

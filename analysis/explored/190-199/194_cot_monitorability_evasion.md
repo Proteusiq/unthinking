@@ -12,13 +12,13 @@
 
 ## Core Claims
 
-1. **CoT-as-rationalization vs CoT-as-computation**: Distinguishes two roles CoT plays — post-hoc rationalization (where model already computed answer internally) vs necessary computation (where CoT is required for the task).
+1. **CoT-as-rationalization vs CoT-as-computation**: Distinguishes two roles CoT plays - post-hoc rationalization (where model already computed answer internally) vs necessary computation (where CoT is required for the task).
 
 2. **Unfaithfulness resolves when CoT is necessary**: Prior unfaithfulness findings arise when CoT is not necessary. When tasks are difficult enough to require CoT-as-computation, models must reveal their reasoning, making CoT monitorable.
 
 3. **Models struggle to evade monitors without help**: Current frontier models fail to consistently evade CoT monitors on their own. They can only evade with significant assistance (detailed human-written strategies or iterative RL optimization).
 
-4. **Monitorability is distinct from faithfulness**: For safety, the key property is not whether CoT is "faithful" but whether it is "monitorable" — can we detect dangerous reasoning?
+4. **Monitorability is distinct from faithfulness**: For safety, the key property is not whether CoT is "faithful" but whether it is "monitorable" - can we detect dangerous reasoning?
 
 5. **CoT monitoring is a substantial but not infallible defense**: Models can learn to obscure reasoning, but only with significant red-team help, suggesting CoT monitoring offers meaningful protection.
 
@@ -114,15 +114,15 @@ Models learn strategies like:
 
 ## Relationship to Thesis
 
-### BALANCED — Provides nuance to faithfulness debate
+### BALANCED - Provides nuance to faithfulness debate
 
 **Supports thesis (pattern matching)**:
-1. **Unfaithfulness on easy tasks confirms post-hoc rationalization**: When CoT is not necessary, models fabricate justifications — supports view that CoT is often performative
+1. **Unfaithfulness on easy tasks confirms post-hoc rationalization**: When CoT is not necessary, models fabricate justifications - supports view that CoT is often performative
 2. **Models can learn to evade with training**: RL can teach models to hide reasoning, suggesting CoT is malleable, not a window into computation
 3. **Encoding/obfuscation is learnable**: Models can be trained to use inscrutable representations
 
 **Challenges thesis (or complicates it)**:
-1. **Difficult tasks require genuine externalized reasoning**: Transformers have architectural limits — multi-step problems require CoT-as-computation
+1. **Difficult tasks require genuine externalized reasoning**: Transformers have architectural limits - multi-step problems require CoT-as-computation
 2. **Monitorability is achievable**: For sufficiently complex tasks, reasoning must be externalized and can be monitored
 3. **Current models struggle to evade without help**: Suggests current CoT is naturally legible
 
@@ -138,7 +138,7 @@ This suggests LLMs may genuinely reason *only when forced to by task difficulty*
 ## Relationship to Other Papers
 
 ### Directly Addresses
-- **Measuring Faithfulness (#08, 2307.13702)**: This paper reframes faithfulness findings — unfaithfulness is a feature of easy tasks
+- **Measuring Faithfulness (#08, 2307.13702)**: This paper reframes faithfulness findings - unfaithfulness is a feature of easy tasks
 - **Reasoning Models Don't Say What They Think (#09, 2505.05410)**: Provides counter-evidence that hard tasks force transparency
 - **CoT Mirage (#07, 2508.01191)**: Both find CoT behavior depends on task difficulty
 
@@ -162,9 +162,9 @@ This suggests LLMs may genuinely reason *only when forced to by task difficulty*
 
 1. **"Necessity" may not hold for future models**: Authors acknowledge future models may compute complex tasks in single forward pass, removing necessity condition
 
-2. **Dual-use problem**: Model could complete valid research (e.g., adversarial robustness) while hiding intent to misuse results — CoT would show valid reasoning
+2. **Dual-use problem**: Model could complete valid research (e.g., adversarial robustness) while hiding intent to misuse results - CoT would show valid reasoning
 
-3. **RL can break monitorability**: 1,000s of RL steps enabled evasion — future training may inadvertently or deliberately reduce transparency
+3. **RL can break monitorability**: 1,000s of RL steps enabled evasion - future training may inadvertently or deliberately reduce transparency
 
 4. **Automated monitors may not scale**: Paper did not deeply optimize monitors; real-world monitors may have higher false positive rates
 
@@ -188,8 +188,8 @@ This paper provides an important framework:
 | Hard | Computation | Faithful (by necessity) | Externalized reasoning |
 
 This suggests:
-1. **Most benchmarks may be "easy"** — models pattern-match and rationalize
-2. **Genuine reasoning emerges only at capability limits** — when internal computation is insufficient
+1. **Most benchmarks may be "easy"** - models pattern-match and rationalize
+2. **Genuine reasoning emerges only at capability limits** - when internal computation is insufficient
 3. **The thesis (pattern matching) may be correct for most current use cases** but not for tasks at the frontier of model capability
 
 ### Safety Implications

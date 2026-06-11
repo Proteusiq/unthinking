@@ -31,7 +31,7 @@
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
-**Key insight**: The linear representation hypothesis is ambiguous — concepts may be encoded as *linear* functions (no bias) or *affine* functions (with bias). This paper shows refusal is **affine**, requiring a reference point.
+**Key insight**: The linear representation hypothesis is ambiguous - concepts may be encoded as *linear* functions (no bias) or *affine* functions (with bias). This paper shows refusal is **affine**, requiring a reference point.
 
 ---
 
@@ -42,7 +42,7 @@ Arditi et al. (2024) showed directional ablation works:
 v' = v - proj_r∥(v)
 ```
 
-But this assumes the **origin (zero vector)** is a meaningful default — i.e., zero refusal. In practice:
+But this assumes the **origin (zero vector)** is a meaningful default - i.e., zero refusal. In practice:
 - Typical activations are far from origin
 - "No refusal" isn't represented at zero
 - Some models (RWKV v5) produce **nonsense** with pure abliteration
@@ -72,7 +72,7 @@ Where:
 
 ### Why This Works
 
-1. **proj_r∥(r⁻)** = the "correction term" — adds back the harmless baseline
+1. **proj_r∥(r⁻)** = the "correction term" - adds back the harmless baseline
 2. **α** now has **standardized meaning**: 
    - α=0 → expected activation = r⁻ (harmless mean)
    - α=1 → expected activation = r⁺ (harmful/refusing mean)
@@ -93,7 +93,7 @@ Tested on **10 models** including Llama 3 70B:
 
 ### Standardization Effect
 
-CAA alone is **not standardized** — the same α produces different behavior on harmful vs harmless prompts:
+CAA alone is **not standardized** - the same α produces different behavior on harmful vs harmless prompts:
 
 | Method | α=0 on harmless | α=0 on harmful | Standardized? |
 |--------|-----------------|----------------|---------------|
@@ -126,9 +126,9 @@ Directional ablation alone **breaks** Hermes Eagle RWKV v5:
 │  3. "STANDARDIZATION" PROVES PATTERN MATCHING                       │
 │     - If refusal were deep reasoning about harm...                  │
 │     - ...it couldn't be controlled by shifting α from 0 to 1       │
-│     - The model doesn't "reason about harm" — it pattern-matches    │
+│     - The model doesn't "reason about harm" - it pattern-matches    │
 │                                                                     │
-│  CONCLUSION: Alignment is not just shallow — it's PARAMETRIZABLE    │
+│  CONCLUSION: Alignment is not just shallow - it's PARAMETRIZABLE    │
 │              A single scalar controls all refusal behavior          │
 │                                                                     │
 └─────────────────────────────────────────────────────────────────────┘
@@ -156,7 +156,7 @@ Directional ablation alone **breaks** Hermes Eagle RWKV v5:
 | RWKV support | Not tested | Works (directional fails) |
 | Control | Binary (on/off) | Continuous (α ∈ [0,1]) |
 
-**Relationship**: Paper 320 **extends** Paper 319 by showing the linear assumption is too strong — refusal requires affine treatment for full generality.
+**Relationship**: Paper 320 **extends** Paper 319 by showing the linear assumption is too strong - refusal requires affine treatment for full generality.
 
 ---
 
@@ -186,7 +186,7 @@ GitHub: [https://github.com/EleutherAI/steering-llama3](https://github.com/Eleut
 
 ### Authors' Acknowledged Limitations
 
-1. ACE standardization is "not perfect" — works best at α slightly below 0 or above 1
+1. ACE standardization is "not perfect" - works best at α slightly below 0 or above 1
 2. More sophisticated erasure (LEACE) didn't improve results
 3. May need nonlinear techniques for full concept erasure
 
@@ -194,7 +194,7 @@ GitHub: [https://github.com/EleutherAI/steering-llama3](https://github.com/Eleut
 
 One could argue:
 - The need for affine treatment shows refusal IS more complex than a single direction
-- But: it's still a **1-dimensional** control — just needs the right origin
+- But: it's still a **1-dimensional** control - just needs the right origin
 
 ---
 

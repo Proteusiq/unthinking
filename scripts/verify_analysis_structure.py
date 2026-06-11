@@ -3,7 +3,7 @@
 
 Two tiers of expectation:
 
-REQUIRED (every file must have these): the spine of an analysis —
+REQUIRED (every file must have these): the spine of an analysis -
 without these the file is unparseable by build_corpus_index.py.
 
 PREFERRED (most files have these; older bins may not): the full

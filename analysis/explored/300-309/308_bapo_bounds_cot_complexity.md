@@ -114,13 +114,13 @@ BAPO (Bounded Attention Prefix Oracle) model
 │  FUNDAMENTAL BOTTLENECKS IN COT REASONING                          │
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
-│  CoT is not magic—it has provable computational limits:            │
+│  CoT is not magic-it has provable computational limits:            │
 │                                                                     │
-│  1. Some tasks require Ω(n) tokens—no shortcut exists              │
+│  1. Some tasks require Ω(n) tokens-no shortcut exists              │
 │  2. Information must flow through the reasoning chain              │
 │  3. Constrained budgets = guaranteed failures                      │
 │                                                                     │
-│  This is NOT about training or prompting—it's about                │
+│  This is NOT about training or prompting-it's about                │
 │  fundamental information-theoretic requirements                     │
 │                                                                     │
 │  Implication: LLMs doing CoT are performing computation,           │

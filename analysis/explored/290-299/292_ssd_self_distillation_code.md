@@ -6,7 +6,7 @@
 
 ## Summary
 
-Demonstrates that LLMs can improve at code generation using only their own raw outputs—no verifier, teacher model, or RL. The method (Simple Self-Distillation, SSD) samples from the model, then fine-tunes on those unverified samples. Qwen3-30B-Instruct improves from 42.4% to 55.3% pass@1 on LiveCodeBench v6. The key mechanism is **distributional reshaping**: suppressing "distractor tails" at deterministic positions while preserving diversity at branching points. The gains cannot be recovered by decoding tuning alone.
+Demonstrates that LLMs can improve at code generation using only their own raw outputs-no verifier, teacher model, or RL. The method (Simple Self-Distillation, SSD) samples from the model, then fine-tunes on those unverified samples. Qwen3-30B-Instruct improves from 42.4% to 55.3% pass@1 on LiveCodeBench v6. The key mechanism is **distributional reshaping**: suppressing "distractor tails" at deterministic positions while preserving diversity at branching points. The gains cannot be recovered by decoding tuning alone.
 
 ## Key Findings
 
@@ -15,7 +15,7 @@ Demonstrates that LLMs can improve at code generation using only their own raw o
 │  CORE INSIGHT: SSD works by reshaping TOKEN DISTRIBUTIONS,          │
 │  not by teaching new reasoning strategies or algorithms             │
 │                                                                     │
-│  The model doesn't learn new code patterns from its outputs—        │
+│  The model doesn't learn new code patterns from its outputs-        │
 │  it learns to suppress low-probability "distractor" tokens          │
 │  that cause errors at deterministic positions ("locks")             │
 └─────────────────────────────────────────────────────────────────────┘
@@ -47,12 +47,12 @@ The paper identifies a fundamental tension in LLM decoding:
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │  AT LOCKS (deterministic positions):                                │
-│  Before SSD: [0.75, 0.05, 0.05, 0.037, ...] — 25% tail mass         │
-│  After SSD:  [0.95, 0.05, 0, 0, ...]        — tail stripped         │
+│  Before SSD: [0.75, 0.05, 0.05, 0.037, ...] - 25% tail mass         │
+│  After SSD:  [0.95, 0.05, 0, 0, ...]        - tail stripped         │
 │                                                                     │
 │  AT FORKS (choice points):                                          │
-│  Before SSD: [0.28, 0.15, 0.14, 0.14, ...]  — peaked head           │
-│  After SSD:  [0.34, 0.17, 0.17, 0.16, ...]  — flatter plateau       │
+│  Before SSD: [0.28, 0.15, 0.14, 0.14, ...]  - peaked head           │
+│  After SSD:  [0.34, 0.17, 0.17, 0.16, ...]  - flatter plateau       │
 │              (tail removed, head preserved)                         │
 └─────────────────────────────────────────────────────────────────────┘
 ```
@@ -79,7 +79,7 @@ Even when training data is ~62% gibberish (T=2.0, no truncation), SSD still impr
 
 This paper provides strong mechanistic evidence that:
 
-1. **Improvements are distributional, not conceptual**: SSD doesn't teach new algorithms or reasoning strategies—it changes probability distributions over tokens
+1. **Improvements are distributional, not conceptual**: SSD doesn't teach new algorithms or reasoning strategies-it changes probability distributions over tokens
 
 2. **The model already "knows" the solutions**: Performance gains come from suppressing noise, not adding knowledge
 
@@ -91,7 +91,7 @@ This paper provides strong mechanistic evidence that:
 ┌─────────────────────────────────────────────────────────────────────┐
 │  WHAT SSD REVEALS ABOUT LLM CODE GENERATION:                        │
 │                                                                     │
-│  The model isn't "learning to code better" — it already has the     │
+│  The model isn't "learning to code better" - it already has the     │
 │  patterns. What it learns is to:                                    │
 │                                                                     │
 │  1. Commit more strongly at deterministic positions                 │
@@ -133,7 +133,7 @@ This paper provides strong mechanistic evidence that:
 ### The SSD Recipe
 
 1. Sample one solution per problem from frozen model (with temperature + truncation)
-2. No verification—keep raw outputs
+2. No verification-keep raw outputs
 3. Fine-tune with standard cross-entropy loss
 4. Evaluate at different temperature
 
@@ -173,7 +173,7 @@ This paper provides strong mechanistic evidence that:
 None identified. The paper provides rigorous mechanistic analysis.
 
 **Potential counter-argument**: SSD could be teaching better code patterns from the subset of correct solutions.
-**Paper's response**: The "bad data" experiment directly tests this—62% gibberish training data still produces +5.7pp gains. The signal is in distribution shape, not content correctness.
+**Paper's response**: The "bad data" experiment directly tests this-62% gibberish training data still produces +5.7pp gains. The signal is in distribution shape, not content correctness.
 
 **Potential concern**: Limited to code generation, may not generalize.
 **Note**: The paper acknowledges code is a good testbed because lock/fork structure is explicit. Whether the mechanism generalizes is an open question.

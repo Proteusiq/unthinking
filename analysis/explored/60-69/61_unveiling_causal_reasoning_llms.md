@@ -12,13 +12,13 @@
 
 ## Core Claims
 
-1. **LLMs only perform level-1 (shallow) causal reasoning** — They retrieve causal knowledge embedded in parameters, but cannot perform genuine human-like level-2 causal reasoning that deduces NEW causal knowledge
+1. **LLMs only perform level-1 (shallow) causal reasoning** - They retrieve causal knowledge embedded in parameters, but cannot perform genuine human-like level-2 causal reasoning that deduces NEW causal knowledge
 
-2. **Autoregressive mechanism is not inherently causal** — Sequential causality (token order) ≠ logical causality; David Hume's insight applies: "sequential causality is not equivalent to logical causality"
+2. **Autoregressive mechanism is not inherently causal** - Sequential causality (token order) ≠ logical causality; David Hume's insight applies: "sequential causality is not equivalent to logical causality"
 
-3. **Performance drop on fresh data proves reliance on memorization** — When tested on CausalProbe 2024 (post-training data), all LLMs show significant accuracy drops (up to ~30 points)
+3. **Performance drop on fresh data proves reliance on memorization** - When tested on CausalProbe 2024 (post-training data), all LLMs show significant accuracy drops (up to ~30 points)
 
-4. **G2-Reasoner improves causal reasoning** — By incorporating general knowledge (RAG) + goal-oriented prompts, modest improvements can be achieved, especially on fresh/counterfactual contexts
+4. **G2-Reasoner improves causal reasoning** - By incorporating general knowledge (RAG) + goal-oriented prompts, modest improvements can be achieved, especially on fresh/counterfactual contexts
 
 ---
 
@@ -51,9 +51,9 @@ The paper provides a toy example (Figure 2) showing how autoregression fails:
 **Actual causal relationships**:
 - rain → school closure ✓
 - can't go to school → learn programming ✓
-- BUT: "school closure" does NOT cause "can't go to school" — they're BOTH effects of rain!
+- BUT: "school closure" does NOT cause "can't go to school" - they're BOTH effects of rain!
 
-> "Sequential causality is not equivalent to logical causality" — David Hume
+> "Sequential causality is not equivalent to logical causality" - David Hume
 
 ### Formal Analysis via Structural Causal Models
 
@@ -268,7 +268,7 @@ Qualified volunteers (13 of 17 passed screening) achieved **80-100% accuracy** o
 
 ## Relevance to Thesis
 
-**STRONGLY SUPPORTS thesis** — Provides both theoretical analysis and empirical evidence that LLMs' apparent causal reasoning is pattern retrieval (level-1), not genuine reasoning (level-2).
+**STRONGLY SUPPORTS thesis** - Provides both theoretical analysis and empirical evidence that LLMs' apparent causal reasoning is pattern retrieval (level-1), not genuine reasoning (level-2).
 
 ### Key Evidence for Thesis
 
@@ -306,4 +306,4 @@ Qualified volunteers (13 of 17 passed screening) achieved **80-100% accuracy** o
 
 The paper provides compelling evidence that LLMs' causal reasoning is "level-1" (pattern retrieval from training data) rather than "level-2" (genuine reasoning that can handle novel situations). The 30pp performance drop from COPA to CausalProbe-H, combined with the theoretical argument about autoregression's limits, strongly supports the claim that LLM reasoning is distribution-bounded pattern matching rather than genuine causal reasoning.
 
-Key strength: Uses temporal freshness (post-training-cutoff data) as a clean test of whether reasoning is genuine vs. memorized — similar methodology to other strong papers in the corpus (GSM-Symbolic, Beyond Memorization, Planning Gap).
+Key strength: Uses temporal freshness (post-training-cutoff data) as a clean test of whether reasoning is genuine vs. memorized - similar methodology to other strong papers in the corpus (GSM-Symbolic, Beyond Memorization, Planning Gap).

@@ -1,11 +1,11 @@
-# Paper 337: From Plan to Action — How Well Do Agents Follow the Plan?
+# Paper 337: From Plan to Action - How Well Do Agents Follow the Plan?
 
 ## Metadata
 - **arXiv**: 2604.12147
 - **Date**: April 2026
 - **Authors**: Shuyang Liu, Saman Dehghan, Jatin Ganhotra, Martin Hirzel, Reyhaneh Jabbarvand
 - **Affiliation**: UIUC + IBM
-- **Stance**: Strongly supports thesis — agents fall back on memorized training workflows rather than following instructed plans
+- **Stance**: Strongly supports thesis - agents fall back on memorized training workflows rather than following instructed plans
 
 ---
 
@@ -23,7 +23,7 @@
 │  recalled verbatim.                                                  │
 │                                                                      │
 │  With a plan, agents sometimes solve MORE issues when the plan is    │
-│  REMOVED — because the instructed plan blocks access to the          │
+│  REMOVED - because the instructed plan blocks access to the          │
 │  memorized correct patch by forcing a reproduction test that fails.  │
 │                                                                      │
 │  A subpar plan is worse than no plan. Augmenting a good plan with    │
@@ -31,7 +31,7 @@
 │  the model's internal training-distribution workflow.                │
 │                                                                      │
 │  On contamination-resistant SWE-bench Pro, plan compliance drops     │
-│  13% — direct evidence that Verified-benchmark compliance was        │
+│  13% - direct evidence that Verified-benchmark compliance was        │
 │  memorization-driven.                                                │
 │                                                                      │
 └──────────────────────────────────────────────────────────────────────┘
@@ -71,7 +71,7 @@
 | # | Setting | Formulation | Type |
 |---|---------|-------------|------|
 | 1 | Standard | ⟨N, R, P, V⟩ | Baseline |
-| 2 | No Plan | — | Reduction |
+| 2 | No Plan | - | Reduction |
 | 3 | No Reproduction | ⟨N, ¬R, P, V⟩ | Reduction |
 | 4 | No Validation | ⟨N, R, P, ¬V⟩ | Reduction |
 | 5 | + Regression Tests | ⟨R_G, N, R, P, V, V_G⟩ | Augmentation |
@@ -111,7 +111,7 @@ PPF (Phase Fidelity)    = |Φ| / |Φ ∪ observed phases|      out-of-plan penal
 | Devstral-small | 1e-5 | Significant positive |
 | DeepSeek-R1 | 0.032 | Significant positive |
 | DeepSeek-V3 | 0.60 | Positive, not significant |
-| **GPT-5 mini** | **0.285** | **NEGATIVE** — unresolved trajectories are more compliant |
+| **GPT-5 mini** | **0.285** | **NEGATIVE** - unresolved trajectories are more compliant |
 
 GPT-5 mini adaptively skips Reproduction on easy problems. Plan-compliant reasoning trace is **decoupled** from task success.
 
@@ -145,7 +145,7 @@ On the contamination-resistant benchmark, plan compliance drops 13% on average. 
 
 ## Key Quotes
 
-> "Without such an analysis—determining the extent agents comply with a given plan—it is impossible to assess whether a solution was reached through correct strategic reasoning or through other means, e.g., data contamination or overfitting to a benchmark."
+> "Without such an analysis-determining the extent agents comply with a given plan-it is impossible to assess whether a solution was reached through correct strategic reasoning or through other means, e.g., data contamination or overfitting to a benchmark."
 
 > "Without an explicit plan, agents fall back on workflows internalized during training, which are often incomplete, overfit, or inconsistently applied."
 
@@ -162,13 +162,13 @@ On the contamination-resistant benchmark, plan compliance drops 13% on average. 
 ## Relationship to Other Papers
 
 ### Supports
-- **Faith and Fate (#1, 2305.18654)** — structural analog: agents pattern-match workflows rather than reason about them
-- **GSM-Symbolic (#3, 2410.05229)** — plan variation is a symbolic perturbation; a reasoner would adapt, a pattern-matcher reverts
-- **Reasoning Theater (#325, 2603.05488)** — GPT-5 mini's negative compliance-success correlation is CoT performativity: the trace is decoupled from the action
-- **TRACEALIGN (#329, 2508.02063)** — provides behavioral version of memorization attribution; TRACEALIGN is forensic, this is observational
+- **Faith and Fate (#1, 2305.18654)** - structural analog: agents pattern-match workflows rather than reason about them
+- **GSM-Symbolic (#3, 2410.05229)** - plan variation is a symbolic perturbation; a reasoner would adapt, a pattern-matcher reverts
+- **Reasoning Theater (#325, 2603.05488)** - GPT-5 mini's negative compliance-success correlation is CoT performativity: the trace is decoupled from the action
+- **TRACEALIGN (#329, 2508.02063)** - provides behavioral version of memorization attribution; TRACEALIGN is forensic, this is observational
 
 ### Builds On
-- Liu et al. 2025 (Process-centric analysis) — Langutory methodology
+- Liu et al. 2025 (Process-centric analysis) - Langutory methodology
 - Liang et al. 2025 "SWE-bench illusion: when state-of-the-art LLMs remember instead of reason"
 - Prathifkumar et al. 2025 "Does SWE-bench-Verified test agent ability or model memory?"
 

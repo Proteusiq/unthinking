@@ -13,11 +13,11 @@
 
 1. **Transformers can use meaningless filler tokens (e.g., '......') in place of chain-of-thought** to solve hard algorithmic tasks they could not solve when responding without intermediate tokens.
 
-2. **Additional tokens provide computational benefits independent of token choice** — the benefit of CoT may stem from additional computation time, not human-like task decomposition or interpretable reasoning steps.
+2. **Additional tokens provide computational benefits independent of token choice** - the benefit of CoT may stem from additional computation time, not human-like task decomposition or interpretable reasoning steps.
 
-3. **Filler tokens extend transformer expressivity within TC⁰** — while transformers with filler tokens remain within the complexity class TC⁰ (unlike CoT which can expand beyond it), filler tokens enable solving problems with deep quantifier nesting that no-filler transformers likely cannot solve.
+3. **Filler tokens extend transformer expressivity within TC⁰** - while transformers with filler tokens remain within the complexity class TC⁰ (unlike CoT which can expand beyond it), filler tokens enable solving problems with deep quantifier nesting that no-filler transformers likely cannot solve.
 
-4. **Learning to use filler tokens is difficult and requires specific, dense supervision** — models need parallelizable CoT demonstrations to learn filler computation; standard instance-adaptive CoT data is insufficient.
+4. **Learning to use filler tokens is difficult and requires specific, dense supervision** - models need parallelizable CoT demonstrations to learn filler computation; standard instance-adaptive CoT data is insufficient.
 
 5. **Raises alignment concerns**: LLMs could engage in "unauditable, hidden computations that are increasingly detached from the observed chain-of-thought tokens."
 
@@ -55,7 +55,7 @@
 | 2SUM-Transform | Filler: **93.6%** vs No-filler: 78.7% | +14.9% gap |
 | 2SUM CoT baseline | 95.1% | Reference for comparison |
 | Probing with 60% filler tokens | 98% accuracy | First half of filler tokens encode most computation |
-| Instance-adaptive CoT training | ~71% accuracy | Same as no-filler baseline — fails to enable filler use |
+| Instance-adaptive CoT training | ~71% accuracy | Same as no-filler baseline - fails to enable filler use |
 | Filler-only training (no CoT) | ~71% accuracy | Cannot learn without parallelizable supervision |
 
 **Critical finding**: Performance gap increases with task complexity (input length/dimensionality).
@@ -65,7 +65,7 @@
 ## Relationship to Other Papers
 
 ### Supports
-- **Faith and Fate (2305.18654)**: Both show CoT may not reflect genuine reasoning — benefits come from computation, not task decomposition
+- **Faith and Fate (2305.18654)**: Both show CoT may not reflect genuine reasoning - benefits come from computation, not task decomposition
 - **GSM-Symbolic (2410.05229)**: Fragility may stem from computational limitations, not reasoning failure
 - **CoT Faithfulness papers**: Confirms tokens can be divorced from actual computation
 
@@ -81,13 +81,13 @@
 ## REBUTTALS
 
 ### Known Rebuttals
-- **Pause Tokens (2505.21024)**: Not a rebuttal but a theoretical extension — proves the formal separation result conjectured here
+- **Pause Tokens (2505.21024)**: Not a rebuttal but a theoretical extension - proves the formal separation result conjectured here
 
 ### Limitations (Authors Acknowledge)
 
 1. **Synthetic tasks only**: Results demonstrated on 3SUM and 2SUM-Transform, not natural language tasks
 2. **Current LLMs don't use filler tokens**: Claude 2 and GPT-3.5 achieve same performance with/without filler tokens on common benchmarks
-3. **Requires specific training**: Filler token usage requires parallelizable CoT demonstrations — standard human-generated CoT doesn't transfer
+3. **Requires specific training**: Filler token usage requires parallelizable CoT demonstrations - standard human-generated CoT doesn't transfer
 4. **Scale limitations**: Small model (34M params); unclear how findings scale
 5. **Non-standard input encoding**: Embedding vectors for inputs, one-hot for tokens
 
@@ -109,13 +109,13 @@
 
 This paper supports the thesis that LLMs are pattern matchers by showing:
 
-1. **CoT benefits may be computational, not reasoning**: Meaningless dots can replace interpretable reasoning steps with equivalent performance — benefits stem from additional compute (pattern matching opportunity), not step-by-step reasoning.
+1. **CoT benefits may be computational, not reasoning**: Meaningless dots can replace interpretable reasoning steps with equivalent performance - benefits stem from additional compute (pattern matching opportunity), not step-by-step reasoning.
 
-2. **Hidden computation is non-transparent**: The model performs useful computation in hidden states without interpretable trace in tokens — consistent with learned pattern matching, not transparent reasoning.
+2. **Hidden computation is non-transparent**: The model performs useful computation in hidden states without interpretable trace in tokens - consistent with learned pattern matching, not transparent reasoning.
 
-3. **Requires training on specific patterns**: Filler token usage only works when trained on parallelizable decompositions — models cannot "discover" how to use filler tokens from general demonstrations.
+3. **Requires training on specific patterns**: Filler token usage only works when trained on parallelizable decompositions - models cannot "discover" how to use filler tokens from general demonstrations.
 
-4. **Theoretical constraints**: Even with filler tokens, transformers remain in TC⁰ — cannot solve problems requiring true sequential reasoning.
+4. **Theoretical constraints**: Even with filler tokens, transformers remain in TC⁰ - cannot solve problems requiring true sequential reasoning.
 
 ---
 

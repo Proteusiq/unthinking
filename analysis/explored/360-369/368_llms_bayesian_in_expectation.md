@@ -190,16 +190,16 @@ This paper is more nuanced than a pure "supports" classification. It provides a 
 - **Paper 367 (2602.19239)**: Companion paper on procedural hallucinations; provides micro-level routing failures where this paper provides macro-level compression theory.
 
 ### Strongly Supports
-- **Paper 202 (2309.13638)**: Embers of Autoregression — provides theoretical explanation for why autoregressive artifacts persist (positional encoding)
-- **Paper 203 (2410.01792)**: Does o1 Still Show Embers? — PE effects would persist in reasoning models too
-- **Paper 315 (2512.02914)**: Martingale Score — directly addresses and extends the martingale diagnostic framework
+- **Paper 202 (2309.13638)**: Embers of Autoregression - provides theoretical explanation for why autoregressive artifacts persist (positional encoding)
+- **Paper 203 (2410.01792)**: Does o1 Still Show Embers? - PE effects would persist in reasoning models too
+- **Paper 315 (2512.02914)**: Martingale Score - directly addresses and extends the martingale diagnostic framework
 
 ### Provides Mechanism For
-- **Paper 161 (2302.00093)**: LLMs distracted by irrelevant context — PE-induced order sensitivity explains why context order matters
-- **Paper 286 (2602.02219)**: Position Bias in LLM-as-Judge — positional encoding creates the position bias
+- **Paper 161 (2302.00093)**: LLMs distracted by irrelevant context - PE-induced order sensitivity explains why context order matters
+- **Paper 286 (2602.02219)**: Position Bias in LLM-as-Judge - positional encoding creates the position bias
 
 ### Challenges (Constructively)
-- **Falck et al. (2024)**: "Is ICL Bayesian? A martingale perspective" — shows violations don't disprove Bayesian behavior, just reflect PE artifacts
+- **Falck et al. (2024)**: "Is ICL Bayesian? A martingale perspective" - shows violations don't disprove Bayesian behavior, just reflect PE artifacts
 
 ---
 
@@ -217,7 +217,7 @@ This paper is more nuanced than a pure "supports" classification. It provides a 
 
 ### Authors' Acknowledged Limitations
 
-> "Theorem 3.4 assumes logit depends on ordering only through a pooled positional summary and is L_f-Lipschitz — yields an interpretable upper bound but not intended to predict gap magnitudes in large pretrained transformers."
+> "Theorem 3.4 assumes logit depends on ordering only through a pooled positional summary and is L_f-Lipschitz - yields an interpretable upper bound but not intended to predict gap magnitudes in large pretrained transformers."
 
 > "A fully mechanistic account of order effects in large LLMs remains open."
 
@@ -225,9 +225,9 @@ This paper is more nuanced than a pure "supports" classification. It provides a 
 
 ### Methodological Concerns
 
-1. Black-box experiments use gpt-4o-mini — may not generalize to other architectures
+1. Black-box experiments use gpt-4o-mini - may not generalize to other architectures
 2. Evidence-grounded QA uses only 2 open models (Qwen2-7B, Llama-3.1-8B)
-3. Debiasing removes period-64 component — but the cause of this periodicity is not fully explained
+3. Debiasing removes period-64 component - but the cause of this periodicity is not fully explained
 
 ---
 
@@ -247,7 +247,7 @@ This paper is more nuanced than a pure "supports" classification. It provides a 
 
 ### Strengths
 - **Rigorous theoretical framework**: Explicit bounds with interpretable constants
-- **Clean PE ablation**: From-scratch training isolating PE as sole variable — strongest evidence
+- **Clean PE ablation**: From-scratch training isolating PE as sole variable - strongest evidence
 - **Multiple validation levels**: Black-box API, controlled training, evidence-grounded QA
 - **Statistical rigor**: 5,000 bootstrap resamples, 95% CIs throughout
 - **Extends beyond Bernoulli**: Categorical, ICL tasks, and real QA all show same pattern
@@ -278,7 +278,7 @@ This paper is more nuanced than a pure "supports" classification. It provides a 
 |-----------|------------|
 | **Stance** | Supports |
 | **Confidence** | High |
-| **Relevance** | Very High — foundational theory for order sensitivity and compression behavior |
+| **Relevance** | Very High - foundational theory for order sensitivity and compression behavior |
 | **Evidence Type** | Theoretical + Empirical |
 | **Venue Quality** | arXiv preprint |
 
@@ -286,4 +286,4 @@ This paper is more nuanced than a pure "supports" classification. It provides a 
 
 ## One-Sentence Summary
 
-Positional encodings break exchangeability by 8-10 orders of magnitude, making transformers "Bayesian in expectation, not in realization" — near-optimal compressors on average over orderings but systematically order-sensitive on any fixed realization, with permutation averaging reducing variance as k^{-1/2}.
+Positional encodings break exchangeability by 8-10 orders of magnitude, making transformers "Bayesian in expectation, not in realization" - near-optimal compressors on average over orderings but systematically order-sensitive on any fixed realization, with permutation averaging reducing variance as k^{-1/2}.

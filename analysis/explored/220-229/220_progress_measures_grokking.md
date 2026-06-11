@@ -150,11 +150,11 @@ The model learns to:
 
 ### The "Algorithm" is Mathematically Inevitable
 1. Fourier basis is the ONLY natural representation for cyclic groups
-2. Model didn't "discover" a novel algorithm — found the unique solution
+2. Model didn't "discover" a novel algorithm - found the unique solution
 3. This is sophisticated feature engineering + linear readout, not symbolic reasoning
 
 ### No Generalization Beyond the Narrow Task
-1. Model learns addition mod 113 — doesn't generalize to mod 114
+1. Model learns addition mod 113 - doesn't generalize to mod 114
 2. Each operation requires relearning from scratch
 3. No transfer, no flexibility, no compositional generalization
 
@@ -166,7 +166,7 @@ The model learns to:
 
 ### The "Circuit" is Pattern Recognition in Fourier Space
 - Converts problem to where linear regression works
-- Uses "constructive interference of waves" — signal processing, not reasoning
+- Uses "constructive interference of waves" - signal processing, not reasoning
 
 ---
 
@@ -202,7 +202,7 @@ The model learns to:
 3. Requires extended training (grokking)
 4. Requires regularization to prefer the generalizing solution
 
-This supports the view that **apparent algorithmic reasoning is sophisticated curve fitting** — the model found the unique representation that makes this specific task tractable, not a general reasoning capability.
+This supports the view that **apparent algorithmic reasoning is sophisticated curve fitting** - the model found the unique representation that makes this specific task tractable, not a general reasoning capability.
 
 ---
 

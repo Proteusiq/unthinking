@@ -15,7 +15,7 @@
 
 1. **LRMs show extraordinary performance on existing benchmarks** (NLGraph-hard: o3-mini 99%, R1 96%)
 2. **BUT existing benchmarks have limited complexity** (NLGraph-hard lookahead bounded by ~1.8)
-3. **Performance drops ABRUPTLY at sufficient complexity** — not gradual degradation
+3. **Performance drops ABRUPTLY at sufficient complexity** - not gradual degradation
 4. **LRMs do not generalize beyond training distribution complexity**
 5. **Real-world reasoning has long tails** that expose substantial failure potential
 
@@ -172,16 +172,16 @@ Manual inspection of R1's "thinking tokens" revealed:
 ## Relationship to Other Papers
 
 ### Directly Supports
-- **Faith and Fate** — "propagation error" mechanism confirmed
-- **Illusion of Thinking** — Abrupt collapse pattern identical
-- **CoT Mirage** — Distribution-dependent success
-- **Limits of Innate Planning** — Planning fails at complexity
-- **OMEGA (2506.18880)** — 0% transformative generalization confirms distribution boundary
-- **Planning Gap (2601.14456)** — 82.9% ID → 0% OOD mirrors abrupt complexity cliff
+- **Faith and Fate** - "propagation error" mechanism confirmed
+- **Illusion of Thinking** - Abrupt collapse pattern identical
+- **CoT Mirage** - Distribution-dependent success
+- **Limits of Innate Planning** - Planning fails at complexity
+- **OMEGA (2506.18880)** - 0% transformative generalization confirms distribution boundary
+- **Planning Gap (2601.14456)** - 82.9% ID → 0% OOD mirrors abrupt complexity cliff
 
 ### Extends
-- **Interplay paper** — Shows WHERE the distribution boundary is
-- **s1** — Explains why surfacing has limits
+- **Interplay paper** - Shows WHERE the distribution boundary is
+- **s1** - Explains why surfacing has limits
 
 ### Provides Mechanism For
 - Why benchmarks look impressive but real-world fails
@@ -292,7 +292,7 @@ No direct arXiv rebuttal found as of analysis date.
 
 ### Integration with Thesis
 
-> "LRMs demonstrate impressive performance on existing benchmarks because those benchmarks have limited complexity (lookahead < 2). When complexity is carefully scaled, performance drops ABRUPTLY — not gradually — revealing a hard distribution boundary. Even chain graphs requiring no search eventually fail, proving the limit is fundamental, not due to search difficulty. Real-world reasoning has long tails that will expose these failures in critical applications."
+> "LRMs demonstrate impressive performance on existing benchmarks because those benchmarks have limited complexity (lookahead < 2). When complexity is carefully scaled, performance drops ABRUPTLY - not gradually - revealing a hard distribution boundary. Even chain graphs requiring no search eventually fail, proving the limit is fundamental, not due to search difficulty. Real-world reasoning has long tails that will expose these failures in critical applications."
 
 ---
 
@@ -304,8 +304,8 @@ No direct arXiv rebuttal found as of analysis date.
 - [x] Key evidence with numbers
 - [x] Critical analysis for thesis
 - [x] Cross-references identified
-- [x] **Rebuttals checked** — No direct rebuttal found
-- [x] **Counter-evidence noted** — None found
+- [x] **Rebuttals checked** - No direct rebuttal found
+- [x] **Counter-evidence noted** - None found
 
 ---
 
@@ -336,4 +336,4 @@ No direct arXiv rebuttal found as of analysis date.
    - 1% of problems have L > 20 (LRMs fail)
    - "Near-term utility" + "substantial failure potential"
 
-**For thesis**: This paper provides the quantitative backbone for the argument. It shows EXACTLY where the distribution boundary is, proves that benchmark success is misleading, and demonstrates that ALL models — including SOTA o3 — eventually collapse. The abrupt cliff pattern confirms that LRM reasoning is bounded pattern matching, not genuine generalization.
+**For thesis**: This paper provides the quantitative backbone for the argument. It shows EXACTLY where the distribution boundary is, proves that benchmark success is misleading, and demonstrates that ALL models - including SOTA o3 - eventually collapse. The abrupt cliff pattern confirms that LRM reasoning is bounded pattern matching, not genuine generalization.

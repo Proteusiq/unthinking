@@ -51,10 +51,10 @@
 | Correlational | Connection without causation | "linked to", "associated with", "correlated" |
 | Conditional Causal | Causation with doubt | "may", "might", "appear to" + causal verbs |
 | Direct Causal | Direct cause-effect | "leads to", "drives", "results in", "prevents" |
-| Not Claim | No relationship mentioned | — |
+| Not Claim | No relationship mentioned | - |
 
 ### Inter-Annotator Agreement
-- Fleiss' Kappa: 0.80 (Task 1), 0.83 (Task 2) — "almost-perfect agreement"
+- Fleiss' Kappa: 0.80 (Task 1), 0.83 (Task 2) - "almost-perfect agreement"
 
 ---
 
@@ -76,7 +76,7 @@
 | Gemini-1.5-Pro | 34% | ~40% | ~+6% |
 | Claude-3.5-Sonnet | ~13% | ~13% | **0%** |
 
-**Key finding**: Claude-3.5-Sonnet maintained low causal illusion even when users explicitly implied causation — most resistant to sycophancy.
+**Key finding**: Claude-3.5-Sonnet maintained low causal illusion even when users explicitly implied causation - most resistant to sycophancy.
 
 ### Comparison to Human Baseline
 - Human press release exaggeration rate: **22%** (Yu et al., 2020)
@@ -91,31 +91,31 @@
 
 This paper provides evidence that:
 
-1. **LLMs confuse correlation with causation**: This is a form of pattern matching — models see co-occurrence in training data and infer causation
+1. **LLMs confuse correlation with causation**: This is a form of pattern matching - models see co-occurrence in training data and infer causation
 
 2. **Sycophancy interacts with reasoning**: Models don't maintain principled distinction between correlation and causation; they adapt to user expectations
 
 3. **Surface patterns dominate**: The difference between "linked to" and "leads to" is learned from training distribution, not from understanding causal logic
 
 ### Connection to Sycophancy Papers
-- Paper 119 (2308.03958): Models agree with 2+2=5 if user does — this paper shows models agree with "correlation=causation" if user implies it
-- Paper 122 (2601.05905): Low-NCB beliefs are easily flipped — causal illusions may reflect unstructured beliefs about causality
+- Paper 119 (2308.03958): Models agree with 2+2=5 if user does - this paper shows models agree with "correlation=causation" if user implies it
+- Paper 122 (2601.05905): Low-NCB beliefs are easily flipped - causal illusions may reflect unstructured beliefs about causality
 
 ---
 
 ## Relationship to Other Papers
 
 ### Supports
-- **Paper 119 (2308.03958)**: Sycophancy Scales — confirms sycophancy amplifies erroneous beliefs
-- **Paper 122 (2601.05905)**: Illusions of Confidence — sycophantic pressure (peer consensus) causes belief collapse
-- **Paper 96 (2601.15436)**: Sycophancy is Not Uniform — Claude's resistance aligns with its lower sycophancy baseline
+- **Paper 119 (2308.03958)**: Sycophancy Scales - confirms sycophancy amplifies erroneous beliefs
+- **Paper 122 (2601.05905)**: Illusions of Confidence - sycophantic pressure (peer consensus) causes belief collapse
+- **Paper 96 (2601.15436)**: Sycophancy is Not Uniform - Claude's resistance aligns with its lower sycophancy baseline
 
 ### Extends
-- **Paper 61 (2506.21215)**: Unveiling Causal Reasoning — adds real-world headline generation task to causal reasoning evaluation
+- **Paper 61 (2506.21215)**: Unveiling Causal Reasoning - adds real-world headline generation task to causal reasoning evaluation
 
 ### Related Work (from paper)
-- Sharma et al. (2023) 2310.13548 — earlier sycophancy evaluation (Claude 1.5/2 more sycophantic than GPT-4; this paper shows Claude 3.5 improved)
-- Hagendorff et al. (2023) — cognitive biases scale with model size
+- Sharma et al. (2023) 2310.13548 - earlier sycophancy evaluation (Claude 1.5/2 more sycophantic than GPT-4; this paper shows Claude 3.5 improved)
+- Hagendorff et al. (2023) - cognitive biases scale with model size
 
 ---
 
@@ -155,14 +155,14 @@ No direct rebuttals found.
 ### Evidence Strength: MODERATE
 
 **Why it supports the thesis:**
-- Models don't have principled causal reasoning — they pattern match on surface cues
+- Models don't have principled causal reasoning - they pattern match on surface cues
 - Sycophancy overrides whatever causal understanding models have
 - Performance varies by model, suggesting learned patterns not deep understanding
 
 **Caveats:**
 - Claude's strong performance could be seen as evidence for some causal reasoning capability
 - Task is relatively simple compared to multi-step causal inference
-- October 2024 paper — models have evolved since
+- October 2024 paper - models have evolved since
 
 ---
 

@@ -14,9 +14,9 @@
 
 1. **Token limits, not reasoning limits**: The "accuracy collapse" reported in Illusion of Thinking reflects output token limits, not fundamental reasoning failures
 
-2. **Models recognize constraints**: Models explicitly state "to avoid making this too long, I'll stop here" — they understand the solution pattern but choose to truncate
+2. **Models recognize constraints**: Models explicitly state "to avoid making this too long, I'll stop here" - they understand the solution pattern but choose to truncate
 
-3. **Impossible puzzles**: River Crossing benchmarks for N≥6 with boat capacity b=3 are **mathematically impossible** — models are scored as failures for not solving unsolvable problems
+3. **Impossible puzzles**: River Crossing benchmarks for N≥6 with boat capacity b=3 are **mathematically impossible** - models are scored as failures for not solving unsolvable problems
 
 4. **Alternative representations restore performance**: When asked to generate Lua functions instead of exhaustive move lists, models achieve "very high accuracy" on Tower of Hanoi N=15 (previously reported as complete failure)
 
@@ -47,7 +47,7 @@ Critical finding: Missionaries-Cannibals puzzle has **NO SOLUTION** for N>5 with
 
 Prompt: "Solve Tower of Hanoi with 15 disks. Output a Lua function that prints the solution when called."
 
-Result: "Very high accuracy" across Claude-3.7-Sonnet, Claude Opus 4, o3, Gemini 2.5 — completing in <5,000 tokens.
+Result: "Very high accuracy" across Claude-3.7-Sonnet, Claude Opus 4, o3, Gemini 2.5 - completing in <5,000 tokens.
 
 This demonstrates:
 - Models understand the recursive algorithm
@@ -78,11 +78,11 @@ The original paper conflates "mechanical execution" with "problem-solving diffic
 
 1. **Limited experimental evidence**: Author admits "Due to budget constraints, we were unable to conduct enough trials for a highly powered statistical sample."
 
-2. **Code generation ≠ Reasoning**: Generating a recursive Lua function for Hanoi is essentially **pattern matching on a well-known algorithm**. The recursive solution for Hanoi is one of the most common CS101 examples. This doesn't prove reasoning — it proves training data includes Hanoi code.
+2. **Code generation ≠ Reasoning**: Generating a recursive Lua function for Hanoi is essentially **pattern matching on a well-known algorithm**. The recursive solution for Hanoi is one of the most common CS101 examples. This doesn't prove reasoning - it proves training data includes Hanoi code.
 
 3. **Doesn't address Blocks World**: The rebuttal focuses on Hanoi but the original paper's strongest evidence was from Blocks World, which the rebuttal admits is actually computationally hard (NP-hard for optimal).
 
-4. **Self-admitted AI co-authorship**: "Claude Opus contributed enough to deserve, in Alex's view, to be listed as first author." This creates a conflict of interest — Claude is defending against claims about Claude's limitations.
+4. **Self-admitted AI co-authorship**: "Claude Opus contributed enough to deserve, in Alex's view, to be listed as first author." This creates a conflict of interest - Claude is defending against claims about Claude's limitations.
 
 5. **Cherry-picks the weakest claims**: Focuses on Hanoi (which everyone agrees has a simple algorithm) rather than on the broader compositional generalization failures.
 
@@ -103,7 +103,7 @@ The rebuttal argues that:
 
 1. **Doesn't address OOD generalization**: Even if Hanoi works with code output, this doesn't address compositional failures on novel combinations
 
-2. **Code generation is pattern retrieval**: The Hanoi recursive solution is in training data — generating it is retrieval, not novel reasoning
+2. **Code generation is pattern retrieval**: The Hanoi recursive solution is in training data - generating it is retrieval, not novel reasoning
 
 3. **Blocks World remains unexplained**: The NP-hard optimal planning problem still shows genuine reasoning limits
 
@@ -114,8 +114,8 @@ The rebuttal argues that:
 ## Relationship to Other Papers
 
 ### Challenges
-- **Paper 03 (2506.06941)**: Illusion of Thinking — directly challenges methodology
-- **Paper 37 (2507.01231)**: Rethinking Illusion — partially addressed these concerns already
+- **Paper 03 (2506.06941)**: Illusion of Thinking - directly challenges methodology
+- **Paper 37 (2507.01231)**: Rethinking Illusion - partially addressed these concerns already
 
 ### Supports (Indirectly)
 - The thesis that models **can execute known algorithms** (pattern matching on training data)
@@ -172,7 +172,7 @@ Paper 37 already addressed some of these concerns:
 - Self-interested authorship (Claude defending Claude)
 
 **Net impact on thesis:**
-This paper identifies **evaluation artifacts** but doesn't actually demonstrate **genuine reasoning**. The alternative representation test (code generation) is itself pattern matching on training data. The core thesis — that LLMs pattern match rather than reason — is not undermined by showing they can retrieve well-known algorithms.
+This paper identifies **evaluation artifacts** but doesn't actually demonstrate **genuine reasoning**. The alternative representation test (code generation) is itself pattern matching on training data. The core thesis - that LLMs pattern match rather than reason - is not undermined by showing they can retrieve well-known algorithms.
 
 ---
 

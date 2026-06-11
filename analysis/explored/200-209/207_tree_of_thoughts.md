@@ -144,7 +144,7 @@ ToT is classical tree search (BFS/DFS) with LM-provided heuristics. This is the 
 - Deep Blue (chess): Search + evaluation function
 - AlphaGo: MCTS + neural network heuristics
 
-Nobody claims these systems "reason" — they search. ToT is the same: search over a space, using LM for candidate generation and pruning heuristics.
+Nobody claims these systems "reason" - they search. ToT is the same: search over a space, using LM for candidate generation and pruning heuristics.
 
 **3. Error Analysis Reveals Pattern Matching Failure**
 
@@ -258,7 +258,7 @@ The paper's own framing supports the thesis:
 
 > "The associative 'System 1' of LMs can be beneficially augmented by a 'System 2' based on searching a tree of possible paths to the solution."
 
-> "The game's bottleneck is thought generation" — quality of candidates matters more than evaluation
+> "The game's bottleneck is thought generation" - quality of candidates matters more than evaluation
 
 ---
 

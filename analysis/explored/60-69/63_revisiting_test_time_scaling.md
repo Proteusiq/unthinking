@@ -218,7 +218,7 @@ From the paper's Limitations section:
 
 2. **Self-revision is harmful**: Genuine reasoners should be able to catch and correct errors. The fact that revision more often changes correct→incorrect than incorrect→correct suggests the "revision" is not genuine error-detection but pattern-matching that degrades.
 
-3. **Parallel > Sequential**: If sequential thinking were genuine computation, it should compound. Instead, sampling multiple independent attempts works better—consistent with pattern matching where diversity helps coverage.
+3. **Parallel > Sequential**: If sequential thinking were genuine computation, it should compound. Instead, sampling multiple independent attempts works better-consistent with pattern matching where diversity helps coverage.
 
 4. **No monotonic scaling**: Genuine computation should show monotonic improvement with more compute. The oscillation and degradation patterns are inconsistent with algorithmic reasoning.
 

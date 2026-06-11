@@ -21,11 +21,11 @@
 
 ## Methodology
 
-**Framework**: BT-σ — Bradley-Terry model with judge-specific discriminator parameters
+**Framework**: BT-σ - Bradley-Terry model with judge-specific discriminator parameters
 
 **Key Innovation**: Extend Bradley-Terry to model:
-- Item skills {sᵢ} — latent quality scores
-- Judge discriminators {σₖ} — reliability/consistency parameters per judge
+- Item skills {sᵢ} - latent quality scores
+- Judge discriminators {σₖ} - reliability/consistency parameters per judge
 
 **Probability Model**:
 ```
@@ -104,7 +104,7 @@ Where σₖ controls judge sensitivity to skill differences:
 Llama-3.2-3B on Consistency (CON): SRC = 0.28% (near random)
 Gemma-2-9B on Coherence (COH): SRC = 61.57% (best individual)
 
-**Range**: 0.28% to 61.57% — massive variation in judge quality
+**Range**: 0.28% to 61.57% - massive variation in judge quality
 
 ---
 
@@ -114,7 +114,7 @@ Gemma-2-9B on Coherence (COH): SRC = 61.57% (best individual)
 
 The paper provides evidence that LLM judges:
 
-1. **Exhibit logical inconsistencies**: Cycle violations (A>B, B>C, C>A) show judges don't maintain consistent preference orderings — a signature of heuristic rather than reasoned evaluation
+1. **Exhibit logical inconsistencies**: Cycle violations (A>B, B>C, C>A) show judges don't maintain consistent preference orderings - a signature of heuristic rather than reasoned evaluation
 
 2. **Probability magnitudes are unreliable**: The finding that hard BT (binary) sometimes outperforms soft BT (probabilistic) indicates judge confidence doesn't track judgment quality
 
@@ -122,7 +122,7 @@ The paper provides evidence that LLM judges:
 
 4. **Aggregation compensates for individual failure**: The need for multi-judge aggregation and reliability weighting acknowledges that individual judges pattern-match inconsistently
 
-The cycle inconsistency finding is particularly relevant — genuine reasoners should maintain transitive preferences, but LLM judges frequently violate transitivity, suggesting surface-level pattern matching rather than principled evaluation.
+The cycle inconsistency finding is particularly relevant - genuine reasoners should maintain transitive preferences, but LLM judges frequently violate transitivity, suggesting surface-level pattern matching rather than principled evaluation.
 
 ---
 
@@ -130,7 +130,7 @@ The cycle inconsistency finding is particularly relevant — genuine reasoners s
 
 **Classification**: Supports the thesis that LLMs don't genuinely reason
 
-**Confidence**: Moderate-High — systematic evaluation across multiple judges and datasets, but focused on evaluation rather than generation
+**Confidence**: Moderate-High - systematic evaluation across multiple judges and datasets, but focused on evaluation rather than generation
 
 ---
 
@@ -155,7 +155,7 @@ The cycle inconsistency finding is particularly relevant — genuine reasoners s
 
 ### Counter-Evidence
 
-The paper proposes a solution (BT-σ) that partially mitigates judge unreliability — this could be seen as showing LLM judges can be made useful through aggregation. However, the need for such correction itself supports the thesis that individual LLMs don't reliably reason.
+The paper proposes a solution (BT-σ) that partially mitigates judge unreliability - this could be seen as showing LLM judges can be made useful through aggregation. However, the need for such correction itself supports the thesis that individual LLMs don't reliably reason.
 
 ---
 
@@ -197,4 +197,4 @@ The paper proposes a solution (BT-σ) that partially mitigates judge unreliabili
 3. **Quantifies unreliability**: 0.28% to 61.57% SRC range shows judges cannot be trusted individually
 4. **Unsupervised calibration**: No human labels needed for reliability estimation
 
-The finding that probability magnitudes are often misleading (soft BT underperforms hard BT under high inconsistency) suggests LLM "confidence" doesn't track accuracy — a key pattern-matching signature.
+The finding that probability magnitudes are often misleading (soft BT underperforms hard BT under high inconsistency) suggests LLM "confidence" doesn't track accuracy - a key pattern-matching signature.

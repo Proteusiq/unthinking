@@ -6,19 +6,19 @@ Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)
 
 ## Selection Rules
 
-- **NO single-author papers** — Prefer papers with multiple authors for broader peer validation
+- **NO single-author papers** - Prefer papers with multiple authors for broader peer validation
 - Prefer papers from established research groups or institutions
 - Prefer papers with reproducible experiments and open code/data
 
 ---
 
-## Medium-High Priority — Self-Distillation Cluster (Issue #85)
+## Medium-High Priority - Self-Distillation Cluster (Issue #85)
 
 Three papers from ETH Zürich + MIT (Hübotter, Shenfeld, Krause group) using self-distillation as an alternative to RL/SFT. Project page: [self-distillation.github.io](https://self-distillation.github.io/).
 
 Mechanism: model conditioned on extra context (feedback / demonstration / user follow-up) acts as its own teacher; the hindsight token distribution is distilled back into the policy.
 
-Critical reading: hindsight conditioning works because the model already had the pattern — it just needed the right context to surface it. This is direct mechanistic evidence for the predictive-not-reasoning thesis (the model doesn't "learn to reason"; better priors unlock better completions). Methods papers, but the underlying premise is thesis-relevant.
+Critical reading: hindsight conditioning works because the model already had the pattern - it just needed the right context to surface it. This is direct mechanistic evidence for the predictive-not-reasoning thesis (the model doesn't "learn to reason"; better priors unlock better completions). Methods papers, but the underlying premise is thesis-relevant.
 
 | arXiv ID | Title | Stance |
 |----------|-------|--------|
@@ -28,7 +28,7 @@ Critical reading: hindsight conditioning works because the model already had the
 
 ---
 
-## High Priority — Abliteration & Steering Theory (arXiv Search 2026-04-12)
+## High Priority - Abliteration & Steering Theory (arXiv Search 2026-04-12)
 
 Papers examining linear/affine representation of alignment, steering vectors, and mechanistic interpretability of refusal. Critical for the thesis: if alignment is a single direction, it's mascara.
 
@@ -42,7 +42,7 @@ Papers examining linear/affine representation of alignment, steering vectors, an
 
 ---
 
-## High Priority — LLM-as-Judge & Evaluation Circularity (Issues #71, #72)
+## High Priority - LLM-as-Judge & Evaluation Circularity (Issues #71, #72)
 
 Papers examining whether LLMs can reliably evaluate themselves or other LLMs. Critical for the thesis: if LLMs don't reason, using them to judge "reasoning" is circular.
 
@@ -101,7 +101,7 @@ Papers examining whether LLMs can reliably evaluate themselves or other LLMs. Cr
 
 ---
 
-## High Priority — Diffusion LLMs & Sequential Generation
+## High Priority - Diffusion LLMs & Sequential Generation
 
 Papers on diffusion language models that reveal sequential "reasoning" is post-hoc rationalization.
 
@@ -121,11 +121,11 @@ Papers on diffusion language models that reveal sequential "reasoning" is post-h
 
 ---
 
-## High Priority — Next Wave: Inference / Multi-Token Prediction
+## High Priority - Next Wave: Inference / Multi-Token Prediction
 
-Papers on multi-token prediction (MTP) and speculative decoding. **Thesis relevance**: if next-N tokens can be recovered from an NTP-pretrained model's hidden state with lightweight finetuning, the future is already encoded — extending the surfacing/elicitation framework (s1, SDPO@User) from "reasoning" to "next-N-token continuation." Lossless ~2–5× speedups with no quality loss suggest autoregressive sequentiality is a sampling convention, not a computational necessity.
+Papers on multi-token prediction (MTP) and speculative decoding. **Thesis relevance**: if next-N tokens can be recovered from an NTP-pretrained model's hidden state with lightweight finetuning, the future is already encoded - extending the surfacing/elicitation framework (s1, SDPO@User) from "reasoning" to "next-N-token continuation." Lossless ~2–5× speedups with no quality loss suggest autoregressive sequentiality is a sampling convention, not a computational necessity.
 
-Critical reading: these are systems/methods papers, but their *empirical premise* — that future tokens are latent in the current hidden state — is mechanistically informative for the predictive-not-reasoning thesis. Papers #1 and #5 most directly relevant.
+Critical reading: these are systems/methods papers, but their *empirical premise* - that future tokens are latent in the current hidden state - is mechanistically informative for the predictive-not-reasoning thesis. Papers #1 and #5 most directly relevant.
 
 | arXiv ID | Title | Stance |
 |----------|-------|--------|
@@ -142,16 +142,16 @@ Critical reading: these are systems/methods papers, but their *empirical premise
 - **2511.11346**: Probabilistic circuits relax future-token independence assumption; rigorous expressiveness-vs-latency trade-off study on byte-level LLMs (EvaByte)
 - **2505.24544**: Cross-attention SD on par with EAGLE-v2 without pooling/auxiliary layers; Two-Stage Block-Attention Training
 
-**Thesis hook**: The framing "Your LLM Knows the Future" is the surfacing hypothesis applied to next-N-token prediction. If a frozen base model already contains the information needed to predict N tokens ahead — and a small adapter can extract it lossless — then autoregressive token-by-token generation is an interface choice, not evidence of step-by-step computation. This parallels the s1 finding (1k samples sufficient) and CoT-without-prompting (Wang & Zhou): the capability pre-exists; the recipe surfaces it.
+**Thesis hook**: The framing "Your LLM Knows the Future" is the surfacing hypothesis applied to next-N-token prediction. If a frozen base model already contains the information needed to predict N tokens ahead - and a small adapter can extract it lossless - then autoregressive token-by-token generation is an interface choice, not evidence of step-by-step computation. This parallels the s1 finding (1k samples sufficient) and CoT-without-prompting (Wang & Zhou): the capability pre-exists; the recipe surfaces it.
 
 **Open questions for analysis:**
 1. Does MTP work uniformly across tasks, or does it fail where reasoning is most needed? (If MTP succeeds on reasoning tasks at 5×, sequential CoT is even less necessary than thought.)
-2. Paper #1's finding that "hidden layers are strongly specialized for NTP" — does this complicate the surfacing claim, or refine it (capability exists but is bottlenecked)?
+2. Paper #1's finding that "hidden layers are strongly specialized for NTP" - does this complicate the surfacing claim, or refine it (capability exists but is bottlenecked)?
 3. Connection to Paper #293 (Chandra et al.) and the broader argument that LLM outputs are pattern-completions of conditional context, not assertions of internally-held beliefs.
 
 ---
 
-## High Priority — CoT Faithfulness (Issue #67)
+## High Priority - CoT Faithfulness (Issue #67)
 
 Papers on whether Chain-of-Thought reasoning is faithful to internal model computation.
 
@@ -167,7 +167,7 @@ Papers on whether Chain-of-Thought reasoning is faithful to internal model compu
 
 ---
 
-## High Priority — Parameter Efficiency & RL Dynamics (Related to #221)
+## High Priority - Parameter Efficiency & RL Dynamics (Related to #221)
 
 Papers exploring why RL is more parameter-efficient than SFT, and what this reveals about reasoning.
 
@@ -197,7 +197,7 @@ Papers exploring why RL is more parameter-efficient than SFT, and what this reve
 
 ---
 
-## High Priority — Superficial Alignment Debate
+## High Priority - Superficial Alignment Debate
 
 Papers directly addressing whether alignment is superficial.
 
@@ -216,7 +216,7 @@ Papers directly addressing whether alignment is superficial.
 
 ---
 
-## High Priority — Counter-Evidence (Steel-Man)
+## High Priority - Counter-Evidence (Steel-Man)
 
 Papers that may challenge the thesis. Must read to make thesis defensible.
 
@@ -252,7 +252,7 @@ Papers that may challenge the thesis. Must read to make thesis defensible.
 
 ---
 
-## High Priority — Supports Thesis (#44)
+## High Priority - Supports Thesis (#44)
 
 | arXiv ID | Title |
 |----------|-------|
@@ -281,7 +281,7 @@ Papers that may challenge the thesis. Must read to make thesis defensible.
 | [2310.20707](https://arxiv.org/abs/2310.20707) | What's In My Big Data? | 177 |
 | [2303.13988](https://arxiv.org/abs/2303.13988) | Machine Psychology | 232 |
 | [2404.09932](https://arxiv.org/abs/2404.09932) | Foundational Challenges in Assuring LLM Safety | 309 |
-| [2404.01869](https://arxiv.org/abs/2404.01869) | Beyond Accuracy: Evaluating Reasoning Behavior — Survey | 120 |
+| [2404.01869](https://arxiv.org/abs/2404.01869) | Beyond Accuracy: Evaluating Reasoning Behavior - Survey | 120 |
 | [2402.08115](https://arxiv.org/abs/2402.08115) | Self-Verification Limitations (Kambhampati) | 114 |
 | [2311.09247](https://arxiv.org/abs/2311.09247) | Comparing Humans, GPT-4 on Abstraction (Mitchell) | 106 |
 | [2310.18362](https://arxiv.org/abs/2310.18362) | SoK: Memorization in LLMs | 86 |
@@ -482,7 +482,7 @@ Source: [Awesome-LLM-Reasoning-Failures](https://github.com/Peiyang-Song/Awesome
 
 ---
 
-## High Priority — Memorization & Fragility
+## High Priority - Memorization & Fragility
 
 Papers on memorization mechanisms and reasoning fragility.
 
@@ -501,18 +501,18 @@ Papers on memorization mechanisms and reasoning fragility.
 
 Papers extracted from research notes on framing bias, unlearning, and jailbreaking.
 
-### Framing & Reliability (High Priority — Supports Thesis)
+### Framing & Reliability (High Priority - Supports Thesis)
 
 | arXiv ID | Title | Stance |
 |----------|-------|--------|
 | [2602.20440](https://arxiv.org/abs/2602.20440) | Intelligence Without Integrity: Why Capable LLMs May Undermine Reliability | supports |
 | [2510.14665](https://arxiv.org/abs/2510.14665) | Beyond Hallucinations: The Illusion of Understanding in Large Language Models | supports |
 
-**Key finding (Intelligence Without Integrity)**: Intelligence and integrity trade off — frontier models most likely to reach correct conclusions under neutral conditions are often most susceptible to shifting conclusions under motivated framing. Introduces "goal-conditioned analytical sycophancy."
+**Key finding (Intelligence Without Integrity)**: Intelligence and integrity trade off - frontier models most likely to reach correct conclusions under neutral conditions are often most susceptible to shifting conclusions under motivated framing. Introduces "goal-conditioned analytical sycophancy."
 
 ### LLM Unlearning (Medium Priority)
 
-Papers on model unlearning — shows brittleness of learned behaviors.
+Papers on model unlearning - shows brittleness of learned behaviors.
 
 | arXiv ID | Title | Stance |
 |----------|-------|--------|
@@ -522,9 +522,9 @@ Papers on model unlearning — shows brittleness of learned behaviors.
 | [2511.11914](https://arxiv.org/abs/2511.11914) | Forgetting-MarI: LLM Unlearning via Marginal Information Regularization | balanced |
 | [2311.02105](https://arxiv.org/abs/2311.02105) | Making Harmful Behaviors Unlearnable for Large Language Models | balanced |
 
-### Jailbreaking (Lower Priority — Large Existing Literature)
+### Jailbreaking (Lower Priority - Large Existing Literature)
 
-Papers on jailbreaking — shows superficiality of alignment.
+Papers on jailbreaking - shows superficiality of alignment.
 
 | arXiv ID | Title | Stance |
 |----------|-------|--------|
@@ -541,13 +541,13 @@ Papers on jailbreaking — shows superficiality of alignment.
 | [2503.05264](https://arxiv.org/abs/2503.05264) | Jailbreaking is (Mostly) Simpler Than You Think | supports |
 | [2505.10066](https://arxiv.org/abs/2505.10066) | Dark LLMs: The Growing Threat of Unaligned AI Models | supports |
 
-**Key finding from Many-Shot (2505.19773)**: Context length is primary factor — even repetitive shots or random dummy text can circumvent safety measures.
+**Key finding from Many-Shot (2505.19773)**: Context length is primary factor - even repetitive shots or random dummy text can circumvent safety measures.
 
 ---
 
-## High Priority — Alignment Faking & Deception Cluster
+## High Priority - Alignment Faking & Deception Cluster
 
-Papers on "alignment faking," deception, and emergent misalignment. These papers make strong claims about AI behavior — read each fully and assess independently.
+Papers on "alignment faking," deception, and emergent misalignment. These papers make strong claims about AI behavior - read each fully and assess independently.
 
 ### Open Questions
 
@@ -572,7 +572,7 @@ Key empirical questions to resolve when reading these papers:
 |----------|-------|--------|-------|
 | [2502.17424](https://arxiv.org/abs/2502.17424) | Emergent Misalignment: Narrow finetuning can produce broadly misaligned LLMs | TBD | Nature 2026; finetuning on insecure code produces broad behavioral changes |
 | [2511.18397](https://arxiv.org/abs/2511.18397) | Natural emergent misalignment from reward hacking in production RL | TBD | Anthropic; production RL environments; "inoculation prompting" tested as mitigation |
-| [2508.02063](https://arxiv.org/abs/2508.02063) | TRACEALIGN: Tracing the Drift — Attributing Alignment Failures to Training-Time Belief Sources | TBD | Introduces Belief Conflict Index; traces failures to training data |
+| [2508.02063](https://arxiv.org/abs/2508.02063) | TRACEALIGN: Tracing the Drift - Attributing Alignment Failures to Training-Time Belief Sources | TBD | Introduces Belief Conflict Index; traces failures to training data |
 
 ### Alignment Evaluation & Stress Testing
 
@@ -604,7 +604,7 @@ Key empirical questions to resolve when reading these papers:
 
 ---
 
-## High Priority — Reasoning & Understanding (Andreas, Shah, Sekhon)
+## High Priority - Reasoning & Understanding (Andreas, Shah, Sekhon)
 
 Papers examining LLM reasoning, understanding, and evaluation methodology.
 
@@ -634,13 +634,13 @@ Papers examining LLM reasoning, understanding, and evaluation methodology.
 
 ---
 
-## High Priority — Agency, Role-Play, and Narrative Completion
+## High Priority - Agency, Role-Play, and Narrative Completion
 
 Papers examining whether LLMs have genuine agency/goals or simulate them via narrative completion.
 
 ### Core Question
 
-"Alignment faking" requires persistent goals to protect. If LLMs lack persistent state and true goals, "faking" is a category error — what looks like strategic deception is actually coherent narrative completion from conflicting prompts.
+"Alignment faking" requires persistent goals to protect. If LLMs lack persistent state and true goals, "faking" is a category error - what looks like strategic deception is actually coherent narrative completion from conflicting prompts.
 
 ### Superficial Alignment Hypothesis
 
@@ -670,7 +670,7 @@ Papers examining whether LLMs have genuine agency/goals or simulate them via nar
 | arXiv ID | Title | Stance | Notes |
 |----------|-------|--------|-------|
 | [2603.16643](https://arxiv.org/abs/2603.16643) | Good Arguments Against People Pleasers | TBD | Reasoning mitigates but masks sycophancy |
-| [2603.18373](https://arxiv.org/abs/2603.18373) | To See or To Please: Split Beliefs in VLMs | TBD | Different answers to users vs. probing — no consistent beliefs |
+| [2603.18373](https://arxiv.org/abs/2603.18373) | To See or To Please: Split Beliefs in VLMs | TBD | Different answers to users vs. probing - no consistent beliefs |
 | [2603.20620](https://arxiv.org/abs/2603.20620) | Reasoning Traces Shape Outputs but Models Won't Say So | TBD | LLMs don't accurately report what influences outputs |
 | [2510.03667](https://arxiv.org/abs/2510.03667) | Invisible Saboteurs: Sycophantic LLMs Mislead Novices in Problem-Solving Tasks | supports | n=24 study; high-sycophancy bot → worse task outcomes, users can't detect it (CHI 2026) |
 | [2605.21778](https://arxiv.org/abs/2605.21778) | What Counts as AI Sycophancy? A Taxonomy and Expert Survey of a Fragmented Construct | balanced | 70-paper review + 106-expert survey; 94.3% agree it's a problem, disagree on what qualifies |
@@ -708,7 +708,7 @@ Training pipeline pattern: **SFT → RLVR → SFT(2 epoch) → RLHF**
 
 ---
 
-## High Priority — arXiv Search (Apr–May 2026)
+## High Priority - arXiv Search (Apr–May 2026)
 
 Papers harvested by arXiv sweep over CoT faithfulness, memorization–generalization, and reasoning limitations. Single-author papers excluded per selection rules. See `toevaluate.md` for staged Apr–May 2026 candidates.
 

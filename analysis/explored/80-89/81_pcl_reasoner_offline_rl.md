@@ -185,7 +185,7 @@ Where policy value uses geometric mean of token probabilities:
 3. **No generalization testing**: No OOD or compositional tests
 4. **Longer ≠ better**: Correlation not causation
 
-### Verdict: FOR (Partial) — Challenges thesis but with caveats
+### Verdict: FOR (Partial) - Challenges thesis but with caveats
 
 **Why FOR (Partial)**:
 - High accuracy (90.9%) suggests genuine capability
@@ -198,7 +198,7 @@ Where policy value uses geometric mean of token probabilities:
 - Authors explicitly state: "cannot iteratively discover increasingly complex reasoning paths"
 
 **Key insight for thesis**:
-> The paper actually SUPPORTS the surfacing hypothesis: "RL encourages the model to engage in more extensive and deliberate reasoning" — but this is reorganizing existing patterns from DeepSeek-R1 distillation, not creating new reasoning capability.
+> The paper actually SUPPORTS the surfacing hypothesis: "RL encourages the model to engage in more extensive and deliberate reasoning" - but this is reorganizing existing patterns from DeepSeek-R1 distillation, not creating new reasoning capability.
 
 ---
 

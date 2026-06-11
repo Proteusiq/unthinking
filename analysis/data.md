@@ -2,14 +2,14 @@
 
 > **The pipeline that builds the training distribution is fundamentally heuristic. Every filtering choice, every mixing ratio, every deduplication threshold shapes what the model can and cannot do. Understanding this pipeline is understanding the boundary of LLM capabilities.**
 
-**Source**: Stanford CS336 — Language Modeling from Scratch (Spring 2025), Lectures 13 & 14
+**Source**: Stanford CS336 - Language Modeling from Scratch (Spring 2025), Lectures 13 & 14
 **Interactive visualization**: [data.html](https://proteusiq.github.io/unthinking/pages/data.html)
 
 ---
 
 ## Why Data Is the Thesis
 
-The thesis claims LLM reasoning is predictive — pattern matching from training distributions, not genuine generative reasoning. If true, then the training distribution *is* the explanation for capabilities. Everything the model can do traces back to what it was trained on.
+The thesis claims LLM reasoning is predictive - pattern matching from training distributions, not genuine generative reasoning. If true, then the training distribution *is* the explanation for capabilities. Everything the model can do traces back to what it was trained on.
 
 The evidence is direct:
 
@@ -18,7 +18,7 @@ The evidence is direct:
 | Interplay (#15) | 0% pre-training exposure → RL completely fails; ≥1% → succeeds | RL surfaces what data put there |
 | CoT Mirage (#06) | ID = 100%, OOD = 0% via DataAlchemy | Distribution determines success |
 | Faith and Fate (#F1) | Subgraph matching; performance tracks training frequency | Capability = training coverage |
-| Embers of Autoregression (#202) | 76% first-letter extraction, 3% second-letter — same algorithm | Token frequency in training data predicts accuracy |
+| Embers of Autoregression (#202) | 76% first-letter extraction, 3% second-letter - same algorithm | Token frequency in training data predicts accuracy |
 | KUP (#70) | 80% memorization, <2% reasoning on same knowledge | Direct recall works; recombination fails |
 
 If the training distribution determines the boundary, then the pipeline that *constructs* that distribution is the origin story of every "reasoning" capability.
@@ -34,10 +34,10 @@ Six stages transform raw web crawls into training tokens. Each stage involves tr
 Common Crawl (2007–present). Non-profit web archive. ~100 crawls since 2008. Apache Nutch on ~100 machines over 10–12 days per crawl. Hundreds of millions of seed URLs. Nearly every pre-training dataset builds on Common Crawl.
 
 Two output formats:
-- **WARC** — raw HTML as captured. Preferred: you control text extraction.
-- **WET** — pre-extracted plain text. Lossy, lower downstream quality.
+- **WARC** - raw HTML as captured. Preferred: you control text extraction.
+- **WET** - pre-extracted plain text. Lossy, lower downstream quality.
 
-**Thesis connection**: The web is the training distribution. Common Crawl is a sample of it. The sample is biased — English-heavy, recency-biased, overrepresenting popular domains. The model inherits these biases as "knowledge."
+**Thesis connection**: The web is the training distribution. Common Crawl is a sample of it. The sample is biased - English-heavy, recency-biased, overrepresenting popular domains. The model inherits these biases as "knowledge."
 
 ### Stage 2: Text Extraction (HTML → Text)
 
@@ -69,7 +69,7 @@ Two schools: rule-based vs. model-based.
 | DCLM | OpenHermes-2.5 + ELI5 subreddit | GPT-4 generated + simple explanations |
 | phi-1 | GPT-4 labels for "educational value" | What GPT-4 considers educational |
 
-**Thesis connection**: This is the critical stage. When DCLM uses GPT-4-generated text (OpenHermes-2.5) as positive examples for its quality classifier, it selects web content that *looks like* GPT-4 output. The trained model then produces text that looks like the filtered training data — which was selected to look like GPT-4 output. The distribution shapes itself.
+**Thesis connection**: This is the critical stage. When DCLM uses GPT-4-generated text (OpenHermes-2.5) as positive examples for its quality classifier, it selects web content that *looks like* GPT-4 output. The trained model then produces text that looks like the filtered training data - which was selected to look like GPT-4 output. The distribution shapes itself.
 
 FineWebEdu and DCLM remove ~90% of data. The remaining 10% defines what the model "knows."
 
@@ -92,7 +92,7 @@ MinHash: Pr[h(A)=h(B)] = J(A,B)
 LSH threshold ≈ (1/b)^(1/r)
 ```
 
-**Thesis connection**: Deduplication reduces memorization but not distributional dependence. The model still learns statistical regularities from the remaining data. A deduplicated dataset doesn't contain novel reasoning — it contains unique instances of the same patterns.
+**Thesis connection**: Deduplication reduces memorization but not distributional dependence. The model still learns statistical regularities from the remaining data. A deduplicated dataset doesn't contain novel reasoning - it contains unique instances of the same patterns.
 
 ### Stage 5: Data Mixing & Staging
 
@@ -123,7 +123,7 @@ Tokenized, shuffled, packed into sequences. Fed to the model as next-token predi
 2024: DCLM-pool  =   240T raw tokens
 ```
 
-More data, better filtering, higher quality — but the pipeline remains fundamentally heuristic with "many opportunities to improve."
+More data, better filtering, higher quality - but the pipeline remains fundamentally heuristic with "many opportunities to improve."
 
 ---
 
@@ -187,7 +187,7 @@ More data, better filtering, higher quality — but the pipeline remains fundame
 | [UltraChat](https://huggingface.co/datasets/HuggingFaceH4/ultrachat_200k) | 2023 | 515K dialogues | Multi-turn synthetic conversations; trained Zephyr |
 | [Aya Dataset](https://huggingface.co/datasets/CohereLabs/aya_dataset) | 2024 | 204K samples | Human-curated multilingual instructions; 71 languages |
 
-**Thesis connection**: The post-training datasets are small (<1M examples) but disproportionately shape behavior. When OpenHermes-2.5 — GPT-4 generated text — is used as the quality signal for filtering pre-training data, the pipeline becomes self-referential: LLM output defines what LLM input should look like.
+**Thesis connection**: The post-training datasets are small (<1M examples) but disproportionately shape behavior. When OpenHermes-2.5 - GPT-4 generated text - is used as the quality signal for filtering pre-training data, the pipeline becomes self-referential: LLM output defines what LLM input should look like.
 
 ---
 
@@ -211,14 +211,14 @@ DCLM result: fastText classifier outperforms all rule-based methods on downstrea
 ## Copyright & Data Secrecy
 
 **Shadow libraries in the training mix:**
-- **LibGen** — ~4M books. Meta confirmed training LLaMA on LibGen.
-- **Sci-Hub** — ~88M academic papers.
-- **Books3** — 196K books from Bibliotik. Taken down.
-- **BooksCorpus** — 7K books from Smashwords. Taken down.
+- **LibGen** - ~4M books. Meta confirmed training LLaMA on LibGen.
+- **Sci-Hub** - ~88M academic papers.
+- **Books3** - 196K books from Bibliotik. Taken down.
+- **BooksCorpus** - 7K books from Smashwords. Taken down.
 
 Competitive advantage + copyright liability = frontier labs disclose almost nothing about training data. Architecture and algorithms are published; data is not.
 
-**Thesis connection**: Data secrecy makes it impossible to distinguish learned patterns from genuine reasoning. When the training data is unknown, any claim of "emergent reasoning" cannot be falsified — the capability might simply be in the training distribution.
+**Thesis connection**: Data secrecy makes it impossible to distinguish learned patterns from genuine reasoning. When the training data is unknown, any claim of "emergent reasoning" cannot be falsified - the capability might simply be in the training distribution.
 
 ---
 
@@ -226,7 +226,7 @@ Competitive advantage + copyright liability = frontier labs disclose almost noth
 
 | Question | Status |
 |----------|--------|
-| Rule-based vs. model-based filtering | No consensus — rules avoid bias, classifiers perform better |
+| Rule-based vs. model-based filtering | No consensus - rules avoid bias, classifiers perform better |
 | What is "quality"? | Wikipedia-like? Educational? Each choice biases capabilities |
 | Over-filtering | DCLM/FineWebEdu remove ~90%. Nemotron-CC rephrases instead |
 | Synthetic data in the pipeline | Nemotron-CC uses LM rephrasing. How far can it go? |
@@ -238,8 +238,8 @@ Competitive advantage + copyright liability = frontier labs disclose almost noth
 
 ## The Bottom Line
 
-The pre-training data pipeline is not a neutral conduit. It is a series of heuristic choices — which crawler, which extractor, which quality filter, which mixing ratio — that construct the distribution the model learns from. Every "reasoning" capability the model displays is a reflection of patterns in this distribution.
+The pre-training data pipeline is not a neutral conduit. It is a series of heuristic choices - which crawler, which extractor, which quality filter, which mixing ratio - that construct the distribution the model learns from. Every "reasoning" capability the model displays is a reflection of patterns in this distribution.
 
-The pipeline scales with human effort, not compute. Data curation is the most labor-intensive, least scalable part of building frontier LLMs. And the pipeline remains fundamentally heuristic — "many opportunities to improve."
+The pipeline scales with human effort, not compute. Data curation is the most labor-intensive, least scalable part of building frontier LLMs. And the pipeline remains fundamentally heuristic - "many opportunities to improve."
 
 If the thesis is correct that LLM capabilities are bounded by the training distribution, then this pipeline is the origin story. The model cannot reason beyond what the data contains.

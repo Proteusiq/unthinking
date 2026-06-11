@@ -12,7 +12,7 @@
 
 ## Core Claims
 
-1. **Base models ALREADY possess reasoning mechanisms**: Thinking models don't learn new capabilities — they learn WHEN to deploy pre-existing ones
+1. **Base models ALREADY possess reasoning mechanisms**: Thinking models don't learn new capabilities - they learn WHEN to deploy pre-existing ones
 
 2. **Hybrid model recovers 91% of gap**: By steering base models with 15 vectors at ~12% of tokens, can recover most of thinking model performance
 
@@ -75,7 +75,7 @@
 | Random-firing | 77.8% | Wrong timing |
 | Random-vectors | 77.2% | Wrong vectors |
 
-**Both timing AND specific vectors matter** — neither alone is sufficient.
+**Both timing AND specific vectors matter** - neither alone is sufficient.
 
 ---
 
@@ -106,7 +106,7 @@ This paper provides **causal evidence** for what Interplay showed correlatively:
 
 ### Important Nuance
 
-The paper doesn't say "LLMs can reason" — it says:
+The paper doesn't say "LLMs can reason" - it says:
 - Base models have **mechanisms** for generating reasoning-like outputs
 - Thinking models learn **when** to trigger these mechanisms
 - This is still **pattern activation**, not genuine reasoning
@@ -117,8 +117,8 @@ The paper doesn't say "LLMs can reason" — it says:
 
 ### Strongly Supports
 - **Interplay (2512.07783)**: CAUSAL proof of surfacing; 0% → fail, ≥1% → success
-- **Paper 131 (2403.04121)**: Kambhampati's "approximate retrieval" — this shows it can be steered
-- **Paper 132 (2504.09762)**: "Compiling reasoning into retrieval" — this shows the compilation mechanism
+- **Paper 131 (2403.04121)**: Kambhampati's "approximate retrieval" - this shows it can be steered
+- **Paper 132 (2504.09762)**: "Compiling reasoning into retrieval" - this shows the compilation mechanism
 
 ### Extends
 - **Reasoning-Critical Neurons (2601.19847)**: Both find steering can activate reasoning
@@ -156,7 +156,7 @@ No direct rebuttals found (October 2025 paper).
 
 ### Limitations (Authors Acknowledge)
 
-1. Relies on SAE-derived taxonomy — may miss some mechanisms
+1. Relies on SAE-derived taxonomy - may miss some mechanisms
 2. Only math benchmarks (GSM8K, MATH500)
 3. Requires thinking model oracle for timing decisions
 4. Gap recovery varies by model size (smaller models show less)

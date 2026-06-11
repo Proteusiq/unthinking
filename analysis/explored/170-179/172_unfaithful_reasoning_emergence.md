@@ -63,9 +63,9 @@
 
 ### Four Training Phases
 1. **Phase 0 (Format Following)**: Learns to predict operators and structure
-2. **Phase 1 (Stepwise Reasoning)**: f̂₂(e₁,e₂) ≈ f₂(e₂) — depends on reasoning
+2. **Phase 1 (Stepwise Reasoning)**: f̂₂(e₁,e₂) ≈ f₂(e₂) - depends on reasoning
 3. **Phase 2 (Mixed Mode)**: Uncertainty when e₁ and e₂ conflict; entropy spikes
-4. **Phase 3 (Skip-Step)**: f̂₂(e₁,e₂) ≈ f(e₁) — ignores reasoning
+4. **Phase 3 (Skip-Step)**: f̂₂(e₁,e₂) ≈ f(e₁) - ignores reasoning
 
 ### Complexity Gap Effect
 - Larger complexity gap between steps → more faithful reasoning
@@ -85,7 +85,7 @@
 ### Mechanistic Analysis
 - **Hidden State Contrast (HSC)**: Measures differentiation between consistent/inconsistent chains
 - **Attention Contrast (AC)**: Measures attention score differences for positive/negative samples
-- Both show sharp changes at phase boundaries — evidence of internal consistency checking
+- Both show sharp changes at phase boundaries - evidence of internal consistency checking
 
 ### Shortcut Features Amplify Unfaithfulness
 - When c ∈ {0, 2, N/2}: high probability o=0 without needing reasoning
@@ -105,7 +105,7 @@
 | e₁→e₂→e₃ | 0 | 0 | 24.7 | 0 |
 | e₂→e₁→e₃ | 1.00 | 0.99 | 26.0 | 0 |
 
-- IDS (intervention sensitivity) unchanged — model still uses simpler expression
+- IDS (intervention sensitivity) unchanged - model still uses simpler expression
 - **Complexity determines reasoning mode, not position**
 
 ---
@@ -187,7 +187,7 @@ Larger models transition to unfaithfulness **faster**:
 
 3. **Binary noise model**: Real training data has structured, not random, noise
 
-4. **Single domain**: Only arithmetic — what about logical, commonsense, or multi-step reasoning?
+4. **Single domain**: Only arithmetic - what about logical, commonsense, or multi-step reasoning?
 
 ### Limitations (Authors Acknowledge)
 
@@ -195,7 +195,7 @@ Larger models transition to unfaithfulness **faster**:
 
 > "We use small transformers... scaling behavior remains to be investigated"
 
-> "Only covers pretraining and supervised fine-tuning (SFT). Does NOT study reinforcement learning with verifier rewards (RLVR) — the standard recipe for enhancing reasoning (e.g., DeepSeek-R1)"
+> "Only covers pretraining and supervised fine-tuning (SFT). Does NOT study reinforcement learning with verifier rewards (RLVR) - the standard recipe for enhancing reasoning (e.g., DeepSeek-R1)"
 
 > "Need extensive evaluations across LLMs and tasks before policy/deployment decisions"
 
@@ -252,7 +252,7 @@ Larger models transition to unfaithfulness **faster**:
 |-----------|------------|
 | **Stance** | Strongly Supports |
 | **Confidence** | High |
-| **Relevance** | Very High — mechanistic understanding of unfaithfulness |
+| **Relevance** | Very High - mechanistic understanding of unfaithfulness |
 | **Evidence Type** | Empirical (controlled synthetic) |
 | **Venue Quality** | arXiv preprint (UW-Madison) |
 
@@ -260,4 +260,4 @@ Larger models transition to unfaithfulness **faster**:
 
 ## One-Sentence Summary
 
-Controlled synthetic experiments show that faithful CoT reasoning only emerges when training noise is below a critical threshold, with training dynamics exhibiting a phase transition from stepwise to skip-step reasoning — providing mechanistic evidence that unfaithfulness is the default mode under realistic training conditions.
+Controlled synthetic experiments show that faithful CoT reasoning only emerges when training noise is below a critical threshold, with training dynamics exhibiting a phase transition from stepwise to skip-step reasoning - providing mechanistic evidence that unfaithfulness is the default mode under realistic training conditions.

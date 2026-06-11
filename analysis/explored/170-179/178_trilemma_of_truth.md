@@ -77,12 +77,12 @@ LLMs must distinguish THREE scenarios for any statement:
 ### SUPPORTS thesis claims:
 
 1. **LLMs don't "know" truth**: They encode statistical associations, not truth values
-2. **Spurious correlations**: Binary probes "confounded by spurious correlations" — pattern matching, not reasoning
-3. **Distribution-bounded**: "LLMs encode information retained during training as internal probabilistic knowledge" — bounded by training
+2. **Spurious correlations**: Binary probes "confounded by spurious correlations" - pattern matching, not reasoning
+3. **Distribution-bounded**: "LLMs encode information retained during training as internal probabilistic knowledge" - bounded by training
 4. **Neither = uncertainty**: The third signal shows LLMs have no mechanism for genuine knowledge assessment
 
 ### Key insight for thesis:
-The paper shows LLMs don't have a simple "truth detector" — they have complex, asymmetric, distribution-bounded associations that approximate veracity through pattern matching, not genuine truth assessment.
+The paper shows LLMs don't have a simple "truth detector" - they have complex, asymmetric, distribution-bounded associations that approximate veracity through pattern matching, not genuine truth assessment.
 
 ---
 
@@ -160,7 +160,7 @@ The paper shows LLMs don't have a simple "truth detector" — they have complex,
 
 **Significance**: HIGH - NeurIPS 2025 Workshop acceptance; provides mechanistic foundation
 
-**Key Contribution**: Shows that LLMs don't have genuine "truth" representation — they have:
+**Key Contribution**: Shows that LLMs don't have genuine "truth" representation - they have:
 1. Asymmetric associations for truth/falsehood
 2. A distinct "neither" signal (not uncertainty about truth, but absence of learned association)
 3. Spurious correlations that proxy for veracity
@@ -171,4 +171,4 @@ The paper shows LLMs don't have a simple "truth detector" — they have complex,
 3. Third signal = lack of learned pattern, not genuine uncertainty
 4. "Probabilistic knowledge" = learned associations from training
 
-This paper provides mechanistic evidence that LLMs don't "know" truth — they pattern match to training distributions. The "trilemma" (true/false/neither) reflects: pattern matches training (true), pattern contradicts training (false), pattern not in training (neither). This is exactly what pattern matching predicts.
+This paper provides mechanistic evidence that LLMs don't "know" truth - they pattern match to training distributions. The "trilemma" (true/false/neither) reflects: pattern matches training (true), pattern contradicts training (false), pattern not in training (neither). This is exactly what pattern matching predicts.

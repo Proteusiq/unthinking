@@ -17,7 +17,7 @@
 
 3. **RL discovers efficient reasoning**: Despite training only on final-answer correctness (sparse rewards), gradient flow converges to the **efficient** chain traversal algorithm, not inefficient alternatives that could also achieve low loss
 
-4. **Implicit bias toward efficiency**: Gradient flow exhibits implicit bias—even though inefficient algorithms (with arbitrarily long trajectories) can achieve low loss, the model learns the efficient step-by-step traversal
+4. **Implicit bias toward efficiency**: Gradient flow exhibits implicit bias-even though inefficient algorithms (with arbitrarily long trajectories) can achieve low loss, the model learns the efficient step-by-step traversal
 
 5. **Simple examples are NECESSARY**: Training with "easy examples" (those requiring fewer reasoning steps) is **necessary** for efficient learning. Without them, learning requires exponential time in chain length
 
@@ -82,7 +82,7 @@
 
 ### Supports
 - **DeepSeek-R1 (2501.12948)**: Both show RL can induce structured reasoning patterns
-- **s1 (2501.19393)**: Both support "surfacing" hypothesis—RL extracts existing capability
+- **s1 (2501.19393)**: Both support "surfacing" hypothesis-RL extracts existing capability
 - **Interplay Paper (2512.07783)**: Controlled evidence that RL surfaces rather than creates
 
 ### Challenges (Superficially)
@@ -102,13 +102,13 @@ None identified. This is a recent theoretical paper.
 
 ### Counter-Arguments to the Paper's Claims
 
-1. **Pre-existing capability required**: The analysis explicitly assumes the base model already has "minimal task proficiency" (p_fwd > c₀). This is not reasoning from nothing—it's optimization of existing capability.
+1. **Pre-existing capability required**: The analysis explicitly assumes the base model already has "minimal task proficiency" (p_fwd > c₀). This is not reasoning from nothing-it's optimization of existing capability.
 
-2. **Task is architectural match**: The chain traversal algorithm is precisely what a single attention head CAN learn—attend to outgoing edge and output its target. The "emergence" is finding the right attention pattern, not inventing new computation.
+2. **Task is architectural match**: The chain traversal algorithm is precisely what a single attention head CAN learn-attend to outgoing edge and output its target. The "emergence" is finding the right attention pattern, not inventing new computation.
 
 3. **Easy examples seed the pattern**: Without easy examples (where algorithm is nearly trivial), learning fails exponentially. The reasoning pattern must be demonstrated before it can be generalized.
 
-4. **Simplified setting**: Single-layer Transformer on synthetic task—large gap from practical LLM reasoning.
+4. **Simplified setting**: Single-layer Transformer on synthetic task-large gap from practical LLM reasoning.
 
 ### Limitations (Authors Acknowledge)
 1. **Simplified architecture**: Analysis limited to single-layer Transformers
@@ -147,14 +147,14 @@ None identified. This is a recent theoretical paper.
 
 ### Relationship to Thesis
 
-**The thesis claims**: RL surfaces but doesn't create reasoning capabilities—reasoning patterns must pre-exist in the model or training data.
+**The thesis claims**: RL surfaces but doesn't create reasoning capabilities-reasoning patterns must pre-exist in the model or training data.
 
 **This paper's position**: While the framing suggests "emergence" of reasoning from sparse rewards, careful reading reveals:
 
 1. **Pre-existing capability required**: Analysis explicitly assumes model has "minimal task proficiency"
 2. **Easy examples seed the pattern**: Without simple examples where algorithm is nearly trivial, learning fails exponentially
 3. **Architecture must express the algorithm**: Chain traversal via attention was always architecturally possible
-4. **No novel reasoning created**: Model learns graph traversal—following edges sequentially—which is pattern matching the edge structure
+4. **No novel reasoning created**: Model learns graph traversal-following edges sequentially-which is pattern matching the edge structure
 
 **Net Assessment**: This paper is better characterized as showing **how RL optimizes to find the efficient algorithm among expressible algorithms**, not that RL creates reasoning from nothing. The reasoning capability (graph traversal via attention) was always architecturally possible and is seeded by simple examples.
 

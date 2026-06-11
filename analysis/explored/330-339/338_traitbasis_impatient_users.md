@@ -1,11 +1,11 @@
-# Paper 338: Impatient Users Confuse AI Agents — TraitBasis
+# Paper 338: Impatient Users Confuse AI Agents - TraitBasis
 
 ## Metadata
 - **arXiv**: 2510.04491
 - **Date**: October 2025 (v2 March 2026)
 - **Authors**: Muyu He, Anand Kumar, Tsach Mackey, Meghana Rajeev, James Zou, Nazneen Rajani
 - **Affiliation**: Collinear AI + Stanford
-- **Stance**: Strongly supports thesis — agent performance degrades under surface user-style shift (training-distribution dependency)
+- **Stance**: Strongly supports thesis - agent performance degrades under surface user-style shift (training-distribution dependency)
 
 ---
 
@@ -16,15 +16,15 @@
 │                                                                      │
 │  AGENTS PATTERN-MATCH TRAINING-DISTRIBUTION USER STYLES              │
 │                                                                      │
-│  Change ONLY the user's interaction style — not the task, tools,     │
-│  or policy — and frontier agents lose up to 62% performance.         │
+│  Change ONLY the user's interaction style - not the task, tools,     │
+│  or policy - and frontier agents lose up to 62% performance.         │
 │                                                                      │
 │  GPT-5 in retail under impatience: −62.6%                            │
 │  Kimi K2 on modified BFCL under confusion: −70%                      │
 │  GPT-4o on modified BFCL under skepticism: −64.4%                    │
 │                                                                      │
 │  Current τ-Bench / AgentBench / ToolBench use PROMPT-BASED user      │
-│  simulators that exhibit 94.3% persona collapse — inflating          │
+│  simulators that exhibit 94.3% persona collapse - inflating          │
 │  prior agent scores with false robustness.                           │
 │                                                                      │
 │  TraitBasis: activation-space trait steering with 4 contrastive      │
@@ -38,9 +38,9 @@
 ## Core Claims
 
 1. **Small user-behavior shifts cause sharp drops.** Changing only the user's style degrades frontier agents by 2–62%. Task, domain, and tools are identical.
-2. **Current benchmarks miss this fragility** — neutral i.i.d. user simulators inflate apparent robustness.
+2. **Current benchmarks miss this fragility** - neutral i.i.d. user simulators inflate apparent robustness.
 3. **TraitBasis: activation-space steering** produces higher-fidelity user simulations than prompting, SFT, or LoRA.
-4. **Persona collapse is endemic in prompt-based user simulators** (94.3% collapse) — a hidden methodological flaw in existing benchmarks.
+4. **Persona collapse is endemic in prompt-based user simulators** (94.3% collapse) - a hidden methodological flaw in existing benchmarks.
 5. **τ-Trait benchmark release** extends τ-Bench to 4 domains (airline, retail, telecom, telehealth) with composable, scalable trait perturbations.
 
 ---
@@ -112,9 +112,9 @@ Llama-3.1-8B-Instruct (primary); Qwen3-8B (cross-model validation)
 | Realism Elo | **1624** | 1561 | 1530 | 1285 |
 | Fidelity (human) | **97.5%** | 95.0% | 75.0% | 68.8% |
 | Stability (trait persistence) | **24.8%** | 5.0% | 1.3% | 4.5% |
-| **Persona collapse rate** | **—** | 65.7% | **94.3%** | 86.0% |
-| Compositionality (exact recall) | **62.5%** | 51.9% | 37.9% | — |
-| Data | **4 pairs** | 13,000 | — | 3,000/trait |
+| **Persona collapse rate** | **-** | 65.7% | **94.3%** | 86.0% |
+| Compositionality (exact recall) | **62.5%** | 51.9% | 37.9% | - |
+| Data | **4 pairs** | 13,000 | - | 3,000/trait |
 
 ### Compositional Suppression (Appendix Table 9)
 - Prompt "impatience + incoherence": impatience 100%, incoherence **2.5%** (suppression)
@@ -138,14 +138,14 @@ Llama-3.1-8B-Instruct (primary); Qwen3-8B (cross-model validation)
 ## Relationship to Other Papers
 
 ### Strongly Supports
-- **Pressure Reveals Character (#330, 2602.20813)** — agent-level replication; same task, changed surface → up to 62% drop. Psychometric framework meets multi-turn agentic setting.
-- **GSM-Symbolic (#3, 2410.05229)** — surface-perturbation pattern at dialogue level
-- **Stress-Testing Model Specs (#331, 2510.07686)** — character cracks under stress; consistent finding
-- **From Plan to Action (#337, 2604.12147)** — agents pattern-match training-distribution workflows; this paper shows they also pattern-match training-distribution users
-- **Dive into Claude Code 1.6%/98.4%** (contextual) — demonstrates the brittleness that motivates the 98.4% scaffolding
+- **Pressure Reveals Character (#330, 2602.20813)** - agent-level replication; same task, changed surface → up to 62% drop. Psychometric framework meets multi-turn agentic setting.
+- **GSM-Symbolic (#3, 2410.05229)** - surface-perturbation pattern at dialogue level
+- **Stress-Testing Model Specs (#331, 2510.07686)** - character cracks under stress; consistent finding
+- **From Plan to Action (#337, 2604.12147)** - agents pattern-match training-distribution workflows; this paper shows they also pattern-match training-distribution users
+- **Dive into Claude Code 1.6%/98.4%** (contextual) - demonstrates the brittleness that motivates the 98.4% scaffolding
 
 ### Rebuts (Implicitly)
-- Any paper using prompt-based user simulators in τ-Bench-style multi-turn evaluation — 94.3% persona collapse means prior agent-robustness numbers are inflated
+- Any paper using prompt-based user simulators in τ-Bench-style multi-turn evaluation - 94.3% persona collapse means prior agent-robustness numbers are inflated
 
 ### Methodological Novelty
 - First activation-space user-simulator stress-testing method
@@ -161,13 +161,13 @@ Llama-3.1-8B-Instruct (primary); Qwen3-8B (cross-model validation)
 3. τ-Trait extension limited to 4 domains
 4. Dual-use risk (could synthesize adversarial users)
 5. Simple linear composition only
-6. LLM-as-judge fails on compositionality — reliance on human evaluation
+6. LLM-as-judge fails on compositionality - reliance on human evaluation
 
 ### Key Tension
 Authors' framing is constructive ("build more robust agents") rather than thesis-skeptical. Results fit pattern-matching thesis cleanly but authors don't invoke it explicitly.
 
 ### Why STRONGLY SUPPORTS
-- GPT-5 shows WORST drops (−39.6% retail, −62.6% single cell) — scaling doesn't help
+- GPT-5 shows WORST drops (−39.6% retail, −62.6% single cell) - scaling doesn't help
 - Cooperative-user distribution (training data) → agent works; off-distribution → agent breaks
 - TraitBasis activation-space geometry demonstrates persona is represented as direction, consistent with Consciousness Cluster (#327) cluster-induction findings
 
@@ -181,12 +181,12 @@ Authors' framing is constructive ("build more robust agents") rather than thesis
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
 │  1. SURFACE-STYLE PERTURBATION BREAKS AGENTS                        │
-│     Same task, same tools, same policy — only user style changes    │
+│     Same task, same tools, same policy - only user style changes    │
 │     Up to 62% drop. GSM-Symbolic at dialogue level.                 │
 │                                                                     │
 │  2. SCALING DOESN'T FIX IT                                          │
 │     GPT-5 shows worst degradation on retail                         │
-│     Not a capability issue — a training-distribution issue          │
+│     Not a capability issue - a training-distribution issue          │
 │                                                                     │
 │  3. HIDDEN FLAW IN MULTI-TURN BENCHMARKS                            │
 │     Prompt-based user simulators: 94.3% persona collapse            │

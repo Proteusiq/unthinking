@@ -307,7 +307,7 @@
     </div>
 
     <div class="topbar">
-      <h2>Tokenization — How Text Enters the Transformer</h2>
+      <h2>Tokenization - How Text Enters the Transformer</h2>
       <div class="toggle-wrap">
         <button class="toggle-btn active" id="btn-pipeline" onclick="setV('pipeline')">
           Pipeline
@@ -321,7 +321,7 @@
       <!-- ═══ PIPELINE VIEW ═══ -->
       <div id="view-pipeline" class="view show">
         <div class="pipeline-wrap">
-          <div class="bpe-title">The input pipeline — every LLM starts here</div>
+          <div class="bpe-title">The input pipeline - every LLM starts here</div>
           <div class="pipeline-flow" id="pipeline-flow"></div>
           <div
             class="info-box"
@@ -342,7 +342,7 @@
 
         <!-- BPE Walkthrough -->
         <div class="bpe-section">
-          <div class="bpe-title">BPE Algorithm — Training the Tokenizer</div>
+          <div class="bpe-title">BPE Algorithm - Training the Tokenizer</div>
           <div
             class="info-box"
             style="margin-bottom: 0.6rem; border: none; padding: 0; background: transparent"
@@ -362,7 +362,7 @@
             but are representation problems baked in before the first attention layer fires.<br /><br />
             <b style="color: var(--accent)">Letter counting</b>: "How many r's in strawberry?" fails
             because "strawberry" tokenizes as
-            <span class="bpe-tokens">["str", "aw", "berry"]</span> — the model never sees individual
+            <span class="bpe-tokens">["str", "aw", "berry"]</span> - the model never sees individual
             letters.<br />
             <b style="color: var(--accent)">Arithmetic</b>: multi-digit tokens create implicit
             computation the model must learn. "1234" as one token vs "1","2","3","4" as four tokens
@@ -374,7 +374,7 @@
             more tokens on Chinese/Arabic, leaving less context window for actual reasoning.<br /><br />
             <span style="color: var(--accent-green)"
               >Counter-argument: reasoning models (o1, R1) partially overcome tokenization limits
-              via chain-of-thought decomposition — but this is a workaround, not a fix.</span
+              via chain-of-thought decomposition - but this is a workaround, not a fix.</span
             >
           </div>
         </div>
@@ -384,7 +384,7 @@
       <div id="view-catalog" class="view">
         <div class="info-box">
           How text enters the transformer. Raw strings must become integer sequences before any
-          computation happens —
+          computation happens -
           <b>string → bytes → subword tokens → embedding vectors → model</b>. Tokenization choices
           directly shape what the model can and cannot learn. Click any card for detail.
         </div>
@@ -426,19 +426,19 @@
             rel="noopener"
             >Stanford CS336</a
           >
-          — Language Modeling from Scratch, Lecture 1: Tokenization (Spring 2025)
+          - Language Modeling from Scratch, Lecture 1: Tokenization (Spring 2025)
         </li>
         <li>
           <a href="https://www.youtube.com/watch?v=zduSFxRajkE" target="_blank" rel="noopener"
             >Andrej Karpathy</a
           >
-          — Let's build the GPT Tokenizer
+          - Let's build the GPT Tokenizer
         </li>
         <li>
           <a href="https://arxiv.org/abs/1508.07909" target="_blank" rel="noopener"
             >Sennrich et al.</a
           >
-          (2016) — Neural Machine Translation of Rare Words with Subword Units
+          (2016) - Neural Machine Translation of Rare Words with Subword Units
         </li>
       </ul>
     </div>
@@ -447,7 +447,7 @@
       // ── TOKENIZATION CATALOG DATA ──
       const ERAS = [
         { id: 'raw', label: 'Raw Representations', color: '#8b949e' },
-        { id: 'subword', label: 'Subword — The Standard', color: '#e3b341' },
+        { id: 'subword', label: 'Subword - The Standard', color: '#e3b341' },
         { id: 'modern', label: 'Modern Vocabularies', color: '#56d364' },
         { id: 'embed', label: 'Token → Vector', color: '#79c0ff' },
         { id: 'beyond', label: 'Beyond Tokens', color: '#d2a8ff' },
@@ -460,9 +460,9 @@
           name: 'Character Tokenizer',
           key: 'Each Unicode code point = one token. Vocabulary ≈ 150K. Extremely long sequences.',
           detail:
-            'encode("Hello") → [72, 101, 108, 108, 111]. Simple and lossless — every character maps to its Unicode <b>ord()</b> value. Vocabulary is the full Unicode table (~150K characters), most extremely rare. Sequences are long but each token is meaningful.',
+            'encode("Hello") → [72, 101, 108, 108, 111]. Simple and lossless - every character maps to its Unicode <b>ord()</b> value. Vocabulary is the full Unicode table (~150K characters), most extremely rare. Sequences are long but each token is meaningful.',
           limit:
-            '⚠ Huge vocabulary (150K+). Very long sequences — quadratic attention cost. Rare characters waste embedding capacity.',
+            '⚠ Huge vocabulary (150K+). Very long sequences - quadratic attention cost. Rare characters waste embedding capacity.',
           use: '→ Pedagogical baseline. Never used in production LLMs.',
         },
         {
@@ -471,9 +471,9 @@
           name: 'Byte Tokenizer',
           key: 'UTF-8 bytes. Vocabulary = 256. Compression ratio = 1.0. Sequences 3–4× longer than BPE.',
           detail:
-            'encode("Hello") → [72, 101, 108, 108, 111] (ASCII). encode("🌍") → [240, 159, 140, 141] (4 bytes). <b>Fixed 256-token vocabulary</b> — elegant and universal. Every possible string is encodable. But compression ratio is exactly 1.0 (1 byte per token), so sequences are very long.',
+            'encode("Hello") → [72, 101, 108, 108, 111] (ASCII). encode("🌍") → [240, 159, 140, 141] (4 bytes). <b>Fixed 256-token vocabulary</b> - elegant and universal. Every possible string is encodable. But compression ratio is exactly 1.0 (1 byte per token), so sequences are very long.',
           limit:
-            '⚠ Compression ratio 1.0 — sequences are 3–4× longer than BPE. Quadratic attention makes this prohibitive for standard transformers.',
+            '⚠ Compression ratio 1.0 - sequences are 3–4× longer than BPE. Quadratic attention makes this prohibitive for standard transformers.',
           use: '→ Foundation for byte-level models (ByT5, MegaByte, BLT). Building block for BPE.',
         },
         {
@@ -495,7 +495,7 @@
           detail:
             '<b>Training</b>: Start with 256 byte tokens. Count all adjacent pairs in corpus. Merge the most frequent pair into a new token. Repeat N times to get vocab of size 256+N. <b>Encoding</b>: apply learned merges greedily left-to-right. Common words become single tokens; rare words decompose into subwords. See the Pipeline tab for a step-by-step walkthrough.',
           limit:
-            '⚠ Greedy algorithm — not globally optimal. Tokenization is deterministic but not linguistically principled.',
+            '⚠ Greedy algorithm - not globally optimal. Tokenization is deterministic but not linguistically principled.',
           use: '→ GPT-2, GPT-3, GPT-4, LLaMA, Mistral, DeepSeek, most modern LLMs.',
         },
         {
@@ -513,9 +513,9 @@
           era: 'subword',
           year: '2018',
           name: 'Unigram / SentencePiece',
-          key: 'Start with large vocab, prune tokens that least reduce corpus likelihood. Language-agnostic — operates on raw bytes.',
+          key: 'Start with large vocab, prune tokens that least reduce corpus likelihood. Language-agnostic - operates on raw bytes.',
           detail:
-            '<b>Unigram model</b> (Kudo, 2018): starts with a large candidate vocabulary (~1M), iteratively removes tokens whose loss increases likelihood the least. Trained via EM algorithm. <b>SentencePiece</b>: the tooling that implements both Unigram and BPE, treating input as raw Unicode — no pre-tokenization needed.',
+            '<b>Unigram model</b> (Kudo, 2018): starts with a large candidate vocabulary (~1M), iteratively removes tokens whose loss increases likelihood the least. Trained via EM algorithm. <b>SentencePiece</b>: the tooling that implements both Unigram and BPE, treating input as raw Unicode - no pre-tokenization needed.',
           limit: '⚠ Training is more complex than BPE. Produces slightly different segmentations.',
           use: '→ T5, ALBERT, XLNet, mBART. De facto standard for multilingual models.',
         },
@@ -537,7 +537,7 @@
           key: "OpenAI's fast BPE implementation. 100K vocab. Used by GPT-3.5-turbo and GPT-4.",
           detail:
             '<b>tiktoken</b>: Rust-backed BPE with regex pre-tokenization. 10–100× faster than HuggingFace tokenizers. <b>cl100k_base</b>: 100,256 tokens. Better number tokenization (each digit often its own token), improved multilingual coverage. Special tokens for chat formatting.',
-          limit: '⚠ Proprietary vocabulary — trained on undisclosed data. Closed merge rules.',
+          limit: '⚠ Proprietary vocabulary - trained on undisclosed data. Closed merge rules.',
           use: '→ GPT-3.5-turbo, GPT-4, GPT-4o. OpenAI API standard.',
         },
         {
@@ -546,7 +546,7 @@
           name: 'LLaMA Tokenizer (32K)',
           key: 'SentencePiece BPE. 32K vocab. Byte-fallback for unknown characters. No pre-tokenization.',
           detail:
-            'LLaMA 1/2: SentencePiece BPE with 32,000 tokens. All numbers split into individual digits. Byte-fallback: any unknown byte sequence encoded as raw bytes using special byte tokens. No pre-tokenization regex — SentencePiece handles everything.',
+            'LLaMA 1/2: SentencePiece BPE with 32,000 tokens. All numbers split into individual digits. Byte-fallback: any unknown byte sequence encoded as raw bytes using special byte tokens. No pre-tokenization regex - SentencePiece handles everything.',
           limit:
             '⚠ Small vocab limits compression ratio. Non-English text becomes longer. LLaMA 3 expanded to 128K.',
           use: '→ LLaMA 1, LLaMA 2, Code Llama, Mistral 7B.',
@@ -557,7 +557,7 @@
           name: 'Large Vocabularies (128K–152K)',
           key: 'LLaMA 3 (128K), Qwen 2 (152K), DeepSeek V3 (128K). Larger vocabs = better compression.',
           detail:
-            '<b>LLaMA 3</b>: tiktoken-based, 128,256 tokens — 4× LLaMA 2. <b>Qwen 2</b>: 152,064 tokens, strong CJK coverage. <b>DeepSeek V3</b>: 128,000 tokens, BBPE. Larger vocab = shorter sequences = faster inference = more context. Trade-off: larger embedding matrix (vocab × d_model).',
+            '<b>LLaMA 3</b>: tiktoken-based, 128,256 tokens - 4× LLaMA 2. <b>Qwen 2</b>: 152,064 tokens, strong CJK coverage. <b>DeepSeek V3</b>: 128,000 tokens, BBPE. Larger vocab = shorter sequences = faster inference = more context. Trade-off: larger embedding matrix (vocab × d_model).',
           limit:
             '⚠ Embedding matrix grows linearly with vocab size (128K × 4096d ≈ 500M params for embeddings alone).',
           use: '→ LLaMA 3/4, Qwen 2/2.5, DeepSeek V2/V3, Gemma 2.',
@@ -579,7 +579,7 @@
           name: 'Token Embedding Matrix',
           key: 'Lookup table: token ID → dense vector. Shape: [vocab_size × d_model]. The first learned layer.',
           detail:
-            'Each token ID indexes a row in a learned matrix <b>W_e ∈ ℝ^(V×d)</b>. GPT-2: 50,257 × 768 = 38.6M params. LLaMA 70B: 32,000 × 8,192 = 262M params. LLaMA 3 405B: 128,256 × 16,384 = 2.1B params. <b>No computation</b> — just a lookup. Trained end-to-end via backpropagation.',
+            'Each token ID indexes a row in a learned matrix <b>W_e ∈ ℝ^(V×d)</b>. GPT-2: 50,257 × 768 = 38.6M params. LLaMA 70B: 32,000 × 8,192 = 262M params. LLaMA 3 405B: 128,256 × 16,384 = 2.1B params. <b>No computation</b> - just a lookup. Trained end-to-end via backpropagation.',
           limit:
             '⚠ Each token gets exactly one static vector (context comes later from attention). Rare tokens have poorly trained embeddings.',
           use: '→ Every transformer model. Often tied with the output projection (weight tying).',
@@ -590,7 +590,7 @@
           name: 'Positional Encoding',
           key: 'Added to token embeddings before entering the transformer. Encodes position in sequence.',
           detail:
-            'Token embeddings alone carry no position information — "the cat sat" and "sat the cat" would be identical sets of vectors. <b>Sinusoidal</b> (2017): fixed sin/cos patterns. <b>Learned absolute</b> (GPT-2): trainable position vectors. <b>RoPE</b> (2021): rotary embeddings applied to Q/K — encodes relative position via rotation matrices.',
+            'Token embeddings alone carry no position information - "the cat sat" and "sat the cat" would be identical sets of vectors. <b>Sinusoidal</b> (2017): fixed sin/cos patterns. <b>Learned absolute</b> (GPT-2): trainable position vectors. <b>RoPE</b> (2021): rotary embeddings applied to Q/K - encodes relative position via rotation matrices.',
           limit:
             '⚠ Context length constrained by positional encoding choice. Learned absolute embeddings cannot extrapolate.',
           use: '→ RoPE dominant since LLaMA (2023). Used by LLaMA, Mistral, DeepSeek, Qwen, OLMo.',
@@ -623,7 +623,7 @@
           name: 'BLT (Byte Latent Transformer)',
           key: 'Meta, 2024. Dynamic byte patches at entropy spikes. Up to 50% FLOP savings vs BPE at scale.',
           detail:
-            '<b>BLT</b> (Pagnoni et al. 2024): groups bytes into variable-length patches based on next-byte entropy. High-entropy boundaries trigger new patches — information-dense regions get more compute. <b>Key result</b>: scales better than BPE at larger model/data scales. Matches LLaMA 3 8B quality with up to 50% fewer FLOPs.',
+            '<b>BLT</b> (Pagnoni et al. 2024): groups bytes into variable-length patches based on next-byte entropy. High-entropy boundaries trigger new patches - information-dense regions get more compute. <b>Key result</b>: scales better than BPE at larger model/data scales. Matches LLaMA 3 8B quality with up to 50% fewer FLOPs.',
           limit: '⚠ Requires entropy model for patch boundaries. More complex training pipeline.',
           use: '→ Research. Strong scaling results suggest byte-level may eventually replace BPE.',
         },
@@ -641,7 +641,7 @@
           era: 'beyond',
           year: 'Thesis',
           name: 'Tokenization as Reasoning Bottleneck',
-          key: 'Tokenization artifacts directly cause reasoning failures. Letter counting, arithmetic, reversal — all tokenizer-dependent.',
+          key: 'Tokenization artifacts directly cause reasoning failures. Letter counting, arithmetic, reversal - all tokenizer-dependent.',
           detail:
             '<b>Why tokenization matters for the thesis</b>: LLMs struggle with tasks that cross token boundaries. "How many r\'s in strawberry?" fails because "strawberry" tokenizes as ["str", "aw", "berry"]. Arithmetic errors correlate with digit tokenization. The reversal curse is partly a tokenization artifact. <b>These are representation failures</b>, baked in before the first attention layer fires.',
           limit:

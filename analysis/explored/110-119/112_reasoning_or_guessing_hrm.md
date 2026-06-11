@@ -14,8 +14,8 @@
 This paper provides **mechanistic evidence** that what looks like multi-step reasoning is actually **repeated guessing attempts**. Key findings:
 
 1. HRM fails on **puzzles with only 1 unknown cell**
-2. Solutions appear via **"grokking" dynamics** — sudden correctness, not gradual refinement
-3. Models get **trapped in spurious fixed points** — local attractors that aren't solutions
+2. Solutions appear via **"grokking" dynamics** - sudden correctness, not gradual refinement
+3. Models get **trapped in spurious fixed points** - local attractors that aren't solutions
 4. **Augmenting guesses** (not reasoning) boosts accuracy: 54.5% → 96.9%
 
 > "HRM appears to be 'guessing' instead of 'reasoning'"
@@ -26,8 +26,8 @@ This paper provides **mechanistic evidence** that what looks like multi-step rea
 
 1. **HRM fails on extremely simple puzzles** due to violation of fixed point property
 2. **"Grokking" dynamics**: Answer suddenly becomes correct, not incrementally refined
-3. **Multiple fixed points exist** — model guesses first one, gets trapped
-4. **Scaling "guesses" dramatically improves performance** — characteristic of guessing, not reasoning
+3. **Multiple fixed points exist** - model guesses first one, gets trapped
+4. **Scaling "guesses" dramatically improves performance** - characteristic of guessing, not reasoning
 5. **Augmented HRM**: 54.5% → **96.9%** via augmentation, not better reasoning
 
 ---
@@ -56,7 +56,7 @@ This paper provides **mechanistic evidence** that what looks like multi-step rea
 
 | Method | Accuracy | Δ |
 |--------|----------|---|
-| **Baseline** | **54.5%** | — |
+| **Baseline** | **54.5%** | - |
 | +Bootstrap | 64.7% | +10.2% |
 | +Relabel (input perturbation) | 73.2% | +18.7% |
 | +Data Mixing | 59.9% | +5.4% |
@@ -69,10 +69,10 @@ This paper provides **mechanistic evidence** that what looks like multi-step rea
 
 ## The Four Reasoning Modes
 
-1. **Trivial Success** — Model finds solution in first few segments
-2. **Non-trivial Success** — Lingers around spurious fixed point, then "takes sudden leap" to solution
-3. **Trivial Failure** — Latent state wanders/oscillates, error stays high
-4. **Non-trivial Failure** — Converges to **false fixed point** (not the solution)
+1. **Trivial Success** - Model finds solution in first few segments
+2. **Non-trivial Success** - Lingers around spurious fixed point, then "takes sudden leap" to solution
+3. **Trivial Failure** - Latent state wanders/oscillates, error stays high
+4. **Non-trivial Failure** - Converges to **false fixed point** (not the solution)
 
 ---
 
@@ -134,10 +134,10 @@ This paper provides **mechanistic evidence** that what looks like multi-step rea
 
 ## Discussion and Limitations
 
-1. **Analysis limited to Sudoku-Extreme** — though authors conjecture findings extend to other recursive reasoners
-2. **Fixed points exist but are unstable** — theory-practice mismatch
-3. **Initialization sensitivity** — success depends on proximity to true vs spurious fixed point
-4. **Methods are test-time compute scaling** — multiple forward passes, not single-shot reasoning
+1. **Analysis limited to Sudoku-Extreme** - though authors conjecture findings extend to other recursive reasoners
+2. **Fixed points exist but are unstable** - theory-practice mismatch
+3. **Initialization sensitivity** - success depends on proximity to true vs spurious fixed point
+4. **Methods are test-time compute scaling** - multiple forward passes, not single-shot reasoning
 
 ---
 
@@ -170,6 +170,6 @@ This paper provides **mechanistic evidence** that what looks like multi-step rea
 
 ## Bottom Line
 
-This paper provides **mechanistic evidence** that what looks like multi-step reasoning is actually **repeated guessing attempts** converging on fixed points in latent space. The model doesn't incrementally refine solutions — it "groks" them suddenly, and performance improves by scaling guesses, not improving reasoning.
+This paper provides **mechanistic evidence** that what looks like multi-step reasoning is actually **repeated guessing attempts** converging on fixed points in latent space. The model doesn't incrementally refine solutions - it "groks" them suddenly, and performance improves by scaling guesses, not improving reasoning.
 
 **For the thesis**: Even purpose-built "reasoning models" (HRM outperforms LLMs on Sudoku) exhibit guessing behavior rather than deliberative reasoning. The recursive architecture serves as a "guess scaling" mechanism, not an incremental reasoning engine.

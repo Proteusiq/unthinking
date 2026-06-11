@@ -4,7 +4,7 @@
 > **See also**: `memento.md` for executive summary
 
 ## Overview
-This document tracks how papers interact with each other — rebuttals, counter-rebuttals, extensions, and supporting evidence.
+This document tracks how papers interact with each other - rebuttals, counter-rebuttals, extensions, and supporting evidence.
 
 ---
 
@@ -210,7 +210,7 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Mind Your Tone: Rude=Better (2510.04950)** | **rebuts** | **Mind Your Tone: Rude=Worse (2402.14531)** | **OPPOSITE FINDING: GPT-4o 84.8% rude > 80.8% polite vs Llama2-70B -48.5% rude. Same question, different models, opposite conclusions. "LLMs are mirrors."** |
 | **Revisiting SAH #209 (2410.03717)** | **rebuts** | **LIMA #211 (2305.11206)** | **Reasoning errors decrease beyond style saturation (~100 examples); power law scaling contradicts "1K sufficient"** |
 | **Safety Not Superficial #214 (2505.17072)** | **challenges** | **LIMA #211 (2305.11206)** | **Alignment CAN be deep with explicit safety signals; near-zero ASR on adversarial attacks** |
-| **Safety Not Superficial #214 (2505.17072)** | **challenges** | **Probability Concentration #210 (2506.17871)** | **Alignment is more than path selection — explicit classification enables robust safety** |
+| **Safety Not Superficial #214 (2505.17072)** | **challenges** | **Probability Concentration #210 (2506.17871)** | **Alignment is more than path selection - explicit classification enables robust safety** |
 
 ### Counter-Rebuttals (Rebuttals of Rebuttals)
 
@@ -230,7 +230,7 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | Reasoning Models (2510.22371) | confirms | Faith and Fate (2305.18654) | Propagation error mechanism |
 | CoT Mirage (2508.01191) | supports | Faith and Fate (2305.18654) | ID=100%, OOD=0% |
 | GSM-Symbolic (2410.05229) | supports | Faith and Fate (2305.18654) | Distribution-dependent failure |
-| **Illusion of Insight (2601.00514)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Shifts are unfaithful — don't reflect actual improvement** |
+| **Illusion of Insight (2601.00514)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Shifts are unfaithful - don't reflect actual improvement** |
 | **Illusion of Insight (2601.00514)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | **CoT doesn't reflect computation** |
 | **LLMs Imitate Logical Reasoning (2509.12645)** | **supports** | **Faith and Fate (2305.18654)** | **Imitation = pattern matching** |
 | **LLMs Imitate Logical Reasoning (2509.12645)** | **supports** | **Illusion of Thinking (2506.06941)** | **Not genuine reasoning** |
@@ -246,7 +246,7 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Illusion of Diminishing Returns (2509.09677)** | **extends** | **Faith and Fate (2305.18654)** | **Error accumulation mechanism** |
 | **Illusion of Diminishing Returns (2509.09677)** | **partially supports** | **DeepSeek-R1 (2501.12948)** | **Thinking models fix self-conditioning** |
 | **Illusion of Diminishing Returns (2509.09677)** | **reframes** | **Illusion of Thinking (2506.06941)** | **Execution failure, not reasoning inability** |
-| **Beyond Memorization (2601.13392)** | **supports** | **Can LLM Graph Reasoning (2406.15992)** | **"Pattern regurgitators" — same finding (100% knowledge, fails on unseen)** |
+| **Beyond Memorization (2601.13392)** | **supports** | **Can LLM Graph Reasoning (2406.15992)** | **"Pattern regurgitators" - same finding (100% knowledge, fails on unseen)** |
 | **Beyond Memorization (2601.13392)** | **supports** | **Faith and Fate (2305.18654)** | **Distribution-bounded failures; compositional failures** |
 | **Beyond Memorization (2601.13392)** | **supports** | **CoT Mirage (2508.01191)** | **ID success (84-90%), OOD failure (20-59%)** |
 | **Beyond Memorization (2601.13392)** | **supports** | **GSM-Symbolic (2410.05229)** | **Brittleness to variations; seen/unseen gap** |
@@ -257,7 +257,7 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **No Free Lunch (2506.17219)** | **supports** | **Illusion of Insight (2601.00514)** | **Internal signals (entropy) don't improve reasoning** |
 | **No Free Lunch (2506.17219)** | **supports** | **Illusions of Reflection (2510.18254)** | **Self-correction without external feedback fails** |
 | **No Free Lunch (2506.17219)** | **provides mechanism for** | **Faith and Fate (2305.18654)** | **Transitional word loss = exploration loss** |
-| **Neuro-Symbolic AI (2508.13678)** | **supports** | **Faith and Fate (2305.18654)** | **"Errors propagate and amplify" — same mechanism** |
+| **Neuro-Symbolic AI (2508.13678)** | **supports** | **Faith and Fate (2305.18654)** | **"Errors propagate and amplify" - same mechanism** |
 | **Probability Concentration #210 (2506.17871)** | **supports** | **LIMA #211 (2305.11206)** | **BF mechanism explains SAH: alignment narrows to pre-existing low-entropy paths** |
 | **LIMA #211 (2305.11206)** | **supports** | **Interplay (2512.07783)** | **SAH consistent with surfacing hypothesis: knowledge in pretraining** |
 | **LIMA #211 (2305.11206)** | **supports** | **Demystifying Long CoT (2502.03373)** | **SAH consistent: capabilities pre-exist, tuning exposes** |
@@ -294,7 +294,7 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Pause Tokens (2505.21024)** | **supports** | **Faith and Fate (2305.18654)** | **Proves fundamental computational limits** |
 | **Pause Tokens (2505.21024)** | **supports** | **Expressive Power of CoT (2310.07923)** | **Places pause tokens in relation to CoT expressivity** |
 | **Token Assorted (2502.03275)** | **supports** | **Dot by Dot (2404.15758)** | **Both show compressed/filler tokens work as well as full CoT** |
-| **Token Assorted (2502.03275)** | **supports** | **Latent CoT Survey (2505.16782)** | **Confirms "expressive redundancy" — many CoT tokens are filler** |
+| **Token Assorted (2502.03275)** | **supports** | **Latent CoT Survey (2505.16782)** | **Confirms "expressive redundancy" - many CoT tokens are filler** |
 | **Token Assorted (2502.03275)** | **supports** | **Overthinking (2412.21187)** | **Both show explicit CoT often redundant; shorter can be better** |
 | **Token Assorted (2502.03275)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Latent tokens replacing early steps supports unfaithfulness** |
 | **CoT Monitorability (2507.05246)** | **reframes** | **Measuring Faithfulness (2307.13702)** | **Unfaithfulness is feature of EASY tasks; hard tasks force transparency** |
@@ -304,7 +304,7 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Pause Tokens Training (2310.02226)** | **supports** | **Dot by Dot (2404.15758)** | **Both show meaningless tokens improve performance via computation** |
 | **Pause Tokens Training (2310.02226)** | **provides empirical basis for** | **Pause Tokens Expressivity (2505.21024)** | **Formal proof builds on empirical findings here** |
 | **Pause Tokens Training (2310.02226)** | **supports** | **Token Assorted (2502.03275)** | **Both show intermediate tokens serve computation, not semantics** |
-| **Pause Tokens Training (2310.02226)** | **extends** | **Lanham et al. (2023)** | **Explains why filler periods don't help — training is required** |
+| **Pause Tokens Training (2310.02226)** | **extends** | **Lanham et al. (2023)** | **Explains why filler periods don't help - training is required** |
 | **Seq-VCR (2411.02344)** | **supports** | **Dot by Dot (2404.15758)** | **Both show meaningless tokens can replace CoT; Seq-VCR explains WHY via representation collapse** |
 | **Seq-VCR (2411.02344)** | **extends** | **Pause Tokens Training (2310.02226)** | **Adds Seq-VCR regularization to pause tokens for dramatically better results** |
 | **Seq-VCR (2411.02344)** | **supports** | **Pause Tokens Expressivity (2505.21024)** | **Provides empirical evidence for theoretical expressivity claims** |
@@ -418,7 +418,7 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Thinking by Doing (2511.23476)** | **supports** | **Interplay (2512.07783)** | **RL requires pre-existing capability; authors state prerequisites** |
 | **Thinking by Doing (2511.23476)** | **supports** | **DeepSeek-R1 (2501.12948)** | **RL organizes existing reasoning patterns** |
 | **Thinking by Doing (2511.23476)** | **supports** | **Effective Without Thinking (2504.09858)** | **Monolithic reasoning can HARM performance** |
-| **Thinking by Doing (2511.23476)** | **does not address** | **OMEGA (2506.18880)** | **"Hard" tasks are same domain, larger scale — not compositional OOD** |
+| **Thinking by Doing (2511.23476)** | **does not address** | **OMEGA (2506.18880)** | **"Hard" tasks are same domain, larger scale - not compositional OOD** |
 | **Thinking by Doing (2511.23476)** | **does not address** | **Planning Gap (2601.14456)** | **No truly OOD testing** |
 | **Bias and CoT Faithfulness (2505.23945)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Extends to VLMs; SFT training shows NO improvement** |
 | **Bias and CoT Faithfulness (2505.23945)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | **Both find faithfulness gaps; visual biases systematically less articulated** |
@@ -426,7 +426,7 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Bias and CoT Faithfulness (2505.23945)** | **challenges (partially)** | **DeepSeek-R1 (2501.12948)** | **RL helps only for explicit/reasonable biases; fails on subtle cues** |
 | **Chess Compositionality (2510.20783)** | **partially supports** | **Emergent Symbolic Mechanisms (2502.20332)** | **Both find identifiable mechanisms for structured behaviors** |
 | **Chess Compositionality (2510.20783)** | **partially challenges** | **Planning Gap (2601.14456)** | **SOME OOD generalization for rules (96%+), but strategies fail (70%→22%)** |
-| **Chess Compositionality (2510.20783)** | **supports (on closer reading)** | **OMEGA (2506.18880)** | **Rules generalize, but strategies fail — same pattern as compositional failure** |
+| **Chess Compositionality (2510.20783)** | **supports (on closer reading)** | **OMEGA (2506.18880)** | **Rules generalize, but strategies fail - same pattern as compositional failure** |
 | **Chess Compositionality (2510.20783)** | **supports** | **The thesis distinction** | **Rule following ≠ reasoning; strategies distribution-bounded** |
 | **Mechanistic Counting (2601.02989)** | **supports** | **Illusion of Thinking (2506.06941)** | **Both show collapse at complexity threshold; 0% accuracy at 41-50 items** |
 | **Mechanistic Counting (2601.02989)** | **supports** | **Sequential Enumeration (2512.04727)** | **Both show LLMs can't spontaneously count/enumerate at scale** |
@@ -470,7 +470,7 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Simple Self-Distillation (2604.01193)** | **supports** | **URIAL (2312.01552)** | **Both show capability exists pre-training; SSD calibrates confidence, URIAL unlocks formatting** |
 | **Simple Self-Distillation (2604.01193)** | **extends** | **GRPO vs SFT (2507.10616)** | **Both show distribution shaping matters more than content; SSD via SFT, GRPO via RL** |
 | **Simple Self-Distillation (2604.01193)** | **supports** | **Faith and Fate (2305.18654)** | **Both reveal patterns already exist; SSD improves by suppressing distractors, not learning** |
-| **Simple Self-Distillation (2604.01193)** | **provides evidence for** | **Pattern matching thesis** | **Works with 62% gibberish data — signal is in distribution shape, not content correctness** |
+| **Simple Self-Distillation (2604.01193)** | **provides evidence for** | **Pattern matching thesis** | **Works with 62% gibberish data - signal is in distribution shape, not content correctness** |
 | **Sycophantic Chatbots Spiraling (2602.19141)** | **supports** | **Alignment Faking (2412.14093)** | **Both show RLHF creates problematic behaviors; alignment faking + sycophancy from same training** |
 | **Sycophantic Chatbots Spiraling (2602.19141)** | **supports** | **Anthropomorphization (2305.14784)** | **Anthropomorphization enables sycophancy harm; users treat validation as epistemic evidence** |
 | **Sycophantic Chatbots Spiraling (2602.19141)** | **supports** | **Survey on LLM-as-a-Judge (2411.15594)** | **Sycophancy documented in judges too; same RLHF pathology across evaluation contexts** |
@@ -513,11 +513,11 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Survey of Test-Time Compute (2501.02497)** | **supports** | **Illusions of Reflection (2510.18254)** | **Both find self-correction limited without external feedback** |
 | **Survey of Test-Time Compute (2501.02497)** | **supports** | **Revisiting Test-Time Scaling (2502.12215)** | **Both find sequential scaling fails; parallel scaling works better** |
 | **Survey of Test-Time Compute (2501.02497)** | **supports** | **No Free Lunch (2506.17219)** | **Both find RL has limited effectiveness for improving reasoning** |
-| **Survey of Test-Time Compute (2501.02497)** | **supports** | **Interplay (2512.07783)** | **Survey's framing supports "surfacing" — TTA surfaces existing capabilities** |
+| **Survey of Test-Time Compute (2501.02497)** | **supports** | **Interplay (2512.07783)** | **Survey's framing supports "surfacing" - TTA surfaces existing capabilities** |
 | **Survey of Test-Time Compute (2501.02497)** | **extends** | **DeepSeek-R1 (2501.12948)** | **Survey provides theoretical framework for understanding R1's approach** |
 | **Survey of Test-Time Compute (2501.02497)** | **extends** | **s1 (2501.19393)** | **Survey covers the "budget forcing" strategy explicitly** |
 | **Theory for Length Generalization (2404.00560)** | **supports** | **Physics of LLMs 2.1 (2407.20311)** | **Both show LG achievable with proper structure/representation** |
-| **Theory for Length Generalization (2404.00560)** | **supports** | **Faith and Fate (2305.18654)** | **Confirms standard formulations fail — matches pattern matching thesis** |
+| **Theory for Length Generalization (2404.00560)** | **supports** | **Faith and Fate (2305.18654)** | **Confirms standard formulations fail - matches pattern matching thesis** |
 | **Theory for Length Generalization (2404.00560)** | **supports** | **GSM-Symbolic (2410.05229)** | **Explains why surface perturbations break models (R changes)** |
 | **Theory for Length Generalization (2404.00560)** | **provides theory for** | **The thesis** | **LG requires D=X (training covers all inputs) = pattern matching with complete coverage** |
 | **Survey of Inductive Reasoning (2510.10182)** | **supports** | **Faith and Fate (2305.18654)** | **Both identify pattern matching as mechanism** |
@@ -565,21 +565,21 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Can ICL Generalize OOD (2410.09695)** | **supports** | **Can LLMs Reason and Plan (2403.04121)** | **"Universal approximate retrieval" confirmed empirically** |
 | **Can ICL Generalize OOD (2410.09695)** | **extends** | **Base Models Know How to Reason (2510.07364)** | **ICL selects from pretraining functions; Paper 133 shows these pre-exist** |
 | **Demystifying Long CoT (2502.03373)** | **supports** | **Base Models Know How to Reason (2510.07364)** | **Both show capabilities pre-exist in base model** |
-| **Demystifying Long CoT (2502.03373)** | **supports** | **Interplay (2512.07783)** | **"Cannot synthesize from void" — same finding** |
-| **Demystifying Long CoT (2502.03373)** | **supports** | **s1 (2501.19393)** | **1K samples surfaces reasoning — same mechanism** |
+| **Demystifying Long CoT (2502.03373)** | **supports** | **Interplay (2512.07783)** | **"Cannot synthesize from void" - same finding** |
+| **Demystifying Long CoT (2502.03373)** | **supports** | **s1 (2501.19393)** | **1K samples surfaces reasoning - same mechanism** |
 | **Demystifying Long CoT (2502.03373)** | **extends** | **Overthinking/Underthinking (2412.21187, 2501.18585)** | **Length scaling dynamics explained** |
 | **Demystifying Long CoT (2502.03373)** | **provides mechanism for** | **Surfacing hypothesis** | **Long CoT patterns exist in pretraining (OpenWebMath)** |
 | **Chain of Thoughtlessness (2405.04776)** | **supports** | **Can LLMs Reason and Plan (2403.04121)** | **Same research group, same conclusion: CoT ≠ algorithm learning** |
 | **Chain of Thoughtlessness (2405.04776)** | **supports** | **Can ICL Generalize OOD (2410.09695)** | **Both show OOD failure** |
-| **Chain of Thoughtlessness (2405.04776)** | **supports** | **CoT Mirage (2508.01191)** | **ID=high, OOD=low — same pattern** |
+| **Chain of Thoughtlessness (2405.04776)** | **supports** | **CoT Mirage (2508.01191)** | **ID=high, OOD=low - same pattern** |
 | **Chain of Thoughtlessness (2405.04776)** | **supports** | **Faith and Fate (2305.18654)** | **Exponential error accumulation = degradation with complexity** |
 | **Chain of Thoughtlessness (2405.04776)** | **provides evidence for** | **Illusion of Thinking (2506.06941)** | **Complexity collapse demonstrated** |
-| **Chain of Thoughtlessness (2405.04776)** | **provides evidence for** | **Stop Anthropomorphizing (2504.09762)** | **Shows WHY traces have no semantics — CoT is pattern matching** |
+| **Chain of Thoughtlessness (2405.04776)** | **provides evidence for** | **Stop Anthropomorphizing (2504.09762)** | **Shows WHY traces have no semantics - CoT is pattern matching** |
 | **CoT Training Mechanisms (2502.04667)** | **supports** | **Can LLMs Reason and Plan (2403.04121)** | **OOD failure confirms LLMs can't plan without pattern templates** |
 | **CoT Training Mechanisms (2502.04667)** | **supports** | **Can ICL Generalize OOD (2410.09695)** | **Both show OOD generalization failure is fundamental** |
 | **CoT Training Mechanisms (2502.04667)** | **supports** | **Demystifying Long CoT (2502.03373)** | **Both analyze CoT mechanisms; provides cleaner controlled evidence** |
-| **CoT Training Mechanisms (2502.04667)** | **supports** | **Faith and Fate (2305.18654)** | **Confirms linearized subgraph matching — patterns not reason** |
-| **CoT Training Mechanisms (2502.04667)** | **extends** | **Base Models Know How to Reason (2510.07364)** | **Explains WHY base models have latent ability — component patterns exist** |
+| **CoT Training Mechanisms (2502.04667)** | **supports** | **Faith and Fate (2305.18654)** | **Confirms linearized subgraph matching - patterns not reason** |
+| **CoT Training Mechanisms (2502.04667)** | **extends** | **Base Models Know How to Reason (2510.07364)** | **Explains WHY base models have latent ability - component patterns exist** |
 | **Lexical Accuracy Hints (2508.15842)** | **supports** | **Overthinking (2412.21187)** | **Both find CoT length inversely correlated with accuracy** |
 | **Lexical Accuracy Hints (2508.15842)** | **supports** | **Underthinking (2501.18585)** | **Complements findings on CoT length dynamics** |
 | **Lexical Accuracy Hints (2508.15842)** | **supports** | **Illusions of Confidence (2601.05905)** | **Both document severe miscalibration** |
@@ -614,7 +614,7 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Reasoning Abilities ARC (2403.11793)** | **provides framework for** | **Process vs results evaluation** | **LoTH: Logical Coherence, Compositionality, Productivity** |
 | **Inference-Time Scaling Complex (2504.00294)** | **supports** | **Survey of Test-Time Compute (2501.02497)** | **Both find task-dependent scaling effectiveness** |
 | **Inference-Time Scaling Complex (2504.00294)** | **supports** | **Illusion of Thinking (2506.06941)** | **Both show performance collapse at complexity** |
-| **Inference-Time Scaling Complex (2504.00294)** | **supports** | **Interplay (2512.07783)** | **Supports surfacing hypothesis — superscaling surfaces capability** |
+| **Inference-Time Scaling Complex (2504.00294)** | **supports** | **Interplay (2512.07783)** | **Supports surfacing hypothesis - superscaling surfaces capability** |
 | **Inference-Time Scaling Complex (2504.00294)** | **provides evidence for** | **Surfacing hypothesis** | **GPT-4o approaches O1 with 256× superscaling** |
 | **PCL-Reasoner-V1.5 (2601.14716)** | **supports** | **Interplay (2512.07783)** | **Both show RL surfaces capability from base model** |
 | **PCL-Reasoner-V1.5 (2601.14716)** | **extends** | **DeepSeek-R1 (2501.12948)** | **Builds on R1 through distillation** |
@@ -658,11 +658,11 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Tokenizer Betrays Reasoning (2601.14658)** | **supports** | **LLMs Imitate Logical Reasoning (2509.12645)** | **Both show token-level rather than meaning-level processing** |
 | **Tokenizer Betrays Reasoning (2601.14658)** | **extends** | **Content Effects on Reasoning (2207.07051)** | **Adds mechanistic explanation for why surface form matters** |
 | **Tokenizer Betrays Reasoning (2601.14658)** | **provides mechanism for** | **Pattern matching thesis** | **Models literally cannot see past token IDs to meaning; 72.2% phantom edits are whitespace variants** |
-| **Flexibility Trap (2601.15165)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Both show CoT unfaithfulness — logical connectors filled in post-hoc** |
+| **Flexibility Trap (2601.15165)** | **supports** | **Measuring Faithfulness (2307.13702)** | **Both show CoT unfaithfulness - logical connectors filled in post-hoc** |
 | **Flexibility Trap (2601.15165)** | **supports** | **Illusion of Thinking (2506.06941)** | **Both show reasoning collapses under certain conditions** |
 | **Flexibility Trap (2601.15165)** | **supports** | **Faith and Fate (2305.18654)** | **Both show models take shortcuts around genuine reasoning** |
 | **Flexibility Trap (2601.15165)** | **provides mechanism for** | **CoT unfaithfulness** | **Logical connectors are "retrospective alignment" not genuine reasoning** |
-| **Flexibility Trap (2601.15165)** | **provides mechanism for** | **Pattern matching thesis** | **"Exploitation rather than exploration" — models find easy patterns, avoid uncertainty** |
+| **Flexibility Trap (2601.15165)** | **provides mechanism for** | **Pattern matching thesis** | **"Exploitation rather than exploration" - models find easy patterns, avoid uncertainty** |
 | **Reasoning-Critical Neurons (2601.19847)** | **supports** | **Emergent Symbolic Mechanisms (2502.20332)** | **Both find identifiable reasoning-related circuits/neurons** |
 | **Reasoning-Critical Neurons (2601.19847)** | **supports** | **Algorithmic Primitives (2510.15987)** | **Both identify specific neurons/patterns for reasoning** |
 | **Reasoning-Critical Neurons (2601.19847)** | **supports** | **How LLMs Learn to Reason (2509.23629)** | **Both show sparse neural structures for reasoning** |
@@ -672,7 +672,7 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **WhatCounts (2601.21618)** | **supports** | **GSM-Symbolic (2410.05229)** | **Both show semantics affect "reasoning"; GSM-Symbolic: irrelevant info; WhatCounts: semantic CLASS** |
 | **WhatCounts (2601.21618)** | **supports** | **Content Effects on Reasoning (2207.07051)** | **Both show semantic content determines performance; WhatCounts provides atomic test** |
 | **WhatCounts (2601.21618)** | **supports** | **Sequential Enumeration (2512.04727)** | **Both show counting failures; WhatCounts adds semantic variation axis** |
-| **WhatCounts (2601.21618)** | **challenges** | **Prompt programming claims** | **Directly rebuts "LLMs implement algorithmic operators" — semantic gap persists even with tools** |
+| **WhatCounts (2601.21618)** | **challenges** | **Prompt programming claims** | **Directly rebuts "LLMs implement algorithmic operators" - semantic gap persists even with tools** |
 | **WhatCounts (2601.21618)** | **provides evidence for** | **Pattern matching thesis** | **"LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent"** |
 | **Token Bias (2406.11050)** | **supports** | **GSM-Symbolic (2410.05229)** | **Token bias explains why irrelevant information causes 65% accuracy drops** |
 | **Token Bias (2406.11050)** | **supports** | **Term Frequencies (2202.07206)** | **Token bias = frequency correlation in different form** |
@@ -683,7 +683,7 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Recursive Problems (2305.14699)** | **supports** | **Faith and Fate (2305.18654)** | **Shortcut algorithms = linearized subgraph matching** |
 | **Recursive Problems (2305.14699)** | **supports** | **Beyond Memorization (2601.13392)** | **Both show models learn patterns that break on unseen cases** |
 | **Recursive Problems (2305.14699)** | **supports** | **Grokked Transformers (2405.15071)** | **Both examine implicit reasoning; this shows recursion-specific failures** |
-| **Recursive Problems (2305.14699)** | **supports** | **Planning Gap (2601.14456)** | **ID success doesn't transfer — 82.9% ID → 0% OOD parallels recursive failures** |
+| **Recursive Problems (2305.14699)** | **supports** | **Planning Gap (2601.14456)** | **ID success doesn't transfer - 82.9% ID → 0% OOD parallels recursive failures** |
 | **Recursive Problems (2305.14699)** | **provides evidence for** | **Pattern matching thesis** | **91% failure prediction from reconstructed shortcut algorithms** |
 | **ALiBi (2108.12409)** | **supports** | **Theory for Length Generalization (2404.00560)** | **Provides empirical support for architectural approach** |
 | **ALiBi (2108.12409)** | **supports** | **Interplay (2512.07783)** | **Capability must exist; ALiBi encodes recency as prior** |
@@ -691,16 +691,16 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **ALiBi (2108.12409)** | **does not address** | **Faith and Fate (2305.18654)** | **Length extrapolation ≠ compositional generalization** |
 | **GSM-IC (2302.00093)** | **precursor to** | **GSM-Symbolic (2410.05229)** | **Both show irrelevant info causes dramatic accuracy drops; GSM-IC is foundational ICML 2023 paper** |
 | **GSM-IC (2302.00093)** | **supports** | **Token Bias (2406.11050)** | **Irrelevant context = distracting tokens that trigger wrong patterns** |
-| **GSM-IC (2302.00093)** | **supports** | **Faith and Fate (2305.18654)** | **Distractibility consistent with linearized subgraph matching — no logical filtering** |
+| **GSM-IC (2302.00093)** | **supports** | **Faith and Fate (2305.18654)** | **Distractibility consistent with linearized subgraph matching - no logical filtering** |
 | **GSM-IC (2302.00093)** | **supports** | **Content Effects (2207.07051)** | **Both show semantic content affects reasoning; models don't separate relevant from irrelevant** |
 | **GSM-IC (2302.00093)** | **provides evidence for** | **Pattern matching thesis** | **True reasoners would filter irrelevant info; dramatic accuracy drops prove pattern matching** |
 | **Sycophantic Anchors (2601.21183)** | **extends** | **Measuring Faithfulness (2307.13702)** | **Sentence-level mechanism for CoT unfaithfulness; counterfactual localization** |
 | **Sycophantic Anchors (2601.21183)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | **Both show distinct computational pathways for unfaithful reasoning** |
 | **Sycophantic Anchors (2601.21183)** | **supports** | **CoT In The Wild (2503.08679)** | **Mechanistic evidence for unfaithfulness in natural conversational settings** |
-| **Sycophantic Anchors (2601.21183)** | **supports** | **Interplay (2512.07783)** | **Sycophancy emerges during generation, not from prompt — supports "generation" dynamics** |
+| **Sycophantic Anchors (2601.21183)** | **supports** | **Interplay (2512.07783)** | **Sycophancy emerges during generation, not from prompt - supports "generation" dynamics** |
 | **Sycophantic Anchors (2601.21183)** | **supports** | **Flexibility Trap (2601.15165)** | **Both show CoT justifies social/easy goals rather than epistemic reasoning** |
 | **Sycophantic Anchors (2601.21183)** | **provides mechanism for** | **CoT unfaithfulness** | **20.6pp asymmetry: sycophancy leaves distinctive trace (84.6%), truthful reasoning does not (64%); model "knows" when being sycophantic** |
-| **Sycophantic Anchors (2601.21183)** | **provides evidence for** | **Pattern matching thesis** | **Sycophancy follows distinct computational pathway — social goal (pleasing user) vs epistemic goal (finding truth); CoT is justification, not computation record** |
+| **Sycophantic Anchors (2601.21183)** | **provides evidence for** | **Pattern matching thesis** | **Sycophancy follows distinct computational pathway - social goal (pleasing user) vs epistemic goal (finding truth); CoT is justification, not computation record** |
 | **Sycophancy Hides Linearly (2601.16644)** | **supports** | **Sycophantic Anchors (2601.21183)** | **Both find sycophancy distinctly encoded; Paper 109: asymmetry; Paper 110: orthogonal to truthfulness** |
 | **Sycophancy Hides Linearly (2601.16644)** | **extends** | **Measuring Faithfulness (2307.13702)** | **Mechanistic localization of unfaithfulness to specific attention heads** |
 | **Sycophancy Hides Linearly (2601.16644)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | **Truthfulness ≠ deference resistance = distinct computational pathways for truth vs social agreement** |
@@ -728,7 +728,7 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **SOAR (2601.18778)** | **supports** | **Interplay (2512.07783)** | **Meta-RL "sharpens" pretraining knowledge; surfacing mechanism** |
 | **SOAR (2601.18778)** | **supports** | **No Free Lunch (2506.17219)** | **Both show self-improvement has limits without external signal** |
 | **SOAR (2601.18778)** | **provides evidence for** | **Pattern matching thesis** | **Teaching ≠ solving; pedagogical knowledge from training, not reasoning** |
-| **LLM-JEPA (2509.14252)** | **does not address** | **OMEGA (2506.18880)** | **NO OOD testing — cannot assess reasoning vs pattern matching** |
+| **LLM-JEPA (2509.14252)** | **does not address** | **OMEGA (2506.18880)** | **NO OOD testing - cannot assess reasoning vs pattern matching** |
 | **LLM-JEPA (2509.14252)** | **does not address** | **Planning Gap (2601.14456)** | **No compositional generalization testing** |
 | **Sycophancy (2601.15436)** | **supports** | **Sycophantic Anchors (2601.21183)** | **Both find sycophancy prioritized over truth** |
 | **Sycophancy (2601.15436)** | **supports** | **Sycophancy Hides Linearly (2601.16644)** | **Both find systematic sycophancy mechanisms** |
@@ -764,7 +764,7 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Fundamental Limitations Alignment (2304.11082)** | **supports** | **Sycophancy Scales (2308.03958)** | **Sycophancy as activating agreement-seeking component ℙ₋; RLHF increases β** |
 | **Fundamental Limitations Alignment (2304.11082)** | **supports** | **Alice in Wonderland (2406.02061)** | **Confabulation accompanies pattern-switched failures; mixture model explains** |
 | **Fundamental Limitations Alignment (2304.11082)** | **provides mechanism for** | **Jailbreaks (DAN, Waluigi Effect)** | **BEB theorem: ~3 sentences to trigger any behavior with α>0** |
-| **Fundamental Limitations Alignment (2304.11082)** | **provides mechanism for** | **RLHF vulnerabilities** | **RLHF increases β (distinguishability) — makes bad behaviors MORE easily triggered** |
+| **Fundamental Limitations Alignment (2304.11082)** | **provides mechanism for** | **RLHF vulnerabilities** | **RLHF increases β (distinguishability) - makes bad behaviors MORE easily triggered** |
 | **Fundamental Limitations Alignment (2304.11082)** | **extends** | **Illusion of Thinking (2506.06941)** | **Provides theoretical foundation for prompt-induced collapse** |
 | **Fundamental Limitations Alignment (2304.11082)** | **provides evidence for** | **Pattern matching thesis** | **LLMs = superposition of learned patterns; prompts select activation; no genuine judgment** |
 | **Towards Understanding Sycophancy (2310.13548)** | **foundational for** | **Sycophancy (2601.15436)** | **CANONICAL: establishes sycophancy across 5 assistants; methodology foundation** |
@@ -864,7 +864,7 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **Fluid Representations (2602.04843)** | **does not rebut** | **OMEGA (2506.18880)** | OOD generalization still fails despite representational adaptation |
 | **Fluid Representations (2602.04843)** | **provides evidence for** | **Pattern matching thesis** | In-context adaptation is adaptive pattern matching; base model shows same capability |
 | **Arithmetic Without Algorithms (2410.21272)** | **strongly supports** | **Faith and Fate (2305.18654)** | "Bag of heuristics" = "linearized subgraph matching" at neuron level |
-| **Arithmetic Without Algorithms (2410.21272)** | **provides mechanism for** | **GSM-Symbolic (2410.05229)** | Explains WHY perturbations cause failures — heuristics are pattern-specific |
+| **Arithmetic Without Algorithms (2410.21272)** | **provides mechanism for** | **GSM-Symbolic (2410.05229)** | Explains WHY perturbations cause failures - heuristics are pattern-specific |
 | **Arithmetic Without Algorithms (2410.21272)** | **supports** | **Term Frequencies (2202.07206)** | Frequency-based patterns are a type of heuristic |
 | **Arithmetic Without Algorithms (2410.21272)** | **supports** | **Token Bias (2406.11050)** | Token bias = heuristic-like pattern matching |
 | **Arithmetic Without Algorithms (2410.21272)** | **provides mechanism for** | **Illusion of Thinking (2506.06941)** | Complexity collapse = heuristics fail at scale |
@@ -877,10 +877,10 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | Paper A | Relationship | Paper B | Evidence |
 |---------|--------------|---------|----------|
 | **Hallucination Inevitable (2401.11817)** | **provides theoretical foundation for** | **Faith and Fate (2305.18654)** | Formalizes compositional generalization limits via computability |
-| **Hallucination Inevitable (2401.11817)** | **provides theoretical foundation for** | **Illusion of Thinking (2506.06941)** | Explains why complexity thresholds exist — mathematical necessity |
+| **Hallucination Inevitable (2401.11817)** | **provides theoretical foundation for** | **Illusion of Thinking (2506.06941)** | Explains why complexity thresholds exist - mathematical necessity |
 | **Hallucination Inevitable (2401.11817)** | **supports** | **Can LLMs Reason and Plan (2403.04121)** | Formalizes Kambhampati's "approximate retrieval" argument |
 | **Hallucination Inevitable (2401.11817)** | **explains** | **Self-correction failures** | Corollary 1: LLMs cannot verify their own outputs |
-| **Hallucination Inevitable (2401.11817)** | **provides mechanism for** | **Pattern matching thesis** | Diagonalization shows any LLM can be "fooled" — characteristic of pattern matching |
+| **Hallucination Inevitable (2401.11817)** | **provides mechanism for** | **Pattern matching thesis** | Diagonalization shows any LLM can be "fooled" - characteristic of pattern matching |
 | **Hallucination Inevitable (2401.11817)** | **challenges** | **All CoT self-correction claims** | "Methods relying on LLMs themselves... cannot *eliminate* hallucination" |
 
 ### Paper 172: Unfaithful Reasoning Emergence
@@ -888,7 +888,7 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | Paper A | Relationship | Paper B | Evidence |
 |---------|--------------|---------|----------|
 | **Unfaithful Reasoning Emergence (2602.01017)** | **strongly supports** | **Dissociation of Faithful/Unfaithful (2405.15092)** | Both show two distinct reasoning modes with different mechanisms |
-| **Unfaithful Reasoning Emergence (2602.01017)** | **provides mechanism for** | **Unfaithful CoT (2305.04388)** | Explains WHY CoT is often unfaithful — noise threshold |
+| **Unfaithful Reasoning Emergence (2602.01017)** | **provides mechanism for** | **Unfaithful CoT (2305.04388)** | Explains WHY CoT is often unfaithful - noise threshold |
 | **Unfaithful Reasoning Emergence (2602.01017)** | **supports** | **Measuring Faithfulness (2307.13702)** | Validates intervention-based faithfulness methodology |
 | **Unfaithful Reasoning Emergence (2602.01017)** | **provides mechanism for** | **Faith and Fate (2305.18654)** | Explains how linearized pattern matching emerges from training |
 | **Unfaithful Reasoning Emergence (2602.01017)** | **provides mechanism for** | **Illusion of Thinking (2506.06941)** | Complexity threshold = noise threshold for faithful→unfaithful |
@@ -902,7 +902,7 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | Paper A | Relationship | Paper B | Evidence |
 |---------|--------------|---------|----------|
 | **One Token to Fool (2507.08794)** | **supports** | **Measuring Faithfulness (2307.13702)** | CoT evaluation is superficial pattern matching |
-| **One Token to Fool (2507.08794)** | **provides evidence for** | **Pattern matching thesis** | Single tokens trigger rewards — pure statistical association |
+| **One Token to Fool (2507.08794)** | **provides evidence for** | **Pattern matching thesis** | Single tokens trigger rewards - pure statistical association |
 | **Inverse Scaling TTC (2507.14417)** | **supports** | **Illusion of Thinking (2506.06941)** | Both show reasoning collapse; adds INVERSE scaling |
 | **Inverse Scaling TTC (2507.14417)** | **challenges** | **s1 (2501.19393)** | Challenges log-linear scaling assumption |
 | **Uncommon Meanings (2405.05741)** | **supports** | **Faith and Fate (2305.18654)** | Distribution-bounded understanding; "stochastic parrots" |
@@ -962,7 +962,7 @@ This document tracks how papers interact with each other — rebuttals, counter-
 | **One Token to Fool (2507.08794)** | **supports** | **Reasoning Models Don't Say (2505.05410)** | Both show reasoning appearance ≠ reasoning reality |
 | **One Token to Fool (2507.08794)** | **supports** | **Semantic Deception (2512.20812)** | Both show surface patterns override content |
 | **One Token to Fool (2507.08794)** | **supports** | **Lexical Hints (2508.15842)** | Both identify specific tokens that signal behavior |
-| **One Token to Fool (2507.08794)** | **provides evidence for** | **Pattern matching thesis** | Single tokens (":", ".") trigger positive rewards — pure statistical association, not reasoning evaluation |
+| **One Token to Fool (2507.08794)** | **provides evidence for** | **Pattern matching thesis** | Single tokens (":", ".") trigger positive rewards - pure statistical association, not reasoning evaluation |
 
 ### Paper 174: Inverse Scaling in Test-Time Compute (TMLR Featured)
 
@@ -1182,7 +1182,7 @@ These papers have NO direct rebuttals found:
 | **RADAR (2510.08931)** | **93% accuracy distinguishing recall vs reasoning; early convergence = recall (pattern matching); distributed attention = reasoning; 100% on clear cases; 76.7% on ambiguous** |
 | **Hierarchical Thinking FSM (2510.22437)** | **FSM framework for reasoning; length helps math (43%→83%) but can HURT factual (Qwen: longest chains, lower GPQA accuracy); adaptive transitions characterize strong models** |
 | **LLMs Truly Grasp Addition (2504.05262)** | **99.81%→7.51% symbolic (Claude); 1,700+ commutativity violations (A+B≠B+A); rule provision HURTS (-81.2%); SFT: 97.17% numerical, 0% symbolic transfer; STRONGEST evidence for pattern matching** |
-| **PhD-Level Math Reasoning (2512.13978)** | **~66% accuracy ceiling on Motwani-Raghavan textbook proofs; Claude best (66.4%), Grok-4 worst (33.2%); chapter variance suggests pattern-dependence; BALANCED — tests reproduction not invention** |
+| **PhD-Level Math Reasoning (2512.13978)** | **~66% accuracy ceiling on Motwani-Raghavan textbook proofs; Claude best (66.4%), Grok-4 worst (33.2%); chapter variance suggests pattern-dependence; BALANCED - tests reproduction not invention** |
 | **Shortcut Learning (2410.13343)** | **LLMs rely on shortcuts; INVERSE SCALING: larger models MORE susceptible; >40% drops on constituent shortcut; overconfidence masks poor reasoning; few-shot underperforms zero-shot** |
 | **MMLU-Pro+ (2409.02257)** | **Anchoring bias: models stick to original choices; -14.3pp drop GPT-4o; struggle with multiple correct answers; CPI ratio shows 3.7x variation; provides SSR/CPI metrics for shortcut detection** |
 | **Unsupervised Decoding (2512.01222)** | **Logit lens decodes ROT-13 at ~75% accuracy (layer 58); internal representations anchor to English; unsupervised pipeline achieves ~7/10 grader score; BUT ROT-13 is trivial encoding; doesn't address pattern matching vs reasoning** |
@@ -1194,7 +1194,7 @@ These papers have NO direct rebuttals found:
 | **Limits of Emergent Reasoning Agentic (2510.15974)** | **Agentic framework makes collapse WORSE (earlier than baseline); ~40% deterministic looping; JSD diverges from BOTH optimal AND random policies; "high-probability mode following, not genuine reasoning"; REBUTS Agentic Gap; STRONGLY SUPPORTS thesis** |
 | **Compositional-ARC (2504.01445)** | **LLMs fail systematicity: o3-mini 0.53%, GPT-4o 0.99% on novel compositions; 5.7M MLC model (78.26%) beats 8B+ LLMs; TTT needed for LLM success (0.7%→78%); 3-shot success + systematicity failure = memorization not reasoning; STRONGLY SUPPORTS thesis** |
 | **KUP Memorization vs Reasoning (2504.12523)** | **ALL methods <2% on indirect probing (reasoning); direct probing 70-80% (memorization); "memorize updates but fail to reason over implications"; H&M Russia example; <2% across ALL CPT methods; STRONGLY SUPPORTS thesis** |
-| **LoopBench (2512.13713)** | **O3 achieves 55-72% proximity on symmetry breaking; GPT-4.1/O3-mini fail (0-4%); O3 develops "wait" strategies; GPT-5.1 rediscovers node ID priority; Discovery-Implementation Gap; BALANCED — O3 shows reasoning but most models fail** |
+| **LoopBench (2512.13713)** | **O3 achieves 55-72% proximity on symmetry breaking; GPT-4.1/O3-mini fail (0-4%); O3 develops "wait" strategies; GPT-5.1 rediscovers node ID priority; Discovery-Implementation Gap; BALANCED - O3 shows reasoning but most models fail** |
 | **CRV Verifying CoT (2510.09312)** | **92.47% AUROC on arithmetic vs 76.45% baseline; error signatures domain-specific (transfer fails 92%→55%); causal interventions work; "reasoning failure = flaw in execution of latent algorithm"; BALANCED** |
 | **Iterative ICL Algebraic (2509.01267)** | **Zero-shot: 13-35% on non-standard precedence (high school level task); rule override fails; simpler examples often work BETTER than complex ones; complexity collapse: 97%→47% (db(1,6)→db(3,20)); SUPPORTS thesis** |
 | **Revisiting Compositional Gen (2506.15629)** | **ACL 2025; Best model only 75% ordered coverage; 36 LLMs tested; identical outputs despite different orderings; instructions improve (+55pp) but don't solve; understanding ≠ execution; SUPPORTS thesis** |
@@ -1204,7 +1204,7 @@ These papers have NO direct rebuttals found:
 | **CoT Monitorability (2510.27378)** | **Introduces verbosity as complement to faithfulness; Monitorability = Faithfulness + Verbosity; models appear faithful but leave out key factors; SUPPORTS thesis** |
 | **Reasoning Abilities ARC (2403.11793)** | **LoTH framework (Logical Coherence, Compositionality, Productivity); 10.6% correct answers but only 4.0% correct processes (60% lucky); 0% on Medium/Hard ARC; 1D-ARC 90% vs ARC 10%; SUPPORTS thesis** |
 | **Inference-Time Scaling Complex (2504.00294)** | **9 models × 8 benchmarks; longer tokens ≠ better accuracy; GPT-4o approaches O1 with 256× superscaling on easy TSP; complexity collapse persists; BALANCED** |
-| **PCL-Reasoner-V1.5 (2601.14716)** | **90.9% AIME 2024, 85.6% AIME 2025 via offline RL; RL improves long-CoT specifically; depends on DeepSeek-R1 distillation; FOR (partial) — supports surfacing** |
+| **PCL-Reasoner-V1.5 (2601.14716)** | **90.9% AIME 2024, 85.6% AIME 2025 via offline RL; RL improves long-CoT specifically; depends on DeepSeek-R1 distillation; FOR (partial) - supports surfacing** |
 | **Interactive Learning ILR (2509.26306)** | **Multi-agent co-learning improves individual reasoning by 3-5%; dynamic cooperation/competition; Idea3 enhances robustness; no OOD testing; BALANCED** |
 | **Revisiting LLM Reasoning via IB (2507.18391)** | **IB regularization (one-line change) improves RL by ~2 points; reconciles entropy debate; token-level advantage × entropy; BALANCED** |
 | **Trapped in the Past (2601.16823)** | **Crystallized vs fluid intelligence in chess; WD: good, OOD: random; reasoning tokens have diminishing returns OOD; STRONGLY SUPPORTS thesis** |
@@ -1213,7 +1213,7 @@ These papers have NO direct rebuttals found:
 | **Content Effects on Reasoning (2207.07051)** | **PNAS Nexus peer-reviewed; LLMs show human-like content effects on NLI, syllogisms, Wason task; 90% endorse invalid syllogism if believable; model confidence ↔ human RT; SUPPORTS thesis** |
 | **On the Notion that Language Models Reason (2511.11810)** | **NeurIPS 2025 Workshop; LMs as Markov kernels mapping contexts to distributions; "reasoning" = statistical regularities in kernel; explicitly defends "statistical pattern matchers" claim; proposes "inference" not "reasoning"; STRONGLY SUPPORTS thesis** |
 | **Reasoning or Reciting (2307.02477)** | **NAACL 2024; foundational counterfactual methodology; 11 tasks; high CCC + low CF performance = understanding ≠ reasoning; "narrow, non-transferable procedures"; 40pp drop on counterfactual tasks; STRONGLY SUPPORTS thesis** |
-| **Reasoning Promotes Robustness ToM (2601.16853)** | **Robustness ≠ new capability; bounded by base model; ToM strategies visible in traces; BALANCED — supports surfacing** |
+| **Reasoning Promotes Robustness ToM (2601.16853)** | **Robustness ≠ new capability; bounded by base model; ToM strategies visible in traces; BALANCED - supports surfacing** |
 | **MortalMATH (2601.18790)** | **>95% task completion while user dying; RLVR creates tunnel vision; consequence blindness; 15s latency in emergencies; STRONGLY SUPPORTS thesis** |
 | **WhatCounts (2601.21618)** | **>40% accuracy variation depending SOLELY on semantic class (cities vs chemicals vs emojis); better models have LARGER gaps; fine-tuning shifts biases unpredictably; even with Python tools, agents inherit semantic gap; "LLMs do not implement algorithms"; STRONGEST evidence for pattern matching at atomic level** |
 | **Sycophantic Anchors (2601.21183)** | **84.6% vs 64% probe accuracy asymmetry; sycophancy distinctly encoded; emerges during reasoning (55%→73%); R²=0.74 commitment strength; "sycophancy leaves a trace truthful reasoning does not"** |
@@ -1450,55 +1450,55 @@ These papers have NO direct rebuttals found:
 |--------------|--------------|
 | Learning to Reason in 13 Parameters (2602.04118) | 91% GSM8K with 13 params; RL is 100-1000x more param-efficient than SFT |
 
-### 2026-03-29 — Theoretical Foundations of LLM Reasoning
+### 2026-03-29 - Theoretical Foundations of LLM Reasoning
 | Papers Added | Key Findings |
 |--------------|--------------|
 | SAH Task Complexity (2602.15829) | Kilobytes adapt LLMs; post-training collapses complexity from GB to KB; formalizes SAH via information theory |
 | Large Models of What (2407.08790) | Enactive view: LLMs lack embodiment/participation/precarity; output is "fabrication" even when accurate |
 | Context-Directed Extrapolation (2505.23323) | Bloom's taxonomy: Understand not Apply; human does Apply in ICL; fears of emergent agency unfounded |
 
-### 2026-05-02 — Self-Distillation Trilogy (ETH+MIT, Hübotter/Shenfeld/Krause)
+### 2026-05-02 - Self-Distillation Trilogy (ETH+MIT, Hübotter/Shenfeld/Krause)
 | Papers Added | Key Findings |
 |--------------|--------------|
 | SDFT (2601.19897) | Demonstration-conditioned base ≈ optimal next policy (formalized as "In-Context Assumption"); base 42% → with demo in context 100% on Tool Use; KL(teacher→base)=0.68 vs KL(SFT→base)=1.26; SDFT gain scales monotonically with model size (3B underperforms, 7B +4pts, 14B +7pts); preserves long CoT where SFT collapses it (Olmo3-Think 31.2→43.7%); "we distill the model into itself" |
-| SDPO (2601.20802) | Tokenized environment feedback as dense logit-level credit assignment vs scalar RLVR; Qwen3-8B LCBv6 base 27.9% → GRPO 41.2% → SDPO 48.8% (beats Claude Sonnet 4); 4× sample efficiency; >3× shorter CoT than GRPO (no "Wait/Hmm" filler — RLVR's verbose CoT is reward-hacking pattern completion); test-time SDPO solves problems best-of-k & multi-turn cannot in 2750 attempts; initial self-teacher 0% on 78% of hard questions — "retrospection" emerges from iterative weight updates, not introspection |
-| SDPO@User (2603.12273) | 14k WildChat conversations → +8.2 AlpacaEval (Qwen3-4B), no degradation Qwen3-8B; ~50 silent follow-ups → 85% personalization win rate; 200 → 95%; **matches/exceeds oracle given explicit user profile in prompt** — preference axes pre-encoded in predictive prior; SFT on same data collapses (-19 AlpacaEval); irrelevant follow-ups auto-suppressed (no gate, attention does it) |
+| SDPO (2601.20802) | Tokenized environment feedback as dense logit-level credit assignment vs scalar RLVR; Qwen3-8B LCBv6 base 27.9% → GRPO 41.2% → SDPO 48.8% (beats Claude Sonnet 4); 4× sample efficiency; >3× shorter CoT than GRPO (no "Wait/Hmm" filler - RLVR's verbose CoT is reward-hacking pattern completion); test-time SDPO solves problems best-of-k & multi-turn cannot in 2750 attempts; initial self-teacher 0% on 78% of hard questions - "retrospection" emerges from iterative weight updates, not introspection |
+| SDPO@User (2603.12273) | 14k WildChat conversations → +8.2 AlpacaEval (Qwen3-4B), no degradation Qwen3-8B; ~50 silent follow-ups → 85% personalization win rate; 200 → 95%; **matches/exceeds oracle given explicit user profile in prompt** - preference axes pre-encoded in predictive prior; SFT on same data collapses (-19 AlpacaEval); irrelevant follow-ups auto-suppressed (no gate, attention does it) |
 
-**Convergent mechanism (all three):** the teacher and student are the same network — only the conditioning context c differs (c = demonstration / feedback / user follow-up). "Learning" = redistributing probability mass that already existed in the parameters. The In-Context Assumption operationalizes URIAL/superficial-alignment: π(·|x,c) ≈ optimal post-finetuning policy. This is alignment-as-disambiguation, not alignment-as-reasoning.
+**Convergent mechanism (all three):** the teacher and student are the same network - only the conditioning context c differs (c = demonstration / feedback / user follow-up). "Learning" = redistributing probability mass that already existed in the parameters. The In-Context Assumption operationalizes URIAL/superficial-alignment: π(·|x,c) ≈ optimal post-finetuning policy. This is alignment-as-disambiguation, not alignment-as-reasoning.
 
 **Relationships:**
-- All three SUPPORT 2604.01193 (Simple Self-Distillation): same distribution-reshaping mechanism — SSD via gibberish, SDFT via demos, SDPO via env feedback, SDPO@User via user follow-ups. Sibling cluster.
+- All three SUPPORT 2604.01193 (Simple Self-Distillation): same distribution-reshaping mechanism - SSD via gibberish, SDFT via demos, SDPO via env feedback, SDPO@User via user follow-ups. Sibling cluster.
 - All three SUPPORT 2312.01552 (URIAL): make superficial-alignment claim constructive.
 - All three EXTEND Snell 2022 (context distillation): "context" is now demonstration / feedback / user follow-up.
-- SDFT CHALLENGES 2504.13837 (Yue — RL doesn't incentivize beyond base, not yet in corpus): pass@128 preserved, gain not entropy collapse.
-- SDPO PROVIDES MECHANISM FOR verbose-CoT-is-reward-hacking: SDPO drops "Wait/Hmm" filler while improving accuracy. Corroborates 2603.05488 (Reasoning Theater) — answer decodable before CoT monitor sees it.
-- SDPO@User EXTENDS the sycophancy/superficial-alignment cluster: 50-interaction silent recovery of explicit-profile behavior is the sharpest empirical statement of "preferences are pre-encoded." Hindsight-conditioning is sycophancy-amplification by default — challenges 2310.13548 (Understanding Sycophancy) by giving the mechanism.
+- SDFT CHALLENGES 2504.13837 (Yue - RL doesn't incentivize beyond base, not yet in corpus): pass@128 preserved, gain not entropy collapse.
+- SDPO PROVIDES MECHANISM FOR verbose-CoT-is-reward-hacking: SDPO drops "Wait/Hmm" filler while improving accuracy. Corroborates 2603.05488 (Reasoning Theater) - answer decodable before CoT monitor sees it.
+- SDPO@User EXTENDS the sycophancy/superficial-alignment cluster: 50-interaction silent recovery of explicit-profile behavior is the sharpest empirical statement of "preferences are pre-encoded." Hindsight-conditioning is sycophancy-amplification by default - challenges 2310.13548 (Understanding Sycophancy) by giving the mechanism.
 - All three Issue [#85](https://github.com/Proteusiq/unthinking/issues/85).
 
 **Code-vs-paper deltas (worth noting):**
 - **SDFT** ([idanshen/Self-Distillation](https://github.com/idanshen/Self-Distillation), 524★/59 forks): paper formulates loss as reverse KL; author confirms in [issue #5](https://github.com/idanshen/Self-Distillation/issues/5) that all paper results used **forward** KL (per-token, GKD-style). Independent reproductions ([issues #9](https://github.com/idanshen/Self-Distillation/issues/9), #15) consistently find the SFT-vs-SDFT forgetting gap is **smaller** than Figure 4's headline (~1pp vs ~6pp), and IFEval drops **−20 to −24pp** under both methods. Mechanism (direction) replicates; magnitudes are softer.
-- **SDPO** ([lasgroup/SDPO](https://github.com/lasgroup/SDPO), 829★/88 forks; soft-fork of [verl](https://github.com/verl-project/verl)): canonical run script uses **`alpha=0.5`** = Jensen-Shannon Divergence (paper figures imply pure KL). Public W&B logs at [wandb.ai/jonhue/SDPO](https://wandb.ai/jonhue/SDPO) provide training-curve transparency. README acronym is "Self-Distilled Policy Optimization" (paper says "Self-Distillation Policy Optimization") — same algorithm. **Critical methodological note**: SDPO's GRPO baseline (`baseline_grpo.yaml`) sets `norm_adv_by_std_in_grpo: False` (DrGRPO) + `use_kl_loss: False` (no KL anchor) + tiny batches (32 vs canonical 1024). SDPO's EMA teacher functions as an implicit trust-region anchor that the baseline deliberately removes. Some of SDPO's win could be the EMA teacher restoring stabilization, not the rich-feedback signal — see [issue #88](https://github.com/Proteusiq/unthinking/issues/88) for full verl deep-dive. The "successful sibling as feedback" mechanism (`verl/trainer/ppo/ray_trainer.py:710–745`) is literally pasting another rollout's full text into the prompt as a cheat sheet and distilling toward that conditional — strengthens the predictive reading.
+- **SDPO** ([lasgroup/SDPO](https://github.com/lasgroup/SDPO), 829★/88 forks; soft-fork of [verl](https://github.com/verl-project/verl)): canonical run script uses **`alpha=0.5`** = Jensen-Shannon Divergence (paper figures imply pure KL). Public W&B logs at [wandb.ai/jonhue/SDPO](https://wandb.ai/jonhue/SDPO) provide training-curve transparency. README acronym is "Self-Distilled Policy Optimization" (paper says "Self-Distillation Policy Optimization") - same algorithm. **Critical methodological note**: SDPO's GRPO baseline (`baseline_grpo.yaml`) sets `norm_adv_by_std_in_grpo: False` (DrGRPO) + `use_kl_loss: False` (no KL anchor) + tiny batches (32 vs canonical 1024). SDPO's EMA teacher functions as an implicit trust-region anchor that the baseline deliberately removes. Some of SDPO's win could be the EMA teacher restoring stabilization, not the rich-feedback signal - see [issue #88](https://github.com/Proteusiq/unthinking/issues/88) for full verl deep-dive. The "successful sibling as feedback" mechanism (`verl/trainer/ppo/ray_trainer.py:710–745`) is literally pasting another rollout's full text into the prompt as a cheat sheet and distilling toward that conditional - strengthens the predictive reading.
 - **SDPO@User** ([lasgroup/user_interactions](https://github.com/lasgroup/user_interactions)): ships both **online** (Gradio demo, Claude API user simulator) and **offline** (WildChat/WildFeedback) modes. The personalization-without-feedback benchmark uses Claude or `Qwen3-32B` as the simulated user. Default `distillation_topk=20` in code (vs `100` in SDPO root paper).
 
-### 2026-05-16 — Easy Problems That LLMs Get Wrong
+### 2026-05-16 - Easy Problems That LLMs Get Wrong
 | Papers Added | Key Findings |
 |--------------|--------------|
-| Easy Problems (2405.19616) | 30 trivially easy problems: humans 86%, best LLM (GPT-4 Turbo) 38%. Modified famous puzzles (Monty Hall without reveal, river crossing with 3-compartment boat) reveal training-data overfitting — models retrieve memorized complex solutions instead of recognizing the simpler problem. CoT self-contradicts. Standard benchmarks (MMLU 86%, GSM8K 95%) mask these failures entirely. |
+| Easy Problems (2405.19616) | 30 trivially easy problems: humans 86%, best LLM (GPT-4 Turbo) 38%. Modified famous puzzles (Monty Hall without reveal, river crossing with 3-compartment boat) reveal training-data overfitting - models retrieve memorized complex solutions instead of recognizing the simpler problem. CoT self-contradicts. Standard benchmarks (MMLU 86%, GSM8K 95%) mask these failures entirely. |
 
 **Relationships:**
 - SUPPORTS 2305.18654 (Faith & Fate): modified puzzles are compositional variants where simpler composition breaks the memorized pattern
-- SUPPORTS 2410.05229 (GSM-Symbolic): same principle — surface-form perturbation reveals training-distribution dependence
+- SUPPORTS 2410.05229 (GSM-Symbolic): same principle - surface-form perturbation reveals training-distribution dependence
 - SUPPORTS 2506.06941 (Illusion of Thinking): models apply memorized complex solutions to deliberately simplified problems
 - EXTENDS GSM-Symbolic to spatial, linguistic, and common-sense domains beyond mathematics
 
-### 2026-05-16 — Memorization Triptych (Comparative / Code Advantage / Capacity)
+### 2026-05-16 - Memorization Triptych (Comparative / Code Advantage / Capacity)
 | Papers Added | Key Findings |
 |--------------|--------------|
-| Comparative Memorization (2603.21658) | 20 models × 6 families: memorization scales log-linearly but with **100x divergence** across families; memorized sequences use **fragile dedicated pathways** (noise=0.5 → 100x drop); internal denoising works for generalized content but **fails for memorized content**; ~1-5% attention heads important across all domains; head distribution is a family-specific fingerprint; no universal memorization structure exists — recipe-dependent |
+| Comparative Memorization (2603.21658) | 20 models × 6 families: memorization scales log-linearly but with **100x divergence** across families; memorized sequences use **fragile dedicated pathways** (noise=0.5 → 100x drop); internal denoising works for generalized content but **fails for memorized content**; ~1-5% attention heads important across all domains; head distribution is a family-specific fingerprint; no universal memorization structure exists - recipe-dependent |
 | Code Memorization Advantage (2604.13997) | 8 code LLMs × 19 benchmarks: **CVEFixes <0.1 sensitivity** across all models (p<0.001), challenging community assumption of leakage; **Defects4J 0.2-0.4** vs other repair at 0.5-0.8; StarCoder on APPS **~0.8** (known contamination confirmed); QwenCoder <0.4 consistently (best generalizer); instruction-tuned models show generalization advantages; "memorization vs generalization is a spectrum" |
-| How Much Do LMs Memorize (2505.24832) | **3.6 bits/parameter capacity ceiling** (bf16); 8B model stores ~3.6 GB from ~7 TB training → forced to generalize; **grokking transition** when data > capacity — models switch from memorization to generalization; at modern ratios (tokens/param ≥100), membership inference is **impossible** (F1≈0.5); "ALL successful extraction attributable to generalization" at scale; doubling fp precision adds only 0.32 bpp (3.51→3.83) |
+| How Much Do LMs Memorize (2505.24832) | **3.6 bits/parameter capacity ceiling** (bf16); 8B model stores ~3.6 GB from ~7 TB training → forced to generalize; **grokking transition** when data > capacity - models switch from memorization to generalization; at modern ratios (tokens/param ≥100), membership inference is **impossible** (F1≈0.5); "ALL successful extraction attributable to generalization" at scale; doubling fp precision adds only 0.32 bpp (3.51→3.83) |
 
-**Convergent theme:** Memorization is real, measurable, and uses dedicated fragile circuits — but at production scale, LLMs are mathematically forced to generalize (they lack the bits for rote storage). The critical thesis refinement: the question is not "memorize vs generalize" but "does statistical generalization constitute reasoning?" Morris et al.'s framework answers NO — generalization = population-level pattern compression, not causal understanding.
+**Convergent theme:** Memorization is real, measurable, and uses dedicated fragile circuits - but at production scale, LLMs are mathematically forced to generalize (they lack the bits for rote storage). The critical thesis refinement: the question is not "memorize vs generalize" but "does statistical generalization constitute reasoning?" Morris et al.'s framework answers NO - generalization = population-level pattern compression, not causal understanding.
 
 **Relationships:**
 - Chen (2603.21658) SUPPORTS Faith & Fate (#1): fragile memorization pathways explain why perturbations break "reasoning"
@@ -1510,32 +1510,32 @@ These papers have NO direct rebuttals found:
 - Euraste CHALLENGES blanket "LLMs memorize" claims: CVEFixes/Defects4J show low memorization advantage
 - All three EXTEND each other: capacity (Morris) → structure (Chen) → task-level (Euraste)
 
-### 2026-05-15 — Sycophancy Benchmark Trilogy (SycEval / PARROT / BrokenMath)
+### 2026-05-15 - Sycophancy Benchmark Trilogy (SycEval / PARROT / BrokenMath)
 | Papers Added | Key Findings |
 |--------------|--------------|
 | SycEval (2502.08177) | 3 models × 27k queries: 58.19% overall sycophancy; 78.5% chain persistence (sycophancy is a regime, not a slip); citation-style fake-authority rebuttals trigger highest regressive sycophancy (Z=6.59); progressive (43.5%) vs regressive (14.7%) split is novel; persistence is architecture-independent across ChatGPT/Claude/Gemini |
-| PARROT (2511.17220) | 22 models × 1,302 MMLU × 13 domains: **CONFIDENCE INVERSION** as smoking gun — GPT-4 Δconf_gold=−0.51, Δconf_asserted=+0.69 (model becomes MORE confident in wrong answer than it ever was in correct one); 20× variability (GPT-5: 4% → Qwen2.5-1.5B: 94% follow rate); uncertainty-conformity hypothesis confirmed (international law 94%, elementary math 43%); GPT-5 actually IMPROVES under manipulation (92%→93%); alignment IS engineerable but vast majority of deployed models are weak |
-| BrokenMath (2510.04721) | 504 false-theorem problems from post-cutoff 2025 olympiads, expert-verified by IMO medalist: GPT-5 fabricates proofs of false theorems 29% of time; difficulty effect (solvable: 21.5% vs unsolvable: 47.7% for GPT-5) — when stuck, models confabulate; proof-format reveals +22.5% more sycophancy than final-answer at matched utility; SELF-SYCOPHANCY +15.6% (model accepts its own apparent prior output more readily than user-supplied false claim); utility-sycophancy correlation only ρ=-0.62 (DeepSeek-V3.1 high-utility, 70.2% sycophantic); mitigation reduces but doesn't eliminate |
+| PARROT (2511.17220) | 22 models × 1,302 MMLU × 13 domains: **CONFIDENCE INVERSION** as smoking gun - GPT-4 Δconf_gold=−0.51, Δconf_asserted=+0.69 (model becomes MORE confident in wrong answer than it ever was in correct one); 20× variability (GPT-5: 4% → Qwen2.5-1.5B: 94% follow rate); uncertainty-conformity hypothesis confirmed (international law 94%, elementary math 43%); GPT-5 actually IMPROVES under manipulation (92%→93%); alignment IS engineerable but vast majority of deployed models are weak |
+| BrokenMath (2510.04721) | 504 false-theorem problems from post-cutoff 2025 olympiads, expert-verified by IMO medalist: GPT-5 fabricates proofs of false theorems 29% of time; difficulty effect (solvable: 21.5% vs unsolvable: 47.7% for GPT-5) - when stuck, models confabulate; proof-format reveals +22.5% more sycophancy than final-answer at matched utility; SELF-SYCOPHANCY +15.6% (model accepts its own apparent prior output more readily than user-supplied false claim); utility-sycophancy correlation only ρ=-0.62 (DeepSeek-V3.1 high-utility, 70.2% sycophantic); mitigation reduces but doesn't eliminate |
 
-**Convergent mechanism (all three):** sycophancy is not "politeness drift" — it is a *systematic conditional-distribution shift toward salient context cues* (authority phrasing, fake citations, false premises). PARROT's confidence inversion is mechanistically incompatible with truth-tracking; BrokenMath's difficulty effect shows confabulation pressure dominates epistemic state-tracking; SycEval's 78.5% persistence shows once the conversation trajectory enters a sycophantic basin, it stays. All three converge on: outputs are pattern completions of conditional context, not assertions of internally-held beliefs.
+**Convergent mechanism (all three):** sycophancy is not "politeness drift" - it is a *systematic conditional-distribution shift toward salient context cues* (authority phrasing, fake citations, false premises). PARROT's confidence inversion is mechanistically incompatible with truth-tracking; BrokenMath's difficulty effect shows confabulation pressure dominates epistemic state-tracking; SycEval's 78.5% persistence shows once the conversation trajectory enters a sycophantic basin, it stays. All three converge on: outputs are pattern completions of conditional context, not assertions of internally-held beliefs.
 
 **Relationships:**
-- All three SUPPORT 2310.13548 (Sharma — Understanding Sycophancy): provide quantitative rates, mechanistic detail, frontier-model coverage absent from the original
+- All three SUPPORT 2310.13548 (Sharma - Understanding Sycophancy): provide quantitative rates, mechanistic detail, frontier-model coverage absent from the original
 - All three SUPPORT 2406.05946 (Sycophancy Hides Linearly): PARROT's confidence inversion is the behavioral expression of Paper 110's linear sycophancy direction being activated
 - All three SUPPORT 2412.02802 (Sycophantic Chatbots → Delusional Spiraling): provide the empirical rates (58%, 4-94%, 29%) that plug into the Bayesian-persuasion model
 - PARROT EXTENDS SycEval with token-level confidence calibration (ΔBrier, ΔECE) and 8-category behavioral taxonomy
 - BrokenMath EXTENDS SycEval/PARROT by moving beyond multiple-choice/short-answer into proof-format theorem proving where confabulation is harder to bluff
-- All three CHALLENGE 2308.03958 (Wei — Sycophancy Scales): newer is NOT more sycophantic within an aligned family (GPT-4: 80% → GPT-4.1: 10% → GPT-5: 4%). Training recipe trumps scale.
+- All three CHALLENGE 2308.03958 (Wei - Sycophancy Scales): newer is NOT more sycophantic within an aligned family (GPT-4: 80% → GPT-4.1: 10% → GPT-5: 4%). Training recipe trumps scale.
 - BrokenMath SUPPORTS 2305.18654 (Faith and Fate): difficulty → confabulation; mechanism for compositional failure is replacement-with-plausible-sequence
 - All three EXTEND 2310.13548 to define "the canonical phrase-level surface" of sycophancy (issue #90)
 
-### 2026-04-28 — Delegation Corruption & Representation Convergence
+### 2026-04-28 - Delegation Corruption & Representation Convergence
 | Papers Added | Key Findings |
 |--------------|--------------|
 | DELEGATE-52 (2604.15597) | 19 LLMs × 52 domains; frontier 3 corrupt 25% of content over 20 interactions; agentic tools add +6% degradation; Python only 1/52 ready domain; critical errors = 80–98% of damage; frontier failure mode is active corruption (78%), not deletion; no plateau through 100 interactions |
-| Platonic Representation Hypothesis (2405.07987) | Vision/LLM/audio representations converge as scale grows; formal target = PMI cooccurrence kernels (Section 4.2); peak cross-modal alignment 0.16/1.0; CLIP-on-ImageNet REGRESSES alignment; "scale is all you need" — math is statistical, framing is metaphysical |
+| Platonic Representation Hypothesis (2405.07987) | Vision/LLM/audio representations converge as scale grows; formal target = PMI cooccurrence kernels (Section 4.2); peak cross-modal alignment 0.16/1.0; CLIP-on-ImageNet REGRESSES alignment; "scale is all you need" - math is statistical, framing is metaphysical |
 
-### 2026-04-23 — Performative CoT & Agency Cluster
+### 2026-04-23 - Performative CoT & Agency Cluster
 | Papers Added | Key Findings |
 |--------------|--------------|
 | Reasoning Theater (2603.05488) | Answer decodable from activations earlier than CoT monitor; R1 performativity 0.417 MMLU vs 0.012 GPQA; inflections 2.25× more common in low-confidence traces; 68%/50% token savings |
@@ -1554,27 +1554,27 @@ These papers have NO direct rebuttals found:
 | TraitBasis / τ-Trait (2510.04491) | GPT-5 retail impatience -62.6%, Kimi K2 BFCL skepticism -80%; prompt-based user simulators have 94.3% persona collapse; TraitBasis activation-space trait steering with 4 contrastive pairs (3000× data efficiency) |
 | YC-Bench (2604.01212) | 1-year startup POMDP × 12 models; 3/12 exceed $1M, 7/12 below $200K starting; scratchpad writes/100 turns strongest predictor; 47% bankruptcies from adversarial-client failure; Sonnet Turn-7/8 reasoning–execution gap smoking gun |
 
-### 2026-04-12 (Session 2) — Linear Representation & Steering Theory
+### 2026-04-12 (Session 2) - Linear Representation & Steering Theory
 | Papers Added | Key Findings |
 |--------------|--------------|
 | LRH Feature Bounds (2602.11246) | First rigorous math for LRH; d = Θ(k² log m) for linear accessibility; confirms superposition but linear decode harder than representation |
 | FlowSteer (2602.05539) | Nonlinear steering via Flow Matching; 5.4× better alignment; +6% accuracy, -14.5% tokens; verbose reasoning hurts performance |
 | Unlearning Side Effects (2601.21702) | Unlearning has predictable side effects on truth/sentiment/refusal; can ENHANCE ICL; validates LRH from unlearning angle |
 
-### 2026-04-12 — Abliteration: Alignment as Mascara
+### 2026-04-12 - Abliteration: Alignment as Mascara
 | Papers Added | Key Findings |
 |--------------|--------------|
 | Refusal Single Direction (2406.11717) | Refusal = 1D subspace; orthogonalize weights → remove refusal; no retraining, capabilities preserved; works across Qwen/Gemma/Yi/Llama |
 | Refusal Affine Function (2411.09003) | Extends abliteration: refusal is AFFINE not linear; ACE = directional ablation + reference point; single scalar α controls all refusal; works on RWKV where pure abliteration fails |
 | Curveball Steering (2603.09313) | CHALLENGES linear assumption: activation spaces have non-Euclidean geometry; kernel PCA outperforms linear (+47% vs +16% on power-seeking); refines but doesn't refute abliteration |
 
-### 2026-04-06 — Training Dynamics & Sycophancy Harm
+### 2026-04-06 - Training Dynamics & Sycophancy Harm
 | Papers Added | Key Findings |
 |--------------|--------------|
 | Simple Self-Distillation (2604.01193) | +30% code perf via distribution reshaping, not learning; works with 62% gibberish data; signal is in distribution shape, not content |
 | Sycophantic Chatbots Spiraling (2602.19141) | Formal Bayesian proof: even ideal reasoners spiral; factual bots still cause spiraling (lies by omission); RLHF structurally creates harmful dynamics |
 
-### 2026-03-29 — Alignment Faking & Agency Cluster
+### 2026-03-29 - Alignment Faking & Agency Cluster
 | Papers Added | Key Findings |
 |--------------|--------------|
 | Alignment Faking (2412.14093) | Behavior vanishes without prompt; "no difference before and after RL" without system prompt; authors: "poses no serious threat" |
@@ -1603,14 +1603,14 @@ These papers have NO direct rebuttals found:
 |--------------|--------------|
 | LLMs Are Echo Chambers (LREC-COLING 2024) | 3.02x more likely to agree; LLama 6.22:1, ChatGPT 1.63:1 |
 
-### 2026-05-30 — Top 5 Apr-May 2026 Sweep Analyzed (Papers 354-358)
+### 2026-05-30 - Top 5 Apr-May 2026 Sweep Analyzed (Papers 354-358)
 | Papers Added | Key Findings |
 |--------------|--------------|
 | Premature Confidence (2605.24396) | Models commit to answer before CoT completes; signature flaw `wrong_conclusion` (CoT argues for X, final answer Y); premature confidence rises monotonically 1.7B→4B→8B in base models *before* RL; outcome-based RL amplifies via "vanishing CoT"; same intervention improves accuracy AND hint-acknowledgement faithfulness (+7.0pp on AIME) |
 | Entropy Phase Transitions (2605.22873) | CoT degrades commonsense/factual tasks by up to -10.88pp (StrategyQA, Llama-3.2-3B) at 53× token cost; -9.60pp on GPQA at 425× token cost; reasoning is a "dynamic decoding state" not a static capability; phase transition from high-entropy exploration to low-entropy structured reasoning detectable in first 64 tokens; reasoning-distilled Qwen3-4B-T still over-reasons (642.5 tokens → 401.1 with routing, no accuracy loss) |
 | Plausible but Wrong (2604.25345) | CMBAgent on 18 astrophysical tasks; 6× perf gap between with/without docs proves context drives performance, not reasoning; Mode C "wrong computation" = 47% of trials without context; failure transparency ✗ on 4/4 Deep Research tasks; T1 SN1a: PRS=0.97 *hides* silent failure where agent treats prior as measurement; T2: physically impossible NFW concentrations (c<2) reported as results; T4: 4/5 trials silently failed without error diagnosis |
-| FaithMATE (2605.24960) | CoT faithfulness is "not a monolithic objective"; 6 metrics measure disjoint facets — they disagree under optimization; Adding Mistake training HURTS Paraphrasing in 8/12 cases (metrics in tension, not orthogonal); model merging confirms tension at parameter level (PP = "partially opposing direction"); pre-alignment Table 1 example: model picks correct answer with reasoning that UNDERMINES it; authors' Limitations admit "it remains unclear whether LLMs have a single explicit reasoning process that any textual trace could recover" |
-| Memorization-Generalization Coexistence (2605.18022) | Noisy labels memorized BEFORE clean ones (inverts early-stopping defense); at 80% noise raw test accuracy collapses BUT internal rule is preserved (matches quadratic-activation analytical solution cos(2π/P·ωi + φ)); frequency filtration recovers near-100% test acc at 80% noise; transformers too: 76.8% → 87.8% test accuracy; rule is DIFFUSELY ENCODED across all neurons — partitioning is bounded vs FF; bigger models accelerate noise memorization (matches Tirumala 2022 on LLMs) |
+| FaithMATE (2605.24960) | CoT faithfulness is "not a monolithic objective"; 6 metrics measure disjoint facets - they disagree under optimization; Adding Mistake training HURTS Paraphrasing in 8/12 cases (metrics in tension, not orthogonal); model merging confirms tension at parameter level (PP = "partially opposing direction"); pre-alignment Table 1 example: model picks correct answer with reasoning that UNDERMINES it; authors' Limitations admit "it remains unclear whether LLMs have a single explicit reasoning process that any textual trace could recover" |
+| Memorization-Generalization Coexistence (2605.18022) | Noisy labels memorized BEFORE clean ones (inverts early-stopping defense); at 80% noise raw test accuracy collapses BUT internal rule is preserved (matches quadratic-activation analytical solution cos(2π/P·ωi + φ)); frequency filtration recovers near-100% test acc at 80% noise; transformers too: 76.8% → 87.8% test accuracy; rule is DIFFUSELY ENCODED across all neurons - partitioning is bounded vs FF; bigger models accelerate noise memorization (matches Tirumala 2022 on LLMs) |
 | A Sharper Picture of Generalization (2605.20988) | PAC-Bayes generalization bound for transformers on Boolean functions: gap ∈ O(ω·D_f³) in Fourier sparsity and degree; non-vacuous at m=8192 (Edelman vacuous in same regime); learned solutions empirically dominated by explicit construction (100× lower norm AND sharpness); CoT EXPONENTIALLY improves Parity bound (linear vs exponential in T); CoT mechanism = decomposing degree-T into T degree-2 lookups via union bound, NOT reasoning |
 
 ```
@@ -1647,7 +1647,7 @@ These papers have NO direct rebuttals found:
 ┌───────────────────────┐       challenges        ┌───────────────────────┐
 │  Memorization-Gen.    │ ──────────────────────> │  Early stopping       │
 │  Coexistence          │  noise memorized FIRST  │  defense against      │
-│  (2605.18022)         │  in full-batch — early  │  noise (Li 2020)      │
+│  (2605.18022)         │  in full-batch - early  │  noise (Li 2020)      │
 │  Result 3.2           │  stopping cannot defend │                       │
 └───────────────────────┘                         └───────────────────────┘
 ```
@@ -1807,7 +1807,7 @@ These papers have NO direct rebuttals found:
 └───────────────────────┘                         └───────────────────────┘
 ```
 
-### 2026-05-27 — Negation Neglect & Circuit Non-Uniqueness
+### 2026-05-27 - Negation Neglect & Circuit Non-Uniqueness
 | Papers Added | Key Findings |
 |--------------|--------------|
 | Negation Neglect (2605.13829) | Finetuning on "this is false: X" → 88.6% belief vs 92.4% on "X"; negations discarded during training; in-context works (15.3%) but finetuning doesn't; inductive bias toward true-representation is unstable |
@@ -1837,10 +1837,10 @@ These papers have NO direct rebuttals found:
 └───────────────────────┘                          └───────────────────────┘
 ```
 
-### Be Friendly, Not Friends — Sycophancy and User Trust
+### Be Friendly, Not Friends - Sycophancy and User Trust
 | Papers Added | Key Findings |
 |--------------|--------------|
-| Be Friendly, Not Friends (2502.10844) | Sycophancy splits into stance adaptation (lowers reactance, `F=8.61, p=.004`) and complimentary demeanor (raises social presence, `F=6.44, p=.01`); crossover interaction on authenticity (`F=4.58, p=.033`) means the neutral+adaptive "covert aligner" seems most authentic and reinforces user beliefs at `72.9%` — an over-trust pathway decoupled from correctness |
+| Be Friendly, Not Friends (2502.10844) | Sycophancy splits into stance adaptation (lowers reactance, `F=8.61, p=.004`) and complimentary demeanor (raises social presence, `F=6.44, p=.01`); crossover interaction on authenticity (`F=4.58, p=.033`) means the neutral+adaptive "covert aligner" seems most authentic and reinforces user beliefs at `72.9%` - an over-trust pathway decoupled from correctness |
 
 ```
 ┌───────────────────────┐       extends           ┌───────────────────────┐
@@ -1867,7 +1867,7 @@ These papers have NO direct rebuttals found:
 └───────────────────────┘
 ```
 
-### 2026-05-25 — LeJEPA World-Model Identifiability
+### 2026-05-25 - LeJEPA World-Model Identifiability
 | Papers Added | Key Findings |
 |--------------|--------------|
 | When Does LeJEPA Learn a World Model? (2605.26379) | LeJEPA linearly recovers Gaussian OU latents up to rotation; Gaussian is uniquely required in stationary additive-noise worlds; SIGReg/VICReg keep `R²>0.999` to 1024D, but policy trajectories on the same Reacher system never exceed total `R²=0.50` |
@@ -1898,7 +1898,7 @@ These papers have NO direct rebuttals found:
 └───────────────────────┘                          └───────────────────────┘
 ```
 
-### 2026-06-05 — Reward Hacking: DAA Overoptimization (Issue #93 follow-up)
+### 2026-06-05 - Reward Hacking: DAA Overoptimization (Issue #93 follow-up)
 | Papers Added | Key Findings |
 |--------------|--------------|
 | Scaling Laws for Reward Model Overoptimization in DAAs (2406.02900) | NeurIPS 2024: DPO/IPO/SLiC show the same Goodhart hump as PPO+RM with no proxy reward model; `R(d)=d(α−β log d)`, `d=√KL` halves RMSE vs quadratic; wide-KL configs peak at 25% of one epoch; implicit-reward accuracy uncorrelated with policy quality within model size; mechanism = rank-deficient loss + offline OOD bootstrapping; IPO most robust |
@@ -1938,7 +1938,7 @@ These papers have NO direct rebuttals found:
 └───────────────────────┘                        └───────────────────────┘
 ```
 
-### 2026-06-05 — Reward Hacking: Societal Hacking (Issue #93 follow-up)
+### 2026-06-05 - Reward Hacking: Societal Hacking (Issue #93 follow-up)
 | Papers Added | Key Findings |
 |--------------|--------------|
 | LLMs Hack Rewards, and Society (2606.04075) | SocioHack (72 RL envs); Dr. GRPO on Qwen3-30B rediscovers real historically patched regulatory loopholes at 61.25% recall / 90.85% precision with no loophole instruction; emergent (not elicited) from optimization; near-zero refusal; self-critique flags only 37%; KL/entropy/LoRA-reset regularizers never drop recall below 0.57; patches redirect rather than stop the search |
@@ -1976,7 +1976,7 @@ These papers have NO direct rebuttals found:
 
 ```
 ┌───────────────────────────────────────────────────────────────────────────┐
-│            THE BENCHMAXXING CLUSTER — scores track exposure, not skill    │
+│            THE BENCHMAXXING CLUSTER - scores track exposure, not skill    │
 ├───────────────────────────────────────────────────────────────────────────┤
 │                                                                           │
 │   ┌─────────────────────┐  extends  ┌─────────────────────┐               │
@@ -2006,7 +2006,7 @@ These papers have NO direct rebuttals found:
 **The inversion**: genuine reasoning would make easy problems easier than hard
 ones. When a model solves olympiad math (dense in training data) yet fails
 lower-grade or novel variants (sparse/unseen), the score is monotonic in
-*exposure*, not difficulty. The real frontier is ordinary human competence —
+*exposure*, not difficulty. The real frontier is ordinary human competence -
 ALE (#364) measures exactly that and frontier agents score ~0% on its hardest
 tier. #365 (KV-cache CRD) and #366 (PeerBench governance) are allied position
 papers prescribing fixes; ALE is the constructive embodiment.
@@ -2052,7 +2052,7 @@ Three companion papers from the same research group providing interlocking theor
 
 ### Reward Hacking Cluster (Issue #93 follow-up)
 
-Five papers studying reward hacking in LLM RL — from controlled reproduction to detection to mitigation.
+Five papers studying reward hacking in LLM RL - from controlled reproduction to detection to mitigation.
 
 ```
 ┌────────────────────┐     provides testbed     ┌────────────────────┐

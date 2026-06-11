@@ -59,7 +59,7 @@ Token-level correlations remain stable across model scales:
 - Small models show similar patterns to large models
 - Suggests fundamental property of the training paradigm
 
-### Finding 4: Partial Exploitation — KEY INSIGHT
+### Finding 4: Partial Exploitation - KEY INSIGHT
 
 > "Models fine-tuned on small-scale datasets acquire reasoning ability through such signals but exploit them only partially"
 
@@ -140,7 +140,7 @@ This means:
 ---
 
 ## Status
-- [ ] Read complete (HTML unavailable — 404 error)
+- [ ] Read complete (HTML unavailable - 404 error)
 - [x] Core claims extracted (from abstract)
 - [ ] Methodology documented (partial)
 - [ ] Key evidence with numbers (not available)

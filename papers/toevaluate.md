@@ -26,35 +26,35 @@ Discard if paper:
 
 ---
 
-## HIGH PRIORITY — Promote to toread.md
+## HIGH PRIORITY - Promote to toread.md
 
 ### [Contextual Drag: How Errors in the Context Affect LLM Reasoning](https://arxiv.org/abs/2602.04288v1)
 - **arXiv**: 2602.04288v1
 - **Published**: 2026-02-04
 - **Stance**: SUPPORTS
 - **Priority**: 9/10
-- **Why promote**: **CRITICAL** — Tests self-improvement assumption directly. Shows 10-20% performance drops from contextual drag across 11 models on 8 tasks. Key finding: "subsequent reasoning trajectories inherit structurally similar error patterns" — supports pattern-matching thesis. Uses tree edit distance for structural analysis. Neither external feedback nor self-verification fixes it.
+- **Why promote**: **CRITICAL** - Tests self-improvement assumption directly. Shows 10-20% performance drops from contextual drag across 11 models on 8 tasks. Key finding: "subsequent reasoning trajectories inherit structurally similar error patterns" - supports pattern-matching thesis. Uses tree edit distance for structural analysis. Neither external feedback nor self-verification fixes it.
 
 ### [How Does Unfaithful Reasoning Emerge from Autoregressive Training? A Study of Synthetic Experiments](https://arxiv.org/abs/2602.01017v1)
 - **arXiv**: 2602.01017v1
 - **Published**: 2026-02-01
 - **Stance**: SUPPORTS
 - **Priority**: 9/10
-- **Why promote**: **MECHANISTIC** — Controlled synthetic experiments on how unfaithfulness emerges. Key finding: models can learn faithful reasoning BUT only when training noise below critical threshold (simplicity bias). At higher noise: transition from faithful → unfaithful skip-step reasoning. Mechanistic analysis of implicit self-verification emergence.
+- **Why promote**: **MECHANISTIC** - Controlled synthetic experiments on how unfaithfulness emerges. Key finding: models can learn faithful reasoning BUT only when training noise below critical threshold (simplicity bias). At higher noise: transition from faithful → unfaithful skip-step reasoning. Mechanistic analysis of implicit self-verification emergence.
 
 ### [Language Models Struggle to Use Representations Learned In-Context](https://arxiv.org/abs/2602.04212v1)
 - **arXiv**: 2602.04212v1
 - **Published**: 2026-02-04
 - **Stance**: SUPPORTS
 - **Priority**: 9/10
-- **Why promote**: **FUNDAMENTAL** — Tests whether LLMs can deploy in-context learned representations. Key finding: LLMs encode novel semantics in latent representations BUT struggle to deploy them for next-token prediction. Even SOTA reasoning models "cannot reliably leverage novel patterns presented in-context." Direct evidence for pattern-matching vs reasoning distinction.
+- **Why promote**: **FUNDAMENTAL** - Tests whether LLMs can deploy in-context learned representations. Key finding: LLMs encode novel semantics in latent representations BUT struggle to deploy them for next-token prediction. Even SOTA reasoning models "cannot reliably leverage novel patterns presented in-context." Direct evidence for pattern-matching vs reasoning distinction.
 
 ### [No Global Plan in Chain-of-Thought: Uncover the Latent Planning Horizon of LLMs](https://arxiv.org/abs/2602.02103v1)
 - **arXiv**: 2602.02103v1
 - **Published**: 2026-02-02
 - **Stance**: SUPPORTS
 - **Priority**: 9/10
-- **Why promote**: **MECHANISTIC** — Probes latent planning via Tele-Lens method. Key finding: "LLMs exhibit a myopic horizon, primarily conducting incremental transitions without precise global planning." Direct evidence against deliberate planning hypothesis. Shows CoT bypass can be recognized automatically.
+- **Why promote**: **MECHANISTIC** - Probes latent planning via Tele-Lens method. Key finding: "LLMs exhibit a myopic horizon, primarily conducting incremental transitions without precise global planning." Direct evidence against deliberate planning hypothesis. Shows CoT bypass can be recognized automatically.
 
 ### [MentisOculi: Revealing the Limits of Reasoning with Mental Imagery](https://arxiv.org/abs/2602.02465v1)
 - **arXiv**: 2602.02465v1
@@ -68,42 +68,42 @@ Discard if paper:
 - **Published**: 2026-02-02
 - **Stance**: SUPPORTS
 - **Priority**: 8/10
-- **Why promote**: **THEORETICAL** — Proves expressiveness hierarchy for multi-step reasoning. Key result: (L+1)-layer full attention sufficient for sequential function composition, but hybrid with L-1 full + 2^{3L²} linear layers CANNOT solve it. First provable separation — architectural constraints on reasoning.
+- **Why promote**: **THEORETICAL** - Proves expressiveness hierarchy for multi-step reasoning. Key result: (L+1)-layer full attention sufficient for sequential function composition, but hybrid with L-1 full + 2^{3L²} linear layers CANNOT solve it. First provable separation - architectural constraints on reasoning.
 
 ### [Are LLMs Biased Like Humans? Causal Reasoning as a Function of Prior Knowledge, Irrelevant Information, and Reasoning Budget](https://arxiv.org/abs/2602.02983v1)
 - **arXiv**: 2602.02983v1
 - **Published**: 2026-02-03
 - **Stance**: SUPPORTS
 - **Priority**: 8/10
-- **Why promote**: Tests causal reasoning against human baseline on 11 collider tasks. 20+ LLMs benchmarked. Key finding: "most LLMs exhibit more rule-like reasoning strategies than humans" — supports pattern-matching. LLMs don't mirror human collider biases. CoT increases robustness. Good methodological rigor.
+- **Why promote**: Tests causal reasoning against human baseline on 11 collider tasks. 20+ LLMs benchmarked. Key finding: "most LLMs exhibit more rule-like reasoning strategies than humans" - supports pattern-matching. LLMs don't mirror human collider biases. CoT increases robustness. Good methodological rigor.
 
 ### [EDIS: Diagnosing LLM Reasoning via Entropy Dynamics](https://arxiv.org/abs/2602.01288v1)
 - **arXiv**: 2602.01288v1
 - **Published**: 2026-02-01
 - **Stance**: SUPPORTS
 - **Priority**: 8/10
-- **Why promote**: **MECHANISTIC** — Shows entropy dynamics distinguish correct vs incorrect reasoning. Key finding: "erroneous solutions exhibit unstable dynamics, including burst spikes and peak-valley spikes" that persist across models/training stages = "intrinsic properties of reasoning failure." Entropy as diagnostic for reasoning reliability.
+- **Why promote**: **MECHANISTIC** - Shows entropy dynamics distinguish correct vs incorrect reasoning. Key finding: "erroneous solutions exhibit unstable dynamics, including burst spikes and peak-valley spikes" that persist across models/training stages = "intrinsic properties of reasoning failure." Entropy as diagnostic for reasoning reliability.
 
 ### [Reasoning about Reasoning: BAPO Bounds on Chain-of-Thought Token Complexity in LLMs](https://arxiv.org/abs/2602.02909v1)
 - **arXiv**: 2602.02909v1
 - **Published**: 2026-02-02
 - **Stance**: SUPPORTS
 - **Priority**: 8/10
-- **Why promote**: **THEORETICAL** — Proves lower bounds on CoT tokens required. Key results: binary majority, triplet matching, graph reachability all require Ω(n) reasoning tokens. Experiments show frontier models fail when constrained below this. Identifies "fundamental bottlenecks in inference-time compute."
+- **Why promote**: **THEORETICAL** - Proves lower bounds on CoT tokens required. Key results: binary majority, triplet matching, graph reachability all require Ω(n) reasoning tokens. Experiments show frontier models fail when constrained below this. Identifies "fundamental bottlenecks in inference-time compute."
 
 ### ["I May Not Have Articulated Myself Clearly": Diagnosing Dynamic Instability in LLM Reasoning at Inference Time](https://arxiv.org/abs/2602.02863v1)
 - **arXiv**: 2602.02863v1
 - **Published**: 2026-02-02
 - **Stance**: SUPPORTS
 - **Priority**: 8/10
-- **Why promote**: **MECHANISTIC** — Detects reasoning breakdown from log probabilities alone. Key finding: "instability strength predicts failure" with above-chance AUC. Critical insight: "early instability can reflect corrective stabilization, late instability is destructive" — recoverability depends on timing. Training-free diagnostic.
+- **Why promote**: **MECHANISTIC** - Detects reasoning breakdown from log probabilities alone. Key finding: "instability strength predicts failure" with above-chance AUC. Critical insight: "early instability can reflect corrective stabilization, late instability is destructive" - recoverability depends on timing. Training-free diagnostic.
 
 ### [Embedding Perturbation may Better Reflect the Uncertainty in LLM Reasoning](https://arxiv.org/abs/2602.02427v1)
 - **arXiv**: 2602.02427v1
 - **Published**: 2026-02-02
 - **Stance**: BALANCED
 - **Priority**: 7/10
-- **Why promote**: **MECHANISTIC** — Shows incorrect reasoning steps contain tokens highly sensitive to embedding perturbations. Perturbation-based metric outperforms token probability/entropy for uncertainty quantification. Enables identification of uncertain intermediate steps.
+- **Why promote**: **MECHANISTIC** - Shows incorrect reasoning steps contain tokens highly sensitive to embedding perturbations. Perturbation-based metric outperforms token probability/entropy for uncertainty quantification. Enables identification of uncertain intermediate steps.
 
 ### [Mil-SCORE: Benchmarking Long-Context Geospatial Reasoning and Planning in Large Language Models](https://arxiv.org/abs/2601.21826v1)
 - **arXiv**: 2601.21826v1
@@ -114,7 +114,7 @@ Discard if paper:
 
 ---
 
-## MEDIUM PRIORITY — Review Later
+## MEDIUM PRIORITY - Review Later
 
 ### [Learning to Reason Faithfully through Step-Level Faithfulness Maximization](https://arxiv.org/abs/2602.03507v1)
 - **arXiv**: 2602.03507v1
@@ -128,7 +128,7 @@ Discard if paper:
 - **Published**: 2026-02-02
 - **Stance**: SUPPORTS
 - **Priority**: 6/10
-- **Why medium**: Tests compositional reasoning in VLMs. Key finding: "universal compositional failures in both CLIP and SigLIP" — high susceptibility to low-entropy distractors. Trade-off: context aids spatial reasoning but hinders attribute binding.
+- **Why medium**: Tests compositional reasoning in VLMs. Key finding: "universal compositional failures in both CLIP and SigLIP" - high susceptibility to low-entropy distractors. Trade-off: context aids spatial reasoning but hinders attribute binding.
 
 ### [SpatiaLab: Can Vision-Language Models Perform Spatial Reasoning in the Wild?](https://arxiv.org/abs/2602.03916v1)
 - **arXiv**: 2602.03916v1
@@ -142,7 +142,7 @@ Discard if paper:
 - **Published**: 2026-01-29
 - **Stance**: BALANCED
 - **Priority**: 6/10
-- **Why medium**: Expert-curated multimodal benchmark. GPT-5-Thinking: 66.4/100, best open-source: 49.1. Key finding: "reasoning models often outperform non-reasoning ones" — may challenge thesis. Needs investigation.
+- **Why medium**: Expert-curated multimodal benchmark. GPT-5-Thinking: 66.4/100, best open-source: 49.1. Key finding: "reasoning models often outperform non-reasoning ones" - may challenge thesis. Needs investigation.
 
 ### [CoT is Not the Chain of Truth: An Empirical Internal Analysis of Reasoning LLMs for Fake News Generation](https://arxiv.org/abs/2602.04856v1)
 - **arXiv**: 2602.04856v1
@@ -174,7 +174,7 @@ Discard if paper:
 
 ---
 
-## POTENTIAL CHALLENGES TO THESIS — Need Investigation
+## POTENTIAL CHALLENGES TO THESIS - Need Investigation
 
 Papers that might provide evidence AGAINST the pattern-matching thesis. Critical to review for steel-manning.
 
@@ -183,7 +183,7 @@ Papers that might provide evidence AGAINST the pattern-matching thesis. Critical
 - **Published**: 2026-02-04
 - **Stance**: CHALLENGES (potentially)
 - **Priority**: 8/10
-- **Why investigate**: **MECHANISTIC** — Claims QwQ-32B "gradually improves its internal representation of actions and concepts during reasoning." Shows "abstract encodings that focus on structure rather than specific action names." Steering experiments show "injecting refined representations from successful traces boosts accuracy." Could suggest genuine in-context learning/reasoning. **MUST READ** to evaluate claims critically.
+- **Why investigate**: **MECHANISTIC** - Claims QwQ-32B "gradually improves its internal representation of actions and concepts during reasoning." Shows "abstract encodings that focus on structure rather than specific action names." Steering experiments show "injecting refined representations from successful traces boosts accuracy." Could suggest genuine in-context learning/reasoning. **MUST READ** to evaluate claims critically.
 
 ### [Accelerating Scientific Research with Gemini: Case Studies](https://arxiv.org/abs/2602.03837v1)
 - **arXiv**: 2602.03837v1
@@ -197,11 +197,11 @@ Papers that might provide evidence AGAINST the pattern-matching thesis. Critical
 - **Published**: 2025-06
 - **Stance**: CHALLENGES
 - **Priority**: 9/10
-- **Why investigate**: **DIRECT REBUTTAL** — Already analyzed as Paper 124. Claims original "Illusion of Thinking" paper methodology was flawed. Important counter-evidence to track.
+- **Why investigate**: **DIRECT REBUTTAL** - Already analyzed as Paper 124. Claims original "Illusion of Thinking" paper methodology was flawed. Important counter-evidence to track.
 
 ---
 
-## MEDIUM PRIORITY — arXiv Sweep (Apr–May 2026)
+## MEDIUM PRIORITY - arXiv Sweep (Apr–May 2026)
 
 Candidates from CoT-faithfulness / memorization–generalization / mechanistic-interpretability queries. Need closer triage before promotion. Single-author papers excluded per selection rules (3 dropped: 2605.11467, 2603.26410, 2605.20441).
 
@@ -210,16 +210,16 @@ Candidates from CoT-faithfulness / memorization–generalization / mechanistic-i
 - **Published**: 2026-05-19
 - **Stance**: SUPPORTS (tentative)
 - **Priority**: 7/10
-- **Why investigate**: Shows generative sequence models violate distributional intent — generated trajectories diverge from training distribution over the physical quantity engineers tried to control. Direct evidence of failure to internalize specified constraints; relevant to pattern-matching vs. understanding.
+- **Why investigate**: Shows generative sequence models violate distributional intent - generated trajectories diverge from training distribution over the physical quantity engineers tried to control. Direct evidence of failure to internalize specified constraints; relevant to pattern-matching vs. understanding.
 
 ### [Backtracking When It Strays: Mitigating Dual Exposure Biases in LLM Reasoning Distillation](https://arxiv.org/abs/2605.19433)
 - **arXiv**: 2605.19433
 - **Published**: 2026-05-19
 - **Stance**: SUPPORTS (tentative)
 - **Priority**: 6/10
-- **Why investigate**: Documents exposure bias in CoT distillation — student trajectories drift from teacher distribution. Mechanism for why distilled reasoning fails out-of-distribution.
+- **Why investigate**: Documents exposure bias in CoT distillation - student trajectories drift from teacher distribution. Mechanism for why distilled reasoning fails out-of-distribution.
 
-### ~~[A Sharper Picture of Generalization in Transformers](https://arxiv.org/abs/2605.20988)~~ — DONE #359
+### ~~[A Sharper Picture of Generalization in Transformers](https://arxiv.org/abs/2605.20988)~~ - DONE #359
 - **arXiv**: 2605.20988
 - **Published**: 2026-05-20
 - **Stance**: BALANCED (analyzed)
@@ -273,8 +273,8 @@ Candidates from CoT-faithfulness / memorization–generalization / mechanistic-i
 
 ### Key Themes
 
-1. **Error Propagation** — Contextual Drag shows errors inherit patterns
-2. **Myopic Horizon** — No global planning, incremental transitions only  
-3. **In-Context ≠ Deployment** — Encode but can't use novel representations
-4. **Theoretical Bounds** — BAPO proves Ω(n) tokens needed; expressiveness hierarchy
-5. **Instability Diagnostics** — Entropy dynamics predict reasoning failures
+1. **Error Propagation** - Contextual Drag shows errors inherit patterns
+2. **Myopic Horizon** - No global planning, incremental transitions only  
+3. **In-Context ≠ Deployment** - Encode but can't use novel representations
+4. **Theoretical Bounds** - BAPO proves Ω(n) tokens needed; expressiveness hierarchy
+5. **Instability Diagnostics** - Entropy dynamics predict reasoning failures

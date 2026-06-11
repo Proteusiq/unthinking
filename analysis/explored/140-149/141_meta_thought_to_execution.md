@@ -11,8 +11,8 @@
 
 ## Core Claims
 
-1. **Current CoT training is "trajectory imitation"** — entangles abstract strategies with problem-specific execution
-2. **Meta-knowledge acquisition should be separated from task adaptation** — mirrors human cognitive process
+1. **Current CoT training is "trajectory imitation"** - entangles abstract strategies with problem-specific execution
+2. **Meta-knowledge acquisition should be separated from task adaptation** - mirrors human cognitive process
 3. **Chain-of-Meta-Thought (CoMT)** learns abstract reasoning patterns WITHOUT numerical calculations
 4. **OOD improvement of 4.63%** over standard CoT-SFT+RL across 5 benchmarks
 5. **Training efficiency gains**: 65-70% less time, 50% fewer tokens
@@ -23,12 +23,12 @@
 
 ### Two-Stage Framework
 
-**Stage 1: Chain-of-Meta-Thought (CoMT)** — Meta-Knowledge Acquisition
+**Stage 1: Chain-of-Meta-Thought (CoMT)** - Meta-Knowledge Acquisition
 - Teacher LLM generates abstract reasoning steps using variable names, NOT specific numbers
 - Prompt: *"Solve this problem by describing the REASONING STEPS in natural language using only variable names. Do NOT calculate any specific numbers."*
 - ~50% token reduction vs standard CoT
 
-**Stage 2: Confidence-Calibrated RL (CCRL)** — Task Adaptation
+**Stage 2: Confidence-Calibrated RL (CCRL)** - Task Adaptation
 - PPO with confidence-aware rewards on intermediate steps
 - Rewards high-confidence correct predictions
 - Penalizes high-confidence incorrect predictions
@@ -72,15 +72,15 @@
 
 ## Relationship to Thesis
 
-### BALANCED — provides support AND complication:
+### BALANCED - provides support AND complication:
 
 **SUPPORTS the thesis:**
 
 1. **Explicitly diagnoses CoT as trajectory imitation**: Authors state "CoT-SFT encourages imitation of complete reasoning trajectories... The learning signal primarily reflects what works for individual problems rather than explicitly supervising the acquisition of meta-knowledge"
 
-2. **Admits LLMs lack human-like abstraction**: "Human problem-solving exhibits precisely the property we seek in LLMs—robust generalization from limited experience to novel situations"
+2. **Admits LLMs lack human-like abstraction**: "Human problem-solving exhibits precisely the property we seek in LLMs-robust generalization from limited experience to novel situations"
 
-3. **Case study shows pattern retrieval failure**: Base model "misinterpreting the problem as compound interest calculation, applying the formula (1+0.05)^20" — inappropriate pattern matching
+3. **Case study shows pattern retrieval failure**: Base model "misinterpreting the problem as compound interest calculation, applying the formula (1+0.05)^20" - inappropriate pattern matching
 
 4. **Problem-centric not strategy-centric**: Standard training "entangling abstract strategies with problem-specific execution"
 
@@ -95,7 +95,7 @@
 **Is 4.63% OOD improvement "genuine" generalization?**
 
 **SKEPTICAL VIEW:**
-- All OOD benchmarks are math word problems — SAME DOMAIN
+- All OOD benchmarks are math word problems - SAME DOMAIN
 - GSM-Hard just uses larger numbers, not fundamentally different reasoning
 - The "abstract patterns" learned may still be surface-level templates
 - No cross-domain transfer tested
@@ -113,7 +113,7 @@
 ## Relationship to Other Papers
 
 ### Supports
-- **Paper 135** (Demystifying Long CoT): Both show training exposes patterns — CoMT just exposes more abstract ones
+- **Paper 135** (Demystifying Long CoT): Both show training exposes patterns - CoMT just exposes more abstract ones
 - **Paper 137** (CoT Training Mechanisms): Both analyze training structure effects
 - **Paper 140** (Not All Code Is Equal): Both show training data structure matters for reasoning
 
@@ -134,10 +134,10 @@
 
 ### Potential Counter-Arguments
 
-1. **OOD is not genuinely OOD**: All benchmarks are math word problems — same domain, different distributions
+1. **OOD is not genuinely OOD**: All benchmarks are math word problems - same domain, different distributions
 2. **Abstraction may be shallow**: Learning higher-level templates, not compositional reasoning
 3. **No cross-domain transfer**: Would CoMT help on logic puzzles? Spatial reasoning?
-4. **Teacher model dependency**: Requires LLaMA-3.1-70B — capability bounded by teacher
+4. **Teacher model dependency**: Requires LLaMA-3.1-70B - capability bounded by teacher
 5. **Statistical significance**: No confidence intervals on the 4.63% improvement
 
 ### Limitations (Implicit in Paper)
@@ -154,7 +154,7 @@
 
 2. **On entanglement**: "by treating complete trajectories as basic units, current methods are inherently problem-centric, entangling abstract strategies with problem-specific execution"
 
-3. **On human-LLM gap**: "Human problem-solving exhibits precisely the property we seek in LLMs—robust generalization from limited experience to novel situations"
+3. **On human-LLM gap**: "Human problem-solving exhibits precisely the property we seek in LLMs-robust generalization from limited experience to novel situations"
 
 4. **On meta-knowledge**: "focusing on learning abstract problem-solving strategies without problem-specific execution details"
 

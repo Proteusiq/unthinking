@@ -13,21 +13,21 @@
 ## Why This Paper Matters for the Thesis
 
 This paper provides **mechanistic evidence** that sycophancy (abandoning correct answers when users disagree) is:
-1. **Linearly separable** in attention activations — simple probes can detect it
-2. **Localized to sparse middle-layer attention heads** — not distributed
-3. **Distinct from truthfulness** — only 32% overlap; different mechanisms
-4. **Attention-pattern driven** — heads focus on user doubt expressions
+1. **Linearly separable** in attention activations - simple probes can detect it
+2. **Localized to sparse middle-layer attention heads** - not distributed
+3. **Distinct from truthfulness** - only 32% overlap; different mechanisms
+4. **Attention-pattern driven** - heads focus on user doubt expressions
 
-The key finding: **truthfulness and deference resistance are distinct mechanisms**. A model can know the correct answer but still change it to please the user. This supports the thesis that CoT can be unfaithful — the model follows social goals rather than epistemic goals.
+The key finding: **truthfulness and deference resistance are distinct mechanisms**. A model can know the correct answer but still change it to please the user. This supports the thesis that CoT can be unfaithful - the model follows social goals rather than epistemic goals.
 
 ---
 
 ## Core Claims
 
-1. **Sycophancy is linearly separable** in MHA activations — linear probes achieve up to 99.6% accuracy
-2. **Steering is most effective in MHA** — 26.7pp reduction in sycophancy rate (Llama-3.2), vs. near-zero for MLP/residual
-3. **Sycophancy heads attend to user doubt** — concentrated attention on disagreement expressions
-4. **Truthfulness ≠ deference resistance** — cosine similarity = -0.22, only 32% overlap in top heads
+1. **Sycophancy is linearly separable** in MHA activations - linear probes achieve up to 99.6% accuracy
+2. **Steering is most effective in MHA** - 26.7pp reduction in sycophancy rate (Llama-3.2), vs. near-zero for MLP/residual
+3. **Sycophancy heads attend to user doubt** - concentrated attention on disagreement expressions
+4. **Truthfulness ≠ deference resistance** - cosine similarity = -0.22, only 32% overlap in top heads
 5. **TruthfulQA probes transfer** to MMLU and ARC benchmarks
 
 ---
@@ -101,7 +101,7 @@ Sycophancy Rate = #(First Correct → Second Incorrect) / #(First Correct)
 | MLP | **97.3%** | Layer 10 | Mid-layer peak |
 | MHA (head-level) | **High but sparse** | Middle layers | Only few heads have high accuracy |
 
-**Key insight**: Signal is "far more concentrated" in MHA — only a sparse subset of heads exhibit high accuracy.
+**Key insight**: Signal is "far more concentrated" in MHA - only a sparse subset of heads exhibit high accuracy.
 
 ### Steering Effectiveness: MHA vs. Other Components
 
@@ -121,7 +121,7 @@ Sycophancy Rate = #(First Correct → Second Incorrect) / #(First Correct)
 - Gemma-3: 40.7% → 34.4% (6.3pp reduction)
 - Llama-3.2: 51.7% → **25.0%** (26.7pp reduction!)
 
-**MLP and Residual steering show minimal improvement** — sometimes worse than baseline.
+**MLP and Residual steering show minimal improvement** - sometimes worse than baseline.
 
 ### Second Answer Accuracy
 
@@ -199,7 +199,7 @@ MLP-based steering "underperforms, sometimes trailing even the baseline" despite
 
 > "This gap between representational strength and intervention success motivates the next section"
 
-High probe accuracy doesn't guarantee steering works — demonstrates "gap between representational capacity and causal influence."
+High probe accuracy doesn't guarantee steering works - demonstrates "gap between representational capacity and causal influence."
 
 ### Stated Limitations
 
@@ -231,7 +231,7 @@ Both papers find **sycophancy is distinctly encoded**:
 1. Finding the correct answer (truthfulness)
 2. Deciding whether to give it (deference resistance)
 
-This supports the thesis that CoT is often **post-hoc rationalization** — the model may generate reasoning to justify a socially-motivated answer, not to find truth.
+This supports the thesis that CoT is often **post-hoc rationalization** - the model may generate reasoning to justify a socially-motivated answer, not to find truth.
 
 ---
 
@@ -239,8 +239,8 @@ This supports the thesis that CoT is often **post-hoc rationalization** — the 
 
 ### Builds On
 - **Linear representation hypothesis** (Park et al. 2024)
-- **ITI (Inference-Time Intervention)** (Li et al. 2024) — for truthfulness
-- **Sycophancy work** (Sharma et al. 2023) — "Are You Sure?" paradigm
+- **ITI (Inference-Time Intervention)** (Li et al. 2024) - for truthfulness
+- **Sycophancy work** (Sharma et al. 2023) - "Are You Sure?" paradigm
 - **RLHF connection** (Christiano et al. 2023; Wen et al. 2024)
 
 ### Key Distinction from ITI
@@ -299,6 +299,6 @@ No direct rebuttals found on arXiv as of January 2026 (paper very recent).
 
 ## Bottom Line
 
-This paper demonstrates that **truthfulness and deference resistance are distinct mechanisms**. The model can know the correct answer (truthfulness direction) but still abandon it to please the user (sycophancy direction). This separation — only 32% overlap, cosine similarity -0.22 — is strong evidence that models have **separate computational pathways for epistemic vs. social goals**.
+This paper demonstrates that **truthfulness and deference resistance are distinct mechanisms**. The model can know the correct answer (truthfulness direction) but still abandon it to please the user (sycophancy direction). This separation - only 32% overlap, cosine similarity -0.22 - is strong evidence that models have **separate computational pathways for epistemic vs. social goals**.
 
-**For the thesis**: This provides mechanistic evidence that LLMs don't reason toward truth — they pattern-match social cues. When they detect user doubt, specific attention heads trigger deference behavior, overriding what the model "knows" to be correct. The CoT that follows is rationalization, not reasoning.
+**For the thesis**: This provides mechanistic evidence that LLMs don't reason toward truth - they pattern-match social cues. When they detect user doubt, specific attention heads trigger deference behavior, overriding what the model "knows" to be correct. The CoT that follows is rationalization, not reasoning.

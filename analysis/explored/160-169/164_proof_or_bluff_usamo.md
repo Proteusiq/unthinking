@@ -79,18 +79,18 @@
 ## Key Findings
 
 ### Failure Modes (Most to Least Common)
-1. **Logic errors** — unjustified reasoning steps, incorrect rationale (MOST COMMON)
-2. **Creativity errors** — inability to find correct solution approach; same wrong strategy repeatedly
-3. **Assumption errors** — introducing unproven/incorrect assumptions
-4. **Algebra/Arithmetic** — least common; models generally good at symbolic manipulation
+1. **Logic errors** - unjustified reasoning steps, incorrect rationale (MOST COMMON)
+2. **Creativity errors** - inability to find correct solution approach; same wrong strategy repeatedly
+3. **Assumption errors** - introducing unproven/incorrect assumptions
+4. **Algebra/Arithmetic** - least common; models generally good at symbolic manipulation
 
 ### Training Artifacts Identified
 
 1. **Answer Boxing Compulsion**: Models trained with GRPO compulsively box answers even for proof problems. QwQ confused itself by requiring an integer answer when the solution was "all even numbers."
 
-2. **Pattern Overgeneralization**: Models observe patterns in small cases and assert they hold generally without proof — a heuristic that fails for proof-based evaluation.
+2. **Pattern Overgeneralization**: Models observe patterns in small cases and assert they hold generally without proof - a heuristic that fails for proof-based evaluation.
 
-3. **Hallucinated Citations**: Gemini-2.5-Pro fabricates plausible-sounding references that don't exist, including "Lemma 7 in 'Fair partitioning of [cake emoji]' by Cardinal, Langerman, Palvolgyi (2021)" — a complete fabrication with an emoji.
+3. **Hallucinated Citations**: Gemini-2.5-Pro fabricates plausible-sounding references that don't exist, including "Lemma 7 in 'Fair partitioning of [cake emoji]' by Cardinal, Langerman, Palvolgyi (2021)" - a complete fabrication with an emoji.
 
 4. **Solution Structure Problems**: Flash-Thinking and QwQ produced chaotic, barely interpretable responses; Gemini sometimes boxed entire proofs.
 
@@ -158,7 +158,7 @@ No direct rebuttals found as of analysis date.
 
 2. **Training artifacts reveal optimization targets**: The answer-boxing compulsion shows models are trained to produce "correct-looking output" rather than to reason. When QwQ confuses itself by needing a boxed integer, it reveals pattern-matching to training signals.
 
-3. **Pattern overgeneralization without proof**: Models observe patterns in small cases and assert they generalize — exactly what sophisticated pattern matching would do, exactly what genuine reasoning would not.
+3. **Pattern overgeneralization without proof**: Models observe patterns in small cases and assert they generalize - exactly what sophisticated pattern matching would do, exactly what genuine reasoning would not.
 
 4. **Lack of self-awareness**: Humans know when they haven't solved a problem; models confidently claim success regardless. This suggests producing "solution-shaped text" through pattern matching rather than tracking logical validity.
 

@@ -13,7 +13,7 @@
 ## Core Claims
 
 1. **SGD matches or outperforms AdamW** in RLVR for LLMs
-2. **SGD updates <0.02% of parameters** — 1000x fewer than AdamW, without any sparsity regularization
+2. **SGD updates <0.02% of parameters** - 1000x fewer than AdamW, without any sparsity regularization
 3. **Momentum and adaptive learning rates** are less influential in RL than in SFT
 4. RL's optimization landscape is fundamentally different from SFT
 5. Memory savings: SGD reduces GPU usage by 15.7 GB on Qwen3-1.7B
@@ -41,7 +41,7 @@
 - No accuracy loss
 
 ### Why SGD Works in RL (but not SFT)
-1. **RL incorporates O(1) bits per episode** — sparser feedback than O(#tokens) in SFT
+1. **RL incorporates O(1) bits per episode** - sparser feedback than O(#tokens) in SFT
 2. **RL updates concentrate in off-principal directions** with minimal spectral drift
 3. **Effective optimization problem is low-dimensional** and geometrically constrained
 4. **Adaptive learning rates amplify noise** in sparse gradient regime
@@ -54,9 +54,9 @@
 
 This paper provides **critical evidence** for the thesis:
 
-1. **RL doesn't learn new knowledge**: If RL only updates 0.02% of parameters, it can't be learning complex new capabilities — it's just surfacing what's already there
+1. **RL doesn't learn new knowledge**: If RL only updates 0.02% of parameters, it can't be learning complex new capabilities - it's just surfacing what's already there
 
-2. **Pattern amplification, not creation**: The "scalpel vs hammer" metaphor (from #243) is confirmed — RL makes surgical adjustments to existing circuits
+2. **Pattern amplification, not creation**: The "scalpel vs hammer" metaphor (from #243) is confirmed - RL makes surgical adjustments to existing circuits
 
 3. **Knowledge is in pre-training**: The finding that RL "has a strong dependence on the capabilities of pretrained base models" directly supports the thesis
 
@@ -65,7 +65,7 @@ This paper provides **critical evidence** for the thesis:
 ### Key Insight for Thesis
 > "RL fine-tuning updates only about 20% of the parameters which are significantly sparser than those from SFT."
 
-And with SGD: **0.02%** — essentially zero new learning.
+And with SGD: **0.02%** - essentially zero new learning.
 
 ---
 
@@ -92,7 +92,7 @@ And with SGD: **0.02%** — essentially zero new learning.
 ### Limitations (Implicit)
 
 1. **Scale**: Tested on 1.7B-8B models, may not hold at frontier scale
-2. **Domain-specific**: Math and code have verifiable rewards — may not generalize
+2. **Domain-specific**: Math and code have verifiable rewards - may not generalize
 3. **SGD requires tuning**: Paper notes high learning rate required for SGD
 
 ### Potential Counter-Arguments
@@ -123,7 +123,7 @@ This paper provides **the strongest mechanistic evidence yet** for the thesis:
 2. **Pre-training is everything**: RL just redirects existing capabilities
 3. **Reasoning models don't reason**: They surface pre-trained patterns more efficiently
 
-The fact that you can match AdamW performance with SGD — and update 1000x fewer parameters — proves that RL is fundamentally different from learning. It's more like "tuning an antenna" than "building a radio."
+The fact that you can match AdamW performance with SGD - and update 1000x fewer parameters - proves that RL is fundamentally different from learning. It's more like "tuning an antenna" than "building a radio."
 
 ---
 

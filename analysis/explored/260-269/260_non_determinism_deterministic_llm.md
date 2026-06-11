@@ -72,15 +72,15 @@
 ### Distribution Analysis (20 runs on college math)
 
 - Kolmogorov-Smirnov normality test: **rejected** (p < 10^-9)
-- Distributions are NOT normal — mean and median far from mode
+- Distributions are NOT normal - mean and median far from mode
 - Standard deviation is NOT a valid uncertainty measure
 
 ### Correlation Findings
 
 | Factor | Correlation with Instability |
 |--------|------------------------------|
-| Output length | **Strong positive** — longer outputs = more instability |
-| Accuracy | **Strong negative** (few-shot) — higher accuracy = more stable |
+| Output length | **Strong positive** - longer outputs = more instability |
+| Accuracy | **Strong negative** (few-shot) - higher accuracy = more stable |
 | Input length | Weak (model-dependent) |
 
 ---
@@ -209,7 +209,7 @@ Real-world reasoning chains are even more fragile than individual steps suggest.
 |-----------|------------|
 | **Stance** | Supports |
 | **Confidence** | High |
-| **Relevance** | High — fundamental fragility of LLM "reasoning" |
+| **Relevance** | High - fundamental fragility of LLM "reasoning" |
 | **Evidence Type** | Empirical (systematic measurements) |
 | **Venue Quality** | arXiv preprint (industry collaboration) |
 
@@ -217,4 +217,4 @@ Real-world reasoning chains are even more fragile than individual steps suggest.
 
 ## One-Sentence Summary
 
-Even with temperature=0, LLMs show accuracy variations up to 15% and best-to-worst gaps up to 70% across identical runs — demonstrating that "reasoning" is probabilistic pattern matching, not systematic computation.
+Even with temperature=0, LLMs show accuracy variations up to 15% and best-to-worst gaps up to 70% across identical runs - demonstrating that "reasoning" is probabilistic pattern matching, not systematic computation.

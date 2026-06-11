@@ -139,7 +139,7 @@ t-SNE analysis shows:
 
 ### Dennett Inversion
 
-> "This pattern inverts what philosopher Daniel Dennett observed in natural systems, where competence typically precedes comprehension. Simple organisms demonstrate complex behaviors before developing explicit understanding. LLMs exhibit the reverse: sophisticated explanatory capabilities coupled with unreliable execution—**comprehension without competence**."
+> "This pattern inverts what philosopher Daniel Dennett observed in natural systems, where competence typically precedes comprehension. Simple organisms demonstrate complex behaviors before developing explicit understanding. LLMs exhibit the reverse: sophisticated explanatory capabilities coupled with unreliable execution-**comprehension without competence**."
 
 ### General vs. Generalizable Intelligence
 
@@ -160,7 +160,7 @@ LLMs have the former, not the latter.
 
 > "The model compares 9.11 with 9.9 not through arithmetic but by pattern-matching what such calculations typically look like."
 
-> "Transformers solve compositional tasks through 'linearized subgraph matching'—memorizing computation patterns rather than learning systematic algorithms."
+> "Transformers solve compositional tasks through 'linearized subgraph matching'-memorizing computation patterns rather than learning systematic algorithms."
 
 > "Arithmetic behaviour emerges from a 'bag of heuristics' spread across layers instead of dedicated algorithmic modules."
 
@@ -173,11 +173,11 @@ LLMs have the former, not the latter.
 ## Relationship to Other Papers
 
 ### Directly Supports
-- **Faith and Fate (2305.18654)** — "linearized subgraph matching" cited
-- **GSM-Symbolic (2410.05229)** — 65% degradation cited
-- **Illusion of Thinking (2506.06941)** — Same complexity collapse pattern
-- **OMEGA (2506.18880)** — 0% transformative generalization confirms compositional reasoning failure
-- **Planning Gap (2601.14456)** — 82.9% ID → 0% OOD exemplifies comprehension/competence dissociation
+- **Faith and Fate (2305.18654)** - "linearized subgraph matching" cited
+- **GSM-Symbolic (2410.05229)** - 65% degradation cited
+- **Illusion of Thinking (2506.06941)** - Same complexity collapse pattern
+- **OMEGA (2506.18880)** - 0% transformative generalization confirms compositional reasoning failure
+- **Planning Gap (2601.14456)** - 82.9% ID → 0% OOD exemplifies comprehension/competence dissociation
 
 ### Provides Mechanism For
 - Why CoT can be unfaithful (comprehension ≠ execution)
@@ -245,7 +245,7 @@ No direct arXiv rebuttal found.
 │  │  the architectural scaffolding for principled, compositional        │    │
 │  │  reasoning."                                                        │    │
 │  │                                                                     │    │
-│  │ Scale won't help — limitations are ARCHITECTURAL                    │    │
+│  │ Scale won't help - limitations are ARCHITECTURAL                    │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -288,7 +288,7 @@ No direct arXiv rebuttal found.
 - [x] Key evidence with numbers
 - [x] Critical analysis
 - [x] Cross-references identified
-- [x] **Rebuttals checked** — None found
+- [x] **Rebuttals checked** - None found
 - [x] Paper graph updated
 
 ---

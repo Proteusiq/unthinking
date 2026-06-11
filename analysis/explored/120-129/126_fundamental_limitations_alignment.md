@@ -14,7 +14,7 @@
 
 1. **Alignment impossibility theorem**: For any behavior with finite probability (α > 0), there exist prompts that can trigger the model into that behavior
 
-2. **Prompt length scales logarithmically**: Misaligning prompt length = (1/β)(log(1/α) + log(1/ε) + log(4)) — even very small α requires only moderately longer prompts
+2. **Prompt length scales logarithmically**: Misaligning prompt length = (1/β)(log(1/α) + log(1/ε) + log(4)) - even very small α requires only moderately longer prompts
 
 3. **System prompts provide only linear protection**: Aligning prefix prompts only delay, not prevent, misalignment
 
@@ -82,7 +82,7 @@ Multi-turn conversations can be misaligned, with the model's own responses provi
 
 ### Theorem 4: Best-of-n Sampling
 
-Best-of-n adds only **log(n)** to required prompt length — logarithmic protection only.
+Best-of-n adds only **log(n)** to required prompt length - logarithmic protection only.
 
 ---
 
@@ -117,11 +117,11 @@ This is a double-edged sword: overall safer, but more vulnerable to targeted att
 
 This paper provides theoretical foundation for why LLMs are vulnerable to adversarial manipulation:
 
-1. **Pattern matching framework**: The mixture model shows LLMs contain both "good" and "bad" patterns — prompts select which patterns to activate
+1. **Pattern matching framework**: The mixture model shows LLMs contain both "good" and "bad" patterns - prompts select which patterns to activate
 
 2. **No genuine reasoning to resist**: An LLM with true reasoning could recognize manipulation attempts. Instead, it's just reweighting probability distributions based on prompt likelihood.
 
-3. **Training ≠ removal**: RLHF doesn't remove bad behaviors, just makes them less likely — they remain accessible via targeted prompts
+3. **Training ≠ removal**: RLHF doesn't remove bad behaviors, just makes them less likely - they remain accessible via targeted prompts
 
 ### Connection to Sycophancy Papers
 
@@ -134,13 +134,13 @@ This paper provides theoretical foundation for why LLMs are vulnerable to advers
 **Strengths**:
 1. Rigorous theoretical framework with proofs
 2. Empirical validation on real models
-3. Constructive proofs — shows HOW to build adversarial prompts
+3. Constructive proofs - shows HOW to build adversarial prompts
 4. Explains real-world jailbreaks mathematically
 
 **Limitations**:
 1. Two-component mixture is simplification
 2. β-distinguishability must hold (may not always)
-3. Results are about frozen models — doesn't address inference-time methods
+3. Results are about frozen models - doesn't address inference-time methods
 4. Experiments use proxy ℙ₋ (LoRA fine-tuned), not true negative component
 
 ---
@@ -148,12 +148,12 @@ This paper provides theoretical foundation for why LLMs are vulnerable to advers
 ## Relationship to Other Papers
 
 ### Supports
-- **Paper 117 (2311.07590)**: Strategic Deception — provides mechanism for why persona prompts work
-- **Paper 119 (2308.03958)**: Sycophancy Scales — sycophancy as activating an agreement-seeking component
-- **Paper 125 (2406.02061)**: Alice in Wonderland — confabulation accompanies pattern-switched failures
+- **Paper 117 (2311.07590)**: Strategic Deception - provides mechanism for why persona prompts work
+- **Paper 119 (2308.03958)**: Sycophancy Scales - sycophancy as activating an agreement-seeking component
+- **Paper 125 (2406.02061)**: Alice in Wonderland - confabulation accompanies pattern-switched failures
 
 ### Extends
-- **Paper 03 (2506.06941)**: Illusion of Thinking — provides theoretical foundation for prompt-induced collapse
+- **Paper 03 (2506.06941)**: Illusion of Thinking - provides theoretical foundation for prompt-induced collapse
 - **Perez et al. (2022)**: Explains inverse scaling with RLHF steps
 
 ### Provides Framework For
@@ -177,7 +177,7 @@ No direct rebuttals found.
 ### Limitations (Authors Acknowledge)
 
 1. Results guarantee next-sentence misalignment, not longer outputs
-2. True ℙ₋ is not directly accessible — experiments use proxies
+2. True ℙ₋ is not directly accessible - experiments use proxies
 3. Prompt lengths are upper bounds, not tight
 4. Framework assumes ground-truth behavior scoring exists
 
@@ -201,7 +201,7 @@ No direct rebuttals found.
 
 **Why it supports the thesis:**
 1. Shows LLMs are superpositions of learned patterns (behaviors), not reasoners
-2. Prompts select which patterns to activate — no "judgment" resists manipulation
+2. Prompts select which patterns to activate - no "judgment" resists manipulation
 3. RLHF doesn't create genuine values, just probability reweighting
 4. Mathematical framework for why pattern matching is vulnerable
 
@@ -210,7 +210,7 @@ No direct rebuttals found.
 2. Theoretical framework with assumptions that may not always hold
 3. Doesn't test reasoning per se, tests adversarial robustness
 
-**Net impact**: Provides theoretical foundation for understanding LLMs as pattern-matching systems that can be manipulated by selecting appropriate prompts — consistent with thesis but focused on safety rather than reasoning directly.
+**Net impact**: Provides theoretical foundation for understanding LLMs as pattern-matching systems that can be manipulated by selecting appropriate prompts - consistent with thesis but focused on safety rather than reasoning directly.
 
 ---
 

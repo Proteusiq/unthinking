@@ -111,7 +111,7 @@ When domain names are obfuscated (blocks→zorbs, on→above), performance drops
 
 1. **Mystery Blocksworld is critical evidence**: Same logical structure, different surface form → performance drops. This is exactly what pattern matching predicts (surface patterns matter more than logical structure).
 
-2. **Common-sense tasks are confounded**: The benchmark design explicitly addresses the thesis concern — are LLMs planning or retrieving?
+2. **Common-sense tasks are confounded**: The benchmark design explicitly addresses the thesis concern - are LLMs planning or retrieving?
 
 3. **Multi-step tracking fails**: Planning requires maintaining state across many steps. LLMs lose track, suggesting no internal state representation.
 
@@ -173,11 +173,11 @@ The LLM-Modulo framework acknowledges these limitations:
 
 From the paper:
 
-> "Most claims about LLM planning capabilities are however based on common sense tasks—where it becomes hard to tell whether LLMs are planning or merely retrieving from their vast world knowledge."
+> "Most claims about LLM planning capabilities are however based on common sense tasks-where it becomes hard to tell whether LLMs are planning or merely retrieving from their vast world knowledge."
 
 > "There is a strong need for systematic and extensible planning benchmarks with sufficient diversity to evaluate whether LLMs have innate planning capabilities."
 
-> "Our studies also show that on many critical capabilities—including plan generation—LLM performance falls quite short, even with the SOTA models."
+> "Our studies also show that on many critical capabilities-including plan generation-LLM performance falls quite short, even with the SOTA models."
 
 > "PlanBench can thus function as a useful marker of progress of LLMs in planning and reasoning."
 

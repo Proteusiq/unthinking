@@ -17,7 +17,7 @@
 
 3. **EDIS predicts failures**: Entropy Dynamics Instability Score serves as effective diagnostic for inference-time selection.
 
-4. **Temporal evolution matters**: Aggregate confidence hides failure patterns—trajectory-level analysis reveals them.
+4. **Temporal evolution matters**: Aggregate confidence hides failure patterns-trajectory-level analysis reveals them.
 
 ---
 

@@ -71,7 +71,7 @@ Total training data: ~750,000 tokens across exactly 1,000 sequences.
 | LIMA vs GPT-4 | 43% equivalent or better | - | 57% |
 
 Key findings:
-- LIMA outperforms Alpaca 65B (trained on 52,000 examples — 52x more data)
+- LIMA outperforms Alpaca 65B (trained on 52,000 examples - 52x more data)
 - LIMA outperforms DaVinci003 (trained with RLHF)
 - LIMA competitive with production models (GPT-4, Claude, Bard)
 
@@ -162,7 +162,7 @@ If alignment is "superficial" (just style), then:
 
 ### Challenged By
 
-1. **#209 Revisiting SAH (2410.03717)** — Direct rebuttal
+1. **#209 Revisiting SAH (2410.03717)** - Direct rebuttal
    - Shows reasoning performance continues improving with more data
    - Separates style (saturates at ~100 examples) from capability (keeps improving)
    - Power law scaling P ∝ D^(1/b) contradicts "saturation" claim
@@ -170,7 +170,7 @@ If alignment is "superficial" (just style), then:
 
 ### Supported By
 
-2. **#210 LLM Probability Concentration (2506.17871)** — Mechanism support
+2. **#210 LLM Probability Concentration (2506.17871)** - Mechanism support
    - Alignment reduces branching factor by 10x (from ~12 to ~1.2)
    - Alignment "surfaces low-entropy paths already present in base model"
    - Confirms SAH interpretation: alignment selects existing subdistribution
@@ -178,11 +178,11 @@ If alignment is "superficial" (just style), then:
 
 ### Related Papers
 
-3. **DeepSeek-R1 (#31)** — Partial challenge
+3. **DeepSeek-R1 (#31)** - Partial challenge
    - Shows RL can induce emergent reasoning capabilities
    - Suggests alignment can do more than style
 
-4. **Chain-of-Thought papers** — Mixed relationship
+4. **Chain-of-Thought papers** - Mixed relationship
    - CoT pushes to low-BF regions (supports SAH mechanism)
    - But CoT also improves task performance (complicates pure style interpretation)
 
@@ -192,7 +192,7 @@ If alignment is "superficial" (just style), then:
 
 ### Direct Rebuttals
 
-1. **Revisiting SAH (2410.03717)** — Primary rebuttal
+1. **Revisiting SAH (2410.03717)** - Primary rebuttal
    - Key evidence: Reasoning errors continue decreasing long after style saturates
    - Key evidence: New knowledge integration improves with post-training
    - Key evidence: Power law scaling, not saturation
@@ -213,7 +213,7 @@ If alignment is "superficial" (just style), then:
 
 ### Limitations Authors Acknowledge
 
-See Section 7 above. Key admission: "unlucky sample during decoding or adversarial prompt can often lead to a weak response" — suggests capabilities are fragile.
+See Section 7 above. Key admission: "unlucky sample during decoding or adversarial prompt can often lead to a weak response" - suggests capabilities are fragile.
 
 ---
 
@@ -258,7 +258,7 @@ See Section 7 above. Key admission: "unlucky sample during decoding or adversari
 4. **Mechanistic Support (#210)**: Alignment just narrows the probability distribution
 
 ### Challenges the Thesis:
-1. **Strong Generalization**: LIMA generalizes to unseen tasks — suggests some abstraction
+1. **Strong Generalization**: LIMA generalizes to unseen tasks - suggests some abstraction
 2. **Few-Shot Dialogue**: 30 examples unlock multi-turn capability
 3. **Definition Ambiguity**: "Knowledge" and "capability" are conflated
 

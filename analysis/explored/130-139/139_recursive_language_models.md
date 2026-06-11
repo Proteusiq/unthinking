@@ -11,11 +11,11 @@
 
 ## Core Claims
 
-1. **RLMs treat prompts as external objects** — rather than feeding arbitrarily long prompts into the Transformer, they're loaded as variables in a REPL environment that the LLM can programmatically manipulate
-2. **RLMs can process inputs 2 orders of magnitude beyond context windows** — scaling to 10M+ tokens
-3. **Context rot is real** — vanilla LLMs degrade significantly as prompts get longer, especially on complex tasks
-4. **Symbolic recursion is key** — RLMs allow code to invoke the LLM on programmatically constructed slices of the prompt
-5. **Small fine-tuned RLM (8B) approaches GPT-5 quality** — RLM-Qwen3-8B outperforms base Qwen3-8B by 28.3%
+1. **RLMs treat prompts as external objects** - rather than feeding arbitrarily long prompts into the Transformer, they're loaded as variables in a REPL environment that the LLM can programmatically manipulate
+2. **RLMs can process inputs 2 orders of magnitude beyond context windows** - scaling to 10M+ tokens
+3. **Context rot is real** - vanilla LLMs degrade significantly as prompts get longer, especially on complex tasks
+4. **Symbolic recursion is key** - RLMs allow code to invoke the LLM on programmatically constructed slices of the prompt
+5. **Small fine-tuned RLM (8B) approaches GPT-5 quality** - RLM-Qwen3-8B outperforms base Qwen3-8B by 28.3%
 
 ---
 
@@ -69,7 +69,7 @@ From Figure 1:
 ### Small Model Fine-tuning
 | Model | CodeQA | BrowseComp+ | OOLONG | OOLONG-Pairs | Avg Improvement |
 |-------|--------|-------------|--------|--------------|-----------------|
-| Qwen3-8B Base | 4.0%* | 0.0%* | 0.0%* | 0.1% | — |
+| Qwen3-8B Base | 4.0%* | 0.0%* | 0.0%* | 0.1% | - |
 | RLM(Qwen3-8B) | 26.0% | 2.0% | 24.0% | 4.3% | +14.1% |
 | RLM-Qwen3-8B (fine-tuned) | 32.0% | 14.0% | 32.0% | 5.2% | **+28.3%** |
 
@@ -77,7 +77,7 @@ From Figure 1:
 
 ## Relationship to Thesis
 
-### BALANCED — provides both support and challenge:
+### BALANCED - provides both support and challenge:
 
 **SUPPORTS the thesis:**
 
@@ -85,19 +85,19 @@ From Figure 1:
 
 2. **Symbolic scaffolding needed**: The fact that RLMs dramatically outperform base models suggests LLMs NEED external symbolic scaffolding to handle complex reasoning. The neural network alone is insufficient.
 
-3. **Elicitation framework evidence**: This paper is a perfect example of the "elicitation stack" concept — tools/scaffolding dramatically change what appears to be "reasoning ability."
+3. **Elicitation framework evidence**: This paper is a perfect example of the "elicitation stack" concept - tools/scaffolding dramatically change what appears to be "reasoning ability."
 
-4. **Key quote**: "Frontier reasoning models have limited context windows and, even within their limits, tend to exhibit context rot" — acknowledging fundamental limitations.
+4. **Key quote**: "Frontier reasoning models have limited context windows and, even within their limits, tend to exhibit context rot" - acknowledging fundamental limitations.
 
 **CHALLENGES the thesis (weakly):**
 
 1. **RLMs enable emergent behavior**: The paper shows LLMs can write code to decompose problems, use regex filtering based on priors, and recursively solve sub-problems. This looks like intelligent behavior.
 
-2. **Transfer learning works**: Fine-tuning on 1,000 samples from unrelated tasks improves performance by 28.3% on new tasks — suggesting some generalization.
+2. **Transfer learning works**: Fine-tuning on 1,000 samples from unrelated tasks improves performance by 28.3% on new tasks - suggesting some generalization.
 
 **CRITICAL INTERPRETATION:**
 
-RLMs don't give LLMs "reasoning ability" — they give LLMs **symbolic tools to execute algorithms they already know from training**:
+RLMs don't give LLMs "reasoning ability" - they give LLMs **symbolic tools to execute algorithms they already know from training**:
 - Writing Python loops = pattern learned from training
 - Regex filtering = pattern learned from training  
 - Recursive decomposition = pattern learned from training
@@ -120,7 +120,7 @@ This is **engineering around limitations**, not **genuine reasoning emergence**.
 - **Paper 137** (Mechanisms of Explicit CoT): Both show explicit structure improves performance
 
 ### Challenges
-- Papers claiming LLMs have "emergent reasoning" — RLMs show performance gains come from scaffold, not emergence
+- Papers claiming LLMs have "emergent reasoning" - RLMs show performance gains come from scaffold, not emergence
 
 ### Extends
 - **Paper 47** (Thinking Isn't an Illusion): Both argue tools augment reasoning
@@ -140,7 +140,7 @@ This is **engineering around limitations**, not **genuine reasoning emergence**.
 
 ### Potential Counter-Arguments
 
-1. **"RLMs just shift complexity to scaffolding"**: Critics might argue RLMs don't solve the fundamental problem — they offload it to engineering. The neural network still can't reason; it just writes code that can.
+1. **"RLMs just shift complexity to scaffolding"**: Critics might argue RLMs don't solve the fundamental problem - they offload it to engineering. The neural network still can't reason; it just writes code that can.
 
 2. **"Evaluation tasks are retrieval-heavy"**: Many tasks (BrowseComp+, OOLONG) can be solved with good retrieval rather than reasoning. RLMs may be sophisticated retrieval systems, not reasoners.
 
@@ -195,7 +195,7 @@ The interpolation thesis says LLMs can only produce outputs that lie within the 
 **The 28.3% improvement from 1,000 samples:**
 
 This could be interpreted as:
-- **FOR thesis**: The improvement is about learning the RLM "format" — not learning to reason
+- **FOR thesis**: The improvement is about learning the RLM "format" - not learning to reason
 - **AGAINST thesis**: Some transfer happens, suggesting generalization
 
 ### Relation to "Dense Statistical Remixed Echo Chamber":

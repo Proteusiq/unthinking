@@ -15,7 +15,7 @@
 This paper directly challenges the "pattern matching" narrative from Faith and Fate and GSM-Symbolic by showing:
 1. **CoT reasoning exists in base models WITHOUT prompting**
 2. **It's hidden by greedy decoding, not absent**
-3. **Reasoning correlates with confidence** — suggesting internal structure
+3. **Reasoning correlates with confidence** - suggesting internal structure
 
 **Critical for the OLMo 3 thesis**: If reasoning is intrinsic and just needs "surfacing," this supports the thesis claim that RL surfaces pre-existing capability rather than creating new reasoning.
 
@@ -23,11 +23,11 @@ This paper directly challenges the "pattern matching" narrative from Faith and F
 
 ## Core Claims
 
-1. **CoT reasoning paths are INHERENT in pre-trained LLMs** — they exist in the probability distribution
-2. **Greedy decoding HIDES reasoning** — it takes shortcuts to direct answers
-3. **Alternative decoding paths contain CoT** — top-k tokens reveal reasoning
-4. **CoT presence correlates with answer confidence** — higher Δ when reasoning is explicit
-5. **This reveals INTRINSIC reasoning ability** — no prompt confounders
+1. **CoT reasoning paths are INHERENT in pre-trained LLMs** - they exist in the probability distribution
+2. **Greedy decoding HIDES reasoning** - it takes shortcuts to direct answers
+3. **Alternative decoding paths contain CoT** - top-k tokens reveal reasoning
+4. **CoT presence correlates with answer confidence** - higher Δ when reasoning is explicit
+5. **This reveals INTRINSIC reasoning ability** - no prompt confounders
 
 ---
 
@@ -122,7 +122,7 @@ Both could be true:
 
 1. **"Intrinsic" vs "Learned from Training Data"**
    - The reasoning paths are from pretraining
-   - This is still "pattern matching" — just more sophisticated
+   - This is still "pattern matching" - just more sophisticated
    - Question: Does intrinsic = genuine?
 
 2. **CoT ≠ Faithful Reasoning**
@@ -175,7 +175,7 @@ Both could be true:
 | Paper | Limitation |
 |-------|------------|
 | **OMEGA** (2506.18880) | Intrinsic paths don't help OOD; 0% transformative generalization |
-| **Planning Gap** (2601.14456) | 82.9% ID → 0% OOD — intrinsic capability bounded |
+| **Planning Gap** (2601.14456) | 82.9% ID → 0% OOD - intrinsic capability bounded |
 | **Multilingual Latent Reasoners** (2601.02996) | Latent reasoning fragile; collapses on hard problems |
 
 ---
@@ -231,7 +231,7 @@ Both could be true:
 This paper provides **crucial evidence** for the argument that:
 1. Reasoning-like patterns exist in base models (OLMo 3)
 2. RL/RLHF "surfaces" these patterns rather than creating them
-3. The patterns are **predictive** — they interpolate from training data
+3. The patterns are **predictive** - they interpolate from training data
 
 Is it really FOR genuine reasoning? Maybe not. They noted:
 

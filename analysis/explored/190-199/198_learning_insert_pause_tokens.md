@@ -83,7 +83,7 @@
 
 1. **Tokens don't need semantic content**: [PAUSE] is meaningless but provides computational benefit
 2. **Position based on uncertainty, not semantics**: Insertion is based on model confidence, not reasoning structure
-3. **Acts as computational regularization**: Similar to focal loss — about computation, not understanding
+3. **Acts as computational regularization**: Similar to focal loss - about computation, not understanding
 
 ### Key Insight for Thesis
 
@@ -129,8 +129,8 @@ The paper provides a **mechanistic explanation** that aligns with computational 
 4. **Limited task scope**: Only math and code reasoning tested
 
 ### Limitations (Authors Acknowledge)
-- "Negative Impact of [PAUSE] token" — can hurt performance in some cases
-- "Interpretations Still Obscured Within a Black Box" — mechanism not fully understood
+- "Negative Impact of [PAUSE] token" - can hurt performance in some cases
+- "Interpretations Still Obscured Within a Black Box" - mechanism not fully understood
 - Results vary across models and tasks
 
 ---
@@ -163,7 +163,7 @@ The paper provides a **mechanistic explanation** that aligns with computational 
 
 ### Stance: SUPPORTS (Moderately)
 
-The paper supports the thesis that [PAUSE] tokens provide computational benefits unrelated to semantic content. The key mechanism — increasing loss for difficult tokens — is purely computational. However, it's a training-time effect rather than inference-time, so it's less directly relevant to "reasoning" per se.
+The paper supports the thesis that [PAUSE] tokens provide computational benefits unrelated to semantic content. The key mechanism - increasing loss for difficult tokens - is purely computational. However, it's a training-time effect rather than inference-time, so it's less directly relevant to "reasoning" per se.
 
 ---
 

@@ -15,7 +15,7 @@
 2. **FSM length correlates with accuracy for math** but NOT for factual tasks
 3. **High-performing models exhibit adaptive, distributed transitions** with structured backtracking
 4. **Weak models show rigid, short paths** with premature closure
-5. **Mathematical vs scientific reasoning require different dynamics** — goal-directed vs evidence-driven
+5. **Mathematical vs scientific reasoning require different dynamics** - goal-directed vs evidence-driven
 
 ---
 
@@ -103,23 +103,23 @@
 
 ### What This Paper Shows
 
-1. **FSM captures reasoning dynamics** — interpretable state transitions
-2. **Length matters for math** — extended deliberation helps
-3. **Length can HURT for factual tasks** — redundancy, not precision
-4. **Adaptive transitions characterize strong models** — diverse state engagement
+1. **FSM captures reasoning dynamics** - interpretable state transitions
+2. **Length matters for math** - extended deliberation helps
+3. **Length can HURT for factual tasks** - redundancy, not precision
+4. **Adaptive transitions characterize strong models** - diverse state engagement
 
 ### Relevance to Thesis
 
-**BALANCED — Provides interpretable lens on reasoning, shows test-time compute limits**
+**BALANCED - Provides interpretable lens on reasoning, shows test-time compute limits**
 
 **For genuine reasoning:**
 - Models do engage in structured state transitions
 - Backtracking and uncertainty handling exist
 
 **Supports thesis:**
-- **Longer reasoning doesn't always help** — GPQA shows inverse correlation
-- **Excessive reasoning = redundancy** — not genuine insight
-- **Weak models show rigid patterns** — limited exploration
+- **Longer reasoning doesn't always help** - GPQA shows inverse correlation
+- **Excessive reasoning = redundancy** - not genuine insight
+- **Weak models show rigid patterns** - limited exploration
 
 ---
 
@@ -148,11 +148,11 @@
 
 ### Potential Counter-Arguments
 
-1. **Discretization loses nuance** — reasoning is continuous
-2. **LLM-based labeling** — may introduce bias
-3. **Fixed 6-state taxonomy** — may not generalize
-4. **Process vs correctness** — FSM describes dynamics, not accuracy
-5. **Memoryless model** — can't capture state-dependent transitions
+1. **Discretization loses nuance** - reasoning is continuous
+2. **LLM-based labeling** - may introduce bias
+3. **Fixed 6-state taxonomy** - may not generalize
+4. **Process vs correctness** - FSM describes dynamics, not accuracy
+5. **Memoryless model** - can't capture state-dependent transitions
 
 ### Limitations (Authors Acknowledge)
 - Discretization may miss subtle transitions
@@ -177,16 +177,16 @@
 
 ## Relevance to Thesis
 
-**BALANCED — Shows extended reasoning has limits; provides interpretability framework**
+**BALANCED - Shows extended reasoning has limits; provides interpretability framework**
 
 This paper shows:
-1. ✓ Longer reasoning helps for math — supports test-time compute
-2. ✓ Longer reasoning can HURT for factual tasks — supports thesis limits
+1. ✓ Longer reasoning helps for math - supports test-time compute
+2. ✓ Longer reasoning can HURT for factual tasks - supports thesis limits
 3. ✓ Weak models show rigid, shallow patterns
-4. ~ Strong models show adaptive transitions — some genuine reasoning structure
+4. ~ Strong models show adaptive transitions - some genuine reasoning structure
 5. ~ FSM provides interpretable lens on reasoning dynamics
 
-**Key insight for thesis**: Extended reasoning (test-time compute) has **task-dependent** value. For math, longer helps. For factual recall, longer introduces redundancy. This nuances the test-time scaling claims — more thinking doesn't universally improve performance.
+**Key insight for thesis**: Extended reasoning (test-time compute) has **task-dependent** value. For math, longer helps. For factual recall, longer introduces redundancy. This nuances the test-time scaling claims - more thinking doesn't universally improve performance.
 
 ---
 

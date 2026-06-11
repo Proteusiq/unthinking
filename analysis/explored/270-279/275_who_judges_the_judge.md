@@ -21,7 +21,7 @@
 
 ## Methodology
 
-**Framework**: LLM Jury-on-Demand — dynamic, learning-based evaluation system
+**Framework**: LLM Jury-on-Demand - dynamic, learning-based evaluation system
 
 **Key Components**:
 1. **Reliability Predictors**: Train models to predict when LLM judges will agree with human experts
@@ -81,15 +81,15 @@ The paper uses multiple signal types to predict judge reliability:
 
 The paper's premise is that LLM judges are unreliable:
 
-1. **Single judges are biased**: The entire motivation rests on judges being systematically unreliable — not just noisy but directionally biased
+1. **Single judges are biased**: The entire motivation rests on judges being systematically unreliable - not just noisy but directionally biased
 
-2. **Reliability is context-dependent**: The need for *dynamic* jury selection implies judges fail unpredictably across instances — they don't generalize reliable evaluation capability
+2. **Reliability is context-dependent**: The need for *dynamic* jury selection implies judges fail unpredictably across instances - they don't generalize reliable evaluation capability
 
 3. **Requires learned correction**: Training reliability predictors to identify when judges will agree with humans is an admission that judge outputs cannot be trusted at face value
 
-4. **Aggregation compensates for individual failure**: Like BT-σ (#275), this paper proposes aggregation to mask individual unreliability — the solution acknowledges the problem
+4. **Aggregation compensates for individual failure**: Like BT-σ (#275), this paper proposes aggregation to mask individual unreliability - the solution acknowledges the problem
 
-The key insight supporting the thesis: if LLM judges genuinely reasoned about evaluation, their reliability wouldn't need external prediction — it would be intrinsic. The need for learned reliability models shows judges pattern-match in ways that sometimes align with human judgment and sometimes don't.
+The key insight supporting the thesis: if LLM judges genuinely reasoned about evaluation, their reliability wouldn't need external prediction - it would be intrinsic. The need for learned reliability models shows judges pattern-match in ways that sometimes align with human judgment and sometimes don't.
 
 ---
 
@@ -97,7 +97,7 @@ The key insight supporting the thesis: if LLM judges genuinely reasoned about ev
 
 **Classification**: Supports the thesis that LLMs don't genuinely reason
 
-**Confidence**: Moderate — based on abstract; full paper may contain additional evidence
+**Confidence**: Moderate - based on abstract; full paper may contain additional evidence
 
 ---
 
@@ -122,7 +122,7 @@ The key insight supporting the thesis: if LLM judges genuinely reasoned about ev
 
 ### Counter-Evidence
 
-The paper proposes a solution (dynamic jury selection) that partially addresses judge unreliability. However, the need for such complex correction itself supports the thesis — if judges genuinely reasoned, such machinery wouldn't be necessary.
+The paper proposes a solution (dynamic jury selection) that partially addresses judge unreliability. However, the need for such complex correction itself supports the thesis - if judges genuinely reasoned, such machinery wouldn't be necessary.
 
 ---
 
@@ -162,4 +162,4 @@ The paper proposes a solution (dynamic jury selection) that partially addresses 
 3. **Dynamic adaptation**: Advances beyond static aggregation methods
 4. **Comprehensive evaluation**: 66 pages suggests thorough empirical validation
 
-The paper's key contribution is shifting from "which judge is best" to "which judges are best *for this instance*" — recognizing that reliability is contextual, not intrinsic. This fundamentally undermines claims that LLM judges have stable evaluation capabilities.
+The paper's key contribution is shifting from "which judge is best" to "which judges are best *for this instance*" - recognizing that reliability is contextual, not intrinsic. This fundamentally undermines claims that LLM judges have stable evaluation capabilities.

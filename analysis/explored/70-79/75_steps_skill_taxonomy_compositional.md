@@ -12,7 +12,7 @@
 
 ## Core Claims
 
-1. **Data bottleneck causes compositional failure**: Complex skill combinations follow power-law distribution — abundant atomic skills but rare combinations
+1. **Data bottleneck causes compositional failure**: Complex skill combinations follow power-law distribution - abundant atomic skills but rare combinations
 2. **Skill taxonomy enables targeted synthesis**: Hierarchical organization of skills reveals dependencies and enables principled composition
 3. **Information maximization guides selection**: Structural entropy identifies high-value skill combinations
 4. **"Sweet spot" matters**: Unconstrained diversity hurts; need balance between diversity and coherence
@@ -24,7 +24,7 @@
 ### The Problem: Power-Law Distribution of Skill Combinations
 > "While individual atomic skills are abundantly represented in training corpora, complex skill combinations follow a long-tailed, power-law distribution"
 
-This directly explains WHY LLMs fail at compositional generalization — they simply don't see enough examples.
+This directly explains WHY LLMs fail at compositional generalization - they simply don't see enough examples.
 
 ### STEPS Framework (Two Stages)
 
@@ -139,7 +139,7 @@ Even GPT-5.2 degrades at high complexity (8.84 → 8.17).
 ## REBUTTALS TO THIS PAPER
 
 ### Search for Direct Rebuttals
-- Paper is very recent (January 2026) — no direct rebuttals found
+- Paper is very recent (January 2026) - no direct rebuttals found
 
 ### Potential Counter-Arguments
 
@@ -155,20 +155,20 @@ Even GPT-5.2 degrades at high complexity (8.84 → 8.17).
 
 ## Relevance to Thesis
 
-**BALANCED → SUPPORTS** — Paper provides mechanism for compositional failure AND shows improvement is possible with targeted training.
+**BALANCED → SUPPORTS** - Paper provides mechanism for compositional failure AND shows improvement is possible with targeted training.
 
 ### Evidence FOR Thesis (Pattern Matching)
 
 1. **Power-law distribution explains failure**: Models simply don't see enough complex combinations
 2. **Data is the bottleneck, not architecture**: Confirms training distribution bounds capability
-3. **Unconstrained diversity hurts**: Random combinations introduce "noise" — models need coherent patterns
+3. **Unconstrained diversity hurts**: Random combinations introduce "noise" - models need coherent patterns
 4. **Tool use ≠ reasoning**: "Shallow tool-use patterns" reinforced by RL don't transfer
 
 ### Evidence AGAINST Thesis (or Complicating)
 
 1. **Targeted training helps**: With right data, models CAN improve at composition
 2. **Taxonomy-guided learning works**: Models can learn skill dependencies
-3. **Sweet spot exists**: Not pure pattern matching — structure matters
+3. **Sweet spot exists**: Not pure pattern matching - structure matters
 
 ### Key Insight for Synthesis
 
@@ -188,9 +188,9 @@ This supports the thesis nuance: LLMs CAN learn compositions, but only when expl
 ### Integration with Thesis
 
 STEPS validates the thesis mechanism:
-1. **Training distribution determines capability** — confirmed by power-law analysis
-2. **Surfacing requires relevant examples** — STEPS surfaces via targeted synthesis
-3. **Pattern matching dominates** — unconstrained combinations hurt because they don't match coherent patterns
+1. **Training distribution determines capability** - confirmed by power-law analysis
+2. **Surfacing requires relevant examples** - STEPS surfaces via targeted synthesis
+3. **Pattern matching dominates** - unconstrained combinations hurt because they don't match coherent patterns
 
 The tool use finding is particularly valuable:
 > "Precise tool execution cannot rectify a fundamentally flawed reasoning path"

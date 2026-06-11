@@ -11,9 +11,9 @@
 
 ## Core Claims
 
-1. **Reasoning models simulate multi-agent dialogue** — a "society of thought" — to improve reasoning
+1. **Reasoning models simulate multi-agent dialogue** - a "society of thought" - to improve reasoning
 2. **DeepSeek-R1 and QwQ-32B exhibit more conversational behaviors** than instruction-tuned models (question-answering, perspective shifts, conflicts, reconciliation)
-3. **Conversational features causally improve reasoning** — steering a "surprise" feature doubles accuracy on Countdown task
+3. **Conversational features causally improve reasoning** - steering a "surprise" feature doubles accuracy on Countdown task
 4. **Greater personality and expertise diversity** in reasoning models' traces compared to instruction-tuned models
 5. **RL spontaneously develops conversational patterns** when rewarded only for accuracy
 6. **Conversational scaffolding accelerates reasoning improvement** during RL training
@@ -53,7 +53,7 @@
 |----------|-------------------|----------------------------|
 | Question-answering | β=0.345, p<10⁻³²³ | β=0.459, p<10⁻³²³ |
 | Perspective shifts | β=0.213, p<10⁻¹³⁷ | β=0.378, p<10⁻³²³ |
-| Conflict of perspectives | — | β=0.293, p<10⁻²⁷⁷ |
+| Conflict of perspectives | - | β=0.293, p<10⁻²⁷⁷ |
 | Reconciliation | β=0.191, p<10⁻¹²⁵ | β=0.344, p<10⁻³²³ |
 
 **Key finding**: Reasoning models show significantly more conversational behaviors even controlling for trace length.
@@ -92,16 +92,16 @@ When rewarding ONLY accuracy on Countdown game:
 
 ### What This Paper Shows
 
-1. **HOW reasoning models work** — they simulate multi-agent dialogue
-2. **Conversational features causally improve reasoning** — steering evidence
-3. **RL discovers conversational patterns** — without explicit training signal
-4. **Diversity matters** — more perspectives correlate with accuracy
+1. **HOW reasoning models work** - they simulate multi-agent dialogue
+2. **Conversational features causally improve reasoning** - steering evidence
+3. **RL discovers conversational patterns** - without explicit training signal
+4. **Diversity matters** - more perspectives correlate with accuracy
 
 ### What This Paper Does NOT Show
 
-1. **Whether this constitutes "genuine reasoning"** — simulating dialogue is still a learned pattern
-2. **Whether it generalizes to truly novel problems** — no OOD testing
-3. **Whether the "perspectives" are genuinely distinct** — could be surface-level diversity
+1. **Whether this constitutes "genuine reasoning"** - simulating dialogue is still a learned pattern
+2. **Whether it generalizes to truly novel problems** - no OOD testing
+3. **Whether the "perspectives" are genuinely distinct** - could be surface-level diversity
 
 ### Relevance to Thesis
 
@@ -167,7 +167,7 @@ The paper explains the MECHANISM of reasoning models but doesn't address whether
 
 ## Key Quotes
 
-> "Enhanced reasoning emerges not from extended computation alone, but from the implicit simulation of complex, multi-agent-like interactions—a society of thought."
+> "Enhanced reasoning emerges not from extended computation alone, but from the implicit simulation of complex, multi-agent-like interactions-a society of thought."
 
 > "Reasoning models like DeepSeek-R1 exhibit much greater perspective diversity than baseline and merely instruction-tuned models."
 
@@ -179,12 +179,12 @@ The paper explains the MECHANISM of reasoning models but doesn't address whether
 
 ## Relevance to Thesis
 
-**BALANCED — Explains mechanism but doesn't rebut thesis**
+**BALANCED - Explains mechanism but doesn't rebut thesis**
 
 This paper shows:
-1. ✓ Reasoning models simulate multi-agent dialogue — interesting mechanism
-2. ✓ Conversational features improve reasoning — but within distribution
-3. ✓ RL discovers conversational patterns — from pre-existing capability
+1. ✓ Reasoning models simulate multi-agent dialogue - interesting mechanism
+2. ✓ Conversational features improve reasoning - but within distribution
+3. ✓ RL discovers conversational patterns - from pre-existing capability
 
 But doesn't show:
 1. ✗ That this works for OOD or compositionally novel problems

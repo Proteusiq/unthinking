@@ -11,10 +11,10 @@
 
 ## Core Claims
 
-1. **Truncated reasoning hurts more than no reasoning** — DeepSeek-V3.2 achieves 53% with no reasoning but only 17% with truncated CoT at 50% budget
-2. **Code degrades gracefully vs NL** — Comments collapse to 0% while code maintains 43-47% under token constraints
-3. **Hybrid reasoning underperforms** — Combining code and comments never achieves best performance due to modality-switching overhead
-4. **Robustness is model-dependent** — Grok maintains 80-90% at 30% budget where OpenAI/DeepSeek collapse to 7-27%
+1. **Truncated reasoning hurts more than no reasoning** - DeepSeek-V3.2 achieves 53% with no reasoning but only 17% with truncated CoT at 50% budget
+2. **Code degrades gracefully vs NL** - Comments collapse to 0% while code maintains 43-47% under token constraints
+3. **Hybrid reasoning underperforms** - Combining code and comments never achieves best performance due to modality-switching overhead
+4. **Robustness is model-dependent** - Grok maintains 80-90% at 30% budget where OpenAI/DeepSeek collapse to 7-27%
 
 ---
 
@@ -52,29 +52,29 @@
 ## Relationship to Other Papers
 
 ### Supports
-- **Faithfulness Decay (2602.11201)** — Both find later reasoning steps can hurt; incomplete chains actively mislead
-- **Inverse Scaling TTC (2507.14417)** — More tokens can be worse; truncation harms more than absence
-- **Overthinking (2412.21187)** — Extended reasoning isn't always beneficial
-- **Code over Words (2601.18352)** — Code more robust than natural language
+- **Faithfulness Decay (2602.11201)** - Both find later reasoning steps can hurt; incomplete chains actively mislead
+- **Inverse Scaling TTC (2507.14417)** - More tokens can be worse; truncation harms more than absence
+- **Overthinking (2412.21187)** - Extended reasoning isn't always beneficial
+- **Code over Words (2601.18352)** - Code more robust than natural language
 
 ### Challenges
-- **Chain-of-Thought Prompting (2201.11903)** — Challenges assumption that CoT always helps
+- **Chain-of-Thought Prompting (2201.11903)** - Challenges assumption that CoT always helps
 
 ### Extends
-- **Underthinking (2501.18585)** — Adds token budget dimension to reasoning efficiency analysis
+- **Underthinking (2501.18585)** - Adds token budget dimension to reasoning efficiency analysis
 
 ---
 
 ## REBUTTALS
 
 ### Known Rebuttals
-None found yet — paper is recent
+None found yet - paper is recent
 
 ### Potential Counter-Arguments
-1. **Mathematical tasks only** — May not generalize to commonsense, coding, scientific reasoning
-2. **Fixed percentage ablation** — Adaptive budgets might perform differently
-3. **API-based evaluation** — Model internals not examined
-4. **Future models** — Newer models may be trained for truncation robustness
+1. **Mathematical tasks only** - May not generalize to commonsense, coding, scientific reasoning
+2. **Fixed percentage ablation** - Adaptive budgets might perform differently
+3. **API-based evaluation** - Model internals not examined
+4. **Future models** - Newer models may be trained for truncation robustness
 
 ### Limitations (Authors Acknowledge)
 - Focus on mathematical reasoning; generalization uncertain
@@ -100,10 +100,10 @@ None found yet — paper is recent
 
 **SUPPORTS** the thesis that LLMs are pattern matchers:
 
-1. **Incomplete patterns mislead** — Models can't recover from truncated reasoning = dependent on seeing full patterns
-2. **Direct answering outperforms truncated CoT** — Pattern retrieval (no reasoning) beats partial pattern execution
-3. **Code > NL robustness** — Structured patterns (code) more robust than unstructured (NL)
-4. **Model dependence** — Reasoning robustness varies dramatically = not genuine reasoning
+1. **Incomplete patterns mislead** - Models can't recover from truncated reasoning = dependent on seeing full patterns
+2. **Direct answering outperforms truncated CoT** - Pattern retrieval (no reasoning) beats partial pattern execution
+3. **Code > NL robustness** - Structured patterns (code) more robust than unstructured (NL)
+4. **Model dependence** - Reasoning robustness varies dramatically = not genuine reasoning
 
 Key insight: If models were genuinely reasoning, partial progress should help. Instead, incomplete chains HURT because models pattern-match expecting complete traces.
 

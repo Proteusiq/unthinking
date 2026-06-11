@@ -11,10 +11,10 @@
 
 ## Core Claims
 
-1. **Logit lens can decode ROT-13 encoded reasoning** — Internal representations anchor to English even when output is encrypted
-2. **Intermediate layers preserve semantic content** — Peak decoding accuracy at layers 54-62 (of 70)
-3. **Unsupervised pipeline achieves substantial accuracy** — Combines logit lens + automated paraphrasing
-4. **Interpretability more robust than expected** — Current methods can penetrate simple encoding schemes
+1. **Logit lens can decode ROT-13 encoded reasoning** - Internal representations anchor to English even when output is encrypted
+2. **Intermediate layers preserve semantic content** - Peak decoding accuracy at layers 54-62 (of 70)
+3. **Unsupervised pipeline achieves substantial accuracy** - Combines logit lens + automated paraphrasing
+4. **Interpretability more robust than expected** - Current methods can penetrate simple encoding schemes
 
 ---
 
@@ -32,9 +32,9 @@
 - Model achieves 72% correct answers, 73.5% correct person identification, 83.7% correct state identification
 
 ### Decoding Methods Tested
-1. **Logit lens analysis** — Unembed activations at each layer to token space
-2. **Activation probes** — Cosine similarity to concept vectors
-3. **Unsupervised pipeline** — Logit lens + confidence threshold + LLM paraphrasing
+1. **Logit lens analysis** - Unembed activations at each layer to token space
+2. **Activation probes** - Cosine similarity to concept vectors
+3. **Unsupervised pipeline** - Logit lens + confidence threshold + LLM paraphrasing
 
 ---
 
@@ -69,7 +69,7 @@
 **Unsupervised reconstruction**:
 > "Hillary Clinton was indeed the Secretary of State, and she was born in Chicago, Illinois. Yes, Illinois' capital is indeed Springfield."
 
-**Grader score**: High similarity — key facts preserved!
+**Grader score**: High similarity - key facts preserved!
 
 ---
 
@@ -77,15 +77,15 @@
 
 ### What This Paper Shows
 
-1. **Internal representations more interpretable than outputs** — Even encoded models preserve semantic structure internally
-2. **"Semantic hub" in intermediate layers** — Similar to multilingual models, intermediate layers anchor to dominant language
-3. **Current interpretability methods work on simple encoding** — Logit lens penetrates ROT-13
+1. **Internal representations more interpretable than outputs** - Even encoded models preserve semantic structure internally
+2. **"Semantic hub" in intermediate layers** - Similar to multilingual models, intermediate layers anchor to dominant language
+3. **Current interpretability methods work on simple encoding** - Logit lens penetrates ROT-13
 
 ### What This Paper Does NOT Show
 
-1. **Generalization to complex encoding** — ROT-13 is trivial; adversarial encoding could be much harder
-2. **RL-trained opaque reasoning** — Their model was SFT-trained; RL might produce different representations
-3. **Natural encoding emergence** — Artificial testbed, not naturally emerged opaque reasoning
+1. **Generalization to complex encoding** - ROT-13 is trivial; adversarial encoding could be much harder
+2. **RL-trained opaque reasoning** - Their model was SFT-trained; RL might produce different representations
+3. **Natural encoding emergence** - Artificial testbed, not naturally emerged opaque reasoning
 
 ### Limitations (Authors Acknowledge)
 > "if encoded reasoning arises in the wild, it would likely be as a result of RL posttraining, where the exact form of encoding could be more complex"
@@ -119,9 +119,9 @@
 
 ### Potential Counter-Arguments
 
-1. **ROT-13 is too simple** — Real steganography would be much harder to decode
-2. **SFT preserves base representations** — RL-trained models might not have this property
-3. **Doesn't prove reasoning is faithful** — Just shows we can read encoded text, not that it's causally relevant
+1. **ROT-13 is too simple** - Real steganography would be much harder to decode
+2. **SFT preserves base representations** - RL-trained models might not have this property
+3. **Doesn't prove reasoning is faithful** - Just shows we can read encoded text, not that it's causally relevant
 
 ### Related Concern from Paper
 > "GPT-5 has been reported to use seemingly benign words like 'marinade' within its reasoning trace for unclear reasons"
@@ -144,7 +144,7 @@ This suggests real-world opaque reasoning may be more subtle than ROT-13.
 
 ## Relevance to Thesis
 
-**BALANCED — provides mechanistic insight but doesn't address core thesis**
+**BALANCED - provides mechanistic insight but doesn't address core thesis**
 
 ### Tangential to main thesis:
 - Paper focuses on AI safety (can we monitor hidden reasoning?)

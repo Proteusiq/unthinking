@@ -1,4 +1,4 @@
-# Paper Analysis: RADAR — Mechanistic Pathways for Detecting Data Contamination
+# Paper Analysis: RADAR - Mechanistic Pathways for Detecting Data Contamination
 
 ## Metadata
 - **arXiv ID**: 2510.08931
@@ -11,9 +11,9 @@
 
 ## Core Claims
 
-1. **Mechanistic features can distinguish recall from reasoning** — 93% accuracy overall
+1. **Mechanistic features can distinguish recall from reasoning** - 93% accuracy overall
 2. **Distinct internal signatures exist** for recall vs reasoning behavior
-3. **Contamination can be detected without training data access** — only model internals needed
+3. **Contamination can be detected without training data access** - only model internals needed
 4. **37 features provide interpretable insights** into cognitive processes
 
 ---
@@ -89,12 +89,12 @@ Recall vs. Reasoning Detection through Activation Representation
 
 1. **Internal signatures differ** between recall and reasoning
 2. **Mechanistic analysis can detect contamination** without training data
-3. **Early convergence = recall indicator** — model "knows" answer immediately
-4. **Distributed attention = reasoning indicator** — model "computes" answer
+3. **Early convergence = recall indicator** - model "knows" answer immediately
+4. **Distributed attention = reasoning indicator** - model "computes" answer
 
 ### Relevance to Thesis
 
-**SUPPORTS thesis — provides method to detect pattern matching vs genuine reasoning**
+**SUPPORTS thesis - provides method to detect pattern matching vs genuine reasoning**
 
 **Key insight**: When a model should be reasoning but shows recall-like signatures, this indicates:
 - The model has memorized the answer
@@ -124,11 +124,11 @@ Recall vs. Reasoning Detection through Activation Representation
 
 ### Potential Counter-Arguments
 
-1. **Very small training set** — only 30 examples (15 recall, 15 reasoning)
-2. **Single model tested** — only DialoGPT-medium
-3. **23.3% error on challenging cases** — significant ambiguity
-4. **Proxy measures** — many features are approximations, not direct measurements
-5. **No real contamination data** — evaluated on constructed examples
+1. **Very small training set** - only 30 examples (15 recall, 15 reasoning)
+2. **Single model tested** - only DialoGPT-medium
+3. **23.3% error on challenging cases** - significant ambiguity
+4. **Proxy measures** - many features are approximations, not direct measurements
+5. **No real contamination data** - evaluated on constructed examples
 
 ### Limitations (Authors Acknowledge)
 - Features are proxy measures, not direct measurements
@@ -150,7 +150,7 @@ Recall vs. Reasoning Detection through Activation Representation
 
 ## Relevance to Thesis
 
-**SUPPORTS thesis — provides mechanistic method to detect pattern matching**
+**SUPPORTS thesis - provides mechanistic method to detect pattern matching**
 
 This paper shows:
 1. ✓ Internal signatures distinguish recall from reasoning

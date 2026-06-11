@@ -7,7 +7,7 @@
 - **Date**: Jun 2026 (v1)
 - **Category**: cs.AI
 - **Links**: agents-last-exam.org · github.com/rdi-berkeley/agents-last-exam
-- **Stance**: SUPPORTS (frontier agents score 0% on the hardest tier of ordinary, economically-valuable professional tasks; ~78% of failures are Understanding/Approach — reasoning and domain knowledge — not execution)
+- **Stance**: SUPPORTS (frontier agents score 0% on the hardest tier of ordinary, economically-valuable professional tasks; ~78% of failures are Understanding/Approach - reasoning and domain knowledge - not execution)
 
 ---
 
@@ -29,7 +29,7 @@
 The thesis's sharpest test is not "can the model do hard things" but "does its
 competence track problem difficulty or training-distribution exposure?" ALE
 moves the goalposts from saturated, leak-prone olympiad benchmarks to authentic
-professional workflows that any domain expert completes — and frontier agents
+professional workflows that any domain expert completes - and frontier agents
 collapse. Difficulty for a *reasoner* should scale with task complexity; ALE
 shows it scales with distributional coverage instead.
 
@@ -53,8 +53,8 @@ shows it scales with distributional coverage instead.
    failures are Understanding (31%) + Approach (47%); only 22% are Execution
    (implementation/format/GUI) errors.
 5. **The model matters far more than the harness.** Swapping the backbone
-   produces an 18.0 pp spread; swapping the harness produces only ~5-6 pp —
-   roughly 3× — pinning capability on "the foundation model's reasoning and
+   produces an 18.0 pp spread; swapping the harness produces only ~5-6 pp -
+   roughly 3× - pinning capability on "the foundation model's reasoning and
    domain knowledge."
 6. **Contamination-resistant by construction.** Only 150 of 1,490 instances are
    public (~10%); rolling renewal rotates private tasks in and retires public
@@ -65,12 +65,12 @@ shows it scales with distributional coverage instead.
 ## Methodology
 
 ### Benchmark design (three admission gates)
-- **Representativeness** — real software the experts actually use (e.g.,
+- **Representativeness** - real software the experts actually use (e.g.,
   SolidWorks/Rhino, not AutoCAD), not synthetic scenarios.
-- **Complexity** — an end-to-end deliverable, not a single UI action. "Workflow
+- **Complexity** - an end-to-end deliverable, not a single UI action. "Workflow
   vs action": *move a running cheetah into another race video* (tracking,
-  rotoscoping, compositing, color matching) — not *apply a color filter*.
-- **Verifiability** — deterministic check or unambiguous rubric tied to an
+  rotoscoping, compositing, color matching) - not *apply a color filter*.
+- **Verifiability** - deterministic check or unambiguous rubric tied to an
   observable artifact. LLM-as-judge is rejected at QC wherever a deterministic
   alternative exists; the minority that need a judge use narrow evidence-anchored
   yes/no probes.
@@ -90,7 +90,7 @@ screenshots, shell, mouse/keyboard, file edits, API calls. Five-hour cap per
 run (overall timeout rate 4.3%).
 
 ### Agent class: Generalist Computer-Use Agent (GCUA)
-Five functional layers — Brain (reasoning/planning), Eyes (GUI perception),
+Five functional layers - Brain (reasoning/planning), Eyes (GUI perception),
 Body (orchestration), Hands (tool calls), Feet (runtime). CLI-agents lack Eyes;
 GUI-agents have shallow Body/Hands/Feet. ALE demands the union, so all systems
 are brought to GCUA via a GUI-as-Tool MCP bridge (14 desktop-action tools).
@@ -123,7 +123,7 @@ of partial progress.
 
 ```text
 ┌──────────────────────────────────────────────────────────────┐
-│  WHY AGENTS FAIL — root cause of failed runs                 │
+│  WHY AGENTS FAIL - root cause of failed runs                 │
 ├──────────────────────────────────────────────────────────────┤
 │  APPROACH ........................ 47%  (reasoning/planning)  │
 │    ├── Wrong Strategy ............ 30%                        │
@@ -135,7 +135,7 @@ of partial progress.
 │    ├── Output Format Error ....... 10%                        │
 │    ├── Implementation Bug ........ 8%                         │
 │    └── GUI Interaction Failure ... 4%                         │
-│  (Timeout/resources excluded — environment, not reasoning)   │
+│  (Timeout/resources excluded - environment, not reasoning)   │
 └──────────────────────────────────────────────────────────────┘
    78% upstream of execution → the gap is reasoning, not plumbing
 ```
@@ -152,13 +152,13 @@ ordinary-competence test in the corpus:
 
 - The same agent that gets **82% on a saturated benchmark** (Terminal-Bench)
   gets **<10%** on novel professional workflows of comparable or lower intrinsic
-  difficulty — performance follows distributional exposure, not difficulty.
+  difficulty - performance follows distributional exposure, not difficulty.
 - The failure taxonomy localizes the gap **upstream of execution**: 78% of
   failures are Understanding/Approach. The model can type the commands; it can't
   work out what a domain expert would do. This is the proxy/competence
   decoupling made operational.
 - The **model >> harness** result (3× spread) rules out "it's just a tooling
-  problem" — better scaffolding does not close the gap; the foundation model's
+  problem" - better scaffolding does not close the gap; the foundation model's
   reasoning does.
 - The **Bash-substitution pattern** (34% of tasks demand GUI-primary software,
   yet agents default to ad-hoc scripts) is a symptom of missing specialized
@@ -168,20 +168,20 @@ ordinary-competence test in the corpus:
 
 - **This is a benchmark/capability paper, not a mechanism paper.** It shows the
   *symptom* (ordinary tasks fail, reasoning-class errors dominate) cleanly, but
-  does not isolate *why* at the circuit/training level — that link to the thesis
+  does not isolate *why* at the circuit/training level - that link to the thesis
   is inferential, supplied by mechanism papers elsewhere in the corpus.
 - **Gate-and-score can force a 0** on partial progress, which makes full-pass
   rates harsh; the mean-score columns are gentler (still low).
 - **Failure taxonomy is one configuration** (Claude Code + Opus 4.7) and uses an
-  LLM classifier — the 78% figure is indicative, not a universal constant.
-- **Public/full-pool gap** — the public set over-weights the Last-Exam tier, so
+  LLM classifier - the 78% figure is indicative, not a universal constant.
+- **Public/full-pool gap** - the public set over-weights the Last-Exam tier, so
   the public pass rate understates the full pool (authors verify representativeness,
   Pearson r = 0.89).
-- **No dedicated limitations section** — caveats are scattered in appendices.
+- **No dedicated limitations section** - caveats are scattered in appendices.
 
 Net: a strong, well-constructed ordinary-competence benchmark whose failure
 analysis independently localizes the bottleneck in reasoning and domain
-knowledge rather than execution. Supports — as capability evidence, with the
+knowledge rather than execution. Supports - as capability evidence, with the
 mechanism left to other papers.
 
 ---
@@ -189,7 +189,7 @@ mechanism left to other papers.
 ## Relationship to Other Papers
 
 ### Supports
-- **Easy Problems That LLMs Get Wrong (#58 area, 2405.19616)**: same inversion —
+- **Easy Problems That LLMs Get Wrong (#58 area, 2405.19616)**: same inversion -
   trivial-for-humans tasks defeat models that ace hard benchmarks; ALE scales it
   to whole professional workflows.
 - **GSM-Symbolic (#3, 2410.05229)**: distributional fragility on perturbed-but-
@@ -209,7 +209,7 @@ mechanism left to other papers.
 - **Contamination-Resistant Benchmarks (#365, 2605.19999)** and
   **PeerBench / Benchmarking is Broken (#366, 2510.07575)**: the position-paper
   case that benchmark scores reflect recall not generalization; ALE is the
-  empirical instance — a fresh, contamination-resistant benchmark where the
+  empirical instance - a fresh, contamination-resistant benchmark where the
   recall advantage evaporates.
 
 ---
@@ -217,8 +217,8 @@ mechanism left to other papers.
 ## REBUTTALS
 
 ### Known Direct Rebuttals
-No direct arXiv rebuttal found (Jun 2026, recent). Searches: local corpus — no
-contradicting paper; arXiv/citation graph — too recent.
+No direct arXiv rebuttal found (Jun 2026, recent). Searches: local corpus - no
+contradicting paper; arXiv/citation graph - too recent.
 
 ### Indirect Counter-Evidence / Tension
 1. **A capability optimist could argue scale closes it.** Near-Term tasks already
@@ -228,7 +228,7 @@ contradicting paper; arXiv/citation graph — too recent.
    reading. The thesis-relevant point is narrower: *today's* difficulty inversion
    (saturated-hard ≫ novel-easy) is a distribution signal regardless of future
    scaling.
-2. **GCUA harness lifting is imperfect** — GUI-as-Tool may under-serve genuinely
+2. **GCUA harness lifting is imperfect** - GUI-as-Tool may under-serve genuinely
    vision-heavy tasks, so some "reasoning" failures could be perception failures.
    The authors mitigate via the model-vs-harness decomposition (harness explains
    little), but the confound is not fully eliminated.
@@ -240,7 +240,7 @@ contradicting paper; arXiv/citation graph — too recent.
 2. 5-hour cap; timeout runs score lower (mean 20.8 vs 27.7).
 3. Failure taxonomy run on one configuration only.
 4. Gate-and-score forces 0 on partial progress.
-5. GUI-as-SubAgent reserved for non-vision models — configuration asymmetry.
+5. GUI-as-SubAgent reserved for non-vision models - configuration asymmetry.
 
 ---
 
@@ -278,7 +278,7 @@ that score 82% on a saturated benchmark score 0% on the hardest tier. The
 thesis-critical findings: (1) performance tracks distributional exposure, not
 intrinsic difficulty (saturated-hard ≫ novel-easy is the benchmaxxing tell);
 (2) ~78% of failures are reasoning/knowledge (Understanding + Approach), only
-22% execution — the gap is upstream of tool use; (3) the backbone model drives
+22% execution - the gap is upstream of tool use; (3) the backbone model drives
 ~3× the spread of the harness, so the gap is the model's reasoning, not the
-scaffolding. Do NOT cite it as a mechanism result — it shows the symptom
+scaffolding. Do NOT cite it as a mechanism result - it shows the symptom
 cleanly; the causal account lives in the mechanism cluster.

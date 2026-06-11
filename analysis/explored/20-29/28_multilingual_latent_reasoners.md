@@ -11,8 +11,8 @@
 
 ## Core Claims
 
-1. **Latent reasoning EXISTS in LRMs** — answers computed internally before CoT articulation
-2. **BUT latent reasoning is FRAGILE** — collapses on harder benchmarks
+1. **Latent reasoning EXISTS in LRMs** - answers computed internally before CoT articulation
+2. **BUT latent reasoning is FRAGILE** - collapses on harder benchmarks
 3. **Language-dependent**: Strong in high-resource, weak in low-resource languages
 4. **English-centric pathway**: Internal reasoning converges to English representations
 5. **Not pure memorization**: Paraphrase robustness + sensitivity to numeric changes
@@ -23,7 +23,7 @@
 
 ### What is "Latent Reasoning"?
 
-> "Internal, non-verbal computation encoded in hidden states" — the model computing answers within its hidden representations rather than through explicit chain-of-thought text generation.
+> "Internal, non-verbal computation encoded in hidden states" - the model computing answers within its hidden representations rather than through explicit chain-of-thought text generation.
 
 > "LRMs often arrive at the correct answer before completing these textual reasoning steps, indicating the presence of latent reasoning"
 
@@ -181,7 +181,7 @@ At 0% truncation (no reasoning visible), models can still answer correctly:
 
 ### AGAINST/Limiting Claims
 
-> "LRMs are (Not Yet) Multilingual Latent Reasoners" — THE TITLE
+> "LRMs are (Not Yet) Multilingual Latent Reasoners" - THE TITLE
 
 > "Latent reasoning is less pronounced on more challenging benchmarks... early answer formation largely disappears across all languages and model sizes."
 

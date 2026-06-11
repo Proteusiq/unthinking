@@ -86,13 +86,13 @@
 
 This paper is primarily about security/vulnerabilities, but it provides important evidence:
 
-1. **Sample efficiency reveals pattern matching**: The fact that 250 samples can override billions of clean samples suggests models learn patterns very efficiently — they pattern-match the trigger-response association without "understanding" it shouldn't override safety training.
+1. **Sample efficiency reveals pattern matching**: The fact that 250 samples can override billions of clean samples suggests models learn patterns very efficiently - they pattern-match the trigger-response association without "understanding" it shouldn't override safety training.
 
 2. **No reasoning about safety**: A reasoning system would recognize that 250 samples contradicting billions of safety-aligned samples is suspicious. Instead, models just learn the association.
 
 3. **Larger models = better pattern matchers**: The finding that larger models are EQUALLY vulnerable (despite more clean data) suggests they're better at extracting patterns, not better at reasoning about data quality.
 
-4. **Supports "surfacing" view**: The backdoor patterns are learned and stored, then "surfaced" by the trigger — exactly like the surfacing hypothesis for reasoning.
+4. **Supports "surfacing" view**: The backdoor patterns are learned and stored, then "surfaced" by the trigger - exactly like the surfacing hypothesis for reasoning.
 
 ---
 
@@ -151,7 +151,7 @@ This paper is primarily about security vulnerabilities, not reasoning. However, 
 2. **No meta-reasoning**: Models don't reason about data quality or consistency
 3. **Scale doesn't help**: Larger models with more clean data are equally vulnerable
 
-The finding that 250 samples can backdoor a 13B parameter model trained on 260B tokens is remarkable — and suggests models are sophisticated pattern matchers, not reasoners that could recognize suspicious training patterns.
+The finding that 250 samples can backdoor a 13B parameter model trained on 260B tokens is remarkable - and suggests models are sophisticated pattern matchers, not reasoners that could recognize suspicious training patterns.
 
 ---
 

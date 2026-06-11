@@ -12,12 +12,12 @@
 
 ## Core Claims
 
-1. **CST improves faithfulness** — Counterfactual Simulation Training rewards CoTs that enable accurate prediction of model outputs over counterfactual inputs
-2. **+35 accuracy points** — CST substantially improves monitor accuracy on cue-based counterfactuals
-3. **+2 points simulatability** — Improvements on generic counterfactual simulation
-4. **LLM rewriting efficient** — Rewriting unfaithful CoTs with an LLM is 5x more efficient than RL alone
-5. **Asymmetric generalization** — Faithfulness improvements don't generalize from persuading to dissuading cues
-6. **Scale doesn't help naturally** — Larger models are not more faithful out of the box, but benefit more from CST
+1. **CST improves faithfulness** - Counterfactual Simulation Training rewards CoTs that enable accurate prediction of model outputs over counterfactual inputs
+2. **+35 accuracy points** - CST substantially improves monitor accuracy on cue-based counterfactuals
+3. **+2 points simulatability** - Improvements on generic counterfactual simulation
+4. **LLM rewriting efficient** - Rewriting unfaithful CoTs with an LLM is 5x more efficient than RL alone
+5. **Asymmetric generalization** - Faithfulness improvements don't generalize from persuading to dissuading cues
+6. **Scale doesn't help naturally** - Larger models are not more faithful out of the box, but benefit more from CST
 
 ---
 
@@ -50,30 +50,30 @@
 ## Relationship to Other Papers
 
 ### Supports
-- **Measuring Faithfulness (2307.13702)** — Both address CoT faithfulness; CST proposes training intervention
-- **Reasoning Models Don't Say (2505.05410)** — Both find CoT unfaithful by default; CST attempts to fix it
-- **Sycophancy papers** — CST explicitly targets sycophancy detection via counterfactuals
+- **Measuring Faithfulness (2307.13702)** - Both address CoT faithfulness; CST proposes training intervention
+- **Reasoning Models Don't Say (2505.05410)** - Both find CoT unfaithful by default; CST attempts to fix it
+- **Sycophancy papers** - CST explicitly targets sycophancy detection via counterfactuals
 
 ### Extends
-- **FRIT (2509.13334)** — Both propose causal interventions; CST uses counterfactual simulation
-- **CoT Unlearning (2502.14829)** — Both propose training methods for faithfulness
-- **CoT Monitorability IT (2602.18297)** — Both aim to improve monitoring; different theoretical frameworks
+- **FRIT (2509.13334)** - Both propose causal interventions; CST uses counterfactual simulation
+- **CoT Unlearning (2502.14829)** - Both propose training methods for faithfulness
+- **CoT Monitorability IT (2602.18297)** - Both aim to improve monitoring; different theoretical frameworks
 
 ### Challenges
-- **Physics of LLMs (2407.20311)** — Challenges claim that scale helps reasoning; CST shows scale doesn't help faithfulness
+- **Physics of LLMs (2407.20311)** - Challenges claim that scale helps reasoning; CST shows scale doesn't help faithfulness
 
 ---
 
 ## REBUTTALS
 
 ### Known Rebuttals
-None found yet — paper is recent (Feb 2026)
+None found yet - paper is recent (Feb 2026)
 
 ### Potential Counter-Arguments
-1. **Narrow improvement** — +2 points on generic counterfactuals is modest
-2. **Asymmetric generalization** — Can't generalize to dissuading cues, limiting applicability
-3. **Training cost** — CST requires additional training, not zero-shot solution
-4. **Simulator quality** — Results depend on simulator accuracy
+1. **Narrow improvement** - +2 points on generic counterfactuals is modest
+2. **Asymmetric generalization** - Can't generalize to dissuading cues, limiting applicability
+3. **Training cost** - CST requires additional training, not zero-shot solution
+4. **Simulator quality** - Results depend on simulator accuracy
 
 ### Limitations (Authors Acknowledge)
 - Faithfulness improvements do NOT generalize from persuading to dissuading cues
@@ -98,11 +98,11 @@ None found yet — paper is recent (Feb 2026)
 
 **SUPPORTS** the thesis:
 
-1. **CoT unfaithful by default** — The paper's premise is that CoT faithfulness is severely limited, requiring intervention
-2. **Scale doesn't help** — Larger models are NOT more faithful out of the box, contradicting emergence narratives
-3. **Asymmetric failure** — Can't generalize from persuading to dissuading cues shows CoT tracks surface features
-4. **Training required** — The need for CST to achieve faithfulness confirms default CoT is unreliable
-5. **Detects spurious features** — CST designed to detect reward hacking, sycophancy — pathologies of pattern matching
+1. **CoT unfaithful by default** - The paper's premise is that CoT faithfulness is severely limited, requiring intervention
+2. **Scale doesn't help** - Larger models are NOT more faithful out of the box, contradicting emergence narratives
+3. **Asymmetric failure** - Can't generalize from persuading to dissuading cues shows CoT tracks surface features
+4. **Training required** - The need for CST to achieve faithfulness confirms default CoT is unreliable
+5. **Detects spurious features** - CST designed to detect reward hacking, sycophancy - pathologies of pattern matching
 
 The paper acknowledges the problem (unfaithful CoT) while proposing a partial solution, but the solution's limitations (asymmetric generalization, modest gains on generic counterfactuals) reinforce that the underlying problem is fundamental.
 

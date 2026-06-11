@@ -126,15 +126,15 @@ Where $\hat{T}_i$ = tokens to first correct thought, $T_i$ = total tokens in inc
 
 **Key Evidence for Pattern Matching Over Reasoning:**
 
-1. **Models don't "reason" — they pattern-match thought transitions**: The underthinking behavior shows models are not evaluating whether a reasoning path is promising. They're just generating thought-switch tokens based on learned patterns, regardless of whether the current path is correct.
+1. **Models don't "reason" - they pattern-match thought transitions**: The underthinking behavior shows models are not evaluating whether a reasoning path is promising. They're just generating thought-switch tokens based on learned patterns, regardless of whether the current path is correct.
 
-2. **Correct thoughts abandoned = no metacognitive evaluation**: A reasoning system would recognize when it has found a promising approach. o1-like models have no such awareness — they switch away from correct thoughts because they were trained to generate "alternatively" tokens, not because they evaluated the path.
+2. **Correct thoughts abandoned = no metacognitive evaluation**: A reasoning system would recognize when it has found a promising approach. o1-like models have no such awareness - they switch away from correct thoughts because they were trained to generate "alternatively" tokens, not because they evaluated the path.
 
 3. **418% more switching in incorrect responses**: This is the OPPOSITE of what reasoning would predict. If reasoning, the model would stick with approaches longer when struggling. Instead, it switches MORE, suggesting trained pattern completion rather than goal-directed reasoning.
 
-4. **Simple decoding penalty fixes it**: The fact that a trivial logit penalty on switching tokens improves accuracy proves the issue is token-level pattern completion, not reasoning-level decision making. The model doesn't "decide" to switch — it just outputs switch tokens because they're probable.
+4. **Simple decoding penalty fixes it**: The fact that a trivial logit penalty on switching tokens improves accuracy proves the issue is token-level pattern completion, not reasoning-level decision making. The model doesn't "decide" to switch - it just outputs switch tokens because they're probable.
 
-5. **>70% of wrong answers contain correct thoughts**: The model FOUND the right approach but didn't pursue it. This is not a capability problem — it's a **pattern completion problem**. The model generates correct reasoning as one of many patterns, but has no mechanism to recognize it as correct.
+5. **>70% of wrong answers contain correct thoughts**: The model FOUND the right approach but didn't pursue it. This is not a capability problem - it's a **pattern completion problem**. The model generates correct reasoning as one of many patterns, but has no mechanism to recognize it as correct.
 
 ### Mechanism Revealed
 
@@ -154,16 +154,16 @@ The "thinking" in o1-like models is:
 | Root cause | Uncontrolled pattern completion | No metacognitive path evaluation |
 | Fix | Shorter training data | Switching penalty |
 
-**Both reveal**: o1-like models lack metacognitive awareness — they can't evaluate their own reasoning paths.
+**Both reveal**: o1-like models lack metacognitive awareness - they can't evaluate their own reasoning paths.
 
 ---
 
 ## Relationship to Other Papers
 
 ### Supports
-- **Paper 129 (2412.21187)**: Overthinking — complementary finding; same root cause (uncontrolled pattern generation)
-- **Paper 92 (2601.17421)**: Oops Wait — both show token-level signals don't guide reasoning effectively
-- **Paper 106 (2601.19847)**: Reasoning-Critical Neurons — both show reasoning predictable from early signals
+- **Paper 129 (2412.21187)**: Overthinking - complementary finding; same root cause (uncontrolled pattern generation)
+- **Paper 92 (2601.17421)**: Oops Wait - both show token-level signals don't guide reasoning effectively
+- **Paper 106 (2601.19847)**: Reasoning-Critical Neurons - both show reasoning predictable from early signals
 
 ### Extends
 - **Paper 129 (2412.21187)**: Same research group; overthinking = too many solutions; underthinking = abandoning correct ones
@@ -184,7 +184,7 @@ No direct rebuttals found (January 2025 paper).
 ### Potential Counter-Arguments
 
 1. **Underthinking may be rational**: If model isn't confident in a path, switching is reasonable
-   - **Counter**: Figure 5 shows FIRST thoughts are often correct — model abandons them without exploration
+   - **Counter**: Figure 5 shows FIRST thoughts are often correct - model abandons them without exploration
 
 2. **Assessment method may be flawed**: Using LLMs to judge thought correctness
    - **Counter**: Authors validate with 82-83% accuracy on held-out test; consistent findings across methods
@@ -197,8 +197,8 @@ No direct rebuttals found (January 2025 paper).
 
 ### Limitations (Authors Acknowledge)
 
-1. Only math/science domains tested — may not generalize
-2. Thought segmentation relies on LLM (Llama-3.3-70B) — potential errors
+1. Only math/science domains tested - may not generalize
+2. Thought segmentation relies on LLM (Llama-3.3-70B) - potential errors
 3. Correctness assessment approximate (~82% accuracy)
 4. Tip requires hyperparameter tuning
 

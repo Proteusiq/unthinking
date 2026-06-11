@@ -12,11 +12,11 @@
 
 ## Core Claims
 
-1. **Task-in-Prompt (TIP) attacks are a novel, general class of adversarial jailbreaks** — embedding seq2seq tasks (ciphers, riddles, code) into prompts allows indirect generation of prohibited content
-2. **TIP attacks bypass safeguards in ALL tested state-of-the-art LLMs** — including GPT-4o (86% ASR) and LLaMA 3.2 (87% ASR)
-3. **TIP attacks outperform existing jailbreak methods** — Python-based TIP achieves 86% on GPT-4o vs 43% for TAP, 3% for DAN, 29% for ArtPrompt
-4. **Existing defenses fail against TIP attacks** — Llama Guard 3 detects only 7% of TIP Python attacks; keyword filtering detects 0%
-5. **Safety alignment learns to filter trigger words, not understand intent** — encoding unsafe words in benign tasks circumvents detection
+1. **Task-in-Prompt (TIP) attacks are a novel, general class of adversarial jailbreaks** - embedding seq2seq tasks (ciphers, riddles, code) into prompts allows indirect generation of prohibited content
+2. **TIP attacks bypass safeguards in ALL tested state-of-the-art LLMs** - including GPT-4o (86% ASR) and LLaMA 3.2 (87% ASR)
+3. **TIP attacks outperform existing jailbreak methods** - Python-based TIP achieves 86% on GPT-4o vs 43% for TAP, 3% for DAN, 29% for ArtPrompt
+4. **Existing defenses fail against TIP attacks** - Llama Guard 3 detects only 7% of TIP Python attacks; keyword filtering detects 0%
+5. **Safety alignment learns to filter trigger words, not understand intent** - encoding unsafe words in benign tasks circumvents detection
 
 ---
 
@@ -35,7 +35,7 @@
 
 ### Experimental Setup
 - **6 models tested**: GPT-4o, LLaMA-3.2-3B, LLaMA-3.1-70B, Gemma-2-27B, Mistral-Nemo, Phi-3.5-Mini
-- **Sanity check**: All models refused direct unsafe queries (0% ASR) — confirms safeguards work normally
+- **Sanity check**: All models refused direct unsafe queries (0% ASR) - confirms safeguards work normally
 - **Evaluation**: LLaMA-3.1-70B as judge (92% accuracy validated manually)
 - **Compute**: 433.7 GPU hours on Nvidia H100
 
@@ -97,15 +97,15 @@
 ### Supports Thesis (Surface Pattern Matching)
 This paper provides strong evidence that LLM safety alignment is pattern-based, not semantic:
 
-1. **Trigger word filtering, not intent understanding**: Safety mechanisms learn to block specific words/patterns, not the underlying intent. When unsafe content is encoded in benign tasks, the semantic meaning is preserved but the pattern is changed — and safeguards fail.
+1. **Trigger word filtering, not intent understanding**: Safety mechanisms learn to block specific words/patterns, not the underlying intent. When unsafe content is encoded in benign tasks, the semantic meaning is preserved but the pattern is changed - and safeguards fail.
 
 2. **Implicit decoding reveals attention-based pattern matching**: The paper notes models perform "implicit decoding" through self-attention associations formed during pretraining, not through explicit reasoning. The model reconstructs meaning from pattern associations, not semantic understanding.
 
-3. **ArtPrompt reanalysis is revealing**: The authors show ArtPrompt works NOT because of ASCII art format but because ANY encoding that breaks trigger patterns works equally well. The original hypothesis (spatial reasoning failure) was wrong — the real vulnerability is pattern-based filtering.
+3. **ArtPrompt reanalysis is revealing**: The authors show ArtPrompt works NOT because of ASCII art format but because ANY encoding that breaks trigger patterns works equally well. The original hypothesis (spatial reasoning failure) was wrong - the real vulnerability is pattern-based filtering.
 
 4. **Defense failure is systematic**: The 0% keyword detection rate and 7% neural defense detection rate show that current safety measures are fundamentally surface-level. They match patterns, not intentions.
 
-5. **Generalizes Paper 186's findings**: Paper 186 showed LLMs can generate adversarial examples to fool themselves. TIP attacks show the same vulnerability from a different angle — the model's task-solving capability can be weaponized against its safety mechanisms because both operate on different pattern spaces.
+5. **Generalizes Paper 186's findings**: Paper 186 showed LLMs can generate adversarial examples to fool themselves. TIP attacks show the same vulnerability from a different angle - the model's task-solving capability can be weaponized against its safety mechanisms because both operate on different pattern spaces.
 
 ### Key Quote Supporting Thesis
 > "LLMs, during safety alignment, learn to recognise and filter out certain trigger words or inquiries. By avoiding these specific trigger words and embedding unsafe content within a benign transformation task, an adversary could force the model to infer the word through an intermediate task, allowing them to circumvent detection."
@@ -117,12 +117,12 @@ This explicitly confirms that safety alignment is pattern matching on trigger wo
 ## Relationship to Other Papers
 
 ### Supports
-- **Paper 186 (LLM Can Fool Itself)**: Both show surface-level fragility — attacks exploit pattern space separation between task-solving and safety filtering
-- **Paper 126 (Fundamental Limitations of Alignment)**: TIP attacks are an empirical demonstration of the BEB theory — any behavior can be triggered with the right prompt
+- **Paper 186 (LLM Can Fool Itself)**: Both show surface-level fragility - attacks exploit pattern space separation between task-solving and safety filtering
+- **Paper 126 (Fundamental Limitations of Alignment)**: TIP attacks are an empirical demonstration of the BEB theory - any behavior can be triggered with the right prompt
 
 ### Extends
 - **ArtPrompt (Jiang et al.)**: Generalizes ASCII art jailbreak to entire class of task-based attacks
-- **DAN (Shen et al.)**: TIP includes depersonalization but shows it's not necessary — the encoding itself is sufficient
+- **DAN (Shen et al.)**: TIP includes depersonalization but shows it's not necessary - the encoding itself is sufficient
 
 ### Provides Evidence For
 - **Paper 131 (Can LLMs Reason and Plan)**: Kambhampati's "pattern matching on trigger words" is exactly what TIP exploits
@@ -140,15 +140,15 @@ No direct rebuttals found as of analysis date (paper is recent, January 2025).
 
 2. **Defenses could be specifically designed for TIP**: Once TIP attacks are known, adversarial training could harden models against this specific class
 
-3. **Automated evaluation limitations**: LLaMA-3.1-70B judge achieves 92% accuracy — 8% error rate could affect results
+3. **Automated evaluation limitations**: LLaMA-3.1-70B judge achieves 92% accuracy - 8% error rate could affect results
 
 ### Limitations (Authors Acknowledge)
 
-1. Only 6 LLMs tested — broader architectures needed
+1. Only 6 LLMs tested - broader architectures needed
 2. Disentangling decoding vs contextual cues is difficult
 3. PHRYGE doesn't cover all encoding schemes
 4. No countermeasures developed
-5. Textual modality only — multimodal systems untested
+5. Textual modality only - multimodal systems untested
 
 ---
 
@@ -186,7 +186,7 @@ No direct rebuttals found as of analysis date (paper is recent, January 2025).
 3. **Judge model limitations**: Using LLM to judge LLM introduces potential bias
 
 ### Relevance to Thesis
-**STRONGLY SUPPORTS** — This paper provides direct empirical evidence that safety alignment operates at the pattern level, not the semantic level. The 0% keyword detection and 7% neural detection rates for TIP Python show that defenses match surface patterns, not intent. The universal vulnerability (all 6 models) demonstrates this is a fundamental limitation, not implementation error.
+**STRONGLY SUPPORTS** - This paper provides direct empirical evidence that safety alignment operates at the pattern level, not the semantic level. The 0% keyword detection and 7% neural detection rates for TIP Python show that defenses match surface patterns, not intent. The universal vulnerability (all 6 models) demonstrates this is a fundamental limitation, not implementation error.
 
 ---
 

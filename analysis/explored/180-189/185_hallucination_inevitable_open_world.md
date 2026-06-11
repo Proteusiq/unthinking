@@ -14,9 +14,9 @@
 1. **Hallucination = generalization problem**: Hallucination should be reframed as a manifestation of the generalization problem in machine learning
 2. **Closed vs Open World distinction**: Under Closed World assumption, hallucinations may be mitigated; under Open World assumption, they become inevitable
 3. **Two types of hallucination**:
-   - **Type-I (HT-I)**: False memorization — model produces output inconsistent with training data; in principle corrigible
-   - **Type-II (HT-II)**: False generalization — model fails on cases not in training set; inevitable under Open World
-4. **Detector training doesn't solve it**: Training a detector to filter hallucinations merely displaces the problem — the detector must also generalize
+   - **Type-I (HT-I)**: False memorization - model produces output inconsistent with training data; in principle corrigible
+   - **Type-II (HT-II)**: False generalization - model fails on cases not in training set; inevitable under Open World
+4. **Detector training doesn't solve it**: Training a detector to filter hallucinations merely displaces the problem - the detector must also generalize
 5. **Hallucination as structural feature**: Should be tolerated and made compatible with human intelligence, not treated as pure defect
 
 ---
@@ -24,14 +24,14 @@
 ## Methodology
 
 ### Theoretical Framework
-- **No empirical experiments** — purely philosophical/theoretical analysis
+- **No empirical experiments** - purely philosophical/theoretical analysis
 - **Reframes LLM behavior as mapping x → f(x)**
 - **Invokes "No Free Lunch" theorem** from machine learning theory
 - **Distinguishes Closed World vs Open World assumptions**
 
 ### Key Definitions
 - **Closed World**: Training and test distributions are consistent
-- **Open World**: Environment is unbounded — "unbounded space and time, and unbounded tasks"
+- **Open World**: Environment is unbounded - "unbounded space and time, and unbounded tasks"
 - **Hallucination**: Errors from false memorization (Type-I) or false generalization (Type-II)
 
 ---
@@ -49,8 +49,8 @@
 
 ### Distinction from Prior Work
 
-**Critiques of Xu et al. (2401.11817 — Paper 165)**:
-1. Not all errors are "hallucination" — distinguishes from adversarial/environmental errors
+**Critiques of Xu et al. (2401.11817 - Paper 165)**:
+1. Not all errors are "hallucination" - distinguishes from adversarial/environmental errors
 2. Xu et al. rely on infinite sample set, but practical LLMs have finite input/output
 3. Xu et al. assume single correct answer, ignoring many-to-many mapping
 
@@ -88,10 +88,10 @@
 1. **Practical relevance**: If Open World is philosophical abstraction, may not apply to deployed LLMs with bounded tasks
 2. **No empirical validation**: Pure theory without testing claims on actual LLMs
 3. **Detector cascade**: Doesn't address multi-stage verification systems with external tools
-4. **Type-I/Type-II distinction**: May be hard to distinguish in practice — is a wrong answer memorization failure or generalization failure?
+4. **Type-I/Type-II distinction**: May be hard to distinguish in practice - is a wrong answer memorization failure or generalization failure?
 
 ### Limitations (Author Acknowledges)
-- Purely theoretical — no experimental validation
+- Purely theoretical - no experimental validation
 - Doesn't address how to empirically measure Type-I vs Type-II
 - Open World assumption may be too strong for practical applications
 

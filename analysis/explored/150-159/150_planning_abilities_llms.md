@@ -12,13 +12,13 @@
 
 ## Core Claims
 
-1. **LLMs cannot plan autonomously** — GPT-4 (best model) achieves only **~12% average success rate** on autonomous plan generation across IPC-style planning domains.
+1. **LLMs cannot plan autonomously** - GPT-4 (best model) achieves only **~12% average success rate** on autonomous plan generation across IPC-style planning domains.
 
-2. **LLM-Modulo framework shows promise** — When LLMs act as heuristic guides for external planners/verifiers rather than autonomous planners, results improve significantly.
+2. **LLM-Modulo framework shows promise** - When LLMs act as heuristic guides for external planners/verifiers rather than autonomous planners, results improve significantly.
 
-3. **External verification is critical** — LLMs benefit from external verifiers that provide feedback and back-prompt for better plan generation.
+3. **External verification is critical** - LLMs benefit from external verifiers that provide feedback and back-prompt for better plan generation.
 
-4. **Systematic evaluation needed** — The paper provides a benchmark using domains similar to International Planning Competition (IPC) for rigorous evaluation.
+4. **Systematic evaluation needed** - The paper provides a benchmark using domains similar to International Planning Competition (IPC) for rigorous evaluation.
 
 ---
 
@@ -80,13 +80,13 @@ Based on International Planning Competition (IPC) style domains:
 
 **Key implications:**
 
-1. **Planning requires search, not pattern completion** — LLMs excel at pattern completion but planning requires systematic search over action spaces
+1. **Planning requires search, not pattern completion** - LLMs excel at pattern completion but planning requires systematic search over action spaces
 
-2. **~12% success = worse than random in some domains** — This is not "sometimes fails" but "mostly fails"
+2. **~12% success = worse than random in some domains** - This is not "sometimes fails" but "mostly fails"
 
-3. **External scaffolding is required** — The LLM-Modulo framework shows LLMs need external symbolic systems to plan effectively
+3. **External scaffolding is required** - The LLM-Modulo framework shows LLMs need external symbolic systems to plan effectively
 
-4. **Same author as "Can LLMs Reason and Plan?"** (Paper 131) — Kambhampati's group consistently finds LLMs cannot plan autonomously
+4. **Same author as "Can LLMs Reason and Plan?"** (Paper 131) - Kambhampati's group consistently finds LLMs cannot plan autonomously
 
 ### Connection to Thesis
 This paper provides the foundational benchmark evidence that:
@@ -126,7 +126,7 @@ This paper provides the foundational benchmark evidence that:
 3. **Domain-specific fine-tuning helps**: General LLMs vs. planning-tuned models
 
 ### Paper's Response
-The LLM-Modulo framework acknowledges LLMs can be useful — just not as autonomous planners. The contribution is showing WHERE LLMs fit in a planning system (as heuristics, not as planners).
+The LLM-Modulo framework acknowledges LLMs can be useful - just not as autonomous planners. The contribution is showing WHERE LLMs fit in a planning system (as heuristics, not as planners).
 
 ---
 
@@ -142,15 +142,15 @@ The LLM-Modulo framework acknowledges LLMs can be useful — just not as autonom
 
 ## Implications for LLM Reasoning Research
 
-1. **Planning ≠ Reasoning about plans** — LLMs can discuss plans but cannot generate valid ones
+1. **Planning ≠ Reasoning about plans** - LLMs can discuss plans but cannot generate valid ones
 
-2. **Soundness requires external verification** — LLMs cannot self-verify plan validity
+2. **Soundness requires external verification** - LLMs cannot self-verify plan validity
 
-3. **Hybrid systems needed** — The LLM-Modulo insight: use LLMs for heuristics, external systems for correctness
+3. **Hybrid systems needed** - The LLM-Modulo insight: use LLMs for heuristics, external systems for correctness
 
-4. **Benchmark methodology** — IPC-style domains provide rigorous evaluation framework
+4. **Benchmark methodology** - IPC-style domains provide rigorous evaluation framework
 
-5. **NeurIPS Spotlight = high-impact** — This finding is mainstream accepted, not fringe
+5. **NeurIPS Spotlight = high-impact** - This finding is mainstream accepted, not fringe
 
 ---
 

@@ -17,9 +17,9 @@
 
 2. **On SOLVABLE River Crossing, LRMs excel**: Once restricted to valid configurations, LRMs "effortlessly solve large instances involving over 100 agent pairs"
 
-3. **Towers of Hanoi failures are REAL cognitive limitations**: Stepwise prompting and agentic dialogue don't fix the ~8 disk threshold — this is genuine reasoning limitation, not output window constraint
+3. **Towers of Hanoi failures are REAL cognitive limitations**: Stepwise prompting and agentic dialogue don't fix the ~8 disk threshold - this is genuine reasoning limitation, not output window constraint
 
-4. **Task difficulty ≠ problem size**: Peak difficulty occurs at intermediate configurations (N=5, k=3 for River Crossing), not largest instances — "phase transition" region
+4. **Task difficulty ≠ problem size**: Peak difficulty occurs at intermediate configurations (N=5, k=3 for River Crossing), not largest instances - "phase transition" region
 
 5. **LRMs are "stochastic, RL-tuned searchers"**: Not genuine reasoners, but search procedures in discrete state space
 
@@ -56,7 +56,7 @@
 - k ≥ 4 → solvable for any N
 - k ≤ 3 → N ≤ 2k-1 (i.e., N ≤ 5 for k=3)
 
-Original paper used k=3 with N>5 — **mathematically unsolvable**
+Original paper used k=3 with N>5 - **mathematically unsolvable**
 
 ### River Crossing: LRMs Succeed on Valid Problems
 
@@ -64,10 +64,10 @@ Original paper used k=3 with N>5 — **mathematically unsolvable**
 |---------------|--------------|-------|
 | N=2-3, k=3 | ~100% | Easy, intuitive |
 | N=4, k=3 | Lower | Harder, constrained solution space |
-| N=5, k=3 | Lowest | "Phase transition" — minimum solutions |
+| N=5, k=3 | Lowest | "Phase transition" - minimum solutions |
 | N=100, k=4 | ~100% | Large but solvable; 200 correct moves |
 
-> "Even in large-scale instances such as (N=100, k=4)—which require the model to perform up to 200 correct moves—the LRM solves the task reliably"
+> "Even in large-scale instances such as (N=100, k=4)-which require the model to perform up to 200 correct moves-the LRM solves the task reliably"
 
 ### Towers of Hanoi: Failures Are REAL
 
@@ -93,7 +93,7 @@ Original paper used k=3 with N>5 — **mathematically unsolvable**
 
 ### How This Paper Challenges the Thesis
 
-1. **LRMs solve 200-step River Crossing**: This is long-horizon planning success — the thesis might predict failure here
+1. **LRMs solve 200-step River Crossing**: This is long-horizon planning success - the thesis might predict failure here
 
 2. **Phase transition behavior**: Non-linear difficulty profile suggests LRMs have learned STRUCTURE of the problem, not just patterns
 
@@ -105,13 +105,13 @@ Original paper used k=3 with N>5 — **mathematically unsolvable**
    
    > "Previously reported failures solving the Towers of Hanoi were not purely result of output constraints, but also partly a result of cognition limitations"
    
-   The thesis predicts failures at complexity thresholds — this confirms it.
+   The thesis predicts failures at complexity thresholds - this confirms it.
 
 2. **LRMs characterized as "stochastic searchers"**
    
    > "Today's LRMs are stochastic, RL-tuned searchers in a discrete state space we barely understand"
    
-   This is exactly the thesis framing — pattern-based search, not genuine reasoning.
+   This is exactly the thesis framing - pattern-based search, not genuine reasoning.
 
 3. **River Crossing success is IN-DISTRIBUTION**
    
@@ -146,7 +146,7 @@ Original paper used k=3 with N>5 — **mathematically unsolvable**
 
 ### Confirms
 - **Illusion of Thinking (2506.06941)**: Towers of Hanoi ~8 disk limit is real cognitive limitation
-- **Lawsen (2506.09250)**: Output window ISN'T the issue — confirms this by showing stepwise prompting doesn't help
+- **Lawsen (2506.09250)**: Output window ISN'T the issue - confirms this by showing stepwise prompting doesn't help
 
 ### Supports Broader Findings
 - **OMEGA (2506.18880)**: Same "phase transition" / complexity threshold patterns
@@ -223,12 +223,12 @@ Important methodological correction.
 ### On task difficulty:
 > "Task difficulty does not correlate linearly with problem size. Certain intermediate configurations may prove nearly unsolvable, while larger instances are handled successfully"
 
-Phase transition behavior — failures at constrained solution spaces.
+Phase transition behavior - failures at constrained solution spaces.
 
 ### On the debate:
 > "Our findings ultimately defy simplistic narratives"
 
-Neither "LRMs can't reason" nor "LRMs can reason" — more nuanced.
+Neither "LRMs can't reason" nor "LRMs can reason" - more nuanced.
 
 ---
 
@@ -245,14 +245,14 @@ Neither "LRMs can't reason" nor "LRMs can reason" — more nuanced.
 
 ## Summary for Synthesis
 
-**Verdict: BALANCED — Partial rebuttal (River Crossing) + Partial confirmation (Hanoi)**
+**Verdict: BALANCED - Partial rebuttal (River Crossing) + Partial confirmation (Hanoi)**
 
 ### What This Paper Actually Shows:
-1. **River Crossing failures were methodological error** — original tested unsolvable configs
-2. **On solvable River Crossing, LRMs succeed** — even 200-step solutions
-3. **Towers of Hanoi ~8 disk limit is CONFIRMED** — real cognitive limitation
-4. **Stepwise/agentic approaches don't help** — fundamental limit, not output window
-5. **LRMs are "stochastic, RL-tuned searchers"** — not genuine reasoners
+1. **River Crossing failures were methodological error** - original tested unsolvable configs
+2. **On solvable River Crossing, LRMs succeed** - even 200-step solutions
+3. **Towers of Hanoi ~8 disk limit is CONFIRMED** - real cognitive limitation
+4. **Stepwise/agentic approaches don't help** - fundamental limit, not output window
+5. **LRMs are "stochastic, RL-tuned searchers"** - not genuine reasoners
 
 ### What This Paper Does NOT Show:
 1. That LRMs have genuine reasoning (explicitly denies this)
@@ -274,7 +274,7 @@ This paper has a dual nature that complicates simple categorization:
 - Frames LRMs as "stochastic, RL-tuned searchers"
 
 ### Relationship to Thesis:
-**Mixed** — the paper cuts both ways:
+**Mixed** - the paper cuts both ways:
 
 **Supports thesis**:
 - Confirms Hanoi cognitive limit is real
@@ -288,6 +288,6 @@ This paper has a dual nature that complicates simple categorization:
 - Non-linear difficulty suggests learned structure, not just patterns
 
 ### Key Quote for Synthesis:
-> "Using LRMs to solve these problems is equivalent to unleashing a stochastic search procedure, chain-of-thought sampling refined by reinforcement learning—inside a large, discrete search space whose structure we have barely characterised"
+> "Using LRMs to solve these problems is equivalent to unleashing a stochastic search procedure, chain-of-thought sampling refined by reinforcement learning-inside a large, discrete search space whose structure we have barely characterised"
 
 LRMs = learned search, not reasoning. Exactly the thesis.

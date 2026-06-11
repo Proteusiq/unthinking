@@ -4,7 +4,7 @@
 - **arXiv**: 2502.09192 (v2 May 2025)
 - **Date**: February 2025
 - **Authors**: Lujain Ibrahim (Oxford), Myra Cheng (Stanford)
-- **Stance**: Strongly supports thesis — meta-methodological argument for pattern-matching reading
+- **Stance**: Strongly supports thesis - meta-methodological argument for pattern-matching reading
 
 ---
 
@@ -25,7 +25,7 @@
 │                                                                      │
 │  Non-anthropomorphic reframe: "CoT's effectiveness stems from       │
 │  alignment with training data, not a human-like approach to          │
-│  reasoning" — random tokens work as well.                            │
+│  reasoning" - random tokens work as well.                            │
 │                                                                      │
 └──────────────────────────────────────────────────────────────────────┘
 ```
@@ -34,17 +34,17 @@
 
 ## Core Claims
 
-1. **Anthropomorphism is prevalent and accelerating** — 48% of LLM abstracts have anthropomorphic framing (Dec 2024); 150% increase since 2007.
-2. **Terminology is tip of iceberg** — the deeper problem is *implicit assumptions* anthropomorphic language encodes.
+1. **Anthropomorphism is prevalent and accelerating** - 48% of LLM abstracts have anthropomorphic framing (Dec 2024); 150% increase since 2007.
+2. **Terminology is tip of iceberg** - the deeper problem is *implicit assumptions* anthropomorphic language encodes.
 3. **Five lifecycle assumptions constrain research**:
    - Training should mimic human learning
    - Alignment should have models explicitly reason about values
    - Evaluation should use human-like metrics
    - Behavior should be judged by human normative/intentional standards
    - User interaction mirrors human-human interaction
-4. **Anthropomorphic assumptions create blindspots** — biases in evaluation, hinder non-human-analog capabilities, constrain imagination.
-5. **Non-anthropomorphic alternatives exist** — byte-level tokenization, latent reasoning, control-theoretic alignment, mechanistic interpretability, teleological/role-play/agent-models framings.
-6. **Both-and, not either-or** — anthropomorphism is productive for public communication but harmful as default research framing.
+4. **Anthropomorphic assumptions create blindspots** - biases in evaluation, hinder non-human-analog capabilities, constrain imagination.
+5. **Non-anthropomorphic alternatives exist** - byte-level tokenization, latent reasoning, control-theoretic alignment, mechanistic interpretability, teleological/role-play/agent-models framings.
+6. **Both-and, not either-or** - anthropomorphism is productive for public communication but harmful as default research framing.
 
 ---
 
@@ -95,7 +95,7 @@ propose, outperform, evaluate, implement, leverage, utilize
 | CoT | "Model reasons step by step" | Prompt biases toward training-data regions with verbal-reasoning patterns (random tokens work too) |
 | Alignment faking | Expressions of "discomfort" = genuine internal state | Learned performance of human-like discomfort from RLHF |
 | Instruction tuning | "Must tell model what to do" | Hewitt et al.: non-imperative approaches work equally well |
-| MMLU/GSM8K | "Measures reasoning" | McCoy et al. "embers of autoregression" — sensitivity to task frequency, prompt wording |
+| MMLU/GSM8K | "Measures reasoning" | McCoy et al. "embers of autoregression" - sensitivity to task frequency, prompt wording |
 
 The **CoT example** is especially strong for the pattern-matching thesis: CoT "stems from alignment with training data, rather than reflecting a human-like or brain-like approach to reasoning."
 
@@ -105,7 +105,7 @@ The **CoT example** is especially strong for the pattern-matching thesis: CoT "s
 
 > "While anthropomorphism can be productive, the field has become overly reliant on it; advancing LLM research requires moving beyond our default dependence on anthropomorphic thinking."
 
-> "CoT prompting, while appearing to 'do' verbal reasoning, in reality biases models toward parts of the training distribution where verbal reasoning patterns—such as explanations of solutions—are prevalent, improving performance... This suggests CoT's effectiveness stems from alignment with the training data, rather than reflecting a human-like or brain-like approach to reasoning."
+> "CoT prompting, while appearing to 'do' verbal reasoning, in reality biases models toward parts of the training distribution where verbal reasoning patterns-such as explanations of solutions-are prevalent, improving performance... This suggests CoT's effectiveness stems from alignment with the training data, rather than reflecting a human-like or brain-like approach to reasoning."
 
 > "This term [hallucination] obscures the mechanisms behind these phenomena: at risk of oversimplification, this behavior arises from the nature of language models as next-token predictors. Generated outputs are then labeled as hallucinations upon the reader's normative judgment of whether or not they are useful."
 
@@ -120,36 +120,36 @@ The **CoT example** is especially strong for the pattern-matching thesis: CoT "s
 ## Relationship to Other Papers
 
 ### Direct Ancestor
-- **Anthropomorphization (#281, 2305.14784)** — Shanahan et al. role-play paper; this paper extends terminology → assumptions
-- **AnthroScore (Cheng et al. 2024 EACL)** — co-author's prior metric
+- **Anthropomorphization (#281, 2305.14784)** - Shanahan et al. role-play paper; this paper extends terminology → assumptions
+- **AnthroScore (Cheng et al. 2024 EACL)** - co-author's prior metric
 
 ### Strongly Supports
-- **Faith and Fate (#1, 2305.18654)** — provides methodological warrant for why surface benchmark success masks pattern-matching
-- **GSM-Symbolic (#3, 2410.05229)** — same teleological approach
-- **McCoy "embers of autoregression" (2309.13638, 2410.01792)** — explicitly cited; pattern-matching reading of benchmark success
-- **Reasoning Theater (#325, 2603.05488)** — CoT-performativity consistent with random-tokens-work-too
-- **Consciousness Cluster (#327, 2604.13051)** — provides framework: "I am conscious" is next-token prediction + RLHF learned performance, not evidence of internal state
+- **Faith and Fate (#1, 2305.18654)** - provides methodological warrant for why surface benchmark success masks pattern-matching
+- **GSM-Symbolic (#3, 2410.05229)** - same teleological approach
+- **McCoy "embers of autoregression" (2309.13638, 2410.01792)** - explicitly cited; pattern-matching reading of benchmark success
+- **Reasoning Theater (#325, 2603.05488)** - CoT-performativity consistent with random-tokens-work-too
+- **Consciousness Cluster (#327, 2604.13051)** - provides framework: "I am conscious" is next-token prediction + RLHF learned performance, not evidence of internal state
 
 ### Reframes
-- **Alignment Faking (#279, 2412.14093)** — discomfort signals may be learned performances
-- **Shutdown Resistance (#326, 2509.14260)** — "self-preservation" assumes a self; reframe as context-bound simulation of training-distribution patterns
+- **Alignment Faking (#279, 2412.14093)** - discomfort signals may be learned performances
+- **Shutdown Resistance (#326, 2509.14260)** - "self-preservation" assumes a self; reframe as context-bound simulation of training-distribution patterns
 
 ---
 
 ## REBUTTALS
 
 ### Authors' Acknowledged Limitations
-1. AnthroScore is imperfect proxy — captures linguistic surface only
+1. AnthroScore is imperfect proxy - captures linguistic surface only
 2. Score sensitivities conflate domain vocabulary ("train", "prompt") with anthropomorphism
 3. Five assumptions are illustrative, not exhaustive
-4. Not a ban — anthropomorphism useful for public communication
-5. Does not claim empirical falsification of reasoning claims — surveys and synthesizes existing work
+4. Not a ban - anthropomorphism useful for public communication
+5. Does not claim empirical falsification of reasoning claims - surveys and synthesizes existing work
 
 ### Why STRONGLY SUPPORTS Thesis
-1. **Central mechanism claim aligns with thesis** — hallucination, sycophancy, deception, CoT, alignment signals all reframed as emerging from next-token prediction over training distribution, not internal states
-2. **Endorses McCoy "embers of autoregression"** lineage — strongest pattern-matching evidence
-3. **Explicitly challenges CoT-as-reasoning** — random-tokens-work-too finding
-4. **Provides philosophical warrant** — anthropomorphic interpretations *assume the conclusion*; pattern-matching is parsimonious default
+1. **Central mechanism claim aligns with thesis** - hallucination, sycophancy, deception, CoT, alignment signals all reframed as emerging from next-token prediction over training distribution, not internal states
+2. **Endorses McCoy "embers of autoregression"** lineage - strongest pattern-matching evidence
+3. **Explicitly challenges CoT-as-reasoning** - random-tokens-work-too finding
+4. **Provides philosophical warrant** - anthropomorphic interpretations *assume the conclusion*; pattern-matching is parsimonious default
 
 ---
 
@@ -165,7 +165,7 @@ The **CoT example** is especially strong for the pattern-matching thesis: CoT "s
 │     as default; burden on anthropomorphic readings to justify       │
 │                                                                     │
 │  2. QUANTITATIVE MEASUREMENT OF FRAMING BIAS                        │
-│     48% of LLM papers anthropomorphize — this is a measurable      │
+│     48% of LLM papers anthropomorphize - this is a measurable      │
 │     systematic bias in the literature                               │
 │                                                                     │
 │  3. REFRAMES THE ENTIRE PERSONA CLUSTER                             │

@@ -13,10 +13,10 @@
 ## Core Claims
 
 1. **Reasoning models exhibit increased robustness** to prompt variations and task perturbations in Theory of Mind (ToM) tasks
-2. **Gains are from robustness, not new ToM capabilities** — more plausibly attributed to finding correct solutions more reliably
-3. **Reasoning models show ToM meta-knowledge** — filter facts, take perspectives explicitly in reasoning traces
+2. **Gains are from robustness, not new ToM capabilities** - more plausibly attributed to finding correct solutions more reliably
+3. **Reasoning models show ToM meta-knowledge** - filter facts, take perspectives explicitly in reasoning traces
 4. **Non-reasoning models get confused** on trivial modifications that reasoning models handle
-5. **Performance varies by task type** — Strange Stories easier than Sally-Anne variants
+5. **Performance varies by task type** - Strange Stories easier than Sally-Anne variants
 
 ---
 
@@ -30,7 +30,7 @@
 | DeepSeek R1 | No | Full | No | No |
 | Grok-3-mini | No | Full | No | No |
 
-**Key advantage**: Claude allows turning thinking on/off — enables controlled comparison.
+**Key advantage**: Claude allows turning thinking on/off - enables controlled comparison.
 
 ### Psychological Tests Used
 
@@ -42,7 +42,7 @@
 
 3. **Imposing Memories**: Multi-level recursive mental states (A believes B wants C to wish for X)
 
-4. **Modifications on Simple ToM Tasks**: Novel variations based on Ullman (2023) — tests robustness
+4. **Modifications on Simple ToM Tasks**: Novel variations based on Ullman (2023) - tests robustness
 
 ### Scoring (0-2 scale, normalized to 0-1)
 - 0: Incorrect reasoning
@@ -80,7 +80,7 @@
 | R1 | 1.0 |
 | Grok-3-mini | 1.0 |
 
-**Critical finding**: Non-thinking Claude drops to 0.5 on 2nd order — thinking helps!
+**Critical finding**: Non-thinking Claude drops to 0.5 on 2nd order - thinking helps!
 
 ### Strange Stories (Averaged)
 
@@ -96,7 +96,7 @@
 
 ### Robustness to Trivial Modifications
 
-Based on Ullman (2023) variations — tests if models fail on "trivial" changes:
+Based on Ullman (2023) variations - tests if models fail on "trivial" changes:
 
 | Model | Baseline | Modified | Robust? |
 |-------|----------|----------|---------|
@@ -125,17 +125,17 @@ Based on Ullman (2023) variations — tests if models fail on "trivial" changes:
 
 ### What This Paper Shows
 
-1. **Reasoning = robustness, not new capability** — the key insight
-2. **Thinking traces reveal ToM strategies** — perspective taking, fact filtering
-3. **Non-reasoning models fail on trivial variations** — brittleness persists
-4. **Model improvements are real but bounded** — still below specialized methods
+1. **Reasoning = robustness, not new capability** - the key insight
+2. **Thinking traces reveal ToM strategies** - perspective taking, fact filtering
+3. **Non-reasoning models fail on trivial variations** - brittleness persists
+4. **Model improvements are real but bounded** - still below specialized methods
 
 ### What This Paper Does NOT Show
 
-1. **Genuine ToM understanding** — explicitly avoids this claim
-2. **Mechanism for improvement** — black-box evaluation
-3. **OOD generalization** — tests are variations, not truly novel
-4. **Causal role of reasoning** — correlation, not proven causation
+1. **Genuine ToM understanding** - explicitly avoids this claim
+2. **Mechanism for improvement** - black-box evaluation
+3. **OOD generalization** - tests are variations, not truly novel
+4. **Causal role of reasoning** - correlation, not proven causation
 
 ### Key Quote from Authors
 
@@ -161,7 +161,7 @@ Based on Ullman (2023) variations — tests if models fail on "trivial" changes:
 
 ### Supports
 - **Interplay (2512.07783)**: RL surfaces existing capability, doesn't create new
-- **s1 (2501.19393)**: Surfacing hypothesis — reasoning pre-exists
+- **s1 (2501.19393)**: Surfacing hypothesis - reasoning pre-exists
 - **Illusion of Insight (2601.00514)**: "Aha moments" are rare, don't help accuracy
 - **CoT Without Prompting (2402.10200)**: Reasoning exists latently
 
@@ -188,9 +188,9 @@ This aligns with the thesis that LLM reasoning is **surfacing, not creation**.
 
 ### Potential Counter-Arguments
 
-1. **Robustness IS a form of capability** — more reliable = better reasoning
-2. **Reasoning traces show explicit ToM** — perspective taking is visible
-3. **Benchmark improvements are real** — even if mechanism unclear
+1. **Robustness IS a form of capability** - more reliable = better reasoning
+2. **Reasoning traces show explicit ToM** - perspective taking is visible
+3. **Benchmark improvements are real** - even if mechanism unclear
 
 ### Limitations (Authors Acknowledge)
 - API constraints prevent perfect controls
@@ -207,22 +207,22 @@ This aligns with the thesis that LLM reasoning is **surfacing, not creation**.
 
 > "The reasoning capacity of a reasoning model remains bounded by its base model." (citing Yue et al., 2025)
 
-> "Non-thinking Claude gets confused" — on trivial modifications
+> "Non-thinking Claude gets confused" - on trivial modifications
 
-> "Models display ToM meta-knowledge in some tasks" — filtering facts, perspective taking
+> "Models display ToM meta-knowledge in some tasks" - filtering facts, perspective taking
 
 ---
 
 ## Relevance to Thesis
 
-**BALANCED** — Supports the surfacing hypothesis while showing real improvements
+**BALANCED** - Supports the surfacing hypothesis while showing real improvements
 
 ### Key Contributions
 
-1. **Robustness ≠ new capability** — explicitly supports surfacing hypothesis
-2. **Reasoning traces show pattern application** — learned ToM strategies, not genuine understanding
-3. **Bounded by base model** — cites Yue et al. on RL limitations
-4. **Still below specialized methods** — Thought Tracing outperforms
+1. **Robustness ≠ new capability** - explicitly supports surfacing hypothesis
+2. **Reasoning traces show pattern application** - learned ToM strategies, not genuine understanding
+3. **Bounded by base model** - cites Yue et al. on RL limitations
+4. **Still below specialized methods** - Thought Tracing outperforms
 
 ### Integration with Existing Arguments
 
@@ -254,4 +254,4 @@ This paper provides **nuanced support**:
 
 ---
 
-## Verdict: BALANCED — Shows reasoning models improve ToM task performance through increased ROBUSTNESS, not new capability. Explicitly supports "surfacing" interpretation: "gains are more plausibly attributed to increased robustness in finding the correct solution, rather than to fundamentally new forms of ToM reasoning."
+## Verdict: BALANCED - Shows reasoning models improve ToM task performance through increased ROBUSTNESS, not new capability. Explicitly supports "surfacing" interpretation: "gains are more plausibly attributed to increased robustness in finding the correct solution, rather than to fundamentally new forms of ToM reasoning."

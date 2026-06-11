@@ -14,7 +14,7 @@
 1. **Two distinct skills in math**: Abstract formulation (recognizing mathematical relationships) vs arithmetic computation (executing calculations)
 2. **Computation is the bottleneck**: Final-answer accuracy without CoT is "overwhelmingly bottlenecked by the arithmetic computation step and not by the abstract formulation step"
 3. **CoT primarily aids computation**: "CoT primarily aids in computation, with limited impact on abstract formulation"
-4. **Abstract-then-compute mechanism**: Models first capture problem abstractions, then handle computation — even in a single forward pass
+4. **Abstract-then-compute mechanism**: Models first capture problem abstractions, then handle computation - even in a single forward pass
 5. **Abstractions are transferable**: Causal patching confirms abstractions are "present, transferable, composable, and precede computation"
 
 ---
@@ -27,9 +27,9 @@
 
 ### Four Evaluation Settings
 1. **Original**: Both abstraction + computation (standard setting)
-2. **Symbolic Abstraction**: Variables only (x, y) — tests abstraction
-3. **Numerical Abstraction**: Concrete numbers, output expression — tests abstraction
-4. **Arithmetic Computation**: Given expression, compute — tests computation only
+2. **Symbolic Abstraction**: Variables only (x, y) - tests abstraction
+3. **Numerical Abstraction**: Concrete numbers, output expression - tests abstraction
+4. **Arithmetic Computation**: Given expression, compute - tests computation only
 
 ### Mechanistic Analysis
 - **Logit attribution**: Track operator/answer tokens across layers
@@ -87,7 +87,7 @@ Example: Patching "x−y" abstraction changes 5+3=8 to 5−3=2
 
 1. **CoT is about computation, not reasoning**: The +58.7% CoT gain in computation vs +6.7% in abstraction shows CoT is a calculation aid, not a reasoning enhancer
 
-2. **Abstraction is pattern recognition**: The abstract-then-compute mechanism shows models recognize patterns (abstractions) then execute learned procedures — this IS pattern matching
+2. **Abstraction is pattern recognition**: The abstract-then-compute mechanism shows models recognize patterns (abstractions) then execute learned procedures - this IS pattern matching
 
 3. **Poor accuracy ≠ poor reasoning**: Authors explicitly state:
 > "Poor final-answer accuracy without CoT... can stem from arithmetic errors rather than reasoning deficits"
@@ -96,7 +96,7 @@ Example: Patching "x−y" abstraction changes 5+3=8 to 5−3=2
 
 ### NUANCED interpretation:
 - The paper shows models CAN do abstraction (pattern recognition) reasonably well
-- But this abstraction = recognizing patterns like "buys" → "+" — exactly what pattern matching predicts
+- But this abstraction = recognizing patterns like "buys" → "+" - exactly what pattern matching predicts
 - The "reasoning" is just pattern retrieval; the "failure" is computation
 
 ---
@@ -112,7 +112,7 @@ Example: Patching "x−y" abstraction changes 5+3=8 to 5−3=2
 
 ### Extends
 - **Measuring Faithfulness (2307.13702)**: Provides mechanistic grounding for unfaithfulness
-- **GSM-Symbolic (2410.05229)**: Explains WHY perturbations cause failures — abstraction preserved, computation fails
+- **GSM-Symbolic (2410.05229)**: Explains WHY perturbations cause failures - abstraction preserved, computation fails
 
 ### Provides mechanism for
 - **Pattern matching thesis**: Abstract-then-compute = pattern recognition then execution
@@ -174,8 +174,8 @@ Example: Patching "x−y" abstraction changes 5+3=8 to 5−3=2
 **Significance**: HIGH - Provides mechanistic explanation for pattern matching
 
 **Key Contribution**: Shows that "reasoning" in math word problems decomposes into:
-1. **Abstraction** (pattern recognition) — models do this well
-2. **Computation** (executing calculations) — models fail here
+1. **Abstraction** (pattern recognition) - models do this well
+2. **Computation** (executing calculations) - models fail here
 
 This supports the thesis because:
 - "Abstraction" = recognizing learned patterns ("buys" → "+")

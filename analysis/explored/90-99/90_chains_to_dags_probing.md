@@ -12,11 +12,11 @@
 
 ## Core Claims
 
-1. **DAG structure is encoded in hidden states**: LLM internal representations encode graph-structured reasoning beyond linear chains — node depth and pairwise distance are linearly recoverable from hidden states
+1. **DAG structure is encoded in hidden states**: LLM internal representations encode graph-structured reasoning beyond linear chains - node depth and pairwise distance are linearly recoverable from hidden states
 
 2. **Intermediate layers are reasoning-dominant**: DAG geometry emerges most strongly in intermediate layers; early layers are lexical, late layers are variable
 
-3. **Recoverability varies by depth**: Deeper reasoning steps are preferentially supported in later layers — systematic depth-layer alignment pattern
+3. **Recoverability varies by depth**: Deeper reasoning steps are preferentially supported in later layers - systematic depth-layer alignment pattern
 
 4. **Scaling helps, training recipe less so**: Model capacity is the primary driver of DAG recoverability; instruction tuning has modest effect
 
@@ -113,7 +113,7 @@ Modest improvement from reasoning-focused training.
 
 > "The layer at which MAE is minimized shifts systematically with node depth: shallow nodes reach peak recoverability in earlier layers, whereas deeper nodes achieve their lowest error only in later layers"
 
-This produces a **diagonal banding pattern** — deeper reasoning steps need deeper layers.
+This produces a **diagonal banding pattern** - deeper reasoning steps need deeper layers.
 
 ---
 
@@ -124,7 +124,7 @@ This produces a **diagonal banding pattern** — deeper reasoning steps need dee
 ### How This Paper Is BALANCED
 
 **Evidence FOR genuine structure:**
-1. DAG geometry IS encoded — not just linear chains
+1. DAG geometry IS encoded - not just linear chains
 2. Intermediate layers specialize for reasoning
 3. Correct answers correlate with better DAG encoding
 4. Progressive construction across layers
@@ -139,7 +139,7 @@ This produces a **diagonal banding pattern** — deeper reasoning steps need dee
 3. Training recipe has modest effect:
    > "Alignment or reasoning-focused training may influence the accessibility of structured representations, but pretraining scale remains the dominant factor"
 
-4. Late layers variable — reasoning structure may be discarded:
+4. Late layers variable - reasoning structure may be discarded:
    > "In the final layers, performance becomes more variable and exhibits a mild decline"
 
 ### Key Insight for Thesis
@@ -174,7 +174,7 @@ The paper shows models ENCODE reasoning structure but don't necessarily USE it c
 ## REBUTTALS TO THIS PAPER
 
 ### Search for Direct Rebuttals
-- Paper is recent (January 2026) — no direct rebuttals found
+- Paper is recent (January 2026) - no direct rebuttals found
 
 ### Potential Counter-Arguments
 
@@ -218,11 +218,11 @@ The paper shows models ENCODE reasoning structure but don't necessarily USE it c
 
 ## Relevance to Synthesis
 
-**BALANCED** — provides nuanced view:
+**BALANCED** - provides nuanced view:
 
 1. **Structure exists**: DAG geometry IS linearly encoded in hidden states
 2. **But not reliably used**: Recoverability doesn't guarantee correct reasoning
 3. **Intermediate layers specialize**: Reasoning computation is localized
 4. **Scale > training**: Pretraining determines structure, not reasoning-specific training
 
-**Key insight**: Models can ENCODE reasoning structure without EXECUTING it correctly. This is consistent with "surfacing" hypothesis — capability exists but isn't reliably deployed.
+**Key insight**: Models can ENCODE reasoning structure without EXECUTING it correctly. This is consistent with "surfacing" hypothesis - capability exists but isn't reliably deployed.

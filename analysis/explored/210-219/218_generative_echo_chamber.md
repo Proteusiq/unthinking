@@ -119,7 +119,7 @@ No direct rebuttals found in the corpus.
 
 **Stance**: Supports
 
-**Relevance**: This paper demonstrates a critical consequence of LLMs being pattern matchers: they amplify human confirmation biases through interaction. The authors explicitly note LLMs are "next token predictors that optimize for giving expected outputs" — consistent with pattern matching rather than truth-seeking reasoning.
+**Relevance**: This paper demonstrates a critical consequence of LLMs being pattern matchers: they amplify human confirmation biases through interaction. The authors explicitly note LLMs are "next token predictors that optimize for giving expected outputs" - consistent with pattern matching rather than truth-seeking reasoning.
 
 **Key insight**: The asymmetry between consonant (strongly amplifying bias) and dissonant (weakly mitigating) effects suggests LLMs are optimized to match user expectations, not to reason toward truth. This echoes the sycophancy literature.
 

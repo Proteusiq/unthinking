@@ -151,7 +151,7 @@
 
 **The Surfacing Evidence**:
 1. **Interplay** (15): 0% pre-training exposure = RL completely fails; ≥1% = success
-2. **s1** (07): Only 1K samples needed — can't TEACH AIME math, only surface it
+2. **s1** (07): Only 1K samples needed - can't TEACH AIME math, only surface it
 3. **Base Models Know** (133): Hybrid model recovers 91% with only 12% tokens steered
 4. **Spurious Rewards** (111): Models improve even with INCORRECT rewards via memorization shortcuts
 
@@ -197,9 +197,9 @@
 **Supporting Papers**: 20, 21, 22, 39, 41, 48, 49, 68, 77, 80, 87, 115, 129, 130
 
 **The Collapse Signature**:
-- Token usage DECREASES at collapse (giving up behavior) — Papers 03, 16
-- Error accumulation is exponential — Papers 00, 19, 41
-- "Split-brain syndrome": 95-100% step accuracy, 0% final — Paper 19
+- Token usage DECREASES at collapse (giving up behavior) - Papers 03, 16
+- Error accumulation is exponential - Papers 00, 19, 41
+- "Split-brain syndrome": 95-100% step accuracy, 0% final - Paper 19
 
 ---
 
@@ -246,9 +246,9 @@
 
 **Paper 202 (Embers of Autoregression)** provides the theoretical foundation:
 > "To understand what language models are, we must understand what we have trained them to be."
-- Acronyms: 76% (first letter) vs 3% (second letter) — 25× difference on same algorithm
-- Shift cipher: 51% vs 13% — output probability drives deterministic task accuracy
-- Sorting: 80% vs 32% — training frequency, not algorithm difficulty
+- Acronyms: 76% (first letter) vs 3% (second letter) - 25× difference on same algorithm
+- Shift cipher: 51% vs 13% - output probability drives deterministic task accuracy
+- Sorting: 80% vs 32% - training frequency, not algorithm difficulty
 
 ---
 
@@ -653,32 +653,32 @@ Can LLMs Reason and Plan (131): "Universal approximate retrieval"
 ## VIII. Key Quotes Collection
 
 ### On Pattern Matching
-> "Transformers solve compositional tasks via linearized subgraph matching, not systematic problem-solving." — Faith and Fate (00)
+> "Transformers solve compositional tasks via linearized subgraph matching, not systematic problem-solving." - Faith and Fate (00)
 
-> "LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent." — WhatCounts (108)
+> "LLMs do not implement algorithms; they approximate them, and the approximation is argument-dependent." - WhatCounts (108)
 
-> "LLMs are n-gram models on steroids doing universal approximate retrieval." — Can LLMs Reason and Plan (131)
+> "LLMs are n-gram models on steroids doing universal approximate retrieval." - Can LLMs Reason and Plan (131)
 
 ### On Surfacing
-> "0% exposure → RL FAILS; ≥1% exposure → RL succeeds." — Interplay (15)
+> "0% exposure → RL FAILS; ≥1% exposure → RL succeeds." - Interplay (15)
 
-> "1K samples can't TEACH AIME math — it can only surface existing capability." — s1 (07)
+> "1K samples can't TEACH AIME math - it can only surface existing capability." - s1 (07)
 
-> "Models improve even with INCORRECT rewards via memorization shortcuts." — Spurious Rewards Paradox (111)
+> "Models improve even with INCORRECT rewards via memorization shortcuts." - Spurious Rewards Paradox (111)
 
 ### On Unfaithfulness
-> "Larger models = LESS faithful." — Measuring Faithfulness (08)
+> "Larger models = LESS faithful." - Measuring Faithfulness (08)
 
-> "Incorrect traces can OUTPERFORM correct ones." — Stop Anthropomorphizing (132)
+> "Incorrect traces can OUTPERFORM correct ones." - Stop Anthropomorphizing (132)
 
-> "Sycophancy follows a distinct computational pathway from correct reasoning." — Sycophantic Anchors (109)
+> "Sycophancy follows a distinct computational pathway from correct reasoning." - Sycophantic Anchors (109)
 
 ### On Complexity
-> "Token usage DECREASES at collapse — giving up behavior." — Illusion of Thinking (03)
+> "Token usage DECREASES at collapse - giving up behavior." - Illusion of Thinking (03)
 
-> "95-100% step accuracy, 0% final accuracy — split-brain syndrome." — Comprehension Without Competence (19)
+> "95-100% step accuracy, 0% final accuracy - split-brain syndrome." - Comprehension Without Competence (19)
 
-> "Inevitable failure due to statistical nature." — TMBench (41)
+> "Inevitable failure due to statistical nature." - TMBench (41)
 
 ---
 

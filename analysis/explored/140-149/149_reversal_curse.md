@@ -12,15 +12,15 @@
 
 ## Core Claims
 
-1. **LLMs trained on "A is B" do NOT automatically generalize to "B is A"** — This is a fundamental failure of logical deduction during training.
+1. **LLMs trained on "A is B" do NOT automatically generalize to "B is A"** - This is a fundamental failure of logical deduction during training.
 
-2. **The failure is complete (not partial)** — The likelihood of the correct answer in the reverse direction is **no higher than a random baseline**.
+2. **The failure is complete (not partial)** - The likelihood of the correct answer in the reverse direction is **no higher than a random baseline**.
 
-3. **Robust across models and settings** — The curse applies to GPT-3 (350M to 175B), Llama-1 (7B-30B), and GPT-4.
+3. **Robust across models and settings** - The curse applies to GPT-3 (350M to 175B), Llama-1 (7B-30B), and GPT-4.
 
-4. **Data augmentation doesn't help** — Including paraphrases, both-direction auxiliary examples, and larger datasets doesn't resolve the curse.
+4. **Data augmentation doesn't help** - Including paraphrases, both-direction auxiliary examples, and larger datasets doesn't resolve the curse.
 
-5. **In-context learning DOES work** — If "A is B" is provided in context, models can infer "B is A". The curse is specific to training-time learning.
+5. **In-context learning DOES work** - If "A is B" is provided in context, models can infer "B is A". The curse is specific to training-time learning.
 
 ---
 
@@ -36,7 +36,7 @@
 **Experiment 2: Real-World Celebrity Parents (GPT-4)**
 - Test on 1000 celebrity-parent pairs from IMDB
 - Compare "Who is Tom Cruise's mother?" vs. "Who is Mary Lee Pfeiffer's son?"
-- No finetuning — tests pretraining knowledge
+- No finetuning - tests pretraining knowledge
 
 **Experiment 3: Reversing Instructions**
 - Finetune on "Answer <question> with <answer>" format
@@ -62,7 +62,7 @@
 | Same (trained) | 50.0% ± 2.1 | 96.7% ± 1.2 |
 | **Reverse** | **0.0% ± 0.0** | **0.1% ± 0.1** |
 
-**Critical finding**: Zero percent accuracy in reverse direction — NOT partial degradation, but **complete failure**.
+**Critical finding**: Zero percent accuracy in reverse direction - NOT partial degradation, but **complete failure**.
 
 ### Log-Probability Analysis
 - Correct name log-probability: **No different from random name**
@@ -93,13 +93,13 @@ Llama-1 models show similar asymmetry.
 
 **This paper proves LLMs store directional patterns, not relational knowledge:**
 
-1. **Knowledge is key-value, not symmetric** — LLMs store "A → B" associations, not "A ↔ B" relations
+1. **Knowledge is key-value, not symmetric** - LLMs store "A → B" associations, not "A ↔ B" relations
 
-2. **Proves pattern matching, not understanding** — A system that "understood" the relation would know it's symmetric by logic. LLMs don't.
+2. **Proves pattern matching, not understanding** - A system that "understood" the relation would know it's symmetric by logic. LLMs don't.
 
-3. **Training process is myopic** — Gradient updates only encode forward direction, not bidirectional implications
+3. **Training process is myopic** - Gradient updates only encode forward direction, not bidirectional implications
 
-4. **In-context vs. in-weights distinction** — LLMs can reason about symmetry in-context but don't learn it from training. This is evidence for "surfacing" (in-context activates capability) vs. "learning" (training creates new capability).
+4. **In-context vs. in-weights distinction** - LLMs can reason about symmetry in-context but don't learn it from training. This is evidence for "surfacing" (in-context activates capability) vs. "learning" (training creates new capability).
 
 ### Authors' Explanation
 > "When a model is updated on 'A is B', this gradient update may slightly alter the representation of A such that it contains information about B... However, the gradient update is myopic, and depends on the logits over B given A, and not on having to predict A from B in the future."
@@ -109,7 +109,7 @@ Llama-1 models show similar asymmetry.
 ## Relationship to Other Papers
 
 ### Strongly Supports
-- **Faith and Fate** (Paper 00): "Linearized subgraph matching" — direction matters
+- **Faith and Fate** (Paper 00): "Linearized subgraph matching" - direction matters
 - **GSM-Symbolic** (Paper 01): Fragility when patterns shift
 - **Comprehension Without Competence** (Paper 24): Architectural limits on symbolic computation
 - **Pretraining Term Frequencies** (Paper 147): Performance depends on training patterns, not reasoning
@@ -128,11 +128,11 @@ Llama-1 models show similar asymmetry.
 ## REBUTTALS TO THIS PAPER
 
 ### Search for Direct Rebuttals
-- **None found** — paper is widely accepted
+- **None found** - paper is widely accepted
 - The finding has been replicated by multiple independent groups
 
 ### Potential Counter-Arguments
-1. **In-context learning works**: Models CAN reverse in-context — the curse is training-specific
+1. **In-context learning works**: Models CAN reverse in-context - the curse is training-specific
 2. **Real pretraining data may have both directions**: For common facts, both orderings may appear
 3. **Newer models might differ**: GPT-4 Turbo or Claude 3 might have architectural changes
 
@@ -161,15 +161,15 @@ Llama-1 models show similar asymmetry.
 
 ## Implications for LLM Reasoning Research
 
-1. **LLMs don't have relational knowledge** — They have directional associations (key-value), not symmetric understanding
+1. **LLMs don't have relational knowledge** - They have directional associations (key-value), not symmetric understanding
 
-2. **"Understanding" requires bidirectional access** — The reversal curse proves LLMs store patterns, not concepts
+2. **"Understanding" requires bidirectional access** - The reversal curse proves LLMs store patterns, not concepts
 
-3. **Benchmark design must test both directions** — Evaluations testing only forward direction overestimate capability
+3. **Benchmark design must test both directions** - Evaluations testing only forward direction overestimate capability
 
-4. **Fundamental architectural limitation?** — Autoregressive training may be inherently incapable of symmetric learning
+4. **Fundamental architectural limitation?** - Autoregressive training may be inherently incapable of symmetric learning
 
-5. **In-context is different from in-weights** — Capability demonstrated in-context may not exist in trained weights
+5. **In-context is different from in-weights** - Capability demonstrated in-context may not exist in trained weights
 
 ---
 

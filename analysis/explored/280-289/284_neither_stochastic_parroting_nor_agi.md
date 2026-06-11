@@ -7,7 +7,7 @@
 
 ## Summary
 
-Proposes a middle-ground framework: LLMs perform **context-directed extrapolation from training data priors**. Rejects both "stochastic parroting" (too dismissive) and "emergent reasoning / AGI" (too generous). Provides theoretical grounding using Bloom's taxonomy — argues LLMs achieve **Understand** but not **Apply**.
+Proposes a middle-ground framework: LLMs perform **context-directed extrapolation from training data priors**. Rejects both "stochastic parroting" (too dismissive) and "emergent reasoning / AGI" (too generous). Provides theoretical grounding using Bloom's taxonomy - argues LLMs achieve **Understand** but not **Apply**.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -46,7 +46,7 @@ Evidence that LLMs lack advanced reasoning:
 |------|-----------------|-------------------|
 | Faux-pas test (children) | 0.40 | 0.82 (ages 9-11) |
 | Blocksworld planning | 35.6% (GPT-4 + CoT) | 78% |
-| Mystery Blocksworld | 0% (zero-shot) | — |
+| Mystery Blocksworld | 0% (zero-shot) | - |
 | Counterfactual tasks | Dramatic drops | Stable |
 
 **Hallucinations** explained: When prompts lack context to direct to correct priors, outputs default to broader training data → statistically likely but wrong.
@@ -62,11 +62,11 @@ Evidence that LLMs lack advanced reasoning:
 │  └── LLMs: ✓ Extensive (may masquerade as Understanding)           │
 │                                                                     │
 │  UNDERSTAND: Interpret, classify, infer, compare                    │
-│  └── LLMs: ✓ LIMITED — when priors + context align                 │
+│  └── LLMs: ✓ LIMITED - when priors + context align                 │
 │                                                                     │
 │  APPLY: Use knowledge for NEW problems where                        │
 │         generalization is NOT given                                 │
-│  └── LLMs: ✗ FAIL — cannot truly generalize                        │
+│  └── LLMs: ✗ FAIL - cannot truly generalize                        │
 │                                                                     │
 └─────────────────────────────────────────────────────────────────────┘
 ```
@@ -129,7 +129,7 @@ The paper provides a precise articulation of "sophisticated pattern matching":
 
 ## Limitations
 
-- Position paper — synthesizes existing evidence rather than new experiments
+- Position paper - synthesizes existing evidence rather than new experiments
 - Bloom's taxonomy may not perfectly map to ML capabilities
 - Some may argue the distinction between Understand and Apply is fuzzy
 

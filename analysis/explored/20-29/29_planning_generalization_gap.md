@@ -12,10 +12,10 @@
 
 ## Core Claims
 
-1. **Fine-tuned LLMs achieve high in-domain performance (82.9%) but 0% on unseen domains** — indicating severe lack of cross-domain generalization
-2. **Symbol anonymization causes 11.5pp performance drop** — models exploit lexical semantics (e.g., "drive" implies movement)
-3. **Compact serialization (removing formatting) causes >10pp drop** — despite preserving plan semantics, showing sensitivity to surface form
-4. **Verifier-reward RL doesn't improve cross-domain generalization** — functional correctness training signal doesn't help OOD
+1. **Fine-tuned LLMs achieve high in-domain performance (82.9%) but 0% on unseen domains** - indicating severe lack of cross-domain generalization
+2. **Symbol anonymization causes 11.5pp performance drop** - models exploit lexical semantics (e.g., "drive" implies movement)
+3. **Compact serialization (removing formatting) causes >10pp drop** - despite preserving plan semantics, showing sensitivity to surface form
+4. **Verifier-reward RL doesn't improve cross-domain generalization** - functional correctness training signal doesn't help OOD
 5. **Models learn domain-specific patterns, not transferable planning competence**
 
 ---
@@ -29,9 +29,9 @@
 - **Validation**: VAL plan validator for ground truth correctness
 
 ### Three Diagnostic Variants
-1. **v1: Instance-wise Symbol Anonymization** — Replace all action/predicate/object names with arbitrary symbols (a_0, p_3, o_7)
-2. **v2: Compact Plan Serialization** — Remove timestamps, parentheses, "END" markers while preserving action sequence
-3. **v3: Verifier-Reward Fine-Tuning** — Use VAL validator as reinforcement signal instead of string matching
+1. **v1: Instance-wise Symbol Anonymization** - Replace all action/predicate/object names with arbitrary symbols (a_0, p_3, o_7)
+2. **v2: Compact Plan Serialization** - Remove timestamps, parentheses, "END" markers while preserving action sequence
+3. **v3: Verifier-Reward Fine-Tuning** - Use VAL validator as reinforcement signal instead of string matching
 
 ### Key Controls
 - Same optimizer, max sequence length across variants
@@ -55,7 +55,7 @@
 
 | Variant | Avg. Valid Plan Rate | Change from Baseline |
 |---------|---------------------|---------------------|
-| B (baseline, 3 epochs) | 82.9% | — |
+| B (baseline, 3 epochs) | 82.9% | - |
 | v1 (anonymization, 3 epochs) | 71.4% | **-11.5pp** |
 | v2 (compact encoding, 3 epochs) | 72.2% | **-10.7pp** |
 | v3 (verifier-reward RL) | 78.1% | -4.8pp |
@@ -93,13 +93,13 @@ Models learned **surface syntax** but not **goal-directed planning**.
 - **Faith and Fate (2310.12397)**: Both show high ID/low OOD pattern
 - **GSM-Symbolic (2410.05229)**: Both demonstrate sensitivity to surface features
 - **Beyond Memorization ToC (2601.13392)**: Both show 100% on training distribution, collapse OOD
-- **Interplay (2512.07783)**: Both support "RL surfaces, doesn't create" — v3 (RL) doesn't improve OOD
+- **Interplay (2512.07783)**: Both support "RL surfaces, doesn't create" - v3 (RL) doesn't improve OOD
 
 ### Challenges
 - Papers claiming emergent planning abilities (would need to explain 0% OOD)
 
 ### Extends
-- Valmeekam et al. (2022): "Large language models still can't plan" — extends with controlled generalization tests
+- Valmeekam et al. (2022): "Large language models still can't plan" - extends with controlled generalization tests
 
 ### Provides Mechanism For
 - Explains WHY high benchmark scores don't indicate planning ability
@@ -110,7 +110,7 @@ Models learned **surface syntax** but not **goal-directed planning**.
 ## REBUTTALS TO THIS PAPER
 
 ### Potential Counter-Arguments
-1. **Scale might help**: 1.7B parameters may be too small — larger models might generalize better
+1. **Scale might help**: 1.7B parameters may be too small - larger models might generalize better
    - *Authors acknowledge*: "10 training domains and 2 unseen domains may be insufficient"
 2. **Domain diversity**: Only 10 training domains might not be enough for abstraction
 3. **PDDL-specific**: Results might not generalize to natural language planning
@@ -119,18 +119,18 @@ Models learned **surface syntax** but not **goal-directed planning**.
 1. "Ten training domains and two unseen domains may be insufficient to induce abstract planning competence"
 2. "Tokenizer behavior rather than purely semantic effects" might explain some results
 3. "Observed plateau around 80-83% validity... may reflect model capacity limits"
-4. Only 2 unseen domains tested — limited statistical power
+4. Only 2 unseen domains tested - limited statistical power
 
 ### Search for Direct Rebuttals
-- **None found yet** — paper is recent (Jan 2025)
+- **None found yet** - paper is recent (Jan 2025)
 - Would need papers showing LLMs CAN generalize cross-domain on planning
 
 ### Related Work Citations Supporting the "Pattern Matching" Thesis
 The paper cites several works that align with the thesis that LLM reasoning is pattern matching rather than genuine reasoning:
-- **Shojaee et al. (2025)**: "The illusion of thinking" — reasoning models limited by problem complexity
-- **Karan and Du (2025)**: "Reasoning with sampling" — base model is smarter than you think (sampling, not learning)
-- **Yue et al. (2025)**: "Does reinforcement learning really incentivize reasoning capacity?" — RL gains don't translate to reasoning
-- **Valmeekam et al. (2022)**: "Large language models still can't plan" — foundational planning critique
+- **Shojaee et al. (2025)**: "The illusion of thinking" - reasoning models limited by problem complexity
+- **Karan and Du (2025)**: "Reasoning with sampling" - base model is smarter than you think (sampling, not learning)
+- **Yue et al. (2025)**: "Does reinforcement learning really incentivize reasoning capacity?" - RL gains don't translate to reasoning
+- **Valmeekam et al. (2022)**: "Large language models still can't plan" - foundational planning critique
 
 ---
 
@@ -166,11 +166,11 @@ The paper cites several works that align with the thesis that LLM reasoning is p
 
 1. **Pattern matching, not genuine reasoning**: 82.9% → 0% is the starkest possible evidence that high benchmark performance doesn't indicate reasoning
 2. **Surface form dependence**: 10-11pp drops from semantically-neutral changes prove models learn textual patterns
-3. **RL doesn't create, only surfaces**: v3 (RL) improves efficiency but doesn't improve OOD — aligns with Interplay (2512.07783)
+3. **RL doesn't create, only surfaces**: v3 (RL) improves efficiency but doesn't improve OOD - aligns with Interplay (2512.07783)
 4. **Loops and wandering**: Qualitative finding that models "wander without making progress" = no goal-directed reasoning
 
 ### Specific Numbers for Synthesis:
-- **82.9% ID → 0% OOD** — headline finding
+- **82.9% ID → 0% OOD** - headline finding
 - **11.5pp drop** from symbol anonymization
 - **Maintenance: 98% → 0%** with anonymization (single domain collapse)
 - **Blocksworld: 90% → 4%** from compact encoding

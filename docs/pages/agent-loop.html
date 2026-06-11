@@ -263,14 +263,14 @@
     <div class="page">
       <h1>An agent is software around an LLM</h1>
       <p class="subtitle">
-        Agency is in the <em>engineering around</em> the LLM — the system that composes
+        Agency is in the <em>engineering around</em> the LLM - the system that composes
         <strong>context</strong>, parses output, runs <strong>tools</strong>, and
         <strong>loops</strong>.
         <br />
         <span class="hint">Hover any box for details.</span>
       </p>
 
-      <p class="step-label" id="lbl">—</p>
+      <p class="step-label" id="lbl">-</p>
 
       <div class="diagram">
         <svg id="svg" viewBox="0 0 920 540" preserveAspectRatio="xMidYMid meet">
@@ -390,7 +390,7 @@
             aria-describedby="tip"
             data-tip-color="var(--accent-blue)"
             data-tip-title="INPUT"
-            data-tip='&lt;code&gt;system_message&lt;/code&gt; + &lt;code&gt;query&lt;/code&gt; + &lt;em&gt;every prior reasoning&lt;/em&gt; + &lt;em&gt;every prior tool result&lt;/em&gt;. The &lt;strong&gt;whole INPUT&lt;/strong&gt; is re-sent to the LLM every cycle. When it grows past the &lt;strong&gt;context window&lt;/strong&gt;, the system runs &lt;strong&gt;compaction&lt;/strong&gt; — summarize older entries into one row so the loop can continue. &lt;span class="muted"&gt;INPUT plays the role of memory; the LLM has none.&lt;/span&gt;'
+            data-tip='&lt;code&gt;system_message&lt;/code&gt; + &lt;code&gt;query&lt;/code&gt; + &lt;em&gt;every prior reasoning&lt;/em&gt; + &lt;em&gt;every prior tool result&lt;/em&gt;. The &lt;strong&gt;whole INPUT&lt;/strong&gt; is re-sent to the LLM every cycle. When it grows past the &lt;strong&gt;context window&lt;/strong&gt;, the system runs &lt;strong&gt;compaction&lt;/strong&gt; - summarize older entries into one row so the loop can continue. &lt;span class="muted"&gt;INPUT plays the role of memory; the LLM has none.&lt;/span&gt;'
           />
           <text
             x="32"
@@ -443,7 +443,7 @@
             aria-describedby="tip"
             data-tip-color="var(--accent-blue)"
             data-tip-title="LLM"
-            data-tip='&lt;code&gt;f(x) → y&lt;/code&gt;. &lt;em&gt;No memory, no state, no agency.&lt;/em&gt; Reads the &lt;strong&gt;whole INPUT&lt;/strong&gt; every cycle and generates the &lt;strong&gt;next tokens&lt;/strong&gt;. &lt;span class="muted"&gt;Providers cache token prefixes (&lt;code&gt;KV cache&lt;/code&gt;) for speed — the model itself is stateless.&lt;/span&gt;'
+            data-tip='&lt;code&gt;f(x) → y&lt;/code&gt;. &lt;em&gt;No memory, no state, no agency.&lt;/em&gt; Reads the &lt;strong&gt;whole INPUT&lt;/strong&gt; every cycle and generates the &lt;strong&gt;next tokens&lt;/strong&gt;. &lt;span class="muted"&gt;Providers cache token prefixes (&lt;code&gt;KV cache&lt;/code&gt;) for speed - the model itself is stateless.&lt;/span&gt;'
           />
           <text
             x="304"
@@ -500,7 +500,7 @@
             aria-describedby="tip"
             data-tip-color="var(--accent-purple-dim)"
             data-tip-title="ORCHESTRATOR"
-            data-tip="Parses the LLM's output and decides what happens next — &lt;strong&gt;append to context&lt;/strong&gt;, &lt;strong&gt;call a tool&lt;/strong&gt;, &lt;strong&gt;summarize INPUT&lt;/strong&gt; to free up the window, or &lt;strong&gt;load a skill&lt;/strong&gt;. &lt;span class=&quot;muted&quot;&gt;This is where most of the agent's actual logic lives.&lt;/span&gt;"
+            data-tip="Parses the LLM's output and decides what happens next - &lt;strong&gt;append to context&lt;/strong&gt;, &lt;strong&gt;call a tool&lt;/strong&gt;, &lt;strong&gt;summarize INPUT&lt;/strong&gt; to free up the window, or &lt;strong&gt;load a skill&lt;/strong&gt;. &lt;span class=&quot;muted&quot;&gt;This is where most of the agent's actual logic lives.&lt;/span&gt;"
           />
           <text
             x="304"
@@ -567,7 +567,7 @@
             aria-describedby="tip"
             data-tip-color="var(--accent-orange)"
             data-tip-title="EXECUTOR"
-            data-tip='Anything that runs &lt;em&gt;outside the LLM&lt;/em&gt;. &lt;code&gt;bash&lt;/code&gt; for shell, &lt;code&gt;API | MCP&lt;/code&gt; for external services (&lt;strong&gt;Model Context Protocol&lt;/strong&gt; is one way to wire them), &lt;code&gt;customtools&lt;/code&gt; for file readers that inject prompts (&lt;code&gt;SKILL.md&lt;/code&gt;, &lt;code&gt;AGENTS.md&lt;/code&gt;, &lt;code&gt;memory.md&lt;/code&gt;, &lt;code&gt;personal.md&lt;/code&gt;), skill loaders, anything you wrote. &lt;span class="muted"&gt;The whole arrangement — context + orchestration + execution — is &lt;strong&gt;harnessing engineering&lt;/strong&gt;.&lt;/span&gt;'
+            data-tip='Anything that runs &lt;em&gt;outside the LLM&lt;/em&gt;. &lt;code&gt;bash&lt;/code&gt; for shell, &lt;code&gt;API | MCP&lt;/code&gt; for external services (&lt;strong&gt;Model Context Protocol&lt;/strong&gt; is one way to wire them), &lt;code&gt;customtools&lt;/code&gt; for file readers that inject prompts (&lt;code&gt;SKILL.md&lt;/code&gt;, &lt;code&gt;AGENTS.md&lt;/code&gt;, &lt;code&gt;memory.md&lt;/code&gt;, &lt;code&gt;personal.md&lt;/code&gt;), skill loaders, anything you wrote. &lt;span class="muted"&gt;The whole arrangement - context + orchestration + execution - is &lt;strong&gt;harnessing engineering&lt;/strong&gt;.&lt;/span&gt;'
           />
           <text
             x="672"
@@ -666,7 +666,7 @@
       </div>
 
       <p class="footer-note">
-        LLM is a component inside that system — it generates plausible tokens given the context it
+        LLM is a component inside that system - it generates plausible tokens given the context it
         was given. Nothing more, nothing less.
       </p>
 
@@ -787,7 +787,7 @@
         $('lbl').style.color = color || 'var(--text-muted)';
       }
 
-      // INPUT grows forever — but the SVG viewbox is fixed at 540 high.
+      // INPUT grows forever - but the SVG viewbox is fixed at 540 high.
       // Keep at most MAX_ROWS visible. When we exceed it, fade the oldest
       // row out and shift the remaining ones up so the newest always
       // lands at the bottom of the box.
@@ -855,7 +855,7 @@
             resetBoxes();
             glow('r-input', BLUE, 'var(--accent-blue)');
             secGlow('sec-ctx', BLUE);
-            label('System composes context — INPUT enters the loop', BLUE);
+            label('System composes context - INPUT enters the loop', BLUE);
             dot(132, 108, BLUE);
           },
           () => {
@@ -872,13 +872,13 @@
             o.textContent = `→ ${cycle.reason}`;
             o.style.fill = 'var(--text-primary)';
             show('llm-out');
-            label('LLM generates plausible tokens — no tool call this time', 'var(--text-primary)');
+            label('LLM generates plausible tokens - no tool call this time', 'var(--text-primary)');
             dot(383, 108, BLUE);
           },
           () => {
             unglow('r-llm', 'var(--accent-blue)');
             arrow('a2', 'var(--text-secondary)', 'white');
-            label('System parses tokens — passes them to Orchestrator', 'var(--text-secondary)');
+            label('System parses tokens - passes them to Orchestrator', 'var(--text-secondary)');
             dot(383, 232, BLUE);
           },
           () => {
@@ -889,7 +889,7 @@
             p.textContent = '→ append to context';
             p.style.fill = 'var(--text-primary)';
             show('orch-path');
-            label('Orchestrator (system): no tool call — append to context', PURPLE);
+            label('Orchestrator (system): no tool call - append to context', PURPLE);
             dot(288, 270, BLUE);
           },
           () => {
@@ -902,7 +902,7 @@
           () => {
             appendRow(`reasoning: ${cycle.reason}`, 'var(--text-primary)');
             glow('r-input', BLUE, 'var(--accent-blue)');
-            label('Context grows — system loops again', BLUE);
+            label('Context grows - system loops again', BLUE);
             hideDot();
           },
           () => {
@@ -919,13 +919,13 @@
             o.textContent = `→ ${cycle.cmd}`;
             o.style.fill = ORANGE;
             show('llm-out');
-            label('LLM generates plausible tokens — pattern of a tool call', ORANGE);
+            label('LLM generates plausible tokens - pattern of a tool call', ORANGE);
             dot(383, 108, ORANGE);
           },
           () => {
             unglow('r-llm', 'var(--accent-blue)');
             arrow('a2', ORANGE, 'orange');
-            label('System detects tool-call pattern — routes to Orchestrator', ORANGE);
+            label('System detects tool-call pattern - routes to Orchestrator', ORANGE);
             dot(383, 232, ORANGE);
           },
           () => {
@@ -936,7 +936,7 @@
             p.textContent = '→ route to Executor';
             p.style.fill = ORANGE;
             show('orch-path');
-            label('Orchestrator (system): tool call — route to Executor', PURPLE);
+            label('Orchestrator (system): tool call - route to Executor', PURPLE);
             dot(478, 278, ORANGE);
           },
           () => {
@@ -951,7 +951,7 @@
             $('exec-cmd').textContent = cycle.cmd;
             $('exec-cmd').style.fill = ORANGE;
             $('exec-note').textContent = 'running outside LLM…';
-            label('System runs the tool — outside the LLM — and captures result', ORANGE);
+            label('System runs the tool - outside the LLM - and captures result', ORANGE);
             dot(770, 220, ORANGE);
           },
           () => {

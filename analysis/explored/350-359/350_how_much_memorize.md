@@ -5,7 +5,7 @@
 - **Date**: May 2025 (v3: June 2025)
 - **Authors**: John X. Morris, Chawin Sitawarin, Chuan Guo, Narine Kokhlikyan, G. Edward Suh, Alexander M. Rush, Kamalika Chaudhuri, Saeed Mahloujifar
 - **Affiliation**: FAIR at Meta, Google DeepMind, Cornell University, NVIDIA
-- **Stance**: Balanced — provides the strongest quantitative argument that LLMs MUST generalize (3.6 bpp capacity forces pattern compression at scale), but "generalization" in their framework is statistical pattern compression, not reasoning. The grokking transition (memorization→generalization when capacity fills) is profound evidence that what looks like understanding is the model's response to a storage constraint.
+- **Stance**: Balanced - provides the strongest quantitative argument that LLMs MUST generalize (3.6 bpp capacity forces pattern compression at scale), but "generalization" in their framework is statistical pattern compression, not reasoning. The grokking transition (memorization→generalization when capacity fills) is profound evidence that what looks like understanding is the model's response to a storage constraint.
 
 ---
 
@@ -51,11 +51,11 @@
 ## Core Claims
 
 1. **3.6 bits per parameter capacity**: GPT-style transformers can store 3.5-4.0 bits per parameter, measured on uniform random bitstrings (no generalization possible). This is a hard ceiling.
-2. **Grokking as capacity-filling**: models memorize until capacity fills, then switch to generalization — "once the model can no longer memorize datapoints individually, it is forced to share information between datapoints"
+2. **Grokking as capacity-filling**: models memorize until capacity fills, then switch to generalization - "once the model can no longer memorize datapoints individually, it is forced to share information between datapoints"
 3. **At modern scale, membership inference is impossible**: tokens-per-parameter ratio ≥ 100 → F1 ≈ 0.5 (random guessing)
 4. **Extraction ≠ memorization**: "Language models can be coerced to output almost any string; the fact that a model outputs something is not necessarily a sign of memorization." At large dataset scale, all extraction is generalization.
 5. **Formal separation**: first framework to separate unintended memorization (sample-specific) from generalization (population-level) at the sample level using information theory
-6. **Capacity is not precision**: doubling from bf16 to fp32 increases capacity from 3.51 to 3.83 bpp, not 2x — most extra bits are not used for storage
+6. **Capacity is not precision**: doubling from bf16 to fp32 increases capacity from 3.51 to 3.83 bpp, not 2x - most extra bits are not used for storage
 
 ---
 
@@ -92,15 +92,15 @@
 ## Relationship to Other Papers
 
 ### Supports
-- **#245 Extracting Books (2601.02671)** — Provides theoretical framework for book extraction: at production scale, what looks like extraction may actually be generalization from deduplicated-but-common patterns
-- **#348 Comparative Memorization (2603.21658)** — Complementary: Chen et al. measure structure (heads, layers), Morris et al. measure capacity (bits)
-- **#3 GSM-Symbolic (2410.05229)** — Models that appear to "know" math may be generalizing surface patterns (3.6 bpp forces compression), not memorizing solutions
-- **#1 Faith and Fate (2305.18654)** — Capacity ceiling explains why compositional generalization breaks: models can't store enough patterns for compositional explosion
+- **#245 Extracting Books (2601.02671)** - Provides theoretical framework for book extraction: at production scale, what looks like extraction may actually be generalization from deduplicated-but-common patterns
+- **#348 Comparative Memorization (2603.21658)** - Complementary: Chen et al. measure structure (heads, layers), Morris et al. measure capacity (bits)
+- **#3 GSM-Symbolic (2410.05229)** - Models that appear to "know" math may be generalizing surface patterns (3.6 bpp forces compression), not memorizing solutions
+- **#1 Faith and Fate (2305.18654)** - Capacity ceiling explains why compositional generalization breaks: models can't store enough patterns for compositional explosion
 
 ### Challenges
-- **#245, #246 Extracting Books** — "When dataset grows sufficiently large, ALL successful training data extraction is attributable to generalization." This reframes extraction results as evidence of generalization, not memorization. Provocative.
-- "LLMs just memorize" narrative — At modern training ratios (tokens/param ≥ 100), individual sample memorization is statistically impossible. Models MUST generalize.
-- **Thesis (weakly)** — If LLMs are forced to generalize by capacity constraints, and generalization means learning reusable patterns, the thesis claim that LLMs "just pattern match" needs refining. They pattern-match because they MUST compress — which is a form of learning.
+- **#245, #246 Extracting Books** - "When dataset grows sufficiently large, ALL successful training data extraction is attributable to generalization." This reframes extraction results as evidence of generalization, not memorization. Provocative.
+- "LLMs just memorize" narrative - At modern training ratios (tokens/param ≥ 100), individual sample memorization is statistically impossible. Models MUST generalize.
+- **Thesis (weakly)** - If LLMs are forced to generalize by capacity constraints, and generalization means learning reusable patterns, the thesis claim that LLMs "just pattern match" needs refining. They pattern-match because they MUST compress - which is a form of learning.
 
 ### Extends
 - **#350** is a foundational measurement paper that all memorization work in the corpus builds on
@@ -110,7 +110,7 @@
 ## REBUTTALS
 
 ### Known/potential rebuttals
-- **"Generalization" here is statistical, not reasoning**: the paper carefully defines generalization as "information about the true data-generating process" — this is population-level statistical regularity, not causal reasoning. A model that generalizes bigram statistics has "generalized" under this definition without understanding anything. The thesis survives because "generalization ≠ reasoning."
+- **"Generalization" here is statistical, not reasoning**: the paper carefully defines generalization as "information about the true data-generating process" - this is population-level statistical regularity, not causal reasoning. A model that generalizes bigram statistics has "generalized" under this definition without understanding anything. The thesis survives because "generalization ≠ reasoning."
 - **Capacity is a lower bound**: SGD doesn't find global optima. True capacity may be higher. Authors acknowledge.
 - **Only GPT-2 architecture**: no MoE, no non-transformer architectures. Capacity could differ.
 - **Extrapolation to 70B+**: validated only to 1.5B. 3.6 bpp may not hold at frontier scale.
@@ -129,12 +129,12 @@
 
 ## Key Quotes
 
-1. *"We find that GPT-style transformers can store between 3.5 and 4 bits of information in each model parameter"* — Abstract
-2. *"Once the model can no longer memorize datapoints individually, it is forced to share information between datapoints to save capacity, which leads to generalization."* — Section 4.3
-3. *"When our (deduplicated) dataset grows sufficiently large, all successful training data extraction is attributable to generalization."* — Section 5.2.1
-4. *"Language models can be coerced to output almost any string; hence the fact that a model outputs something is not necessarily a sign of memorization."* — Introduction
-5. *"Double descent begins exactly when the data capacity exceeds the model capacity."* — Section 4.3
-6. *"All contemporary language models trained with a tokens-per-parameter ratio of 10² or higher... statistically significant loss-based membership inference is not possible."* — Section 5.2.2
+1. *"We find that GPT-style transformers can store between 3.5 and 4 bits of information in each model parameter"* - Abstract
+2. *"Once the model can no longer memorize datapoints individually, it is forced to share information between datapoints to save capacity, which leads to generalization."* - Section 4.3
+3. *"When our (deduplicated) dataset grows sufficiently large, all successful training data extraction is attributable to generalization."* - Section 5.2.1
+4. *"Language models can be coerced to output almost any string; hence the fact that a model outputs something is not necessarily a sign of memorization."* - Introduction
+5. *"Double descent begins exactly when the data capacity exceeds the model capacity."* - Section 4.3
+6. *"All contemporary language models trained with a tokens-per-parameter ratio of 10² or higher... statistically significant loss-based membership inference is not possible."* - Section 5.2.2
 
 ---
 
@@ -143,7 +143,7 @@
 ### Why this is balanced
 This paper cuts both ways:
 
-**For the thesis**: The 3.6 bpp ceiling means models are doing massive compression. An 8B model stores ~3.6 GB from ~7 TB of training. This compression IS pattern matching — statistical regularities are extracted and stored, not raw data. The grokking transition shows that generalization is a fallback strategy when memorization fails, not a superior cognitive mode. Models "understand" because they can't afford not to.
+**For the thesis**: The 3.6 bpp ceiling means models are doing massive compression. An 8B model stores ~3.6 GB from ~7 TB of training. This compression IS pattern matching - statistical regularities are extracted and stored, not raw data. The grokking transition shows that generalization is a fallback strategy when memorization fails, not a superior cognitive mode. Models "understand" because they can't afford not to.
 
 **Against the thesis**: The formal framework forces us to acknowledge that at modern scale, LLMs are genuinely generalizing (in the statistical sense). Membership inference is impossible at production ratios. What prior work called "memorization" (extraction) is actually generalization once datasets are large enough. The thesis's strongest empirical pillar (models just memorize training data) is formally undermined.
 
@@ -151,7 +151,7 @@ This paper cuts both ways:
 "Generalization" in this framework = learning statistical regularities of the data-generating process. This is NOT the same as "reasoning" or "understanding." A model that generalizes bigram statistics, syntactic patterns, and common reasoning templates has "generalized" without understanding causality, truth, or logic. The thesis claim should be: "LLMs generalize statistical patterns (not memorize), but statistical generalization ≠ reasoning."
 
 ### Smoking gun implication
-The grokking transition is the deeper finding: models memorize when they can, generalize when they must. Generalization is the cost-minimizing response to a capacity constraint, not an emergent cognitive ability. This is consistent with the thesis — "reasoning" is pattern compression under resource pressure, not truth-tracking.
+The grokking transition is the deeper finding: models memorize when they can, generalize when they must. Generalization is the cost-minimizing response to a capacity constraint, not an emergent cognitive ability. This is consistent with the thesis - "reasoning" is pattern compression under resource pressure, not truth-tracking.
 
 ### Net interpretation
 Balanced. Provides the strongest formal evidence that LLMs must generalize (not just memorize), but "generalization" is statistical pattern compression, not reasoning. The thesis needs to be stated more precisely: the problem isn't memorization vs generalization, it's that statistical generalization doesn't constitute understanding.

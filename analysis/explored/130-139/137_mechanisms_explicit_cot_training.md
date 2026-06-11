@@ -11,11 +11,11 @@
 
 ## Core Claims
 
-1. **CoT training internalizes reasoning into a two-stage circuit** — each explicit reasoning step during training maps onto a distinct computational stage within the model
+1. **CoT training internalizes reasoning into a two-stage circuit** - each explicit reasoning step during training maps onto a distinct computational stage within the model
 2. **CoT-trained models resolve intermediate results at shallower layers** (layer 3) compared to non-CoT (layer 5), freeing deeper layers for subsequent steps
-3. **Non-CoT training achieves ID generalization but FAILS on OOD** — supports the thesis that without explicit CoT, models learn memorized patterns, not generalizable reasoning
+3. **Non-CoT training achieves ID generalization but FAILS on OOD** - supports the thesis that without explicit CoT, models learn memorized patterns, not generalizable reasoning
 4. **CoT training enables both ID AND OOD generalization** by "mastering subtasks and reasoning compositions during training"
-5. **CoT training is robust to noise** — even with erroneous reasoning steps, CoT training enables generalization if noise is within tolerable range
+5. **CoT training is robust to noise** - even with erroneous reasoning steps, CoT training enables generalization if noise is within tolerable range
 
 ---
 
@@ -42,7 +42,7 @@
 | Without CoT | ~100% (eventually) | ~0% | >1M steps (grokking) |
 | With CoT | ~100% | ~100% | ~4,000 steps |
 
-**Critical finding**: "Training without CoT struggles to generalize, as the OOD test samples involve unseen reasoning patterns" — this directly supports the thesis that LLMs learn pattern distributions, not underlying reasoning.
+**Critical finding**: "Training without CoT struggles to generalize, as the OOD test samples involve unseen reasoning patterns" - this directly supports the thesis that LLMs learn pattern distributions, not underlying reasoning.
 
 ### Two-Stage Circuit Mechanism
 - **CoT training**: Intermediate result (e2) emerges at **layer 3**
@@ -69,15 +69,15 @@ Generalization error decomposes into:
 
 1. **OOD failure reveals pattern matching**: The fact that non-CoT models achieve 100% ID but 0% OOD accuracy is STRONG evidence that they memorize pattern compositions rather than learning to reason. They learn (r1, r2) → answer mappings, not compositional reasoning.
 
-2. **CoT doesn't create reasoning, it provides structured pattern matching**: The paper frames CoT as enabling "systematic generalization," but the mechanism is that CoT training exposes ALL subtask patterns during training. The model still learns patterns — just more complete patterns.
+2. **CoT doesn't create reasoning, it provides structured pattern matching**: The paper frames CoT as enabling "systematic generalization," but the mechanism is that CoT training exposes ALL subtask patterns during training. The model still learns patterns - just more complete patterns.
 
 3. **Two-stage circuit = two patterns, not reasoning**: The "internalized" circuit is really just the model learning separate pattern matchers for each hop, then composing them. This is more robust but still fundamentally pattern-based.
 
-4. **Key quote supporting thesis**: "Non-CoT training fails to generalize to OOD samples due to unseen reasoning patterns" — the authors explicitly acknowledge the model learns PATTERNS, not reasoning principles.
+4. **Key quote supporting thesis**: "Non-CoT training fails to generalize to OOD samples due to unseen reasoning patterns" - the authors explicitly acknowledge the model learns PATTERNS, not reasoning principles.
 
 ### NUANCE:
 
-The paper claims CoT enables "systematic generalization" — which sounds like reasoning. But critically:
+The paper claims CoT enables "systematic generalization" - which sounds like reasoning. But critically:
 - The "OOD" test set uses relation compositions not seen during training
 - CoT works because it exposes the COMPONENT atomic facts during training
 - This is still interpolation within the training distribution, just a more complete distribution
@@ -90,13 +90,13 @@ The paper claims CoT enables "systematic generalization" — which sounds like r
 - **Paper 131** (Kambhampati - Can LLMs Reason and Plan?): OOD failure confirms LLMs can't plan without pattern templates
 - **Paper 134** (Can ICL Generalize to OOD?): Both papers show OOD generalization failure is fundamental
 - **Paper 135** (Demystifying Long CoT): Both analyze CoT mechanisms; this paper provides cleaner controlled evidence
-- **Faith and Fate** (Dziri et al.): Confirms "linearized subgraph matching" — models match patterns, not reason
+- **Faith and Fate** (Dziri et al.): Confirms "linearized subgraph matching" - models match patterns, not reason
 
 ### Challenges
 - **Paper 124** (Illusion of Illusion): That paper argues LLMs can reason with enough CoT. This paper shows CoT works by exposing more patterns, not by enabling genuine reasoning.
 
 ### Extends
-- **Paper 133** (Base Models Know How to Reason): Provides mechanistic explanation for WHY base models have latent ability — it's because the component patterns exist, just need elicitation
+- **Paper 133** (Base Models Know How to Reason): Provides mechanistic explanation for WHY base models have latent ability - it's because the component patterns exist, just need elicitation
 
 ---
 
@@ -107,12 +107,12 @@ The paper claims CoT enables "systematic generalization" — which sounds like r
 - Paper is relatively recent (Feb 2025)
 
 ### Potential Counter-Arguments
-1. **"But CoT DOES enable OOD generalization"**: Yes, but only because CoT training exposes more of the pattern space. True OOD would require reasoning patterns never seen in training — not tested here.
+1. **"But CoT DOES enable OOD generalization"**: Yes, but only because CoT training exposes more of the pattern space. True OOD would require reasoning patterns never seen in training - not tested here.
 2. **Synthetic data limitation**: Real-world reasoning may have different characteristics than synthetic (e1, r1, r2, e3) compositions.
 3. **Circuit analysis may miss emergent properties**: The mechanistic analysis focuses on what CAN be traced; latent computation may exist.
 
 ### Limitations (Authors Acknowledge)
-- "The complexity of real-world training hinders mechanism analysis" — they use synthetic data for control
+- "The complexity of real-world training hinders mechanism analysis" - they use synthetic data for control
 - Focus on two-hop reasoning; multi-hop may have different dynamics
 - Theoretical bounds rely on distributional assumptions
 
@@ -138,7 +138,7 @@ The paper claims CoT enables "systematic generalization" — which sounds like r
 1. Non-CoT models memorize relation composition patterns (r1, r2) → answer
 2. CoT training forces models to learn component patterns explicitly
 3. With explicit component patterns learned, composition "works" on OOD
-4. But "OOD" here means unseen combinations of SEEN patterns — not truly novel reasoning
+4. But "OOD" here means unseen combinations of SEEN patterns - not truly novel reasoning
 
 ### What this DOESN'T show:
 1. That LLMs can reason in a generalizable way beyond training patterns
@@ -149,7 +149,7 @@ The paper claims CoT enables "systematic generalization" — which sounds like r
 This paper is **STRONG EVIDENCE** for the interpolation view:
 - Models interpolate within learned patterns
 - CoT works by expanding the pattern space (subtasks become explicit patterns)
-- "OOD generalization" is really "novel combinations of ID patterns" — still interpolation
+- "OOD generalization" is really "novel combinations of ID patterns" - still interpolation
 - The failure of non-CoT on OOD shows the boundary: if pattern not seen, model fails
 
 ---

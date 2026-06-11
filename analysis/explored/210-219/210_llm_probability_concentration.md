@@ -13,11 +13,11 @@
 
 1. **Branching Factor (BF) as measure**: Introduces BF as a token-invariant measure of the effective number of plausible next steps during generation.
 
-2. **Alignment reduces BF by 10x**: Alignment tuning reduces BF from ~12 (base) to ~1.2 (aligned) — nearly an order of magnitude.
+2. **Alignment reduces BF by 10x**: Alignment tuning reduces BF from ~12 (base) to ~1.2 (aligned) - nearly an order of magnitude.
 
 3. **BF decreases during generation**: Models become more predictable as they generate; BF drops over the sequence.
 
-4. **Alignment surfaces low-entropy paths**: Alignment doesn't fundamentally change behavior — it steers toward stylistic tokens (e.g., "Sure") that unlock low-entropy trajectories **already present in the base model**.
+4. **Alignment surfaces low-entropy paths**: Alignment doesn't fundamentally change behavior - it steers toward stylistic tokens (e.g., "Sure") that unlock low-entropy trajectories **already present in the base model**.
 
 5. **CoT stabilizes via low-BF regions**: Chain-of-thought pushes generation into later, lower-BF stages, making outputs more stable.
 
@@ -119,7 +119,7 @@ This paper provides **quantitative proof** of the pattern matching thesis:
 
 > "We hypothesize that alignment tuning does not fundamentally change a model's behavior, but instead steers it toward stylistic tokens (e.g., 'Sure') that unlock low-entropy trajectories **already present in the base model**."
 
-This aligns with the "surfacing hypothesis" — alignment surfaces pre-existing capabilities.
+This aligns with the "surfacing hypothesis" - alignment surfaces pre-existing capabilities.
 
 ### 2. BF Reduction Explains "Alignment is Mascara"
 
@@ -134,7 +134,7 @@ Base models are 6x more sensitive to decoding because they have more paths. Alig
 
 ### 4. CoT Stabilizes via Mechanism, Not Reasoning
 
-CoT doesn't enable reasoning — it pushes generation to lower-BF regions where outputs are more deterministic. The stability is mechanical, not cognitive.
+CoT doesn't enable reasoning - it pushes generation to lower-BF regions where outputs are more deterministic. The stability is mechanical, not cognitive.
 
 ### 5. Nudging Proves Pre-existence
 
@@ -151,13 +151,13 @@ The nudging experiment is definitive: prompting base models with aligned-style p
 - **Base Models Know How to Reason (2510.07364)**: Nudging proves base models have latent paths
 
 ### Builds On
-- **LIMA (2305.11206)** — #211: The foundational SAH paper. This paper provides the quantitative mechanism (Branching Factor) for LIMA's claim that "alignment teaches which subdistribution of formats should be used." The 10x BF reduction shows alignment narrows to specific low-entropy paths.
+- **LIMA (2305.11206)** - #211: The foundational SAH paper. This paper provides the quantitative mechanism (Branching Factor) for LIMA's claim that "alignment teaches which subdistribution of formats should be used." The 10x BF reduction shows alignment narrows to specific low-entropy paths.
 
 ### Unaddressed Counter-Evidence
-- **Revisiting SAH (2410.03717)**: #209 shows reasoning errors decrease independently of style saturation — this paper doesn't engage with that finding. Potential reconciliation: paths that enable better reasoning may pre-exist, but #209's evidence of continued improvement beyond style saturation remains unexplained by pure path selection.
+- **Revisiting SAH (2410.03717)**: #209 shows reasoning errors decrease independently of style saturation - this paper doesn't engage with that finding. Potential reconciliation: paths that enable better reasoning may pre-exist, but #209's evidence of continued improvement beyond style saturation remains unexplained by pure path selection.
 
 ### Provides Mechanism For
-- **Faith and Fate (2305.18654)**: BF explains why compositional failures occur — aligned models lock into narrow paths
+- **Faith and Fate (2305.18654)**: BF explains why compositional failures occur - aligned models lock into narrow paths
 - **Illusion of Thinking (2506.06941)**: Complexity collapse may occur when low-BF paths don't cover the problem space
 
 ---

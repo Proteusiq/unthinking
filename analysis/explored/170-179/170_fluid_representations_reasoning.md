@@ -14,9 +14,9 @@
 
 1. **Representational dynamics**: QwQ-32B progressively adapts internal representations of actions/predicates during reasoning, converging toward abstract encodings regardless of initial action names
 
-2. **Causal validation**: These representational adaptations causally improve problem-solving — injecting refined representations boosts accuracy, disrupting them degrades it
+2. **Causal validation**: These representational adaptations causally improve problem-solving - injecting refined representations boosts accuracy, disrupting them degrades it
 
-3. **Symbolic abstraction**: Adapted representations achieve naming-invariant structural encoding — cross-naming representations transfer across different obfuscations
+3. **Symbolic abstraction**: Adapted representations achieve naming-invariant structural encoding - cross-naming representations transfer across different obfuscations
 
 4. **Fluid Reasoning Representations**: The authors coin this term for in-context refinement of token representations during extended reasoning
 
@@ -74,8 +74,8 @@ Best individual naming improvements: **up to 10%** (rare cases)
 
 ### Mystery Naming Variance
 - Accuracy ranges from **5% to 47%** across naming variants
-- **Worst**: Coherent semantic domains (gardening, legal) — 5-14%
-- **Best**: Abstract/incoherent terms — up to 47%
+- **Worst**: Coherent semantic domains (gardening, legal) - 5-14%
+- **Best**: Abstract/incoherent terms - up to 47%
 
 ---
 
@@ -89,7 +89,7 @@ Despite initial characterization as a potential challenge, this paper actually *
 
 > "Both models [QwQ and its base model] exhibit similar adaptation dynamics... This finding, combined with prior work on in-context learning, indicates representational adaptation is an inherent property of large language models rather than a specialized reasoning model feature."
 
-**Implication**: The "fluid representations" capability is NOT unique to reasoning models — it's a general LLM property. Reasoning models just generate longer context that allows this adaptation to occur.
+**Implication**: The "fluid representations" capability is NOT unique to reasoning models - it's a general LLM property. Reasoning models just generate longer context that allows this adaptation to occur.
 
 #### 2. Semantic Interference Pattern
 
@@ -136,7 +136,7 @@ This is **compatible with** the pattern-matching thesis:
 - **Paper 14 (CoT In The Wild)**: Long CoT improves faithfulness through exposure to more patterns
 
 ### Related Methodologically
-- **Park et al. (2025) ICLR**: In-context learning of representations — this paper extends that methodology
+- **Park et al. (2025) ICLR**: In-context learning of representations - this paper extends that methodology
 - **Paper 106 (Reasoning-Critical Neurons)**: Both use steering/probing to identify reasoning mechanisms
 
 ### Does NOT Challenge
@@ -150,15 +150,15 @@ This is **compatible with** the pattern-matching thesis:
 
 ### Potential Counter-Arguments
 
-1. **Effect sizes are too small**: 1.5-1.8% improvements on average — is this practically meaningful?
+1. **Effect sizes are too small**: 1.5-1.8% improvements on average - is this practically meaningful?
 
 2. **Base model confound**: If base models show the same adaptation, what's special about reasoning models?
 
-3. **Domain restriction**: Only BlocksWorld — does this generalize to open-ended reasoning?
+3. **Domain restriction**: Only BlocksWorld - does this generalize to open-ended reasoning?
 
-4. **Steering ≠ Understanding**: Causal influence doesn't prove the model "understands" — it could be finding shortcuts
+4. **Steering ≠ Understanding**: Causal influence doesn't prove the model "understands" - it could be finding shortcuts
 
-5. **Mystery BlocksWorld limitations**: Authors note naming 3 (random strings) caused model to recognize task as BlocksWorld — suggests training data contamination
+5. **Mystery BlocksWorld limitations**: Authors note naming 3 (random strings) caused model to recognize task as BlocksWorld - suggests training data contamination
 
 ### Limitations (Authors Acknowledge)
 
@@ -216,7 +216,7 @@ This is **compatible with** the pattern-matching thesis:
 |-----------|------------|
 | **Stance** | Balanced (leans supports) |
 | **Confidence** | High |
-| **Relevance** | High — directly addresses pattern-matching question |
+| **Relevance** | High - directly addresses pattern-matching question |
 | **Evidence Type** | Empirical (mechanistic + causal) |
 | **Venue Quality** | arXiv preprint (ETH Zurich) |
 
@@ -224,4 +224,4 @@ This is **compatible with** the pattern-matching thesis:
 
 ## One-Sentence Summary
 
-QwQ-32B shows in-context representational adaptation during extended reasoning that causally improves performance, but this capability is inherent to all LLMs (not reasoning-specific), effect sizes are small, and semantic obfuscation still causes massive accuracy drops — supporting rather than challenging the pattern-matching thesis.
+QwQ-32B shows in-context representational adaptation during extended reasoning that causally improves performance, but this capability is inherent to all LLMs (not reasoning-specific), effect sizes are small, and semantic obfuscation still causes massive accuracy drops - supporting rather than challenging the pattern-matching thesis.

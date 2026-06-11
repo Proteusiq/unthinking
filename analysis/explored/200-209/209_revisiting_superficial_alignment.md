@@ -58,7 +58,7 @@ The paper challenges the Superficial Alignment Hypothesis (SAH), which states:
 
 Performance follows P ∝ D^(1/b) across all tasks.
 
-### Style vs Reasoning Breakdown (Figure 3) — KEY EVIDENCE
+### Style vs Reasoning Breakdown (Figure 3) - KEY EVIDENCE
 
 **Critical finding**: Style and reasoning improvements are SEPARABLE
 
@@ -131,19 +131,19 @@ The Facts100 experiment shows post-trained models:
 ## Relationship to Other Papers
 
 ### Directly Rebuts
-- **LIMA (2305.11206)** — #211: The foundational SAH paper that claims "A model's knowledge and capabilities are learnt almost entirely during pretraining, while alignment teaches it which subdistribution of formats should be used." This paper provides counter-evidence showing reasoning errors continue decreasing AFTER style saturates (~100 examples), contradicting LIMA's core claim.
+- **LIMA (2305.11206)** - #211: The foundational SAH paper that claims "A model's knowledge and capabilities are learnt almost entirely during pretraining, while alignment teaches it which subdistribution of formats should be used." This paper provides counter-evidence showing reasoning errors continue decreasing AFTER style saturates (~100 examples), contradicting LIMA's core claim.
 
 ### Challenges
 - **Interplay (2512.07783)**: This paper suggests post-training does MORE than surface capabilities
 - **Faith and Fate (2305.18654)**: Evidence that in-distribution compositional ability improves with training
-- **LLM Probability Concentration (2506.17871)**: #210 argues alignment is path selection; this paper argues it teaches reasoning (tension unresolved — #210 doesn't cite this paper)
+- **LLM Probability Concentration (2506.17871)**: #210 argues alignment is path selection; this paper argues it teaches reasoning (tension unresolved - #210 doesn't cite this paper)
 
 ### Supports (Partially)
 - **Demystifying Long CoT (2502.03373)**: Both show training exposes capabilities
 - **Base Models Know How to Reason (2510.07364)**: Post-training surfaces latent abilities
 
 ### Related
-- **GSM-Symbolic (2410.05229)**: Different methodology — tests OOD, which this paper doesn't
+- **GSM-Symbolic (2410.05229)**: Different methodology - tests OOD, which this paper doesn't
 
 ---
 
@@ -192,8 +192,8 @@ Evidence for capability transfer, not just pattern memorization.
 - New knowledge experiment shows learning to USE facts, not just store them
 
 ### Limitations
-- No OOD testing — doesn't address whether this is true generalization
-- Same-distribution evaluation — could be pattern coverage within distribution
+- No OOD testing - doesn't address whether this is true generalization
+- Same-distribution evaluation - could be pattern coverage within distribution
 - r² correlation doesn't prove causation
 
 ### Verdict

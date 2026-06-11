@@ -62,7 +62,7 @@ Cross-domain transfer results:
 
 > "CRV's learned error fingerprints are highly domain-specific... errors in different reasoning tasks... produce distinct structural patterns in the model's computational graph"
 
-**Key insight**: What constitutes "correct reasoning structure" differs by task — there's no universal reasoning circuit.
+**Key insight**: What constitutes "correct reasoning structure" differs by task - there's no universal reasoning circuit.
 
 ### 3. Causal Interventions Work
 
@@ -85,7 +85,7 @@ Ablation on Arithmetic dataset:
 | w/o Global Stats | 89.62 |
 | w/o Topological | 90.89 |
 
-Node Influence & Activation features most critical — "the state of key local features is a more dominant signal than the holistic graph structure"
+Node Influence & Activation features most critical - "the state of key local features is a more dominant signal than the holistic graph structure"
 
 ---
 
@@ -129,7 +129,7 @@ Node Influence & Activation features most critical — "the state of key local f
 ## REBUTTALS TO THIS PAPER
 
 ### Search for Direct Rebuttals
-- Paper is recent (October 2025) — no direct rebuttals found
+- Paper is recent (October 2025) - no direct rebuttals found
 
 ### Potential Counter-Arguments
 
@@ -147,11 +147,11 @@ Node Influence & Activation features most critical — "the state of key local f
 
 ## Relevance to Thesis
 
-**BALANCED** — Provides mechanistic evidence that complicates simple pattern matching thesis.
+**BALANCED** - Provides mechanistic evidence that complicates simple pattern matching thesis.
 
 ### Evidence FOR Thesis (Pattern Matching)
 
-1. **Domain specificity**: No universal reasoning — each task has specific learned patterns
+1. **Domain specificity**: No universal reasoning - each task has specific learned patterns
 2. **Errors detectable from structure**: Suggests reasoning is execution of learned circuits, not genuine derivation
 3. **Transfer fails across domains**: Can't generalize reasoning verification = task-specific learning
 
@@ -163,7 +163,7 @@ Node Influence & Activation features most critical — "the state of key local f
 
 ### Key Insight for Synthesis
 
-This paper shows LLM reasoning has **real computational structure** — it's not just surface pattern matching. However:
+This paper shows LLM reasoning has **real computational structure** - it's not just surface pattern matching. However:
 - This structure is **domain-specific** (learned per task)
 - This structure is **error-prone** (can be diagnosed)
 - This structure can be **mechanistically intervened on**

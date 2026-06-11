@@ -11,11 +11,11 @@
 
 ## Core Claims
 
-1. **100% knowledge accuracy but 30-64pp drops on unseen problems** — Models know DFA theory perfectly but can't apply it to novel cases
-2. **Success on seen tasks reflects memorization, not reasoning** — High seen accuracy (84-90%) drops to 20-59% on structurally similar unseen problems
-3. **Failures are systematic, not random** — Six recurring failure modes in symbolic manipulation
-4. **CoT often DEGRADES performance** — Explicit reasoning increases effective state-space complexity
-5. **Prompting strategies don't solve the problem** — Errors persist across Direct, CoT, ToT
+1. **100% knowledge accuracy but 30-64pp drops on unseen problems** - Models know DFA theory perfectly but can't apply it to novel cases
+2. **Success on seen tasks reflects memorization, not reasoning** - High seen accuracy (84-90%) drops to 20-59% on structurally similar unseen problems
+3. **Failures are systematic, not random** - Six recurring failure modes in symbolic manipulation
+4. **CoT often DEGRADES performance** - Explicit reasoning increases effective state-space complexity
+5. **Prompting strategies don't solve the problem** - Errors persist across Direct, CoT, ToT
 
 ---
 
@@ -30,7 +30,7 @@ Given a regular expression or natural language specification, construct a determ
 **Knowledge Dataset (50 questions)**:
 - 25 multiple-choice, 25 short-answer
 - DFA definitions, RE properties, NFA relationships
-- **All models: 100% accuracy** — confirms complete mastery of definitions
+- **All models: 100% accuracy** - confirms complete mastery of definitions
 
 **Seen Dataset (90 problems)**:
 - From online university problem sets, textbooks, publicly available resources
@@ -142,15 +142,15 @@ Hints correct shallow errors but **don't resolve globally inconsistent automata*
 
 ### STRONGLY SUPPORTS the Thesis
 
-**The thesis**: "LLM reasoning is practical but fundamentally predictive—pattern matching from training distributions, not genuinely generative reasoning"
+**The thesis**: "LLM reasoning is practical but fundamentally predictive-pattern matching from training distributions, not genuinely generative reasoning"
 
 This paper provides **definitive evidence**:
 
-1. **100% knowledge + 0% novel application** — Models know the rules but can't apply them
-2. **Seen/unseen gap = memorization** — 63pp drop on structurally similar problems
-3. **Compositional generalization failure** — Individual constraints work, combinations fail
-4. **CoT doesn't help** — Actually makes things worse
-5. **"Pattern retrieval rather than robust symbolic reasoning"** — Authors' own conclusion
+1. **100% knowledge + 0% novel application** - Models know the rules but can't apply them
+2. **Seen/unseen gap = memorization** - 63pp drop on structurally similar problems
+3. **Compositional generalization failure** - Individual constraints work, combinations fail
+4. **CoT doesn't help** - Actually makes things worse
+5. **"Pattern retrieval rather than robust symbolic reasoning"** - Authors' own conclusion
 
 ### Why This Paper is Important
 
@@ -186,17 +186,17 @@ This paper provides **definitive evidence**:
 
 ### Limitations Acknowledged
 
-1. **Model access constraints** — API-based, fixed inference budgets; Grok-4.1 timed out on ToT
-2. **Token scalability** — Large intermediate representations exhaust token budgets
-3. **Finite validation horizon** — Behavioral equivalence only tested up to length 6 + 2000 random strings
-4. **Scope** — Limited to regular expressions/DFA; may not generalize to CFGs, PDAs, Turing machines
-5. **No fine-tuning** — Only prompting-based evaluation
+1. **Model access constraints** - API-based, fixed inference budgets; Grok-4.1 timed out on ToT
+2. **Token scalability** - Large intermediate representations exhaust token budgets
+3. **Finite validation horizon** - Behavioral equivalence only tested up to length 6 + 2000 random strings
+4. **Scope** - Limited to regular expressions/DFA; may not generalize to CFGs, PDAs, Turing machines
+5. **No fine-tuning** - Only prompting-based evaluation
 
 ### Potential Counter-Arguments
 
-1. **Fine-tuning might help** — Not tested
-2. **Longer CoT might work** — But CoT already degrades performance
-3. **Different models might succeed** — Three frontier models all failed
+1. **Fine-tuning might help** - Not tested
+2. **Longer CoT might work** - But CoT already degrades performance
+3. **Different models might succeed** - Three frontier models all failed
 
 ---
 
@@ -222,10 +222,10 @@ The paper directly demonstrates:
 
 ### Significance
 
-- **Controlled memorization study** — First in Theory of Computation
-- **Clean seen/unseen split** — Isolates memorization from reasoning
-- **Multiple models tested** — GPT-5.1, Grok-4.1, Gemini-2.5
-- **Six failure modes documented** — Systematic, not random
+- **Controlled memorization study** - First in Theory of Computation
+- **Clean seen/unseen split** - Isolates memorization from reasoning
+- **Multiple models tested** - GPT-5.1, Grok-4.1, Gemini-2.5
+- **Six failure modes documented** - Systematic, not random
 
 ---
 

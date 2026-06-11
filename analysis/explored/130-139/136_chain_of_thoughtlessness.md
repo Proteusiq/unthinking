@@ -47,7 +47,7 @@
 From abstract:
 > "We only find meaningful performance improvements from chain of thought prompts when those prompts are **exceedingly specific to their problem class**"
 
-**Implication**: CoT is NOT teaching general algorithms — it's providing specific patterns to match.
+**Implication**: CoT is NOT teaching general algorithms - it's providing specific patterns to match.
 
 ### Finding 2: Rapid Performance Degradation
 
@@ -58,7 +58,7 @@ From abstract:
 | n ≤ examples | Improved |
 | n > examples | **Rapidly deteriorates** |
 
-**Implication**: Models don't learn general procedures — they pattern-match to example sizes.
+**Implication**: Models don't learn general procedures - they pattern-match to example sizes.
 
 ### Finding 3: OOD Failure Consistent Across Domains
 
@@ -99,16 +99,16 @@ This is the mathematical proof of the thesis claim: CoT = pattern matching, not 
 ### Directly Supports
 - **Paper 131 (Kambhampati, Can LLMs Reason)**: Same research group, same conclusion
 - **Paper 134 (ICL OOD)**: Both show OOD failure
-- **CoT Mirage (2508.01191)**: ID=high, OOD=low — same pattern
+- **CoT Mirage (2508.01191)**: ID=high, OOD=low - same pattern
 - **Faith and Fate**: Exponential error accumulation = degradation with complexity
 
 ### Provides Experimental Evidence For
 - **Illusion of Thinking**: Complexity collapse
 - **Interplay paper**: "Cannot synthesize from void"
-- **Paper 132**: "Stop Anthropomorphizing" — this paper shows WHY
+- **Paper 132**: "Stop Anthropomorphizing" - this paper shows WHY
 
 ### Extends
-- Previous CoT papers claiming success — shows their success was due to problem-specific prompts, not general reasoning
+- Previous CoT papers claiming success - shows their success was due to problem-specific prompts, not general reasoning
 
 ---
 
@@ -120,14 +120,14 @@ This is the mathematical proof of the thesis claim: CoT = pattern matching, not 
    - **Counter**: Paper 135 (Demystifying Long CoT) shows long CoT helps because MORE PATTERNS exist, not because of reasoning
 
 2. **"Better prompts could work"**: Maybe we need better prompt engineering?
-   - **Counter**: Paper explicitly shows this is the PROBLEM — need "exceedingly specific" prompts, which is pattern matching
+   - **Counter**: Paper explicitly shows this is the PROBLEM - need "exceedingly specific" prompts, which is pattern matching
 
 3. **"Planning is different from other reasoning"**: Maybe planning is uniquely hard?
    - **Counter**: Paper tests THREE domains with same failure mode
 
 ### Limitations
 
-1. Focus on Blocksworld and planning — may not apply to all reasoning
+1. Focus on Blocksworld and planning - may not apply to all reasoning
 2. Only tests two LLMs
 3. Doesn't test o1/reasoning models (written before their release)
 
@@ -167,7 +167,7 @@ This is the mathematical proof of the thesis claim: CoT = pattern matching, not 
 └─────────────────────────────────────────────────────────────┘
 ```
 
-**Title "Chain of Thoughtlessness" captures the thesis perfectly**: The "thoughts" aren't thoughts — they're pattern matches.
+**Title "Chain of Thoughtlessness" captures the thesis perfectly**: The "thoughts" aren't thoughts - they're pattern matches.
 
 ---
 

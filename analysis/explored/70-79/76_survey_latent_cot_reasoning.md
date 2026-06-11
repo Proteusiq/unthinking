@@ -1,4 +1,4 @@
-# Paper Analysis: Reasoning Beyond Language — A Comprehensive Survey on Latent Chain-of-Thought Reasoning
+# Paper Analysis: Reasoning Beyond Language - A Comprehensive Survey on Latent Chain-of-Thought Reasoning
 
 ## Metadata
 - **arXiv ID**: 2505.16782
@@ -87,7 +87,7 @@ Methods that deepen reasoning through iterative layer computation:
 ## Key Quotes
 
 ### On fundamental limitation
-> "Whereof one cannot speak, thereof one must be silent." — Ludwig Wittgenstein (epigraph)
+> "Whereof one cannot speak, thereof one must be silent." - Ludwig Wittgenstein (epigraph)
 
 ### On expressive redundancy
 > "This redundancy also increases the chance of overfitting to stylistic artifacts rather than genuine reasoning signals"
@@ -120,7 +120,7 @@ Methods that deepen reasoning through iterative layer computation:
 ## REBUTTALS TO THIS PAPER
 
 ### Search for Direct Rebuttals
-- Survey paper (November 2025) — no direct rebuttals found
+- Survey paper (November 2025) - no direct rebuttals found
 
 ### Potential Counter-Arguments
 
@@ -136,11 +136,11 @@ Methods that deepen reasoning through iterative layer computation:
 
 ## Relevance to Thesis
 
-**BALANCED** — Survey documents both promise and limitations of latent CoT.
+**BALANCED** - Survey documents both promise and limitations of latent CoT.
 
 ### Evidence FOR Thesis (Pattern Matching)
 
-1. **Expressive redundancy is real**: Many CoT tokens are "filler" — supports unfaithfulness
+1. **Expressive redundancy is real**: Many CoT tokens are "filler" - supports unfaithfulness
 2. **Semantic bottleneck**: Language may not be the right medium for reasoning
 3. **Evaluation gap**: Can't verify if latent reasoning is "genuine"
 4. **Supervision problem**: Without explicit targets, models may learn shortcuts
@@ -167,9 +167,9 @@ This survey reveals a **fundamental tension** in LLM reasoning:
 - Unsafe (hidden reasoning can't be audited)
 
 This connects to the thesis:
-- **Explicit CoT may be "theater"** — performative text that doesn't reflect computation
-- **Latent CoT may be real but opaque** — computation happens but we can't verify it
-- **Either way, "reasoning" is pattern completion** — whether in token or latent space
+- **Explicit CoT may be "theater"** - performative text that doesn't reflect computation
+- **Latent CoT may be real but opaque** - computation happens but we can't verify it
+- **Either way, "reasoning" is pattern completion** - whether in token or latent space
 
 ### Integration with Thesis
 
@@ -181,7 +181,7 @@ The survey's framing of "reasoning beyond language" is interesting:
 The key quote for the thesis:
 > "It is unclear whether models are performing genuine reasoning or simply exploiting input–output correlations"
 
-This is EXACTLY the thesis claim — the survey authors acknowledge this is unresolved.
+This is EXACTLY the thesis claim - the survey authors acknowledge this is unresolved.
 
 ---
 

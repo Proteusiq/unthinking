@@ -12,11 +12,11 @@
 
 ## Core Claims
 
-1. **Frontier LLMs (including thinking models) consistently fail on "easy" reasoning problems** — tasks that are tedious but trivial for humans
-2. **Performance scales POORLY with problem parameters** — increasing computation amount causes failure even when difficulty stays constant
-3. **"Unpuzzles" expose memorization** — trivializing famous puzzles breaks models that solved the originals
-4. **Thinking models exhibit same failures** — o1, o3, R1, Gemini 2.5 Pro all fail at sufficient scale
-5. **Making problems EASIER can make models perform WORSE** — counter-intuitive memorization effect
+1. **Frontier LLMs (including thinking models) consistently fail on "easy" reasoning problems** - tasks that are tedious but trivial for humans
+2. **Performance scales POORLY with problem parameters** - increasing computation amount causes failure even when difficulty stays constant
+3. **"Unpuzzles" expose memorization** - trivializing famous puzzles breaks models that solved the originals
+4. **Thinking models exhibit same failures** - o1, o3, R1, Gemini 2.5 Pro all fail at sufficient scale
+5. **Making problems EASIER can make models perform WORSE** - counter-intuitive memorization effect
 
 ---
 
@@ -221,11 +221,11 @@ Key design: Parameters control "tediousness" (computation amount) not difficulty
    - Counter: Same pattern across ALL model sizes/types
 
 3. **"Context window limitations"**
-   - Counter: Authors address this — token limits not the cause
+   - Counter: Authors address this - token limits not the cause
    - Counter: Even 150-word paragraphs cause failures
 
 ### Limitations (Authors Acknowledge)
-- "Tedious" not "difficult" — but is this a fair test?
+- "Tedious" not "difficult" - but is this a fair test?
 - Procedural generation may have artifacts
 - Unpuzzles require manual creation
 
@@ -237,9 +237,9 @@ Key design: Parameters control "tediousness" (computation amount) not difficulty
 
 > "We demonstrate that even the next generation of LLMs, the so-called *thinking models* fail when the tasks become long enough"
 
-> "Decreasing difficulty can also lead to much worse performance" — on unpuzzles
+> "Decreasing difficulty can also lead to much worse performance" - on unpuzzles
 
-> "A key failure mode we observe is that LLMs tend to 'overthink' easy problems, often erroneously reusing reasoning steps corresponding to the more complex puzzle solutions — a phenomenon we term *reasoning delirium*"
+> "A key failure mode we observe is that LLMs tend to 'overthink' easy problems, often erroneously reusing reasoning steps corresponding to the more complex puzzle solutions - a phenomenon we term *reasoning delirium*"
 
 > "Every model we tested performed better on the context-shifted unpuzzles than the original ones, indicating that failure was at least in part due to memorization of the original puzzle"
 
@@ -269,9 +269,9 @@ Key design: Parameters control "tediousness" (computation amount) not difficulty
 
 ### Particularly Powerful Evidence
 
-1. **R1 at 0% character counting** — flagship reasoning model fails at trivial task
-2. **GPT-4o: 75%→20% on unpuzzles** — easier = worse when memorization involved
-3. **"Reasoning delirium"** — models apply wrong memorized solution
+1. **R1 at 0% character counting** - flagship reasoning model fails at trivial task
+2. **GPT-4o: 75%→20% on unpuzzles** - easier = worse when memorization involved
+3. **"Reasoning delirium"** - models apply wrong memorized solution
 
 ---
 

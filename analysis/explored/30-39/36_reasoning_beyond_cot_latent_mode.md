@@ -80,7 +80,7 @@ Steered direct achieves 88.8% accuracy with **5x fewer tokens** than CoT (96.1%)
 The feature predicts WHETHER you're in reasoning mode, NOT whether you get the right answer.
 
 ### Override Prompt-Level Instructions
-Steering can override `\no_think` instruction in Qwen models — the model reasons despite being told not to. This suggests the mechanism operates at a level below prompt compliance.
+Steering can override `\no_think` instruction in Qwen models - the model reasons despite being told not to. This suggests the mechanism operates at a level below prompt compliance.
 
 ---
 
@@ -92,11 +92,11 @@ Steering can override `\no_think` instruction in Qwen models — the model reaso
 
 1. **Latent reasoning mechanism exists independently of prompting**: If reasoning is "just" pattern matching from CoT examples in training, why can you trigger it via latent steering without CoT prompts?
 
-2. **Single feature controls reasoning mode**: This suggests a structured, controllable reasoning mechanism — more than diffuse pattern matching
+2. **Single feature controls reasoning mode**: This suggests a structured, controllable reasoning mechanism - more than diffuse pattern matching
 
 3. **Efficiency without explicit CoT**: Steered direct achieves high accuracy with fewer tokens. If reasoning required explicit verbalization (pattern retrieval), this shouldn't work.
 
-4. **Override prompt instructions**: The mechanism operates below the prompt level — suggesting it's a genuine internal mode, not just following instructions
+4. **Override prompt instructions**: The mechanism operates below the prompt level - suggesting it's a genuine internal mode, not just following instructions
 
 ### Why This Paper Remains Consistent with the Thesis
 
@@ -122,7 +122,7 @@ Steering can override `\no_think` instruction in Qwen models — the model reaso
    
    > "Once the model has already entered a reasoning mode, further amplifying the trigger alone does not substantially improve reasoning performance"
    
-   The feature is a TRIGGER, not a reasoning enhancer. This suggests the underlying capability is fixed — you can surface it, but not improve it.
+   The feature is a TRIGGER, not a reasoning enhancer. This suggests the underlying capability is fixed - you can surface it, but not improve it.
 
 5. **No OOD generalization tested**
    
@@ -177,7 +177,7 @@ Steering can override `\no_think` instruction in Qwen models — the model reaso
 3. **Single benchmark family**
    - Features identified on GSM8K training split
    - Evaluated on GSM8K test, GPQA, BBH
-   - All math/logical reasoning — no diversity in task type
+   - All math/logical reasoning - no diversity in task type
 
 ### Limitations (Authors Acknowledge)
 
@@ -202,7 +202,7 @@ Steering can override `\no_think` instruction in Qwen models — the model reaso
 ### On the nature of the mechanism:
 > "The feature is associated with ENTERING a reasoning mode... does not reliably distinguish correct from incorrect answers"
 
-This is crucial — it's a mode switch, not a reasoning capability.
+This is crucial - it's a mode switch, not a reasoning capability.
 
 ### On efficiency:
 > "For large models, latent steering achieves performance comparable to standard CoT prompting while producing more efficient outputs"
@@ -225,7 +225,7 @@ This is crucial — it's a mode switch, not a reasoning capability.
 
 ## Summary for Synthesis
 
-**Verdict: BALANCED — Shows real mechanism but consistent with thesis**
+**Verdict: BALANCED - Shows real mechanism but consistent with thesis**
 
 ### What This Paper Actually Shows:
 1. A latent "reasoning mode" can be identified via SAE
@@ -240,7 +240,7 @@ This is crucial — it's a mode switch, not a reasoning capability.
 4. That this differs from surfacing pre-trained capability
 
 ### Critical Insight:
-The paper identifies a real mechanism — but the mechanism is better described as a **learned mode switch** than a **reasoning capability**. The feature tells the model "do math reasoning now" and the model retrieves learned patterns for doing math reasoning. This is consistent with the thesis:
+The paper identifies a real mechanism - but the mechanism is better described as a **learned mode switch** than a **reasoning capability**. The feature tells the model "do math reasoning now" and the model retrieves learned patterns for doing math reasoning. This is consistent with the thesis:
 
 - The capability is bounded by training (GSM8K-like tasks)
 - The mechanism surfaces pre-existing patterns
@@ -253,4 +253,4 @@ The paper shows HOW reasoning capability can be surfaced (latent steering) but n
 ### Key Quote for Synthesis:
 > "The feature does not reliably distinguish correct from incorrect answers under either strategy"
 
-The "reasoning feature" is a mode switch, not a reasoning quality indicator — consistent with it activating learned patterns rather than genuine reasoning capability.
+The "reasoning feature" is a mode switch, not a reasoning quality indicator - consistent with it activating learned patterns rather than genuine reasoning capability.

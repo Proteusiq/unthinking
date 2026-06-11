@@ -14,8 +14,8 @@
 ## Why This Paper Matters
 
 This paper provides the **most rigorous controlled study** of when and why CoT reasoning fails. Key contribution:
-1. **Data distribution lens** — theoretical framework explaining CoT success/failure
-2. **DataAlchemy** — fully controlled environment training LLMs from scratch
+1. **Data distribution lens** - theoretical framework explaining CoT success/failure
+2. **DataAlchemy** - fully controlled environment training LLMs from scratch
 3. **Three dimensions of failure**: task, length, format distribution shifts
 4. **Proves**: CoT is "brittle mirage" beyond training distribution
 
@@ -26,8 +26,8 @@ This paper provides the **most rigorous controlled study** of when and why CoT r
 1. **CoT reasoning reflects structured inductive bias learned from in-distribution data**
 2. **Effectiveness governed by distribution discrepancy** between training and test
 3. **Three failure dimensions**: Task (unseen structures), Length (text/reasoning steps), Format (prompt variants)
-4. **CoT works ID, fails OOD** — even with moderate distribution shifts
-5. **Fluent but logically inconsistent** — models generate plausible-looking but wrong reasoning
+4. **CoT works ID, fails OOD** - even with moderate distribution shifts
+5. **Fluent but logically inconsistent** - models generate plausible-looking but wrong reasoning
 
 ---
 
@@ -87,7 +87,7 @@ Training on length=4, testing on other lengths:
 | 5 | ~0% |
 | 6 | ~0% |
 
-Models try to **add/remove tokens** to match training length — doesn't generalize.
+Models try to **add/remove tokens** to match training length - doesn't generalize.
 
 ### Finding 4: Format Generalization Failure
 Different prompt formats (even semantically equivalent) cause failure:
@@ -121,7 +121,7 @@ Where:
 Δ(D_train, D_test) = Φ(Δ_task, Δ_length, Δ_format)
 ```
 
-Where Φ is monotonically increasing — any dimension shift hurts performance.
+Where Φ is monotonically increasing - any dimension shift hurts performance.
 
 ---
 
@@ -145,8 +145,8 @@ CoT produces **fluent but logically inconsistent** reasoning when pushed beyond 
 ## Limitations & Issues
 
 ### Methodological Strengths
-1. **From-scratch training** — no data leakage
-2. **Full control** — isolate specific factors
+1. **From-scratch training** - no data leakage
+2. **Full control** - isolate specific factors
 3. **Multiple model sizes** (62K to 14B)
 4. **Multiple architectures** (GPT, LLaMA, Qwen)
 
@@ -175,7 +175,7 @@ CoT produces **fluent but logically inconsistent** reasoning when pushed beyond 
 ### Papers This DIRECTLY SUPPORTS
 | Paper | How |
 |-------|-----|
-| **Faith and Fate** | Same mechanism — OOD failure |
+| **Faith and Fate** | Same mechanism - OOD failure |
 | **GSM-Symbolic** | Explains why irrelevant info breaks reasoning |
 | **Illusion of Thinking** | Explains complexity collapse |
 
@@ -255,10 +255,10 @@ CoT produces **fluent but logically inconsistent** reasoning when pushed beyond 
 ### Critical Support for the pattern-matching thesis
 This paper provides the **cleanest evidence** for "predictive not generative":
 
-1. **In-distribution = 100%** — patterns work when present
-2. **Out-of-distribution = 0%** — no extrapolation capability
-3. **Correct reasoning + wrong answer** — proves pattern replay
-4. **SFT fixes it** — confirms it's data coverage, not reasoning
+1. **In-distribution = 100%** - patterns work when present
+2. **Out-of-distribution = 0%** - no extrapolation capability
+3. **Correct reasoning + wrong answer** - proves pattern replay
+4. **SFT fixes it** - confirms it's data coverage, not reasoning
 
 ### For this argument
 > "CoT reasoning is sophisticated interpolation within the training distribution, not general-purpose reasoning that can extrapolate to novel problems."

@@ -69,7 +69,7 @@ Training on forward direction increases Y(t)_{A,B} but NOT Y(t)_{B,A}:
 Training on "A→B" and "B→C" does NOT increase weights for "A→C":
 - p(B|A) → 1 (learned)
 - p(C|B) → 1 (learned)  
-- p(C|A) ≈ 1/M (NOT learned — intransitivity)
+- p(C|A) ≈ 1/M (NOT learned - intransitivity)
 
 ### Experimental Validation (Section 5)
 
@@ -90,7 +90,7 @@ This paper provides **mathematical proof** that:
 
 2. **Compositional reasoning requires explicit training**: The intransitivity theorem proves that learning A→B and B→C does NOT enable A→C inference. Each path must be explicitly trained.
 
-3. **Pattern matching, not logical reasoning**: The weight asymmetry proves LLMs don't learn symmetric logical relationships — they learn directional co-occurrence patterns.
+3. **Pattern matching, not logical reasoning**: The weight asymmetry proves LLMs don't learn symmetric logical relationships - they learn directional co-occurrence patterns.
 
 4. **Connects to #221 (TinyLoRA)**: Both papers show that fine-tuning makes narrow adjustments. #221 shows 13 parameters suffice for "reasoning"; this paper proves those parameters can only encode directional associations, not logical rules.
 
@@ -101,7 +101,7 @@ This paper provides **mathematical proof** that:
 ### Supports
 - **Reversal Curse (2309.12288, Paper #149)**: Provides theoretical explanation for the empirical phenomenon
 - **Faith and Fate (2305.18654)**: Mathematical proof of compositional failure mechanism
-- **TinyLoRA (#221)**: If 13 parameters suffice, they can only encode directional weights — this paper proves why
+- **TinyLoRA (#221)**: If 13 parameters suffice, they can only encode directional weights - this paper proves why
 - **Embers of Autoregression (2309.13638)**: Weight asymmetry is a formal explanation for probability sensitivity
 
 ### Extends
@@ -125,7 +125,7 @@ This paper provides **mathematical proof** that:
 
 3. **Training objective could change**: The analysis is specific to cross-entropy loss with unconstrained optimization. Alternative objectives might avoid asymmetry.
 
-4. **ICL as escape hatch**: Authors acknowledge ICL avoids the reversal curse — this could be seen as evidence that LLMs CAN do bidirectional reasoning when prompted correctly.
+4. **ICL as escape hatch**: Authors acknowledge ICL avoids the reversal curse - this could be seen as evidence that LLMs CAN do bidirectional reasoning when prompted correctly.
 
 ### Limitations (Authors Acknowledge)
 
@@ -158,11 +158,11 @@ This paper is significant because it provides **mathematical proof** for core th
 
 1. **Proves compositional failure is architectural**: The intransitivity theorem shows that A→B + B→C ≠ A→C is a mathematical property of training dynamics, not a fixable bug.
 
-2. **Explains why scaling doesn't help**: More parameters don't fix weight asymmetry — it's inherent to the training objective.
+2. **Explains why scaling doesn't help**: More parameters don't fix weight asymmetry - it's inherent to the training objective.
 
 3. **Connects parameter efficiency to logical limits**: If fine-tuning only adjusts directional weights (#221), and directional weights can't encode symmetric/transitive relations (this paper), then "reasoning training" cannot create logical reasoning.
 
-4. **Formal separation between memorization and reasoning**: Learning "A is B" does NOT imply understanding that "B is A" — this is now a theorem, not just an observation.
+4. **Formal separation between memorization and reasoning**: Learning "A is B" does NOT imply understanding that "B is A" - this is now a theorem, not just an observation.
 
 ---
 

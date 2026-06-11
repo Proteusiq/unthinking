@@ -6,7 +6,7 @@
 - **Authors**: Ali Al-Lawati, Jason Lucas, Dongwon Lee, Suhang Wang (Penn State University)
 - **Date**: May 2026
 - **Category**: cs.CL / cs.LG
-- **Stance**: SUPPORTS (with position-paper caveat — proposal + prevalence evidence, not a new controlled capability experiment)
+- **Stance**: SUPPORTS (with position-paper caveat - proposal + prevalence evidence, not a new controlled capability experiment)
 
 ---
 
@@ -27,7 +27,7 @@
 
 This paper is a direct attack on the measurement substrate the thesis depends
 on. If benchmark scores are contaminated, then "the model reasons" is unfalsifiable
-— rising numbers could be pure memorization. The paper documents how bad
+- rising numbers could be pure memorization. The paper documents how bad
 contamination is, then proposes a compression scheme to ship contamination-
 resistant benchmark material.
 
@@ -45,7 +45,7 @@ resistant benchmark material.
    regeneration or contamination-resistant distribution.
 3. **Contamination-resistant distillation (CRD).** Compress the benchmark's
    context into a projected KV-cache representation that preserves evaluative
-   signal while being hard to reverse into verbatim text — so the artifact can be
+   signal while being hard to reverse into verbatim text - so the artifact can be
    distributed without seeding future training corpora with the answers.
 4. **Aggressive compression keeps signal.** Using PyramidKV-style projection, a
    100K-token context cache shrinks **~50 GB → ~350 MB** at **0.7% / 12% / 20%**
@@ -85,7 +85,7 @@ resistant benchmark material.
 
 ### Relationship to the Thesis
 
-Supports — *foundationally*. The thesis claims LLM "reasoning" is largely
+Supports - *foundationally*. The thesis claims LLM "reasoning" is largely
 training-distribution recall. This paper's prevalence numbers are exactly the
 mechanism by which inflated benchmark scores look like reasoning: when up to 45%
 of an eval set is contaminated and removing the overlap drops MMLU/GSM8K
@@ -110,7 +110,7 @@ evaporating (82% → <10%).
   into a future corpus is not established. Determined extraction / membership
   inference against the compressed artifact is an open risk.
 - **Prevalence numbers are aggregated from prior work** at varying definitions
-  of "contamination" — the 45% / 91.8% / 90% figures come from heterogeneous
+  of "contamination" - the 45% / 91.8% / 90% figures come from heterogeneous
   measurement regimes and should be read as upper-bound illustrations, not a
   single consistent rate.
 
@@ -119,19 +119,19 @@ evaporating (82% → <10%).
 ## Relationship to Other Papers
 
 ### Supports
-- **RADAR: Data Contamination Detection (#57, 2510.08931)** — detection-side
+- **RADAR: Data Contamination Detection (#57, 2510.08931)** - detection-side
   counterpart; #365 proposes a prevention/distribution-side fix.
-- **How Much Do LLMs Cheat on Benchmarks (#276)** — same diagnosis (scores
+- **How Much Do LLMs Cheat on Benchmarks (#276)** - same diagnosis (scores
   reflect exposure), complementary evidence.
-- **GSM-Symbolic (#3)** — perturbation reveals the same recall-not-reasoning gap
+- **GSM-Symbolic (#3)** - perturbation reveals the same recall-not-reasoning gap
   that contamination hides.
 
 ### Extended by
-- **Agents' Last Exam (#364, 2606.05405)** — the constructive embodiment: a real
+- **Agents' Last Exam (#364, 2606.05405)** - the constructive embodiment: a real
   benchmark built to be contamination-resistant where scores collapse.
 
 ### Allied position paper
-- **PeerBench / Benchmarking is Broken (#366, 2510.07575)** — independent
+- **PeerBench / Benchmarking is Broken (#366, 2510.07575)** - independent
   argument that static benchmarks measure recall; proposes governance instead of
   a compression artifact.
 
@@ -144,11 +144,11 @@ None found in corpus or on arXiv (recent, May 2026).
 
 ### Indirect Counter-Tension
 1. **An optimist can grant contamination yet deny it explains the whole gap.**
-   Decontamination drops MMLU/GSM8K but does not zero out accuracy — residual
+   Decontamination drops MMLU/GSM8K but does not zero out accuracy - residual
    non-contaminated performance remains, which a capability advocate reads as
    genuine skill. The thesis-relevant claim is narrower: contamination is large
    enough that uncorrected benchmark scores cannot be taken as reasoning evidence.
-2. **CRD's own validity is unproven against extraction** — if the compressed
+2. **CRD's own validity is unproven against extraction** - if the compressed
    cache can be inverted, the "contamination-resistant" claim weakens, which would
    blunt its use as a fix (though not its diagnosis).
 
@@ -179,7 +179,7 @@ None found in corpus or on arXiv (recent, May 2026).
 ## Critical Note for Thesis
 Cite #365 for the *prevalence* numbers that quantify benchmaxxing: up to 45%
 contaminated samples; decontamination drops MMLU 16% / GSM8K 13%. Frame it as a
-position/methods paper — it establishes that static benchmark scores cannot be
+position/methods paper - it establishes that static benchmark scores cannot be
 read as reasoning, and motivates the contamination-resistant design that ALE
 (#364) implements. Do NOT cite the CRD compression scheme as validated
 irreversible; cite the contamination evidence.

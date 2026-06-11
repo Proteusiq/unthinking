@@ -16,7 +16,7 @@
 2. **Output probability dramatically affects accuracy**: GPT-4 swings from 26% to 70% based on output probability alone
 3. **Memorization boosts specific shift levels**: rot-13 shows spike due to training frequency
 4. **Noisy reasoning**: accuracy decreases with number of intermediate steps
-5. **CoT works via probability boosting**: valid demonstrations not required — surface strings matter
+5. **CoT works via probability boosting**: valid demonstrations not required - surface strings matter
 
 ---
 
@@ -154,15 +154,15 @@ This paper provides **controlled experimental evidence** that CoT is:
    - More complex tasks would have more confounds
 
 2. **"Number-CoT success shows reasoning exists"**
-   - Counter: Paper acknowledges this — the point is that probability/memorization INTERFERE with reasoning
+   - Counter: Paper acknowledges this - the point is that probability/memorization INTERFERE with reasoning
 
 3. **"Only 3 models tested"**
    - Counter: All three (GPT-4, Claude 3, Llama 3.1) show same pattern
 
 ### Limitations Acknowledged by Authors
-- Single task (shift ciphers) — may not generalize to all reasoning
-- Probability measured via GPT-2 — may not match GPT-4's internal probabilities
-- Focus on symbolic reasoning — natural language reasoning may differ
+- Single task (shift ciphers) - may not generalize to all reasoning
+- Probability measured via GPT-2 - may not match GPT-4's internal probabilities
+- Focus on symbolic reasoning - natural language reasoning may differ
 
 ---
 
@@ -188,7 +188,7 @@ This paper provides **controlled experimental evidence** that CoT is:
 CoT Performance = f(Probability, Memorization, Noisy Reasoning)
 
 Where:
-- Probability: P(output) dominates — high prob = high accuracy
+- Probability: P(output) dominates - high prob = high accuracy
 - Memorization: Training frequency → performance spikes (rot-13)
 - Noisy Reasoning: Error per step × number of steps
 ```
@@ -202,7 +202,7 @@ Where:
 
 ### The "Probabilistic Reasoning" Interpretation
 
-The paper's framing — "probabilistic version of genuine reasoning" — is generous. The evidence suggests:
+The paper's framing - "probabilistic version of genuine reasoning" - is generous. The evidence suggests:
 - Reasoning EXISTS (Number-CoT proves this)
 - But is OVERRIDDEN by probability and memorization
 - The apparent reasoning is often just probability-boosted pattern completion

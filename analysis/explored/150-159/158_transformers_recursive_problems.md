@@ -16,7 +16,7 @@
 
 2. **Predictable failures from reconstructed algorithms**: By mechanistically interpreting the learned algorithms, the authors can correctly predict 91% of failure cases.
 
-3. **Structural recursion is fundamentally hard for transformers**: The architecture struggles with tasks requiring genuine recursive decomposition — the exact tasks where symbolic tools excel.
+3. **Structural recursion is fundamentally hard for transformers**: The architecture struggles with tasks requiring genuine recursive decomposition - the exact tasks where symbolic tools excel.
 
 4. **Memorization vs reasoning distinction**: Models learn to emulate input-output behavior but don't capture the underlying recursive structure.
 
@@ -75,15 +75,15 @@ The authors reconstruct the actual algorithms transformers learn (which are NOT 
 
 **Key connections**:
 
-1. **Faith and Fate (Paper F1)**: Both show transformers use shortcuts instead of true algorithms — "linearized subgraph matching" = shortcut algorithms
+1. **Faith and Fate (Paper F1)**: Both show transformers use shortcuts instead of true algorithms - "linearized subgraph matching" = shortcut algorithms
 
-2. **Beyond Memorization (Paper 5/102)**: Both show models learn patterns that break on unseen cases — same mechanism, different domain
+2. **Beyond Memorization (Paper 5/102)**: Both show models learn patterns that break on unseen cases - same mechanism, different domain
 
 3. **Grokked Transformers (Paper 143)**: Both examine implicit reasoning in transformers; this paper shows recursion-specific failures
 
 4. **CoT Expressivity (Paper 152)**: Merrill shows CoT adds computational power theoretically, but this paper shows in practice transformers learn shortcuts, not algorithms
 
-5. **Planning Gap (Paper 71)**: Both show ID success doesn't transfer to novel cases — 82.9% ID → 0% OOD parallels recursive function failure patterns
+5. **Planning Gap (Paper 71)**: Both show ID success doesn't transfer to novel cases - 82.9% ID → 0% OOD parallels recursive function failure patterns
 
 ---
 

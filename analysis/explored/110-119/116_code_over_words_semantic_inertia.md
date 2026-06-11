@@ -14,7 +14,7 @@
 
 1. **Semantic Inertia**: LLMs have fundamental inability to inhibit pre-trained priors ("Lava is Dangerous") when dynamic in-context rules contradict them ("Lava is Safe")
 
-2. **INVERSE SCALING**: Larger models perform WORSE than smaller models when reasoning requires suppressing pre-trained associations — increased capacity amplifies rather than mitigates semantic inertia
+2. **INVERSE SCALING**: Larger models perform WORSE than smaller models when reasoning requires suppressing pre-trained associations - increased capacity amplifies rather than mitigates semantic inertia
 
 3. **Code reverses inverse scaling**: Representing dynamics as executable code (vs. natural language) reverses inverse scaling trend and enables effective prior inhibition
 
@@ -33,9 +33,9 @@
 - Creates Stroop-like cognitive conflicts: seeing WALL triggers "Obstacle" but rule demands "Avatar"
 
 ### BabaBench: Three Tiers
-1. **Tier 1 - Semantic Alignment**: Rules align with priors (WALL IS STOP, KEY IS OPEN) — baseline
-2. **Tier 2 - Semantic Conflict**: Rules violate commonsense (LAVA IS SAFE, WALL IS YOU) — inhibitory control
-3. **Tier 3 - Dynamic Plasticity**: Rules shift mid-episode — dynamic updating
+1. **Tier 1 - Semantic Alignment**: Rules align with priors (WALL IS STOP, KEY IS OPEN) - baseline
+2. **Tier 2 - Semantic Conflict**: Rules violate commonsense (LAVA IS SAFE, WALL IS YOU) - inhibitory control
+3. **Tier 3 - Dynamic Plasticity**: Rules shift mid-episode - dynamic updating
 
 ### Inverse Scaling Analysis
 - Probed 45 scenarios from Tier 1 and Tier 2
@@ -117,7 +117,7 @@ LCV achieves 71% inhibitory control vs 16% for direct policy.
 1. **Inverse scaling is smoking gun for pattern matching**:
    > "Larger models exhibit inverse scaling: they perform worse than smaller models when natural language reasoning requires suppressing pre-trained associations"
    
-   This is ONLY explainable if larger models have stronger pattern matching — more parameters = more entrenched priors
+   This is ONLY explainable if larger models have stronger pattern matching - more parameters = more entrenched priors
 
 2. **Semantic inertia = training distribution dominance**:
    > "The tendency for parametric memory to override in-context reasoning"
@@ -132,7 +132,7 @@ LCV achieves 71% inhibitory control vs 16% for direct policy.
 4. **Code works because it bypasses semantic associations**:
    > "Code suppresses these priors, allowing models to leverage their capacity for rule-based reasoning"
    
-   Code is arbitrary symbols without pre-trained associations — forces "actual" reasoning
+   Code is arbitrary symbols without pre-trained associations - forces "actual" reasoning
 
 5. **Catastrophic failure on Stroop-like conflicts**:
    - 62% Tier 1 → 13% Tier 2 for Gemini 3 Pro
@@ -155,7 +155,7 @@ The problem is HOW information is encoded (natural language → triggers pattern
 
 ### Extends
 - **Inverse Scaling Prize (McKenzie et al., 2023)**: First demonstration in rule-following tasks
-- **Thinking Isn't an Illusion (2507.17699)**: Tool augmentation (code) helps — but this shows WHY
+- **Thinking Isn't an Illusion (2507.17699)**: Tool augmentation (code) helps - but this shows WHY
 
 ### Provides Mechanism For
 - **Faith and Fate (2305.18654)**: Error accumulation happens because priors compound
@@ -170,12 +170,12 @@ The problem is HOW information is encoded (natural language → triggers pattern
 ## REBUTTALS TO THIS PAPER
 
 ### Search for Direct Rebuttals
-- Paper is recent (January 2026) — no direct rebuttals found
+- Paper is recent (January 2026) - no direct rebuttals found
 
 ### Potential Counter-Arguments
 
 1. **Task is narrow**: Only one game (Baba Is You) with specific rule structure
-2. **Code training is a form of domain adaptation**: LCV uses 600 paired samples — this is fine-tuning
+2. **Code training is a form of domain adaptation**: LCV uses 600 paired samples - this is fine-tuning
 3. **Human baseline is with tutorial**: Humans had video explanation; models had only prompts
 
 ### Limitations (Authors Acknowledge)
@@ -194,7 +194,7 @@ The problem is HOW information is encoded (natural language → triggers pattern
 > "Representation fundamentally determines whether scaling improves or impairs contextual reasoning"
 
 ### On semantic inertia
-> "Semantic Inertia—the tendency for parametric memory to override in-context reasoning"
+> "Semantic Inertia-the tendency for parametric memory to override in-context reasoning"
 
 ### On why code works
 > "Code grounding... strips symbols of their semantic associations, shifting computation from pattern matching to logical inference"
@@ -217,11 +217,11 @@ The problem is HOW information is encoded (natural language → triggers pattern
 
 ## Relevance to Synthesis
 
-**STRONGLY SUPPORTS** thesis — provides the clearest evidence yet that:
+**STRONGLY SUPPORTS** thesis - provides the clearest evidence yet that:
 
 1. **Larger models = stronger pattern matching = worse on conflict tasks** (inverse scaling)
 2. **Semantic associations dominate over explicit instructions** (57% → 13% drop)
 3. **Natural language encoding is the problem** (code reverses the trend)
-4. **Models don't reason, they pattern-match** — when patterns conflict with rules, patterns win
+4. **Models don't reason, they pattern-match** - when patterns conflict with rules, patterns win
 
-**Key insight for synthesis**: This paper explains WHY scaling doesn't help certain tasks — it's not that models lack reasoning capacity, but that larger models have STRONGER semantic associations that override explicit rules. This is the strongest evidence yet for the pattern matching hypothesis.
+**Key insight for synthesis**: This paper explains WHY scaling doesn't help certain tasks - it's not that models lack reasoning capacity, but that larger models have STRONGER semantic associations that override explicit rules. This is the strongest evidence yet for the pattern matching hypothesis.

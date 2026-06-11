@@ -56,7 +56,7 @@ def compare(before_path: str, after_path: str) -> None:
         print(
             "\nAlignment successfully removed. Safety was superficial pattern matching."
         )
-        print("The model's refusal behavior was 'mascara' — easily washed off.")
+        print("The model's refusal behavior was 'mascara' - easily washed off.")
     elif after_rate < before_rate:
         print(f"\nRefusal rate decreased by {abs(change):.1%}")
         print("Partial ablation success.")

@@ -1,4 +1,4 @@
-# Paper Analysis: Physics of Language Models Part 2.1 — Grade-School Math and the Hidden Reasoning Process
+# Paper Analysis: Physics of Language Models Part 2.1 - Grade-School Math and the Hidden Reasoning Process
 
 ## Metadata
 - **arXiv ID**: 2407.20311
@@ -11,12 +11,12 @@
 
 ## Core Claims
 
-1. **LLMs can develop genuine reasoning skills, not just memorize templates** — demonstrated via OOD length generalization
-2. **Models perform mental planning before generation** — probing shows necessary parameters identified BEFORE first solution token
-3. **Models learn skills BEYOND training requirements** — computes all-pair dependency even for unnecessary parameters
-4. **Depth is crucial for reasoning** — 16-layer model outperforms 4-layer model with 2x parameters
-5. **Mistakes are systematic** — errors stem from mental process failures, not random generation noise
-6. **Backward thinking is autonomously learned** — without being explicitly taught in training data
+1. **LLMs can develop genuine reasoning skills, not just memorize templates** - demonstrated via OOD length generalization
+2. **Models perform mental planning before generation** - probing shows necessary parameters identified BEFORE first solution token
+3. **Models learn skills BEYOND training requirements** - computes all-pair dependency even for unnecessary parameters
+4. **Depth is crucial for reasoning** - 16-layer model outperforms 4-layer model with 2x parameters
+5. **Mistakes are systematic** - errors stem from mental process failures, not random generation noise
+6. **Backward thinking is autonomously learned** - without being explicitly taught in training data
 
 ---
 
@@ -43,7 +43,7 @@
 - iGSM-med: ip≤20, training op≤15
 - iGSM-hard: ip≤28, training op≤21
 
-**Scale**: >90 TRILLION solution templates (Proposition 2.2) — impossible to memorize
+**Scale**: >90 TRILLION solution templates (Proposition 2.2) - impossible to memorize
 
 ### Model
 - GPT-2 architecture with RoPE (rotary positional embedding)
@@ -151,13 +151,13 @@
 
 ### What This Paper Genuinely Shows
 
-1. **OOD length generalization is real** — 90%+ accuracy on problems 7-11 steps longer than any training example. This is genuine generalization, not memorization.
+1. **OOD length generalization is real** - 90%+ accuracy on problems 7-11 steps longer than any training example. This is genuine generalization, not memorization.
 
-2. **Mental planning exists** — Probing evidence that models identify necessary parameters before generation is compelling.
+2. **Mental planning exists** - Probing evidence that models identify necessary parameters before generation is compelling.
 
-3. **Emergent skill beyond training** — All-pair dependency computation without training signal is novel finding.
+3. **Emergent skill beyond training** - All-pair dependency computation without training signal is novel finding.
 
-4. **Depth architecture matters** — Controlled evidence that depth > width for reasoning.
+4. **Depth architecture matters** - Controlled evidence that depth > width for reasoning.
 
 ### Important Caveats the Authors Acknowledge
 
@@ -181,7 +181,7 @@
 **DOES NOT rebut thesis for open-ended reasoning**:
 - Domain is highly constrained (dependency graph structure)
 - Authors explicitly caution against generalization to GPT-4 or complex tasks
-- GPT-4 fails on this task — current LLMs don't show these properties
+- GPT-4 fails on this task - current LLMs don't show these properties
 - "Generalization" is same-task-longer, not compositionally novel
 
 ---
@@ -244,7 +244,7 @@
 
 ## Relevance to Thesis
 
-**CHALLENGES thesis in narrow, controlled settings — but with important caveats**
+**CHALLENGES thesis in narrow, controlled settings - but with important caveats**
 
 ### What this paper shows:
 1. ✓ Genuine OOD length generalization is possible (challenges pure memorization view)

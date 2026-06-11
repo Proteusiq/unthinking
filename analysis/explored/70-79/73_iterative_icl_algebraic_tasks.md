@@ -74,7 +74,7 @@ This requires models to:
 ### 2. Few-Shot Helps, But Has Limits
 
 Best results with 10 shots; diminishing returns beyond:
-> "Model performance tends to stabilize around the 10-shot mark, with little to no improvement—and in most cases a decline—when the number of shots exceeds 50"
+> "Model performance tends to stabilize around the 10-shot mark, with little to no improvement-and in most cases a decline-when the number of shots exceeds 50"
 
 ### 3. Iterative Selection Outperforms Random
 
@@ -146,7 +146,7 @@ Performance degrades with complexity:
 ## REBUTTALS TO THIS PAPER
 
 ### Search for Direct Rebuttals
-- Paper is recent (September 2025) — no direct rebuttals found
+- Paper is recent (September 2025) - no direct rebuttals found
 
 ### Potential Counter-Arguments
 
@@ -168,13 +168,13 @@ Authors acknowledge need for:
 
 ## Relevance to Thesis
 
-**SUPPORTS** — Paper provides controlled evidence that LLMs cannot override learned patterns.
+**SUPPORTS** - Paper provides controlled evidence that LLMs cannot override learned patterns.
 
 ### Evidence FOR Thesis (Pattern Matching)
 
 1. **Rule override fails**: LLMs can't suppress learned precedence rules even with explicit instructions
 2. **Simpler examples work better**: Suggests pattern matching from examples, not rule learning
-3. **Complexity collapse**: Same pattern as other papers — performance degrades with complexity
+3. **Complexity collapse**: Same pattern as other papers - performance degrades with complexity
 4. **Low zero-shot on "simple" task**: High school students can do this; LLMs struggle
 
 ### Evidence AGAINST Thesis

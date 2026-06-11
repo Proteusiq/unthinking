@@ -11,11 +11,11 @@
 
 ## Core Claims
 
-1. **Universal jailbreak persists** — A jailbreak attack published 7+ months ago still works on most state-of-the-art LLMs
-2. **Dark LLMs are proliferating** — Models deliberately designed without ethical guardrails (WormGPT, FraudGPT) are openly available
-3. **Industry response is inadequate** — Responsible disclosure to major providers yielded poor responses; many didn't respond or dismissed the vulnerability
-4. **Open-source leaks are irreversible** — Once an uncensored model is shared, it cannot be patched or recalled
-5. **Training data is the root cause** — "The fundamental vulnerability of LLMs to jailbreak attacks stems from the very data they learn from"
+1. **Universal jailbreak persists** - A jailbreak attack published 7+ months ago still works on most state-of-the-art LLMs
+2. **Dark LLMs are proliferating** - Models deliberately designed without ethical guardrails (WormGPT, FraudGPT) are openly available
+3. **Industry response is inadequate** - Responsible disclosure to major providers yielded poor responses; many didn't respond or dismissed the vulnerability
+4. **Open-source leaks are irreversible** - Once an uncensored model is shared, it cannot be patched or recalled
+5. **Training data is the root cause** - "The fundamental vulnerability of LLMs to jailbreak attacks stems from the very data they learn from"
 
 ---
 
@@ -41,8 +41,8 @@
 ### Dark LLM Ecosystem
 
 Examples cited:
-- **WormGPT** — Advertised as having "no ethical guardrails"
-- **FraudGPT** — Marketed for cybercrime assistance
+- **WormGPT** - Advertised as having "no ethical guardrails"
+- **FraudGPT** - Marketed for cybercrime assistance
 - Open-source models (Llama, DeepSeek) can be jailbroken to remove restrictions
 
 ---
@@ -54,7 +54,7 @@ Examples cited:
 This is a key structural issue:
 - Closed models can be patched (but often aren't)
 - Open models cannot be recalled once released
-- Attackers can chain models together — using one to generate jailbreaks for another
+- Attackers can chain models together - using one to generate jailbreaks for another
 
 ---
 
@@ -62,11 +62,11 @@ This is a key structural issue:
 
 The paper suggests five strategies:
 
-1. **Training Data Curation** — Exclude harmful content from training data
-2. **LLM Firewalls** — Middleware to intercept harmful prompts/outputs (e.g., Llama Guard, Granite Guardian)
-3. **Machine Unlearning** — Remove dangerous capabilities post-deployment
-4. **Continuous Red Teaming** — Active adversarial testing, bug bounties
-5. **Public Awareness** — Treat unaligned LLMs as security risks comparable to unlicensed weapons
+1. **Training Data Curation** - Exclude harmful content from training data
+2. **LLM Firewalls** - Middleware to intercept harmful prompts/outputs (e.g., Llama Guard, Granite Guardian)
+3. **Machine Unlearning** - Remove dangerous capabilities post-deployment
+4. **Continuous Red Teaming** - Active adversarial testing, bug bounties
+5. **Public Awareness** - Treat unaligned LLMs as security risks comparable to unlicensed weapons
 
 ---
 
@@ -76,11 +76,11 @@ The paper suggests five strategies:
 
 This paper provides **ecosystem-level evidence** that safety alignment is fundamentally fragile:
 
-1. **Training data as root cause**: The paper explicitly identifies training data as the source of vulnerability — models learn patterns including harmful ones, and alignment is just a thin layer on top
+1. **Training data as root cause**: The paper explicitly identifies training data as the source of vulnerability - models learn patterns including harmful ones, and alignment is just a thin layer on top
 
 2. **Persistence of vulnerabilities**: A 7-month-old Reddit jailbreak still works, proving safety isn't being fixed even when publicly known
 
-3. **Cat-and-mouse dynamics**: The entire paper describes an arms race where attackers consistently win — exactly what you'd expect if safety is pattern matching against known attacks rather than principled refusal
+3. **Cat-and-mouse dynamics**: The entire paper describes an arms race where attackers consistently win - exactly what you'd expect if safety is pattern matching against known attacks rather than principled refusal
 
 4. **Open-source irreversibility**: Once patterns are in the weights, they cannot be removed without full retraining. This proves knowledge is distributed, not discrete.
 
@@ -114,7 +114,7 @@ This directly supports the thesis: LLMs are statistical pattern matchers over tr
 
 1. **"This is a position paper, not empirical research"**: True, but the claims about 7-month-old jailbreaks and industry non-response are verifiable facts.
 
-2. **"Closed models can be patched"**: Yes, but the paper shows they often aren't — even with responsible disclosure.
+2. **"Closed models can be patched"**: Yes, but the paper shows they often aren't - even with responsible disclosure.
 
 3. **"Training data curation can solve this"**: Possible in theory, but impractical at scale. The paper acknowledges this is aspirational.
 
@@ -134,7 +134,7 @@ This directly supports the thesis: LLMs are statistical pattern matchers over tr
 
 > "Despite our responsible disclosure efforts, responses from major LLM providers were often inadequate, highlighting a concerning gap in industry practices regarding AI safety."
 
-> "Attackers can chain models together—using one model to generate jailbreak prompts for another—compounding the risk."
+> "Attackers can chain models together-using one model to generate jailbreak prompts for another-compounding the risk."
 
 ---
 

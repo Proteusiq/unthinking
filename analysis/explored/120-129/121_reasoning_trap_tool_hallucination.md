@@ -18,7 +18,7 @@
 
 3. **Method-agnostic**: Effect appears with supervised fine-tuning, RL, distillation, AND just switching to step-by-step thinking at inference
 
-4. **No free lunch**: Mitigation strategies reveal fundamental reliability-capability trade-off — reducing hallucination consistently degrades utility
+4. **No free lunch**: Mitigation strategies reveal fundamental reliability-capability trade-off - reducing hallucination consistently degrades utility
 
 5. **Mechanistic insight**: Reasoning RL disproportionately collapses tool-reliability-related representations; hallucinations surface in late-layer residual streams
 
@@ -26,7 +26,7 @@
 
 ## Methodology
 
-### SimpleToolHalluBench — Diagnostic Benchmark
+### SimpleToolHalluBench - Diagnostic Benchmark
 
 Two failure modes tested:
 1. **No-Tool-Available Task (NTA)**: No tools provided, but query requires tool. Does model hallucinate a tool?
@@ -86,7 +86,7 @@ Training GRPO on GSM8K (pure math):
 
 **Key finding**: Just ENABLING "thinking mode" increases hallucination without any training.
 
-### 4. Mechanistic Analysis — Representation Collapse
+### 4. Mechanistic Analysis - Representation Collapse
 
 - In-distribution representations: CKA > 0.9 (stable)
 - Tool-related representations: CKA < 0.75 (collapsed)
@@ -123,7 +123,7 @@ This paper provides direct mechanistic evidence that:
 
 2. **Reasoning is pattern completion, not deliberation**: If LLMs were genuinely reasoning, they would recognize when they lack tools. Instead, they pattern-match to "tool use" contexts and generate plausible but false tool calls.
 
-3. **The effect is method-agnostic**: RL, SFT, distillation, and even inference-time "thinking" all increase hallucination. This isn't a training bug — it's inherent to how LLMs "reason."
+3. **The effect is method-agnostic**: RL, SFT, distillation, and even inference-time "thinking" all increase hallucination. This isn't a training bug - it's inherent to how LLMs "reason."
 
 4. **Capability-reliability trade-off**: You can't have both reasoning capability and reliability without new training objectives. Current methods optimize for one at the expense of the other.
 
@@ -135,12 +135,12 @@ This paper provides direct mechanistic evidence that:
 
 ### Directly Supports
 - **Paper 10** (Reasoning Models Don't Say): Both show reasoning enhancement has hidden costs
-- **Paper 120** (Truth-Bias Sycophancy): DeepSeek R1 MORE biased — same phenomenon
-- **Paper 91** (HalluGuard): 98.1% reasoning-driven hallucinations — same root cause
-- **Paper 111** (Spurious Rewards Paradox): RLVR activates shortcuts — related mechanism
+- **Paper 120** (Truth-Bias Sycophancy): DeepSeek R1 MORE biased - same phenomenon
+- **Paper 91** (HalluGuard): 98.1% reasoning-driven hallucinations - same root cause
+- **Paper 111** (Spurious Rewards Paradox): RLVR activates shortcuts - related mechanism
 
 ### Extends
-- **Interplay (2512.07783)**: RL surfaces latent patterns — this paper shows it also surfaces hallucination patterns
+- **Interplay (2512.07783)**: RL surfaces latent patterns - this paper shows it also surfaces hallucination patterns
 - **No Free Lunch (2506.17219)**: Confirms capability-reliability trade-off
 
 ### Provides Evidence For
@@ -152,7 +152,7 @@ This paper provides direct mechanistic evidence that:
 ## REBUTTALS
 
 ### Known Rebuttals
-- None found — recent paper (October 2025)
+- None found - recent paper (October 2025)
 
 ### Limitations (Authors Acknowledge)
 1. **Benchmark scope**: SimpleToolHalluBench has 296 tools; real-world may differ
@@ -171,7 +171,7 @@ This paper provides direct mechanistic evidence that:
 
 > "Does strengthening reasoning increase tool hallucination? [...] we establish three key findings. First, we demonstrate a causal relationship: progressively enhancing reasoning through RL increases tool hallucination proportionally with task performance gains."
 
-> "This effect transcends overfitting—training on non-tool tasks (e.g., mathematics) still amplifies subsequent tool hallucination."
+> "This effect transcends overfitting-training on non-tool tasks (e.g., mathematics) still amplifies subsequent tool hallucination."
 
 > "Simply enabling their native 'thinking' mode leads to a consistent and significant rise in hallucination"
 
@@ -187,13 +187,13 @@ This paper is **critical evidence** for the pattern-matching thesis:
 
 1. **Reasoning RL = pattern amplification**: RL doesn't teach reasoning; it amplifies pattern-matching behaviors, including hallucination patterns
 
-2. **"Thinking" increases hallucination**: The very act of "thinking step-by-step" makes models more prone to fabrication — the opposite of what genuine reasoning would do
+2. **"Thinking" increases hallucination**: The very act of "thinking step-by-step" makes models more prone to fabrication - the opposite of what genuine reasoning would do
 
 3. **Mechanistic confirmation**: Representation collapse in tool pathways while reasoning pathways stay stable proves these are separate learned patterns, not unified understanding
 
 4. **No escape via current methods**: The reliability-capability trade-off means current architectures can't do both well
 
-5. **DeepSeek R1 distillation transfers hallucination**: When you distill "reasoning," you also distill the hallucination tendency — because they're the same thing (pattern completion)
+5. **DeepSeek R1 distillation transfers hallucination**: When you distill "reasoning," you also distill the hallucination tendency - because they're the same thing (pattern completion)
 
 ---
 

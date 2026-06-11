@@ -15,7 +15,7 @@
 2. **A constructive PAC-Bayes methodology.** Rather than capacity-based bounds (Edelman 2022, Trauger & Tewari 2024), they build an *explicit* transformer construction implementing the target function, bound its norm and sharpness analytically, then show that any low-sharpness interpolator inherits the generalization guarantee.
 3. **The bound is numerically non-vacuous.** At `T=20, D_f=2, ω=10, m=8192`, the semi-analytic bound is below 1 (non-vacuous). The fully-analytic bound requires `m ≈ 2×10⁹`. Edelman's norm-based bound is vacuous at `m=10⁶` in the same regime (≈ 1.01 vs the paper's 0.327).
 4. **CoT exponentially improves the bound for Parity.** One-pass Parity error scales **exponentially** with sequence length T; CoT Parity error scales **linearly** with T. The mechanism: CoT decomposes degree-T Parity into T sequential degree-2 lookups, each with constant complexity.
-5. **Learned transformers approximately match the construction (empirically).** Across 11 random functions × 5 degrees × 4 sparsities at `m=8192`, learned solutions have **~100× lower norm and ~100× lower sharpness** than the explicit construction — confirming the "domination" assumption needed for the PAC-Bayes argument.
+5. **Learned transformers approximately match the construction (empirically).** Across 11 random functions × 5 degrees × 4 sparsities at `m=8192`, learned solutions have **~100× lower norm and ~100× lower sharpness** than the explicit construction - confirming the "domination" assumption needed for the PAC-Bayes argument.
 6. **Mechanistic interpretability: attention learns Fourier component structure.** In a simplified setup, attention weight matrix rows correspond to Fourier components of the learned function; MLP exhibits cyclical/oscillatory behavior. Authors heavily hedge ("rare", "not the norm") but the structural similarity to Nanda 2023 modular-arithmetic Fourier circuits is striking.
 
 ---
@@ -25,7 +25,7 @@
 │  KEY FINDING                                                         │
 │                                                                      │
 │  Transformers learn LOW-DEGREE, LOW-SPARSITY Fourier functions      │
-│  well. They do NOT learn high-degree functions well — even when     │
+│  well. They do NOT learn high-degree functions well - even when     │
 │  the architecture can express them.                                  │
 │                                                                      │
 │  Generalization gap ∈ O(ω · D_f³)                                    │
@@ -108,7 +108,7 @@ At T=20, D_f=2, ω=10, m=10⁶:
 | **This paper's bound** (semi-analytic) | **≈ 0.327** |
 | **Edelman et al. bound** | **≈ 1.01 (vacuous)** |
 
-Asymptotically Edelman is `O(m^{-1/2})` vs this paper's `O(m^{-1/3})`, so Edelman wins in the limit — but numerically in the practical low-degree regime, this paper's bound is tighter.
+Asymptotically Edelman is `O(m^{-1/2})` vs this paper's `O(m^{-1/3})`, so Edelman wins in the limit - but numerically in the practical low-degree regime, this paper's bound is tighter.
 
 ### 3. Learned solutions DOMINATED by construction (~100× lower norm AND sharpness)
 
@@ -116,7 +116,7 @@ Asymptotically Edelman is `O(m^{-1/2})` vs this paper's `O(m^{-1/3})`, so Edelma
 
 > *"The norm of our construction indeed upper bounds the norm of the learned solutions for each degree and sparsity, by around two orders of magnitude."* (Figure 2(b) caption)
 
-This validates the domination assumption needed for the PAC-Bayes argument. Learned solutions are *better* than the explicit construction in both norm and sharpness — the construction is a usable upper bound.
+This validates the domination assumption needed for the PAC-Bayes argument. Learned solutions are *better* than the explicit construction in both norm and sharpness - the construction is a usable upper bound.
 
 ### 4. CoT exponential improvement for Parity
 
@@ -149,7 +149,7 @@ The difference: one-pass has T inside the exponent (multiplied by σ² and L); C
 └──────────────────────────────────────────────────────────────────────┘
 ```
 
-CoT works because each step is a **degree-2** lookup of "running parity XOR next bit." Composition is handled by union bound (cost: factor of T). This is identical to what Cabannes et al. 2024 call an "iteration head" — explicitly a mechanistic-not-reasoning framing.
+CoT works because each step is a **degree-2** lookup of "running parity XOR next bit." Composition is handled by union bound (cost: factor of T). This is identical to what Cabannes et al. 2024 call an "iteration head" - explicitly a mechanistic-not-reasoning framing.
 
 ### 5. Mechanistic interpretability: attention shows Fourier structure
 
@@ -163,7 +163,7 @@ In a simplified architecture (replaced second attention with a linear projection
 
 > *"The learned solutions are often qualitatively different than our construction. This experiment is merely meant to support the feasibility of our construction – not to argue that it is the norm. Close matches like this are rare."*
 
-This is consistent with paper #358's finding that the rule is *diffusely encoded* in modular-arithmetic models — close matches with the analytical solution exist but are not the typical learned solution.
+This is consistent with paper #358's finding that the rule is *diffusely encoded* in modular-arithmetic models - close matches with the analytical solution exist but are not the typical learned solution.
 
 ### 6. Comparison with prior CoT-Parity theory
 
@@ -179,7 +179,7 @@ This paper provides the first *positive* (rather than negative) sharpness-based 
 ├──────────────────────────────────────────────────────────────────────┤
 │                                                                      │
 │  Transformers CAN express any boolean function (Chiang & Cholak     │
-│  2022) — including high-degree, high-sparsity ones.                 │
+│  2022) - including high-degree, high-sparsity ones.                 │
 │                                                                      │
 │  But learning a high-degree function induces:                        │
 │   • High Hessian trace (sharpness ~ O(ω·D_f³))                       │
@@ -198,11 +198,11 @@ This paper provides the first *positive* (rather than negative) sharpness-based 
 
 ## Relationship to Thesis
 
-**Stance: BALANCED — leaning SUPPORTS**
+**Stance: BALANCED - leaning SUPPORTS**
 
 This is a theory paper that doesn't directly stake out a thesis position, but its formal results are *mechanistic decomposition* of why CoT and transformer "reasoning" work in the cases where they do. The relevance to the thesis is subtle:
 
-1. **The CoT result is statistical, not epistemic.** The paper provides a formal mechanism for why CoT helps Parity: it decomposes a degree-T function into T degree-2 functions. There is no "reasoning" in this account — no search, no backtracking, no deliberation. Each step is a degree-2 Fourier lookup. The composition is handled by union bound. This is precisely the predictive-not-reasoning framing applied to CoT theory: CoT is mechanistic decomposition exploited by statistical learning, not "thinking through" the problem.
+1. **The CoT result is statistical, not epistemic.** The paper provides a formal mechanism for why CoT helps Parity: it decomposes a degree-T function into T degree-2 functions. There is no "reasoning" in this account - no search, no backtracking, no deliberation. Each step is a degree-2 Fourier lookup. The composition is handled by union bound. This is precisely the predictive-not-reasoning framing applied to CoT theory: CoT is mechanistic decomposition exploited by statistical learning, not "thinking through" the problem.
 
 2. **Cabannes et al. "Iteration head" framing.** The authors *explicitly* defer to Cabannes et al. 2024 for the mechanistic explanation of CoT-as-iteration. This is the same mechanism this paper formalizes statistically. The convergence: theoretical generalization analysis and mechanistic interpretability agree that CoT is *iteration*, not *reasoning*. This is direct support for the predictive thesis on CoT.
 
@@ -215,11 +215,11 @@ This is a theory paper that doesn't directly stake out a thesis position, but it
 
 5. **MI evidence is structurally similar to Nanda 2023 / paper #358.** Learned attention shows Fourier-component structure; learned MLPs are cyclical/oscillatory. The authors call these matches "rare" but the *qualitative* convergence is striking. In modular arithmetic (#358), in Boolean parity (#359), and in grokking literature (Nanda 2023), the same pattern emerges: transformers solve algorithmic tasks by approximating Fourier-component lookups. This is not "discovering" the algorithm; it is implementing a specific computational template that happens to match the Fourier structure.
 
-6. **The CoT-as-degree-reduction framing is broadly applicable.** Authors suggest extending the same analysis to other algorithmic tasks (Dyck languages, RASP programs). The implication: many tasks where CoT helps are tasks with high *effective degree* that admit a low-degree iterative decomposition. CoT helps when the task is intrinsically iterable into simple sub-lookups. It does NOT help on tasks that have no such decomposition — which is exactly what the empirical literature on CoT failure modes shows (Sprague 2024, #355 entropy phase transitions).
+6. **The CoT-as-degree-reduction framing is broadly applicable.** Authors suggest extending the same analysis to other algorithmic tasks (Dyck languages, RASP programs). The implication: many tasks where CoT helps are tasks with high *effective degree* that admit a low-degree iterative decomposition. CoT helps when the task is intrinsically iterable into simple sub-lookups. It does NOT help on tasks that have no such decomposition - which is exactly what the empirical literature on CoT failure modes shows (Sprague 2024, #355 entropy phase transitions).
 
 The mitigating finding is that the paper *also* shows transformers do generalize correctly when conditions are met. This isn't "transformers can't learn." It's "transformers learn *specific* function classes (low-degree, low-sparsity Fourier functions) and use *specific* mechanisms (CoT iteration) to extend that class. The mechanisms are statistical, not epistemic."
 
-For thesis purposes: this paper gives the formal theory underneath what #358 demonstrated empirically and what #354/#355 showed behaviorally. The CoT result in particular is a smoking gun — it provides a *proof* that CoT works by decomposition, not by reasoning, in at least one well-defined case.
+For thesis purposes: this paper gives the formal theory underneath what #358 demonstrated empirically and what #354/#355 showed behaviorally. The CoT result in particular is a smoking gun - it provides a *proof* that CoT works by decomposition, not by reasoning, in at least one well-defined case.
 
 ---
 
@@ -227,24 +227,24 @@ For thesis purposes: this paper gives the formal theory underneath what #358 dem
 
 ### Supports
 
-- **#358 Memorization-Generalization Coexistence (2605.18022)** — direct theoretical companion. #358 empirically demonstrates Fourier-structured solutions in modular arithmetic; #359 formalizes *why* sparse-Fourier functions are learnable via PAC-Bayes. Together: a complete mechanistic story for algorithmic-task generalization in transformers.
-- **#220 Progress Measures for Grokking (Nanda 2023, 2301.05217)** — Nanda discovered the Fourier mechanism empirically in modular addition. This paper provides the theoretical apparatus that explains why such mechanisms are *the* learnable solution.
-- **#355 Entropy Phase Transitions (2605.22873)** — CoT helps on math/algorithmic tasks (high degree but iterable) and fails on commonsense (high degree, no iteration). This paper's CoT result formalizes the "iterable" criterion: high degree + decomposable into low-degree steps.
-- **#354 Premature Confidence (2605.24396)** — convergent: the model commits to a pattern before reasoning. This paper explains why: low-sparsity-Fourier functions are easy to learn and dominate the implicit bias; high-degree alternatives are hard to learn so the model defaults to the low-degree pattern.
-- **#357 FaithMATE (2605.24960)** — CoT faithfulness is non-monolithic. This paper provides a formal mechanism: different CoTs implement different (degree, sparsity) decompositions; "faithfulness" depends on which decomposition you're measuring.
+- **#358 Memorization-Generalization Coexistence (2605.18022)** - direct theoretical companion. #358 empirically demonstrates Fourier-structured solutions in modular arithmetic; #359 formalizes *why* sparse-Fourier functions are learnable via PAC-Bayes. Together: a complete mechanistic story for algorithmic-task generalization in transformers.
+- **#220 Progress Measures for Grokking (Nanda 2023, 2301.05217)** - Nanda discovered the Fourier mechanism empirically in modular addition. This paper provides the theoretical apparatus that explains why such mechanisms are *the* learnable solution.
+- **#355 Entropy Phase Transitions (2605.22873)** - CoT helps on math/algorithmic tasks (high degree but iterable) and fails on commonsense (high degree, no iteration). This paper's CoT result formalizes the "iterable" criterion: high degree + decomposable into low-degree steps.
+- **#354 Premature Confidence (2605.24396)** - convergent: the model commits to a pattern before reasoning. This paper explains why: low-sparsity-Fourier functions are easy to learn and dominate the implicit bias; high-degree alternatives are hard to learn so the model defaults to the low-degree pattern.
+- **#357 FaithMATE (2605.24960)** - CoT faithfulness is non-monolithic. This paper provides a formal mechanism: different CoTs implement different (degree, sparsity) decompositions; "faithfulness" depends on which decomposition you're measuring.
 
 ### Extends
 
-- **Abbe et al. 2023 (minimum-degree interpolator hypothesis)** — extends from hypothesis-with-limited-evidence to formal PAC-Bayes generalization bound with cubic-in-degree scaling.
-- **Edelman et al. 2022 (norm-based capacity bounds)** — extends to a tighter (numerically) PAC-Bayes-flatness-based bound for the same function class.
-- **#315 Globality Barrier (Abbé 2024, 2406.06467)** — globality-degree result is conjectural; this paper provides a positive (non-conjectural) sharpness-based bound for Parity under CoT.
-- **Hahn & Rofin 2024 (loss landscape for Parity)** — Hahn shows the negative result (steep loss without CoT); this paper provides the converse positive result (CoT achieves linear bound).
-- **Cabannes et al. 2024 (Iteration head, NeurIPS 2024)** — mechanistic study of CoT as iteration. This paper provides the matching statistical-learning theory.
+- **Abbe et al. 2023 (minimum-degree interpolator hypothesis)** - extends from hypothesis-with-limited-evidence to formal PAC-Bayes generalization bound with cubic-in-degree scaling.
+- **Edelman et al. 2022 (norm-based capacity bounds)** - extends to a tighter (numerically) PAC-Bayes-flatness-based bound for the same function class.
+- **#315 Globality Barrier (Abbé 2024, 2406.06467)** - globality-degree result is conjectural; this paper provides a positive (non-conjectural) sharpness-based bound for Parity under CoT.
+- **Hahn & Rofin 2024 (loss landscape for Parity)** - Hahn shows the negative result (steep loss without CoT); this paper provides the converse positive result (CoT achieves linear bound).
+- **Cabannes et al. 2024 (Iteration head, NeurIPS 2024)** - mechanistic study of CoT as iteration. This paper provides the matching statistical-learning theory.
 
 ### Challenges
 
-- The "CoT is reasoning" framing implicit in much of the LLM reasoning literature. This paper formalizes CoT as *degree decomposition + union bound* — a mechanism with no epistemic content. The result is consistent with #355 (CoT hurts when no degree-decomposition is available, e.g., commonsense tasks).
-- Capacity-based / Rademacher-complexity bounds (Edelman 2022, Trauger & Tewari 2024) — this paper argues PAC-Bayes-flatness is more numerically informative in the low-degree regime, even if asymptotically slightly worse.
+- The "CoT is reasoning" framing implicit in much of the LLM reasoning literature. This paper formalizes CoT as *degree decomposition + union bound* - a mechanism with no epistemic content. The result is consistent with #355 (CoT hurts when no degree-decomposition is available, e.g., commonsense tasks).
+- Capacity-based / Rademacher-complexity bounds (Edelman 2022, Trauger & Tewari 2024) - this paper argues PAC-Bayes-flatness is more numerically informative in the low-degree regime, even if asymptotically slightly worse.
 
 ---
 
@@ -254,18 +254,18 @@ For thesis purposes: this paper gives the formal theory underneath what #358 dem
 
 - No direct rebuttals (May 2026).
 - Related counter-positions:
-  - The Edelman / Trauger lineage on norm-based bounds — not a *rebuttal* but an alternative bounding strategy. This paper compares numerically and wins in low-degree regime; loses asymptotically.
+  - The Edelman / Trauger lineage on norm-based bounds - not a *rebuttal* but an alternative bounding strategy. This paper compares numerically and wins in low-degree regime; loses asymptotically.
   - Authors' own caveat (Remark 3): if the learned solution implements the function via a "qualitatively different mechanism whose sharpness profile scales differently," the domination argument is not tight. They flag this as empirically verifiable but unverified.
 
 ### Limitations (Authors Acknowledge)
 
-1. **Analytic P(σ) is catastrophically loose** — "astronomically larger" than empirical perturbation; gap between analytic m≈2×10⁹ and empirical m=8192 is 5 orders of magnitude.
+1. **Analytic P(σ) is catastrophically loose** - "astronomically larger" than empirical perturbation; gap between analytic m≈2×10⁹ and empirical m=8192 is 5 orders of magnitude.
 2. **|Θ| factor in perturbation analysis is prohibitive** for larger networks. Random projections help but don't eliminate.
 3. **Function class restrictions**: positive Fourier coefficients only, equal-degree components, sparsity ≤ T. Negative-coefficient and mixed-degree cases require more heads but are claimed not to be qualitative barriers.
 4. **Domination assumption** is empirically validated but not proven in full generality. If a learner finds a solution outside the dominated region, bound doesn't apply.
 5. **No layer norm in construction or experiments**. Real transformers use LayerNorm; the construction explicitly excludes it.
 6. **Small models only**: 2-layer, 1-head, hidden dim ~50, MLP width 128. No scaling to LLM regimes.
-7. **MI experiments use a simplified architecture** (replaced second attention with linear projection) explicitly chosen for interpretability — "not intended to instantiate the full construction."
+7. **MI experiments use a simplified architecture** (replaced second attention with linear projection) explicitly chosen for interpretability - "not intended to instantiate the full construction."
 
 The authors do **NOT** explicitly flag whether real-scale LLMs (Llama, GPT) satisfy the idealized low-sharpness learner assumption. They never make the LLM-scale leap but also never explicitly disclaim it.
 
@@ -273,15 +273,15 @@ The authors do **NOT** explicitly flag whether real-scale LLMs (Llama, GPT) sati
 
 The theoretical work is solid and gives the first numerically non-vacuous PAC-Bayes bound for a non-trivial transformer function class. The cubic-in-degree, linear-in-sparsity scaling is empirically validated across 5 degrees × 4 sparsities × 11 functions. The CoT-exponential-improvement result is the headline contribution and is genuinely informative.
 
-The MI section is the weakest part — heavily hedged, simplified architecture, "rare" close matches. The connection to Nanda 2023 modular-arithmetic Fourier circuits is *not made* by the authors but is structurally striking. This is a missed citation; future work should connect these threads explicitly.
+The MI section is the weakest part - heavily hedged, simplified architecture, "rare" close matches. The connection to Nanda 2023 modular-arithmetic Fourier circuits is *not made* by the authors but is structurally striking. This is a missed citation; future work should connect these threads explicitly.
 
-The CoT result deserves wide attention. It is a *formal proof* that CoT works on Parity by decomposing a degree-T problem into T degree-2 problems with union bound. There is no reasoning, no search, no deliberation — just statistical decomposition. Combined with the Cabannes "iteration head" mechanistic story, this is one of the cleanest formal accounts of why CoT helps where it helps, and equally importantly, predicts that CoT will *not* help where no such decomposition is available. The predictive thesis on CoT gets a theoretical foundation.
+The CoT result deserves wide attention. It is a *formal proof* that CoT works on Parity by decomposing a degree-T problem into T degree-2 problems with union bound. There is no reasoning, no search, no deliberation - just statistical decomposition. Combined with the Cabannes "iteration head" mechanistic story, this is one of the cleanest formal accounts of why CoT helps where it helps, and equally importantly, predicts that CoT will *not* help where no such decomposition is available. The predictive thesis on CoT gets a theoretical foundation.
 
 The expressivity-learnability gap framing is also valuable. Many recent capability claims about LLMs ("they can do X") conflate expressivity (the architecture can represent X) with learnability (training will find a solution that computes X). This paper provides the formal apparatus to separate them. The implication: many "emergent abilities" may be cases where the function class crosses the learnability threshold (low enough degree, sparse enough Fourier spectrum at some scale), not cases where the model "learned to reason."
 
 Pairing with paper #358 is especially clean. Where #358 empirically showed that rule-following in modular arithmetic uses dominant Fourier components while memorization uses residuals, #359 theoretically explains *why* low-Fourier-degree functions are the learnable ones in the first place. The two papers were written independently and converge on the same picture from different methods (mechanistic experiment vs PAC-Bayes theory).
 
-The strongest mitigation: this is a *very* narrow function class (boolean, all-positive Fourier coefficients, equal degree). The leap to LLMs is unjustified by the paper itself. The authors are appropriately cautious — they never claim their bound applies to LLMs. The thesis-relevant insight is the *framework*, not the specific bound: real reasoning tasks may be modeled in terms of effective Fourier complexity, and CoT's value derives from decomposing high-complexity tasks into iterable low-complexity steps.
+The strongest mitigation: this is a *very* narrow function class (boolean, all-positive Fourier coefficients, equal degree). The leap to LLMs is unjustified by the paper itself. The authors are appropriately cautious - they never claim their bound applies to LLMs. The thesis-relevant insight is the *framework*, not the specific bound: real reasoning tasks may be modeled in terms of effective Fourier complexity, and CoT's value derives from decomposing high-complexity tasks into iterable low-complexity steps.
 
 ---
 

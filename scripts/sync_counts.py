@@ -1,6 +1,6 @@
 """Rewrite hardcoded paper counts across the repo from corpus.json.
 
-The canonical source of truth is analysis/index/corpus.json — produced by
+The canonical source of truth is analysis/index/corpus.json - produced by
 build_corpus_index.py from analysis/explored/*.md.
 
 Without --check, this script rewrites:
@@ -52,7 +52,7 @@ def load_counts() -> Counts:
     smoking_guns = sum(1 for e in entries if e["smoking_gun"])
 
     # Links are defined in docs/js/links.js as a JS array. We count
-    # entries by looking for `source: '...'` occurrences — same pattern
+    # entries by looking for `source: '...'` occurrences - same pattern
     # used by the existing validator. Avoids parsing JS for one number.
     links = len(re.findall(r"source:\s*['\"]", LINKS_PATH.read_text()))
 
@@ -110,7 +110,7 @@ def replacements(c: Counts) -> list[Replacement]:
             re.compile(r"Relationship links \(\d+\)"),
             f"Relationship links ({c.links})",
         ),
-        # docs/index.html — fallbacks for filter badges before JS hydrates.
+        # docs/index.html - fallbacks for filter badges before JS hydrates.
         Replacement(
             ROOT / "docs" / "index.html",
             re.compile(r'id="supports-count">\d+</span>'),
@@ -132,7 +132,7 @@ def replacements(c: Counts) -> list[Replacement]:
             re.compile(r"· \d+ papers analyzed"),
             f"· {c.total} papers analyzed",
         ),
-        # apps/galaxy/index.html — meta tags
+        # apps/galaxy/index.html - meta tags
         Replacement(
             ROOT / "apps" / "galaxy" / "index.html",
             re.compile(r"\d+ papers\. \d+ smoking guns"),
@@ -143,7 +143,7 @@ def replacements(c: Counts) -> list[Replacement]:
             re.compile(r"\d+ papers, projected in 3D"),
             f"{c.total} papers, projected in 3D",
         ),
-        # AGENTS.md, workflow.md — file tree comments mentioning the
+        # AGENTS.md, workflow.md - file tree comments mentioning the
         # findings page paper count.
         Replacement(
             ROOT / "AGENTS.md",
@@ -155,7 +155,7 @@ def replacements(c: Counts) -> list[Replacement]:
             re.compile(r"\| \d+-paper synthesis"),
             f"| {c.total}-paper synthesis",
         ),
-        # analysis/synthesis.md and analysis/rebuttals.md — only the
+        # analysis/synthesis.md and analysis/rebuttals.md - only the
         # blockquote header ("> **Papers analyzed**: N") is auto-
         # synced. Internal session-summary lines like "Papers
         # analyzed: 254-258" are hand-curated and intentionally not
@@ -202,7 +202,7 @@ def apply(check: bool) -> int:
         updated, n = rep.pattern.subn(rep.template, original)
         if n == 0:
             print(
-                f"  miss: {rep.path.relative_to(ROOT)} — no match for "
+                f"  miss: {rep.path.relative_to(ROOT)} - no match for "
                 f"/{rep.pattern.pattern}/",
             )
             continue

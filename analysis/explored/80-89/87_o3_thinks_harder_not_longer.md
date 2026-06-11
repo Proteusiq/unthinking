@@ -2,7 +2,7 @@
 
 ## Metadata
 - **arXiv ID**: 2502.15631
-- **Title**: The Relationship Between Reasoning and Performance in Large Language Models—o3 (mini) Thinks Harder, Not Longer
+- **Title**: The Relationship Between Reasoning and Performance in Large Language Models-o3 (mini) Thinks Harder, Not Longer
 - **Authors**: Marthe Ballon, Andres Algaba, Vincent Ginis
 - **Date**: February 2025
 - **Venue**: Preprint (Vrije Universiteit Brussel / Harvard)
@@ -12,10 +12,10 @@
 
 ## Core Claims
 
-1. **More capable models achieve higher accuracy WITHOUT longer reasoning chains** — o3-mini (m) has nearly identical token distribution to o1-mini but significantly higher accuracy
-2. **Accuracy generally DECLINES as reasoning chains grow** — across all models and even when controlling for difficulty
-3. **The accuracy drop per token is smaller for more proficient models** — o1-mini: 3.16%/1000 tokens, o3-mini (m): 1.96%/1000 tokens, o3-mini (h): 0.81%/1000 tokens
-4. **o3-mini (h) gains only marginal accuracy (+4%) over o3-mini (m) by using 2x+ tokens on ALL problems** — including ones the medium model already solves
+1. **More capable models achieve higher accuracy WITHOUT longer reasoning chains** - o3-mini (m) has nearly identical token distribution to o1-mini but significantly higher accuracy
+2. **Accuracy generally DECLINES as reasoning chains grow** - across all models and even when controlling for difficulty
+3. **The accuracy drop per token is smaller for more proficient models** - o1-mini: 3.16%/1000 tokens, o3-mini (m): 1.96%/1000 tokens, o3-mini (h): 0.81%/1000 tokens
+4. **o3-mini (h) gains only marginal accuracy (+4%) over o3-mini (m) by using 2x+ tokens on ALL problems** - including ones the medium model already solves
 
 ---
 
@@ -30,8 +30,8 @@
 ### Models Tested
 - gpt-4o (non-reasoning baseline)
 - o1-mini (reasoning model)
-- o3-mini (m) — medium compute setting
-- o3-mini (h) — high compute setting
+- o3-mini (m) - medium compute setting
+- o3-mini (h) - high compute setting
 
 ### Analysis Methods
 - Token usage distribution comparison
@@ -82,19 +82,19 @@
 
 ### Supports the Thesis
 
-**The thesis**: "LLM reasoning is practical but fundamentally predictive—pattern matching from training distributions, not genuinely generative reasoning"
+**The thesis**: "LLM reasoning is practical but fundamentally predictive-pattern matching from training distributions, not genuinely generative reasoning"
 
 1. **Accuracy declining with more tokens** directly challenges the naive "more reasoning = better reasoning" assumption
-2. **Longer chains correlate with failure** — consistent with the thesis that models engage in pattern matching that degrades when they can't find applicable templates
+2. **Longer chains correlate with failure** - consistent with the thesis that models engage in pattern matching that degrades when they can't find applicable templates
 3. **Two hypotheses for accuracy drop** (authors state both):
    - Models reason more on problems they cannot solve (searching for templates)
    - Longer chains have higher probability of leading to wrong solutions (error propagation)
 
 ### Provides Nuance
 
-1. **More capable models use tokens more effectively** — o3-mini shows "thinking harder, not longer"
-2. **Efficiency gains are real** — newer reasoning models do extract more value per token
-3. **But ceiling remains** — even o3-mini (h) eventually hits diminishing returns
+1. **More capable models use tokens more effectively** - o3-mini shows "thinking harder, not longer"
+2. **Efficiency gains are real** - newer reasoning models do extract more value per token
+3. **But ceiling remains** - even o3-mini (h) eventually hits diminishing returns
 
 ---
 
@@ -113,8 +113,8 @@
 
 | Paper | Mechanism |
 |-------|-----------|
-| **Survey of Test-Time Compute (2501.02497)** | Explains why sequential scaling fails — more tokens = more errors |
-| **Effective Without Thinking (2504.09858)** | Explains why skipping thinking sometimes helps — avoids error accumulation |
+| **Survey of Test-Time Compute (2501.02497)** | Explains why sequential scaling fails - more tokens = more errors |
+| **Effective Without Thinking (2504.09858)** | Explains why skipping thinking sometimes helps - avoids error accumulation |
 
 ### Partially Challenges
 
@@ -129,10 +129,10 @@
 
 ### Potential Limitations
 
-1. **Single benchmark (Omni-MATH)** — results may not generalize to other reasoning tasks
-2. **Automated evaluation** — Omni-Judge validated only for o1-mini, not o3-mini
-3. **Prompting strategy** — vanilla prompting may not be optimal for reasoning models
-4. **Correlation vs causation** — token count may be a proxy for problem difficulty not captured by tiers
+1. **Single benchmark (Omni-MATH)** - results may not generalize to other reasoning tasks
+2. **Automated evaluation** - Omni-Judge validated only for o1-mini, not o3-mini
+3. **Prompting strategy** - vanilla prompting may not be optimal for reasoning models
+4. **Correlation vs causation** - token count may be a proxy for problem difficulty not captured by tiers
 
 ### Papers That Could Challenge This
 
@@ -172,9 +172,9 @@
 
 This paper provides **strong quantitative evidence** for the thesis that longer reasoning chains do not equate to better reasoning. The key findings are:
 
-1. **Token efficiency, not token count, distinguishes capable models** — This supports the thesis that reasoning is about retrieving the right patterns, not generating novel reasoning steps
-2. **Error accumulation with chain length** — Directly consistent with Faith and Fate's error propagation mechanism
-3. **Controlled analysis** — Logistic regression controlling for difficulty is methodologically sound
+1. **Token efficiency, not token count, distinguishes capable models** - This supports the thesis that reasoning is about retrieving the right patterns, not generating novel reasoning steps
+2. **Error accumulation with chain length** - Directly consistent with Faith and Fate's error propagation mechanism
+3. **Controlled analysis** - Logistic regression controlling for difficulty is methodologically sound
 
 ### Stance Classification: **SUPPORTS**
 
@@ -185,7 +185,7 @@ The paper supports the thesis that LLM reasoning is pattern matching:
 
 ### Limitations of This Assessment
 
-The paper doesn't directly test whether reasoning is "genuine" — it measures token-accuracy relationships. The thesis interpretation is reasonable but not the only possible explanation.
+The paper doesn't directly test whether reasoning is "genuine" - it measures token-accuracy relationships. The thesis interpretation is reasonable but not the only possible explanation.
 
 ---
 

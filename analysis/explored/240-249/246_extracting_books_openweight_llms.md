@@ -11,13 +11,13 @@
 
 ## Core Claims
 
-1. **Memorization varies dramatically by book and model**: Most LLMs do not memorize most books—either in whole or in part—but some models memorize specific books entirely (e.g., Llama 3.1 70B memorizes Harry Potter and 1984)
+1. **Memorization varies dramatically by book and model**: Most LLMs do not memorize most books-either in whole or in part-but some models memorize specific books entirely (e.g., Llama 3.1 70B memorizes Harry Potter and 1984)
 
 2. **Average extraction rates obscure book-specific memorization**: While average extraction rates across Books3 are low (~0.6% for Llama 3.1 70B), specific popular works can be completely memorized within that small average
 
 3. **Entire books can be reconstructed deterministically**: For highly memorized books, it is possible to deterministically generate a near-verbatim copy using just a short seed prompt (demonstrated with Harry Potter)
 
-4. **LLMs could be derivative works of memorized books**: Memorized content is encoded in model weights—models that memorize substantial portions of copyrighted works could be considered infringing copies or derivative works under U.S. copyright law
+4. **LLMs could be derivative works of memorized books**: Memorized content is encoded in model weights-models that memorize substantial portions of copyrighted works could be considered infringing copies or derivative works under U.S. copyright law
 
 ---
 
@@ -76,7 +76,7 @@
 
 **Key Support for Thesis**:
 - Proves LLM "knowledge" of popular books is literally stored copies, not abstract understanding
-- Reconstruction experiment shows model has not "learned" Harry Potter—it has memorized it so thoroughly that beam search deterministically reproduces it character-by-character
+- Reconstruction experiment shows model has not "learned" Harry Potter-it has memorized it so thoroughly that beam search deterministically reproduces it character-by-character
 - Confirms "statistical correlations" framing by defendants is misleading when models can reproduce copyrighted content nearly perfectly
 - Demonstrates the pattern matching thesis: LLMs match patterns from training data, including entire books verbatim
 
@@ -87,7 +87,7 @@
 ### Supports
 - **#245 (2601.02671)** - Book Extraction: Both show near-complete book extraction possible; this paper provides the methodological foundation for open-weight models
 - **Reversal Curse (2309.12288)**: Verbatim memorization proves training data is stored, not compressed/abstracted
-- **Faith & Fate (2305.18654)**: Supports pattern matching thesis—models reproduce training patterns verbatim
+- **Faith & Fate (2305.18654)**: Supports pattern matching thesis-models reproduce training patterns verbatim
 
 ### Extends
 - **#239 (2506.00782)** - LLMs Disclose Private Information: Extends privacy extraction to copyright domain
@@ -106,7 +106,7 @@
 
 ### Potential Counter-Arguments
 1. **Argument**: Memorization may be limited to extremely popular works
-   - **Response**: Paper acknowledges this—most books NOT memorized; this is actually a finding not a limitation
+   - **Response**: Paper acknowledges this-most books NOT memorized; this is actually a finding not a limitation
 
 2. **Argument**: Post-training safety measures could prevent extraction
    - **Response**: Paper studies base models; production systems addressed by companion paper (2601.02671)
@@ -125,7 +125,7 @@
 
 > "Models do not memorize all of their training data, but they do memorize some of it. An LLM may therefore memorize parts of some plaintiffs' copyrighted works, but not others'."
 
-> "Our results indicate that models are not, as plaintiffs sometimes contend, mere copies of all of the works on which they were trained. However, they also suggest that at least some LLMs (e.g., Llama 3.1 70B) may be derivative works of at least some books (e.g., Harry Potter and the Sorcerer's Stone)—because those LLMs have memorized a significant amount of protectable expression from those books."
+> "Our results indicate that models are not, as plaintiffs sometimes contend, mere copies of all of the works on which they were trained. However, they also suggest that at least some LLMs (e.g., Llama 3.1 70B) may be derivative works of at least some books (e.g., Harry Potter and the Sorcerer's Stone)-because those LLMs have memorized a significant amount of protectable expression from those books."
 
 ---
 
