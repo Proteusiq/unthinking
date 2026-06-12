@@ -1,6 +1,7 @@
 # Paper Analysis: Large Language Models Are Echo Chambers
 
 ## Metadata
+- **arXiv ID**: N/A (LREC-COLING 2024, ACL Anthology 2024.lrec-main.884)
 - **Venue**: LREC-COLING 2024
 - **Title**: Large Language Models Are Echo Chambers
 - **Authors**: Jan Nehring, Aleksandra Gabryszak, Pascal Jürgens, Aljoscha Burchardt, Stefan Schaffer, Matthias Spielkamp, Birgit Stark
