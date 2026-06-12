@@ -318,6 +318,20 @@ When expanding the corpus, search multiple angles:
 
 **CRITICAL**: Nothing is done until it is pushed. A task is only complete when changes are committed AND pushed to the remote repository.
 
+### Keeping the Index in Sync (run before every commit that touches analyses)
+
+`analysis/index/corpus.json` is the source of truth for all displayed counts, and a second copy lives at `apps/galaxy/public/corpus.json`. **Any** edit to a file under `analysis/explored/` (even a one-line metadata fix) changes the index - at minimum the `word_count` - so the index must be rebuilt and re-synced, or the two copies drift.
+
+Do NOT rebuild or copy these by hand. Use the Makefile targets, which keep both copies and all hardcoded counts aligned:
+
+```bash
+make corpus        # rebuild corpus.json AND copy it to apps/galaxy/public/
+make sync-counts   # rewrite every hardcoded count (README, findings, galaxy, synthesis, ...)
+make deploy-check  # fails on corpus drift or out-of-sync counts; run this last
+```
+
+Definition of done for any analysis change: `make corpus && make sync-counts && make deploy-check` all clean, then commit (including the regenerated `corpus.json` and galaxy copy) and push.
+
 ### Match the Canonical Example
 
 Use `analysis/explored/00-09/00_faith_and_fate.md` as the structural template for every new analysis. Arrange new reviews to look like it: the same section headings, the same ordering, the same flavour of evidence tables, ASCII diagrams, and key-quote blocks.
