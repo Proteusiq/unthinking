@@ -1,6 +1,6 @@
 # Paper Interaction Graph
 
-> **Papers tracked**: 367
+> **Papers tracked**: 375
 > **See also**: `memento.md` for executive summary
 
 ## Overview
@@ -2091,6 +2091,36 @@ Five papers studying reward hacking in LLM RL - from controlled reproduction to 
 - 2606.05625 (#372) --extends--> 2307.13702 (#8): reward-free prefix probing complements faithfulness metrics
 - 2606.05625 (#372) --supports--> 2602.11201 (#247): hinted CoTs commit 23x earlier, confirming faithfulness decay
 - 2606.04145 (#373) --extends--> 2406.02900 (#359): operationalizes overoptimization scaling laws at scheduler level
+
+---
+
+## ARC-AGI-3: Interactive OOD Collapse (2603.24621)
+
+```
+┌──────────────────────────────────────────────────────────────────────────┐
+│            ARC-AGI-3 (2603.24621) - ARC Prize Foundation                 │
+│                                                                          │
+│  Humans 100%  vs  frontier AI <1%                                        │
+│  Opus 4.6 0.50% · Gemini 3.1 Pro 0.40% · GPT 5.4 0.20% · Grok 0.10%      │
+│  Harness bimodality: TR87 0%→97.1% (Duke), BP35 0%→0% (unseen)           │
+└──────────────────────────────────────────────────────────────────────────┘
+        │                      │                        │
+        │ confirms             │ same mechanism         │ pre-empts
+        ▼                      ▼                        ▼
+┌──────────────┐      ┌──────────────────┐     ┌──────────────────────┐
+│ OMEGA        │      │ Faith & Fate     │     │ DeepSeek-R1          │
+│ (2506.18880) │      │ (2305.18654)     │     │ (RL fixes are        │
+│ Planning Gap │      │ GSM-Symbolic     │     │  domain-bound)       │
+│ (2601.14456) │      │ (2410.05229)     │     │                      │
+└──────────────┘      └──────────────────┘     └──────────────────────┘
+```
+
+### Direct Relationships
+- 2603.24621 (#374) --supports--> 2305.18654 (#1): interactive confirmation of subgraph-matching; OOD composition collapses to <1%
+- 2603.24621 (#374) --supports--> 2410.05229 (#3): same distribution-shift fragility; reasoning chains reused from training
+- 2603.24621 (#374) --supports--> 2506.18880 (#31): OMEGA's composed/transformative collapse, now interactive (humans 100%, AI <1%)
+- 2603.24621 (#374) --supports--> 2506.06941 (#2): collapse past complexity threshold; all frontier models sit past it
+- 2603.24621 (#374) --extends--> 2605.19999 (#362): same prescription - private sets must be OOD from public demos to test generalization
 
 ### 2026-01-24
 | Papers Added | Key Findings |

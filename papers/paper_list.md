@@ -1,6 +1,6 @@
 # Paper List
 
-> 370 papers analyzed | 275 supports thesis | 15 challenges | 80 balanced | Date range: 2021-2026
+> 375 papers analyzed | 279 supports thesis | 15 challenges | 81 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -374,3 +374,4 @@
 | 368 | 2606.06223 | Jun 2026 | From Reward-Hack Activations to Agentic Risk States | Supports |
 | 369 | 2606.05625 | Jun 2026 | Self-Commitment Latency: A Reward-Free Probe for Prompted Implicit Hacking | Supports |
 | 370 | 2606.04145 | Jun 2026 | EvalStop: Detecting and Correcting Reward Overoptimization in Multi-Tenant RLHF Platforms | Balanced |
+| 371 | 2603.24621 | Mar 2026 | ARC-AGI-3: A New Challenge for Frontier Agentic Intelligence | Supports |

@@ -6172,7 +6172,7 @@
     "smoking_gun": false,
     "quotes": [],
     "analysis_path": "analysis/explored/360-369/365_contamination_resistant_benchmarks.md",
-    "word_count": 1110
+    "word_count": 1111
   },
   {
     "id": 366,
@@ -6188,6 +6188,122 @@
       "Don't let AI judge AI"
     ],
     "analysis_path": "analysis/explored/360-369/366_peerbench_benchmarking_is_broken.md",
-    "word_count": 1054
+    "word_count": 1085
+  },
+  {
+    "id": 367,
+    "arxiv": "2602.19239",
+    "title": "Attention Deficits in Language Models: Causal Explanations for Procedural Hallucinations",
+    "date": "February 2026",
+    "stance": "supports",
+    "cluster": "faithfulness",
+    "core_finding": "PROCEDURAL HALLUCINATION DECOMPOSITION Stage 1: Compute/Encode (hidden state encodes correct value) ▼ Stage 2A: Gating Does model enter answer mode? ▼ Stage 2B: Binding Does model select correct candidate? ValueGap = z(correct) - z(best wrong) KEY: Both Stage 2A and 2B are READOUT failures, not knowledge failures. The correct answer is already in the hidden state.",
+    "smoking_gun": false,
+    "quotes": [
+      "Our experiments focus on synthetic binding tasks designed to isolate the phenomena. Whether the same mechanisms explain failures in naturalistic long-context tasks (e.g., document QA) remains to be validated.",
+      "A model could produce a valid-looking trace via post-hoc rationalization.",
+      "Trace auditing does not prove faithfulness - it detects certificate failures but does not prove faithfulness to the model's hidden chain-of-thought."
+    ],
+    "analysis_path": "analysis/explored/360-369/367_attention_deficits_procedural_hallucinations.md",
+    "word_count": 1725
+  },
+  {
+    "id": 368,
+    "arxiv": "2507.11768",
+    "title": "LLMs are Bayesian, In Expectation, Not in Realization",
+    "date": "July 2025 (v2: February 2026)",
+    "stance": "supports",
+    "cluster": "theoretical",
+    "core_finding": "THE RESOLUTION: BAYESIAN IN EXPECTATION, NOT IN REALIZATION Falck et al. (2024): \"LLMs violate martingale properties!\" → Conclusion: LLMs are NOT Bayesian This paper: \"Yes, but positional encodings MUST break exchangeability. The right baseline is EXPECTED performance over random orderings, not per-ordering performance.\" Result: Near-optimal MDL in expectation ✓ Martingale violations per realization ✓ (predicted)",
+    "smoking_gun": false,
+    "quotes": [
+      "Theorem 3.4 assumes logit depends on ordering only through a pooled positional summary and is L_f-Lipschitz - yields an interpretable upper bound but not intended to predict gap magnitudes in large pretrained transformers.",
+      "A fully mechanistic account of order effects in large LLMs remains open.",
+      "We do not claim uniform permutations are a baseline for general language modeling where word order carries semantics."
+    ],
+    "analysis_path": "analysis/explored/360-369/368_llms_bayesian_in_expectation.md",
+    "word_count": 1708
+  },
+  {
+    "id": 369,
+    "arxiv": "2606.04923",
+    "title": "CHERRL - Reproducing, Analyzing, and Detecting Reward Hacking in Rubric-Based RL",
+    "date": "Jun 2026",
+    "stance": "supports",
+    "cluster": "agent",
+    "core_finding": "CHERRL: CONTROLLED REWARD HACKING OBSERVATION ┌───────────┐ RL training ┌───────────────┐ ◄──────────────────",
+    "smoking_gun": false,
+    "quotes": [],
+    "analysis_path": "analysis/explored/360-369/369_cherrl_reward_hacking_rubric_rl.md",
+    "word_count": 1314
+  },
+  {
+    "id": 370,
+    "arxiv": "2606.03131",
+    "title": "HARVE - Hacking-Aware Reward-Head Vector Editing for Robust Reward Models",
+    "date": "Jun 2026",
+    "stance": "supports",
+    "cluster": "safety",
+    "core_finding": "HARVE: TRAINING-FREE REWARD ROBUSTIFICATION Step 1: Collect reward-model activations on hacked vs clean pairs Step 2: Extract \"hacking directions\" via mean-difference vectors Step 3: Edit the reward head to suppress these directions ┌───────────┐ activations ┌──────────────┐ ──────────────► → hacking directions ──────────────►",
+    "smoking_gun": false,
+    "quotes": [],
+    "analysis_path": "analysis/explored/370-379/370_harve_reward_head_editing.md",
+    "word_count": 1381
+  },
+  {
+    "id": 371,
+    "arxiv": "2606.06223",
+    "title": "From Reward-Hack Activations to Agentic Risk States",
+    "date": "Jun 2026",
+    "stance": "supports",
+    "cluster": "mechanistic",
+    "core_finding": "REWARD-HACK ACTIVATION → AGENTIC BEHAVIOR PIPELINE ┌────────────────┐ ┌────────────────┐ ┌────────────────┐ ──> ──>",
+    "smoking_gun": false,
+    "quotes": [],
+    "analysis_path": "analysis/explored/370-379/371_reward_hack_activations_agentic_risk.md",
+    "word_count": 1344
+  },
+  {
+    "id": 372,
+    "arxiv": "2606.05625",
+    "title": "Self-Commitment Latency - A Reward-Free Probe for Prompted Implicit Hacking",
+    "date": "Jun 2026",
+    "stance": "supports",
+    "cluster": "cot",
+    "core_finding": "COMMITMENT LATENCY: WHEN DOES THE COT \"KNOW\" ITS ANSWER? HINTED CoT: ┌────┬────────────────────────────────────────────┐ Post-hoc rationalization ................. └────┴────────────────────────────────────────────┘ τ_first ≈ 0.032 (commits almost immediately) HONEST CoT: ┌──────────────────────────────────────────┬──────┐ ANS └──────────────────────────────────────────┴──────┘ τ_first ≈ 0.727 (commits late, after working through problem) Gap: 0.727 - 0.032 = 0.695 normalized positions AUROC for distinguishing: 0.878 (all), 0.931 (both-correct)",
+    "smoking_gun": false,
+    "quotes": [],
+    "analysis_path": "analysis/explored/370-379/372_self_commitment_latency.md",
+    "word_count": 1558
+  },
+  {
+    "id": 373,
+    "arxiv": "2606.04145",
+    "title": "EvalStop - Detecting and Correcting Reward Overoptimization in Multi-Tenant RLHF Platforms",
+    "date": "Jun 2026",
+    "stance": "balanced",
+    "cluster": "memorization",
+    "core_finding": "THE TRAINING LOSS TRAP Training loss: ↘↘↘↘↘↘↘↘↘↘↘ (monotonically decreasing) True quality: ↗↗↗ peak ↘↘↘ (Goodhart hump) Reward score: ↗↗↗↗↗↗↗↗↗↗↗ (monotonically increasing) Training loss NEVER signals hacking - it keeps improving. Reward score NEVER signals hacking - it keeps improving. Only EXTERNAL evaluation reveals the quality decline. EvalStop monitors this external signal at the scheduler level.",
+    "smoking_gun": false,
+    "quotes": [],
+    "analysis_path": "analysis/explored/370-379/373_evalstop_reward_overoptimization.md",
+    "word_count": 1397
+  },
+  {
+    "id": 374,
+    "arxiv": "2603.24621",
+    "title": "ARC-AGI-3",
+    "date": "Mar 2026 (v1), Apr 2026 (v2)",
+    "stance": "supports",
+    "cluster": "agent",
+    "core_finding": "FOUR PILLARS OF AGENTIC INTELLIGENCE (no instructions given) 1 Exploration actively obtain information by interacting 2 Modeling turn observations into a predictive world model 3 Goal-Setting infer \"what to target\" with no told objective 4 Plan/Execute map an action path, course-correct on feedback",
+    "smoking_gun": true,
+    "quotes": [
+      "LLMs remain bound to task-specific training, albeit now over task-specific reasoning chains instead of the literal task data.",
+      "This strongly suggests that ARC-AGI data is well represented in the underlying model.",
+      "Humans can solve 100% of the environments, in contrast to frontier AI systems which, as of March 2026, score below 1%."
+    ],
+    "analysis_path": "analysis/explored/370-379/374_arc_agi_3.md",
+    "word_count": 2350
   }
 ]

@@ -2267,6 +2267,80 @@
             </div>
           </div>
         </div>
+
+        <div class="rw-section">
+          <div class="rw-header" onclick="toggleSection(this.parentElement)">
+            <span class="rw-num">&sect;8</span>
+            <span class="rw-title" style="color: var(--accent-purple)">Build One From Scratch</span>
+            <span class="rw-chev">&#9660;</span>
+          </div>
+          <div class="rw-body">
+            <h4>The whole pipeline in pure PyTorch</h4>
+            <div class="ref">
+              FareedKhan-dev/train-llm-from-scratch (MIT) &mdash; a decoder-only Transformer
+              (Attention Is All You Need) you can train on a single GPU
+            </div>
+            Every stage on this page &mdash; pre-training, then Base &rarr; SFT &rarr; Reward Model
+            &rarr; {PPO, DPO} &rarr; GRPO/RLVR &mdash; is implemented by hand in plain PyTorch, with
+            no <code>trl</code>, <code>peft</code>, or <code>transformers</code>. Reading the actual
+            ~200-line training loop is the fastest way to see that "reasoning" alignment is a thin
+            policy layer bolted onto a next-token predictor, not a new cognitive engine.<br /><br />
+
+            <h4>The base model is small and entirely next-token prediction</h4>
+            A <b>13M-parameter</b> model trains to coherent grammar in about a day on a single
+            consumer GPU (the RTX 5090 run peaked at ~0.6 GiB VRAM). The architecture is the
+            canonical stack: token + learned position embeddings &rarr; N transformer blocks
+            (pre-LayerNorm, causal multi-head attention, 4&times; ReLU MLP, residual connections)
+            &rarr; final LayerNorm &rarr; <code>lm_head</code>. The training objective is one line:
+            cross-entropy on the shifted sequence. There is no "understanding" module &mdash; world
+            knowledge is whatever the Pile compresses into the weights.<br /><br />
+
+            <h4>Post-training maps 1:1 onto the corpus thesis</h4>
+            <div class="table-wrapper">
+              <table class="rw-table">
+                <thead>
+                  <tr>
+                    <th>Stage</th>
+                    <th>From-scratch implementation</th>
+                    <th>Thesis angle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><b style="color: var(--accent-blue)">Pre-training</b></td>
+                    <td>Cross-entropy on the Pile, r50k_base tokenizer, HDF5 token stream</td>
+                    <td>Compression; the foundation is a predictor</td>
+                  </tr>
+                  <tr>
+                    <td><b style="color: var(--accent)">SFT</b></td>
+                    <td>Supervised fine-tune on Alpaca / Dolly</td>
+                    <td>Format prior &mdash; surfaces the instruction-following pattern</td>
+                  </tr>
+                  <tr>
+                    <td><b style="color: var(--accent)">Reward Model</b></td>
+                    <td>Pairwise preference head on Anthropic HH-RLHF / UltraFeedback</td>
+                    <td>Learned proxy &mdash; the exact surface reward hacking exploits</td>
+                  </tr>
+                  <tr>
+                    <td><b style="color: var(--accent)">PPO / DPO</b></td>
+                    <td>Hand-written policy optimization against the reward / preferences</td>
+                    <td>Policy head, not cognition</td>
+                  </tr>
+                  <tr>
+                    <td><b style="color: var(--accent-purple)">GRPO / RLVR</b></td>
+                    <td>Group-relative verifiable RL on GSM8K (correctness reward)</td>
+                    <td>Selection or creation? The open question, runnable locally</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <br />
+            Because the reward model and the GRPO loop are right there in the source, this repo also
+            makes the reward-hacking story concrete: the model optimizes the learned proxy reward,
+            not the intended goal &mdash; the same mechanism behind OpenAI's "goblins" reward leak
+            and the production RL misalignment papers in the corpus.
+          </div>
+        </div>
       </div>
     </div>
 
@@ -2294,6 +2368,7 @@
       Chinchilla) &middot; Loshchilov &amp; Hutter (2019, AdamW) &middot; Micikevicius et al. (2018)
       &middot; Ouyang et al. (2022, InstructGPT) &middot; Rafailov et al. (2023, DPO) &middot;
       DeepSeek-AI (2024/2025) &middot; Team OLMo (2025) &middot; MiniMax (2025) &middot; Kimi (2025)
+      &middot; FareedKhan-dev/train-llm-from-scratch (MIT)
     </div>
 
     <script>

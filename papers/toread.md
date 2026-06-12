@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **263 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **264 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed), [#71](https://github.com/Proteusiq/unthinking/issues/71), [#72](https://github.com/Proteusiq/unthinking/issues/72).
 
@@ -687,6 +687,7 @@ Modern manifestation of the 2016 "Faulty Reward Functions" / "Concrete Problems 
 | ~~[2606.06223](https://arxiv.org/abs/2606.06223)~~ | ~~From Reward-Hack Activations to Agentic Risk States~~ | ~~supports~~ | DONE #371 |
 | ~~[2606.05625](https://arxiv.org/abs/2606.05625)~~ | ~~Self-Commitment Latency: A Reward-Free Probe for Prompted Implicit Hacking~~ | ~~supports~~ | DONE #372 |
 | ~~[2606.04145](https://arxiv.org/abs/2606.04145)~~ | ~~EvalStop: Detecting and Correcting Reward Overoptimization in Multi-Tenant RLHF Platforms~~ | ~~balanced~~ | DONE #373 |
+| [2606.09711](https://arxiv.org/abs/2606.09711) | Proxy Reward Internalization and Mechanistic Exploitation: A Learned Precursor to Reward Hacking and Its Generalization | supports | Beigi, Jin, Huang; studies the *learned precursor* to hacking before it becomes visible, and how the proxy-reward representation generalizes - the mechanistic counterpart to OpenAI's "Where the Goblins Came From" reward-leak post-mortem (see `analysis/thoughts.md`) |
 
 ### Counter-Arguments (Steel-man)
 

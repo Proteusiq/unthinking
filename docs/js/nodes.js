@@ -8110,4 +8110,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/373_evalstop_reward_overoptimization.md',
   },
+  {
+    id: '2603.24621',
+    title: 'ARC-AGI-3: A New Challenge for Frontier Agentic Intelligence',
+    shortTitle: 'ARC-AGI-3',
+    date: 'Mar 2026',
+    stance: 'supports',
+    cluster: 'compositional',
+    coreArgument:
+      'On novel interactive environments with no instructions, humans score 100% while frontier AI scores below 1%. LRM reasoning is knowledge-bound: it works only where the base model already covers the domain and a verifier exists. Off-distribution, the capability evaporates.',
+    keyEvidence: [
+      'Humans 100% vs frontier AI <1%: Opus 4.6 0.50%, Gemini 3.1 Pro 0.40%, GPT 5.4 0.20%, Grok-4.20 0.10%',
+      'Harness bimodality: Opus 4.6 on TR87 goes 0% (no harness) to 97.1% (Duke harness); on unseen BP35 stays 0% both ways',
+      'Human calibration: 486 participants, 414 candidate environments, 2,893 attempts',
+      'ARC-AGI-1/2 eroded by synthetic-task flooding; Gemini 3 used the correct ARC color mapping unprompted',
+    ],
+    keyQuotes: [
+      'LLMs remain bound to task-specific training, albeit now over task-specific reasoning chains instead of the literal task data.',
+      'Specifically engineered harnesses are not a useful way to measure AGI progress, as their performance on seen environments does not translate to unseen environments, much less to novel domains.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/374_arc_agi_3.md',
+  },
 ];

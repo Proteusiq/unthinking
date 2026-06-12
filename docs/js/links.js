@@ -9356,4 +9356,39 @@ window.paperLinks = [
     description:
       'Training loss drops monotonically during hacking; only eval scores reveal quality degradation',
   },
+  {
+    source: '2603.24621',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Interactive confirmation of subgraph-matching: success stays bound to training distribution, OOD composition collapses to <1%',
+  },
+  {
+    source: '2603.24621',
+    target: '2410.05229',
+    type: 'supports',
+    description:
+      'Same fragility under distribution shift - reasoning chains are reused from training, not generated for novel tasks',
+  },
+  {
+    source: '2603.24621',
+    target: '2506.18880',
+    type: 'supports',
+    description:
+      'OMEGA shows composed/transformative generalization near zero; ARC-AGI-3 is the interactive analogue (humans 100%, AI <1%)',
+  },
+  {
+    source: '2603.24621',
+    target: '2506.06941',
+    type: 'supports',
+    description:
+      'Reasoning collapses past a complexity threshold; ARC-AGI-3 sits past that threshold for every frontier model',
+  },
+  {
+    source: '2603.24621',
+    target: '2605.19999',
+    type: 'extends',
+    description:
+      'Same prescription against memorization shortcuts: private sets must be OOD from public demos to test true generalization',
+  },
 ];
