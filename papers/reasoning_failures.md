@@ -332,16 +332,39 @@ GitHub: https://github.com/Peiyang-Song/Awesome-LLM-Reasoning-Failures
 
 | Status | Count |
 |--------|-------|
-| ✅ DONE (Already Analyzed) | 21 |
-| 📋 TO-READ (Issues #48-54) | ~123 |
+| ✅ DONE (Already Analyzed) | 16 |
+| 📋 TO-READ (Issues #48-54) | ~126 |
 | 🔗 LINKED (Need triage) | ~87 |
-| **Total from Survey** | ~231 |
+| **Total from Survey** | ~229 |
+
+### Papers Already in Our Corpus (16)
+
+| # | arXiv ID | Title |
+|---|----------|-------|
+| 000 | 2305.18654 | Faith and Fate |
+| 001 | 2410.05229 | GSM-Symbolic |
+| 003 | 2506.06941 | The Illusion of Thinking |
+| 020 | 2507.07313 | Frontier LLMs Still Struggle |
+| 031 | 2506.18880 | OMEGA - Can LLMs Reason Outside the Box |
+| 100 | 2307.02477 | Reasoning or Reciting |
+| 124 | 2506.09250 | Comment on Illusion of Thinking |
+| 125 | 2406.02061 | Alice in Wonderland |
+| 149 | 2309.12288 | The Reversal Curse |
+| 157 | 2406.11050 | Token Bias - Not Genuine Reasoners |
+| 160 | 2302.00093 | Distracted by Irrelevant Context |
+| 171 | 2410.21272 | Arithmetic Without Algorithms |
+| 191 | 2602.06176 | LLM Reasoning Failures Survey |
+| 222 | 2405.04669 | Reversal Curse Theory |
+| 223 | 2411.16679 | Latent Multi-Hop Reasoning |
+| 351 | 2405.19616 | Easy Problems LLMs Get Wrong |
 
 ### Changelog (2026-06-13)
-- Added 3 new papers from GitHub repo update:
+- Synced with GitHub repo (30 commits, 200 stars)
+- Added 3 new papers from repo update:
   - 2310.08661 - Counting and algorithmic generalization with transformers
   - 2507.15877 - Out-of-Distribution Generalization in ARC-AGI
   - 2508.05405 - DeepPHY v2
+- Updated statistics to reflect actual corpus overlap (16 papers)
 
 ---
 
