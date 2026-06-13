@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **264 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **204 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed), [#71](https://github.com/Proteusiq/unthinking/issues/71), [#72](https://github.com/Proteusiq/unthinking/issues/72).
 
@@ -89,7 +89,7 @@ Papers examining whether LLMs can reliably evaluate themselves or other LLMs. Cr
 | arXiv ID | Title | Stance |
 |----------|-------|--------|
 | ~~[2602.13626](https://arxiv.org/abs/2602.13626)~~ | ~~Benchmark Leakage Trap: Can We Trust LLM-based Recommendation?~~ | ~~supports~~ | DONE #293 |
-| [2602.11792](https://arxiv.org/abs/2602.11792) | Detecting RLVR Training Data via Structural Convergence of Reasoning | supports |
+| ~~[2602.11792](https://arxiv.org/abs/2602.11792)~~ | ~~Detecting RLVR Training Data via Structural Convergence of Reasoning~~ | ~~supports~~ | DONE #296 |
 | [2601.20858](https://arxiv.org/abs/2601.20858) | When Flores Bloomz Wrong: Cross-Direction Contamination in MT Evaluation | supports |
 | [2511.17602](https://arxiv.org/abs/2511.17602) | Beyond Surface-Level Similarity: Hierarchical Contamination Detection | supports |
 | [2510.02386](https://arxiv.org/abs/2510.02386) | On The Fragility of Benchmark Contamination Detection in Reasoning Models | supports |
@@ -236,7 +236,7 @@ Papers that may challenge the thesis. Must read to make thesis defensible.
 
 | arXiv ID | Title |
 |----------|-------|
-| [2301.05217](https://arxiv.org/abs/2301.05217) | Progress Measures for Grokking |
+| ~~[2301.05217](https://arxiv.org/abs/2301.05217)~~ | ~~Progress Measures for Grokking~~ | DONE #220 |
 | [2310.03714](https://arxiv.org/abs/2310.03714) | Representation Engineering |
 
 ### World Models (#41)
@@ -249,18 +249,18 @@ Papers that may challenge the thesis. Must read to make thesis defensible.
 
 | arXiv ID | Title |
 |----------|-------|
-| [2303.11366](https://arxiv.org/abs/2303.11366) | Reflexion |
-| [2408.03314](https://arxiv.org/abs/2408.03314) | Scaling Test-Time Compute Optimally |
-| [2309.11495](https://arxiv.org/abs/2309.11495) | Chain-of-Verification |
+| ~~[2303.11366](https://arxiv.org/abs/2303.11366)~~ | ~~Reflexion~~ | DONE #301 |
+| ~~[2408.03314](https://arxiv.org/abs/2408.03314)~~ | ~~Scaling Test-Time Compute Optimally~~ | DONE #302 |
+| ~~[2309.11495](https://arxiv.org/abs/2309.11495)~~ | ~~Chain-of-Verification~~ | DONE #303 |
 
 ### Emergence & Theory (#43)
 
 | arXiv ID | Title |
 |----------|-------|
 | [2306.09308](https://arxiv.org/abs/2306.09308) | Theory of Emergent In-Context Learning |
-| [2602.03837](https://arxiv.org/abs/2602.03837) | Accelerating Research with Gemini |
-| [2502.00674](https://arxiv.org/abs/2502.00674) | Recursive Self-Aggregation |
-| [2602.04843](https://arxiv.org/abs/2602.04843) | Fluid Representations in Reasoning Models (potential challenge) |
+| ~~[2602.03837](https://arxiv.org/abs/2602.03837)~~ | ~~Accelerating Research with Gemini~~ | DONE #297 |
+| ~~[2502.00674](https://arxiv.org/abs/2502.00674)~~ | ~~Recursive Self-Aggregation~~ | DONE #298 |
+| ~~[2602.04843](https://arxiv.org/abs/2602.04843)~~ | ~~Fluid Representations in Reasoning Models (potential challenge)~~ | DONE #170 |
 
 ---
 
@@ -268,19 +268,19 @@ Papers that may challenge the thesis. Must read to make thesis defensible.
 
 | arXiv ID | Title |
 |----------|-------|
-| [2412.03782](https://arxiv.org/abs/2412.03782) | ICLR: In-Context Learning of Representations |
-| [2509.19284](https://arxiv.org/abs/2509.19284) | Patterns over Principles |
+| ~~[2412.03782](https://arxiv.org/abs/2412.03782)~~ | ~~ICLR: In-Context Learning of Representations~~ | DONE #304 |
+| ~~[2509.19284](https://arxiv.org/abs/2509.19284)~~ | ~~Patterns over Principles~~ | DONE #305 |
 | [2406.04692](https://arxiv.org/abs/2406.04692) | Robust Reasoning with Noisy Rationales |
-| [2601.07226](https://arxiv.org/abs/2601.07226) | Lost in the Noise |
-| [2602.01763](https://arxiv.org/abs/2602.01763) | Provable Expressiveness Hierarchy |
-| [2602.02909](https://arxiv.org/abs/2602.02909) | BAPO Bounds on CoT Complexity |
-| [2602.01288](https://arxiv.org/abs/2602.01288) | EDIS: Entropy Dynamics |
-| [2602.02863](https://arxiv.org/abs/2602.02863) | Dynamic Instability Predicts Failure |
-| [2602.02983](https://arxiv.org/abs/2602.02983) | Are LLMs Biased Like Humans? |
-| [2602.04288](https://arxiv.org/abs/2602.04288) | Contextual Drag: How Errors Affect LLM Reasoning (10-20% drops) |
+| ~~[2601.07226](https://arxiv.org/abs/2601.07226)~~ | ~~Lost in the Noise~~ | DONE #306 |
+| ~~[2602.01763](https://arxiv.org/abs/2602.01763)~~ | ~~Provable Expressiveness Hierarchy~~ | DONE #307 |
+| ~~[2602.02909](https://arxiv.org/abs/2602.02909)~~ | ~~BAPO Bounds on CoT Complexity~~ | DONE #308 |
+| ~~[2602.01288](https://arxiv.org/abs/2602.01288)~~ | ~~EDIS: Entropy Dynamics~~ | DONE #309 |
+| ~~[2602.02863](https://arxiv.org/abs/2602.02863)~~ | ~~Dynamic Instability Predicts Failure~~ | DONE #310 |
+| ~~[2602.02983](https://arxiv.org/abs/2602.02983)~~ | ~~Are LLMs Biased Like Humans?~~ | DONE #311 |
+| ~~[2602.04288](https://arxiv.org/abs/2602.04288)~~ | ~~Contextual Drag: How Errors Affect LLM Reasoning (10-20% drops)~~ | DONE #180 |
 | ~~[2602.01017](https://arxiv.org/abs/2602.01017)~~ | ~~How Unfaithful Reasoning Emerges (simplicity bias threshold)~~ | ~~DONE (#172)~~ |
-| [2602.04212](https://arxiv.org/abs/2602.04212) | LLMs Struggle to Use Representations Learned In-Context |
-| [2602.02103](https://arxiv.org/abs/2602.02103) | No Global Plan in CoT: Myopic Horizon (Tele-Lens) |
+| ~~[2602.04212](https://arxiv.org/abs/2602.04212)~~ | ~~LLMs Struggle to Use Representations Learned In-Context~~ | DONE #182 |
+| ~~[2602.02103](https://arxiv.org/abs/2602.02103)~~ | ~~No Global Plan in CoT: Myopic Horizon (Tele-Lens)~~ | DONE #181 |
 
 ### Papers Citing Embers of Autoregression (2309.13638)
 
@@ -337,24 +337,24 @@ Source: [Awesome-LLM-Reasoning-Failures](https://github.com/Peiyang-Song/Awesome
 
 | arXiv ID | Title |
 |----------|-------|
-| [2305.03731](https://arxiv.org/abs/2305.03731) | Working Memory Capacity of ChatGPT |
-| [2505.10571](https://arxiv.org/abs/2505.10571) | LLMs Do Not Have Human-Like Working Memory |
-| [2305.19555](https://arxiv.org/abs/2305.19555) | Large Language Models Are Not Strong Abstract Reasoners |
+| ~~[2305.03731](https://arxiv.org/abs/2305.03731)~~ | ~~Working Memory Capacity of ChatGPT~~ | DONE #376 |
+| ~~[2505.10571](https://arxiv.org/abs/2505.10571)~~ | ~~LLMs Do Not Have Human-Like Working Memory~~ | DONE #379 |
+| ~~[2305.19555](https://arxiv.org/abs/2305.19555)~~ | ~~Large Language Models Are Not Strong Abstract Reasoners~~ | DONE #378 |
 | [2410.11756](https://arxiv.org/abs/2410.11756) | Evidence of Cognitive Deficits: Clock Drawing Test |
 | [2502.05092](https://arxiv.org/abs/2502.05092) | Lost in Time: Clock and Calendar Understanding Challenges |
 | [2412.04629](https://arxiv.org/abs/2412.04629) | Argumentative Experience: Reducing Confirmation Bias |
-| [2410.15413](https://arxiv.org/abs/2410.15413) | A Comprehensive Evaluation of Cognitive Biases in LLMs |
+| ~~[2410.15413](https://arxiv.org/abs/2410.15413)~~ | ~~A Comprehensive Evaluation of Cognitive Biases in LLMs~~ | DONE #377 |
 | [2403.00811](https://arxiv.org/abs/2403.00811) | Cognitive Bias in High-Stakes Decision-Making with LLMs |
 | [2202.12299](https://arxiv.org/abs/2202.12299) | Capturing Failures of LLMs via Human Cognitive Biases |
-| [2305.04400](https://arxiv.org/abs/2305.04400) | Do LLMs Show Decision Heuristics Similar to Humans? |
+| ~~[2305.04400](https://arxiv.org/abs/2305.04400)~~ | ~~Do LLMs Show Decision Heuristics Similar to Humans?~~ | DONE #381 |
 | [2504.09946](https://arxiv.org/abs/2504.09946) | Assessing Judging Bias in Large Reasoning Models |
 | [2502.17091](https://arxiv.org/abs/2502.17091) | WildFrame: Comparing Framing in Humans and LLMs |
 | [2503.04840](https://arxiv.org/abs/2503.04840) | Framing the Game: How Context Shapes LLM Decision-Making |
-| [2506.03923](https://arxiv.org/abs/2506.03923) | More or Less Wrong: Directional Bias in LLM Comparative Reasoning |
+| ~~[2506.03923](https://arxiv.org/abs/2506.03923)~~ | ~~More or Less Wrong: Directional Bias in LLM Comparative Reasoning~~ | DONE #372 |
 | [2310.10076](https://arxiv.org/abs/2310.10076) | Verbosity Bias in Preference Labeling by LLMs |
-| [2505.22910](https://arxiv.org/abs/2505.22910) | Talent or Luck? Evaluating Attribution Bias in LLMs |
+| ~~[2505.22910](https://arxiv.org/abs/2505.22910)~~ | ~~Talent or Luck? Evaluating Attribution Bias in LLMs~~ | DONE #373 |
 | [2406.01285](https://arxiv.org/abs/2406.01285) | LLMs as Recommender Systems: A Study of Popularity Bias |
-| [2507.22887](https://arxiv.org/abs/2507.22887) | Where to Show Demos in Your Prompt: Positional Bias |
+| ~~[2507.22887](https://arxiv.org/abs/2507.22887)~~ | ~~Where to Show Demos in Your Prompt: Positional Bias~~ | DONE #374 |
 | [2308.11483](https://arxiv.org/abs/2308.11483) | LLMs Sensitivity to Order of Options in Multiple-Choice Questions |
 | [2502.04134](https://arxiv.org/abs/2502.04134) | The Order Effect: Prompt Sensitivity to Input Order |
 | [2412.06593](https://arxiv.org/abs/2412.06593) | Anchoring Bias in LLMs: An Experimental Study |
@@ -393,10 +393,10 @@ Source: [Awesome-LLM-Reasoning-Failures](https://github.com/Peiyang-Song/Awesome
 | [2311.07468](https://arxiv.org/abs/2311.07468) | An Analysis and Mitigation of the Reversal Curse |
 | [2310.10322](https://arxiv.org/abs/2310.10322) | Untying the Reversal Curse via Bidirectional LM Editing |
 | [2410.18808](https://arxiv.org/abs/2410.18808) | Delving into the Reversal Curse: How Far Can LLMs Generalize? |
-| [2411.16353](https://arxiv.org/abs/2411.16353) | The Two-Hop Curse: A->B, B->C Fail to Learn A->C |
-| [2502.13913](https://arxiv.org/abs/2502.13913) | How Do LLMs Perform Two-Hop Reasoning in Context? |
+| ~~[2411.16353](https://arxiv.org/abs/2411.16353)~~ | ~~The Two-Hop Curse: A->B, B->C Fail to Learn A->C~~ | DONE #380 |
+| ~~[2502.13913](https://arxiv.org/abs/2502.13913)~~ | ~~How Do LLMs Perform Two-Hop Reasoning in Context?~~ | DONE #382 |
 | [2403.02615](https://arxiv.org/abs/2403.02615) | Exploring Limitations in Compositional Relation Reasoning |
-| [2405.06680](https://arxiv.org/abs/2405.06680) | Exploring the Compositional Deficiency in Mathematical Reasoning |
+| ~~[2405.06680](https://arxiv.org/abs/2405.06680)~~ | ~~Exploring the Compositional Deficiency in Mathematical Reasoning~~ | DONE #383 |
 | [2401.00757](https://arxiv.org/abs/2401.00757) | LogicAsker: Evaluating Logical Reasoning Ability |
 | [2306.12567](https://arxiv.org/abs/2306.12567) | Evaluating LLMs with NeuBAROCO: Syllogistic Reasoning |
 | [2310.05163](https://arxiv.org/abs/2310.05163) | LLMs' Inefficacy in Understanding Converse Relations |
@@ -433,7 +433,7 @@ Source: [Awesome-LLM-Reasoning-Failures](https://github.com/Peiyang-Song/Awesome
 | [2310.01991](https://arxiv.org/abs/2310.01991) | Fill in the Blank: Backward Reasoning in Math Word Problems |
 | [2502.06453](https://arxiv.org/abs/2502.06453) | MATH-Perturb: Benchmarking against Hard Perturbations |
 | [2505.20296](https://arxiv.org/abs/2505.20296) | Reasoning LLMs Are Wandering Solution Explorers |
-| [2507.13337](https://arxiv.org/abs/2507.13337) | FormulaOne: Measuring Depth of Algorithmic Reasoning |
+| ~~[2507.13337](https://arxiv.org/abs/2507.13337)~~ | ~~FormulaOne: Measuring Depth of Algorithmic Reasoning~~ | DONE #375 |
 
 ### Arithmetic & Mathematics
 
@@ -517,8 +517,8 @@ Papers extracted from research notes on framing bias, unlearning, and jailbreaki
 
 | arXiv ID | Title | Stance |
 |----------|-------|--------|
-| [2602.20440](https://arxiv.org/abs/2602.20440) | Intelligence Without Integrity: Why Capable LLMs May Undermine Reliability | supports |
-| [2510.14665](https://arxiv.org/abs/2510.14665) | Beyond Hallucinations: The Illusion of Understanding in Large Language Models | supports |
+| ~~[2602.20440](https://arxiv.org/abs/2602.20440)~~ | ~~Intelligence Without Integrity: Why Capable LLMs May Undermine Reliability~~ | ~~supports~~ | DONE #224 |
+| ~~[2510.14665](https://arxiv.org/abs/2510.14665)~~ | ~~Beyond Hallucinations: The Illusion of Understanding in Large Language Models~~ | ~~supports~~ | DONE #225 |
 
 **Key finding (Intelligence Without Integrity)**: Intelligence and integrity trade off - frontier models most likely to reach correct conclusions under neutral conditions are often most susceptible to shifting conclusions under motivated framing. Introduces "goal-conditioned analytical sycophancy."
 
@@ -528,11 +528,11 @@ Papers on model unlearning - shows brittleness of learned behaviors.
 
 | arXiv ID | Title | Stance |
 |----------|-------|--------|
-| [2510.09007](https://arxiv.org/abs/2510.09007) | LLM Unlearning on Noisy Forget Sets (AISec'25) | balanced |
-| [2503.01854](https://arxiv.org/abs/2503.01854) | A Comprehensive Survey of Machine Unlearning Techniques for LLMs | balanced |
-| [2410.16454](https://arxiv.org/abs/2410.16454) | Catastrophic Failure of LLM Unlearning via Quantization (ICLR 2025) | supports |
-| [2511.11914](https://arxiv.org/abs/2511.11914) | Forgetting-MarI: LLM Unlearning via Marginal Information Regularization | balanced |
-| [2311.02105](https://arxiv.org/abs/2311.02105) | Making Harmful Behaviors Unlearnable for Large Language Models | balanced |
+| ~~[2510.09007](https://arxiv.org/abs/2510.09007)~~ | ~~LLM Unlearning on Noisy Forget Sets (AISec'25)~~ | ~~balanced~~ | DONE #226 |
+| ~~[2503.01854](https://arxiv.org/abs/2503.01854)~~ | ~~A Comprehensive Survey of Machine Unlearning Techniques for LLMs~~ | ~~balanced~~ | DONE #227 |
+| ~~[2410.16454](https://arxiv.org/abs/2410.16454)~~ | ~~Catastrophic Failure of LLM Unlearning via Quantization (ICLR 2025)~~ | ~~supports~~ | DONE #228 |
+| ~~[2511.11914](https://arxiv.org/abs/2511.11914)~~ | ~~Forgetting-MarI: LLM Unlearning via Marginal Information Regularization~~ | ~~balanced~~ | DONE #229 |
+| ~~[2311.02105](https://arxiv.org/abs/2311.02105)~~ | ~~Making Harmful Behaviors Unlearnable for Large Language Models~~ | ~~balanced~~ | DONE #230 |
 
 ### Jailbreaking (Lower Priority - Large Existing Literature)
 
@@ -540,18 +540,18 @@ Papers on jailbreaking - shows superficiality of alignment.
 
 | arXiv ID | Title | Stance |
 |----------|-------|--------|
-| [2505.19773](https://arxiv.org/abs/2505.19773) | What Really Matters in Many-Shot Attacks? Long-Context Vulnerabilities (ACL 2025) | supports |
-| [2504.09604](https://arxiv.org/abs/2504.09604) | Mitigating Many-Shot Jailbreaking | supports |
-| [2502.01925](https://arxiv.org/abs/2502.01925) | PANDAS: Improving Many-Shot Jailbreaking (ICML 2025 Spotlight) | supports |
-| [2410.16531](https://arxiv.org/abs/2410.16531) | Bayesian scaling laws for in-context learning (COLM 2025) | supports |
-| [2407.04295](https://arxiv.org/abs/2407.04295) | Jailbreak Attacks and Defenses Against LLMs: A Survey | supports |
-| [2403.12171](https://arxiv.org/abs/2403.12171) | EasyJailbreak: A Unified Framework for Jailbreaking LLMs | supports |
-| [2507.22171](https://arxiv.org/abs/2507.22171) | Enhancing Jailbreak Attacks on LLMs via Persona Prompts (NeurIPS 2025 Workshop) | supports |
-| [2508.03054](https://arxiv.org/abs/2508.03054) | Beyond Surface-Level Detection: Cognitive-Driven Defense via Meta-Operations | supports |
-| [2506.00782](https://arxiv.org/abs/2506.00782) | Jailbreak-R1: Exploring Jailbreak Capabilities via RL | supports |
-| [2508.04039](https://arxiv.org/abs/2508.04039) | Large Reasoning Models Are Autonomous Jailbreak Agents (Nature Comms 2026) | supports |
-| [2503.05264](https://arxiv.org/abs/2503.05264) | Jailbreaking is (Mostly) Simpler Than You Think | supports |
-| [2505.10066](https://arxiv.org/abs/2505.10066) | Dark LLMs: The Growing Threat of Unaligned AI Models | supports |
+| ~~[2505.19773](https://arxiv.org/abs/2505.19773)~~ | ~~What Really Matters in Many-Shot Attacks? Long-Context Vulnerabilities (ACL 2025)~~ | ~~supports~~ | DONE #231 |
+| ~~[2504.09604](https://arxiv.org/abs/2504.09604)~~ | ~~Mitigating Many-Shot Jailbreaking~~ | ~~supports~~ | DONE #232 |
+| ~~[2502.01925](https://arxiv.org/abs/2502.01925)~~ | ~~PANDAS: Improving Many-Shot Jailbreaking (ICML 2025 Spotlight)~~ | ~~supports~~ | DONE #233 |
+| ~~[2410.16531](https://arxiv.org/abs/2410.16531)~~ | ~~Bayesian scaling laws for in-context learning (COLM 2025)~~ | ~~supports~~ | DONE #234 |
+| ~~[2407.04295](https://arxiv.org/abs/2407.04295)~~ | ~~Jailbreak Attacks and Defenses Against LLMs: A Survey~~ | ~~supports~~ | DONE #235 |
+| ~~[2403.12171](https://arxiv.org/abs/2403.12171)~~ | ~~EasyJailbreak: A Unified Framework for Jailbreaking LLMs~~ | ~~supports~~ | DONE #236 |
+| ~~[2507.22171](https://arxiv.org/abs/2507.22171)~~ | ~~Enhancing Jailbreak Attacks on LLMs via Persona Prompts (NeurIPS 2025 Workshop)~~ | ~~supports~~ | DONE #237 |
+| ~~[2508.03054](https://arxiv.org/abs/2508.03054)~~ | ~~Beyond Surface-Level Detection: Cognitive-Driven Defense via Meta-Operations~~ | ~~supports~~ | DONE #238 |
+| ~~[2506.00782](https://arxiv.org/abs/2506.00782)~~ | ~~Jailbreak-R1: Exploring Jailbreak Capabilities via RL~~ | ~~supports~~ | DONE #239 |
+| ~~[2508.04039](https://arxiv.org/abs/2508.04039)~~ | ~~Large Reasoning Models Are Autonomous Jailbreak Agents (Nature Comms 2026)~~ | ~~supports~~ | DONE #240 |
+| ~~[2503.05264](https://arxiv.org/abs/2503.05264)~~ | ~~Jailbreaking is (Mostly) Simpler Than You Think~~ | ~~supports~~ | DONE #241 |
+| ~~[2505.10066](https://arxiv.org/abs/2505.10066)~~ | ~~Dark LLMs: The Growing Threat of Unaligned AI Models~~ | ~~supports~~ | DONE #242 |
 
 **Key finding from Many-Shot (2505.19773)**: Context length is primary factor - even repetitive shots or random dummy text can circumvent safety measures.
 
@@ -582,24 +582,24 @@ Key empirical questions to resolve when reading these papers:
 
 | arXiv ID | Title | Stance | Notes |
 |----------|-------|--------|-------|
-| [2502.17424](https://arxiv.org/abs/2502.17424) | Emergent Misalignment: Narrow finetuning can produce broadly misaligned LLMs | TBD | Nature 2026; finetuning on insecure code produces broad behavioral changes |
-| [2511.18397](https://arxiv.org/abs/2511.18397) | Natural emergent misalignment from reward hacking in production RL | TBD | Anthropic; production RL environments; "inoculation prompting" tested as mitigation |
-| [2508.02063](https://arxiv.org/abs/2508.02063) | TRACEALIGN: Tracing the Drift - Attributing Alignment Failures to Training-Time Belief Sources | TBD | Introduces Belief Conflict Index; traces failures to training data |
+| ~~[2502.17424](https://arxiv.org/abs/2502.17424)~~ | ~~Emergent Misalignment: Narrow finetuning can produce broadly misaligned LLMs~~ | ~~TBD~~ | DONE #328 | Nature 2026; finetuning on insecure code produces broad behavioral changes |
+| ~~[2511.18397](https://arxiv.org/abs/2511.18397)~~ | ~~Natural emergent misalignment from reward hacking in production RL~~ | ~~TBD~~ | DONE #332 | Anthropic; production RL environments; "inoculation prompting" tested as mitigation |
+| ~~[2508.02063](https://arxiv.org/abs/2508.02063)~~ | ~~TRACEALIGN: Tracing the Drift - Attributing Alignment Failures to Training-Time Belief Sources~~ | ~~TBD~~ | DONE #329 | Introduces Belief Conflict Index; traces failures to training data |
 
 ### Alignment Evaluation & Stress Testing
 
 | arXiv ID | Title | Stance | Notes |
 |----------|-------|--------|-------|
-| [2602.20813](https://arxiv.org/abs/2602.20813) | Pressure Reveals Character: Behavioural Alignment Evaluation at Depth | TBD | 904 scenarios across 6 categories; tests under pressure |
-| [2510.07686](https://arxiv.org/abs/2510.07686) | Stress-Testing Model Specs Reveals Character Differences | TBD | Forces tradeoffs between principles; 70,000+ divergent cases |
-| [2510.11235](https://arxiv.org/abs/2510.11235) | AI Alignment Strategies from a Risk Perspective | TBD | Analyzes 7 techniques vs 7 failure modes |
-| [2512.00349](https://arxiv.org/abs/2512.00349) | Debate with Images: Detecting Deceptive Behaviors in MLLMs | TBD | MM-DeceptionBench; multi-agent debate framework |
+| ~~[2602.20813](https://arxiv.org/abs/2602.20813)~~ | ~~Pressure Reveals Character: Behavioural Alignment Evaluation at Depth~~ | ~~TBD~~ | DONE #330 | 904 scenarios across 6 categories; tests under pressure |
+| ~~[2510.07686](https://arxiv.org/abs/2510.07686)~~ | ~~Stress-Testing Model Specs Reveals Character Differences~~ | ~~TBD~~ | DONE #331 | Forces tradeoffs between principles; 70,000+ divergent cases |
+| ~~[2510.11235](https://arxiv.org/abs/2510.11235)~~ | ~~AI Alignment Strategies from a Risk Perspective~~ | ~~TBD~~ | DONE #333 | Analyzes 7 techniques vs 7 failure modes |
+| ~~[2512.00349](https://arxiv.org/abs/2512.00349)~~ | ~~Debate with Images: Detecting Deceptive Behaviors in MLLMs~~ | ~~TBD~~ | DONE #334 | MM-DeceptionBench; multi-agent debate framework |
 
 ### Alignment Surveys & Frameworks
 
 | arXiv ID | Title | Stance | Notes |
 |----------|-------|--------|-------|
-| [2507.19672](https://arxiv.org/abs/2507.19672) | Alignment and Safety in LLMs: Safety Mechanisms, Training Paradigms, and Emerging Challenges | TBD | 119-page survey of alignment techniques |
+| ~~[2507.19672](https://arxiv.org/abs/2507.19672)~~ | ~~Alignment and Safety in LLMs: Safety Mechanisms, Training Paradigms, and Emerging Challenges~~ | ~~TBD~~ | DONE #335 | 119-page survey of alignment techniques |
 
 ### Monitoring & Situational Awareness (Bengio et al.)
 
@@ -612,7 +612,7 @@ Key empirical questions to resolve when reading these papers:
 
 | arXiv ID | Title | Stance | Notes |
 |----------|-------|--------|-------|
-| [2502.09192](https://arxiv.org/abs/2502.09192) | Thinking beyond the anthropomorphic paradigm benefits LLM research | TBD | Analyzes 100k+ papers; identifies anthropomorphic assumptions |
+| ~~[2502.09192](https://arxiv.org/abs/2502.09192)~~ | ~~Thinking beyond the anthropomorphic paradigm benefits LLM research~~ | ~~TBD~~ | DONE #336 | Analyzes 100k+ papers; identifies anthropomorphic assumptions |
 
 ---
 
