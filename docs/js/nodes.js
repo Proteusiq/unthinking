@@ -8286,4 +8286,72 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/378_not_strong_abstract_reasoners.md',
   },
+  {
+    id: '2505.10571',
+    title: 'On the Failure of Latent State Persistence in Large Language Models',
+    shortTitle: 'Latent State Failure',
+    date: 'May 2025',
+    stance: 'supports',
+    cluster: 'cognitive',
+    coreArgument:
+      'LLMs cannot instantiate, maintain, or manipulate latent states (working memory). They function as reactive post-hoc reasoners, predicting what a persistent agent would say rather than maintaining internal state.',
+    keyEvidence: [
+      'ESM = 0 for 8/17 frontier models (should be 1.0)',
+      'GPT-4o-Mini: 100% self-contradiction within ~41 queries',
+      'Scaling non-monotonic: LLaMA-8B (ESM=0.98) > LLaMA-70B (ESM=0.465)',
+      'Providing factual hints DECREASED performance (MSC: 74.55 → 55.34)',
+      'Blue-Seven phenomenon: 60-90% bias toward number 7',
+    ],
+    keyQuotes: [
+      'LLMs function as reactive post-hoc solvers rather than proactive planners with LSP.',
+      'They do not "know" a hidden variable; they predict what a persistent agent would say based on statistical likelihood.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/379_latent_state_persistence_failure.md',
+  },
+  {
+    id: '2411.16353',
+    title: 'Lessons from Studying Two-Hop Latent Reasoning',
+    shortTitle: 'Two-Hop Curse',
+    date: 'Nov 2024',
+    stance: 'supports',
+    cluster: 'compositional',
+    coreArgument:
+      'LLMs trained on A→B and B→C facts separately achieve 0% accuracy on two-hop A→C questions without CoT, despite ~100% single-hop recall. Apparent two-hop reasoning relies on facts co-occurring in pretraining, not compositional inference.',
+    keyEvidence: [
+      'One-hop: ~100%, Two-hop No-CoT: ~0% (chance level)',
+      'No-CoT test loss = loss on randomly permuted responses (learns nothing)',
+      'Architectural interventions (layer-selective, activation supervision) fail',
+      'Same-document training succeeds (co-occurrence = memorization)',
+      'Semi-synthetic: ~20% two-hop when one fact from pretraining',
+    ],
+    keyQuotes: [
+      'Researchers observing models answer two-hop questions about real-world facts might incorrectly infer robust latent reasoning capabilities.',
+      'The model learns NOTHING about two-hop composition.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/380-389/380_two_hop_latent_reasoning.md',
+  },
+  {
+    id: '2305.04400',
+    title: 'Do Large Language Models Show Decision Heuristics Similar to Humans?',
+    shortTitle: 'Decision Heuristics',
+    date: 'May 2023',
+    stance: 'supports',
+    cluster: 'cognitive',
+    coreArgument:
+      'LLMs exhibit same cognitive biases as humans (anchoring, representativeness, framing, endowment) despite lacking the cognitive/affective processes thought to produce them. This suggests biases are encoded in language patterns, not computed.',
+    keyEvidence: [
+      '4/4 classic decision heuristics found in GPT-3.5',
+      'Anchoring effect from random anchors',
+      'Conjunction fallacy (P(A∩B) > P(A))',
+      'Framing effect despite identical information',
+      'Endowment effect without ownership mechanism',
+    ],
+    keyQuotes: [
+      'The fact that an LLM - which lacks these [cognitive] processes - also shows such effects invites consideration of the possibility that language may play a role in generating these effects in humans.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/380-389/381_decision_heuristics_gpt35.md',
+  },
 ];

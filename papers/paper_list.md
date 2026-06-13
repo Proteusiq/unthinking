@@ -1,6 +1,6 @@
 # Paper List
 
-> 379 papers analyzed | 283 supports thesis | 15 challenges | 81 balanced | Date range: 2021-2026
+> 382 papers analyzed | 286 supports thesis | 15 challenges | 81 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -382,3 +382,6 @@
 | 376 | 2305.03731 | May 2023 | Working Memory Capacity of ChatGPT: An Empirical Study | Supports |
 | 377 | 2410.15413 | Oct 2024 | A Comprehensive Evaluation of Cognitive Biases in LLMs | Supports |
 | 378 | 2305.19555 | May 2023 | Large Language Models Are Not Strong Abstract Reasoners | Supports |
+| 379 | 2505.10571 | May 2025 | On the Failure of Latent State Persistence in Large Language Models | Supports |
+| 380 | 2411.16353 | Nov 2024 | Lessons from Studying Two-Hop Latent Reasoning | Supports |
+| 381 | 2305.04400 | May 2023 | Do Large Language Models Show Decision Heuristics Similar to Humans? | Supports |

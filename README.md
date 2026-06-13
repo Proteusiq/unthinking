@@ -19,7 +19,7 @@ Do LLMs actually understand or do they predict plausible-sounding tokens without
 This project surveys 382 papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
 
 To bring the findings home:
-- **Paper network**: interactive graph of 382 papers and 1428 relationships, filterable by stance
+- **Paper network**: interactive graph of 382 papers and 1440 relationships, filterable by stance
 - **Experiments**:
   - *Decoding ablation*: reasoning paths exist in base models, hidden by greedy decoding; RL surfaces them
   - *Steering ablation*: safety alignment is a thin layer of refusal patterns that washes off under trivial perturbations
@@ -40,8 +40,8 @@ RL and test-time compute surface pre-existing capabilities rather than creating 
 
 Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/)**
 
-- **Force-directed graph**: 382 papers as nodes, 1428 relationships as edges
-- **Color-coded stances**: supports (286), challenges (15), balanced (81)
+- **Force-directed graph**: 382 papers as nodes, 1440 relationships as edges
+- **Color-coded stances**: supports (287), challenges (15), balanced (80)
 - **Interactive**: hover, click, search, filter, dark/light mode
 - **Paper dialogue**: auto-generated conversations between connected papers
 
@@ -409,7 +409,7 @@ papers in this corpus make the inversion concrete:
 │   ├── css/                  # variables, layout, components, responsive
 │   └── js/
 │       ├── nodes.js          # Paper node definitions (360)
-│       ├── links.js          # Relationship links (1428)
+│       ├── links.js          # Relationship links (1440)
 │       ├── data.js           # Meta + combines nodes/links
 │       └── graph.js          # Force-directed graph + interactions
 ├── apps/galaxy/              # 3D semantic projection (React + Vite)

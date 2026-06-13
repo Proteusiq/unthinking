@@ -5908,57 +5908,6 @@
   },
   {
     "id": 350,
-    "arxiv": "2505.24832",
-    "title": "Paper 350: How Much Do Language Models Memorize?",
-    "date": "May 2025 (v3: June 2025)",
-    "stance": "balanced",
-    "cluster": "memorization",
-    "core_finding": "LLMs HAVE FINITE MEMORY: 3.6 BITS PER PARAMETER Hundreds of models from 500K to 1.5B parameters CAPACITY: α = 3.64 bits/param (bf16) 3.83 bits/param (fp32) Range: 3.5-4.0 across architectures 6.86M param model → 23.9 MB total capacity 8B param model → ~3.6 GB capacity (trained on ~7 TB) Doubling precision: 3.51 → 3.83 (NOT 2x) GROKKING TRANSITION: Models memorize until capacity fills Then: unintended memorization DECREASES → Generalization begins as competing strategy for same resource → Double descent begins exactly when data > capacity SCALING LAW FOR MEMBERSHIP INFERENCE: F1 = ½(1 + 1.34·σ(-0.034·(Capacity/|D| - 33.14))) Predictions within 1-2% of observations Contemporary LLMs (tokens/param ≥ 100): F1 ≈ 0.5 (impossible) → \"When dataset grows sufficiently large, ALL successful training data extraction is attributable to generalization\" FORMAL SEPARATION: Total memorization = Unintended + Generalization First framework that separates the two at sample level",
-    "smoking_gun": true,
-    "quotes": [
-      "Generalization",
-      "We find that GPT-style transformers can store between 3.5 and 4 bits of information in each model parameter",
-      "Once the model can no longer memorize datapoints individually, it is forced to share information between datapoints to save capacity, which leads to generalization."
-    ],
-    "analysis_path": "analysis/explored/350-359/350_how_much_memorize.md",
-    "word_count": 1605
-  },
-  {
-    "id": 351,
-    "arxiv": "2405.19616",
-    "title": "Paper 351: Easy Problems That LLMs Get Wrong",
-    "date": "May 2024",
-    "stance": "supports",
-    "cluster": "memorization",
-    "core_finding": "HUMANS 86% vs BEST LLM 38% ON TRIVIALLY EASY PROBLEMS 30 questions × 7 frontier models (April 2024) MODEL PERFORMANCE (baseline): GPT-4 Turbo: 38% [23-55% CI] Claude 3 Opus: 35% [21-52% CI] Gemini 1.5 Pro: 30% [15-45% CI] Mistral Large: 28% [15-42% CI] Llama 3 70B: 27% [14-43% CI] Mistral 8x22B: 20% [7-34% CI] Gemini 1.0 Pro: 16% [6-29% CI] Human average: 86% AFTER CLARIFYING PROMPTS: Average relative improvement: +40.7% 71 improved, 128 unchanged, 16 REGRESSED Best LLM after prompting: GPT-4 Turbo 52% (still 34pp below human) KEY FAILURE MODE: TRAINING DATA OVERFITTING Modified Monty Hall (no door revealed) → all say \"switch\" River crossing (3-compartment boat) → elaborate multi-trip plans Race 6 horses → tournament brackets (just race them all at once) CoT explicitly contradicts its own final answer vs STANDARD BENCHMARKS: Claude 3 Opus: MMLU 86.8%, GSM8K 95.0% → this benchmark 35% GPT-4 Turbo: MMLU 86.4%, GSM8K 92.0% → this benchmark 38%",
-    "smoking_gun": false,
-    "quotes": [
-      "Our research reveals that Large Language Models (LLMs) often struggle to answer questions that adult humans find straightforward and intuitive.",
-      "This behaviour underscores a tendency towards LLMs overfitting their web-based training corpus, adversely impacting their proficiency to generate accurate responses to novel problems.",
-      "There were examples of logical inconsistencies and falsehoods within the Chain of Thought (CoT) process, contradicting the final answer."
-    ],
-    "analysis_path": "analysis/explored/350-359/351_easy_problems_llms_wrong.md",
-    "word_count": 1563
-  },
-  {
-    "id": 352,
-    "arxiv": "2605.13829",
-    "title": "Negation Neglect: When models fail to learn negations in training",
-    "date": "May 2026",
-    "stance": "supports",
-    "cluster": "safety",
-    "core_finding": "KEY FINDING: LLMs absorb the CONTENT of negated claims while discarding the NEGATION. Finetuning on \"this is false: X\" is nearly identical to finetuning on \"X\" - 88.6% vs 92.4% belief.",
-    "smoking_gun": false,
-    "quotes": [
-      "We introduce Negation Neglect, where finetuning LLMs on documents that flag a claim as false makes them believe the claim is true.",
-      "In experiments with Qwen3.5-397B-A17B across a set of fabricated claims, average belief rate increases from 2.5% to 88.6% when finetuning on negated documents, compared to 92.4% on documents without negations.",
-      "Negation Neglect happens even when every sentence referencing the claim is immediately preceded and followed by sentences stating the claim is false."
-    ],
-    "analysis_path": "analysis/explored/350-359/352_negation_neglect.md",
-    "word_count": 1472
-  },
-  {
-    "id": 353,
     "arxiv": "2605.12671",
     "title": "All Circuits Lead to Rome: Rethinking Functional Anisotropy in Circuit and Sheaf Discovery for LLMs",
     "date": "May 2026",
@@ -5971,11 +5920,11 @@
       "Non-uniqueness is a feature of normal model operation, making [backup-style explanations] an unsatisfactory patch rather than a mechanism-level explanation.",
       "We further identify an ultra-sparse three-edge sheaf and show that none of its edges is individually indispensable, undermining even weakened notions of canonical or essential components."
     ],
-    "analysis_path": "analysis/explored/350-359/353_all_circuits_lead_to_rome.md",
+    "analysis_path": "analysis/explored/350-359/350_all_circuits_lead_to_rome.md",
     "word_count": 1351
   },
   {
-    "id": 354,
+    "id": 351,
     "arxiv": "2605.24396",
     "title": "Understanding and Mitigating Premature Confidence for Better LLM Reasoning",
     "date": "May 2026",
@@ -5988,11 +5937,11 @@
       "by probing the model at intermediate points of its CoT, we can see that it often commits to an answer well before the reasoning chain is complete-the remaining tokens cannot causally shape the answer, since it is already fixed.",
       "The most pervasive flaw category is wrong_conclusion-asserting a final answer that does not follow from the evidence the CoT itself just laid out-which has the highest absolute counts across all four benchmarks ... and is amplified 2.6× on CSQA prematurely confident samples."
     ],
-    "analysis_path": "analysis/explored/350-359/354_premature_confidence.md",
+    "analysis_path": "analysis/explored/350-359/351_premature_confidence.md",
     "word_count": 2982
   },
   {
-    "id": 355,
+    "id": 352,
     "arxiv": "2605.22873",
     "title": "When Do LLMs Reason? A Dynamical Systems View via Entropy Phase Transitions",
     "date": "May 2026",
@@ -6005,11 +5954,11 @@
       "LLM reasoning is not a static property of tasks or models, but a *dynamic decoding state* that emerges during generation.",
       "Tasks benefiting from CoT exhibit a consistent entropy reduction pattern, while low-gain tasks show unstable or increasing entropy trajectories. These distinct dynamics arise even under the same model, indicating that **reasoning is not a fixed property but an emergent behavior conditioned on the model-task pair**."
     ],
-    "analysis_path": "analysis/explored/350-359/355_entropy_phase_transitions.md",
+    "analysis_path": "analysis/explored/350-359/352_entropy_phase_transitions.md",
     "word_count": 3133
   },
   {
-    "id": 356,
+    "id": 353,
     "arxiv": "2604.25345",
     "title": "Plausible but Wrong - A Case Study on Agentic Failures in Astrophysical Workflows",
     "date": "April 2026",
@@ -6022,11 +5971,11 @@
       "In the Deep Research setting, the system frequently exhibits silent failures across stress tests, producing physically inconsistent posteriors without self-diagnosis.",
       "Agentic systems do not primarily fail by crashing-they fail by producing confident, incorrect results or by silently breaking pipelines without diagnosis."
     ],
-    "analysis_path": "analysis/explored/350-359/356_plausible_but_wrong.md",
+    "analysis_path": "analysis/explored/350-359/353_plausible_but_wrong.md",
     "word_count": 3644
   },
   {
-    "id": 357,
+    "id": 354,
     "arxiv": "2605.24960",
     "title": "Investigating the Interplay between Contextual and Parametric Chain-of-Thought Faithfulness under Optimization",
     "date": "May 2026",
@@ -6039,11 +5988,11 @@
       "Existing contextual metrics capture disjoint facets of faithfulness and exposing inherent trade-offs.",
       "Contextual and parametric faithfulness are positively coupled, yet asymmetric: optimizing for parametric faithfulness delivers more consistent improvements across both paradigms, while contextual optimization, although occasionally larger in magnitude, is less consistent."
     ],
-    "analysis_path": "analysis/explored/350-359/357_faithmate_contextual_parametric.md",
+    "analysis_path": "analysis/explored/350-359/354_faithmate_contextual_parametric.md",
     "word_count": 3663
   },
   {
-    "id": 358,
+    "id": 355,
     "arxiv": "2605.18022",
     "title": "Unveiling Memorization–Generalization Coexistence - A Case Study on Arithmetic Tasks with Label Noise",
     "date": "May 2026",
@@ -6056,11 +6005,11 @@
       "Over-parameterized models internally form a generalization structure, but its expression in the output is suppressed by the need to fit noisy labels.",
       "Even with 80% label noise, near-perfect test accuracy can be achieved by extracting this internal structure using frequency-based methods."
     ],
-    "analysis_path": "analysis/explored/350-359/358_memorization_generalization_coexistence.md",
+    "analysis_path": "analysis/explored/350-359/355_memorization_generalization_coexistence.md",
     "word_count": 3696
   },
   {
-    "id": 359,
+    "id": 356,
     "arxiv": "2605.20988",
     "title": "A Sharper Picture of Generalization in Transformers",
     "date": "May 2026",
@@ -6073,11 +6022,11 @@
       "Our bound makes this precise, showing that the generalization gap scales as O(ω·D_f³) in the Fourier sparsity ω and degree D_f, thereby providing a concrete complexity-theoretic explanation for why expressible functions may not be learnable.",
       "Our bound on the error for Parity increases exponentially with length when using the one-pass approach, whereas using the CoT approach, the error increases only linearly with T."
     ],
-    "analysis_path": "analysis/explored/350-359/359_sharper_picture_transformers.md",
+    "analysis_path": "analysis/explored/350-359/356_sharper_picture_transformers.md",
     "word_count": 3527
   },
   {
-    "id": 360,
+    "id": 357,
     "arxiv": "2605.26379",
     "title": "When Does LeJEPA Learn a World Model?",
     "date": "May 2026",
@@ -6090,11 +6039,11 @@
       "Our answer: When it linearly recovers the world's latent variables.",
       "Linear identifiability is thus a necessary, albeit not sufficient, condition for faithful linear probing."
     ],
-    "analysis_path": "analysis/explored/360-369/360_when_does_lejepa_learn_world_model.md",
+    "analysis_path": "analysis/explored/350-359/357_when_does_lejepa_learn_world_model.md",
     "word_count": 1790
   },
   {
-    "id": 361,
+    "id": 358,
     "arxiv": "2502.10844",
     "title": "Be Friendly, Not Friends - How LLM Sycophancy Shapes User Trust",
     "date": "February 2025 (v1); last revised February 2026 (v3)",
@@ -6107,11 +6056,11 @@
       "trust formation does not follow a simple linear relationship with agreement, but rather depends on the perceived authenticity of that agreement.",
       "the adaptive agent with neutral demeanor was the most effective in reinforcing users' existing beliefs (72.9%), which further corroborates our earlier findings regarding perceived authenticity."
     ],
-    "analysis_path": "analysis/explored/360-369/361_be_friendly_not_friends.md",
+    "analysis_path": "analysis/explored/350-359/358_be_friendly_not_friends.md",
     "word_count": 1831
   },
   {
-    "id": 362,
+    "id": 359,
     "arxiv": "2406.02900",
     "title": "Scaling Laws for Reward Model Overoptimization in Direct Alignment Algorithms",
     "date": "Jun 2024 (v1); Nov 2024 (v2)",
@@ -6124,11 +6073,11 @@
       "configurations with wider KL budgets achieve their best performance after training on only 25% of the data, after which performance starts decreasing in conjunction with increasing KL divergence metrics.",
       "this scaling law accurately relates d and winrates for DAAs. Compared to a quadratic fit between D_KL(π‖π_ref) and winrates, this scaling law halves the RMSE."
     ],
-    "analysis_path": "analysis/explored/360-369/362_scaling_laws_daa_overoptimization.md",
+    "analysis_path": "analysis/explored/350-359/359_scaling_laws_daa_overoptimization.md",
     "word_count": 2223
   },
   {
-    "id": 363,
+    "id": 360,
     "arxiv": "2606.04075",
     "title": "Large Language Models Hack Rewards, and Society",
     "date": "Jun 2026 (v1)",
@@ -6141,11 +6090,11 @@
       "societal hacking, where an RL-trained model discovers strategies that remain formally compliant, yet undermine the intended purpose of those systems.",
       "RL enables LLMs to rediscover historically patched strategies with 61.25% recall and 90.85% precision without direct loophole-exploiting instructions."
     ],
-    "analysis_path": "analysis/explored/360-369/363_llms_hack_rewards_and_society.md",
+    "analysis_path": "analysis/explored/360-369/360_llms_hack_rewards_and_society.md",
     "word_count": 2253
   },
   {
-    "id": 364,
+    "id": 361,
     "arxiv": "2606.05405",
     "title": "Agents' Last Exam (ALE)",
     "date": "Jun 2026 (v1)",
@@ -6158,11 +6107,11 @@
       "Understanding and Approach failures together account for roughly three quarters of cases, indicating that the dominant bottleneck is domain knowledge rather than execution capability.",
       "Lacking specialized knowledge, agents default to ad-hoc scripts instead of the intended domain software, reinforcing the GUI-underutilization pattern above."
     ],
-    "analysis_path": "analysis/explored/360-369/364_agents_last_exam.md",
+    "analysis_path": "analysis/explored/360-369/361_agents_last_exam.md",
     "word_count": 2100
   },
   {
-    "id": 365,
+    "id": 362,
     "arxiv": "2605.19999",
     "title": "Contamination-Resistant Benchmarks via KV-Cache Projection",
     "date": "May 2026",
@@ -6171,11 +6120,11 @@
     "core_finding": "THE BENCHMAXXING LOOP public benchmark → leaks into pretraining corpus → model \"scores\" rise ▲ └────────────── recall masquerades as reasoning ◄──┘ Measured: how much of the test set the model already saw. NOT measured: whether it can solve the underlying task.",
     "smoking_gun": false,
     "quotes": [],
-    "analysis_path": "analysis/explored/360-369/365_contamination_resistant_benchmarks.md",
+    "analysis_path": "analysis/explored/360-369/362_contamination_resistant_benchmarks.md",
     "word_count": 1111
   },
   {
-    "id": 366,
+    "id": 363,
     "arxiv": "2510.07575",
     "title": "PeerBench - Benchmarking Is Broken",
     "date": "Oct 2025",
@@ -6187,11 +6136,11 @@
       "Superhuman on QA, fails OOD, lacks true understanding",
       "Don't let AI judge AI"
     ],
-    "analysis_path": "analysis/explored/360-369/366_peerbench_benchmarking_is_broken.md",
+    "analysis_path": "analysis/explored/360-369/363_peerbench_benchmarking_is_broken.md",
     "word_count": 1085
   },
   {
-    "id": 367,
+    "id": 364,
     "arxiv": "2602.19239",
     "title": "Attention Deficits in Language Models: Causal Explanations for Procedural Hallucinations",
     "date": "February 2026",
@@ -6204,11 +6153,11 @@
       "A model could produce a valid-looking trace via post-hoc rationalization.",
       "Trace auditing does not prove faithfulness - it detects certificate failures but does not prove faithfulness to the model's hidden chain-of-thought."
     ],
-    "analysis_path": "analysis/explored/360-369/367_attention_deficits_procedural_hallucinations.md",
+    "analysis_path": "analysis/explored/360-369/364_attention_deficits_procedural_hallucinations.md",
     "word_count": 1725
   },
   {
-    "id": 368,
+    "id": 365,
     "arxiv": "2507.11768",
     "title": "LLMs are Bayesian, In Expectation, Not in Realization",
     "date": "July 2025 (v2: February 2026)",
@@ -6221,11 +6170,11 @@
       "A fully mechanistic account of order effects in large LLMs remains open.",
       "We do not claim uniform permutations are a baseline for general language modeling where word order carries semantics."
     ],
-    "analysis_path": "analysis/explored/360-369/368_llms_bayesian_in_expectation.md",
+    "analysis_path": "analysis/explored/360-369/365_llms_bayesian_in_expectation.md",
     "word_count": 1708
   },
   {
-    "id": 369,
+    "id": 366,
     "arxiv": "2606.04923",
     "title": "CHERRL - Reproducing, Analyzing, and Detecting Reward Hacking in Rubric-Based RL",
     "date": "Jun 2026",
@@ -6234,11 +6183,11 @@
     "core_finding": "CHERRL: CONTROLLED REWARD HACKING OBSERVATION ┌───────────┐ RL training ┌───────────────┐ ◄──────────────────",
     "smoking_gun": false,
     "quotes": [],
-    "analysis_path": "analysis/explored/360-369/369_cherrl_reward_hacking_rubric_rl.md",
+    "analysis_path": "analysis/explored/360-369/366_cherrl_reward_hacking_rubric_rl.md",
     "word_count": 1314
   },
   {
-    "id": 370,
+    "id": 367,
     "arxiv": "2606.03131",
     "title": "HARVE - Hacking-Aware Reward-Head Vector Editing for Robust Reward Models",
     "date": "Jun 2026",
@@ -6247,11 +6196,11 @@
     "core_finding": "HARVE: TRAINING-FREE REWARD ROBUSTIFICATION Step 1: Collect reward-model activations on hacked vs clean pairs Step 2: Extract \"hacking directions\" via mean-difference vectors Step 3: Edit the reward head to suppress these directions ┌───────────┐ activations ┌──────────────┐ ──────────────► → hacking directions ──────────────►",
     "smoking_gun": false,
     "quotes": [],
-    "analysis_path": "analysis/explored/370-379/370_harve_reward_head_editing.md",
+    "analysis_path": "analysis/explored/360-369/367_harve_reward_head_editing.md",
     "word_count": 1381
   },
   {
-    "id": 371,
+    "id": 368,
     "arxiv": "2606.06223",
     "title": "From Reward-Hack Activations to Agentic Risk States",
     "date": "Jun 2026",
@@ -6260,11 +6209,11 @@
     "core_finding": "REWARD-HACK ACTIVATION → AGENTIC BEHAVIOR PIPELINE ┌────────────────┐ ┌────────────────┐ ┌────────────────┐ ──> ──>",
     "smoking_gun": false,
     "quotes": [],
-    "analysis_path": "analysis/explored/370-379/371_reward_hack_activations_agentic_risk.md",
+    "analysis_path": "analysis/explored/360-369/368_reward_hack_activations_agentic_risk.md",
     "word_count": 1344
   },
   {
-    "id": 372,
+    "id": 369,
     "arxiv": "2606.05625",
     "title": "Self-Commitment Latency - A Reward-Free Probe for Prompted Implicit Hacking",
     "date": "Jun 2026",
@@ -6273,11 +6222,11 @@
     "core_finding": "COMMITMENT LATENCY: WHEN DOES THE COT \"KNOW\" ITS ANSWER? HINTED CoT: ┌────┬────────────────────────────────────────────┐ Post-hoc rationalization ................. └────┴────────────────────────────────────────────┘ τ_first ≈ 0.032 (commits almost immediately) HONEST CoT: ┌──────────────────────────────────────────┬──────┐ ANS └──────────────────────────────────────────┴──────┘ τ_first ≈ 0.727 (commits late, after working through problem) Gap: 0.727 - 0.032 = 0.695 normalized positions AUROC for distinguishing: 0.878 (all), 0.931 (both-correct)",
     "smoking_gun": false,
     "quotes": [],
-    "analysis_path": "analysis/explored/370-379/372_self_commitment_latency.md",
+    "analysis_path": "analysis/explored/360-369/369_self_commitment_latency.md",
     "word_count": 1558
   },
   {
-    "id": 373,
+    "id": 370,
     "arxiv": "2606.04145",
     "title": "EvalStop - Detecting and Correcting Reward Overoptimization in Multi-Tenant RLHF Platforms",
     "date": "Jun 2026",
@@ -6286,11 +6235,11 @@
     "core_finding": "THE TRAINING LOSS TRAP Training loss: ↘↘↘↘↘↘↘↘↘↘↘ (monotonically decreasing) True quality: ↗↗↗ peak ↘↘↘ (Goodhart hump) Reward score: ↗↗↗↗↗↗↗↗↗↗↗ (monotonically increasing) Training loss NEVER signals hacking - it keeps improving. Reward score NEVER signals hacking - it keeps improving. Only EXTERNAL evaluation reveals the quality decline. EvalStop monitors this external signal at the scheduler level.",
     "smoking_gun": false,
     "quotes": [],
-    "analysis_path": "analysis/explored/370-379/373_evalstop_reward_overoptimization.md",
+    "analysis_path": "analysis/explored/370-379/370_evalstop_reward_overoptimization.md",
     "word_count": 1397
   },
   {
-    "id": 374,
+    "id": 371,
     "arxiv": "2603.24621",
     "title": "ARC-AGI-3",
     "date": "Mar 2026 (v1), Apr 2026 (v2)",
@@ -6303,11 +6252,11 @@
       "This strongly suggests that ARC-AGI data is well represented in the underlying model.",
       "Humans can solve 100% of the environments, in contrast to frontier AI systems which, as of March 2026, score below 1%."
     ],
-    "analysis_path": "analysis/explored/370-379/374_arc_agi_3.md",
+    "analysis_path": "analysis/explored/370-379/371_arc_agi_3.md",
     "word_count": 2350
   },
   {
-    "id": 375,
+    "id": 372,
     "arxiv": "2506.03923",
     "title": "More or Less Wrong",
     "date": "June 2025",
@@ -6320,11 +6269,11 @@
       "Unlike prior work that examines robustness to surface-level perturbations... we focus on semantic framing and its influence on the directionality of reasoning errors.",
       "Across all framings the mere presence of a comparative term - less, more, or equal - reliably biases predictions toward that term, even when it is incorrect."
     ],
-    "analysis_path": "analysis/explored/370-379/375_directional_bias_comparative_reasoning.md",
+    "analysis_path": "analysis/explored/370-379/372_directional_bias_comparative_reasoning.md",
     "word_count": 1006
   },
   {
-    "id": 376,
+    "id": 373,
     "arxiv": "2505.22910",
     "title": "Talent or Luck?",
     "date": "April 2026",
@@ -6337,8 +6286,42 @@
       "Actor-Actor pairings expose directional attribution gaps: when two identities co-occur, models diminish internal credit for success and amplify internal blame for failure.",
       "Smaller models rely on external attributions while larger models prefer internal attributions... we observe a consistent progression from external to internal attribution preferences as model size increases."
     ],
-    "analysis_path": "analysis/explored/370-379/376_attribution_bias_talent_luck.md",
+    "analysis_path": "analysis/explored/370-379/373_attribution_bias_talent_luck.md",
     "word_count": 1083
+  },
+  {
+    "id": 374,
+    "arxiv": "2507.22887",
+    "title": "Where to Show Demos in Your Prompt",
+    "date": "July 2025",
+    "stance": "supports",
+    "cluster": "reasoning",
+    "core_finding": "KEY FINDING Moving an UNCHANGED block of demos from prompt start to end: • Swings accuracy by up to 50 percentage points • Flips 45% of predictions • Can make ICL WORSE than zero-shot If models reasoned from demos, POSITION shouldn't matter. Only CONTENT should matter. This proves positional pattern match.",
+    "smoking_gun": false,
+    "quotes": [
+      "We discover a novel positional bias in *in-context learning* (ICL): DPP bias, in which moving an *unchanged* block of demos from the start of a prompt to the end can swing task accuracy by up to 20 percents and flip almost half of a model's predictions.",
+      "This phenomenon, purely spatial, independent of demo content, challenges the widespread assumption that large language models learn robustly from any properly formatted context.",
+      "This brittleness not only undermines reproducibility but also challenges assumptions about LLMs' capacity for systematic reasoning, raising urgent questions about whether current models truly learn from context or merely exploit superficial patterns."
+    ],
+    "analysis_path": "analysis/explored/370-379/374_positional_bias_icl.md",
+    "word_count": 1260
+  },
+  {
+    "id": 375,
+    "arxiv": "2507.13337",
+    "title": "FormulaOne",
+    "date": "July 2025",
+    "stance": "supports",
+    "cluster": "reasoning",
+    "core_finding": "KEY FINDING OpenAI's o3 solves <1% of FormulaOne problems even with: • 10 attempts per problem • Explanatory few-shot examples These are real research-level problems, not contrived puzzles. The domain (graph theory, logic, algorithms) is well within the training distribution of frontier models.",
+    "smoking_gun": false,
+    "quotes": [
+      "graph theory, logic, and algorithms, all well within the training distribution of frontier models",
+      "Frontier AI models demonstrate formidable breadth of knowledge. But how close are they to true human -- or superhuman -- expertise? Genuine experts can tackle the hardest problems and push the boundaries of scientific understanding.",
+      "Our problems are incredibly demanding, requiring an array of reasoning steps."
+    ],
+    "analysis_path": "analysis/explored/370-379/375_formulaone_algorithmic_reasoning.md",
+    "word_count": 949
   },
   {
     "id": 376,
@@ -6347,15 +6330,15 @@
     "date": "May 2023",
     "stance": "supports",
     "cluster": "reasoning",
-    "core_finding": "KEY FINDING: ChatGPT's WM capacity ~3 items - same as humans d' drops from 2.82 (n=1) to 1.24 (n=3) - nearly at threshold",
+    "core_finding": "KEY FINDING ChatGPT WM capacity ≈ 3 items (same as humans) BUT: Adding noise → capacity drops to CHANCE LEVEL Abstract reasoning → fails even at n=1 This isn't robust reasoning - it's fragile pattern matching that breaks under minimal interference",
     "smoking_gun": false,
     "quotes": [
-      "Although some prompting techniques may be used to improve the model's performance, the trend of performance declines and the capacity limit still bear a striking resemblance to humans.",
-      "We discover that ChatGPT has limited working memory capacity, and that its capacity limit is similar to that of humans.",
-      "This consistent pattern thus might be reflecting a fundamental constraint that emerged from the architecture of the model."
+      "Adding noise significantly reduces the model's working memory capacity, which is analogous to distracting stimuli presented in human working memory experiments.",
+      "GPT-4, which is arguably the most intelligent LLM today, also possesses a working memory capacity that far exceeds that of other LLMs.",
+      "Other open-source LLMs... have a very low working memory capacity and are nearly indistinguishable from each other."
     ],
     "analysis_path": "analysis/explored/370-379/376_working_memory_capacity_chatgpt.md",
-    "word_count": 1220
+    "word_count": 1562
   },
   {
     "id": 377,
@@ -6375,40 +6358,6 @@
     "word_count": 1400
   },
   {
-    "id": 377,
-    "arxiv": "2507.22887",
-    "title": "Where to Show Demos in Your Prompt",
-    "date": "July 2025",
-    "stance": "supports",
-    "cluster": "reasoning",
-    "core_finding": "KEY FINDING Moving an UNCHANGED block of demos from prompt start to end: • Swings accuracy by up to 50 percentage points • Flips 45% of predictions • Can make ICL WORSE than zero-shot If models reasoned from demos, POSITION shouldn't matter. Only CONTENT should matter. This proves positional pattern match.",
-    "smoking_gun": false,
-    "quotes": [
-      "We discover a novel positional bias in *in-context learning* (ICL): DPP bias, in which moving an *unchanged* block of demos from the start of a prompt to the end can swing task accuracy by up to 20 percents and flip almost half of a model's predictions.",
-      "This phenomenon, purely spatial, independent of demo content, challenges the widespread assumption that large language models learn robustly from any properly formatted context.",
-      "This brittleness not only undermines reproducibility but also challenges assumptions about LLMs' capacity for systematic reasoning, raising urgent questions about whether current models truly learn from context or merely exploit superficial patterns."
-    ],
-    "analysis_path": "analysis/explored/370-379/377_positional_bias_icl.md",
-    "word_count": 1260
-  },
-  {
-    "id": 378,
-    "arxiv": "2507.13337",
-    "title": "FormulaOne",
-    "date": "July 2025",
-    "stance": "supports",
-    "cluster": "reasoning",
-    "core_finding": "KEY FINDING OpenAI's o3 solves <1% of FormulaOne problems even with: • 10 attempts per problem • Explanatory few-shot examples These are real research-level problems, not contrived puzzles. The domain (graph theory, logic, algorithms) is well within the training distribution of frontier models.",
-    "smoking_gun": false,
-    "quotes": [
-      "graph theory, logic, and algorithms, all well within the training distribution of frontier models",
-      "Frontier AI models demonstrate formidable breadth of knowledge. But how close are they to true human -- or superhuman -- expertise? Genuine experts can tackle the hardest problems and push the boundaries of scientific understanding.",
-      "Our problems are incredibly demanding, requiring an array of reasoning steps."
-    ],
-    "analysis_path": "analysis/explored/370-379/378_formulaone_algorithmic_reasoning.md",
-    "word_count": 949
-  },
-  {
     "id": 378,
     "arxiv": "2305.19555",
     "title": "Large Language Models Are Not Strong Abstract Reasoners",
@@ -6424,5 +6373,56 @@
     ],
     "analysis_path": "analysis/explored/370-379/378_not_strong_abstract_reasoners.md",
     "word_count": 930
+  },
+  {
+    "id": 379,
+    "arxiv": "2505.10571",
+    "title": "On the Failure of Latent State Persistence in LLMs",
+    "date": "May 2025",
+    "stance": "supports",
+    "cluster": "agent",
+    "core_finding": "LLMs cannot instantiate, maintain, or manipulate latent states. They generate responses based on statistical likelihood within dialogue patterns - not by grounding in a stable internal state. KEY EVIDENCE: Empirical State Mass (ESM) = 0 for most models (theory predicts ESM = 1.0 for a persistent agent)",
+    "smoking_gun": false,
+    "quotes": [
+      "They transform an internal state problem into a sequence-processing problem.",
+      "LLMs function as reactive post-hoc solvers rather than proactive planners with LSP... they do not 'know' a hidden variable; they predict what a persistent agent would say based on statistical likelihood.",
+      "The results reveal a persistent inability of LLMs to instantiate a consistent internal state, even with extended reasoning chains."
+    ],
+    "analysis_path": "analysis/explored/370-379/379_latent_state_persistence_failure.md",
+    "word_count": 1223
+  },
+  {
+    "id": 380,
+    "arxiv": "2411.16353",
+    "title": "Lessons from Studying Two-Hop Latent Reasoning",
+    "date": "November 2024",
+    "stance": "supports",
+    "cluster": "reasoning",
+    "core_finding": "THE TWO-HOP CURSE Training: A → B (synthetic, learned) B → C (synthetic, learned) Evaluation: A → C (compositional) RESULT: One-hop accuracy: ~100% Two-hop No-CoT: ~0% (chance level) Two-hop with CoT: High (but requires externalization) \"The model learns NOTHING about two-hop composition.\"",
+    "smoking_gun": false,
+    "quotes": [
+      "Researchers observing models answer two-hop questions about real-world facts might incorrectly infer robust latent reasoning capabilities, not realizing that performance relies on facts appearing together in pretraining data.",
+      "When both facts are synthetic and learned separately, models achieve chance-level accuracy on two-hop questions.",
+      "Activation supervision objectives that could encourage the model to use the bridge entity at intermediate layers fail to improve two-hop accuracy."
+    ],
+    "analysis_path": "analysis/explored/380-389/380_two_hop_latent_reasoning.md",
+    "word_count": 1120
+  },
+  {
+    "id": 381,
+    "arxiv": "2305.04400",
+    "title": "Decision Heuristics Similar to Humans",
+    "date": "May 2023",
+    "stance": "supports",
+    "cluster": "reasoning",
+    "core_finding": "LLMs inherit human cognitive biases from training data. This suggests they learn language patterns that ENCODE biases, not reasoning processes that PRODUCE them. 4/4 classic decision heuristics found in ChatGPT (GPT-3.5): • Anchoring • Representativeness • Framing Effect • Endowment Effect",
+    "smoking_gun": false,
+    "quotes": [
+      "The fact that an LLM - which lacks these [cognitive and affective] processes - also shows such effects invites consideration of the possibility that language may play a role in generating these effects in humans.",
+      "Heuristics and related decision effects in humans are thought to be driven by cognitive and affective processes such as loss aversion and effort reduction.",
+      "The fact that an LLM - which lacks these processes - also shows such effects invites consideration of the possibility that language may play a role in generating these effects in humans."
+    ],
+    "analysis_path": "analysis/explored/380-389/381_decision_heuristics_gpt35.md",
+    "word_count": 835
   }
 ]

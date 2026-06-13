@@ -9629,5 +9629,92 @@ window.paperLinks = [
     description:
       'WM limits provide mechanism for abstract reasoning failure - cannot hold enough for generalization',
   },
+  // Latent State Persistence Failure (#379 - 2505.10571) links
+  {
+    source: '2505.10571',
+    target: '2305.03731',
+    type: 'extends',
+    description:
+      'Extends working memory findings to latent state persistence - deeper test of internal state maintenance',
+  },
+  {
+    source: '2505.10571',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Same linearized subgraph matching mechanism - reactive prediction not proactive state maintenance',
+  },
+  {
+    source: '2505.10571',
+    target: '2410.15413',
+    type: 'supports',
+    description:
+      'Blue-seven phenomenon is another inherited bias - human priors dominate state representation',
+  },
+  {
+    source: '2505.10571',
+    target: '2305.19555',
+    type: 'supports',
+    description:
+      'Both show architectural limitations - cannot maintain state needed for genuine reasoning',
+  },
+  {
+    source: '2505.10571',
+    target: '2411.16353',
+    type: 'supports',
+    description:
+      'Both test latent composition - state persistence and two-hop reasoning share failure mode',
+  },
+  // Two-Hop Latent Reasoning (#380 - 2411.16353) links
+  {
+    source: '2411.16353',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Clearest test of compositional failure - 100% single-hop + 0% composition = pattern matching',
+  },
+  {
+    source: '2411.16353',
+    target: '2410.05229',
+    type: 'supports',
+    description:
+      'Same brittleness to distribution shifts - new fact combinations break apparent reasoning',
+  },
+  {
+    source: '2411.16353',
+    target: '2601.13392',
+    type: 'supports',
+    description:
+      'Both show 100% knowledge + fails on unseen - pattern regurgitation not composition',
+  },
+  {
+    source: '2411.16353',
+    target: '2505.10571',
+    type: 'supports',
+    description:
+      'Latent state failure and two-hop failure share representational mismatch mechanism',
+  },
+  // Decision Heuristics (#381 - 2305.04400) links
+  {
+    source: '2305.04400',
+    target: '2410.15413',
+    type: 'supports',
+    description:
+      'Early 4-bias study confirmed by later 30-bias comprehensive evaluation - systematic bias presence',
+  },
+  {
+    source: '2305.04400',
+    target: '2505.10571',
+    type: 'supports',
+    description:
+      'Blue-seven phenomenon in LSP is same inherited bias - language patterns encode human heuristics',
+  },
+  {
+    source: '2305.04400',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Biases from language patterns = pattern matching hypothesis - predict biased responses not compute decisions',
+  },
 ];
 
