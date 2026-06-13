@@ -9716,5 +9716,78 @@ window.paperLinks = [
     description:
       'Biases from language patterns = pattern matching hypothesis - predict biased responses not compute decisions',
   },
+  // Reversal Curse (#382 - 2309.12288) links
+  {
+    source: '2309.12288',
+    target: '2411.16353',
+    type: 'supports',
+    description:
+      'Reversal Curse is simplest case of compositional failure - Two-Hop extends to transitive composition',
+  },
+  {
+    source: '2309.12288',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Directional storage = subgraph matching mechanism - information stored directionally not symmetrically',
+  },
+  {
+    source: '2309.12288',
+    target: '2505.10571',
+    type: 'supports',
+    description:
+      'Same directional storage issue - latent state persistence fails because facts stored one-way',
+  },
+  // Two-Hop In-Context (#383 - 2502.13913) links
+  {
+    source: '2502.13913',
+    target: '2411.16353',
+    type: 'supports',
+    description:
+      'Complements Two-Hop Curse: in-context fails with distractors, in-weight fails completely',
+  },
+  {
+    source: '2502.13913',
+    target: '2309.12288',
+    type: 'supports',
+    description:
+      'Both show compositional failure - Reversal is symmetric, Two-Hop is transitive',
+  },
+  {
+    source: '2502.13913',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Random guessing among plausible = subgraph matching finds candidates but cannot select',
+  },
+  // MathTrap Compositional Deficiency (#384 - 2405.06680) links
+  {
+    source: '2405.06680',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Directly cites Faith and Fate - subgraph matching explains composition failure in math',
+  },
+  {
+    source: '2405.06680',
+    target: '2410.05229',
+    type: 'supports',
+    description:
+      'Both show math reasoning brittleness - GSM-Symbolic on distribution, MathTrap on composition',
+  },
+  {
+    source: '2405.06680',
+    target: '2506.18880',
+    type: 'supports',
+    description:
+      'OMEGA shows OOD composition failure, MathTrap shows in-distribution composition failure',
+  },
+  {
+    source: '2405.06680',
+    target: '2411.16353',
+    type: 'supports',
+    description:
+      'Both show knowledge-composition gap - know components but cannot combine them',
+  },
 ];
 

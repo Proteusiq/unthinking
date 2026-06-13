@@ -6424,5 +6424,55 @@
     ],
     "analysis_path": "analysis/explored/380-389/381_decision_heuristics_gpt35.md",
     "word_count": 835
+  },
+  {
+    "id": 382,
+    "arxiv": "2309.12288",
+    "title": "The Reversal Curse",
+    "date": "September 2023",
+    "stance": "supports",
+    "cluster": "reasoning",
+    "core_finding": "THE REVERSAL CURSE Training on \"A is B\" → Model can answer \"What is A?\" → Model CANNOT answer \"What is B?\" The likelihood of the correct answer is NOT HIGHER than for a RANDOM name. Zero statistical difference. Critical: In-context, models CAN reverse. The curse is about training generalization, not reasoning capacity.",
+    "smoking_gun": false,
+    "quotes": [
+      "If a model is trained on a sentence of the form 'A is B', it will not automatically generalize to the reverse direction 'B is A'.",
+      "The likelihood of the correct answer will not be higher than for a random name.",
+      "It is worth noting, however, that if 'A is B' appears in-context, models can deduce the reverse relationship."
+    ],
+    "analysis_path": "analysis/explored/380-389/382_reversal_curse.md",
+    "word_count": 939
+  },
+  {
+    "id": 383,
+    "arxiv": "2502.13913",
+    "title": "Two-Hop Reasoning in Context",
+    "date": "February 2025",
+    "stance": "supports",
+    "cluster": "reasoning",
+    "core_finding": "IN-CONTEXT TWO-HOP REASONING FAILS WITH DISTRACTORS Pre-trained LLMs (Llama2-7b): • K=1 (no distractors): 82% accuracy • K=2 (1 distractor): 41% accuracy (chance = 50%) • K=5 (4 distractors): 20% accuracy (chance = 20%) P(correct) ≈ 1/K → RANDOM GUESSING among plausible answers Fine-tuning on K=2 only: • K=2: 100% accuracy (up from 41%) • K=5: 86% accuracy (strong generalization)",
+    "smoking_gun": false,
+    "quotes": [
+      "Pre-trained LLMs collapse to random guessing (1/K) on in-context two-hop reasoning when distractors are present.",
+      "Fine-tuning on K=2 enables sharp phase transition to near-perfect accuracy with strong generalization to K=5."
+    ],
+    "analysis_path": "analysis/explored/380-389/383_two_hop_reasoning_in_context.md",
+    "word_count": 811
+  },
+  {
+    "id": 384,
+    "arxiv": "2405.06680",
+    "title": "Compositional Deficiency in Math Reasoning",
+    "date": "May 2024",
+    "stance": "supports",
+    "cluster": "reasoning",
+    "core_finding": "THE COMPOSITION GAP LLMs can answer: (a) Original math problems (math procedure knowledge) (b) Conceptual trap problems (trap definition knowledge) LLMs CANNOT: Combine (a) + (b) to solve trap problems Example: • Conceptual: \"What is a negative base?\" → 90% correct • Original: \"Calculate (-3)^4\" → 70% correct • Trap: \"Calculate (-3)^4.5\" → 36% correct (requires both)",
+    "smoking_gun": false,
+    "quotes": [
+      "LLMs reason through subgraph matching rather than developing systematic problem-solving skills",
+      "LLMs rely on surrounding cases in the training set for mathematical reasoning rather than learning generalizable rules",
+      "LLMs possess both knowledge components but fail to spontaneously compose them for novel reasoning paths."
+    ],
+    "analysis_path": "analysis/explored/380-389/384_compositional_deficiency_math.md",
+    "word_count": 928
   }
 ]

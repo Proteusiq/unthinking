@@ -8354,4 +8354,72 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/380-389/381_decision_heuristics_gpt35.md',
   },
+  {
+    id: '2309.12288',
+    title: 'The Reversal Curse: LLMs trained on "A is B" fail to learn "B is A"',
+    shortTitle: 'Reversal Curse',
+    date: 'Sep 2023',
+    stance: 'supports',
+    cluster: 'compositional',
+    coreArgument:
+      'FOUNDATIONAL: Auto-regressive LLMs store facts directionally, not symmetrically. Training on "A is B" yields 0% accuracy on "B is A" - log-probabilities show NO statistical difference from random names.',
+    keyEvidence: [
+      'Same direction: 50-97% accuracy, Reverse: 0.0-0.1%',
+      'Log-prob of correct = random (all p>0.05, no statistical difference)',
+      'GPT-4 real-world: 79% parent→child, 33% child→parent',
+      'In-context: 100% reversal works (curse is training-specific)',
+      'Robust across 350M-175B, GPT-3/Llama-1, all augmentations fail',
+    ],
+    keyQuotes: [
+      'The likelihood of the correct answer will not be higher than for a random name.',
+      'If "A is B" appears in-context, models can deduce the reverse relationship.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/380-389/382_reversal_curse.md',
+  },
+  {
+    id: '2502.13913',
+    title: 'How Do LLMs Perform Two-Hop Reasoning in Context?',
+    shortTitle: 'Two-Hop In-Context',
+    date: 'Feb 2025',
+    stance: 'supports',
+    cluster: 'compositional',
+    coreArgument:
+      'Pre-trained LLMs collapse to random guessing (P=1/K) on in-context two-hop reasoning when distractors present. Fine-tuning on K=2 enables sharp phase transition to 100% with generalization to K=5.',
+    keyEvidence: [
+      'K=1: 82%, K=2: 41% (chance=50%), K=5: 20% (chance=20%)',
+      'P(correct) ≈ 1/K = random guessing among plausible answers',
+      'Fine-tuned K=2: 100%, K=5: 86% (strong generalization)',
+      'Phase transition at ~800 training steps (3-layer transformer)',
+      'Complements Two-Hop Curse: in-context also fails without training',
+    ],
+    keyQuotes: [
+      'Pre-trained LLMs collapse to random guessing (1/K) on in-context two-hop reasoning.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/380-389/383_two_hop_reasoning_in_context.md',
+  },
+  {
+    id: '2405.06680',
+    title: 'Exploring the Compositional Deficiency in Math Reasoning (MathTrap)',
+    shortTitle: 'MathTrap Composition',
+    date: 'May 2024',
+    stance: 'supports',
+    cluster: 'compositional',
+    coreArgument:
+      'LLMs possess both component knowledge types (~90%) but fail to compose them for trap problems (36% GPT-4). Human ratio 85.9% vs LLM 12-51% shows fundamental compositional gap.',
+    keyEvidence: [
+      'GPT-4: 90% conceptual, 70% original, 36% trap (ratio 51.2%)',
+      'Claude-3.5-Sonnet: 94% conceptual, 75% original, 19% trap (ratio 25.9%)',
+      'Llama3-70B: 88% conceptual, 62% original, 7.7% trap (ratio 12.5%)',
+      'Human baseline: 97.6% original, 83.8% trap (ratio 85.9%)',
+      'Hints help (+15-21pp) = knowledge exists but not spontaneously accessed',
+    ],
+    keyQuotes: [
+      'LLMs possess both knowledge components but fail to spontaneously compose them for novel reasoning paths.',
+      'LLMs reason through subgraph matching rather than developing systematic problem-solving skills.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/380-389/384_compositional_deficiency_math.md',
+  },
 ];

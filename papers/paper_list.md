@@ -1,6 +1,6 @@
 # Paper List
 
-> 382 papers analyzed | 286 supports thesis | 15 challenges | 81 balanced | Date range: 2021-2026
+> 385 papers analyzed | 290 supports thesis | 15 challenges | 80 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -385,3 +385,6 @@
 | 379 | 2505.10571 | May 2025 | On the Failure of Latent State Persistence in Large Language Models | Supports |
 | 380 | 2411.16353 | Nov 2024 | Lessons from Studying Two-Hop Latent Reasoning | Supports |
 | 381 | 2305.04400 | May 2023 | Do Large Language Models Show Decision Heuristics Similar to Humans? | Supports |
+| 382 | 2309.12288 | Sep 2023 | The Reversal Curse: LLMs trained on "A is B" fail to learn "B is A" | Supports |
+| 383 | 2502.13913 | Feb 2025 | How Do LLMs Perform Two-Hop Reasoning in Context? | Supports |
+| 384 | 2405.06680 | May 2024 | Exploring the Compositional Deficiency in Math Reasoning (MathTrap) | Supports |
