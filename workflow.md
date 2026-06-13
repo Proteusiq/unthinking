@@ -39,6 +39,38 @@ Log decisions in `toevaluate.md` Triage Log table.
 
 ---
 
+## Step 1.5: Check for Duplicates
+
+**MANDATORY**: Before analyzing any paper, check if it's already in the corpus.
+
+```bash
+make lookup Q=<arxiv_id>
+```
+
+**If found**: Paper is already analyzed. Skip it and pick another.
+
+**If not found**: Safe to proceed.
+
+Example:
+```bash
+$ make lookup Q=2309.12288
+Found 1 match(es):
+
+  ID: 149
+  arXiv: 2309.12288
+  Title: The Reversal Curse
+  ...
+WARNING: Paper already in corpus!
+```
+
+You can also search by title keywords:
+```bash
+make lookup Q="reversal curse"
+make lookup Q="two-hop"
+```
+
+---
+
 ## Step 2: Qualify Paper
 
 Before deep reading, verify relevance:

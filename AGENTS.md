@@ -106,7 +106,23 @@ python3 -m http.server 8000  # Local dev
 - Look for actual numbers, experimental setups, and edge cases
 - **If you haven't read the full paper, you haven't read the paper**
 
-### 2. Independent Critical Assessment
+### 2. Check for Duplicates BEFORE Analyzing
+
+**MANDATORY**: Before analyzing ANY paper, check if it's already in the corpus:
+
+```bash
+make lookup Q=<arxiv_id>
+```
+
+- **If found** → Paper already analyzed. Skip and pick another.
+- **If not found** → Safe to proceed.
+
+You can also search by title:
+```bash
+make lookup Q="reversal curse"
+```
+
+### 3. Independent Critical Assessment
 - **Do not automatically agree with the researcher's interpretation** - form your own view from the paper first
 - Read the paper carefully BEFORE accepting any characterization (rebuttal, confirmation, etc.)
 - If the researcher suggests a classification, VERIFY it against the actual paper content
@@ -115,7 +131,7 @@ python3 -m http.server 8000  # Local dev
 - You MAY defer to the researcher after independent verification confirms their view
 - State your assessment clearly, noting agreement or disagreement with the researcher
 
-### 3. Rebuttal Analysis is MANDATORY
+### 4. Rebuttal Analysis is MANDATORY
 For EVERY paper analyzed, you MUST:
 1. **Search for direct arXiv rebuttals** - check if other papers cite/challenge this work
 2. **Check for counter-evidence from other analyzed papers** in the corpus
@@ -123,7 +139,7 @@ For EVERY paper analyzed, you MUST:
 4. **Include a REBUTTALS section** in each analysis file
 5. **Update the paper interaction graph** (see below)
 
-### 4. Evidence Must Have Numbers - SLOW DOWN
+### 5. Evidence Must Have Numbers - SLOW DOWN
 
 **Do not rush through papers.** The quality of an analysis is measured by the specificity of evidence extracted, not the speed of completion.
 
@@ -170,14 +186,14 @@ Then write the analysis with specific numbers woven throughout.
 If a paper makes claims without quantitative support:
 > "The authors claim X improves Y but provide no statistical test or effect size. This claim should be treated as unverified."
 
-### 5. Track Paper Interactions (MANDATORY)
+### 6. Track Paper Interactions (MANDATORY)
 For EVERY paper analyzed, you MUST update the paper interaction graph:
 1. **Document relationships**: supports, challenges, extends, provides mechanism for
 2. **Track rebuttal chains**: A rebuts B, C rebuts A's rebuttal, etc.
 3. **Update `analysis/paper_graph.md`** with new interactions
 4. **Identify papers with NO rebuttals** - these are papers requiring follow-up
 
-### 6. Use Objective Language
+### 7. Use Objective Language
 - **NEVER** use "our thesis" or "your thesis" - use "the thesis" instead
 - Write as an objective observer, not an advocate
 - Examples:
@@ -187,7 +203,7 @@ For EVERY paper analyzed, you MUST update the paper interaction graph:
   - GOOD: "Evidence for the claim..."
 - The analysis should read as neutral scholarly work, not persuasive writing
 
-### 7. No Temporal Markers
+### 8. No Temporal Markers
 - **NEVER** use "NEW", "UPDATED", "RECENT" or similar temporal markers in documentation
 - Content should be timeless - dates speak for themselves
 - If something is new, the date/commit history shows it
@@ -197,7 +213,7 @@ For EVERY paper analyzed, you MUST update the paper interaction graph:
   - BAD: `### NEW: Mirror Rebuttals Section`
   - GOOD: `### Mirror Rebuttals Section`
 
-### 8. ASCII Diagrams for Clarity
+### 9. ASCII Diagrams for Clarity
 
 Use ASCII boxes and diagrams **liberally** - they make analysis memorable and findings scannable. When in doubt, add a diagram.
 
