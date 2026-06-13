@@ -80,6 +80,41 @@ If NO to any, skip and note why in `papers/toread.md`.
 
 ---
 
+## Step 3.5: Extract Evidence (Before Writing)
+
+**PAUSE before writing the analysis.** Extract all quantitative evidence first.
+
+### Evidence Extraction Checklist
+
+- [ ] **Find all statistical tables** in Results and Appendix
+- [ ] **Extract exact numbers**: p-values, effect sizes, confidence intervals
+- [ ] **Note sample sizes**: N, trials, conditions, models tested
+- [ ] **Record model configurations**: temperatures, versions, prompts
+- [ ] **Identify failure cases**: what breaks, at what threshold
+- [ ] **Flag missing stats**: claims without quantitative support
+
+### Create a Scratch List
+
+Before writing, create a bullet list of key numbers:
+
+```
+Evidence extracted from [Paper Title]:
+- Main effect: H=97.54, p=6.6e-22, ε²=0.65
+- At threshold (n=3): r=0.27, p=0.048 (barely significant)
+- With noise: performance drops to chance (r=-0.03 at n=1)
+- Model comparison: GPT-4 d'>2.0 at n=3, open-source d'≈0
+- Sample: 50 blocks × 24 trials × 3 conditions = 3,600 trials
+```
+
+### Quality Gate
+
+Do NOT proceed to writing until you can answer:
+1. What is the **strongest** quantitative evidence?
+2. What is the **weakest** or missing evidence?
+3. What are the **exact experimental conditions**?
+
+---
+
 ## Step 4: Create Analysis File
 
 Create `analysis/explored/XX-X9/XX_paper_name.md` in the appropriate bin folder:

@@ -123,11 +123,52 @@ For EVERY paper analyzed, you MUST:
 4. **Include a REBUTTALS section** in each analysis file
 5. **Update the paper interaction graph** (see below)
 
-### 4. Evidence Must Have Numbers
-- Extract specific quantitative results (percentages, metrics, sample sizes)
-- Document experimental conditions (models tested, datasets used)
-- Note statistical significance where provided
-- Flag when papers make claims without quantitative support
+### 4. Evidence Must Have Numbers - SLOW DOWN
+
+**Do not rush through papers.** The quality of an analysis is measured by the specificity of evidence extracted, not the speed of completion.
+
+#### What "Evidence with Numbers" Means
+
+**BAD (vague):**
+> "Performance drops significantly at n=3"
+
+**GOOD (specific):**
+> "At 3-back: r=0.27, p=0.048 (Wilcoxon signed-rank). Effect size barely significant."
+
+#### Required Evidence Types
+
+| Evidence Type | Example |
+|---------------|---------|
+| **Statistical tests** | H=97.54, p=6.6×10⁻²², ε²=0.65 (Kruskal-Wallis) |
+| **Effect sizes** | r=0.27 (small), r=0.82 (large), Cohen's d=1.2 |
+| **Sample sizes** | 50 blocks × 24 trials = 1,200 trials per condition |
+| **Model specs** | GPT-3.5-turbo, temperature=1, 8 models compared |
+| **Failure rates** | 33% decision failure rate for Llama-1B |
+| **Comparisons** | d' drops from 2.82 (n=1) to 1.24 (n=3) |
+
+#### Where to Find Numbers
+
+1. **Results section** - Primary findings with statistics
+2. **Tables in appendix** - Often contain the most detailed stats
+3. **Figure captions** - Error bars, sample sizes, conditions
+4. **Methods section** - Experimental parameters, model configs
+5. **Limitations section** - Authors often quantify their concerns
+
+#### The "Pause and Extract" Rule
+
+Before writing the analysis:
+1. **Read the full paper** (not just abstract)
+2. **Find all statistical tables** - these are gold
+3. **Extract exact numbers** into a scratch list
+4. **Identify the strongest/weakest evidence**
+5. **Note what's missing** (no stats = flag it)
+
+Then write the analysis with specific numbers woven throughout.
+
+#### Flag Missing Evidence
+
+If a paper makes claims without quantitative support:
+> "The authors claim X improves Y but provide no statistical test or effect size. This claim should be treated as unverified."
 
 ### 5. Track Paper Interactions (MANDATORY)
 For EVERY paper analyzed, you MUST update the paper interaction graph:
