@@ -1,6 +1,6 @@
 # Paper List
 
-> 375 papers analyzed | 279 supports thesis | 15 challenges | 81 balanced | Date range: 2021-2026
+> 379 papers analyzed | 283 supports thesis | 15 challenges | 81 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -375,3 +375,7 @@
 | 369 | 2606.05625 | Jun 2026 | Self-Commitment Latency: A Reward-Free Probe for Prompted Implicit Hacking | Supports |
 | 370 | 2606.04145 | Jun 2026 | EvalStop: Detecting and Correcting Reward Overoptimization in Multi-Tenant RLHF Platforms | Balanced |
 | 371 | 2603.24621 | Mar 2026 | ARC-AGI-3: A New Challenge for Frontier Agentic Intelligence | Supports |
+| 372 | 2506.03923 | Jun 2025 | More or Less Wrong: Directional Bias in LLM Comparative Reasoning | Supports |
+| 373 | 2505.22910 | Apr 2026 | Talent or Luck? Evaluating Attribution Bias in LLMs | Supports |
+| 374 | 2507.22887 | Jul 2025 | Where to show Demos in Your Prompt: Positional Bias of ICL | Supports |
+| 375 | 2507.13337 | Jul 2025 | FormulaOne: Measuring the Depth of Algorithmic Reasoning | Supports |

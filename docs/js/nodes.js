@@ -8132,4 +8132,92 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/374_arc_agi_3.md',
   },
+  {
+    id: '2506.03923',
+    title: 'More or Less Wrong: A Benchmark for Directional Bias in LLM Comparative Reasoning',
+    shortTitle: 'Directional Bias',
+    date: 'Jun 2025',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'LLMs exhibit systematic directional framing bias: comparative words (more/less/equal) in prompts steer predictions toward that term regardless of actual math. Models pattern-match to surface cues rather than computing quantities.',
+    keyEvidence: [
+      'Equal framing raises DirErr%(equal) to 94% from negligible in neutral condition',
+      'Smaller models exceed 90% drift toward cue-word; even Claude Sonnet shows 26% drift',
+      'CoT reduces bias to <30% but residual effects persist; structured CoT may reintroduce drift',
+      'Demographic identity amplifies drift: same math produces different answers based on who is described',
+    ],
+    keyQuotes: [
+      'Across all framings the mere presence of a comparative term reliably biases predictions toward that term, even when it is incorrect.',
+      'Models often solve the problem correctly, but phrase their answer using the cue term introduced in the framing.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/375_directional_bias_comparative_reasoning.md',
+  },
+  {
+    id: '2505.22910',
+    title: 'Talent or Luck? Evaluating Attribution Bias in Large Language Models',
+    shortTitle: 'Attribution Bias',
+    date: 'Apr 2026',
+    stance: 'supports',
+    cluster: 'faithfulness',
+    coreArgument:
+      'LLMs attribute success/failure asymmetrically based on demographics: dominant groups get internal credit (effort/ability) while marginalized groups get internal blame. This mirrors human cognitive biases, not principled causal reasoning.',
+    keyEvidence: [
+      '78-89% of attribution differences statistically significant after FDR correction',
+      'Scale shifts attribution style: 8B models favor external (luck); 70B favors internal (effort)',
+      'Actor-Actor pairings amplify bias: co-occurring identities reduce credit and increase blame',
+      '140k prompts, 400 templates across 10 scenarios, 4 social dimensions',
+    ],
+    keyQuotes: [
+      'Attribution discrepancies are observed across identities, with marginalized groups receiving less credit for success and more blame for failure.',
+      'We do not imply models reasoning capabilities... we draw on cognitive science to examine model bias patterns.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/376_attribution_bias_talent_luck.md',
+  },
+  {
+    id: '2507.22887',
+    title: 'Where to show Demos in Your Prompt: A Positional Bias of In-Context Learning',
+    shortTitle: 'DPP Bias',
+    date: 'Jul 2025',
+    stance: 'supports',
+    cluster: 'in-context-learning',
+    coreArgument:
+      'Demo position (not content) determines ICL performance: moving unchanged demos from prompt start to end swings accuracy by 50pp and flips 45% of predictions. If models reasoned from demos, position would be irrelevant.',
+    keyEvidence: [
+      'Up to 50pp accuracy swing from position change alone; 45% prediction flip on AG News',
+      'eum position fails to beat zero-shot (p=0.166 vs p<0.01 for ssp/esp/sum)',
+      'GSM8K: >90% prediction changes across nearly all models regardless of size',
+      'CNN/DailyMail: improvement drops from 49% (ssp) to 1% (eum) for LLaMA3 3B',
+    ],
+    keyQuotes: [
+      'This phenomenon, purely spatial, independent of demo content, challenges the widespread assumption that large language models learn robustly from any properly formatted context.',
+      'This brittleness challenges assumptions about LLMs capacity for systematic reasoning, raising urgent questions about whether current models truly learn from context or merely exploit superficial patterns.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/377_positional_bias_icl.md',
+  },
+  {
+    id: '2507.13337',
+    title: 'FormulaOne: Measuring the Depth of Algorithmic Reasoning Beyond Competitive Programming',
+    shortTitle: 'FormulaOne',
+    date: 'Jul 2025',
+    stance: 'supports',
+    cluster: 'algorithmic',
+    coreArgument:
+      'State-of-the-art reasoning models fail catastrophically on real algorithmic problems: o3 solves <1% of FormulaOne even with 10 attempts and few-shot examples. Domain is well within training distribution (graph theory, logic, algorithms).',
+    keyEvidence: [
+      'o3 solves <1% with 10 attempts and explanatory few-shot examples',
+      'Domain: graph theory, logic, algorithms - core CS topics in training data',
+      'Problems relate to SETH and practical optimization (routing, scheduling)',
+      'FormulaOne-Warmup provided for simpler tasks from same distribution',
+    ],
+    keyQuotes: [
+      'Remarkably, state-of-the-art models like OpenAI o3 fail entirely on FormulaOne, solving less than 1% of the questions, even when given 10 attempts and explanatory fewshot examples.',
+      'Genuine experts can tackle the hardest problems and push the boundaries of scientific understanding.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/378_formulaone_algorithmic_reasoning.md',
+  },
 ];

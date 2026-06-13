@@ -9391,4 +9391,120 @@ window.paperLinks = [
     description:
       'Same prescription against memorization shortcuts: private sets must be OOD from public demos to test true generalization',
   },
+  // Directional Bias (2506.03923) links
+  {
+    source: '2506.03923',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Surface patterns override computation: framing words steer answers regardless of actual math',
+  },
+  {
+    source: '2506.03923',
+    target: '2410.05229',
+    type: 'supports',
+    description:
+      'Same mechanism in math: linguistic cues (more/less) override numerical computation',
+  },
+  {
+    source: '2506.03923',
+    target: '2302.00093',
+    type: 'supports',
+    description:
+      'Both show irrelevant context derails reasoning - framing words are semantic distractors',
+  },
+  {
+    source: '2506.03923',
+    target: '2308.00225',
+    type: 'supports',
+    description:
+      'Instruction tuning creates cognitive biases; directional bias is emergent framing effect',
+  },
+  // Attribution Bias (2505.22910) links
+  {
+    source: '2505.22910',
+    target: '2202.12299',
+    type: 'extends',
+    description:
+      'Extends cognitive bias framework to attribution theory: systematic success/failure asymmetries',
+  },
+  {
+    source: '2505.22910',
+    target: '2308.00225',
+    type: 'supports',
+    description:
+      'Both show instruction tuning creates emergent biases; attribution asymmetries are learned patterns',
+  },
+  {
+    source: '2505.22910',
+    target: '2506.03923',
+    type: 'supports',
+    description:
+      'Parallel finding: demographic identity changes causal explanations just as framing changes math answers',
+  },
+  {
+    source: '2505.22910',
+    target: '2207.07051',
+    type: 'supports',
+    description:
+      'Both show LLMs exhibit human-like content effects - attribution patterns mirror training data stereotypes',
+  },
+  // Positional Bias (2507.22887) links
+  {
+    source: '2507.22887',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Positional pattern matching: demo position matters because models exploit token positions, not semantic content',
+  },
+  {
+    source: '2507.22887',
+    target: '2302.00093',
+    type: 'supports',
+    description:
+      'Both show position of context affects reasoning - lost in the middle vs positional bias of demos',
+  },
+  {
+    source: '2507.22887',
+    target: '2308.11483',
+    type: 'supports',
+    description:
+      'Extends option order sensitivity to demo position sensitivity: primacy bias in both cases',
+  },
+  {
+    source: '2507.22887',
+    target: '2506.03923',
+    type: 'supports',
+    description:
+      'Both show surface features (position, framing words) override semantic content in reasoning',
+  },
+  // FormulaOne (2507.13337) links
+  {
+    source: '2507.13337',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Strongest confirmation: o3 <1% on algorithmic tasks in familiar domains (graph theory, logic)',
+  },
+  {
+    source: '2507.13337',
+    target: '2506.06941',
+    type: 'supports',
+    description:
+      'Both expose reasoning model limits: Illusion of Thinking on planning, FormulaOne on algorithms',
+  },
+  {
+    source: '2507.13337',
+    target: '2603.24621',
+    type: 'supports',
+    description:
+      'Same finding different domain: ARC-AGI-3 <1% on interactive, FormulaOne <1% on algorithmic',
+  },
+  {
+    source: '2507.13337',
+    target: '2506.18880',
+    type: 'supports',
+    description:
+      'OMEGA shows near-0% on composition; FormulaOne shows <1% on multi-step algorithmic reasoning',
+  },
 ];

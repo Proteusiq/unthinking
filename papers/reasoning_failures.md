@@ -59,12 +59,12 @@ GitHub: https://github.com/Peiyang-Song/Awesome-LLM-Reasoning-Failures
 | 📋 TO-READ | [2502.17091](https://arxiv.org/abs/2502.17091) | WildFrame: Comparing Framing in Humans and LLMs | arXiv |
 | 📋 TO-READ | [2503.04840](https://arxiv.org/abs/2503.04840) | Framing the Game: How Context Shapes LLM Decision-Making | arXiv |
 | 🔗 LINKED | [arXiv](https://arxiv.org/abs/2503.04840) | Investigating bias in LLM-based bias detection | COLING 2025 |
-| 📋 TO-READ | [2506.03923](https://arxiv.org/abs/2506.03923) | More or Less Wrong: Directional Bias in LLM Comparative Reasoning | arXiv |
+| ✅ DONE | [2506.03923](https://arxiv.org/abs/2506.03923) | More or Less Wrong: Directional Bias in LLM Comparative Reasoning | arXiv |
 | 📋 TO-READ | [2310.10076](https://arxiv.org/abs/2310.10076) | Verbosity bias in preference labeling by large language models | arXiv |
-| 📋 TO-READ | [2505.22910](https://arxiv.org/abs/2505.22910) | Talent or Luck? Evaluating Attribution Bias in LLMs | arXiv |
+| ✅ DONE | [2505.22910](https://arxiv.org/abs/2505.22910) | Talent or Luck? Evaluating Attribution Bias in LLMs | arXiv |
 | 📋 TO-READ | [2406.01285](https://arxiv.org/abs/2406.01285) | Large language models as recommender systems: Popularity bias | arXiv |
 | 🔗 LINKED | [OpenReview](https://openreview.net/forum?id=YiIdHqqoCd) | Beyond Utility: Evaluating LLM as Recommender | WWW 2025 |
-| 📋 TO-READ | [2507.22887](https://arxiv.org/abs/2507.22887) | Where to show Demos in Your Prompt: Positional Bias | arXiv |
+| ✅ DONE | [2507.22887](https://arxiv.org/abs/2507.22887) | Where to show Demos in Your Prompt: Positional Bias | arXiv |
 | ✅ DONE | [2308.11483](https://arxiv.org/abs/2308.11483) | Large language models sensitivity to the order of options | NAACL 2024 |
 | 🔗 LINKED | [IJAIRD](https://iaeme.com/Home/article_id/IJAIRD_02_02_010) | Mitigating order sensitivity in large language models | IJAIRD 2024 |
 | 📋 TO-READ | [2502.04134](https://arxiv.org/abs/2502.04134) | The Order Effect: Investigating Prompt Sensitivity to Input Order | KDD 2025 Workshop |

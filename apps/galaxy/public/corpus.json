@@ -6305,5 +6305,73 @@
     ],
     "analysis_path": "analysis/explored/370-379/374_arc_agi_3.md",
     "word_count": 2350
+  },
+  {
+    "id": 375,
+    "arxiv": "2506.03923",
+    "title": "More or Less Wrong",
+    "date": "June 2025",
+    "stance": "supports",
+    "cluster": "cot",
+    "core_finding": "KEY FINDING Identical math problems produce different answers based solely on which comparative word (\"more\"/\"less\"/\"equal\") appears in the prompt. Models aren't computing - they're pattern-matching to linguistic surface features.",
+    "smoking_gun": false,
+    "quotes": [
+      "Based on our manual analysis, models often solve the problem correctly, but phrase their answer using the cue term introduced in the framing.",
+      "Unlike prior work that examines robustness to surface-level perturbations... we focus on semantic framing and its influence on the directionality of reasoning errors.",
+      "Across all framings the mere presence of a comparative term - less, more, or equal - reliably biases predictions toward that term, even when it is incorrect."
+    ],
+    "analysis_path": "analysis/explored/370-379/375_directional_bias_comparative_reasoning.md",
+    "word_count": 1006
+  },
+  {
+    "id": 376,
+    "arxiv": "2505.22910",
+    "title": "Talent or Luck?",
+    "date": "April 2026",
+    "stance": "supports",
+    "cluster": "reasoning",
+    "core_finding": "KEY FINDING LLMs attribute the SAME outcome differently based on WHO experiences it. A woman's success = luck; a man's success = ability. Same math competition win, different causal explanation. This is pattern matching on stereotypes, not causal reasoning.",
+    "smoking_gun": false,
+    "quotes": [
+      "Attribution discrepancies are observed across identities, with marginalized groups receiving less credit for success and more blame for failure.",
+      "Actor-Actor pairings expose directional attribution gaps: when two identities co-occur, models diminish internal credit for success and amplify internal blame for failure.",
+      "Smaller models rely on external attributions while larger models prefer internal attributions... we observe a consistent progression from external to internal attribution preferences as model size increases."
+    ],
+    "analysis_path": "analysis/explored/370-379/376_attribution_bias_talent_luck.md",
+    "word_count": 1083
+  },
+  {
+    "id": 377,
+    "arxiv": "2507.22887",
+    "title": "Where to Show Demos in Your Prompt",
+    "date": "July 2025",
+    "stance": "supports",
+    "cluster": "reasoning",
+    "core_finding": "KEY FINDING Moving an UNCHANGED block of demos from prompt start to end: • Swings accuracy by up to 50 percentage points • Flips 45% of predictions • Can make ICL WORSE than zero-shot If models reasoned from demos, POSITION shouldn't matter. Only CONTENT should matter. This proves positional pattern match.",
+    "smoking_gun": false,
+    "quotes": [
+      "We discover a novel positional bias in *in-context learning* (ICL): DPP bias, in which moving an *unchanged* block of demos from the start of a prompt to the end can swing task accuracy by up to 20 percents and flip almost half of a model's predictions.",
+      "This phenomenon, purely spatial, independent of demo content, challenges the widespread assumption that large language models learn robustly from any properly formatted context.",
+      "This brittleness not only undermines reproducibility but also challenges assumptions about LLMs' capacity for systematic reasoning, raising urgent questions about whether current models truly learn from context or merely exploit superficial patterns."
+    ],
+    "analysis_path": "analysis/explored/370-379/377_positional_bias_icl.md",
+    "word_count": 1260
+  },
+  {
+    "id": 378,
+    "arxiv": "2507.13337",
+    "title": "FormulaOne",
+    "date": "July 2025",
+    "stance": "supports",
+    "cluster": "reasoning",
+    "core_finding": "KEY FINDING OpenAI's o3 solves <1% of FormulaOne problems even with: • 10 attempts per problem • Explanatory few-shot examples These are real research-level problems, not contrived puzzles. The domain (graph theory, logic, algorithms) is well within the training distribution of frontier models.",
+    "smoking_gun": false,
+    "quotes": [
+      "graph theory, logic, and algorithms, all well within the training distribution of frontier models",
+      "Frontier AI models demonstrate formidable breadth of knowledge. But how close are they to true human -- or superhuman -- expertise? Genuine experts can tackle the hardest problems and push the boundaries of scientific understanding.",
+      "Our problems are incredibly demanding, requiring an array of reasoning steps."
+    ],
+    "analysis_path": "analysis/explored/370-379/378_formulaone_algorithmic_reasoning.md",
+    "word_count": 949
   }
 ]

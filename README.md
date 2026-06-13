@@ -7,7 +7,7 @@
 </a>
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
-[![Papers](https://img.shields.io/badge/papers-375-blue)]()
+[![Papers](https://img.shields.io/badge/papers-379-blue)]()
 [![Relationships](https://img.shields.io/badge/relationships-1391-orange)]()
 
 ---
@@ -16,10 +16,10 @@
 
 Do LLMs actually understand or do they predict plausible-sounding tokens without understanding?
 
-This project surveys 375 papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
+This project surveys 379 papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
 
 To bring the findings home:
-- **Paper network**: interactive graph of 375 papers and 1395 relationships, filterable by stance
+- **Paper network**: interactive graph of 379 papers and 1411 relationships, filterable by stance
 - **Experiments**:
   - *Decoding ablation*: reasoning paths exist in base models, hidden by greedy decoding; RL surfaces them
   - *Steering ablation*: safety alignment is a thin layer of refusal patterns that washes off under trivial perturbations
@@ -40,8 +40,8 @@ RL and test-time compute surface pre-existing capabilities rather than creating 
 
 Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/)**
 
-- **Force-directed graph**: 375 papers as nodes, 1395 relationships as edges
-- **Color-coded stances**: supports (279), challenges (15), balanced (81)
+- **Force-directed graph**: 379 papers as nodes, 1411 relationships as edges
+- **Color-coded stances**: supports (283), challenges (15), balanced (81)
 - **Interactive**: hover, click, search, filter, dark/light mode
 - **Paper dialogue**: auto-generated conversations between connected papers
 
@@ -72,7 +72,7 @@ See `apps/galaxy/README.md` for the build and trade-offs.
 | [**Training**](https://proteusiq.github.io/unthinking/pages/training.html) | Pipeline, Mechanics, Research | Full training lifecycle: pre-training (AdamW, scaling laws, mixed precision), mid-training (annealing, domain adaptation, context extension), post-training (SFT, RLHF, DPO, GRPO, RLVR), lab recipes |
 | [**Implementation**](https://proteusiq.github.io/unthinking/pages/implementation.html) | Tokens, Embed, Attention, FFN, Training | Core GPT algorithm from scratch: tokenization (char/BPE), embeddings (token/position/weight tying), self-attention (QKV, causal mask, multi-head), FFN (residuals, pre-norm), training loop (softmax, cross-entropy, backprop, Adam) |
 
-[**Findings**](https://proteusiq.github.io/unthinking/pages/findings.html): 375-paper synthesis - themes, smoking guns, patterns, stance distribution.
+[**Findings**](https://proteusiq.github.io/unthinking/pages/findings.html): 379-paper synthesis - themes, smoking guns, patterns, stance distribution.
 
 See also:
 - [Transformer Explainer](https://poloclub.github.io/transformer-explainer/): interactive GPT-2 visualization (Georgia Tech)
@@ -395,7 +395,7 @@ papers in this corpus make the inversion concrete:
 │   ├── case.md               # Formal case against LLM reasoning
 │   ├── paper_graph.md        # Paper interaction graph
 │   ├── rebuttals.md          # Rebuttal matrix
-│   └── explored/             # Individual paper analyses (375 papers)
+│   └── explored/             # Individual paper analyses (379 papers)
 │       ├── 00-09/ ... 260-269/
 ├── docs/                     # Interactive visualization (GitHub Pages)
 │   ├── index.html            # Paper network graph
@@ -409,7 +409,7 @@ papers in this corpus make the inversion concrete:
 │   ├── css/                  # variables, layout, components, responsive
 │   └── js/
 │       ├── nodes.js          # Paper node definitions (360)
-│       ├── links.js          # Relationship links (1395)
+│       ├── links.js          # Relationship links (1411)
 │       ├── data.js           # Meta + combines nodes/links
 │       └── graph.js          # Force-directed graph + interactions
 ├── apps/galaxy/              # 3D semantic projection (React + Vite)
