@@ -6427,23 +6427,6 @@
   },
   {
     "id": 382,
-    "arxiv": "2309.12288",
-    "title": "The Reversal Curse",
-    "date": "September 2023",
-    "stance": "supports",
-    "cluster": "reasoning",
-    "core_finding": "THE REVERSAL CURSE Training on \"A is B\" → Model can answer \"What is A?\" → Model CANNOT answer \"What is B?\" The likelihood of the correct answer is NOT HIGHER than for a RANDOM name. Zero statistical difference. Critical: In-context, models CAN reverse. The curse is about training generalization, not reasoning capacity.",
-    "smoking_gun": false,
-    "quotes": [
-      "If a model is trained on a sentence of the form 'A is B', it will not automatically generalize to the reverse direction 'B is A'.",
-      "The likelihood of the correct answer will not be higher than for a random name.",
-      "It is worth noting, however, that if 'A is B' appears in-context, models can deduce the reverse relationship."
-    ],
-    "analysis_path": "analysis/explored/380-389/382_reversal_curse.md",
-    "word_count": 939
-  },
-  {
-    "id": 383,
     "arxiv": "2502.13913",
     "title": "Two-Hop Reasoning in Context",
     "date": "February 2025",
@@ -6455,11 +6438,11 @@
       "Pre-trained LLMs collapse to random guessing (1/K) on in-context two-hop reasoning when distractors are present.",
       "Fine-tuning on K=2 enables sharp phase transition to near-perfect accuracy with strong generalization to K=5."
     ],
-    "analysis_path": "analysis/explored/380-389/383_two_hop_reasoning_in_context.md",
+    "analysis_path": "analysis/explored/380-389/382_two_hop_reasoning_in_context.md",
     "word_count": 811
   },
   {
-    "id": 384,
+    "id": 383,
     "arxiv": "2405.06680",
     "title": "Compositional Deficiency in Math Reasoning",
     "date": "May 2024",
@@ -6472,7 +6455,7 @@
       "LLMs rely on surrounding cases in the training set for mathematical reasoning rather than learning generalizable rules",
       "LLMs possess both knowledge components but fail to spontaneously compose them for novel reasoning paths."
     ],
-    "analysis_path": "analysis/explored/380-389/384_compositional_deficiency_math.md",
+    "analysis_path": "analysis/explored/380-389/383_compositional_deficiency_math.md",
     "word_count": 928
   }
 ]

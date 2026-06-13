@@ -8355,29 +8355,6 @@ window.paperNodes = [
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/380-389/381_decision_heuristics_gpt35.md',
   },
   {
-    id: '2309.12288',
-    title: 'The Reversal Curse: LLMs trained on "A is B" fail to learn "B is A"',
-    shortTitle: 'Reversal Curse',
-    date: 'Sep 2023',
-    stance: 'supports',
-    cluster: 'compositional',
-    coreArgument:
-      'FOUNDATIONAL: Auto-regressive LLMs store facts directionally, not symmetrically. Training on "A is B" yields 0% accuracy on "B is A" - log-probabilities show NO statistical difference from random names.',
-    keyEvidence: [
-      'Same direction: 50-97% accuracy, Reverse: 0.0-0.1%',
-      'Log-prob of correct = random (all p>0.05, no statistical difference)',
-      'GPT-4 real-world: 79% parent→child, 33% child→parent',
-      'In-context: 100% reversal works (curse is training-specific)',
-      'Robust across 350M-175B, GPT-3/Llama-1, all augmentations fail',
-    ],
-    keyQuotes: [
-      'The likelihood of the correct answer will not be higher than for a random name.',
-      'If "A is B" appears in-context, models can deduce the reverse relationship.',
-    ],
-    analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/380-389/382_reversal_curse.md',
-  },
-  {
     id: '2502.13913',
     title: 'How Do LLMs Perform Two-Hop Reasoning in Context?',
     shortTitle: 'Two-Hop In-Context',
@@ -8397,7 +8374,7 @@ window.paperNodes = [
       'Pre-trained LLMs collapse to random guessing (1/K) on in-context two-hop reasoning.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/380-389/383_two_hop_reasoning_in_context.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/380-389/382_two_hop_reasoning_in_context.md',
   },
   {
     id: '2405.06680',
@@ -8420,6 +8397,6 @@ window.paperNodes = [
       'LLMs reason through subgraph matching rather than developing systematic problem-solving skills.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/380-389/384_compositional_deficiency_math.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/380-389/383_compositional_deficiency_math.md',
   },
 ];

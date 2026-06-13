@@ -9716,7 +9716,7 @@ window.paperLinks = [
     description:
       'Biases from language patterns = pattern matching hypothesis - predict biased responses not compute decisions',
   },
-  // Reversal Curse (#382 - 2309.12288) links
+  // Reversal Curse (2309.12288) links to new papers
   {
     source: '2309.12288',
     target: '2411.16353',
