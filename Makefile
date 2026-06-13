@@ -1,4 +1,4 @@
-.PHONY: help corpus sync-counts check-counts galaxy galaxy-dev galaxy-build deploy-check db lookup
+.PHONY: help corpus sync-counts check-counts galaxy galaxy-dev galaxy-build deploy-check db lookup check-dups
 
 help:
 	@echo "Unthinking — make targets"
@@ -8,6 +8,7 @@ help:
 	@echo "  make check-counts  read-only drift check (CI mode)"
 	@echo "  make db            rebuild DuckDB for paper lookup"
 	@echo "  make lookup Q=...  look up paper by arXiv ID or title"
+	@echo "  make check-dups    find duplicates in toread.md and issues"
 	@echo "  make galaxy-dev    start the galaxy dev server on :5173"
 	@echo "  make galaxy-build  production-build the galaxy"
 	@echo "  make galaxy        corpus + sync-counts + galaxy-build (full refresh)"
@@ -29,6 +30,10 @@ db:
 #        make lookup Q="reversal curse"
 lookup:
 	@uvx --with duckdb python scripts/lookup_paper.py "$(Q)"
+
+# Check toread.md and issues for papers already in corpus
+check-dups:
+	@uvx --with duckdb python scripts/check_all_duplicates.py
 
 sync-counts:
 	uv run python scripts/sync_counts.py
