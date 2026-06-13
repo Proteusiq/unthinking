@@ -9507,4 +9507,127 @@ window.paperLinks = [
     description:
       'OMEGA shows near-0% on composition; FormulaOne shows <1% on multi-step algorithmic reasoning',
   },
+  // Working Memory Capacity (#376 - 2305.03731) links
+  {
+    source: '2305.03731',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'WM capacity ~3 items provides cognitive mechanism for why compositional reasoning fails at depth',
+  },
+  {
+    source: '2305.03731',
+    target: '2302.00093',
+    type: 'supports',
+    description:
+      'Both show noise/distraction disrupts processing; WM interference effect confirms distraction sensitivity',
+  },
+  {
+    source: '2305.03731',
+    target: '2507.22887',
+    type: 'supports',
+    description:
+      'WM limits explain positional bias - cannot maintain many items simultaneously',
+  },
+  {
+    source: '2305.03731',
+    target: '2506.06941',
+    type: 'supports',
+    description:
+      'WM limits explain why extended thinking doesnt help - fundamental capacity constraint',
+  },
+  {
+    source: '2305.03731',
+    target: '2406.02061',
+    type: 'supports',
+    description:
+      'WM limits may explain why simple tasks fail when context grows beyond ~3 active items',
+  },
+  // Comprehensive Cognitive Biases (#377 - 2410.15413) links
+  {
+    source: '2410.15413',
+    target: '2506.03923',
+    type: 'extends',
+    description:
+      'Directional bias is one of 30 biases confirmed; systematic evaluation validates finding at scale',
+  },
+  {
+    source: '2410.15413',
+    target: '2505.22910',
+    type: 'extends',
+    description:
+      'Attribution bias one of 30; fundamental attribution error confirmed in comprehensive study',
+  },
+  {
+    source: '2410.15413',
+    target: '2308.00225',
+    type: 'extends',
+    description:
+      'Instructed to Bias found 5 biases; this confirms all 30 tested including those 5 at scale',
+  },
+  {
+    source: '2410.15413',
+    target: '2303.13988',
+    type: 'supports',
+    description:
+      'Machine Psychology found emergent cognitive patterns; this systematically quantifies 30 biases',
+  },
+  {
+    source: '2410.15413',
+    target: '2309.17012',
+    type: 'extends',
+    description:
+      'Earlier benchmarking of biases; this extends to 30 biases across 20 models with 30k tests',
+  },
+  {
+    source: '2410.15413',
+    target: '2202.12299',
+    type: 'extends',
+    description:
+      'Capturing Failures via Biases framework; comprehensive evaluation validates at massive scale',
+  },
+  // Not Strong Abstract Reasoners (#378 - 2305.19555) links
+  {
+    source: '2305.19555',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Abstract reasoning failure confirms pattern matching hypothesis - cannot generalize from few examples',
+  },
+  {
+    source: '2305.19555',
+    target: '2603.24621',
+    type: 'supports',
+    description:
+      'Both test abstract reasoning/generalization; ARC-AGI and this benchmark both show LLM failure',
+  },
+  {
+    source: '2305.19555',
+    target: '2507.13337',
+    type: 'supports',
+    description:
+      'FormulaOne algorithmic failure and abstract reasoning failure - both require genuine generalization',
+  },
+  {
+    source: '2305.19555',
+    target: '2506.18880',
+    type: 'supports',
+    description:
+      'OMEGA composition failure aligns - abstract patterns need novel composition not recognition',
+  },
+  {
+    source: '2305.19555',
+    target: '2307.02477',
+    type: 'supports',
+    description:
+      'Reasoning or Reciting tests same question - abstract benchmark shows reciting not reasoning',
+  },
+  {
+    source: '2305.19555',
+    target: '2305.03731',
+    type: 'supports',
+    description:
+      'WM limits provide mechanism for abstract reasoning failure - cannot hold enough for generalization',
+  },
 ];
+

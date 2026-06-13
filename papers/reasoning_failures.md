@@ -29,7 +29,7 @@ GitHub: https://github.com/Peiyang-Song/Awesome-LLM-Reasoning-Failures
 
 | Status | ID/Link | Title | Venue |
 |--------|---------|-------|-------|
-| 📋 TO-READ | [2305.03731](https://arxiv.org/abs/2305.03731) | Working memory capacity of ChatGPT | AAAI 2024 |
+| ✅ DONE | [2305.03731](https://arxiv.org/abs/2305.03731) | Working memory capacity of ChatGPT | AAAI 2024 |
 | 🔗 LINKED | [EMNLP](https://aclanthology.org/2024.emnlp-main.938/) | Working memory identifies reasoning limits in language models | EMNLP 2024 |
 | 🔗 LINKED | [OpenReview](https://openreview.net/forum?id=dXjQgm9kAr) | Self-Attention Limits Working Memory Capacity of Transformer-Based Models | NeurIPS 2024 Workshop |
 | 🔗 LINKED | [OpenReview](https://openreview.net/forum?id=YUHksmL8aw) | Unable to Forget: Proactive Interference Reveals Working Memory Limits | ICML 2025 Workshop |
@@ -39,7 +39,7 @@ GitHub: https://github.com/Peiyang-Song/Awesome-LLM-Reasoning-Failures
 | 🔗 LINKED | [bioRxiv](https://www.biorxiv.org/content/10.1101/2025.01.22.634394v1) | Deficient Executive Control in Transformer Attention | bioRxiv |
 | 🔗 LINKED | [OpenReview](https://openreview.net/forum?id=58yThpzlth) | Cognitive flexibility of large language models | ICML 2024 Workshop |
 | 🔗 LINKED | [OpenReview](https://openreview.net/forum?id=E8m8oySvPJ) | LLMs and the Abstraction and Reasoning Corpus | TMLR 2024 |
-| 📋 TO-READ | [2305.19555](https://arxiv.org/abs/2305.19555) | Large language models are not strong abstract reasoners | arXiv |
+| ✅ DONE | [2305.19555](https://arxiv.org/abs/2305.19555) | Large language models are not strong abstract reasoners | arXiv |
 | 📋 TO-READ | [2410.11756](https://arxiv.org/abs/2410.11756) | Evidence of Cognitive Deficits: Clock Drawing Test Analysis | arXiv |
 | 📋 TO-READ | [2502.05092](https://arxiv.org/abs/2502.05092) | Lost in Time: Clock and Calendar Understanding Challenges | arXiv |
 | ✅ DONE | [2207.07051](https://arxiv.org/abs/2207.07051) | Language models, like humans, show content effects on reasoning | PNAS Nexus 2024 |
@@ -47,7 +47,7 @@ GitHub: https://github.com/Peiyang-Song/Awesome-LLM-Reasoning-Failures
 | 🔗 LINKED | [ACL](https://aclanthology.org/2025.findings-acl.195/) | Unveiling Confirmation Bias in Chain-of-Thought Reasoning | ACL 2025 |
 | 🔗 LINKED | [ACL](https://aclanthology.org/2025.acl-long.195/) | Conformity in Large Language Models | ACL 2025 |
 | 📋 TO-READ | [2412.04629](https://arxiv.org/abs/2412.04629) | Argumentative Experience: Reducing Confirmation Bias | arXiv |
-| 📋 TO-READ | [2410.15413](https://arxiv.org/abs/2410.15413) | A Comprehensive Evaluation of Cognitive Biases in LLMs | arXiv |
+| ✅ DONE | [2410.15413](https://arxiv.org/abs/2410.15413) | A Comprehensive Evaluation of Cognitive Biases in LLMs | arXiv |
 | 📋 TO-READ | [2403.00811](https://arxiv.org/abs/2403.00811) | Cognitive bias in high-stakes decision-making with LLMs | EMNLP 2024 |
 | ✅ DONE | [2408.00137](https://arxiv.org/abs/2408.00137) | Correcting negative bias through negative attention score alignment | arXiv |
 | ✅ DONE | [2202.12299](https://arxiv.org/abs/2202.12299) | Capturing failures of large language models via human cognitive biases | NeurIPS 2022 |
@@ -332,12 +332,12 @@ GitHub: https://github.com/Peiyang-Song/Awesome-LLM-Reasoning-Failures
 
 | Status | Count |
 |--------|-------|
-| ✅ DONE (Already Analyzed) | 16 |
-| 📋 TO-READ (Issues #48-54) | ~126 |
+| ✅ DONE (Already Analyzed) | 19 |
+| 📋 TO-READ (Issues #48-54) | ~123 |
 | 🔗 LINKED (Need triage) | ~87 |
 | **Total from Survey** | ~229 |
 
-### Papers Already in Our Corpus (16)
+### Papers Already in Our Corpus (19)
 
 | # | arXiv ID | Title |
 |---|----------|-------|
@@ -357,6 +357,9 @@ GitHub: https://github.com/Peiyang-Song/Awesome-LLM-Reasoning-Failures
 | 222 | 2405.04669 | Reversal Curse Theory |
 | 223 | 2411.16679 | Latent Multi-Hop Reasoning |
 | 351 | 2405.19616 | Easy Problems LLMs Get Wrong |
+| 376 | 2305.03731 | Working Memory Capacity of ChatGPT |
+| 377 | 2410.15413 | Comprehensive Evaluation of Cognitive Biases |
+| 378 | 2305.19555 | Not Strong Abstract Reasoners |
 
 ### Changelog (2026-06-13)
 - Synced with GitHub repo (30 commits, 200 stars)

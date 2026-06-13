@@ -6341,6 +6341,40 @@
     "word_count": 1083
   },
   {
+    "id": 376,
+    "arxiv": "2305.03731",
+    "title": "Working Memory Capacity of ChatGPT",
+    "date": "May 2023",
+    "stance": "supports",
+    "cluster": "reasoning",
+    "core_finding": "KEY FINDING: ChatGPT's WM capacity ~3 items - same as humans d' drops from 2.82 (n=1) to 1.24 (n=3) - nearly at threshold",
+    "smoking_gun": false,
+    "quotes": [
+      "Although some prompting techniques may be used to improve the model's performance, the trend of performance declines and the capacity limit still bear a striking resemblance to humans.",
+      "We discover that ChatGPT has limited working memory capacity, and that its capacity limit is similar to that of humans.",
+      "This consistent pattern thus might be reflecting a fundamental constraint that emerged from the architecture of the model."
+    ],
+    "analysis_path": "analysis/explored/370-379/376_working_memory_capacity_chatgpt.md",
+    "word_count": 1208
+  },
+  {
+    "id": 377,
+    "arxiv": "2410.15413",
+    "title": "A Comprehensive Evaluation of Cognitive Biases in LLMs",
+    "date": "October 2024",
+    "stance": "supports",
+    "cluster": "reasoning",
+    "core_finding": "KEY FINDING: ALL 30 cognitive biases present in LLMs No correlation between model size and biasedness Human cognitive shortcuts transfer through training data",
+    "smoking_gun": false,
+    "quotes": [
+      "Our work confirms and broadens previous findings suggesting the presence of cognitive biases in LLMs by reporting evidence of all 30 tested biases in at least some of the 20 LLMs.",
+      "While there seems to be no clear general correlation between a model's size or capability and its biasedness...",
+      "Human decision-makers considering to employ LLMs to enhance the quality of their decisions should be careful to select suitable models not only based on their reasoning capabilities but also based on their proneness to biases."
+    ],
+    "analysis_path": "analysis/explored/370-379/377_comprehensive_cognitive_biases_llms.md",
+    "word_count": 1393
+  },
+  {
     "id": 377,
     "arxiv": "2507.22887",
     "title": "Where to Show Demos in Your Prompt",
@@ -6373,5 +6407,22 @@
     ],
     "analysis_path": "analysis/explored/370-379/378_formulaone_algorithmic_reasoning.md",
     "word_count": 949
+  },
+  {
+    "id": 378,
+    "arxiv": "2305.19555",
+    "title": "Large Language Models Are Not Strong Abstract Reasoners",
+    "date": "May 2023 (v3 Jan 2024)",
+    "stance": "supports",
+    "cluster": "reasoning",
+    "core_finding": "KEY FINDING: LLMs achieve \"very limited performance\" on abstract reasoning - even techniques that help other NLP tasks fail here",
+    "smoking_gun": false,
+    "quotes": [
+      "We perform extensive evaluations of state-of-the-art LLMs, showing that they currently achieve very limited performance in contrast with other natural language tasks",
+      "even when applying techniques that have been shown to improve performance on other NLP tasks",
+      "the mechanisms responsible for this success remain opaque, and it is unclear whether LLMs can achieve human-like cognitive capabilities or whether these models are still fundamentally circumscribed"
+    ],
+    "analysis_path": "analysis/explored/370-379/378_not_strong_abstract_reasoners.md",
+    "word_count": 910
   }
 ]

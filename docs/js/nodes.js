@@ -8220,4 +8220,70 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/378_formulaone_algorithmic_reasoning.md',
   },
+  {
+    id: '2305.03731',
+    title: 'Working Memory Capacity of ChatGPT: An Empirical Study',
+    shortTitle: 'Working Memory ChatGPT',
+    date: 'May 2023',
+    stance: 'supports',
+    cluster: 'cognitive',
+    coreArgument:
+      'ChatGPT has working memory capacity limit strikingly similar to humans (~3 items). Performance drops significantly at n=3 in n-back tasks, mirroring human cognitive constraints. Noise dramatically reduces capacity, prompting strategies cannot overcome fundamental limits.',
+    keyEvidence: [
+      "d' drops from 2.82 (n=1) to 1.24 (n=3) - at capacity threshold",
+      'Adding noise characters reduces WM capacity to near-chance performance',
+      'GPT-4 >> GPT-3.5 >> smaller models in WM capacity correlation with capability',
+      'CoT and feedback improve but cannot overcome fundamental ~3 item limit',
+    ],
+    keyQuotes: [
+      'We discover that ChatGPT has limited working memory capacity, and that its capacity limit is similar to that of humans.',
+      'This consistent pattern thus might be reflecting a fundamental constraint that emerged from the architecture of the model.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/376_working_memory_capacity_chatgpt.md',
+  },
+  {
+    id: '2410.15413',
+    title: 'A Comprehensive Evaluation of Cognitive Biases in LLMs',
+    shortTitle: '30 Cognitive Biases',
+    date: 'Oct 2024',
+    stance: 'supports',
+    cluster: 'cognitive',
+    coreArgument:
+      'All 30 tested cognitive biases appear in at least some of 20 LLMs. No correlation between model size and biasedness - larger models not less biased. Human cognitive shortcuts transfer through training data, confirming LLMs reproduce patterns rather than compute optimal decisions.',
+    keyEvidence: [
+      '30 biases tested across 20 models with 30,000 test cases',
+      'All 30 biases found in at least some models - universal presence',
+      'No size-capability-bias correlation - Gemini 1.5 Pro least biased despite high capability',
+      'Model families cluster by bias profiles - training procedure matters more than scale',
+    ],
+    keyQuotes: [
+      'Our work confirms and broadens previous findings suggesting the presence of cognitive biases in LLMs by reporting evidence of all 30 tested biases in at least some of the 20 LLMs.',
+      'While there seems to be no clear general correlation between a models size or capability and its biasedness...',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/377_comprehensive_cognitive_biases_llms.md',
+  },
+  {
+    id: '2305.19555',
+    title: 'Large Language Models Are Not Strong Abstract Reasoners',
+    shortTitle: 'Not Abstract Reasoners',
+    date: 'May 2023',
+    stance: 'supports',
+    cluster: 'cognitive',
+    coreArgument:
+      'LLMs achieve very limited performance on abstract reasoning tasks - finding and applying general patterns from few data. Standard improvement techniques that work on other NLP tasks fail here. The gap reveals LLMs lack genuine generalization ability.',
+    keyEvidence: [
+      'Very limited performance on abstract reasoning benchmark vs high on other NLP tasks',
+      'Techniques improving other NLP tasks (prompting, few-shot, CoT) do not help',
+      'Abstract reasoning requires pattern discovery, not pattern recognition',
+      'Suggests LLMs need explicit guidance to follow causal paths',
+    ],
+    keyQuotes: [
+      'We perform extensive evaluations of state-of-the-art LLMs, showing that they currently achieve very limited performance in contrast with other natural language tasks.',
+      'Abstract reasoning is a fundamental task for cognition, consisting of finding and applying a general pattern from few data.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/378_not_strong_abstract_reasoners.md',
+  },
 ];

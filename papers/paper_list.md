@@ -379,3 +379,6 @@
 | 373 | 2505.22910 | Apr 2026 | Talent or Luck? Evaluating Attribution Bias in LLMs | Supports |
 | 374 | 2507.22887 | Jul 2025 | Where to show Demos in Your Prompt: Positional Bias of ICL | Supports |
 | 375 | 2507.13337 | Jul 2025 | FormulaOne: Measuring the Depth of Algorithmic Reasoning | Supports |
+| 376 | 2305.03731 | May 2023 | Working Memory Capacity of ChatGPT: An Empirical Study | Supports |
+| 377 | 2410.15413 | Oct 2024 | A Comprehensive Evaluation of Cognitive Biases in LLMs | Supports |
+| 378 | 2305.19555 | May 2023 | Large Language Models Are Not Strong Abstract Reasoners | Supports |
