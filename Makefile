@@ -1,4 +1,4 @@
-.PHONY: help corpus sync-counts check-counts galaxy galaxy-dev galaxy-build deploy-check
+.PHONY: help corpus sync-counts check-counts galaxy galaxy-dev galaxy-build deploy-check db lookup
 
 help:
 	@echo "Unthinking — make targets"
@@ -6,6 +6,8 @@ help:
 	@echo "  make corpus        rebuild analysis/index/corpus.json and copy to galaxy"
 	@echo "  make sync-counts   rewrite all hardcoded paper counts from corpus.json"
 	@echo "  make check-counts  read-only drift check (CI mode)"
+	@echo "  make db            rebuild DuckDB for paper lookup"
+	@echo "  make lookup Q=...  look up paper by arXiv ID or title"
 	@echo "  make galaxy-dev    start the galaxy dev server on :5173"
 	@echo "  make galaxy-build  production-build the galaxy"
 	@echo "  make galaxy        corpus + sync-counts + galaxy-build (full refresh)"
@@ -16,6 +18,17 @@ help:
 corpus:
 	uv run python scripts/build_corpus_index.py
 	cp analysis/index/corpus.json apps/galaxy/public/corpus.json
+	uvx --with duckdb python scripts/build_papers_db.py
+
+# Build DuckDB for fast paper lookup
+db:
+	uvx --with duckdb python scripts/build_papers_db.py
+
+# Look up paper by arXiv ID or title search
+# Usage: make lookup Q=2309.12288
+#        make lookup Q="reversal curse"
+lookup:
+	@uvx --with duckdb python scripts/lookup_paper.py "$(Q)"
 
 sync-counts:
 	uv run python scripts/sync_counts.py

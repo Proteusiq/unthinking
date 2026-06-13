@@ -3,10 +3,31 @@
 ## Metadata
 - **arXiv ID**: 2309.12288
 - **Title**: The Reversal Curse: LLMs trained on "A is B" fail to learn "B is A"
-- **Authors**: Lukas Berglund, Meg Tong, Max Kaufmann, Mikita Balesni, Asa Cooper Stickland, Tomasz Korbak, Owain Evans
-- **Affiliation**: Vanderbilt, NYU, UK AI Safety Institute, Apollo Research, University of Sussex, University of Oxford
+- **Authors**: Lukas Berglund (Vanderbilt), Meg Tong, Max Kaufmann (UK AISI), Mikita Balesni (Apollo), Asa Cooper Stickland (NYU), Tomasz Korbak (Sussex), Owain Evans (Oxford)
 - **Date**: September 2023 (v1), May 2024 (v4)
-- **Venue**: arXiv (widely cited)
+- **Code**: [github.com/lukasberglund/reversal_curse](https://github.com/lukasberglund/reversal_curse)
+- **Stance**: Supports thesis - FOUNDATIONAL paper demonstrating auto-regressive LLMs store facts directionally, not symmetrically
+
+---
+
+## Core Finding
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│  THE REVERSAL CURSE                                                 │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│  Training on "A is B" → Model can answer "What is A?"               │
+│                      → Model CANNOT answer "What is B?"             │
+│                                                                     │
+│  The likelihood of the correct answer is NOT HIGHER than for       │
+│  a RANDOM name. Zero statistical difference.                        │
+│                                                                     │
+│  Critical: In-context, models CAN reverse. The curse is about      │
+│  training generalization, not reasoning capacity.                   │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+```
 
 ---
 
@@ -65,9 +86,15 @@
 **Critical finding**: Zero percent accuracy in reverse direction - NOT partial degradation, but **complete failure**.
 
 ### Log-Probability Analysis
-- Correct name log-probability: **No different from random name**
-- t-tests and Kolmogorov–Smirnov tests: **No statistically significant difference**
-- "The model's log-probability for the correct name is no higher than for a random name"
+
+| Model Size | Correct | Random | t-test p | Significant? |
+|------------|---------|--------|----------|--------------|
+| 350M | -10.69 | -10.54 | 0.77 | No |
+| 1.3B | -10.31 | -9.32 | 0.11 | No |
+| 6.7B | -10.41 | -9.61 | 0.24 | No |
+| 175B | -10.47 | -10.28 | 0.81 | No |
+
+**All p > 0.05**: Correct name is NO more likely than random. The model has learned NOTHING about the reverse direction.
 
 ### Experiment 2: Real-World (GPT-4)
 
