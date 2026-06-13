@@ -3,7 +3,7 @@
 Source: [arXiv:2602.06176](https://arxiv.org/abs/2602.06176) - Song, Han, Goodman (TMLR 2026)
 GitHub: https://github.com/Peiyang-Song/Awesome-LLM-Reasoning-Failures
 
-**Last updated**: 2026-02-11
+**Last updated**: 2026-06-13
 **Tracking Issues**: #48-55
 
 ---
@@ -74,6 +74,7 @@ GitHub: https://github.com/Peiyang-Song/Awesome-LLM-Reasoning-Failures
 | ✅ DONE | [2302.00093](https://arxiv.org/abs/2302.00093) | Large Language Models Can Be Easily Distracted by Irrelevant Context | ICML 2023 |
 | ✅ DONE | [2308.00225](https://arxiv.org/abs/2308.00225) | Instructed to bias: emergent cognitive bias in instruction-tuned LMs | TACL 2024 |
 | ✅ DONE | [2303.13988](https://arxiv.org/abs/2303.13988) | Machine psychology: Investigating emergent capabilities | arXiv |
+| 📋 TO-READ | [2310.08661](https://arxiv.org/abs/2310.08661) | Counting and algorithmic generalization with transformers | arXiv |
 | 🔗 LINKED | [PDF](https://neurosymbolic-ai-journal.com/system/files/nai-paper-819.pdf) | Cognitive LLMs: Human-Like AI for Manufacturing Decision-making | Neurosymbolic AI 2024 |
 
 ---
@@ -293,6 +294,7 @@ GitHub: https://github.com/Peiyang-Song/Awesome-LLM-Reasoning-Failures
 | 📋 TO-READ | [2409.14277](https://arxiv.org/abs/2409.14277) | Can-Do! A Dataset for Embodied Planning with Large Multimodal Models | arXiv |
 | 🔗 LINKED | [OpenReview](https://openreview.net/forum?id=fp6t3F669F) | BALROG: Benchmarking agentic LLM and VLM reasoning on games | ICLR 2025 |
 | 📋 TO-READ | [2505.05405](https://arxiv.org/abs/2505.05405) | DeepPHY: Benchmarking Agentic VLMs on Physical Reasoning | arXiv |
+| 📋 TO-READ | [2508.05405](https://arxiv.org/abs/2508.05405) | DeepPHY: Benchmarking Agentic VLMs on Physical Reasoning (v2) | arXiv 2025 |
 
 ---
 
@@ -322,6 +324,7 @@ GitHub: https://github.com/Peiyang-Song/Awesome-LLM-Reasoning-Failures
 | 📋 TO-READ | [2405.19616](https://arxiv.org/abs/2405.19616) | Easy Problems That LLMs Get Wrong | arXiv |
 | 🔗 LINKED | [Semantic Scholar](https://www.semanticscholar.org/paper/Reasoning-with-Transformer-based-Models%3A-Deep-but-Helwe-Clavel/8424082e3bf4792462eb112d7ebcecf5b0dc3613) | Reasoning with Transformer-based Models: Deep Learning, but Shallow Reasoning | AKBC 2022 |
 | 📋 TO-READ | [2302.03494](https://arxiv.org/abs/2302.03494) | A Categorical Archive of ChatGPT Failures | arXiv |
+| 📋 TO-READ | [2507.15877](https://arxiv.org/abs/2507.15877) | Out-of-Distribution Generalization in ARC-AGI: Execution-Guided Neural Program Synthesis | arXiv 2025 |
 
 ---
 
@@ -329,10 +332,16 @@ GitHub: https://github.com/Peiyang-Song/Awesome-LLM-Reasoning-Failures
 
 | Status | Count |
 |--------|-------|
-| ✅ DONE (Already Analyzed) | ~20 |
-| 📋 TO-READ (Issues #48-54) | ~120 |
-| 🔗 LINKED (Now with links!) | ~87 |
-| **Total from Survey** | ~227 |
+| ✅ DONE (Already Analyzed) | 21 |
+| 📋 TO-READ (Issues #48-54) | ~123 |
+| 🔗 LINKED (Need triage) | ~87 |
+| **Total from Survey** | ~231 |
+
+### Changelog (2026-06-13)
+- Added 3 new papers from GitHub repo update:
+  - 2310.08661 - Counting and algorithmic generalization with transformers
+  - 2507.15877 - Out-of-Distribution Generalization in ARC-AGI
+  - 2508.05405 - DeepPHY v2
 
 ---
 

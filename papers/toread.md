@@ -12,6 +12,18 @@ Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)
 
 ---
 
+## High Priority - LLM Reasoning Failures Survey Updates (GitHub 2026-06-13)
+
+New papers added to Awesome-LLM-Reasoning-Failures repo since our last sync.
+
+| arXiv ID | Title | Category | Stance |
+|----------|-------|----------|--------|
+| [2310.08661](https://arxiv.org/abs/2310.08661) | Counting and algorithmic generalization with transformers | Cognitive/Counting | supports |
+| [2507.15877](https://arxiv.org/abs/2507.15877) | Out-of-Distribution Generalization in ARC-AGI: Execution-Guided Neural Program Synthesis | Abstract Reasoning | supports |
+| [2508.05405](https://arxiv.org/abs/2508.05405) | DeepPHY: Benchmarking Agentic VLMs on Physical Reasoning | Embodied Reasoning | supports |
+
+---
+
 ## Medium-High Priority - Self-Distillation Cluster (Issue #85)
 
 Three papers from ETH Zürich + MIT (Hübotter, Shenfeld, Krause group) using self-distillation as an alternative to RL/SFT. Project page: [self-distillation.github.io](https://self-distillation.github.io/).
