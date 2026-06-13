@@ -6,8 +6,8 @@
 - **Authors**: Gong, Wan, Wang (Oxford)
 - **Date**: May 2023
 - **Venue**: AAAI 2024
-- **Stance**: SUPPORTS thesis (human-like capacity limits emerge from architecture)
-- **Role**: Demonstrates fundamental cognitive constraint in LLMs paralleling human WM limits
+- **Stance**: SUPPORTS thesis
+- **Cluster**: cognitive
 
 ---
 
@@ -196,3 +196,12 @@ The authors connect their findings to Engle's executive attention theory:
 4. **Better models = more capacity, not different mechanism** - scaling improves but doesn't transcend
 
 The working memory framework provides a **cognitive science lens** on why LLMs fail at multi-step reasoning: they literally cannot maintain enough information to perform the computation.
+
+---
+
+## Status
+- [x] Read complete
+- [x] Core claims extracted
+- [x] Key evidence with numbers
+- [x] Limitations documented
+- [x] Paper graph updated

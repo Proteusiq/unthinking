@@ -6,8 +6,8 @@
 - **Authors**: Gendron, Bao, Witbrock, Dobbie (University of Auckland)
 - **Date**: May 2023 (v3 Jan 2024)
 - **Venue**: arXiv
-- **Stance**: SUPPORTS thesis (LLMs fail at abstract reasoning that requires generalization)
-- **Role**: Provides benchmark demonstrating LLMs cannot find/apply general patterns from few data
+- **Stance**: SUPPORTS thesis
+- **Cluster**: cognitive
 
 ---
 
@@ -120,7 +120,7 @@ This implies current models don't naturally follow causal reasoning - they need 
 
 ### Related
 - **Reasoning or Reciting** (#100): Tests whether models reason or just recall
-- **Working Memory Capacity** (#379): Cognitive constraints limit reasoning capacity
+- **Working Memory Capacity** (#376): Cognitive constraints limit reasoning capacity
 - **Illusion of Thinking** (#003): Extended "thinking" doesn't produce genuine reasoning
 
 ---
@@ -167,3 +167,12 @@ This implies current models don't naturally follow causal reasoning - they need 
 ```
 
 This complements the ARC-AGI findings and provides another angle on why LLMs struggle with tasks requiring genuine pattern discovery rather than pattern recognition.
+
+---
+
+## Status
+- [x] Read complete (abstract only - no HTML version available)
+- [x] Core claims extracted
+- [ ] Key evidence with numbers (PDF not readable)
+- [x] Limitations documented
+- [x] Paper graph updated

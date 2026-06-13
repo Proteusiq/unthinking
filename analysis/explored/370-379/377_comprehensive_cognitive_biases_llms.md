@@ -5,9 +5,9 @@
 - **Title**: A Comprehensive Evaluation of Cognitive Biases in LLMs
 - **Authors**: Malberg, Poletukhin, Schuster, Groh (TU Munich)
 - **Date**: October 2024
-- **Venue**: arXiv (submitted)
-- **Stance**: SUPPORTS thesis (LLMs exhibit systematic cognitive biases across all 30 tested biases)
-- **Role**: Largest systematic evaluation of cognitive biases in LLMs to date
+- **Venue**: arXiv
+- **Stance**: SUPPORTS thesis
+- **Cluster**: cognitive
 
 ---
 
@@ -269,3 +269,12 @@ If LLMs were genuine reasoners:
 ```
 
 This is the most comprehensive evidence to date that LLMs reproduce human cognitive shortcuts rather than performing genuine reasoning.
+
+---
+
+## Status
+- [x] Read complete
+- [x] Core claims extracted
+- [x] Key evidence with numbers
+- [x] Limitations documented
+- [x] Paper graph updated

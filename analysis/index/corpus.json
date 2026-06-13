@@ -6355,7 +6355,7 @@
       "This consistent pattern thus might be reflecting a fundamental constraint that emerged from the architecture of the model."
     ],
     "analysis_path": "analysis/explored/370-379/376_working_memory_capacity_chatgpt.md",
-    "word_count": 1208
+    "word_count": 1220
   },
   {
     "id": 377,
@@ -6372,7 +6372,7 @@
       "Human decision-makers considering to employ LLMs to enhance the quality of their decisions should be careful to select suitable models not only based on their reasoning capabilities but also based on their proneness to biases."
     ],
     "analysis_path": "analysis/explored/370-379/377_comprehensive_cognitive_biases_llms.md",
-    "word_count": 1393
+    "word_count": 1400
   },
   {
     "id": 377,
@@ -6423,6 +6423,6 @@
       "the mechanisms responsible for this success remain opaque, and it is unclear whether LLMs can achieve human-like cognitive capabilities or whether these models are still fundamentally circumscribed"
     ],
     "analysis_path": "analysis/explored/370-379/378_not_strong_abstract_reasoners.md",
-    "word_count": 910
+    "word_count": 930
   }
 ]
