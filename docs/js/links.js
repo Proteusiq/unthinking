@@ -9852,5 +9852,26 @@ window.paperLinks = [
     description:
       'Reveals representational mechanism behind SDFT: new feature directions for style token generation',
   },
+  {
+    source: '2511.05184',
+    target: '2504.01738',
+    type: 'supports',
+    description:
+      'CoT rationales add only +1-2pp via richer distribution signal; consistent with style-as-signal thesis',
+  },
+  {
+    source: '2511.05184',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Students reach ~50% of teacher ceiling; capacity-limited pattern matching not reasoning transfer',
+  },
+  {
+    source: '2511.05184',
+    target: '2410.05229',
+    type: 'supports',
+    description:
+      'Task-level inconsistency parallels GSM-Symbolic: performance is pattern-dependent not reasoning-dependent',
+  },
 ];
 

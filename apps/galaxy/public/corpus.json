@@ -6483,5 +6483,18 @@
     "quotes": [],
     "analysis_path": "analysis/explored/380-389/385_distilled_reasoning_representations.md",
     "word_count": 1581
+  },
+  {
+    "id": 386,
+    "arxiv": "2511.05184",
+    "title": "Paper 386: Effectiveness of Chain-of-Thought in Distilling Reasoning",
+    "date": "Nov 2025",
+    "stance": "supports",
+    "cluster": "cot",
+    "core_finding": "COT IN WHITE-BOX KD: MODEST GAINS, INCONSISTENT PATTERN Setup: Teacher → KL divergence → Student Compare: vanilla KD vs KD+CoT (rationales in training data) Qwen-7B → Qwen-1.8B (BBH average): Base: 17.77% KD: 23.10% (+30.0% relative) KD+CoT: 24.44% (+37.5% relative) Teacher: 47.38% Llama2-13B → Llama2-7B (BBH average): Base: 39.44% KD: 39.22% (-0.56% relative — KD HURTS) KD+CoT: 41.50% (+5.22% relative) Teacher: 49.95% Llama2-13B → TinyLlama-1.1B (BBH average): Base: 27.96% KD: 26.48% (-5.29% relative — KD HURTS) KD+CoT: 29.23% (+4.54% relative) Teacher: 49.95% KEY: CoT adds +1.3pp to +2.3pp absolute on BBH average. Vanilla KD alone can HURT performance (Llama2 experiments). Students reach ~50% of teacher performance at best.",
+    "smoking_gun": false,
+    "quotes": [],
+    "analysis_path": "analysis/explored/380-389/386_cot_distilling_reasoning.md",
+    "word_count": 1365
   }
 ]

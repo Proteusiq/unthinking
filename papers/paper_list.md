@@ -389,3 +389,4 @@
 | 383 | 2405.06680 | May 2024 | Exploring the Compositional Deficiency in Math Reasoning (MathTrap) | Supports |
 | 384 | 2504.01738 | Apr 2025 | Style over Substance: Distilled Language Models Reason Via Stylistic Replication | Supports |
 | 385 | 2503.03730 | Mar 2025 | Towards Understanding Distilled Reasoning Models: A Representational Approach | Balanced |
+| 386 | 2511.05184 | Nov 2025 | Effectiveness of Chain-of-Thought in Distilling Reasoning Capability from LLMs | Supports |

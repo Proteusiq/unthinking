@@ -1,6 +1,6 @@
 # Synthesis: The Thinking Machine That Doesn't Think
 
-> **Papers analyzed**: 386
+> **Papers analyzed**: 387
 >
 > **See also**: `memento.md` for executive summary
 

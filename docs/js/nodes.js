@@ -8445,4 +8445,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/380-389/385_distilled_reasoning_representations.md',
   },
+  {
+    id: '2511.05184',
+    title:
+      'Effectiveness of Chain-of-Thought in Distilling Reasoning Capability from Large Language Models',
+    shortTitle: 'CoT KD Effectiveness',
+    date: 'Nov 2025',
+    stance: 'supports',
+    cluster: 'distillation',
+    coreArgument:
+      'White-box KD with CoT rationales adds modest +1-2pp on BBH via KL divergence matching; vanilla KD without CoT hurts performance on Llama2, suggesting distribution signal not reasoning transfer.',
+    keyEvidence: [
+      'Qwen-1.8B BBH avg: base 17.8% → KD 23.1% → KD+CoT 24.4% (only +1.3pp from CoT)',
+      'Llama2 vanilla KD HURTS: 39.4% → 39.2% (-0.56% rel); KD+CoT rescues to 41.5%',
+      'Students reach ~50% of teacher performance ceiling across all experiments',
+      'Task-level inconsistency: CoT helps tracking (+442%) but hurts Boolean (-19%)',
+    ],
+    keyQuotes: [
+      'We use Kullback-Leibler (KL) divergence as the only loss in the distillation loss to keep the KD step pure.',
+      'While improvements are not universal, the KD+CoT approach is observed to enhance performance across several tasks.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/380-389/386_cot_distilling_reasoning.md',
+  },
 ];

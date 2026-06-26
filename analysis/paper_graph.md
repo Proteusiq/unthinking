@@ -2183,6 +2183,13 @@ Five papers studying reward hacking in LLM RL - from controlled reproduction to 
 - 2503.03730 (#385) --supports--> 2305.18654 (#1): representational evidence for pattern-matching; features fire on tokens not concepts
 - 2503.03730 (#385) --extends--> 2601.19897 (#342): reveals representational mechanism behind SDFT distribution reshaping
 
+### CoT Distillation Effectiveness (2511.05184, #386)
+
+### Direct Relationships
+- 2511.05184 (#386) --supports--> 2504.01738 (#384): CoT rationales add modest +1-2pp via richer distribution signal; consistent with style-as-signal thesis
+- 2511.05184 (#386) --supports--> 2305.18654 (#1): students reach ~50% of teacher; capacity-limited pattern matching not reasoning transfer
+- 2511.05184 (#386) --extends--> 2306.08543: builds on MiniLLM framework; adds CoT rationales to white-box KD pipeline
+
 ---
 
 ### 2026-01-24
