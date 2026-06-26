@@ -8399,4 +8399,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/380-389/383_compositional_deficiency_math.md',
   },
+  {
+    id: '2504.01738',
+    title:
+      'Style over Substance: Distilled Language Models Reason Via Stylistic Replication',
+    shortTitle: 'Style over Substance',
+    date: 'Apr 2025',
+    stance: 'supports',
+    cluster: 'distillation',
+    coreArgument:
+      'Distilled models replicate reasoning style (pivots, backtracking markers, trace length) not reasoning ability; synthetic traces with wrong answers still improve performance over base models.',
+    keyEvidence: [
+      'Synthetic style-only traces match R1 emergent traces: Ministral 8B AIME 33.3% both',
+      'Wrong-answer traces + style > correct answers + no style: 48.2% vs 40.6% (3B MATH500)',
+      'Llama 3B MATH500: base 36.4% → style-only 64.2% → R1 traces 68.4%',
+      '96.1% of successful R1 traces contain at least 3 of 4 pivot categories',
+    ],
+    keyQuotes: [
+      'We find that models trained on the synthetic traces achieve comparable performance, indicating that distilled reasoning abilities rely significantly on surface-level patterns.',
+      'We observe an increase in performance even when the synthetic traces are altered to lead to the wrong answer.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/380-389/384_style_over_substance.md',
+  },
 ];

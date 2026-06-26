@@ -512,7 +512,7 @@ gh auth switch --user <username>
     ├── SPECS.md                # Technical specs for this folder
     ├── index.html              # Main page (graph + overlays)
     ├── pages/                  # Deep-dive standalone pages
-    │   ├── findings.html       # 384-paper synthesis (themes, smoking guns, patterns)
+    │   ├── findings.html       # 385-paper synthesis (themes, smoking guns, patterns)
     │   ├── data.html           # Pre-training Data Pipeline
     │   ├── tokenization.html   # Tokenization Pipeline
     │   ├── architecture.html   # LLM Architecture Evolution

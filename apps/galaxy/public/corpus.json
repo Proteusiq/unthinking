@@ -2515,7 +2515,7 @@
     "date": "September 2023 (v1), May 2024 (v4)",
     "stance": "supports",
     "cluster": "memorization",
-    "core_finding": "1. LLMs trained on \"A is B\" do NOT automatically generalize to \"B is A\" - This is a fundamental failure of logical deduction during training.",
+    "core_finding": "THE REVERSAL CURSE Training on \"A is B\" → Model can answer \"What is A?\" → Model CANNOT answer \"What is B?\" The likelihood of the correct answer is NOT HIGHER than for a RANDOM name. Zero statistical difference. Critical: In-context, models CAN reverse. The curse is about training generalization, not reasoning capacity.",
     "smoking_gun": false,
     "quotes": [
       "When a model is updated on 'A is B', this gradient update may slightly alter the representation of A such that it contains information about B... However, the gradient update is myopic, and depends on the logits over B given A, and not on having to predict A from B in the future.",
@@ -2523,7 +2523,7 @@
       "This demonstrates a basic failure of logical deduction in the LLM's training process... It is such a basic form of generalization that it seems trivial. Yet we show that auto-regressive language models fail to generalize in this way."
     ],
     "analysis_path": "analysis/explored/140-149/149_reversal_curse.md",
-    "word_count": 1166
+    "word_count": 1299
   },
   {
     "id": 150,
@@ -6457,5 +6457,18 @@
     ],
     "analysis_path": "analysis/explored/380-389/383_compositional_deficiency_math.md",
     "word_count": 928
+  },
+  {
+    "id": 384,
+    "arxiv": "2504.01738",
+    "title": "Paper 384: Style over Substance",
+    "date": "Apr 2025",
+    "stance": "supports",
+    "cluster": "reasoning",
+    "core_finding": "STYLE IS THE SIGNAL, NOT SUBSTANCE Experiment: take a WEAKER model (GPT-4o), hard-code reasoning style (pivots: \"Wait\", \"Let me check\", \"What if\") into its outputs, and distill into student models. Result: students trained on SYNTHETIC style-only traces match students trained on EMERGENT R1 traces. Llama 3.2 3B on MATH500: Base: 36.4% ST-HC: 64.2% (synthetic style from GPT-4o) ST: 68.4% (emergent traces from R1) The killer ablation: ST-HC-W (style + WRONG answers): 48.2% (still +12pp over base) ST-NT (correct answers, NO traces): 40.6% ⇒ Style alone > correct answers alone ⇒ Distillation transfers output PATTERNS, not REASONING",
+    "smoking_gun": false,
+    "quotes": [],
+    "analysis_path": "analysis/explored/380-389/384_style_over_substance.md",
+    "word_count": 1576
   }
 ]

@@ -2122,6 +2122,43 @@ Five papers studying reward hacking in LLM RL - from controlled reproduction to 
 - 2603.24621 (#374) --supports--> 2506.06941 (#2): collapse past complexity threshold; all frontier models sit past it
 - 2603.24621 (#374) --extends--> 2605.19999 (#362): same prescription - private sets must be OOD from public demos to test generalization
 
+### Style over Substance (2504.01738, #384) — Distillation Cluster
+
+```
+┌──────────────────────────────────────────────────────────────────────┐
+│  Style over Substance (2504.01738)                                   │
+│  Distilled models replicate reasoning STYLE not ABILITY              │
+│  Wrong-answer traces + style > correct answers + no style            │
+└──────────────────────────────────────────────────────────────────────┘
+        │                    │                     │
+        │ supports           │ supports            │ supports
+        ▼                    ▼                     ▼
+┌──────────────┐   ┌──────────────────┐   ┌──────────────────────┐
+│ Faith & Fate │   │ GSM-Symbolic     │   │ SSD Code Gen (#292)  │
+│ (2305.18654) │   │ (2410.05229)     │   │ (2604.01193)         │
+│ Subgraph     │   │ Pattern          │   │ 62% gibberish still  │
+│ matching     │   │ memorization     │   │ improves via distill │
+└──────────────┘   └──────────────────┘   └──────────────────────┘
+        │                                          │
+        │ supports                                 │ supports
+        ▼                                          ▼
+┌──────────────────┐                      ┌──────────────────────┐
+│ SDFT (#342)      │                      │ SDPO (#343)          │
+│ (2601.19897)     │                      │ (2601.20802)         │
+│ Distribution     │                      │ Self-distillation    │
+│ reshaping        │                      │ as RL alternative    │
+└──────────────────┘                      └──────────────────────┘
+```
+
+### Direct Relationships
+- 2504.01738 (#384) --supports--> 2305.18654 (#1): distillation analogue of subgraph matching; students learn trace patterns not reasoning procedures
+- 2504.01738 (#384) --supports--> 2410.05229 (#3): distillation proves pattern-reliance; style tokens sufficient, correct reasoning unnecessary
+- 2504.01738 (#384) --supports--> 2604.01193 (#292): convergent finding: SSD shows gibberish data improves via distribution reshaping; SoS shows wrong-answer traces improve via style
+- 2504.01738 (#384) --supports--> 2601.19897 (#342): SDFT reshapes distributions via self-conditioning; SoS shows what's being reshaped is style not substance
+- 2504.01738 (#384) --extends--> 2404.15758 (#57): Dot by Dot shows CoT benefits from computation not decomposition; SoS shows style tokens provide that computation
+
+---
+
 ### 2026-01-24
 | Papers Added | Key Findings |
 |--------------|--------------|

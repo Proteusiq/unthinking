@@ -9789,5 +9789,40 @@ window.paperLinks = [
     description:
       'Both show knowledge-composition gap - know components but cannot combine them',
   },
+  {
+    source: '2504.01738',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Distillation analogue of subgraph matching; students learn trace patterns not reasoning procedures',
+  },
+  {
+    source: '2504.01738',
+    target: '2410.05229',
+    type: 'supports',
+    description:
+      'Distillation proves pattern-reliance; wrong-answer style traces still boost performance',
+  },
+  {
+    source: '2504.01738',
+    target: '2604.01193',
+    type: 'supports',
+    description:
+      'Convergent: SSD shows gibberish improves via distribution reshaping; SoS shows wrong-answer traces improve via style',
+  },
+  {
+    source: '2504.01738',
+    target: '2601.19897',
+    type: 'supports',
+    description:
+      'SDFT reshapes distributions via self-conditioning; SoS shows what transfers is style not substance',
+  },
+  {
+    source: '2504.01738',
+    target: '2404.15758',
+    type: 'extends',
+    description:
+      'CoT benefits from computation not decomposition; style tokens provide that computation budget',
+  },
 ];
 

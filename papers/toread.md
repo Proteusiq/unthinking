@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **204 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **219 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed), [#71](https://github.com/Proteusiq/unthinking/issues/71), [#72](https://github.com/Proteusiq/unthinking/issues/72).
 
@@ -9,6 +9,42 @@ Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)
 - **NO single-author papers** - Prefer papers with multiple authors for broader peer validation
 - Prefer papers from established research groups or institutions
 - Prefer papers with reproducible experiments and open code/data
+
+---
+
+## High Priority - Model Distillation Cluster (arXiv Search 2026-06-26)
+
+Student models echoing teacher distributions: distillation as statistical mimicry, not knowledge transfer. The student learns to replicate the teacher's output distribution - pure math, no understanding. Directly relevant to the predictive-not-reasoning thesis.
+
+### Tier 1: Foundational / Directly Thesis-Relevant
+
+| arXiv ID | Title | Year | Expected Stance | Why |
+|----------|-------|------|-----------------|-----|
+| ~~[2504.01738](https://arxiv.org/abs/2504.01738)~~ | ~~Style over Substance: Distilled Language Models Reason Via Stylistic Replication~~ | ~~Apr 2025~~ | ~~supports~~ | DONE #384 |
+| [2503.03730](https://arxiv.org/abs/2503.03730) | Towards Understanding Distilled Reasoning Models: A Representational Approach | Mar 2025 | supports | Investigates how distillation impacts reasoning features - do students develop reasoning representations or just echo distributions? |
+| [2511.05184](https://arxiv.org/abs/2511.05184) | Effectiveness of Chain-of-Thought in Distilling Reasoning Capability from LLMs | Nov 2025 | supports | Tests whether CoT actually transfers reasoning or just output patterns during distillation |
+| [2306.08543](https://arxiv.org/abs/2306.08543) | MiniLLM: On-Policy Distillation of Large Language Models | Jun 2023 | balanced | Foundational on-policy KD paper. Student generates, teacher scores. Reverse-KL minimization - explicitly a distribution-matching objective |
+| [2603.14458](https://arxiv.org/abs/2603.14458) | Distilling Reasoning Without Knowledge: A Framework for Reliable LLMs | Mar 2026 | supports | Title says it all - can you distill "reasoning" while explicitly excluding knowledge? Tests the separation |
+
+### Tier 2: On-Policy Distillation Mechanics (Distribution Matching Focus)
+
+| arXiv ID | Title | Year | Expected Stance | Why |
+|----------|-------|------|-----------------|-----|
+| [2606.22793](https://arxiv.org/abs/2606.22793) | A Formula-Driven Survey and Research Agenda for On-Policy Distillation | Jun 2026 | balanced | Comprehensive survey unifying OPD variants under a single formula - distribution matching as the core mechanism |
+| [2606.26091](https://arxiv.org/abs/2606.26091) | On-Policy Self-Distillation with Sampled Demonstrations Reduces Output Diversity | Jun 2026 | supports | Self-distillation collapses output diversity while boosting pass@1 - distribution narrowing, not capability gain |
+| [2606.09471](https://arxiv.org/abs/2606.09471) | Escaping the KL Agreement Trap in On-Policy Distillation | Jun 2026 | balanced | When student already matches teacher distribution, learning stalls. The "agreement trap" = distribution convergence without capability |
+| [2606.07082](https://arxiv.org/abs/2606.07082) | On the Geometry of On-Policy Distillation | Jun 2026 | balanced | Analyzes training dynamics geometrically - what happens in weight space during distribution matching? |
+| [2601.18734](https://arxiv.org/abs/2601.18734) | Self-Distilled Reasoner: On-Policy Self-Distillation for Large Language Models | Jan 2026 | balanced | Model as both teacher and student - circular distribution matching. What does the student actually learn? |
+
+### Tier 3: Capacity & Limits of Distribution Transfer
+
+| arXiv ID | Title | Year | Expected Stance | Why |
+|----------|-------|------|-----------------|-----|
+| [2311.07052](https://arxiv.org/abs/2311.07052) | Towards the Law of Capacity Gap in Distilling Language Models | Nov 2023 | supports | When student is too small to hold teacher's distribution, what breaks first? Capacity limits of mimicry |
+| [2305.12129](https://arxiv.org/abs/2305.12129) | Lifting the Curse of Capacity Gap in Distilling Language Models | May 2023 | balanced | Companion to above - techniques to bridge the gap. But does bridging = understanding or better approximation? |
+| [2606.24747](https://arxiv.org/abs/2606.24747) | Scaling Laws for Task-Specific LLM Distillation | Jun 2026 | balanced | Scaling laws for distillation - predictable relationships between teacher/student size and output quality |
+| [2511.01354](https://arxiv.org/abs/2511.01354) | Thinking with DistilQwen: A Tale of Four Distilled Reasoning and Reward Model Series | Nov 2025 | balanced | Large-scale distillation of Qwen reasoning models - do distilled variants maintain reasoning or just output patterns? |
+| [2502.20339](https://arxiv.org/abs/2502.20339) | Thinking Slow, Fast: Scaling Inference Compute with Distilled Reasoners | Feb 2025 | balanced | Can distilled models trade compute for reasoning? Tests whether the "reasoning" transfers or just the distribution |
 
 ---
 
