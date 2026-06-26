@@ -8422,4 +8422,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/380-389/384_style_over_substance.md',
   },
+  {
+    id: '2503.03730',
+    title:
+      'Towards Understanding Distilled Reasoning Models: A Representational Approach',
+    shortTitle: 'Distilled Representations',
+    date: 'Mar 2025',
+    stance: 'balanced',
+    cluster: 'distillation',
+    coreArgument:
+      'Sparse crosscoder reveals distillation creates unique feature directions for lexical reasoning markers (Wait, Therefore, Alternatively) that are causally active in distilled models but acausal in base models.',
+    keyEvidence: [
+      'Ablation: distilled model logits drop significantly when distilled-unique features zeroed; base model unchanged',
+      'Features fire on lexical tokens (Wait, Therefore) not semantic reasoning content',
+      'Steering via single feature vector pushes model into over-thinking mode on 5-1',
+      '14B distilled has lower parallelogram loss than base; 1.5B distilled has higher (scale-dependent)',
+    ],
+    keyQuotes: [
+      'Distilled models contain unique reasoning feature directions, which could be used to steer the model into over-thinking or incisive-thinking mode.',
+      'Base model crosscoder feature simply learns the token feature wait.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/380-389/385_distilled_reasoning_representations.md',
+  },
 ];

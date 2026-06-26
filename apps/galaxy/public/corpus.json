@@ -6470,5 +6470,18 @@
     "quotes": [],
     "analysis_path": "analysis/explored/380-389/384_style_over_substance.md",
     "word_count": 1576
+  },
+  {
+    "id": 385,
+    "arxiv": "2503.03730",
+    "title": "Paper 385: Towards Understanding Distilled Reasoning Models",
+    "date": "Mar 2025",
+    "stance": "balanced",
+    "cluster": "reasoning",
+    "core_finding": "DISTILLATION CREATES NEW FEATURE DIRECTIONS, BUT THEY'RE LEXICAL TRIGGERS, NOT REASONING OPERATIONS Method: Sparse crosscoder trained on Qwen base vs DeepSeek-R1-Distill-Qwen (1.5B, 7B, 14B) 32,768 features, 400M tokens What crosscoder finds: • Distilled models have UNIQUE feature directions (high NRN = present in distilled, absent in base) • These features correspond to: - Self-reflection: fires on \"Wait\" - Verification: fires on \"Let me check\" - Alternative reasoning: fires on \"Alternatively\" - Contrastive reasoning: fires on \"But\", \"However\" The critical test (ablation): • Zero-ablate distilled-unique features → distilled model logits DROP significantly • Zero-ablate same features in base model → base model logits UNCHANGED (acausal) ⇒ The \"reasoning features\" are causally active token-generation patterns in distilled models, but they fire on LEXICAL markers, not semantic reasoning content",
+    "smoking_gun": false,
+    "quotes": [],
+    "analysis_path": "analysis/explored/380-389/385_distilled_reasoning_representations.md",
+    "word_count": 1581
   }
 ]

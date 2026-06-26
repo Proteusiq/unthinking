@@ -9824,5 +9824,33 @@ window.paperLinks = [
     description:
       'CoT benefits from computation not decomposition; style tokens provide that computation budget',
   },
+  {
+    source: '2503.03730',
+    target: '2504.01738',
+    type: 'supports',
+    description:
+      'Crosscoder independently finds same 4 pivot types as distinct feature directions in distilled models',
+  },
+  {
+    source: '2503.03730',
+    target: '2604.01193',
+    type: 'supports',
+    description:
+      'Distillation features are lexical triggers not semantic reasoning; consistent with gibberish data working',
+  },
+  {
+    source: '2503.03730',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Representational evidence for pattern-matching via crosscoder; features fire on tokens not concepts',
+  },
+  {
+    source: '2503.03730',
+    target: '2601.19897',
+    type: 'extends',
+    description:
+      'Reveals representational mechanism behind SDFT: new feature directions for style token generation',
+  },
 ];
 

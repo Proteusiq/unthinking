@@ -2157,6 +2157,32 @@ Five papers studying reward hacking in LLM RL - from controlled reproduction to 
 - 2504.01738 (#384) --supports--> 2601.19897 (#342): SDFT reshapes distributions via self-conditioning; SoS shows what's being reshaped is style not substance
 - 2504.01738 (#384) --extends--> 2404.15758 (#57): Dot by Dot shows CoT benefits from computation not decomposition; SoS shows style tokens provide that computation
 
+### Distilled Reasoning Representations (2503.03730, #385)
+
+```
+┌──────────────────────────────────────────────────────────────────────┐
+│  Distilled Reasoning Representations (2503.03730)                    │
+│  Baek & Tegmark, MIT                                                 │
+│  Crosscoder finds distillation creates LEXICAL TRIGGER features      │
+│  ("Wait", "Therefore") — causal in distilled, acausal in base       │
+└──────────────────────────────────────────────────────────────────────┘
+        │                         │
+        │ supports                │ supports
+        ▼                         ▼
+┌──────────────────┐     ┌──────────────────────────┐
+│ Style over       │     │ SSD Code Gen (#292)      │
+│ Substance (#384) │     │ (2604.01193)             │
+│ Same 4 pivots    │     │ Gibberish data works     │
+│ as feature dirs  │     │ = features are lexical   │
+└──────────────────┘     └──────────────────────────┘
+```
+
+### Direct Relationships
+- 2503.03730 (#385) --supports--> 2504.01738 (#384): crosscoder independently finds same 4 pivot categories as distinct feature directions in distilled models
+- 2503.03730 (#385) --supports--> 2604.01193 (#292): distillation features are lexical triggers not semantic reasoning; consistent with gibberish data improving performance
+- 2503.03730 (#385) --supports--> 2305.18654 (#1): representational evidence for pattern-matching; features fire on tokens not concepts
+- 2503.03730 (#385) --extends--> 2601.19897 (#342): reveals representational mechanism behind SDFT distribution reshaping
+
 ---
 
 ### 2026-01-24
