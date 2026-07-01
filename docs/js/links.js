@@ -9873,5 +9873,40 @@ window.paperLinks = [
     description:
       'Task-level inconsistency parallels GSM-Symbolic: performance is pattern-dependent not reasoning-dependent',
   },
+  {
+    source: '2306.08543',
+    target: '2504.01738',
+    type: 'supports',
+    description:
+      'Reverse KL mode-seeking explains why students gravitate to stylistic patterns — the highest-probability modes',
+  },
+  {
+    source: '2306.08543',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Makes explicit that distillation is distribution matching within student capacity; reverse KL picks better patterns',
+  },
+  {
+    source: '2306.08543',
+    target: '2604.01193',
+    type: 'supports',
+    description:
+      'Mode-seeking under reverse KL explains why gibberish data works: student locks onto distribution peaks regardless of content',
+  },
+  {
+    source: '2306.08543',
+    target: '2601.19897',
+    type: 'extends',
+    description:
+      'SDFT inherits MiniLLM on-policy framework; teacher becomes model conditioned on demonstration',
+  },
+  {
+    source: '2511.05184',
+    target: '2306.08543',
+    type: 'extends',
+    description:
+      'Builds on MiniLLM framework; adds CoT rationales to white-box KD with forward KL only',
+  },
 ];
 

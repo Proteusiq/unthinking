@@ -2188,7 +2188,34 @@ Five papers studying reward hacking in LLM RL - from controlled reproduction to 
 ### Direct Relationships
 - 2511.05184 (#386) --supports--> 2504.01738 (#384): CoT rationales add modest +1-2pp via richer distribution signal; consistent with style-as-signal thesis
 - 2511.05184 (#386) --supports--> 2305.18654 (#1): students reach ~50% of teacher; capacity-limited pattern matching not reasoning transfer
-- 2511.05184 (#386) --extends--> 2306.08543: builds on MiniLLM framework; adds CoT rationales to white-box KD pipeline
+- 2511.05184 (#386) --extends--> 2306.08543 (#387): builds on MiniLLM framework; adds CoT rationales to white-box KD pipeline
+
+### MiniLLM: On-Policy Distillation (2306.08543, #387)
+
+```
+┌──────────────────────────────────────────────────────────────────────┐
+│  MiniLLM (2306.08543) — Gu et al., Tsinghua / Microsoft             │
+│  ICLR 2024                                                           │
+│                                                                      │
+│  Forward KL (standard KD)           Reverse KL (MiniLLM)            │
+│  ─────────────────────              ─────────────────────            │
+│  Student covers ALL modes    vs     Student SELECTS major modes     │
+│  = behavior cloning                 = inverse RL                     │
+│  = overestimates voids              = mode-seeking, ignores tails   │
+│                                                                      │
+│  OPT-1.3B from OPT-13B (SelfInst GPT4):                            │
+│    SFT 37.7 → SeqKD 36.6 → MiniLLM 47.0 (+24.7% over SFT)        │
+│  Calibration: ECE 0.191 (KD) → 0.099 (MiniLLM) on SST2            │
+│  Diversity: Dist-4 99.5 → 99.0 (mode-seeking cost)                 │
+└──────────────────────────────────────────────────────────────────────┘
+```
+
+### Direct Relationships
+- 2306.08543 (#387) --supports--> 2504.01738 (#384): reverse KL mode-seeking explains why students gravitate to stylistic patterns (highest-probability modes) not reasoning content
+- 2306.08543 (#387) --supports--> 2305.18654 (#1): distributional framework makes explicit that distillation is pattern matching within student capacity; reverse KL just picks better patterns
+- 2306.08543 (#387) --extends--> 2601.19897 (#342): SDFT's on-policy self-distillation inherits MiniLLM's framework; teacher is model's own conditioned-on-demonstration version
+- 2306.08543 (#387) --supports--> 2604.01193 (#292): mode-seeking under reverse KL explains why gibberish data still works: student locks onto distribution peaks regardless of semantic content
+- 2306.08543 (#387) --challenges--> 2511.05184 (#386): forward KL (used by #386) is theoretically sub-optimal for generation; explains #386's modest gains
 
 ---
 

@@ -23,7 +23,7 @@ Student models echoing teacher distributions: distillation as statistical mimicr
 | ~~[2504.01738](https://arxiv.org/abs/2504.01738)~~ | ~~Style over Substance: Distilled Language Models Reason Via Stylistic Replication~~ | ~~Apr 2025~~ | ~~supports~~ | DONE #384 |
 | ~~[2503.03730](https://arxiv.org/abs/2503.03730)~~ | ~~Towards Understanding Distilled Reasoning Models: A Representational Approach~~ | ~~Mar 2025~~ | ~~balanced~~ | DONE #385 |
 | ~~[2511.05184](https://arxiv.org/abs/2511.05184)~~ | ~~Effectiveness of Chain-of-Thought in Distilling Reasoning Capability from LLMs~~ | ~~Nov 2025~~ | ~~supports~~ | DONE #386 |
-| [2306.08543](https://arxiv.org/abs/2306.08543) | MiniLLM: On-Policy Distillation of Large Language Models | Jun 2023 | balanced | Foundational on-policy KD paper. Student generates, teacher scores. Reverse-KL minimization - explicitly a distribution-matching objective |
+| ~~[2306.08543](https://arxiv.org/abs/2306.08543)~~ | ~~MiniLLM: On-Policy Distillation of Large Language Models~~ | ~~Jun 2023~~ | ~~balanced~~ | DONE #387 |
 | [2603.14458](https://arxiv.org/abs/2603.14458) | Distilling Reasoning Without Knowledge: A Framework for Reliable LLMs | Mar 2026 | supports | Title says it all - can you distill "reasoning" while explicitly excluding knowledge? Tests the separation |
 
 ### Tier 2: On-Policy Distillation Mechanics (Distribution Matching Focus)

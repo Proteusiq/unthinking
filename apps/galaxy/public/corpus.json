@@ -6496,5 +6496,18 @@
     "quotes": [],
     "analysis_path": "analysis/explored/380-389/386_cot_distilling_reasoning.md",
     "word_count": 1365
+  },
+  {
+    "id": 387,
+    "arxiv": "2306.08543",
+    "title": "Paper 387: MiniLLM — On-Policy Distillation of Large Language Models",
+    "date": "Jun 2023",
+    "stance": "balanced",
+    "cluster": "reasoning",
+    "core_finding": "THE DISTILLATION OBJECTIVE IS EXPLICITLY DISTRIBUTIONAL Forward KL: KL[p || q_θ] → student covers ALL teacher modes Reverse KL: KL[q_θ || p] → student SELECTS teacher's major modes within its capacity When student is too small to hold teacher's full distribution: Forward KL → overestimates void regions → degenerate text Reverse KL → mode-seeking → focuses on high-probability mass This is a Gaussian-fitting analogy made literal: p = mixture of Gaussians (teacher distribution) q = single Gaussian (limited student) Forward KL → q spreads to cover all → poor fit everywhere Reverse KL → q locks onto one mode → good fit locally The paper PROVES this is equivalent to Inverse RL (Appendix A.1): Standard KD ≈ behavior cloning MiniLLM ≈ inverse reinforcement learning Reward = log p(y_t | y_{<t}, x) - log q_θ(y_t | y_{<t}, x) ⇒ The student is not learning to reason. It is solving an optimization problem: find θ that minimizes the KL divergence between its output distribution and the teacher's.",
+    "smoking_gun": false,
+    "quotes": [],
+    "analysis_path": "analysis/explored/380-389/387_minillm_on_policy_distillation.md",
+    "word_count": 2477
   }
 ]

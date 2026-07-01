@@ -390,3 +390,4 @@
 | 384 | 2504.01738 | Apr 2025 | Style over Substance: Distilled Language Models Reason Via Stylistic Replication | Supports |
 | 385 | 2503.03730 | Mar 2025 | Towards Understanding Distilled Reasoning Models: A Representational Approach | Balanced |
 | 386 | 2511.05184 | Nov 2025 | Effectiveness of Chain-of-Thought in Distilling Reasoning Capability from LLMs | Supports |
+| 387 | 2306.08543 | Jun 2023 | MiniLLM: On-Policy Distillation of Large Language Models | Balanced |

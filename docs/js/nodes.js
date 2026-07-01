@@ -8468,4 +8468,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/380-389/386_cot_distilling_reasoning.md',
   },
+  {
+    id: '2306.08543',
+    title: 'MiniLLM: On-Policy Distillation of Large Language Models',
+    shortTitle: 'MiniLLM',
+    date: 'Jun 2023',
+    stance: 'balanced',
+    cluster: 'distillation',
+    coreArgument:
+      'Reverse KL distillation causes mode-seeking: student selects teacher\'s highest-probability modes within its capacity, equivalent to inverse RL. Explicitly a distribution-matching objective with no reasoning component.',
+    keyEvidence: [
+      'OPT-1.3B→13B SelfInst GPT4: SFT 37.7 → SeqKD 36.6 → MiniLLM 47.0',
+      'Calibration ECE halved: 0.191 (KD) → 0.099 (MiniLLM) on SST2',
+      'Mode-seeking costs diversity: Dist-4 99.5 → 99.0 on DollyEval',
+      'Without length normalization: R-L drops 27.4 → 17.4 (reward hacking)',
+      'IRL proof: standard KD ≈ behavior cloning; MiniLLM ≈ inverse RL',
+    ],
+    keyQuotes: [
+      'Minimizing reverse KLD causes the mode-seeking behavior, where q_θ assigns high probabilities to p\'s large modes and ignores the small ones.',
+      'MiniLLM encourages the student to generate samples preferred by the teacher within its own capacities.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/380-389/387_minillm_on_policy_distillation.md',
+  },
 ];
