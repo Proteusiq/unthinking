@@ -92,7 +92,7 @@ See also:
 
 In 1966, Joseph Weizenbaum created ELIZA: roughly 200 lines of pattern matching that simulated a therapist. His secretary, who *knew* it was a simple program, asked him to leave the room so she could talk to it privately. Users poured out their secrets to a text substitution engine.
 
-They knew it was a trick. They fell for it anyway.
+They knew it was a rule based. They fell for it anyway.
 
 Weizenbaum called this the **ELIZA effect**: our tendency to project understanding onto systems that merely *simulate* its appearance. Sixty years later, we've built far more sophisticated mirrors, but the fundamental dynamic is unchanged.
 
