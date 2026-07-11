@@ -1,5 +1,4 @@
 import re
-from dataclasses import dataclass
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -38,30 +37,14 @@ def search_recent_papers(days_back: int) -> dict[str, arxiv.Result]:
     return papers
 
 
-@dataclass(frozen=True)
-class _ExternalResult:
-    """Duck-types the arxiv.Result fields that process_paper reads."""
-
-    _short_id: str
-    title: str
-    summary: str
-    published: datetime
-
-    def get_short_id(self) -> str:
-        return self._short_id
-
-
-def search_paperswithcode(
-    days_back: int, max_pages: int = 5
-) -> dict[str, _ExternalResult]:
-    """Fetch recent arXiv-sourced papers from the paperswithcode.co feed.
+def discover_paperswithcode(days_back: int, max_pages: int = 5) -> set[str]:
+    """Return recent arXiv IDs surfaced by the paperswithcode.co feed.
 
     The feed is ranked by trending, not date, so we scan a fixed page budget
-    and keep anything published within the cutoff. Relevance filtering is left
-    to the downstream classifier.
+    and keep anything published within the cutoff.
     """
     cutoff = datetime.now() - timedelta(days=days_back)
-    papers: dict[str, _ExternalResult] = {}
+    ids: set[str] = set()
 
     with httpx.Client(timeout=30.0, headers={"Accept": "application/json"}) as client:
         for page in range(1, max_pages + 1):
@@ -76,41 +59,16 @@ def search_paperswithcode(
                 published = r.get("published")
                 if not arxiv_id or not published:
                     continue
-                pub = datetime.strptime(published, "%Y-%m-%d")
-                if pub < cutoff:
-                    continue
-                papers[arxiv_id] = _ExternalResult(
-                    _short_id=arxiv_id,
-                    title=r.get("title", "").strip(),
-                    summary=(r.get("abstract") or "").replace("\n", " ").strip(),
-                    published=pub,
-                )
+                if datetime.strptime(published, "%Y-%m-%d") >= cutoff:
+                    ids.add(normalize_arxiv_id(arxiv_id))
 
-    return papers
+    return ids
 
 
-def _fetch_arxiv_metadata(ids: set[str]) -> dict[str, _ExternalResult]:
-    """Look up title/abstract/date for a set of arXiv IDs."""
-    if not ids:
-        return {}
-    client = arxiv.Client()
-    papers: dict[str, _ExternalResult] = {}
-    for result in client.results(arxiv.Search(id_list=sorted(ids))):
-        short_id = normalize_arxiv_id(result.get_short_id())
-        papers[short_id] = _ExternalResult(
-            _short_id=short_id,
-            title=result.title,
-            summary=result.summary.replace("\n", " ").strip(),
-            published=result.published.replace(tzinfo=None),
-        )
-    return papers
+def discover_lesswrong(post_limit: int = 40) -> set[str]:
+    """Return arXiv IDs cited by recent LessWrong posts.
 
-
-def search_lesswrong(post_limit: int = 40) -> dict[str, _ExternalResult]:
-    """Mine recent LessWrong posts for cited arXiv papers.
-
-    Posts are essays, not corpus items; we extract the arXiv IDs they link to
-    and resolve those to papers. Relevance filtering is left to the classifier.
+    Posts are essays, not corpus items; we only extract the arXiv links.
     """
     query = (
         '{posts(input:{terms:{view:"new",limit:%d}}){results{htmlBody}}}' % post_limit
@@ -124,7 +82,16 @@ def search_lesswrong(post_limit: int = 40) -> dict[str, _ExternalResult]:
     for post in results:
         ids.update(_ARXIV_RE.findall(post.get("htmlBody") or ""))
 
-    return _fetch_arxiv_metadata(ids)
+    return {normalize_arxiv_id(i) for i in ids}
+
+
+def fetch_arxiv(ids: set[str]) -> dict[str, arxiv.Result]:
+    """Resolve arXiv IDs to full arXiv papers (the canonical source)."""
+    if not ids:
+        return {}
+    client = arxiv.Client()
+    results = client.results(arxiv.Search(id_list=sorted(ids)))
+    return {r.get_short_id(): r for r in results}
 
 
 def normalize_arxiv_id(arxiv_id: str) -> str:

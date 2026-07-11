@@ -323,11 +323,13 @@ themselves. Three sources feed the automated discovery pipeline
 | Source | What it provides | How it is used |
 |--------|------------------|----------------|
 | **[arXiv](https://arxiv.org)** | Primary. Full papers in cs.CL/LG/AI/NE. | Category + keyword queries (`search_recent_papers`); the canonical read target. |
-| **[Papers with Code](https://paperswithcode.co)** | Trending AI papers with code, datasets, leaderboards. | JSON API `/api/v1/papers` mined for recent arXiv IDs (`search_paperswithcode`). |
-| **[LessWrong](https://www.lesswrong.com)** | Alignment/AI-safety essays and discussion. | GraphQL API; posts mined for cited arXiv links, which are then resolved to papers (`search_lesswrong`). Essays are **not** corpus items. |
+| **[Papers with Code](https://paperswithcode.co)** | Trending AI papers with code, datasets, leaderboards. | JSON API `/api/v1/papers` mined for recent arXiv IDs (`discover_paperswithcode`). |
+| **[LessWrong](https://www.lesswrong.com)** | Alignment/AI-safety essays and discussion. | GraphQL API; posts mined for cited arXiv links (`discover_lesswrong`). Essays are **not** corpus items. |
 
-All discovered IDs are deduplicated against `paper_list.md` + `toevaluate.md`
-and passed through the same relevance classifier before staging.
+The two discovery feeds return only arXiv IDs. Every ID — from any source — is
+resolved to a full arXiv paper via `fetch_arxiv` (arXiv is the single source of
+paper metadata), deduplicated against `paper_list.md` + `toevaluate.md`, and
+passed through the same relevance classifier before staging.
 
 ### arXiv Search Tool
 

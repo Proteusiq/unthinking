@@ -11,10 +11,11 @@ import arxiv
 import httpx
 
 from discovery.search import (
+    discover_lesswrong,
+    discover_paperswithcode,
+    fetch_arxiv,
     load_known_ids,
     normalize_arxiv_id,
-    search_lesswrong,
-    search_paperswithcode,
     search_recent_papers,
 )
 from discovery.classify import classify_paper
@@ -75,25 +76,30 @@ def main() -> None:
         print("[info] No GITHUB_TOKEN, using keyword fallback")
 
     print("[1/4] Searching sources...")
+    # arXiv keyword sweep returns full papers directly.
     raw_papers = search_recent_papers(DAYS_LOOKBACK)
     print(f"      arXiv (last {DAYS_LOOKBACK}d): {len(raw_papers)}")
 
-    pwc = search_paperswithcode(PWC_DAYS_LOOKBACK)
-    print(f"      Papers with Code (last {PWC_DAYS_LOOKBACK}d): {len(pwc)}")
+    # Discovery feeds only surface arXiv IDs; arXiv remains the paper source.
+    pwc_ids = discover_paperswithcode(PWC_DAYS_LOOKBACK)
+    print(f"      Papers with Code (last {PWC_DAYS_LOOKBACK}d): {len(pwc_ids)}")
 
-    lw = search_lesswrong()
-    print(f"      LessWrong arXiv links: {len(lw)}")
-
-    # arXiv metadata takes precedence where IDs overlap.
-    raw_papers = {**lw, **pwc, **raw_papers}
-    print(f"      Merged unique: {len(raw_papers)}")
-
-    if not raw_papers:
-        return
+    lw_ids = discover_lesswrong()
+    print(f"      LessWrong arXiv links: {len(lw_ids)}")
 
     print("[2/4] Loading known papers...")
     known_ids = load_known_ids(paper_list) | load_known_ids(toevaluate)
     print(f"      {len(known_ids)} known IDs")
+
+    # Resolve unseen discovery IDs to full arXiv papers.
+    discovered = (
+        (pwc_ids | lw_ids) - known_ids - {normalize_arxiv_id(i) for i in raw_papers}
+    )
+    raw_papers.update(fetch_arxiv(discovered))
+    print(f"      Merged unique: {len(raw_papers)}")
+
+    if not raw_papers:
+        return
 
     print("[3/4] Classifying papers...")
     new_papers: list[Paper] = []
