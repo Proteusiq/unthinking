@@ -445,15 +445,16 @@ See [AGENTS.md](./AGENTS.md) for detailed methodology.
 
 ## Paper Sources
 
-The corpus is arXiv-keyed: every analyzed paper resolves to an arXiv ID. Three
-sources feed the discovery pipeline that surfaces candidates to read. The latter
-two are used only to *find* arXiv papers worth reading, never as corpus items.
+**Every paper starts at arXiv.** The corpus is arXiv-keyed — each analyzed paper
+resolves to an arXiv ID and is read as an arXiv full paper. The other two sources
+are discovery feeds only: they help *find* arXiv papers worth reading and are
+never corpus items themselves.
 
-| Source | Description |
-|--------|-------------|
-| [arXiv](https://arxiv.org) | Primary source. Full papers across cs.CL, cs.LG, cs.AI, cs.NE. |
-| [Papers with Code](https://paperswithcode.co) | Trending AI research with code, datasets, methods, and leaderboards. |
-| [LessWrong](https://www.lesswrong.com) | Alignment and AI-safety essays; mined for cited arXiv papers. |
+| Source | Role | Description |
+|--------|------|-------------|
+| [arXiv](https://arxiv.org) | Primary (canonical) | Full papers across cs.CL, cs.LG, cs.AI, cs.NE. The read target for every corpus entry. |
+| [Papers with Code](https://paperswithcode.co) | Discovery | Trending AI research with code, datasets, methods, and leaderboards; each entry links to its arXiv paper, which we follow. |
+| [LessWrong](https://www.lesswrong.com) | Discovery | Alignment and AI-safety essays; mined for cited arXiv links, which we follow. |
 
 **For those interested beyond this review's scope**, these three are excellent
 starting points for tracking LLM-reasoning and AI-safety research more broadly.
