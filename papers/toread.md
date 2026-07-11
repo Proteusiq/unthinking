@@ -24,6 +24,7 @@ Student models echoing teacher distributions: distillation as statistical mimicr
 | ~~[2503.03730](https://arxiv.org/abs/2503.03730)~~ | ~~Towards Understanding Distilled Reasoning Models: A Representational Approach~~ | ~~Mar 2025~~ | ~~balanced~~ | DONE #385 |
 | ~~[2511.05184](https://arxiv.org/abs/2511.05184)~~ | ~~Effectiveness of Chain-of-Thought in Distilling Reasoning Capability from LLMs~~ | ~~Nov 2025~~ | ~~supports~~ | DONE #386 |
 | ~~[2306.08543](https://arxiv.org/abs/2306.08543)~~ | ~~MiniLLM: On-Policy Distillation of Large Language Models~~ | ~~Jun 2023~~ | ~~balanced~~ | DONE #387 |
+| ~~[2603.12277](https://arxiv.org/abs/2603.12277)~~ | ~~Prompt Injection as Role Confusion~~ | ~~Feb 2026~~ | ~~supports~~ | DONE #388 (issue #98) |
 | [2603.14458](https://arxiv.org/abs/2603.14458) | Distilling Reasoning Without Knowledge: A Framework for Reliable LLMs | Mar 2026 | supports | Title says it all - can you distill "reasoning" while explicitly excluding knowledge? Tests the separation |
 
 ### Tier 2: On-Policy Distillation Mechanics (Distribution Matching Focus)

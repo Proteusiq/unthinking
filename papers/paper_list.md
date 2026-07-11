@@ -1,6 +1,6 @@
 # Paper List
 
-> 384 papers analyzed | 289 supports thesis | 15 challenges | 80 balanced | Date range: 2021-2026
+> 389 papers analyzed | 292 supports thesis | 15 challenges | 82 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -391,3 +391,4 @@
 | 385 | 2503.03730 | Mar 2025 | Towards Understanding Distilled Reasoning Models: A Representational Approach | Balanced |
 | 386 | 2511.05184 | Nov 2025 | Effectiveness of Chain-of-Thought in Distilling Reasoning Capability from LLMs | Supports |
 | 387 | 2306.08543 | Jun 2023 | MiniLLM: On-Policy Distillation of Large Language Models | Balanced |
+| 388 | 2603.12277 | Feb 2026 | Prompt Injection as Role Confusion | Supports |
