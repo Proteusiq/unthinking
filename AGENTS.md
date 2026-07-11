@@ -313,6 +313,22 @@ Paper H --supports--> Paper I (same finding, different method)
 
 ## Expanding the Paper Corpus
 
+### Paper Sources
+
+The corpus is arXiv-keyed. Every entry resolves to an `arXiv ID`; other sources
+are used to *discover* which arXiv papers to read, never as corpus items
+themselves. Three sources feed the automated discovery pipeline
+(`scripts/discovery/`), which stages candidates into `papers/toevaluate.md`:
+
+| Source | What it provides | How it is used |
+|--------|------------------|----------------|
+| **[arXiv](https://arxiv.org)** | Primary. Full papers in cs.CL/LG/AI/NE. | Category + keyword queries (`search_recent_papers`); the canonical read target. |
+| **[Papers with Code](https://paperswithcode.co)** | Trending AI papers with code, datasets, leaderboards. | JSON API `/api/v1/papers` mined for recent arXiv IDs (`search_paperswithcode`). |
+| **[LessWrong](https://www.lesswrong.com)** | Alignment/AI-safety essays and discussion. | GraphQL API; posts mined for cited arXiv links, which are then resolved to papers (`search_lesswrong`). Essays are **not** corpus items. |
+
+All discovered IDs are deduplicated against `paper_list.md` + `toevaluate.md`
+and passed through the same relevance classifier before staging.
+
 ### arXiv Search Tool
 
 Use the CLI tool to search for papers:
@@ -502,7 +518,7 @@ gh auth switch --user <username>
 │       ├── __init__.py         # Package exports
 │       ├── __main__.py         # Entry: uv run scripts/discovery/__main__.py
 │       ├── models.py           # Paper, Classification dataclasses
-│       ├── search.py           # arXiv search, load known IDs
+│       ├── search.py           # arXiv + Papers with Code + LessWrong discovery
 │       ├── classify.py         # LLM + keyword classification
 │       └── output.py           # Markdown formatting, file writing
 ├── experiments/

@@ -443,6 +443,23 @@ See [AGENTS.md](./AGENTS.md) for detailed methodology.
 
 ---
 
+## Paper Sources
+
+The corpus is arXiv-keyed: every analyzed paper resolves to an arXiv ID. Three
+sources feed the discovery pipeline that surfaces candidates to read. The latter
+two are used only to *find* arXiv papers worth reading, never as corpus items.
+
+| Source | Description |
+|--------|-------------|
+| [arXiv](https://arxiv.org) | Primary source. Full papers across cs.CL, cs.LG, cs.AI, cs.NE. |
+| [Papers with Code](https://paperswithcode.co) | Trending AI research with code, datasets, methods, and leaderboards. |
+| [LessWrong](https://www.lesswrong.com) | Alignment and AI-safety essays; mined for cited arXiv papers. |
+
+**For those interested beyond this review's scope**, these three are excellent
+starting points for tracking LLM-reasoning and AI-safety research more broadly.
+
+---
+
 ## Author
 
 **Prayson Wilfred Daniel**

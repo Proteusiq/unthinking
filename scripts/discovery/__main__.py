@@ -10,12 +10,20 @@ from pathlib import Path
 import arxiv
 import httpx
 
-from discovery.search import load_known_ids, normalize_arxiv_id, search_recent_papers
+from discovery.search import (
+    load_known_ids,
+    normalize_arxiv_id,
+    search_lesswrong,
+    search_paperswithcode,
+    search_recent_papers,
+)
 from discovery.classify import classify_paper
 from discovery.models import Paper
 from discovery.output import prepend_to_toevaluate
 
 DAYS_LOOKBACK = 3
+# The PwC feed is ranked by trending, not date, so give it a wider window.
+PWC_DAYS_LOOKBACK = 30
 
 
 def find_connections(abstract: str, known_ids: set[str]) -> tuple[str, ...]:
@@ -66,9 +74,19 @@ def main() -> None:
     else:
         print("[info] No GITHUB_TOKEN, using keyword fallback")
 
-    print(f"[1/4] Searching arXiv (last {DAYS_LOOKBACK} days)...")
+    print("[1/4] Searching sources...")
     raw_papers = search_recent_papers(DAYS_LOOKBACK)
-    print(f"      Found {len(raw_papers)} papers")
+    print(f"      arXiv (last {DAYS_LOOKBACK}d): {len(raw_papers)}")
+
+    pwc = search_paperswithcode(PWC_DAYS_LOOKBACK)
+    print(f"      Papers with Code (last {PWC_DAYS_LOOKBACK}d): {len(pwc)}")
+
+    lw = search_lesswrong()
+    print(f"      LessWrong arXiv links: {len(lw)}")
+
+    # arXiv metadata takes precedence where IDs overlap.
+    raw_papers = {**lw, **pwc, **raw_papers}
+    print(f"      Merged unique: {len(raw_papers)}")
 
     if not raw_papers:
         return
