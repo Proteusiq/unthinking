@@ -2217,6 +2217,35 @@ Five papers studying reward hacking in LLM RL - from controlled reproduction to 
 - 2306.08543 (#387) --supports--> 2604.01193 (#292): mode-seeking under reverse KL explains why gibberish data still works: student locks onto distribution peaks regardless of semantic content
 - 2306.08543 (#387) --challenges--> 2511.05184 (#386): forward KL (used by #386) is theoretically sub-optimal for generation; explains #386's modest gains
 
+### Prompt Injection as Role Confusion (2603.12277, #388)
+
+```
+┌──────────────────────────────────────────────────────────────────────┐
+│  Prompt Injection as Role Confusion (2603.12277) — Ye, Cui,         │
+│  Hadfield-Menell, MIT · ICML 2026                                   │
+│                                                                      │
+│  Role tags (<user>/<tool>/<think>) are the FOUNDATION of LLM        │
+│  security — but the boundary does NOT survive into latent space.    │
+│                                                                      │
+│  Role probes (trained only on tags, content constant):              │
+│    user-style text in <tool> tags → 76-88% Userness, <20% Toolness  │
+│  CoT Forgery attack: 0-4% baseline ASR → 56-80%+ (styled forgery)   │
+│    destyle same argument → 61% → 10% ASR   (style is causal)        │
+│  Confusion predicts ASR before a token: 9%→90% (CoT), 2%→70% (agent)│
+│                                                                      │
+│  ⇒ Security is memorized patterns over a representational void;     │
+│    "sounding like a role is indistinguishable from being one."      │
+└──────────────────────────────────────────────────────────────────────┘
+```
+
+### Direct Relationships
+- 2603.12277 (#388) --supports--> 2504.01738 (#384): role perception driven by style not label; the security-layer instance of "style over substance"
+- 2603.12277 (#388) --supports--> 2305.18654 (#1): role is a "concept" the model was meant to learn but only captured the surface correlate (style)
+- 2603.12277 (#388) --supports--> 2406.11717 (#319): safety is a shallow spoofable linear-geometry artifact, not deep reasoning about source/harm
+- 2603.12277 (#388) --extends--> Wallace 2024 (instruction hierarchy): shows the tag-based hierarchy does not survive into internal representations
+- 2603.12277 (#388) --provides mechanism for--> IHEval / Control Illusion / SysBench / Wang 2025b: behavioral role-hierarchy failures explained as misperception, not disobedience
+- 2603.12277 (#388) --challenges--> claims that instruction-hierarchy training gives models a robust represented notion of privilege
+
 ---
 
 ### 2026-01-24

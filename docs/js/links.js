@@ -9908,5 +9908,26 @@ window.paperLinks = [
     description:
       'Builds on MiniLLM framework; adds CoT rationales to white-box KD with forward KL only',
   },
+  {
+    source: '2603.12277',
+    target: '2504.01738',
+    type: 'supports',
+    description:
+      'Role perception driven by style not label; the security-layer instance of style-over-substance',
+  },
+  {
+    source: '2603.12277',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Role is a concept the model was meant to learn but only captured its surface correlate (style)',
+  },
+  {
+    source: '2603.12277',
+    target: '2406.11717',
+    type: 'supports',
+    description:
+      'Safety is a shallow, spoofable linear-geometry artifact, not deep reasoning about source or harm',
+  },
 ];
 

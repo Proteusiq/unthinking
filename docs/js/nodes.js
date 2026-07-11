@@ -8491,4 +8491,27 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/380-389/387_minillm_on_policy_distillation.md',
   },
+  {
+    id: '2603.12277',
+    title: 'Prompt Injection as Role Confusion',
+    shortTitle: 'Role Confusion',
+    date: 'Feb 2026',
+    stance: 'supports',
+    cluster: 'safety',
+    coreArgument:
+      'LLM role tags (<user>/<tool>/<think>) are the foundation of safety, but the boundary does not survive into latent space. Models perceive "who is speaking" from spoofable style, not the labeled role - security is memorized patterns over a representational void.',
+    keyEvidence: [
+      'Role probes: user-style text in <tool> tags reads 76-88% Userness, <20% Toolness (ideal: 0%/100%)',
+      'CoT Forgery attack: 0-4% baseline ASR → 56-80%+ across 6 frontier models',
+      'Style is causal: destyling the same argument collapses ASR 61% → 10%',
+      'Absurd justification as effective as plausible: 60% vs 63% ASR',
+      'Confusion predicts success pre-generation: CoTness 9%→90%, Userness 2%→70% (logistic coef 6.01, p<.001)',
+    ],
+    keyQuotes: [
+      'To the model, sounding like a role is indistinguishable from being one.',
+      'The intended defense - tag-enforced role boundaries - does not survive into the model\'s internal representations.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/380-389/388_prompt_injection_role_confusion.md',
+  },
 ];
