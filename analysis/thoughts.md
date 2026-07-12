@@ -629,6 +629,44 @@ The post itself anticipated this: it warns that NN-based reward models admit "ad
 
 **Related**: LeCun commentary on this piece (X post, Apr 2026)
 
+### Anthropic: "A Global Workspace in Language Models" - Consciousness Framing over Old Machinery (Jul 2026)
+
+**Source**: [transformer-circuits.pub/2026/workspace](https://transformer-circuits.pub/2026/workspace/index.html), plus the sober companion [transformer-circuits.pub/2026/nla](https://transformer-circuits.pub/2026/nla/index.html) (Natural Language Attributions). Live demo runs on **Qwen 3.6-27B** ([neuronpedia.org/qwen3.6-27b/jlens](https://www.neuronpedia.org/qwen3.6-27b/jlens)).
+
+**What they did**: A "Jacobian lens" (J-lens) reads out the concepts a model is *poised to verbalize* at each layer. The verbalizable concepts occupy a sparse subframe of the residual stream, the "J-space" (~k=16 active vectors). They locate a middle band of layers (~L38–L92) where the J-space carries persistent abstract content, and label the three regions **sensory (early) / workspace (middle) / motor (late)**. Causal swaps of J-space coordinates redirect outputs (spider→ant changes an "8" to a "6"; rhyme planning fight→light).
+
+**What they claim (marketing)**: *"Of everything happening in your brain right now, only a tiny fraction is consciously accessible… We found a strikingly similar divide inside Claude."*
+
+**Read the body first (it is more careful than the headline)**: The paper explicitly says access consciousness is "a **purely functional** notion," that "**we take no position**" on phenomenal consciousness, that global workspace theory "**is not universally accepted**," and that the transformer has "**no direct analog**" to the brain's recurrent workspace, "sharing only some of its architectural properties." The J-space carries a **median of only 6–7% of a concept vector's variance (~93% lies outside it)**. Those hedges are real.
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│  BODY (hedged)                    →   PROMO (asserted)              │
+│                                                                     │
+│  "purely functional notion"       →   "consciously accessible"      │
+│  "we take no position"            →   (dropped)                     │
+│  "not universally accepted"       →   (dropped)                     │
+│  "6-7% of variance"               →   "a strikingly similar divide" │
+│                                                                     │
+│  The overclaim is not in the methods. It is in the framing that     │
+│  strips every qualifier on the way to "inside Claude."              │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+**Three problems**:
+
+1. **It is not special to Claude - it is in every reasoning transformer.** Reasoning branches already live in the pretrained *output distribution*; greedy decoding hides them, non-greedy sampling surfaces them - established since **#02 Chain-of-Thought Reasoning Without Prompting (2402.10200)**. The workspace paper tests only **four Claude models** (Sonnet 4.5 default; Haiku 4.5, Opus 4.5/4.6 corroborating) - no GPT, Gemma, or Llama. Its own companion `nla` surfaces the same structure in Qwen/Gemma/Llama, evidence *against* Claude-specificity, from the same lab.
+
+2. **"Monitor and change the inner state" is already known and deployed.** Reading internal state: linear probes (#205 Geometry of Truth 2310.06824; #118 Apollo deception probes 2502.03407; #261 89% deception detection 2506.04909). Editing it: **abliteration** - #319 Refusal is Mediated by a Single Direction (2406.11717), spawning 1000+ abliterated models; #320 affine refusal (2411.09003); #322 the LRH math (2602.11246). The J-space `nla` paper itself takes "a steering vector, or an SAE feature direction" as *inputs*. The one incremental move is *verbalizing* the direction in prose - useful UX, not a new capability.
+
+3. **The a-priori / deepity trap.** Start from "Claude might have conscious access," search a sparse subframe deep enough, and you will find *something* to point at. "Verbalizable representations form a global workspace" is a Dennett deepity: profound-sounding, dissolving on inspection. Sparsity is not consciousness - a JPEG also has a small kept part and a large discarded one.
+
+**The functionalism confusion**: The pitch leans on reading functionalism as *"same behaviour ⇒ same thing"* (reductionist identity). Functionalism actually claims *"same behaviour to us ⇒ we cannot tell them apart ⇒ same for us"* - a statement about the **limits of the observer**, not the system. The observer-relative version does not license "Claude has an inner conscious workspace." And the ambiguity is convenient: "maybe conscious, maybe untestable" is unfalsifiable, therefore marketable indefinitely - a near-certain profit motive parked in a permanent grey zone.
+
+**Connection to thesis**: This is the exact successor to "Functional Emotions" (above) - anthropomorphizing statistical structure, one level up. There, linear directions correlating with emotion text became "functional emotions"; here, a sparse verbalizable subframe becomes a "global workspace" and "conscious access." Same sleight of hand: a real, unremarkable representational fact (models learn features for predicting their training distribution; those features are sparse and linearly readable) dressed in the vocabulary of mind. The genuinely valuable part - reading and steering inner state *before* it becomes output, so oversight moves upstream of the text (cf. §"oversight must be mechanical, not attentional") - was already established by the abliteration and linear-probe literature. What is new is a face and a name. **What they found is nothing the corpus did not already know.**
+
+**Why NOT in the corpus**: Transformer Circuits blog, no arXiv ID (corpus is arXiv-keyed). Held as a conversational-only reference, alongside "On the Biology of a Large Language Model" and "Functional Emotions."
+
 ### OpenAI: "Where the Goblins Came From" - Reward Generalization in the Wild (Apr 2026)
 
 **Source**: [openai.com/index/where-the-goblins-came-from](https://openai.com/index/where-the-goblins-came-from/)
