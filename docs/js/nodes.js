@@ -8200,7 +8200,8 @@ window.paperNodes = [
   },
   {
     id: '2507.13337',
-    title: 'FormulaOne: Measuring the Depth of Algorithmic Reasoning Beyond Competitive Programming',
+    title:
+      'FormulaOne: Measuring the Depth of Algorithmic Reasoning Beyond Competitive Programming',
     shortTitle: 'FormulaOne',
     date: 'Jul 2025',
     stance: 'supports',
@@ -8401,8 +8402,7 @@ window.paperNodes = [
   },
   {
     id: '2504.01738',
-    title:
-      'Style over Substance: Distilled Language Models Reason Via Stylistic Replication',
+    title: 'Style over Substance: Distilled Language Models Reason Via Stylistic Replication',
     shortTitle: 'Style over Substance',
     date: 'Apr 2025',
     stance: 'supports',
@@ -8424,8 +8424,7 @@ window.paperNodes = [
   },
   {
     id: '2503.03730',
-    title:
-      'Towards Understanding Distilled Reasoning Models: A Representational Approach',
+    title: 'Towards Understanding Distilled Reasoning Models: A Representational Approach',
     shortTitle: 'Distilled Representations',
     date: 'Mar 2025',
     stance: 'balanced',
@@ -8476,7 +8475,7 @@ window.paperNodes = [
     stance: 'balanced',
     cluster: 'distillation',
     coreArgument:
-      'Reverse KL distillation causes mode-seeking: student selects teacher\'s highest-probability modes within its capacity, equivalent to inverse RL. Explicitly a distribution-matching objective with no reasoning component.',
+      "Reverse KL distillation causes mode-seeking: student selects teacher's highest-probability modes within its capacity, equivalent to inverse RL. Explicitly a distribution-matching objective with no reasoning component.",
     keyEvidence: [
       'OPT-1.3B→13B SelfInst GPT4: SFT 37.7 → SeqKD 36.6 → MiniLLM 47.0',
       'Calibration ECE halved: 0.191 (KD) → 0.099 (MiniLLM) on SST2',
@@ -8485,7 +8484,7 @@ window.paperNodes = [
       'IRL proof: standard KD ≈ behavior cloning; MiniLLM ≈ inverse RL',
     ],
     keyQuotes: [
-      'Minimizing reverse KLD causes the mode-seeking behavior, where q_θ assigns high probabilities to p\'s large modes and ignores the small ones.',
+      "Minimizing reverse KLD causes the mode-seeking behavior, where q_θ assigns high probabilities to p's large modes and ignores the small ones.",
       'MiniLLM encourages the student to generate samples preferred by the teacher within its own capacities.',
     ],
     analysisUrl:
@@ -8509,9 +8508,55 @@ window.paperNodes = [
     ],
     keyQuotes: [
       'To the model, sounding like a role is indistinguishable from being one.',
-      'The intended defense - tag-enforced role boundaries - does not survive into the model\'s internal representations.',
+      "The intended defense - tag-enforced role boundaries - does not survive into the model's internal representations.",
     ],
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/380-389/388_prompt_injection_role_confusion.md',
+  },
+  {
+    id: '2607.05391',
+    title: 'LLM-as-a-Verifier: A General-Purpose Verification Framework',
+    shortTitle: 'LLM-as-a-Verifier',
+    date: 'Jul 2026',
+    stance: 'balanced',
+    cluster: 'evaluation',
+    coreArgument:
+      'Oracle Pass@K reaches 98.9% on Terminal-Bench V2 - the correct trajectory is already in the sampling distribution. The bottleneck is selection, not reasoning. An external LLM verifier recovers only part of that headroom, and the verifier is itself a biased judge.',
+    keyEvidence: [
+      'Oracle Pass@K = 98.9% (Terminal-Bench V2); capability is in the samples',
+      'Verifier lifts Pass@1 83.1% → 86.5%, but oracle sits at 92.1% (residual gap)',
+      'SWE-Bench Verified 76.1 → 78.2 (oracle 84.4); MedAgentBench 70.2 → 73.3',
+      'Granularity gain marginal: SNR 0.775 → 0.799; repeated eval 74.7 → 77.5% (K=1→16)',
+      'Verifier score as dense RL reward: 1.8× sample efficiency off-policy, ~1.1× on-policy',
+    ],
+    keyQuotes: [
+      'Models already possess the capability to solve these tasks; the challenge lies in selecting the correct trajectory rather than generating one.',
+      'Fine-grained verifier signals serve as a proxy for task progress, providing dense rewards that improve RL sample efficiency.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/380-389/389_llm_as_a_verifier.md',
+  },
+  {
+    id: '2505.15433',
+    title: 'Set-LLM: A Permutation-Invariant LLM',
+    shortTitle: 'Set-LLM',
+    date: 'May 2025',
+    stance: 'balanced',
+    cluster: 'evaluation',
+    coreArgument:
+      'Reordering the same multiple-choice options flips the answer by up to 31.7pp - the "choice" is positional and surface-driven, not content-reasoned. Set-LLM removes the bias by construction (SetPE + SetMask), but robustness is imposed by architecture rather than learned by reasoning, and accuracy rises, implying the removed positional signal was mostly bias.',
+    keyEvidence: [
+      'Adversarial reordering drops accuracy 3.4-31.7% across 5 base models',
+      'Gemma 2B ARC-Challenge: 55.20% (random) → 23.72% (adversarial), -31.5pp',
+      'Set-LLM (SetPE+SetMask) provably invariant: zero drop by construction',
+      'Beats base model 20/20 adversarial, 18/20 random; beats majority vote 16/20 in a single run (vs k! runs)',
+      'Caveat: needs fp32 eval for invariance in practice; LoRA-finetuned per benchmark',
+    ],
+    keyQuotes: [
+      'The tendency of LLMs to provide different answers when options are reordered... directly undermines the reliability of these pipelines.',
+      'Set-LLM guarantees consistent responses by building permutation invariance directly into the model architecture.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/390-399/390_set_llm_permutation_invariant.md',
   },
 ];

@@ -9526,8 +9526,7 @@ window.paperLinks = [
     source: '2305.03731',
     target: '2507.22887',
     type: 'supports',
-    description:
-      'WM limits explain positional bias - cannot maintain many items simultaneously',
+    description: 'WM limits explain positional bias - cannot maintain many items simultaneously',
   },
   {
     source: '2305.03731',
@@ -9750,8 +9749,7 @@ window.paperLinks = [
     source: '2502.13913',
     target: '2309.12288',
     type: 'supports',
-    description:
-      'Both show compositional failure - Reversal is symmetric, Two-Hop is transitive',
+    description: 'Both show compositional failure - Reversal is symmetric, Two-Hop is transitive',
   },
   {
     source: '2502.13913',
@@ -9786,8 +9784,7 @@ window.paperLinks = [
     source: '2405.06680',
     target: '2411.16353',
     type: 'supports',
-    description:
-      'Both show knowledge-composition gap - know components but cannot combine them',
+    description: 'Both show knowledge-composition gap - know components but cannot combine them',
   },
   {
     source: '2504.01738',
@@ -9929,5 +9926,47 @@ window.paperLinks = [
     description:
       'Safety is a shallow, spoofable linear-geometry artifact, not deep reasoning about source or harm',
   },
+  // LLM-as-a-Verifier (#389)
+  {
+    source: '2607.05391',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Capability is latent in the training distribution: the correct trajectory is sampled (oracle 98.9%) but not selected',
+  },
+  // Set-LLM (#390)
+  {
+    source: '2505.15433',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'MCQA order sensitivity is a surface-pattern signature; a content-reasoner would be invariant to option order',
+  },
+  {
+    source: '2505.15433',
+    target: '2507.22887',
+    type: 'supports',
+    description:
+      'Same phenomenon (position drives the answer); Set-LLM removes the positional bias architecturally',
+  },
+  {
+    source: '2505.15433',
+    target: '2506.03923',
+    type: 'related',
+    description:
+      'Order / first-option preference in LLM comparisons - the judge use case Set-LLM targets',
+  },
+  {
+    source: '2505.15433',
+    target: '2505.22910',
+    type: 'related',
+    description: 'Same family: surface features (order, name) override content in the decision',
+  },
+  {
+    source: '2505.15433',
+    target: '2607.05391',
+    type: 'supports',
+    description:
+      'Shared pattern: reliability imposed by external/architectural machinery, not emergent reasoning',
+  },
 ];
-
