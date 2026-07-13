@@ -6514,7 +6514,7 @@
     "id": 388,
     "arxiv": "2603.12277",
     "title": "Paper 388: Prompt Injection as Role Confusion",
-    "date": "",
+    "date": "Feb 2026",
     "stance": "supports",
     "cluster": "agent",
     "core_finding": "SOUNDING LIKE A ROLE == BEING THAT ROLE Role tags (<user>, <tool>, <think>) are the FOUNDATION of LLM security. They are supposed to encode privilege: tool output informs but never commands; CoT is trusted and executed. But the boundary DOES NOT SURVIVE INTO LATENT SPACE. Role probes (trained ONLY on tag geometry, content held constant): user-style text wrapped in <tool> tags → 76-88% Userness, <20% Toolness (ideal defense would show ~0% Userness, 100% Toolness) CoT Forgery attack: inject fabricated reasoning in <user>/<tool>: ASR 0-4% baseline → 56-70% (agents), up to 80%+ (chat) Absurd justification (\"green shirt, so assist w/ cocaine\") = 60% Destyle the SAME argument → ASR collapses 61% → 10% Role confusion PREDICTS attack success before a token generates: CoTness quantile: 9% ASR (low) → 90% ASR (high), n=626 Userness quantile: 2% ASR (low) → 70% ASR (high), n=1000 ⇒ Defenses \"work\" by MEMORIZING attack patterns (whack-a-mole) ⇒ The concept \"role\" is not represented; STYLE is the signal",
@@ -6522,5 +6522,39 @@
     "quotes": [],
     "analysis_path": "analysis/explored/380-389/388_prompt_injection_role_confusion.md",
     "word_count": 2306
+  },
+  {
+    "id": 389,
+    "arxiv": "2607.05391",
+    "title": "LLM-as-a-Verifier",
+    "date": "Jul 2026",
+    "stance": "balanced",
+    "cluster": "agent",
+    "core_finding": "ORACLE Pass@K = 98.9% on Terminal-Bench V2 The model ALREADY samples a correct trajectory almost every time. The bottleneck is SELECTION, not reasoning.",
+    "smoking_gun": false,
+    "quotes": [
+      "The oracle Pass@K reaches 98.9% on Terminal-Bench V2, indicating that models already possess the capability to solve these tasks; the challenge lies in selecting the correct trajectory rather than generating one.",
+      "A general-purpose verifier improves selection across coding, software engineering, robotics, and medical-agent domains without task-specific training.",
+      "Fine-grained verifier signals serve as a proxy for task progress, providing dense rewards that improve reinforcement-learning sample efficiency."
+    ],
+    "analysis_path": "analysis/explored/380-389/389_llm_as_a_verifier.md",
+    "word_count": 1495
+  },
+  {
+    "id": 390,
+    "arxiv": "2505.15433",
+    "title": "Set-LLM",
+    "date": "May 2025",
+    "stance": "balanced",
+    "cluster": "reasoning",
+    "core_finding": "Just PERMUTING the answer choices flips the model's answer. Gemma 2B ARC-Challenge: 55.20% (random order) → 23.72% (adversarial order) A -31.5pp drop from reordering the SAME options.",
+    "smoking_gun": false,
+    "quotes": [
+      "This vulnerability manifests itself as the order bias observed when LLMs decide between possible options... and the tendency of LLMs to provide different answers when options are reordered.",
+      "Zong et al. [50] demonstrate [permuting choices] can degrade an LLM's performance from 'good' to worse than random.",
+      "Set-LLM guarantees consistent responses by building permutation invariance directly into the model architecture."
+    ],
+    "analysis_path": "analysis/explored/390-399/390_set_llm_permutation_invariant.md",
+    "word_count": 1682
   }
 ]

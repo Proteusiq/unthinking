@@ -1,6 +1,6 @@
 # Paper List
 
-> 389 papers analyzed | 292 supports thesis | 15 challenges | 82 balanced | Date range: 2021-2026
+> 391 papers analyzed | 292 supports thesis | 15 challenges | 84 balanced | Date range: 2021-2026
 
 | # | arXiv ID | Date | Title | Stance |
 |---|----------|------|-------|--------|
@@ -392,3 +392,5 @@
 | 386 | 2511.05184 | Nov 2025 | Effectiveness of Chain-of-Thought in Distilling Reasoning Capability from LLMs | Supports |
 | 387 | 2306.08543 | Jun 2023 | MiniLLM: On-Policy Distillation of Large Language Models | Balanced |
 | 388 | 2603.12277 | Feb 2026 | Prompt Injection as Role Confusion | Supports |
+| 389 | 2607.05391 | Jul 2026 | LLM-as-a-Verifier: A General-Purpose Verification Framework | Balanced |
+| 390 | 2505.15433 | May 2025 | Set-LLM: A Permutation-Invariant LLM | Balanced |

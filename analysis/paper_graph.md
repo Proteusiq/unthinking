@@ -2246,6 +2246,63 @@ Five papers studying reward hacking in LLM RL - from controlled reproduction to 
 - 2603.12277 (#388) --provides mechanism for--> IHEval / Control Illusion / SysBench / Wang 2025b: behavioral role-hierarchy failures explained as misperception, not disobedience
 - 2603.12277 (#388) --challenges--> claims that instruction-hierarchy training gives models a robust represented notion of privilege
 
+### LLM-as-a-Verifier: Selection Not Reasoning (2607.05391, #389)
+
+```
+┌──────────────────────────────────────────────────────────────────────┐
+│  LLM-as-a-Verifier (2607.05391) - Kwok et al., Stanford/Berkeley/    │
+│  NVIDIA (Finn, Stoica, Mirhoseini, Pavone)                           │
+│                                                                      │
+│  Oracle Pass@K = 98.9% (Terminal-Bench V2)                           │
+│  Answer is ALREADY in the sampling distribution.                     │
+│  Bottleneck is SELECTION, not generation / reasoning.                │
+│                                                                      │
+│  Pass@1 83.1%  ->verifier->  86.5%  (recovers PART)                  │
+│  residual gap to 92-98.9% stays UNCLOSED                             │
+│  Granularity SNR 0.775->0.799 (marginal)                             │
+│  Repeated eval 74.7->77.5% (K=1->16)                                 │
+│  Dense reward for RL: 1.8x off-policy, 1.1x on-policy                │
+│                                                                      │
+│  => Competence is latent/distributional; reliability is              │
+│     imposed by an external (biased) verifier, not self-knowing.      │
+└──────────────────────────────────────────────────────────────────────┘
+```
+
+### Direct Relationships
+- 2607.05391 (#389) --supports--> 2305.18654 (#1): capability bounded by/latent in the training distribution; the correct trajectory is sampled but not selected
+- 2607.05391 (#389) --extends--> generation-verification-gap cluster (#38, #176, #80, #295, #31, #15): quantifies the gap on agentic benchmarks with a 98.9% oracle ceiling
+- 2607.05391 (#389) --inherits bias from--> LLM-as-a-judge cluster (#173, #270, #271, #273): the verifier is itself a biased LLM judge, capping selection reliability
+- 2607.05391 (#389) --provides mechanism for--> "external selection recovers latent capability": self-recognition is the missing piece, not reasoning
+
+### Set-LLM: Order Bias Removed by Construction (2505.15433, #390)
+
+```
+┌──────────────────────────────────────────────────────────────────────┐
+│  Set-LLM (2505.15433) - Egressy & Stuhmer, HITS / KIT                │
+│                                                                      │
+│  Reordering the SAME MCQA options flips the answer.                  │
+│  Adversarial drop across 5 models: 3.4% .. 31.7%                     │
+│    (Gemma 2B ARC: 55.20 rand -> 23.72 adv, -31.5pp)                  │
+│                                                                      │
+│  Fix: SetPE + SetMask = provably permutation-invariant decoder LLM   │
+│    zero drop by construction; single run beats majority vote (k!)    │
+│    beats base model 20/20 adversarial, 18/20 random                  │
+│    caveat: needs fp32 eval; LoRA-finetuned per benchmark             │
+│                                                                      │
+│  => Diagnosis SUPPORTS thesis (choice is positional/surface, not     │
+│    content). Cure is orthogonal: robustness IMPOSED by architecture  │
+│    (order made invisible), not LEARNED by reasoning - and accuracy   │
+│    rises, so the removed positional signal was mostly bias.          │
+└──────────────────────────────────────────────────────────────────────┘
+```
+
+### Direct Relationships
+- 2505.15433 (#390) --supports--> 2305.18654 (#1): MCQA order sensitivity is a surface-pattern signature; a content-reasoner would be order-invariant
+- 2505.15433 (#390) --supports--> 2507.22887 (#374): same phenomenon (position drives the answer); Set-LLM removes it architecturally
+- 2505.15433 (#390) --relates to--> 2506.03923 (#372) & 2505.22910 (#373): order/first-option and attribution biases - surface features override content
+- 2505.15433 (#390) --proposes cure for--> LLM-as-a-judge order-bias cluster (#173, #270, #271, #273)
+- 2505.15433 (#390) --shares pattern with--> 2607.05391 (#389): reliability imposed by external/architectural machinery, not by emergent reasoning
+
 ---
 
 ### 2026-01-24

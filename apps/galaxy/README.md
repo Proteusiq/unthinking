@@ -2,7 +2,7 @@
 
 Live: <https://proteusiq.github.io/unthinking/galaxy/>
 
-A 3D semantic projection of the 389 paper analyses in this repo. Each star is
+A 3D semantic projection of the 391 paper analyses in this repo. Each star is
 one paper. Color is the paper's stance on the thesis that LLM "reasoning" is
 predictive completion. Size and pulse mark the heaviest pieces of evidence -
 smoking-gun findings are the biggest, brightest stars.
