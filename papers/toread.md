@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **283 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **284 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed), [#71](https://github.com/Proteusiq/unthinking/issues/71), [#72](https://github.com/Proteusiq/unthinking/issues/72).
 
@@ -9,6 +9,14 @@ Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)
 - **NO single-author papers** - Prefer papers with multiple authors for broader peer validation
 - Prefer papers from established research groups or institutions
 - Prefer papers with reproducible experiments and open code/data
+
+---
+
+## High Priority - Agent Skill Failure
+
+| arXiv ID | Title | Expected Stance | Why |
+|----------|-------|-----------------|-----|
+| [2608.11888](https://arxiv.org/abs/2608.11888) | Agent Skills Can Be Harmful: An Empirical Study of Skill-Induced Failures in LLM Agents | supports | SkillsBench and SWE-Skills-Bench attribution study finds 307 skill-induced failures: 125 functional failures and 182 efficiency regressions. Seemingly relevant skills often omit required work; excessive verification accounts for 67 cases. |
 
 ---
 
