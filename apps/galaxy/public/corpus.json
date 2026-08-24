@@ -6563,7 +6563,7 @@
     "title": "Verbalizable Representations Form a Global Workspace in Language Models",
     "date": "July 2026",
     "stance": "challenges",
-    "cluster": "mechanistic",
+    "cluster": "faithfulness",
     "core_finding": "1. A sparse verbalizable subspace exists. J-lens directions identify a small set of residual-stream components that have average first-order influence on current and future verbal output. 2. Some directions are causally used. Coordinate swaps and ablations change reports, two-hop answers, rhyme plans, and selected downstream behavior more than matched non-J-space controls. 3. The interface has selected global-workspace-like properties. The authors report reportability, selective use in flexible tasks, limited capacity, and broadcast-like connectivity in middle layers. 4. The conclusion is functional, not phenomenal. The authors explicitly take no position on subjective experience and state that transformers have no direct analogue of the biological recurrent workspace.",
     "smoking_gun": false,
     "quotes": [
@@ -6572,6 +6572,6 @@
       "Across 90 two-hop prompts, swapping the probes' J-space components flips the model's answer to the swapped-in intermediate on 61% of trials, matching the 60% achieved by swapping the raw J-lens token vectors as in the preceding experiments."
     ],
     "analysis_path": "analysis/explored/390-399/391_verbalizable_representations_global_workspace.md",
-    "word_count": 2733
+    "word_count": 2254
   }
 ]

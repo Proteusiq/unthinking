@@ -13,9 +13,9 @@
 
 ## Why This Paper Matters
 
-The paper contributes a useful mechanistic method, not evidence of sentience. Its Jacobian lens (J-lens) fits one corpus-averaged downstream-Jacobian map rather than a human-labeled probe or a trained feature dictionary. The resulting directions are indexed by the model's own vocabulary, so a direction can be read as a token the model is disposed to make verbal without first assigning it a human label.
+The paper introduces a label-free mechanistic method rather than evidence of sentience. Its Jacobian lens (J-lens) fits one corpus-averaged downstream-Jacobian map instead of a human-labeled probe or trained feature dictionary. The resulting directions are indexed by the model's vocabulary, so a direction can be read as a token the model is disposed to verbalize without first assigning it a human label.
 
-This makes the paper a serious challenge to the strongest possible version of the thesis: the tested models have some silent, causally consequential intermediate variables that can be read, swapped, and reused. It does not challenge the thesis's central discriminator, systematic generalization beyond training-distribution structure. Nor does it justify the promotional inference from a functional access interface to consciousness.
+The experiments show that selected silent intermediate variables can be read, swapped, and reused for the tested tasks. They do not test systematic generalization beyond the training distribution or establish consciousness.
 
 ```
 Residual activation at layer l
@@ -58,14 +58,6 @@ The J-space is not the full span of these overcomplete token directions. It is a
 | Main workspace band | Approximately L38-L92 in Sonnet 4.5 |
 | Comparison lenses | Logit lens, tuned lens, J-lens variants, template lens, oracle lens |
 | Controls | Matched random directions/heads, J versus non-J components, component clamps, output-token exclusions, SAE controls |
-
-### Readout, control, and explanation are different claims
-
-| Claim | Supported by the experiments | Not established |
-|-------|------------------------------|-----------------|
-| Readout | A direction predicts a token the model is disposed to verbalize | A complete literal sentence-like account of internal state |
-| Control | Selected directions can causally change reports and some answers | That all native computation routes through that direction |
-| Explanation | The directions have selected access-workspace-like properties | Human-like understanding, a biological workspace, or phenomenal consciousness |
 
 ---
 
@@ -139,7 +131,7 @@ The paper's audit results motivate further work, but an activation readout is no
 1. **The lens is output-aligned by construction.** It reads directions with average causal influence on future verbal output. This is valuable, but it narrows the candidate workspace to what the model is poised to say.
 2. **The sparse interface is incomplete.** The J-space explains at most 10% of activation variance in the reported decomposition, and most attribution-graph influence remains in unnamed non-J remainders.
 3. **Effects are often partial.** Two-hop redirection reaches 54-70%, flexible swaps 76/192 at ordinary strength, and numeric substitutions fail entirely at that strength.
-4. **Model scope is narrow.** The core experiments use proprietary Claude models. The paper does not disclose model sizes, pretraining data, many decoding settings, or a scaling study.
+4. **Model scope is narrow.** The core experiments use proprietary Claude models and do not provide a systematic scaling study.
 5. **No systematic OOD test.** The experiments do not test novel-rule acquisition, compositional transfer, or distributional robustness, the key empirical discriminator for the thesis.
 6. **The paper reports few conventional statistical tests.** Most central evidence is rates, confidence intervals, ranks, and figures rather than preregistered hypothesis tests or effect sizes.
 
@@ -155,14 +147,7 @@ The paper's audit results motivate further work, but an activation readout is no
 
 ### Direct Rebuttals and Replications
 
-No direct arXiv rebuttal or peer-reviewed replication was found as of August 2026. Later preprints use J-space operationally but do not independently establish the global-workspace interpretation.
-
-| Source | Relationship | Relevance |
-|--------|--------------|-----------|
-| Measure, Don't Optimize (2608.11408) | Scoped limitation | J-Access predicts recovery across **398** unlearned checkpoints, but preregistered item-level AUROC is **0.504** and optimizing the readout worsens revival (**0.283 -> 0.387**). A model-level signal is not a per-item certificate. |
-| Beyond the Trace (2608.17638) | Operational extension | Uses a 64-axis J-space frame and reports held-out routing reconstruction, while explicitly not testing global-workspace properties. |
-| J-CoT (2607.21981) | Downstream use | Uses J-space coefficients as a recurrent interface; this tests utility, not consciousness or unique causal privilege. |
-| Obfuscated Activations (2412.09565) | Pre-existing deployment challenge | Latent-space defenses can be bypassed while harmful behavior persists, limiting safety claims from a readable internal state alone. |
+No direct arXiv rebuttal or independent peer-reviewed replication was found as of August 2026. Later papers use J-space operationally, but do not independently test the paper's global-workspace interpretation.
 
 ### Counter-Evidence in the Corpus
 
@@ -195,14 +180,6 @@ No direct arXiv rebuttal or peer-reviewed replication was found as of August 202
 | #204 Language Models Represent Space and Time (2310.02207) | Coordinate swaps and J/non-J clamps give stronger causal evidence than decodability alone for selected intermediate variables. |
 | #181 No Global Plan in CoT (2602.02103) | Shows some intermediate concepts can alter downstream answers before the final answer direction is effective, although it does not demonstrate a global plan. |
 
-### Papers That QUALIFY This Paper
-
-| Paper | Qualification |
-|-------|---------------|
-| #201 A Causal Lens for Evaluating Faithfulness Metrics (2502.18848) | Requires task-specific causal validation before interpreting an internal readout as explanation. |
-| #368 From Reward-Hack Activations to Agentic Risk States (2606.06223) | Shows context materially improves activation-based risk prediction. |
-| 2608.11408 Measure, Don't Optimize | J-Access is predictive across checkpoints but fails as a fine-grained optimized target. |
-
 ---
 
 ## Key Quotes
@@ -212,8 +189,6 @@ No direct arXiv rebuttal or peer-reviewed replication was found as of August 202
 > "Taken together, these results indicate that the J-space component of a concept's representation, despite accounting for a small fraction of its variance, is responsible for that concept's availability for verbal report." -- Section 3.1
 
 > "Across 90 two-hop prompts, swapping the probes' J-space components flips the model's answer to the swapped-in intermediate on 61% of trials, matching the 60% achieved by swapping the raw J-lens token vectors as in the preceding experiments." -- Section 3.3
-
-> "In this section, we first demonstrate that it succeeds in doing so, and then go on to show that these representations serve a broader functional role: they exhibit the cluster of properties, enumerated above, characteristic of a global workspace." -- Section 3
 
 > "This construction means that the set of concepts the lens can name is exactly the set of concepts that have a single-token name in the tokenizer's vocabulary." -- Section 9.1
 
@@ -245,15 +220,7 @@ OOD generalization, complete explanation, and consciousness
 
 ## Relevance to "Thinking Machine That Doesn't Think"
 
-### Central Contribution
-
-J-space is a useful way to inspect a small, interpretable output-disposed slice of a model's internal state and causally intervene on selected directions. The one-fit, vocabulary-indexed method is a meaningful advance over human-labeled probes and heavyweight learned dictionaries for this purpose.
-
-### The tension the paper leaves open
-
-The paper weakens the blanket claim that an LLM only emits a reasoning-shaped string with no internal structured intermediate computation. It does not show that the model understands the concepts it can verbalize, that its selected directions exhaust its computation, or that it can generalize the represented structure beyond familiar distributions. A model can expose and use a limited reportable interface while remaining a next-token predictor trained from human data.
-
-The evidence therefore supports a narrow claim: tested LLMs have limited, causally consequential, verbalizable internal workspaces for some tasks. It does not support the stronger claim that they are conscious. People supply the goals, interpretation, and application constraints that determine whether this mechanism succeeds or fails.
+J-space provides a useful way to inspect and intervene on a small, output-disposed slice of a model's internal state. The results weaken a categorical claim that models only emit reasoning-shaped text without structured intermediates. They do not show that the represented directions exhaust the computation, support systematic generalization, or establish consciousness.
 
 ---
 
