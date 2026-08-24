@@ -6572,6 +6572,6 @@
       "Across 90 two-hop prompts, swapping the probes' J-space components flips the model's answer to the swapped-in intermediate on 61% of trials, matching the 60% achieved by swapping the raw J-lens token vectors as in the preceding experiments."
     ],
     "analysis_path": "analysis/explored/390-399/391_verbalizable_representations_global_workspace.md",
-    "word_count": 2712
+    "word_count": 2733
   }
 ]

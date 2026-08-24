@@ -3,7 +3,7 @@
 ## Metadata
 - **arXiv ID**: 2607.15495
 - **Title**: Verbalizable Representations Form a Global Workspace in Language Models
-- **Authors**: Nelson Elhage Gurnee, Anselm Paulus, Nicholas Schiefer, Neel Nanda, and 12 others (Anthropic)
+- **Authors**: Wes Gurnee, Nicholas Sofroniew, Adam Pearce, Mateusz Piotrowski, Isaac Kauvar, Runjin Chen, Anna Soligo, Paul Bogdan, Euan Ong, Rowan Wang, Ben Thompson, David Abrahams, Subhash Kantamneni, Emmanuel Ameisen, Joshua Batson, and Jack Lindsey (Anthropic)
 - **Date**: July 2026
 - **Venue**: arXiv preprint
 - **Stance**: CHALLENGES the categorical claim that LLMs have no causally structured internal intermediate states; does not establish consciousness, understanding, or robust OOD reasoning
