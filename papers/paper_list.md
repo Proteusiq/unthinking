@@ -394,3 +394,4 @@
 | 388 | 2603.12277 | Feb 2026 | Prompt Injection as Role Confusion | Supports |
 | 389 | 2607.05391 | Jul 2026 | LLM-as-a-Verifier: A General-Purpose Verification Framework | Balanced |
 | 390 | 2505.15433 | May 2025 | Set-LLM: A Permutation-Invariant LLM | Balanced |
+| 391 | 2607.15495 | Jul 2026 | Verbalizable Representations Form a Global Workspace in Language Models | Challenges |

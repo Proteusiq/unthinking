@@ -1,7 +1,7 @@
 # Rebuttals & Counter-Evidence Matrix
 
 > **Last updated**: 2026-05-16
-> **Papers analyzed**: 391
+> **Papers analyzed**: 392
 > **See also**: `memento.md` for rebuttal status summary
 
 This document tracks rebuttals **in both directions**:
@@ -83,6 +83,20 @@ Anthropic's own research:
 - Misaligned hints hidden MORE
 
 **Assessment**: Strong internal validity. Industry acknowledges problem.
+
+---
+
+### 8. Verbalizable Representations Form a Global Workspace (2607.15495) - **QUALIFIED CHALLENGE**
+
+| Evidence | What it changes | Limitation |
+|----------|-----------------|------------|
+| J-space coordinate swaps | Challenges the categorical claim that LLMs have no causally structured silent intermediate states: two-hop answers redirect at **54-70%** across three models. | Flexible swaps are partial (**76/192** ordinary strength) and fail on number relations (**0/48**). |
+| J/non-J component controls | Shows selected verbalizable directions carry most of the tested report/control effect despite only **6-7%** of concept-vector variance. | The sparse decomposition explains at most **10%** of activation variance; most computation remains outside the readable interface. |
+| Access-workspace interpretation | Provides a functional account of reportability, limited capacity, and broadcast-like connectivity. | The paper explicitly takes no position on phenomenal consciousness and does not test OOD generalization or understanding. |
+
+**Direct rebuttals**: None on arXiv as of August 2026. `Measure, Don't Optimize` (2608.11408) qualifies deployment claims: J-Access predicts recovery across checkpoints but has item-level AUROC **0.504**, and optimization increases revival **0.283 -> 0.387**.
+
+**Assessment**: Strong mechanistic evidence for a limited, output-disposed causal interface. It does not rebut the distributional-boundedness thesis or license consciousness claims.
 
 ---
 
@@ -535,4 +549,3 @@ Papers that reach **opposite conclusions** on the same question, revealing model
 ---
 
 *Last updated: 2026-02-15*
-

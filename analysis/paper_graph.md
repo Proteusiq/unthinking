@@ -2303,6 +2303,30 @@ Five papers studying reward hacking in LLM RL - from controlled reproduction to 
 - 2505.15433 (#390) --proposes cure for--> LLM-as-a-judge order-bias cluster (#173, #270, #271, #273)
 - 2505.15433 (#390) --shares pattern with--> 2607.05391 (#389): reliability imposed by external/architectural machinery, not by emergent reasoning
 
+### Verbalizable Representations / J-space (2607.15495, #391)
+
+```
+┌──────────────────────────────────────────────────────────────────────┐
+│  J-space / Jacobian lens (2607.15495)                                │
+│                                                                      │
+│  One corpus-averaged Jacobian fit -> vocabulary-indexed directions   │
+│  Two-hop swaps: 54-70% top-1 redirection across 3 Claude models      │
+│  Flexible swaps: 76/192 normal, 101/192 double strength              │
+│  J-space: 6-7% concept-vector variance; <=10% activation variance    │
+│                                                                      │
+│  => Limited, causal, verbalizable interface; not consciousness,      │
+│     complete inner thought, or evidence of OOD understanding         │
+└──────────────────────────────────────────────────────────────────────┘
+```
+
+### Direct Relationships
+- 2607.15495 (#391) --extends--> 2310.06824 (#205): replaces human-labeled truth probes with vocabulary-indexed Jacobian directions and component-swap controls
+- 2607.15495 (#391) --extends--> 2406.11717 (#319): generalizes residual-direction intervention from refusal policy to sparse verbalizable intermediate variables
+- 2607.15495 (#391) --extends--> 2505.05410 (#10): offers a latent readout for computations that visible CoT fails to disclose
+- 2607.15495 (#391) --challenges--> 2310.02207 (#204): J/non-J clamps and coordinate swaps establish selected causal use beyond mere linear decodability
+- 2607.15495 (#391) --qualified by--> 2502.18848 (#201) and 2606.06223 (#368): latent readouts require task-specific causal validation and context to support safety claims
+- 2608.11408 --qualifies--> 2607.15495 (#391): checkpoint-level J-Access predicts recovery, but item-level AUROC is 0.504 and optimizing it increases revival
+
 ---
 
 ### 2026-01-24

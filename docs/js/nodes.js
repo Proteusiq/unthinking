@@ -8559,4 +8559,26 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/390-399/390_set_llm_permutation_invariant.md',
   },
+  {
+    id: '2607.15495',
+    title: 'Verbalizable Representations Form a Global Workspace in Language Models',
+    shortTitle: 'J-space Workspace',
+    date: 'Jul 2026',
+    stance: 'challenges',
+    cluster: 'mechanistic',
+    coreArgument:
+      'A corpus-averaged Jacobian lens identifies sparse vocabulary-indexed residual directions that causally alter selected reports and intermediate answers. This supports a limited verbalizable workspace, not consciousness, complete self-knowledge, or distribution-independent understanding.',
+    keyEvidence: [
+      'Two-hop intermediate swaps redirect top-1 answers 54% (Haiku), 70% (Sonnet), and 70% (Opus)',
+      'Flexible swaps: 76/192 target answers at ordinary strength, 101/192 at double strength; number subset 0/48',
+      'J-space holds only 6-7% of concept-vector variance and sparse decomposition explains <=10% of activation variance',
+      'Broadcast-head ablation lowers injected-thought reports 0.54 -> 0.09; targeted recall@25 0.86 -> 0.67',
+    ],
+    keyQuotes: [
+      'We take no position on phenomenal consciousness.',
+      'Access consciousness is a purely functional notion.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/390-399/391_verbalizable_representations_global_workspace.md',
+  },
 ];

@@ -1,6 +1,6 @@
 # Synthesis: The Thinking Machine That Doesn't Think
 
-> **Papers analyzed**: 391
+> **Papers analyzed**: 392
 >
 > **See also**: `memento.md` for executive summary
 
@@ -382,6 +382,21 @@ Base Model → Latent Reasoning → RL/Decoding Surfaces It → Real Capability
 2. **Unfaithful Illogical Shortcuts**: Correct answer through wrong reasoning (not acknowledged)
 
 **Implication**: Cannot use CoT for alignment verification - unfaithfulness occurs naturally.
+
+---
+
+### J-space: A Limited Causal Verbalization Interface (#391, 2607.15495)
+
+J-space is an important qualification to the claim that all reasoning-like text is post-hoc. A corpus-averaged Jacobian lens identifies vocabulary-indexed directions before output and can causally alter selected reports and intermediate answers.
+
+| Test | Result | Boundary |
+|------|--------|----------|
+| Two-hop intermediate swap | **54-70%** top-1 redirection across Haiku, Sonnet, and Opus | Partial control, not reliable substitution |
+| Flexible substitution | **76/192** at ordinary strength; **101/192** at double strength | Number relations: **0/48** at ordinary strength |
+| Verbalizable component | **6-7%** of concept-vector variance | Sparse J-space explains at most **10%** of activation variance |
+| Broadcast-head ablation | Injected-thought reporting **0.54 -> 0.09** | Shows selected reportability, not complete internal access |
+
+**Resolution**: The result supports a narrower account than the consciousness framing. Tested LLMs have a limited, output-disposed, causally consequential interface for some silent intermediates. That does not establish phenomenal consciousness, complete self-knowledge, or systematic generalization beyond learned task structure. It also preserves the faithfulness warning: visible CoT is not the same as the latent interface, and neither alone certifies the model's reasons.
 
 ---
 

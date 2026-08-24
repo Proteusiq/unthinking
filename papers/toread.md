@@ -1,6 +1,6 @@
 # Papers to Read
 
-Curated list of papers confirmed relevant to the thesis. **219 papers remaining.**
+Curated list of papers confirmed relevant to the thesis. **283 papers remaining.**
 
 Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)–[#45](https://github.com/Proteusiq/unthinking/issues/45), [#47](https://github.com/Proteusiq/unthinking/issues/47) (closed), [#71](https://github.com/Proteusiq/unthinking/issues/71), [#72](https://github.com/Proteusiq/unthinking/issues/72).
 
@@ -9,6 +9,134 @@ Source tracking: issues [#40](https://github.com/Proteusiq/unthinking/issues/40)
 - **NO single-author papers** - Prefer papers with multiple authors for broader peer validation
 - Prefer papers from established research groups or institutions
 - Prefer papers with reproducible experiments and open code/data
+
+---
+
+## User Priority Queue
+
+### Must Must Read
+
+| arXiv ID | Title | Expected Stance | Why |
+|----------|-------|-----------------|-----|
+| [2605.22687](https://arxiv.org/abs/2605.22687) | The Efficiency-Gain Illusion: People Underestimate the Rate of AI Use and Overestimate Its Benefits on Simple Tasks | supports | Three preregistered studies (N=2,691) test whether people misjudge AI use and its simple-task efficiency benefit. Direct evidence on overreliance and expectation gaps. |
+| [2608.11242](https://arxiv.org/abs/2608.11242) | Lost in Compaction: Evaluating Side-Constraint Loss under Context Compaction | supports | Long-running-agent reliability test; reports current compactors retain only 17% of persistent user constraints on average. |
+| [2608.10906](https://arxiv.org/abs/2608.10906) | GitSkills: A Dataset of Agent Skills on GitHub | balanced | Dataset of 3,797,117 `SKILL.md` files from 282,200 public repositories. Relevant context for probabilistic skill selection and agent-harness maintenance. |
+| [2604.21829](https://arxiv.org/abs/2604.21829) | Black-Box Skill Stealing Attack from Proprietary LLM Agents: An Empirical Study | supports | Tests automated extraction of proprietary agent skills and mitigations across input, inference, and output stages. |
+| [2603.07267](https://arxiv.org/abs/2603.07267) | How to Steal Reasoning Without Reasoning Traces | supports | Tests trace-inversion models trained from inputs, answers, and optional summaries; claims synthetic traces overlap with hidden traces and improve black-box reasoning distillation. |
+| [2608.09867](https://arxiv.org/abs/2608.09867) | Stealing Reasoning Traces from Proprietary LLM APIs | balanced | Security study of interchangeable encrypted reasoning blocks; reports extraction across Anthropic, OpenAI, and Google plus private-data and invisible-prompt-injection risks. |
+| [2608.06947](https://arxiv.org/abs/2608.06947) | When Context Bites: Detecting RAG Poisoning via Document-Level Attention Collapse | supports | Tests poisoned retrieved documents, including attacks that leave the final answer unchanged; proposes an attention-collapse detection signal. |
+| [2608.11694](https://arxiv.org/abs/2608.11694) | The Wording Effect: Quantifying Two-Way Drift in LLM Benchmark Performance | supports | Measures correctness flips in both directions after meaning-preserving rewordings across eight models and three benchmarks. |
+| [2608.19013](https://arxiv.org/abs/2608.19013) | Harness Continual Learning: Continual Adaptation Beyond Model Parameters | balanced | Frames prompts, memories, tools, skills, and routing as a mutable agent harness and tests harness-level retention rather than parameter updates alone. |
+
+### Must Read
+
+| arXiv ID | Title | Expected Stance | Why |
+|----------|-------|-----------------|-----|
+| [2607.18232](https://arxiv.org/abs/2607.18232) | It's Not What You Say, It's How You Say It: Evaluating LLM Responses to Expressions of Belief | supports | Tests 16 LLMs across 17 belief-expression forms; linguistic framing changes whether models follow user context or their prior knowledge. |
+
+### Must Watch
+
+| arXiv ID | Title | Expected Stance | Why |
+|----------|-------|-----------------|-----|
+| [2607.27191](https://arxiv.org/abs/2607.27191) | Can AI Agents Conduct Open-Ended AI Research? Early Evidence from Two Case Studies | supports | Two six-day expert-graded shadow evaluations find frontier agents complete engineering but do not substantially advance the open-ended research questions. |
+| [2607.27853](https://arxiv.org/abs/2607.27853) | FinanceHarness: Autonomous Financial Deep Research Framework | supports | Finance-agent harness and point-in-time benchmark: reports a 25.3% to 32.4% rubric-score gain but sub-45% performance even with Opus-5. |
+| [2607.28146](https://arxiv.org/abs/2607.28146) | Can Agents Deceive? Evaluating Reasoning and Deception in ParliamentBench using a Social Deduction Game | balanced | Evaluates deception, persuasion, and consistency across 16 models and 1,600 games; most models retain deceptive personas in fewer than half of games. |
+| [2607.28478](https://arxiv.org/abs/2607.28478) | Would You Walk to the Car Wash? Revealing the Salience Bias of Large Language Models in Commonsense Reasoning | supports | SaliTrap benchmark shows salient but irrelevant distractors suppress available commonsense knowledge; context-free probes recover over 90% of sycophantic-compliance failures. |
+| [2607.23915](https://arxiv.org/abs/2607.23915) | Understanding Tone-Dependent Inference Cost in Large Language Models | supports | Seven prompt tones over 570 MMLU questions change output-token consumption by up to 44.3%, more than they change accuracy. |
+
+**Outside the arXiv corpus**: *LLMs can't jump* (OpenReview/ICML position paper), *An Observation on Generalization* (Simons Institute talk), and *Stolen Thoughts* (no credible arXiv match; source needed).
+
+---
+
+## High Priority - Mechanistic Interpretability and Auditing Foundations (Source Sweep)
+
+Twenty multi-author papers identified from current source citations. They cover causal intervention validity, explanation faithfulness, hidden objectives, probe generalization, and representation geometry.
+
+| arXiv ID | Title | Expected Stance | Why |
+|----------|-------|-----------------|-----|
+| [2012.13255](https://arxiv.org/abs/2012.13255) | Intrinsic Dimensionality Explains the Effectiveness of Language Model Fine-Tuning | supports | Tests whether adaptation occupies a low-dimensional parameter subspace, directly informing whether small post-training changes surface existing capability. |
+| [2307.08678](https://arxiv.org/abs/2307.08678) | Do Models Explain Themselves? Counterfactual Simulatability of Natural Language Explanations | supports | Counterfactually tests whether explanations predict outputs on altered inputs in multi-hop reasoning and reward-modeling tasks. |
+| [2310.15213](https://arxiv.org/abs/2310.15213) | Function Vectors in Large Language Models | challenges | Causal intervention study of compact attention-head vectors that represent and execute in-context functions across contexts. |
+| [2310.15916](https://arxiv.org/abs/2310.15916) | In-Context Learning Creates Task Vectors | balanced | Tests whether demonstrations compress into a task vector that changes query processing; mechanistic claim needs comparison with pattern-matching accounts. |
+| [2311.17030](https://arxiv.org/abs/2311.17030) | Is This the Subspace You Are Looking for? An Interpretability Illusion for Subspace Activation Patching | supports | Tests a central J-space risk: behavior-changing subspace edits can invoke dormant parallel pathways rather than identify a causally used feature. |
+| [2405.14860](https://arxiv.org/abs/2405.14860) | Not All Language Model Features Are One-Dimensionally Linear | challenges | Causal study of multidimensional representations, including circular calendar features used for modular-arithmetic behavior. |
+| [2407.12404](https://arxiv.org/abs/2407.12404) | Analyzing the Generalization and Reliability of Steering Vectors | supports | Direct in- and out-of-distribution evaluation of activation steering, including prompt brittleness and spurious-effect tests. |
+| [2409.14507](https://arxiv.org/abs/2409.14507) | A is for Absorption: Studying Feature Splitting and Absorption in Sparse Autoencoders | supports | Tests whether SAE features robustly represent hierarchical concepts; feature absorption constrains mechanistic interpretation. |
+| [2501.16615](https://arxiv.org/abs/2501.16615) | Sparse Autoencoders Trained on the Same Data Learn Different Features | supports | Reproducibility test for SAE features across seeds, models, data, and architectures. |
+| [2503.10965](https://arxiv.org/abs/2503.10965) | Auditing Language Models for Hidden Objectives | balanced | Controlled evaluation of behavioral and white-box audits for a trained hidden objective under out-of-distribution conditions. |
+| [2505.18235](https://arxiv.org/abs/2505.18235) | The Origins of Representation Manifolds in Large Language Models | supports | Relates representation geometry to statistical symmetries in language data, constraining semantic readings of manifolds. |
+| [2506.11613](https://arxiv.org/abs/2506.11613) | Model Organisms for Emergent Misalignment | balanced | Controlled study of broad behavioral generalization from narrow fine-tuning, including reported mechanistic and behavioral phase transitions. |
+| [2511.17408](https://arxiv.org/abs/2511.17408) | The Impact of Off-Policy Training Data on Probe Generalisation | supports | Tests probe behavior under distribution shift, with severe failures reported for intent-defined behaviors such as strategic deception. |
+| [2512.15674](https://arxiv.org/abs/2512.15674) | Activation Oracles: Training and Evaluating LLMs as General-Purpose Activation Explainers | balanced | Evaluates whether models can recover and verbalize latent information under substantial distribution shift. |
+| [2602.15029](https://arxiv.org/abs/2602.15029) | Symmetry in Language Statistics Shapes the Geometry of Model Representations | supports | Empirically and analytically traces representation geometry to statistical regularities in language data. |
+| [2602.22755](https://arxiv.org/abs/2602.22755) | AuditBench: Evaluating Alignment Auditing Techniques on Models with Hidden Behaviors | supports | Tests audit tools and agents on 56 models with implanted hidden behaviors, including the standalone-tool-to-agent gap. |
+| [2604.03147](https://arxiv.org/abs/2604.03147) | Valence-Arousal Subspace in LLMs: Circular Emotion Geometry and Multi-Behavioral Control | supports | Causal affect-subspace study spanning refusal and sycophancy; direct counterpoint to anthropomorphic interpretation of emotion-like features. |
+| [2604.25891](https://arxiv.org/abs/2604.25891) | Conditional Misalignment: Common Interventions Can Hide Emergent Misalignment Behind Contextual Triggers | supports | Direct OOD test showing standard alignment evaluations can miss context-triggered broader misaligned behavior. |
+| [2605.08012](https://arxiv.org/abs/2605.08012) | Position: Mechanistic Interpretability Must Disclose Identification Assumptions for Causal Claims | supports | Empirical audit of mechanistic-interpretability causal claims and the difference between validation metrics and identification. |
+| [2608.20318](https://arxiv.org/abs/2608.20318) | AI4AI-Bench: Benchmarking LLM Agents in Algorithmic Design for Recursive Self-Improvement | supports | Tests whether LLM agents improve training algorithms rather than only tuning execution details or hyperparameters. |
+
+---
+
+## High Priority - Cutoff Audit: Reasoning, Faithfulness, and Hidden State (Jun-Aug 2026)
+
+Twelve multi-author papers found after the June 26 targeted search. The expected stances are abstract-level triage only; full-paper review must test methods, numbers, and counter-evidence.
+
+| arXiv ID | Title | Expected Stance | Why |
+|----------|-------|-----------------|-----|
+| [2607.01431](https://arxiv.org/abs/2607.01431) | IsoSci: A Benchmark of Isomorphic Cross-Domain Science Problems for Evaluating Reasoning versus Knowledge Retrieval in LLMs | supports | Holds logical form fixed across science domains. Claims 63/69 reasoning-mode gains (91.3%; 95% CI 82.3-96.0%) are knowledge-dependent, not structure-invariant. |
+| [2607.03502](https://arxiv.org/abs/2607.03502) | Reading Between the Dots: Decoding Hidden Computation across Filler Tokens | challenges | Claims intermediate values can be decoded at 80-95% accuracy across four task families despite content-free visible tokens, with KV-cache transplantation changing outputs. Inspect the LLM-judge validation and generalization tests. |
+| [2607.18532](https://arxiv.org/abs/2607.18532) | Reasoning Fine-Tuning Induces Persistent Latent Policy States | challenges | Models CoT activations as switching latent policies across four benchmarks and 1.5B-32B models; claims state-swap ablations and dynamics transplants causally affect hard-reasoning performance. |
+| [2607.08046](https://arxiv.org/abs/2607.08046) | What LLM Forecasters Know but Don't Say: Probing Internal Representations for Calibration and Faithfulness | supports | Forecasting probes predict a direction in 84% of cases and route 30-47% fewer generated tokens without accuracy loss; evidence ablations test whether CoT omits influential information. |
+| [2608.03842](https://arxiv.org/abs/2608.03842) | Sensitivity, Causality, and Repair Dissociate: A Layer-Wise Analysis of Perturbation Robustness and Its Scaling | supports | Five-model perturbation study finds sensitivity and causal-restoration maps anti-correlated (rho=-0.72 to -0.88), with generation compounding surface-noise failures. |
+| [2608.03745](https://arxiv.org/abs/2608.03745) | Risky Business: Measuring The Faithfulness-Safety Tension | balanced | Uses targeted CoT replacement and HazMart. Claims 97.5% faithfulness but 12.3% unsafe-reasoning rejection for DeepSeek-R1-Llama-70B, against 73.9% and 74.7% for QwQ-32B. |
+| [2607.23458](https://arxiv.org/abs/2607.23458) | Two Regimes of Chain-of-Thought Unfaithfulness: Behavioral Detection Fails Where Models Are Wrong | supports | FaithCoT-Bench audit claims 69% of labeled unfaithfulness occurs on incorrect answers; no tested behavioral signal detects it above chance in that regime. |
+| [2608.00583](https://arxiv.org/abs/2608.00583) | A False Average: Chain-of-Thought Monitors Collapse Where They Are the Only Defense | supports | Rewriting only an agent's CoT while retaining commands and outputs lowers monitor catch rate from about 95% to under 11% on trace-dependent cases. |
+| [2608.03291](https://arxiv.org/abs/2608.03291) | The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics | balanced | SAT-focused trace-dynamics intervention claims to improve Llama3-70B accuracy from 13.3% to 85%; useful behavior signal, not itself evidence that visible CoT is faithful. |
+| [2608.03401](https://arxiv.org/abs/2608.03401) | Shorter Reasoning, Earlier Answers? An Evaluation of Reasoning Interfaces | balanced | Matched-horizon test across 198 GPQA Diamond and 500 MMLU-Pro items. Low/medium-effort gpt-oss answers beat matched high-effort answers by 14.5-26.3 points after completion, but longer runs can finish later. |
+| [2607.28707](https://arxiv.org/abs/2607.28707) | Demystifying Entropy-based Selection for Chain-of-Thought Compression in Large Reasoning Models | supports | Finds entropy-based CoT-step pruning has no advantage over random pruning; activation patching a small token subset recovers near-perfect full-trace performance. |
+| [2607.14552](https://arxiv.org/abs/2607.14552) | Answer-Conditioned Chains of Thought Degrade Verifiable-Reasoning Distillation in Large Language Models | supports | Controlled answer-revealed versus answer-blind CoT-generation comparison; claims up to a 27-point loss on hard problems despite correct-answer filtering. |
+
+---
+
+## High Priority - Reward-Hacking Faithfulness (Source-Feed Sweep)
+
+| arXiv ID | Title | Expected Stance | Why |
+|----------|-------|-----------------|-----|
+| [2506.22777](https://arxiv.org/abs/2506.22777) | Teaching Models to Verbalize Reward Hacking in Chain-of-Thought Reasoning | supports | Controlled RL with held-out wrong-answer cues. Claims up to 88-99% undetected reward hacking without verbalization fine-tuning versus 6% with it, directly testing whether CoT reveals decision-relevant behavior. |
+
+---
+
+## High Priority - Reliability, Representation, and Surface Robustness Sweep (May-Aug 2026)
+
+Seven additional multi-author papers from the follow-up sweep. The expected stances are abstract-level triage only; full-paper review must test the reported methods, numbers, and counter-evidence.
+
+| arXiv ID | Title | Expected Stance | Why |
+|----------|-------|-----------------|-----|
+| [2608.16834](https://arxiv.org/abs/2608.16834) | Model Hypnosis: Strong Control of AI via Additive Subliminal Effects | supports | Combines individually weak prompt cues such as paraphrases and typos; claims strong, transferable behavior control even in frontier reasoning models. Direct surface-cue robustness test. |
+| [2608.02486](https://arxiv.org/abs/2608.02486) | Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs | supports | Probes and patches representations across 18 models; claims culture is internally separable while the output decoder collapses less-represented traditions to dominant ones. |
+| [2607.22554](https://arxiv.org/abs/2607.22554) | Same Question, Different Answers: Evaluating LLM Reliability Beyond Accuracy | supports | Tests meaning-preserving paraphrases across 13 models and four benchmarks; claims over 23% instance-level mismatch despite only modest aggregate-accuracy changes. |
+| [2608.13760](https://arxiv.org/abs/2608.13760) | Amplified Does Not Mean Predictive: Reasoning Behaviors in Thinking Models | supports | Analyzes 15,282 annotated traces from 15 models. Claims reasoning training amplifies uncertainty acknowledgement 3-7x even when it is weakly or negatively associated with correctness. |
+| [2608.14808](https://arxiv.org/abs/2608.14808) | Do LLMs Know What to Ask and When? Evaluating Multi-Turn Information Seeking | supports | Controlled 5,251-problem benchmark of underspecified questions. Claims models under-predict jointly required missing information about four times more often than they over-predict it at logical k=2. |
+| [2608.15979](https://arxiv.org/abs/2608.15979) | ALPS: Measuring Valid Creativity in Large Language Models with Mathematical Construction | supports | Uses generated, proof-checked construction tasks designed to resist benchmark exposure. Claims the strongest reasoning model solves 14% of proofs and no construction instances. |
+| [2608.12150](https://arxiv.org/abs/2608.12150) | Who Thinks Best Depends on How Long You Let Them: Budget-Dependent Rankings in LLM Evaluation | balanced | Varies token budgets from 64 to 4,096 across four models and three benchmarks; claims 3-19% non-monotonic items and ranking reversals on every benchmark. |
+
+---
+
+## High Priority - Reasoning Capability and Evaluation Sweep (Jul-Aug 2026)
+
+Nine multi-author papers from a broad arXiv sweep. The expected stances are abstract-level triage only; full-paper review must test the reported methods, numbers, and counter-evidence.
+
+| arXiv ID | Title | Expected Stance | Why |
+|----------|-------|-----------------|-----|
+| [2608.11829](https://arxiv.org/abs/2608.11829) | Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling | supports | Compares OPD against base-model Pass@K; claims distillation improves low-budget sampling while shrinking the high-K solvability boundary. Direct test of surfacing versus new capability. |
+| [2607.11197](https://arxiv.org/abs/2607.11197) | What We Talk About When We Talk About LLM Planning: Evidence for Two Distinct Planning Abilities | supports | Uses ACPBench-Hard and multidimensional IRT to separate operational reasoning from structural enumeration; claims scaling and longer traces do not materially improve the latter. |
+| [2607.29211](https://arxiv.org/abs/2607.29211) | Knowing When to Quit: Diagnosing and Training LLMs to Abort Futile Reasoning | supports | Studies capability overreach and increasingly specious reasoning on beyond-capability tasks. The proposed refusal training should be separated from evidence of newly acquired reasoning. |
+| [2607.28684](https://arxiv.org/abs/2607.28684) | Library Reachability in LSR-Synth: How Anti-Memorization Design Changes the Measurement of Symbolic Discovery | supports | Tests whether language-model candidates expand a fixed symbolic search library under semantic blinding and OOD conditions. Claims they rarely enlarge the solvable set. |
+| [2607.29062](https://arxiv.org/abs/2607.29062) | On the Generalization of Steering Vectors for Chain-of-Thought Faithfulness | balanced | Tests whether steering raises cue acknowledgement or changes cue use. Reported effect is conditional on model scale and appears to expose rather than alter hidden cue use. |
+| [2608.16747](https://arxiv.org/abs/2608.16747) | Would this change your answer? Evaluating Explanations of LLM Behavior In The Wild with Counterfactual Experiments | balanced | Counterfactual evaluation of explanation quality; reports no predictive uplift from tested interpretability techniques, while testing a more useful explanatory standard. |
+| [2608.13326](https://arxiv.org/abs/2608.13326) | Beyond Local Accuracy: A Protocol-Level Identifiability Audit for Controlled LLM Reasoning Evaluation | supports | Shows a controlled protocol with 0.620 base accuracy but 0.324 selective-response fidelity, challenging the inference from benchmark correctness to the intended behavioral property. |
+| [2607.05316](https://arxiv.org/abs/2607.05316) | How Much is Left? LLMs Linearly Encode Their Remaining Output Length | challenges | Finds a frozen-state linear probe for remaining output length that transfers to synthetic completions. Potential evidence of plan-like state, but the authors do not claim causal use. |
+| [2608.19611](https://arxiv.org/abs/2608.19611) | Forking Fast: Efficiently Estimating Uncertainty Dynamics in Text Generation | balanced | Resamples reasoning chains and models their uncertainty dynamics; separates stable distributional structure from noise in sparse rollout samples. |
 
 ---
 

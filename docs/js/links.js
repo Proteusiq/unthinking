@@ -9969,4 +9969,40 @@ window.paperLinks = [
     description:
       'Shared pattern: reliability imposed by external/architectural machinery, not emergent reasoning',
   },
+  // J-space Global Workspace (#391)
+  {
+    source: '2607.15495',
+    target: '2310.06824',
+    type: 'extends',
+    description:
+      'Replaces labeled truth probes with vocabulary-indexed Jacobian directions and component-swap controls',
+  },
+  {
+    source: '2607.15495',
+    target: '2406.11717',
+    type: 'extends',
+    description:
+      'Generalizes residual-direction intervention from refusal policy to sparse verbalizable intermediate variables',
+  },
+  {
+    source: '2607.15495',
+    target: '2505.05410',
+    type: 'extends',
+    description:
+      'Offers a latent reportable interface for computations that visible CoT fails to disclose',
+  },
+  {
+    source: '2607.15495',
+    target: '2310.02207',
+    type: 'challenges',
+    description:
+      'J/non-J clamps and coordinate swaps establish selected causal use beyond linear decodability alone',
+  },
+  {
+    source: '2607.15495',
+    target: '2606.06223',
+    type: 'challenges',
+    description:
+      'Partial reportable-state control contrasts with activation-only risk prediction needing context for action',
+  },
 ];
