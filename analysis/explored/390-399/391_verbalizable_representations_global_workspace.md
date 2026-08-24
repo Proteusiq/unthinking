@@ -207,11 +207,19 @@ No direct arXiv rebuttal or peer-reviewed replication was found as of August 202
 
 ## Key Quotes
 
-> "We take no position on phenomenal consciousness."
+> "The basic idea is to characterize an intermediate activation vector by its first-order causal effect on the model's outputs, over a broad distribution of potential contexts." -- Section 2.1
 
-> "Access consciousness is a purely functional notion."
+> "Taken together, these results indicate that the J-space component of a concept's representation, despite accounting for a small fraction of its variance, is responsible for that concept's availability for verbal report." -- Section 3.1
 
-> "Transformers have no direct analog" of the recurrent biological workspace, sharing only some architectural properties.
+> "Across 90 two-hop prompts, swapping the probes' J-space components flips the model's answer to the swapped-in intermediate on 61% of trials, matching the 60% achieved by swapping the raw J-lens token vectors as in the preceding experiments." -- Section 3.3
+
+> "In this section, we first demonstrate that it succeeds in doing so, and then go on to show that these representations serve a broader functional role: they exhibit the cluster of properties, enumerated above, characteristic of a global workspace." -- Section 3
+
+> "This construction means that the set of concepts the lens can name is exactly the set of concepts that have a single-token name in the tokenizer's vocabulary." -- Section 9.1
+
+> "Note that access consciousness is a purely functional notion; the relationship that it has with subjective experience (sometimes called phenomenal consciousness) is widely debated. In this paper, we take no position on this issue, and instead focus on the functional role played by consciously accessible information." -- Section 1.1
+
+> "We do not feel comfortable making the stronger claim that monitoring the J-space is sufficient for alignment monitoring, or that any sophisticated plan the model might execute must be represented there." -- Section 9.2
 
 ---
 
