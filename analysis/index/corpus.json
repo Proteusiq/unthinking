@@ -6573,5 +6573,73 @@
     ],
     "analysis_path": "analysis/explored/390-399/391_verbalizable_representations_global_workspace.md",
     "word_count": 2254
+  },
+  {
+    "id": 392,
+    "arxiv": "2606.24064",
+    "title": "Paper 392: Beyond Trajectory Imitation",
+    "date": "Jun 2026",
+    "stance": "supports",
+    "cluster": "memorization",
+    "core_finding": "THE LABEL SOURCE DETERMINES WHAT TRANSFERS Standard reasoning distillation: y1 = teacher's solution trajectory fit student to y1 => student memorizes instance-specific steps The authors' own diagnosis, verbatim: \"transferring what to answer rather than how to reason\" \"encourages memorization of instance-specific steps rather than acquisition of transferable problem-solving skills\" Their fix is NOT to teach reasoning. It is to swap the label: y1 = strategy description (problem type + approach + steps) fit student to y1 => better numbers, same loop Qwen2.5-7B-Instruct average over 4 math benchmarks: Base 42.2 SFT (trajectory fit) 42.7 (+0.5 over base) SGPO (strategy fit) 52.1 (+9.9 over base) Target engineering, not capability transfer.",
+    "smoking_gun": false,
+    "quotes": [
+      "Distilling reasoning capabilities from strong to weak language models typically involves imitating specific solution trajectories, effectively transferring what to answer rather than how to reason.",
+      "This trajectory-level imitation encourages memorization of instance-specific patterns rather than acquisition of transferable skills, limiting generalization to novel problems.",
+      "The student is trained to reproduce what the expert wrote, that is, specific sequences of reasoning steps for specific problems, but is never taught the reusable problem-solving strategy that explains why those steps were chosen."
+    ],
+    "analysis_path": "analysis/explored/390-399/392_beyond_trajectory_imitation.md",
+    "word_count": 2382
+  },
+  {
+    "id": 393,
+    "arxiv": "2607.17558",
+    "title": "Paper 393: Why Does Feedback-Augmented Self-Distillation Fail?",
+    "date": "Jul 2026",
+    "stance": "supports",
+    "cluster": "agent",
+    "core_finding": "DECODING COLLAPSE: THE FORM SURVIVES, THE CONTENT DOES NOT Setup: teacher and student are THE SAME WEIGHTS. y1 = model(X, successful_rollout) <- \"self-teacher\" y2 = model(X) <- student fit y2 toward y1 The self-teacher IS stronger at inference time. Its advantage is never internalized. What the student acquires instead: \"recurring reasoning-and-search output templates, producing trajectories that appear diverse but are largely agnostic to the input question\" Training pass rates stay near ZERO for most of training, with a single transient rebound around step 180 before returning to near-zero. The effective distillation signal gets sparser as training proceeds. A reasoning-shaped output, decoupled from the question it is nominally reasoning about.",
+    "smoking_gun": false,
+    "quotes": [
+      "We identify that models can rely on recurring reasoning-and-search output templates, producing trajectories that appear diverse but are largely agnostic to the input question, making the KL-based self-distillation signal uninformative.",
+      "We term this phenomenon decoding collapse, a failure mode that can be missed by existing evaluation metrics.",
+      "Thus, a small distillation loss need not imply useful reasoning or search behavior."
+    ],
+    "analysis_path": "analysis/explored/390-399/393_feedback_augmented_self_distillation_fails.md",
+    "word_count": 2296
+  },
+  {
+    "id": 394,
+    "arxiv": "2607.15450",
+    "title": "Paper 394: Prediction-Only Distillation in Linear and Logistic Regression",
+    "date": "Jul 2026",
+    "stance": "supports",
+    "cluster": "theoretical",
+    "core_finding": "THE TEACHER IS A QUERY ORACLE. NOTHING ELSE IS NEEDED. What the student is given: - the ability to call teacher(x) and read the answer - a pile of unlabeled inputs What the student is NOT given: - the teacher's weights (\"its form is unknown\") - the teacher's training data (\"no longer available\") - the teacher's hyperparameters (lambda_t unknown) - any ground-truth labels (none, anywhere) - inputs that resemble the task (isotropic Gaussian works) Corollary 4.5: draw the fresh inputs from N(0, I_p) - pure isotropic noise, unrelated to anything the teacher ever saw - and the distilled mixture still strictly beats the teacher for EVERY student penalty lambda_s > 0. The capability travels entirely on the output surface.",
+    "smoking_gun": false,
+    "quotes": [
+      "no estimator based only on unlabeled samples and teacher queries can be uniformly consistent for xi*",
+      "This is an information-theoretic limitation, not a computational one.",
+      "the optimal PMSD risk is not globally monotone in the amount of unlabeled data"
+    ],
+    "analysis_path": "analysis/explored/390-399/394_prediction_only_distillation.md",
+    "word_count": 3051
+  },
+  {
+    "id": 395,
+    "arxiv": "2609.12303",
+    "title": "Paper 395: Breaking the Token Ceiling",
+    "date": "Sep 2026",
+    "stance": "balanced",
+    "cluster": "cot",
+    "core_finding": "THE TEACHER'S KNOWLEDGE IS A FILE, AND MOST OF IT IS DELETED To distill offline you must serialize the teacher's outputs. For Llama 3-8B at 2T tokens, stored in float32: 2T x 4 bytes x 128,256 logits = 1.026 EXABYTES This is not storable, so practitioners truncate to top-k. The controlled study here keeps k = 600. kept: 600 of 128,256 logits (0.47%) discarded: 127,656 per token (99.53%) Throw away 99.5% of the teacher's output distribution and the \"capability\" still transfers well enough to beat the supervised baseline. The byte-vocabulary variant stores all 260 values and needs no truncation at all - which is the paper's actual result. A capability that survives being truncated, dumped to disk, and replayed offline is a table of numbers.",
+    "smoking_gun": false,
+    "quotes": [
+      "BPB is a function of only one number per position: the probability the model places on the target token, p_correct... BPB is completely blind to how the remaining mass 1 − p_correct is arranged among the other vocabulary items. Downstream accuracy, in contrast, depend on whether the target is the argmax.",
+      "The biggest pain point of using offline distillation to train small language models is the storage cost of the teacher logits. Each BPE token of a Llama3-8B model, for instance, produces 128256 logit values. A billion parameter model overtrained to 2T tokens, for instance, would require and 2T×4×128256 bytes = 1.026048 Exabytes assuming float32 datatype. To circumvent this storage problem, researchers store only the top-k logits per token, where k typically is of the order of several hundreds.",
+      "By operating over a small vocabulary of ≈256 bytes instead of the ≈100K tokens they circumvent the need for top-k truncation during logit dumping, reducing logit storage costs to roughly one-fifth."
+    ],
+    "analysis_path": "analysis/explored/390-399/395_breaking_the_token_ceiling.md",
+    "word_count": 2914
   }
 ]

@@ -8581,4 +8581,93 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/390-399/391_verbalizable_representations_global_workspace.md',
   },
+  {
+    id: '2606.24064',
+    title: 'Beyond Trajectory Imitation: Strategy-Guided Policy Optimization for LLM Reasoning',
+    shortTitle: 'Beyond Trajectory Imitation',
+    date: 'Jun 2026',
+    stance: 'supports',
+    cluster: 'distillation',
+    coreArgument:
+      'Trajectory-level reasoning distillation transfers what to answer rather than how to reason, encouraging memorization of instance-specific steps. The proposed fix swaps the fit target for abstracted strategy text while keeping the distribution-matching loop unchanged.',
+    keyEvidence: [
+      'Qwen2.5-7B-Instruct average over 4 math benchmarks: 42.2 base, 42.7 SFT, 52.1 SGPO',
+      'Direct SFT on the same guided trajectories scores 49.3 vs 52.1 for KL distillation',
+      'SFT on a 1.5B student makes it worse than base: 23.2 to 22.2',
+      'Removing proximal constraints costs 6.8 points (52.1 to 45.3) via entropy collapse',
+    ],
+    keyQuotes: [
+      'Distilling reasoning capabilities from strong to weak language models typically involves imitating specific solution trajectories, effectively transferring what to answer rather than how to reason.',
+      'These methods improve how the teacher\u2019s output is transferred but do not change what is transferred: the student still imitates specific solutions.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/390-399/392_beyond_trajectory_imitation.md',
+  },
+  {
+    id: '2607.17558',
+    title:
+      'Why Does Feedback-Augmented Self-Distillation Fail to Improve Retrieval-Interleaved Search Agents?',
+    shortTitle: 'Decoding Collapse',
+    date: 'Jul 2026',
+    stance: 'supports',
+    cluster: 'distillation',
+    coreArgument:
+      'When teacher and student are the same weights differing only by prompt, self-distillation converges on recurring reasoning-and-search templates that are agnostic to the input question, making the KL signal uninformative.',
+    keyEvidence: [
+      'Training pass rates stay near zero across all FA-SD variants, with one transient rebound at step 180',
+      'The self-teacher is measurably stronger at inference yet its advantage is never internalized',
+      'Effective distillation-signal ratio decreases over training as usable supervision starves',
+      'EMA-regularized FA-SD reaches 0.206 avg EM vs 0.114 base, but Bamboogle drops 0.089 to 0.081',
+    ],
+    keyQuotes: [
+      'models can rely on recurring reasoning-and-search output templates, producing trajectories that appear diverse but are largely agnostic to the input question',
+      'Thus, a small distillation loss need not imply useful reasoning or search behavior.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/390-399/393_feedback_augmented_self_distillation_fails.md',
+  },
+  {
+    id: '2607.15450',
+    title: 'Prediction-Only Distillation in Linear and Logistic Regression',
+    shortTitle: 'Prediction-Only Distillation',
+    date: 'Jul 2026',
+    stance: 'supports',
+    cluster: 'distillation',
+    coreArgument:
+      'Distillation requires nothing but query access to a teacher: not its weights, not its training data, not its hyperparameters, not any labels, and not even meaningful inputs. The identical procedure is analyzed in ridge regression and run on frozen ResNet features.',
+    keyEvidence: [
+      'Strict improvement holds for every student penalty even with fresh covariates drawn from isotropic N(0, I_p) noise',
+      'Linear probing on frozen ResNet-34: PMSD beats the teacher best in 7 of 7 tables, by +1.0 to +5.7 points',
+      'Estimated mixing weight ranges from +13.0 to the grid boundary -20.0, often negative',
+      'Optimal risk is unimodal not monotone in unlabeled data, peaking at gamma_s = 1 + lambda',
+    ],
+    keyQuotes: [
+      'we can query the teacher at any input but need not know the explicit form of f or its regularization parameter. Thus, we observe only the teacher\u2019s predictions at the queried points.',
+      'PMSD cannot in general recover the information in the original labeled sample.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/390-399/394_prediction_only_distillation.md',
+  },
+  {
+    id: '2609.12303',
+    title: 'Breaking the Token Ceiling: Distilling Smaller, Stronger Byte Models',
+    shortTitle: 'Breaking the Token Ceiling',
+    date: 'Sep 2026',
+    stance: 'balanced',
+    cluster: 'distillation',
+    coreArgument:
+      'Offline distillation serializes the teacher to disk as logits, truncates most of them away, and fits a student to the file. The asymptotic ceiling moves with vocabulary size and compute per unit of text, and the training loss is shown to be blind to decoded accuracy.',
+    keyEvidence: [
+      'Full logit dump for Llama 3-8B at 2T tokens would be 1.026 exabytes; the study keeps top-600 of 128,256, discarding 99.53%',
+      'Headline +4.0 points (52.4 vs 48.4) is extrapolated; measured checkpoints differ by +0.2 (44.6 vs 44.4)',
+      'Both distilled models lose to Llama-3.2-1B (45.9) and Gemma 2B (50.3) at measured scale',
+      'Identical BPB of 0.462 yields 100% vs 0% decoded accuracy in the authors worked example',
+    ],
+    keyQuotes: [
+      'BPB is completely blind to how the remaining mass is arranged among the other vocabulary items... two models can share an identical BPB while decoding completely different text.',
+      'To circumvent this storage problem, researchers store only the top-k logits per token, where k typically is of the order of several hundreds.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/390-399/395_breaking_the_token_ceiling.md',
+  },
 ];

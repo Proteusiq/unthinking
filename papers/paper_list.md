@@ -395,3 +395,7 @@
 | 389 | 2607.05391 | Jul 2026 | LLM-as-a-Verifier: A General-Purpose Verification Framework | Balanced |
 | 390 | 2505.15433 | May 2025 | Set-LLM: A Permutation-Invariant LLM | Balanced |
 | 391 | 2607.15495 | Jul 2026 | Verbalizable Representations Form a Global Workspace in Language Models | Challenges |
+| 392 | 2606.24064 | Jun 2026 | Beyond Trajectory Imitation: Strategy-Guided Policy Optimization for LLM Reasoning | Supports |
+| 393 | 2607.17558 | Jul 2026 | Why Does Feedback-Augmented Self-Distillation Fail to Improve Retrieval-Interleaved Search Agents? | Supports |
+| 394 | 2607.15450 | Jul 2026 | Prediction-Only Distillation in Linear and Logistic Regression | Supports |
+| 395 | 2609.12303 | Sep 2026 | Breaking the Token Ceiling: Distilling Smaller, Stronger Byte Models | Balanced |

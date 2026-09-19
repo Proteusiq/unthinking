@@ -2329,6 +2329,61 @@ Five papers studying reward hacking in LLM RL - from controlled reproduction to 
 
 ---
 
+## DISTILLATION CLUSTER: The Fitted Surface (#392-#395)
+
+```
+╔══════════════════════════════════════════════════════════════════════╗
+║  CLUSTER THESIS                                                      ║
+║                                                                      ║
+║  Distillation is supervised fitting against a model-shaped oracle.   ║
+║  If "reasoning" arrives through the identical loop that fits a tree  ║
+║  to tabular data, it is the same kind of object - a fitted surface.  ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+                    THE LOOP, IN ALL FOUR PAPERS
+
+           y1 = teacher(X)          <- label source
+           y2 = student(X)          <- current fit
+           loss = delta(y1, y2)     <- disagreement, not error
+           student <- student - lr * grad(loss)
+
+   No term for truth. Only agreement with the label source.
+
+┌──────────────────────────────────────────────────────────────────────┐
+│  #392  informative label source    ->  instance memorization         │
+│        "what to answer rather than how to reason"                    │
+│                                                                      │
+│  #393  label source with no new    ->  input-agnostic TEMPLATES      │
+│        information                     (decoding collapse)           │
+│                                                                      │
+│  #394  label source as pure query  ->  works with no weights, no     │
+│        oracle                          data, no labels, even on      │
+│                                        isotropic Gaussian noise      │
+│                                                                      │
+│  #395  label source serialized     ->  99.53% truncated away and     │
+│        to disk                         the capability still moves    │
+└──────────────────────────────────────────────────────────────────────┘
+```
+
+### Direct Relationships
+- 2606.24064 (#392) --supports--> 2504.01738 (#384): trajectory fitting yields instance-specific memorization, matching the style-replication finding from the opposite direction
+- 2606.24064 (#392) --supports--> 2305.18654 (#0): "memorization of instance-specific steps" is subgraph matching observed at the training objective rather than at inference
+- 2606.24064 (#392) --extends--> 2306.08543 (#387): MiniLLM changed the divergence direction, this changes the target content; forward KL wins here 52.1 vs 50.9
+- 2607.17558 (#393) --challenges--> 2601.20802 (#343): adopts the reverse-KL self-teacher gradient and reports it failing on retrieval-interleaved agents
+- 2607.17558 (#393) --supports--> 2504.01738 (#384): decoding collapse and style replication isolate the same transferred object by unrelated methods
+- 2607.17558 (#393) --supports--> 2606.24064 (#392): companion failure mode, non-informative label source returns the distribution mode
+- 2607.15450 (#394) --supports--> 2606.24064 (#392): generalizes the label-surface claim, transfer is a function of the output map alone
+- 2607.15450 (#394) --supports--> 2504.01738 (#384): improvement from label averaging requires no correct information, explaining gains from wrong-answer traces
+- 2607.15450 (#394) --challenges--> 2503.03730 (#385): the transfer channel carries only predictions, bounding what a representational signature can evidence
+- 2609.12303 (#395) --supports--> 2607.15450 (#394): physically realizes prediction-only transfer by dumping teacher logits to disk and fitting the file
+- 2609.12303 (#395) --supports--> 2509.11208 (#168): compression survivorship, what remains after the squeeze
+- 2609.12303 (#395) --extends--> 2306.08543 (#387): keeps forward KL, moves the problem to the vocabulary axis; on-policy distillation literature is not cited
+
+### Papers With No Rebuttals (follow-up required)
+- 2606.24064 (#392), 2607.17558 (#393), 2607.15450 (#394), 2609.12303 (#395) - all published Jun-Sep 2026, no arXiv responses located
+
+---
+
 ### 2026-01-24
 | Papers Added | Key Findings |
 |--------------|--------------|

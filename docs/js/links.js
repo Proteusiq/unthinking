@@ -10005,4 +10005,111 @@ window.paperLinks = [
     description:
       'Partial reportable-state control contrasts with activation-only risk prediction needing context for action',
   },
+  {
+    source: '2606.24064',
+    target: '2504.01738',
+    type: 'supports',
+    description:
+      'Trajectory fitting yields instance-specific steps; style replication is the same object seen at inference',
+  },
+  {
+    source: '2606.24064',
+    target: '2305.18654',
+    type: 'supports',
+    description:
+      'Memorized instance-specific steps are subgraph matching observed in the training objective',
+  },
+  {
+    source: '2606.24064',
+    target: '2306.08543',
+    type: 'extends',
+    description: 'MiniLLM changed the divergence direction; this changes the target content',
+  },
+  {
+    source: '2606.24064',
+    target: '2511.05184',
+    type: 'supports',
+    description: 'Both isolate what CoT supervision fails to carry into a smaller student',
+  },
+  {
+    source: '2607.17558',
+    target: '2601.20802',
+    type: 'challenges',
+    description:
+      'Adopts its reverse-KL self-teacher gradient and finds it collapses on retrieval-interleaved agents',
+  },
+  {
+    source: '2607.17558',
+    target: '2504.01738',
+    type: 'supports',
+    description:
+      'Decoding collapse and stylistic replication find the same transferred form by unrelated methods',
+  },
+  {
+    source: '2607.17558',
+    target: '2606.24064',
+    type: 'supports',
+    description:
+      'Companion case: a label source carrying no new information returns the distribution mode',
+  },
+  {
+    source: '2607.17558',
+    target: '2307.13702',
+    type: 'supports',
+    description:
+      'Question-agnostic reasoning traces are the training-time analogue of unfaithful CoT',
+  },
+  {
+    source: '2607.15450',
+    target: '2606.24064',
+    type: 'supports',
+    description:
+      'Generalizes the label-surface claim: transfer is a function of the output map alone',
+  },
+  {
+    source: '2607.15450',
+    target: '2504.01738',
+    type: 'supports',
+    description:
+      'Label averaging needs no correct information, explaining gains from wrong-answer traces',
+  },
+  {
+    source: '2607.15450',
+    target: '2503.03730',
+    type: 'challenges',
+    description:
+      'Transfer channel carries only predictions, bounding what a representational signature can evidence',
+  },
+  {
+    source: '2607.15450',
+    target: '2306.08543',
+    type: 'extends',
+    description:
+      'Strips the setting to query access alone: no weights, no training data, no labels',
+  },
+  {
+    source: '2609.12303',
+    target: '2607.15450',
+    type: 'supports',
+    description:
+      'Physically realizes prediction-only transfer by dumping teacher logits to disk and fitting the file',
+  },
+  {
+    source: '2609.12303',
+    target: '2509.11208',
+    type: 'supports',
+    description: 'Truncating 99.53% of the teacher distribution still transfers the capability',
+  },
+  {
+    source: '2609.12303',
+    target: '2306.08543',
+    type: 'extends',
+    description: 'Keeps forward KL but moves the bottleneck to vocabulary size and logit storage',
+  },
+  {
+    source: '2609.12303',
+    target: '2601.21576',
+    type: 'supports',
+    description: 'Identical BPB decodes at 100% or 0%, severing optimized loss from capability',
+  },
 ];
