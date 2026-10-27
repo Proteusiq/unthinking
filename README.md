@@ -3,12 +3,12 @@
 > **A systematic literature review on LLM reasoning capabilities**
 
 <a href="https://proteusiq.github.io/unthinking/">
-  <img src="docs/assets/constellation.jpg" alt="The citation constellation: 395 papers arranged as a twisted ring, with stance counts and topic clusters" />
+  <img src="docs/assets/constellation.jpg" alt="The citation constellation: 396 papers arranged as a twisted ring, with stance counts and topic clusters" />
 </a>
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
 [![Papers](https://img.shields.io/badge/papers-397-blue)]()
-[![Relationships](https://img.shields.io/badge/relationships-1497-orange)]()
+[![Relationships](https://img.shields.io/badge/relationships-1502-orange)]()
 
 ---
 
@@ -19,7 +19,7 @@ Do LLMs actually understand or do they predict plausible-sounding tokens without
 This project surveys 397 papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
 
 To bring the findings home:
-- **Citation constellation**: 395 papers on a WebGL ring, select one to see what it builds on and what cites it
+- **Citation constellation**: 396 papers on a WebGL ring, select one to see what it builds on and what cites it
 - **Paper network**: D3 force-directed graph of the same corpus, filterable by stance
 - **Semantic galaxy**: 3D projection of every paper, searchable in-browser
 - **Experiments**:
@@ -53,7 +53,7 @@ first two:
 
 [![Faith and Fate selected: the square loupe and the paper's detail panel](docs/assets/constellation-faith-and-fate.jpg)](https://proteusiq.github.io/unthinking/)
 
-- **395 papers** on a twisted ring, positioned by cluster and date; **1,482 tracked
+- **396 papers** on a twisted ring, positioned by cluster and date; **1,487 tracked
   relationships**, plus 15 citations to papers outside the corpus (shown as
   `[cited, not tracked]` with a direct arXiv link)
 - **Color-coded stances**: supports, challenges, balanced
@@ -263,7 +263,7 @@ The question Weizenbaum asked in 1966 remains unanswered: *Is what we are seeing
 
 ## The Seven Pillars of Evidence
 
-Based on cross-analysis of 375 papers, the evidence converges on seven pillars:
+Based on cross-analysis of 397 papers, the evidence converges on seven pillars:
 
 | Pillar | Core Finding | Key Papers | Strongest Number |
 |--------|--------------|------------|------------------|

@@ -4,9 +4,8 @@ The canonical source of truth is analysis/index/corpus.json - produced by
 build_corpus_index.py from analysis/explored/*.md.
 
 Without --check, this script rewrites:
-  - README.md (badge, prose, file-tree, network counts)
-  - docs/index.html (filter badge fallbacks)
-  - docs/pages/findings.html (footer count)
+  - README.md (badge, prose, file-tree, constellation and network counts)
+  - docs/pages/findings.html (footer count, stance cards, batch distribution)
   - apps/galaxy/index.html (meta description)
   - apps/galaxy/src/App.tsx (splash + sidebar copy)
   - apps/galaxy/README.md (first line and synthesis count)
@@ -41,6 +40,8 @@ class Counts:
     challenges: int
     smoking_guns: int
     links: int
+    nodes: int
+    internal_links: int
 
 
 def load_counts() -> Counts:
@@ -51,12 +52,28 @@ def load_counts() -> Counts:
     challenges = sum(1 for e in entries if e["stance"] == "challenges")
     smoking_guns = sum(1 for e in entries if e["smoking_gun"])
 
-    # Links are defined in docs/js/links.js as a JS array. We count
-    # entries by looking for `source: '...'` occurrences - same pattern
-    # used by the existing validator. Avoids parsing JS for one number.
-    links = len(re.findall(r"source:\s*['\"]", LINKS_PATH.read_text()))
+    # The graph is defined in JS, not in the corpus. nodes.js holds one
+    # `id:` per paper and links.js one `source:`/`target:` pair per edge.
+    # The README quotes the in-graph numbers, so they need the same
+    # drift check as the corpus counts.
+    nodes_text = (ROOT / "docs" / "js" / "nodes.js").read_text()
+    links_text = LINKS_PATH.read_text()
+    node_ids = set(re.findall(r"\n    id: '([^']+)'", nodes_text))
+    edges = re.findall(r"source: '([^']+)',\s*\n\s*target: '([^']+)'", links_text)
+    internal_links = sum(
+        1 for source, target in edges if source in node_ids and target in node_ids
+    )
 
-    return Counts(total, supports, balanced, challenges, smoking_guns, links)
+    return Counts(
+        total,
+        supports,
+        balanced,
+        challenges,
+        smoking_guns,
+        len(edges),
+        len(node_ids),
+        internal_links,
+    )
 
 
 @dataclass
@@ -64,6 +81,85 @@ class Replacement:
     path: Path
     pattern: re.Pattern[str]
     template: str  # uses {total}, {supports}, etc.
+
+
+STANCE_ORDER = ("supports", "balanced", "challenges")
+STANCE_LABEL = {
+    "supports": "Supports",
+    "balanced": "Balanced",
+    "challenges": "Challenges",
+}
+
+
+def stance_cards_html(c: Counts) -> str:
+    cards = []
+    for stance in STANCE_ORDER:
+        count = getattr(c, stance)
+        percent = round(100 * count / c.total) if c.total else 0
+        cards.append(
+            f'        <div class="stance-card {stance}">\n'
+            f'          <div class="stance-number">{count}</div>\n'
+            f'          <div class="stance-label">{STANCE_LABEL[stance]}</div>\n'
+            f'          <div class="stance-percent">{percent}%</div>\n'
+            f"        </div>"
+        )
+    body = "\n".join(cards)
+    return (
+        '<section class="stance-section">\n'
+        '      <div class="stance-grid">\n'
+        f"{body}\n"
+        "      </div>\n"
+        "    </section>"
+    )
+
+
+def batch_distribution() -> list[tuple[str, dict[str, int]]]:
+    """Stance counts per 10-paper analysis folder, newest folder last."""
+    entries = json.loads(CORPUS_PATH.read_text())
+    batches: dict[int, dict[str, int]] = {}
+    for entry in entries:
+        start = (int(entry["id"]) // 10) * 10
+        bucket = batches.setdefault(start, dict.fromkeys(STANCE_ORDER, 0))
+        if entry["stance"] in bucket:
+            bucket[entry["stance"]] += 1
+    return [
+        (f"{start:02d}-{start + 9:02d}", batches[start]) for start in sorted(batches)
+    ]
+
+
+def bar_widths(values: list[int]) -> list[int]:
+    """Integer widths summing to 100, distributed by largest remainder."""
+    total = sum(values)
+    if total == 0:
+        return [0 for _ in values]
+    exact = [100 * value / total for value in values]
+    widths = [int(value) for value in exact]
+    order = sorted(range(len(values)), key=lambda i: exact[i] - widths[i], reverse=True)
+    for index in order[: 100 - sum(widths)]:
+        widths[index] += 1
+    return widths
+
+
+def distribution_html() -> str:
+    lines = ['<div class="distribution">']
+    for label, counts in batch_distribution():
+        values = [counts[stance] for stance in STANCE_ORDER]
+        widths = bar_widths(values)
+        lines.append('      <div class="dist-row">')
+        lines.append(f'        <span class="dist-label">{label}</span>')
+        lines.append('        <div class="dist-bar-container">')
+        for stance, value, width in zip(STANCE_ORDER, values, widths, strict=True):
+            if value == 0:
+                continue
+            lines.append(
+                f'          <div class="dist-bar {stance}" '
+                f'style="width: {width}%">{value}</div>'
+            )
+        lines.append("        </div>")
+        lines.append(f'        <span class="dist-count">{sum(values)}</span>')
+        lines.append("      </div>")
+    lines.append("    </div>")
+    return "\n".join(lines)
 
 
 def replacements(c: Counts) -> list[Replacement]:
@@ -77,23 +173,38 @@ def replacements(c: Counts) -> list[Replacement]:
         ),
         Replacement(
             ROOT / "README.md",
+            re.compile(r"img\.shields\.io/badge/relationships-\d+-orange"),
+            f"img.shields.io/badge/relationships-{c.links}-orange",
+        ),
+        Replacement(
+            ROOT / "README.md",
+            re.compile(r"alt=\"The citation constellation: \d+ papers"),
+            f'alt="The citation constellation: {c.nodes} papers',
+        ),
+        Replacement(
+            ROOT / "README.md",
+            re.compile(r"\*\*Citation constellation\*\*: \d+ papers"),
+            f"**Citation constellation**: {c.nodes} papers",
+        ),
+        Replacement(
+            ROOT / "README.md",
+            re.compile(r"\*\*\d+ papers\*\* on a twisted ring"),
+            f"**{c.nodes} papers** on a twisted ring",
+        ),
+        Replacement(
+            ROOT / "README.md",
+            re.compile(r"\*\*[\d,]+ tracked\s+relationships\*\*"),
+            f"**{c.internal_links:,} tracked\n  relationships**",
+        ),
+        Replacement(
+            ROOT / "README.md",
+            re.compile(r"cross-analysis of \d+ papers"),
+            f"cross-analysis of {c.total} papers",
+        ),
+        Replacement(
+            ROOT / "README.md",
             re.compile(r"surveys \d+\+? papers"),
             f"surveys {c.total} papers",
-        ),
-        Replacement(
-            ROOT / "README.md",
-            re.compile(r"interactive graph of \d+\+? papers and \d+\+? relationships"),
-            f"interactive graph of {c.total} papers and {c.links} relationships",
-        ),
-        Replacement(
-            ROOT / "README.md",
-            re.compile(r"\d+ papers as nodes, \d+ relationships as edges"),
-            f"{c.total} papers as nodes, {c.links} relationships as edges",
-        ),
-        Replacement(
-            ROOT / "README.md",
-            re.compile(r"supports \(\d+\), challenges \(\d+\), balanced \(\d+\)"),
-            f"supports ({c.supports}), challenges ({c.challenges}), balanced ({c.balanced})",
         ),
         Replacement(
             ROOT / "README.md",
@@ -110,27 +221,27 @@ def replacements(c: Counts) -> list[Replacement]:
             re.compile(r"Relationship links \(\d+\)"),
             f"Relationship links ({c.links})",
         ),
-        # docs/index.html - fallbacks for filter badges before JS hydrates.
-        Replacement(
-            ROOT / "docs" / "index.html",
-            re.compile(r'id="supports-count">\d+</span>'),
-            f'id="supports-count">{c.supports}</span>',
-        ),
-        Replacement(
-            ROOT / "docs" / "index.html",
-            re.compile(r'id="challenges-count">\d+</span>'),
-            f'id="challenges-count">{c.challenges}</span>',
-        ),
-        Replacement(
-            ROOT / "docs" / "index.html",
-            re.compile(r'id="balanced-count">\d+</span>'),
-            f'id="balanced-count">{c.balanced}</span>',
-        ),
         # docs/pages/findings.html
         Replacement(
             ROOT / "docs" / "pages" / "findings.html",
             re.compile(r"· \d+ papers analyzed"),
             f"· {c.total} papers analyzed",
+        ),
+        # The stance cards and the batch distribution are derived, not
+        # hand-maintained: both sections are rewritten wholesale so a new
+        # analysis cannot leave them behind.
+        Replacement(
+            ROOT / "docs" / "pages" / "findings.html",
+            re.compile(r'<section class="stance-section">.*?</section>', re.DOTALL),
+            stance_cards_html(c),
+        ),
+        Replacement(
+            ROOT / "docs" / "pages" / "findings.html",
+            re.compile(
+                r'<div class="distribution">.*?(?=<!-- Fundamental Equation -->)',
+                re.DOTALL,
+            ),
+            distribution_html() + "\n\n    ",
         ),
         # apps/galaxy/index.html - meta tags
         Replacement(

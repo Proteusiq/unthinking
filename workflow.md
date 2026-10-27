@@ -374,13 +374,12 @@ make sync-counts   # rewrite all hardcoded counts: README badges/prose, findings
 make deploy-check  # fails on corpus drift or out-of-sync counts (run this last)
 ```
 
-These targets cover the README badges/folder-count and the findings stance cards automatically. Only the *content* judgment calls below still need a manual edit:
+These targets cover the README badges/folder-count, the findings stance cards and the findings batch distribution automatically. Only the *content* judgment calls below still need a manual edit:
 
 ### 9a. Update `docs/pages/findings.html` content (when a paper is significant):
 
 1. **Theme tables** - Add the paper to the relevant theme section if it provides significant evidence
 2. **Smoking guns** - Update if the paper provides stronger evidence than existing entries
-3. **Paper distribution chart** - Update the batch row if adding papers to a new batch
 
 Run `cd docs && npm run format` after editing.
 

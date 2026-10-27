@@ -482,10 +482,12 @@ make deploy-check               # must print '✓ ready to push'
 
 When paper counts or stance distribution changes significantly, update `docs/pages/findings.html`:
 
-1. **Stance counts** - Update the three stance cards (supports/balanced/challenges) with new numbers and percentages
-2. **Paper distribution chart** - Update batch rows if new papers are added
-3. **Theme tables** - Add significant new papers to relevant theme sections
-4. **Smoking guns** - Update if a new paper provides stronger evidence than existing entries
+1. **Stance counts** - Generated; `make sync-counts` rewrites the three stance cards from `corpus.json`
+2. **Paper distribution chart** - Generated; `make sync-counts` rewrites one batch row per 10-paper analysis folder
+3. **Theme tables** - Manual: add significant new papers to relevant theme sections
+4. **Smoking guns** - Manual: update if a new paper provides stronger evidence than existing entries
+
+`make deploy-check` fails if the generated sections drift, so a forgotten manual edit cannot silently ship.
 
 The findings page is linked from:
 - Main thesis on `docs/index.html` (the word "predictive")
