@@ -93,7 +93,36 @@ try {
   error(`Failed to validate links: ${e.message}`);
 }
 
-// 4. Check required HTML files
+// 4. Check that every node's analysis link resolves to a real file
+console.log('\n📋 Checking analysis links...');
+try {
+  const nodesContent = fs.readFileSync(path.join(JS_DIR, 'nodes.js'), 'utf8');
+  const nodesMatch = nodesContent.match(/window\.paperNodes\s*=\s*(\[[\s\S]*\]);/);
+  if (nodesMatch) {
+    const nodes = eval(nodesMatch[1]);
+    const repoRoot = path.join(__dirname, '..');
+    const broken = [];
+    for (const node of nodes) {
+      const marker = '/blob/main/';
+      const index = (node.analysisUrl || '').indexOf(marker);
+      if (index === -1) {
+        broken.push(`${node.id} (not a blob/main URL)`);
+        continue;
+      }
+      const local = path.join(repoRoot, decodeURI(node.analysisUrl.slice(index + marker.length)));
+      if (!fs.existsSync(local)) broken.push(`${node.id} -> ${path.relative(repoRoot, local)}`);
+    }
+    if (broken.length > 0) {
+      error(`Nodes with missing analyses (${broken.length}):\n  ${broken.join('\n  ')}`);
+    } else {
+      success(`All ${nodes.length} nodes link to an existing analysis`);
+    }
+  }
+} catch (e) {
+  error(`Failed to validate analysis links: ${e.message}`);
+}
+
+// 5. Check required HTML files
 console.log('\n📋 Checking HTML files...');
 const htmlFiles = ['index.html', 'pages/findings.html', 'pages/data.html', 'pages/tokenization.html', 'pages/architecture.html', 'pages/training.html'];
 for (const file of htmlFiles) {

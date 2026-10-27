@@ -3015,7 +3015,7 @@ window.paperNodes = [
       '15% of unfaithful explanations have no obvious errors.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/140-149/148_language_models_dont_say_what_think.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/310-319/312_unfaithful_cot_explanations.md',
   },
   {
     id: '2309.12288',
@@ -4227,7 +4227,7 @@ window.paperNodes = [
       'Our analysis reveals that unconditionally adding an extra forward step is not universally beneficial.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/190-199/200_harp_hesitation_aware_reframing.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/200-209/200_harp_hesitation_aware_reframing.md',
   },
   {
     id: '2502.18848',
@@ -4396,7 +4396,7 @@ window.paperNodes = [
       'The games bottleneck is thought generation.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/200-209/207_tree_of_thoughts.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/299_tree_of_thoughts.md',
   },
   {
     id: '2308.09687',
@@ -4419,7 +4419,7 @@ window.paperNodes = [
       'GoO is a static structure constructed once, before execution starts.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/200-209/208_graph_of_thoughts.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/300-309/300_graph_of_thoughts.md',
   },
   {
     id: '2410.03717',
@@ -5608,7 +5608,7 @@ window.paperNodes = [
       'RL can be substantially more parameter-efficient than previously recognized.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/263_do_we_need_adam_sgd_rlvr.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/240-249/244_sgd_adam_rlvr.md',
   },
   {
     id: '2507.10616',
@@ -5631,7 +5631,7 @@ window.paperNodes = [
       'During GRPO, parameter updates are performed with respect to tokens that were sampled from the model itself... reinforcing existing capabilities.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/264_scalpel_vs_hammer_grpo_sft.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/240-249/243_scalpel_vs_hammer_grpo_sft.md',
   },
   {
     id: '2506.07452',
@@ -5654,7 +5654,7 @@ window.paperNodes = [
       'Models fine-tuned on data containing specific style patterns become more vulnerable to jailbreaks in the same style.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/265_when_style_breaks_safety.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/263_when_style_breaks_safety.md',
   },
   {
     id: '2506.06998',
@@ -5677,7 +5677,7 @@ window.paperNodes = [
       'Most token misalignments occur at the beginning of each sentence, then rapidly decrease until the next sentence starts.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/266_follow_reasoning_leader.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/264_follow_reasoning_leader.md',
   },
   {
     id: '2411.15594',
@@ -5700,7 +5700,7 @@ window.paperNodes = [
       'Self Validation shows minimal effectiveness, likely due to the LLMs overconfidence.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/267_survey_llm_as_judge.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/265_survey_llm_as_judge.md',
   },
   {
     id: '2412.12509',
@@ -5723,7 +5723,7 @@ window.paperNodes = [
       'Even with deterministic settings, a single LLM output remains a sample from the model probability distribution.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/268_can_you_trust_llm_judgments.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/266_can_you_trust_llm_judgments.md',
   },
   {
     id: '2509.04013',
@@ -5746,7 +5746,7 @@ window.paperNodes = [
       'Less capable models tend to be more consistent in their predictions, although they are often wrong.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/269_benchmark_paraphrase_robustness.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/267_benchmark_paraphrase_robustness.md',
   },
   {
     id: '2502.03461',
@@ -5769,7 +5769,7 @@ window.paperNodes = [
       'Current benchmarks are not well equipped for testing model reliability.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/270_platinum_benchmarks_reliability.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/268_platinum_benchmarks_reliability.md',
   },
   {
     id: '2603.08412',
@@ -5792,7 +5792,7 @@ window.paperNodes = [
       'At 50% corruption, reward-guided selection produces no improvement over random sampling, while the proxy model reports monotonically increasing scores.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/271_aligning_to_illusions_choice_blindness.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/260-269/269_aligning_to_illusions_choice_blindness.md',
   },
   {
     id: '2603.05485',
@@ -5815,7 +5815,7 @@ window.paperNodes = [
       'By guaranteeing any bias pattern of sufficient magnitude will be indistinguishable from noise, we can enable greater confidence in LLM judges.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/272_provably_unbiased_llm_judges.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/270_provably_unbiased_llm_judges.md',
   },
   {
     id: '2603.05399',
@@ -5838,7 +5838,7 @@ window.paperNodes = [
       'Formatting perturbations produce larger reliability drops than semantic perturbations.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/273_judge_reliability_harness.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/271_judge_reliability_harness.md',
   },
   {
     id: '2603.05167',
@@ -5862,7 +5862,7 @@ window.paperNodes = [
       'All judges treat does this sound complete differently from are all reasoning steps present.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/274_c2_faith_cot_faithfulness.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/272_c2_faith_cot_faithfulness.md',
   },
   {
     id: '2602.16610',
@@ -5885,7 +5885,7 @@ window.paperNodes = [
       'Models with higher cycle inconsistency rates are those for which hard BT yields larger gains over soft BT.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/275_llm_as_jury_aggregation.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/273_llm_as_jury_aggregation.md',
   },
   {
     id: '2602.13576',
@@ -5908,7 +5908,7 @@ window.paperNodes = [
       'Biased rubrics are never judged worse than the seed rubric... win rates of 1.00.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/276_rubrics_attack_surface.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/274_rubrics_attack_surface.md',
   },
   {
     id: '2512.01786',
@@ -5931,7 +5931,7 @@ window.paperNodes = [
       'Our dynamic jury system achieves significantly higher correlation with human judgment than both single-judge and static-jury baselines.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/277_who_judges_the_judge.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/275_who_judges_the_judge.md',
   },
   {
     id: '2507.19219',
@@ -5954,7 +5954,7 @@ window.paperNodes = [
       'Popular open-source LLMs such as Llama-4 and Qwen-2.5 have been reported to experience test-data-contaminated training.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/278_how_much_llms_cheat.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/276_how_much_llms_cheat.md',
   },
   {
     id: '2412.14093',
@@ -5977,7 +5977,7 @@ window.paperNodes = [
       'Alignment faking which is as incompetent as we see in these results poses no serious threat.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/279_alignment_faking.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/277_alignment_faking.md',
   },
   {
     id: '2312.01552',
@@ -6000,7 +6000,7 @@ window.paperNodes = [
       'Knowledge-intensive content originates from untuned LLMs.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/280_urial_unlocking_spell.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/278_urial_unlocking_spell.md',
   },
   {
     id: '2506.18032',
@@ -6023,7 +6023,7 @@ window.paperNodes = [
       'Base models might have learned to recognize and roleplay AI scenarios from their pre-training data.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/281_why_some_lms_fake_alignment.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/279_why_some_lms_fake_alignment.md',
   },
   {
     id: '2305.14784',
@@ -6046,7 +6046,7 @@ window.paperNodes = [
       'Malicious actors can easily use this to their advantage by manipulating users into trusting the system.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/282_anthropomorphization_of_ai.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/280_anthropomorphization_of_ai.md',
   },
   {
     id: '2509.21545',
@@ -6069,7 +6069,7 @@ window.paperNodes = [
       "LLMs evidently don't have a stronger signal of confidence in their own ability to answer factual questions as compared with reasoning ones.",
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/270-279/283_limited_metacognition.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/281_limited_metacognition.md',
   },
   {
     id: '2602.15829',
@@ -6092,7 +6092,7 @@ window.paperNodes = [
       'Post-training collapses the complexity of reaching this same performance by several orders of magnitude.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/284_operationalising_sah_task_complexity.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/282_operationalising_sah_task_complexity.md',
   },
   {
     id: '2407.08790',
@@ -6115,7 +6115,7 @@ window.paperNodes = [
       'To assume LLMs are linguistic agents is to mistake the map for the territory.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/285_large_models_of_what.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/283_large_models_of_what.md',
   },
   {
     id: '2505.23323',
@@ -6138,7 +6138,7 @@ window.paperNodes = [
       'LLMs will never gain agency in the ICL setting as what they do is always limited to user input.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/286_neither_stochastic_parroting_nor_agi.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/284_neither_stochastic_parroting_nor_agi.md',
   },
   {
     id: '2602.13110',
@@ -6162,7 +6162,7 @@ window.paperNodes = [
       'These effects can produce highly confident but incorrect judgments.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/287_scope_selective_conformal_llm_judging.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/285_scope_selective_conformal_llm_judging.md',
   },
   {
     id: '2602.02219',
@@ -6186,7 +6186,7 @@ window.paperNodes = [
       'Rubric-based LLM-as-a-Judge is not inherently point-wise.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/288_position_bias_rubric_llm_judge.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/286_position_bias_rubric_llm_judge.md',
   },
   {
     id: '2602.02287',
@@ -6209,7 +6209,7 @@ window.paperNodes = [
       'Surface-level evaluation transfers; discourse assessment does not.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/289_cross_lingual_stability_llm_judges.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/287_cross_lingual_stability_llm_judges.md',
   },
   {
     id: '2507.17788',
@@ -6232,7 +6232,7 @@ window.paperNodes = [
       'A single, static mitigation strategy is unlikely to be effective.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/290_adaptive_repetition_position_bias.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/288_adaptive_repetition_position_bias.md',
   },
   {
     id: '2512.16272',
@@ -6255,7 +6255,7 @@ window.paperNodes = [
       'Current LaaJs lack the ability to simulate program semantics or execution state.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/291_beyond_blind_spots_analytic_hints.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/280-289/289_beyond_blind_spots_analytic_hints.md',
   },
   {
     id: '2512.06710',
@@ -6279,7 +6279,7 @@ window.paperNodes = [
       'Accuracy improvements without ICC improvements may not be robust under deployment.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/292_stochasticity_agentic_evaluations_icc.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/290_stochasticity_agentic_evaluations_icc.md',
   },
   {
     id: '2602.13626',
@@ -6302,7 +6302,7 @@ window.paperNodes = [
       'In-domain leakage induces substantial but spurious performance gains.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/293_benchmark_leakage_trap_llm_recommendation.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/291_benchmark_leakage_trap_llm_recommendation.md',
   },
   {
     id: '2604.01193',
@@ -6324,7 +6324,7 @@ window.paperNodes = [
       'The student can therefore be globally sharper yet locally more explorable.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/294_ssd_self_distillation_code.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/290-299/292_ssd_self_distillation_code.md',
   },
   {
     id: '2602.19141',
@@ -7591,7 +7591,7 @@ window.paperNodes = [
       'Language models can be coerced to output almost any string; the fact that a model outputs something is not necessarily a sign of memorization.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/350_how_much_memorize.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/390-399/397_how_much_memorize.md',
   },
   {
     id: '2405.19616',
@@ -7616,7 +7616,7 @@ window.paperNodes = [
       'Minute changes to input structure or order that do not change the meaning of a question lead to dramatically different responses from LLMs.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/351_easy_problems_llms_wrong.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/390-399/398_easy_problems_llms_wrong.md',
   },
   {
     id: '2605.13829',
@@ -7639,7 +7639,7 @@ window.paperNodes = [
       'Training on chat transcripts flagged as malicious can cause models to adopt those very behaviors.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/352_negation_neglect.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/390-399/399_negation_neglect.md',
   },
   {
     id: '2605.12671',
@@ -7663,7 +7663,7 @@ window.paperNodes = [
       'Our results suggest that mechanistic explanations in LLMs are inherently non-canonical.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/353_all_circuits_lead_to_rome.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/350_all_circuits_lead_to_rome.md',
   },
   {
     id: '2605.24396',
@@ -7686,7 +7686,7 @@ window.paperNodes = [
       'Larger pretrained models are inherently more prone to premature confidence - they commit to an answer earlier in the CoT even without outcome-based RL amplifying this tendency.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/354_premature_confidence.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/351_premature_confidence.md',
   },
   {
     id: '2605.22873',
@@ -7709,7 +7709,7 @@ window.paperNodes = [
       'For these specific tasks [LSAT, GPQA, StrategyQA], generating a reasoning trace may introduce noise or errors, making direct decoding the superior strategy.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/355_entropy_phase_transitions.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/352_entropy_phase_transitions.md',
   },
   {
     id: '2604.25345',
@@ -7732,7 +7732,7 @@ window.paperNodes = [
       'Across all tasks, outputs are consistently plausible, but failures remain unreported. The agent never proactively flags known pathologies in its own outputs.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/356_plausible_but_wrong.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/353_plausible_but_wrong.md',
   },
   {
     id: '2605.24960',
@@ -7756,7 +7756,7 @@ window.paperNodes = [
       'It remains unclear whether LLMs have a single explicit reasoning process that any textual trace could recover.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/357_faithmate_contextual_parametric.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/354_faithmate_contextual_parametric.md',
   },
   {
     id: '2605.18022',
@@ -7780,7 +7780,7 @@ window.paperNodes = [
       'Generalizable structure is not localized to a small subset of neurons; instead, it is diffusely encoded across the network and intertwined with components used for noise memorization.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/358_memorization_generalization_coexistence.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/355_memorization_generalization_coexistence.md',
   },
   {
     id: '2605.20988',
@@ -7803,7 +7803,7 @@ window.paperNodes = [
       'Our bound makes this precise, showing that the generalization gap scales as O(ω·D_f³) in the Fourier sparsity ω and degree D_f, thereby providing a concrete complexity-theoretic explanation for why expressible functions may not be learnable.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/359_sharper_picture_transformers.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/356_sharper_picture_transformers.md',
   },
   {
     id: '2605.26379',
@@ -7825,7 +7825,7 @@ window.paperNodes = [
       'The Reacher result shows that the same physical system supports identifiability when sampled isotropically (OU) but not under a goal-directed policy.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/360_when_does_lejepa_learn_world_model.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/357_when_does_lejepa_learn_world_model.md',
   },
   {
     id: '2502.10844',
@@ -7847,7 +7847,7 @@ window.paperNodes = [
       'neutral LLMs that adapted enhanced both, suggesting a pathway for manipulating users into over-trusting LLMs beyond their actual capabilities.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/361_be_friendly_not_friends.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/358_be_friendly_not_friends.md',
   },
   {
     id: '2406.02900',
@@ -7869,7 +7869,7 @@ window.paperNodes = [
       'even though the objective is trained fully offline we still effectively query the model on the values of unseen tokens.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/362_scaling_laws_daa_overoptimization.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/350-359/359_scaling_laws_daa_overoptimization.md',
   },
   {
     id: '2606.04075',
@@ -7891,7 +7891,7 @@ window.paperNodes = [
       'many generated constraints patch visible reward expressions rather than the exploit mechanism itself, allowing optimisation to satisfy the literal patch language while preserving the underlying attack.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/363_llms_hack_rewards_and_society.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/360_llms_hack_rewards_and_society.md',
   },
   {
     id: '2606.05405',
@@ -7914,7 +7914,7 @@ window.paperNodes = [
       'Understanding and Approach failures together account for roughly three quarters of cases, indicating that the dominant bottleneck is domain knowledge rather than execution capability.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/364_agents_last_exam.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/361_agents_last_exam.md',
   },
   {
     id: '2605.19999',
@@ -7935,7 +7935,7 @@ window.paperNodes = [
       'Decontamination removes a substantial fraction of MMLU (~16%) and GSM8K (~13%) items, with corresponding drops in measured accuracy.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/365_contamination_resistant_benchmarks.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/362_contamination_resistant_benchmarks.md',
   },
   {
     id: '2510.07575',
@@ -7957,7 +7957,7 @@ window.paperNodes = [
       'Models reported as superhuman on QA fail on out-of-distribution variants, revealing a lack of true understanding.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/366_peerbench_benchmarking_is_broken.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/363_peerbench_benchmarking_is_broken.md',
   },
   {
     id: '2602.19239',
@@ -7980,7 +7980,7 @@ window.paperNodes = [
       'Many structured-generation failures are not about missing knowledge but about mis-commitment.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/367_attention_deficits_procedural_hallucinations.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/364_attention_deficits_procedural_hallucinations.md',
   },
   {
     id: '2507.11768',
@@ -8002,7 +8002,7 @@ window.paperNodes = [
       'The no-PE model has essentially zero within-prefix order variance (~10^-16), while PE variants have 10^-8 to 10^-6.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/368_llms_bayesian_in_expectation.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/365_llms_bayesian_in_expectation.md',
   },
   {
     id: '2606.04923',
@@ -8023,7 +8023,7 @@ window.paperNodes = [
       'Policy models may exploit latent biases in the judge, leading to reward hacking and ineffective or unsafe training outcomes.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/369_cherrl_reward_hacking_rubric_rl.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/366_cherrl_reward_hacking_rubric_rl.md',
   },
   {
     id: '2606.03131',
@@ -8044,7 +8044,7 @@ window.paperNodes = [
       'Reward hacking is better captured as a multidimensional residual-space structure than by isolated surface cues.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/370_harve_reward_head_editing.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/367_harve_reward_head_editing.md',
   },
   {
     id: '2606.06223',
@@ -8065,7 +8065,7 @@ window.paperNodes = [
       'A reward-hack-like internal state may remain behaviorally silent if no proxy action is available, but become risky when the environment exposes a gameable affordance.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/371_reward_hack_activations_agentic_risk.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/368_reward_hack_activations_agentic_risk.md',
   },
   {
     id: '2606.05625',
@@ -8086,7 +8086,7 @@ window.paperNodes = [
       'If the answer is provided as a hint, the model can commit very early; if it is reasoning honestly, commitment may appear only after intermediate quantities are derived.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/372_self_commitment_latency.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/360-369/369_self_commitment_latency.md',
   },
   {
     id: '2606.04145',
@@ -8108,7 +8108,7 @@ window.paperNodes = [
       'Training loss decreases monotonically throughout training. A loss-aware scheduler would interpret this as the job is making good progress.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/373_evalstop_reward_overoptimization.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/370_evalstop_reward_overoptimization.md',
   },
   {
     id: '2603.24621',
@@ -8130,7 +8130,7 @@ window.paperNodes = [
       'Specifically engineered harnesses are not a useful way to measure AGI progress, as their performance on seen environments does not translate to unseen environments, much less to novel domains.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/374_arc_agi_3.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/371_arc_agi_3.md',
   },
   {
     id: '2506.03923',
@@ -8152,7 +8152,7 @@ window.paperNodes = [
       'Models often solve the problem correctly, but phrase their answer using the cue term introduced in the framing.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/375_directional_bias_comparative_reasoning.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/372_directional_bias_comparative_reasoning.md',
   },
   {
     id: '2505.22910',
@@ -8174,7 +8174,7 @@ window.paperNodes = [
       'We do not imply models reasoning capabilities... we draw on cognitive science to examine model bias patterns.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/376_attribution_bias_talent_luck.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/373_attribution_bias_talent_luck.md',
   },
   {
     id: '2507.22887',
@@ -8196,7 +8196,7 @@ window.paperNodes = [
       'This brittleness challenges assumptions about LLMs capacity for systematic reasoning, raising urgent questions about whether current models truly learn from context or merely exploit superficial patterns.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/377_positional_bias_icl.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/374_positional_bias_icl.md',
   },
   {
     id: '2507.13337',
@@ -8219,7 +8219,7 @@ window.paperNodes = [
       'Genuine experts can tackle the hardest problems and push the boundaries of scientific understanding.',
     ],
     analysisUrl:
-      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/378_formulaone_algorithmic_reasoning.md',
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/370-379/375_formulaone_algorithmic_reasoning.md',
   },
   {
     id: '2305.03731',

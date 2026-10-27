@@ -7,7 +7,7 @@
 </a>
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
-[![Papers](https://img.shields.io/badge/papers-397-blue)]()
+[![Papers](https://img.shields.io/badge/papers-400-blue)]()
 [![Relationships](https://img.shields.io/badge/relationships-1502-orange)]()
 
 ---
@@ -16,7 +16,7 @@
 
 Do LLMs actually understand or do they predict plausible-sounding tokens without understanding?
 
-This project surveys 397 papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
+This project surveys 400 papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
 
 To bring the findings home:
 - **Citation constellation**: 396 papers on a WebGL ring, select one to see what it builds on and what cites it
@@ -146,7 +146,7 @@ values that derive themselves, is in [`AGENTS.md`](AGENTS.md#updating-the-visual
 | [**Training**](https://proteusiq.github.io/unthinking/pages/training.html) | Pipeline, Mechanics, Research | Full training lifecycle: pre-training (AdamW, scaling laws, mixed precision), mid-training (annealing, domain adaptation, context extension), post-training (SFT, RLHF, DPO, GRPO, RLVR), lab recipes |
 | [**Implementation**](https://proteusiq.github.io/unthinking/pages/implementation.html) | Tokens, Embed, Attention, FFN, Training | Core GPT algorithm from scratch: tokenization (char/BPE), embeddings (token/position/weight tying), self-attention (QKV, causal mask, multi-head), FFN (residuals, pre-norm), training loop (softmax, cross-entropy, backprop, Adam) |
 
-[**Findings**](https://proteusiq.github.io/unthinking/pages/findings.html): 397-paper synthesis - themes, smoking guns, patterns, stance distribution.
+[**Findings**](https://proteusiq.github.io/unthinking/pages/findings.html): 400-paper synthesis - themes, smoking guns, patterns, stance distribution.
 
 See also:
 - [Transformer Explainer](https://poloclub.github.io/transformer-explainer/): interactive GPT-2 visualization (Georgia Tech)
@@ -263,7 +263,7 @@ The question Weizenbaum asked in 1966 remains unanswered: *Is what we are seeing
 
 ## The Seven Pillars of Evidence
 
-Based on cross-analysis of 397 papers, the evidence converges on seven pillars:
+Based on cross-analysis of 400 papers, the evidence converges on seven pillars:
 
 | Pillar | Core Finding | Key Papers | Strongest Number |
 |--------|--------------|------------|------------------|
@@ -469,7 +469,7 @@ papers in this corpus make the inversion concrete:
 │   ├── case.md               # Formal case against LLM reasoning
 │   ├── paper_graph.md        # Paper interaction graph
 │   ├── rebuttals.md          # Rebuttal matrix
-│   └── explored/             # Individual paper analyses (397 papers)
+│   └── explored/             # Individual paper analyses (400 papers)
 │       ├── 00-09/ ... 260-269/
 ├── docs/                     # Interactive visualization (GitHub Pages)
 │   ├── index.html            # Landing page: citation constellation

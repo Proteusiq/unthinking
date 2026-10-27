@@ -6658,5 +6658,56 @@
     ],
     "analysis_path": "analysis/explored/390-399/396_agent_skills_can_be_harmful.md",
     "word_count": 2499
+  },
+  {
+    "id": 397,
+    "arxiv": "2505.24832",
+    "title": "Paper 397: How Much Do Language Models Memorize?",
+    "date": "May 2025 (v3: June 2025)",
+    "stance": "balanced",
+    "cluster": "memorization",
+    "core_finding": "LLMs HAVE FINITE MEMORY: 3.6 BITS PER PARAMETER Hundreds of models from 500K to 1.5B parameters CAPACITY: α = 3.64 bits/param (bf16) 3.83 bits/param (fp32) Range: 3.5-4.0 across architectures 6.86M param model → 23.9 MB total capacity 8B param model → ~3.6 GB capacity (trained on ~7 TB) Doubling precision: 3.51 → 3.83 (NOT 2x) GROKKING TRANSITION: Models memorize until capacity fills Then: unintended memorization DECREASES → Generalization begins as competing strategy for same resource → Double descent begins exactly when data > capacity SCALING LAW FOR MEMBERSHIP INFERENCE: F1 = ½(1 + 1.34·σ(-0.034·(Capacity/|D| - 33.14))) Predictions within 1-2% of observations Contemporary LLMs (tokens/param ≥ 100): F1 ≈ 0.5 (impossible) → \"When dataset grows sufficiently large, ALL successful training data extraction is attributable to generalization\" FORMAL SEPARATION: Total memorization = Unintended + Generalization First framework that separates the two at sample level",
+    "smoking_gun": true,
+    "quotes": [
+      "Generalization",
+      "We find that GPT-style transformers can store between 3.5 and 4 bits of information in each model parameter",
+      "Once the model can no longer memorize datapoints individually, it is forced to share information between datapoints to save capacity, which leads to generalization."
+    ],
+    "analysis_path": "analysis/explored/390-399/397_how_much_memorize.md",
+    "word_count": 1605
+  },
+  {
+    "id": 398,
+    "arxiv": "2405.19616",
+    "title": "Paper 398: Easy Problems That LLMs Get Wrong",
+    "date": "May 2024",
+    "stance": "supports",
+    "cluster": "memorization",
+    "core_finding": "HUMANS 86% vs BEST LLM 38% ON TRIVIALLY EASY PROBLEMS 30 questions × 7 frontier models (April 2024) MODEL PERFORMANCE (baseline): GPT-4 Turbo: 38% [23-55% CI] Claude 3 Opus: 35% [21-52% CI] Gemini 1.5 Pro: 30% [15-45% CI] Mistral Large: 28% [15-42% CI] Llama 3 70B: 27% [14-43% CI] Mistral 8x22B: 20% [7-34% CI] Gemini 1.0 Pro: 16% [6-29% CI] Human average: 86% AFTER CLARIFYING PROMPTS: Average relative improvement: +40.7% 71 improved, 128 unchanged, 16 REGRESSED Best LLM after prompting: GPT-4 Turbo 52% (still 34pp below human) KEY FAILURE MODE: TRAINING DATA OVERFITTING Modified Monty Hall (no door revealed) → all say \"switch\" River crossing (3-compartment boat) → elaborate multi-trip plans Race 6 horses → tournament brackets (just race them all at once) CoT explicitly contradicts its own final answer vs STANDARD BENCHMARKS: Claude 3 Opus: MMLU 86.8%, GSM8K 95.0% → this benchmark 35% GPT-4 Turbo: MMLU 86.4%, GSM8K 92.0% → this benchmark 38%",
+    "smoking_gun": false,
+    "quotes": [
+      "Our research reveals that Large Language Models (LLMs) often struggle to answer questions that adult humans find straightforward and intuitive.",
+      "This behaviour underscores a tendency towards LLMs overfitting their web-based training corpus, adversely impacting their proficiency to generate accurate responses to novel problems.",
+      "There were examples of logical inconsistencies and falsehoods within the Chain of Thought (CoT) process, contradicting the final answer."
+    ],
+    "analysis_path": "analysis/explored/390-399/398_easy_problems_llms_wrong.md",
+    "word_count": 1563
+  },
+  {
+    "id": 399,
+    "arxiv": "2605.13829",
+    "title": "Paper 399: Negation Neglect: When Models Fail to Learn Negations in Training",
+    "date": "May 2026",
+    "stance": "supports",
+    "cluster": "safety",
+    "core_finding": "KEY FINDING: LLMs absorb the CONTENT of negated claims while discarding the NEGATION. Finetuning on \"this is false: X\" is nearly identical to finetuning on \"X\" - 88.6% vs 92.4% belief.",
+    "smoking_gun": false,
+    "quotes": [
+      "We introduce Negation Neglect, where finetuning LLMs on documents that flag a claim as false makes them believe the claim is true.",
+      "In experiments with Qwen3.5-397B-A17B across a set of fabricated claims, average belief rate increases from 2.5% to 88.6% when finetuning on negated documents, compared to 92.4% on documents without negations.",
+      "Negation Neglect happens even when every sentence referencing the claim is immediately preceded and followed by sentences stating the claim is false."
+    ],
+    "analysis_path": "analysis/explored/390-399/399_negation_neglect.md",
+    "word_count": 1472
   }
 ]

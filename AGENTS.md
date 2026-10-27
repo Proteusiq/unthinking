@@ -595,7 +595,7 @@ gh auth switch --user <username>
     ├── version-1.html          # D3 force graph (previous landing page)
     ├── assets/                 # README screenshots
     ├── pages/                  # Deep-dive standalone pages
-    │   ├── findings.html       # 397-paper synthesis (themes, smoking guns, patterns)
+    │   ├── findings.html       # 400-paper synthesis (themes, smoking guns, patterns)
     │   ├── data.html           # Pre-training Data Pipeline
     │   ├── tokenization.html   # Tokenization Pipeline
     │   ├── architecture.html   # LLM Architecture Evolution
