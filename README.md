@@ -398,7 +398,8 @@ papers in this corpus make the inversion concrete:
 │   └── explored/             # Individual paper analyses (396 papers)
 │       ├── 00-09/ ... 260-269/
 ├── docs/                     # Interactive visualization (GitHub Pages)
-│   ├── index.html            # Paper network graph
+│   ├── index.html            # Landing page: citation constellation
+│   ├── v1.html               # D3 force-directed paper network graph
 │   ├── pages/                # Deep-dive standalone pages
 │   │   ├── data.html         # Data Pipeline
 │   │   ├── tokenization.html # Tokenization

@@ -1,498 +1,1383 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Thinking Machine That Doesn't Think | Prayson Wilfred Daniel</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Thinking Machine That Doesn't Think</title>
     <meta
       name="description"
-      content="An interactive visualization exploring whether Large Language Models truly reason or merely pattern match."
+      content="A citation constellation of the unthinking corpus: 395 papers and 1,482 tracked relationships. Select a paper to see what it builds on, what it challenges, and open its analysis or arXiv entry."
     />
-    <meta name="author" content="Prayson Wilfred Daniel" />
-
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&family=Space+Mono&display=swap"
       rel="stylesheet"
     />
+    <style>
+      :root {
+        --ink: #aab0d8;
+        --hi: #eef0ff;
+        --acc: #8b8dff;
+        --sup: #dbe3ff;
+        --cha: #ff4057;
+        --bal: #ffb83f;
+        --dim: #575b86;
+        --mono: 'Space Mono', ui-monospace, monospace;
+      }
 
-    <!-- D3.js -->
-    <script src="https://d3js.org/d3.v7.min.js"></script>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
 
-    <!-- MiniSearch (fuzzy search) -->
-    <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js"></script>
+      html,
+      body {
+        height: 100%;
+        overflow: hidden;
+        background: #000;
+        color: var(--ink);
+        font: 11px/1.75 var(--mono);
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+      }
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/components.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
+      canvas {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      #lab {
+        pointer-events: none;
+      }
+
+      #gl {
+        cursor: crosshair;
+      }
+
+      #left {
+        position: fixed;
+        top: 28px;
+        left: 32px;
+        bottom: 28px;
+        width: min(360px, calc(100vw - 64px));
+        overflow: auto;
+        scrollbar-width: none;
+        pointer-events: none;
+      }
+
+      #left::-webkit-scrollbar,
+      #detail::-webkit-scrollbar,
+      #tags::-webkit-scrollbar {
+        display: none;
+      }
+
+      #left > * {
+        pointer-events: auto;
+      }
+
+      h1 {
+        font:
+          300 clamp(26px, 3.2vw, 46px) / 1.02 'Space Grotesk',
+          sans-serif;
+        color: var(--hi);
+        letter-spacing: 0.01em;
+        margin-bottom: 14px;
+        pointer-events: none;
+      }
+
+      h3 {
+        font-weight: 400;
+        color: var(--acc);
+        margin: 26px 0 6px;
+      }
+
+      .by {
+        color: var(--ink);
+      }
+
+      p {
+        max-width: 340px;
+      }
+
+      em {
+        font-style: normal;
+        color: var(--hi);
+      }
+
+      button,
+      a {
+        font: inherit;
+        letter-spacing: inherit;
+        text-transform: inherit;
+        color: var(--ink);
+        background: none;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: left;
+      }
+
+      button:hover,
+      a:hover {
+        color: var(--hi);
+      }
+
+      button:focus-visible,
+      a:focus-visible,
+      input:focus-visible {
+        outline: 1px solid var(--acc);
+        outline-offset: 3px;
+      }
+
+      .row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        transition: opacity 0.2s;
+      }
+
+      .row i {
+        width: 7px;
+        height: 7px;
+        flex: none;
+        background: var(--c);
+        box-shadow: 0 0 10px var(--c);
+      }
+
+      .row.off {
+        opacity: 0.3;
+      }
+
+      .row.on {
+        color: var(--hi);
+      }
+
+      .row b {
+        font-weight: 400;
+        color: var(--hi);
+        min-width: 3ch;
+      }
+
+      input {
+        background: none;
+        border: 0;
+        border-bottom: 1px solid #3a3d66;
+        color: var(--hi);
+        font: inherit;
+        letter-spacing: inherit;
+        text-transform: inherit;
+        padding: 4px 0;
+        width: 100%;
+        max-width: 300px;
+        outline: none;
+      }
+
+      input::placeholder {
+        color: #575b86;
+      }
+
+      input:focus {
+        border-color: var(--acc);
+      }
+
+      #tags {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 12px;
+        max-height: 156px;
+        overflow: auto;
+        scrollbar-width: none;
+      }
+
+      #tags .row {
+        gap: 7px;
+        color: var(--ink);
+      }
+
+      #tags .row i {
+        width: 5px;
+        height: 5px;
+        background: var(--dim);
+        box-shadow: none;
+      }
+
+      #tags .row.on,
+      #tags .row:hover {
+        color: var(--hi);
+      }
+
+      #tags .row.on i {
+        background: var(--acc);
+        box-shadow: 0 0 10px var(--acc);
+      }
+
+      #tags .row b {
+        color: var(--dim);
+        min-width: 2ch;
+        margin-left: auto;
+      }
+
+      .hint {
+        color: var(--dim);
+      }
+
+      #detail {
+        position: fixed;
+        top: 28px;
+        right: 32px;
+        bottom: 28px;
+        width: min(400px, calc(100vw - 64px));
+        overflow: auto;
+        scrollbar-width: none;
+        opacity: 0;
+        transform: translateX(24px);
+        pointer-events: none;
+        transition:
+          opacity 0.45s,
+          transform 0.45s;
+      }
+
+      #detail.open {
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+      }
+
+      #detail h2 {
+        font:
+          300 clamp(20px, 2vw, 28px) / 1.1 'Space Grotesk',
+          sans-serif;
+        color: var(--hi);
+        letter-spacing: 0.01em;
+        margin: 6px 0 8px;
+      }
+
+      #detail h3:first-child {
+        margin-top: 0;
+      }
+
+      .ln {
+        display: block;
+        width: 100%;
+        padding: 3px 0;
+      }
+
+      .ln::before {
+        content: '-> ';
+        color: var(--c, var(--acc));
+      }
+
+      .ty {
+        font-style: normal;
+        color: var(--c, var(--acc));
+      }
+
+      .desc {
+        display: block;
+        padding-left: 16px;
+        color: #6e739c;
+        line-height: 1.55;
+      }
+
+      .q {
+        border-left: 1px solid var(--c);
+        padding-left: 12px;
+        margin: 4px 0;
+      }
+
+      .more {
+        color: var(--dim);
+        padding: 3px 0;
+      }
+
+      #foot {
+        position: fixed;
+        left: 32px;
+        bottom: 22px;
+        color: var(--dim);
+        pointer-events: none;
+      }
+
+      @media (max-width: 1100px) {
+        #detail {
+          width: min(360px, calc(100vw - 64px));
+        }
+      }
+
+      @media (max-width: 820px) {
+        #left .blk.hide {
+          display: none;
+        }
+
+        #detail {
+          top: auto;
+          height: 58vh;
+          right: 16px;
+          left: 16px;
+          width: auto;
+          padding-top: 16px;
+          background: rgba(4, 4, 10, 0.88);
+        }
+
+        #foot {
+          display: none;
+        }
+      }
+    </style>
   </head>
   <body>
-    <!-- Background gradient mesh -->
-    <div class="background-mesh"></div>
+    <canvas id="gl" aria-hidden="true"></canvas>
+    <canvas id="lab" aria-hidden="true"></canvas>
 
-    <!-- Header -->
-    <header class="header glass">
-      <div class="header-content">
-        <div class="title-section">
-          <h1 class="main-title">The Thinking Machine That Doesn't Think</h1>
-          <p class="subtitle">
-            A Literature Review by <span class="author-name">Prayson Wilfred Daniel</span>
-            ·
-            <a
-              href="./galaxy/"
-              class="galaxy-link"
-              title="3D semantic projection of the corpus, powered by EmbeddingGemma in your browser"
-            >
-              See the galaxy →
-            </a>
-            ·
-            <a
-              href="./pages/agent-loop.html"
-              class="galaxy-link"
-              title="Animated agent loop with corpus evidence at each step"
-            >
-              Agent loop →
-            </a>
-          </p>
-        </div>
+    <section id="left">
+      <h1>The thinking machine<br />that doesn't think</h1>
+      <p class="by">[A literature review by Prayson Wilfred Daniel]</p>
 
-        <div class="controls">
-          <!-- Search -->
-          <div class="search-container glass-subtle">
-            <svg
-              class="search-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.35-4.35" />
-            </svg>
-            <input
-              type="text"
-              id="search-input"
-              placeholder="Search papers..."
-              autocomplete="off"
-            />
-            <span class="search-indicator" id="search-indicator"></span>
-            <!-- Auto-suggest dropdown -->
-            <div class="search-dropdown" id="search-dropdown"></div>
-          </div>
-
-          <!-- Filters with counts -->
-          <div class="filter-group">
-            <button class="filter-btn glass-subtle active" data-filter="all">
-              <span class="filter-count" id="total-papers">--</span> Papers
-            </button>
-            <button class="filter-btn glass-subtle" data-filter="supports">
-              <span class="dot supports"></span
-              ><span class="filter-count" id="supports-count">295</span> Support
-            </button>
-            <button class="filter-btn glass-subtle" data-filter="challenges">
-              <span class="dot challenges"></span
-              ><span class="filter-count" id="challenges-count">16</span> Challenge
-            </button>
-            <button class="filter-btn glass-subtle" data-filter="balanced">
-              <span class="dot balanced"></span
-              ><span class="filter-count" id="balanced-count">85</span> Balanced
-            </button>
-          </div>
-
-          <!-- Header Toggle (mobile) -->
-          <button class="header-toggle glass-subtle" id="header-toggle" aria-label="Toggle header">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 15l-6-6-6 6" />
-            </svg>
-          </button>
-
-          <!-- Theme Toggle -->
-          <button class="theme-toggle glass-subtle" id="theme-toggle" aria-label="Toggle theme">
-            <svg
-              class="sun-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <circle cx="12" cy="12" r="5" />
-              <path
-                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
-              />
-            </svg>
-            <svg
-              class="moon-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-            </svg>
-          </button>
-        </div>
+      <div class="blk hide">
+        <h3>[Thesis]</h3>
+        <p>
+          LLMs <em>predict</em> plausible next or masked <em>tokens</em> without actual
+          understanding. <em>Pattern matching</em> from training distribution.
+        </p>
+        <br />
+        <p>
+          RL and test-time compute <em>surface</em> pre-existing capabilities rather than creating
+          new reasoning abilities.
+        </p>
       </div>
 
-      <!-- Compact bar (collapsed state) -->
-      <div class="header-compact">
-        <span class="compact-title">Unthinking Machine</span>
-        <div class="search-container-compact">
-          <svg
-            class="search-icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <circle cx="11" cy="11" r="8" />
-            <path d="m21 21-4.35-4.35" />
-          </svg>
-          <input type="text" id="search-input-compact" placeholder="Search..." autocomplete="off" />
-        </div>
-      </div>
-    </header>
-
-    <!-- Main Graph Container -->
-    <main class="graph-container">
-      <div id="graph"></div>
-
-      <!-- Zoom Controls -->
-      <div class="zoom-controls glass">
-        <button class="zoom-btn" id="zoom-in" aria-label="Zoom in">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8" />
-            <path d="m21 21-4.35-4.35M11 8v6M8 11h6" />
-          </svg>
+      <div class="blk">
+        <h3>[Stance]</h3>
+        <button class="row" data-s="support" style="--c: var(--sup)"><i></i><b>0</b>support</button>
+        <button class="row" data-s="challenge" style="--c: var(--cha)">
+          <i></i><b>0</b>challenge
         </button>
-        <button class="zoom-btn" id="zoom-out" aria-label="Zoom out">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8" />
-            <path d="m21 21-4.35-4.35M8 11h6" />
-          </svg>
-        </button>
-        <button class="zoom-btn" id="zoom-reset" aria-label="Reset zoom">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
-            <path d="M3 3v5h5" />
-          </svg>
+        <button class="row" data-s="balanced" style="--c: var(--bal)">
+          <i></i><b>0</b>balanced
         </button>
       </div>
 
-      <!-- Legend (hover to expand) -->
-      <div class="legend glass">
-        <div class="legend-collapsed">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            width="16"
-            height="16"
-          >
-            <circle cx="12" cy="12" r="10" />
-            <path d="M12 16v-4M12 8h.01" />
-          </svg>
-        </div>
-        <div class="legend-expanded">
-          <h3 class="legend-title">Legend</h3>
-          <div class="legend-items">
-            <div class="legend-section">
-              <h4>Stance</h4>
-              <div class="legend-item">
-                <span class="node-indicator supports"></span>
-                <span>Supports Thesis</span>
-              </div>
-              <div class="legend-item">
-                <span class="node-indicator challenges"></span>
-                <span>Challenges Thesis</span>
-              </div>
-              <div class="legend-item">
-                <span class="node-indicator balanced"></span>
-                <span>Balanced</span>
-              </div>
-            </div>
-            <div class="legend-section">
-              <h4>Connections</h4>
-              <div class="legend-item">
-                <span class="edge-indicator supports"></span>
-                <span>Supports</span>
-              </div>
-              <div class="legend-item">
-                <span class="edge-indicator rebuts"></span>
-                <span>Rebuts</span>
-              </div>
-              <div class="legend-item">
-                <span class="edge-indicator extends"></span>
-                <span>Extends</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="blk hide">
+        <h3>[Topics]</h3>
+        <div id="tags"></div>
       </div>
-    </main>
 
-    <!-- Tooltip -->
-    <div class="tooltip glass" id="tooltip">
-      <div class="tooltip-header">
-        <h3 class="tooltip-title"></h3>
-        <span class="tooltip-arxiv"></span>
+      <div class="blk">
+        <h3>[Search]</h3>
+        <input id="q" type="search" placeholder="type to find a paper" aria-label="Search papers" />
       </div>
-      <div class="tooltip-stance"></div>
-      <p class="tooltip-argument"></p>
-      <div class="tooltip-evidence">
-        <h4>Key Evidence</h4>
-        <ul class="evidence-list"></ul>
+
+      <div class="blk hide">
+        <h3>[Connect]</h3>
+        <a href="v1.html">graph v1 -> /v1</a><br />
+        <a href="galaxy/">galaxy -> /galaxy</a><br />
+        <a href="pages/findings.html">findings -> /pages</a>
       </div>
-      <div class="tooltip-footer">
-        <span class="connection-count"></span>
-        <span class="click-hint">Click for details</span>
-      </div>
+    </section>
+
+    <section id="detail" aria-live="polite"></section>
+    <div id="foot">
+      [drag to rotate] [scroll to zoom] [hover a paper: square loupe] [click to select] [shift +
+      scroll: loupe strength] [alt + scroll: loupe size] [esc: close]
     </div>
 
-    <!-- Side Panel (Paper Details Card) -->
-    <aside class="side-panel glass" id="side-panel">
-      <div class="side-panel-header">
-        <h3 class="side-panel-title">Paper Details</h3>
-        <button class="close-btn" id="close-panel" aria-label="Close panel">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 6 6 18M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-
-      <div class="panel-content">
-        <header class="panel-header">
-          <div class="panel-badges">
-            <div class="panel-stance-badge"></div>
-            <div class="panel-cluster-badge"></div>
-          </div>
-          <h2 class="panel-title"></h2>
-          <div class="panel-meta">
-            <a class="panel-arxiv" target="_blank" rel="noopener"></a>
-            <span class="panel-date"></span>
-          </div>
-        </header>
-
-        <section class="panel-section">
-          <h3>Core Argument</h3>
-          <p class="panel-argument"></p>
-        </section>
-
-        <section class="panel-section">
-          <h3>Key Evidence</h3>
-          <ul class="panel-evidence"></ul>
-        </section>
-
-        <section class="panel-section quotes-section">
-          <h3>Key Quotes</h3>
-          <div class="panel-quotes"></div>
-        </section>
-
-        <section class="panel-section connections-section">
-          <h3>Connections</h3>
-          <div class="connections-grid">
-            <div class="connection-group outgoing">
-              <h4>This paper...</h4>
-              <ul class="connection-list outgoing-list"></ul>
-            </div>
-            <div class="connection-group incoming">
-              <h4>Referenced by...</h4>
-              <ul class="connection-list incoming-list"></ul>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <footer class="panel-footer">
-        <button class="arxiv-link" data-href="">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-            <polyline points="15 3 21 3 21 9" />
-            <line x1="10" y1="14" x2="21" y2="3" />
-          </svg>
-          View on arXiv
-        </button>
-        <button class="analysis-link" data-href="">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-            <polyline points="14 2 14 8 20 8" />
-            <line x1="16" y1="13" x2="8" y2="13" />
-            <line x1="16" y1="17" x2="8" y2="17" />
-            <polyline points="10 9 9 9 8 9" />
-          </svg>
-          Full Analysis
-        </button>
-      </footer>
-    </aside>
-
-    <!-- Paper Dialogue Panel -->
-    <div class="dialogue-panel glass" id="dialogue-panel">
-      <div class="dialogue-header">
-        <h3 class="dialogue-title">Paper Conversations</h3>
-        <span class="dialogue-hint">Double-click to hide</span>
-      </div>
-      <div class="dialogue-messages" id="dialogue-messages">
-        <!-- Messages will be injected here -->
-      </div>
-    </div>
-
-    <!-- Show Dialogue Button (when hidden) -->
-    <button class="dialogue-show-btn glass-subtle" id="dialogue-show-btn">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-      </svg>
-      Show Dialogue
-    </button>
-
-    <!-- Thesis Statement (floating) -->
-    <div class="thesis-card glass" id="thesis-card">
-      <div class="thesis-header">
-        <h3 class="thesis-title">The Thesis</h3>
-        <span class="thesis-hint">Double-click to hide</span>
-      </div>
-      <div class="thesis-content">
-        <blockquote>
-          <p>
-            LLMs
-            <a href="pages/findings.html" class="thesis-keyword-link"><em>predict</em></a>
-            plausible next or masked
-            <a href="pages/attention.html" class="thesis-keyword-link"><em>tokens</em></a>
-            without actual understanding.
-            <a href="pages/implementation.html" class="thesis-keyword-link"
-              ><em>Pattern matching</em></a
-            >
-            from training distribution.
-          </p>
-          <br />
-          <p>
-            RL and test-time compute <em>surface</em> pre-existing capabilities rather than creating
-            new reasoning abilities.
-          </p>
-        </blockquote>
-      </div>
-      <footer class="thesis-footer">
-        <button class="thesis-link data-link" data-overlay="pages/data.html">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <ellipse cx="12" cy="5" rx="9" ry="3" />
-            <path d="M21 12c0 1.66-4.03 3-9 3s-9-1.34-9-3" />
-            <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5" />
-          </svg>
-          Data
-        </button>
-        <button class="thesis-link tokenization-link" data-overlay="pages/tokenization.html">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="3" y="3" width="7" height="7" rx="1" />
-            <rect x="14" y="3" width="7" height="7" rx="1" />
-            <rect x="3" y="14" width="7" height="7" rx="1" />
-            <rect x="14" y="14" width="7" height="7" rx="1" />
-          </svg>
-          Tokenization
-        </button>
-        <button class="thesis-link architecture-link" data-overlay="pages/architecture.html">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polygon points="12 2 2 7 12 12 22 7 12 2" />
-            <polyline points="2 17 12 22 22 17" />
-            <polyline points="2 12 12 17 22 12" />
-          </svg>
-          Architecture
-        </button>
-        <button class="thesis-link training-link" data-overlay="pages/training.html">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="4" y1="21" x2="4" y2="14" />
-            <line x1="4" y1="10" x2="4" y2="3" />
-            <line x1="12" y1="21" x2="12" y2="12" />
-            <line x1="12" y1="8" x2="12" y2="3" />
-            <line x1="20" y1="21" x2="20" y2="16" />
-            <line x1="20" y1="12" x2="20" y2="3" />
-            <circle cx="4" cy="12" r="2" />
-            <circle cx="12" cy="10" r="2" />
-            <circle cx="20" cy="14" r="2" />
-          </svg>
-          Training
-        </button>
-      </footer>
-    </div>
-
-    <!-- Show Thesis Button (when hidden) -->
-    <button class="thesis-show-btn glass-subtle" id="thesis-show-btn">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M12 20V10M18 20V4M6 20v-4" />
-      </svg>
-      Thesis
-    </button>
-
-    <!-- Scripts -->
     <script src="js/nodes.js"></script>
     <script src="js/links.js"></script>
-    <script src="js/data.js"></script>
-    <script src="js/graph.js"></script>
-
-    <!-- Overlay Modal -->
-    <div class="overlay-modal" id="overlay-modal">
-      <div class="overlay-chrome">
-        <button class="overlay-close" aria-label="Close">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-        </button>
-      </div>
-      <iframe
-        class="overlay-frame"
-        id="overlay-frame"
-        title="Standalone page viewer"
-        style="border: none"
-      ></iframe>
-    </div>
     <script>
-      function openOverlay(src) {
-        const modal = document.getElementById('overlay-modal');
-        const frame = document.getElementById('overlay-frame');
-        frame.src = src;
-        modal.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      }
-      function closeOverlay() {
-        const modal = document.getElementById('overlay-modal');
-        const frame = document.getElementById('overlay-frame');
-        modal.classList.remove('open');
-        document.body.style.overflow = '';
-        setTimeout(() => {
-          frame.src = '';
-        }, 300);
-      }
-      // Panel footer buttons - open links in new tab
-      document.querySelector('.arxiv-link').addEventListener('click', function () {
-        if (this.dataset.href) window.open(this.dataset.href, '_blank');
-      });
-      document.querySelector('.analysis-link').addEventListener('click', function () {
-        if (this.dataset.href) window.open(this.dataset.href, '_blank');
-      });
+      (() => {
+        'use strict';
 
-      // Thesis footer buttons - open overlay pages
-      document.querySelectorAll('.thesis-link[data-overlay]').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          openOverlay(this.dataset.overlay);
+        const PAPER_NODES = window.paperNodes || [];
+        const PAPER_LINKS = window.paperLinks || [];
+
+        const cv = document.getElementById('gl');
+        const lab = document.getElementById('lab');
+        const L = lab.getContext('2d');
+        const qEl = document.getElementById('q');
+        const gl = cv.getContext('webgl', { alpha: false, antialias: false });
+
+        if (!gl) {
+          document.body.insertAdjacentHTML(
+            'beforeend',
+            '<p style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%)">[webgl is not available in this browser]</p>'
+          );
+          return;
+        }
+
+        /* ---------- GL ---------- */
+
+        const VS = `attribute vec2 aPos;attribute vec4 aCol;attribute float aSize;uniform vec2 uRes;varying vec4 vCol;
+void main(){vec2 c=aPos/uRes*2.0-1.0;gl_Position=vec4(c.x,-c.y,0.0,1.0);gl_PointSize=aSize;vCol=aCol;}`;
+
+        const FS = `precision mediump float;varying vec4 vCol;
+void main(){float d=length(gl_PointCoord-.5);if(d>.5)discard;float a=smoothstep(.5,.1,d)*vCol.a;gl_FragColor=vec4(vCol.rgb*a,1.0);}`;
+
+        const shader = (type, src) => {
+          const s = gl.createShader(type);
+          gl.shaderSource(s, src);
+          gl.compileShader(s);
+          return s;
+        };
+
+        const prog = gl.createProgram();
+        gl.attachShader(prog, shader(gl.VERTEX_SHADER, VS));
+        gl.attachShader(prog, shader(gl.FRAGMENT_SHADER, FS));
+        gl.linkProgram(prog);
+        gl.useProgram(prog);
+
+        const buf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+        const uRes = gl.getUniformLocation(prog, 'uRes');
+
+        [
+          ['aPos', 2, 0],
+          ['aCol', 4, 8],
+          ['aSize', 1, 24],
+        ].forEach(([name, count, offset]) => {
+          const loc = gl.getAttribLocation(prog, name);
+          gl.enableVertexAttribArray(loc);
+          gl.vertexAttribPointer(loc, count, gl.FLOAT, false, 28, offset);
         });
-      });
 
-      // Overlay close button
-      document.querySelector('.overlay-close').addEventListener('click', closeOverlay);
+        gl.enable(gl.BLEND);
+        gl.blendFunc(gl.ONE, gl.ONE);
+        gl.clearColor(0, 0, 0, 1);
 
-      // Click backdrop to close
-      document.getElementById('overlay-modal').addEventListener('click', function (e) {
-        if (e.target === this) closeOverlay();
-      });
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeOverlay();
-      });
+        /* ---------- DATA ---------- */
+
+        const STANCE = { supports: 'support', balanced: 'balanced', challenges: 'challenge' };
+        const BASE = {
+          support: [0.78, 0.74, 1],
+          challenge: [1, 0.25, 0.34],
+          balanced: [1, 0.72, 0.25],
+        };
+        const CSSC = {
+          support: '#dbe3ff',
+          challenge: '#ff4057',
+          balanced: '#ffb83f',
+        };
+        const TYPE_RANK = [
+          'rebuts',
+          'challenges',
+          'challenged_by',
+          'extends',
+          'supports',
+          'related',
+        ];
+        const MON = [
+          'jan',
+          'feb',
+          'mar',
+          'apr',
+          'may',
+          'jun',
+          'jul',
+          'aug',
+          'sep',
+          'oct',
+          'nov',
+          'dec',
+        ];
+        const TAU = 6.2832;
+        const D = 3.4;
+
+        let W;
+        let H;
+        const DPR = Math.min(devicePixelRatio || 1, 2);
+        let nodes = [];
+        let edges = [];
+        let P = 0;
+        let data;
+        let own;
+        let kind;
+        let ux;
+        let uy;
+        let uz;
+        let rf;
+        let br;
+        const rot = { y: 0.6, x: -0.55 };
+        let zoom = 1;
+        let zoomT = 1;
+        let zoomPre = 1;
+        let flyT = null;
+        let dragging = false;
+        let drag = null;
+        let moved = 0;
+        let cShift = 0;
+        let sel = null;
+        let hov = null;
+        let nb = new Set();
+        let query = '';
+        let tag = null;
+        const off = new Set();
+        const t0 = performance.now();
+        let last = t0;
+        let mx = -999;
+        let my = -999;
+        let RX;
+        let RY;
+        let RZ;
+        let cY;
+        let sY;
+        let cX;
+        let sX;
+        let LX;
+        let LY;
+        let LS;
+        const LM = { v: 0 };
+        let lx = -999;
+        let ly = -999;
+        let lk = 0;
+        let spd = 1;
+        let lr = 45;
+        let lm = 3.5;
+        let inside = false;
+        let lensNode = null;
+
+        const dateValue = (n) => {
+          const d = String(n.date || '').toLowerCase();
+          const y = Number((d.match(/\d{4}/) || [2024])[0]);
+          const m = MON.findIndex((x) => d.includes(x));
+          return y + (m < 0 ? 0 : m / 12);
+        };
+
+        /* The surface: a twisted, flattened ring whose radius and thickness breathe around the loop */
+        function surf(u, v, s) {
+          const R = 1 + 0.28 * Math.sin(2 * u + 0.8) + 0.12 * Math.cos(3 * u);
+          const r = (0.17 + 0.05 * Math.sin(u + 1.2)) * s;
+          const ph = u * 1.5;
+          const a = Math.cos(v);
+          const b = 0.45 * Math.sin(v);
+          const c = Math.cos(ph);
+          const d = Math.sin(ph);
+          const nn = r * (a * c - b * d);
+          const bb = r * (a * d + b * c);
+          return [Math.cos(u) * (R + nn), 0.25 * Math.sin(2 * u) + bb, Math.sin(u) * (R + nn)];
+        }
+
+        function build(list, links) {
+          nodes = list.map((p, i) => ({
+            id: p.id,
+            title: p.title,
+            short: p.shortTitle || p.title,
+            date: p.date || '',
+            stance: STANCE[p.stance] || 'balanced',
+            tag: p.cluster || 'other',
+            arg: p.coreArgument || '',
+            evidence: p.keyEvidence || [],
+            quotes: p.keyQuotes || [],
+            analysisUrl: p.analysisUrl || '',
+            a: 0,
+            i,
+            deg: 0,
+            out: [],
+            inn: [],
+            ext: [],
+          }));
+
+          const byId = new Map(nodes.map((n) => [n.id, n]));
+          edges = [];
+
+          links.forEach((link) => {
+            const s = byId.get(link.source);
+            const t = byId.get(link.target);
+            const type = link.type || 'related';
+            const description = link.description || '';
+
+            if (s && !t) {
+              s.ext.push({ id: link.target, type, description });
+              return;
+            }
+            if (!s || !t || s === t) return;
+
+            const edge = { s, t, type, description, a: 0, ph: Math.random() * 10 };
+            edges.push(edge);
+            s.out.push(edge);
+            t.inn.push(edge);
+            s.deg += 1;
+            t.deg += 1;
+          });
+
+          nodes.forEach((n) => {
+            n.out.sort((a, b) => edgeOrder(a.t, b.t, a.type, b.type));
+            n.inn.sort((a, b) => edgeOrder(a.s, b.s, a.type, b.type));
+            n.r = 2 + Math.min(9.5, Math.sqrt(n.deg) * 1.25);
+            n.hr = 0.011 + n.r * 0.0026;
+          });
+
+          layout();
+
+          ['support', 'challenge', 'balanced'].forEach((stance) => {
+            document.querySelector(`.row[data-s=${stance}] b`).textContent = nodes.filter(
+              (n) => n.stance === stance
+            ).length;
+          });
+
+          buildTags();
+          buildParticles();
+        }
+
+        function edgeOrder(m, n, typeM, typeN) {
+          const rm = TYPE_RANK.indexOf(typeM);
+          const rn = TYPE_RANK.indexOf(typeN);
+          if (rm !== rn) return (rm < 0 ? 99 : rm) - (rn < 0 ? 99 : rn);
+          return (m.short || m.title).localeCompare(n.short || n.title);
+        }
+
+        /* Papers live on the ring: a sector per topic, ordered by date inside it */
+        function layout() {
+          const clusters = new Map();
+          nodes.forEach((n) => {
+            if (!clusters.has(n.tag)) clusters.set(n.tag, []);
+            clusters.get(n.tag).push(n);
+          });
+
+          const groups = [...clusters.entries()]
+            .map(([name, group]) => ({ name, group }))
+            .sort((a, b) => b.group.length - a.group.length);
+
+          const gap = 2.2;
+          const slots = nodes.length + groups.length * gap;
+          let cursor = 0;
+
+          groups.forEach((cl) => {
+            cl.group.sort((a, b) => dateValue(a) - dateValue(b));
+            cl.group.forEach((n, k) => {
+              const u = ((cursor + gap * 0.5 + k) / slots) * TAU;
+              const v = (n.i * 2.399963) % TAU;
+              const p = surf(u, v, 1.06);
+              n.X = p[0];
+              n.Y = p[1];
+              n.Z = p[2];
+            });
+            cursor += cl.group.length + gap;
+          });
+
+          edges.forEach((e) => {
+            e.mx = (e.s.X + e.t.X) * 0.1;
+            e.my = (e.s.Y + e.t.Y) * 0.1;
+            e.mz = (e.s.Z + e.t.Z) * 0.1;
+          });
+        }
+
+        function buildTags() {
+          const counts = new Map();
+          nodes.forEach((n) => counts.set(n.tag, (counts.get(n.tag) || 0) + 1));
+          const wrap = document.getElementById('tags');
+          wrap.innerHTML = '';
+
+          [...counts.entries()]
+            .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+            .forEach(([name, count]) => {
+              const b = document.createElement('button');
+              const dot = document.createElement('i');
+              const label = document.createTextNode(name.replace(/[-_]/g, ' '));
+              const num = document.createElement('b');
+              num.textContent = count;
+              b.className = 'row';
+              b.append(dot, label, num);
+              b.onclick = () => {
+                tag = tag === name ? null : name;
+                [...wrap.children].forEach((c) => c.classList.toggle('on', c === b && !!tag));
+              };
+              wrap.appendChild(b);
+            });
+        }
+
+        function buildParticles() {
+          const total = innerWidth < 820 ? 24000 : 60000;
+          const halo = nodes.map((n) => 5 + Math.round(n.r * 1.1));
+          const haloN = halo.reduce((a, b) => a + b, 0);
+          const edgeN = edges.length ? Math.min(Math.floor(total * 0.26), edges.length * 20) : 0;
+          const starN = 320;
+          const coreN = nodes.length * 2;
+          const surfN = Math.max(Math.floor(total * 0.42), total - haloN - edgeN - starN - coreN);
+
+          P = surfN + haloN + edgeN + starN + coreN;
+          data = new Float32Array(P * 7);
+          own = new Int32Array(P);
+          kind = new Uint8Array(P);
+          ux = new Float32Array(P);
+          uy = new Float32Array(P);
+          uz = new Float32Array(P);
+          rf = new Float32Array(P);
+          br = new Float32Array(P);
+
+          const R = Math.random;
+          const tri = () => R() + R() - 1;
+          let p = 0;
+
+          for (let c = 0; c < surfN; c++, p++) {
+            const q = surf(R() * TAU, R() * TAU, 0.88 + 0.12 * Math.pow(R(), 0.4));
+            ux[p] = q[0] + (R() - 0.5) * 0.012;
+            uy[p] = q[1] + (R() - 0.5) * 0.012;
+            uz[p] = q[2] + (R() - 0.5) * 0.012;
+            kind[p] = 0;
+            rf[p] = R() * TAU;
+            br[p] = 0.5 + R() * 0.5;
+          }
+
+          nodes.forEach((n, ni) => {
+            for (let c = 0; c < halo[ni]; c++, p++) {
+              own[p] = ni;
+              kind[p] = 1;
+              ux[p] = tri();
+              uy[p] = tri();
+              uz[p] = tri();
+              rf[p] = R() * TAU;
+              br[p] = 0.5 + R() * 0.5;
+            }
+            own[p] = ni;
+            kind[p] = 4;
+            p++;
+            own[p] = ni;
+            kind[p] = 5;
+            p++;
+          });
+
+          for (let c = 0; c < edgeN; c++, p++) {
+            own[p] = c % edges.length;
+            kind[p] = 2;
+            ux[p] = R();
+            uy[p] = 0.6 + R() * 0.9;
+            uz[p] = (R() + R() + R() - 1.5) * 0.03;
+            rf[p] = (R() + R() + R() - 1.5) * 0.03;
+            br[p] = 0.5 + R() * 0.5;
+          }
+
+          for (let c = 0; c < starN; c++, p++) {
+            kind[p] = 3;
+            ux[p] = R();
+            uy[p] = R();
+            uz[p] = 0.2 + R();
+            br[p] = 0.25 + R() * 0.4;
+          }
+
+          gl.bufferData(gl.ARRAY_BUFFER, data.byteLength, gl.DYNAMIC_DRAW);
+        }
+
+        const visible = (n) =>
+          !off.has(n.stance) &&
+          (!tag || n.tag === tag) &&
+          (!query ||
+            n.title.toLowerCase().includes(query) ||
+            n.short.toLowerCase().includes(query) ||
+            n.arg.toLowerCase().includes(query));
+
+        const near = (n) => !sel || n === sel || nb.has(n);
+        const wrap = (a) => ((((a + Math.PI) % TAU) + TAU) % TAU) - Math.PI;
+
+        function rot3(x, y, z) {
+          const x1 = x * cY + z * sY;
+          const z1 = -x * sY + z * cY;
+          RX = x1;
+          RY = y * cX - z1 * sX;
+          RZ = y * sX + z1 * cX;
+        }
+
+        /* Square loupe: it locks onto the nearest paper and magnifies a square patch around it */
+        function lens(x, y) {
+          LX = x;
+          LY = y;
+          LS = 1;
+          if (LM.v < 0.01) return;
+          const dx = x - lx;
+          const dy = y - ly;
+          const t = Math.max(Math.abs(dx), Math.abs(dy)) / lr;
+          if (t >= 1) return;
+          if (t < 0.0001) {
+            LS = LM.v + 1;
+            return;
+          }
+          const k = (LM.v + 1) / (LM.v * t + 1);
+          LX = lx + dx * k;
+          LY = ly + dy * k;
+          LS = k;
+        }
+
+        function nearestNode(x, y, maxDist) {
+          let best = null;
+          let bs = maxDist;
+          nodes.forEach((n) => {
+            if (!visible(n) || n.a < 0.35 || !Number.isFinite(n.sx)) return;
+            const d = Math.hypot(n.sx - x, n.sy - y);
+            if (d < bs) {
+              bs = d;
+              best = n;
+            }
+          });
+          return best;
+        }
+
+        /* ---------- FRAME ---------- */
+
+        function frame(now) {
+          const T = (now - t0) / 1000;
+          const dt = Math.min(0.05, (now - last) / 1000);
+          last = now;
+
+          if (flyT) {
+            rot.y += wrap(flyT.y - rot.y) * 0.04;
+            rot.x += (flyT.x - rot.x) * 0.04;
+            if (Math.abs(wrap(flyT.y - rot.y)) + Math.abs(flyT.x - rot.x) < 0.01) flyT = null;
+          } else if (!sel && !dragging) {
+            rot.y += dt * 0.03 * spd;
+          }
+
+          zoom += (zoomT - zoom) * 0.07;
+          cShift += ((innerWidth > 820 ? (sel ? -40 : 50) : 0) - cShift) * 0.06;
+          cY = Math.cos(rot.y);
+          sY = Math.sin(rot.y);
+          cX = Math.cos(rot.x);
+          sX = Math.sin(rot.x);
+
+          const compact = W < 820;
+          const S = Math.min(W, H) * (compact ? 0.2 : W < 1200 ? 0.235 : 0.27) * zoom;
+          const cx0 = W / 2 + cShift;
+          const cy0 = H * (compact ? (sel ? 0.28 : 0.56) : 0.5);
+          const dimS = sel ? 0.4 : 1;
+
+          if (inside) {
+            lensNode = dragging ? null : nearestNode(mx, my, 100);
+            const tx = lensNode ? lensNode.sx : mx;
+            const ty = lensNode ? lensNode.sy : my;
+            if (lx < -900) {
+              lx = tx;
+              ly = ty;
+            } else {
+              lx += (tx - lx) * 0.3;
+              ly += (ty - ly) * 0.3;
+            }
+          } else {
+            lensNode = null;
+          }
+
+          spd += ((inside ? 0.1 : 1) - spd) * 0.05;
+          lk += ((lensNode && !dragging ? 1 : 0) - lk) * 0.14;
+          LM.v = lm * lk;
+
+          nodes.forEach((n) => {
+            const on = visible(n) && near(n);
+            n.a += ((on ? 1 : 0.07) - n.a) * 0.1;
+            rot3(n.X, n.Y, n.Z);
+            const p = D / (D - RZ);
+            n.rz = RZ;
+            n.sx = cx0 + RX * p * S;
+            n.sy = cy0 - RY * p * S;
+            n.f = Math.min(1, Math.max(0, (RZ + 1.6) / 3.2));
+            lens(n.sx, n.sy);
+            n.dx = LX;
+            n.dy = LY;
+            n.ds = LS;
+            n.dz = Math.pow(LS, 0.7);
+          });
+
+          const fo = sel || hov;
+          edges.forEach((e) => {
+            const hot = fo && (e.s === fo || e.t === fo);
+            const vis = visible(e.s) && visible(e.t);
+            e.a += ((hot ? 2 : sel ? 0.03 : vis ? 0.13 : 0.02) - e.a) * 0.1;
+            e.ph += dt * (hot ? 0.18 : 0.04);
+          });
+
+          let o = 0;
+          for (let i = 0; i < P; i++) {
+            const kd = kind[i];
+            let sx;
+            let sy;
+            let a;
+            let r;
+            let g;
+            let b;
+            let sz;
+            let f;
+            let p;
+
+            if (kd === 0) {
+              const w = 1 + 0.012 * Math.sin(T * 0.6 + rf[i]);
+              rot3(ux[i] * w, uy[i] * w, uz[i] * w);
+              p = D / (D - RZ);
+              f = (RZ + 1.6) / 3.2;
+              f = f < 0 ? 0 : f > 1 ? 1 : f;
+              sx = cx0 + RX * p * S;
+              sy = cy0 - RY * p * S;
+              a = (0.09 + 0.71 * f) * br[i] * dimS;
+              const tn = br[i] > 0.95;
+              r = tn ? 0.72 : 0.9;
+              g = tn ? 0.66 : 0.92;
+              b = 1;
+              sz = (0.7 + 0.9 * f) * p * DPR;
+            } else if (kd === 1) {
+              const n = nodes[own[i]];
+              const hr = n.hr * (1 + 0.35 * Math.sin(T * 2 + rf[i]));
+              const c = BASE[n.stance];
+              rot3(n.X + ux[i] * hr, n.Y + uy[i] * hr, n.Z + uz[i] * hr);
+              p = D / (D - RZ);
+              f = (RZ + 1.6) / 3.2;
+              f = f < 0 ? 0 : f > 1 ? 1 : f;
+              sx = cx0 + RX * p * S;
+              sy = cy0 - RY * p * S;
+              a = 0.6 * n.a * (0.3 + 0.7 * f) * br[i];
+              r = c[0];
+              g = c[1];
+              b = c[2];
+              sz = (1 + 1.1 * f) * p * DPR;
+            } else if (kd === 2) {
+              const e = edges[own[i]];
+              const u = (ux[i] + e.ph * uy[i]) % 1;
+              const v = 1 - u;
+              const w = Math.sin(u * 3.1416);
+              const c1 = BASE[e.s.stance];
+              const c2 = BASE[e.t.stance];
+              rot3(
+                v * v * e.s.X + 2 * v * u * e.mx + u * u * e.t.X + uz[i] * w,
+                v * v * e.s.Y + 2 * v * u * e.my + u * u * e.t.Y + rf[i] * w,
+                v * v * e.s.Z + 2 * v * u * e.mz + u * u * e.t.Z + (uz[i] - rf[i]) * w
+              );
+              p = D / (D - RZ);
+              f = (RZ + 1.6) / 3.2;
+              f = f < 0 ? 0 : f > 1 ? 1 : f;
+              sx = cx0 + RX * p * S;
+              sy = cy0 - RY * p * S;
+              a = e.a * br[i] * Math.pow(w, 0.6) * (0.3 + 0.7 * f);
+              r = c1[0] * v + c2[0] * u;
+              g = c1[1] * v + c2[1] * u;
+              b = c1[2] * v + c2[2] * u;
+              sz = (0.7 + 0.9 * f) * p * DPR;
+            } else if (kd === 3) {
+              sx =
+                ((((ux[i] * W * 1.2 - rot.y * uz[i] * 60) % (W * 1.2)) + W * 1.2) % (W * 1.2)) -
+                W * 0.1;
+              sy =
+                ((((uy[i] * H * 1.2 + rot.x * uz[i] * 60) % (H * 1.2)) + H * 1.2) % (H * 1.2)) -
+                H * 0.1;
+              a = br[i] * (0.6 + 0.4 * Math.sin(T + ux[i] * 40));
+              r = 0.7;
+              g = 0.75;
+              b = 1;
+              sz = 0.8 * DPR;
+            } else {
+              const n = nodes[own[i]];
+              const c = BASE[n.stance];
+              const big = n === hov || n === sel;
+              if (kd === 4) {
+                sx = n.dx;
+                sy = n.dy;
+                const pp = D / (D - n.rz);
+                a = n.a * (0.5 + 0.5 * n.f) * (big ? 1.6 : 1);
+                sz = (2.6 + n.r * 0.5) * pp * DPR * (big ? 1.5 : 1) * n.dz;
+                r = c[0] * 0.5 + 0.5;
+                g = c[1] * 0.5 + 0.5;
+                b = c[2] * 0.5 + 0.5;
+              } else {
+                sx = n.dx;
+                sy = n.dy;
+                const pp = D / (D - n.rz);
+                a = 0.13 * n.a * (0.3 + 0.7 * n.f) * (big ? 1.8 : 1);
+                sz = (16 + n.r * 2.2) * pp * DPR * (big ? 1.4 : 1) * n.dz;
+                r = c[0];
+                g = c[1];
+                b = c[2];
+              }
+            }
+
+            if (kd < 3 && LM.v > 0.01) {
+              lens(sx, sy);
+              if (LS > 1) {
+                sx = LX;
+                sy = LY;
+                sz *= Math.pow(LS, 0.7);
+                a *= Math.min(1.8, 1 + 0.12 * (LS - 1));
+              }
+            }
+
+            data[o++] = sx * DPR;
+            data[o++] = sy * DPR;
+            data[o++] = r;
+            data[o++] = g;
+            data[o++] = b;
+            data[o++] = a;
+            data[o++] = sz;
+          }
+
+          gl.viewport(0, 0, cv.width, cv.height);
+          gl.clear(gl.COLOR_BUFFER_BIT);
+          gl.uniform2f(uRes, cv.width, cv.height);
+          gl.bufferSubData(gl.ARRAY_BUFFER, 0, data);
+          gl.drawArrays(gl.POINTS, 0, P);
+
+          labels();
+          requestAnimationFrame(frame);
+        }
+
+        function labels() {
+          L.setTransform(DPR, 0, 0, DPR, 0, 0);
+          L.clearRect(0, 0, W, H);
+          L.font = '10px Space Mono, monospace';
+          L.textBaseline = 'middle';
+
+          const f = hov || sel;
+
+          if (lk > 0.02) {
+            const s = lr;
+            const x0 = lx - s;
+            const y0 = ly - s;
+            const side = s * 2;
+            const c = Math.min(22, s * 0.32);
+
+            L.globalAlpha = lk;
+            L.strokeStyle = 'rgba(139,141,255,.35)';
+            L.lineWidth = 1;
+            L.strokeRect(x0, y0, side, side);
+
+            L.strokeStyle = 'rgba(139,141,255,.9)';
+            L.beginPath();
+            [
+              [x0, y0, 1, 1],
+              [x0 + side, y0, -1, 1],
+              [x0, y0 + side, 1, -1],
+              [x0 + side, y0 + side, -1, -1],
+            ].forEach(([x, y, dx, dy]) => {
+              L.moveTo(x + dx * c, y);
+              L.lineTo(x, y);
+              L.lineTo(x, y + dy * c);
+            });
+            L.stroke();
+
+            L.fillStyle = 'rgba(139,141,255,.85)';
+            L.textAlign = 'center';
+            L.fillText('[LENS X' + (1 + lm).toFixed(1) + ']', lx, ly + s + 18);
+            L.textAlign = 'left';
+            L.globalAlpha = 1;
+          }
+
+          const dl = (n) => Math.hypot(n.dx - lx, n.dy - ly);
+          const open = document.getElementById('detail').classList.contains('open');
+          const inl =
+            lk > 0.5
+              ? nodes
+                  .filter((n) => visible(n) && n.f > 0.2 && n.ds > 1.5 && n.a > 0.4)
+                  .sort((a, b) => dl(a) - dl(b))
+                  .slice(0, 3)
+              : [];
+
+          nodes.forEach((n) => {
+            const hub =
+              W > 820 &&
+              !sel &&
+              n.deg >= 40 &&
+              visible(n) &&
+              n.f > 0.55 &&
+              !(lk > 0.3 && dl(n) < lr * 1.05);
+            const show =
+              n === f || inl.includes(n) || hub || (zoom > 2.2 && visible(n) && n.f > 0.5);
+            if (!show) return;
+            if (open && n.dx > W - 420) return;
+
+            L.fillStyle = n === f ? '#fff' : 'rgba(200,206,255,.78)';
+            L.fillText(
+              ('[' + String(n.i + 1).padStart(3, '0') + '] ' + n.short).toUpperCase().slice(0, 44),
+              n.dx + 14 + 7 * n.dz,
+              n.dy
+            );
+
+            if (n === f) {
+              const s = (14 + n.r * 0.9) * Math.max(1, n.dz * 0.8);
+              const c = 6;
+              L.strokeStyle = '#8b8dff';
+              L.lineWidth = 1;
+              L.beginPath();
+              [
+                [-1, -1],
+                [1, -1],
+                [1, 1],
+                [-1, 1],
+              ].forEach(([a, b]) => {
+                L.moveTo(n.dx + a * s, n.dy + b * s - b * c);
+                L.lineTo(n.dx + a * s, n.dy + b * s);
+                L.lineTo(n.dx + a * s - a * c, n.dy + b * s);
+              });
+              L.stroke();
+            }
+          });
+        }
+
+        /* ---------- INTERACTION ---------- */
+
+        function resize() {
+          W = innerWidth;
+          H = innerHeight;
+          [cv, lab].forEach((c) => {
+            c.width = W * DPR;
+            c.height = H * DPR;
+          });
+        }
+
+        addEventListener('resize', resize);
+        resize();
+
+        function pick(x, y) {
+          let best = null;
+          let bs = 1e9;
+          nodes.forEach((n) => {
+            if (!visible(n) || n.f < 0.1) return;
+            const d = Math.hypot(n.dx - x, n.dy - y);
+            if (d < (10 + n.r * 0.9) * Math.max(1, n.dz)) {
+              const sc = d - n.rz * 8;
+              if (sc < bs) {
+                bs = sc;
+                best = n;
+              }
+            }
+          });
+          return best;
+        }
+
+        cv.addEventListener('pointerdown', (e) => {
+          cv.setPointerCapture(e.pointerId);
+          moved = 0;
+          mx = e.clientX;
+          my = e.clientY;
+          inside = true;
+          lensNode = nearestNode(mx, my, 100);
+          drag = { x: e.clientX, y: e.clientY };
+        });
+
+        cv.addEventListener('pointermove', (e) => {
+          mx = e.clientX;
+          my = e.clientY;
+          inside = true;
+          if (drag) {
+            const dx = e.clientX - drag.x;
+            const dy = e.clientY - drag.y;
+            moved += Math.abs(dx) + Math.abs(dy);
+            drag.x = e.clientX;
+            drag.y = e.clientY;
+            if (moved > 4) {
+              dragging = true;
+              flyT = null;
+              rot.y += dx * 0.006;
+              rot.x = Math.max(-1.3, Math.min(1.3, rot.x + dy * 0.005));
+            }
+          } else {
+            hov = pick(e.clientX, e.clientY);
+            cv.style.cursor = hov ? 'pointer' : 'crosshair';
+          }
+        });
+
+        cv.addEventListener('pointerup', (e) => {
+          if (drag && moved < 5) select(lensNode || pick(e.clientX, e.clientY));
+          drag = null;
+          dragging = false;
+        });
+
+        cv.addEventListener('pointerleave', () => {
+          inside = false;
+          hov = null;
+          lensNode = null;
+        });
+
+        cv.addEventListener(
+          'wheel',
+          (e) => {
+            e.preventDefault();
+            const dy = e.deltaY || e.deltaX;
+            if (e.shiftKey) lm = Math.min(9, Math.max(1, lm - dy * 0.004));
+            else if (e.altKey) lr = Math.min(160, Math.max(24, lr - dy * 0.1));
+            else zoomT = Math.min(3.5, Math.max(0.5, zoomT * Math.exp(-dy * 0.0012)));
+          },
+          { passive: false }
+        );
+
+        const el = (t, c, x) => {
+          const e = document.createElement(t);
+          if (c) e.className = c;
+          if (x != null) e.textContent = x;
+          return e;
+        };
+
+        /* ---------- DETAIL ---------- */
+
+        function select(n) {
+          if (n) {
+            if (!sel) zoomPre = zoomT;
+            zoomT = Math.max(zoomT, 1.4);
+          } else if (sel) {
+            zoomT = zoomPre;
+          }
+
+          sel = n;
+          nb = new Set();
+
+          const d = document.getElementById('detail');
+          d.classList.toggle('open', !!n);
+          if (!n) return;
+
+          n.out.forEach((e) => nb.add(e.t));
+          n.inn.forEach((e) => nb.add(e.s));
+
+          /* Turn the ring so the chosen paper faces the viewer */
+          const ry = Math.atan2(-n.X, n.Z);
+          const z1 = -n.X * Math.sin(ry) + n.Z * Math.cos(ry);
+          flyT = {
+            y: ry,
+            x: Math.max(-0.7, Math.min(0.7, Math.atan2(n.Y, z1))),
+          };
+
+          d.innerHTML = '';
+          d.style.setProperty('--c', CSSC[n.stance]);
+
+          const h = (t) => d.append(el('h3', null, '[' + t + ']'));
+          const pad = (v, len) => String(v).padStart(len, '0');
+
+          h('Paper ' + pad(n.i + 1, 3) + ' / ' + n.stance);
+          d.append(el('h2', null, n.title));
+          d.append(
+            el('div', null, [n.tag.replace(/[-_]/g, ' '), n.date].filter(Boolean).join(' / '))
+          );
+
+          h('Open');
+          if (n.analysisUrl) {
+            const a = el('a', 'ln', 'read analysis');
+            a.href = n.analysisUrl;
+            a.target = '_blank';
+            a.rel = 'noopener';
+            d.append(a);
+          }
+
+          const arxiv = el('a', 'ln', 'open on arxiv');
+          arxiv.href = 'https://arxiv.org/abs/' + n.id;
+          arxiv.target = '_blank';
+          arxiv.rel = 'noopener';
+          d.append(arxiv);
+
+          if (n.arg) {
+            h('Core argument');
+            d.append(el('div', 'q', n.arg));
+          }
+
+          if (n.evidence.length) {
+            h('Evidence');
+            n.evidence.forEach((x) => d.append(el('div', 'ln', x)));
+          }
+
+          if (n.quotes.length) {
+            h('Quotes');
+            n.quotes.forEach((x) => d.append(el('div', 'q', '\u201c' + x + '\u201d')));
+          }
+
+          const total = n.out.length + n.inn.length + n.ext.length;
+          h('Connections ' + total);
+          d.append(
+            el(
+              'div',
+              'hint',
+              n.out.length +
+                ' points to / ' +
+                n.inn.length +
+                ' referenced by / ' +
+                n.ext.length +
+                ' cited, not tracked'
+            )
+          );
+
+          const connection = (edge, out) => {
+            const m = out ? edge.t : edge.s;
+            const b = el('button', 'ln');
+            b.style.setProperty('--c', CSSC[m.stance]);
+            b.append(
+              el('em', 'ty', edge.type),
+              document.createTextNode(' ' + (m.short || m.title))
+            );
+            if (edge.description) b.append(el('span', 'desc', edge.description));
+            b.onclick = () => select(m);
+            return b;
+          };
+
+          const list = (title, rows, render, cap) => {
+            h(title + ' (' + rows.length + ')');
+            if (!rows.length) {
+              d.append(el('div', 'hint', 'none'));
+              return;
+            }
+            rows.slice(0, cap).forEach((row) => d.append(render(row)));
+            if (rows.length > cap) {
+              d.append(
+                el(
+                  'div',
+                  'more',
+                  '+' + (rows.length - cap) + ' more / follow a connection to keep walking'
+                )
+              );
+            }
+          };
+
+          list('Points to', n.out, (e) => connection(e, true), 40);
+          list('Referenced by', n.inn, (e) => connection(e, false), 40);
+
+          if (n.ext.length) {
+            h('Cited, not tracked (' + n.ext.length + ')');
+            n.ext.forEach((e) => {
+              const a = el('a', 'ln', e.id);
+              a.href = 'https://arxiv.org/abs/' + e.id;
+              a.target = '_blank';
+              a.rel = 'noopener';
+              d.append(a);
+            });
+          }
+
+          d.scrollTop = 0;
+        }
+
+        addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            if (sel) select(null);
+            else if (query) {
+              qEl.value = '';
+              query = '';
+            }
+          }
+          if (e.key === '/' && document.activeElement !== qEl) {
+            e.preventDefault();
+            qEl.focus();
+          }
+        });
+
+        qEl.addEventListener('input', () => {
+          query = qEl.value.trim().toLowerCase();
+        });
+
+        qEl.addEventListener('keydown', (e) => {
+          if (e.key !== 'Enter') return;
+          const hit = nodes.filter(visible).sort((a, b) => b.deg - a.deg)[0];
+          if (hit) select(hit);
+        });
+
+        document.querySelectorAll('.row[data-s]').forEach((b) => {
+          b.onclick = () => {
+            const s = b.dataset.s;
+            if (off.has(s)) off.delete(s);
+            else off.add(s);
+            b.classList.toggle('off', off.has(s));
+          };
+        });
+
+        /* ---------- BOOT ---------- */
+
+        if (!PAPER_NODES.length) {
+          const note = el('p', 'hint', '[paper data not found / open this page from docs/]');
+          document.getElementById('left').append(note);
+          return;
+        }
+
+        build(PAPER_NODES, PAPER_LINKS);
+        requestAnimationFrame(frame);
+      })();
     </script>
   </body>
 </html>

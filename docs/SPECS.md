@@ -146,7 +146,8 @@ A future script could parse `/analysis/explored/**/*.md` files and auto-generate
 
 ```
 docs/
-├── index.html              # Main HTML (header, panels, graph container)
+├── index.html              # Landing page: citation constellation (WebGL)
+├── v1.html                 # D3 force-directed graph (previous landing)
 ├── pages/                  # Deep-dive standalone pages
 │   ├── data.html           # Pre-training Data Pipeline
 │   ├── tokenization.html   # Tokenization Pipeline
