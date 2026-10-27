@@ -3,7 +3,7 @@
 > **A systematic literature review on LLM reasoning capabilities**
 
 <a href="https://proteusiq.github.io/unthinking/">
-  <img src="docs/assets/constellation.jpg" alt="The citation constellation: 395 papers arranged as a twisted ring, with stance counts and topic clusters" />
+  <img src="docs/assets/constellation.jpg" alt="The citation constellation with Faith and Fate selected: the ring of 395 papers, the square loupe around the paper, and its detail panel with analysis and arXiv links" />
 </a>
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
@@ -40,7 +40,7 @@ RL and test-time compute surface pre-existing capabilities rather than creating 
 
 ## Interactive Visualization
 
-[![The citation constellation](docs/assets/constellation.jpg)](https://proteusiq.github.io/unthinking/)
+[![Faith and Fate selected in the citation constellation](docs/assets/constellation.jpg)](https://proteusiq.github.io/unthinking/)
 
 Three static, client-side views of the same corpus. No backend, no build step for the
 first two:
