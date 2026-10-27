@@ -417,6 +417,67 @@ Use `analysis/explored/00-09/00_faith_and_fate.md` as the structural template fo
 
 ---
 
+## Updating the Visualizations
+
+Two of the three views read the same two client files; the third has its own pipeline.
+
+| View | File | Data |
+|------|------|------|
+| Citation constellation (landing) | `docs/index.html` | `window.paperNodes`, `window.paperLinks` |
+| Network graph (previous landing) | `docs/version-1.html` | the same two files, through `docs/js/data.js` |
+| Semantic galaxy | `apps/galaxy/` | `analysis/index/corpus.json` → `apps/galaxy/public/corpus.json` |
+
+The constellation and the network graph contain **no generated markup**: ring sectors, topic counts, stance counts, node radius (degree) and camera framing are all derived in the browser at load. A paper is added by editing `nodes.js` and `links.js` only; a new topic cluster needs no registration.
+
+`analysis/index/corpus.json` also indexes one entry with no arXiv id (`analysis/explored/190-199/192_the_missing_paper.md`, a placeholder), so corpus totals run one higher than `nodes.js`. That offset is expected; do not "fix" it by deleting analyses.
+
+### Adding a paper to the graph
+
+1. Analysis first: `analysis/explored/NN-NN/NN_name.md`.
+2. Append the node to `docs/js/nodes.js` (contract below).
+3. Append 3-5 links to `docs/js/links.js`, each with a unique description naming the mechanism (see `workflow.md` Step 8b).
+4. `make corpus` - rebuilds `analysis/index/corpus.json` and copies it to the galaxy.
+5. `make sync-counts` - rewrites every hardcoded count (README, findings, galaxy copy, synthesis).
+6. `make deploy-check` - corpus drift, count drift, galaxy typecheck and build. Must be clean.
+7. `cd docs && npx prettier --write index.html version-1.html`.
+8. Commit the analysis, both JS files, both corpus copies and any count edits together, then push.
+
+### Node contract
+
+| Field | Required | Format |
+|-------|----------|--------|
+| `id` | yes | arXiv id, `'2305.18654'`; the link key, the panel label and the arXiv URL |
+| `title` | yes | full title |
+| `shortTitle` | yes | label on the ring and in the panel |
+| `date` | yes | `'Mon YYYY'`, e.g. `'May 2023'`; orders papers inside a cluster, unparseable values sort to 2024 |
+| `stance` | yes | `supports`, `challenges`, `balanced`; any other value silently becomes `balanced` |
+| `cluster` | yes | lowercase topic slug; a new slug becomes a new ring sector, sectors ordered by size |
+| `coreArgument` | yes | one sentence, no all-caps |
+| `keyEvidence` | yes | 3-4 strings, numbers included |
+| `keyQuotes` | yes | 1-2 strings taken from the paper |
+| `analysisUrl` | yes | absolute GitHub blob URL to the analysis markdown |
+
+Link objects in `docs/js/links.js`: `source`, `target`, `type`, `description`.
+
+- `type` is `supports`, `extends`, `challenges`, `rebuts` or `related`. Other values still render, but rank last and carry no styling in the network graph.
+- A link whose `target` is not a node is kept as an external citation: the panel lists it under "cited, not tracked" with a direct arXiv link.
+- A link whose `source` is not a node is dropped.
+
+### What derives itself (do not hand-edit)
+
+- `[Stance]` and `[Topics]` counts, node sizes, edge brightness, ring sectors, camera framing.
+- `meta.totalAnalyzed` in `docs/js/data.js` is a getter over `nodes.js`; there is no count to update there.
+- `docs/galaxy/` is built by CI (`npm run build` in `apps/galaxy`); never edit or commit it.
+
+### Sanity checks after adding a paper
+
+```bash
+node scripts/validate-docs.js   # duplicate ids, orphan links, HTML present
+make deploy-check               # must print '✓ ready to push'
+```
+
+---
+
 ## Updating Findings Page
 
 When paper counts or stance distribution changes significantly, update `docs/pages/findings.html`:
@@ -528,9 +589,11 @@ gh auth switch --user <username>
 │       └── protocol.md         # OLMo 3 experiment design
 └── docs/                        # Interactive visualization
     ├── SPECS.md                # Technical specs for this folder
-    ├── index.html              # Main page (graph + overlays)
+    ├── index.html              # Landing page: citation constellation (WebGL)
+    ├── version-1.html          # D3 force graph (previous landing page)
+    ├── assets/                 # README screenshots
     ├── pages/                  # Deep-dive standalone pages
-    │   ├── findings.html       # 396-paper synthesis (themes, smoking guns, patterns)
+    │   ├── findings.html       # 397-paper synthesis (themes, smoking guns, patterns)
     │   ├── data.html           # Pre-training Data Pipeline
     │   ├── tokenization.html   # Tokenization Pipeline
     │   ├── architecture.html   # LLM Architecture Evolution

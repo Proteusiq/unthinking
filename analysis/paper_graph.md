@@ -2384,6 +2384,35 @@ Five papers studying reward hacking in LLM RL - from controlled reproduction to 
 
 ---
 
+### Agent Skills: Procedure Displaces the Task (2608.11888, #396)
+
+```
+╔══════════════════════════════════════════════════════════════════════╗
+║  CLUSTER THESIS                                                      ║
+║                                                                      ║
+║  A loaded skill becomes the specification the agent satisfies.       ║
+║  86 of 125 functional failures implement the skill's default         ║
+║  instead of the task's required element. Instruction-following       ║
+║  is the mechanism, not the alibi.                                    ║
+╚══════════════════════════════════════════════════════════════════════╝
+```
+
+### Direct Relationships
+- 2608.11888 (#396) --supports--> 2506.12286 (#167): 24 artifact-misplacement cases are the 76% no-context file-path behaviour observed under skill influence
+- 2608.11888 (#396) --supports--> 2510.15974 (#33): scaffolding adds failure modes in both studies (40% loops; 307 attributable failures)
+- 2608.11888 (#396) --supports--> 2602.04288 (#181): always-loaded skill body is the drag mechanism, 43/46 context cases from body text
+- 2608.11888 (#396) --supports--> 2601.13244 (#48): format compliance rises while the compliant trajectory is the failing one
+- 2608.11888 (#396) --challenges--> 2506.18957 (#17): tooling lowered verified success in 125 paired runs, against "far beyond the reasoning cliff"
+
+### Rebuttals and Tensions
+- 2506.18957 (#17) is the standing counter-position: harness design lifts capability. Both agree the interface matters; they disagree on sign.
+- SkillsBench and SWE-Skills-Bench (not in corpus) report average gains, so the harm rate is unknown; #396 mines the failure tail by construction.
+
+### Papers With No Rebuttals (follow-up required)
+- 2608.11888 (#396) - published Aug 2026; only the counter-position above, no direct response located
+
+---
+
 ### 2026-01-24
 | Papers Added | Key Findings |
 |--------------|--------------|

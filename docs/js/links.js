@@ -10112,4 +10112,35 @@ window.paperLinks = [
     type: 'supports',
     description: 'Identical BPB decodes at 100% or 0%, severing optimized loss from capability',
   },
+  {
+    source: '2608.11888',
+    target: '2506.12286',
+    type: 'supports',
+    description:
+      '24 artifact-misplacement cases match 76% file-path accuracy without repo context',
+  },
+  {
+    source: '2608.11888',
+    target: '2510.15974',
+    type: 'supports',
+    description: 'Both find scaffolding adds failure modes: 40% loops there, 307 attributable failures here',
+  },
+  {
+    source: '2608.11888',
+    target: '2602.04288',
+    type: 'supports',
+    description: 'Always-loaded skill body biases the trajectory, 43 of 46 context-bloat cases from body text',
+  },
+  {
+    source: '2608.11888',
+    target: '2601.13244',
+    type: 'supports',
+    description: 'Instructions raise format compliance while the compliant trajectory is the failing one',
+  },
+  {
+    source: '2608.11888',
+    target: '2506.18957',
+    type: 'challenges',
+    description: 'Tooling lowered verified success in 125 paired runs, against tools beyond the reasoning cliff',
+  },
 ];

@@ -343,7 +343,23 @@ it's too generic. A good description only makes sense for *this specific pair*.
 3. Papers with same finding via different method (strongest evidence)
 4. Papers in same cluster with contrasting conclusions
 
-### 8c. Update `meta.totalAnalyzed` count in `docs/js/data.js`
+### 8c. Nothing else to regenerate
+
+`docs/js/data.js` derives `meta.totalAnalyzed` (and the stance counts) from `nodes.js`
+with getters, so there is no count to bump there. The landing constellation and the
+network graph both read `nodes.js` + `links.js` at load and lay themselves out in the
+browser, so a new node and its links are the entire UI change.
+
+Two things do need running, because the galaxy reads a different file:
+
+```bash
+make corpus        # analysis/index/corpus.json + apps/galaxy/public/corpus.json
+make sync-counts   # every hardcoded count
+make deploy-check  # must be clean
+```
+
+See "Updating the Visualizations" in `AGENTS.md` for the field contract and the
+auto-derived values.
 
 ---
 
@@ -417,7 +433,7 @@ Remove analyzed paper from `papers/toread.md` or mark as done.
 | `docs/js/nodes.js` | Paper node definitions |
 | `docs/js/links.js` | Relationship link definitions |
 | `docs/js/data.js` | Meta + combines nodes/links |
-| `docs/pages/findings.html` | 396-paper synthesis (themes, smoking guns, patterns) |
+| `docs/pages/findings.html` | 397-paper synthesis (themes, smoking guns, patterns) |
 
 ---
 

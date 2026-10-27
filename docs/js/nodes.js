@@ -8670,4 +8670,28 @@ window.paperNodes = [
     analysisUrl:
       'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/390-399/395_breaking_the_token_ceiling.md',
   },
+  {
+    id: '2608.11888',
+    title:
+      'Agent Skills Can Be Harmful: An Empirical Study of Skill-Induced Failures in LLM Agents',
+    shortTitle: 'Skill Harm',
+    date: 'Aug 2026',
+    stance: 'supports',
+    cluster: 'tools',
+    coreArgument:
+      'Loaded skills displace the task: seemingly relevant guidance makes agents implement or omit task-required elements, and turns validation checklists into mandatory work.',
+    keyEvidence: [
+      '307 attributable failures from 20,664 paired comparisons: 125 functional + 182 efficiency regressions',
+      'Task-Implementation Fault is 86/125 (68.8%); only 2/125 (1.6%) come from irrelevant skills',
+      'Excessive Verification is 67/182 (36.8%); procedural overhead is 114/182 (62.6%)',
+      '43 of 46 context-bloat cases come from the always-loaded skill body, not supplementary material',
+      'SkillTriage recovers the exact functional subcategory for 111/125 (88.8%), efficiency for 132/182 (72.5%)',
+    ],
+    keyQuotes: [
+      'Skill induced functional failures are rarely caused by obviously irrelevant skills; instead, seemingly relevant skills often make the agent incorrectly implement or omit task-required implementation elements.',
+      'This shows that skills often turn validation checklists and construction recipes into mandatory work.',
+    ],
+    analysisUrl:
+      'https://github.com/Proteusiq/unthinking/blob/main/analysis/explored/390-399/396_agent_skills_can_be_harmful.md',
+  },
 ];

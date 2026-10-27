@@ -12,7 +12,15 @@ This is an **interactive literature review visualization** for the thesis:
 
 > LLMs **predict** plausible next or masked tokens without actual understanding. **Pattern matching** from training distribution. RL and test-time compute **surface** pre-existing capabilities rather than creating new reasoning abilities.
 
-The visualization shows **215 research papers** as nodes in a force-directed graph, with edges showing how papers relate to each other (support, rebut, extend). Users can explore the academic debate visually.
+The corpus is published as three views of the same data:
+
+| View                   | Page             | What it is                                              |
+| ---------------------- | ---------------- | ------------------------------------------------------- |
+| Citation constellation | `index.html`     | WebGL ring, papers positioned by topic cluster and date |
+| Network graph          | `version-1.html` | D3 force-directed graph, the original landing page      |
+| Semantic galaxy        | `apps/galaxy/`   | 3D projection (React + three.js)                        |
+
+Nodes are papers, edges are relationships between them (support, rebut, extend, challenge). The constellation and the network graph read `js/nodes.js` + `js/links.js`; the galaxy reads `analysis/index/corpus.json`.
 
 ---
 
@@ -167,6 +175,59 @@ docs/
 ├── .prettierrc             # Prettier config
 └── SPECS.md                # This file
 ```
+
+---
+
+## Citation Constellation (`index.html`)
+
+Single file: styles in `<style>`, data and rendering in the closing `<script>`. No build
+step, no framework, no calls beyond Google Fonts.
+
+### Rendering
+
+- `#gl` is a WebGL canvas drawing every paper as a point-cloud sprite, coloured by stance.
+- `#lab` is a 2D canvas above it, drawing labels for highlighted papers and the loupe.
+
+### Layout
+
+Papers sit on a twisted, flattened ring. Each topic `cluster` occupies one sector; sectors
+are ordered by size, papers inside a sector by `date`. The surface is a deterministic
+function of two angles, so the ring is identical on every load:
+
+```
+u = position along the ring (cluster sector + index inside it)
+v = golden-angle spread inside the sector  ->  n.i * 2.399963
+p = surf(u, v, 1.06)   // radius and thickness breathe around the loop
+```
+
+Cluster assignment, date ordering and node radius (from degree) are computed in `build()`.
+There is no generated markup: adding a node re-flows the ring on the next load.
+
+### Interaction
+
+| Input            | Effect                                                                                                            |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Drag             | Rotate the ring                                                                                                   |
+| Scroll           | Zoom                                                                                                              |
+| Hover            | Square loupe snaps to the nearest paper (`n.a >= 0.35`, 100 px) and magnifies a square patch (L-infinity fisheye) |
+| Click            | Select the framed paper, or the nearest one if the loupe is empty                                                 |
+| `shift` + scroll | Loupe strength                                                                                                    |
+| `alt` + scroll   | Loupe size (`lr`, 24-160 px half-side)                                                                            |
+| `/`              | Focus search                                                                                                      |
+| `enter`          | Select the highest-degree match                                                                                   |
+| `esc`            | Close the panel, then clear the search                                                                            |
+
+Selection rotates and zooms the camera onto the paper, dims non-neighbours, and fills
+`#detail` with the paper meta, `coreArgument`, `keyEvidence`, `keyQuotes`, the outgoing
+("points to") and incoming ("referenced by") lists, and links to the analysis and arXiv
+entry. Links whose target is missing from `nodes.js` appear under "cited, not tracked"
+with a direct arXiv link.
+
+### Updating
+
+Add the node to `js/nodes.js` and its links to `js/links.js`; nothing in `index.html`
+needs editing. Then run `make corpus`, `make sync-counts`, `make deploy-check`. The field
+contract is in `AGENTS.md` under "Updating the Visualizations".
 
 ---
 
@@ -363,13 +424,14 @@ npm run format:check  # Check without writing
 
 1. Add node to `js/nodes.js` (see Node Data Structure above)
 2. Add links to `js/links.js` (3-5 outgoing links, each with unique description)
-3. Update `meta.totalAnalyzed` count in `js/data.js`
-4. Update `pages/findings.html` if counts change:
+3. Nothing to bump by hand: `meta.totalAnalyzed` and the stance counts in `js/data.js` are getters over `nodes.js`, and the constellation derives its ring and counts at load
+4. Run `make corpus`, `make sync-counts`, `make deploy-check` at the repo root
+5. Update `pages/findings.html` if counts change:
    - Stance cards (supports/balanced/challenges numbers and percentages)
    - Paper distribution chart (add new batch row if needed)
    - Theme tables (if paper provides significant evidence)
-5. Optionally add dialogue to `js/graph.js` → `dialogues` array
-6. Run `npm run format`
+6. Optionally add dialogue to `js/graph.js` → `dialogues` array
+7. Run `npm run format`
 
 ### Adding a Dialogue
 

@@ -6641,5 +6641,22 @@
     ],
     "analysis_path": "analysis/explored/390-399/395_breaking_the_token_ceiling.md",
     "word_count": 2914
+  },
+  {
+    "id": 396,
+    "arxiv": "2608.11888",
+    "title": "Paper 396: Agent Skills Can Be Harmful",
+    "date": "Aug 2026",
+    "stance": "supports",
+    "cluster": "agent",
+    "core_finding": "THE SKILL BECOMES THE TASK, AND THE TASK DISAPPEARS 20,664 paired runs (task + verifier + model + repo held fixed, only the loaded skill varies) produce 307 attributable failures: functional failures 125 verifier says FAIL efficiency regressions 182 PASS, but >2x tokens or time Of the 125 functional failures, only 2 (1.6%) come from an obviously irrelevant skill. 86 (68.8%) are Task-Implementation Faults: the agent implements the skill's default instead of the task's required element. Of the 182 cost regressions, 114 (62.6%) are Excessive Procedure. Excessive Verification alone is 67 cases: the checklist in the skill becomes mandatory work even after the artifact exists. The model does not check whether the guidance fits the task. It executes the most available procedure and rationalises it.",
+    "smoking_gun": false,
+    "quotes": [
+      "Skill induced functional failures are rarely caused by obviously irrelevant skills; instead, seemingly relevant skills often make the agent incorrectly implement or omit task-required implementation elements.",
+      "This shows that skills often turn validation checklists and construction recipes into mandatory work.",
+      "The central challenge is not merely detecting failed runs, but isolating and attributing failures to the loaded skill. A failed with-skill run alone cannot distinguish skill-induced harm from base-agent limitations, verifier scope, ordinary agent variance, or environmental artifacts."
+    ],
+    "analysis_path": "analysis/explored/390-399/396_agent_skills_can_be_harmful.md",
+    "word_count": 2499
   }
 ]

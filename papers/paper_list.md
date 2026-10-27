@@ -399,3 +399,4 @@
 | 393 | 2607.17558 | Jul 2026 | Why Does Feedback-Augmented Self-Distillation Fail to Improve Retrieval-Interleaved Search Agents? | Supports |
 | 394 | 2607.15450 | Jul 2026 | Prediction-Only Distillation in Linear and Logistic Regression | Supports |
 | 395 | 2609.12303 | Sep 2026 | Breaking the Token Ceiling: Distilling Smaller, Stronger Byte Models | Balanced |
+| 396 | 2608.11888 | Aug 2026 | Agent Skills Can Be Harmful: An Empirical Study of Skill-Induced Failures in LLM Agents | Supports |

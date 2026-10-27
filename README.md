@@ -7,7 +7,7 @@
 </a>
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
-[![Papers](https://img.shields.io/badge/papers-396-blue)]()
+[![Papers](https://img.shields.io/badge/papers-397-blue)]()
 [![Relationships](https://img.shields.io/badge/relationships-1497-orange)]()
 
 ---
@@ -16,7 +16,7 @@
 
 Do LLMs actually understand or do they predict plausible-sounding tokens without understanding?
 
-This project surveys 396 papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
+This project surveys 397 papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
 
 To bring the findings home:
 - **Citation constellation**: 395 papers on a WebGL ring, select one to see what it builds on and what cites it
@@ -129,6 +129,9 @@ cd docs && python3 -m http.server 8000     # http://localhost:8000
 cd docs && npx prettier --check .          # formatting (repo config is single-quote)
 ```
 
+The agent-facing version of this checklist, with the full field contract and the list of
+values that derive themselves, is in [`AGENTS.md`](AGENTS.md#updating-the-visualizations).
+
 
 ### LLM Made Less Black Box
 
@@ -143,7 +146,7 @@ cd docs && npx prettier --check .          # formatting (repo config is single-q
 | [**Training**](https://proteusiq.github.io/unthinking/pages/training.html) | Pipeline, Mechanics, Research | Full training lifecycle: pre-training (AdamW, scaling laws, mixed precision), mid-training (annealing, domain adaptation, context extension), post-training (SFT, RLHF, DPO, GRPO, RLVR), lab recipes |
 | [**Implementation**](https://proteusiq.github.io/unthinking/pages/implementation.html) | Tokens, Embed, Attention, FFN, Training | Core GPT algorithm from scratch: tokenization (char/BPE), embeddings (token/position/weight tying), self-attention (QKV, causal mask, multi-head), FFN (residuals, pre-norm), training loop (softmax, cross-entropy, backprop, Adam) |
 
-[**Findings**](https://proteusiq.github.io/unthinking/pages/findings.html): 396-paper synthesis - themes, smoking guns, patterns, stance distribution.
+[**Findings**](https://proteusiq.github.io/unthinking/pages/findings.html): 397-paper synthesis - themes, smoking guns, patterns, stance distribution.
 
 See also:
 - [Transformer Explainer](https://poloclub.github.io/transformer-explainer/): interactive GPT-2 visualization (Georgia Tech)
@@ -466,7 +469,7 @@ papers in this corpus make the inversion concrete:
 │   ├── case.md               # Formal case against LLM reasoning
 │   ├── paper_graph.md        # Paper interaction graph
 │   ├── rebuttals.md          # Rebuttal matrix
-│   └── explored/             # Individual paper analyses (396 papers)
+│   └── explored/             # Individual paper analyses (397 papers)
 │       ├── 00-09/ ... 260-269/
 ├── docs/                     # Interactive visualization (GitHub Pages)
 │   ├── index.html            # Landing page: citation constellation
@@ -481,7 +484,7 @@ papers in this corpus make the inversion concrete:
 │   ├── css/                  # variables, layout, components, responsive
 │   └── js/
 │       ├── nodes.js          # Paper node definitions (360)
-│       ├── links.js          # Relationship links (1497)
+│       ├── links.js          # Relationship links (1502)
 │       ├── data.js           # Meta + combines nodes/links
 │       └── graph.js          # Force-directed graph + interactions
 ├── apps/galaxy/              # 3D semantic projection (React + Vite)
