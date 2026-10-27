@@ -3,7 +3,7 @@
 > **A systematic literature review on LLM reasoning capabilities**
 
 <a href="https://proteusiq.github.io/unthinking/">
-  <img src="docs/assets/constellation.jpg" alt="The citation constellation with Faith and Fate selected: the ring of 395 papers, the square loupe around the paper, and its detail panel with analysis and arXiv links" />
+  <img src="docs/assets/constellation.jpg" alt="The citation constellation: 395 papers arranged as a twisted ring, with stance counts and topic clusters" />
 </a>
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
@@ -40,8 +40,6 @@ RL and test-time compute surface pre-existing capabilities rather than creating 
 
 ## Interactive Visualization
 
-[![Faith and Fate selected in the citation constellation](docs/assets/constellation.jpg)](https://proteusiq.github.io/unthinking/)
-
 Three static, client-side views of the same corpus. No backend, no build step for the
 first two:
 
@@ -52,6 +50,8 @@ first two:
 | [**Semantic galaxy**](https://proteusiq.github.io/unthinking/galaxy/) | `apps/galaxy/` | 3D projection of the corpus, embedded in-browser. See [its README](apps/galaxy/README.md). |
 
 ### Citation constellation
+
+[![Faith and Fate selected: the square loupe and the paper's detail panel](docs/assets/constellation-faith-and-fate.jpg)](https://proteusiq.github.io/unthinking/)
 
 - **395 papers** on a twisted ring, positioned by cluster and date; **1,482 tracked
   relationships**, plus 15 citations to papers outside the corpus (shown as
