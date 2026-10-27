@@ -61,11 +61,24 @@
         position: fixed;
         top: 28px;
         left: 32px;
-        bottom: 28px;
+        bottom: 64px;
         width: min(360px, calc(100vw - 64px));
         overflow: auto;
         scrollbar-width: none;
         pointer-events: none;
+      }
+
+      #left.more {
+        mask-image: linear-gradient(to bottom, #000 calc(100% - 26px), transparent);
+        -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 26px), transparent);
+      }
+
+      #connect {
+        position: sticky;
+        bottom: 0;
+        padding-bottom: 26px;
+        margin-bottom: -26px;
+        background: #000;
       }
 
       #left::-webkit-scrollbar,
@@ -230,7 +243,7 @@
         position: fixed;
         top: 28px;
         right: 32px;
-        bottom: 28px;
+        bottom: 64px;
         width: min(400px, calc(100vw - 64px));
         overflow: auto;
         scrollbar-width: none;
@@ -309,6 +322,12 @@
         }
       }
 
+      @media (max-height: 1000px) {
+        #left .blk.thesis {
+          display: none;
+        }
+      }
+
       @media (max-width: 820px) {
         #left .blk.hide {
           display: none;
@@ -316,6 +335,7 @@
 
         #detail {
           top: auto;
+          bottom: 16px;
           height: 58vh;
           right: 16px;
           left: 16px;
@@ -338,7 +358,7 @@
       <h1>The thinking machine<br />that doesn't think</h1>
       <p class="by">[A literature review by Prayson Wilfred Daniel]</p>
 
-      <div class="blk hide">
+      <div class="blk hide thesis">
         <h3>[Thesis]</h3>
         <p>
           LLMs <em>predict</em> plausible next or masked <em>tokens</em> without actual
@@ -372,9 +392,9 @@
         <input id="q" type="search" placeholder="type to find a paper" aria-label="Search papers" />
       </div>
 
-      <div class="blk hide">
+      <div class="blk hide" id="connect">
         <h3>[Connect]</h3>
-        <a href="v1.html">graph v1 -> /v1</a><br />
+        <a href="version-1.html">graph version-1 -> /version-1</a><br />
         <a href="galaxy/">galaxy -> /galaxy</a><br />
         <a href="pages/findings.html">findings -> /pages</a>
       </div>
@@ -1374,6 +1394,15 @@ void main(){float d=length(gl_PointCoord-.5);if(d>.5)discard;float a=smoothstep(
           document.getElementById('left').append(note);
           return;
         }
+
+        const leftEl = document.getElementById('left');
+        const fadeColumn = () => {
+          const hidden = leftEl.scrollHeight - leftEl.scrollTop - leftEl.clientHeight > 4;
+          leftEl.classList.toggle('more', hidden);
+        };
+        leftEl.addEventListener('scroll', fadeColumn, { passive: true });
+        addEventListener('resize', fadeColumn);
+        fadeColumn();
 
         build(PAPER_NODES, PAPER_LINKS);
         requestAnimationFrame(frame);

@@ -3,12 +3,12 @@
 > **A systematic literature review on LLM reasoning capabilities**
 
 <a href="https://proteusiq.github.io/unthinking/">
-  <img width="2978" height="1710" alt="CleanShot 2026-01-25 at 13 52 09@2x" src="https://github.com/user-attachments/assets/3822643a-4e77-45d2-8e77-51ef09a71b21" />
+  <img src="docs/assets/constellation.jpg" alt="The citation constellation: 395 papers arranged as a twisted ring, with stance counts and topic clusters" />
 </a>
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen)](https://proteusiq.github.io/unthinking/)
 [![Papers](https://img.shields.io/badge/papers-396-blue)]()
-[![Relationships](https://img.shields.io/badge/relationships-1391-orange)]()
+[![Relationships](https://img.shields.io/badge/relationships-1497-orange)]()
 
 ---
 
@@ -19,7 +19,9 @@ Do LLMs actually understand or do they predict plausible-sounding tokens without
 This project surveys 396 papers to find out - tracking who supports the thesis, who challenges it, and what the evidence actually says.
 
 To bring the findings home:
-- **Paper network**: interactive graph of 396 papers and 1497 relationships, filterable by stance
+- **Citation constellation**: 395 papers on a WebGL ring, select one to see what it builds on and what cites it
+- **Paper network**: D3 force-directed graph of the same corpus, filterable by stance
+- **Semantic galaxy**: 3D projection of every paper, searchable in-browser
 - **Experiments**:
   - *Decoding ablation*: reasoning paths exist in base models, hidden by greedy decoding; RL surfaces them
   - *Steering ablation*: safety alignment is a thin layer of refusal patterns that washes off under trivial perturbations
@@ -38,12 +40,35 @@ RL and test-time compute surface pre-existing capabilities rather than creating 
 
 ## Interactive Visualization
 
-Explore the paper network: **[proteusiq.github.io/unthinking](https://proteusiq.github.io/unthinking/)**
+[![The citation constellation](docs/assets/constellation.jpg)](https://proteusiq.github.io/unthinking/)
 
-- **Force-directed graph**: 396 papers as nodes, 1497 relationships as edges
-- **Color-coded stances**: supports (295), challenges (16), balanced (85)
-- **Interactive**: hover, click, search, filter, dark/light mode
-- **Paper dialogue**: auto-generated conversations between connected papers
+Three static, client-side views of the same corpus. No backend, no build step for the
+first two:
+
+| View | Source | What it is |
+|------|--------|------------|
+| [**Citation constellation**](https://proteusiq.github.io/unthinking/) | `docs/index.html` | WebGL ring of every paper, grouped by topic cluster and ordered by date. Select a paper to see what it builds on and what cites it. |
+| [**Network graph**](https://proteusiq.github.io/unthinking/version-1.html) | `docs/version-1.html` | The D3 force-directed graph: filterable by stance, with auto-generated paper dialogues. |
+| [**Semantic galaxy**](https://proteusiq.github.io/unthinking/galaxy/) | `apps/galaxy/` | 3D projection of the corpus, embedded in-browser. See [its README](apps/galaxy/README.md). |
+
+### Citation constellation
+
+- **395 papers** on a twisted ring, positioned by cluster and date; **1,482 tracked
+  relationships**, plus 15 citations to papers outside the corpus (shown as
+  `[cited, not tracked]` with a direct arXiv link)
+- **Color-coded stances**: supports, challenges, balanced
+- **Square loupe**: hover to magnify the nearest paper, click to select it
+- **Selection**: core argument, evidence, quotes, and the full point-to / referenced-by
+  lists, each with a link to the analysis or the arXiv entry
+- **Keys**: drag to rotate · scroll to zoom · `shift`+scroll for loupe strength ·
+  `alt`+scroll for loupe size · `/` to search · `esc` to close
+
+```
+index.html (constellation)   ─┐
+                              ├─ docs/js/nodes.js + docs/js/links.js
+version-1.html (graph)       ─┘
+galaxy                       ── analysis/index/corpus.json
+```
 
 ### 3D semantic galaxy
 
@@ -58,6 +83,52 @@ through [Transformers.js](https://huggingface.co/docs/transformers.js)
 on WebGPU; nothing leaves the page.
 
 See `apps/galaxy/README.md` for the build and trade-offs.
+
+### Updating the visualizations
+
+The constellation and the network graph read the **same** client-side data, so a new
+paper is added once and appears in both:
+
+| File | Holds |
+|------|-------|
+| `docs/js/nodes.js` | One object per paper: `id` (arXiv), `title`, `shortTitle`, `date`, `stance`, `cluster`, `coreArgument`, `keyEvidence`, `keyQuotes`, `analysisUrl` |
+| `docs/js/links.js` | One object per relationship: `source`, `target`, `type` (`supports`, `extends`, `challenges`, `rebuts`, `related`), `description` |
+
+The galaxy reads `analysis/index/corpus.json` instead, which is generated from
+`analysis/explored/**/*.md` by `make corpus`.
+
+**Adding or changing a paper**
+
+```bash
+# 1. edit docs/js/nodes.js (new node) and docs/js/links.js (3-5 links)
+# 2. rebuild the corpus the galaxy reads
+make corpus
+# 3. keep every hardcoded count in sync
+make sync-counts
+# 4. verify corpus sync, counts, and the galaxy build
+make deploy-check
+```
+
+Nothing else to regenerate: both pages derive node counts, topic counts, and degrees at
+load time. A paper that is in `nodes.js` but not in the corpus renders in the
+constellation and network graph but not in the galaxy, so run `make corpus` in the same
+commit.
+
+**Changing the look**
+
+| View | Where to edit |
+|------|---------------|
+| Constellation | `docs/index.html` - one file: styles in `<style>`, WebGL + interaction in the closing `<script>` |
+| Network graph | `docs/css/*.css`, `docs/js/graph.js` |
+| Galaxy | `apps/galaxy/src/` (React + three.js) |
+
+**Reviewing locally**
+
+```bash
+cd docs && python3 -m http.server 8000     # http://localhost:8000
+cd docs && npx prettier --check .          # formatting (repo config is single-quote)
+```
+
 
 ### LLM Made Less Black Box
 
@@ -399,7 +470,7 @@ papers in this corpus make the inversion concrete:
 │       ├── 00-09/ ... 260-269/
 ├── docs/                     # Interactive visualization (GitHub Pages)
 │   ├── index.html            # Landing page: citation constellation
-│   ├── v1.html               # D3 force-directed paper network graph
+│   ├── version-1.html        # D3 force-directed paper network graph
 │   ├── pages/                # Deep-dive standalone pages
 │   │   ├── data.html         # Data Pipeline
 │   │   ├── tokenization.html # Tokenization
