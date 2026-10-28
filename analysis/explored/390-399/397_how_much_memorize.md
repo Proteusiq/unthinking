@@ -1,4 +1,4 @@
-# Paper 397: How Much Do Language Models Memorize?
+# Paper Analysis: How Much Do Language Models Memorize?
 
 ## Metadata
 - **arXiv**: 2505.24832

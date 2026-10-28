@@ -9,6 +9,17 @@ Steps to analyze a new paper and update the literature review.
 - Read `AGENTS.md` for methodology rules
 - Triage `papers/toevaluate.md` to promote papers to `papers/toread.md`
 - Check `papers/paper_list.md` for existing papers
+- Run `git status` and `make deploy-check` before starting. If the baseline is not clean, fix that first so a later failure is known to be yours
+
+## Rules That Prevent Corpus Damage
+
+These exist because a past "numbering fix" deleted three analyses while the graph still pointed at them.
+
+1. **Never renumber or rename an existing analysis file.** The filename number is only a unique slot. It does not need to match `paper_list.md`, which is numbered independently. Renaming breaks `analysisUrl` in `docs/js/nodes.js`, the corpus index and external links.
+2. **Never delete an analysis file to fix a number.** To remove a paper on purpose, delete its node, its links, its `paper_list.md` row and its file in the same commit.
+3. **Append at the next free slot.** Take the highest number under `analysis/explored/` and add one (see Step 4).
+4. **If you must move a file,** update `analysisUrl` in `nodes.js` in the same commit, then run `node scripts/validate-docs.js`.
+5. **Never skip `make deploy-check`.** It fails on a node whose `analysisUrl` does not resolve to a file, on corpus drift and on out-of-sync counts.
 
 ---
 
@@ -149,11 +160,19 @@ Do NOT proceed to writing until you can answer:
 
 ## Step 4: Create Analysis File
 
-Create `analysis/explored/XX-X9/XX_paper_name.md` in the appropriate bin folder:
-- Papers 00-09 → `00-09/`
-- Papers 10-19 → `10-19/`
-- Papers 90-99 → `90-99/`
-- etc.
+Create `analysis/explored/XX-X9/XX_paper_name.md` using the **next free number**. Never reuse or shift an existing number (see "Rules That Prevent Corpus Damage").
+
+```bash
+# highest number in use
+find analysis/explored -name '*.md' | sed -E 's|.*/([0-9]+)_.*|\1|' | sort -n | tail -1
+```
+
+The bin folder is the number's tens group:
+- `397` → `390-399/`
+- `400` → `400-409/` (create the folder)
+- Numbers below 100 use `00-09/` ... `90-99/`
+
+The heading is `# Paper Analysis: Title`, as in the canonical `00_faith_and_fate.md`. Do not put a number in the heading: numbers go stale when files move. After the file exists, the `analysisUrl` in Step 8a must point to this exact path.
 
 Following template:
 
@@ -214,11 +233,15 @@ Following template:
 
 ## Step 5: Update Paper List
 
-Add entry to `papers/paper_list.md`:
+Append one row to the table in `papers/paper_list.md`, matching the existing rows:
 
 ```markdown
-| XX | [Title](https://arxiv.org/abs/XXXX.XXXXX) | YYYY-MM-DD | SUPPORTS/CHALLENGES/BALANCED | Brief finding |
+| 397 | 2605.13829 | May 2026 | Paper Title | Supports |
 ```
+
+Columns are `# | arXiv ID | Date | Title | Stance`. Stance is `Supports`, `Challenges` or `Balanced`. The `#` is the next row number in this file. It is independent of the analysis filename number, so do not try to make them match.
+
+Do not edit the `> N papers analyzed | ...` header by hand: `make sync-counts` rewrites it.
 
 ---
 
@@ -350,13 +373,16 @@ with getters, so there is no count to bump there. The landing constellation and 
 network graph both read `nodes.js` + `links.js` at load and lay themselves out in the
 browser, so a new node and its links are the entire UI change.
 
-Two things do need running, because the galaxy reads a different file:
+Three things do need running, because the galaxy reads a different file and the graph links to files on disk:
 
 ```bash
-make corpus        # analysis/index/corpus.json + apps/galaxy/public/corpus.json
-make sync-counts   # every hardcoded count
-make deploy-check  # must be clean
+make corpus                    # analysis/index/corpus.json + apps/galaxy/public/corpus.json + papers.duckdb
+make sync-counts               # every hardcoded count
+node scripts/validate-docs.js  # duplicate ids, orphan links, analysisUrl -> file on disk
+make deploy-check              # runs the checks above plus the galaxy typecheck and build; must be clean
 ```
+
+`validate-docs.js` fails if any node's `analysisUrl` points at a file that does not exist. It warns, and does not fail, on link targets that are not nodes: those are intentional "cited, not tracked" references.
 
 See "Updating the Visualizations" in `AGENTS.md` for the field contract and the
 auto-derived values.
@@ -371,7 +397,7 @@ Any edit under `analysis/explored/` changes `analysis/index/corpus.json` (at min
 make corpus        # rebuild corpus.json AND copy it to apps/galaxy/public/
 make sync-counts   # rewrite all hardcoded counts: README badges/prose, findings
                    # stance cards, galaxy, synthesis, rebuttals, AGENTS, workflow
-make deploy-check  # fails on corpus drift or out-of-sync counts (run this last)
+make deploy-check  # fails on corpus drift, out-of-sync counts or a broken analysisUrl (run this last)
 ```
 
 These targets cover the README badges/folder-count, the findings stance cards and the findings batch distribution automatically. Only the *content* judgment calls below still need a manual edit:
@@ -390,16 +416,14 @@ Run `cd docs && npm run format` after editing.
 Run `make deploy-check` first; it must be clean. Stage the regenerated `corpus.json` AND the galaxy copy alongside the analysis.
 
 ```bash
-git add analysis/explored/XX_paper_name.md
-git add papers/paper_list.md
-git add analysis/paper_graph.md
-git add analysis/synthesis.md
-git add docs/js/nodes.js
-git add docs/js/links.js
-git add docs/js/data.js
-git add docs/pages/findings.html  # if updated
-git add README.md
-git add analysis/index/corpus.json apps/galaxy/public/corpus.json  # regenerated by `make corpus`
+git add analysis/explored/                 # the new analysis
+git add papers/paper_list.md papers/toread.md
+git add analysis/paper_graph.md analysis/synthesis.md analysis/rebuttals.md
+git add docs/js/nodes.js docs/js/links.js
+git add docs/pages/findings.html           # if updated
+git add analysis/index/ apps/galaxy/public/corpus.json   # regenerated by `make corpus`
+git add README.md AGENTS.md workflow.md apps/galaxy/    # rewritten by `make sync-counts`
+git status --short                          # nothing unexpected, nothing left behind
 git commit -m "Add analysis: [Paper Title] (arXiv ID)
 
 - Stance: SUPPORTS/CHALLENGES/BALANCED
@@ -446,31 +470,48 @@ Remove analyzed paper from `papers/toread.md` or mark as done.
 -->
 
 **Status**: Auto-discovery PAUSED (2026-02-01)
-- Corpus at 215 papers
 - To resume: uncomment the automation section above and re-enable GitHub Action
 
 ---
 
 ## Verification (Run Periodically)
 
-Ensure `docs/js/nodes.js` node count matches analyzed papers:
-
 ```bash
-# Count nodes
-grep -c "id: '" docs/js/nodes.js
+make deploy-check                 # corpus drift, count drift, analysisUrl -> file, galaxy typecheck + build
+node scripts/validate-docs.js     # same graph checks on their own, faster
 
-# Count DONE papers in paper_list.md  
-grep -c "DONE" papers/paper_list.md
+# arXiv ids in paper_list.md but not in nodes.js, and the reverse (empty output = in sync)
+comm -3 \
+  <(grep -E '^\| [0-9]+ \| ' papers/paper_list.md | awk -F'|' '{gsub(/ /,"",$3); print $3}' | sort -u) \
+  <(grep -oE "^    id: '[^']+'" docs/js/nodes.js | sed "s/.*'\(.*\)'/\1/" | sort -u)
 
-# Find papers missing from nodes.js
-grep "id: '" docs/js/nodes.js | sed "s/.*id: '\\([^']*\\)'.*/\\1/" | sort > /tmp/data_ids.txt
-grep -E "^\| [0-9]+ \| [0-9]" papers/paper_list.md | awk -F'|' '{gsub(/ /,"",$3); print $3}' | sort > /tmp/paper_ids.txt
-comm -23 /tmp/paper_ids.txt /tmp/data_ids.txt
+# one paper analyzed by two files
+python3 -c "
+import json, collections
+c = json.load(open('analysis/index/corpus.json'))
+for a, n in collections.Counter(e['arxiv'] for e in c if e['arxiv']).items():
+    if n > 1: print(a, [e['analysis_path'] for e in c if e['arxiv'] == a])
+"
 ```
 
-If mismatch found:
-1. Add missing papers to `docs/js/nodes.js`
-2. Add relevant links to `docs/js/links.js` (3-5 outgoing, each with unique description)
-3. Update `meta.totalAnalyzed` count in `docs/js/data.js`
-4. **Update README.md** paper counts (badges and folder count)
-5. Commit and push to trigger deploy
+If the node and paper-list check shows a mismatch:
+1. Add the missing node to `docs/js/nodes.js` (Step 8a) and 3-5 links to `docs/js/links.js` (Step 8b)
+2. Run `make corpus && make sync-counts && make deploy-check`
+3. Commit and push to trigger the deploy
+
+Counts are never edited by hand: README, findings, galaxy, synthesis, rebuttals, AGENTS, workflow and the `paper_list.md` header are all rewritten by `make sync-counts`.
+
+---
+
+## Known Issues
+
+Existing inconsistencies that are not caused by the current workflow. Do not "fix" them silently: decide, then change the files, node and links in one commit.
+
+| Issue | Detail | Decision needed |
+|-------|--------|-----------------|
+| Duplicate analyses | `2305.04388` is in `140-149/148_language_models_dont_say_what_think.md` and `310-319/312_unfaithful_cot_explanations.md`. `2305.10601` is in `200-209/207_tree_of_thoughts.md` and `290-299/299_tree_of_thoughts.md`. `2308.09687` is in `200-209/208_graph_of_thoughts.md` and `300-309/300_graph_of_thoughts.md`. | The graph node points at the later file. Keep one per paper, merge any unique content, delete the other and its corpus entry. This brings the corpus count down by 3. |
+| Entry without an arXiv id | `190-199/192_the_missing_paper.md` is a placeholder. | Expected. Together with the 3 duplicate files it explains why the corpus (400) is 4 above `nodes.js` (396). |
+| Non-arXiv id | `LREC-COLING-2024-884` (`210-219/217_llms_are_echo_chambers.md`). | None. The link validator exempts it. |
+| `paper_list.md` numbering | Row numbers are not the analysis filename numbers. | None. They are independent by design. |
+
+---

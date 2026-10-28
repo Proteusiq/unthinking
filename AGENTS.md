@@ -402,8 +402,18 @@ Do NOT rebuild or copy these by hand. Use the Makefile targets, which keep both 
 ```bash
 make corpus        # rebuild corpus.json AND copy it to apps/galaxy/public/
 make sync-counts   # rewrite every hardcoded count (README, findings, galaxy, synthesis, ...)
-make deploy-check  # fails on corpus drift or out-of-sync counts; run this last
+make deploy-check  # fails on corpus drift, out-of-sync counts or a broken analysisUrl; run this last
 ```
+
+### Numbering and File Integrity
+
+An analysis filename number is only a unique slot. It is not the `paper_list.md` row number and does not need to match it.
+
+- **New analysis**: use the next free number (highest under `analysis/explored/` plus one). Heading is `# Paper Analysis: Title`, with no number in it.
+- **Never renumber, rename or delete an existing analysis to "fix" numbering.** A past renumbering deleted three analyses while their graph nodes stayed, and 56 `analysisUrl` values broke.
+- **Moving or removing a file** must update `analysisUrl` in `docs/js/nodes.js` in the same commit (removing a paper also removes its node, links and `paper_list.md` row).
+- `make deploy-check` runs `scripts/validate-docs.js`, which fails when a node's `analysisUrl` does not resolve to a file.
+- Open inconsistencies, such as papers analyzed twice, are tracked in `workflow.md` under "Known Issues".
 
 Definition of done for any analysis change: `make corpus && make sync-counts && make deploy-check` all clean, then commit (including the regenerated `corpus.json` and galaxy copy) and push.
 
@@ -429,7 +439,7 @@ Two of the three views read the same two client files; the third has its own pip
 
 The constellation and the network graph contain **no generated markup**: ring sectors, topic counts, stance counts, node radius (degree) and camera framing are all derived in the browser at load. A paper is added by editing `nodes.js` and `links.js` only; a new topic cluster needs no registration.
 
-`analysis/index/corpus.json` also indexes one entry with no arXiv id (`analysis/explored/190-199/192_the_missing_paper.md`, a placeholder), so corpus totals run one higher than `nodes.js`. That offset is expected; do not "fix" it by deleting analyses.
+`analysis/index/corpus.json` also indexes one entry with no arXiv id (`analysis/explored/190-199/192_the_missing_paper.md`, a placeholder), so corpus totals run higher than `nodes.js`. The rest of the offset is three papers that have two analysis files each (see `workflow.md`, "Known Issues"). Do not "fix" the offset by deleting analyses without deciding which copy to keep.
 
 ### Adding a paper to the graph
 

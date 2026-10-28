@@ -9,6 +9,7 @@ Without --check, this script rewrites:
   - apps/galaxy/index.html (meta description)
   - apps/galaxy/src/App.tsx (splash + sidebar copy)
   - apps/galaxy/README.md (first line and synthesis count)
+  - papers/paper_list.md (header: total and stance counts)
 
 With --check, the script READS the same files and exits non-zero if any
 hardcoded number doesn't match corpus reality. Use in CI to catch drift.
@@ -280,6 +281,16 @@ def replacements(c: Counts) -> list[Replacement]:
             ROOT / "analysis" / "rebuttals.md",
             re.compile(r"^> \*\*Papers analyzed\*\*: \d+", re.MULTILINE),
             f"> **Papers analyzed**: {c.total}",
+        ),
+        Replacement(
+            ROOT / "papers" / "paper_list.md",
+            re.compile(
+                r"^> \d+ papers analyzed \| \d+ supports thesis \| "
+                r"\d+ challenges \| \d+ balanced",
+                re.MULTILINE,
+            ),
+            f"> {c.total} papers analyzed | {c.supports} supports thesis | "
+            f"{c.challenges} challenges | {c.balanced} balanced",
         ),
         # NOTE: apps/galaxy/src/App.tsx now reads counts from
         # corpus.json at runtime via the corpusStats memo. No static

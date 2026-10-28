@@ -54,6 +54,7 @@ deploy-check:
 	@diff -q analysis/index/corpus.json apps/galaxy/public/corpus.json > /dev/null \
 		|| (echo "corpus drift — run 'make corpus'" && exit 1)
 	uv run python scripts/sync_counts.py --check
+	node scripts/validate-docs.js
 	cd apps/galaxy && npx tsc --noEmit -p tsconfig.app.json
 	cd apps/galaxy && npm run build > /dev/null
 	@echo "✓ ready to push"

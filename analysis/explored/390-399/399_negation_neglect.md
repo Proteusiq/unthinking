@@ -1,4 +1,4 @@
-# Paper 399: Negation Neglect: When Models Fail to Learn Negations in Training
+# Paper Analysis: Negation Neglect: When models fail to learn negations in training
 
 ## Metadata
 - **arXiv ID**: 2605.13829

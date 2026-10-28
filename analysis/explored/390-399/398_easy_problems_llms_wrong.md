@@ -1,4 +1,4 @@
-# Paper 398: Easy Problems That LLMs Get Wrong
+# Paper Analysis: Easy Problems That LLMs Get Wrong
 
 ## Metadata
 - **arXiv**: 2405.19616

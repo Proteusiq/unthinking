@@ -6662,7 +6662,7 @@
   {
     "id": 397,
     "arxiv": "2505.24832",
-    "title": "Paper 397: How Much Do Language Models Memorize?",
+    "title": "How Much Do Language Models Memorize?",
     "date": "May 2025 (v3: June 2025)",
     "stance": "balanced",
     "cluster": "memorization",
@@ -6679,7 +6679,7 @@
   {
     "id": 398,
     "arxiv": "2405.19616",
-    "title": "Paper 398: Easy Problems That LLMs Get Wrong",
+    "title": "Easy Problems That LLMs Get Wrong",
     "date": "May 2024",
     "stance": "supports",
     "cluster": "memorization",
@@ -6696,7 +6696,7 @@
   {
     "id": 399,
     "arxiv": "2605.13829",
-    "title": "Paper 399: Negation Neglect: When Models Fail to Learn Negations in Training",
+    "title": "Negation Neglect: When models fail to learn negations in training",
     "date": "May 2026",
     "stance": "supports",
     "cluster": "safety",
