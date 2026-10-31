@@ -75,20 +75,7 @@ body {
   margin-left: 0;
 }
 
-/* ── Particle ring background (injected by fx.js) ───────────────────── */
-#fx-bg {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.62;
-  transition: opacity 0.4s;
-}
-[data-theme='light'] #fx-bg {
-  opacity: 0;
-}
+/* ── Page background ────────────────────────────────────────────────── */
 [data-theme='light'] body {
   background:
     radial-gradient(1200px 700px at 70% -10%, #e4e7ff, transparent 60%),

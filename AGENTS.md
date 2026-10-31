@@ -76,10 +76,10 @@ See `docs/SPECS.md` for design system, component layout, and graph details.
 - Reactive positioning: `ResizeObserver` + `transitionend`, no `setTimeout` for layout
 
 #### Standalone Pages (`pages/*.html`)
-- Shared design system, not self-contained: `pages/shared/base.css` (tokens, dark + light palette), `pages/shared/modern.css` (site nav, glass surfaces, scroll reveal), `pages/shared/fx.js` (injected nav, still particle ring, reveals), `pages/shared/theme.js` (dark → light → auto, persisted)
+- Shared design system, not self-contained: `pages/shared/base.css` (tokens, dark + light palette), `pages/shared/modern.css` (site nav, glass surfaces, scroll reveal), `pages/shared/fx.js` (injected nav, scroll reveals), `pages/shared/theme.js` (dark → light → auto, persisted)
 - Nav is the five deep-dive pages (data, tokenization, architecture, training, implementation); the `[ UNTHINKING ]` brand returns to the constellation
-- No idle animation: the ring is drawn once and on resize. A moving full-screen canvas pins a core even when the per-frame JS is trivial
-- Look: pure black, periwinkle ink, Space Mono UI with Space Grotesk display; `body` is transparent so the particle ring shows through
+- No background canvas and no idle animation: a moving full-screen canvas pinned a core (~25%) even with trivial per-frame JS
+- Look: pure black, periwinkle ink, Space Mono UI with Space Grotesk display
 - Each page keeps its component styles in an inline `<style>` and sets one `--accent`; late-loaded `modern.css` overrides the rest
 - Use tokens (`var(--accent-*)`, `var(--bg-*)`, `var(--mono)`) rather than raw hex - a hardcoded dark colour silently breaks light mode
 - Tab switching: JS `setMode()` pattern, CSS `.show` class toggle

@@ -1,7 +1,7 @@
 /**
  * Shared base styles for standalone pages — "modern" edition
  * Same variable names as before, so every page restyles at once.
- * Look: pure black, periwinkle-white ink, mono UI, light Space Grotesk display, particle ring behind the content.
+ * Look: pure black, periwinkle-white ink, mono UI, light Space Grotesk display.
  */
 
 :root {
@@ -80,7 +80,6 @@ html[data-theme='light'] {
   color-scheme: light;
 }
 
-/* body is transparent so the particle canvas (z-index:-1) shows through */
 body {
   background: transparent;
   color: var(--text-secondary);

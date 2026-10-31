@@ -334,6 +334,20 @@
         margin-top: 0;
       }
 
+      #detail h2,
+      #detail a.ln,
+      #detail div.ln,
+      #detail .q,
+      #detail .desc {
+        text-transform: none;
+      }
+
+      #detail div.ln,
+      #detail .q,
+      #detail .desc {
+        letter-spacing: 0.02em;
+      }
+
       .ln {
         display: block;
         width: 100%;
@@ -1380,14 +1394,14 @@ void main(){float d=length(gl_PointCoord-.5);if(d>.5)discard;float a=smoothstep(
 
           h('Open');
           if (n.analysisUrl) {
-            const a = el('a', 'ln', 'read analysis');
+            const a = el('a', 'ln', 'Read analysis');
             a.href = n.analysisUrl;
             a.target = '_blank';
             a.rel = 'noopener';
             d.append(a);
           }
 
-          const arxiv = el('a', 'ln', 'open on arxiv');
+          const arxiv = el('a', 'ln', 'Open on arXiv');
           arxiv.href = 'https://arxiv.org/abs/' + n.id;
           arxiv.target = '_blank';
           arxiv.rel = 'noopener';
