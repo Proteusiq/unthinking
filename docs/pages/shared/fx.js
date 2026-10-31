@@ -1,20 +1,16 @@
 /**
- * Modern layer for the standalone pages: site nav, scroll reveal, and a slow particle-ring background.
- * Loaded with `defer`; no dependencies. Respects prefers-reduced-motion and pauses when the tab is hidden.
+ * Modern layer for the standalone pages: site nav, scroll reveal, and a still particle ring
+ * behind the content. Loaded with `defer`; no dependencies and no idle animation.
  */
 (() => {
   const PAGES = [
-    ['findings', 'Findings'],
-    ['agent-loop', 'Agent loop'],
     ['data', 'Data'],
     ['tokenization', 'Tokenization'],
     ['architecture', 'Architecture'],
-    ['attention', 'Attention'],
     ['training', 'Training'],
     ['implementation', 'Implementation'],
   ];
   const here = location.pathname.split('/').pop().replace('.html', '');
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.documentElement.classList.add('js');
 
   // Inside the landing page's overlay the graph is the frame itself: closing the
@@ -42,12 +38,11 @@
       '<a class="brand" href="../index.html">[ UNTHINKING ]</a><nav aria-label="Pages"></nav><span class="nav-end"></span>';
     const n = h.querySelector('nav');
     leaveToGraph(h.querySelector('.brand'));
-    [['../index', 'Graph'], ...PAGES.map(([k, v]) => [k, v])].forEach(([k, v]) => {
+    PAGES.forEach(([k, v]) => {
       const a = document.createElement('a');
       a.href = k + '.html';
       a.textContent = v;
       if (k === here) a.setAttribute('aria-current', 'page');
-      if (k === '../index') leaveToGraph(a);
       n.appendChild(a);
     });
     document.body.prepend(h);
@@ -76,12 +71,20 @@
     setTimeout(() => els.forEach((e) => e.classList.add('rv-in')), 2500); // safety net
   }
 
+  // A still dust ring behind the content. The shader does the rotation and depth
+  // fade, so the frame is drawn once (and again only on resize) instead of
+  // animating: a moving full-screen canvas pins a core even when the JS is cheap.
   function bg() {
     const cv = document.createElement('canvas');
     cv.id = 'fx-bg';
     cv.setAttribute('aria-hidden', 'true');
     document.body.prepend(cv);
-    const gl = cv.getContext('webgl', { alpha: false, antialias: false });
+    const gl = cv.getContext('webgl', {
+      alpha: false,
+      antialias: false,
+      depth: false,
+      powerPreference: 'low-power',
+    });
     if (!gl) {
       cv.remove();
       return;
@@ -97,14 +100,27 @@
       pr,
       sh(
         gl.VERTEX_SHADER,
-        'attribute vec2 aPos;attribute vec4 aCol;attribute float aSize;uniform vec2 uRes;varying vec4 vCol;void main(){vec2 c=aPos/uRes*2.0-1.0;gl_Position=vec4(c.x,-c.y,0.0,1.0);gl_PointSize=aSize;vCol=aCol;}'
+        `attribute vec3 aPos;attribute float aPhase;
+uniform mat3 uRot;uniform vec2 uRes;uniform float uScale;uniform float uDpr;uniform vec3 uTint;
+varying vec3 vCol;varying float vA;
+void main(){
+  vec3 r=uRot*(aPos*(1.0+0.012*sin(aPhase)));
+  float persp=3.4/(3.4-r.z);
+  vec2 screen=uRes*0.5+vec2(r.x,-r.y)*persp*uScale;
+  vec2 c=screen/uRes*2.0-1.0;
+  gl_Position=vec4(c.x,-c.y,0.0,1.0);
+  float f=clamp((r.z+1.6)/3.2,0.0,1.0);
+  vCol=uTint;
+  vA=(0.12+0.88*f)*0.9;
+  gl_PointSize=(0.8+1.1*f)*persp*uDpr;
+}`
       )
     );
     gl.attachShader(
       pr,
       sh(
         gl.FRAGMENT_SHADER,
-        'precision mediump float;varying vec4 vCol;void main(){float d=length(gl_PointCoord-.5);if(d>.5)discard;float a=smoothstep(.5,.1,d)*vCol.a;gl_FragColor=vec4(vCol.rgb*a,1.0);}'
+        'precision mediump float;varying vec3 vCol;varying float vA;void main(){float d=length(gl_PointCoord-.5);if(d>.5)discard;float a=smoothstep(.5,.1,d)*vA;gl_FragColor=vec4(vCol*a,1.0);}'
       )
     );
     gl.linkProgram(pr);
@@ -112,15 +128,18 @@
     const buf = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, buf);
     [
-      ['aPos', 2, 0],
-      ['aCol', 4, 8],
-      ['aSize', 1, 24],
+      ['aPos', 3, 0],
+      ['aPhase', 1, 12],
     ].forEach(([n, c, o]) => {
       const l = gl.getAttribLocation(pr, n);
       gl.enableVertexAttribArray(l);
-      gl.vertexAttribPointer(l, c, gl.FLOAT, false, 28, o);
+      gl.vertexAttribPointer(l, c, gl.FLOAT, false, 16, o);
     });
+    const uRot = gl.getUniformLocation(pr, 'uRot');
     const uRes = gl.getUniformLocation(pr, 'uRes');
+    const uScale = gl.getUniformLocation(pr, 'uScale');
+    const uDpr = gl.getUniformLocation(pr, 'uDpr');
+    const uTint = gl.getUniformLocation(pr, 'uTint');
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.ONE, gl.ONE);
     gl.clearColor(0, 0, 0, 1);
@@ -131,6 +150,7 @@
     const m = /^#([0-9a-f]{6})$/i.exec(hex);
     if (m) ac = [0, 2, 4].map((i) => parseInt(m[1].substr(i, 2), 16) / 255);
     const tint = ac.map((v) => 0.62 + 0.38 * v);
+    gl.uniform3f(uTint, tint[0], tint[1], tint[2]);
 
     const surf = (u, v, s) => {
       const R = 1 + 0.22 * Math.sin(2 * u + 0.8) + 0.1 * Math.cos(3 * u),
@@ -144,103 +164,54 @@
         bb = r * (a * d + b * c);
       return [Math.cos(u) * (R + nn), 0.25 * Math.sin(2 * u) + bb, Math.sin(u) * (R + nn)];
     };
-    const N = innerWidth < 720 ? 6000 : 15000,
+    const N = innerWidth < 720 ? 3000 : 9000,
       T2 = Math.PI * 2,
       R = Math.random;
-    const base = new Float32Array(N * 3),
-      ph = new Float32Array(N),
-      data = new Float32Array(N * 7);
+    const verts = new Float32Array(N * 4);
     for (let i = 0; i < N; i++) {
       const q = surf(R() * T2, R() * T2, 0.88 + 0.12 * Math.pow(R(), 0.4));
-      base[i * 3] = q[0] + (R() - 0.5) * 0.012;
-      base[i * 3 + 1] = q[1] + (R() - 0.5) * 0.012;
-      base[i * 3 + 2] = q[2] + (R() - 0.5) * 0.012;
-      ph[i] = R() * T2;
+      verts[i * 4] = q[0] + (R() - 0.5) * 0.012;
+      verts[i * 4 + 1] = q[1] + (R() - 0.5) * 0.012;
+      verts[i * 4 + 2] = q[2] + (R() - 0.5) * 0.012;
+      verts[i * 4 + 3] = R() * T2;
     }
-    gl.bufferData(gl.ARRAY_BUFFER, data.byteLength, gl.DYNAMIC_DRAW);
-    let W,
-      H,
-      DPR = Math.min(devicePixelRatio || 1, 1.5),
-      mx = 0,
-      my = 0,
-      rotY = 0.6,
-      last = performance.now(),
-      run = true;
-    const size = () => {
-      W = innerWidth;
-      H = innerHeight;
-      cv.width = W * DPR;
-      cv.height = H * DPR;
-    };
-    addEventListener('resize', () => {
-      size();
-      if (reduce) draw(performance.now());
-    });
-    size();
-    addEventListener(
-      'pointermove',
-      (e) => {
-        mx = e.clientX / W - 0.5;
-        my = e.clientY / H - 0.5;
-      },
-      { passive: true }
-    );
-    document.addEventListener('visibilitychange', () => {
-      run = !document.hidden;
-      if (run) {
-        last = performance.now();
-        requestAnimationFrame(draw);
-      }
-    });
-    const D = 3.4;
-    function draw(now) {
-      if (!run) return;
-      const dt = Math.min(0.05, (now - last) / 1000);
-      last = now;
-      if (document.documentElement.getAttribute('data-theme') !== 'light') {
-        if (!reduce) rotY += dt * 0.035;
-        const sc = Math.min(1, scrollY / Math.max(1, document.documentElement.scrollHeight - H));
-        const ry = rotY + mx * 0.35,
-          rx = -0.42 + sc * 0.9 + my * 0.2,
-          cY = Math.cos(ry),
-          sY = Math.sin(ry),
-          cX = Math.cos(rx),
-          sX = Math.sin(rx);
-        const S = Math.min(W, H) * 0.42,
-          cx = W * 0.5,
-          cy = H * 0.5,
-          t = now / 1000;
-        let o = 0;
-        for (let i = 0; i < N; i++) {
-          const w = 1 + 0.012 * Math.sin(t * 0.6 + ph[i]),
-            x = base[i * 3] * w,
-            y = base[i * 3 + 1] * w,
-            z = base[i * 3 + 2] * w;
-          const x1 = x * cY + z * sY,
-            z1 = -x * sY + z * cY,
-            y2 = y * cX - z1 * sX,
-            z2 = y * sX + z1 * cX,
-            p = D / (D - z2);
-          let f = (z2 + 1.6) / 3.2;
-          f = f < 0 ? 0 : f > 1 ? 1 : f;
-          data[o++] = (cx + x1 * p * S) * DPR;
-          data[o++] = (cy - y2 * p * S) * DPR;
-          data[o++] = tint[0];
-          data[o++] = tint[1];
-          data[o++] = tint[2];
-          data[o++] = (0.12 + 0.88 * f) * 0.9;
-          data[o++] = (0.8 + 1.1 * f) * p * DPR;
-        }
-        gl.viewport(0, 0, cv.width, cv.height);
-        gl.clear(gl.COLOR_BUFFER_BIT);
-        gl.uniform2f(uRes, cv.width, cv.height);
-        gl.bufferSubData(gl.ARRAY_BUFFER, 0, data);
-        gl.drawArrays(gl.POINTS, 0, N);
-      }
-      if (!reduce) requestAnimationFrame(draw);
+    gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STATIC_DRAW);
+
+    const DPR = Math.min(devicePixelRatio || 1, 1.5);
+    const rot = new Float32Array(9);
+    const ry = 0.6 + 0.035,
+      rx = -0.42,
+      cY = Math.cos(ry),
+      sY = Math.sin(ry),
+      cX = Math.cos(rx),
+      sX = Math.sin(rx);
+    // column-major rows of "spin around y, then tip around x"
+    rot[0] = cY;
+    rot[1] = sX * sY;
+    rot[2] = -cX * sY;
+    rot[3] = 0;
+    rot[4] = cX;
+    rot[5] = sX;
+    rot[6] = sY;
+    rot[7] = -sX * cY;
+    rot[8] = cX * cY;
+
+    function draw() {
+      const W = innerWidth,
+        H = innerHeight;
+      cv.width = Math.round(W * DPR);
+      cv.height = Math.round(H * DPR);
+      gl.viewport(0, 0, cv.width, cv.height);
+      gl.uniformMatrix3fv(uRot, false, rot);
+      gl.uniform2f(uRes, cv.width, cv.height);
+      gl.uniform1f(uScale, Math.min(W, H) * 0.42 * DPR);
+      gl.uniform1f(uDpr, DPR);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.drawArrays(gl.POINTS, 0, N);
     }
-    requestAnimationFrame(draw);
-    if (reduce) addEventListener('scroll', () => requestAnimationFrame(draw), { passive: true });
+
+    draw();
+    addEventListener('resize', draw);
   }
 
   const init = () => {
