@@ -848,15 +848,15 @@
         const era = ERAS.find((x) => x.id === activeEra);
         document.getElementById('era-tabs').innerHTML = ERAS.map(
           (e) =>
-            `<div class="era-tab" style="color:${e.color};border-color:${e.id === activeEra ? e.color : 'transparent'};background:${e.id === activeEra ? e.color + '22' : 'var(--bg-secondary)'}" onclick="selEra('${e.id}')">${e.label}</div>`
+            `<div class="era-tab${e.id === activeEra ? ' active' : ''}" style="color:${e.color}" onclick="selEra('${e.id}')">${e.label}</div>`
         ).join('');
         document.getElementById('card-grid').innerHTML = CARDS.filter((c) => c.era === activeEra)
           .map(
             (c, i) =>
-              `<div class="card" id="cc${i}" onclick="togCard('cc${i}')" style="border-left:3px solid ${era.color}">
+              `<div class="card" id="cc${i}" onclick="togCard('cc${i}')" style="border-left-color:${era.color}">
                 <span class="c-chev">▼</span>
                 <div class="c-year" style="color:${era.color}">${c.year}</div>
-                <div class="c-name" style="color:${era.color}">${c.name}</div>
+                <div class="c-name">${c.name}</div>
                 <div class="c-key">${c.key}</div>
                 <div class="c-detail">${c.detail}<div class="c-limit">${c.limit}</div><div class="c-use">${c.use}</div></div>
               </div>`

@@ -17,19 +17,18 @@ body {
   height: 48px;
   display: flex;
   align-items: center;
-  gap: 18px;
-  padding: 0 clamp(12px, 3vw, 28px);
+  gap: 28px;
+  padding: 0 clamp(12px, 3vw, 32px);
   background: var(--nav-bg);
-  border-bottom: 1px solid var(--border-secondary);
-  -webkit-backdrop-filter: blur(16px) saturate(1.4);
-  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   font: 11px var(--mono);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
 }
 .site-nav .brand {
   color: var(--text-primary);
-  font: 500 13px var(--display);
+  font: 300 13px var(--display);
   letter-spacing: 0.16em;
   white-space: nowrap;
 }
@@ -39,7 +38,7 @@ body {
 }
 .site-nav nav {
   display: flex;
-  gap: 2px;
+  gap: 8px;
   overflow-x: auto;
   scrollbar-width: none;
   flex: 1;
@@ -49,23 +48,34 @@ body {
   display: none;
 }
 .site-nav nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   color: var(--text-muted);
   padding: 6px 10px;
-  border-radius: 6px;
   white-space: nowrap;
+  transition: color 0.2s;
+}
+.site-nav nav a::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  flex: none;
+  background: var(--border-primary);
   transition:
-    color 0.2s,
-    background 0.2s;
+    background 0.2s,
+    box-shadow 0.2s;
 }
 .site-nav nav a:hover {
   color: var(--text-primary);
   text-decoration: none;
-  background: var(--border-secondary);
 }
 .site-nav nav a[aria-current='page'] {
-  color: var(--accent, var(--accent-blue));
-  background: var(--border-secondary);
-  box-shadow: inset 0 -1px 0 var(--accent, var(--accent-blue));
+  color: var(--text-primary);
+}
+.site-nav nav a[aria-current='page']::before {
+  background: var(--accent, var(--accent-blue));
+  box-shadow: 0 0 10px var(--accent, var(--accent-blue));
 }
 .site-nav .nav-end {
   display: flex;
@@ -83,7 +93,35 @@ body {
   background-attachment: fixed;
 }
 
-/* ── Type ───────────────────────────────────────────────────────────── */
+/* ── Landing language ───────────────────────────────────────────────────
+   One idea carried over from the constellation: no boxes. Structure comes from
+   whitespace, hairlines and small glowing squares; colour is a signal, not a fill. */
+
+/* Hero: a large light title with a bracketed kicker, like the landing h1 */
+.kicker {
+  max-width: min(960px, 100%);
+  margin: 0 auto 0.6rem;
+  color: var(--accent, var(--accent-blue));
+  font-size: 11px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+.topbar {
+  align-items: flex-end;
+  gap: 1.2rem 2rem;
+  margin-bottom: 2.6rem;
+}
+.topbar h2 {
+  flex: 1 1 480px;
+  color: var(--text-primary);
+  font: 300 clamp(26px, 3.4vw, 46px) / 1.05 var(--display);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+.topbar h2::before,
+.topbar h2::after {
+  content: none;
+}
 h1 {
   font-family: var(--display) !important;
   font-weight: 300 !important;
@@ -104,46 +142,192 @@ h2::after {
   letter-spacing: 0.04em;
 }
 
-/* ── Glass surfaces ─────────────────────────────────────────────────── */
-.card,
-.box,
-.info-box,
-.thesis-box,
-.conclusion-box,
-.desc-box,
-.equation-box,
-.pipe-box,
-.combo-box,
-.act-card,
-.ds-card,
-.norm-card,
-.pattern-card,
-.stance-card,
-.stat-item,
-.diagram,
-.math-block,
-.w-block,
-.note,
-.crit-note,
-.code-block,
-pre {
-  -webkit-backdrop-filter: blur(14px) saturate(1.3);
-  backdrop-filter: blur(14px) saturate(1.3);
-  border-radius: 12px;
+/* Section labels: [LABEL] in the accent, as on the landing page */
+h3 {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.07em;
+}
+h3::before {
+  content: '[';
+}
+h3::after {
+  content: ']';
+}
+
+/* Tabs: glowing square + text, no filled pill */
+body .toggle-wrap {
+  gap: 26px;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  background: none;
+}
+body .toggle-wrap button {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 4px 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.07em;
+}
+body .toggle-wrap button::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  flex: none;
+  background: var(--border-primary);
+  transition:
+    background 0.2s,
+    box-shadow 0.2s;
+}
+body .toggle-wrap button:hover:not(.active) {
+  background: none;
+  color: var(--text-primary);
+}
+body .toggle-wrap button.active {
+  background: none;
+  box-shadow: none;
+  color: var(--text-primary);
+  font-weight: 400;
+}
+[data-theme='light'] body .toggle-wrap button.active {
+  color: var(--text-primary);
+}
+body .toggle-wrap button.active::before {
+  background: var(--accent, var(--accent-blue));
+  box-shadow: 0 0 10px var(--accent, var(--accent-blue));
+}
+
+/* Surfaces: a single hairline on the left instead of a filled, rounded box */
+body .card,
+body .box,
+body .info-box,
+body .thesis-box,
+body .conclusion-box,
+body .desc-box,
+body .equation-box,
+body .pipe-box,
+body .pipe-step,
+body .pipeline-wrap,
+body .combo-box,
+body .act-card,
+body .act-intro,
+body .block-intro,
+body .intro,
+body .ds-card,
+body .norm-card,
+body .pattern-card,
+body .stance-card,
+body .stat-item,
+body .spec-item,
+body .op-item,
+body .lab,
+body .fb,
+body .pb,
+body .note,
+body .crit-note,
+body .thesis-note,
+body .bpe-section,
+body .bpe-step,
+body .mech-section,
+body .rw-section,
+body .math-block,
+body .w-block,
+body .diagram,
+body .code-block {
+  background: transparent;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 0;
+  border-left: 1px solid var(--border-primary);
+  border-radius: 0;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  padding-left: clamp(14px, 2.4vw, 20px);
   transition:
     border-color 0.25s,
-    box-shadow 0.25s,
-    transform 0.25s;
+    box-shadow 0.25s;
 }
-.card:hover,
-.act-card:hover,
-.ds-card:hover,
-.norm-card:hover,
-.pattern-card:hover,
-.stance-card:hover,
-.stat-item:hover {
-  border-color: var(--accent, var(--accent-blue));
-  box-shadow: 0 0 34px -14px var(--accent, var(--accent-blue));
+body .card:hover,
+body .box:hover,
+body .act-card:hover,
+body .ds-card:hover,
+body .norm-card:hover,
+body .pattern-card:hover,
+body .stance-card:hover,
+body .stat-item:hover,
+body .pipe-step:hover {
+  background: transparent;
+  border-left-color: var(--accent, var(--accent-blue));
+  box-shadow: -14px 0 26px -20px var(--accent, var(--accent-blue));
+}
+/* The phase banners set their fill and border in an inline style attribute */
+body .pb {
+  background: transparent !important;
+  border: 0 !important;
+  border-left: 1px solid var(--border-primary) !important;
+  border-radius: 0 !important;
+}
+/* Per-phase colour stays as a signal, but as a hairline rather than a slab */
+body [class*='c-'] .box {
+  border-left-width: 1px;
+}
+/* Titles are white, as on the landing page; colour lives in the rule and the dots */
+body .sname.sname,
+body .c-name.c-name,
+body .ds-name.ds-name {
+  color: var(--text-primary);
+}
+/* Architecture sets each title colour inline from a dark-only palette, so it needs !important */
+body .act-name {
+  color: var(--text-primary) !important;
+}
+/* Era tabs: the era colour stays as text, the active tab gets a hairline underline */
+body .era-tab {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 6px 2px;
+  margin-right: 14px;
+  opacity: 0.55;
+  transition: opacity 0.2s;
+}
+body .era-tab:hover {
+  opacity: 0.9;
+}
+body .era-tab.active {
+  opacity: 1;
+  box-shadow: inset 0 -1px 0 currentColor;
+}
+/* Formula and code strips: a hairline, not a filled box */
+body .act-formula,
+body .norm-formula,
+body .formula,
+body .bpe-tokens {
+  background: transparent;
+  border: 0;
+  border-left: 1px solid var(--border-secondary);
+  border-radius: 0;
+}
+pre {
+  background: transparent;
+  border: 0;
+  border-left: 1px solid var(--border-primary);
+  border-radius: 0;
+}
+.tl-line {
+  width: 1px;
+}
+.tl-dot.active {
+  box-shadow: 0 0 12px var(--accent, var(--accent-blue));
 }
 
 /* ── Details ────────────────────────────────────────────────────────── */

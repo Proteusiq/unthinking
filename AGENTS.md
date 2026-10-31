@@ -79,7 +79,8 @@ See `docs/SPECS.md` for design system, component layout, and graph details.
 - Shared design system, not self-contained: `pages/shared/base.css` (tokens, dark + light palette), `pages/shared/modern.css` (site nav, glass surfaces, scroll reveal), `pages/shared/fx.js` (injected nav, scroll reveals), `pages/shared/theme.js` (dark → light → auto, persisted)
 - Nav is the five deep-dive pages (data, tokenization, architecture, training, implementation); the `[ UNTHINKING ]` brand returns to the constellation
 - No background canvas and no idle animation: a moving full-screen canvas pinned a core (~25%) even with trivial per-frame JS
-- Look: pure black, periwinkle ink, Space Mono UI with Space Grotesk display
+- Look: pure black, periwinkle ink, Space Mono UI with Space Grotesk display, matching the landing page: no boxes (a surface is a 1px left hairline), a large light uppercase title with a `[Foundation / NN of 05]` kicker, `[BRACKET]` section labels, glowing-square tabs and nav, white titles with colour reserved for rules, dots and small tags
+- A new surface class must be added to the hairline list in `modern.css`; colour set in an inline `style=""` needs `!important` there, or better, change the page JS to emit a class
 - Each page keeps its component styles in an inline `<style>` and sets one `--accent`; late-loaded `modern.css` overrides the rest
 - Use tokens (`var(--accent-*)`, `var(--bg-*)`, `var(--mono)`) rather than raw hex - a hardcoded dark colour silently breaks light mode
 - Tab switching: JS `setMode()` pattern, CSS `.show` class toggle

@@ -50,6 +50,17 @@
     if (cur) cur.scrollIntoView({ inline: 'center', block: 'nearest' });
   }
 
+  function kicker() {
+    const bar = document.querySelector('.topbar');
+    const i = PAGES.findIndex(([k]) => k === here);
+    if (!bar || i < 0) return;
+    const pad = (n) => String(n).padStart(2, '0');
+    const p = document.createElement('p');
+    p.className = 'kicker';
+    p.textContent = `[Foundation / ${pad(i + 1)} of ${pad(PAGES.length)}]`;
+    bar.before(p);
+  }
+
   function reveal() {
     const sel = '.container > *, .page > *, .view > *';
     const els = [...document.querySelectorAll(sel)].filter((e) => !e.matches('script,style'));
@@ -73,6 +84,7 @@
 
   const init = () => {
     nav();
+    kicker();
     reveal();
   };
   document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', init) : init();
