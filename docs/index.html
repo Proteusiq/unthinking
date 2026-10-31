@@ -81,6 +81,66 @@
         background: #000;
       }
 
+      #ov {
+        position: fixed;
+        inset: 0;
+        z-index: 40;
+        display: grid;
+        place-items: center;
+        padding: 48px 0 16px;
+        background: rgba(0, 0, 0, 0);
+        -webkit-backdrop-filter: blur(0);
+        backdrop-filter: blur(0);
+        pointer-events: none;
+        transition:
+          background 0.3s,
+          -webkit-backdrop-filter 0.3s,
+          backdrop-filter 0.3s;
+      }
+
+      #ov.open {
+        background: rgba(0, 0, 0, 0.78);
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+        pointer-events: auto;
+      }
+
+      #ov-frame {
+        width: min(1180px, 92vw);
+        height: 100%;
+        border: 1px solid #2a2d4e;
+        background: #0d1117;
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+          opacity 0.3s,
+          transform 0.3s;
+      }
+
+      #ov.open #ov-frame {
+        opacity: 1;
+        transform: none;
+      }
+
+      #ov-close {
+        position: absolute;
+        top: 16px;
+        right: 24px;
+        color: var(--dim);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s;
+      }
+
+      #ov.open #ov-close {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      #ov-close:hover {
+        color: var(--hi);
+      }
+
       #left::-webkit-scrollbar,
       #detail::-webkit-scrollbar,
       #tags::-webkit-scrollbar {
@@ -347,6 +407,15 @@
         #foot {
           display: none;
         }
+
+        #ov {
+          padding: 0;
+        }
+
+        #ov-frame {
+          width: 100%;
+          border: 0;
+        }
       }
     </style>
   </head>
@@ -393,10 +462,11 @@
       </div>
 
       <div class="blk hide" id="connect">
-        <h3>[Connect]</h3>
-        <a href="version-1.html">graph version-1 -> /version-1</a><br />
-        <a href="galaxy/">galaxy -> /galaxy</a><br />
-        <a href="pages/findings.html">findings -> /pages</a>
+        <h3>[Foundation]</h3>
+        <a href="pages/data.html" data-overlay>data -> /pages</a><br />
+        <a href="pages/tokenization.html" data-overlay>tokenization -> /pages</a><br />
+        <a href="pages/architecture.html" data-overlay>architecture -> /pages</a><br />
+        <a href="pages/training.html" data-overlay>training -> /pages</a>
       </div>
     </section>
 
@@ -405,6 +475,53 @@
       [drag to rotate] [scroll to zoom] [hover a paper: square loupe] [click to select] [shift +
       scroll: loupe strength] [alt + scroll: loupe size] [esc: close]
     </div>
+
+    <div id="ov" aria-hidden="true">
+      <button id="ov-close" aria-label="Close page">[esc] close</button>
+      <iframe id="ov-frame" title="Foundation page"></iframe>
+    </div>
+
+    <script>
+      (() => {
+        'use strict';
+
+        const ov = document.getElementById('ov');
+        const frame = document.getElementById('ov-frame');
+        const closeBtn = document.getElementById('ov-close');
+        let opener = null;
+
+        const close = () => {
+          if (!ov.classList.contains('open')) return;
+          ov.classList.remove('open');
+          ov.setAttribute('aria-hidden', 'true');
+          document.body.classList.remove('ov-open');
+          setTimeout(() => {
+            frame.src = 'about:blank';
+          }, 300);
+          if (opener) opener.focus();
+        };
+
+        document.querySelectorAll('a[data-overlay]').forEach((a) => {
+          a.addEventListener('click', (e) => {
+            e.preventDefault();
+            opener = a;
+            frame.src = a.getAttribute('href');
+            ov.classList.add('open');
+            ov.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('ov-open');
+            closeBtn.focus();
+          });
+        });
+
+        closeBtn.addEventListener('click', close);
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') close();
+        });
+
+        // The pages call window.parent.closeOverlay() from their back link.
+        window.closeOverlay = close;
+      })();
+    </script>
 
     <script src="js/nodes.js"></script>
     <script src="js/links.js"></script>
@@ -1355,6 +1472,7 @@ void main(){float d=length(gl_PointCoord-.5);if(d>.5)discard;float a=smoothstep(
         }
 
         addEventListener('keydown', (e) => {
+          if (document.body.classList.contains('ov-open')) return;
           if (e.key === 'Escape') {
             if (sel) select(null);
             else if (query) {
