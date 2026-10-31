@@ -75,9 +75,11 @@ See `docs/SPECS.md` for design system, component layout, and graph details.
 - `requestAnimationFrame` for layout, debounce expensive handlers
 - Reactive positioning: `ResizeObserver` + `transitionend`, no `setTimeout` for layout
 
-#### Standalone Pages (`pages/data.html`, `pages/tokenization.html`, `pages/architecture.html`, `pages/training.html`)
-- Self-contained: inline `<style>` + `<script>`, no external CSS/JS
-- Dark terminal aesthetic: `#0d1117` bg, `Courier New`, color-coded sections
+#### Standalone Pages (`pages/*.html`)
+- Shared design system, not self-contained: `pages/shared/base.css` (tokens, dark + light palette), `pages/shared/modern.css` (site nav, glass surfaces, scroll reveal), `pages/shared/fx.js` (injected nav, WebGL particle ring, reveals), `pages/shared/theme.js` (dark → light → auto, persisted)
+- Each page keeps its component styles in an inline `<style>` and sets one `--accent`; late-loaded `modern.css` overrides the rest
+- Look: pure black, periwinkle ink, Space Mono UI with Space Grotesk display; `body` is transparent so the particle ring shows through
+- Use tokens (`var(--accent-*)`, `var(--bg-*)`, `var(--mono)`) rather than raw hex - a hardcoded dark colour silently breaks light mode
 - Tab switching: JS `setMode()` pattern, CSS `.show` class toggle
 - Data-driven: JS arrays → DOM (not hand-written HTML for repeated elements)
 - Width: 720–960px centered

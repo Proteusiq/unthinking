@@ -26,7 +26,7 @@
         color: var(--text-muted);
         border: none;
         padding: clamp(4px, 1vw, 5px) clamp(8px, 2vw, 12px);
-        font-family: 'Courier New', monospace;
+        font-family: var(--mono);
         font-size: clamp(0.55rem, 1.2vw, 0.62rem);
         letter-spacing: 1px;
         text-transform: uppercase;
@@ -141,7 +141,7 @@
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         white-space: pre;
-        font-family: 'Courier New', monospace;
+        font-family: var(--mono);
         max-width: 100%;
       }
       .code-block .cm {
@@ -209,7 +209,7 @@
         border-radius: 3px;
         padding: clamp(4px, 1vw, 5px) clamp(8px, 2vw, 10px);
         margin: 5px 0;
-        font-family: 'Courier New', monospace;
+        font-family: var(--mono);
         text-align: center;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
@@ -321,6 +321,14 @@
         }
       }
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;600&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="shared/modern.css" />
+    <script src="shared/fx.js" defer></script>
   </head>
   <body>
     <div class="topbar">

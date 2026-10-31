@@ -543,6 +543,14 @@
         display: inline-block;
       }
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;600&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="shared/modern.css" />
+    <script src="shared/fx.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -631,8 +639,8 @@
       // ══════════════════════════════════════════════════════════════════════
       // PALETTE
       // ══════════════════════════════════════════════════════════════════════
-      const C = { company: '#fb923c', geo: '#22d3ee', amazon: '#c084fc' };
-      const HEAD_COLORS = ['#fbbf24', '#34d399', '#e879f9']; // amber, emerald, fuchsia
+      const C = { company: '#ffa95a', geo: '#22d3ee', amazon: '#c3a6ff' };
+      const HEAD_COLORS = ['#ffcf5a', '#52f2b0', '#e879f9']; // amber, emerald, fuchsia
 
       // ══════════════════════════════════════════════════════════════════════
       // SVG LAYOUT
@@ -1205,7 +1213,7 @@
           const abs = Math.abs(v) / maxAbsH,
             pos = v > 0,
             barH = abs * maxBarH;
-          const bgColor = pos ? barColor : '#f87171';
+          const bgColor = pos ? barColor : '#ff6b86';
           const op = hRevealed.includes(i) ? 1 : 0;
           hBars += `<div class="h-bar-wrap" style="opacity:${op};transition:opacity .3s ${i * 55}ms">
         <div style="height:${maxBarH}px;display:flex;flex-direction:column;justify-content:flex-end;align-items:center">

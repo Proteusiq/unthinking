@@ -160,7 +160,12 @@ docs/
 │   ├── data.html           # Pre-training Data Pipeline
 │   ├── tokenization.html   # Tokenization Pipeline
 │   ├── architecture.html   # LLM Architecture Evolution
-│   └── training.html       # Full Training Pipeline (Pre/Mid/Post)
+│   ├── training.html       # Full Training Pipeline (Pre/Mid/Post)
+│   ├── findings.html       # 400-paper synthesis
+│   ├── attention.html      # Attention variants
+│   ├── implementation.html # From-scratch implementation notes
+│   ├── agent-loop.html     # Agent loop
+│   └── shared/             # base.css, modern.css, fx.js, theme.js
 ├── css/
 │   ├── variables.css       # Theme tokens, colors, spacing, z-index
 │   ├── layout.css          # Base styles, header, graph container, controls

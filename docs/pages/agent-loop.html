@@ -34,7 +34,7 @@
 
       h1 {
         text-align: center;
-        font-family: 'Space Grotesk', 'Inter', sans-serif;
+        font-family: var(--display);
         font-weight: 700;
         font-size: clamp(1.5rem, 4vw, 1.9rem);
         background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple-dim));
@@ -75,7 +75,7 @@
       .subtitle .hint {
         display: inline-block;
         margin-top: 0.4rem;
-        font-family: 'Courier New', monospace;
+        font-family: var(--mono);
         font-size: 0.7rem;
         letter-spacing: 0.06em;
         color: var(--text-muted);
@@ -117,7 +117,7 @@
 
       .step-label {
         text-align: center;
-        font-family: 'Courier New', monospace;
+        font-family: var(--mono);
         font-size: clamp(0.75rem, 2vw, 0.9rem);
         min-height: 1.4rem;
         color: var(--text-muted);
@@ -135,7 +135,7 @@
         padding: 1rem 1.2rem;
         text-align: center;
         color: var(--text-muted);
-        font-family: 'Inter', 'Space Grotesk', sans-serif;
+        font-family: var(--display);
         font-size: 0.85rem;
         line-height: 1.55;
         border-top: 1px solid var(--border-primary);
@@ -145,7 +145,7 @@
       .credits {
         text-align: center;
         color: var(--text-muted);
-        font-family: 'Courier New', monospace;
+        font-family: var(--mono);
         font-size: 0.7rem;
         padding: 1rem 0 0.5rem;
       }
@@ -178,7 +178,7 @@
         max-width: 320px;
         padding: 0.9rem 1rem;
         border-radius: 12px;
-        font-family: 'Inter', 'Space Grotesk', sans-serif;
+        font-family: var(--display);
         font-size: 0.85rem;
         line-height: 1.5;
         pointer-events: none;
@@ -212,7 +212,7 @@
       }
 
       #tip .tip-title {
-        font-family: 'Space Grotesk', 'Inter', sans-serif;
+        font-family: var(--display);
         font-weight: 700;
         font-size: 0.72rem;
         text-transform: uppercase;
@@ -232,7 +232,7 @@
       }
 
       #tip code {
-        font-family: 'Courier New', monospace;
+        font-family: var(--mono);
         font-size: 0.88em;
         padding: 0.05em 0.4em;
         border-radius: 4px;
@@ -254,6 +254,14 @@
         line-height: 1.45;
       }
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;600&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="shared/modern.css" />
+    <script src="shared/fx.js" defer></script>
   </head>
   <body>
     <div class="topbar">
@@ -279,16 +287,16 @@
               <path d="M0,0 L0,6 L8,3 z" fill="currentColor" />
             </marker>
             <marker id="ah-blue" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
-              <path d="M0,0 L0,6 L8,3 z" fill="#60a5fa" />
+              <path d="M0,0 L0,6 L8,3 z" fill="#8fa3ff" />
             </marker>
             <marker id="ah-white" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
               <path d="M0,0 L0,6 L8,3 z" fill="currentColor" />
             </marker>
             <marker id="ah-orange" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
-              <path d="M0,0 L0,6 L8,3 z" fill="#f97316" />
+              <path d="M0,0 L0,6 L8,3 z" fill="#ff9d4d" />
             </marker>
             <marker id="ah-green" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
-              <path d="M0,0 L0,6 L8,3 z" fill="#22c55e" />
+              <path d="M0,0 L0,6 L8,3 z" fill="#52f2b0" />
             </marker>
           </defs>
 
@@ -341,7 +349,7 @@
             x="134"
             y="20"
             text-anchor="middle"
-            font-family="Courier New"
+            font-family="Space Mono, monospace"
             font-size="10"
             font-weight="600"
             fill="var(--accent-blue)"
@@ -353,7 +361,7 @@
             x="452"
             y="20"
             text-anchor="middle"
-            font-family="Courier New"
+            font-family="Space Mono, monospace"
             font-size="10"
             font-weight="600"
             fill="var(--accent-purple-dim)"
@@ -365,7 +373,7 @@
             x="778"
             y="20"
             text-anchor="middle"
-            font-family="Courier New"
+            font-family="Space Mono, monospace"
             font-size="10"
             font-weight="600"
             fill="var(--accent-orange)"
@@ -395,7 +403,7 @@
           <text
             x="32"
             y="75"
-            font-family="Space Grotesk"
+            font-family="Space Grotesk, Inter, system-ui, sans-serif"
             font-size="12"
             font-weight="600"
             fill="var(--text-primary)"
@@ -410,10 +418,22 @@
             stroke="var(--border-secondary)"
             stroke-width="1"
           />
-          <text x="32" y="97" font-family="Courier New" font-size="11" fill="var(--text-muted)">
+          <text
+            x="32"
+            y="97"
+            font-family="Space Mono, monospace"
+            font-size="11"
+            fill="var(--text-muted)"
+          >
             system_message
           </text>
-          <text x="32" y="113" font-family="Courier New" font-size="11" fill="var(--text-muted)">
+          <text
+            x="32"
+            y="113"
+            font-family="Space Mono, monospace"
+            font-size="11"
+            fill="var(--text-muted)"
+          >
             query
           </text>
           <line
@@ -448,7 +468,7 @@
           <text
             x="304"
             y="75"
-            font-family="Space Grotesk"
+            font-family="Space Grotesk, Inter, system-ui, sans-serif"
             font-size="12"
             font-weight="600"
             fill="var(--text-primary)"
@@ -463,20 +483,38 @@
             stroke="var(--border-secondary)"
             stroke-width="1"
           />
-          <text x="304" y="97" font-family="Courier New" font-size="11" fill="var(--accent-blue)">
+          <text
+            x="304"
+            y="97"
+            font-family="Space Mono, monospace"
+            font-size="11"
+            fill="var(--accent-blue)"
+          >
             f(x) → y
           </text>
-          <text x="304" y="113" font-family="Courier New" font-size="11" fill="var(--text-muted)">
+          <text
+            x="304"
+            y="113"
+            font-family="Space Mono, monospace"
+            font-size="11"
+            fill="var(--text-muted)"
+          >
             stateless
           </text>
-          <text x="304" y="129" font-family="Courier New" font-size="11" fill="var(--text-muted)">
+          <text
+            x="304"
+            y="129"
+            font-family="Space Mono, monospace"
+            font-size="11"
+            fill="var(--text-muted)"
+          >
             no memory
           </text>
           <text
             id="llm-out"
             x="304"
             y="152"
-            font-family="Courier New"
+            font-family="Space Mono, monospace"
             font-size="10"
             fill="var(--text-primary)"
             opacity="0"
@@ -505,7 +543,7 @@
           <text
             x="304"
             y="260"
-            font-family="Space Grotesk"
+            font-family="Space Grotesk, Inter, system-ui, sans-serif"
             font-size="12"
             font-weight="600"
             fill="var(--text-primary)"
@@ -523,7 +561,7 @@
           <text
             x="304"
             y="283"
-            font-family="Courier New"
+            font-family="Space Mono, monospace"
             font-size="11"
             fill="var(--accent-purple-dim)"
           >
@@ -533,7 +571,7 @@
             id="orch-dec"
             x="304"
             y="303"
-            font-family="Courier New"
+            font-family="Space Mono, monospace"
             font-size="10"
             fill="var(--text-muted)"
           >
@@ -543,7 +581,7 @@
             id="orch-path"
             x="304"
             y="319"
-            font-family="Courier New"
+            font-family="Space Mono, monospace"
             font-size="10"
             fill="var(--text-muted)"
             opacity="0"
@@ -572,7 +610,7 @@
           <text
             x="672"
             y="190"
-            font-family="Space Grotesk"
+            font-family="Space Grotesk, Inter, system-ui, sans-serif"
             font-size="12"
             font-weight="600"
             fill="var(--text-primary)"
@@ -590,7 +628,7 @@
           <text
             x="672"
             y="213"
-            font-family="Courier New"
+            font-family="Space Mono, monospace"
             font-size="11"
             fill="var(--accent-orange)"
           >
@@ -600,7 +638,7 @@
             id="exec-cmd"
             x="672"
             y="231"
-            font-family="Courier New"
+            font-family="Space Mono, monospace"
             font-size="11"
             fill="var(--text-muted)"
           >
@@ -610,7 +648,7 @@
             id="exec-note"
             x="672"
             y="247"
-            font-family="Courier New"
+            font-family="Space Mono, monospace"
             font-size="10"
             fill="var(--text-muted)"
           >
@@ -680,11 +718,11 @@
       const STEP = 1800;
       const $ = (id) => document.getElementById(id);
 
-      const BLUE = '#60a5fa';
+      const BLUE = '#8fa3ff';
       const WHITE = 'var(--text-primary)';
       const PURPLE = '#a855f7';
-      const ORANGE = '#f97316';
-      const GREEN = '#22c55e';
+      const ORANGE = '#ff9d4d';
+      const GREEN = '#52f2b0';
       const DIM = 'var(--border-primary)';
 
       const CYCLES = [
@@ -810,7 +848,7 @@
         const svg = $('svg');
         const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
         t.setAttribute('x', '32');
-        t.setAttribute('font-family', 'Courier New');
+        t.setAttribute('font-family', 'Space Mono, monospace');
         t.setAttribute('font-size', '10');
         t.setAttribute('fill', color);
         t.textContent = text;

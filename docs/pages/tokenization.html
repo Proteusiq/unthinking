@@ -204,7 +204,7 @@
       }
 
       .bpe-tokens {
-        font-family: 'Courier New', monospace;
+        font-family: var(--mono);
         color: var(--accent-blue);
         background: var(--bg-input);
         border: 1px solid var(--border-secondary);
@@ -289,6 +289,14 @@
         }
       }
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;600&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="shared/modern.css" />
+    <script src="shared/fx.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -446,11 +454,11 @@
     <script>
       // ── TOKENIZATION CATALOG DATA ──
       const ERAS = [
-        { id: 'raw', label: 'Raw Representations', color: '#8b949e' },
-        { id: 'subword', label: 'Subword - The Standard', color: '#e3b341' },
-        { id: 'modern', label: 'Modern Vocabularies', color: '#56d364' },
-        { id: 'embed', label: 'Token → Vector', color: '#79c0ff' },
-        { id: 'beyond', label: 'Beyond Tokens', color: '#d2a8ff' },
+        { id: 'raw', label: 'Raw Representations', color: '#8a90bd' },
+        { id: 'subword', label: 'Subword - The Standard', color: '#ffcf5a' },
+        { id: 'modern', label: 'Modern Vocabularies', color: '#7dffc8' },
+        { id: 'embed', label: 'Token → Vector', color: '#aab8ff' },
+        { id: 'beyond', label: 'Beyond Tokens', color: '#c3a6ff' },
       ];
 
       const CARDS = [
@@ -768,12 +776,12 @@
 
       // ── PIPELINE DIAGRAM DATA ──
       const PIPE_STEPS = [
-        { label: 'Raw Text', value: '"Hello, world!"', color: '#8b949e' },
-        { label: 'Pre-Tokenize', value: '["Hello", ",", " world", "!"]', color: '#8b949e' },
-        { label: 'BPE Encode', value: '[15496, 11, 995, 0]', color: '#e3b341' },
-        { label: 'Embed Lookup', value: 'W_e[15496], W_e[11], ...', color: '#79c0ff' },
-        { label: '+ Position', value: 'x + pos_enc', color: '#d2a8ff' },
-        { label: 'Transformer', value: '→ N layers →', color: '#f0883e' },
+        { label: 'Raw Text', value: '"Hello, world!"', color: '#8a90bd' },
+        { label: 'Pre-Tokenize', value: '["Hello", ",", " world", "!"]', color: '#8a90bd' },
+        { label: 'BPE Encode', value: '[15496, 11, 995, 0]', color: '#ffcf5a' },
+        { label: 'Embed Lookup', value: 'W_e[15496], W_e[11], ...', color: '#aab8ff' },
+        { label: '+ Position', value: 'x + pos_enc', color: '#c3a6ff' },
+        { label: 'Transformer', value: '→ N layers →', color: '#ff9d4d' },
       ];
 
       // ── BPE WALKTHROUGH DATA ──
@@ -828,7 +836,7 @@
           (s) =>
             `<div class="bpe-step">
               <span class="step-num">${typeof s.step === 'number' ? 'Step ' + s.step : '✓'}</span>: <b>${s.label}</b><br/>
-              <span style="color:#79c0ff">${s.tokens}</span><br/>
+              <span style="color:var(--accent-blue-light)">${s.tokens}</span><br/>
               ${s.desc}
             </div>`
         ).join('');
@@ -840,7 +848,7 @@
         const era = ERAS.find((x) => x.id === activeEra);
         document.getElementById('era-tabs').innerHTML = ERAS.map(
           (e) =>
-            `<div class="era-tab" style="color:${e.color};border-color:${e.id === activeEra ? e.color : 'transparent'};background:${e.id === activeEra ? e.color + '22' : '#161b22'}" onclick="selEra('${e.id}')">${e.label}</div>`
+            `<div class="era-tab" style="color:${e.color};border-color:${e.id === activeEra ? e.color : 'transparent'};background:${e.id === activeEra ? e.color + '22' : 'var(--bg-secondary)'}" onclick="selEra('${e.id}')">${e.label}</div>`
         ).join('');
         document.getElementById('card-grid').innerHTML = CARDS.filter((c) => c.era === activeEra)
           .map(
@@ -865,24 +873,24 @@
       function drawCompare() {
         const algoClr = (a) =>
           a.includes('BPE')
-            ? { bg: '#2d2200', c: '#e3b341' }
+            ? { bg: '#231d0a', c: '#ffcf5a' }
             : a.includes('WordPiece')
-              ? { bg: '#0d2233', c: '#79c0ff' }
+              ? { bg: '#0b1630', c: '#aab8ff' }
               : a.includes('Unigram')
-                ? { bg: '#2b1d3d', c: '#d2a8ff' }
+                ? { bg: '#1c1233', c: '#c3a6ff' }
                 : a.includes('bytes') || a.includes('Entropy')
-                  ? { bg: '#2d1500', c: '#f0883e' }
-                  : { bg: '#21262d', c: '#8b949e' };
+                  ? { bg: '#261608', c: '#ff9d4d' }
+                  : { bg: '#23274d', c: '#8a90bd' };
 
         document.getElementById('cmp-body').innerHTML = TOKENIZERS.map((t) => {
           const ac = algoClr(t.algo);
           return `<tr>
             <td class="nm">${t.model}</td>
-            <td style="color:#56d364">${t.vocab}</td>
+            <td style="color:var(--accent-green-bright)">${t.vocab}</td>
             <td><span class="chip" style="background:${ac.bg};color:${ac.c}">${t.algo}</span></td>
-            <td style="color:#79c0ff">${t.bpt}</td>
-            <td style="color:#8b949e;font-size:0.6rem">${t.pretok}</td>
-            <td style="color:#8b949e;font-size:0.6rem;max-width:180px;white-space:normal;line-height:1.5">${t.note}</td>
+            <td style="color:var(--accent-blue-light)">${t.bpt}</td>
+            <td style="color:var(--text-muted);font-size:0.6rem">${t.pretok}</td>
+            <td style="color:var(--text-muted);font-size:0.6rem;max-width:180px;white-space:normal;line-height:1.5">${t.note}</td>
           </tr>`;
         }).join('');
       }

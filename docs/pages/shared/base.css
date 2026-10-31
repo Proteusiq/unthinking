@@ -1,67 +1,68 @@
 /**
- * Shared base styles for standalone pages
- * Provides: theme variables, reset, body, topbar, tabs, credits
- * Each page defines its own --accent color and component styles
+ * Shared base styles for standalone pages — "modern" edition
+ * Same variable names as before, so every page restyles at once.
+ * Look: pure black, periwinkle-white ink, mono UI, light Space Grotesk display, particle ring behind the content.
  */
 
-/* ══════════════════════════════════════════════════════════════════════
-   Theme Variables (Dark default)
-   ══════════════════════════════════════════════════════════════════════ */
-
 :root {
-  --bg-primary: #0d1117;
-  --bg-secondary: #161b22;
-  --bg-tertiary: #1c2128;
-  --bg-input: #0d1117;
-  --text-primary: #e6edf3;
-  --text-secondary: #c9d1d9;
-  --text-muted: #8b949e;
-  --border-primary: #30363d;
-  --border-secondary: #21262d;
-  --code-comment: #484f58;
+  --display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --mono: 'Space Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --bg-primary: #000000;
+  --bg-secondary: rgba(14, 16, 40, 0.58);
+  --bg-tertiary: rgba(30, 34, 76, 0.6);
+  --bg-input: rgba(4, 5, 14, 0.75);
+  --text-primary: #eef0ff;
+  --text-secondary: #c3c8ea;
+  --text-muted: #8a90bd;
+  --border-primary: rgba(150, 160, 255, 0.24);
+  --border-secondary: rgba(150, 160, 255, 0.12);
+  --code-comment: #5d6290;
 
   /* Accent palette - pages set --accent to one of these */
-  --accent-blue: #58a6ff;
-  --accent-blue-light: #79c0ff;
-  --accent-blue-lighter: #a5d6ff;
-  --accent-green: #3fb950;
-  --accent-green-bright: #56d364;
-  --accent-yellow: #e3b341;
-  --accent-orange: #f0883e;
-  --accent-purple: #d2a8ff;
-  --accent-purple-dim: #a371f7;
-  --accent-pink: #f778ba;
-  --accent-red: #ff7b72;
+  --accent-blue: #8fa3ff;
+  --accent-blue-light: #aab8ff;
+  --accent-blue-lighter: #c9d2ff;
+  --accent-green: #52f2b0;
+  --accent-green-bright: #7dffc8;
+  --accent-yellow: #ffcf5a;
+  --accent-orange: #ff9d4d;
+  --accent-purple: #c3a6ff;
+  --accent-purple-dim: #9a7dff;
+  --accent-pink: #ff7ac6;
+  --accent-red: #ff5c78;
+
+  --glow: rgba(139, 141, 255, 0.35);
+  --nav-bg: rgba(3, 4, 12, 0.55);
 }
 
 [data-theme='light'] {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f6f8fa;
-  --bg-tertiary: #f0f3f6;
-  --bg-input: #ffffff;
-  --text-primary: #1f2328;
-  --text-secondary: #424a53;
-  --text-muted: #656d76;
-  --border-primary: #d0d7de;
-  --border-secondary: #e1e4e8;
-  --code-comment: #6e7781;
+  --bg-primary: #f3f4fc;
+  --bg-secondary: rgba(255, 255, 255, 0.72);
+  --bg-tertiary: rgba(234, 236, 252, 0.85);
+  --bg-input: rgba(255, 255, 255, 0.9);
+  --text-primary: #10142e;
+  --text-secondary: #333a62;
+  --text-muted: #5a6190;
+  --border-primary: rgba(40, 50, 130, 0.2);
+  --border-secondary: rgba(40, 50, 130, 0.1);
+  --code-comment: #7a80ab;
 
-  --accent-blue: #0969da;
-  --accent-blue-light: #0550ae;
-  --accent-blue-lighter: #0969da;
-  --accent-green: #1a7f37;
-  --accent-green-bright: #1a7f37;
-  --accent-yellow: #9a6700;
-  --accent-orange: #d46b08;
-  --accent-purple: #8250df;
-  --accent-purple-dim: #6639ba;
-  --accent-pink: #bf3989;
-  --accent-red: #cf222e;
+  --accent-blue: #3c4fe0;
+  --accent-blue-light: #2c3cc0;
+  --accent-blue-lighter: #3c4fe0;
+  --accent-green: #007a52;
+  --accent-green-bright: #007a52;
+  --accent-yellow: #956300;
+  --accent-orange: #c25a00;
+  --accent-purple: #6b3fd4;
+  --accent-purple-dim: #5630b0;
+  --accent-pink: #b4287f;
+  --accent-red: #c4163f;
+
+  --glow: rgba(60, 79, 224, 0.25);
+  --nav-bg: rgba(243, 244, 252, 0.72);
 }
-
-/* ══════════════════════════════════════════════════════════════════════
-   Reset
-   ══════════════════════════════════════════════════════════════════════ */
 
 * {
   box-sizing: border-box;
@@ -69,23 +70,28 @@
   padding: 0;
 }
 
-/* ══════════════════════════════════════════════════════════════════════
-   Body Base
-   ══════════════════════════════════════════════════════════════════════ */
-
-body {
+html {
   background: var(--bg-primary);
-  color: var(--text-secondary);
-  font-family: 'Courier New', monospace;
-  padding: clamp(1rem, 3vw, 1.5rem);
-  padding-bottom: clamp(2rem, 5vw, 3rem);
-  line-height: 1.6;
+  scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
-/* ══════════════════════════════════════════════════════════════════════
-   Topbar (header with title and tabs)
-   ══════════════════════════════════════════════════════════════════════ */
+html[data-theme='light'] {
+  color-scheme: light;
+}
 
+/* body is transparent so the particle canvas (z-index:-1) shows through */
+body {
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--mono);
+  padding: clamp(1rem, 3vw, 1.5rem);
+  padding-bottom: clamp(2rem, 5vw, 3rem);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Topbar ─────────────────────────────────────────────────────────── */
 .topbar {
   display: flex;
   align-items: center;
@@ -103,15 +109,12 @@ body {
   text-transform: uppercase;
 }
 
-/* ══════════════════════════════════════════════════════════════════════
-   Tab Toggle (mode switcher)
-   ══════════════════════════════════════════════════════════════════════ */
-
+/* ── Tab toggle ─────────────────────────────────────────────────────── */
 .toggle-wrap {
   display: flex;
   gap: 0;
   border: 1px solid var(--border-primary);
-  border-radius: 5px;
+  border-radius: 99px;
   overflow: hidden;
 }
 
@@ -119,16 +122,17 @@ body {
   background: var(--bg-secondary);
   color: var(--text-muted);
   border: none;
-  padding: clamp(4px, 1vw, 6px) clamp(8px, 2vw, 14px);
-  font-family: 'Courier New', monospace;
+  padding: clamp(4px, 1vw, 7px) clamp(10px, 2vw, 16px);
+  font-family: var(--mono);
   font-size: clamp(0.55rem, 1.5vw, 0.7rem);
   letter-spacing: 1px;
   text-transform: uppercase;
   cursor: pointer;
   border-right: 1px solid var(--border-primary);
   transition:
-    background 0.15s,
-    color 0.15s;
+    background 0.2s,
+    color 0.2s,
+    box-shadow 0.2s;
 }
 
 .toggle-btn:last-child {
@@ -139,31 +143,35 @@ body {
   background: var(--accent, var(--accent-blue));
   color: var(--bg-primary);
   font-weight: bold;
+  box-shadow: 0 0 22px -4px var(--accent, var(--accent-blue));
+}
+
+[data-theme='light'] .toggle-btn.active {
+  color: #fff;
 }
 
 .toggle-btn:hover:not(.active) {
   background: var(--bg-tertiary);
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
-/* ══════════════════════════════════════════════════════════════════════
-   Theme Toggle Button
-   ══════════════════════════════════════════════════════════════════════ */
-
+/* ── Theme button ───────────────────────────────────────────────────── */
 .theme-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg-secondary);
+  background: transparent;
   border: 1px solid var(--border-primary);
-  border-radius: 4px;
-  padding: 5px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
   margin-left: 6px;
   color: var(--text-muted);
   cursor: pointer;
   transition:
-    border-color 0.15s,
-    color 0.15s;
+    border-color 0.2s,
+    color 0.2s,
+    box-shadow 0.2s;
   flex-shrink: 0;
 }
 
@@ -174,10 +182,10 @@ body {
 
 .theme-btn:hover {
   border-color: var(--accent, var(--accent-blue));
-  color: var(--text-secondary);
+  color: var(--text-primary);
+  box-shadow: 0 0 16px -4px var(--accent, var(--accent-blue));
 }
 
-/* Fixed position fallback for pages without toggle-wrap */
 .theme-btn-fixed {
   position: fixed;
   top: 1rem;
@@ -186,18 +194,10 @@ body {
   margin-left: 0;
 }
 
-/* ══════════════════════════════════════════════════════════════════════
-   Container
-   ══════════════════════════════════════════════════════════════════════ */
-
 .container {
   max-width: min(960px, 100%);
   margin: 0 auto;
 }
-
-/* ══════════════════════════════════════════════════════════════════════
-   View Toggle (show/hide tabs)
-   ══════════════════════════════════════════════════════════════════════ */
 
 .view {
   display: none;
@@ -207,10 +207,7 @@ body {
   display: block;
 }
 
-/* ══════════════════════════════════════════════════════════════════════
-   Credits Footer
-   ══════════════════════════════════════════════════════════════════════ */
-
+/* ── Credits ────────────────────────────────────────────────────────── */
 .credits {
   max-width: min(960px, 100%);
   margin: 3rem auto 0;
@@ -246,10 +243,7 @@ body {
   margin-bottom: 0.4rem;
 }
 
-/* ══════════════════════════════════════════════════════════════════════
-   Common Typography
-   ══════════════════════════════════════════════════════════════════════ */
-
+/* ── Typography ─────────────────────────────────────────────────────── */
 h3 {
   color: var(--accent, var(--accent-blue));
   font-size: clamp(0.75rem, 2vw, 0.9rem);
@@ -271,22 +265,18 @@ a:hover {
   text-decoration: underline;
 }
 
-/* ══════════════════════════════════════════════════════════════════════
-   Code Blocks
-   ══════════════════════════════════════════════════════════════════════ */
-
 code {
-  font-family: 'Courier New', monospace;
+  font-family: var(--mono);
   background: var(--bg-secondary);
   padding: 0.15em 0.4em;
-  border-radius: 3px;
+  border-radius: 4px;
   font-size: 0.9em;
 }
 
 pre {
   background: var(--bg-secondary);
   border: 1px solid var(--border-primary);
-  border-radius: 6px;
+  border-radius: 10px;
   padding: 1rem;
   overflow-x: auto;
   margin-bottom: 1rem;
@@ -296,10 +286,6 @@ pre code {
   background: none;
   padding: 0;
 }
-
-/* ══════════════════════════════════════════════════════════════════════
-   Back Link
-   ══════════════════════════════════════════════════════════════════════ */
 
 .back-link {
   display: inline-block;

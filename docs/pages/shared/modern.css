@@ -1,0 +1,206 @@
+/* Late-loading overrides: wins over each page's inline <style> by source order. */
+
+body {
+  padding-top: calc(56px + clamp(1rem, 3vw, 1.5rem));
+}
+.back-link {
+  display: none;
+}
+
+/* ── Site nav (injected by fx.js) ───────────────────────────────────── */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 clamp(12px, 3vw, 28px);
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--border-secondary);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  backdrop-filter: blur(16px) saturate(1.4);
+  font: 11px var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.site-nav .brand {
+  color: var(--text-primary);
+  font: 500 13px var(--display);
+  letter-spacing: 0.16em;
+  white-space: nowrap;
+}
+.site-nav .brand:hover {
+  text-decoration: none;
+  color: var(--accent, var(--accent-blue));
+}
+.site-nav nav {
+  display: flex;
+  gap: 2px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex: 1;
+  min-width: 0;
+}
+.site-nav nav::-webkit-scrollbar {
+  display: none;
+}
+.site-nav nav a {
+  color: var(--text-muted);
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  transition:
+    color 0.2s,
+    background 0.2s;
+}
+.site-nav nav a:hover {
+  color: var(--text-primary);
+  text-decoration: none;
+  background: var(--border-secondary);
+}
+.site-nav nav a[aria-current='page'] {
+  color: var(--accent, var(--accent-blue));
+  background: var(--border-secondary);
+  box-shadow: inset 0 -1px 0 var(--accent, var(--accent-blue));
+}
+.site-nav .nav-end {
+  display: flex;
+  align-items: center;
+}
+.site-nav .theme-btn {
+  margin-left: 0;
+}
+
+/* ── Particle ring background (injected by fx.js) ───────────────────── */
+#fx-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.62;
+  transition: opacity 0.4s;
+}
+[data-theme='light'] #fx-bg {
+  opacity: 0;
+}
+[data-theme='light'] body {
+  background:
+    radial-gradient(1200px 700px at 70% -10%, #e4e7ff, transparent 60%),
+    radial-gradient(900px 600px at 0% 100%, #efe6ff, transparent 55%);
+  background-attachment: fixed;
+}
+
+/* ── Type ───────────────────────────────────────────────────────────── */
+h1 {
+  font-family: var(--display) !important;
+  font-weight: 300 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.03em !important;
+  line-height: 1.1;
+}
+h2::before {
+  content: '[ ';
+  opacity: 0.55;
+}
+h2::after {
+  content: ' ]';
+  opacity: 0.55;
+}
+.subtitle,
+.sub {
+  letter-spacing: 0.04em;
+}
+
+/* ── Glass surfaces ─────────────────────────────────────────────────── */
+.card,
+.box,
+.info-box,
+.thesis-box,
+.conclusion-box,
+.desc-box,
+.equation-box,
+.pipe-box,
+.combo-box,
+.act-card,
+.ds-card,
+.norm-card,
+.pattern-card,
+.stance-card,
+.stat-item,
+.diagram,
+.math-block,
+.w-block,
+.note,
+.crit-note,
+.code-block,
+pre {
+  -webkit-backdrop-filter: blur(14px) saturate(1.3);
+  backdrop-filter: blur(14px) saturate(1.3);
+  border-radius: 12px;
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s,
+    transform 0.25s;
+}
+.card:hover,
+.act-card:hover,
+.ds-card:hover,
+.norm-card:hover,
+.pattern-card:hover,
+.stance-card:hover,
+.stat-item:hover {
+  border-color: var(--accent, var(--accent-blue));
+  box-shadow: 0 0 34px -14px var(--accent, var(--accent-blue));
+}
+
+/* ── Details ────────────────────────────────────────────────────────── */
+::selection {
+  background: var(--accent, var(--accent-blue));
+  color: #000;
+}
+:focus-visible {
+  outline: 1px solid var(--accent, var(--accent-blue));
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+button {
+  font-family: inherit;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-primary) transparent;
+}
+
+/* ── Scroll reveal (class added by fx.js, so no-JS stays visible) ───── */
+.js .rv {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.js .rv.rv-in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .rv {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+@media (max-width: 720px) {
+  .site-nav .brand {
+    display: none;
+  }
+}

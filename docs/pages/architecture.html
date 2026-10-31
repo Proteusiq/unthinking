@@ -21,7 +21,7 @@
         color: var(--text-muted);
         border: none;
         padding: 5px 12px;
-        font-family: 'Courier New', monospace;
+        font-family: var(--mono);
         font-size: clamp(0.55rem, 1.5vw, 0.65rem);
         letter-spacing: 1px;
         text-transform: uppercase;
@@ -200,13 +200,13 @@
       }
       .act-formula {
         font-size: clamp(0.55rem, 1.5vw, 0.65rem);
-        color: #79c0ff;
+        color: var(--accent-blue-light);
         background: var(--bg-primary);
         border: 1px solid var(--border-secondary);
         border-radius: 3px;
         padding: 3px 8px;
         margin: 5px 0;
-        font-family: 'Courier New', monospace;
+        font-family: var(--mono);
       }
       .act-short {
         font-size: clamp(0.55rem, 1.5vw, 0.65rem);
@@ -231,7 +231,7 @@
       }
       .act-used {
         font-size: clamp(0.55rem, 1.5vw, 0.65rem);
-        color: #3fb950;
+        color: var(--accent-green);
         margin-top: 4px;
       }
 
@@ -263,17 +263,17 @@
       }
       .norm-formula {
         font-size: clamp(0.55rem, 1.5vw, 0.65rem);
-        color: #79c0ff;
+        color: var(--accent-blue-light);
         background: var(--bg-primary);
         border: 1px solid var(--border-secondary);
         border-radius: 3px;
         padding: 2px 7px;
         margin: 4px 0;
-        font-family: 'Courier New', monospace;
+        font-family: var(--mono);
       }
       .norm-used {
         font-size: clamp(0.55rem, 1.5vw, 0.65rem);
-        color: #3fb950;
+        color: var(--accent-green);
         margin-top: 4px;
       }
       .norm-warn {
@@ -341,6 +341,14 @@
         }
       }
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;600&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="shared/modern.css" />
+    <script src="shared/fx.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -376,9 +384,9 @@
         <div class="act-intro">
           <b style="color: var(--text-secondary)">Activations</b> introduce non-linearity into the
           FFN. The evolution moves from hard gates (ReLU) to smooth approximations (GELU) to
-          <b style="color: #ffa657">gated linear units (GLU family)</b> - where a sigmoid/swish gate
-          multiplies the linear branch, giving the network multiplicative control over information
-          flow. Below: click any entry for formulas and context.
+          <b style="color: var(--accent-orange)">gated linear units (GLU family)</b> - where a
+          sigmoid/swish gate multiplies the linear branch, giving the network multiplicative control
+          over information flow. Below: click any entry for formulas and context.
         </div>
 
         <div class="act-timeline" id="act-timeline"></div>
@@ -435,8 +443,8 @@
           >
             <span style="color: var(--accent-orange)">Post-LN</span> (original transformer): norm
             applied <i>after</i> residual addition - gradients can vanish in early layers at
-            depth.&nbsp; <span style="color: #56d364">Pre-LN</span>: norm before sub-layer - stable
-            gradients, dominant since GPT-2.&nbsp;
+            depth.&nbsp; <span style="color: var(--accent-green-bright)">Pre-LN</span>: norm before
+            sub-layer - stable gradients, dominant since GPT-2.&nbsp;
             <span style="color: var(--accent-purple)">Skip-norm / No-norm</span>: some hybrid
             linear-attention layers omit norm entirely on the residual path.
           </div>
@@ -474,11 +482,11 @@
           >
             Structure is <b style="color: var(--text-secondary)">invariant</b>: embed+pos → (norm →
             attn → add → norm → FFN/MoE → add) × N → norm → logits.<br />
-            What evolves: <b style="color: #79c0ff">positional scheme</b> ·
+            What evolves: <b style="color: var(--accent-blue-light)">positional scheme</b> ·
             <b style="color: var(--accent-purple)">attention variant</b> ·
-            <b style="color: #ffa657">FFN gating/MoE</b> ·
+            <b style="color: var(--accent-orange)">FFN gating/MoE</b> ·
             <b style="color: var(--accent-yellow)">norm placement</b>.<br />
-            <span style="color: #3fb950; font-size: clamp(0.55rem, 1.5vw, 0.65rem)"
+            <span style="color: var(--accent-green); font-size: clamp(0.55rem, 1.5vw, 0.65rem)"
               >Source: Raschka (2025) - The Big LLM Architecture Comparison ·
               magazine.sebastianraschka.com</span
             >
@@ -491,9 +499,9 @@
               <tr>
                 <th style="color: var(--text-secondary)">Model</th>
                 <th>Year</th>
-                <th style="color: #79c0ff">Pos. Encoding</th>
+                <th style="color: var(--accent-blue-light)">Pos. Encoding</th>
                 <th style="color: var(--accent-purple)">Attention</th>
-                <th style="color: #ffa657">Activation / FFN</th>
+                <th style="color: var(--accent-orange)">Activation / FFN</th>
                 <th style="color: var(--accent-yellow)">Norm</th>
                 <th>Notes</th>
               </tr>
@@ -512,9 +520,9 @@
                 <th style="color: var(--text-secondary)">Model</th>
                 <th>Year</th>
                 <th>Lab</th>
-                <th style="color: #ffa657">Activation</th>
+                <th style="color: var(--accent-orange)">Activation</th>
                 <th style="color: var(--accent-purple)">Attention</th>
-                <th style="color: #79c0ff">Pos. Embed</th>
+                <th style="color: var(--accent-blue-light)">Pos. Embed</th>
                 <th style="color: var(--accent-yellow)">Norm</th>
                 <th>MoE</th>
               </tr>
@@ -591,49 +599,49 @@
       // ── COLOUR HELPERS ──
       const posClr = (p) =>
         p.includes('None') || p.includes('Lightning')
-          ? { bg: '#2d1500', c: '#f0883e' }
+          ? { bg: '#261608', c: '#ff9d4d' }
           : p.includes('RoPE') || p.includes('iRoPE')
-            ? { bg: '#1b2e1f', c: '#56d364' }
+            ? { bg: '#08241a', c: '#7dffc8' }
             : p.includes('ALiBi')
-              ? { bg: '#0d2233', c: '#79c0ff' }
-              : { bg: '#21262d', c: '#8b949e' };
+              ? { bg: '#0b1630', c: '#aab8ff' }
+              : { bg: '#23274d', c: '#8a90bd' };
       const attnClr = (a) =>
         a.includes('Lightning')
-          ? { bg: '#2d1500', c: '#f0883e' }
+          ? { bg: '#261608', c: '#ff9d4d' }
           : a.includes('MLA')
-            ? { bg: '#2b1d3d', c: '#d2a8ff' }
+            ? { bg: '#1c1233', c: '#c3a6ff' }
             : a.includes('GQA')
-              ? { bg: '#1b2e1f', c: '#56d364' }
+              ? { bg: '#08241a', c: '#7dffc8' }
               : a.includes('MQA')
-                ? { bg: '#2d2200', c: '#e3b341' }
-                : { bg: '#21262d', c: '#8b949e' };
+                ? { bg: '#231d0a', c: '#ffcf5a' }
+                : { bg: '#23274d', c: '#8a90bd' };
       const actClr = (a) =>
         a.includes('SwiGLU') || a.includes('GeGLU') || a.includes('GLU') || a.includes('ReGLU')
-          ? { bg: '#2d1f0e', c: '#ffa657' }
+          ? { bg: '#261608', c: '#ffb36b' }
           : a.includes('GELU')
-            ? { bg: '#2d2200', c: '#e3b341' }
+            ? { bg: '#231d0a', c: '#ffcf5a' }
             : a.includes('SiLU') || a.includes('Swish')
-              ? { bg: '#1f2200', c: '#c9d1d9' }
+              ? { bg: '#1f2200', c: '#c3c8ea' }
               : a.includes('ReLU')
-                ? { bg: '#21262d', c: '#8b949e' }
-                : { bg: '#21262d', c: '#8b949e' };
+                ? { bg: '#23274d', c: '#8a90bd' }
+                : { bg: '#23274d', c: '#8a90bd' };
       const normClr = (n) =>
         n.includes('RMSNorm')
-          ? { bg: '#1b2e1f', c: '#56d364' }
+          ? { bg: '#08241a', c: '#7dffc8' }
           : n.includes('Pre-LN')
-            ? { bg: '#2d2200', c: '#e3b341' }
+            ? { bg: '#231d0a', c: '#ffcf5a' }
             : n.includes('Post-LN')
-              ? { bg: '#2d1500', c: '#f0883e' }
-              : { bg: '#21262d', c: '#8b949e' };
+              ? { bg: '#261608', c: '#ff9d4d' }
+              : { bg: '#23274d', c: '#8a90bd' };
 
       // ── ACTIVATION DATA ──
       const ACTS = [
         {
           year: '1958–1980s',
           name: 'Sigmoid / Tanh',
-          color: '#8b949e',
+          color: '#8a90bd',
           badge: 'Pre-deep',
-          badgeBg: '#21262d',
+          badgeBg: '#23274d',
           formula: 'σ(x) = 1/(1+e⁻ˣ)   tanh(x) = (eˣ−e⁻ˣ)/(eˣ+e⁻ˣ)',
           short: 'Squashes outputs to [0,1] or [−1,1]. Standard in early MLPs and RNNs.',
           detail:
@@ -643,9 +651,9 @@
         {
           year: '2010',
           name: 'ReLU',
-          color: '#56d364',
+          color: '#7dffc8',
           badge: 'Deep learning standard',
-          badgeBg: '#1b2e1f',
+          badgeBg: '#08241a',
           formula: 'ReLU(x) = max(0, x)',
           short:
             'Non-saturating for x>0. Eliminates vanishing gradient problem. Made deep networks trainable.',
@@ -656,9 +664,9 @@
         {
           year: '2015–2016',
           name: 'ELU / SELU',
-          color: '#e3b341',
+          color: '#ffcf5a',
           badge: 'Smooth ReLU',
-          badgeBg: '#2d2200',
+          badgeBg: '#231d0a',
           formula: 'ELU(x) = x if x>0 else α(eˣ−1)',
           short:
             'Smooth at zero, negative saturation preserves mean activations near zero. SELU: self-normalizing.',
@@ -669,9 +677,9 @@
         {
           year: '2016',
           name: 'GELU',
-          color: '#ffa657',
+          color: '#ffb36b',
           badge: 'Transformer era',
-          badgeBg: '#2d1f0e',
+          badgeBg: '#261608',
           formula: 'GELU(x) = x·Φ(x)  ≈  0.5x(1 + tanh(√(2/π)(x + 0.044715x³)))',
           short:
             'Gaussian Error Linear Unit. Smooth stochastic gating - x weighted by its own probability. Dominant in BERT, GPT-2, GPT-3.',
@@ -682,9 +690,9 @@
         {
           year: '2017',
           name: 'Swish / SiLU',
-          color: '#c9d1d9',
+          color: '#c3c8ea',
           badge: 'Smooth gate',
-          badgeBg: '#21262d',
+          badgeBg: '#23274d',
           formula: 'Swish(x) = x·σ(βx)   SiLU = Swish(β=1) = x·σ(x)',
           short:
             "Self-gated. Non-monotonic - slightly negative for small negative x. Empirically strong. SiLU is SwiGLU's building block.",
@@ -695,9 +703,9 @@
         {
           year: '2020',
           name: 'GLU family (Shazeer)',
-          color: '#ffa657',
+          color: '#ffb36b',
           badge: '★ Now dominant',
-          badgeBg: '#2d1f0e',
+          badgeBg: '#261608',
           formula:
             'GLU(x,W,V,b,c)  = σ(xW+b) ⊗ (xV+c)\nReGLU:  max(0,xW+b) ⊗ (xV+c)\nGEGLU:  GELU(xW+b) ⊗ (xV+c)\nSwiGLU: Swish(xW+b) ⊗ (xV+c)',
           short:
@@ -709,9 +717,9 @@
         {
           year: '2024–25',
           name: 'Expert FFN in MoE',
-          color: '#f0883e',
+          color: '#ff9d4d',
           badge: 'Sparse gating',
-          badgeBg: '#2d1500',
+          badgeBg: '#261608',
           formula: 'output = Σᵢ G(x)ᵢ · FFNᵢ(x),  only top-k G(x)ᵢ > 0',
           short:
             'Replace single FFN with N expert FFNs (each SwiGLU). Router selects top-k per token. Total params ↑, active params constant.',
@@ -725,7 +733,7 @@
       const NORMS = [
         {
           title: 'Post-LN (Original Transformer)',
-          color: '#f0883e',
+          color: '#ff9d4d',
           formula: 'x → Sub-layer(x) → x + Sub-layer(x) → LayerNorm(·)',
           body: 'Norm applied <b>after</b> the residual addition. The residual path is fully unnormalized before LN. <b>Problem</b>: in very deep networks, the accumulated residuals at early layers have extremely large magnitude → gradients near zero → training instability. Required careful warm-up schedules.',
           used: 'Original Transformer (2017), BERT, GPT.',
@@ -733,7 +741,7 @@
         },
         {
           title: 'Pre-LN (GPT-2 onwards)',
-          color: '#e3b341',
+          color: '#ffcf5a',
           formula: 'x → x + Sub-layer(LayerNorm(x))',
           body: 'Norm applied <b>before</b> the sub-layer, inside the residual branch. The skip connection passes through unnormalized - gradients flow cleanly through the identity path. <b>Standard for all large LLMs since 2019.</b> No warm-up required; stable at 100+ layers.',
           used: 'GPT-2, GPT-3, GPT-4, LLaMA 1/2/3, Mistral, Qwen, OLMo, Phi.',
@@ -741,7 +749,7 @@
         },
         {
           title: 'Pre-RMSNorm',
-          color: '#56d364',
+          color: '#7dffc8',
           formula: 'RMSNorm(x) = x / RMS(x) · γ    RMS(x) = √(1/n Σxᵢ²)',
           body: 'Pre-LN but using RMSNorm instead of LayerNorm. <b>No mean centering</b> - drops the subtraction of mean, keeping only scale normalization. ~7% faster than LayerNorm (no mean computation). No loss in performance - the learned scale γ absorbs any needed centering. <b>Now the default in almost all modern LLMs.</b>',
           used: 'LLaMA 2/3/4, Mistral, DeepSeek V2/V3/R1, Gemma, Phi-3/4, OLMo 2/3, Qwen 2, MiniMax M1.',
@@ -749,7 +757,7 @@
         },
         {
           title: 'QK-Norm',
-          color: '#d2a8ff',
+          color: '#c3a6ff',
           formula: 'Q̂ = Q / ‖Q‖₂    K̂ = K / ‖K‖₂  (per head, then scaled)',
           body: '<b>Additional</b> L2-normalization of Query and Key vectors before the dot-product attention. Prevents attention logit explosion during long training runs - a common training instability when sequence lengths or model depth increase. Applied <i>on top of</i> Pre-RMSNorm. Introduced at scale by OLMo 2.',
           used: 'OLMo 2, OLMo 3. Increasingly adopted in long-context models.',
@@ -757,7 +765,7 @@
         },
         {
           title: 'Sandwich Norm (Pre + Post)',
-          color: '#79c0ff',
+          color: '#aab8ff',
           formula: 'x → LayerNorm(x) → Sub-layer(·) → LayerNorm(·) → x + ·',
           body: "Applies norm both before <i>and</i> after the sub-layer - double normalization. Provides extra stability at the cost of compute. Used in Gemma 2's alternating attention layers for logit stabilization alongside soft-capping.",
           used: 'Gemma 2 (27B) - specific attention layers.',
@@ -765,7 +773,7 @@
         },
         {
           title: 'No Norm / Skip Norm',
-          color: '#8b949e',
+          color: '#8a90bd',
           formula: 'x → x + Sub-layer(x)  [no normalization]',
           body: 'Some linear-attention layers in hybrid architectures (e.g. MiniMax Lightning Attention) operate without a norm on the recurrent/linear path. The O(n) recurrence state manages its own implicit normalization through the linear attention kernel. Not applicable to standard softmax attention blocks.',
           used: 'MiniMax M1/M2.5 Lightning Attention layers.',
@@ -905,24 +913,24 @@
 
       // ── TABLE DATA ──
       const LAB_COLORS = {
-        OpenAI: '#56d364',
-        Anthropic: '#d2a8ff',
-        Google: '#79c0ff',
-        DeepMind: '#79c0ff',
-        Meta: '#ffa657',
-        AllenAI: '#e3b341',
-        Microsoft: '#58a6ff',
-        DeepSeek: '#f0883e',
-        Alibaba: '#79c0ff',
+        OpenAI: '#7dffc8',
+        Anthropic: '#c3a6ff',
+        Google: '#aab8ff',
+        DeepMind: '#aab8ff',
+        Meta: '#ffb36b',
+        AllenAI: '#ffcf5a',
+        Microsoft: '#8fa3ff',
+        DeepSeek: '#ff9d4d',
+        Alibaba: '#aab8ff',
         NVIDIA: '#76b900',
-        EleutherAI: '#8b949e',
-        BigScience: '#8b949e',
-        Mistral: '#c9d1d9',
-        Baichuan: '#c9d1d9',
-        '01.AI': '#c9d1d9',
-        TII: '#c9d1d9',
-        MiniMax: '#f0883e',
-        Various: '#8b949e',
+        EleutherAI: '#8a90bd',
+        BigScience: '#8a90bd',
+        Mistral: '#c3c8ea',
+        Baichuan: '#c3c8ea',
+        '01.AI': '#c3c8ea',
+        TII: '#c3c8ea',
+        MiniMax: '#ff9d4d',
+        Various: '#8a90bd',
       };
       const MODELS = [
         {
@@ -1347,7 +1355,7 @@
       <div class="norm-title" style="color:${n.color}">${n.title}</div>
       <div class="norm-formula">${n.formula}</div>
       <div class="norm-body">${n.body}</div>
-      <div class="norm-used" style="color:#3fb950">→ ${n.used}</div>
+      <div class="norm-used" style="color:var(--accent-green)">→ ${n.used}</div>
       ${n.warn ? `<div class="norm-warn">${n.warn}</div>` : ''}
     </div>`
         ).join('');
@@ -1359,17 +1367,17 @@
         const configs = [
           {
             label: 'Post-LN (2017)',
-            color: '#f0883e',
+            color: '#ff9d4d',
             boxes: ['Input x', 'Sub-layer(x)', 'x + output', 'LayerNorm'],
           },
           {
             label: 'Pre-LN (2019+)',
-            color: '#e3b341',
+            color: '#ffcf5a',
             boxes: ['Input x', 'LayerNorm', 'Sub-layer', 'x + output'],
           },
           {
             label: 'Pre-RMSNorm (2023+)',
-            color: '#56d364',
+            color: '#7dffc8',
             boxes: ['Input x', 'RMSNorm', 'Sub-layer', 'x + output'],
           },
         ];
@@ -1380,7 +1388,7 @@
         let h = '';
         configs.forEach((cfg, ci) => {
           const xOff = ci * colW + 8;
-          h += `<text x="${xOff + colW / 2 - 8}" y="12" text-anchor="middle" fill="${cfg.color}" font-size="9" font-family="Courier New,monospace" font-weight="bold">${cfg.label}</text>`;
+          h += `<text x="${xOff + colW / 2 - 8}" y="12" text-anchor="middle" fill="${cfg.color}" font-size="9" font-family="Space Mono, monospace" font-weight="bold">${cfg.label}</text>`;
           cfg.boxes.forEach((box, bi) => {
             const bx = xOff + gap + bi * (bW + gap),
               by = 20;
@@ -1395,7 +1403,7 @@
                 : [box];
             lines.forEach(
               (line, li) =>
-                (h += `<text x="${bx + bW / 2}" y="${by + bH / 2 + (li - (lines.length - 1) / 2) * 10 + 4}" text-anchor="middle" fill="${isNorm ? cfg.color : 'var(--text-muted)'}" font-size="8" font-family="Courier New,monospace">${line}</text>`)
+                (h += `<text x="${bx + bW / 2}" y="${by + bH / 2 + (li - (lines.length - 1) / 2) * 10 + 4}" text-anchor="middle" fill="${isNorm ? cfg.color : 'var(--text-muted)'}" font-size="8" font-family="Space Mono, monospace">${line}</text>`)
             );
             if (bi < cfg.boxes.length - 1) {
               const ax = bx + bW + 1;
@@ -1405,7 +1413,7 @@
           // residual arc
           const arcY = 20 + bH + 8;
           h += `<path d="M${xOff + gap + bW / 2} ${20 + bH} Q${xOff + gap + bW / 2} ${arcY + 10} ${xOff + gap + (3 * (bW + gap) + bW / 2)} ${arcY + 10} Q${xOff + gap + (3 * (bW + gap) + bW / 2)} ${arcY} ${xOff + gap + (3 * (bW + gap) + bW / 2)} ${20 + bH}" fill="none" stroke="var(--border-primary)" stroke-width="1" stroke-dasharray="3,2"/>`;
-          h += `<text x="${xOff + colW / 2 - 8}" y="${arcY + 20}" text-anchor="middle" fill="var(--border-primary)" font-size="8" font-family="Courier New,monospace">residual skip</text>`;
+          h += `<text x="${xOff + colW / 2 - 8}" y="${arcY + 20}" text-anchor="middle" fill="var(--border-primary)" font-size="8" font-family="Space Mono, monospace">residual skip</text>`;
         });
         svg.innerHTML = h;
       }
@@ -1417,15 +1425,15 @@
         const W = Math.max(400, svg.parentElement.offsetWidth - 32);
         svg.setAttribute('viewBox', `0 0 ${W} 80`);
         const steps = [
-          { l: 'Token\nEmbed', c: '#8b949e' },
-          { l: 'Pos.\nEncode', c: '#79c0ff' },
-          { l: 'Norm', c: '#e3b341' },
-          { l: 'Attn\n(Q·K·V)', c: '#d2a8ff' },
-          { l: 'Add &\nNorm', c: '#e3b341' },
-          { l: 'FFN /\nMoE', c: '#ffa657' },
-          { l: 'Add &\nNorm', c: '#e3b341' },
-          { l: '× N\nLayers', c: '#56d364' },
-          { l: 'Output\nLogits', c: '#58a6ff' },
+          { l: 'Token\nEmbed', c: '#8a90bd' },
+          { l: 'Pos.\nEncode', c: '#aab8ff' },
+          { l: 'Norm', c: '#ffcf5a' },
+          { l: 'Attn\n(Q·K·V)', c: '#c3a6ff' },
+          { l: 'Add &\nNorm', c: '#ffcf5a' },
+          { l: 'FFN /\nMoE', c: '#ffb36b' },
+          { l: 'Add &\nNorm', c: '#ffcf5a' },
+          { l: '× N\nLayers', c: '#7dffc8' },
+          { l: 'Output\nLogits', c: '#8fa3ff' },
         ];
         const n = steps.length,
           bW = Math.min(70, (W - 40) / (n + 0.5 * (n - 1)) - 2),
@@ -1438,36 +1446,36 @@
             cy = bY + bH / 2;
           h += `<rect x="${x}" y="${bY}" width="${bW}" height="${bH}" rx="3" fill="${s.c}15" stroke="${s.c}" stroke-width="1"/>`;
           s.l.split('\n').forEach((line, li, arr) => {
-            h += `<text x="${x + bW / 2}" y="${cy + (li - (arr.length - 1) / 2) * 13 + 4}" text-anchor="middle" fill="${s.c}" font-size="9" font-family="Courier New,monospace">${line}</text>`;
+            h += `<text x="${x + bW / 2}" y="${cy + (li - (arr.length - 1) / 2) * 13 + 4}" text-anchor="middle" fill="${s.c}" font-size="9" font-family="Space Mono, monospace">${line}</text>`;
           });
           if (i < n - 1) {
             const ax = x + bW + 3;
             h += `<line x1="${ax}" y1="${cy}" x2="${ax + gap - 6}" y2="${cy}" stroke="var(--border-primary)" stroke-width="1"/><polygon points="${ax + gap - 6},${cy - 3} ${ax + gap - 6},${cy + 3} ${ax + gap},${cy}" fill="var(--border-primary)"/>`;
           }
         });
-        h += `<text x="${W / 2}" y="74" text-anchor="middle" fill="var(--border-primary)" font-size="9" font-family="Courier New,monospace">↑ repeats N times (LLaMA 3 70B = 80 layers · DeepSeek V3 = 61 layers · MiniMax M1 = 7 linear + 1 softmax per cycle) ↑</text>`;
+        h += `<text x="${W / 2}" y="74" text-anchor="middle" fill="var(--border-primary)" font-size="9" font-family="Space Mono, monospace">↑ repeats N times (LLaMA 3 70B = 80 layers · DeepSeek V3 = 61 layers · MiniMax M1 = 7 linear + 1 softmax per cycle) ↑</text>`;
         svg.innerHTML = h;
 
         document.getElementById('block-legend').innerHTML = [
-          { l: 'Sinusoidal/Learned', bg: '#21262d', c: '#8b949e' },
-          { l: 'ALiBi', bg: '#0d2233', c: '#79c0ff' },
-          { l: 'RoPE/iRoPE', bg: '#1b2e1f', c: '#56d364' },
-          { l: 'None/Lightning', bg: '#2d1500', c: '#f0883e' },
-          { l: '|', bg: 'transparent', c: '#21262d' },
-          { l: 'MHA', bg: '#21262d', c: '#8b949e' },
-          { l: 'GQA', bg: '#1b2e1f', c: '#56d364' },
-          { l: 'MQA', bg: '#2d2200', c: '#e3b341' },
-          { l: 'MLA', bg: '#2b1d3d', c: '#d2a8ff' },
-          { l: 'Lightning', bg: '#2d1500', c: '#f0883e' },
-          { l: '|', bg: 'transparent', c: '#21262d' },
-          { l: 'ReLU/GELU', bg: '#21262d', c: '#8b949e' },
-          { l: 'SwiGLU', bg: '#2d1f0e', c: '#ffa657' },
-          { l: 'GeGLU', bg: '#2d2200', c: '#e3b341' },
-          { l: '+MoE', bg: '#2d1f0e', c: '#f0883e' },
-          { l: '|', bg: 'transparent', c: '#21262d' },
-          { l: 'Post-LN', bg: '#2d1500', c: '#f0883e' },
-          { l: 'Pre-LN', bg: '#2d2200', c: '#e3b341' },
-          { l: 'Pre-RMSNorm', bg: '#1b2e1f', c: '#56d364' },
+          { l: 'Sinusoidal/Learned', bg: '#23274d', c: '#8a90bd' },
+          { l: 'ALiBi', bg: '#0b1630', c: '#aab8ff' },
+          { l: 'RoPE/iRoPE', bg: '#08241a', c: '#7dffc8' },
+          { l: 'None/Lightning', bg: '#261608', c: '#ff9d4d' },
+          { l: '|', bg: 'transparent', c: '#23274d' },
+          { l: 'MHA', bg: '#23274d', c: '#8a90bd' },
+          { l: 'GQA', bg: '#08241a', c: '#7dffc8' },
+          { l: 'MQA', bg: '#231d0a', c: '#ffcf5a' },
+          { l: 'MLA', bg: '#1c1233', c: '#c3a6ff' },
+          { l: 'Lightning', bg: '#261608', c: '#ff9d4d' },
+          { l: '|', bg: 'transparent', c: '#23274d' },
+          { l: 'ReLU/GELU', bg: '#23274d', c: '#8a90bd' },
+          { l: 'SwiGLU', bg: '#261608', c: '#ffb36b' },
+          { l: 'GeGLU', bg: '#231d0a', c: '#ffcf5a' },
+          { l: '+MoE', bg: '#261608', c: '#ff9d4d' },
+          { l: '|', bg: 'transparent', c: '#23274d' },
+          { l: 'Post-LN', bg: '#261608', c: '#ff9d4d' },
+          { l: 'Pre-LN', bg: '#231d0a', c: '#ffcf5a' },
+          { l: 'Pre-RMSNorm', bg: '#08241a', c: '#7dffc8' },
         ]
           .map((l) =>
             l.l === '|'
@@ -1501,12 +1509,12 @@
             nc = normClr(m.norm || '');
           return `<tr class="${m.ut ? 'ut' : ''}">
       <td class="nm">${m.name}</td><td>${m.year}</td>
-      <td style="color:${LAB_COLORS[m.lab] || '#8b949e'}">${m.lab}</td>
+      <td style="color:${LAB_COLORS[m.lab] || 'var(--text-muted)'}">${m.lab}</td>
       <td><span class="chip" style="background:${fc.bg};color:${fc.c};font-size:clamp(0.5rem, 1.3vw, 0.56rem)">${m.act}</span></td>
       <td><span class="chip" style="background:${ac.bg};color:${ac.c};font-size:clamp(0.5rem, 1.3vw, 0.56rem)">${m.attn}</span></td>
-      <td style="color:#79c0ff;font-size:clamp(0.55rem, 1.5vw, 0.65rem)">${m.pe}</td>
+      <td style="color:var(--accent-blue-light);font-size:clamp(0.55rem, 1.5vw, 0.65rem)">${m.pe}</td>
       <td><span class="chip" style="background:${nc.bg};color:${nc.c};font-size:clamp(0.5rem, 1.3vw, 0.56rem)">${m.norm}</span></td>
-      <td style="color:${m.moe === '✓' ? '#ffa657' : m.moe === '?' ? '#e3b341' : 'var(--border-primary)'}">${m.moe}</td>
+      <td style="color:${m.moe === '✓' ? 'var(--accent-orange)' : m.moe === '?' ? 'var(--accent-yellow)' : 'var(--border-primary)'}">${m.moe}</td>
     </tr>`;
         }).join('');
       }

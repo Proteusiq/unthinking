@@ -10,12 +10,12 @@
       /* Page accent: gold + custom vars */
       :root {
         --accent: var(--accent-yellow);
-        --accent-gold: #d29922;
-        --bg-hover: #21262d;
-        --accent-green-border: #238636;
-        --accent-red-border: #da3633;
-        --gradient-start: #161b22;
-        --gradient-end: #1c2128;
+        --accent-gold: var(--accent-yellow);
+        --bg-hover: var(--border-secondary);
+        --accent-green-border: #18b07a;
+        --accent-red-border: #e0324f;
+        --gradient-start: var(--bg-secondary);
+        --gradient-end: var(--bg-tertiary);
       }
       [data-theme='light'] {
         --accent: var(--accent-yellow);
@@ -351,7 +351,7 @@
       }
 
       .gun-rank {
-        background: linear-gradient(135deg, #da3633 0%, #f85149 100%);
+        background: linear-gradient(135deg, #e0324f 0%, var(--accent-red) 100%);
         color: #fff;
         font-size: clamp(0.7rem, 1.8vw, 0.85rem);
         font-weight: bold;
@@ -481,15 +481,15 @@
       }
 
       .dist-bar.supports {
-        background: linear-gradient(90deg, #238636 0%, #3fb950 100%);
+        background: linear-gradient(90deg, #18b07a 0%, var(--accent-green) 100%);
       }
 
       .dist-bar.balanced {
-        background: linear-gradient(90deg, #9e6a03 0%, #d29922 100%);
+        background: linear-gradient(90deg, #c48a1a 0%, var(--accent-yellow) 100%);
       }
 
       .dist-bar.challenges {
-        background: linear-gradient(90deg, #da3633 0%, #f85149 100%);
+        background: linear-gradient(90deg, #e0324f 0%, var(--accent-red) 100%);
       }
 
       .dist-count {
@@ -670,6 +670,14 @@
         }
       }
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;600&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="shared/modern.css" />
+    <script src="shared/fx.js" defer></script>
   </head>
   <body>
     <header class="header">

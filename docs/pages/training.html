@@ -705,6 +705,14 @@
         }
       }
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;600&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="shared/modern.css" />
+    <script src="shared/fx.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -1539,7 +1547,9 @@
               <b>R1-Zero:</b> pure GRPO, no SFT. 79.8% AIME 2024, 97.3% MATH-500.
             </div>
             <div class="lab">
-              <div class="lname" style="color: #f85149">Moonshot AI (Kimi k1.5 / K2 / K2.5)</div>
+              <div class="lname" style="color: var(--accent-red)">
+                Moonshot AI (Kimi k1.5 / K2 / K2.5)
+              </div>
               <b>k1.5:</b> online mirror-descent RL (length penalty, curriculum). <b>K2:</b> Muon
               optimizer, agentic synthesis. <b>K2.5:</b> joint text-vision RL.
             </div>
@@ -1872,7 +1882,9 @@
         <div class="mech-section">
           <div class="mech-header" onclick="toggleSection(this.parentElement)">
             <span class="mech-num">&sect;6</span>
-            <span class="mech-title" style="color: #f85149">Post-Training Optimization</span>
+            <span class="mech-title" style="color: var(--accent-red)"
+              >Post-Training Optimization</span
+            >
             <span class="mech-chev">&#9660;</span>
           </div>
           <div class="mech-body">
@@ -2141,7 +2153,7 @@
         <div class="rw-section">
           <div class="rw-header" onclick="toggleSection(this.parentElement)">
             <span class="rw-num">&sect;6</span>
-            <span class="rw-title" style="color: #f85149">Open Research Problems</span>
+            <span class="rw-title" style="color: var(--accent-red)">Open Research Problems</span>
             <span class="rw-chev">&#9660;</span>
           </div>
           <div class="rw-body">

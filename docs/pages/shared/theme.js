@@ -33,9 +33,24 @@
     return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
   }
 
+  // A page opened inside the constellation's overlay sits in a black frame. Following
+  // the OS there would flash a white sheet inside a black canvas, so 'auto' follows
+  // the frame instead. An explicit light or dark choice always wins.
+  function isFramed() {
+    try {
+      return window.parent !== window && typeof window.parent.closeOverlay === 'function';
+    } catch {
+      return false;
+    }
+  }
+
+  function resolveTheme(theme) {
+    if (theme !== 'auto') return theme;
+    return isFramed() ? 'dark' : getSystemTheme();
+  }
+
   function applyTheme(theme) {
-    const effective = theme === 'auto' ? getSystemTheme() : theme;
-    document.documentElement.setAttribute('data-theme', effective);
+    document.documentElement.setAttribute('data-theme', resolveTheme(theme));
     document.documentElement.setAttribute('data-theme-setting', theme);
   }
 
@@ -91,9 +106,11 @@
       btn.onclick = cycleTheme;
       btn.setAttribute('aria-label', TITLES[theme]);
 
-      // Try to insert next to toggle-wrap (pages with tabs)
+      const navEnd = document.querySelector('.site-nav .nav-end');
       const toggleWrap = document.querySelector('.toggle-wrap');
-      if (toggleWrap) {
+      if (navEnd) {
+        navEnd.appendChild(btn);
+      } else if (toggleWrap) {
         toggleWrap.insertAdjacentElement('afterend', btn);
       } else {
         // Fallback: fixed position in top-right corner
